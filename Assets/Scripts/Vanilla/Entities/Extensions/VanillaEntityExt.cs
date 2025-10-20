@@ -96,7 +96,7 @@ namespace MVZ2.Vanilla.Entities
             if (!NamespaceID.IsValid(input.ShieldTarget))
             {
                 var armor = input.Entity.GetMainArmor();
-                if (Armor.Exists(armor) && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
+                if (Armor.Exists(armor) && !armor.IsIgnored() && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
                 {
                     ArmoredTakeDamage(armor, input, result);
                 }
@@ -108,9 +108,9 @@ namespace MVZ2.Vanilla.Entities
             else
             {
                 var armor = input.Entity.GetArmorAtSlot(input.ShieldTarget);
-                if (Armor.Exists(armor))
+                if (Armor.Exists(armor) && !armor.IsIgnored())
                 {
-                    result.ShieldResult = armor.ArmorTakeDamage(input);
+                    result.ShieldResult = armor.TakeDamage(input);
                     result.ShieldTarget = input.ShieldTarget;
                 }
             }
@@ -157,7 +157,7 @@ namespace MVZ2.Vanilla.Entities
         private static void ArmoredTakeDamage(Armor armor, DamageInput info, DamageOutput result)
         {
             var entity = info.Entity;
-            var armorResult = armor.ArmorTakeDamage(info);
+            var armorResult = armor.TakeDamage(info);
             result.ArmorResult = armorResult;
 
             if (info.HasEffect(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY))
@@ -177,71 +177,6 @@ namespace MVZ2.Vanilla.Entities
                 }
                 return;
             }
-        }
-
-
-        private static int PreArmorTakeDamage(this Armor armor, DamageInput input, ArmorDamageResult result)
-        {
-            var callbackResult = new CallbackResult(DamageStates.CONTINUE);
-            if (!callbackResult.IsBreakRequested)
-            {
-                var param = new VanillaLevelCallbacks.PreArmorTakeDamageParams(input, armor, result);
-                input.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ARMOR_TAKE_DAMAGE, param, callbackResult, armor.Definition.GetID());
-            }
-            return callbackResult.GetValue<int>();
-        }
-        private static void PostArmorTakeDamage(this Armor armor, ArmorDamageResult result)
-        {
-            var param = new VanillaLevelCallbacks.PostArmorTakeDamageParams(result);
-            result.Entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_ARMOR_TAKE_DAMAGE, param, armor.Definition.GetID());
-        }
-        private static ArmorDamageResult? ArmorTakeDamage(this Armor armor, DamageInput info)
-        {
-            if (!Armor.Exists(armor))
-                return null;
-
-            var entity = info.Entity;
-            var shell = armor.GetShellDefinition();
-            var result = new ArmorDamageResult(info, armor, shell);
-
-            var damageState = armor.PreArmorTakeDamage(info, result);
-            if (damageState == DamageStates.BREAK)
-            {
-                return null;
-            }
-            else if (damageState == DamageStates.RETURN)
-            {
-                return result;
-            }
-
-            if (shell != null)
-            {
-                shell.EvaluateDamage(info);
-            }
-
-            // Apply Damage
-            var amount = info.Amount;
-            if (amount > 0)
-            {
-                float hpBefore = armor.Health;
-                armor.Health -= amount;
-
-                result.Amount = amount;
-                result.SpendAmount = Mathf.Min(hpBefore, amount);
-                result.Fatal = hpBefore > 0 && armor.Health <= 0;
-                if (result.Fatal)
-                {
-                    var destroyInfo = new ArmorDestroyInfo(entity, armor, armor.Slot, info.Effects, info.Source, result);
-                    armor.Destroy(destroyInfo);
-                }
-            }
-
-            if (result.IsValid())
-            {
-                PostArmorTakeDamage(armor, result);
-            }
-
-            return result;
         }
 
 
@@ -535,6 +470,28 @@ namespace MVZ2.Vanilla.Entities
             ChangeLaneBuff.Stop(buff);
         }
         #endregion
+
+        #region 换格
+        public static void StartChangingGrid(this Entity entity, int column, int lane)
+        {
+            var buff = entity.GetFirstBuff<ChangeGridBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<ChangeGridBuff>();
+            }
+            var level = entity.Level;
+            column = Math.Clamp(column, 0, level.GetMaxColumnCount() - 1);
+            lane = Math.Clamp(lane, 0, level.GetMaxLaneCount() - 1);
+            ChangeGridBuff.Start(buff, column, lane);
+        }
+        public static void StopChangingGrid(this Entity entity)
+        {
+            var buff = entity.GetFirstBuff<ChangeGridBuff>();
+            if (buff == null)
+                return;
+            ChangeGridBuff.Stop(buff);
+        }
+        #endregion
         public static bool IsVulnerableEntity(this Entity entity)
         {
             return entity.Type == EntityTypes.PLANT || entity.Type == EntityTypes.ENEMY || entity.Type == EntityTypes.OBSTACLE || entity.Type == EntityTypes.BOSS;
@@ -620,6 +577,40 @@ namespace MVZ2.Vanilla.Entities
             GetCurrentGridLayersToTakeNonAlloc(entity, takenGridLayerDataBuffer);
             entityGridUpdater.Update(targetGridLayerDataBuffer, takenGridLayerDataBuffer, g => entity.TakeGrid(g.Item1, g.Item2), g => entity.ReleaseGrid(g.Item1, g.Item2));
         }
+        public static void DestroyConflictGridEntities(this Entity entity)
+        {
+            entity.UpdateTakenGrids();
+
+            var grids = entity.GetGridsToTake();
+            foreach (var grid in grids)
+            {
+                var takenLayers = entity.GetGridLayersToTake();
+                if (takenLayers != null)
+                {
+                    entity.DestroyConflictGridEntities(grid, takenLayers);
+                }
+            }
+        }
+        public static void DestroyConflictGridEntities(this Entity entity, LawnGrid grid, NamespaceID[] layers)
+        {
+            // 找到目标地格上冲突的实体。
+            var conflictEntities = new HashSet<Entity>();
+            foreach (var layer in layers)
+            {
+                var layerEntities = grid.GetLayerEntities(layer);
+                foreach (var ent in layerEntities)
+                {
+                    if (ent == entity)
+                        continue;
+                    conflictEntities.Add(ent);
+                }
+            }
+            // 如果目标地格有冲突的实体，秒杀冲突的实体。
+            foreach (var conflict in conflictEntities)
+            {
+                conflict.Die(entity);
+            }
+        }
         private static void GetTargetGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
         {
             if (!entity.ExistsAndAlive())
@@ -694,17 +685,7 @@ namespace MVZ2.Vanilla.Entities
             }
             return result;
         }
-        public static HealOutput? HealEffects(this Armor armor, float amount, ILevelSourceReference? source)
-        {
-            var result = armor.HealSourced(amount, source);
-            if (result == null)
-                return null;
-            if (result.RealAmount >= 0)
-            {
-                armor.Owner.AddTickHealing(result.RealAmount);
-            }
-            return result;
-        }
+
         public static HealOutput? Heal(this Entity entity, float amount, Entity? source)
         {
             return entity.HealSourced(amount, source == null ? null : new EntitySourceReference(source));
@@ -712,10 +693,6 @@ namespace MVZ2.Vanilla.Entities
         public static HealOutput? HealSourced(this Entity entity, float amount, ILevelSourceReference? source)
         {
             return Heal(new HealInput(amount, entity, source));
-        }
-        public static HealOutput? HealSourced(this Armor armor, float amount, ILevelSourceReference? source)
-        {
-            return Heal(new HealInput(amount, armor.Owner, armor, source));
         }
         public static HealOutput? Heal(HealInput info)
         {
@@ -1167,6 +1144,18 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #endregion
+
+        #region 强力冲击
+        public static void ApplyStrongImpact(this Entity target)
+        {
+            var passenger = target.GetRideablePassenger();
+            if (passenger != null)
+            {
+                passenger.Stun(90);
+                target.GetOffHorse();
+            }
+        }
         #endregion
 
         public static float GetRealGroundLimitY(this Entity entity)

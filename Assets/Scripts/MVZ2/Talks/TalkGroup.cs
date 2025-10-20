@@ -14,8 +14,6 @@ namespace MVZ2.TalkData
         public string id;
         public int documentOrder;
         public int groupOrder;
-        public NamespaceID? requires;
-        public NamespaceID? requiresNot;
         public NamespaceID[] tags;
 
         public TalkGroupArchiveInfo? archive;
@@ -32,10 +30,6 @@ namespace MVZ2.TalkData
         {
             XmlNode node = document.CreateElement("group");
             node.CreateAttribute("id", id);
-            if (requires != null)
-                node.CreateAttribute("requires", requires.ToString());
-            if (requiresNot != null)
-                node.CreateAttribute("requiresNot", requiresNot.ToString());
             if (tags != null)
                 node.CreateAttribute("tags", string.Join(";", tags.Select(t => t.ToString())));
             if (archive != null)
@@ -58,8 +52,6 @@ namespace MVZ2.TalkData
                 Log.LogError($"The {nameof(id)} of a {nameof(TalkGroup)} is invalid.");
                 return null;
             }
-            var requires = node.GetAttributeNamespaceID("requires", defaultNsp);
-            var requiresNot = node.GetAttributeNamespaceID("requiresNot", defaultNsp);
             var tags = node.GetAttributeNamespaceIDArray("tags", defaultNsp) ?? Array.Empty<NamespaceID>();
 
             var children = node.ChildNodes;
@@ -88,9 +80,6 @@ namespace MVZ2.TalkData
             {
                 groupOrder = groupOrder,
                 documentOrder = fileOrder,
-
-                requires = requires,
-                requiresNot = requiresNot,
 
                 archive = archive,
             };

@@ -26,7 +26,9 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override HeldHighlight GetHighlight(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
-            return HeldHighlight.Green();
+            if (target is not HeldItemTargetGrid targetGrid)
+                return HeldHighlight.None;
+            return HeldHighlight.Green(targetGrid.Target);
         }
         public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {

@@ -10,6 +10,7 @@ namespace MVZ2Logic.Level
         string Type { get; }
         NamespaceID Value { get; }
         int StartSection { get; }
+        bool CanStartTalk(IGlobalSaveData save);
         bool ShouldRepeat(IGlobalSaveData save);
     }
     public interface IConveyorPoolEntry

@@ -11,6 +11,11 @@ namespace MVZ2.Vanilla.Entities
         public PickupWithContentBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void Init(Entity pickup)
+        {
+            base.Update(pickup);
+            pickup.SetModelProperty("ContentID", pickup.GetPickupContentID());
+        }
         public override void Update(Entity pickup)
         {
             base.Update(pickup);

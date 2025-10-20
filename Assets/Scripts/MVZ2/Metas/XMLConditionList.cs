@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using MVZ2Logic.Conditions;
 using MVZ2Logic.Games;
+using PVZEngine;
 
 namespace MVZ2.Metas
 {
@@ -13,6 +14,16 @@ namespace MVZ2.Metas
         public XMLConditionList(params XMLCondition[] conditions)
         {
             Conditions = conditions;
+        }
+        public XmlNode ToXmlNode(string name, XmlDocument document)
+        {
+            XmlNode node = document.CreateElement(name);
+            foreach (var condition in Conditions)
+            {
+                var conditionNode = condition.ToXmlNode("condition", document);
+                node.AppendChild(conditionNode);
+            }
+            return node;
         }
         public static XMLConditionList FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -28,6 +39,14 @@ namespace MVZ2.Metas
             return new XMLConditionList(conditions.ToArray());
         }
 
+        public static XMLConditionList FromSingle(NamespaceID id)
+        {
+            return new XMLConditionList(XMLCondition.FromSingle(id));
+        }
+        public static XMLConditionList FromMultiple(NamespaceID[] ids)
+        {
+            return new XMLConditionList(XMLCondition.FromMultiple(ids));
+        }
         public bool MeetsConditions(IGlobalSaveData save)
         {
             return Conditions.Any(c => c.MeetsCondition(save));

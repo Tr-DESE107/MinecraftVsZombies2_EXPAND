@@ -58,6 +58,12 @@ namespace PVZEngine.Callbacks
         {
             public Entity entity;
             public DeathInfo deathInfo;
+
+            public PostEntityDeathParams(Entity entity, DeathInfo deathInfo)
+            {
+                this.entity = entity;
+                this.deathInfo = deathInfo;
+            }
         }
         public struct ArmorParams
         {

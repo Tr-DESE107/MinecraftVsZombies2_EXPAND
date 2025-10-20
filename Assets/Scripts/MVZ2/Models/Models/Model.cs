@@ -153,6 +153,10 @@ namespace MVZ2.Models
         {
             GraphicGroup.SetAnimatorFloat(name, value);
         }
+        public IAnimatorInterface? GetAnimatorInterface(string name)
+        {
+            return GraphicGroup.GetAnimatorElement(name);
+        }
         #endregion
 
         #region 序列化
@@ -345,6 +349,43 @@ namespace MVZ2.Models
         {
             GraphicGroup.SetShaderColor(name, value);
         }
+        public void SetShaderVector(string name, Vector4 value)
+        {
+            GraphicGroup.SetShaderVector(name, value);
+        }
+        public void SetShaderIntRecursive(string name, int value)
+        {
+            SetShaderInt(name, value);
+            foreach (var child in childModels)
+            {
+                child.SetShaderIntRecursive(name, value);
+            }
+        }
+
+        public void SetShaderFloatRecursive(string name, float value)
+        {
+            SetShaderFloat(name, value);
+            foreach (var child in childModels)
+            {
+                child.SetShaderFloatRecursive(name, value);
+            }
+        }
+        public void SetShaderColorRecursive(string name, Color value)
+        {
+            SetShaderColor(name, value);
+            foreach (var child in childModels)
+            {
+                child.SetShaderColorRecursive(name, value);
+            }
+        }
+        public void SetShaderVectorRecursive(string name, Vector4 value)
+        {
+            SetShaderVector(name, value);
+            foreach (var child in childModels)
+            {
+                child.SetShaderVectorRecursive(name, value);
+            }
+        }
         #endregion
 
         #region 模型单元
@@ -456,6 +497,7 @@ namespace MVZ2.Models
         public Dictionary<string, bool>? boolParameters = new Dictionary<string, bool>();
         public Dictionary<string, int>? intParameters = new Dictionary<string, int>();
         public Dictionary<string, float>? floatParameters = new Dictionary<string, float>();
+        public List<float>? layerWeights = new List<float>();
 
         public SerializableAnimator(Animator animator)
         {
@@ -482,6 +524,7 @@ namespace MVZ2.Models
                     transitionTime = transition.normalizedTime
                 };
                 playingDatas[i] = playingData;
+                layerWeights.Add(animator.GetLayerWeight(i));
             }
 
             foreach (AnimatorControllerParameter para in animator.parameters)
@@ -540,6 +583,16 @@ namespace MVZ2.Models
                 foreach (var pair in floatParameters)
                 {
                     animator.SetFloat(pair.Key, pair.Value);
+                }
+            }
+            if (layerWeights != null)
+            {
+                for (int i = 0; i < animator.layerCount; i++)
+                {
+                    if (i >= layerWeights.Count)
+                        continue;
+                    var weight = layerWeights[i];
+                    animator.SetLayerWeight(i, weight);
                 }
             }
 

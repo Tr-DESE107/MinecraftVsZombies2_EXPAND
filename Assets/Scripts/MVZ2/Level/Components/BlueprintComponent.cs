@@ -31,9 +31,9 @@ namespace MVZ2.Level.Components
                 isConveyorMode = isConveyorMode
             };
         }
-        public override void LoadSerializable(ISerializableLevelComponent seri)
+        public override void InitFromSerializable(ISerializableLevelComponent seri)
         {
-            base.LoadSerializable(seri);
+            base.InitFromSerializable(seri);
             if (seri is not SerializableBlueprintComponent comp)
                 return;
             SetConveyorMode(comp.isConveyorMode);

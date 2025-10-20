@@ -94,15 +94,23 @@ namespace MVZ2.Level.Components
                 artifacts = artifacts.ToSerializable()
             };
         }
-        public override void LoadSerializable(ISerializableLevelComponent seri)
+        public override void InitFromSerializable(ISerializableLevelComponent seri)
         {
             if (seri is not SerializableArtifactComponent comp)
                 return;
-            artifacts = comp.artifacts != null ? ArtifactList.FromSerializable(comp.artifacts, Level) : new ArtifactList(Level, ARTIFACT_COUNT);
+            artifacts = comp.artifacts != null ? ArtifactList.CreateFromSerializable(comp.artifacts, Level) : new ArtifactList(Level, ARTIFACT_COUNT);
             artifacts.OnArtifactHighlighted += OnArtifactHighlighted;
             var uiPreset = Controller.GetUIPreset();
             uiPreset.SetArtifactCount(artifacts.GetSlotCount());
             UpdateUIArtifacts();
+        }
+        public override void LoadFromSerializable(ISerializableLevelComponent seri)
+        {
+            if (seri is not SerializableArtifactComponent comp)
+                return;
+            if (comp.artifacts == null)
+                return;
+            artifacts.LoadFromSerializable(comp.artifacts);
         }
         private void UpdateUIArtifacts()
         {

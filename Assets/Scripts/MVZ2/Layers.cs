@@ -11,7 +11,7 @@ namespace MVZ2
         public static readonly int GRID = LayerMask.NameToLayer("Grid");
         public static readonly int RAYCAST_RECEIVER = LayerMask.NameToLayer("RaycastReceiver");
         public static readonly int PICKUP = LayerMask.NameToLayer("Pickup");
-        public static readonly int LIGHT = LayerMask.NameToLayer("Light");
+        public static readonly int LIGHT_TEXTURE = LayerMask.NameToLayer("LightTexture");
         public static LayerMask GetMask(params int[] layers)
         {
             if (layers == null)

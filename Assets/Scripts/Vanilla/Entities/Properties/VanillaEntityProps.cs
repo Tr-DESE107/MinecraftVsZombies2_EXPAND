@@ -446,6 +446,12 @@ namespace MVZ2.Vanilla.Entities
         public static bool IsGrayscale(this Entity entity) => entity.GetProperty<bool>(GRAYSCALE);
         #endregion
 
+        #region 深度检测
+        public static readonly PropertyMeta<bool> DEPTH_TEST = Get<bool>("depth_test");
+        public static void SetDepthTtest(this Entity entity, bool value) => entity.SetProperty(DEPTH_TEST, value);
+        public static bool IsDepthTest(this Entity entity) => entity.GetProperty<bool>(DEPTH_TEST);
+        #endregion
+
         #region 蓝图
         public static readonly PropertyMeta<int> COST = Get<int>("cost");
         public static readonly PropertyMeta<NamespaceID> RECHARGE_ID = Get<NamespaceID>("rechargeId");

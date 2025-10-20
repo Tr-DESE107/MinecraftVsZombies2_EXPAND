@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
@@ -16,7 +15,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.bedserker)]
-    public class Bedserker : StateEnemy
+    public class Bedserker : AIEntityBehaviour
     {
         public Bedserker(string nsp, string name) : base(nsp, name)
         {
@@ -63,7 +62,6 @@ namespace MVZ2.GameContent.Enemies
                 }
                 entity.SetProperty(PROP_COLOR_OFFSET, color);
             }
-            entity.SetModelDamagePercent();
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

@@ -74,7 +74,7 @@ namespace MVZ2.Tests
             {
             }
 
-            public void UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue, bool triggersEvaluation)
+            public void OnPropertyChanged(IPropertyKey name, object beforeValue, object afterValue, bool triggersEvaluation)
             {
             }
 

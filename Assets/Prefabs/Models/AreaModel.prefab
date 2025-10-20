@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1097465531986341648}
   - component: {fileID: 3234477955047591329}
   - component: {fileID: 624476360387784730}
+  - component: {fileID: 1309478712039478150}
   m_Layer: 12
   m_Name: AreaModel
   m_TagString: Untagged
@@ -91,3 +92,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1309478712039478150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211427889010860431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: main

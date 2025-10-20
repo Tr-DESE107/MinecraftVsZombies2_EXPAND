@@ -8,6 +8,7 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -341,15 +342,15 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_JUMP_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("JumpRNG");
         private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_BULLET_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("BulletRNG");
 
-        private const int STATE_IDLE = VanillaEntityStates.FRANKENSTEIN_IDLE;
-        private const int STATE_JUMP = VanillaEntityStates.FRANKENSTEIN_JUMP;
-        private const int STATE_GUN = VanillaEntityStates.FRANKENSTEIN_GUN;
-        private const int STATE_DEAD = VanillaEntityStates.FRANKENSTEIN_DEAD;
-        private const int STATE_MISSILE = VanillaEntityStates.FRANKENSTEIN_MISSILE;
-        private const int STATE_PUNCH = VanillaEntityStates.FRANKENSTEIN_PUNCH;
-        private const int STATE_SHOCK = VanillaEntityStates.FRANKENSTEIN_SHOCK;
-        private const int STATE_WAKING = VanillaEntityStates.FRANKENSTEIN_WAKING;
-        private const int STATE_FAINT = VanillaEntityStates.FRANKENSTEIN_FAINT;
+        private const int STATE_IDLE = VanillaBossStates.IDLE;
+        private const int STATE_WAKING = VanillaBossStates.APPEAR;
+        private const int STATE_FAINT = VanillaBossStates.STUNNED;
+        private const int STATE_DEAD = VanillaBossStates.DEATH;
+        private const int STATE_JUMP = VanillaBossStates.FRANKENSTEIN_JUMP;
+        private const int STATE_GUN = VanillaBossStates.FRANKENSTEIN_GUN;
+        private const int STATE_MISSILE = VanillaBossStates.FRANKENSTEIN_MISSILE;
+        private const int STATE_PUNCH = VanillaBossStates.FRANKENSTEIN_PUNCH;
+        private const int STATE_SHOCK = VanillaBossStates.FRANKENSTEIN_SHOCK;
 
         private const int SUBSTATE_AWAKE_START = 0;
         private const int SUBSTATE_AWAKE_LAUGH = 1;

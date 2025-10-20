@@ -254,8 +254,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int FATIGUE_INCREAMENT = 25;
         public const int DETECT_INTERVAL = 10;
         public const int MAX_DUPLICATED_COUNT = 3;
-        public const int STATE_IDLE = VanillaEntityStates.IDLE;
-        public const int STATE_EVOKED = VanillaEntityStates.CONTRAPTION_SPECIAL;
+        public const int STATE_IDLE = VanillaContraptionStates.IDLE;
+        public const int STATE_EVOKED = VanillaContraptionStates.DESIRE_POT_EVOKED;
         public const string PROP_REGION = VanillaContraptionNames.desirePot;
         [LevelPropertyRegistry(PROP_REGION)]
         private static readonly VanillaLevelPropertyMeta<float> PROP_FATIGUE_DAMAGE = new VanillaLevelPropertyMeta<float>("FatigueDamage");

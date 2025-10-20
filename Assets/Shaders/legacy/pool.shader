@@ -21,7 +21,7 @@
 		[Toggle] _BackgroundLit("Lit by Background", Int) = 0
 		[Toggle] _SpotLit("Lit by Spot", Int) = 1
         _LightMapSpot("Light Map Spot", 2D) = "black" {}
-        _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
+        _LevelMapST ("Level Map ST", Vector) = (14, 10.2, 0, 0)
 
         [MaterialToggle] PixelSnap("Pixel snap", Float) = 0
         [HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
@@ -96,6 +96,7 @@
 
             HLSLPROGRAM
             #include "../hlsl/lighting.hlsl"
+            #include "../hlsl/level.hlsl"
             #pragma vertex vert
             #pragma fragment frag
             
@@ -188,7 +189,7 @@
                 o.vertex = UnityObjectToClipPos(v.vertex);
 
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                o.lightUV = GetLightUV(v.vertex);
+                o.lightUV = GetLevelUV(v.vertex);
                 o.color = v.color * _Color * _RendererColor;
                 return o;
             }

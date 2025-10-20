@@ -7,38 +7,47 @@ namespace MVZ2.GameContent.Damages
 {
     public static class VanillaDamageEffects
     {
+        // Armors
         public readonly static NamespaceID DAMAGE_BOTH_ARMOR_AND_BODY = Get("damage_both_armor_and_body");
         public readonly static NamespaceID DAMAGE_BODY_AFTER_ARMOR_BROKEN = Get("damage_body_after_armor_broken");
         public readonly static NamespaceID IGNORE_ARMOR = Get("ignore_armor");
+
+        // Damage Types
+        public readonly static NamespaceID PROJECTILE = Get("projectile");
         public readonly static NamespaceID FALL_DAMAGE = Get("fall_damage");
         public static readonly NamespaceID FALL_OFF = Get("fall_off");
         public static readonly NamespaceID FIRE = Get("fire");
         public static readonly NamespaceID DROWN = Get("drown");
         public static readonly NamespaceID SLICE = Get("slice");
-        public static readonly NamespaceID PUNCH = Get("punch");
-        public static readonly NamespaceID MUTE = Get("mute");
-        public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");
-        public static readonly NamespaceID NO_DEATH_TRIGGER = Get("no_death_trigger");
-        public static readonly NamespaceID SACRIFICE = Get("sacrifice");
-        public static readonly NamespaceID EXPLOSION = Get("explosion");
-        public static readonly NamespaceID SELF_DAMAGE = Get("self_damage");
+        public static readonly NamespaceID IMPACT = Get("impact");
+        public static readonly NamespaceID GRIND = Get("grind");
         public static readonly NamespaceID WHACK = Get("whack");
-        public static readonly NamespaceID LIGHTNING = Get("lightning");
+        public static readonly NamespaceID EXPLOSION = Get("explosion");
         public static readonly NamespaceID ICE = Get("ice");
-        public static readonly NamespaceID SLOW = Get("slow");
-        public static readonly NamespaceID TINY = Get("tiny");
-        public static readonly NamespaceID GROUND_SPIKES = Get("ground_spikes");
+        public static readonly NamespaceID LIGHTNING = Get("lightning");
         public static readonly NamespaceID GOLD = Get("gold");
-        public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
         public static readonly NamespaceID ENEMY_MELEE = Get("enemy_melee");
+        public static readonly NamespaceID GROUND_SPIKES = Get("ground_spikes");
+
+        // Hit Effect
+        public static readonly NamespaceID MUTE = Get("mute");
+        public static readonly NamespaceID TINY = Get("tiny");
+        public static readonly NamespaceID SLOW = Get("slow");
+
+        // Damage Mark
+        public static readonly NamespaceID SELF_DAMAGE = Get("self_damage");
         public static readonly NamespaceID TRANSFERRED = Get("transferred");
         public static readonly NamespaceID NO_DAMAGE_BLINK = Get("no_damage_blink");
 
+        // Death Effect
+        public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");
+        public static readonly NamespaceID NO_DEATH_TRIGGER = Get("no_death_trigger");
+        public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
+        public static readonly NamespaceID SACRIFICE = Get("sacrifice");
+
         public static readonly NamespaceID SoulColdFire = Get("SoulColdFire");
         public static readonly NamespaceID WITHER = Get("WITHER");
-        public static readonly NamespaceID VOID = Get("VOID");
-
-        public static NamespaceID Get(string name)
+        public static readonly NamespaceID VOID = Get("VOID");        public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
         }

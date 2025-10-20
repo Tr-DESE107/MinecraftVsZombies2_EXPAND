@@ -4,7 +4,7 @@ Language: English | [简体中文](Readme-ZH.md)
 - [Features](#features)
   - [Energy](#energy)
   - [Contraptions](#contraptions)
-  - [Enemies](#enemies)
+  - [Monsters](#monsters)
   - [Gems](#gems)
   - [Battlefields](#battlefields)
   - [Starshards](#starshards)
@@ -33,7 +33,7 @@ Language: English | [简体中文](Readme-ZH.md)
 
 The game features mechanics from Plants vs Zombies, elements from Minecraft and Touhou Project’s setting and characters. Players take on the role of Steve the mechanic as he travels to Gensokyo with his friend Crazy Villager to solve the Minecraft incident.
 
-There are two versions of this game. The previous version made with Gamemaker Studio 2 was developed until chapter 4 and has been discontinued, whereas the current version made with Unity is still under development. Currently, it is expected to have around 112 contraptions, 64 enemies and 132 levels.
+There are two versions of this game. The previous version made with Gamemaker Studio 2 was developed until chapter 4 and has been discontinued, whereas the current version made with Unity is still under development. Currently, it is expected to have around 112 contraptions, 64 monsters and 132 levels.
 
 For news and updates about the game, please follow Cuerzor’s online activity, as well as the game’s [changelog](Changelog.md).
 
@@ -51,30 +51,30 @@ You can only have up to 9,990 energy at a time.
 
 ## Contraptions
 
-**Contraptions** are the weapons you use to attack enemies, corresponds to **plants** from Plants vs Zombies.
+**Contraptions** are the weapons you use to attack monsters, corresponds to **plants** from Plants vs Zombies.
 
 There are many different types of contraptions, such as: 
 
-- **Dispenser** for attacking enemies.
+- **Dispenser** for attacking monsters.
 - **Furnace** for producing redstone.
-- **Obsidian** for blocking enemies.
-- **Mine TNT** for blowing up enemies. 
+- **Obsidian** for blocking monsters.
+- **Mine TNT** for blowing up monsters. 
 - etc.
 
 A specified amount of energy must be spent to place a contraption. After you place a contraption, you must wait a set amount of time for the contraption to recharge before placing it again. The time it takes for a contraption to recharge varies.
 
-## Enemies
+## Monsters
 
-**Enemies** are what you need to defeat, corresponds to **zombies** from Plants vs. Zombies.
+**Monsters** are what you need to defeat, corresponds to **zombies** from Plants vs. Zombies.
 
-There are various kinds of enemies, such as:
+There are various kinds of monsters, such as:
 
 - **Zombie** which is the most common.
 - **Iron Helmet Zombie** which is tougher.
 - **Skeleton** which shoots arrows to your contraptions.
 - etc.
 
-The core of the game is to judiciously use contraptions to defeat enemies.
+The core of the game is to judiciously use contraptions to defeat monsters.
 
 ## Gems
 
@@ -99,7 +99,7 @@ For example:
 
 **Starshards** are items capable of shifting the entire battlefield, corresponds to **plant food** from Plants vs Zombies.
 
-When you defeat an enemy that is glowing green, it will drop a starshard. You can also get additional starshards from contraptions that produce them.
+When you defeat an monster that is glowing green, it will drop a starshard. You can also get additional starshards from contraptions that produce them.
 
 After using a starshard on a contraption, the contraption is **evoked**, erupting with enough power to shift the tide of battle.
 
@@ -205,11 +205,11 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - +1 grid of lightning radius for glowing contraptions.
 - The explosion damage of Gunpowder Barrel and Gunpowder is 100.
 
-**Enemies**
+**Monsters**
 
-- x50% toughness for enemies' armors.
-- Enemies drop more redstones in the levels which they will drop restones.
-- -1 spawned Parasite Terrors from enemies.
+- x50% toughness for monsters' armors.
+- Monsters drop more redstones in the levels which they will drop restones.
+- -1 spawned Parasite Terrors from monsters.
 - Skeleton Horses won't jump.
 - Wicked Hermit Zombie is stunned for 7.5 seconds after teleporting.
 
@@ -232,18 +232,18 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **General**
 
 - No carts.
-- More enemies will be spawned.
+- More monsters will be spawned.
 - Clearing a level that has already been cleared gives a diamond, if it has not been cleared 5 rubies will be given instead.
 
 **Contraptions**
 
 - The explosion damage of Gunpowder Barrel and Gunpowder is 3000.
 
-**Enemies**
+**Monsters**
 
-- x150% attack speed for enemies.
+- x150% attack speed for monsters.
 - Ghast's fire charge deals 300 damage.
-- +1 spawned Parasite Terrors from enemies.
+- +1 spawned Parasite Terrors from monsters.
 - Skeleton Horses jump twice.
 - Wicked Hermit Zombie is stunned for 2.5 seconds after teleporting.
 

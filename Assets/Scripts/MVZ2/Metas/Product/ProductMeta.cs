@@ -20,7 +20,7 @@ namespace MVZ2.Metas
         public string ID { get; private set; } = string.Empty;
         public SpriteReference? Sprite { get; private set; }
         public NamespaceID? BlueprintID { get; private set; }
-        public NamespaceID? Required { get; private set; }
+        public XMLConditionList? UnlockConditions { get; private set; }
         public ProductTalkMeta[] Talks { get; private set; }
         public ProductStageMeta[] Stages { get; private set; }
         public int Index { get; private set; }
@@ -29,7 +29,8 @@ namespace MVZ2.Metas
             var id = node.GetAttribute("id") ?? string.Empty;
             var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
             var blueprintId = node.GetAttributeNamespaceID("blueprintId", defaultNsp);
-            var required = node.GetAttributeNamespaceID("required", defaultNsp);
+
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "required", defaultNsp);
 
             List<ProductTalkMeta> talks = new List<ProductTalkMeta>();
             var talksNode = node["talks"];
@@ -71,7 +72,7 @@ namespace MVZ2.Metas
                 ID = id,
                 Sprite = sprite,
                 BlueprintID = blueprintId,
-                Required = required,
+                UnlockConditions = unlockConditions,
                 Index = index,
             };
         }

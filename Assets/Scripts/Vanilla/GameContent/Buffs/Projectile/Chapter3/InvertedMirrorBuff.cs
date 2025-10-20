@@ -13,7 +13,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
     {
         public InvertedMirrorBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new IntModifier(EngineEntityProps.FACTION, NumberOperator.Set, VanillaFactions.NEUTRAL));
+            AddModifier(new IntModifier(EngineEntityProps.FACTION, IntegerOperator.Set, VanillaFactions.NEUTRAL));
         }
     }
 }

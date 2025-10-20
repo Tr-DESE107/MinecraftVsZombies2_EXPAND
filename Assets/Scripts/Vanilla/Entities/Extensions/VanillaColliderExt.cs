@@ -25,7 +25,7 @@ namespace MVZ2.Vanilla.Entities
         {
             return collider.TakeDamage(amount, effects, new EntitySourceReference(source));
         }
-        public static DamageOutput TakeDamage(this IEntityCollider collider, float amount, DamageEffectList effects, ILevelSourceReference source)
+        public static DamageOutput TakeDamage(this IEntityCollider collider, float amount, DamageEffectList effects, ILevelSourceReference? source)
         {
             return collider.Entity.TakeDamageSourced(amount, effects, source, collider.ArmorSlot);
         }

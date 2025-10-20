@@ -22,8 +22,8 @@ namespace MVZ2.Metas
 
         // 杂项
         public string name = string.Empty;
-        public NamespaceID? unlock;
-        public NamespaceID? encounterUnlock;
+        public XMLConditionList? unlock;
+        public XMLConditionList? encounterUnlock;
 
         // 缩略图
         public AlmanacPicture? thumbnail;
@@ -51,8 +51,13 @@ namespace MVZ2.Metas
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
             var name = node.GetAttribute("name") ?? string.Empty;
-            var encounterUnlock = node.GetAttributeNamespaceID("encounterUnlock", defaultNsp);
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+
+            // 遇到条件
+            XMLConditionList? encounterConditions = node.GetUnlockConditionsOrObsolete("encounter", "encounterUnlock", defaultNsp);
+            // 解锁条件
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
+
+
             var hidden = node.GetAttributeBool("hidden") ?? false;
 
             AlmanacPicture? thumbnail = null;
@@ -128,8 +133,8 @@ namespace MVZ2.Metas
                 name = name,
                 hidden = hidden,
 
-                encounterUnlock = encounterUnlock,
-                unlock = unlock,
+                encounterUnlock = encounterConditions,
+                unlock = unlockConditions,
 
                 thumbnail = thumbnail,
 

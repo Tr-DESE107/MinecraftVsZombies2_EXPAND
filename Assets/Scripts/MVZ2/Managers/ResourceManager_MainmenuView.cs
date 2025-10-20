@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using PVZEngine;
 using UnityEngine;
 
@@ -31,6 +32,15 @@ namespace MVZ2.Managers
         public MainmenuViewMeta? GetMainmenuViewMeta(NamespaceID id)
         {
             return mainmenuViewCacheDict.TryGetValue(id, out var meta) ? meta : null;
+        }
+        private void LoadUnlocks_MainmenuView(ModResource resource)
+        {
+            if (resource.MainmenuViewMetaList == null)
+                return;
+            foreach (var meta in resource.MainmenuViewMetaList.Metas)
+            {
+                AddConditionListUnlocks(meta.Conditions);
+            }
         }
         private Dictionary<NamespaceID, MainmenuViewMeta> mainmenuViewCacheDict = new Dictionary<NamespaceID, MainmenuViewMeta>();
     }

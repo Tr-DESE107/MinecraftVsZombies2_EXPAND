@@ -11,6 +11,19 @@ namespace MVZ2.Metas
 {
     public class XMLCondition : ICondition
     {
+        public XmlNode ToXmlNode(string name, XmlDocument document)
+        {
+            XmlNode node = document.CreateElement(name);
+            if (Required != null && Required.Length > 0)
+            {
+                node.CreateAttribute("required", string.Join(' ', Required.Select(e => e.ToString())));
+            }
+            if (RequiredNot != null && RequiredNot.Length > 0)
+            {
+                node.CreateAttribute("requiredNot", string.Join(' ', RequiredNot.Select(e => e.ToString())));
+            }
+            return node;
+        }
         public static XMLCondition FromXmlNode(XmlNode node, string defaultNsp)
         {
             var required = node.GetAttributeNamespaceIDArray("required", defaultNsp);
@@ -19,6 +32,20 @@ namespace MVZ2.Metas
             {
                 Required = required,
                 RequiredNot = requiredNot
+            };
+        }
+        public static XMLCondition FromSingle(NamespaceID id)
+        {
+            return new XMLCondition()
+            {
+                Required = new NamespaceID[] { id },
+            };
+        }
+        public static XMLCondition FromMultiple(NamespaceID[] id)
+        {
+            return new XMLCondition()
+            {
+                Required = id,
             };
         }
         public bool MeetsCondition(IGlobalSaveData save)

@@ -2,6 +2,7 @@
 
 using System.Xml;
 using MVZ2.IO;
+using MVZ2.Metas;
 using MVZ2Logic;
 using PVZEngine;
 
@@ -11,7 +12,7 @@ namespace MVZ2.TalkData
     {
         public string name = string.Empty;
         public SpriteReference? background;
-        public NamespaceID? unlock;
+        public XMLConditionList? unlockConditions;
         public NamespaceID? music;
         public XmlNode ToXmlNode(XmlDocument document)
         {
@@ -19,23 +20,27 @@ namespace MVZ2.TalkData
             node.CreateAttribute("name", name);
             if (SpriteReference.IsValid(background))
                 node.CreateAttribute("background", background.ToString());
-            if (NamespaceID.IsValid(unlock))
-                node.CreateAttribute("unlock", unlock.ToString());
             if (NamespaceID.IsValid(music))
                 node.CreateAttribute("music", music.ToString());
+            if (unlockConditions != null)
+            {
+                var unlockNode = unlockConditions.ToXmlNode("unlock", document);
+                node.AppendChild(unlockNode);
+            }
             return node;
         }
         public static TalkGroupArchiveInfo FromXmlNode(XmlNode node, string defaultNsp)
         {
             var name = node.GetAttribute("name") ?? string.Empty;
             var background = node.GetAttributeSpriteReference("background", defaultNsp);
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var music = node.GetAttributeNamespaceID("music", defaultNsp);
+
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
             return new TalkGroupArchiveInfo()
             {
                 name = name,
                 background = background,
-                unlock = unlock,
+                unlockConditions = unlockConditions,
                 music = music,
             };
         }

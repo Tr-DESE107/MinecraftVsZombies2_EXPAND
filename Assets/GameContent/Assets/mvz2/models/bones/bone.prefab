@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 3693395534727488135}
   - component: {fileID: 176731952764992233}
   - component: {fileID: 7969786866824184046}
+  - component: {fileID: 2731581964881035720}
   m_Layer: 0
   m_Name: bone
   m_TagString: Untagged
@@ -115,6 +116,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightController: {fileID: 7446065395615745742}
+--- !u!114 &2731581964881035720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115639321957275279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: main
 --- !u!1 &7776407027238001032
 GameObject:
   m_ObjectHideFlags: 0

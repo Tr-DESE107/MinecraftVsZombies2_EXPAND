@@ -7,10 +7,14 @@ namespace MVZ2.GameContent.Models
 {
     public static class VanillaModelID
     {
+        public const string TYPE_GRID = "grid";
         public const string TYPE_HELD_ITEM = "held";
         public const string TYPE_ARMOR = "armor";
         public const string TYPE_ICON = "icon";
         public const string TYPE_UI = "ui";
+
+        public static readonly NamespaceID gridPlaceHolder = Get("grid_placeholder", TYPE_GRID);
+        public static readonly NamespaceID goldenGrid = Get("golden_grid", TYPE_GRID);
 
         public static readonly NamespaceID zombie = Get("zombie", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID moneyChest = Get("money_chest", EngineModelID.TYPE_ENTITY);
@@ -30,6 +34,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID swordHeldItem = Get("sword", TYPE_HELD_ITEM);
         public static readonly NamespaceID defaultStartShardHeldItem = Get("starshard.default", TYPE_HELD_ITEM);
         public static readonly NamespaceID targetHeldItem = Get("target", TYPE_HELD_ITEM);
+        public static readonly NamespaceID combat = Get("combat", TYPE_HELD_ITEM);
 
         public static readonly NamespaceID shortCircuit = Get("short_circuit", TYPE_ICON);
         public static readonly NamespaceID nocturnal = Get("nocturnal", TYPE_ICON);
@@ -46,6 +51,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID parabotInsected = Get("parabot_insected", TYPE_ICON);
         public static readonly NamespaceID knockbackWave = Get("knockback_wave", TYPE_ICON);
         public static readonly NamespaceID divineShield = Get("divine_shield", TYPE_ICON);
+        public static readonly NamespaceID vulnerable = Get("vulnerable", TYPE_ICON);
 
         public static readonly NamespaceID mindSwap = Get("mind_swap", TYPE_UI);
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)

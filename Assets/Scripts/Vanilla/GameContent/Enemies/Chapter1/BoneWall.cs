@@ -3,7 +3,6 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -15,7 +14,7 @@ using Tools;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.boneWall)]
-    public class BoneWall : StateEnemy
+    public class BoneWall : AIEntityBehaviour
     {
         public BoneWall(string nsp, string name) : base(nsp, name)
         {
@@ -29,7 +28,6 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
             if (entity.Timeout >= 0)
             {
                 entity.Timeout--;

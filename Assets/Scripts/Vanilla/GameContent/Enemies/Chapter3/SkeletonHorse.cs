@@ -18,7 +18,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.skeletonHorse)]
-    public class SkeletonHorse : MeleeEnemy
+    public class SkeletonHorse : AIEntityBehaviour
     {
         public SkeletonHorse(string nsp, string name) : base(nsp, name)
         {
@@ -51,61 +51,70 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateAI(entity);
             entity.SetProperty(PROP_SPEED_MULTIPLIER, entity.State == STATE_GALLOP ? 2f : 1f);
 
-            if (entity.State == STATE_GALLOP)
+            switch (entity.State)
             {
-                if (detector.DetectExists(entity))
-                {
-                    AddGallopTime(entity, -1);
-                    var vel = entity.Velocity;
-                    vel.x = entity.GetFacingX() * 5;
-                    vel.y = 12;
-                    entity.Velocity = vel;
-                    SetJumpState(entity, JUMP_STATE_JUMP);
-                    entity.PlaySound(VanillaSoundID.horseGallop);
-                }
+                case STATE_GALLOP:
+                    UpdateStateGallop(entity);
+                    break;
 
-                entity.UpdateWalkVelocity();
+                case STATE_JUMP:
+                    UpdateStateJump(entity);
+                    break;
 
-                var soundTimer = GetGallopSoundTimer(entity);
-                if (soundTimer == null)
-                {
-                    soundTimer = new FrameTimer(GALLOP_SOUND_INTERVAL);
-                    SetGallopSoundTimer(entity, soundTimer);
-                }
-                if (soundTimer.RunToExpired(entity.GetSpeed() * 0.5f))
-                {
-                    soundTimer.Reset();
-                    entity.PlaySound(VanillaSoundID.horseGallop);
-                }
-            }
-            else if (entity.State == STATE_JUMP)
-            {
-                if (blocksJumpDetector.DetectExists(entity))
-                {
-                    var vel = entity.Velocity;
-                    vel.x = 0;
-                    vel.y = 0;
-                    entity.Velocity = vel;
-                    SetJumpState(entity, JUMP_STATE_NONE);
-                    entity.Stun(30);
-                    entity.PlaySound(VanillaSoundID.bonk);
-                }
-            }
-            else if (entity.State == STATE_LAND)
-            {
-                var stateTimer = GetLandTimer(entity);
-                if (stateTimer.RunToExpiredAndNotNull())
-                {
-                    stateTimer.Reset();
-                    SetJumpState(entity, JUMP_STATE_NONE);
-                }
+                case STATE_LAND:
+                    UpdateStateLand(entity);
+                    break;
             }
         }
-        protected override void UpdateLogic(Entity entity)
+        private void UpdateStateGallop(Entity entity)
         {
-            base.UpdateLogic(entity);
-            // 设置血量状态。
-            entity.SetModelDamagePercent();
+            if (detector.DetectExists(entity))
+            {
+                AddGallopTime(entity, -1);
+                var vel = entity.Velocity;
+                vel.x = entity.GetFacingX() * 5;
+                vel.y = 12;
+                entity.Velocity = vel;
+                SetJumpState(entity, JUMP_STATE_JUMP);
+                entity.PlaySound(VanillaSoundID.horseGallop);
+            }
+
+            entity.UpdateWalkVelocity();
+
+            var soundTimer = GetGallopSoundTimer(entity);
+            if (soundTimer == null)
+            {
+                soundTimer = new FrameTimer(GALLOP_SOUND_INTERVAL);
+                SetGallopSoundTimer(entity, soundTimer);
+            }
+            if (soundTimer.RunToExpired(entity.GetSpeed() * 0.5f))
+            {
+                soundTimer.Reset();
+                entity.PlaySound(VanillaSoundID.horseGallop);
+            }
+
+        }
+        private void UpdateStateJump(Entity entity)
+        {
+            if (blocksJumpDetector.DetectExists(entity))
+            {
+                var vel = entity.Velocity;
+                vel.x = 0;
+                vel.y = 0;
+                entity.Velocity = vel;
+                SetJumpState(entity, JUMP_STATE_NONE);
+                entity.Stun(30);
+                entity.PlaySound(VanillaSoundID.bonk);
+            }
+        }
+        private void UpdateStateLand(Entity entity)
+        {
+            var stateTimer = GetLandTimer(entity);
+            if (stateTimer.RunToExpiredAndNotNull())
+            {
+                stateTimer.Reset();
+                SetJumpState(entity, JUMP_STATE_NONE);
+            }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
@@ -116,51 +125,19 @@ namespace MVZ2.GameContent.Enemies
         }
         #endregion
 
-        #region 敌人回调
-        protected override bool ValidateMeleeTarget(Entity enemy, Entity? target)
-        {
-            if (!base.ValidateMeleeTarget(enemy, target))
-                return false;
-            if (!Detection.IsInFrontOf(enemy, target))
-                return false;
-            return true;
-        }
-        protected override int GetActionState(Entity enemy)
-        {
-            var state = base.GetActionState(enemy);
-            if (state == VanillaEntityStates.WALK || state == VanillaEntityStates.ATTACK)
-            {
-                var jumpState = GetJumpState(enemy);
-                if (jumpState == JUMP_STATE_LAND)
-                {
-                    return STATE_LAND;
-                }
-                else if (jumpState == JUMP_STATE_JUMP)
-                {
-                    return STATE_JUMP;
-                }
-                else if (GetGallopTime(enemy) > 0)
-                {
-                    return STATE_GALLOP;
-                }
-            }
-            return state;
-        }
-        #endregion
-
         #region 字段
-        public static int GetJumpState(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_JUMP_STATE);
-        public static void SetJumpState(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_JUMP_STATE, value);
+        public static int GetJumpState(Entity entity) => entity.GetBehaviourField<int>(FIELD_JUMP_STATE);
+        public static void SetJumpState(Entity entity, int value) => entity.SetBehaviourField(FIELD_JUMP_STATE, value);
 
-        public static FrameTimer? GetLandTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, FIELD_LAND_TIMER);
-        public static void SetLandTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, FIELD_LAND_TIMER, value);
+        public static FrameTimer? GetLandTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(FIELD_LAND_TIMER);
+        public static void SetLandTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(FIELD_LAND_TIMER, value);
 
-        public static int GetGallopTime(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_GALLOP_TIME);
-        public static void SetGallopTime(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_GALLOP_TIME, value);
+        public static int GetGallopTime(Entity entity) => entity.GetBehaviourField<int>(FIELD_GALLOP_TIME);
+        public static void SetGallopTime(Entity entity, int value) => entity.SetBehaviourField(FIELD_GALLOP_TIME, value);
         public static void AddGallopTime(Entity entity, int value) => SetGallopTime(entity, GetGallopTime(entity) + value);
 
-        public static FrameTimer? GetGallopSoundTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, FIELD_GALLOP_SOUND_TIMER);
-        public static void SetGallopSoundTimer(Entity entity, FrameTimer? value) => entity.SetBehaviourField(ID, FIELD_GALLOP_SOUND_TIMER, value);
+        public static FrameTimer? GetGallopSoundTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(FIELD_GALLOP_SOUND_TIMER);
+        public static void SetGallopSoundTimer(Entity entity, FrameTimer? value) => entity.SetBehaviourField(FIELD_GALLOP_SOUND_TIMER, value);
         #endregion
 
         public static readonly VanillaEntityPropertyMeta<int> FIELD_GALLOP_TIME = new VanillaEntityPropertyMeta<int>("GallopTime");
@@ -172,11 +149,12 @@ namespace MVZ2.GameContent.Enemies
         public const int JUMP_STATE_NONE = 0;
         public const int JUMP_STATE_JUMP = 1;
         public const int JUMP_STATE_LAND = 2;
-        public const int STATE_GALLOP = VanillaEntityStates.SKELETON_HORSE_GALLOP;
-        public const int STATE_JUMP = VanillaEntityStates.SKELETON_HORSE_JUMP;
-        public const int STATE_LAND = VanillaEntityStates.SKELETON_HORSE_LAND;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_GALLOP = VanillaEnemyStates.SKELETON_HORSE_GALLOP;
+        public const int STATE_JUMP = VanillaEnemyStates.SKELETON_HORSE_JUMP;
+        public const int STATE_LAND = VanillaEnemyStates.SKELETON_HORSE_LAND;
         private Detector detector;
         private Detector blocksJumpDetector;
-        private static readonly NamespaceID ID = VanillaEnemyID.skeletonHorse;
     }
 }

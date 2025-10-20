@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 3699537777621449597}
   - component: {fileID: 1658160971507517145}
   - component: {fileID: 5724153559705552277}
+  - component: {fileID: 7330275044457613494}
   m_Layer: 0
   m_Name: Tentacle1
   m_TagString: Untagged
@@ -419,6 +420,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tentacleAnimator: {fileID: 1658160971507517145}
+--- !u!114 &7330275044457613494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601163820097032646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: tentacle1
 --- !u!1 &6091998586647385108
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2572231420247364087}
   - component: {fileID: 7513002170391925823}
+  - component: {fileID: 7043452183123259848}
   m_Layer: 0
   m_Name: Tentacle3
   m_TagString: Untagged
@@ -510,6 +525,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7043452183123259848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305476084616147148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: tentacle3
 --- !u!1 &6312612949639086012
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4570782247866366211}
   - component: {fileID: 3924337058376677502}
+  - component: {fileID: 741950937564371574}
   m_Layer: 0
   m_Name: Tentacle4
   m_TagString: Untagged
@@ -991,6 +1020,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &741950937564371574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115613131048121088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: tentacle4
 --- !u!1 &8739861626975108268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5843695680228277868}
   - component: {fileID: 2545046309909005496}
+  - component: {fileID: 4691989503019187906}
   m_Layer: 0
   m_Name: Tentacle5
   m_TagString: Untagged
@@ -1045,6 +1088,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4691989503019187906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8739861626975108268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: tentacle5
 --- !u!1 &8804976179223348073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5156779500985786199}
   - component: {fileID: 1439089367329655866}
+  - component: {fileID: 876574466891629111}
   m_Layer: 0
   m_Name: Tentacle2
   m_TagString: Untagged
@@ -1099,6 +1156,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &876574466891629111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804976179223348073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: tentacle2
 --- !u!1 &8924260412124747627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7509150237522596155}
   - component: {fileID: 3010472225589407573}
+  - component: {fileID: 6110354427659005823}
   m_Layer: 0
   m_Name: Tentacle6
   m_TagString: Untagged
@@ -1153,6 +1224,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6110354427659005823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924260412124747627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: tentacle6
 --- !u!1 &9053413802320995636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,31 +1381,31 @@ PrefabInstance:
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[0]
       value: 
-      objectReference: {fileID: 7132767897650349316}
+      objectReference: {fileID: 5001186955575164453}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[1]
       value: 
-      objectReference: {fileID: 1658160971507517145}
+      objectReference: {fileID: 7330275044457613494}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[2]
       value: 
-      objectReference: {fileID: 1439089367329655866}
+      objectReference: {fileID: 876574466891629111}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[3]
       value: 
-      objectReference: {fileID: 7513002170391925823}
+      objectReference: {fileID: 7043452183123259848}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[4]
       value: 
-      objectReference: {fileID: 3924337058376677502}
+      objectReference: {fileID: 741950937564371574}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[5]
       value: 
-      objectReference: {fileID: 2545046309909005496}
+      objectReference: {fileID: 4691989503019187906}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[6]
       value: 
-      objectReference: {fileID: 3010472225589407573}
+      objectReference: {fileID: 6110354427659005823}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
       value: 3
@@ -1550,13 +1634,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5001186955575164453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2731581964881035720, guid: 20878af0986885c4793b4099d7815082, type: 3}
+  m_PrefabInstance: {fileID: 6957866101888188397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6039008179314285930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3693395534727488135, guid: 20878af0986885c4793b4099d7815082, type: 3}
-  m_PrefabInstance: {fileID: 6957866101888188397}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7132767897650349316 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 176731952764992233, guid: 20878af0986885c4793b4099d7815082, type: 3}
   m_PrefabInstance: {fileID: 6957866101888188397}
   m_PrefabAsset: {fileID: 0}

@@ -54,9 +54,14 @@ namespace PVZEngine.Buffs
         public static Buff? GetFirstBuff(this IBuffTarget target, BuffDefinition definition) => target.Buffs.GetFirstBuff(definition);
         public static Buff? GetFirstBuff(this IBuffTarget target, NamespaceID id) => target.Buffs.GetFirstBuff(id);
         public static Buff[] GetBuffs<T>(this IBuffTarget target) where T : BuffDefinition => target.Buffs.GetBuffs<T>();
+        public static Buff[] GetBuffs(this IBuffTarget target, NamespaceID id) => target.Buffs.GetBuffs(id);
         public static Buff[] GetBuffs(this IBuffTarget target, BuffDefinition definition) => target.Buffs.GetBuffs(definition);
+        public static int GetBuffCount<T>(this IBuffTarget target) where T : BuffDefinition => target.Buffs.GetBuffCount<T>();
+        public static int GetBuffCount(this IBuffTarget target, NamespaceID id) => target.Buffs.GetBuffCount(id);
+        public static int GetBuffCount(this IBuffTarget target, BuffDefinition definition) => target.Buffs.GetBuffCount(definition);
         public static void GetBuffs<T>(this IBuffTarget target, List<Buff> results) where T : BuffDefinition => target.Buffs.GetBuffsNonAlloc<T>(results);
         public static Buff? GetBuff(this IBuffTarget target, long id) => target.Buffs.GetBuff(id);
         public static void GetAllBuffs(this IBuffTarget target, List<Buff> results) => target.Buffs.GetAllBuffs(results);
+        public static ModelInsertion[] GetModelInsertions(this IBuffTarget target) => target.Buffs.GetModelInsertions();
     }
 }

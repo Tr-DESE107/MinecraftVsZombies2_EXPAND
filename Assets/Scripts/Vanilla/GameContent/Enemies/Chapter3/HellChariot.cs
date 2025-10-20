@@ -3,7 +3,6 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
@@ -17,7 +16,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
-    public class HellChariot : StateEnemy
+    public class HellChariot : AIEntityBehaviour
     {
         public HellChariot(string nsp, string name) : base(nsp, name)
         {
@@ -92,7 +91,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 damage = chariot.GetDamage() * 0.1f;
             }
-            var output = collision.OtherCollider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), chariot);
+            var output = collision.OtherCollider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), chariot);
             if (output != null)
             {
                 if (output.BodyResult != null && output.BodyResult.Fatal && other.Type == EntityTypes.PLANT)

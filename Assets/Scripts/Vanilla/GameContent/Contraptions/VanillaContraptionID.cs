@@ -52,17 +52,20 @@ namespace MVZ2.GameContent.Contraptions
         public const string desirePot = "desire_pot";
 
         public const string gunpowderBarrel = "gunpowder_barrel";
-        public const string repeatenser = "repeatenser";
         public const string triplenser = "triplenser";
-        public const string beacon = "beacon";
         public const string fireworkDispenser = "firework_dispenser";
+        public const string repeatenser = "repeatenser";
+        
+        public const string beacon = "beacon";
+        
         public const string woodenFan = "wooden_fan";
+        public const string elasticCloud = "elastic_cloud";
+        public const string jeweledPagoda = "jeweled_pagoda";
 
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
         public const string goldenDropper = "golden_dropper";
-        
-
+        public const string skywardBeacon = "skyward_beacon";
         public const string highFrequencyPulseDispenser = "high_frequency_pulse_dispenser";
         public const string hfpd = highFrequencyPulseDispenser;
         public const string diamondSpikes = "diamond_spikes";
@@ -128,14 +131,18 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID desirePot = Get(VanillaContraptionNames.desirePot);
 
         public static readonly NamespaceID gunpowderBarrel = Get(VanillaContraptionNames.gunpowderBarrel);
-        public static readonly NamespaceID repeatenser = Get(VanillaContraptionNames.repeatenser);
         public static readonly NamespaceID triplenser = Get(VanillaContraptionNames.triplenser);
-        public static readonly NamespaceID beacon = Get(VanillaContraptionNames.beacon);
         public static readonly NamespaceID fireworkDispenser = Get(VanillaContraptionNames.fireworkDispenser);
+        public static readonly NamespaceID repeatenser = Get(VanillaContraptionNames.repeatenser);
+        public static readonly NamespaceID beacon = Get(VanillaContraptionNames.beacon);
+        public static readonly NamespaceID woodenFan = Get(VanillaContraptionNames.woodenFan);
+        public static readonly NamespaceID elasticCloud = Get(VanillaContraptionNames.elasticCloud);
+        public static readonly NamespaceID jeweledPagoda = Get(VanillaContraptionNames.jeweledPagoda);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);
         public static readonly NamespaceID goldenDropper = Get(VanillaContraptionNames.goldenDropper);
+        public static readonly NamespaceID skywardBeacon = Get(VanillaContraptionNames.skywardBeacon);
 
         public static readonly NamespaceID highFrequencyPulseDispenser = Get(VanillaContraptionNames.highFrequencyPulseDispenser);
         public static readonly NamespaceID hfpd = highFrequencyPulseDispenser;

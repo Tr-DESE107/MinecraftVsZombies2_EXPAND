@@ -3,7 +3,6 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Spawns;
 using MVZ2.GameContent.Stages;
@@ -11,6 +10,7 @@ using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
@@ -31,6 +31,7 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -75,14 +76,20 @@ namespace MVZ2.Modding
                         }
                     }
 
-                    if (type.GetCustomAttribute<DefinitionAttribute>() is DefinitionAttribute definitionAttr && !type.IsAbstract)
+                    if (!type.IsAbstract)
                     {
-                        var name = definitionAttr.Name;
-                        var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
-                        var instance = constructor?.Invoke(new object[] { nsp, name });
-                        if (instance is Definition def)
+                        var definitionAttributes = type.GetCustomAttributes<DefinitionAttribute>();
+                        foreach (var attribute in definitionAttributes)
                         {
-                            mod.AddDefinition(def);
+                            if (attribute == null)
+                                continue;
+                            var name = attribute.Name;
+                            var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
+                            var instance = constructor?.Invoke(new object[] { nsp, name });
+                            if (instance is Definition def)
+                            {
+                                mod.AddDefinition(def);
+                            }
                         }
                     }
 
@@ -139,7 +146,7 @@ namespace MVZ2.Modding
                 def.SetProperty(LogicEntityProps.NAME, meta.Name);
                 def.SetProperty(LogicEntityProps.DEATH_MESSAGE, meta.DeathMessage);
                 def.SetProperty(LogicEntityProps.TOOLTIP, meta.Tooltip);
-                def.SetProperty(LogicEntityProps.UNLOCK, meta.Unlock);
+                def.SetProperty<IConditionList>(LogicEntityProps.UNLOCK, meta.Unlock);
                 // 加载实体的属性。
                 foreach (var pair in meta.Properties)
                 {
@@ -205,6 +212,7 @@ namespace MVZ2.Modding
                 var name = meta.ID;
                 var def = new MetaArmorDefinition(nsp, name, meta.ColliderConstructors);
                 def.SetArmorType(meta.Type);
+                def.SetIgnored(meta.Ignored);
 
                 // 加载护甲的属性。
                 foreach (var pair in meta.Properties)
@@ -239,60 +247,29 @@ namespace MVZ2.Modding
                     continue;
                 var name = meta.ID;
                 var type = meta.Type;
-                var spawnLevel = meta.SpawnLevel;
-                var terrain = meta.Terrain;
-                var weight = meta.Weight;
-                var excludedTags = terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>();
-                var water = meta.Terrain?.Water ?? false;
-                var air = meta.Terrain?.Air ?? false;
-                var noEndless = meta.NoEndless;
-                var previewEntity = meta.PreviewEntity;
-                var previewVariant = meta.PreviewVariant;
                 var entityID = meta.Entity;
-                var entityVariant = meta.EntityVariant;
-                var notInEndless = spawnLevel <= 0 || noEndless;
 
-                VanillaSpawnDefinition? spawnDef = null;
+                SpawnDefinition? spawnDef = null;
                 if (type == "entity")
                 {
                     if (NamespaceID.IsValid(entityID))
                     {
-                        spawnDef = new VanillaSpawnDefinition(nsp, name);
-                        var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
-                        var inLevel = new SpawnInLevelBehaviour(spawnLevel, entityID, water, air);
-                        var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                        spawnDef.SetBehaviours(inLevel, preview, endless);
+                        var def = new VanillaSpawnDefinition(nsp, name);
+                        var preview = new SpawnPreviewBehaviour();
+                        var inLevel = new SpawnInLevelBehaviour();
+                        var endless = new SpawnEndlessBehaviour();
+                        def.SetBehaviours(inLevel, preview, endless);
+                        spawnDef = def;
                     }
                 }
-                else if (name == VanillaSpawnNames.undeadFlyingObject)
+                else
                 {
-                    spawnDef = new VanillaSpawnDefinition(nsp, name);
-                    var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
-                    var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant);
-                    var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef.SetBehaviours(inLevel, preview, endless);
-                }
-                else if (name == VanillaSpawnNames.undeadFlyingObjectBlitz)
-                {
-                    spawnDef = new VanillaSpawnDefinition(nsp, name);
-                    var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
-                    var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant, 0, 1, 20);
-                    var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef.SetBehaviours(inLevel, preview, endless);
+                    spawnDef = mod.GetSpawnDefinition(new NamespaceID(nsp, name));
                 }
                 if (spawnDef == null)
                 {
                     Debug.LogWarning($"Could not create SpawnDefinition for spawn meta {nsp}:{name}");
                     continue;
-                }
-                spawnDef.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
-                spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
-                if (weight != null)
-                {
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_BASE, weight.Base);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
                 }
                 mod.AddDefinition(spawnDef);
             }
@@ -315,36 +292,6 @@ namespace MVZ2.Modding
                     case StageTypes.TYPE_ENDLESS:
                         {
                             stageDef = new EndlessStage(nsp, meta.ID);
-                        }
-                        break;
-                    default:
-                        switch (meta.ID)
-                        {
-                            case VanillaStageNames.halloween6:
-                                stageDef = new WhackAGhostStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.dream6:
-                                stageDef = new BreakoutStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.castle6:
-                                stageDef = new LittleZombieStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.castle7:
-                                stageDef = new SeijaStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.ship6:
-                                stageDef = new UFOBlitzStage(nsp, meta.ID);
-                                break;
-
-                            case VanillaStageNames.whackAGhost:
-                                stageDef = new WhackAGhostStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.breakout:
-                                stageDef = new BreakoutStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.bigTroubleAndLittleZombie:
-                                stageDef = new LittleZombieStage(nsp, meta.ID);
-                                break;
                         }
                         break;
                 }
@@ -479,11 +426,14 @@ namespace MVZ2.Modding
             // 加载选项蓝图信息。
             LoadSeedOptionProperties(mod);
 
+            LoadSpawnProperties(mod);
             LoadStageProperties(mod);
             // 加载所有命令属性。
             LoadCommandProperties(mod);
             // 加载所有笔记属性。
             LoadNoteProperties(mod);
+            // 加载所有地格属性。
+            LoadGridProperties(mod);
         }
         private void LoadAreaProperties(Mod mod)
         {
@@ -627,6 +577,39 @@ namespace MVZ2.Modding
                 mod.AddDefinition(def);
             }
         }
+        private void LoadSpawnProperties(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (SpawnDefinition def in mod.GetAllSpawnDefinitions())
+            {
+                var meta = res.GetSpawnMeta(def.GetID());
+                if (meta == null)
+                    continue;
+                var weight = meta.Weight;
+                def.SetProperty(VanillaSpawnProps.PREVIEW_ENTITY, meta.PreviewEntity);
+                def.SetProperty(VanillaSpawnProps.PREVIEW_VARIANT, meta.PreviewVariant);
+                def.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
+
+                def.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
+                def.SetProperty(VanillaSpawnProps.SPAWN_LEVEL, meta.SpawnLevel);
+                def.SetProperty(VanillaSpawnProps.SPAWN_IN_WATER, meta.Terrain?.Water ?? false);
+                def.SetProperty(VanillaSpawnProps.SPAWN_IN_AIR, meta.Terrain?.Air ?? false);
+                def.SetProperty(VanillaSpawnProps.SPAWN_ENTITY, meta.Entity);
+                def.SetProperty(VanillaSpawnProps.SPAWN_ENTITY_VARIANT, meta.EntityVariant);
+
+                def.SetProperty(VanillaSpawnProps.NO_ENDLESS, meta.NoEndless);
+                def.SetProperty(VanillaSpawnProps.EXCLUDED_AREA_TAGS, meta.Terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>());
+
+                if (weight != null)
+                {
+                    def.SetProperty(VanillaSpawnProps.WEIGHT_BASE, weight.Base);
+                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
+                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
+                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
+                }
+            }
+
+        }
         private void LoadNoteProperties(Mod mod)
         {
             var nsp = mod.Namespace;
@@ -643,6 +626,22 @@ namespace MVZ2.Modding
                 def.SetProperty(LogicNoteProps.NOTE_SPRITE, meta.sprite);
                 def.SetProperty(LogicNoteProps.FLIP_NOTE_SPRITE, meta.flipSprite);
                 def.SetProperty(LogicNoteProps.START_TALK, meta.startTalk);
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadGridProperties(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (GridDefinition def in mod.GetAllGridDefinitions())
+            {
+                if (def == null)
+                    continue;
+                var id = def.GetID();
+                var meta = res.GetGridMeta(id);
+                if (meta == null)
+                    continue;
+                def.SetProperty(VanillaGridProps.OVERLAY_SPRITE, meta.OverlaySprite);
+                def.SetProperty(VanillaGridProps.SLOPE, meta.Slope);
                 mod.AddDefinition(def);
             }
         }

@@ -4,7 +4,7 @@
             <condition required="mvz2:level.halloween_5"/>
         </unlock>
     </artifact>
-    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌人" sprite="mvz2:artifacts/hoe" >
+    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌方怪物" sprite="mvz2:artifacts/hoe" >
         <unlock>
             <condition required="mvz2:artifact.hoe"/>
         </unlock>
@@ -30,7 +30,7 @@
             <condition required="mvz2:level.dream_2"/>
         </unlock>
     </artifact>
-    <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得2个星之碎片，但敌人数量+200%" sprite="mvz2:artifacts/pagoda_branch" >
+    <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得2个星之碎片，但怪物数量+200%" sprite="mvz2:artifacts/pagoda_branch" >
         <unlock>
             <condition required="mvz2:artifact.pagoda_branch"/>
         </unlock>
@@ -45,7 +45,7 @@
             <condition required="mvz2:artifact.dark_matter"/>
         </unlock>
     </artifact>
-    <artifact id="bottled_blackhole" name="瓶装黑洞" tooltip="每有一个蓝图空位，+15%器械伤害" sprite="mvz2:artifacts/bottled_blackhole" >
+    <artifact id="bottled_blackhole" name="瓶装黑洞" tooltip="每有一个蓝图空位，+10%器械伤害" sprite="mvz2:artifacts/bottled_blackhole" >
         <unlock>
             <condition required="mvz2:artifact.bottled_blackhole"/>
         </unlock>
@@ -113,19 +113,19 @@
             <condition required="mvz2:level.ship_3"/>
         </unlock>
     </artifact>
-    <artifact id="dowsing_rods" name="探宝棒" tooltip="击杀怪物时有概率掉落神秘礼物" sprite="mvz2:artifacts/dowsing_rods" >
+    <artifact id="dowsing_rods" name="探宝棒" tooltip="击杀怪物时有25%概率掉落额外资源" sprite="mvz2:artifacts/dowsing_rods" >
         <unlock>
             <condition required="mvz2:artifact.dowsing_rods"/>
         </unlock>
     </artifact>
-    <artifact id="sorceress_scroll" name="魔人经卷" tooltip="禁用星之碎片，+100%器械伤害" sprite="mvz2:artifacts/sorceress_scroll" >
+    <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="将星之碎片的效果变为格斗术" sprite="mvz2:artifacts/sorcerers_scroll" >
         <unlock>
             <condition required="mvz2:level.ship_11"/>
         </unlock>
     </artifact>
-    <artifact id="dragon_claw" name="龙爪" tooltip="生命值低于50%的敌人受到的伤害+100%" sprite="mvz2:artifacts/dragon_claw" >
+    <artifact id="dragon_tooth" name="龙牙" tooltip="生命值为50%或以下的敌人受到的伤害x200%" sprite="mvz2:artifacts/dragon_tooth" >
         <unlock>
-            <condition required="mvz2:artifact.dragon_claw"/>
+            <condition required="mvz2:artifact.dragon_tooth"/>
         </unlock>
     </artifact>
 

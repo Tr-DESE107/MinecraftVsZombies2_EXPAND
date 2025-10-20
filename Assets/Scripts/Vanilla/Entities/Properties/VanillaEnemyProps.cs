@@ -171,6 +171,18 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 施法
+        public static readonly VanillaEntityPropertyMeta<bool> CASTING = new VanillaEntityPropertyMeta<bool>("casting");
+        public static bool IsCasting(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(CASTING);
+        }
+        public static void SetCasting(this Entity enemy, bool value)
+        {
+            enemy.SetProperty<bool>(CASTING, value);
+        }
+        #endregion
+
         public static readonly PropertyMeta<bool> IMMUNE_VORTEX = Get<bool>("immuneVortex");
         public static bool ImmuneVortex(this Entity enemy)
         {

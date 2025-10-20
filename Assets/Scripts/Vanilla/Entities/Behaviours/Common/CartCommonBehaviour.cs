@@ -4,6 +4,7 @@ using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Difficulties;
@@ -59,7 +60,7 @@ namespace MVZ2.Vanilla.Entities
                         entity.TriggerCart();
                     }
                     break;
-                case VanillaEntityStates.CART_TRIGGERED:
+                case STATE_TRIGGERED:
                     velocity.x = 10;
                     // 获取所有接触到的僵尸。
                     foreach (Entity ent in entity.Level.FindEntities(e => entity.CanCartCrush(e)))
@@ -142,6 +143,7 @@ namespace MVZ2.Vanilla.Entities
         public static readonly VanillaEntityPropertyMeta<int> FIELD_TRIGGER_CHARGE = new VanillaEntityPropertyMeta<int>("TriggerCharge");
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_TRIGGER_CHARGING = new VanillaEntityPropertyMeta<bool>("TriggerCharging");
         public const float TRIGGER_DISTANCE = 28;
+        public const int STATE_TRIGGERED = VanillaCartStates.TRIGGERED;
         public const int MAX_TRIGGER_CHARGE = 30;
     }
 }

@@ -96,11 +96,11 @@ namespace MVZ2.GameContent.HeldItems
                             // 根据光标位置决定。
                             if (gridTarget.PointerPosition.y < 0.5f)
                             {
-                                return HeldHighlight.Green(0, 0.5f);
+                                return HeldHighlight.Green(grid, 0, 0.5f);
                             }
                             else
                             {
-                                return HeldHighlight.Green(0.5f, 1f);
+                                return HeldHighlight.Green(grid, 0.5f, 1f);
                             }
                         }
                         else if (canUseOnProtector) // 只有保护层器械可以用。
@@ -108,22 +108,22 @@ namespace MVZ2.GameContent.HeldItems
                             // 没有内部器械。
                             if (main == null)
                             {
-                                return HeldHighlight.Green();
+                                return HeldHighlight.Green(grid);
                             }
                             // 内部的器械存在，但是不可以使用。
-                            return HeldHighlight.Green(0, 0.5f);
+                            return HeldHighlight.Green(grid, 0, 0.5f);
                         }
                         if (canUseOnMain) // 只有内部器械可以用。
                         {
                             // 没有保护层器械。
                             if (protector == null)
                             {
-                                return HeldHighlight.Green();
+                                return HeldHighlight.Green(grid);
                             }
                             // 保护层器械存在，但是不可以使用。
-                            return HeldHighlight.Green(0.5f, 1f);
+                            return HeldHighlight.Green(grid, 0.5f, 1f);
                         }
-                        return HeldHighlight.Red();
+                        return HeldHighlight.Red(grid);
                     }
             }
             return HeldHighlight.None;

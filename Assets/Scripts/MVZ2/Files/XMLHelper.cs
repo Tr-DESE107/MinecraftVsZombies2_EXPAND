@@ -206,10 +206,38 @@ namespace MVZ2.IO
             switch (item.Operator)
             {
                 case BehaviourOperator.Add:
-                    behaviours.Add(item.ID);
+                    if (behaviours.Contains(item.ID))
+                    {
+                        Log.LogWarning($"Trying to add behaviour {item.ID} to the list which already has this.");
+                    }
+                    else
+                    {
+                        behaviours.Add(item.ID);
+                    }
                     break;
                 case BehaviourOperator.Remove:
-                    behaviours.Remove(item.ID);
+                    if (!behaviours.Remove(item.ID))
+                    {
+                        Log.LogWarning($"Cannot find behaviour {item.ID} to remove.");
+                    }
+                    break;
+                case BehaviourOperator.Replace:
+                    if (NamespaceID.IsValid(item.SourceID))
+                    {
+                        var index = behaviours.IndexOf(item.SourceID);
+                        if (index >= 0)
+                        {
+                            behaviours[index] = item.ID;
+                        }
+                        else
+                        {
+                            Log.LogWarning($"Failed to replace behaviour {item.SourceID} to {item.ID}, cannot find the behaviour to replace.");
+                        }
+                    }
+                    else
+                    {
+                        Log.LogWarning($"Failed to replace behaviour to {item.ID}, the behaviour id to replace is invalid.");
+                    }
                     break;
             }
         }
@@ -245,6 +273,43 @@ namespace MVZ2.IO
             }
             return properties;
         }
+        public static XMLConditionList? GetUnlockConditionsOrObsolete(this XmlNode node, string childNodeName, string fallbackAttributeName, string defaultNsp)
+        {
+            XMLConditionList? conditions = null;
+            var unlockNode = node[childNodeName];
+            if (unlockNode != null)
+            {
+                conditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
+            }
+            else
+            {
+                var unlock = node.GetAttributeNamespaceID(fallbackAttributeName, defaultNsp);
+                if (NamespaceID.IsValid(unlock))
+                {
+                    conditions = XMLConditionList.FromSingle(unlock);
+                }
+            }
+            return conditions;
+        }
+        public static XMLConditionList? GetUnlockConditionsOrObsoleteArray(this XmlNode node, string childNodeName, string fallbackAttributeName, string defaultNsp)
+        {
+            XMLConditionList? conditions = null;
+            var unlockNode = node[childNodeName];
+            if (unlockNode != null)
+            {
+                conditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
+            }
+            else
+            {
+                var unlock = node.GetAttributeNamespaceIDArray(fallbackAttributeName, defaultNsp);
+                if (unlock != null)
+                {
+                    conditions = XMLConditionList.FromMultiple(unlock);
+                }
+            }
+            return conditions;
+        }
+
         public static bool TryGetAttributeStruct(this XmlNode node, string name, string type, out object? propValue)
         {
             propValue = null;

@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using MVZ2.Metas;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Managers
@@ -16,6 +17,15 @@ namespace MVZ2.Managers
             if (resources?.SpawnMetaList == null)
                 return Array.Empty<SpawnMeta>();
             return resources.SpawnMetaList.Metas.ToArray();
+        }
+        public SpawnMeta? GetSpawnMeta(NamespaceID? id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return null;
+            var resources = GetModResource(id.SpaceName);
+            if (resources?.SpawnMetaList == null)
+                return null;
+            return resources.SpawnMetaList.Metas.FirstOrDefault(e => e.ID == id.Path);
         }
         #endregion
     }

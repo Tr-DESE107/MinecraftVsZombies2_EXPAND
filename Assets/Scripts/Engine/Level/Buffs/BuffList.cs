@@ -9,7 +9,7 @@ using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
 {
-    public class BuffList : IEnumerable<Buff>
+    public class BuffList : IEnumerable<Buff>, IBuffList
     {
         #region 增益操作
         public bool AddBuff(Buff buff, IBuffTarget target)
@@ -212,6 +212,12 @@ namespace PVZEngine.Buffs
             GetBuffsNonAlloc(definition, list);
             return list.ToArray();
         }
+        public Buff[] GetBuffs(NamespaceID id)
+        {
+            var list = new List<Buff>();
+            GetBuffsNonAlloc(id, list);
+            return list.ToArray();
+        }
         public void GetBuffsNonAlloc<T>(List<Buff> results) where T : BuffDefinition
         {
             foreach (var buff in buffs)
@@ -232,6 +238,31 @@ namespace PVZEngine.Buffs
                 }
             }
         }
+        public void GetBuffsNonAlloc(NamespaceID id, List<Buff> results)
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition.GetID() == id)
+                {
+                    results.Add(buff);
+                }
+            }
+        }
+        #endregion
+
+        #region 获取数量
+        public int GetBuffCount<T>() where T : BuffDefinition
+        {
+            return buffs.Count(b => b.Definition is T);
+        }
+        public int GetBuffCount(BuffDefinition definition)
+        {
+            return buffs.Count(b => b.Definition == definition);
+        }
+        public int GetBuffCount(NamespaceID id)
+        {
+            return buffs.Count(b => b.Definition.GetID() == id);
+        }
         #endregion
 
         #region 获取全部
@@ -248,13 +279,6 @@ namespace PVZEngine.Buffs
             foreach (var buff in updateBuffer)
             {
                 buff.Update();
-            }
-        }
-        public void RemoveAuras()
-        {
-            foreach (var buff in buffs)
-            {
-                buff.RemoveAuras();
             }
         }
         private bool AddBuffImplement(Buff buff)
@@ -346,16 +370,23 @@ namespace PVZEngine.Buffs
         }
         #endregion
 
+        #region 插入模型
+        public ModelInsertion[] GetModelInsertions()
+        {
+            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
+        }
+        #endregion
+
         #region 序列化
         public SerializableBuffList ToSerializable()
         {
             return new SerializableBuffList()
             {
-                buffs = buffs.ConvertAll(b => b.Serialize()),
+                buffs = buffs.ConvertAll(b => b.ToSerializable()),
                 currentBuffID = currentBuffID,
             };
         }
-        public static BuffList FromSerializable(SerializableBuffList? serializable, LevelEngine level, IBuffTarget target)
+        public static BuffList CreateFromSerializable(SerializableBuffList? serializable, LevelEngine level, IBuffTarget target)
         {
             var buffList = new BuffList();
 
@@ -366,7 +397,7 @@ namespace PVZEngine.Buffs
             {
                 foreach (var seriBuff in serializable.buffs)
                 {
-                    var buff = Buff.Deserialize(seriBuff, level, target);
+                    var buff = Buff.CreateFromSerializable(seriBuff, level, target);
                     if (buff == null)
                         continue;
                     buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
@@ -377,7 +408,7 @@ namespace PVZEngine.Buffs
             buffList.UpdateModifierCaches();
             return buffList;
         }
-        public void LoadAuras(SerializableBuffList serializable, LevelEngine level)
+        public void LoadFromSerializable(SerializableBuffList serializable)
         {
             foreach (var buff in buffs)
             {
@@ -386,7 +417,7 @@ namespace PVZEngine.Buffs
                 var seriBuff = serializable.buffs.FirstOrDefault(b => b.id == buff.ID);
                 if (seriBuff == null)
                     continue;
-                buff.LoadAuras(seriBuff, level);
+                buff.LoadFromSerializable(seriBuff);
             }
         }
         #endregion

@@ -27,7 +27,6 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateLogic(contraption);
             bool evoked = contraption.HasBuff<DreamCrystalEvocationBuff>();
             contraption.SetEvoked(evoked);
-            contraption.SetModelDamagePercent();
             contraption.SetAnimationBool("Evoked", evoked);
         }
 
@@ -39,6 +38,6 @@ namespace MVZ2.GameContent.Contraptions
             contraption.AddBuff<DreamCrystalEvocationBuff>();
             contraption.PlaySound(VanillaSoundID.sparkle);
         }
-        public const float HEAL_PER_FRAME = 1.3333333333f;
+        public const float HEAL_PER_FRAME = 2;
     }
 }

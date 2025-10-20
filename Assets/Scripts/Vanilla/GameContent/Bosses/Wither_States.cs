@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Bosses
         #region 状态
         private class AppearState : EntityStateMachineState
         {
-            public AppearState() : base(STATE_APPEAR) { }
+            public AppearState() : base(STATE_APPEAR, ANIMATION_STATE_APPEAR) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -72,7 +72,7 @@ namespace MVZ2.GameContent.Bosses
             public Detector searchTargetDetector = new WitherDetector(WitherDetector.MODE_SKULL);
             public const int MAX_SKULL_CHARGE_MAIN = 90;
             public const int MAX_SKULL_CHARGE = 60;
-            public IdleState() : base(STATE_IDLE) { }
+            public IdleState() : base(STATE_IDLE, ANIMATION_STATE_IDLE) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -267,7 +267,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class ChargeState : EntityStateMachineState
         {
-            public ChargeState() : base(STATE_CHARGE)
+            public ChargeState() : base(STATE_CHARGE, ANIMATION_STATE_CHARGE)
             {
             }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
@@ -378,7 +378,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class EatState : EntityStateMachineState
         {
-            public EatState() : base(STATE_EAT) { }
+            public EatState() : base(STATE_EAT, ANIMATION_STATE_EAT) { }
 
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
@@ -521,7 +521,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class SwitchState : EntityStateMachineState
         {
-            public SwitchState() : base(STATE_SWITCH) { }
+            public SwitchState() : base(STATE_SWITCH, ANIMATION_STATE_SWITCH) { }
             public override void OnEnter(EntityStateMachine machine, Entity entity)
             {
                 base.OnEnter(machine, entity);
@@ -610,7 +610,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class SummonState : EntityStateMachineState
         {
-            public SummonState() : base(STATE_SUMMON) { }
+            public SummonState() : base(STATE_SUMMON, ANIMATION_STATE_SUMMON) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -694,7 +694,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class StunState : EntityStateMachineState
         {
-            public StunState() : base(STATE_STUNNED) { }
+            public StunState() : base(STATE_STUNNED, ANIMATION_STATE_STUNNED) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -719,7 +719,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class DeathState : EntityStateMachineState
         {
-            public DeathState() : base(STATE_DEATH) { }
+            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_DEATH) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -751,5 +751,13 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        public const int ANIMATION_STATE_IDLE = 0;
+        public const int ANIMATION_STATE_APPEAR = 1;
+        public const int ANIMATION_STATE_CHARGE = 2;
+        public const int ANIMATION_STATE_DEATH = 3;
+        public const int ANIMATION_STATE_EAT = 4;
+        public const int ANIMATION_STATE_SWITCH = 5;
+        public const int ANIMATION_STATE_SUMMON = 6;
+        public const int ANIMATION_STATE_STUNNED = 7;
     }
 }

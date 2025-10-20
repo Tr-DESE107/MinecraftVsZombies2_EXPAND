@@ -44,6 +44,13 @@ namespace MVZ2.Models
                 return;
             targetModel.SetAnimatorFloat(name, value);
         }
+        public IAnimatorInterface? GetAnimatorInterface(string name)
+        {
+            var targetModel = GetModel();
+            if (!targetModel.Exists())
+                return null;
+            return targetModel.GetAnimatorInterface(name);
+        }
         public void SetModelProperty(string name, object? value)
         {
             var model = GetModel();
@@ -78,6 +85,13 @@ namespace MVZ2.Models
             if (!model.Exists())
                 return;
             model.SetShaderColor(name, value);
+        }
+        public void SetShaderVector(string name, Vector4 value)
+        {
+            var model = GetModel();
+            if (!model.Exists())
+                return;
+            model.SetShaderVector(name, value);
         }
         public IModelInterface? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
         {

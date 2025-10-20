@@ -211,9 +211,17 @@ namespace MVZ2.GameContent.GlobalCallbacks
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
                         break;
                     case "chapter_4_finish":
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo));
+                        break;
+                    case "goto_ship":
+                        saves.SetLastMapID(VanillaMapID.ship);
+                        saves.SaveToFile(); // 进入圣辇船过渡时保存游戏
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.ship, VanillaAreaID.ship, VanillaStageID.ship1));
+                        break;
+                    case "chapter_5_finish":
                         IEnumerator coroutineFunc()
                         {
-                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo);
+                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.ship, VanillaMapID.gensokyo);
                             var title = Global.Localization.GetText(VanillaStrings.UI_GAME_CLEARED);
                             var desc = Global.Localization.GetText(VanillaStrings.UI_COMING_SOON);
                             var options = new string[] { Global.Localization.GetText(VanillaStrings.CONFIRM) };

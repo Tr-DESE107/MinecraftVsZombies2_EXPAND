@@ -104,7 +104,10 @@
                 </stage>
             </stages>
         </product>
-        <product id="obsidian_first_aid" sprite="mvz2:products/obsidian_first_aid" required="mvz2:level.mausoleum_5">
+        <product id="obsidian_first_aid" sprite="mvz2:products/obsidian_first_aid">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_5"/>
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">黑曜石修复术！可以在防御性器械上再放一个同样的器械，以此来完全修复它！</talk>
                 <talk character="mvz2:tokiko">修复器械们的神奇技术！可以在防御性器械上再放一个同样的器械，来把它完全修好！</talk>
@@ -132,7 +135,10 @@
                 <stage price="5000" unlocks="mvz2:contraption.force_pad"/>
             </stages>
         </product>
-        <product id="golden_dropper" blueprintId="mvz2:golden_dropper" required="mvz2:level.castle_6">
+        <product id="golden_dropper" blueprintId="mvz2:golden_dropper">
+            <unlock>
+                <condition required="mvz2:level.castle_6"/>
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">把金制投掷器放在木制投掷器上，让它能够发射可以反弹，并产生绿宝石的金球！</talk>
                 <talk character="mvz2:tokiko">金制投掷器能升级木制投掷器，能发出不停弹来弹去，并且可以赚钱的金球！</talk>
@@ -141,7 +147,19 @@
                 <stage price="10000" unlocks="mvz2:contraption.golden_dropper"/>
             </stages>
         </product>
-		<product id="Eviltombstone" blueprintId="mvz2:Eviltombstone" required="mvz2:level.mausoleum_6">
+         <product id="skyward_beacon" blueprintId="mvz2:skyward_beacon">
+            <unlock>
+                <condition required="mvz2:level.ship_6"/>
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">把御天信标放在信标上，让它发射从天而降的致命光束，打击你所指定的位置！</talk>
+                <talk character="mvz2:tokiko">御天信标能升级信标，发射从天而降的光束，打击你想要的任意位置！</talk>
+            </talks>
+            <stages>
+                <stage price="14370" unlocks="mvz2:contraption.skyward_beacon"/>
+            </stages>
+        </product>
+        <product id="Eviltombstone" blueprintId="mvz2:Eviltombstone" required="mvz2:level.mausoleum_6">
 			<talks>
 				<talk character="mvz2:crazy_villager">把邪灵墓碑放在死灵墓碑上！他就可以召唤下界军团征服世界！</talk>
 				<talk character="mvz2:tokiko">好邪恶的墓碑！这位是邪灵墓碑！把他放在死灵墓碑先生上面，然后他就可以产出可怕的下界军队啦！</talk>
@@ -149,8 +167,7 @@
 			<stages>
 				<stage price="50000" unlocks="mvz2:contraption.Eviltombstone"/>
 			</stages>
-		</product>
-        <product />
+		</product>        
         <product />
         <product />
         <product />
@@ -175,14 +192,17 @@
         </product>
         <product id="pagoda_branch" sprite="mvz2:artifacts/pagoda_branch">
             <talks>
-                <talk character="mvz2:crazy_villager">产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2倍多的敌人！</talk>
+                <talk character="mvz2:crazy_villager">产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2倍多的怪物！</talk>
                 <talk character="mvz2:tokiko">来自槐树上的树枝，战斗开始时它能额外给你2个神奇的碎片，但是也会额外出现2倍多的怪物！</talk>
             </talks>
             <stages>
                 <stage price="3330" unlocks="mvz2:artifact.pagoda_branch"/>
             </stages>
         </product>
-        <product id="dark_matter" sprite="mvz2:artifacts/dark_matter" required="mvz2:level.dream_11">
+        <product id="dark_matter" sprite="mvz2:artifacts/dark_matter">
+            <unlock>
+                <condition required="mvz2:level.dream_11"/>
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！</talk>
                 <talk character="mvz2:tokiko">一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！</talk>
@@ -191,7 +211,10 @@
                 <stage price="15000" unlocks="mvz2:artifact.dark_matter"/>
             </stages>
         </product>
-        <product id="inverted_mirror" sprite="mvz2:artifacts/inverted_mirror" required="mvz2:level.castle_6">
+        <product id="inverted_mirror" sprite="mvz2:artifacts/inverted_mirror">
+            <unlock>
+                <condition required="mvz2:level.castle_6"/>
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">我不小心把这个镜子放反了！现在它可以让敌人发射的子弹击中其他敌人了！</talk>
                 <talk character="mvz2:tokiko">不知道为什么倒过来的镜子……总之它可以让敌人的子弹击中他们自己！</talk>
@@ -200,7 +223,10 @@
                 <stage price="8880" unlocks="mvz2:artifact.inverted_mirror"/>
             </stages>
         </product>
-        <product id="nether_star" sprite="mvz2:artifacts/nether_star" required="mvz2:level.castle_11">
+        <product id="nether_star" sprite="mvz2:artifacts/nether_star">
+            <unlock>
+                <condition required="mvz2:level.castle_11"/>
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">下界之星！每当你使用4次星之碎片，会再次生成一个星之碎片！</talk>
                 <talk character="mvz2:tokiko">闪亮亮的星星！每当你使用4次神奇的碎片，会再次生成一个神奇的碎片！</talk>
@@ -209,7 +235,10 @@
                 <stage price="15000" unlocks="mvz2:artifact.nether_star"/>
             </stages>
         </product>
-        <!-- <product id="wither_skeleton_skull" sprite="mvz2:artifacts/wither_skeleton_skull" required="mvz2:level.castle_11">
+        <!-- <product id="wither_skeleton_skull" sprite="mvz2:artifacts/wither_skeleton_skull">
+            <unlock>
+                <condition required="mvz2:level.castle_11"/>
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！</talk>
                 <talk character="mvz2:tokiko">很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们的耐久也会因此变为60%！</talk>
@@ -218,7 +247,10 @@
                 <stage price="15000" unlocks="mvz2:artifact.wither_skeleton_skull"/>
             </stages>
         </product> -->
-        <product id="greedy_vacuum" sprite="mvz2:artifacts/greedy_vacuum" required="mvz2:level.mausoleum_5">
+        <product id="greedy_vacuum" sprite="mvz2:artifacts/greedy_vacuum">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_5"/>
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">贪婪的吸尘器！可以自动帮你收集能量掉落物和星之碎片！</talk>
                 <talk character="mvz2:tokiko">看起来很饿的吸尘器……可以自动帮你吸取粉尘和神奇的碎片！</talk>
@@ -227,13 +259,40 @@
                 <stage price="5550" unlocks="mvz2:artifact.greedy_vacuum"/>
             </stages>
         </product>
-        <product id="eye_of_the_giant" sprite="mvz2:artifacts/eye_of_the_giant" required="mvz2:level.mausoleum_11">
+        <product id="eye_of_the_giant" sprite="mvz2:artifacts/eye_of_the_giant">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_11"/>
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">巨人的眼睛！你的器械造成的伤害变为两倍半，但是攻击速度也会减半！</talk>
                 <talk character="mvz2:tokiko">有点吓人的大眼睛……它能让你的器械造成巨额伤害，但是攻击速度会变慢许多！</talk>
             </talks>
             <stages>
                 <stage price="15000" unlocks="mvz2:artifact.eye_of_the_giant"/>
+            </stages>
+        </product>
+        <product id="dowsing_rods" sprite="mvz2:artifacts/dowsing_rods">
+            <unlock>
+                <condition required="mvz2:level.ship_6"/>
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">探宝棒！可以让你从怪物身上搜刮出一些战利品！</talk>
+                <talk character="mvz2:tokiko">老鼠的探宝棒！可以让你从怪物们身上得到一些额外的东西！</talk>
+            </talks>
+            <stages>
+                <stage price="3330" unlocks="mvz2:artifact.dowsing_rods"/>
+            </stages>
+        </product>
+        <product id="dragon_tooth" sprite="mvz2:artifacts/dragon_tooth">
+            <unlock>
+                <condition required="mvz2:level.ship_11"/>
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">红龙的牙齿！受重伤的敌人会受到两倍伤害！</talk>
+                <talk character="mvz2:tokiko">红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到更多的伤害！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.dragon_tooth"/>
             </stages>
         </product>
     </products>

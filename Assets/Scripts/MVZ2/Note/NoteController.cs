@@ -31,7 +31,10 @@ namespace MVZ2.Note
             ui.SetCanFlip(def.CanFlip());
             ui.SetFlipAtLeft(isFlipped);
             var startTalk = def.GetStartTalk() ?? new NamespaceID(id.SpaceName, $"{id.Path}_note");
-            await talkController.SimpleStartTalkAsync(startTalk, 0, 3, () => SetInteractable(false));
+            if (main.ResourceManager.CanStartTalk(startTalk, 0))
+            {
+                await talkController.SimpleStartTalkAsync(startTalk, 0, 3, () => SetInteractable(false));
+            }
             SetInteractable(true);
         }
         public void SetButtonText(string text)

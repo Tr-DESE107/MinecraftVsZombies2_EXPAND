@@ -27,7 +27,7 @@ namespace MVZ2.Vanilla
         [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
         public const string ADVICE_ENDLESS_HINT = "你能存活多少轮？";
         [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
-        public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";
+        public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的怪物要来了！";
         [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";
         [TranslateMsg("欲望壶技能的提示，{0}为受到的总伤害", CONTEXT_ADVICE, selfPlural: true)]
@@ -167,6 +167,14 @@ namespace MVZ2.Vanilla
         public const string COMMAND_CHEAT_DISABLED = "已禁用{0}";
         [TranslateMsg("命令输出-save", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_SAVE_SUCCESS = "已保存关卡状态";
+        [TranslateMsg("命令输出-unlock，{0}为游戏状态名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_UNLOCK_ADD_SUCCESS = "已解锁游戏状态{0}";
+        [TranslateMsg("命令输出-unlock，{0}为游戏状态名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_UNLOCK_ADD_FAILED_ALREADY_UNLOCKED = "无法解锁游戏状态{0}：该状态已被解锁";
+        [TranslateMsg("命令输出-unlock，{0}为游戏状态名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_UNLOCK_REMOVE_SUCCESS = "已重新锁定游戏状态{0}";
+        [TranslateMsg("命令输出-unlock，{0}为游戏状态名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_UNLOCK_REMOVE_FAILED_NOT_UNLOCKED = "无法重新锁定游戏状态{0}：该状态未被解锁";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_INCORRECT_FORMAT = "命令格式错误";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]

@@ -24,7 +24,7 @@ namespace PVZEngine.Level
             if (seedPacks[index] != null)
                 return;
             seedPacks[index] = seed;
-            seed.PostAdd(this);
+            IncreaseLevelObjectReference(seed);
             OnSeedAdded?.Invoke(index);
         }
         private long AllocSeedPackID()
@@ -44,7 +44,7 @@ namespace PVZEngine.Level
             if (seedPack == null)
                 return false;
             seedPacks[index] = null;
-            seedPack.PostRemove(this);
+            DecreaseLevelObjectReference(seedPack);
             OnSeedRemoved?.Invoke(index);
             return true;
         }
@@ -172,11 +172,13 @@ namespace PVZEngine.Level
         #region 序列化
         private void WriteSeedPacksToSerializable(SerializableLevel seri)
         {
-            seri.seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray();
+            seri.currentSeedPackID = currentSeedPackID;
+            seri.seedPacks = seedPacks.Select(g => g != null ? g.ToSerializable() : null).ToArray();
         }
         private void CreateSeedPacksFromSerializable(SerializableLevel seri)
         {
-            seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, this) : null).ToArray();
+            currentSeedPackID = seri.currentSeedPackID;
+            seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.CreateFromSerializable(g, this) : null).ToArray();
         }
         private void ReadSeedPacksFromSerializable(SerializableLevel seri)
         {
@@ -187,7 +189,8 @@ namespace PVZEngine.Level
                 var seriSeed = seri.seedPacks.FirstOrDefault(s => s != null && s.id == seed.ID);
                 if (seriSeed == null)
                     continue;
-                seed.ApplyDeserializedProperties(this, seriSeed);
+                seed.LoadFromSerializable(this, seriSeed);
+                IncreaseLevelObjectReference(seed);
             }
         }
         #endregion

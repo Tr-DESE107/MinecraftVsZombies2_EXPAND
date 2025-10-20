@@ -27,6 +27,10 @@ namespace MVZ2.GameContent.Effects
             {
                 entity.Remove();
             }
+            else
+            {
+                entity.SetFlipX(entity.Parent.IsFlipX());
+            }
         }
         #endregion
     }

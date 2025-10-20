@@ -6,6 +6,7 @@ namespace MVZ2.Vanilla.Grids
 {
     public static class VanillaGridStatus
     {
+        public static readonly NamespaceID gridDisabled = Get("grid_disabled");
         public static readonly NamespaceID alreadyTaken = Get("already_taken");
         public static readonly NamespaceID notOnStatues = Get("not_on_statues");
         public static readonly NamespaceID notOnSpawners = Get("not_on_spawners");

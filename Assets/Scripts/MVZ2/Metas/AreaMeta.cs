@@ -138,8 +138,6 @@ namespace MVZ2.Metas
 
         public NamespaceID ID { get; set; }
         public float YOffset { get; set; }
-        public SpriteReference? Sprite { get; set; }
-        public float Slope { get; set; }
         public static AreaGrid? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
@@ -149,13 +147,9 @@ namespace MVZ2.Metas
                 return null;
             }
             var yOffset = node.GetAttributeFloat("yOffset") ?? 0;
-            var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
-            var slope = node.GetAttributeFloat("slope") ?? 0;
             return new AreaGrid(id)
             {
                 YOffset = yOffset,
-                Sprite = sprite,
-                Slope = slope
             };
         }
     }

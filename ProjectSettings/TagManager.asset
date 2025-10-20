@@ -16,12 +16,12 @@ TagManager:
   - ModelShot
   - RaycastReceiver
   - 
-  - Light
+  - LightTexture
   - Background
-  - LevelShading
+  - 
   - GlobalUI
-  - 
-  - 
+  - DepthTexture
+  - TerrianTexture
   - 
   - 
   - 
@@ -41,7 +41,7 @@ TagManager:
   - name: Background
     uniqueID: 2237204161
     locked: 0
-  - name: Pool
+  - name: Ground
     uniqueID: 2595234015
     locked: 0
   - name: Receivers

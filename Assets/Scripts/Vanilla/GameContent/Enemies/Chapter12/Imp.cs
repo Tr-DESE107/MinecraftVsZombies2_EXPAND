@@ -4,7 +4,6 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
@@ -16,7 +15,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.imp)]
-    public class Imp : MeleeEnemy
+    public class Imp : AIEntityBehaviour
     {
         public Imp(string nsp, string name) : base(nsp, name)
         {
@@ -32,7 +31,6 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
             entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
         }
         public override void PostDeath(Entity entity, DeathInfo info)

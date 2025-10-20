@@ -2,19 +2,21 @@
 
 using MVZ2.HeldItems;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    public abstract class EntityHeldItemBehaviour : HeldItemBehaviourDefinition, IEntityHeldItemBehaviour
+    public abstract class EntityHeldItemBehaviour : HeldItemBehaviourDefinition
     {
         protected EntityHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public Entity? GetEntity(LevelEngine level, IHeldItemData data)
         {
-            return level.FindEntityByID(data.ID);
+            var entityId = data.GetEntityID();
+            return level.FindEntityByID(entityId);
         }
         public Entity? GetEntity(IHeldItemTarget target, IHeldItemData data)
         {

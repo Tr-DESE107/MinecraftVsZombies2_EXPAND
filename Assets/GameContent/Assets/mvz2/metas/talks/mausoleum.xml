@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <talks order="4000">
   <group id="kourindou_visit_mausoleum_1" tags="mvz2:gensokyo;mvz2:store">
-    <archive name="第四章-访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_mausoleum_1" />
+    <archive name="第四章-访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" >
+      <unlock>
+        <condition required="mvz2:kourindou_visited_mausoleum_1"/>
+      </unlock>
+    </archive>
     <section onSkip="music fade 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_mausoleum_1;end">
       <characters>
         <character id="mvz2:tokiko" side="right" />
@@ -48,7 +52,11 @@
     </section>
   </group>
   <group id="exited_kourindou_mausoleum" tags="mvz2:gensokyo">
-    <archive name="第四章-离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_mausoleum" />
+    <archive name="第四章-离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" >
+      <unlock>
+        <condition required="mvz2:entered_mausoleum"/>
+      </unlock>
+    </archive>
     <section onSkip="unlock mvz2:entered_mausoleum;music fade 0;bubble hide;forecolor fade #0000 #000F 1;delay 1;action goto_mausoleum;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -111,7 +119,11 @@
 
   <!-- Day 1 -->
   <group id="mausoleum_1" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第1天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_1" />
+    <archive name="梦殿大祀庙第1天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_1"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -122,14 +134,18 @@
       <sentences>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">布都，你们到了？</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">很好，史蒂夫先生，我们现在需要你的帮助。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">详细内容我从布都那里听说了，要清除这里的敌人，保证封印能够正常巩固不受干扰，是吧。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">详细内容我从布都那里听说了，要清除这里的怪物，保证封印能够正常巩固不受干扰，是吧。</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">是的。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" onClick="end">那么，眼前的这些僵尸，就交给我的邻居了，加油吧！</sentence>
       </sentences>
     </section>
   </group>
   <group id="mausoleum_1_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第1天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_1" />
+    <archive name="梦殿大祀庙第1天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_1"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -144,7 +160,11 @@
     </section>
   </group>
   <group id="mausoleum_1_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第1天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_1" />
+    <archive name="梦殿大祀庙第1天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_1"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -185,14 +205,18 @@
 
   <!-- Day 2 -->
   <group id="mausoleum_2" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第2天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_2" />
+    <archive name="梦殿大祀庙第2天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_2"/>
+      </unlock>
+    </archive>
     <section onSkip="music stop;end">
       <characters>
         <character id="mvz2:futo" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">啊，似乎出现了新的敌人，一种手持魔法障壁的僵尸。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">啊，似乎出现了新的怪物，一种手持魔法障壁的僵尸。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">此种障壁吾曾见过，乃是回声障壁，可反弹射弹。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">原来是能够反弹子弹的僵尸啊，多谢你提醒我。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">不必多礼。不过，其实看着汝战斗，吾有很多地方都看不懂。比如——</sentence>
@@ -210,7 +234,11 @@
     </section>
   </group>
   <group id="mausoleum_2_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第2天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_2" />
+    <archive name="梦殿大祀庙第2天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_2"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -218,14 +246,18 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是闪电之珠！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能够阻挡敌人的前进，并且免疫对方的子弹！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能够阻挡怪物的前进，并且免疫对方的子弹！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">并且，当敌人的子弹击中它时，它反而可以利用它恢复自己的耐久！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">这可是高阶的法术器械！</sentence>
       </sentences>
     </section>
   </group>
   <group id="mausoleum_2_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第2天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_2" />
+    <archive name="梦殿大祀庙第2天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_2"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -248,7 +280,11 @@
 
   <!-- Day 3-->
   <group id="mausoleum_3" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第3天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_3" />
+    <archive name="梦殿大祀庙第3天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_3"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:miko" side="right" />
@@ -265,7 +301,11 @@
     </section>
   </group>
   <group id="mausoleum_3_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第3天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_3" />
+    <archive name="梦殿大祀庙第3天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_3"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -279,7 +319,11 @@
     </section>
   </group>
   <group id="mausoleum_3_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第3天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_3" />
+    <archive name="梦殿大祀庙第3天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_3"/>
+      </unlock>
+    </archive>
     <section onSkip="item hide;music fade 1;end">
       <characters>
         <character id="mvz2:seiga" side="right" />
@@ -322,7 +366,11 @@
 
   <!-- Day 4 -->
   <group id="mausoleum_4" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第4天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_4" />
+    <archive name="梦殿大祀庙第4天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_4"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:futo" side="left" />
@@ -341,7 +389,11 @@
     </section>
   </group>
   <group id="mausoleum_4_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第4天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_4" />
+    <archive name="梦殿大祀庙第4天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_4"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -356,7 +408,11 @@
     </section>
   </group>
   <group id="mausoleum_4_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第4天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_4" />
+    <archive name="梦殿大祀庙第4天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_4"/>
+      </unlock>
+    </archive>
     <section onSkip="music fade 1;end">
       <characters>
         <character id="mvz2:miko" side="right" />
@@ -383,7 +439,11 @@
   
   <!-- Day 5 -->
   <group id="mausoleum_5" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第5天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_5" />
+    <archive name="梦殿大祀庙第5天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_5"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:miko" side="right" />
@@ -398,7 +458,11 @@
     </section>
   </group>
   <group id="mausoleum_5_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第5天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_5" />
+    <archive name="梦殿大祀庙第5天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_5"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -413,7 +477,11 @@
     </section>
   </group>
   <group id="mausoleum_5_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第5天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_5" />
+    <archive name="梦殿大祀庙第5天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_5"/>
+      </unlock>
+    </archive>
     <section onSkip="item hide;music fade 1;music play mvz2:suspension;forecolor fade #000F #0000 1;foreground alpha 0;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -503,8 +571,12 @@
       </sentences>
     </section>
   </group>
-  <group id="kourindou_visit_mausoleum_2" requiresNot="mvz2:kourindou_visited_mausoleum_2" tags="mvz2:mausoleum;mvz2:store">
-    <archive name="访问香霖堂-梦殿大祀庙" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_mausoleum_2" />
+  <group id="kourindou_visit_mausoleum_2" tags="mvz2:mausoleum;mvz2:store">
+    <archive name="访问香霖堂-梦殿大祀庙" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" >
+      <unlock>
+        <condition required="mvz2:kourindou_visited_mausoleum_2"/>
+      </unlock>
+    </archive>
     <section onSkip="unlock mvz2:kourindou_visited_mausoleum_2;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -538,7 +610,11 @@
   </group>
   <!-- Day 6 -->
   <group id="mausoleum_6" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第6天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_6" />
+    <archive name="梦殿大祀庙第6天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_6"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -553,7 +629,11 @@
     </section>
   </group>
   <group id="mausoleum_6_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第6天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_6" />
+    <archive name="梦殿大祀庙第6天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_6"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -567,7 +647,11 @@
     </section>
   </group>
   <group id="mausoleum_6_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第6天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_6" />
+    <archive name="梦殿大祀庙第6天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_6"/>
+      </unlock>
+    </archive>
     <section onSkip="music fade 1;end">
       <characters>
         <character id="mvz2:seiga" side="left" variant="mvz2:cringe" />
@@ -613,7 +697,11 @@
 
   <!-- Day 7 -->
   <group id="mausoleum_7" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第7天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_7" />
+    <archive name="梦殿大祀庙第7天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_7"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -630,7 +718,11 @@
     </section>
   </group>
   <group id="mausoleum_7_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第7天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_7" />
+    <archive name="梦殿大祀庙第7天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_7"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -644,7 +736,11 @@
     </section>
   </group>
   <group id="mausoleum_7_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第7天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_7" />
+    <archive name="梦殿大祀庙第7天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_7"/>
+      </unlock>
+    </archive>
     <section onSkip="music fade 1;end">
       <characters>
         <character id="mvz2:futo" side="left" />
@@ -681,7 +777,11 @@
 
   <!-- Day 8 -->
   <group id="mausoleum_8" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第8天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_8" />
+    <archive name="梦殿大祀庙第8天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_8"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:futo" side="left" />
@@ -698,7 +798,11 @@
     </section>
   </group>
   <group id="mausoleum_8_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第8天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_8" />
+    <archive name="梦殿大祀庙第8天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_8"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -706,14 +810,18 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">啊！看来我回来的正是时候！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这是黑洞炸弹，它在引爆后会炸出一个小型黑洞，吸引周围的敌人！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这是黑洞炸弹，它在引爆后会炸出一个小型黑洞，吸引周围的怪物！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">并且，能持续对范围内的敌人造成伤害！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="end">集中火力对付他们吧！</sentence>
       </sentences>
     </section>
   </group>
   <group id="mausoleum_8_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第8天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_8" />
+    <archive name="梦殿大祀庙第8天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_8"/>
+      </unlock>
+    </archive>
     <section onSkip="music fade 1;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -784,7 +892,11 @@
 
   <!-- Day 9 -->
   <group id="mausoleum_9" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第9天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_9" />
+    <archive name="梦殿大祀庙第9天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_9"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:futo" side="left" />
@@ -792,7 +904,7 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">看，那边有一种新的敌人！</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">看，那边有一种新的怪物！</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">穿着锦绣华丽，简直如同古代中国的皇帝一般！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">呃……中国是什么地方？</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:daze">一个庞大的文明古国，拥有众多的——呃。</sentence>
@@ -807,7 +919,11 @@
     </section>
   </group>
   <group id="mausoleum_9_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第9天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_9" />
+    <archive name="梦殿大祀庙第9天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_9"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -821,7 +937,11 @@
     </section>
   </group>
   <group id="mausoleum_9_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第9天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_9" />
+    <archive name="梦殿大祀庙第9天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_9"/>
+      </unlock>
+    </archive>
     <section onSkip="music fade 1;end">
       <characters>
         <character id="mvz2:steve" side="self" />
@@ -949,7 +1069,11 @@
   </group>
   <!-- Day 10 -->
   <group id="mausoleum_10" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第10天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_10" />
+    <archive name="梦殿大祀庙第10天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_10"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:miko" side="right" />
@@ -968,7 +1092,11 @@
     </section>
   </group>
   <group id="mausoleum_note" tags="mvz2:mausoleum;mvz2:note">
-    <archive name="僵尸卷轴" background="mvz2:archive/mausoleum_note" unlock="mvz2:level.mausoleum_10" />
+    <archive name="僵尸卷轴" background="mvz2:archive/mausoleum_note" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_10"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:futo" side="left" variant="mvz2:daze" />
@@ -987,7 +1115,11 @@
     </section>
   </group>
   <group id="mausoleum_10_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第10天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_10" />
+    <archive name="梦殿大祀庙第10天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_10"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:miko" side="right" />
@@ -1009,7 +1141,11 @@
   </group>
   <!-- Day 11 -->
   <group id="mausoleum_11" tags="mvz2:mausoleum;mvz2:intro">
-    <archive name="梦殿大祀庙第11天入场" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_11" />
+    <archive name="梦殿大祀庙第11天入场" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_11"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:futo" side="left" />
@@ -1032,7 +1168,11 @@
     </section>
   </group>
   <group id="mausoleum_11_over" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="梦殿大祀庙第11天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_11" />
+    <archive name="梦殿大祀庙第11天结束" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_11"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:futo" side="left" />
@@ -1048,7 +1188,11 @@
     </section>
   </group>
   <group id="mausoleum_11_map" tags="mvz2:mausoleum;mvz2:map">
-    <archive name="梦殿大祀庙第11天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_11" />
+    <archive name="梦殿大祀庙第11天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" >
+      <unlock>
+        <condition required="mvz2:level.mausoleum_11"/>
+      </unlock>
+    </archive>
     <section onSkip="music play mvz2:suspension;action chapter_4_finish;item hide;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />

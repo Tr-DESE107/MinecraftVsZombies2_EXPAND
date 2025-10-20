@@ -6,15 +6,47 @@ namespace MVZ2.Vanilla.Entities
     {
         public const string timeoutDeath = "timeout_death";
         public const string timeoutRemove = "timeout_remove";
+        public const string timeoutRemoveWithoutParent = "timeout_remove_without_parent";
+        public const string removeWithoutParent = "remove_without_parent";
+        public const string lightFadeout = "light_fadeout";
+        public const string followParent = "follow_parent";
+        public const string modelDamagePercent = "model_damage_percent";
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
         public const string contraptionShooterFireworkDispenser = "contraption_shooter_firework_dispenser";
         public const string contraptionEvokeFireworkDispenser = "contraption_evoke_firework_dispenser";
+        public const string elasticCloud_Projectile = "elastic_cloud/projectile";
+        public const string elasticCloud_Evocation = "elastic_cloud/evocation";
+        public const string skywardBeacon_Trigger = "skyward_beacon/trigger";
+        public const string skywardBeacon_Evoke = "skyward_beacon/evoke";
         #endregion
 
         #region Enemies
         public const string enemyCommon = "enemy_common";
+        public const string enemyState = "enemy_state";
+        public const string enemyMelee = "enemy_melee";
+        public const string enemyWalk = "enemy_walk";
+        public const string enemyDeathDisappear = "enemy_death_disappear";
+
+        public const string skeleton_State = "skeleton/state";
+        public const string napstablook_State = "napstablook/state";
+
+        public const string spider_State = "spider/state";
+        public const string spider_Melee = "spider/melee";
+        public const string ghast_State = "ghast/state";
+        public const string ghast_Move = "ghast/move";
+
+        public const string dullahan_State = "dullahan/state";
+        public const string damageByGold = "damage_by_gold";
+        public const string reverseSatellite_State = "reverse_satellite/state";
+        public const string skeletonHorse_State = "skeleton_horse/state";
+        public const string skeletonHorse_Melee = "skeleton_horse/melee";
+
+        public const string skeletonMage_State = "skeleton_mage/state";
+        public const string wickedHermitZombie_State = "wicked_hermit_zombie/state";
+
+        public const string undeadFlyingObject_State = "undead_flying_object/state";
         #endregion
 
         #region Obstacles
@@ -65,6 +97,8 @@ namespace MVZ2.Vanilla.Entities
         public const string gas = "gas";
         public const string gasBlown = "gas_blown";
         public const string waterStainBlown = "water_stain_blown";
+        public const string stopParticlesWithoutParent = "stop_particles_without_parent";
+        public const string skyBackground = "sky_background";
         #endregion
     }
 }

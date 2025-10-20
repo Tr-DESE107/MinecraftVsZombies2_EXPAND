@@ -14,7 +14,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.napstablook)]
-    public class Napstablook : StateEnemy
+    public class Napstablook : AIEntityBehaviour
     {
         public Napstablook(string nsp, string name) : base(nsp, name)
         {
@@ -22,6 +22,26 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
+            if (!entity.HasBuff<GhostBuff>())
+            {
+                entity.AddBuff<GhostBuff>();
+            }
+        }
+        protected override void UpdateAI(Entity entity)
+        {
+            base.UpdateAI(entity);
+            if (entity.State == STATE_ANGRY)
+            {
+                var ghostBuff = entity.GetBuffs<GhostBuff>();
+                foreach (var buff in ghostBuff)
+                {
+                    GhostBuff.Illuminate(buff);
+                }
+            }
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
             if (!entity.HasBuff<GhostBuff>())
             {
                 entity.AddBuff<GhostBuff>();
@@ -40,45 +60,6 @@ namespace MVZ2.GameContent.Enemies
             }
             result.SetFinalValue(false);
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            if (!entity.HasBuff<GhostBuff>())
-            {
-                entity.AddBuff<GhostBuff>();
-            }
-        }
-        protected override int GetActionState(Entity enemy)
-        {
-            if (enemy.IsDead)
-            {
-                return VanillaEntityStates.DEAD;
-            }
-            else if (enemy.IsPreviewEnemy())
-            {
-                return VanillaEntityStates.IDLE;
-            }
-            else if (IsAngry(enemy))
-            {
-                return VanillaEntityStates.ATTACK;
-            }
-            else
-            {
-                return VanillaEntityStates.WALK;
-            }
-        }
-        protected override void UpdateStateAttack(Entity enemy)
-        {
-            base.UpdateStateAttack(enemy);
-            if (IsAngry(enemy))
-            {
-                var ghostBuff = enemy.GetBuffs<GhostBuff>();
-                foreach (var buff in ghostBuff)
-                {
-                    GhostBuff.Illuminate(buff);
-                }
-            }
-        }
         public static void Enrage(Entity entity)
         {
             entity.AddBuff<NapstablookAngryBuff>();
@@ -87,5 +68,6 @@ namespace MVZ2.GameContent.Enemies
         {
             return entity.HasBuff<NapstablookAngryBuff>();
         }
+        public const int STATE_ANGRY = VanillaEnemyStates.NAPSTABLOOK_ANGRY;
     }
 }

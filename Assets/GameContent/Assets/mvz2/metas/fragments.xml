@@ -218,6 +218,11 @@
             <key hex="#FFFFFF" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="elastic_cloud">
+        <colorKeys>
+            <key hex="#C881C9" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>
@@ -237,13 +242,26 @@
             <key hex="#FFA900" time="1"/>
         </colorKeys>
     </fragment>
-	<fragment name="CopperDropper">
+    <fragment name="skyward_beacon">
+        <colorKeys>
+            <key hex="#84b6b3" time="0.2"/>
+            <key hex="#ffd665" time="0.6"/>
+            <key hex="#FFFFFF" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="skyward_beacon_night">
+        <colorKeys>
+            <key hex="#254b72" time="0.2"/>
+            <key hex="#dadada" time="0.6"/>
+            <key hex="#12294c" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="CopperDropper">
 		<colorKeys>
 			<key hex="#B87333" time="0.5"/>
 			<key hex="#43B3AE" time="1"/>
 		</colorKeys>
-	</fragment>
-    <fragment name="high_frequency_pulse_dispenser">
+	</fragment>    <fragment name="high_frequency_pulse_dispenser">
         <colorKeys>
             <key hex="#940000" time="0.333"/>
             <key hex="#4E4E4E" time="0.666"/>

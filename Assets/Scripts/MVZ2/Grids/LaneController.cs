@@ -11,14 +11,14 @@ namespace MVZ2.Grids
 {
     public class LaneController : MonoBehaviour
     {
-        public void UpdateGrids(GridViewData[] viewDatas)
+        public void InitGrids(GridInitData[] initDatas)
         {
-            grids.updateList(viewDatas.Length, (i, obj) =>
+            grids.updateList(initDatas.Length, (i, obj) =>
             {
                 var grid = obj.GetComponent<GridController>();
                 grid.Lane = Lane;
                 grid.Column = i;
-                grid.UpdateGridView(viewDatas[i]);
+                grid.Init(initDatas[i]);
             },
             obj =>
             {

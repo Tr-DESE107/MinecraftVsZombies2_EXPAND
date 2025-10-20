@@ -8,6 +8,7 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
@@ -191,8 +192,8 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_CLICK_TNT_SWAP:
                     {
-                        var heldEntityID = level.GetHeldSeedEntityID();
-                        if (heldEntityID == VanillaContraptionID.tnt && level.GetHeldItemData().InstantTrigger)
+                        var heldItemData = level.GetHeldItemData();
+                        if (heldItemData != null && heldItemData.GetSeedEntityID(level) == VanillaContraptionID.tnt && heldItemData.IsInstantTrigger())
                         {
                             // 下一状态
                             StartState(level, STATE_PLACE_TNT_SWAP);
@@ -214,8 +215,8 @@ namespace MVZ2.GameContent.Stages
                             StartState(level, STATE_TNT_PLACED_SWAP);
                             break;
                         }
-                        var heldEntityID = level.GetHeldSeedEntityID();
-                        if (heldEntityID != VanillaContraptionID.tnt || !level.GetHeldItemData().InstantTrigger)
+                        var heldData = level.GetHeldItemData();
+                        if (heldData == null || heldData.GetSeedEntityID(level) != VanillaContraptionID.tnt || !heldData.IsInstantTrigger())
                         {
                             // 返回之前的状态。
                             StartState(level, STATE_CLICK_TRIGGER_SWAP);

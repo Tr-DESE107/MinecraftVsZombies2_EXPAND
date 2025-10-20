@@ -92,6 +92,16 @@ namespace MVZ2.GameContent.Effects
         public const string zombieCloudRaindrop = "zombie_cloud_raindrop";
         public const string zombieCloudSnowflake = "zombie_cloud_snowflake";
         public const string windSpeedline = "wind_speedline";
+        public const string pagodaLaser = "pagoda_laser";
+        public const string combatPunch = "combat_punch";
+        public const string combatPunchTrail = "combat_punch_trail";
+        public const string combatSmash = "combat_smash";
+        public const string combatSmashTrail = "combat_smash_trail";
+        public const string combatUppercut = "combat_uppercut";
+        public const string combatUppercutTrail = "combat_uppercut_trail";
+        public const string skywardBeam = "skyward_beam";
+        public const string skywardBeaconTarget = "skyward_beacon_target";
+        public const string skywardSky = "skyward_sky";
     }
     public static class VanillaEffectID
     {
@@ -180,6 +190,16 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID zombieCloudRaindrop = Get(VanillaEffectNames.zombieCloudRaindrop);
         public static readonly NamespaceID zombieCloudSnowflake = Get(VanillaEffectNames.zombieCloudSnowflake);
         public static readonly NamespaceID windSpeedline = Get(VanillaEffectNames.windSpeedline);
+        public static readonly NamespaceID pagodaLaser = Get(VanillaEffectNames.pagodaLaser);
+        public static readonly NamespaceID combatPunch = Get(VanillaEffectNames.combatPunch);
+        public static readonly NamespaceID combatPunchTrail = Get(VanillaEffectNames.combatPunchTrail);
+        public static readonly NamespaceID combatSmash = Get(VanillaEffectNames.combatSmash);
+        public static readonly NamespaceID combatSmashTrail = Get(VanillaEffectNames.combatSmashTrail);
+        public static readonly NamespaceID combatUppercut = Get(VanillaEffectNames.combatUppercut);
+        public static readonly NamespaceID combatUppercutTrail = Get(VanillaEffectNames.combatUppercutTrail);
+        public static readonly NamespaceID skywardBeam = Get(VanillaEffectNames.skywardBeam);
+        public static readonly NamespaceID skywardBeaconTarget = Get(VanillaEffectNames.skywardBeaconTarget);
+        public static readonly NamespaceID skywardSky = Get(VanillaEffectNames.skywardSky);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

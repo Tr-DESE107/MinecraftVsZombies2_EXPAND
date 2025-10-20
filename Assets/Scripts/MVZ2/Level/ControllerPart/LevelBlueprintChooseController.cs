@@ -555,7 +555,7 @@ namespace MVZ2.Level
                 canRepick = canRepick,
             };
 
-            var orderedBlueprints = new List<NamespaceID>();
+            var orderedBlueprints = new List<NamespaceID?>();
             Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
             var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless())).ToArray();
             choosingBlueprints = orderedBlueprints.ToArray();
@@ -649,6 +649,8 @@ namespace MVZ2.Level
             if (!blueprintChooseItem.Exists() || choosingBlueprints == null)
                 return;
             var id = choosingBlueprints[index];
+            if (!NamespaceID.IsValid(id))
+                return;
             bool selected = chosenBlueprints.Any(i => i.id == id && !i.isCommandBlock);
             bool notRecommended = Level.IsBlueprintNotRecommmended(id);
 
@@ -1072,7 +1074,7 @@ namespace MVZ2.Level
                 {
                     warnings.Add(Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL));
                 }
-                NamespaceID[] blueprintsForChoose = choosingBlueprints.Where(i => CanChooseBlueprint(i)).ToArray();
+                NamespaceID[] blueprintsForChoose = choosingBlueprints.OfType<NamespaceID>().Where(i => CanChooseBlueprint(i)).ToArray();
                 Game.RunCallback(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, new LogicLevelCallbacks.GetBlueprintWarningsParams(Level, blueprintsForChoose, chosen, warnings));
                 foreach (var warning in warnings)
                 {
@@ -1148,6 +1150,8 @@ namespace MVZ2.Level
             AddPanelFlag(PanelFlags.CommandBlock);
             var commandBlockViewDatas = choosingBlueprints.Select(id =>
             {
+                if (!NamespaceID.IsValid(id))
+                    return ChoosingBlueprintViewData.Empty;
                 var viewData = Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless());
                 viewData.blueprint.preset = BlueprintPreset.CommandBlock;
                 viewData.blueprint.iconGrayscale = true;
@@ -1292,7 +1296,7 @@ namespace MVZ2.Level
         private bool isChoosingBlueprints;
         private PanelFlags panelFlags = PanelFlags.None;
         private List<BlueprintChooseItem> chosenBlueprints = new List<BlueprintChooseItem>();
-        private NamespaceID[]? choosingBlueprints;
+        private NamespaceID?[]? choosingBlueprints;
         private List<ChosenBlueprintController> chosenBlueprintControllers = new List<ChosenBlueprintController>();
         private List<MovingBlueprint> movingBlueprints = new List<MovingBlueprint>();
 

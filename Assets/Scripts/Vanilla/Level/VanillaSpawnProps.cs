@@ -12,35 +12,124 @@ namespace MVZ2.Vanilla.Level
         {
             return new PropertyMeta<T>(name);
         }
+        #region 最小生成波次
         public static readonly PropertyMeta<int> MIN_SPAWN_WAVE = Get<int>("minSpawnWave");
         public static int GetMinSpawnWave(this SpawnDefinition def)
         {
             return def.GetProperty<int>(MIN_SPAWN_WAVE);
         }
+        #endregion
+
+        #region 生成等级
+        public static readonly PropertyMeta<int> SPAWN_LEVEL = Get<int>("spawn_level");
+        public static int GetSpawnLevel(this SpawnDefinition def)
+        {
+            return def.GetProperty<int>(SPAWN_LEVEL);
+        }
+        #endregion
+
+        #region 水路生成
+        public static readonly PropertyMeta<bool> SPAWN_IN_WATER = Get<bool>("spawn_in_water");
+        public static bool SpawnInWater(this SpawnDefinition def)
+        {
+            return def.GetProperty<bool>(SPAWN_IN_WATER);
+        }
+        #endregion
+
+        #region 空路生成
+        public static readonly PropertyMeta<bool> SPAWN_IN_AIR = Get<bool>("spawn_in_air");
+        public static bool SpawnInAir(this SpawnDefinition def)
+        {
+            return def.GetProperty<bool>(SPAWN_IN_AIR);
+        }
+        #endregion
+
+        #region 生成实体
+        public static readonly PropertyMeta<NamespaceID> SPAWN_ENTITY = Get<NamespaceID>("spawn_entity");
+        public static NamespaceID? GetSpawnEntity(this SpawnDefinition def)
+        {
+            return def.GetProperty<NamespaceID>(SPAWN_ENTITY);
+        }
+        #endregion
+
+        #region 生成实体变种
+        public static readonly PropertyMeta<int> SPAWN_ENTITY_VARIANT = Get<int>("spawn_entity_variant");
+        public static int GetSpawnEntityVariant(this SpawnDefinition def)
+        {
+            return def.GetProperty<int>(SPAWN_ENTITY_VARIANT);
+        }
+        #endregion
+
+        #region 无尽模式禁用
+        public static readonly PropertyMeta<bool> NO_ENDLESS = Get<bool>("no_endless");
+        public static bool IsNoEndless(this SpawnDefinition def)
+        {
+            return def.GetProperty<bool>(NO_ENDLESS);
+        }
+        #endregion
+
+        #region 排除的场地标签
+        public static readonly PropertyMeta<NamespaceID[]> EXCLUDED_AREA_TAGS = Get<NamespaceID[]>("excluded_area_tags");
+        public static NamespaceID[]? GetExcludedAreaTags(this SpawnDefinition def)
+        {
+            return def.GetProperty<NamespaceID[]>(EXCLUDED_AREA_TAGS);
+        }
+        #endregion
+
+        #region 预览实体
+        public static readonly PropertyMeta<NamespaceID> PREVIEW_ENTITY = Get<NamespaceID>("preview_entity");
+        public static NamespaceID? GetPreviewEntity(this SpawnDefinition def)
+        {
+            return def.GetProperty<NamespaceID>(PREVIEW_ENTITY);
+        }
+        #endregion
+
+        #region 预览实体变种
+        public static readonly PropertyMeta<int> PREVIEW_VARIANT = Get<int>("preview_variant");
+        public static int GetPreviewVariant(this SpawnDefinition def)
+        {
+            return def.GetProperty<int>(PREVIEW_VARIANT);
+        }
+        #endregion
+
+        #region 预览实体数量
         public static readonly PropertyMeta<int> PREVIEW_COUNT = Get<int>("previewCount");
         public static int GetPreviewCount(this SpawnDefinition def)
         {
             return def.TryGetProperty(PREVIEW_COUNT, out int value) ? value : 1;
         }
+        #endregion
+
+        #region 权重基数
         public static readonly PropertyMeta<int> WEIGHT_BASE = Get<int>("weightBase");
-        public static readonly PropertyMeta<int> WEIGHT_DECAY_START = Get<int>("weightDecayStart");
-        public static readonly PropertyMeta<int> WEIGHT_DECAY_END = Get<int>("weightDecayEnd");
-        public static readonly PropertyMeta<int> WEIGHT_DECAY = Get<int>("weightDecay");
         public static int GetWeightBase(this SpawnDefinition def)
         {
             return def.GetProperty<int>(WEIGHT_BASE);
         }
+        #endregion
+
+        #region 权重衰减开始旗
+        public static readonly PropertyMeta<int> WEIGHT_DECAY_START = Get<int>("weightDecayStart");
         public static int GetWeightDecayStartFlag(this SpawnDefinition def)
         {
             return def.GetProperty<int>(WEIGHT_DECAY_START);
         }
+        #endregion
+
+        #region 权重衰减结束旗
+        public static readonly PropertyMeta<int> WEIGHT_DECAY_END = Get<int>("weightDecayEnd");
         public static int GetWeightDecayEndFlag(this SpawnDefinition def)
         {
             return def.GetProperty<int>(WEIGHT_DECAY_END);
         }
+        #endregion
+
+        #region 每旗权重衰减
+        public static readonly PropertyMeta<int> WEIGHT_DECAY = Get<int>("weightDecay");
         public static int GetWeightDecayPerFlag(this SpawnDefinition def)
         {
             return def.GetProperty<int>(WEIGHT_DECAY);
         }
+        #endregion
     }
 }

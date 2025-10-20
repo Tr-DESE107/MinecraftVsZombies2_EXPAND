@@ -27,7 +27,7 @@ namespace MVZ2.Level
         {
             var seri = new SerializableLevelController();
             seri.rng = rng.ToSerializable();
-            seri.level = level.Serialize();
+            seri.level = level.ToSerializable();
             seri.entities = entities.Select(e => e.ToSerializable()).ToArray();
             seri.parts = parts.Select(p => p.ToSerializable()).ToArray();
             WriteToSerializable_Audio(seri);
@@ -37,6 +37,7 @@ namespace MVZ2.Level
             WriteToSerializable_Twinkle(seri);
             WriteToSerializable_Tools(seri);
             WriteToSerializable_UI(seri);
+            WriteToSerializable_Grids(seri);
             return seri;
         }
         public bool ValidateGameStateHeader(SerializableLevelControllerHeader header)
@@ -59,10 +60,11 @@ namespace MVZ2.Level
                     throw new InvalidOperationException(msg);
                 }
                 rng = seri.rng != null ? RandomGenerator.FromSerializable(seri.rng) : new RandomGenerator(Guid.NewGuid().GetHashCode());
-                level = LevelEngine.Deserialize(seri.level, game, game, GetCollisionSystem());
+                level = LevelEngine.CreateFromSerializable(seri.level, game, game, GetCollisionSystem());
                 InitLevelEngine(level, game, areaID, stageID);
 
-                level.DeserializeComponents(seri.level);
+                level.InitComponentsFromSerializable(seri.level);
+                level.LoadComponentsFromSerializable(seri.level);
 
                 ReadFromSerializable_ProgressBar(seri);
                 ReadFromSerializable_Twinkle(seri);
@@ -70,7 +72,7 @@ namespace MVZ2.Level
                 ReadFromSerializable_UI(seri);
                 ReadFromSerializable_Cry(seri);
                 ReadFromSerializable_Audio(seri);
-                CreateGridControllers();
+                ReadFromSerializable_Grids(seri);
                 ReadFromSerializable_Parts(seri);
                 ReadFromSerializable_Entities(seri);
                 ReadFromSerializable_Model(seri);

@@ -2,13 +2,13 @@
 
 namespace PVZEngine.Modifiers
 {
-    public class NamespaceIDModifier : PropertyModifier<NamespaceID>
+    public class NamespaceIDModifier : SetModifier<NamespaceID>
     {
-        public NamespaceIDModifier(PropertyKey<NamespaceID> propertyName, NamespaceID valueConst, int priority = 0) : base(propertyName, valueConst, priority)
+        public NamespaceIDModifier(PropertyKey<NamespaceID> propertyName, SetOperator op, NamespaceID valueConst, int priority = 0) : base(propertyName, op, valueConst, priority)
         {
         }
 
-        public NamespaceIDModifier(PropertyKey<NamespaceID> propertyName, PropertyKey<NamespaceID> buffPropertyName, int priority = 0) : base(propertyName, buffPropertyName, priority)
+        public NamespaceIDModifier(PropertyKey<NamespaceID> propertyName, SetOperator op, PropertyKey<NamespaceID> buffPropertyName, int priority = 0) : base(propertyName, op, buffPropertyName, priority)
         {
         }
         public override ModifierCalculator GetCalculator()

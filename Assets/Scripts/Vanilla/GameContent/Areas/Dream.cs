@@ -4,6 +4,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Saves;
@@ -52,7 +53,10 @@ namespace MVZ2.GameContent.Areas
         }
         public override float GetGroundY(LevelEngine level, float x, float z)
         {
-            if (x > 500 && x < 820 && z > 120 && z < 440)
+            var column = level.GetColumn(x);
+            var lane = level.GetLane(z);
+            var grid = level.GetGrid(column, lane);
+            if (grid != null && grid.IsWater())
             {
                 // 水中
                 return -1 + Mathf.Sin(((x + z) * 0.01f + GetPoolWave(level)) * 4 * Mathf.PI);

@@ -211,7 +211,10 @@
             <p>也就欺负欺负猪灵们没有能力反抗了。</p>
         </description>
     </music>
-    <music id="phone_ring" name="有只僵尸在你的手机里" unlock="mvz2:kourindou_visited_castle">
+    <music id="phone_ring" name="有只僵尸在你的手机里" >
+        <unlock>
+            <condition required="mvz2:kourindou_visited_castle"/>
+        </unlock>
         <track main="mvz2:phone_ring"/>
         <source>植物大战僵尸</source>
         <origin>有只僵尸在你的草坪上</origin>
@@ -222,7 +225,10 @@
             <p>你电话响了。</p>
         </description>
     </music>
-    <music id="seija" name="Reverse Ideology" unlock="mvz2:level.castle_7">
+    <music id="seija" name="Reverse Ideology" >
+        <unlock>
+            <condition required="mvz2:level.castle_7"/>
+        </unlock>
         <track main="mvz2:seija"/>
         <source>东方辉针城</source>
         <description>
@@ -231,7 +237,10 @@
             <p>一切都倒过来了！</p>
         </description>
     </music>
-    <music id="sad_shinmyoumaru" name="针折线断的天守阁" unlock="mvz2:level.castle_8">
+    <music id="sad_shinmyoumaru" name="针折线断的天守阁" >
+        <unlock>
+            <condition required="mvz2:level.castle_8"/>
+        </unlock>
         <track main="mvz2:sad_shinmyoumaru"/>
         <source>东方辉针城</source>
         <origin>针小棒大的天守阁</origin>
@@ -242,7 +251,10 @@
             <p>言语如同锋芒，扎向城主的心。</p>
         </description>
     </music>
-    <music id="castle_final" name="辉光之针的小人族 ~ Little Princess" unlock="mvz2:level.castle_11">
+    <music id="castle_final" name="辉光之针的小人族 ~ Little Princess" >
+        <unlock>
+            <condition required="mvz2:level.castle_11"/>
+        </unlock>
         <track main="mvz2:castle_final"/>
         <source>东方辉针城</source>
         <description>
@@ -252,7 +264,10 @@
             <p>“这是我唯一剩下的愿望了”</p>
         </description>
     </music>
-    <music id="wither_boss" name="惊疑星球-首领" unlock="mvz2:level.castle_11">
+    <music id="wither_boss" name="惊疑星球-首领" >
+        <unlock>
+            <condition required="mvz2:level.castle_11"/>
+        </unlock>
         <track main="mvz2:wither_boss"/>
         <source>书虫大冒险 Vol.2</source>
         <description>
@@ -272,7 +287,10 @@
 		</description>
 	</music>
 
-    <music id="mausoleum_map" name="游魂的夜樱" unlock="mvz2:level.mausoleum_1">
+    <music id="mausoleum_map" name="游魂的夜樱" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_1"/>
+        </unlock>
         <track main="mvz2:mausoleum_map"/>
         <source>东方神灵庙</source>
         <origin>死灵的夜樱</origin>
@@ -286,7 +304,10 @@
             <p>可是，人明明已经死去，这般欲望又有什么意义呢？</p>
         </description>
     </music>
-    <music id="mausoleum_level" name="欲望缓步" unlock="mvz2:level.mausoleum_1">
+    <music id="mausoleum_level" name="欲望缓步" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_1"/>
+        </unlock>
         <track main="mvz2:mausoleum_level" sub="mvz2:mausoleum_level_sub"/>
         <source>东方神灵庙</source>
         <origin>欲望加速</origin>
@@ -298,7 +319,10 @@
             <p>那就在这里，慢慢地散个步吧。</p>
         </description>
     </music>
-    <music id="puzzle" name="脑力激战" unlock="mvz2:level.mausoleum_6">
+    <music id="puzzle" name="脑力激战" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_6"/>
+        </unlock>
         <track main="mvz2:puzzle" />
         <source>植物大战僵尸</source>
         <description>
@@ -307,7 +331,10 @@
             <p>该放什么僵尸？</p>
         </description>
     </music>
-    <music id="mausoleum_final" name="圣德传说 ~ True Administrator" unlock="mvz2:level.mausoleum_11">
+    <music id="mausoleum_final" name="圣德传说 ~ True Administrator" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_11"/>
+        </unlock>
         <track main="mvz2:mausoleum_final"/>
         <source>东方神灵庙</source>
         <description>
@@ -319,7 +346,10 @@
             <p>就如同领导者和他的人民一样，如果我不再听取那些支持我的人的，有相当价值的意见，甚至不把这些人放在眼里，就算我做的再好，那又有什么用呢？</p>
         </description>
     </music>
-    <music id="mausoleum_boss" name="进化恶魔" unlock="mvz2:level.mausoleum_11">
+    <music id="mausoleum_boss" name="进化恶魔" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_11"/>
+        </unlock>
         <track main="mvz2:mausoleum_boss" sub="mvz2:mausoleum_boss_sub"/>
         <source>洛克人X5/洛克人</source>
         <origin>暗影恶魔/威利博士关卡头目</origin>
@@ -332,7 +362,10 @@
             <p>令人恐惧，而又怀念的回忆。</p>
         </description>
     </music>
-    <music id="mausoleum_boss_2" name="Lamdabamda" unlock="mvz2:level.mausoleum_11">
+    <music id="mausoleum_boss_2" name="Lamdabamda" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_11"/>
+        </unlock>
         <track main="mvz2:mausoleum_boss_2"/>
         <source>洛克人X5</source>
         <description>
@@ -350,7 +383,10 @@
             <p>=====乐评施工中=====</p>
         </description>
     </music>
-    <music id="ship_level" name="晴空中的UFO恋曲" unlock="mvz2:level.ship_1">
+    <music id="ship_level" name="晴空中的UFO恋曲" >
+        <unlock>
+            <condition required="mvz2:level.ship_1"/>
+        </unlock>
         <track main="mvz2:ship_level" sub="mvz2:ship_level_sub"/>
         <source>东方星莲船</source>
         <origin>夜空中的UFO恋曲</origin>

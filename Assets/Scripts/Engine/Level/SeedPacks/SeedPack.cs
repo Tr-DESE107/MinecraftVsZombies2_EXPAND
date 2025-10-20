@@ -2,124 +2,42 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Models;
-using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace PVZEngine.SeedPacks
 {
-    public abstract class SeedPack : IBuffTarget, IPropertyModifyTarget, IAuraSource
+    public abstract partial class SeedPack : IPropertyModifyTarget, IAuraSource, IModeledBuffTarget
     {
+        #region 构造器
         public SeedPack(LevelEngine level, SeedDefinition definition, long id)
         {
             ID = id;
             Level = level;
             Definition = definition;
 
-            buffs.OnPropertyChanged += UpdateBuffedProperty;
-            buffs.OnBuffAdded += OnBuffAddedCallback;
-            buffs.OnBuffRemoved += OnBuffRemovedCallback;
             properties = new PropertyBlock(this);
-
-            var auraCount = definition.GetAuraCount();
-            for (int i = 0; i < auraCount; i++)
-            {
-                var auraDef = definition.GetAuraAt(i);
-                auras.Add(level, new AuraEffect(auraDef, i, this));
-            }
-        }
-        public NamespaceID GetDefinitionID()
-        {
-            return Definition.GetID();
-        }
-        public void ChangeDefinition(SeedDefinition definition)
-        {
-            Definition = definition;
-            properties.ClearFallbackCaches();
-            UpdateAllBuffedProperties(true);
-            OnDefinitionChanged?.Invoke(definition);
-        }
-
-        public void PostAdd(LevelEngine level)
-        {
-            auras.PostAdd();
-        }
-        public void PostRemove(LevelEngine level)
-        {
-            auras.PostRemove();
-            buffs.RemoveAuras();
-        }
-
-        #region 事件回调
-        private void OnBuffAddedCallback(Buff buff)
-        {
-            foreach (var insertion in buff.GetModelInsertions())
-            {
-                OnModelInsertionAdded?.Invoke(insertion);
-            }
-        }
-        private void OnBuffRemovedCallback(Buff buff)
-        {
-            foreach (var insertion in buff.GetModelInsertions())
-            {
-                OnModelInsertionRemoved?.Invoke(insertion);
-            }
+            InitBuffs();
+            CreateAuraEffects();
         }
         #endregion
 
-        #region 属性
-        public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
+        #region 生命周期
+        public void Update(float rechargeSpeed)
         {
-            return properties.GetProperty<T>(name, ignoreBuffs);
+            OnUpdate(rechargeSpeed);
+            UpdateAuras();
+            UpdateBuffs();
+            Definition.Update(this, rechargeSpeed);
         }
-        public void SetProperty<T>(PropertyKey<T> name, T? value)
+        protected virtual void OnUpdate(float rechargeSpeed)
         {
-            properties.SetProperty(name, value);
-        }
-        private void UpdateAllBuffedProperties(bool triggersEvaluation)
-        {
-            properties.UpdateAllModifiedProperties(triggersEvaluation);
-        }
-        private void UpdateBuffedProperty(IPropertyKey name)
-        {
-            properties.UpdateModifiedProperty(name);
-        }
-        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object? value)
-        {
-            if (Definition != null && Definition.TryGetPropertyObject(name, out var prop))
-            {
-                value = prop;
-                return true;
-            }
-            value = default;
-            return false;
-        }
 
-        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
-        {
-            buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
-        {
-        }
-        PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
-        {
-            return null;
-        }
-        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
-        {
-            return buffs.GetModifierPropertyNames();
-        }
-        #endregion
-
-        #region 增益
-        public abstract BuffReference GetBuffReference(Buff buff);
         #endregion
 
         #region 消耗
@@ -153,93 +71,73 @@ namespace PVZEngine.SeedPacks
                 return 0;
             return rechargeDef.GetMaxRecharge();
         }
-        public void Update(float rechargeSpeed)
-        {
-            auras.Update();
-            OnUpdate(rechargeSpeed);
-            buffs.Update();
-            Definition.Update(this, rechargeSpeed);
-        }
-        protected virtual void OnUpdate(float rechargeSpeed)
-        {
-
-        }
         #endregion
 
-        #region 模型
-        public void SetModelInterface(IModelInterface? model)
+        #region 杂项
+        public NamespaceID GetDefinitionID()
         {
-            modelInterface = model;
+            return Definition.GetID();
         }
-        public IModelInterface? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
+        public void ChangeDefinition(SeedDefinition definition)
         {
-            return modelInterface?.CreateChildModel(anchorName, key, modelID);
+            Definition = definition;
+            properties.ClearFallbackCaches();
+            UpdateAllBuffedProperties(true);
+            OnDefinitionChanged?.Invoke(definition);
         }
-        public bool RemoveChildModel(NamespaceID key)
-        {
-            return modelInterface?.RemoveChildModel(key) ?? false;
-        }
-        public IModelInterface? GetChildModel(NamespaceID key)
-        {
-            return modelInterface?.GetChildModel(key);
-        }
-        #endregion
-
-        #region 模型插入
-        public ModelInsertion[] GetModelInsertions()
-        {
-            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
-        }
+        public abstract bool Exists();
         #endregion
 
         #region 序列化
-        protected void ApplySerializableProperties(SerializableSeedPack seri)
+        protected void SaveToSerializable(SerializableSeedPack seri)
         {
             seri.id = ID;
             seri.seedID = Definition.GetID();
-            seri.properties = properties.ToSerializable();
-            seri.buffs = buffs.ToSerializable();
-            seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
+            SavePropertiesToSerializable(seri);
+            SaveBuffsToSerializable(seri);
+            SaveAurasToSerializable(seri);
         }
-        public void ApplyDeserializedProperties(LevelEngine level, SerializableSeedPack seri)
+        protected void InitFromSerializable(SerializableSeedPack seri)
         {
-            properties = PropertyBlock.FromSerializable(seri.properties, this);
-            buffs = BuffList.FromSerializable(seri.buffs, level, this);
-            buffs.OnPropertyChanged += UpdateBuffedProperty;
-            buffs.OnBuffAdded += OnBuffAddedCallback;
-            buffs.OnBuffRemoved += OnBuffRemovedCallback;
-            if (seri.buffs != null)
-                buffs.LoadAuras(seri.buffs, level);
-            if (seri.auras != null)
-                auras.LoadFromSerializable(level, seri.auras);
+            InitPropertiesFromSerializable(seri);
+            InitBuffsFromSerializable(seri);
+        }
+        public void LoadFromSerializable(LevelEngine level, SerializableSeedPack seri)
+        {
+            LoadBuffsFromSerializable(seri);
+            LoadAurasFromSerializable(seri);
             UpdateAllBuffedProperties(false);
         }
         #endregion
 
-        private void OnPropertyChangedCallback(IPropertyKey key, object before, object after)
+        #region ILevelObject接口实现
+        LevelEngine ILevelObject.GetLevel() => Level;
+        Entity? ILevelObject.GetEntity() => null;
+        IEnumerable<ILevelObject> ILevelObject.GetChildrenObjects()
         {
-            properties.RemoveFallbackCache(key);
+            foreach (var buff in buffs)
+            {
+                yield return buff;
+            }
         }
-        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
-        LevelEngine IBuffTarget.GetLevel() => Level;
-        Entity? IBuffTarget.GetEntity() => null;
-        bool IBuffTarget.Exists() => true;
-        Entity? IAuraSource.GetEntity() => null;
-        LevelEngine IAuraSource.GetLevel() => Level;
-        bool IAuraSource.IsValid() => true;
+        void ILevelObject.OnAddToLevel(LevelEngine level)
+        {
+            auras.PostAdd();
+        }
+        void ILevelObject.OnRemoveFromLevel(LevelEngine level)
+        {
+            auras.PostRemove();
+        }
+        #endregion
+
+        #region 事件
         public event Action<SeedDefinition>? OnDefinitionChanged;
-        public event Action<ModelInsertion>? OnModelInsertionAdded;
-        public event Action<ModelInsertion>? OnModelInsertionRemoved;
+        #endregion
 
         #region 属性字段
         public long ID { get; }
         public LevelEngine Level { get; private set; }
         public SeedDefinition Definition { get; private set; }
-        BuffList IBuffTarget.Buffs => buffs;
-        private IModelInterface? modelInterface;
-        private PropertyBlock properties;
-        protected BuffList buffs = new BuffList();
-        protected AuraEffectList auras = new AuraEffectList();
         #endregion
     }
 }

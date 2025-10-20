@@ -15,7 +15,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.spider)]
-    public class Spider : MeleeEnemy
+    public class Spider : AIEntityBehaviour
     {
         public Spider(string nsp, string name) : base(nsp, name)
         {
@@ -24,13 +24,13 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateAI(entity);
 
-            if (entity.State == VanillaEntityStates.SPIDER_CLIMB)
+            if (entity.State == STATE_CLIMB)
             {
-                var climbTarget = GetClimbTarget(entity);
-                if (climbTarget != null && climbTarget.Exists())
+                var climbTarget = Spider.GetClimbTarget(entity);
+                if (climbTarget.ExistsAndAlive())
                 {
                     // 正在垂直攀爬，修改位置。
-                    var peak = GetClimbTargetPeak(climbTarget);
+                    var peak = Spider.GetClimbTargetPeak(climbTarget);
                     if (entity.Position.y < peak)
                     {
                         var position = entity.Position;
@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
                 climbTarget = null;
                 SetClimbTarget(entity, null);
             }
-            if (climbTarget != null && climbTarget.Exists())
+            if (climbTarget.ExistsAndAlive())
             {
                 // 攀爬目标合适。
                 // 没有攀爬BUFF，那就加上一个。
@@ -59,8 +59,7 @@ namespace MVZ2.GameContent.Enemies
                 {
                     entity.AddBuff<SpiderClimbBuff>();
                 }
-
-                if (entity.State == VanillaEntityStates.SPIDER_CLIMB)
+                if (entity.State == STATE_CLIMB)
                 {
                     // 正在攀爬目标上行走。
                     var velocity = entity.Velocity;
@@ -76,11 +75,10 @@ namespace MVZ2.GameContent.Enemies
                     entity.RemoveBuffs<SpiderClimbBuff>();
                 }
             }
-            // 设置血量状态。
-            entity.SetModelDamagePercent();
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
+            base.PostCollision(collision, state);
             if (collision.Collider.IsForMain() && collision.OtherCollider.IsForMain())
             {
                 var enemy = collision.Entity;
@@ -96,9 +94,6 @@ namespace MVZ2.GameContent.Enemies
                         {
                             SetClimbTarget(enemy, other);
                         }
-
-                        // 只要能爬就不会进行攻击。
-                        return;
                     }
                 }
                 else
@@ -110,19 +105,6 @@ namespace MVZ2.GameContent.Enemies
                     }
                 }
             }
-            base.PostCollision(collision, state);
-        }
-        protected override int GetActionState(Entity enemy)
-        {
-            var state = base.GetActionState(enemy);
-            if (state == VanillaEntityStates.WALK || state == VanillaEntityStates.ATTACK)
-            {
-                if (IsClimbingVertically(enemy))
-                {
-                    return VanillaEntityStates.SPIDER_CLIMB;
-                }
-            }
-            return state;
         }
         public static bool IsClimbingVertically(Entity spider)
         {
@@ -136,7 +118,7 @@ namespace MVZ2.GameContent.Enemies
         {
             return target.GetBounds().max.y - 5;
         }
-        protected virtual bool CanClimb(Entity enemy, Entity target)
+        public static bool CanClimb(Entity enemy, Entity target)
         {
             if (target == null || !target.Exists() || target.IsDead)
                 return false;
@@ -170,5 +152,6 @@ namespace MVZ2.GameContent.Enemies
         }
         public static readonly NamespaceID ID = VanillaEnemyID.spider;
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_CLIMB_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("ClimbTargetID");
+        public const int STATE_CLIMB = VanillaEnemyStates.SPIDER_CLIMB;
     }
 }

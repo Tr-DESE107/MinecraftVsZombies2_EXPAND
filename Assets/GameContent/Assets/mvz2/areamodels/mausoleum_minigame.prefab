@@ -220,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: animators.Array.data[0]
       value: 
-      objectReference: {fileID: 6851802056000943596}
+      objectReference: {fileID: 5012747905983600240}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 
@@ -278,8 +278,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5671797193147986414, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
   m_PrefabInstance: {fileID: 6322183450378946038}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6851802056000943596 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 624476360387784730, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+--- !u!114 &5012747905983600240 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1309478712039478150, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
   m_PrefabInstance: {fileID: 6322183450378946038}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

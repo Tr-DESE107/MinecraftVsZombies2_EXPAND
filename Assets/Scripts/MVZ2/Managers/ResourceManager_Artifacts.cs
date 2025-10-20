@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
@@ -38,5 +39,14 @@ namespace MVZ2.Managers
             return Main.Game.GetArtifactTooltip(entityID);
         }
         #endregion
+        private void LoadUnlocks_Artifacts(ModResource resource)
+        {
+            if (resource.ArtifactMetaList == null)
+                return;
+            foreach (var meta in resource.ArtifactMetaList.metas)
+            {
+                AddConditionListUnlocks(meta.UnlockConditions);
+            }
+        }
     }
 }

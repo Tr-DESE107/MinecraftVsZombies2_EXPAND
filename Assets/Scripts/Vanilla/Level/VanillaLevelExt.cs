@@ -9,8 +9,8 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
-using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
@@ -40,6 +40,11 @@ namespace MVZ2.Vanilla.Level
     {
         public static bool IsDay(this LevelEngine level)
         {
+            var dayNightCycle = level.GetDayNightCycleOverride();
+            if (dayNightCycle != VanillaDayNightCycles.NONE)
+            {
+                return dayNightCycle == VanillaDayNightCycles.DAY;
+            }
             var areaTags = level.GetAreaTags();
             return areaTags.Contains(VanillaAreaTags.day);
         }
@@ -48,7 +53,7 @@ namespace MVZ2.Vanilla.Level
             var carts = game.GetEntities(EntityTypes.CART);
             for (int i = 0; i < game.GetMaxLaneCount(); i++)
             {
-                if (carts.Any(c => c.GetLane() == i && c.State == VanillaEntityStates.IDLE))
+                if (carts.Any(c => c.GetLane() == i && c.State == VanillaCartStates.IDLE))
                     continue;
                 game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
             }
@@ -69,7 +74,7 @@ namespace MVZ2.Vanilla.Level
         {
             return level.Explode(center, radius, faction, amount, effects, new EntitySourceReference(source), filter);
         }
-        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference source, Predicate<IEntityCollider>? filter = null)
+        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference? source, Predicate<IEntityCollider>? filter = null)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
             foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
@@ -120,30 +125,22 @@ namespace MVZ2.Vanilla.Level
             }
             return damageOutputs.ToArray();
         }
+
+        #region 手持物品
         public static NamespaceID? GetHeldSeedEntityID(this LevelEngine level)
         {
-            var heldType = level.GetHeldItemType();
-            var heldDefinition = level.GetHeldItemDefinition();
-            if (heldDefinition == null)
+            var data = level.GetHeldItemData();
+            if (data == null)
                 return null;
-            if (heldType == VanillaHeldTypes.blueprintPickup)
-            {
-                var entity = GetHoldingEntity(level);
-                if (entity == null)
-                    return null;
-                return BlueprintPickup.GetSeedEntityID(entity);
-            }
-            else
-            {
-                var seed = heldDefinition.GetSeedPack(level, level.GetHeldItemData());
-                return seed?.GetSeedEntityID();
-            }
+            return data.GetSeedEntityID(level);
         }
         public static bool IsHoldingExclusiveItem(this LevelEngine level)
         {
             if (!level.IsHoldingItem())
                 return false;
             var holdingDefinition = level.GetHeldItemDefinition();
+            if (holdingDefinition == null)
+                return false;
             return holdingDefinition.Exclusive;
         }
         public static bool IsHoldingItem(this LevelEngine level)
@@ -165,31 +162,24 @@ namespace MVZ2.Vanilla.Level
         }
         public static bool IsHoldingBlueprint(this LevelEngine level, SeedPack seedPack)
         {
-            if (seedPack is ClassicSeedPack classic)
-            {
-                var classicIndex = level.GetSeedPackIndex(classic);
-                if (classicIndex >= 0)
-                {
-                    return level.IsHoldingClassicBlueprint(classicIndex);
-                }
-            }
-            if (seedPack is ConveyorSeedPack conveyor)
-            {
-                var conveyorIndex = level.GetConveyorSeedPackIndex(conveyor);
-                if (conveyorIndex >= 0)
-                {
-                    return level.IsHoldingConveyorBlueprint(conveyorIndex);
-                }
-            }
-            return false;
+            var data = level.GetHeldItemData();
+            if (data == null)
+                return false;
+            return data.IsHoldingBlueprint(level, seedPack);
         }
         public static bool IsHoldingClassicBlueprint(this LevelEngine level, int i)
         {
-            return level.GetHeldItemType() == BuiltinHeldTypes.blueprint && level.GetHeldItemID() == i;
+            var data = level.GetHeldItemData();
+            if (data == null)
+                return false;
+            return data.IsHoldingClassicBlueprint(i);
         }
         public static bool IsHoldingConveyorBlueprint(this LevelEngine level, int i)
         {
-            return level.GetHeldItemType() == BuiltinHeldTypes.conveyor && level.GetHeldItemID() == i;
+            var data = level.GetHeldItemData();
+            if (data == null)
+                return false;
+            return data.IsHoldingConveyorBlueprint(i);
         }
         public static bool IsHoldingTrigger(this LevelEngine level)
         {
@@ -202,16 +192,12 @@ namespace MVZ2.Vanilla.Level
         public static Entity? GetHoldingEntity(this LevelEngine level)
         {
             var data = level.GetHeldItemData();
-            return level.GetHoldingEntity(data);
-        }
-        public static Entity? GetHoldingEntity(this LevelEngine level, IHeldItemData data)
-        {
-            var heldDefinition = level.GetHeldItemDefinition();
-            var entityBehaviour = heldDefinition.GetBehaviour<IEntityHeldItemBehaviour>();
-            if (entityBehaviour == null)
+            if (data == null)
                 return null;
-            return entityBehaviour.GetEntity(level, data);
+            return data.GetHoldingEntity(level);
         }
+        #endregion
+
         public static void CreatePreviewEnemies(this LevelEngine level, IEnumerable<NamespaceID> spawnsID, Rect region)
         {
             List<SpawnDefinition> spawnToCreate = new List<SpawnDefinition>();
@@ -359,7 +345,7 @@ namespace MVZ2.Vanilla.Level
             {
                 // 当前所有可以生成的敌人。
                 // 不被当前波次限制。
-                var possibleSpawnDefs = validSpawnDefs.Where(def => def.GetSpawnLevel(level) <= totalPoints);
+                var possibleSpawnDefs = validSpawnDefs.Where(def => def.GetSpawnLevel() <= totalPoints);
 
                 // 没有可生成的敌人了，跳出
                 if (possibleSpawnDefs.Count() <= 0)
@@ -379,7 +365,7 @@ namespace MVZ2.Vanilla.Level
                 var rng = level.GetSpawnRNG();
                 var spawnDef = finalSpawnPool.WeightedRandom(i => i.GetWeight(level), rng);
                 level.SpawnEnemyAtRandomLane(spawnDef);
-                totalPoints -= spawnDef.GetSpawnLevel(level);
+                totalPoints -= spawnDef.GetSpawnLevel();
                 spawnedCount++;
             }
 
@@ -431,7 +417,10 @@ namespace MVZ2.Vanilla.Level
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
-            return level.Spawn(spawnDef.GetSpawnEntityID(), pos, null)?.Let(e =>
+            var spawnEntityID = spawnDef.GetSpawnEntity();
+            if (!NamespaceID.IsValid(spawnEntityID))
+                return null;
+            return level.Spawn(spawnEntityID, pos, null)?.Let(e =>
             {
                 level.TriggerEnemySpawned(spawnDef.GetID(), e);
             });
@@ -920,13 +909,13 @@ namespace MVZ2.Vanilla.Level
                             }
                         }
                     }
-                    if (isPossible)
-                    {
-                        possible.Add(grid);
-                    }
                     if (isPrefered)
                     {
                         preferred.Add(grid);
+                    }
+                    else if (isPossible) // 如果是优先选择的地格，则不可以出现在所有可能的地格中，否则可能会导致两个障碍物生成在一起。
+                    {
+                        possible.Add(grid);
                     }
                 }
             }

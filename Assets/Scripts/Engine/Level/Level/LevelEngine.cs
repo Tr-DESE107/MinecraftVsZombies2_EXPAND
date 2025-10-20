@@ -2,15 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
-using PVZEngine.Models;
-using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace PVZEngine.Level
@@ -26,8 +23,6 @@ namespace PVZEngine.Level
             properties = new PropertyBlock(this);
             this.collisionSystem = collisionSystem;
         }
-
-
         public void Dispose()
         {
             RemoveTriggers(addedTriggers);
@@ -142,60 +137,6 @@ namespace PVZEngine.Level
         }
         #endregion
 
-        #region 属性
-        public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
-        {
-            return properties.GetProperty<T>(name, ignoreBuffs);
-        }
-        public bool TryGetProperty<T>(PropertyKey<T> name, out T? value, bool ignoreBuffs = false)
-        {
-            return properties.TryGetProperty<T>(name, out value, ignoreBuffs);
-        }
-        public void SetProperty<T>(PropertyKey<T> name, T? value)
-        {
-            properties.SetProperty(name, value);
-        }
-        private void UpdateAllBuffedProperties(bool triggersEvaluation)
-        {
-            properties.UpdateAllModifiedProperties(triggersEvaluation);
-        }
-        private void UpdateBuffedProperty(IPropertyKey name)
-        {
-            properties.UpdateModifiedProperty(name);
-        }
-        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object? value)
-        {
-            if (StageDefinition != null && StageDefinition.TryGetPropertyObject(name, out var stageProp))
-            {
-                value = stageProp;
-                return true;
-            }
-            if (AreaDefinition != null && AreaDefinition.TryGetPropertyObject(name, out var areaProp))
-            {
-                value = areaProp;
-                return true;
-            }
-            value = default;
-            return false;
-        }
-
-        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
-        {
-            buffs.GetModifierItems(name, results);
-        }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
-        {
-        }
-        PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
-        {
-            return null;
-        }
-        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
-        {
-            return buffs.GetModifierPropertyNames();
-        }
-        #endregion
-
         #region 时间
         public int GetSecondTicks(float second)
         {
@@ -203,151 +144,82 @@ namespace PVZEngine.Level
         }
         #endregion
 
-        #region 增益
-        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceLevel(buff.ID);
-        public Buff CreateBuff<T>(long buffID) where T : BuffDefinition
+        #region 引用计数
+        public void IncreaseLevelObjectReference(ILevelObject obj)
         {
-            var buffDefinition = Content.GetBuffDefinition<T>();
-            return CreateBuff(buffDefinition, buffID);
-        }
-        public Buff CreateBuff(NamespaceID id, long buffID)
-        {
-            var buffDefinition = Content.GetBuffDefinition(id);
-            if (buffDefinition == null)
-                throw new MissingDefinitionException($"Trying to create a buff with missing definition {id}");
-            return CreateBuff(buffDefinition, buffID);
-        }
-        public Buff CreateBuff(BuffDefinition buffDef, long buffID)
-        {
-            return new Buff(this, buffDef, buffID);
-        }
-        #endregion
-
-        #region 序列化
-        public SerializableLevel Serialize()
-        {
-            var level = new SerializableLevel()
+            if (levelObjectReferences.TryGetValue(obj, out var count))
             {
-                stageDefinitionID = StageDefinition.GetID(),
-                areaDefinitionID = AreaDefinition.GetID(),
-                difficulty = Difficulty,
-                Option = Option.Serialize(),
-
-                properties = properties.ToSerializable(),
-                currentSeedPackID = currentSeedPackID,
-                collisionSystem = collisionSystem.ToSerializable(),
-
-                energy = Energy,
-                delayedEnergyEntities = delayedEnergyEntities.Select(d => new SerializableDelayedEnergy() { entityId = d.Key.ID, energy = d.Value }).ToArray(),
-
-                currentWave = CurrentWave,
-                currentFlag = CurrentFlag,
-                waveState = WaveState,
-                levelProgressVisible = LevelProgressVisible,
-
-                buffs = buffs.ToSerializable(),
-
-                components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
-            };
-            WriteSeedPacksToSerializable(level);
-            WriteConveyorToSerializable(level);
-            WriteEntitiesToSerializable(level);
-            WriteProgressToSerializable(level);
-            WriteRandomToSerializable(level);
-            WriteGridsToSerializable(level);
-            return level;
-        }
-        public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
-        {
-            if (!NamespaceID.IsValid(seri.stageDefinitionID)) throw MissingSerializeDataException.Property<SerializableLevel>(nameof(seri.stageDefinitionID));
-            if (!NamespaceID.IsValid(seri.areaDefinitionID)) throw MissingSerializeDataException.Property<SerializableLevel>(nameof(seri.areaDefinitionID));
-            if (!NamespaceID.IsValid(seri.difficulty)) throw MissingSerializeDataException.Property<SerializableLevel>(nameof(seri.difficulty));
-            if (seri.Option == null) throw MissingSerializeDataException.Property<SerializableLevel>(nameof(seri.Option));
-
-            var level = new LevelEngine(provider, triggers, collisionSystem);
-            level.ReadProgressFromSerializable(seri);
-            level.ReadRandomFromSerializable(seri);
-
-            level.ChangeStage(seri.stageDefinitionID);
-            level.ChangeArea(seri.areaDefinitionID);
-            level.InitGrids(level.AreaDefinition);
-
-            level.Difficulty = seri.difficulty;
-            level.Option = LevelOption.Deserialize(seri.Option);
-            level.properties = PropertyBlock.FromSerializable(seri.properties, level);
-
-            level.Energy = seri.energy;
-
-            level.CurrentWave = seri.currentWave;
-            level.CurrentFlag = seri.currentFlag;
-            level.WaveState = seri.waveState;
-            level.LevelProgressVisible = seri.levelProgressVisible;
-
-            // 加载所有种子包。
-            level.currentSeedPackID = seri.currentSeedPackID;
-            level.CreateSeedPacksFromSerializable(seri);
-            level.CreateConveyorFromSerializable(seri);
-            // 加载所有实体。
-            level.CreateEntitiesFromSerializable(seri);
-            // 加载所有网格。
-            level.LoadGridsFromSerializable(seri);
-            // 加载所有BUFF。
-            level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
-            level.buffs.OnPropertyChanged += level.UpdateBuffedProperty;
-
-            // 所有实体、种子包和BUFF都已加载完毕。
-
-
-            // 加载所有种子包、实体、BUFF的详细信息。
-            // 因为有光环这种东西的存在，可能会引用buff，所以需要在buff加载完之后加载。
-            level.ReadSeedPacksFromSerializable(seri);
-            level.ReadConveyorFromSerializable(seri);
-            level.ReadEntitiesFromSerializable(seri);
-            // 加载所有网格的属性，需要引用实体。
-            level.ReadGridsFromSerializable(seri);
-            if (seri.buffs != null)
-                level.buffs.LoadAuras(seri.buffs, level);
-
-            // 在实体加载后面
-            if (seri.collisionSystem != null)
-                level.collisionSystem.LoadFromSerializable(level, seri.collisionSystem);
-
-            level.delayedEnergyEntities.Clear();
-            if (seri.delayedEnergyEntities != null)
+                levelObjectReferences[obj] = count + 1;
+            }
+            else
             {
-                foreach (var item in seri.delayedEnergyEntities)
+                levelObjectReferences.Add(obj, 1);
+                obj.OnAddToLevel(this);
+            }
+            foreach (var child in obj.GetChildrenObjects())
+            {
+                IncreaseLevelObjectReference(child);
+            }
+        }
+        public void IncreaseLevelObjectChildReference(ILevelObject parent, ILevelObject child)
+        {
+            if (parent == this || HasLevelObjectReference(parent))
+            {
+                IncreaseLevelObjectReference(child);
+            }
+        }
+        public void DecreaseLevelObjectReference(ILevelObject obj)
+        {
+            if (levelObjectReferences.TryGetValue(obj, out var count))
+            {
+                count--;
+                if (count <= 0)
                 {
-                    var key = level.FindEntityByID(item.entityId);
-                    if (key == null)
-                        continue;
-                    level.delayedEnergyEntities.Add(key, item.energy);
+                    levelObjectReferences.Remove(obj);
+                    foreach (var child in obj.GetChildrenObjects())
+                    {
+                        DecreaseLevelObjectReference(child);
+                    }
+                    obj.OnRemoveFromLevel(this);
+                }
+                else
+                {
+                    levelObjectReferences[obj] = count;
                 }
             }
-            level.UpdateAllBuffedProperties(false);
-
-            return level;
         }
-        public void DeserializeComponents(SerializableLevel seri)
+        public void DecreaseLevelObjectChildReference(ILevelObject parent, ILevelObject child)
         {
-            if (seri.components == null)
-                return;
-            foreach (var seriComp in seri.components)
+            if (parent == this || HasLevelObjectReference(parent))
             {
-                var comp = levelComponents.FirstOrDefault(c => c.GetID().ToString() == seriComp.Key);
-                if (comp == null)
-                    continue;
-                comp.LoadSerializable(seriComp.Value);
+                DecreaseLevelObjectReference(child);
             }
         }
+        public bool HasLevelObjectReference(ILevelObject obj)
+        {
+            return levelObjectReferences.ContainsKey(obj);
+        }
         #endregion
 
         #endregion
 
-        #region 私有方法
-        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => null;
-        LevelEngine IBuffTarget.GetLevel() => this;
-        Entity? IBuffTarget.GetEntity() => null;
-        bool IBuffTarget.Exists() => true;
+        #region 接口实现
+        LevelEngine ILevelObject.GetLevel() => this;
+        Entity? ILevelObject.GetEntity() => null;
+        bool ILevelObject.Exists() => true;
+        void ILevelObject.OnAddToLevel(LevelEngine level)
+        {
+        }
+        void ILevelObject.OnRemoveFromLevel(LevelEngine level)
+        {
+        }
+        IEnumerable<ILevelObject> ILevelObject.GetChildrenObjects()
+        {
+            foreach (var pair in levelObjectReferences)
+            {
+                yield return pair.Key;
+            }
+        }
         #endregion
 
         #region 属性字段
@@ -360,13 +232,9 @@ namespace PVZEngine.Level
         public bool IsRerun { get; set; }
         public int TPS => Option.TPS;
         public LevelOption Option { get; private set; } = null!;
-        BuffList IBuffTarget.Buffs => buffs;
-
-
-        private PropertyBlock properties;
-        private BuffList buffs = new BuffList();
 
         private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
+        private Dictionary<ILevelObject, int> levelObjectReferences = new Dictionary<ILevelObject, int>();
         #endregion 保存属性
     }
 }

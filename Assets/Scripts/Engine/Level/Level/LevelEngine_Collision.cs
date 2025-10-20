@@ -79,6 +79,18 @@ namespace PVZEngine.Level
         }
         #endregion
 
+        #region 序列化
+        private void WriteCollisionToSerializable(SerializableLevel seri)
+        {
+            seri.collisionSystem = collisionSystem.ToSerializable();
+        }
+        private void ReadCollisionFromSerializable(SerializableLevel seri)
+        {
+            if (seri.collisionSystem != null)
+                collisionSystem.LoadFromSerializable(this, seri.collisionSystem);
+        }
+        #endregion
+
         private ICollisionSystem collisionSystem;
     }
 }

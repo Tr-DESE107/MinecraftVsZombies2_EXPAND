@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 
@@ -18,5 +19,6 @@ namespace PVZEngine.Grids
         public Dictionary<string, long[]>? layerEntityLists;
         public SerializablePropertyBlock? properties;
         public SerializableBuffList? buffs;
+        public SerializableAuraEffect?[]? auras;
     }
 }

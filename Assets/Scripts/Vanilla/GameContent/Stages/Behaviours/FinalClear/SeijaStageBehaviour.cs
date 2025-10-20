@@ -8,6 +8,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -82,7 +83,7 @@ namespace MVZ2.GameContent.Stages
             var y = level.GetGroundY(x, z);
             level.Spawn(VanillaBossID.seija, new Vector3(x, y, z), null)?.Let(e =>
             {
-                Seija.StartState(e, VanillaEntityStates.SEIJA_FRONTFLIP);
+                Seija.StartState(e, VanillaBossStates.SEIJA_FRONTFLIP);
             });
             level.SetNoEnergy(false);
             // 音乐。

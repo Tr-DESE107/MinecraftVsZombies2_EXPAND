@@ -14,7 +14,7 @@ using Tools;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.skeletonMage)]
-    public class SkeletonMage : StateEnemy
+    public class SkeletonMage : AIEntityBehaviour
     {
         public SkeletonMage(string nsp, string name) : base(nsp, name)
         {
@@ -34,27 +34,29 @@ namespace MVZ2.GameContent.Enemies
             }
             entity.SetAnimationInt("Variant", entity.GetVariant());
         }
+        protected override void UpdateAI(Entity entity)
+        {
+            base.UpdateAI(entity);
+            switch (entity.State)
+            {
+                case STATE_WALK:
+                    UpdateStateWalk(entity);
+                    break;
+                case STATE_CAST:
+                    UpdateStateCast(entity);
+                    break;
+                case STATE_RANGED_ATTACK:
+                    UpdateStateAttack(entity);
+                    break;
+            }
+        }
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
             entity.SetAnimationInt("Variant", entity.GetVariant());
         }
-        protected override int GetActionState(Entity enemy)
+        private void UpdateStateWalk(Entity enemy)
         {
-            var state = base.GetActionState(enemy);
-            if (state == VanillaEntityStates.ATTACK)
-            {
-                if (GetAttackState(enemy) == ATTACK_STATE_CAST)
-                {
-                    state = VanillaEntityStates.ENEMY_CAST;
-                }
-            }
-            return state;
-        }
-        protected override void UpdateStateWalk(Entity enemy)
-        {
-            base.UpdateStateWalk(enemy);
             UpdateTarget(enemy);
             var timer = GetStateTimer(enemy);
             if (timer != null)
@@ -62,9 +64,8 @@ namespace MVZ2.GameContent.Enemies
                 timer.ResetTime(ATTACK_CAST_TIME);
             }
         }
-        protected override void UpdateStateCast(Entity enemy)
+        private void UpdateStateCast(Entity enemy)
         {
-            base.UpdateStateCast(enemy);
             var timer = GetStateTimer(enemy);
             if (timer == null)
                 return;
@@ -75,9 +76,8 @@ namespace MVZ2.GameContent.Enemies
                 timer.ResetTime(ATTACK_FIRE_TIME);
             }
         }
-        protected override void UpdateStateAttack(Entity enemy)
+        private void UpdateStateAttack(Entity enemy)
         {
-            base.UpdateStateAttack(enemy);
             var timer = GetStateTimer(enemy);
             if (timer == null)
                 return;
@@ -171,6 +171,10 @@ namespace MVZ2.GameContent.Enemies
             return detector.ValidateTarget(entity, target);
         }
         private Detector detector;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_CAST = VanillaEnemyStates.CAST;
+        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
+
         public const int ATTACK_STATE_CAST = 0;
         public const int ATTACK_STATE_FIRE = 1;
         public const int ATTACK_STATE_RESTORE = 2;

@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -13,7 +12,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.wickedHermitZombie)]
-    public class WickedHermitZombie : MeleeEnemy
+    public class WickedHermitZombie : AIEntityBehaviour
     {
         public WickedHermitZombie(string nsp, string name) : base(nsp, name)
         {
@@ -43,40 +42,6 @@ namespace MVZ2.GameContent.Enemies
                     enemy.PlaySound(VanillaSoundID.gapWarp);
                 }
             }
-        }
-        protected override int GetActionState(Entity enemy)
-        {
-            var state = base.GetActionState(enemy);
-            if (state == VanillaEntityStates.WALK)
-            {
-                if (!IsWarpped(enemy))
-                {
-                    var talismanID = GetTalismanZombie(enemy);
-                    var talisman = talismanID?.GetEntity(enemy.Level);
-                    if (talisman != null)
-                    {
-                        bool tooClose;
-                        if (enemy.IsFacingLeft())
-                        {
-                            tooClose = talisman.Position.x > enemy.Position.x - TALISMAN_DISTANCE;
-                        }
-                        else
-                        {
-                            tooClose = talisman.Position.x < enemy.Position.x + TALISMAN_DISTANCE;
-                        }
-                        if (tooClose)
-                        {
-                            state = VanillaEntityStates.IDLE;
-                        }
-                    }
-                }
-            }
-            return state;
-        }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
         }
         public static void SetWarpped(Entity entity, bool value)
         {

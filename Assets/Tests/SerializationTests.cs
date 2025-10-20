@@ -62,13 +62,14 @@ namespace MVZ2.Tests
             var definition = game.GetEntityDefinition(VanillaContraptionID.dispenser);
             var entity = level.Spawn(definition, new Vector3(500, 0, 300), null);
 
-            SerializableEntity seriEnt = entity.Serialize();
+            SerializableEntity seriEnt = entity.ToSerializable();
             var json = seriEnt.ToBson();
 
             SerializableEntity seriEnt2 = SerializeHelper.FromBson<SerializableEntity>(json);
-            var entity2 = Entity.Deserialize(seriEnt2, level);
+            var entity2 = Entity.CreateFromSerializable(seriEnt2, level);
+            entity2.LoadFromSerializable(seriEnt2);
 
-            SerializableEntity seriEnt3 = entity2.Serialize();
+            SerializableEntity seriEnt3 = entity2.ToSerializable();
             var json2 = seriEnt3.ToBson();
             Assert.AreEqual(json, json2);
         }

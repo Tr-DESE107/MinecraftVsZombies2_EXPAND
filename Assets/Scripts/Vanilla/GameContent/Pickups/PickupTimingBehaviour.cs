@@ -39,7 +39,6 @@ namespace MVZ2.Vanilla.Entities
             {
                 pickup.AddPickupCollectedTime(1);
             }
-            pickup.SetModelProperty("ContentID", pickup.GetPickupContentID());
         }
     }
 }

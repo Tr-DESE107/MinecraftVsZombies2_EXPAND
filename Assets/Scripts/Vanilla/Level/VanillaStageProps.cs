@@ -43,8 +43,8 @@ namespace MVZ2.Vanilla.Level
 
         public static readonly PropertyMeta<bool> ENDLESS = Get<bool>("endless");
 
-        public static float GetWaveMaxTime(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_MAX_TIME);
-        public static float GetWaveAdvanceTime(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_ADVANCE_TIME);
+        public static float GetWaveMaxSeconds(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_MAX_TIME);
+        public static float GetWaveAdvanceSeconds(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_ADVANCE_TIME);
         public static float GetWaveAdvanceHealthPercent(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_ADVANCE_HEALTH_PERCENT);
         public static NamespaceID? GetClearPickupModel(this LevelEngine level)
         {

@@ -3,6 +3,7 @@
 using System;
 using MongoDB.Bson.Serialization.Attributes;
 using MVZ2.Entities;
+using MVZ2.Grids;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using PVZEngine;
@@ -47,5 +48,7 @@ namespace MVZ2.Level
         public SerializableLevel? level;
 
         public SerializableLevelUIPreset? uiPreset;
+
+        public SerializableGridController?[]? grids;
     }
 }

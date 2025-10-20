@@ -2,10 +2,38 @@
 
 using System.Xml;
 using MVZ2.IO;
+using MVZ2Logic;
 using PVZEngine;
 
 namespace MVZ2.Metas
 {
+    public class GridMeta
+    {
+        public GridMeta(string iD)
+        {
+            ID = iD;
+        }
+
+        public string ID { get; private set; }
+        public float Slope { get; private set; }
+        public SpriteReference? OverlaySprite { get; private set; }
+        public static GridMeta? FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var id = node.GetAttribute("id");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError($"The {nameof(id)} of a {nameof(GridMeta)} is invalid.");
+                return null;
+            }
+            var slope = node.GetAttributeFloat("slope") ?? 0f;
+            var overlaySprite = node.GetAttributeSpriteReference("overlaySprite", defaultNsp) ?? null;
+            return new GridMeta(id)
+            {
+                Slope = slope,
+                OverlaySprite = overlaySprite
+            };
+        }
+    }
     public class GridLayerMeta
     {
         public GridLayerMeta(string iD, NamespaceID? almanacTag)

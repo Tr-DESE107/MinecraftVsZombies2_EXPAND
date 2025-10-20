@@ -5,6 +5,7 @@ ShaderImporter:
   defaultTextures:
   - _MainTex: {instanceID: 0}
   - _LightMapSpot: {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
+  - _DepthMap: {fileID: 8600000, guid: 51293162492f9c549a1f9962e776f95b, type: 2}
   nonModifiableTextures: []
   userData: 
   assetBundleName: 

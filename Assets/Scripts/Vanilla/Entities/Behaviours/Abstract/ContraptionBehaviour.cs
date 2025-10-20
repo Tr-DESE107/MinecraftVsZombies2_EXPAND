@@ -12,7 +12,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public virtual bool CanEvoke(Entity entity)
         {
-            return !entity.IsEvoked() && !entity.IsAIFrozen();
+            return !entity.IsEvoked() && !entity.IsAIFrozen() && !entity.NoEvoke();
         }
         public virtual void Evoke(Entity entity)
         {

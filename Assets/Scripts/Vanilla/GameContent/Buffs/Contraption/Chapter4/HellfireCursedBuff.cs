@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
     {
         public HellfireCursedBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new NamespaceIDModifier(VanillaContraptionProps.FRAGMENT_ID, VanillaFragmentID.hellfireCursed));
+            AddModifier(new NamespaceIDModifier(VanillaContraptionProps.FRAGMENT_ID, SetOperator.Set, VanillaFragmentID.hellfireCursed));
             AddModifier(ColorModifier.Override(VanillaEntityProps.LIGHT_COLOR, new Color(0, 1, 0)));
         }
     }

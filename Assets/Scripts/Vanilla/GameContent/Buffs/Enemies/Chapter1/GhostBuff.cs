@@ -7,6 +7,7 @@ using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
@@ -25,7 +26,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
             AddModifier(new BooleanModifier(VanillaEntityProps.ETHEREAL, PROP_ETHEREAL));
             AddModifier(new FloatModifier(VanillaEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
-            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
+            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback, priority: VanillaCallbackPriorities.MULTIPLY);
         }
         public override void PostAdd(Buff buff)
         {

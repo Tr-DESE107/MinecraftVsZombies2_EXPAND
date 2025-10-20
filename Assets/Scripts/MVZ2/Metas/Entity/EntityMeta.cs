@@ -12,7 +12,7 @@ namespace MVZ2.Metas
 {
     public class EntityMeta
     {
-        private EntityMeta(string iD, string name, string deathMessage, string tooltip, NamespaceID? unlock, NamespaceID[] behaviours, Dictionary<string, object?> properties)
+        private EntityMeta(string iD, string name, string deathMessage, string tooltip, XMLConditionList? unlock, NamespaceID[] behaviours, Dictionary<string, object?> properties)
         {
             ID = iD;
             Name = name;
@@ -28,7 +28,7 @@ namespace MVZ2.Metas
         public string Name { get; private set; }
         public string DeathMessage { get; private set; }
         public string Tooltip { get; private set; }
-        public NamespaceID? Unlock { get; private set; }
+        public XMLConditionList? Unlock { get; private set; }
         public int Order { get; private set; }
         public NamespaceID[] Behaviours { get; private set; }
         public Dictionary<string, object?> Properties { get; private set; }
@@ -44,8 +44,9 @@ namespace MVZ2.Metas
             var template = templates.FirstOrDefault(t => t.name == node.Name);
             var name = node.GetAttribute("name") ?? string.Empty;
             var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n") ?? string.Empty;
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n") ?? string.Empty;
+
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
 
             var behaviours = new List<NamespaceID>();
             var behavioursNode = node["behaviours"];
@@ -81,7 +82,7 @@ namespace MVZ2.Metas
             }
 
 
-            return new EntityMeta(id, name, deathMessage, tooltip, unlock, behaviours.ToArray(), properties)
+            return new EntityMeta(id, name, deathMessage, tooltip, unlockConditions, behaviours.ToArray(), properties)
             {
                 Type = type,
                 Order = order,
@@ -92,6 +93,7 @@ namespace MVZ2.Metas
     public class EntityBehaviourItem
     {
         public BehaviourOperator Operator { get; private set; }
+        public NamespaceID? SourceID { get; private set; }
         public NamespaceID ID { get; private set; }
         public EntityBehaviourItem(BehaviourOperator @operator, NamespaceID iD)
         {
@@ -112,18 +114,24 @@ namespace MVZ2.Metas
             {
                 op = o;
             }
-            return new EntityBehaviourItem(op, id);
+            var sourceID = node.GetAttributeNamespaceID("source", defaultNsp);
+            return new EntityBehaviourItem(op, id)
+            {
+                SourceID = sourceID
+            };
         }
         private static Dictionary<string, BehaviourOperator> operatorDict = new Dictionary<string, BehaviourOperator>()
         {
             { "add", BehaviourOperator.Add },
             { "remove", BehaviourOperator.Remove },
+            { "replace", BehaviourOperator.Replace },
         };
 
     }
     public enum BehaviourOperator
     {
         Add,
-        Remove
+        Remove,
+        Replace
     }
 }

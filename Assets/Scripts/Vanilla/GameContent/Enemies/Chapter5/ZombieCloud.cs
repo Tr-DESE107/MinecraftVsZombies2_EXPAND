@@ -7,7 +7,6 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -20,7 +19,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.zombieCloud)]
-    public class ZombieCloud : StateEnemy
+    public class ZombieCloud : AIEntityBehaviour
     {
         public ZombieCloud(string nsp, string name) : base(nsp, name)
         {

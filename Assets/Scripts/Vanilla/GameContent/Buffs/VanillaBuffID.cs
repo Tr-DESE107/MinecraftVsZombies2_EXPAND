@@ -59,6 +59,8 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 5
             public const string ufoSpawn = "ufo_spawn";
             public const string beaconMeteor = "beacon_meteor";
+            public const string sorcerersScrollStarshard = "sorcerers_scroll_starshard";
+            public const string skywardNight = "skyward_night";
 
             // Random China
             public const string greedyVacuum = "greedy_vacuum";
@@ -69,6 +71,7 @@ namespace MVZ2.GameContent.Buffs
         {
             // Chapter 5
             public const string waterStainWet = "water_stain_wet";
+            public const string goldenGrid = "golden_grid";
         }
         public static class Entity
         {
@@ -76,6 +79,7 @@ namespace MVZ2.GameContent.Buffs
             public const string entityPhysics = "entity_physics";
             public const string faction = "faction";
             public const string changeLane = "change_lane";
+            public const string changeGrid = "change_grid";
             public const string damageColor = "damage_color";
             public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
 
@@ -96,6 +100,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 5
             public const string aboveCloud = "above_cloud";
+            public const string dragonTooth = "dragon_tooth";
 
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
@@ -178,6 +183,9 @@ namespace MVZ2.GameContent.Buffs
             public const string hfpdUpgraded = "hfpd_upgraded";
             public const string stolenByUFO = "stolen_by_ufo";
             public const string woodenFanBlow = "wooden_fan_blow";
+            public const string elasticCloudBounceCooldown = "elastic_cloud_bounce_cooldown";
+            public const string elasticCloudEvocation = "elastic_cloud_evocation";
+            public const string skywardBeaconNight = "skyward_beacon_night";
         }
         public static class Enemy
         {
@@ -376,20 +384,23 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID spiritUniverseNight = Get(VanillaBuffNames.Level.spiritUniverseNight);
             public static readonly NamespaceID theGiantTransition = Get(VanillaBuffNames.Level.theGiantTransition);
             public static readonly NamespaceID theGiantCleared = Get(VanillaBuffNames.Level.theGiantCleared);
+            public static readonly NamespaceID greedyVacuum = Get(VanillaBuffNames.Level.greedyVacuum);
 
             // Chapter 5
             public static readonly NamespaceID ufoSpawn = Get(VanillaBuffNames.Level.ufoSpawn);
             public static readonly NamespaceID beaconMeteor = Get(VanillaBuffNames.Level.beaconMeteor);
+            public static readonly NamespaceID sorcerersScrollStarshard = Get(VanillaBuffNames.Level.sorcerersScrollStarshard);
+            public static readonly NamespaceID skywardNight = Get(VanillaBuffNames.Level.skywardNight);
 
             // Random China
-            public static readonly NamespaceID greedyVacuum = Get(VanillaBuffNames.Level.greedyVacuum);
             public static readonly NamespaceID superRecharge = Get(VanillaBuffNames.Level.superRecharge);
             public static readonly NamespaceID ancientEgypt = Get(VanillaBuffNames.Level.ancientEgypt);
         }
         public static class Grid
         {
-            // Chapter 
+            // Chapter 5
             public static readonly NamespaceID waterStainWet = Get(VanillaBuffNames.Grid.waterStainWet);
+            public static readonly NamespaceID goldenGrid = Get(VanillaBuffNames.Grid.goldenGrid);
         }
         public static class Entity
         {
@@ -416,6 +427,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 5
             public static readonly NamespaceID aboveCloud = Get(VanillaBuffNames.Entity.aboveCloud);
+            public static readonly NamespaceID dragonTooth = Get(VanillaBuffNames.Entity.dragonTooth);
 
             // Random China
             public static readonly NamespaceID worldwideCelebration = Get(VanillaBuffNames.Entity.worldwideCelebration);
@@ -491,6 +503,9 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID hfpdUpgraded = Get(VanillaBuffNames.Contraption.hfpdUpgraded);
             public static readonly NamespaceID stolenByUFO = Get(VanillaBuffNames.Contraption.stolenByUFO);
             public static readonly NamespaceID woodenFanBlow = Get(VanillaBuffNames.Contraption.woodenFanBlow);
+            public static readonly NamespaceID elasticCloudBounceCooldown = Get(VanillaBuffNames.Contraption.elasticCloudBounceCooldown);
+            public static readonly NamespaceID elasticCloudEvocation = Get(VanillaBuffNames.Contraption.elasticCloudEvocation);
+            public static readonly NamespaceID skywardBeaconNight = Get(VanillaBuffNames.Contraption.skywardBeaconNight);
         }
         public static class Enemy
         {

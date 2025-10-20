@@ -65,12 +65,15 @@ namespace MVZ2.Metas
 
             var paramList = new List<CommandMetaParam>();
             var paramsNode = node["params"];
-            for (int i = 0; i < paramsNode.ChildNodes.Count; i++)
+            if (paramsNode != null)
             {
-                var childNode = paramsNode.ChildNodes[i];
-                if (childNode.Name == "param")
+                for (int i = 0; i < paramsNode.ChildNodes.Count; i++)
                 {
-                    paramList.Add(CommandMetaParam.FromXmlNode(childNode, defaultNsp));
+                    var childNode = paramsNode.ChildNodes[i];
+                    if (childNode.Name == "param")
+                    {
+                        paramList.Add(CommandMetaParam.FromXmlNode(childNode, defaultNsp));
+                    }
                 }
             }
             return new CommandMetaVariant(paramList.ToArray())
@@ -156,5 +159,6 @@ namespace MVZ2.Metas
         public const string ID_TYPE_ARTIFACT = "artifact";
         public const string ID_TYPE_ARMOR = "armor";
         public const string ID_TYPE_ARMOR_SLOT = "armor_slot";
+        public const string ID_TYPE_UNLOCK = "unlock";
     }
 }

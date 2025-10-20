@@ -14,6 +14,11 @@ namespace MVZ2.GameContent.Effects
         public Smoke(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.SetModelProperty("Size", entity.GetScaledSize());
+        }
         public override void Update(Entity entity)
         {
             base.Update(entity);

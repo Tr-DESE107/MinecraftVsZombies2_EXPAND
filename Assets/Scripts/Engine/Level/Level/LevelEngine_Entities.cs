@@ -37,8 +37,8 @@ namespace PVZEngine.Level
         private void WriteEntitiesToSerializable(SerializableLevel seri)
         {
             seri.currentEntityID = currentEntityID;
-            seri.entities = entities.Values.Select(e => e.Serialize()).ToList();
-            seri.entityTrash = entityTrash.Values.Select(e => e.Serialize()).ToList();
+            seri.entities = entities.Values.Select(e => e.ToSerializable()).ToList();
+            seri.entityTrash = entityTrash.Values.Select(e => e.ToSerializable()).ToList();
         }
         private void CreateEntitiesFromSerializable(SerializableLevel seri)
         {
@@ -47,16 +47,18 @@ namespace PVZEngine.Level
             {
                 foreach (var ent in seri.entities)
                 {
-                    var entity = Entity.CreateDeserializingEntity(ent, this);
+                    var entity = Entity.CreateFromSerializable(ent, this);
                     if (entity != null)
+                    {
                         entities.Add(ent.id, entity);
+                    }
                 }
             }
             if (seri.entityTrash != null)
             {
                 foreach (var ent in seri.entityTrash)
                 {
-                    var entity = Entity.CreateDeserializingEntity(ent, this);
+                    var entity = Entity.CreateFromSerializable(ent, this);
                     if (entity != null)
                         entityTrash.Add(ent.id, entity);
                 }
@@ -70,7 +72,9 @@ namespace PVZEngine.Level
                 {
                     var seriEnt = seri.entities[i];
                     var id = seriEnt.id;
-                    entities[id].ApplyDeserialize(seriEnt);
+                    var entity = entities[id];
+                    entity.LoadFromSerializable(seriEnt);
+                    IncreaseLevelObjectReference(entity);
                 }
             }
             if (seri.entityTrash != null)
@@ -79,7 +83,7 @@ namespace PVZEngine.Level
                 {
                     var seriEnt = seri.entityTrash[i];
                     var id = seriEnt.id;
-                    entityTrash[id].ApplyDeserialize(seriEnt);
+                    entityTrash[id].LoadFromSerializable(seriEnt);
                 }
             }
         }
@@ -103,6 +107,7 @@ namespace PVZEngine.Level
             entities.Add(id, spawned);
             OnEntitySpawn?.Invoke(spawned);
             spawned.Init();
+            IncreaseLevelObjectReference(spawned);
             return spawned;
         }
         public Entity? SpawnSourced(EntityDefinition entityDef, Vector3 pos, ILevelSourceReference? source, SpawnParams? param = null) => SpawnSourced(entityDef, pos, source, NewEntitySeed(), param);
@@ -153,6 +158,7 @@ namespace PVZEngine.Level
             entities.Remove(id);
             entityTrash.Add(id, entity);
             RemoveEntityCollision(entity);
+            DecreaseLevelObjectReference(entity);
             OnEntityRemove?.Invoke(entity);
         }
         #endregion

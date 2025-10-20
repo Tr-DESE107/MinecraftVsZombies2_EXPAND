@@ -21,7 +21,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
-    public class UndeadFlyingObject : StateEnemy
+    public class UndeadFlyingObject : AIEntityBehaviour
     {
         public UndeadFlyingObject(string nsp, string name) : base(nsp, name)
         {
@@ -45,6 +45,15 @@ namespace MVZ2.GameContent.Enemies
                 entity.PlaySound(VanillaSoundID.ufo, volume: 0.5f);
             }
             entity.SetAnimationInt("Variant", entity.GetVariant());
+        }
+        protected override void UpdateAI(Entity entity)
+        {
+            base.UpdateAI(entity);
+            var variant = entity.GetVariant();
+            if (behaviours.TryGetValue(variant, out var behaviour))
+            {
+                behaviour.UpdateActionState(entity, entity.State);
+            }
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -83,24 +92,6 @@ namespace MVZ2.GameContent.Enemies
                 behaviour.PostDeath(entity, info);
             }
             entity.Remove();
-        }
-        protected override int GetActionState(Entity enemy)
-        {
-            var baseState = base.GetActionState(enemy);
-            if (baseState != STATE_IDLE && baseState != STATE_DEATH)
-            {
-                return GetUFOState(enemy);
-            }
-            return baseState;
-        }
-        protected override void UpdateActionState(Entity enemy, int state)
-        {
-            base.UpdateActionState(enemy, state);
-            var variant = enemy.GetVariant();
-            if (behaviours.TryGetValue(variant, out var behaviour))
-            {
-                behaviour.UpdateActionState(enemy, state);
-            }
         }
         public static void EnterUpdate(Entity enemy)
         {
@@ -219,11 +210,11 @@ namespace MVZ2.GameContent.Enemies
         public const float MAX_MOVE_SPEED = 15f;
         public const float MOVE_FACTOR = 0.5f;
 
-        public const int STATE_DEATH = VanillaEntityStates.DEAD;
-        public const int STATE_IDLE = VanillaEntityStates.IDLE;
-        public const int STATE_STAY = VanillaEntityStates.WALK;
-        public const int STATE_ACT = VanillaEntityStates.ATTACK;
-        public const int STATE_LEAVE = VanillaEntityStates.ENEMY_LEAVE;
+        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
+        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+        public const int STATE_LEAVE = VanillaEnemyStates.LEAVE;
+        public const int STATE_STAY = VanillaEnemyStates.UFO_STAY;
+        public const int STATE_ACT = VanillaEnemyStates.UFO_ACT;
 
 
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_X = new VanillaEntityPropertyMeta<int>("target_grid_x");

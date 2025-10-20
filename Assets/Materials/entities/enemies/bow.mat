@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: cbec3a6887d19854c839fac1474ec945, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - DEPTH_TEST
   - LIT
   m_InvalidKeywords:
   - _CIRCLESTART_RIGHT

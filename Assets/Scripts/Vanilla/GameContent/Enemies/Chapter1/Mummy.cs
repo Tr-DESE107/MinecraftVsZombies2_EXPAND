@@ -3,7 +3,6 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -12,15 +11,10 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.mummy)]
-    public class Mummy : MeleeEnemy
+    public class Mummy : AIEntityBehaviour
     {
         public Mummy(string nsp, string name) : base(nsp, name)
         {
-        }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

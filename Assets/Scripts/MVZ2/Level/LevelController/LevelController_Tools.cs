@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Level;
+using PVZEngine;
 using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
@@ -70,7 +71,7 @@ namespace MVZ2.Level
             if (!level.CanUsePickaxe())
                 return;
             level.PlaySound(VanillaSoundID.pickaxe);
-            level.SetHeldItem(VanillaHeldTypes.pickaxe, 0, 0);
+            level.SetHeldItem(VanillaHeldTypes.pickaxe);
         }
         private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
         {
@@ -116,7 +117,11 @@ namespace MVZ2.Level
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            level.SetHeldItem(VanillaHeldTypes.starshard, 0, 0);
+            var heldID = level.GetStarshardHeldType();
+            if (NamespaceID.IsValid(heldID))
+            {
+                level.SetHeldItem(heldID);
+            }
         }
         private void UpdateStarshards()
         {
@@ -159,7 +164,7 @@ namespace MVZ2.Level
             }
             if (!level.CanUseTrigger())
                 return;
-            level.SetHeldItem(VanillaHeldTypes.trigger, 0, 0);
+            level.SetHeldItem(VanillaHeldTypes.trigger);
         }
         private void UI_OnTriggerPointerEnterCallback(PointerEventData eventData)
         {

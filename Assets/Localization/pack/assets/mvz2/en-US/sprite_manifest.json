@@ -49,6 +49,12 @@
       "pivotY": 0.5
     },
     {
+      "name": "chapter_transition/title_ship",
+      "texture": "chapter_transition/title_ship.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
       "name": "init/logo",
       "texture": "init/logo.png",
       "pivotX": 0.5,

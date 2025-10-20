@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Bosses
         #region 状态
         private class IdleState : EntityStateMachineState
         {
-            public IdleState() : base(STATE_IDLE) { }
+            public IdleState() : base(STATE_IDLE, ANIMATION_STATE_IDLE) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -122,7 +122,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class AwakeState : EntityStateMachineState
         {
-            public AwakeState() : base(STATE_WAKING) { }
+            public AwakeState() : base(STATE_WAKING, ANIMATION_STATE_AWAKE) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -161,7 +161,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class DeadState : EntityStateMachineState
         {
-            public DeadState() : base(STATE_DEAD) { }
+            public DeadState() : base(STATE_DEAD, ANIMATION_STATE_DEATH) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -216,7 +216,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class FaintState : EntityStateMachineState
         {
-            public FaintState() : base(STATE_FAINT) { }
+            public FaintState() : base(STATE_FAINT, ANIMATION_STATE_FAINT) { }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -234,7 +234,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class GunState : EntityStateMachineState
         {
-            public GunState() : base(STATE_GUN)
+            public GunState() : base(STATE_GUN, ANIMATION_STATE_GUN)
             {
             }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
@@ -361,7 +361,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class MissileState : EntityStateMachineState
         {
-            public MissileState() : base(STATE_MISSILE) { }
+            public MissileState() : base(STATE_MISSILE, ANIMATION_STATE_MISSILE) { }
 
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
@@ -432,7 +432,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class JumpState : EntityStateMachineState
         {
-            public JumpState() : base(STATE_JUMP) { }
+            public JumpState() : base(STATE_JUMP, ANIMATION_STATE_JUMP) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -498,7 +498,7 @@ namespace MVZ2.GameContent.Bosses
                         continue;
                     if (ent.Type == EntityTypes.PLANT)
                     {
-                        var damageOutput = ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.PUNCH), boss);
+                        var damageOutput = ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
                         if (damageOutput?.BodyResult?.Fatal ?? false)
                         {
                             boss.PlaySound(VanillaSoundID.smash);
@@ -560,7 +560,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class PunchState : EntityStateMachineState
         {
-            public PunchState() : base(STATE_PUNCH) { }
+            public PunchState() : base(STATE_PUNCH, ANIMATION_STATE_PUNCH) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -600,11 +600,11 @@ namespace MVZ2.GameContent.Bosses
                 {
                     if (ent.Type == EntityTypes.PLANT)
                     {
-                        ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.PUNCH), boss);
+                        ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
                     }
                     else
                     {
-                        ent.TakeDamage(1800, new DamageEffectList(VanillaDamageEffects.PUNCH), boss);
+                        ent.TakeDamage(1800, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
                     }
                 }
                 boss.Level.ShakeScreen(5, 0, 15);
@@ -614,7 +614,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private class ShockState : EntityStateMachineState
         {
-            public ShockState() : base(STATE_SHOCK) { }
+            public ShockState() : base(STATE_SHOCK, ANIMATION_STATE_SHOCK) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -693,5 +693,14 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        public const int ANIMATION_STATE_IDLE = 0;
+        public const int ANIMATION_STATE_AWAKE = 1;
+        public const int ANIMATION_STATE_JUMP = 2;
+        public const int ANIMATION_STATE_DEATH = 3;
+        public const int ANIMATION_STATE_GUN = 4;
+        public const int ANIMATION_STATE_MISSILE = 5;
+        public const int ANIMATION_STATE_PUNCH = 6;
+        public const int ANIMATION_STATE_SHOCK = 7;
+        public const int ANIMATION_STATE_FAINT = 8;
     }
 }

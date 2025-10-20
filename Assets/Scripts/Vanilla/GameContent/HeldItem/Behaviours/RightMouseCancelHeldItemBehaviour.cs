@@ -26,10 +26,11 @@ namespace MVZ2.GameContent.HeldItems
             var level = Global.Level.GetLevel();
             if (level == null || !level.IsGameRunning())
                 return;
-            var heldItemDef = level.GetHeldItemDefinition();
-            if (heldItemDef == null)
+            var data = level.GetHeldItemData();
+            var heldItemDef = data?.GetDefinition(level);
+            if (data == null || heldItemDef == null)
                 return;
-            if (!heldItemDef.HasBehaviour(level, level.GetHeldItemData(), this))
+            if (!heldItemDef.HasBehaviour(level, data, this))
                 return;
             if (level.CancelHeldItem())
             {

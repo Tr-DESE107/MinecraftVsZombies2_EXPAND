@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
@@ -43,7 +44,7 @@ namespace MVZ2.Managers
         }
         #endregion
 
-        #region 元数据
+        #region 实体对策
         public EntityCounterMeta[] GetModEntityCounterMetas(string nsp)
         {
             var modResource = GetModResource(nsp);
@@ -52,5 +53,14 @@ namespace MVZ2.Managers
             return modResource.EntityMetaList.counters;
         }
         #endregion
+        private void LoadUnlocks_Entities(ModResource resource)
+        {
+            if (resource.EntityMetaList == null)
+                return;
+            foreach (var meta in resource.EntityMetaList.metas)
+            {
+                AddConditionListUnlocks(meta.Unlock);
+            }
+        }
     }
 }

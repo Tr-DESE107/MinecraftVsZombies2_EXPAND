@@ -24,7 +24,7 @@ namespace PVZEngine.Entities
         }
         public Entity? GetEntity(LevelEngine game)
         {
-            return game.FindEntityByID(ID);
+            return null;
         }
         public override bool Equals(object obj)
         {

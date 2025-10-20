@@ -2,9 +2,9 @@
     <category id="contraption_place" name="放置器械" type="entity" />
     <category id="contraption_destroy" name="器械被摧毁" type="entity" />
     <category id="contraption_evoke" name="激发器械" type="entity" />
-    <category id="enemy_spawn" name="敌人生成" type="entity" />
-    <category id="enemy_neutralize" name="消灭敌人" type="entity" />
-    <category id="enemy_gameover" name="被敌人击杀" type="entity" />
+    <category id="enemy_spawn" name="怪物生成" type="entity" />
+    <category id="enemy_neutralize" name="消灭怪物" type="entity" />
+    <category id="enemy_gameover" name="被怪物击杀" type="entity" />
     <category id="max_endless_flags" name="无尽模式最高轮数" type="stage" operation="max" />
     <category id="iz_contraption_destroy" name="我是僵尸-摧毁器械" type="entity" />
     <category id="iz_enemy_place" name="我是僵尸-放置怪物" type="entity" />

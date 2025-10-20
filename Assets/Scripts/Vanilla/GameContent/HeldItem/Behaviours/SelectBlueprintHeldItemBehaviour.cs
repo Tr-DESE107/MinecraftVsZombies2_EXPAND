@@ -145,16 +145,12 @@ namespace MVZ2.GameContent.HeldItems
                             index = level.GetConveyorSeedPackIndex(conveyor);
                         }
 
-                        var data = new HeldItemData()
-                        {
-                            Type = type,
-                            ID = index,
-                            InstantTrigger = pickData.triggerValue,
-                            InstantEvoke = pickData.instantEvoke,
-                            Priority = 0,
-                        };
                         // 设置当前手持物品。
-                        level.SetHeldItem(data);
+                        var builder = new HeldItemBuilder(type, 0);
+                        builder.SetSeedPackIndex(index);
+                        builder.SetInstantTrigger(pickData.triggerValue);
+                        builder.SetInstantEvoke(pickData.instantEvoke);
+                        level.SetHeldItem(builder);
                         level.PlaySound(VanillaSoundID.pick);
                         break;
                     }
@@ -219,17 +215,12 @@ namespace MVZ2.GameContent.HeldItems
             {
                 case SeedTypes.ENTITY:
                     {
-                        var type = VanillaHeldTypes.blueprintPickup;
-                        var data = new HeldItemData()
-                        {
-                            Type = type,
-                            ID = pickup.ID,
-                            InstantTrigger = pickData.triggerValue,
-                            InstantEvoke = pickData.instantEvoke,
-                            Priority = 0,
-                        };
                         // 设置当前手持物品。
-                        level.SetHeldItem(data);
+                        var builder = new HeldItemBuilder(VanillaHeldTypes.blueprintPickup);
+                        builder.SetEntityID(pickup.ID);
+                        builder.SetInstantTrigger(pickData.triggerValue);
+                        builder.SetInstantEvoke(pickData.instantEvoke);
+                        level.SetHeldItem(builder);
                         pickup.PlaySound(VanillaSoundID.pick);
                         break;
                     }

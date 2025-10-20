@@ -13,7 +13,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -23,7 +22,7 @@ using Tools;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.ghast)]
-    public class Ghast : StateEnemy
+    public class Ghast : AIEntityBehaviour
     {
         public Ghast(string nsp, string name) : base(nsp, name)
         {
@@ -41,6 +40,7 @@ namespace MVZ2.GameContent.Enemies
         }
         protected override void UpdateAI(Entity enemy)
         {
+            base.UpdateAI(enemy);
             if (CanShoot(enemy))
             {
                 var shootTimer = GetStateTimer(enemy);
@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Enemies
                     shootTimer.Run(enemy.GetAttackSpeed());
                     switch (enemy.State)
                     {
-                        case VanillaEntityStates.WALK:
+                        case STATE_WALK:
                             if (shootTimer.Expired)
                             {
                                 var target = FindTarget(enemy);
@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Enemies
                                 }
                             }
                             break;
-                        case VanillaEntityStates.ATTACK:
+                        case STATE_RANGED_ATTACK:
                             if (shootTimer.Expired)
                             {
                                 var target = FindTarget(enemy);
@@ -80,7 +80,6 @@ namespace MVZ2.GameContent.Enemies
                     }
                 }
             }
-            base.UpdateAI(enemy);
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
@@ -93,16 +92,11 @@ namespace MVZ2.GameContent.Enemies
         }
         public static FrameTimer? GetStateTimer(Entity enemy)
         {
-            return enemy.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
+            return enemy.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
         }
         public static void SetStateTimer(Entity enemy, FrameTimer value)
         {
-            enemy.SetBehaviourField(ID, PROP_STATE_TIMER, value);
-        }
-        protected override void UpdateStateAttack(Entity enemy)
-        {
-            base.UpdateStateAttack(enemy);
-            WalkUpdate(enemy);
+            enemy.SetBehaviourField(PROP_STATE_TIMER, value);
         }
         protected virtual bool CanShoot(Entity enemy)
         {
@@ -142,6 +136,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         public const int SHOOT_COOLDOWN = 135;
         public const int SHOOT_DURATION = 15;
-        public static readonly NamespaceID ID = VanillaEnemyID.ghast;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
     }
 }

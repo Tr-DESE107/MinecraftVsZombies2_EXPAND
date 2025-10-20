@@ -6,6 +6,7 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -16,6 +17,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
+    [StageDefinition(VanillaStageNames.breakout)]
     public partial class BreakoutStage : StageDefinition
     {
         public BreakoutStage(string nsp, string name) : base(nsp, name)
@@ -44,10 +46,6 @@ namespace MVZ2.GameContent.Stages
             level.SetStarshardActive(false);
             level.SetTriggerActive(false);
         }
-        public override void OnPostHugeWave(LevelEngine level)
-        {
-            base.OnPostHugeWave(level);
-        }
         public override void OnUpdate(LevelEngine level)
         {
             base.OnUpdate(level);
@@ -60,7 +58,10 @@ namespace MVZ2.GameContent.Stages
                 return;
             if (level.GetHeldItemType() == BuiltinHeldTypes.none)
             {
-                level.SetHeldItem(VanillaHeldTypes.breakoutBoard, board.ID, 100, true);
+                var builder = new HeldItemBuilder(VanillaHeldTypes.breakoutBoard, 100);
+                builder.SetEntityID(board.ID);
+                builder.SetCannotCancel(true);
+                level.SetHeldItem(builder);
             }
         }
         public override void OnPostEnemySpawned(Entity entity)

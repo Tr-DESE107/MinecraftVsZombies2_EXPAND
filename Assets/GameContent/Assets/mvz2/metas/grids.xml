@@ -14,6 +14,7 @@
         </layer>
     </layers>
     <errors>
+        <error id="grid_disabled"/>
         <error id="already_taken"/>
         <error id="only_drivenser" />
         <error id="first_aid" />
@@ -30,4 +31,5 @@
         <error id="only_can_mill" message="只能放置在刷怪笼或者器械上"/>
         <error id="only_upgrade" message="只能放置在目标器械上"/>
     </errors>
+    <grid id="wood_slope" slope="16" overlaySprite="mvz2:level/grids/bevel"/>
 </grids>

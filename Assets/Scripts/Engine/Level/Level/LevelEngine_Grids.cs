@@ -39,7 +39,8 @@ namespace PVZEngine.Level
                 }
                 int lane = Mathf.FloorToInt(i / maxColumnCount);
                 int column = i % maxColumnCount;
-                grids[i] = new LawnGrid(this, definition, lane, column);
+                var grid = new LawnGrid(this, definition, lane, column);
+                grids[i] = grid;
             }
         }
         #endregion
@@ -47,16 +48,16 @@ namespace PVZEngine.Level
         #region 序列化
         private void WriteGridsToSerializable(SerializableLevel level)
         {
-            level.grids = grids.Select(g => g.Serialize()).ToArray();
+            level.grids = grids.Select(g => g.ToSerializable()).ToArray();
         }
-        private void LoadGridsFromSerializable(SerializableLevel seri)
+        private void InitGridsFromSerializable(SerializableLevel seri)
         {
             if (seri.grids == null)
                 return;
             var count = Mathf.Min(grids.Length, seri.grids.Length);
             for (int i = 0; i < count; i++)
             {
-                grids[i].LoadFromSerializable(seri.grids[i], this);
+                grids[i].InitFromSerializable(seri.grids[i]);
             }
         }
         private void ReadGridsFromSerializable(SerializableLevel seri)
@@ -67,7 +68,8 @@ namespace PVZEngine.Level
             {
                 var grid = grids[i];
                 var seriGrid = seri.grids[i];
-                grid.LoadAuras(seriGrid);
+                grid.LoadFromSerializable(seriGrid);
+                IncreaseLevelObjectReference(grid);
             }
         }
         #endregion
@@ -92,10 +94,15 @@ namespace PVZEngine.Level
             return GetLane(z - entityLaneZOffset + GetGridHeight() * 0.5f);
         }
         public float GetEntityLaneZ(int lane) => GetEntityLaneZFloat(lane);
+        public float GetLaneCenterZ(int lane) => GetLaneCenterZFloat(lane);
         public float GetLaneZ(int lane) => GetLaneZFloat(lane);
         public float GetEntityLaneZFloat(float lane)
         {
             return GetLaneZFloat(lane) + entityLaneZOffset;
+        }
+        public float GetLaneCenterZFloat(float lane)
+        {
+            return GetLaneZFloat(lane) + GetGridHeight() * 0.5f;
         }
         public float GetLaneZFloat(float lane)
         {
@@ -126,8 +133,13 @@ namespace PVZEngine.Level
             return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridWidth());
         }
         public float GetEntityColumnX(int column) => GetEntityColumnXFloat(column);
+        public float GetColumnCenterX(int column) => GetColumnCenterXFloat(column);
         public float GetColumnX(int column) => GetColumnXFloat(column);
         public float GetEntityColumnXFloat(float column)
+        {
+            return GetColumnXFloat(column) + GetGridWidth() * 0.5f;
+        }
+        public float GetColumnCenterXFloat(float column)
         {
             return GetColumnXFloat(column) + GetGridWidth() * 0.5f;
         }
@@ -187,6 +199,12 @@ namespace PVZEngine.Level
         public LawnGrid? GetGrid(Vector2Int pos)
         {
             return GetGrid(pos.x, pos.y);
+        }
+        public LawnGrid? GetGridAt(Vector3 position)
+        {
+            var column = GetColumn(position.x);
+            var lane = GetLane(position.z);
+            return GetGrid(column, lane);
         }
         public int GetGridIndex(int column, int lane)
         {

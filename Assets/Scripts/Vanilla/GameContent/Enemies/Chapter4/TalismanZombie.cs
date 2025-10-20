@@ -14,7 +14,7 @@ using Tools;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.talismanZombie)]
-    public class TalismanZombie : MeleeEnemy
+    public class TalismanZombie : AIEntityBehaviour
     {
         public TalismanZombie(string nsp, string name) : base(nsp, name)
         {
@@ -25,12 +25,15 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             SetMoveTimer(entity, new FrameTimer(MOVE_INTERVAL));
         }
-        protected override void UpdateLogic(Entity entity)
+        protected override void UpdateAI(Entity entity)
         {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
+            base.UpdateAI(entity);
+            if (entity.State == STATE_WALK)
+            {
+                JumpUpdate(entity);
+            }
         }
-        protected override void WalkUpdate(Entity enemy)
+        private void JumpUpdate(Entity enemy)
         {
             var timer = GetMoveTimer(enemy);
             if (timer.RunToExpiredAndNotNull())
@@ -71,6 +74,7 @@ namespace MVZ2.GameContent.Enemies
             return entity.GetBehaviourField<FrameTimer>(PROP_MOVE_TIMER);
         }
         public const int MOVE_INTERVAL = 30;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_MOVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("MoveTimer");
     }
 }

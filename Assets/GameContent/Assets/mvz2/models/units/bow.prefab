@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 447777092558520054}
   - component: {fileID: 6062641971084619148}
   - component: {fileID: 6764569926841860826}
+  - component: {fileID: 4844061220330138267}
   m_Layer: 0
   m_Name: bow
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &4844061220330138267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557628983393198063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: bow
 --- !u!1 &5263837777161261063
 GameObject:
   m_ObjectHideFlags: 0

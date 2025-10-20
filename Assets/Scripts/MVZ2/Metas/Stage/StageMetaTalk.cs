@@ -14,6 +14,7 @@ namespace MVZ2.Metas
         public string Type { get; private set; } = string.Empty;
         public NamespaceID Value { get; private set; }
         public int StartSection { get; private set; }
+        public XMLConditionList? StartCondition { get; private set; }
         public XMLConditionList? RepeatCondition { get; private set; }
         private StageMetaTalk(NamespaceID value)
         {
@@ -30,18 +31,32 @@ namespace MVZ2.Metas
             var type = node.GetAttribute("type") ?? string.Empty;
             var startSection = node.GetAttributeInt("section") ?? 0;
 
-            XMLConditionList? repeatCondition = null;
-            var conditionNode = node["repeat"];
+            XMLConditionList? startCondition = null;
+            var conditionNode = node["conditions"];
             if (conditionNode != null)
             {
-                repeatCondition = XMLConditionList.FromXmlNode(conditionNode, defaultNsp);
+                startCondition = XMLConditionList.FromXmlNode(conditionNode, defaultNsp);
+            }
+
+            XMLConditionList? repeatCondition = null;
+            var repeatConditionNode = node["repeat"];
+            if (repeatConditionNode != null)
+            {
+                repeatCondition = XMLConditionList.FromXmlNode(repeatConditionNode, defaultNsp);
             }
             return new StageMetaTalk(value)
             {
                 Type = type,
                 StartSection = startSection,
+                StartCondition = startCondition,
                 RepeatCondition = repeatCondition
             };
+        }
+        public bool CanStartTalk(IGlobalSaveData save)
+        {
+            if (StartCondition == null)
+                return true;
+            return save.MeetsXMLConditions(StartCondition);
         }
         public bool ShouldRepeat(IGlobalSaveData save)
         {

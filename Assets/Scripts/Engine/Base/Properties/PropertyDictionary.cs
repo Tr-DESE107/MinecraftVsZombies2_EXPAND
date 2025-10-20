@@ -47,7 +47,7 @@ namespace PVZEngine
         {
             if (TryGetProperty<T>(name, out var value))
                 return value;
-            return default;
+            return name.DefaultValue;
         }
         public bool TryGetProperty<T>(PropertyKey<T> name, out T? value)
         {
@@ -59,7 +59,7 @@ namespace PVZEngine
                     return true;
                 }
             }
-            value = default;
+            value = name.DefaultValue;
             return false;
         }
         public bool RemovePropertyObject(IPropertyKey name)
@@ -69,6 +69,10 @@ namespace PVZEngine
         public bool RemoveProperty<T>(PropertyKey<T> name)
         {
             return RemovePropertyObject(name);
+        }
+        public void Clear()
+        {
+            propertyDict.Clear();
         }
         public IPropertyKey[] GetPropertyNames()
         {

@@ -2,7 +2,11 @@
 <talks order="3000">
   <!-- Day 1 -->
   <group id="castle_1" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第1天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_1" />
+    <archive name="辉针城第1天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_1"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -19,7 +23,11 @@
     </section>
   </group>
   <group id="castle_1_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第1天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_1" />
+    <archive name="辉针城第1天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_1"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -33,7 +41,11 @@
     </section>
   </group>
   <group id="castle_1_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第1天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_1" />
+    <archive name="辉针城第1天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_1"/>
+      </unlock>
+    </archive>
     <section onSkip="music fade 1;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -113,7 +125,11 @@
 
   <!-- Day 2 -->
   <group id="castle_2" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第2天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_2" />
+    <archive name="辉针城第2天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_2"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -128,7 +144,11 @@
     </section>
   </group>
   <group id="castle_2_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第2天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_2" />
+    <archive name="辉针城第2天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_2"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -136,14 +156,18 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是尖刺方块！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能对走在它上面的敌人造成伤害！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能对走在它上面的怪物造成伤害！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">还能破坏敌人的车辆！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">让战场上洒满钉子吧！</sentence>
       </sentences>
     </section>
   </group>
   <group id="castle_2_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第2天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_2" />
+    <archive name="辉针城第2天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_2"/>
+      </unlock>
+    </archive>
     <section onSkip="music fade 1;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -193,7 +217,11 @@
   
   <!-- Day 3 -->
   <group id="castle_3" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第3天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_3" />
+    <archive name="辉针城第3天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_3"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
@@ -212,7 +240,11 @@
     </section>
   </group>
   <group id="castle_3_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第3天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_3" />
+    <archive name="辉针城第3天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_3"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -220,13 +252,17 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这个是石制投掷器！它能弹射出微小的石子！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">不过，有时候它也能射出能击退敌人并且分裂的巨石！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">不过，有时候它也能射出能击退怪物并且分裂的巨石！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">在洞穴中，你最好当心脚下的踏板！</sentence>
       </sentences>
     </section>
   </group>
   <group id="castle_3_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第3天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_3" />
+    <archive name="辉针城第3天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_3"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -262,7 +298,11 @@
   
   <!-- Day 4 -->
   <group id="castle_4" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第4天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_4" />
+    <archive name="辉针城第4天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_4"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
@@ -296,7 +336,11 @@
     </section>
   </group>
   <group id="castle_4_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第4天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_4" />
+    <archive name="辉针城第4天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_4"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -312,7 +356,11 @@
     </section>
   </group>
   <group id="castle_4_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第4天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_4" />
+    <archive name="辉针城第4天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_4"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:shinmyoumaru" side="right" />
@@ -339,7 +387,11 @@
   
   <!-- Day 5 -->
   <group id="castle_5_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第5天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_5" />
+    <archive name="辉针城第5天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_5"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -354,7 +406,11 @@
     </section>
   </group>
   <group id="castle_5_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第5天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_5" />
+    <archive name="辉针城第5天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_5"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -383,7 +439,11 @@
 
   <!-- Day 6 -->
   <group id="castle_6" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第6天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_6" />
+    <archive name="辉针城第6天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_6"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -400,7 +460,11 @@
     </section>
   </group>
   <group id="castle_6_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第6天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_6" />
+    <archive name="辉针城第6天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_6"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -408,14 +472,18 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">这是金苹果！不过它可不是用来回血的！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">实际上它是一个魅惑果实，能魅惑第一个攻击它的敌人！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">然后！这个敌人就会为你作战！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">实际上它是一个魅惑果实，能魅惑第一个攻击它的怪物！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">然后！这个怪物就会为你作战！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">不过，要注意它也是只能在晚上用的！</sentence>
       </sentences>
     </section>
   </group>
-  <group id="castle_6_map" requiresNot="mvz2:kourindou_visited_castle" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第6天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_6" />
+  <group id="castle_6_map" tags="mvz2:castle;mvz2:map">
+    <archive name="辉针城第6天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_6"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -432,8 +500,12 @@
       </sentences>
     </section>
   </group>
-  <group id="kourindou_visit_castle" requiresNot="mvz2:kourindou_visited_castle" tags="mvz2:castle;mvz2:store">
-    <archive name="访问香霖堂-辉针城" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_castle" />
+  <group id="kourindou_visit_castle" tags="mvz2:castle;mvz2:store">
+    <archive name="访问香霖堂-辉针城" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" >
+      <unlock>
+        <condition required="mvz2:kourindou_visited_castle"/>
+      </unlock>
+    </archive>
     <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_castle;item hide;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -489,7 +561,11 @@
 
   <!-- Day 7 -->
   <group id="castle_7" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第7天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
+    <archive name="辉针城第7天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_7"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
@@ -505,7 +581,11 @@
     </section>
   </group>
   <group id="castle_7_boss" tags="mvz2:castle;mvz2:special">
-    <archive name="辉针城第7天头目" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
+    <archive name="辉针城第7天头目" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_7"/>
+      </unlock>
+    </archive>
     <section onSkip="music volume 1;end">
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
@@ -527,7 +607,11 @@
     </section>
   </group>
   <group id="castle_7_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第7天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
+    <archive name="辉针城第7天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_7"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -546,7 +630,11 @@
     </section>
   </group>
   <group id="castle_7_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第7天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_7" />
+    <archive name="辉针城第7天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_7"/>
+      </unlock>
+    </archive>
     <section onSkip="music volume 1;item hide;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -634,7 +722,11 @@
 
   <!-- Day 8 -->
   <group id="castle_8" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第8天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_8" />
+    <archive name="辉针城第8天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_8"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:shinmyoumaru" side="left" />
@@ -653,7 +745,11 @@
     </section>
   </group>
   <group id="castle_8_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第8天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_8" />
+    <archive name="辉针城第8天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_8"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -668,7 +764,11 @@
     </section>
   </group>
   <group id="castle_8_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第8天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_8" />
+    <archive name="辉针城第8天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_8"/>
+      </unlock>
+    </archive>
     <section onSkip="music volume 1;music play mvz2:sad_shinmyoumaru;forecolor fade #0000 0.5;loopsound stop mvz2:people_noise;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -753,7 +853,11 @@
   
   <!-- Day 9 -->
   <group id="castle_9" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第9天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_9" />
+    <archive name="辉针城第9天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_9"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -771,7 +875,11 @@
     </section>
   </group>
   <group id="castle_9_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第9天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_9" />
+    <archive name="辉针城第9天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_9"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -786,7 +894,11 @@
     </section>
   </group>
   <group id="castle_9_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第9天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_9" />
+    <archive name="辉针城第9天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_9"/>
+      </unlock>
+    </archive>
     <section onSkip="music volume 1;music play mvz2:sad_shinmyoumaru;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -824,7 +936,11 @@
   
   <!-- Day 10 -->
   <group id="castle_note" tags="mvz2:castle;mvz2:note">
-    <archive name="凋灵战书" background="mvz2:archive/castle_note" unlock="mvz2:level.castle_10" />
+    <archive name="凋灵战书" background="mvz2:archive/castle_note" >
+      <unlock>
+        <condition required="mvz2:level.castle_10"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
@@ -843,7 +959,11 @@
 
   <!-- Day 11 -->
   <group id="castle_11" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第11天入场" background="mvz2:misc/castle" unlock="mvz2:level.castle_11" />
+    <archive name="辉针城第11天入场" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_11"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -866,7 +986,11 @@
     </section>
   </group>
   <group id="castle_11_over" tags="mvz2:castle;mvz2:over">
-    <archive name="辉针城第11天结束" background="mvz2:misc/castle" unlock="mvz2:level.castle_11" />
+    <archive name="辉针城第11天结束" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_11"/>
+      </unlock>
+    </archive>
     <section onSkip="end;playsound mvz2:final_item">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -885,7 +1009,11 @@
     </section>
   </group>
   <group id="castle_11_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第11天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_11" />
+    <archive name="辉针城第11天地图" music="mvz2:castle_map" background="mvz2:misc/castle" >
+      <unlock>
+        <condition required="mvz2:level.castle_11"/>
+      </unlock>
+    </archive>
     <section onSkip="bubble hide;forecolor fade #0000 #000F 1;delay 1;action chapter_3_finish;item hide;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />

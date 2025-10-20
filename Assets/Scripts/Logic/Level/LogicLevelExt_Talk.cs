@@ -13,23 +13,11 @@ namespace MVZ2Logic.Level
         {
             return level.GetComponent<ITalkComponent>();
         }
-        public static bool CanStartTalk(this LevelEngine level, NamespaceID groupId, int section)
-        {
-            var component = level.GetTalkComponent();
-            if (component == null) return false;
-            return component.CanStartTalk(groupId, section);
-        }
         public static void StartTalk(this LevelEngine level, NamespaceID groupId, int section, float delay = 0, Action? onEnd = null)
         {
             var component = level.GetTalkComponent();
             if (component == null) return;
             component.StartTalk(groupId, section, delay, onEnd);
-        }
-        public static void CanSkipTalk(this LevelEngine level, NamespaceID groupId, int section)
-        {
-            var component = level.GetTalkComponent();
-            if (component == null) return;
-            component.CanStartTalk(groupId, section);
         }
         public static void SkipTalk(this LevelEngine level, NamespaceID groupId, int section, Action? onSkipped = null)
         {

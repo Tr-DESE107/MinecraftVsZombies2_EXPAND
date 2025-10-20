@@ -4,6 +4,7 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -41,7 +42,7 @@ namespace MVZ2.GameContent.Effects
                 return;
             foreach (var wall in level.FindEntities(VanillaEffectID.crushingWalls))
             {
-                if (wall.State == VanillaEntityStates.CRUSHING_WALLS_IDLE)
+                if (wall.State == STATE_IDLE)
                 {
                     var progress = GetProgress(wall);
                     SetProgress(wall, progress - 0.01f);
@@ -60,18 +61,18 @@ namespace MVZ2.GameContent.Effects
         }
         public static void Enrage(Entity wall)
         {
-            wall.State = VanillaEntityStates.CRUSHING_WALLS_ENRAGED;
+            wall.State = STATE_ENRAGED;
         }
         public static void Close(Entity wall)
         {
-            wall.State = VanillaEntityStates.CRUSHING_WALLS_CLOSED;
+            wall.State = STATE_CLOSED;
         }
         private void UpdateState(Entity entity)
         {
             var progress = GetProgress(entity);
             switch (entity.State)
             {
-                case VanillaEntityStates.CRUSHING_WALLS_IDLE:
+                case STATE_IDLE:
                     {
                         var speed = entity.Level.GetCrushingWallsSpeed();
                         var difficulty = entity.Level.Difficulty;
@@ -81,13 +82,13 @@ namespace MVZ2.GameContent.Effects
                         entity.SetModelProperty("Progress", progress);
                     }
                     break;
-                case VanillaEntityStates.CRUSHING_WALLS_ENRAGED:
+                case STATE_ENRAGED:
                     {
                         progress *= 0.8f;
                         entity.SetModelProperty("Progress", progress);
                     }
                     break;
-                case VanillaEntityStates.CRUSHING_WALLS_CLOSED:
+                case STATE_CLOSED:
                     {
                         progress += 1 / 15f;
                         var realProgress = MathTool.EaseIn(progress);
@@ -99,7 +100,7 @@ namespace MVZ2.GameContent.Effects
                         entity.SetModelProperty("Progress", realProgress);
                     }
                     break;
-                case VanillaEntityStates.CRUSHING_WALLS_STOPPED:
+                case STATE_STOPPED:
                     {
                         progress *= 0.6f;
                         if (progress <= 0.02f)
@@ -141,7 +142,7 @@ namespace MVZ2.GameContent.Effects
             }
             switch (entity.State)
             {
-                case VanillaEntityStates.CRUSHING_WALLS_IDLE:
+                case STATE_IDLE:
                     shakeValue += new Vector3(Random.Range(3, 3), Random.Range(3, 3), 0);
                     break;
             }
@@ -151,6 +152,10 @@ namespace MVZ2.GameContent.Effects
         public static void SetProgress(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_PROGRESS, value);
         public static ShakeInt? GetShake(Entity entity) => entity.GetBehaviourField<ShakeInt>(ID, PROP_SHAKE);
         public static void SetShake(Entity entity, ShakeInt? value) => entity.SetBehaviourField(ID, PROP_SHAKE, value);
+        public const int STATE_IDLE = VanillaEffectStates.IDLE;
+        public const int STATE_CLOSED = VanillaEffectStates.CRUSHING_WALLS_CLOSED;
+        public const int STATE_STOPPED = VanillaEffectStates.CRUSHING_WALLS_STOPPED;
+        public const int STATE_ENRAGED = VanillaEffectStates.CRUSHING_WALLS_ENRAGED;
         public static readonly VanillaEntityPropertyMeta<float> PROP_PROGRESS = new VanillaEntityPropertyMeta<float>("Progress");
         public static readonly VanillaEntityPropertyMeta<ShakeInt> PROP_SHAKE = new VanillaEntityPropertyMeta<ShakeInt>("Shake");
         public static readonly NamespaceID ID = VanillaEffectID.crushingWalls;

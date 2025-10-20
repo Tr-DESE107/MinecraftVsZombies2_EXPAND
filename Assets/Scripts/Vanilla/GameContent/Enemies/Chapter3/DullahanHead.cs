@@ -2,20 +2,18 @@
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.dullahanHead)]
-    public class DullahanHead : MeleeEnemy
+    public class DullahanHead : AIEntityBehaviour
     {
         public DullahanHead(string nsp, string name) : base(nsp, name)
         {
@@ -26,14 +24,6 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             var buff = entity.AddBuff<FlyBuff>();
             buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20f);
-        }
-        public override void PreTakeDamage(DamageInput input, CallbackResult result)
-        {
-            base.PreTakeDamage(input, result);
-            if (input.Effects.HasEffect(VanillaDamageEffects.GOLD))
-            {
-                input.Multiply(3);
-            }
         }
         private void PostEntityCharmCallback(VanillaLevelCallbacks.PostApplyStatusEffectParams param, CallbackResult result)
         {

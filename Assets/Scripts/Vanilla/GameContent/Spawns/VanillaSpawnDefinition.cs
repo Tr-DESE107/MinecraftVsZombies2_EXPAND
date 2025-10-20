@@ -32,12 +32,8 @@ namespace MVZ2.GameContent.Spawns
     }
     public class SpawnInLevelBehaviour : ISpawnInLevelBehaviour
     {
-        public SpawnInLevelBehaviour(int spawnLevel, NamespaceID entityID, bool water, bool air)
+        public SpawnInLevelBehaviour()
         {
-            SpawnLevel = spawnLevel;
-            EntityID = entityID;
-            CanSpawnAtWaterLane = water;
-            CanSpawnAtAirLane = air;
         }
 
         public void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, ref float totalPoints)
@@ -49,12 +45,12 @@ namespace MVZ2.GameContent.Spawns
             var resultLanes = allLanes;
 
             bool isStartWaves = level.CurrentFlag <= 0 && level.CurrentWave <= 3;
-            if (isStartWaves || !CanSpawnAtWaterLane)
+            if (isStartWaves || !definition.SpawnInWater())
             {
                 var waterLanes = level.GetWaterLanes();
                 resultLanes = resultLanes.Except(waterLanes);
             }
-            if (isStartWaves || !CanSpawnAtAirLane)
+            if (isStartWaves || !definition.SpawnInAir())
             {
                 var airLanes = level.GetAirLanes();
                 resultLanes = resultLanes.Except(airLanes);
@@ -68,7 +64,7 @@ namespace MVZ2.GameContent.Spawns
         }
         public bool CanSpawnInLevel(SpawnDefinition definition, LevelEngine level)
         {
-            return GetSpawnLevel(definition, level) > 0;
+            return definition.GetSpawnLevel() > 0;
         }
         public int GetWeight(SpawnDefinition definition, LevelEngine level)
         {
@@ -80,56 +76,44 @@ namespace MVZ2.GameContent.Spawns
             var decayFlags = Mathf.Clamp(level.CurrentFlag, decayStart, decayEnd) - decayStart;
             return weight - decay * decayFlags;
         }
-        public int GetSpawnLevel(SpawnDefinition definition, LevelEngine level) => SpawnLevel;
-        public NamespaceID GetSpawnEntityID(SpawnDefinition definition) => EntityID;
-        public int SpawnLevel { get; }
-        public NamespaceID EntityID { get; }
-        public bool CanSpawnAtWaterLane { get; }
-        public bool CanSpawnAtAirLane { get; }
     }
     public class SpawnPreviewBehaviour : ISpawnPreviewBehaviour
     {
-        public SpawnPreviewBehaviour(NamespaceID? entityID, int variant)
+        public SpawnPreviewBehaviour()
         {
-            EntityID = entityID;
-            Variant = variant;
         }
         public Entity? SpawnPreviewEntity(SpawnDefinition definition, LevelEngine level, Vector3 pos, SpawnParams param)
         {
-            if (!NamespaceID.IsValid(EntityID))
+            var entityId = definition.GetPreviewEntity();
+            if (!NamespaceID.IsValid(entityId))
                 return null;
-            param.SetProperty(VanillaEntityProps.VARIANT, Variant);
-            return level.Spawn(EntityID, pos, null, param);
+            var entityVariant = definition.GetPreviewVariant();
+            param.SetProperty(VanillaEntityProps.VARIANT, entityVariant);
+            return level.Spawn(entityId, pos, null, param);
         }
         public NamespaceID[] GetCounterTags(SpawnDefinition definition, LevelEngine level)
         {
-            var entityID = EntityID;
+            var entityID = definition.GetPreviewEntity();
             if (!NamespaceID.IsValid(entityID))
                 return Array.Empty<NamespaceID>();
             var entityDef = level.Content.GetEntityDefinition(entityID);
             return entityDef?.GetCounterTags() ?? Array.Empty<NamespaceID>();
         }
-        public NamespaceID? EntityID { get; }
-        public int Variant { get; }
     }
     public class SpawnEndlessBehaviour : ISpawnEndlessBehaviour
     {
-        public SpawnEndlessBehaviour(bool noEndless, NamespaceID[] excludedAreaTags)
+        public SpawnEndlessBehaviour()
         {
-            NoEndless = noEndless;
-            ExcludedAreaTags = excludedAreaTags;
         }
         public bool CanAppearInEndless(SpawnDefinition definition, LevelEngine level)
         {
-            if (NoEndless)
+            if (definition.IsNoEndless() || definition.GetSpawnLevel() <= 0)
                 return false;
-            var excludedAreaTags = ExcludedAreaTags;
+            var excludedAreaTags = definition.GetExcludedAreaTags();
             var areaDef = level.AreaDefinition;
             if (areaDef.GetAreaTags().Any(t => excludedAreaTags.Contains(t)))
                 return false;
             return true;
         }
-        public bool NoEndless { get; }
-        public NamespaceID[] ExcludedAreaTags { get; }
     }
 }

@@ -8,7 +8,6 @@ using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2.OldSave;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
@@ -392,7 +391,7 @@ namespace MVZ2.Saves
             var meta = resourceManager.GetAchievementMeta(achievementID);
             if (meta == null)
                 return false;
-            return this.IsInvalidOrUnlocked(meta.Unlock);
+            return meta.Unlock.IsNullOrMeetsConditions(this);
         }
         #endregion
 
@@ -429,7 +428,7 @@ namespace MVZ2.Saves
                 var meta = resourceManager.GetProductMeta(id);
                 if (meta == null)
                     continue;
-                if (this.IsValidAndLocked(meta.Required))
+                if (!meta.UnlockConditions.IsNullOrMeetsConditions(this))
                     continue;
                 unlockedProductsCache.Add(id);
             }
@@ -444,7 +443,8 @@ namespace MVZ2.Saves
             {
                 if (def == null)
                     continue;
-                if (this.IsValidAndLocked(def.GetEntityUnlock()))
+                var unlockConditions = def.GetEntityUnlock();
+                if (!unlockConditions.IsNullOrMeetsConditions(Main.SaveManager))
                     continue;
                 var id = def.GetID();
                 if (def.Type == EntityTypes.PLANT)

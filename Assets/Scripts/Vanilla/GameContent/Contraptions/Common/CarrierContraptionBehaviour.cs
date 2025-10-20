@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -58,12 +57,12 @@ namespace MVZ2.GameContent.Contraptions
                 var grids = sourceEnt.GetGridsToTake();
                 foreach (var grid in grids)
                 {
-                    var main = grid.GetMainEntity();
-                    if (main != null)
-                        results.Add(main);
-                    var protector = grid.GetMainEntity();
-                    if (protector != null)
-                        results.Add(protector);
+                    foreach (var layer in grid.GetLayers())
+                    {
+                        var other = grid.GetLayerEntity(layer);
+                        if (other != null && other != sourceEnt)
+                            results.Add(other);
+                    }
                 }
             }
         }

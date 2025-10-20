@@ -6,6 +6,7 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -30,7 +31,9 @@ namespace MVZ2.GameContent.Stages
         {
             if (level.GetHeldItemType() == BuiltinHeldTypes.none)
             {
-                level.SetHeldItem(VanillaHeldTypes.sword, 0, 0, true);
+                var builder = new HeldItemBuilder(VanillaHeldTypes.sword);
+                builder.SetCannotCancel(true);
+                level.SetHeldItem(builder);
             }
             var timer = GetThunderTimer(level);
             if (timer.RunToExpiredAndNotNull())

@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <talks order="2000">
   <group id="dream_1" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第1天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" unlock="mvz2:level.dream_1" />
+    <archive name="梦境世界第1天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_1"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -17,7 +21,11 @@
     </section>
   </group>
   <group id="dream_1_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第1天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_1" />
+    <archive name="梦境世界第1天结束" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_1"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -33,7 +41,11 @@
     </section>
   </group>
   <group id="dream_1_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第1天地图" music="mvz2:dream_map" background="mvz2:misc/dream" unlock="mvz2:level.dream_1" />
+    <archive name="梦境世界第1天地图" music="mvz2:dream_map" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_1"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -54,7 +66,11 @@
     </section>
   </group>
   <group id="dream_2" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第2天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" unlock="mvz2:level.dream_2" />
+    <archive name="梦境世界第2天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_2"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -71,7 +87,11 @@
     </section>
   </group>
   <group id="dream_2_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第2天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_2" />
+    <archive name="梦境世界第2天结束" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_2"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -86,7 +106,11 @@
     </section>
   </group>
   <group id="dream_2_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第2天地图" music="mvz2:dream_map" background="mvz2:misc/dream" unlock="mvz2:level.dream_2" />
+    <archive name="梦境世界第2天地图" music="mvz2:dream_map" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_2"/>
+      </unlock>
+    </archive>
     <section onSkip="music volume 1;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -115,7 +139,11 @@
     </section>
   </group>
   <group id="dream_3" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第3天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" unlock="mvz2:level.dream_3" />
+    <archive name="梦境世界第3天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_3"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -132,7 +160,11 @@
     </section>
   </group>
   <group id="dream_3_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第3天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_3" />
+    <archive name="梦境世界第3天结束" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_3"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -140,13 +172,17 @@
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">该上物理课了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">这是重力板，可以加强上方物体的重力！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">不仅可以减速上面的敌人，还可以在面对低矮敌人的时候拉低子弹的高度！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">不仅可以减速上面的怪物，还可以在面对低矮怪物的时候拉低子弹的高度！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" onClick="end">对了，不要把它放在苹果树下……</sentence>
       </sentences>
     </section>
   </group>
   <group id="dream_3_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第3天地图" music="mvz2:dream_map" background="mvz2:misc/dream" unlock="mvz2:level.dream_3" />
+    <archive name="梦境世界第3天地图" music="mvz2:dream_map" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_3"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -167,7 +203,11 @@
     </section>
   </group>
   <group id="dream_4" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第4天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" unlock="mvz2:level.dream_4" />
+    <archive name="梦境世界第4天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_4"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:doremy" variant="mvz2:confused" side="right" />
@@ -187,20 +227,28 @@
     </section>
   </group>
   <group id="dream_4_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第4天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_4" />
+    <archive name="梦境世界第4天结束" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_4"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">旋转吧！漩涡漏斗！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">漩涡漏斗可以放置在水中，然后在被碰到的时候，会把周围的敌人拉下水！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">漩涡漏斗可以放置在水中，然后在被碰到的时候，会把周围的怪物拉下水！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">让僵尸都变成溺尸吧！</sentence>
       </sentences>
     </section>
   </group>
   <group id="dream_4_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第4天地图" music="mvz2:dream_map" background="mvz2:misc/dream" unlock="mvz2:level.dream_4" />
+    <archive name="梦境世界第4天地图" music="mvz2:dream_map" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_4"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:doremy" variant="mvz2:read_smile" side="right" />
@@ -228,7 +276,11 @@
     </section>
   </group>
   <group id="dream_5_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第5天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_5" />
+    <archive name="梦境世界第5天结束" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_5"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -242,7 +294,11 @@
     </section>
   </group>
   <group id="dream_5_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第5天地图" music="mvz2:dream_map" background="mvz2:misc/dream" unlock="mvz2:level.dream_5" />
+    <archive name="梦境世界第5天地图" music="mvz2:dream_map" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_5"/>
+      </unlock>
+    </archive>
     <section onSkip="music volume 1;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -275,7 +331,11 @@
     </section>
   </group>
   <group id="dream_6" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第6天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" unlock="mvz2:level.dream_6" />
+    <archive name="梦境世界第6天入场" music="mvz2:mainmenu" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_6"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -290,20 +350,28 @@
     </section>
   </group>
   <group id="dream_6_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第6天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_6" />
+    <archive name="梦境世界第6天结束" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_6"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">活塞发射器！会伸缩的发射器！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它会发射和箭矢类似的尖刺！并且在遇见飞行敌人的时候会伸长脖子来攻击敌人！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它会发射和箭矢类似的尖刺！并且在遇见飞行怪物的时候会伸长脖子来攻击怪物！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">对了，把气球拿远点！</sentence>
       </sentences>
     </section>
   </group>
   <group id="dream_6_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第6天地图" music="mvz2:dream_map" background="mvz2:misc/dream" unlock="mvz2:level.dream_6" />
+    <archive name="梦境世界第6天地图" music="mvz2:dream_map" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_6"/>
+      </unlock>
+    </archive>
     <section onSkip="end;music volume 1;forecolor fade black #0000 1;action show_nightmare;music play mvz2:nightmare_map">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -329,7 +397,11 @@
     </section>
   </group>
   <group id="dream_7" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第7天入场" music="mvz2:mainmenu" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_7" />
+    <archive name="梦境世界第7天入场" music="mvz2:mainmenu" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_7"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -343,21 +415,29 @@
     </section>
   </group>
   <group id="dream_7_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第7天结束" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_7" />
+    <archive name="梦境世界第7天结束" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_7"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是图腾发射器！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能射出能够虚弱敌人的飞镖，让敌人完全无法造成伤害！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能射出能够虚弱怪物的飞镖，让怪物完全无法造成伤害！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">而且还能够向近处的敌人喷出火焰，持续进行灼烧！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">最后，来一发致命的毒素投枪吧！</sentence>
       </sentences>
     </section>
   </group>
   <group id="dream_7_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第7天地图" music="mvz2:nightmare_map" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_7" />
+    <archive name="梦境世界第7天地图" music="mvz2:nightmare_map" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_7"/>
+      </unlock>
+    </archive>
     <section onSkip="end;foreground alpha 0;music fade 0;music volume 1">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -394,7 +474,11 @@
     </section>
   </group>
   <group id="dream_8" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第8天入场" music="mvz2:mainmenu" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_8" />
+    <archive name="梦境世界第8天入场" music="mvz2:mainmenu" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_8"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -414,7 +498,11 @@
     </section>
   </group>
   <group id="dream_8_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第8天结束" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_8" />
+    <archive name="梦境世界第8天结束" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_8"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -428,7 +516,11 @@
     </section>
   </group>
   <group id="dream_8_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第8天地图" music="mvz2:nightmare_map" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_8" />
+    <archive name="梦境世界第8天地图" music="mvz2:nightmare_map" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_8"/>
+      </unlock>
+    </archive>
     <section onSkip="end;music fade 1 0">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -470,7 +562,11 @@
     </section>
   </group>
   <group id="dream_9" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第9天入场" music="mvz2:mainmenu" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_9" />
+    <archive name="梦境世界第9天入场" music="mvz2:mainmenu" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_9"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -487,7 +583,11 @@
     </section>
   </group>
   <group id="dream_9_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第9天结束" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_9" />
+    <archive name="梦境世界第9天结束" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_9"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -501,7 +601,11 @@
     </section>
   </group>
   <group id="dream_9_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第9天地图" music="mvz2:nightmare_map" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_9" />
+    <archive name="梦境世界第9天地图" music="mvz2:nightmare_map" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_9"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -521,7 +625,11 @@
     </section>
   </group>
   <group id="dream_note" tags="mvz2:dream;mvz2:note">
-    <archive name="？？？" background="mvz2:archive/dream_note" unlock="mvz2:level.dream_10" />
+    <archive name="？？？" background="mvz2:archive/dream_note" >
+      <unlock>
+        <condition required="mvz2:level.dream_10"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -536,7 +644,11 @@
     </section>
   </group>
   <group id="dream_10_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第10天地图" music="mvz2:nightmare_map" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_10" />
+    <archive name="梦境世界第10天地图" music="mvz2:nightmare_map" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_10"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -557,7 +669,11 @@
     </section>
   </group>
   <group id="dream_11" tags="mvz2:dream;mvz2:intro">
-    <archive name="梦境世界第11天入场" background="mvz2:misc/nightmare" unlock="mvz2:level.dream_11" />
+    <archive name="梦境世界第11天入场" background="mvz2:misc/nightmare" >
+      <unlock>
+        <condition required="mvz2:level.dream_11"/>
+      </unlock>
+    </archive>
     <section>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -572,7 +688,11 @@
     </section>
   </group>
   <group id="dream_11_over" tags="mvz2:dream;mvz2:over">
-    <archive name="梦境世界第11天结束" background="mvz2:misc/dream" unlock="mvz2:level.dream_11" />
+    <archive name="梦境世界第11天结束" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_11"/>
+      </unlock>
+    </archive>
     <section onSkip="end;playsound mvz2:final_item">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -591,7 +711,11 @@
     </section>
   </group>
   <group id="dream_11_map" tags="mvz2:dream;mvz2:map">
-    <archive name="梦境世界第11天地图" music="mvz2:dream_map" background="mvz2:misc/dream" unlock="mvz2:level.dream_11" />
+    <archive name="梦境世界第11天地图" music="mvz2:dream_map" background="mvz2:misc/dream" >
+      <unlock>
+        <condition required="mvz2:level.dream_11"/>
+      </unlock>
+    </archive>
     <section onSkip="end;music fade 1 0;forecolor fade #0000 1">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -647,7 +771,11 @@
     </section>
   </group>
   <group id="entered_gensokyo" tags="mvz2:gensokyo">
-    <archive name="进入幻想乡" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_gensokyo" />
+    <archive name="进入幻想乡" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" >
+      <unlock>
+        <condition required="mvz2:entered_gensokyo"/>
+      </unlock>
+    </archive>
     <section onSkip="unlock mvz2:entered_gensokyo;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
@@ -672,7 +800,11 @@
     </section>
   </group>
   <group id="kourindou_first_visit" tags="mvz2:gensokyo;mvz2:store">
-    <archive name="第三章-访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited" />
+    <archive name="第三章-访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" >
+      <unlock>
+        <condition required="mvz2:kourindou_visited"/>
+      </unlock>
+    </archive>
     <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited;end">
       <characters>
         <character id="mvz2:tokiko" side="right" />
@@ -737,7 +869,11 @@
     </section>
   </group>
   <group id="exited_kourindou" tags="mvz2:gensokyo">
-    <archive name="第三章-离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_castle" />
+    <archive name="第三章-离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" >
+      <unlock>
+        <condition required="mvz2:entered_castle"/>
+      </unlock>
+    </archive>
     <section onSkip="unlock mvz2:entered_castle;bubble hide;music fade 0;forecolor fade #0000 #000F 1;delay 1;action goto_castle;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />

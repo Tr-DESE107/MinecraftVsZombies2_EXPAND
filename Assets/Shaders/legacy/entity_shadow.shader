@@ -8,7 +8,7 @@
 		[Toggle] _BackgroundLit("Lit by Background", Int) = 0
 		[Toggle] _SpotLit("Lit by Spot", Int) = 1
         _LightMapSpot("Light Map Spot", 2D) = "black" {}
-        _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
+        _LevelMapST ("Level Map ST", Vector) = (14, 10.2, 0, 0)
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         [HideInInspector] _Color("Tint", Color) = (1,1,1,1)

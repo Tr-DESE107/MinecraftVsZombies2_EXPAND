@@ -26,8 +26,7 @@ namespace MVZ2Logic.Level.Components
     }
     public interface IHeldItemComponent : ILevelComponent
     {
-        void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false);
-        void SetHeldItem(IHeldItemData data);
+        void SetHeldItem(IHeldItemBuilder builder);
         void ResetHeldItem();
         bool CancelHeldItem();
         IModelInterface? GetHeldItemModelInterface();
@@ -70,17 +69,11 @@ namespace MVZ2Logic.Level.Components
     }
     public interface ITalkComponent : ILevelComponent
     {
-        bool CanStartTalk(NamespaceID id, int section);
         void StartTalk(NamespaceID id, int section, float delay = 1, Action? onEnd = null);
         bool WillSkipTalk(NamespaceID id, int section);
         void SkipTalk(NamespaceID id, int section, Action? onSkipped = null);
         void SimpleStartTalk(NamespaceID groupId, int section, float delay = 0, Action? onSkipped = null, Action? onStarted = null, Action? onEnd = null)
         {
-            if (!CanStartTalk(groupId, section))
-            {
-                onEnd?.Invoke();
-                return;
-            }
             if (WillSkipTalk(groupId, section))
             {
                 SkipTalk(groupId, section, () =>

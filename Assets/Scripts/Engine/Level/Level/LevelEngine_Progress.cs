@@ -120,6 +120,10 @@ namespace PVZEngine.Level
             seri.levelTime = levelTime;
             seri.spawnedLanes = spawnedLanes;
             seri.spawnedID = spawnedID;
+            seri.currentWave = CurrentWave;
+            seri.currentFlag = CurrentFlag;
+            seri.waveState = WaveState;
+            seri.levelProgressVisible = LevelProgressVisible;
         }
         private void ReadProgressFromSerializable(SerializableLevel seri)
         {
@@ -127,6 +131,10 @@ namespace PVZEngine.Level
             IsCleared = seri.isCleared;
             spawnedLanes = seri.spawnedLanes ?? spawnedLanes;
             spawnedID = seri.spawnedID ?? spawnedID;
+            CurrentWave = seri.currentWave;
+            CurrentFlag = seri.currentFlag;
+            WaveState = seri.waveState;
+            LevelProgressVisible = seri.levelProgressVisible;
         }
         #endregion
 

@@ -5,6 +5,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -116,8 +117,8 @@ namespace MVZ2.GameContent.Contraptions
                     var column = grid.Column;
                     var lane = grid.Lane;
                     Detection.OverlapGridGroundNonAlloc(level, column, lane, faction, EntityCollisionHelper.MASK_VULNERABLE, 0, detectBuffer);
-                    var x = level.GetColumnX(column) + level.GetGridWidth() * 0.5f;
-                    var z = level.GetLaneZ(lane) + level.GetGridHeight() * 0.5f;
+                    var x = level.GetColumnCenterX(column);
+                    var z = level.GetLaneCenterZ(lane);
                     var y = level.GetGroundY(x, z);
                     source.Spawn(VanillaEffectID.waterLightningParticles, new Vector3(x, y, z));
                 }
@@ -147,8 +148,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly Vector3 ARC_OFFSET = new Vector3(0, 96, 0);
         public const float SHOCK_RADIUS = 20;
 
-        public const int STATE_IDLE = VanillaEntityStates.TESLA_COIL_IDLE;
-        public const int STATE_ATTACK = VanillaEntityStates.TESLA_COIL_ATTACK;
+        public const int STATE_IDLE = VanillaContraptionStates.IDLE;
+        public const int STATE_ATTACK = VanillaContraptionStates.TESLA_COIL_ATTACK;
 
         private Detector detector;
         private static List<IEntityCollider> detectBuffer = new List<IEntityCollider>();

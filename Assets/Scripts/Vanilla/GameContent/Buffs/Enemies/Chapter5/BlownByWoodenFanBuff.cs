@@ -70,7 +70,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var mass = entity.GetMass() + entity.GetBlowMassOffset();
             if (!entity.IsOnGround || entity.IsInCloud())
             {
-                mass -= 3;
+                mass -= 2;
             }
             return mass;
         }

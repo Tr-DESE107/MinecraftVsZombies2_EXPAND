@@ -27,7 +27,7 @@ namespace PVZEngine.Level
                 return null;
             var seedPack = new ConveyorSeedPack(this, seedDefinition, AllocSeedPackID());
             conveyorSeedPacks.Insert(index, seedPack);
-            seedPack.PostAdd(this);
+            IncreaseLevelObjectReference(seedPack);
             OnConveyorSeedAdded?.Invoke(index);
             return seedPack;
         }
@@ -40,7 +40,7 @@ namespace PVZEngine.Level
                 return false;
             var seedPack = conveyorSeedPacks[index];
             conveyorSeedPacks.RemoveAt(index);
-            seedPack.PostRemove(this);
+            DecreaseLevelObjectReference(seedPack);
             OnConveyorSeedRemoved?.Invoke(index);
             return true;
         }
@@ -131,7 +131,7 @@ namespace PVZEngine.Level
         #region 序列化
         public void WriteConveyorToSerializable(SerializableLevel seri)
         {
-            seri.conveyorSeedPacks = conveyorSeedPacks.OfType<ConveyorSeedPack>().Select(s => s.Serialize()).ToArray();
+            seri.conveyorSeedPacks = conveyorSeedPacks.OfType<ConveyorSeedPack>().Select(s => s.ToSerializable()).ToArray();
             seri.conveyorSlotCount = conveyorSlotCount;
             seri.conveyorSeedSpendRecord = conveyorSeedSpendRecord.ToSerializable();
         }
@@ -139,7 +139,7 @@ namespace PVZEngine.Level
         {
             conveyorSlotCount = seri.conveyorSlotCount;
             conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
-            conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => ConveyorSeedPack.Deserialize(s, this)).OfType<ConveyorSeedPack>().ToList();
+            conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => ConveyorSeedPack.CreateFromSerializable(s, this)).OfType<ConveyorSeedPack>().ToList();
         }
         public void ReadConveyorFromSerializable(SerializableLevel seri)
         {
@@ -150,7 +150,8 @@ namespace PVZEngine.Level
                 var seriSeed = seri.conveyorSeedPacks.FirstOrDefault(s => s != null && s.id == seed.ID);
                 if (seriSeed == null)
                     continue;
-                seed.ApplyDeserializedProperties(this, seriSeed);
+                seed.LoadFromSerializable(this, seriSeed);
+                IncreaseLevelObjectReference(seed);
             }
         }
         #endregion

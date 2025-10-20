@@ -67,5 +67,17 @@ namespace MVZ2Logic.Level
             level.SetProperty(ARTIFACT_RNG, value);
         }
         #endregion
+
+        #region 器械随机池
+        public static readonly PropertyMeta<NamespaceID[]> RANDOM_CONTRAPTION_POOL = new PropertyMeta<NamespaceID[]>("random_contraption_pool");
+        public static NamespaceID[]? GetRandomContraptionPool(this LevelEngine level)
+        {
+            return level.GetProperty<NamespaceID[]>(RANDOM_CONTRAPTION_POOL);
+        }
+        public static void SetRandomContraptionPool(this LevelEngine level, NamespaceID[]? pool)
+        {
+            level.SetProperty<NamespaceID[]>(RANDOM_CONTRAPTION_POOL, pool);
+        }
+        #endregion
     }
 }

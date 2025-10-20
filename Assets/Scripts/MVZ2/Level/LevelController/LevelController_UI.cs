@@ -199,6 +199,29 @@ namespace MVZ2.Level
             var target = new HeldItemTargetLawn(level, area);
             var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(eventData, interaction);
             level.DoHeldItemPointerEvent(target, pointerParams);
+
+            switch (interaction)
+            {
+                case PointerInteraction.Enter:
+                    OnRaycastReceiverPointerEnter(area, eventData);
+                    break;
+                case PointerInteraction.Exit:
+                    OnRaycastReceiverPointerExit(area, eventData);
+                    break;
+            }
+        }
+        private void OnRaycastReceiverPointerEnter(LawnArea area, PointerEventData eventData)
+        {
+            isPointingLawnArea = true;
+            pointingLawnArea = area;
+            pointingLawnPointerId = eventData.pointerId;
+            UpdateHeldHighlight();
+        }
+        private void OnRaycastReceiverPointerExit(LawnArea area, PointerEventData eventData)
+        {
+            isPointingLawnArea = false;
+            pointingLawnPointerId = -1;
+            UpdateHeldHighlight();
         }
         private void UI_OnMenuButtonClickCallback()
         {
@@ -243,12 +266,42 @@ namespace MVZ2.Level
             var target = new HeldItemTargetBlueprint(level, index, conveyor);
             var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(eventData, interaction);
             level.DoHeldItemPointerEvent(target, pointerParams);
+
+            switch (interaction)
+            {
+                case PointerInteraction.Enter:
+                    OnBlueprintPointerEnter(index, eventData, conveyor);
+                    break;
+                case PointerInteraction.Exit:
+                    OnBlueprintPointerExit(index, eventData, conveyor);
+                    break;
+            }
+        }
+        private void OnBlueprintPointerEnter(int index, PointerEventData eventData, bool conveyor)
+        {
+            pointingBlueprint = index;
+            pointingBlueprintPointerId = eventData.pointerId;
+            pointingBlueprintConveyor = conveyor;
+            UpdateHeldHighlight();
+        }
+        private void OnBlueprintPointerExit(int index, PointerEventData eventData, bool conveyor)
+        {
+            pointingBlueprint = -1;
+            pointingBlueprintPointerId = -1;
+            pointingBlueprintConveyor = conveyor;
+            UpdateHeldHighlight();
         }
 
         #endregion
 
         #region 属性字段
         private bool inputAndUIDisabled;
+        private bool isPointingLawnArea;
+        private LawnArea pointingLawnArea;
+        private int pointingLawnPointerId;
+        private int pointingBlueprint;
+        private int pointingBlueprintPointerId;
+        private bool pointingBlueprintConveyor;
 
         [Header("UI")]
         [SerializeField]

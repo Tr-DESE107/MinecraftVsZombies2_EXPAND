@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
@@ -86,6 +87,15 @@ namespace MVZ2.Managers
             foreach (var (id, res) in resources)
             {
                 modResource.Musics.Add(id.Path, res);
+            }
+        }
+        private void LoadUnlocks_Music(ModResource resource)
+        {
+            if (resource.MusicMetaList == null)
+                return;
+            foreach (var meta in resource.MusicMetaList.metas)
+            {
+                AddConditionListUnlocks(meta.UnlockConditions);
             }
         }
         #endregion

@@ -21,14 +21,23 @@ namespace MVZ2.Grids
                 grid.UpdateFixed();
             }
         }
-        public void UpdateGridViews(GridViewData[][] viewDatas)
+        public void UpdateGridsFrame(float deltaTime)
+        {
+            if (grids == null)
+                return;
+            foreach (var grid in grids)
+            {
+                grid.UpdateFrame(deltaTime);
+            }
+        }
+        public void InitGridViews(GridInitData[][] initDatas)
         {
             List<GridController> gridList = new List<GridController>();
-            lanes.updateList(viewDatas.Length, (i, obj) =>
+            lanes.updateList(initDatas.Length, (i, obj) =>
             {
                 var lane = obj.GetComponent<LaneController>();
                 lane.SetLane(i);
-                lane.UpdateGrids(viewDatas[i]);
+                lane.InitGrids(initDatas[i]);
                 gridList.AddRange(lane.GetGrids());
             },
             obj =>

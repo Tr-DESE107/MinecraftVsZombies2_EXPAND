@@ -40,6 +40,20 @@ namespace MVZ2.GameContent.Effects
         {
             return Spawn(spawner, position, Vector3.one * (radius * 2));
         }
+        public static Entity? Spawn(NamespaceID id, LevelEngine level, Vector3 position, Vector3 size)
+        {
+            var param = new SpawnParams();
+            param.SetProperty(EngineEntityProps.SIZE, size);
+            return level.Spawn(id, position, null, param);
+        }
+        public static Entity? Spawn(LevelEngine level, Vector3 position, Vector3 size)
+        {
+            return Spawn(VanillaEffectID.explosion, level, position, size);
+        }
+        public static Entity? Spawn(LevelEngine level, Vector3 position, float radius)
+        {
+            return Spawn(level, position, Vector3.one * (radius * 2));
+        }
         #endregion
     }
 }
