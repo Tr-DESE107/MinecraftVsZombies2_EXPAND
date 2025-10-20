@@ -17,7 +17,7 @@
         </description>
     </music>
     <music id="day" name="草地行走">
-        <track main="mvz2:day"/>
+        <track main="mvz2:day" sub="mvz2:day_horde"/>
         <source>植物大战僵尸</source>
         <description>
             <p>序章的音乐。</p>
