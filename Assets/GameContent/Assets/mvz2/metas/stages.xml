@@ -1811,12 +1811,33 @@
             <spawn id="mvz2:mega_mutant_zombie"/>
             <spawn id="mvz2:HostMutant"/>
             <spawn id="mvz2:HeavyGutant"/>
+            <spawn id="mvz2:MegaMutantVillager"/>
+            <spawn id="mvz2:MutantVillager"/>
+            <spawn id="mvz2:MutantMannequin"/>
             
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
         </properties>
     </stage>
+
+	<stage id="MutantCrisis_2" name="神人危机" type="minigame" music="mvz2:minigame">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="10">
+
+			<spawn id="mvz2:MegaMutantVillager"/>
+			<spawn id="mvz2:MutantVillager"/>
+			<spawn id="mvz2:MutantMannequin"/>
+			<spawn id="mvz2:ImpMannequin"/>
+			<spawn id="mvz2:Mannequin"/>
+			<spawn id="mvz2:MegaImpMannequin"/>
+			<spawn id="mvz2:VillagerGhast"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
 
     <stage id="ContraptionDevourer" name="器械吞噬者" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>

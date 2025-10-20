@@ -7,8 +7,12 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
+using PVZEngine;
+using Tools;
+using MVZ2.GameContent.Buffs.Contraptions;
 
 namespace MVZ2.Vanilla.Enemies
 {
@@ -24,7 +28,7 @@ namespace MVZ2.Vanilla.Enemies
         {
             base.Init(entity);
 
-           
+            // 初始化记录血量（用于掉血检测）
             SetLastTriggerHealth(entity, entity.Health);
         }
 
@@ -54,12 +58,7 @@ namespace MVZ2.Vanilla.Enemies
                     var randomID = GetRandomSkeletonID(entity.RNG);
                     var spawnParam = entity.GetSpawnParams();
                     spawnParam.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
-                    var spawned = entity.Spawn(randomID, entity.Position, spawnParam);
-
-                    if (spawned != null && spawned.HasBuff<NocturnalBuff>())
-                    {
-                        spawned.RemoveBuffs<NocturnalBuff>();
-                    }
+                    entity.Spawn(randomID, entity.Position, spawnParam);
                 }
 
                 // 更新记录的血量

@@ -2,24 +2,28 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
-using MVZ2.GameContent.Buffs.Contraptions;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.MegaImpMannequin)]
-    public class MegaImpMannequin : MeleeEnemy
+    public class MegaImpMannequin : AIEntityBehaviour
     {
         public MegaImpMannequin(string nsp, string name) : base(nsp, name)
         {
@@ -31,38 +35,17 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.AddBuff<IZombieImpBuff>();
             }
-
             // 初始化记录血量（用于掉血检测）
             SetLastTriggerHealth(entity, entity.Health);
-
         }
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
             entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
 
             // 检查是否需要触发血量下降事件
             CheckHealthLossTrigger(entity);
         }
-        public override void PostDeath(Entity entity, DeathInfo info)
-        {
-            base.PostDeath(entity, info);
-            if (entity.HasBuff<BoatBuff>())
-            {
-                entity.RemoveBuffs<BoatBuff>();
-                // 掉落碎船掉落物
-                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity);
-                effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
-                effect.ChangeModel(VanillaModelID.boatItem);
-                effect.SetDisplayScale(entity.GetDisplayScale());
-            }
-
-            entity.SpawnWithParams(VanillaContraptionID.tnt, entity.Position);
-        }
-
-
-
 
         /// <summary>
         /// 每当血量下降超过设定阈值，触发一次事件
@@ -73,7 +56,7 @@ namespace MVZ2.GameContent.Enemies
             float currHP = entity.Health;
 
             // 每掉落一定血量（例如 800 点）触发一次事件
-            int triggerCount = (int)((lastHP - currHP) / 100f);
+            int triggerCount = (int)((lastHP - currHP) / 800f);
             triggerCount = Mathf.Min(triggerCount, 2);
             if (triggerCount > 0)
             {
@@ -82,12 +65,7 @@ namespace MVZ2.GameContent.Enemies
                     var randomID = GetRandomSkeletonID(entity.RNG);
                     var spawnParam = entity.GetSpawnParams();
                     spawnParam.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
-                    var spawned = entity.Spawn(randomID, entity.Position, spawnParam);
-
-                    if (spawned != null && spawned.HasBuff<NocturnalBuff>())
-                    {
-                        spawned.RemoveBuffs<NocturnalBuff>();
-                    }
+                    entity.Spawn(randomID, entity.Position, spawnParam);
                 }
 
                 // 更新记录的血量
@@ -121,6 +99,22 @@ namespace MVZ2.GameContent.Enemies
             1,
         };
 
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+            if (entity.HasBuff<BoatBuff>())
+            {
+                entity.RemoveBuffs<BoatBuff>();
+                // 掉落碎船掉落物
+                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity)?.Let(e =>
+                {
+                    e.Velocity = new Vector3(e.RNG.NextFloat() * 20 - 10, 5, 0);
+                    e.ChangeModel(VanillaModelID.boatItem);
+                    e.SetDisplayScale(entity.GetDisplayScale());
+                });
+            }
+        }
+
         // 存储“上次触发时的血量”的字段名
         private static readonly VanillaEntityPropertyMeta<float> PROP_LAST_TRIGGER_HEALTH = new VanillaEntityPropertyMeta<float>("LastTriggerHealth");
 
@@ -132,6 +126,5 @@ namespace MVZ2.GameContent.Enemies
 
         // 当前实体的ID（用于字段访问）
         private static readonly NamespaceID ID = VanillaEnemyID.MegaImpMannequin;
-
     }
 }
