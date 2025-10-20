@@ -106,6 +106,19 @@ namespace MVZ2.GameContent.Enemies
         public const string skeletonMage = "skeleton_mage";
         public const string shikaisenStaff = "shikaisen_staff";
 
+
+
+        //EXPAND3
+        public const string MegaMutantVillager = "MegaMutantVillager";
+        public const string MutantVillager = "MutantVillager";
+        public const string VillagerGhast = "VillagerGhast";
+        public const string Mannequin = "Mannequin";
+        public const string ImpMannequin = "ImpMannequin";
+        public const string MegaImpMannequin = "MegaImpMannequin";
+        public const string HerobrineMannequin = "HerobrineMannequin";
+        public const string ImpHerobrineMannequin = "ImpHerobrineMannequin";
+        public const string MutantMannequin = "MutantMannequin";
+
     }
     public static class VanillaEnemyID
     {
@@ -207,6 +220,18 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID skeletonWarrior = Get(VanillaEnemyNames.skeletonWarrior);
         public static readonly NamespaceID skeletonMage = Get(VanillaEnemyNames.skeletonMage);
         public static readonly NamespaceID shikaisenStaff = Get(VanillaEnemyNames.shikaisenStaff);
+
+        //EXPAND3
+        public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);
+        public static readonly NamespaceID MutantVillager = Get(VanillaEnemyNames.MutantVillager);
+        public static readonly NamespaceID VillagerGhast = Get(VanillaEnemyNames.VillagerGhast);
+        public static readonly NamespaceID Mannequin = Get(VanillaEnemyNames.Mannequin);
+        public static readonly NamespaceID ImpMannequin = Get(VanillaEnemyNames.ImpMannequin);
+        public static readonly NamespaceID MegaImpMannequin = Get(VanillaEnemyNames.MegaImpMannequin);
+        public static readonly NamespaceID HerobrineMannequin = Get(VanillaEnemyNames.HerobrineMannequin);
+        public static readonly NamespaceID ImpHerobrineMannequin = Get(VanillaEnemyNames.ImpHerobrineMannequin);
+        public static readonly NamespaceID MutantMannequin = Get(VanillaEnemyNames.MutantMannequin);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

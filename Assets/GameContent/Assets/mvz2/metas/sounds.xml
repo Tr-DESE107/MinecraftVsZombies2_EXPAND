@@ -954,4 +954,39 @@
     <sound name="zombie_death">
         <sample path="mvz2:entity/zombie/zombie_death" weight="1" />
     </sound>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--EXPAND SOUND-->
+	<sound name="Villager_death">
+		<sample path="mvz2:entity/Villager/Villager_death" weight="1" />
+	</sound>
+	<sound name="Villager_idle">
+		<sample path="mvz2:entity/Villager/Villager_idle1" weight="1" />
+		<sample path="mvz2:entity/Villager/Villager_idle2" weight="1" />
+		<sample path="mvz2:entity/Villager/Villager_idle3" weight="1" />
+	</sound>
+	<sound name="Villager_hit">
+		<sample path="mvz2:entity/Villager/Villager_hit1" weight="1" />
+		<sample path="mvz2:entity/Villager/Villager_hit2" weight="1" />
+		<sample path="mvz2:entity/Villager/Villager_hit3" weight="1" />
+		<sample path="mvz2:entity/Villager/Villager_hit4" weight="1" />
+	</sound>
+
+	<sound name="Player_death">
+		<sample path="mvz2:entity/Player/Player_hurt1" weight="1" />
+		<sample path="mvz2:entity/Player/Player_hurt2" weight="1" />
+		<sample path="mvz2:entity/Player/Player_hurt3" weight="1" />
+	</sound>
+	<sound name="Player_death_Old">
+		<sample path="mvz2:entity/Player/Player_hurt_Old" weight="1" />
+	</sound>
 </sounds>

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d41e7d0fbcd940847a320d3a4b21afa5
+guid: 17b5db58744a62b40aa838a035741a85
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94cf94d98dbb5cd46a50705e75e33039
-      internalID: 563551924
+      spriteID: 45f0b56bb34e6cf42b6f486b4a370377
+      internalID: 460737641
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,8 @@ TextureImporter:
       name: Eradicator_1
       rect:
         serializedVersion: 2
-        x: 57
-        y: 50
+        x: 60
+        y: 49
         width: 37
         height: 40
       alignment: 0
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba9b94b99cf1c5e48a652e0a78171684
-      internalID: 389080521
+      spriteID: 37c22466a66b9d94da360ee36972ef25
+      internalID: 2097030706
       vertices: []
       indices: 
       edges: []
@@ -155,8 +155,8 @@ TextureImporter:
       name: Eradicator_2
       rect:
         serializedVersion: 2
-        x: 97
-        y: 55
+        x: 100
+        y: 54
         width: 20
         height: 7
       alignment: 0
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3bf7f771bf30f84b8f66ed7457e4045
-      internalID: -1060030680
+      spriteID: 6e02dddf1e8a8604a867fbacdff6e81f
+      internalID: -2081611256
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70001d6c4de490042bf54118a0eabd24
-      internalID: -432760905
+      spriteID: 5b03e8f759670c74299846b26e53c6c6
+      internalID: -1668233880
       vertices: []
       indices: 
       edges: []
@@ -204,13 +204,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Eradicator_0: 1818816339
-      Eradicator_1: 1117081883
-      Eradicator_2: 563551924
-      Eradicator_3: 389080521
-      Eradicator_4: -1060030680
-      Eradicator_5: 296797862
-      Eradicator_6: -432760905
+      Eradicator_0: -2002639112
+      Eradicator_1: 1503811411
+      Eradicator_2: 460737641
+      Eradicator_3: 2097030706
+      Eradicator_4: -2081611256
+      Eradicator_5: -1982412637
+      Eradicator_6: -1668233880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

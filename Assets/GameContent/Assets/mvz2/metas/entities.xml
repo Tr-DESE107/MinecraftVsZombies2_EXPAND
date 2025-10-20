@@ -1218,6 +1218,19 @@
                 <id name="mvz2:rechargeId" value="mvz2:none" />
             </properties>
         </contraption>
+		
+		<!--EXPAND C1-->
+		<dispenser id="Eradicator" name="根除者" tooltip="射出穿透肉体的飞刀" unlock="mvz2:level.halloween_8">
+			<properties>
+				<float name="mvz2:damage" value="25" />
+				<id name="mvz2:projectileId" value="mvz2:knife" />
+				<id name="mvz2:shell" value="mvz2:metal" />
+
+				<int name="mvz2:cost" value="150" />
+				<id name="mvz2:rechargeId" value="mvz2:short" />
+			</properties>
+		</dispenser>
+		
 
         <!--EXPAND Contraption-->
 		<dispenser id="Eradicator" name="根除者" tooltip="射出穿透肉体的飞刀" unlock="mvz2:level.halloween_8">
@@ -2187,6 +2200,145 @@
                 <float name="mvz2:speed" value="2"/>
             </properties>
         </enemy>
+
+		<!-- expand Enemies2 -->
+		<enemy id="VillagerGhast" name="村民恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
+			<properties>
+				<float name="mvz2:mass" value="2" />
+				<bool name="mvz2:undead" value="false" />
+				<bool name="mvz2:flying_enemy" value="true" />
+				<float name="mvz2:maxHealth" value="100" />
+				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:size" x="64" y="64" z="64" />
+				<vector3 name="mvz2:shotOffset" x="10" y="10" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
+				
+				<id name="mvz2:shape" value="mvz2:ghast" />
+				<id name="mvz2:projectileId" value="mvz2:fire_charge" />
+				<id name="mvz2:crySound" value="mvz2:Villager_idle" />
+				<id name="mvz2:deathSound" value="mvz2:Villager_death" />
+				<idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
+
+				<int name="mvz2:cost" value="125" />
+				<int name="mvz2:waterInteraction" value="3" />
+				<int name="mvz2:airInteraction" value="3" />
+			</properties>
+		</enemy>
+
+		<enemy id="MutantVillager" name="突变村民" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
+			<properties>
+				<float name="mvz2:mass" value="2" />
+				<float name="mvz2:maxHealth" value="3000" />
+				<float name="mvz2:maxAttackHeight" value="100" />
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:speed" value="1" />
+				<float name="mvz2:range" value="40" />
+				<vector3 name="mvz2:size" x="80" y="170" z="60" />
+				<id name="mvz2:crySound" value="mvz2:Villager_idle" />
+				<id name="mvz2:deathSound" value="mvz2:Villager_death" />
+				<id name="mvz2:shape" value="mvz2:mutant_zombie" />
+				<float name="mvz2:takenCrushDamage" value="900" />
+				<bool name="mvz2:immuneVortex" value="true" />
+				<int name="mvz2:vehicleInteraction" value="2" />
+				<vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
+
+				<int name="mvz2:cost" value="300" />
+				<int name="mvz2:waterInteraction" value="3" />
+			</properties>
+		</enemy>
+		<enemy id="MegaMutantVillager" name="超级突变村民" deathMessage="你怎么进门的？"
+            unlock="mvz2:level.shrine_8">
+			<properties>
+				<float name="mvz2:mass" value="2" />
+				<float name="mvz2:maxHealth" value="6000" />
+				<float name="mvz2:maxAttackHeight" value="100" />
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:speed" value="1" />
+				<float name="mvz2:range" value="40" />
+				<vector3 name="mvz2:size" x="80" y="170" z="60" />
+				<id name="mvz2:crySound" value="mvz2:Villager_idle" />
+				<id name="mvz2:deathSound" value="mvz2:Villager_death" />
+				<id name="mvz2:shape" value="mvz2:mutant_zombie" />
+				<float name="mvz2:takenCrushDamage" value="900" />
+				<bool name="mvz2:immuneVortex" value="true" />
+				<int name="mvz2:vehicleInteraction" value="2" />
+
+				<vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
+
+				<int name="mvz2:cost" value="500" />
+				<int name="mvz2:waterInteraction" value="3" />
+			</properties>
+		</enemy>
+
+		<enemy id="ImpMannequin" name="小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+			<properties>
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18"/>
+				<id name="mvz2:deathSound" value="mvz2:Player_death" />
+				
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2"/>
+				<float name="mvz2:maxHealth" value="300"/>
+				<float name="mvz2:speed" value="2.4"/>
+				<float name="mvz2:damage" value="100"/>
+			</properties>
+		</enemy>
+
+		<enemy id="MegaImpMannequin" name="超级小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+			<properties>
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18"/>
+				<id name="mvz2:deathSound" value="mvz2:Player_death_Old" />
+				<float name="mvz2:cryPitch" value="1"/>
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2"/>
+				<float name="mvz2:maxHealth" value="450"/>
+				<float name="mvz2:speed" value="2.4"/>
+				<float name="mvz2:damage" value="100"/>
+			</properties>
+		</enemy>
+		
+		<enemy id="ImpHerobrineMannequin" name="小鬼Herobrine模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+			<properties>
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18"/>
+				<id name="mvz2:deathSound" value="mvz2:Player_death_Old" />
+				<float name="mvz2:cryPitch" value="-2"/>
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2"/>
+				<float name="mvz2:maxHealth" value="600"/>
+				<float name="mvz2:speed" value="2.4"/>
+				<float name="mvz2:damage" value="100"/>
+			</properties>
+		</enemy>
+
+		<enemy id="MutantMannequin" name="超级突变玩家模型" deathMessage="你怎么进门的？"
+            unlock="mvz2:level.shrine_8">
+			<properties>
+				<float name="mvz2:mass" value="2" />
+				<float name="mvz2:maxHealth" value="6000" />
+				<float name="mvz2:maxAttackHeight" value="100" />
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:speed" value="1" />
+				<float name="mvz2:range" value="40" />
+				<vector3 name="mvz2:size" x="80" y="170" z="60" />
+				<id name="mvz2:crySound" value="mvz2:Player_death_Old" />
+				<id name="mvz2:deathSound" value="mvz2:Player_death_Old" />
+				<id name="mvz2:shape" value="mvz2:mutant_zombie" />
+				<float name="mvz2:takenCrushDamage" value="900" />
+				<bool name="mvz2:immuneVortex" value="true" />
+				<int name="mvz2:vehicleInteraction" value="2" />
+
+				<vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
+
+				<int name="mvz2:cost" value="500" />
+				<int name="mvz2:waterInteraction" value="3" />
+			</properties>
+		</enemy>
 
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">

@@ -3,7 +3,7 @@ guid: c9f12aabd02fce54b9b5287418b50d8b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -206,6 +206,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: nether_vanguard_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 8
+        height: 35
+      alignment: 9
+      pivot: {x: 0.375, y: 0.9117647}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8557126b005a2648b4ee9c95ba608fd
+      internalID: -1616175643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -221,6 +242,7 @@ TextureImporter:
       nether_vanguard_1: 2054211541
       nether_vanguard_2: 56546038
       nether_vanguard_3: 175646590
+      nether_vanguard_4: -1616175643
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
