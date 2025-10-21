@@ -48,11 +48,11 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.thunderDrum,
                 VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.fireworkDispenser,
-                VanillaEnemyID.ghast,
-                VanillaEnemyID.dullahanHead,
-                VanillaEnemyID.anubisand,
-                VanillaEnemyID.ufo,
-                VanillaEnemyID.zombie,
+                VanillaEnemyID.necromancer,
+                VanillaEnemyID.EvilMage,
+                VanillaEnemyID.KingofReverser,
+                VanillaEnemyID.skeleton,
+                VanillaEnemyID.NetherArcher,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

@@ -1330,6 +1330,10 @@
 
         <!-- Halloween Enemies -->
         <humanoid id="skeleton" name="骷髅" deathMessage="被射成刺猬了！" unlock="mvz2:level.halloween_1">
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state"/>
+				<behaviour operator="remove" id="mvz2:enemy_melee"/>
+			</behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
@@ -1772,6 +1776,10 @@
 		</enemy>
 		
 		<enemy id="NetherArcher" name="下界弓箭手" deathMessage="被射成刺猬了！" unlock="mvz2:level.castle_2">
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state"/>
+				<behaviour operator="remove" id="mvz2:enemy_melee"/>
+			</behaviours>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<float name="mvz2:range" value="800" />

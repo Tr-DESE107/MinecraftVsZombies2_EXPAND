@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Enemies
             float currHP = entity.Health;
 
             // 每掉落一定血量（例如 800 点）触发一次事件
-            int triggerCount = (int)((lastHP - currHP) / 800f);
+            int triggerCount = (int)((lastHP - currHP) / 100f);
             triggerCount = Mathf.Min(triggerCount, 2);
             if (triggerCount > 0)
             {
@@ -105,6 +105,8 @@ namespace MVZ2.GameContent.Enemies
                     e.SetDisplayScale(entity.GetDisplayScale());
                 });
             }
+
+            entity.SpawnWithParams(VanillaContraptionID.tnt, entity.Position);
         }
 
         // 存储“上次触发时的血量”的字段名

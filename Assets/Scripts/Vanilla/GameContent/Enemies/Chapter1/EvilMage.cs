@@ -116,7 +116,7 @@ namespace MVZ2.GameContent.Enemies
                 var z = entity.Position.z + level.GetGridHeight() * i * 0.5f;
                 var y = level.GetGroundY(x, z);
                 Vector3 wallPos = new Vector3(x, y, z);
-                entity.SpawnWithParams(VanillaEnemyID.boneWall, wallPos);
+                entity.SpawnWithParams(VanillaEnemyID.WitherBoneWall, wallPos);
             }
         }
         #region ³£Á¿

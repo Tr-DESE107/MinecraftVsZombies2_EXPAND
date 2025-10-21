@@ -275,9 +275,11 @@ namespace MVZ2.GameContent.Enemies
         private const int MAX_BONE_WALL_COUNT = 15;
 
         // ״̬
-        //public const int STATE_WALK = VanillaEntityStates.WALK;
-        //public const int STATE_ATTACK = VanillaEntityStates.ATTACK;
-        //public const int STATE_CAST = VanillaEntityStates.AngryReverser_CAST;
+        //VanillaEnemyStates.MELEE_ATTACK
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_CAST = VanillaEnemyStates.CAST;
+
 
         // ID
         public static readonly NamespaceID ID = VanillaEnemyID.KingofReverser;
