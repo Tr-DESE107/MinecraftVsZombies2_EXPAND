@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.EvilMage,
                 VanillaEnemyID.KingofReverser,
                 VanillaEnemyID.skeleton,
-                VanillaEnemyID.NetherArcher,
+                VanillaEnemyID.KingSkeleton,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

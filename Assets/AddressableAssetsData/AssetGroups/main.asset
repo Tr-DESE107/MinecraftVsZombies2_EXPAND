@@ -2579,7 +2579,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30af7d8fffea33941b3301515509bb28
-    m_Address: mvz2:enemy/halloween/wither_bone_wall
+    m_Address: mvz2:enemy/halloween/WitherBoneWall
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6175,13 +6175,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 76248b67bfb21ea4baba57048f227a27
-    m_Address: mvz2:enemy/castle/NetherArcher
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7653a3ea24e1f0e41b42d54f5d1fed14
     m_Address: mvz2:map_pin
     m_ReadOnly: 0
@@ -6631,6 +6624,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7db46376822a85046b92994d72ddc64a
     m_Address: mvz2:effect/castle_twilight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7df0f4c9f219e794795e1e3082cfd0bb
+    m_Address: mvz2:enemy/castle/NetherArcher
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
