@@ -1941,8 +1941,8 @@
 				<float name="mvz2:mass" value="2" />
 				<bool name="mvz2:undead" value="false" />
 				<bool name="mvz2:flying_enemy" value="true" />
-				<float name="mvz2:maxHealth" value="100" />
-				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:maxHealth" value="250" />
+				<float name="mvz2:damage" value="300" />
 				<float name="mvz2:range" value="800" />
 				<vector3 name="mvz2:size" x="64" y="64" z="64" />
 				<vector3 name="mvz2:shotOffset" x="10" y="10" z="0" />
@@ -1963,7 +1963,7 @@
 		<enemy id="MutantVillager" name="突变村民" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
 			<properties>
 				<float name="mvz2:mass" value="2" />
-				<float name="mvz2:maxHealth" value="3000" />
+				<float name="mvz2:maxHealth" value="2700" />
 				<float name="mvz2:maxAttackHeight" value="100" />
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:speed" value="1" />
@@ -1985,7 +1985,7 @@
             unlock="mvz2:level.shrine_8">
 			<properties>
 				<float name="mvz2:mass" value="2" />
-				<float name="mvz2:maxHealth" value="6000" />
+				<float name="mvz2:maxHealth" value="5400" />
 				<float name="mvz2:maxAttackHeight" value="100" />
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:speed" value="1" />
@@ -2035,7 +2035,7 @@
 			</properties>
 		</enemy>
 		
-		<enemy id="ImpHerobrineMannequin" name="小鬼Herobrine模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+		<enemy id="ImpHerobrineMannequin" name="小鬼邪神模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
 			<properties>
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:mass" value="-1" />
@@ -2050,11 +2050,11 @@
 			</properties>
 		</enemy>
 
-		<enemy id="MutantMannequin" name="超级突变玩家模型" deathMessage="你怎么进门的？"
+		<enemy id="MutantMannequin" name="突变玩家模型" deathMessage="你怎么进门的？"
             unlock="mvz2:level.shrine_8">
 			<properties>
 				<float name="mvz2:mass" value="2" />
-				<float name="mvz2:maxHealth" value="6000" />
+				<float name="mvz2:maxHealth" value="4500" />
 				<float name="mvz2:maxAttackHeight" value="100" />
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:speed" value="1" />
@@ -2073,6 +2073,14 @@
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
 		</enemy>
+
+		<zombie id="Mannequin" name="玩家模型" deathMessage="脑子是好的，但不是每个人都有">
+			<properties>
+				<int name="mvz2:cost" value="150" />
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:maxHealth" value="500" />
+			</properties>
+		</zombie>
 
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">

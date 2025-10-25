@@ -362,5 +362,9 @@
 		<terrain water="true"/>
 		<weight base="1500" />
 	</entry>
+	<entry id="Mannequin" entity="mvz2:Mannequin" >
+		<spawn level="2" />
+		<weight base="2000" />
+	</entry>
 	
 </spawns>

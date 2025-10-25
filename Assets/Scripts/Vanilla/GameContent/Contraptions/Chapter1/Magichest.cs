@@ -189,9 +189,18 @@ namespace MVZ2.GameContent.Contraptions
                         stateTimer.Run();
                         if (stateTimer.PassedFrame(30))
                         {
-                            var ghast = entity.SpawnWithParams(VanillaEnemyID.VillagerGhast, entity.GetCenter());
-                            ghast.AddBuff<NightmareComeTrueBuff>();
-                            entity.PlaySound(VanillaSoundID.fireCharge);
+                            if (entity.RNG.Next(6) == 0)
+                            {
+                                var ghast = entity.SpawnWithParams(VanillaEnemyID.VillagerGhast, entity.GetCenter());
+                                ghast.AddBuff<NightmareComeTrueBuff>();
+                                entity.PlaySound(VanillaSoundID.fireCharge);
+                            }
+                            else
+                            {
+                                var ghast = entity.SpawnWithParams(VanillaEnemyID.ghast, entity.GetCenter());
+                                ghast.AddBuff<NightmareComeTrueBuff>();
+                                entity.PlaySound(VanillaSoundID.fireCharge);
+                            }
                         }
                         if (stateTimer.Expired)
                         {

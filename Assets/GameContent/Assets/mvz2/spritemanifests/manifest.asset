@@ -2327,6 +2327,7 @@ MonoBehaviour:
     - {fileID: -2119216257, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
     - {fileID: -347395102, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
     - {fileID: 541493817, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: 40601347, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
   - name: entity/enemy/MindAdept
     spritesheet:
     - {fileID: 1530240111, guid: de6983021191a2540a472d662b0fffde, type: 3}

@@ -447,7 +447,7 @@ PrefabInstance:
     - target: {fileID: 4292637072758968588, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2109401964, guid: ee0d57dfb3655654ab1350bdca84592b, type: 3}
+      objectReference: {fileID: -945264565, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
     - target: {fileID: 5277136651058253272, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 

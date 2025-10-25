@@ -1223,7 +1223,7 @@
         </entry>
         <entry id="mvz2:skeleton">
 			<tags>
-				<tag id="mvz2:category_skeleton"/>
+				<!--<tag id="mvz2:category_skeleton"/>-->
 			</tags>
             <header>
                 <p>骷髅能够在前线朝你的器械射击。</p>
