@@ -9,9 +9,11 @@
 	<minigame id="RandomChinaAndPot" stage="mvz2:RandomChinaAndPot" area="mvz2:day" icon="mvz2:arcade/RandomChinaAndPot"/>
 	<minigame id="PerformanceArt" stage="mvz2:PerformanceArt" area="mvz2:day" icon="mvz2:arcade/PerformanceArt"/>
 	<minigame id="WhackASkeleton" stage="mvz2:WhackASkeleton" area="mvz2:mausoleum" icon="mvz2:arcade/WhackASkeleton"/>
-	<minigame id="MutantCrisis_2" stage="mvz2:MutantCrisis_2" area="mvz2:day" icon="mvz2:arcade/MutantCrisis"/>
-	<minigame id="VillagerNews" stage="mvz2:VillagerNews" area="mvz2:day" icon="mvz2:arcade/MutantCrisis"/>
-	<minigame id="TrueAndFalseSteve" stage="mvz2:TrueAndFalseSteve" area="mvz2:day" icon="mvz2:arcade/MutantCrisis"/>
+	<minigame id="MutantCrisis_2" stage="mvz2:MutantCrisis_2" area="mvz2:day" icon="mvz2:arcade/MutantCrisis_2"/>
+	<minigame id="VillagerNews" stage="mvz2:VillagerNews" area="mvz2:day" icon="mvz2:arcade/VillagerNews"/>
+	<minigame id="TrueAndFalseSteve" stage="mvz2:TrueAndFalseSteve" area="mvz2:day" icon="mvz2:arcade/TrueAndFalseSteve"/>
+	<minigame id="ContraptionDevourer_2" stage="mvz2:ContraptionDevourer_2" area="mvz2:day" icon="mvz2:arcade/ContraptionDevourer_2"/>
+	<minigame id="RandomChinaDevourer" stage="mvz2:RandomChinaDevourer" area="mvz2:day" icon="mvz2:arcade/RandomChinaDevourer"/>
 
 	<puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie"/>
     <puzzle id="puzzle_i_skeleton" stage="mvz2:puzzle_i_skeleton" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_skeleton"/>

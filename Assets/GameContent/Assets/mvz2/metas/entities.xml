@@ -1056,7 +1056,7 @@
         </contraption>
 		
 		<!--EXPAND C1-->
-		<dispenser id="Eradicator" name="根除者" tooltip="射出穿透肉体的飞刀" unlock="mvz2:level.halloween_8">
+		<dispenser id="Eradicator" name="根除者" tooltip="射出穿透肉体的飞刀" unlock="mvz2:level.halloween_1145">
 			<properties>
 				<float name="mvz2:damage" value="25" />
 				<id name="mvz2:projectileId" value="mvz2:knife" />

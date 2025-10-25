@@ -1774,6 +1774,48 @@
 		</properties>
 	</stage>
 
+	<stage id="ContraptionDevourer_2" name="器械吞噬者2" needBlueprints="false" type="minigame" music="mvz2:minigame">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="1">
+
+
+			<spawn id="mvz2:ImpMannequin"/>
+			<spawn id="mvz2:MegaImpMannequin"/>
+			<spawn id="mvz2:MutantMannequin"/>
+			<spawn id="mvz2:Mannequin"/>
+			<spawn id="mvz2:MegaMutantVillager"/>
+			<spawn id="mvz2:MutantVillager"/>
+			<spawn id="mvz2:zombie"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
+
+	<stage id="RandomChinaDevourer" name="随机瓷器吞噬者" needBlueprints="false" type="minigame" music="mvz2:minigame">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="1">
+
+
+			<spawn id="mvz2:ImpMannequin"/>
+			<spawn id="mvz2:MegaImpMannequin"/>
+			<spawn id="mvz2:MutantMannequin"/>
+			<spawn id="mvz2:Mannequin"/>
+
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:MegaZombie"/>
+			<spawn id="mvz2:SuperMegaZombie"/>
+			<spawn id="mvz2:HostZombie"/>
+			<spawn id="mvz2:BloodlustHostZombie"/>
+			<spawn id="mvz2:gargoyle"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
+
 	<!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>

@@ -99,11 +99,13 @@ namespace MVZ2.GameContent.Enemies
         {
             //นึฮ๏ณ๖นึ
             VanillaContraptionID.dispenser,
+            VanillaContraptionID.drivenser,
 
         };
 
         private static int[] RandomSkeletonWeights = new int[]
         {
+            1,
             1,
         };
 
