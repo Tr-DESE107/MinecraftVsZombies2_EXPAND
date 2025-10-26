@@ -55,7 +55,7 @@ namespace PVZEngine.Level.Collisions
                 ;
                 var sorter = new ColliderComparer(collider1);
 
-                var rect1 = collider1.GetCollisionRect();
+                 var rect1 = collider1.GetCollisionRect();
                 foreach (var pair in quadTrees)
                 {
                     var flag = pair.Key;
@@ -439,7 +439,10 @@ namespace PVZEngine.Level.Collisions
                 return distanceResult;
             var id1 = c1.Entity.ID;
             var id2 = c2.Entity.ID;
-            return id1.CompareTo(id2);
+            var idResult = id1.CompareTo(id2);
+            if (idResult != 0)
+                return idResult;
+            return c1.Name.CompareTo(c2.Name);
         }
         private float GetCollisionTime(BuiltinCollisionCollider c)
         {
