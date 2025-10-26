@@ -209,7 +209,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private bool IsOpen(Entity entity)
         {
-            return entity.State == STATE_OPEN || entity.State == STATE_EAT;
+            return entity.State == STATE_OPEN || entity.State == STATE_EAT || entity.State == STATE_LOMS;
         }
         public static readonly NamespaceID ID = VanillaContraptionID.magichest;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_FLASH_VISIBLE = new VanillaEntityPropertyMeta<bool>("FlashVisible");
