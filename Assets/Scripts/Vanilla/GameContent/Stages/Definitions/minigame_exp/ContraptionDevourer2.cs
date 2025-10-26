@@ -52,13 +52,15 @@ namespace MVZ2.GameContent.Stages
         VanillaContraptionID.lightningOrb,
         VanillaContraptionID.lightningOrb,
         VanillaContraptionID.lightningOrb,
+        VanillaContraptionID.lightningOrb,
         
         
         VanillaContraptionID.teslaCoil,
+        VanillaContraptionID.stoneShield,
 
             };
 
-            int Num = 8;
+            int Num = 10;
 
             var rand = new System.Random();
 

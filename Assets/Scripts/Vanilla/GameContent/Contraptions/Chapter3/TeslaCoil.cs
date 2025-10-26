@@ -14,6 +14,8 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -125,7 +127,14 @@ namespace MVZ2.GameContent.Contraptions
             }
             foreach (var collider in detectBuffer)
             {
+                var entity = collider.Entity;
                 collider.TakeDamage(damage, damageEffects, source);
+
+                // 只对器械类型的实体使用短路  
+                if (entity.Type == EntityTypes.PLANT)
+                {
+                    entity.ShortCircuit(150);
+                }
             }
         }
         public static void CreateArc(Entity source, Vector3 sourcePosition, Vector3 targetPosition)

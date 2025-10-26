@@ -1776,7 +1776,7 @@
 
 	<stage id="ContraptionDevourer_2" name="器械吞噬者2" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="600" pointsMultiplier="1.5" >
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="1.75" >
 
 
 			<spawn id="mvz2:ImpMannequin"/>
@@ -1809,6 +1809,7 @@
 			<spawn id="mvz2:skeleton_mage"/>
 			<spawn id="mvz2:MutantVillager"/>
 			<spawn id="mvz2:gargoyle"/>
+			<spawn id="mvz2:NetherWarrior"/>
 
 		</spawns>
 		<properties>
