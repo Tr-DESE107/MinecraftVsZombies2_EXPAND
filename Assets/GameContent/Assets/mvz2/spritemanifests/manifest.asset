@@ -2296,6 +2296,9 @@ MonoBehaviour:
     - {fileID: 950147321, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
     - {fileID: 1781986370, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
     - {fileID: 269002808, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+  - name: entity/enemy/MannequinTNT
+    spritesheet:
+    - {fileID: 21300000, guid: 954cc06df5e669a43bf9d336ccf19910, type: 3}
   - name: entity/enemy/MegaMutantVillager
     spritesheet:
     - {fileID: 1467493411, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}

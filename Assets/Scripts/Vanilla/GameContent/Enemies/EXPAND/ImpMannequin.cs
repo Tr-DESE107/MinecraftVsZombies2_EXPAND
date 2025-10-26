@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Enemies
                 effect.SetDisplayScale(entity.GetDisplayScale());
             }
 
-            entity.SpawnWithParams(VanillaContraptionID.tnt, entity.Position);
+            entity.SpawnWithParams(VanillaEnemyID.MannequinTNT, entity.Position);
         }
 
         

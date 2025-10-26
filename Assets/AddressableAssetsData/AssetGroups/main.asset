@@ -7175,6 +7175,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 954cc06df5e669a43bf9d336ccf19910
+    m_Address: mvz2:entity/enemy/MannequinTNT
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 954f4a9aadd5d0141a70086f5aaedcc5
     m_Address: mvz2:arcade/i_zombie
     m_ReadOnly: 0
@@ -7342,6 +7349,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a464a07f39fae64bb894b6e15dee681
+    m_Address: mvz2:enemy/EXPAND/MannequinTNT
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b0ae17858b30854380a3a68f83e2a5f
     m_Address: mvz2:entity/carts/ballista_body

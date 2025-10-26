@@ -2083,6 +2083,23 @@
 			</properties>
 		</zombie>
 
+		<enemy id="MannequinTNT" name="MannequinTNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.halloween_6">
+			<properties>
+				
+				<float name="mvz2:damage" value="1000" />
+				<float name="mvz2:range" value="90" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+				<id name="mvz2:fragmentId" value="mvz2:mine_tnt" />
+				<id name="mvz2:placeSound" value="mvz2:grass" />
+				<id name="mvz2:shell" value="mvz2:grass" />
+				<id name="mvz2:deathSound" value="mvz2:grass" />
+				<float name="mvz2:mass" value="-1" />
+
+				<int name="mvz2:cost" value="150" />
+				
+			</properties>
+		</enemy>
+
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
             <properties>
