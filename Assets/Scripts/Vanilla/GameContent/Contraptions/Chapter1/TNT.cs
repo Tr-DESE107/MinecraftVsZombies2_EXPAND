@@ -44,6 +44,11 @@ namespace MVZ2.GameContent.Contraptions
             {
                 Ignite(entity);
             }
+            if (entity.HasBuff<FrankensteinShockedBuff>())
+            {
+                entity.RemoveBuffs<FrankensteinShockedBuff>();
+                return;
+            }
         }
         public override void PostTakeDamage(DamageOutput result)
         {

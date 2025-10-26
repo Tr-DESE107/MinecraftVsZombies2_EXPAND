@@ -2083,7 +2083,7 @@
 			</properties>
 		</zombie>
 
-		<enemy id="MannequinTNT" name="MannequinTNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.halloween_6">
+		<enemy id="MannequinTNT" name="玩家模型TNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.TrueAndFalseSteve">
 			<properties>
 				
 				<float name="mvz2:damage" value="1000" />
@@ -2094,6 +2094,7 @@
 				<id name="mvz2:shell" value="mvz2:grass" />
 				<id name="mvz2:deathSound" value="mvz2:grass" />
 				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:maxHealth" value="600" />
 
 				<int name="mvz2:cost" value="150" />
 				

@@ -601,7 +601,9 @@
                 <p/>
                 <p>等一下，你为什么不能对空？？？？？</p>
                 <p/>
-                <p><![CDATA[<color=white>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</color>]]></p>
+                <p><![CDATA[<color=white>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</color>]]></p>
+                <p><![CDATA[<color=grey>哦，对了，他电击器械时可以使得器械短路。</color>]]></p>
+                <p><![CDATA[<color=grey>你觉得这个特性没用？那希望用不上这个特性吧。</color>]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:giant_bowl">
@@ -635,12 +637,12 @@
         </entry>
         <entry id="mvz2:lightning_orb">
             <header>
-                <p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹来治疗自己。</p>
+                <p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹和爆炸来治疗自己。</p>
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>5000</color>]]></p>
                 <p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
-                <p>技能：<![CDATA[<color=red>在5秒内吸收所有远程射弹伤害并治疗自己，之后将这些伤害返还给所有敌人（最高900）</color>]]></p>
+                <p>技能：<![CDATA[<color=red>在5秒内吸收所有远程射弹和爆炸伤害并治疗自己，之后将这些伤害返还给所有敌人（最高900）</color>]]></p>
             </properties>
             <flavor>
                 <p>它就是音符盒的邻居。</p>
@@ -930,6 +932,7 @@
 		
 		
 		<!-- EXPAND 2 -->
+		<!--
 		<entry id="mvz2:Eradicator">
 			<header>
 				<p>根除者能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh"/>]]>血肉之躯的飞刀。</p>
@@ -943,6 +946,7 @@
 				<p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
 			</flavor>
 		</entry>
+		-->
 		
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
@@ -2206,7 +2210,7 @@
 
 		<entry id="mvz2:VillagerGhast">
 			<header>
-				<p>不幸成为<![CDATA[<color=#8B008B>拉恩</color>]]>实验品的村民恶魂能够飞在天上并对你的器械进行轰炸。</p>
+				<p>不幸成为<![CDATA[<color=#8B008B>拉恩</color>]]>实验品的村民恶魂能够飞在天上并对你的器械进行轰炸，死亡后掉落钱币。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red>250</color>]]></p>
@@ -2225,15 +2229,18 @@
 
 		<entry id="mvz2:Mannequin">
 			<header>
-				<p>玩家模型会在受到一定伤害时释放自己的器械，死亡时放置tnt。</p>
+				<p>玩家模型会在受到一定伤害时释放自己的器械，死亡时放置玩家模型TNT。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red>500</color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
-				<p>我没记错的话，城里的学者说我的种族是人类，而我是他多年以来看到的唯一一个人类</p>
-				<p>那这些和我相似的家伙是什么？哪来的？为什么不能和我交流？</p>
+				<p>不知为何长得和史蒂夫很像的...实体，能够在受到伤害时释放自己的器械，死后还会立刻放出点燃的...劣质tnt</p>
+				<p>凭什么它们的器械可以重叠放置啊？</p>
+				<p/>
+				<p><![CDATA[<color=blue>我没记错的话，城里的学者说我的种族是人类，而我是他多年以来看到的唯一一个人类</color>]]></p>
+				<p><![CDATA[<color=blue>那这些和我相似的家伙是什么？哪来的？为什么不能和我交流？</color>]]></p>
 			</flavor>
 		</entry>
 		
@@ -2246,36 +2253,63 @@
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
-				<p>没写完,别急</p>
+				<p>不知为何和史蒂夫、突变僵尸长得很像的实体，看来人类和僵尸之间确实是有亲缘？</p>
+				<p/>
+				<p><![CDATA[<color=grey>我没见过这种体型的玩家，也不知道这种体型的玩家是怎么来的</color>]]></p>
+				<p><![CDATA[<color=grey>他们看起来不像普通玩家模型突变而来的。</color>]]></p>
+				<p/>
+				<p><![CDATA[<color=white>他背上背的是什么？</color>]]></p>
 			</flavor>
 		</entry>
 		
 		<entry id="mvz2:ImpMannequin">
 			<header>
-				<p>快速移动的小鬼玩家模型可以被突变怪物丢到战场当中，会在受到一定伤害时释放自己的器械，死亡时放置tnt。</p>
+				<p>快速移动的小鬼玩家模型可以被突变怪物丢到战场当中，会在受到一定伤害时释放自己的器械，死亡时放置玩家模型TNT。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red>300</color>]]></p>
 				<p>速度：<![CDATA[<color=red>2</color>]]></p>
 			</properties>
 			<flavor>
-				<p>没写完,别急</p>
+				<p>不知为何和史蒂夫小时候长得很像的实体。<![CDATA[<color=blue>(这不是我！！！)</color>]]></p>
+				<p>和其他同类型实体相比能放置的器械少了一些，或许高级器械都有未成年限制不能玩？</p>
 			</flavor>
 		</entry>
 
 		<entry id="mvz2:MegaImpMannequin">
 			<header>
-				<p>快速移动的超级小鬼玩家模型可以被突变僵尸丢到战场当中，会在受到一定伤害时释放自己的高级器械，死亡时放置tnt。</p>
+				<p>快速移动的超级小鬼玩家模型可以被突变僵尸丢到战场当中，会在受到一定伤害时释放自己的高级器械，死亡时放置玩家模型TNT。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red>450</color>]]></p>
 				<p>速度：<![CDATA[<color=red>2</color>]]></p>
 			</properties>
 			<flavor>
-				<p>没写完,别急</p>
+				<p>看来这个小鬼过了未成年限制，可以玩年龄更大一些、更刺激的器械了。</p>
 			</flavor>
 		</entry>
 
+		<entry id="mvz2:MannequinTNT">
+			<header>
+				<p>玩家模型TNT会由玩家模型放置并爆炸造成伤害</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>600</color>]]></p>
+				<p>爆炸范围：<![CDATA[<color=red>2.25*2.25</color>]]></p>
+				<p>爆炸伤害：<![CDATA[<color=red>1000</color>]]></p>
+			</properties>
+			<flavor>
+				<p>是的，他是敌怪而非器械，你不能用吞噬者把他抢过来。</p>
+				<p>这种tnt应该是对面的玩家模型们没有足够的材料，往沙子里掺了土，导致tnt的威力下降了，不过炸起来无论如何都很烦人就是了。</p>
+				<p/>
+				<p/>
+				<p/>
+				<p/>
+				<p/>
+				<p><![CDATA[<color=grey>我有阴谋论啊，你看这个实体的名字叫做玩家模型TNT，而它的颜色和其他玩家模型一样。</color>]]></p>
+				<p><![CDATA[<color=grey>这是否说明玩家模型TNT和玩家模型是同种■■？</color>]]></p>
+			</flavor>
+		</entry>
 		
 		
     </enemies>
