@@ -18,6 +18,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Buffs;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -40,6 +41,9 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
             UpdateDevourerPosition(devourer);
+
+            var buff = devourer.AddBuff<ExplosionProtection>();
+            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
         }
         protected override void OnEvoke(Entity entity)
         {

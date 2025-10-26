@@ -35,6 +35,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             // 注册触发器：在实体受到伤害前调用
             AddTrigger(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, PreProjectileHitCallback);
+            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
             thunderDetector = new LawnDetector();
         }
 
@@ -132,7 +133,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
 
             foreach (var buff in entity.GetBuffs<LightningOrbEvokedBuff>())
             {
-                // ✅ 只拦截投射物（因为这是 PRE_PROJECTILE_HIT 回调，不会触发近战）
+                //只拦截投射物（因为这是 PRE_PROJECTILE_HIT 回调，不会触发近战）
                 entity.HealEffects(damage.Amount, entity);
                 AddTakenDamage(buff, damage.Amount);
                 result.SetFinalValue(false); // 阻止原始命中
@@ -140,6 +141,27 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 projectile.Remove();
             }
             
+        }
+
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
+        {
+            var damageInfo = param.input;
+            var entity = damageInfo.Entity;
+
+
+
+            foreach (var buff in entity.GetBuffs<LightningOrbEvokedBuff>())
+            {
+                // 如果伤害包含"爆炸"效果，则减少伤害  
+                if (damageInfo.Effects.HasEffect(VanillaDamageEffects.EXPLOSION))
+                {
+                    entity.HealEffects(damageInfo.Amount, entity);
+                    AddTakenDamage(buff, damageInfo.Amount);
+                    result.SetFinalValue(false);
+                    damageInfo.Multiply(0f); // 现在level是float类型  
+                }
+            }
+
         }
 
 

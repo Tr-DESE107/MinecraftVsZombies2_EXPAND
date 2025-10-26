@@ -104,15 +104,17 @@ namespace MVZ2.GameContent.Stages
         {
             base.OnStart(level);
 
-            level.SetSeedSlotCount(3);
+            level.SetSeedSlotCount(5);
             level.FillSeedPacks(new NamespaceID[]
             {
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
             });
             level.SetPickaxeActive(false);
-            level.SetEnergy(1000);
+            level.SetEnergy(1500);
         }
     }
 }

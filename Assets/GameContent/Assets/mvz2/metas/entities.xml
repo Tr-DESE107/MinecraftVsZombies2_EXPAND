@@ -1936,14 +1936,15 @@
         </enemy>
 
 		<!-- expand Enemies2 -->
-		<enemy id="VillagerGhast" name="村民恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
+		<enemy id="VillagerGhast" name="村民恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.VillagerNews">
 			<properties>
-				<float name="mvz2:mass" value="2" />
+				<float name="mvz2:mass" value="-2" />
 				<bool name="mvz2:undead" value="false" />
 				<bool name="mvz2:flying_enemy" value="true" />
 				<float name="mvz2:maxHealth" value="250" />
 				<float name="mvz2:damage" value="300" />
 				<float name="mvz2:range" value="800" />
+				<float name="mvz2:speed" value="1.25" />
 				<vector3 name="mvz2:size" x="64" y="64" z="64" />
 				<vector3 name="mvz2:shotOffset" x="10" y="10" z="0" />
 				<vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
@@ -1960,7 +1961,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="MutantVillager" name="突变村民" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
+		<enemy id="MutantVillager" name="突变村民" deathMessage="你怎么进门的？" unlock="mvz2:level.VillagerNews">
 			<properties>
 				<float name="mvz2:mass" value="2" />
 				<float name="mvz2:maxHealth" value="2700" />
@@ -1982,7 +1983,7 @@
 			</properties>
 		</enemy>
 		<enemy id="MegaMutantVillager" name="超级突变村民" deathMessage="你怎么进门的？"
-            unlock="mvz2:level.shrine_8">
+            unlock="mvz2:level.VillagerNews">
 			<properties>
 				<float name="mvz2:mass" value="2" />
 				<float name="mvz2:maxHealth" value="5400" />
@@ -2005,7 +2006,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="ImpMannequin" name="小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+		<enemy id="ImpMannequin" name="小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.TrueAndFalseSteve" >
 			<properties>
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:mass" value="-1" />
@@ -2020,7 +2021,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="MegaImpMannequin" name="超级小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+		<enemy id="MegaImpMannequin" name="超级小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.TrueAndFalseSteve" >
 			<properties>
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:mass" value="-1" />
@@ -2051,7 +2052,7 @@
 		</enemy>
 
 		<enemy id="MutantMannequin" name="突变玩家模型" deathMessage="你怎么进门的？"
-            unlock="mvz2:level.shrine_8">
+            unlock="mvz2:level.TrueAndFalseSteve">
 			<properties>
 				<float name="mvz2:mass" value="2" />
 				<float name="mvz2:maxHealth" value="4500" />
@@ -2074,7 +2075,7 @@
 			</properties>
 		</enemy>
 
-		<zombie id="Mannequin" name="玩家模型" deathMessage="脑子是好的，但不是每个人都有">
+		<zombie id="Mannequin" name="玩家模型" deathMessage="脑子是好的，但不是每个人都有" unlock="mvz2:level.TrueAndFalseSteve">
 			<properties>
 				<int name="mvz2:cost" value="150" />
 				<bool name="mvz2:undead" value="false" />

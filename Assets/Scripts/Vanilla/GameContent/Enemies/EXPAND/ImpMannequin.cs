@@ -100,12 +100,16 @@ namespace MVZ2.GameContent.Enemies
             //นึฮ๏ณ๖นึ
             VanillaContraptionID.dispenser,
             VanillaContraptionID.drivenser,
+            VanillaContraptionID.silvenser,
+            VanillaContraptionID.furnace,
 
         };
 
         private static int[] RandomSkeletonWeights = new int[]
         {
-            1,
+            2,
+            2,
+            4,
             1,
         };
 

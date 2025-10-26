@@ -7,6 +7,27 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Bosses;
+using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Projectiles;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Callbacks;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using Tools;
+using UnityEngine;
+
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -18,7 +39,15 @@ namespace MVZ2.GameContent.Contraptions
         {
             // 注册一个回调：在投射物击中前触发
             AddTrigger(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, PreProjectileHitCallback);
+            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
         }
+
+        //public override void Init(Entity entity)
+        //{
+        //    base.Init(entity);
+        //    var buff = entity.AddBuff<ExplosionProtection>();
+        //    buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
+        //}
 
         // 每帧更新逻辑
         protected override void UpdateLogic(Entity contraption)
@@ -64,6 +93,27 @@ namespace MVZ2.GameContent.Contraptions
 
             // 播放护盾被击中的音效
             orb.PlaySound(VanillaSoundID.energyShieldHit);
+        }
+
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
+        {
+            var damageInfo = param.input;
+            var entity = damageInfo.Entity;
+
+
+            if (!entity.IsEntityOf(VanillaContraptionID.lightningOrb))
+                return;
+
+            // 如果伤害包含"爆炸"效果，则减少伤害  
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.EXPLOSION))
+                {
+                    entity.HealEffects(damageInfo.Amount, entity);
+                    
+                    result.SetFinalValue(false);
+                    damageInfo.Multiply(0f); // 现在level是float类型  
+                }
+            
+
         }
 
         // 决定是否可以被唤醒

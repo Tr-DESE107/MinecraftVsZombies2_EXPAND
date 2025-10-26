@@ -104,6 +104,10 @@ namespace MVZ2.GameContent.Enemies
                     if (validContraptions.Count() <= 0)
                         return;
                     var contraptionID = validContraptions.Random(rng);
+                    if (contraptionID == VanillaContraptionID.devourer)
+                    {
+                        contraptionID = VanillaContraptionID.dispenser;
+                    }
                     var spawned = entity.SpawnWithParams(contraptionID, entity.Position);
                     if (spawned != null && spawned.HasBuff<NocturnalBuff>())
                     {

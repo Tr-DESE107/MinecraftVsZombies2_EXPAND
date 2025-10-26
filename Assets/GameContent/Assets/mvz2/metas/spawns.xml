@@ -339,14 +339,14 @@
 	</entry>
 
 	<entry id="MutantVillager" entity="mvz2:MutantVillager" >
-		<spawn level="3" minWave="1"/>
+		<spawn level="7" minWave="1"/>
 		<terrain water="true"/>
-		<weight base="1500" />
+		<weight base="1750" />
 	</entry>
 	<entry id="MegaMutantVillager" entity="mvz2:MegaMutantVillager" >
-		<spawn level="4" minWave="1"/>
+		<spawn level="8" minWave="1"/>
 		<terrain water="true"/>
-		<weight base="1200" />
+		<weight base="2000" />
 	</entry>
 
 	<entry id="ImpMannequin" entity="mvz2:ImpMannequin" >

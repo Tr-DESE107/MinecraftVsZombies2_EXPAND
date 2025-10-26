@@ -94,6 +94,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 025d4118f149db24688665104d945d37
+    m_Address: mvz2:arcade/VillagerNews
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 029f969f273624d4693d855c93f039bd
     m_Address: mvz2:effect/pow
     m_ReadOnly: 0
@@ -1682,6 +1689,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 230f3c5c308e8564ea03d53e2ca07478
+    m_Address: mvz2:Lava_Chicken
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 233204fa76832aa469a18c6784597383
     m_Address: mvz2:bomb_falling
@@ -4173,6 +4187,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56a0e96d821b4d74ea79ea5117dee84d
+    m_Address: mvz2:arcade/MutantCrisis_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56f8b80b81069954a9380947b47bbe4e
     m_Address: mvz2:projectile/large_snowball
     m_ReadOnly: 0
@@ -5300,6 +5321,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ea26757df2a2c3429baac2c389eed4c
+    m_Address: mvz2:arcade/ContraptionDevourer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ed2e02a48bad234e85635be19c1ff73
     m_Address: mvz2:bones/spider_base
     m_ReadOnly: 0
@@ -6390,6 +6418,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84ea5899875c5414d909271bfb0c2d74
+    m_Address: mvz2:arcade/TrueAndFalseSteve
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 850d4c9b6833d8047ac10f992af536ff
     m_Address: mvz2:products/artifact_slot
@@ -9347,6 +9382,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8fd47e22cd27394895621742e549446
     m_Address: mvz2:entity/projectiles/fireball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8feb885601f5e5418a1a9850eb2e706
+    m_Address: mvz2:arcade/RandomChinaDevourer
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

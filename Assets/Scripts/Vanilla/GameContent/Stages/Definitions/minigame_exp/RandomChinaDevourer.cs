@@ -81,10 +81,15 @@ namespace MVZ2.GameContent.Stages
         VanillaContraptionID.randomChina,
         VanillaContraptionID.randomChina,
         VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
         
             };
 
-            int Num = 25;
+            int Num = 30;
 
             var rand = new System.Random();
 
@@ -98,7 +103,7 @@ namespace MVZ2.GameContent.Stages
                 int col, row;
                 do
                 {
-                    col = rand.Next(0, 8);  // 0~7ап
+                    col = rand.Next(0, 9);  // 0~8ап
                     row = rand.Next(0, 5);  // 0~4пп
                 } while (!usedPositions.Add((col, row)));
 
@@ -115,15 +120,18 @@ namespace MVZ2.GameContent.Stages
         {
             base.OnStart(level);
 
-            level.SetSeedSlotCount(3);
+            level.SetSeedSlotCount(6);
             level.FillSeedPacks(new NamespaceID[]
             {
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.randomChina),
             });
             //level.SetPickaxeActive(false);
-            level.SetEnergy(1000);
+            level.SetEnergy(8000);
         }
     }
 }

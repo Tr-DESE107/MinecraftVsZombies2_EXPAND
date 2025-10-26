@@ -361,4 +361,15 @@
             <p>=====乐评施工中=====</p>
         </description>
     </music>
+
+	<music id="Lava_Chicken" name="岩浆烤鸡歌">
+		<track main="mvz2:Lava_Chicken"/>
+		<source>Minecraft</source>
+		<description>
+			<p>永夜沼泽拓展关的音乐。</p>
+			<p>EXPAND gms2版本的永夜沼泽分波音乐也选用了这首曲子。</p>
+			<p>初听没什么意思，听着听着就听出了韵味，我脑中也不时会响起这首曲子。</p>
+			<p>听上去像是一个神秘的法师在他的花园中闲庭漫步，思考着符文与法术。</p>
+		</description>
+	</music>
 </musics>

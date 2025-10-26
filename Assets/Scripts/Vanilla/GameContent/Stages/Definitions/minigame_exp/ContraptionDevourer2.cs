@@ -37,68 +37,53 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new StarshardStageBehaviour(this));
         }
-        //public override void OnSetup(LevelEngine level)
-        //{
-        //    base.OnSetup(level);
+        
+        public override void OnSetup(LevelEngine level)
+        {
+            base.OnSetup(level);
 
-        //    var grid = level.GetGrid(4, 2);
-        //    var x = level.GetEntityColumnX(4);
-        //    var z = level.GetEntityLaneZ(2);
-        //    var y = level.GetGroundY(x, z);
-        //    var position = new Vector3(x, y, z);
-        //    level.Spawn(VanillaContraptionID.dispenser, position, null);
-        //}
-        //public override void OnSetup(LevelEngine level)
-        //{
-        //    base.OnSetup(level);
+            var allContraptions = new NamespaceID[]
+            {
 
-        //    var allContraptions = new NamespaceID[]
-        //    {
+        VanillaContraptionID.lightningOrb,
+        VanillaContraptionID.lightningOrb,
+        VanillaContraptionID.lightningOrb,
+        VanillaContraptionID.lightningOrb,
+        VanillaContraptionID.lightningOrb,
+        VanillaContraptionID.lightningOrb,
+        VanillaContraptionID.lightningOrb,
+        
+        
+        VanillaContraptionID.teslaCoil,
 
-        //VanillaContraptionID.gravityPad,
-        //VanillaContraptionID.totenser,
-        //VanillaContraptionID.drivenser,
-        //VanillaContraptionID.drivenser,
-        //VanillaContraptionID.drivenser,
-        //VanillaContraptionID.magichest,
-        //VanillaContraptionID.desirePot,
-        //VanillaContraptionID.lightningOrb,
-        //VanillaContraptionID.glowstone,
-        //VanillaContraptionID.GlowingObsidian,
-        //VanillaContraptionID.hellfire,
-        //VanillaContraptionID.splitenser,
-        //VanillaContraptionID.teslaCoil,
-        //VanillaContraptionID.pistenser,
-        //VanillaContraptionID.furnace,
-        //VanillaContraptionID.RedStoneOre
-        //    };
+            };
 
-        //    int Num = 16;
+            int Num = 8;
 
-        //    var rand = new System.Random();
+            var rand = new System.Random();
 
-        //    // 随机选 Num 个不重复装置
-        //    var selectedContraptions = allContraptions.OrderBy(x => rand.Next()).Take(Num).ToArray();
+            // 随机选 Num 个不重复装置
+            var selectedContraptions = allContraptions.OrderBy(x => rand.Next()).Take(Num).ToArray();
 
-        //    var usedPositions = new System.Collections.Generic.HashSet<(int, int)>();
+            var usedPositions = new System.Collections.Generic.HashSet<(int, int)>();
 
-        //    for (int i = 0; i < Num; i++)
-        //    {
-        //        int col, row;
-        //        do
-        //        {
-        //            col = rand.Next(0, 8);  // 0~7列
-        //            row = rand.Next(0, 5);  // 0~4行
-        //        } while (!usedPositions.Add((col, row)));
+            for (int i = 0; i < Num; i++)
+            {
+                int col, row;
+                do
+                {
+                    col = rand.Next(0, 8);  // 0~7列
+                    row = rand.Next(0, 5);  // 0~4行
+                } while (!usedPositions.Add((col, row)));
 
-        //        float x = level.GetEntityColumnX(col);
-        //        float z = level.GetEntityLaneZ(row);
-        //        float y = level.GetGroundY(x, z);
-        //        Vector3 pos = new Vector3(x, y, z);
+                float x = level.GetEntityColumnX(col);
+                float z = level.GetEntityLaneZ(row);
+                float y = level.GetGroundY(x, z);
+                Vector3 pos = new Vector3(x, y, z);
 
-        //        level.Spawn(selectedContraptions[i], pos, null);
-        //    }
-        //}
+                level.Spawn(selectedContraptions[i], pos, null);
+            }
+        }
 
         public override void OnStart(LevelEngine level)
         {
@@ -116,9 +101,10 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.magichest),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.blackHoleBomb),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.mineTNT),
             });
             //level.SetPickaxeActive(false);
-            level.SetEnergy(5000);
+            level.SetEnergy(8000);
         }
     }
 }
