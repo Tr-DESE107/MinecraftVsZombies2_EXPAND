@@ -46,8 +46,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 {
                     if ((toLeft && entity.IsEnemyOutsideLeft(BLOW_AWAY_SPEED)) || (!toLeft && entity.IsEnemyOutsideRight(BLOW_AWAY_SPEED)))
                     {
-                        var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
-                        entity.Die(effects, source);
+                        entity.RemoveDie(source);
                     }
                 }
             }

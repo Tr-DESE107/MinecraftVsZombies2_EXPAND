@@ -69,7 +69,7 @@ namespace MVZ2.Vanilla.Enemies
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_WALK = 1;
         public const int ANIMATION_STATE_ATTACK = 2;
-        public const int ANIMATION_STATE_CAST = 4;
+        public const int ANIMATION_STATE_CAST = 3;
         public const int ANIMATION_STATE_DEATH = 4;
         public const int ANIMATION_STATE_PRIVATE = 10000;
     }

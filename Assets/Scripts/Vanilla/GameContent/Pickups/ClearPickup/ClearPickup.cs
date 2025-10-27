@@ -24,7 +24,6 @@ namespace MVZ2.GameContent.Pickups
             entity.ChangeModel(modelID);
 
             var level = entity.Level;
-            entity.SetPickupContentID(level.GetClearPickupContentID());
             if (!level.IsRerun)
             {
                 var noteID = level.GetEndNoteID();
@@ -69,6 +68,12 @@ namespace MVZ2.GameContent.Pickups
             if (level.IsRerun)
                 return VanillaModelID.moneyChest;
             return level.GetClearPickupModel() ?? VanillaModelID.blueprintPickup;
+        }
+        public static Entity? Produce(LevelEngine level, Vector3 position, Entity? spawner = null)
+        {
+            var param = new SpawnParams();
+            param.SetProperty(VanillaPickupProps.CONTENT_ID, level.GetClearPickupContentID());
+            return level.Produce(VanillaPickupID.clearPickup, position, spawner, param);
         }
         private const float COLLECTED_Z = 0;
     }

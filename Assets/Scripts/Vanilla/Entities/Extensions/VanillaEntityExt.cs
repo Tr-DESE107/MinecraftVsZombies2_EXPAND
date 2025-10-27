@@ -1158,6 +1158,21 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 移除性死亡
+        public static void RemoveDie(this Entity entity)
+        {
+            entity.RemoveDie((ILevelSourceReference?)null);
+        }
+        public static void RemoveDie(this Entity entity, Entity? source)
+        {
+            entity.RemoveDie(source != null ? new EntitySourceReference(source) : null);
+        }
+        public static void RemoveDie(this Entity entity, ILevelSourceReference? source)
+        {
+            var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
+            entity.Die(effects, source);
+        }
+        #endregion
         public static float GetRealGroundLimitY(this Entity entity)
         {
             return entity.GetGroundLimitOffset() + entity.GetGroundY();

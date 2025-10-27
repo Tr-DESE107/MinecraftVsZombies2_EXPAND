@@ -68,11 +68,14 @@ namespace MVZ2.GameContent.GlobalCallbacks
                     // 在水中
                     entity.PlaySplashEffect();
                     entity.PlaySplashSound();
-                    if (entity.Type == EntityTypes.ENEMY)
+                    if (entity.IsVulnerableEntity() && !entity.IsDead)
                     {
-                        entity.Neutralize();
+                        entity.RemoveDie();
                     }
-                    entity.Remove();
+                    if (entity.Exists())
+                    {
+                        entity.Remove();
+                    }
                     TriggerWaterInteraction(entity, WaterInteraction.ACTION_REMOVE);
                 }
                 return;

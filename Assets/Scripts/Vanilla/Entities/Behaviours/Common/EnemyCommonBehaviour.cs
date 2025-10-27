@@ -57,7 +57,7 @@ namespace MVZ2.Vanilla.Entities
             }
             if (remove)
             {
-                entity.Neutralize();
+                entity.DropRewards();
                 entity.Remove();
                 return;
             }

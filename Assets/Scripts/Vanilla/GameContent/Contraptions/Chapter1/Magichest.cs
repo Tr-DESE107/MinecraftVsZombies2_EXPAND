@@ -83,8 +83,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetModelProperty("FlashScale", target.GetScaledSize());
             entity.SetModelProperty("FlashSourcePosition", target.GetCenter());
-            var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
-            target.Die(effects, entity);
+            target.RemoveDie();
             SetFlashVisible(entity, true);
             entity.AddBuff<MagichestInvincibleBuff>();
             entity.PlaySound(VanillaSoundID.magical);
@@ -214,7 +213,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private bool IsOpen(Entity entity)
         {
-            return entity.State == STATE_OPEN || entity.State == STATE_EAT;
+            return entity.State == STATE_OPEN || entity.State == STATE_EAT || entity.State == STATE_LOMS;
         }
         public static readonly NamespaceID ID = VanillaContraptionID.magichest;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_FLASH_VISIBLE = new VanillaEntityPropertyMeta<bool>("FlashVisible");

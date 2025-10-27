@@ -15,9 +15,18 @@ namespace MVZ2.GameContent.Buffs
         {
             AddModifier(new BooleanModifier(EngineEntityProps.FLIP_X, PROP_FLIP_X));
         }
+        public override void PostAdd(Buff buff)
+        {
+            base.PostAdd(buff);
+            UpdateFlipX(buff);
+        }
         public override void PostUpdate(Buff buff)
         {
             base.PostUpdate(buff);
+            UpdateFlipX(buff);
+        }
+        private void UpdateFlipX(Buff buff)
+        {
             var entity = buff.GetEntity();
             if (entity == null)
                 return;

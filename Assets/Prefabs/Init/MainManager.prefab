@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userID: f8724bbc95c311eb8ebb52540025c377
-  apiToken: P4TcpWfmC59qdMBG8akURuYxn6Hj3Jwv
+  apiToken: E8tzBAlOczyppT+Be0jpvR+JCvH2J3BY7aKhUtIQ5XOpHXwS1ffhok+AjwJidijI
   baseUrl: https://afdian.com/api
   sponsorQueryPath: /open/query-sponsor
   responseTimeout: 10
@@ -1642,7 +1642,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 8461513829554171411}
   mixer: {fileID: 24100000, guid: 582a25cb5ce4236499edbe72e8eda564, type: 2}
-  mixerMainGroup: {fileID: 0}
   mainTrackSource: {fileID: 1839098901357615822}
   subTrackSource: {fileID: 1699334810984262609}
   volumeFader: {fileID: 3787112603237110232}
