@@ -111,7 +111,10 @@ namespace MVZ2.GameContent.Stages
         public const string WhackASkeleton = "WhackASkeleton";
 
         public const string MutantCrisis_2 = "MutantCrisis_2";
-
+        public const string VillagerNews = "VillagerNews";
+        public const string TrueAndFalseSteve = "TrueAndFalseSteve";
+        public const string ContraptionDevourer_2 = "ContraptionDevourer_2";
+        public const string RandomChinaDevourer = "RandomChinaDevourer";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

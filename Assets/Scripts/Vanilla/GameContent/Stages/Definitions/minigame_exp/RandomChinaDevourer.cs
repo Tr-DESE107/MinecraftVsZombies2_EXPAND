@@ -1,19 +1,35 @@
-using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Level;
-using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
+using System.Linq;
+using MukioI18n;
+using MVZ2.GameContent.Buffs.Level;
+using MVZ2.GameContent.Buffs.SeedPacks;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.HeldItems;
+using MVZ2.GameContent.Talk;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.ContraptionDevourer)]
-    public partial class ContraptionDevourer : StageDefinition
+    [StageDefinition(VanillaStageNames.RandomChinaDevourer)]
+    public partial class RandomChinaDevourer : StageDefinition
     {
-        public ContraptionDevourer(string nsp, string name) : base(nsp, name)
+        public RandomChinaDevourer(string nsp, string name) : base(nsp, name)
         {
 
             AddBehaviour(new WaveStageBehaviour(this));
@@ -39,29 +55,45 @@ namespace MVZ2.GameContent.Stages
             var allContraptions = new NamespaceID[]
             {
 
-        VanillaContraptionID.gravityPad,
-        VanillaContraptionID.totenser,
-        VanillaContraptionID.drivenser,
-        VanillaContraptionID.drivenser,
-        VanillaContraptionID.drivenser,
-        VanillaContraptionID.magichest,
-        VanillaContraptionID.desirePot,
-        VanillaContraptionID.lightningOrb,
-        VanillaContraptionID.glowstone,
-        VanillaContraptionID.GlowingObsidian,
-        VanillaContraptionID.hellfire,
-        VanillaContraptionID.splitenser,
-        VanillaContraptionID.teslaCoil,
-        VanillaContraptionID.pistenser,
-        VanillaContraptionID.furnace,
-        VanillaContraptionID.RedStoneOre
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        VanillaContraptionID.randomChina,
+        
             };
 
-            int Num = 16;
+            int Num = 30;
 
             var rand = new System.Random();
 
-            // éšæœºé€‰ Num ä¸ªä¸é‡å¤è£…ç½®
+            // Ëæ»úÑ¡ Num ¸ö²»ÖØ¸´×°ÖÃ
             var selectedContraptions = allContraptions.OrderBy(x => rand.Next()).Take(Num).ToArray();
 
             var usedPositions = new System.Collections.Generic.HashSet<(int, int)>();
@@ -71,8 +103,8 @@ namespace MVZ2.GameContent.Stages
                 int col, row;
                 do
                 {
-                    col = rand.Next(0, 8);  // 0~7åˆ—
-                    row = rand.Next(0, 5);  // 0~4è¡Œ
+                    col = rand.Next(0, 9);  // 0~8ÁÐ
+                    row = rand.Next(0, 5);  // 0~4ÐÐ
                 } while (!usedPositions.Add((col, row)));
 
                 float x = level.GetEntityColumnX(col);
@@ -88,7 +120,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.OnStart(level);
 
-            level.SetSeedSlotCount(5);
+            level.SetSeedSlotCount(6);
             level.FillSeedPacks(new NamespaceID[]
             {
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
@@ -96,9 +128,10 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.randomChina),
             });
-            level.SetPickaxeActive(false);
-            level.SetEnergy(1500);
+            //level.SetPickaxeActive(false);
+            level.SetEnergy(8000);
         }
     }
 }

@@ -118,6 +118,7 @@ namespace MVZ2.GameContent.Enemies
         public const string HerobrineMannequin = "HerobrineMannequin";
         public const string ImpHerobrineMannequin = "ImpHerobrineMannequin";
         public const string MutantMannequin = "MutantMannequin";
+        public const string MannequinTNT = "MannequinTNT";
 
     }
     public static class VanillaEnemyID
@@ -231,6 +232,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID HerobrineMannequin = Get(VanillaEnemyNames.HerobrineMannequin);
         public static readonly NamespaceID ImpHerobrineMannequin = Get(VanillaEnemyNames.ImpHerobrineMannequin);
         public static readonly NamespaceID MutantMannequin = Get(VanillaEnemyNames.MutantMannequin);
+        public static readonly NamespaceID MannequinTNT = Get(VanillaEnemyNames.MannequinTNT);
 
         private static NamespaceID Get(string name)
         {

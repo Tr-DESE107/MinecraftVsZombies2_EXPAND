@@ -118,7 +118,7 @@ TextureImporter:
         width: 55
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,7 +239,7 @@ TextureImporter:
       name: mega_mutant_zombie_6
       rect:
         serializedVersion: 2
-        x: 261
+        x: 226
         y: 178
         width: 36
         height: 30
@@ -344,9 +344,9 @@ TextureImporter:
       name: mega_mutant_zombie_11
       rect:
         serializedVersion: 2
-        x: 92
+        x: 124
         y: 45
-        width: 172
+        width: 140
         height: 71
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -391,7 +391,7 @@ TextureImporter:
         width: 22
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -445,6 +445,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: mega_mutant_zombie_16
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 178
+        width: 36
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be84dbc639311234ea31391d9f6e25d2
+      internalID: 40601347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -464,6 +485,7 @@ TextureImporter:
       mega_mutant_zombie_13: -2119216257
       mega_mutant_zombie_14: -347395102
       mega_mutant_zombie_15: 541493817
+      mega_mutant_zombie_16: 40601347
       mega_mutant_zombie_2: 1962124217
       mega_mutant_zombie_3: -290395121
       mega_mutant_zombie_4: -1135793251

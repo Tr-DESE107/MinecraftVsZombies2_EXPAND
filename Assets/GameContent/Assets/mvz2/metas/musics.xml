@@ -397,4 +397,20 @@
             <p>=====乐评施工中=====</p>
         </description>
     </music>
+
+	<music id="Lava_Chicken" name="岩浆烤鸡歌">
+		<track main="mvz2:Lava_Chicken"/>
+		<source>Minecraft</source>
+		<description>
+			<p>玩家/村民相关小游戏的音乐。</p>
+			<p>希望诸位在听到这首曲子时能想起被史蒂夫和村民支配的恐惧</p>
+			<p/>
+			<p>La-la-la-lava, ch-ch-ch-chicken</p>
+			<p>Steve's Lava Chicken, yeah, it's tasty as hell</p>
+			<p>Ooh, mamacita, now you're ringing the bell</p>
+			<p>Crispy and juicy, now you're having a snack</p>
+			<p>Ooh, super spicy, it's a lava attack</p>
+			
+		</description>
+	</music>
 </musics>
