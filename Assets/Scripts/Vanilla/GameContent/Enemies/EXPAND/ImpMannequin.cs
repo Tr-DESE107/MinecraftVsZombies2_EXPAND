@@ -81,13 +81,19 @@ namespace MVZ2.GameContent.Enemies
 
         private static NamespaceID[] RandomSkeleton = new NamespaceID[]
         {
-            //怪物出怪
+         //怪物出怪
             VanillaContraptionID.dispenser,
+            VanillaContraptionID.drivenser,
+            VanillaContraptionID.silvenser,
+            VanillaContraptionID.furnace,
 
         };
 
         private static int[] RandomSkeletonWeights = new int[]
         {
+            2,
+            2,
+            4,
             1,
         };
 

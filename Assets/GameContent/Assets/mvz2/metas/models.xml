@@ -295,10 +295,21 @@
 
 	<model name="HeavyGutant" type="entity" path="mvz2:enemy/ship/HeavyGutant" width="200" height="180" xOffset="0" yOffset="-90"/>
 	
-	<model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantMannequin" width="200" height="180" xOffset="0" yOffset="-90"/>
-	<model name="MutantVillager" type="entity" path="mvz2:enemy/EXPAND/MutantVillager" width="200" height="180" xOffset="0" yOffset="-90"/>
+	
+
+	
+
+
+	<model name="WitherBoneWall" type="entity" path="mvz2:enemy/halloween/WitherBoneWall" width="80" height="80" xOffset="0" yOffset="-40"/>
+
+	<!--EXPAND En2-->
 	<model name="MegaMutantVillager" type="entity" path="mvz2:enemy/EXPAND/MegaMutantVillager" width="200" height="180" xOffset="0" yOffset="-90"/>
+	<model name="MutantVillager" type="entity" path="mvz2:enemy/EXPAND/MutantVillager" width="200" height="180" xOffset="0" yOffset="-90"/>
 	<model name="VillagerGhast" type="entity" path="mvz2:enemy/EXPAND/VillagerGhast" width="64" height="64" xOffset="0" yOffset="-28"/>
+	<model name="Mannequin" type="entity" path="mvz2:enemy/EXPAND/Mannequin" width="64" height="96" xOffset="10" yOffset="-44"/>
+	
+	<model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantMannequin" width="200" height="180" xOffset="0" yOffset="-90"/>
+	<model name="MannequinTNT" type="entity" path="mvz2:enemy/EXPAND/MannequinTNT" width="64" height="64" xOffset="0" yOffset="-28"/>
 
 	<model name="ImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
 		<armorconfig>mvz2:humanoid</armorconfig>
@@ -306,9 +317,7 @@
 	<model name="MegaImpMannequin" type="entity" path="mvz2:enemy/EXPAND/MegaImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
-
-
-	<model name="WitherBoneWall" type="entity" path="mvz2:enemy/halloween/WitherBoneWall" width="80" height="80" xOffset="0" yOffset="-40"/>
+	
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="-44"/>

@@ -128,12 +128,14 @@ namespace MVZ2.GameContent.Contraptions
             foreach (var collider in detectBuffer)
             {
                 var entity = collider.Entity;
+                
                 collider.TakeDamage(damage, damageEffects, source);
 
                 // 只对器械类型的实体使用短路  
                 if (entity.Type == EntityTypes.PLANT)
                 {
-                    entity.ShortCircuit(150);
+                    //entity.ShortCircuit(150);
+                    entity.ShortCircuit(150, new EntitySourceReference(entity));
                 }
             }
         }

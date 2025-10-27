@@ -47,11 +47,11 @@ namespace MVZ2.GameContent.Enemies
                 IgnitedUpdate(entity);
             }
 
-            if (entity.HasBuff<FrankensteinShockedBuff>())
-            {
-                entity.RemoveBuffs<FrankensteinShockedBuff>();
-                return;
-            }
+            //if (entity.HasBuff<FrankensteinShockedBuff>())
+            //{
+            //    entity.RemoveBuffs<FrankensteinShockedBuff>();
+            //    return;
+            //}
         }
         public override void PostTakeDamage(DamageOutput result)
         {
@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Enemies
         {
             entity.PlaySound(VanillaSoundID.fuse);
             entity.SetBehaviourField(ID, PROP_IGNITED, true);
-            entity.AddBuff<TNTIgnitedBuff>();
+            //entity.AddBuff<TNTIgnitedBuff>();
         }
         public static bool IsIgnited(Entity entity)
         {

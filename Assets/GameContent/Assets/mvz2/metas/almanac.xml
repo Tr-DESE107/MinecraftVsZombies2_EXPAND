@@ -2266,21 +2266,6 @@
 			</flavor>
 		</entry>
 		
-		<entry id="mvz2:Endermite">
-			<header>
-				<p>末影螨能够躲过大部分子弹。</p>
-			</header>
-			<properties>
-				<p>生命：<![CDATA[<color=red>100</color>]]></p>
-				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
-			</properties>
-			<flavor>
-				<p>你可能觉得这个螨虫实在太小了，我也这么觉得，他甚至没有怪物头颅大。</p>
-				<p>这家伙绝对是个擦弹好手。</p>
-			</flavor>
-		</entry>
-		
-
 
         <entry id="mvz2:undead_flying_object" name="不死飞行物" encounterUnlock="mvz2:level.ship_2">
             <header>
@@ -2346,6 +2331,157 @@
 			</properties>
 			<flavor>
 				<p>他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。</p>
+			</flavor>
+		</entry>
+
+		<!--
+<entry id="mvz2:Endermite">
+    <header>
+        <p>末影螨能够躲过大部分子弹。</p>
+    </header>
+    <properties>
+        <p>生命：<![CDATA[<color=red>100</color>]]></p>
+        <p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+    </properties>
+    <flavor>
+        <p>你可能觉得这个螨虫实在太小了，我也这么觉得，他甚至没有怪物头颅大。</p>
+        <p>这家伙绝对是个擦弹好手。</p>
+    </flavor>
+</entry
+-->
+
+		<!--Villager EXPAND -->
+		<entry id="mvz2:MutantVillager">
+			<header>
+				<p>不幸成为<![CDATA[<color=#8B008B>拉恩</color>]]>实验品的突变村民可以粉碎你的器械，并在血量低至一半时投掷小鬼玩家模型</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>2700</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>或许这是戴夫带着幼年史蒂夫出去玩的珍贵录像。</p>
+				<p/>
+				<p>就经验而言，一般只有僵尸种族有自然生成的突变体型，你现在所见到的突变村民虽然伤害到了你的眼睛，但他本身也是一位受害者</p>
+				<p>你未来可能需要保护他们。</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:MegaMutantVillager">
+			<header>
+				<p>不幸成为<![CDATA[<color=#8B008B>拉恩</color>]]>实验品的超级突变村民可以粉碎你的器械,并在血量低至一半时投掷超级小鬼玩家模型</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>5400</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>或许这是哲学家戴夫带着幼年史蒂夫去两个街区以外的皮衣俱乐部玩的珍贵录像。</p>
+				<p/>
+				<p>讲正经的，你所能看到的有血肉的突变怪物大多和<![CDATA[<color=#8B008B>拉恩</color>]]>脱不开关系</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:VillagerGhast">
+			<header>
+				<p>不幸成为<![CDATA[<color=#8B008B>拉恩</color>]]>实验品的村民恶魂能够飞在天上并对你的器械进行轰炸，死亡后掉落钱币。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>250</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>300</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这种东西的存在真是对人生理上和心理上的双重亵渎.</p>
+				<p/>
+				<p>不过他们掉的钱倒是挺有用的就是了。</p>
+			</flavor>
+		</entry>
+
+
+		<!--Players EXPAND -->
+
+		<entry id="mvz2:Mannequin">
+			<header>
+				<p>玩家模型会在受到一定伤害时释放自己的器械，死亡时放置玩家模型TNT。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>500</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>不知为何长得和史蒂夫很像的...实体，能够在受到伤害时释放自己的器械，死后还会立刻放出点燃的...劣质tnt</p>
+				<p>凭什么它们的器械可以重叠放置啊？</p>
+				<p/>
+				<p><![CDATA[<color=blue>我没记错的话，城里的学者说我的种族是人类，而我是他多年以来看到的唯一一个人类</color>]]></p>
+				<p><![CDATA[<color=blue>那这些和我相似的家伙是什么？哪来的？为什么不能和我交流？</color>]]></p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:MutantMannequin">
+			<header>
+				<p>突变玩家模型可以粉碎你的器械，会在受到一定伤害时释放自己的器械，并在血量低至一半时投掷小鬼玩家模型</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>4500</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>不知为何和史蒂夫、突变僵尸长得很像的实体，看来人类和僵尸之间确实是有亲缘？</p>
+				<p/>
+				<p><![CDATA[<color=grey>我没见过这种体型的玩家，也不知道这种体型的玩家是怎么来的</color>]]></p>
+				<p><![CDATA[<color=grey>他们看起来不像普通玩家模型突变而来的。</color>]]></p>
+				<p/>
+				<p><![CDATA[<color=white>他背上背的是什么？</color>]]></p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:ImpMannequin">
+			<header>
+				<p>快速移动的小鬼玩家模型可以被突变怪物丢到战场当中，会在受到一定伤害时释放自己的器械，死亡时放置玩家模型TNT。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>2</color>]]></p>
+			</properties>
+			<flavor>
+				<p>不知为何和史蒂夫小时候长得很像的实体。<![CDATA[<color=blue>(这不是我！！！)</color>]]></p>
+				<p>和其他同类型实体相比能放置的器械少了一些，或许高级器械都有未成年限制不能玩？</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:MegaImpMannequin">
+			<header>
+				<p>快速移动的超级小鬼玩家模型可以被突变僵尸丢到战场当中，会在受到一定伤害时释放自己的高级器械，死亡时放置玩家模型TNT。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>450</color>]]></p>
+				<p>速度：<![CDATA[<color=red>2</color>]]></p>
+			</properties>
+			<flavor>
+				<p>看来这个小鬼过了未成年限制，可以玩年龄更大一些、更刺激的器械了。</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:MannequinTNT">
+			<header>
+				<p>玩家模型TNT会由玩家模型放置并爆炸造成伤害</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>600</color>]]></p>
+				<p>爆炸范围：<![CDATA[<color=red>2.25*2.25</color>]]></p>
+				<p>爆炸伤害：<![CDATA[<color=red>1000</color>]]></p>
+			</properties>
+			<flavor>
+				<p>是的，他是敌怪而非器械，你不能用吞噬者把他抢过来。</p>
+				<p>这种tnt应该是对面的玩家模型们没有足够的材料，往沙子里掺了土，导致tnt的威力下降了，不过炸起来无论如何都很烦人就是了。</p>
+				<p/>
+				<p/>
+				<p/>
+				<p/>
+				<p/>
+				<p><![CDATA[<color=grey>我有阴谋论啊，你看这个实体的名字叫做玩家模型TNT，而它的颜色和其他玩家模型一样。</color>]]></p>
+				<p><![CDATA[<color=grey>这是否说明玩家模型TNT和玩家模型是同种■■？</color>]]></p>
 			</flavor>
 		</entry>
 		

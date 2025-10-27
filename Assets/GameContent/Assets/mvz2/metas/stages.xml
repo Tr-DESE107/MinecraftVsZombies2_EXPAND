@@ -1821,24 +1821,6 @@
         </properties>
     </stage>
 
-	<stage id="MutantCrisis_2" name="神人危机" type="minigame" music="mvz2:minigame">
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="10">
-
-			<spawn id="mvz2:MegaMutantVillager"/>
-			<spawn id="mvz2:MutantVillager"/>
-			<spawn id="mvz2:MutantMannequin"/>
-			<spawn id="mvz2:ImpMannequin"/>
-			<spawn id="mvz2:Mannequin"/>
-			<spawn id="mvz2:MegaImpMannequin"/>
-			<spawn id="mvz2:VillagerGhast"/>
-
-		</spawns>
-		<properties>
-			<bool name="ignoreHugeWaveEvent" value="true"/>
-		</properties>
-	</stage>
-
     <stage id="ContraptionDevourer" name="器械吞噬者" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <spawns flags="2" firstWaveTime="150" >
@@ -1924,6 +1906,113 @@
         </properties>
         
     </stage>
+
+	<!-- EXPAND Minigames2 -->
+
+	<stage id="MutantCrisis_2" name="巨人危机2" type="minigame" music="mvz2:Lava_Chicken">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="8">
+
+			<spawn id="mvz2:mutant_zombie"/>
+			<spawn id="mvz2:mega_mutant_zombie"/>
+			<spawn id="mvz2:HostMutant"/>
+			<spawn id="mvz2:HeavyGutant"/>
+			<spawn id="mvz2:MegaMutantVillager"/>
+			<spawn id="mvz2:MutantVillager"/>
+			<spawn id="mvz2:MutantMannequin"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
+
+	<stage id="VillagerNews" name="村民新闻" type="minigame" music="mvz2:Lava_Chicken">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2">
+
+			<spawn id="mvz2:MegaMutantVillager"/>
+			<spawn id="mvz2:MutantVillager"/>
+			<spawn id="mvz2:VillagerGhast"/>
+
+			<spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:KingofReverser"/>
+			<spawn id="mvz2:BloodlustHostZombie"/>
+			<spawn id="mvz2:gargoyle"/>
+			<spawn id="mvz2:mother_terror"/>
+			<spawn id="mvz2:NetherTroopCarrier"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
+
+	<stage id="TrueAndFalseSteve" name="真假史蒂夫" type="minigame" music="mvz2:Lava_Chicken">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2">
+
+
+			<spawn id="mvz2:ImpMannequin"/>
+			<spawn id="mvz2:MegaImpMannequin"/>
+			<spawn id="mvz2:MutantMannequin"/>
+			<spawn id="mvz2:Mannequin"/>
+
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:MegaZombie"/>
+			<spawn id="mvz2:SuperMegaZombie"/>
+			<spawn id="mvz2:HostZombie"/>
+			<spawn id="mvz2:BloodlustHostZombie"/>
+			<spawn id="mvz2:gargoyle"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
+
+	<stage id="ContraptionDevourer_2" name="器械吞噬者2" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" >
+
+
+			<spawn id="mvz2:ImpMannequin"/>
+			<spawn id="mvz2:MegaImpMannequin"/>
+			<spawn id="mvz2:MutantMannequin"/>
+			<spawn id="mvz2:Mannequin"/>
+
+			<spawn id="mvz2:MutantVillager"/>
+			<spawn id="mvz2:zombie"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
+
+	<stage id="RandomChinaDevourer" name="随机瓷器吞噬者" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="1.75" >
+
+
+			<spawn id="mvz2:ImpMannequin"/>
+			<spawn id="mvz2:MutantMannequin"/>
+			<spawn id="mvz2:Mannequin"/>
+
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:MegaZombie"/>
+			<spawn id="mvz2:HostZombie"/>
+			<spawn id="mvz2:skeleton_mage"/>
+			<spawn id="mvz2:MutantVillager"/>
+			<spawn id="mvz2:gargoyle"/>
+			<spawn id="mvz2:NetherWarrior"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
 
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >

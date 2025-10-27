@@ -85,18 +85,24 @@ namespace MVZ2.GameContent.Enemies
             VanillaContraptionID.DispenShield,
             VanillaContraptionID.soulFurnace,
             VanillaContraptionID.necrotombstone,
-            VanillaContraptionID.smallDispenser,
             VanillaContraptionID.totenser,
+            VanillaContraptionID.silvenser,
+            VanillaContraptionID.CopperDropper,
+            VanillaContraptionID.stoneDropper,
+            VanillaContraptionID.furnace,
 
         };
 
         private static int[] RandomSkeletonWeights = new int[]
         {
+            5,
+            5,
+            5,
+            5,
+            10,
             1,
-            1,
-            1,
-            1,
-            1,
+            10,
+            8,
         };
 
         public override void PostDeath(Entity entity, DeathInfo info)

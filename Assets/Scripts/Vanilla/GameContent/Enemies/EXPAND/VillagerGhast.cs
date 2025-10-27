@@ -18,6 +18,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
+using MVZ2.GameContent.Pickups;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -84,10 +85,10 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.Source?.DefinitionID == VanillaProjectileID.fireCharge && !entity.Level.IsIZombie())
+            for (var i = 0; i < 11; i++)
             {
-                Global.Saves.Unlock(VanillaUnlockID.returnToSender);
-                Global.Saves.SaveToFile(); // 完成成就后保存游戏。
+                entity.Spawn(VanillaPickupID.emerald, entity.Position);
+                entity.Spawn(VanillaPickupID.ruby, entity.Position);
             }
         }
         public static FrameTimer? GetStateTimer(Entity enemy)

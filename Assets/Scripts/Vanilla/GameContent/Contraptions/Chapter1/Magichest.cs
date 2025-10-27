@@ -194,11 +194,22 @@ namespace MVZ2.GameContent.Contraptions
                             stateTimer.Run();
                             if (stateTimer.PassedFrame(30))
                             {
-                                entity.SpawnWithParams(VanillaEnemyID.VillagerGhast, entity.GetCenter())?.Let(e =>
+                                if (entity.RNG.Next(10) == 0)
                                 {
-                                    e.AddBuff<NightmareComeTrueBuff>();
-                                });
-                                entity.PlaySound(VanillaSoundID.fireCharge);
+                                    entity.SpawnWithParams(VanillaEnemyID.VillagerGhast, entity.GetCenter())?.Let(e =>
+                                    {
+                                        e.AddBuff<NightmareComeTrueBuff>();
+                                    });
+                                    entity.PlaySound(VanillaSoundID.fireCharge);
+                                }
+                                else
+                                {
+                                    entity.SpawnWithParams(VanillaEnemyID.ghast, entity.GetCenter())?.Let(e =>
+                                    {
+                                        e.AddBuff<NightmareComeTrueBuff>();
+                                    });
+                                    entity.PlaySound(VanillaSoundID.fireCharge);
+                                }
                             }
                             if (stateTimer.Expired)
                             {

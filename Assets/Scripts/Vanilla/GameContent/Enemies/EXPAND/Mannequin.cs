@@ -31,10 +31,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            if (entity.Level.IsIZombie())
-            {
-                entity.AddBuff<IZombieImpBuff>();
-            }
+            
 
             // 初始化记录血量（用于掉血检测）
             SetLastTriggerHealth(entity, entity.Health);
@@ -44,7 +41,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateLogic(entity);
             entity.SetModelDamagePercent();
-            entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
+            //entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
 
             // 检查是否需要触发血量下降事件
             CheckHealthLossTrigger(entity);
@@ -52,15 +49,15 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (entity.HasBuff<BoatBuff>())
-            {
-                entity.RemoveBuffs<BoatBuff>();
-                // 掉落碎船掉落物
-                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity);
-                effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
-                effect.ChangeModel(VanillaModelID.boatItem);
-                effect.SetDisplayScale(entity.GetDisplayScale());
-            }
+            //if (entity.HasBuff<BoatBuff>())
+            //{
+            //    entity.RemoveBuffs<BoatBuff>();
+            //    // 掉落碎船掉落物
+            //    var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity);
+            //    effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
+            //    effect.ChangeModel(VanillaModelID.boatItem);
+            //    effect.SetDisplayScale(entity.GetDisplayScale());
+            //}
 
             entity.SpawnWithParams(VanillaEnemyID.MannequinTNT, entity.Position);
         }
@@ -83,6 +80,9 @@ namespace MVZ2.GameContent.Enemies
             {
                 for (int i = 0; i < triggerCount; i++)
                 {
+                    //if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+                    //    return;
+
                     var grid = entity.GetGrid();
                     if (grid == null)
                         return;
@@ -91,28 +91,24 @@ namespace MVZ2.GameContent.Enemies
                     var level = entity.Level;
                     var rng = entity.RNG;
                     entity.ClearTakenGrids();
-                    var unlockedContraptions = game.GetUnlockedContraptions();
+                    var unlockedContraptions = Global.Saves.GetUnlockedContraptions();
                     var validContraptions = unlockedContraptions.Where(id =>
                     {
-                        if (!game.IsContraptionInAlmanac(id))
+                        if (!Global.Almanac.IsContraptionInAlmanac(id))
                             return false;
                         var def = game.GetEntityDefinition(id);
-                        if (def.IsUpgradeBlueprint())
+                        if (def == null || def.IsUpgradeBlueprint())
                             return false;
                         return grid.CanSpawnEntity(id);
                     });
                     if (validContraptions.Count() <= 0)
                         return;
                     var contraptionID = validContraptions.Random(rng);
-                    if (contraptionID == VanillaContraptionID.devourer)
-                    {
-                        contraptionID = VanillaContraptionID.dispenser;
-                    }
                     var spawned = entity.SpawnWithParams(contraptionID, entity.Position);
-                    if (spawned != null && spawned.HasBuff<NocturnalBuff>())
-                    {
-                        spawned.RemoveBuffs<NocturnalBuff>();
-                    }
+                    //if (spawned != null && spawned.HasBuff<NocturnalBuff>())
+                    //{
+                    //    spawned.RemoveBuffs<NocturnalBuff>();
+                    //}
                 }
 
                 // 更新记录的血量
