@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-18 10:12+0800\n"
-"PO-Revision-Date: 2025-10-18 22:12+0800\n"
+"POT-Creation-Date: 2025-10-28 02:29+0800\n"
+"PO-Revision-Date: 2025-10-28 14:30+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2096,6 +2096,32 @@ msgstr ""
 "After the failure of the previous Zombie War, the Zombie self-reflected in the corner for three days straight. Later, he began to "
 "exercise, trying to be stronger to eat more brains. Now he looks... Well, he hasn't changed a bit."
 
+#. Header for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "旗帜僵尸的出现标志着一大波怪物的到来。"
+msgstr "The appearance of flag-holding zombies marks the arrival of a large wave of zombies."
+
+#. Properties for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"速度：<color=red>2</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Speed: <color=red>2</color>"
+
+#. Flavor for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人"
+"在嘲笑他是个肉盾。"
+msgstr ""
+"When he was awarded the flag, he felt extremely honored and proud. He felt as if he was the leader of the zombies, he had the supreme "
+"position, and he fluttered all the time. However, he didn't know how many zombies behind were laughing at him as a meatshield."
+
 #. Header for enemies mvz2:leather_capped_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -2141,32 +2167,6 @@ msgstr ""
 msgctxt "enemies.description"
 msgid "戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。"
 msgstr "From that helmet, one may assume he used to be a warrior in his lifetime, but it's not like that. He just has a higher IQ."
-
-#. Header for enemies mvz2:flag_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "旗帜僵尸的出现标志着一大波怪物的到来。"
-msgstr "The appearance of flag-holding zombies marks the arrival of a large wave of zombies."
-
-#. Properties for enemies mvz2:flag_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red>200</color>\n"
-"速度：<color=red>2</color>"
-msgstr ""
-"Toughness: <color=red>200</color>\n"
-"Speed: <color=red>2</color>"
-
-#. Flavor for enemies mvz2:flag_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人"
-"在嘲笑他是个肉盾。"
-msgstr ""
-"When he was awarded the flag, he felt extremely honored and proud. He felt as if he was the leader of the zombies, he had the supreme "
-"position, and he fluttered all the time. However, he didn't know how many zombies behind were laughing at him as a meatshield."
 
 #. Header for enemies mvz2:skeleton
 #: Almanac meta file
@@ -2602,34 +2602,6 @@ msgstr ""
 "\"no u\"\n"
 "\"no no no no u\""
 
-#. Header for enemies mvz2:talisman_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "灵符僵尸跳跃前进，并能够在攻击的同时恢复生命值。"
-msgstr "Talisman Zombie jumps forward to move. It also heals itself by attacking."
-
-#. Properties for enemies mvz2:talisman_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red>350</color>\n"
-"速度：<color=red>1</color>\n"
-"特点：<color=red>攻击时恢复等量生命值</color>"
-msgstr ""
-"Toughness: <color=red>350</color>\n"
-"Speed: <color=red>1</color>\n"
-"Special: <color=red>Restore equal toughness during attack</color>"
-
-#. Flavor for enemies mvz2:talisman_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"你知道的，伙计——只要在那个灵符上写上任何东西，它就会按照上面写的事情去照办。\n"
-"比如……写上“不要照着这句话做”。"
-msgstr ""
-"Y'know, as long as you write anything on that talisman, Talisman Zombie will do what it says.\n"
-"For example... write \"Don't do what this paper says\"."
-
 #. Header for enemies mvz2:wicked_hermit_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -2664,6 +2636,34 @@ msgstr ""
 "Even after death, that obsession has not ended. He became a zombie in order to continue his pursuit from his past life.\n"
 "In the end, he became a wicked hermit, and now he no longer has to be afraid of death again!\n"
 "...Don’t you think something is off?"
+
+#. Header for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "灵符僵尸跳跃前进，并能够在攻击的同时恢复生命值。"
+msgstr "Talisman Zombie jumps forward to move. It also heals itself by attacking."
+
+#. Properties for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>350</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>攻击时恢复等量生命值</color>"
+msgstr ""
+"Toughness: <color=red>350</color>\n"
+"Speed: <color=red>1</color>\n"
+"Special: <color=red>Restore equal toughness during attack</color>"
+
+#. Flavor for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"你知道的，伙计——只要在那个灵符上写上任何东西，它就会按照上面写的事情去照办。\n"
+"比如……写上“不要照着这句话做”。"
+msgstr ""
+"Y'know, as long as you write anything on that talisman, Talisman Zombie will do what it says.\n"
+"For example... write \"Don't do what this paper says\"."
 
 #. Header for enemies mvz2:shikaisen_zombie
 #: Almanac meta file

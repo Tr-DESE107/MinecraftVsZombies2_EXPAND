@@ -556,7 +556,7 @@ namespace MVZ2.Level
             };
 
             var orderedBlueprints = new List<NamespaceID?>();
-            Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
+            Main.AlmanacManager.GetOrderedContraptionsByAlmanac(blueprints, orderedBlueprints);
             var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless())).ToArray();
             choosingBlueprints = orderedBlueprints.ToArray();
 

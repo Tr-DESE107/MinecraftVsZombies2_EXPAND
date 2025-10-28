@@ -21,70 +21,85 @@ namespace MVZ2.Almanacs
     public class AlmanacManager : MonoBehaviour
     {
         #region 获取图鉴项列表
-        public void GetOrderedBlueprints(IEnumerable<NamespaceID> blueprints, List<NamespaceID?> appendList)
+        public void GetOrderedContraptionsByAlmanac(IEnumerable<NamespaceID> contraptionsID, List<NamespaceID?> appendList)
         {
-            var idList = GetIDListByAlmanacOrder(blueprints, VanillaAlmanacCategories.CONTRAPTIONS);
+            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.CONTRAPTIONS, (id, entry) => contraptionsID.Contains(id) && !entry.hidden);
             var ordered = CompressLayout(idList, GetBlueprintCountPerRow());
             appendList.AddRange(ordered);
         }
-        public void GetOrderedEnemies(IEnumerable<NamespaceID> enemiesID, List<NamespaceID?> appendList)
+        public void GetContraptionPageEntries(List<NamespaceID?> appendList)
         {
-            var idList = GetIDListByAlmanacOrder(enemiesID, VanillaAlmanacCategories.ENEMIES);
+            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.CONTRAPTIONS, (id, entry) => Main.SaveManager.IsContraptionUnlocked(id) && !entry.hidden);
+            var ordered = CompressLayout(idList, GetBlueprintCountPerRow());
+            appendList.AddRange(ordered);
+        }
+        public void GetEnemyPageEntries(List<NamespaceID?> appendList)
+        {
+            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.ENEMIES, (id, entry) => Main.SaveManager.IsEnemyUnlocked(id) && !entry.hidden);
             var ordered = CompressLayout(idList, GetEnemyCountPerRow());
             appendList.AddRange(ordered);
         }
-        public void GetOrderedArtifacts(IEnumerable<NamespaceID> artifactID, List<NamespaceID?> appendList)
+        public void GetArtifactPageEntries(List<NamespaceID?> appendList)
         {
-            var idList = GetIDListByAlmanacOrder(artifactID, VanillaAlmanacCategories.ARTIFACTS);
+            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.ARTIFACTS, ShouldArtifactShowInAlmanac);
             var ordered = CompressLayout(idList, GetMiscCountPerRow());
             appendList.AddRange(ordered);
         }
-        public void GetUnlockedMiscGroups(List<AlmanacEntryGroup> appendList)
+        public void GetMiscPageGroups(List<AlmanacEntryGroup> appendList)
         {
-            var nsp = Main.BuiltinNamespace;
-            var metaList = Main.ResourceManager.GetAlmanacMetaList(nsp);
-            if (metaList == null)
-                return;
-            var category = metaList.GetCategory(VanillaAlmanacCategories.MISC);
-
-            if (category.groups != null)
+            var groups = Main.ResourceManager.GetAlmanacMetaGroups(VanillaAlmanacCategories.MISC);
+            foreach (var group in groups)
             {
-                foreach (var group in category.groups)
+                var entries = group.entries;
+                var groupEntries = new NamespaceID?[entries.Length];
+                for (int i = 0; i < groupEntries.Length; i++)
                 {
-                    var groupEntries = new NamespaceID?[group.entries.Length];
-                    for (int i = 0; i < groupEntries.Length; i++)
-                    {
-                        var entry = group.entries[i];
-                        var id = entry.id;
-                        if (!NamespaceID.IsValid(id))
-                            continue;
-                        if (!entry.unlock.IsNullOrMeetsConditions(Main.SaveManager))
-                            continue;
-                        groupEntries[i] = id;
-                    }
-                    var compressedEntries = CompressLayout(groupEntries, miscCountPerRow).ToArray();
-                    var g = new AlmanacEntryGroup(group.name, compressedEntries);
-                    if (g.entries.Any(e => NamespaceID.IsValid(e)))
-                    {
-                        appendList.Add(g);
-                    }
+                    var entry = entries[i];
+                    var id = entry.id;
+                    if (!NamespaceID.IsValid(id))
+                        continue;
+                    if (!entry.unlock.IsNullOrMeetsConditions(Main.SaveManager))
+                        continue;
+                    groupEntries[i] = id;
+                }
+                var compressedEntries = CompressLayout(groupEntries, miscCountPerRow).ToArray();
+                var g = new AlmanacEntryGroup(group.name, compressedEntries);
+                if (g.entries.Any(e => NamespaceID.IsValid(e)))
+                {
+                    appendList.Add(g);
                 }
             }
         }
-        private NamespaceID[] GetIDListByAlmanacOrder(IEnumerable<NamespaceID> idList, string category)
+        private bool ShouldArtifactShowInAlmanac(NamespaceID id, AlmanacMetaEntry entry)
         {
-            if (idList == null || idList.Count() == 0)
-                return Array.Empty<NamespaceID>();
-            var almanacIndexes = idList.Select(id => (id, index: Main.ResourceManager.GetAlmanacMetaEntry(category, id)?.index ?? -1));
-            var maxAlmanacIndex = almanacIndexes.Max(tuple => tuple.index);
-            var ordered = new NamespaceID[maxAlmanacIndex + 1];
-            for (int i = 0; i < ordered.Length; i++)
-            {
-                var tuple = almanacIndexes.FirstOrDefault(tuple => tuple.index == i);
-                ordered[i] = tuple.id;
-            }
-            return ordered;
+            if (entry.hidden)
+                return false;
+            if (Main.SaveManager.IsArtifactUnlocked(id))
+                return true;
+            if (entry.silhouetteUnlock != null && entry.silhouetteUnlock.MeetsConditions(Main.SaveManager))
+                return true;
+            return false;
         }
+        private NamespaceID?[] GetUnlockedAlmanacEntries(string category, Func<NamespaceID, AlmanacMetaEntry, bool> predicate)
+        {
+            var entries = Main.ResourceManager.GetAlmanacMetaEntries(category);
+            NamespaceID?[] results = new NamespaceID?[entries.Length];
+            for (int i = 0; i < results.Length; i++)
+            {
+                var entry = entries[i];
+                var id = entry.id;
+                if (entry == null || !NamespaceID.IsValid(id))
+                    continue;
+                if (predicate(id, entry))
+                {
+                    results[i] = id;
+                }
+            }
+            return results;
+        }
+        #endregion
+
+        #region 压缩布局
         private IEnumerable<NamespaceID?> CompressLayout(IEnumerable<NamespaceID?> idList, int countPerRow)
         {
             var groups = idList
@@ -133,6 +148,7 @@ namespace MVZ2.Almanacs
 
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id);
             Sprite? icon = null;
+            Color color = Color.white;
             Vector2 offset = Vector2.zero;
             if (entry != null)
             {
@@ -148,7 +164,7 @@ namespace MVZ2.Almanacs
                 }
                 offset = new Vector2(20, 0);
             }
-            return new AlmanacEntryViewData() { sprite = icon, offset = offset };
+            return new AlmanacEntryViewData() { sprite = icon, color = color, offset = offset };
         }
         public AlmanacEntryViewData GetArtifactEntryViewData(NamespaceID? id)
         {
@@ -160,7 +176,8 @@ namespace MVZ2.Almanacs
 
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ARTIFACTS, id);
             Sprite? icon = GetArtifactThumbnail(entry, def);
-            return new AlmanacEntryViewData() { sprite = icon };
+            Color color = Main.SaveManager.IsArtifactUnlocked(id) ? Color.white : Color.black;
+            return new AlmanacEntryViewData() { sprite = icon, color = color };
         }
         public AlmanacEntryViewData GetMiscEntryViewData(NamespaceID? id)
         {
@@ -171,7 +188,7 @@ namespace MVZ2.Almanacs
             if (entry == null)
                 return AlmanacEntryViewData.Empty;
 
-            return new AlmanacEntryViewData() { sprite = GetEntryThumbnailSprite(entry) };
+            return new AlmanacEntryViewData() { sprite = GetEntryThumbnailSprite(entry), color = Color.white };
         }
         public AlmanacEntryGroupViewData GetMiscGroupViewData(AlmanacEntryGroup group)
         {

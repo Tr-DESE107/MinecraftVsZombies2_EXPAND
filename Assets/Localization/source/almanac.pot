@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-18 10:12+0800\n"
+"POT-Creation-Date: 2025-10-28 02:29+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1768,6 +1768,26 @@ msgctxt "enemies.description"
 msgid "在上一次尸界大战失败后，僵尸在墙角里做了三天三夜的反省。后来他开始锻炼自己，想让自己变得更强以吃到更多的脑子。现在的他看起来……好吧还是没变。"
 msgstr ""
 
+#. Header for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "旗帜僵尸的出现标志着一大波怪物的到来。"
+msgstr ""
+
+#. Properties for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"速度：<color=red>2</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:flag_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。"
+msgstr ""
+
 #. Header for enemies mvz2:leather_capped_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -1806,26 +1826,6 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。"
-msgstr ""
-
-#. Header for enemies mvz2:flag_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "旗帜僵尸的出现标志着一大波怪物的到来。"
-msgstr ""
-
-#. Properties for enemies mvz2:flag_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red>200</color>\n"
-"速度：<color=red>2</color>"
-msgstr ""
-
-#. Flavor for enemies mvz2:flag_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。"
 msgstr ""
 
 #. Header for enemies mvz2:skeleton
@@ -2179,29 +2179,6 @@ msgid ""
 "“再弹！”"
 msgstr ""
 
-#. Header for enemies mvz2:talisman_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "灵符僵尸跳跃前进，并能够在攻击的同时恢复生命值。"
-msgstr ""
-
-#. Properties for enemies mvz2:talisman_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red>350</color>\n"
-"速度：<color=red>1</color>\n"
-"特点：<color=red>攻击时恢复等量生命值</color>"
-msgstr ""
-
-#. Flavor for enemies mvz2:talisman_zombie
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"你知道的，伙计——只要在那个灵符上写上任何东西，它就会按照上面写的事情去照办。\n"
-"比如……写上“不要照着这句话做”。"
-msgstr ""
-
 #. Header for enemies mvz2:wicked_hermit_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -2225,6 +2202,29 @@ msgid ""
 "即使是在他死后，这份执念也依然没有结束。他变成了僵尸，为的就是继续生前的进程。\n"
 "终于，他成为了邪仙，现在他再也不用害怕死亡了！\n"
 "……你就不觉得哪里不对吗？"
+msgstr ""
+
+#. Header for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "灵符僵尸跳跃前进，并能够在攻击的同时恢复生命值。"
+msgstr ""
+
+#. Properties for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>350</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>攻击时恢复等量生命值</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"你知道的，伙计——只要在那个灵符上写上任何东西，它就会按照上面写的事情去照办。\n"
+"比如……写上“不要照着这句话做”。"
 msgstr ""
 
 #. Header for enemies mvz2:shikaisen_zombie

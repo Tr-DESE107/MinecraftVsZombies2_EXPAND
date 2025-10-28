@@ -15,6 +15,7 @@ namespace MVZ2.Almanacs
             iconRoot.localPosition = (Vector3)viewData.offset;
             icon.sprite = sprite;
             icon.enabled = sprite;
+            icon.color = viewData.color;
             if (sprite.Exists())
             {
                 ratioFitter.aspectRatio = sprite.rect.width / sprite.rect.height;
@@ -44,6 +45,7 @@ namespace MVZ2.Almanacs
     {
         public bool empty;
         public Sprite? sprite;
+        public Color color;
         public Vector2 offset;
         public static readonly AlmanacEntryViewData Empty = new AlmanacEntryViewData { empty = true };
     }

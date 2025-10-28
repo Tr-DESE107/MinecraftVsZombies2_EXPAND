@@ -294,6 +294,37 @@ namespace MVZ2.Almanacs
         }
         #endregion
 
+        #region 查看某分类
+        private void UpdateEntries()
+        {
+            contraptionEntries.Clear();
+            Main.AlmanacManager.GetContraptionPageEntries(contraptionEntries);
+
+            enemyEntries.Clear();
+            Main.AlmanacManager.GetEnemyPageEntries(enemyEntries);
+
+            artifactEntries.Clear();
+            Main.AlmanacManager.GetArtifactPageEntries(artifactEntries);
+
+            miscGroups.Clear();
+            Main.AlmanacManager.GetMiscPageGroups(miscGroups);
+
+
+            var contraptionViewDatas = contraptionEntries.Select(c => Main.AlmanacManager.GetChoosingBlueprintViewData(c, false)).ToArray();
+            var commandBlock = Main.SaveManager.IsCommandBlockUnlocked();
+            var commandBlockViewData = Main.AlmanacManager.GetChoosingBlueprintViewData(VanillaContraptionID.commandBlock, false);
+            ui.SetContraptionEntries(contraptionViewDatas, commandBlock, commandBlockViewData);
+
+            var enemyViewDatas = enemyEntries.Select(c => Main.AlmanacManager.GetEnemyEntryViewData(c)).ToArray();
+            ui.SetEnemyEntries(enemyViewDatas);
+
+            var artifactViewDatas = artifactEntries.Select(c => Main.AlmanacManager.GetArtifactEntryViewData(c)).ToArray();
+            ui.SetArtifactEntries(artifactViewDatas);
+            ui.SetIndexArtifactVisible(artifactEntries.Count > 0);
+
+            var miscViewDatas = miscGroups.Select(c => Main.AlmanacManager.GetMiscGroupViewData(c)).ToArray();
+            ui.SetMiscGroups(miscViewDatas);
+        }
         private void ViewContraptions()
         {
             var page = Main.IsMobile() ? AlmanacPageType.ContraptionsMobile : AlmanacPageType.ContraptionsStandalone;
@@ -317,6 +348,9 @@ namespace MVZ2.Almanacs
             if (entry != null)
                 SetActiveMiscEntry(entry);
         }
+        #endregion
+
+        #region 设置当前查看内容
         private void SetActiveContraptionEntry(NamespaceID? contraptionID)
         {
             if (!NamespaceID.IsValid(contraptionID))
@@ -403,18 +437,33 @@ namespace MVZ2.Almanacs
         {
             if (!NamespaceID.IsValid(artifactID))
                 return;
+
+            const string type = VanillaAlmanacCategories.ARTIFACTS;
+
             activeArtifactEntryID = artifactID;
-            GetArtifactAlmanacInfos(artifactID, VanillaAlmanacCategories.ARTIFACTS, out var sprite, out var name, out var description);
+            GetArtifactAlmanacInfos(artifactID, type, out var sprite, out var name, out var description);
 
+            Color color = Color.white;
+            bool unlocked = Main.SaveManager.IsArtifactUnlocked(artifactID);
+            if (unlocked)
+            {
+                UpdateEntryTags(AlmanacPageType.Artifacts, type, artifactID);
+            }
+            else
+            {
+                color = Color.black;
+                name = Main.LanguageManager._p(LogicStrings.CONTEXT_ARTIFACT_NAME, LogicStrings.UNKNOWN_ARTIFACT_NAME);
+                description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, VanillaStrings.ALMANAC_UNKNOWN);
 
-            UpdateEntryTags(AlmanacPageType.Artifacts, VanillaAlmanacCategories.ARTIFACTS, artifactID);
+                ClearEntryTags(AlmanacPageType.Artifacts);
+            }
 
             var iconInfos = GetDescriptionTagIconInfos(description);
             var replacements = iconInfos.Select(i => i.replacement).ToArray();
             var iconStacks = iconInfos.Select(i => i.viewData).ToArray();
             var finalDesc = ReplaceText(description, replacements);
 
-            ui.SetActiveArtifactEntry(sprite, name, finalDesc);
+            ui.SetActiveArtifactEntry(sprite, color, name, finalDesc);
             ui.UpdateArtifactDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }
@@ -521,6 +570,7 @@ namespace MVZ2.Almanacs
                 return string.Join("\n\n", strings);
             }
         }
+        #endregion
 
         #region Description Tag
         private bool TryParseLinkID(string linkID, out int index, [NotNullWhen(true)] out NamespaceID? tagID, out string enumValue)
@@ -786,38 +836,6 @@ namespace MVZ2.Almanacs
         {
             UnlockTooltip();
             Main.Scene.HideTooltip();
-        }
-        private void UpdateEntries()
-        {
-            contraptionEntries.Clear();
-            var blueprints = Main.SaveManager.GetUnlockedContraptions();
-            Main.AlmanacManager.GetOrderedBlueprints(blueprints, contraptionEntries);
-
-            enemyEntries.Clear();
-            var enemies = Main.SaveManager.GetUnlockedEnemies();
-            Main.AlmanacManager.GetOrderedEnemies(enemies, enemyEntries);
-
-            artifactEntries.Clear();
-            var artifacts = Main.SaveManager.GetUnlockedArtifacts();
-            Main.AlmanacManager.GetOrderedArtifacts(artifacts, artifactEntries);
-
-            miscGroups.Clear();
-            Main.AlmanacManager.GetUnlockedMiscGroups(miscGroups);
-
-
-            var contraptionViewDatas = contraptionEntries.Select(c => Main.AlmanacManager.GetChoosingBlueprintViewData(c, false)).ToArray();
-            var commandBlockViewData = Main.AlmanacManager.GetChoosingBlueprintViewData(VanillaContraptionID.commandBlock, false);
-            ui.SetContraptionEntries(contraptionViewDatas, Main.SaveManager.IsCommandBlockUnlocked(), commandBlockViewData);
-
-            var enemyViewDatas = enemyEntries.Select(c => Main.AlmanacManager.GetEnemyEntryViewData(c)).ToArray();
-            ui.SetEnemyEntries(enemyViewDatas);
-
-            var artifactViewDatas = artifactEntries.Select(c => Main.AlmanacManager.GetArtifactEntryViewData(c)).ToArray();
-            ui.SetArtifactEntries(artifactViewDatas);
-            ui.SetIndexArtifactVisible(artifactEntries.Count > 0);
-
-            var miscViewDatas = miscGroups.Select(c => Main.AlmanacManager.GetMiscGroupViewData(c)).ToArray();
-            ui.SetMiscGroups(miscViewDatas);
         }
         private string GetTranslatedString(string context, string? text, params object[] args)
         {

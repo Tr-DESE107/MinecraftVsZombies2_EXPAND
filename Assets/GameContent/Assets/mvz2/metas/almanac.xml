@@ -1535,6 +1535,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:bottled_blackhole">
+            <silhouette>
+                <condition required="mvz2:level.dream_11"/>
+            </silhouette>
             <header>
                 <p>被装入瓶子中的一个小型黑洞。</p>
             </header>
@@ -1612,6 +1615,9 @@
             </flavor>
         </entry> -->
         <entry id="mvz2:broken_lantern">
+            <silhouette>
+                <condition required="mvz2:level.castle_11"/>
+            </silhouette>
             <header>
                 <p>辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
             </header>

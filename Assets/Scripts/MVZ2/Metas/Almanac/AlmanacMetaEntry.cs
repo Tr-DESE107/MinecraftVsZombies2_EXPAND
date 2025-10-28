@@ -9,6 +9,7 @@ using MVZ2.IO;
 using MVZ2.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Almanacs;
+using MVZ2Logic.Conditions;
 using MVZ2Logic.Games;
 using PVZEngine;
 
@@ -24,6 +25,7 @@ namespace MVZ2.Metas
         public string name = string.Empty;
         public XMLConditionList? unlock;
         public XMLConditionList? encounterUnlock;
+        public XMLConditionList? silhouetteUnlock;
 
         // 缩略图
         public AlmanacPicture? thumbnail;
@@ -56,6 +58,13 @@ namespace MVZ2.Metas
             XMLConditionList? encounterConditions = node.GetUnlockConditionsOrObsolete("encounter", "encounterUnlock", defaultNsp);
             // 解锁条件
             XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
+            // 剪影条件
+            var silhouetteNode = node["silhouette"];
+            XMLConditionList? silouetteConditions = null;
+            if (silhouetteNode != null)
+            {
+                silouetteConditions = XMLConditionList.FromXmlNode(silhouetteNode, defaultNsp);
+            }
 
 
             var hidden = node.GetAttributeBool("hidden") ?? false;
@@ -135,6 +144,7 @@ namespace MVZ2.Metas
 
                 encounterUnlock = encounterConditions,
                 unlock = unlockConditions,
+                silhouetteUnlock = silouetteConditions,
 
                 thumbnail = thumbnail,
 
