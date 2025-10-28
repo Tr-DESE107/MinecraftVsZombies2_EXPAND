@@ -333,6 +333,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 358463c4a1670b441b15bd6423009e35, type: 3}
   - name: mobile_blueprint/hell_chariot
     sprite: {fileID: 21300000, guid: b9be44ffa4015754eaf65066f0522ab8, type: 3}
+  - name: mobile_blueprint/HerobrineMannequin
+    sprite: {fileID: 21300000, guid: dfc2d4eeb6be3c140955183ec4328b59, type: 3}
   - name: mobile_blueprint/high_frequency_pulse_dispenser
     sprite: {fileID: 21300000, guid: f24e02b7e9159cb4ebd603ab477f2152, type: 3}
   - name: mobile_blueprint/HostHead
@@ -345,6 +347,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 38fdc1de3d68dbe44b01bdd49431dd2a, type: 3}
   - name: mobile_blueprint/imp
     sprite: {fileID: 21300000, guid: 159a0c84d11598e48abae3c94be1ed5f, type: 3}
+  - name: mobile_blueprint/ImpMannequin
+    sprite: {fileID: 21300000, guid: cff194d91b96447408745e2c876346ba, type: 3}
   - name: mobile_blueprint/infectenser
     sprite: {fileID: 21300000, guid: 7ad59fee145905345a3241aca0804d48, type: 3}
   - name: mobile_blueprint/IronMonkZombie
@@ -373,6 +377,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d502efd9e6fce1543ae6919e926b244c, type: 3}
   - name: mobile_blueprint/magichest
     sprite: {fileID: 21300000, guid: 2f3ddf82a6251b743b3e647d2f839e64, type: 3}
+  - name: mobile_blueprint/MegaImpMannequin
+    sprite: {fileID: 21300000, guid: bdc746737765f4942bf5b16c0bebab7c, type: 3}
   - name: mobile_blueprint/MegaZombie
     sprite: {fileID: 21300000, guid: f4504226a952f4341b7a99de92c93899, type: 3}
   - name: mobile_blueprint/mega_mutant_skeleton
@@ -791,6 +797,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ab1cac139d76a6f478c12842a619042d, type: 3}
   - name: entity/contraptions/necrotombstone
     sprite: {fileID: 21300000, guid: 373251590bef7dc429d28962770f900b, type: 3}
+  - name: entity/contraptions/OrantHat
+    sprite: {fileID: 21300000, guid: a7ced569e2599e44ebe7fa5f81df45b9, type: 3}
   - name: entity/contraptions/pistenser_arm
     sprite: {fileID: 21300000, guid: 3c47f11cc215a5b4cad099f4d1d6158e, type: 3}
   - name: entity/contraptions/pressure_plate

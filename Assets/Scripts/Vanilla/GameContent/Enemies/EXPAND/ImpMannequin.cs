@@ -112,7 +112,7 @@ namespace MVZ2.GameContent.Enemies
                 });
             }
 
-            entity.SpawnWithParams(VanillaContraptionID.tnt, entity.Position);
+            entity.SpawnWithParams(VanillaEnemyID.MannequinTNT, entity.Position);
         }
 
         // 存储“上次触发时的血量”的字段名
