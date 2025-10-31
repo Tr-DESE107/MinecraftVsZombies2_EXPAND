@@ -14,33 +14,9 @@ using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
-using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
-using MVZ2Logic;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using Tools;
-using System.Collections.Generic;
-using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Level;
-using PVZEngine;
-using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -50,7 +26,7 @@ namespace MVZ2.GameContent.Contraptions
         public AntiGravityPad(string nsp, string name) : base(nsp, name)
         {
             AddAura(new GravityAura());
-            projectileDetector = new GravityPadDetector(false, AFFECT_HEIGHT);
+            projectileDetector = new AntiGravityPadDetector(false, AFFECT_HEIGHT);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -86,11 +62,30 @@ namespace MVZ2.GameContent.Contraptions
             }
             var anvil = entity.SpawnWithParams(VanillaContraptionID.anvil, pos);
 
+
+
             foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
             {
                 if (e.HasBuff<FlyBuff>())
                 {
                     e.RemoveBuffs<FlyBuff>();
+                }
+            }
+            foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
+            {
+                if (!e.HasBuff<AntiGravityPadGravityBuff>())
+                {
+                    e.AddBuff<AntiGravityPadGravityBuff>();
+                }
+            }
+            Quake(entity);
+
+            //我想要这段代码在30帧后执行
+            foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
+            {
+                if (e.HasBuff<AntiGravityPadGravityBuff>())
+                {
+                    e.RemoveBuffs<AntiGravityPadGravityBuff>();
                 }
             }
 
@@ -105,6 +100,13 @@ namespace MVZ2.GameContent.Contraptions
                 if (e.HasBuff<FlyBuff>())
                 {
                     e.RemoveBuffs<FlyBuff>();
+                }
+            }
+            foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
+            {
+                if (e.HasBuff<AntiGravityPadGravityBuff>())
+                {
+                    e.RemoveBuffs<AntiGravityPadGravityBuff>();
                 }
             }
         }
@@ -160,11 +162,19 @@ namespace MVZ2.GameContent.Contraptions
                     // 强制骑手下马  
                     target.GetOffHorse();
                 }
+
+                var armorSlots = target.GetActiveArmorSlots();
+                foreach (var slot in armorSlots)
+                {
+                    var armor = target.GetArmorAtSlot(slot);
+                    if (armor != null)
+                    {
+                        armor.Health = 0.1f;
+                    }
+                }
             }
 
-            // 产生强烈的屏幕震动效果(强度15, 持续30帧)  
-            self.Level.ShakeScreen(15, 0, 30);
-            // 播放闪电攻击音效  
+
             self.PlaySound(VanillaSoundID.lightningAttack);
         }
 
@@ -176,18 +186,19 @@ namespace MVZ2.GameContent.Contraptions
             // 必须存活  
             if (target.IsDead)
                 return false;
-            // 必须在地面上(不能是飞行状态)  
-            if (!target.IsOnGround)
-                return false;
+
+
             // 必须在陆地上(不能在水中)  
             if (!target.IsAboveLand())
+                return false;
+            if (!target.HasBuff<AntiGravityPadGravityBuff>())
                 return false;
             return true;
         }
 
-        public const float AFFECT_HEIGHT = 64;
+        public const float AFFECT_HEIGHT = 96;
         public const float MIN_HEIGHT = 5;
-        public const float PULL_DOWN_SPEED = -3.333f;
+        public const float PULL_DOWN_SPEED = 6.666f;
         private Detector projectileDetector;
         private List<Entity> detectBuffer = new List<Entity>();
 
@@ -195,9 +206,9 @@ namespace MVZ2.GameContent.Contraptions
         {
             public GravityAura()
             {
-                BuffID = VanillaBuffID.gravityPadGravity;
+                BuffID = VanillaBuffID.AntiGravityPadGravity;
                 UpdateInterval = 7;
-                enemyDetector = new GravityPadDetector(true, AFFECT_HEIGHT);
+                enemyDetector = new AntiGravityPadDetector(true, AFFECT_HEIGHT);
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
@@ -210,6 +221,17 @@ namespace MVZ2.GameContent.Contraptions
                     return;
                 detectBuffer.Clear();
                 enemyDetector.DetectEntities(entity, detectBuffer);
+
+                var armorSlots = entity.GetActiveArmorSlots();
+                foreach (var slot in armorSlots)
+                {
+                    var armor = entity.GetArmorAtSlot(slot);
+                    if (armor != null)
+                    {
+                        armor.Health = 0.1f;
+                    }
+                }
+
                 results.AddRange(detectBuffer);
             }
             private Detector enemyDetector;

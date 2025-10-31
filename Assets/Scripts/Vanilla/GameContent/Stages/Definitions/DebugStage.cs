@@ -41,16 +41,18 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.furnace,
-                VanillaContraptionID.gunpowderBarrel,
-                VanillaContraptionID.goldenDropper,
+                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.AntiGravityPad,
+                VanillaContraptionID.dispenser,
                 VanillaContraptionID.lightningOrb,
-                VanillaContraptionID.devourer,
-                VanillaContraptionID.mineTNT,
+                
+                
                 VanillaEnemyID.zombie,
+                VanillaEnemyID.bedserker,
+                VanillaEnemyID.necromancer,
                 VanillaEnemyID.ghast,
-                VanillaEnemyID.dullahanHead,
-                VanillaBossID.wither,
+                VanillaEnemyID.dullahan,
+                VanillaEnemyID.SuperMegaZombie,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

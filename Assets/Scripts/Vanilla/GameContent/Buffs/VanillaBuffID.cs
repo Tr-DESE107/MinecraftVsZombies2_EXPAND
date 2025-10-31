@@ -87,6 +87,7 @@ namespace MVZ2.GameContent.Buffs
         public const string motherTerrorLaid = "mother_terror_laid";
         public const string terrorParasitized = "terror_parasitized";
         public const string gravityPadGravity = "gravity_pad_gravity";
+        public const string AntiGravityPadGravity = "AntiGravityPadGravity";
         public const string vortexHopperDrag = "vortex_hopper_drag";
         public const string enemyWeakness = "enemy_weakness";
         public const string forcePadDrag = "force_pad_frag";
@@ -235,6 +236,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID carryingOther = Get(VanillaBuffNames.carryingOther);
         public static readonly NamespaceID darkMatterProduction = Get(VanillaBuffNames.darkMatterProduction);
         public static readonly NamespaceID gravityPadGravity = Get(VanillaBuffNames.gravityPadGravity);
+        public static readonly NamespaceID AntiGravityPadGravity = Get(VanillaBuffNames.AntiGravityPadGravity);
         public static readonly NamespaceID forcePadDrag = Get(VanillaBuffNames.forcePadDrag);
         public static readonly NamespaceID stoneShieldProtected = Get(VanillaBuffNames.stoneShieldProtected);
         public static readonly NamespaceID glowstoneProtected = Get(VanillaBuffNames.glowstoneProtected);

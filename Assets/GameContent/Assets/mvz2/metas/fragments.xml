@@ -91,6 +91,12 @@
             <key hex="#DD80FF" time="1"/>
         </colorKeys>
     </fragment>
+	<fragment name="AntiGravityPad">
+		<colorKeys>
+			<key hex="#A0FF80" time="0.75"/>
+			<key hex="#00BA00" time="1"/>
+		</colorKeys>
+	</fragment>
     <fragment name="anvil">
         <colorKeys>
             <key hex="#262626" time="0.5"/>
