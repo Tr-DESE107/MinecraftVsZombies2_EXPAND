@@ -1898,4 +1898,12 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
+	<stage id="puzzleRandomCvsRandomE" name="随机器械vs随机怪物" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon" >
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<camera position="lawn" transition="instant"/>
+		<properties>
+			<bool name="autoCollectEnergy" value="true"/>
+			<bool name="autoCollectMoney" value="true"/>
+		</properties>
+	</stage>
 </stages>

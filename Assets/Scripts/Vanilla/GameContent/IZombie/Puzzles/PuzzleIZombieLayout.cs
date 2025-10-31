@@ -18,7 +18,10 @@ namespace MVZ2.GameContent.IZombie
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.leatherCappedZombie,
                 VanillaEnemyID.ironHelmettedZombie,
-                VanillaEnemyID.flagZombie
+                VanillaEnemyID.flagZombie,
+                VanillaEnemyID.RandomZombie,
+                VanillaEnemyID.RandomMutant,
+                VanillaEnemyID.RandomImp,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)

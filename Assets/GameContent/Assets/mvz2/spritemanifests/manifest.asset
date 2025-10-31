@@ -397,6 +397,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1d8a7cdd4327da14ea5a749df090984d, type: 3}
   - name: mobile_blueprint/raider_head
     sprite: {fileID: 21300000, guid: 679ba871c15282d4d995e64c33711c8b, type: 3}
+  - name: mobile_blueprint/RandomImp
+    sprite: {fileID: 21300000, guid: d32ee8354a9a0ab49ba5cd903b5a0495, type: 3}
+  - name: mobile_blueprint/RandomMutant
+    sprite: {fileID: 21300000, guid: 09bafedd0d8184c498cefddd99edf39d, type: 3}
+  - name: mobile_blueprint/RandomZombie
+    sprite: {fileID: 21300000, guid: 3d6bf327ed09d9f4fbcc43fd19b35758, type: 3}
   - name: mobile_blueprint/random_china
     sprite: {fileID: 21300000, guid: 739dc404e782a0c4dae8390f142f0cc5, type: 3}
   - name: mobile_blueprint/RedStoneOre
@@ -583,6 +589,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 92e692ae88b62a541bef812a89e2bac3, type: 3}
   - name: ui/sword
     sprite: {fileID: 21300000, guid: 6bfc7d9706121e5458ed36aa87ece92c, type: 3}
+  - name: arcade/iz/puzzleRandomCvsRandomE
+    sprite: {fileID: 21300000, guid: b4361fdba51b0a847ada7e0aed9fbeb9, type: 3}
   - name: arcade/iz/puzzle_absolute_defense
     sprite: {fileID: 21300000, guid: 26ff304e86df95141b97fb19ae8f2d91, type: 3}
   - name: arcade/iz/puzzle_all_your_observes_are_belong_to_us

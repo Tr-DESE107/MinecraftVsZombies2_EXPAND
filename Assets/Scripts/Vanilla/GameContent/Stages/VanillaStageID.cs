@@ -113,6 +113,10 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleIZombieEndless = "puzzle_i_zombie_endless";
 
         public const string iZombieDebug = "i_zombie_debug";
+
+        //EXPAND Puzzle
+        public const string puzzleRandomCvsRandomE = "puzzleRandomCvsRandomE";
+        
     }
     public static class VanillaStageID
     {

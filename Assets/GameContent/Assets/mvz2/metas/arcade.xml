@@ -25,5 +25,8 @@
     <puzzle id="puzzle_fire_in_the_hole" stage="mvz2:puzzle_fire_in_the_hole" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_fire_in_the_hole" hiddenUntil="mvz2:level.puzzle_unbreakable"/>
     <puzzle id="puzzle_all_your_observes_are_belong_to_us" stage="mvz2:puzzle_all_your_observes_are_belong_to_us" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_all_your_observes_are_belong_to_us" hiddenUntil="mvz2:level.puzzle_mineclear"/>
     <puzzle id="puzzle_i_zombie_endless" stage="mvz2:puzzle_i_zombie_endless" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole"/>
+	
+	
+    <puzzle id="puzzleRandomCvsRandomE" stage="mvz2:puzzleRandomCvsRandomE" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzleRandomCvsRandomE" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole"/>
 
 </arcade>
