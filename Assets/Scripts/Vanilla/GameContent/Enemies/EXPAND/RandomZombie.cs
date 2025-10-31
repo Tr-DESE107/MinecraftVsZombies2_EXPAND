@@ -1,0 +1,92 @@
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using MVZ2Logic;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using UnityEngine;
+using System.Linq;
+using MVZ2.Vanilla.Grids;
+using Tools;
+
+namespace MVZ2.GameContent.Enemies
+{
+    [EntityBehaviourDefinition(VanillaEnemyNames.RandomZombie)]
+    public class RandomZombie : MeleeEnemy
+    {
+        public RandomZombie(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            var level = entity.Level;
+            var lane = entity.GetLane();
+            if (level.IsWaterLane(lane) || level.IsAirLane(lane))
+            {
+                entity.AddBuff<BoatBuff>();
+                entity.SetModelProperty("HasBoat", true);
+            }
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            entity.SetModelDamagePercent();
+            entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
+        }
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+            if (entity.HasBuff<BoatBuff>())
+            {
+                entity.RemoveBuffs<BoatBuff>();
+                // 掉落碎船掉落物
+                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity);
+                effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
+                effect.ChangeModel(VanillaModelID.boatItem);
+                effect.SetDisplayScale(entity.GetDisplayScale());
+            }
+
+            var grid = entity.GetGrid();
+            if (grid == null)
+                return;
+
+            var game = Global.Game;
+            var level = entity.Level;
+            var rng = entity.RNG;
+
+            // 获取所有已解锁的敌人  
+            var unlockedEnemies = game.GetUnlockedEnemies();
+
+            // 过滤出有效的僵尸  
+            var validEnemies = unlockedEnemies.Where(id =>
+            {
+                // 如果提供了白名单,只选择白名单中的僵尸  
+                //if (whitelist != null && !whitelist.Contains(id))
+                //    return false;
+
+                // 检查是否在图鉴中  
+                if (!game.IsEnemyInAlmanac(id))
+                    return false;
+
+                // 检查当前格子是否可以生成该敌人  
+                return grid.CanSpawnEntity(id);
+            });
+
+            if (validEnemies.Count() <= 0)
+                return;
+
+            // 随机选择一个僵尸  
+            var enemyID = validEnemies.Random(rng);
+
+            // 在原位置生成僵尸  
+            var spawned = entity.SpawnWithParams(enemyID, entity.Position);
+
+
+        }
+    }
+}

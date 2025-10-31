@@ -112,6 +112,12 @@ namespace MVZ2.GameContent.Enemies
         public const string MutantMannequin = "MutantMannequin";
         public const string MannequinTNT = "MannequinTNT";
 
+        //EXPAND RANDOM
+        public const string RandomZombie = "RandomZombie";
+        public const string RandomMutant = "RandomMutant";
+        public const string RandomImp = "RandomImp";
+
+
     }
     public static class VanillaEnemyID
     {
@@ -218,6 +224,11 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ImpHerobrineMannequin = Get(VanillaEnemyNames.ImpHerobrineMannequin);
         public static readonly NamespaceID MutantMannequin = Get(VanillaEnemyNames.MutantMannequin);
         public static readonly NamespaceID MannequinTNT = Get(VanillaEnemyNames.MannequinTNT);
+
+        //EXPAND RANDOM
+        public static readonly NamespaceID RandomZombie = Get(VanillaEnemyNames.RandomZombie);
+        public static readonly NamespaceID RandomMutant = Get(VanillaEnemyNames.RandomMutant);
+        public static readonly NamespaceID RandomImp = Get(VanillaEnemyNames.RandomImp);
 
         private static NamespaceID Get(string name)
         {

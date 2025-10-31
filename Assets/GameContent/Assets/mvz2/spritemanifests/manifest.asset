@@ -301,6 +301,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 358463c4a1670b441b15bd6423009e35, type: 3}
   - name: mobile_blueprint/hell_chariot
     sprite: {fileID: 21300000, guid: b9be44ffa4015754eaf65066f0522ab8, type: 3}
+  - name: mobile_blueprint/HerobrineMannequin
+    sprite: {fileID: 21300000, guid: dfc2d4eeb6be3c140955183ec4328b59, type: 3}
   - name: mobile_blueprint/high_frequency_pulse_dispenser
     sprite: {fileID: 21300000, guid: f24e02b7e9159cb4ebd603ab477f2152, type: 3}
   - name: mobile_blueprint/HostIMP
@@ -311,12 +313,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: da755a232e9ce6b4384950dd90cf9e16, type: 3}
   - name: mobile_blueprint/imp
     sprite: {fileID: 21300000, guid: 159a0c84d11598e48abae3c94be1ed5f, type: 3}
+  - name: mobile_blueprint/ImpMannequin
+    sprite: {fileID: 21300000, guid: cff194d91b96447408745e2c876346ba, type: 3}
   - name: mobile_blueprint/infectenser
     sprite: {fileID: 21300000, guid: 7ad59fee145905345a3241aca0804d48, type: 3}
   - name: mobile_blueprint/iron_helmetted_zombie
     sprite: {fileID: 21300000, guid: a2c663f155f7ff44eb88ea0b4b0a285e, type: 3}
   - name: mobile_blueprint/kagerou
     sprite: {fileID: 21300000, guid: 6f2b6c2d521de48498c08e9afbf7e77b, type: 3}
+  - name: mobile_blueprint/KingofReverser
+    sprite: {fileID: 21300000, guid: 2b4c560e9ec742d409f1512cf53ccb09, type: 3}
   - name: mobile_blueprint/leather_capped_zombie
     sprite: {fileID: 21300000, guid: 682a1f5ec6af4b54d81d95c0fcf56384, type: 3}
   - name: mobile_blueprint/lengthen_board
@@ -329,6 +335,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d502efd9e6fce1543ae6919e926b244c, type: 3}
   - name: mobile_blueprint/magichest
     sprite: {fileID: 21300000, guid: 2f3ddf82a6251b743b3e647d2f839e64, type: 3}
+  - name: mobile_blueprint/Mannequin
+    sprite: {fileID: 21300000, guid: 4eb1810b0e66f1943b426b043774bacf, type: 3}
+  - name: mobile_blueprint/MannequinTNT
+    sprite: {fileID: 21300000, guid: 23544e17bee41a94b9c5612ccff1f2be, type: 3}
+  - name: mobile_blueprint/MegaImpMannequin
+    sprite: {fileID: 21300000, guid: bdc746737765f4942bf5b16c0bebab7c, type: 3}
+  - name: mobile_blueprint/MegaMutantVillager
+    sprite: {fileID: 21300000, guid: a80762fb1b45fea47bdec836cc514d2a, type: 3}
   - name: mobile_blueprint/mega_mutant_skeleton
     sprite: {fileID: 21300000, guid: 23a1aeffffb9906498ecdace23a2e39f, type: 3}
   - name: mobile_blueprint/mega_mutant_wither_skeleton
@@ -347,6 +361,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3a4d775ca16aed8489fddf37bc1ced64, type: 3}
   - name: mobile_blueprint/mummy
     sprite: {fileID: 21300000, guid: 9471881cde5f3d841abcd44501e0f922, type: 3}
+  - name: mobile_blueprint/MutantMannequin
+    sprite: {fileID: 21300000, guid: ab8b500782b9cf24bbc0ddcc4f9c9103, type: 3}
+  - name: mobile_blueprint/MutantVillager
+    sprite: {fileID: 21300000, guid: 5e32a349439a62d4d8f1d83d8dc3140c, type: 3}
   - name: mobile_blueprint/mutant_skeleton
     sprite: {fileID: 21300000, guid: 58d95c2ef4604404d9d6928185d5b829, type: 3}
   - name: mobile_blueprint/mutant_wither_skeleton
@@ -441,6 +459,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
   - name: mobile_blueprint/totenser
     sprite: {fileID: 21300000, guid: ed576f37fbc44b44d9396b8ea59f7911, type: 3}
+  - name: mobile_blueprint/VillagerGhast
+    sprite: {fileID: 21300000, guid: fe6c4c28909a3fa468a730d5d1068e4d, type: 3}
   - name: mobile_blueprint/vortex_hopper
     sprite: {fileID: 21300000, guid: 9e43064c78598fd4493a1d5c14308edb, type: 3}
   - name: mobile_blueprint/vulture
@@ -683,6 +703,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ab1cac139d76a6f478c12842a619042d, type: 3}
   - name: entity/contraptions/necrotombstone
     sprite: {fileID: 21300000, guid: 373251590bef7dc429d28962770f900b, type: 3}
+  - name: entity/contraptions/OrantHat
+    sprite: {fileID: 21300000, guid: a7ced569e2599e44ebe7fa5f81df45b9, type: 3}
   - name: entity/contraptions/pistenser_arm
     sprite: {fileID: 21300000, guid: 3c47f11cc215a5b4cad099f4d1d6158e, type: 3}
   - name: entity/contraptions/pressure_plate
@@ -2246,6 +2268,9 @@ MonoBehaviour:
     - {fileID: -529644735, guid: ba90c069a9046df44b03825b17415cbd, type: 3}
     - {fileID: 424079030, guid: ba90c069a9046df44b03825b17415cbd, type: 3}
     - {fileID: 1475411188, guid: ba90c069a9046df44b03825b17415cbd, type: 3}
+  - name: entity/enemy/HerobrineSuit
+    spritesheet:
+    - {fileID: 21300000, guid: 4036976acf82622429e22bb5619bad51, type: 3}
   - name: entity/enemy/HostMutant
     spritesheet:
     - {fileID: 1954274013, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
@@ -2550,6 +2575,33 @@ MonoBehaviour:
     - {fileID: -327640177, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
     - {fileID: 1464070581, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
     - {fileID: -1898690792, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+  - name: entity/enemy/RandomMutant
+    spritesheet:
+    - {fileID: 902493777, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: -819644353, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 212280287, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: -1858074650, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 1602344208, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 1693714459, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 329225981, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 1454977949, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: -869516133, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: -190654101, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 406344173, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 1338618253, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 151330136, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: -2009862353, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 900264884, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: -668233637, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - {fileID: 2013098618, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+  - name: entity/enemy/RandomZombie
+    spritesheet:
+    - {fileID: 2048448230, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
+    - {fileID: 392794379, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
+    - {fileID: 997239492, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
+    - {fileID: 1095864368, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
+    - {fileID: 1109530632, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
+    - {fileID: 754787779, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
   - name: entity/enemy/Red_MonkZombie
     spritesheet:
     - {fileID: 195686219, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}

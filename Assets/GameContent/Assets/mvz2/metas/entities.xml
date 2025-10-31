@@ -2100,6 +2100,51 @@
 				
 			</properties>
 		</enemy>
+		
+		<!-- RANDOM ENEMY -->
+		<enemy id="RandomMutant" name="突变随机僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.prologue">
+			<properties>
+				<float name="mvz2:mass" value="2" />
+				<float name="mvz2:maxHealth" value="1800" />
+				<float name="mvz2:maxAttackHeight" value="100" />
+				<float name="mvz2:speed" value="1" />
+				<float name="mvz2:range" value="40" />
+				<vector3 name="mvz2:size" x="80" y="170" z="60" />
+				<id name="mvz2:crySound" value="mvz2:mutant_cry" />
+				<id name="mvz2:deathSound" value="mvz2:mutant_death" />
+				<id name="mvz2:shape" value="mvz2:mutant_zombie" />
+				<float name="mvz2:takenCrushDamage" value="900" />
+				<bool name="mvz2:immuneVortex" value="true" />
+				<int name="mvz2:vehicleInteraction" value="2" />
+				<vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
+
+				<int name="mvz2:cost" value="600" />
+				<int name="mvz2:waterInteraction" value="3" />
+			</properties>
+		</enemy>
+
+		<zombie id="RandomZombie" name="随机僵尸" deathMessage="脑子是好的，但不是每个人都有" unlock="mvz2:level.TrueAndFalseSteve">
+			<properties>
+				<int name="mvz2:cost" value="150" />
+				
+				<float name="mvz2:maxHealth" value="450" />
+			</properties>
+		</zombie>
+
+		<enemy id="RandomImp" name="随机小鬼僵尸" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+			<properties>
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18"/>
+				<id name="mvz2:deathSound" value="mvz2:Player_death_Old" />
+				<float name="mvz2:cryPitch" value="-2"/>
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2"/>
+				<float name="mvz2:maxHealth" value="300"/>
+				<float name="mvz2:speed" value="2.4"/>
+				<float name="mvz2:damage" value="100"/>
+			</properties>
+		</enemy>
 
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
