@@ -14,7 +14,7 @@ namespace MVZ2.Vanilla.Enemies
     {
         public RandomMutant(string nsp, string name) : base(nsp, name)
         {
-            SetImpID(VanillaEnemyID.MegaImpMannequin);
+            SetImpID(VanillaEnemyID.RandomImp);
         }
 
         public override void PostDeath(Entity entity, DeathInfo info)

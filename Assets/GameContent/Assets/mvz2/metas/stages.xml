@@ -1817,6 +1817,21 @@
 		</properties>
 	</stage>
 
+	<stage id="vsRandomZombie" name="对战随机僵尸" type="minigame" music="mvz2:Lava_Chicken">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="1.75" >
+
+
+			<spawn id="mvz2:RandomZombie"/>
+			<spawn id="mvz2:RandomMutant"/>
+			<spawn id="mvz2:RandomImp"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
+
 	<!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>

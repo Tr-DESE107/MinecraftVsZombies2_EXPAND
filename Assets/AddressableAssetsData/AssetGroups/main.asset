@@ -444,6 +444,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09bafedd0d8184c498cefddd99edf39d
+    m_Address: mvz2:mobile_blueprint/RandomMutant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09e33d4b66b1efa4eb15944bf80b140f
     m_Address: mvz2:entity/contraption/dream_alarm
     m_ReadOnly: 0
@@ -3046,6 +3053,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d6bf327ed09d9f4fbcc43fd19b35758
+    m_Address: mvz2:mobile_blueprint/RandomZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d9178829e9e3e340b9f8df54bfcbbb5
     m_Address: mvz2:entity/carts/minecart
     m_ReadOnly: 0
@@ -4943,6 +4957,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 645490e64b41d45458a7135643299909
+    m_Address: mvz2:arcade/vsRandomZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 645fcd6dca551b74081afa84999b7736
     m_Address: mvz2:entity/enemies/RedEyeZombieHead
     m_ReadOnly: 0
@@ -6488,6 +6509,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8536f7303728fd6438b428da7fd583fa
+    m_Address: mvz2:contraption/EXPAND/AntiGravityPad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 853a3f29cd6824b41ae2a9262b236539
     m_Address: mvz2:effect/diamond_spike_particles
@@ -8547,6 +8575,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4361fdba51b0a847ada7e0aed9fbeb9
+    m_Address: mvz2:arcade/iz/puzzleRandomCvsRandomE
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b43c7c77cd3ff54418daebbaccf227db
     m_Address: mvz2:archive/castle_note
     m_ReadOnly: 0
@@ -10023,6 +10058,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d32ee8354a9a0ab49ba5cd903b5a0495
+    m_Address: mvz2:mobile_blueprint/RandomImp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3abb2eb473d06b4dab0a2d3da4c76d0
     m_Address: mvz2:talk/dialog_weird
@@ -11615,6 +11657,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74ea0e5623da9347962fc99538ad869
     m_Address: mvz2:mainmenu/archive
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7528e3975d39794998249a0ec58a570
+    m_Address: mvz2:entity/contraption/AntiGravityPad
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

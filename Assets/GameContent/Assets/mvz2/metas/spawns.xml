@@ -341,12 +341,12 @@
 	<entry id="MutantVillager" entity="mvz2:MutantVillager" >
 		<spawn level="7" minWave="1"/>
 		<terrain water="true"/>
-		<weight base="1750" />
+		<weight base="1250" />
 	</entry>
 	<entry id="MegaMutantVillager" entity="mvz2:MegaMutantVillager" >
 		<spawn level="8" minWave="1"/>
 		<terrain water="true"/>
-		<weight base="2000" />
+		<weight base="1000" />
 	</entry>
 
 	<entry id="ImpMannequin" entity="mvz2:ImpMannequin" >
@@ -366,5 +366,20 @@
 		<spawn level="2" />
 		<weight base="2000" />
 	</entry>
-	
+
+	<!--EXPAND random-->
+	<entry id="RandomMutant" entity="mvz2:RandomMutant" >
+		<spawn level="7" minWave="1"/>
+		<terrain water="true"/>
+		<weight base="1750" />
+	</entry>
+	<entry id="RandomImp" entity="mvz2:RandomImp" >
+		<spawn level="1" />
+		<weight base="1500" />
+	</entry>
+	<entry id="RandomZombie" entity="mvz2:RandomZombie" >
+		<spawn level="2" />
+		<weight base="1500" />
+	</entry>
+
 </spawns>

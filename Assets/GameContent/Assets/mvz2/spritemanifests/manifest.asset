@@ -63,6 +63,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 84ea5899875c5414d909271bfb0c2d74, type: 3}
   - name: arcade/VillagerNews
     sprite: {fileID: 21300000, guid: 025d4118f149db24688665104d945d37, type: 3}
+  - name: arcade/vsRandomZombie
+    sprite: {fileID: 21300000, guid: 645490e64b41d45458a7135643299909, type: 3}
   - name: arcade/WhackASkeleton
     sprite: {fileID: 21300000, guid: 20f80c720c62e1248b514ad13b0a0939, type: 3}
   - name: arcade/whack_a_ghost
@@ -1663,6 +1665,10 @@ MonoBehaviour:
     - {fileID: -7760324040334233758, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
     - {fileID: -3414009260396193802, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
     - {fileID: 4886630257185471161, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+  - name: entity/contraption/AntiGravityPad
+    spritesheet:
+    - {fileID: 212080058, guid: f7528e3975d39794998249a0ec58a570, type: 3}
+    - {fileID: -1433936995, guid: f7528e3975d39794998249a0ec58a570, type: 3}
   - name: entity/contraption/anvil
     spritesheet:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}

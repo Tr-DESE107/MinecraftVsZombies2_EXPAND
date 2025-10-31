@@ -73,6 +73,7 @@ namespace MVZ2.GameContent.Contraptions
 
         //EXPAND2
         public const string Eradicator = "Eradicator";
+        public const string AntiGravityPad = "AntiGravityPad";
     }
     public static class VanillaContraptionID
     {
@@ -144,6 +145,7 @@ namespace MVZ2.GameContent.Contraptions
 
         //EXPAND2
         public static readonly NamespaceID Eradicator = Get(VanillaContraptionNames.Eradicator);
+        public static readonly NamespaceID AntiGravityPad = Get(VanillaContraptionNames.AntiGravityPad);
 
         private static NamespaceID Get(string name)
         {

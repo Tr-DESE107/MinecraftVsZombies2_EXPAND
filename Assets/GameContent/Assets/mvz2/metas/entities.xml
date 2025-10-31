@@ -1066,7 +1066,23 @@
 				<id name="mvz2:rechargeId" value="mvz2:short" />
 			</properties>
 		</dispenser>
-		
+
+		<contraption id="AntiGravityPad" name="反重力板" tooltip="反转上方物体的重力" unlock="mvz2:level.dream_3">
+			<properties>
+				<bool name="mvz2:shadowHidden" value="true" />
+				<bool name="mvz2:isFloor" value="true" />
+				<bool name="mvz2:loyal" value="true" />
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<id name="mvz2:placement" value="mvz2:pad" />
+				<vector3 name="mvz2:size" x="64" y="2" z="64" />
+				<idArray name="mvz2:gridLayers" value="mvz2:carrier" />
+				<idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
+				<string name="mvz2:sortingLayer" value="Carriers" />
+
+				<int name="mvz2:cost" value="100" />
+				<id name="mvz2:rechargeId" value="mvz2:short" />
+			</properties>
+		</contraption>
 
         <!-- Enemies -->
         <zombie id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
