@@ -28,6 +28,19 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
+using System.Collections.Generic;
+using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -94,6 +107,82 @@ namespace MVZ2.GameContent.Contraptions
                     e.RemoveBuffs<FlyBuff>();
                 }
             }
+        }
+
+        protected override void OnTrigger(Entity entity)
+        {
+            base.OnTrigger(entity);
+            // 执行地震效果,震飞所有地面上的敌人  
+            Quake(entity);
+            // 设置为破损状态  
+            //SetBroken(entity, true);
+            // 重置修复计时器,开始60秒的修复倒计时  
+            //var restoreTimer = GetRestoreTimer(entity);
+            //restoreTimer.ResetTime(RESTORE_TIME);
+        }
+
+        private void Quake(Entity self)
+        {
+            // 清空检测缓冲区  
+            detectBuffer.Clear();
+            // 查找所有有效目标  
+            self.Level.FindEntitiesNonAlloc(e => IsValidTarget(self, e), detectBuffer);
+
+            // 遍历所有目标敌人  
+            foreach (var target in detectBuffer)
+            {
+                // 只影响敌人类型的实体  
+                if (target.Type != EntityTypes.ENEMY)
+                    continue;
+
+                // 获取击退倍率(某些敌人可能有击退抗性)  
+                var knockbackMultiplier = target.GetStrongKnockbackMultiplier();
+
+                // 设置敌人的速度  
+                var vel = target.Velocity;
+                vel.x = 4 * knockbackMultiplier;  // 水平速度:向后退4单位  
+                vel.y = 15 * knockbackMultiplier; // 垂直速度:向上飞15单位  
+                target.Velocity = vel;
+
+                // 对中等质量及以下的敌人,随机切换到相邻行  
+                // 这会让敌人在被震飞的同时换到上一行或下一行  
+                if (target.GetMass() <= VanillaMass.MEDIUM)
+                {
+                    target.RandomChangeAdjacentLane(self.RNG);
+                }
+
+                // 处理骑乘关系:如果敌人有骑手  
+                var passenger = target.GetRideablePassenger();
+                if (passenger != null)
+                {
+                    // 眩晕骑手90帧(3秒)  
+                    passenger.Stun(90);
+                    // 强制骑手下马  
+                    target.GetOffHorse();
+                }
+            }
+
+            // 产生强烈的屏幕震动效果(强度15, 持续30帧)  
+            self.Level.ShakeScreen(15, 0, 30);
+            // 播放闪电攻击音效  
+            self.PlaySound(VanillaSoundID.lightningAttack);
+        }
+
+        private bool IsValidTarget(Entity self, Entity target)
+        {
+            // 必须是敌对关系  
+            if (!self.IsHostile(target))
+                return false;
+            // 必须存活  
+            if (target.IsDead)
+                return false;
+            // 必须在地面上(不能是飞行状态)  
+            if (!target.IsOnGround)
+                return false;
+            // 必须在陆地上(不能在水中)  
+            if (!target.IsAboveLand())
+                return false;
+            return true;
         }
 
         public const float AFFECT_HEIGHT = 64;
