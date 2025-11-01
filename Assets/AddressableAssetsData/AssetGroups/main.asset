@@ -976,6 +976,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1484201cbc6393c4e9ec02345b03baa5
+    m_Address: mvz2:ui/level/GoldCard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 148c98d98027b904fbf234d5a5b60f7a
     m_Address: mvz2:ui/musicroom/bar_frame
     m_ReadOnly: 0
@@ -9030,6 +9037,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd9181611fa05f34e9e0f6ea22795c7d
+    m_Address: mvz2:ui/level/mobile/GoldCardMobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdab62905818ab343b09f4857c660b11
     m_Address: mvz2:characters/shinmyoumaru_big
     m_ReadOnly: 0
@@ -10086,6 +10100,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3fcf478a2435a14cad0b456609aed1c
+    m_Address: mvz2:mobile_blueprint/AntiGravityPad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d43314d709d29c443ba83fc45b0067b0
     m_Address: mvz2:entity/mummy/mummy_death

@@ -22,6 +22,10 @@ namespace MVZ2.Models
             {
                 preset.SetActive(viewData.preset == BlueprintPreset.CommandBlock);
             }
+            foreach (var preset in GoldCardPresets)
+            {
+                preset.SetActive(viewData.preset == BlueprintPreset.GoldCard);
+            }
             var icon = viewData.icon;
             iconRenderer.enabled = icon && !viewData.iconGrayscale;
             iconRenderer.sprite = icon;
@@ -63,6 +67,8 @@ namespace MVZ2.Models
         protected GameObject[] upgradePresets;
         [SerializeField]
         protected GameObject[] commandBlockPresets;
+        [SerializeField]
+        protected GameObject[] GoldCardPresets;
         [SerializeField]
         protected Vector2 iconSpriteSize;
         [SerializeField]

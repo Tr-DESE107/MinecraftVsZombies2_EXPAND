@@ -889,8 +889,8 @@
         </dispenser>
 		<contraption id="force_pad" name="传动力板" tooltip="（需要重力板）\n改变上方物体的力" unlock="mvz2:contraption.force_pad">
             <properties>
-                <bool name="mvz2:upgradeBlueprint" value="true" />
-                <id name="mvz2:upgradeFrom" value="mvz2:gravity_pad" />
+                
+                <id name="mvz2:upgradeFrom" value="mvz2:AntiGravityPad" />
                 <bool name="mvz2:loyal" value="true" />
 
                 <bool name="mvz2:triggerActive" value="true" />
@@ -1067,7 +1067,7 @@
 			</properties>
 		</dispenser>
 
-		<contraption id="AntiGravityPad" name="反重力板" tooltip="反转上方物体的重力" unlock="mvz2:level.dream_3">
+		<contraption id="AntiGravityPad" name="反重力板" tooltip="反转上方物体的重力" unlock="mvz2:contraption.AntiGravityPad">
 			<properties>
 				<bool name="mvz2:upgradeBlueprint" value="true" />
 				<id name="mvz2:upgradeFrom" value="mvz2:gravity_pad" />

@@ -88,6 +88,7 @@ namespace MVZ2.Managers
             string costStr = string.Empty;
 
             bool commandBlock = seedDef.GetID() == VanillaContraptionID.commandBlock;
+            bool isGoldCard = seedDef.GetID() == VanillaContraptionID.forcePad;
             if (!commandBlock)
             {
                 var costSB = new StringBuilder();
@@ -102,6 +103,10 @@ namespace MVZ2.Managers
             if (isCommandBlock || commandBlock)
             {
                 preset = BlueprintPreset.CommandBlock;
+            }
+            else if (isGoldCard)
+            {
+                preset = BlueprintPreset.GoldCard;
             }
             else if (seedDef.IsUpgradeBlueprint())
             {

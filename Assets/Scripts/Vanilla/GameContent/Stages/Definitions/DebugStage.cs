@@ -43,12 +43,13 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.AntiGravityPad,
+                VanillaContraptionID.forcePad,
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.lightningOrb,
                 
                 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.bedserker,
+                
                 VanillaEnemyID.necromancer,
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.dullahan,

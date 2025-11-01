@@ -1111,6 +1111,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d9f046bb0bbb46546bff5500c0c6fdab, type: 3}
   - name: ui/level/final_wave
     sprite: {fileID: 21300000, guid: 003fea51ebc7be1498297e7b66cc61d1, type: 3}
+  - name: ui/level/GoldCard
+    sprite: {fileID: 21300000, guid: 1484201cbc6393c4e9ec02345b03baa5, type: 3}
   - name: ui/level/hint_arrow
     sprite: {fileID: 21300000, guid: e54f2595624bbc447b98881de587ce72, type: 3}
   - name: ui/level/huge_wave
