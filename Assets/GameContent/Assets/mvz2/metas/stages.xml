@@ -1819,7 +1819,7 @@
 
 	<stage id="vsRandomZombie" name="对战随机僵尸" type="minigame" music="mvz2:Lava_Chicken">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="600" pointsMultiplier="1.1" >
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="1.05" >
 
 
 			<spawn id="mvz2:RandomZombie"/>

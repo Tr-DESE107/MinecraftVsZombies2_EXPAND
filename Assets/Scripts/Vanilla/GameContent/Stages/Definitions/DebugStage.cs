@@ -45,10 +45,10 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.AntiGravityPad,
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.dispenser,
-                VanillaContraptionID.lightningOrb,
+                VanillaContraptionID.magichest,
                 
                 
-                VanillaEnemyID.zombie,
+                VanillaEnemyID.RandomZombie,
                 
                 VanillaEnemyID.necromancer,
                 VanillaEnemyID.ghast,

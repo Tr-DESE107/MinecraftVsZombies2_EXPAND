@@ -17,6 +17,7 @@ using UnityEngine;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using MVZ2.Vanilla.Audios;
+using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -94,6 +95,8 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+                return;
             var level = entity.Level;
             foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
             {

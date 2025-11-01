@@ -10,8 +10,8 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 using System.Linq;
-using MVZ2.Vanilla.Grids;
 using Tools;
+using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -41,6 +41,8 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
+            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+                return;
             if (entity.HasBuff<BoatBuff>())
             {
                 entity.RemoveBuffs<BoatBuff>();
@@ -51,9 +53,11 @@ namespace MVZ2.GameContent.Enemies
                 effect.SetDisplayScale(entity.GetDisplayScale());
             }
 
-            var grid = entity.GetGrid();
-            if (grid == null)
-                return;
+            //var grid = entity.GetGrid();
+            //if (grid == null)
+            //    return;
+
+            
 
             var game = Global.Game;
             var level = entity.Level;
@@ -74,7 +78,7 @@ namespace MVZ2.GameContent.Enemies
                     return false;
 
                 // 检查当前格子是否可以生成该敌人  
-                return grid.CanSpawnEntity(id);
+                return true;
             });
 
             if (validEnemies.Count() <= 0)

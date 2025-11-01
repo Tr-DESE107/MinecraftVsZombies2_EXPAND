@@ -2920,6 +2920,7 @@ MonoBehaviour:
     - {fileID: 617082261, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
     - {fileID: -1798371533, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
     - {fileID: -299420063, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
+    - {fileID: -1676914329, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
   - name: ui/almanac/Expand_buff
     spritesheet:
     - {fileID: 826371942, guid: 79bc90921fac92a4bad7be69e64ed94c, type: 3}

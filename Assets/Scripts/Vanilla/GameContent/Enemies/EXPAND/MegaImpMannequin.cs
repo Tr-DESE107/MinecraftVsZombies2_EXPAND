@@ -15,6 +15,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using Tools;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -57,7 +58,8 @@ namespace MVZ2.GameContent.Enemies
                 effect.ChangeModel(VanillaModelID.boatItem);
                 effect.SetDisplayScale(entity.GetDisplayScale());
             }
-
+            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+                return;
             entity.SpawnWithParams(VanillaEnemyID.MannequinTNT, entity.Position);
         }
 

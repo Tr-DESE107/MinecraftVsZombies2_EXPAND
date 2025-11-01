@@ -17,7 +17,7 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
-        <tag id="placement_force_pad" name="升级器械：重力板" description="必须放置在重力板上" priority="0" >
+        <tag id="placement_AntiGravityPad" name="升级器械：重力板" description="必须放置在重力板上" priority="0" >
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
@@ -32,6 +32,10 @@
 		<tag id="placement_necrotombstone" name="升级器械：死灵墓碑" description="必须放置在死灵墓碑上" priority="0" >
 			<icon sprite="mvz2:ui/almanac/Expand_attribute[0]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+		</tag>
+		<tag id="placement_force_pad" name="升级器械：反重力板" description="必须放置在反重力板上" priority="0" >
+			<icon sprite="mvz2:ui/almanac/Expand_attribute[4]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
 		</tag>
         <tag id="placement_repeatenser" name="升级器械：连射发射器" description="必须放置在连射发射器上" priority="0" >
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[0]" />
@@ -424,6 +428,8 @@
                 <p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
             </header>
             <properties>
+				<p>特点：<![CDATA[<color=red>能够减速在它上方的怪物并加大他们受到的重力、能够降低上方子弹的高度。</color>]]></p>
+				<p>技能：<![CDATA[<color=red>移除场上所有飞行怪物的飞行能力，召唤从天而降的铁砧，砸伤敌人并阻挡怪物们前进</color>]]></p>
             </properties>
             <flavor>
                 <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
@@ -933,11 +939,13 @@
 		
 		<!-- EXPAND 2 -->
 		<entry id="mvz2:AntiGravityPad">
+			<tags>
+				<tag id="mvz2:placement_AntiGravityPad"/>
+			</tags>
 			<header>
 				<p>反重力板能够吹飞上方怪物，驱动时可使受它影响的怪物的装备极大受损。</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>300</color>]]></p>
 				<p>特点：<![CDATA[<color=red>不会被僵尸攻击到，能够吹飞上方怪物，驱动时可使受它影响的怪物的装备极大受损。死亡后移除全场飞行怪物飞行能力。</color>]]></p>
 				<p>技能：<![CDATA[<color=red>移除全场飞行怪物飞行能力、召唤从天而降的铁砧、使全场敌人换行并后退、装备极大受损。</color>]]></p>
 			</properties>

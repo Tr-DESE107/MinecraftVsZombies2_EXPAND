@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public AntiGravityPadGravityBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Add, -1.25f));
-            AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 0.9f));
+            AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 1.25f));
         }
     }
 }

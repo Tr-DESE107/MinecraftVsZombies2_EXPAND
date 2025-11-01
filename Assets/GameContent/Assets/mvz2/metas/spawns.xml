@@ -371,14 +371,14 @@
 	<entry id="RandomMutant" entity="mvz2:RandomMutant" >
 		<spawn level="7" minWave="1"/>
 		<terrain water="true"/>
-		<weight base="1750" />
+		<weight base="1250" />
 	</entry>
 	<entry id="RandomImp" entity="mvz2:RandomImp" >
-		<spawn level="1" />
+		<spawn level="2" />
 		<weight base="1500" />
 	</entry>
 	<entry id="RandomZombie" entity="mvz2:RandomZombie" >
-		<spawn level="2" />
+		<spawn level="1" />
 		<weight base="1500" />
 	</entry>
 

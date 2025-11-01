@@ -114,7 +114,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
             });
             level.SetPickaxeActive(false);
-            level.SetEnergy(1500);
+            level.SetEnergy(4000);
         }
     }
 }
