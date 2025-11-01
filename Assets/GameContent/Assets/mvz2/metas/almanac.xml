@@ -21,7 +21,7 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
-        <tag id="placement_force_pad" name="升级器械：重力板" description="必须放置在重力板上" priority="0" >
+        <tag id="placement_AntiGravityPad" name="升级器械：重力板" description="必须放置在重力板上" priority="0" >
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
