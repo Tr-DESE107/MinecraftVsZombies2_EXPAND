@@ -27,17 +27,18 @@ namespace MVZ2.GameContent.Enemies
 
         protected override void UpdateAI(Entity enemy)
         {
-            if (CanFly(enemy))
+            var fly = enemy.GetFirstBuff<FlyBuff>();
+            if (fly != null)
             {
-                var fly = enemy.GetFirstBuff<FlyBuff>();
-                fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 500f);
+                if (CanFly(enemy))
+                {
+                    fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 500f);
+                }
+                else
+                {
+                    fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20f);
+                }
             }
-            else
-            {
-                var fly = enemy.GetFirstBuff<FlyBuff>();
-                fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20f);
-            }
-
 
             base.UpdateAI(enemy);
         }

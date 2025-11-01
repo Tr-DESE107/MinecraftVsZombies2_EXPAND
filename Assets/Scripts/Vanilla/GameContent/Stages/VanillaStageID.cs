@@ -115,6 +115,7 @@ namespace MVZ2.GameContent.Stages
         public const string TrueAndFalseSteve = "TrueAndFalseSteve";
         public const string ContraptionDevourer_2 = "ContraptionDevourer_2";
         public const string RandomChinaDevourer = "RandomChinaDevourer";
+        public const string vsRandomZombie = "vsRandomZombie";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
@@ -129,6 +130,10 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleIZombieEndless = "puzzle_i_zombie_endless";
 
         public const string iZombieDebug = "i_zombie_debug";
+
+        //EXPAND Puzzle
+        public const string puzzleRandomCvsRandomE = "puzzleRandomCvsRandomE";
+        
     }
     public static class VanillaStageID
     {

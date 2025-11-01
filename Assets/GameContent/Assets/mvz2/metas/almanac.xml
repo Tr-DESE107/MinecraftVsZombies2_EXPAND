@@ -45,6 +45,10 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+		<tag id="placement_force_pad" name="升级器械：反重力板" description="必须放置在反重力板上" priority="0" >
+			<icon sprite="mvz2:ui/almanac/Expand_attribute[4]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
+		</tag>
 
         <tag id="grid_layer_main" name="主要位" description="占据格子的主要位" priority="1000" >
             <icon sprite="mvz2:ui/almanac/grid_layer_tags[0]" />
@@ -425,16 +429,18 @@
                 <p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
             </flavor>
         </entry>
-        <entry id="mvz2:gravity_pad">
-            <header>
-                <p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
-            </header>
-            <properties>
-            </properties>
-            <flavor>
-                <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
-            </flavor>
-        </entry>
+		<entry id="mvz2:gravity_pad">
+			<header>
+				<p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
+			</header>
+			<properties>
+				<p>特点：<![CDATA[<color=red>能够减速在它上方的怪物并加大他们受到的重力、能够降低上方子弹的高度。</color>]]></p>
+				<p>技能：<![CDATA[<color=red>移除场上所有飞行怪物的飞行能力，召唤从天而降的铁砧，砸伤敌人并阻挡怪物们前进</color>]]></p>
+			</properties>
+			<flavor>
+				<p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:vortex_hopper">
             <header>
                 <p>漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。</p>
@@ -1033,7 +1039,23 @@
 		<entry/>
 		<entry/>
 		<entry/>
-		<entry/>
+		<entry id="mvz2:AntiGravityPad">
+			<tags>
+				<tag id="mvz2:placement_AntiGravityPad"/>
+			</tags>
+			<header>
+				<p>反重力板能够吹飞上方怪物，驱动时可使受它影响的怪物的装备极大受损。</p>
+			</header>
+			<properties>
+				<p>特点：<![CDATA[<color=red>不会被僵尸攻击到，能够吹飞上方怪物，驱动时可使受它影响的怪物的装备极大受损。死亡后移除全场飞行怪物飞行能力。</color>]]></p>
+				<p>技能：<![CDATA[<color=red>移除全场飞行怪物飞行能力、召唤从天而降的铁砧、使全场敌人换行并后退、装备极大受损。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>反重力板从来不在雨天出门，因为它出门就要挨雷劈。听说它曾经有个朋友，是个雨伞，不过现在貌似被一个叫做SCP的组织收养了。</p>
+				<p/>
+				<p><![CDATA[<color=green>哈哈哈我反重力板通过小小的假死就骗过了牢狙，打赢复活赛了！</color>]]></p>
+			</flavor>
+		</entry>
 		
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
@@ -1052,22 +1074,22 @@
                 <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
             </flavor>
         </entry>
-        <entry id="mvz2:force_pad">
-            <tags>
-                <tag id="mvz2:placement_force_pad"/>
-            </tags>
-            <header>
-                <p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
-            </header>
-            <properties>
-                <p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
-                <p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
-                <p>技能：<![CDATA[<color=red>将周围的敌怪移动到一个指定的位置</color>]]></p>
-            </properties>
-            <flavor>
-                <p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
-            </flavor>
-        </entry>
+		<entry id="mvz2:force_pad">
+			<tags>
+				<tag id="mvz2:placement_force_pad"/>
+			</tags>
+			<header>
+				<p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
+			</header>
+			<properties>
+				<p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
+				<p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
+				<p>技能：<![CDATA[<color=red>将周围的敌怪移动到一个指定的位置</color>]]></p>
+			</properties>
+			<flavor>
+				<p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:golden_dropper">
             <tags>
                 <tag id="mvz2:placement_golden_dropper"/>

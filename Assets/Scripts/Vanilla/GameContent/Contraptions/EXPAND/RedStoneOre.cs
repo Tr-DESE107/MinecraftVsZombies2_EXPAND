@@ -10,7 +10,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
-
+using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -24,6 +24,8 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
+            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+                return;
             var Orecount = entity.Level.GetRedstoneOreDropCount();
             for (var i = 0; i < Orecount; i++)
             {

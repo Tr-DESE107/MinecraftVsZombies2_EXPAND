@@ -117,6 +117,15 @@
             </stages>
         </product>
 
+		<product id="AntiGravityPad" blueprintId="mvz2:AntiGravityPad">
+			<talks>
+				<talk character="mvz2:crazy_villager">把反重力板放在重力板上，其能够吹飞上方怪物，驱动时还可使受它影响的怪物的装备极大受损。</talk>
+				<talk character="mvz2:tokiko">反重力板能升级重力板，能够吹飞上方怪物，驱动时还可使受它影响的怪物的装备极大受损，很方便！</talk>
+			</talks>
+			<stages>
+				<stage price="5000" unlocks="mvz2:contraption.AntiGravityPad"/>
+			</stages>
+		</product>
         <product id="infectenser" blueprintId="mvz2:infectenser">
             <talks>
                 <talk character="mvz2:crazy_villager">把传染发射器放在小型发射器上，让它发射的子弹能够在敌人之间传播！</talk>
@@ -132,7 +141,7 @@
                 <talk character="mvz2:tokiko">传动力板能升级重力板，能改变很多很多东西的位置，很方便！</talk>
             </talks>
             <stages>
-                <stage price="5000" unlocks="mvz2:contraption.force_pad"/>
+                <stage price="20000" unlocks="mvz2:contraption.force_pad"/>
             </stages>
         </product>
         <product id="golden_dropper" blueprintId="mvz2:golden_dropper">
@@ -170,7 +179,7 @@
 		</product>        
         <product />
         <product />
-        <product />
+        
 
         <product id="hoe" sprite="mvz2:artifacts/hoe">
             <talks>

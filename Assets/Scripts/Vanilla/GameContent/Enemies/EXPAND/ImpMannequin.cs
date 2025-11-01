@@ -19,6 +19,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -111,7 +112,8 @@ namespace MVZ2.GameContent.Enemies
                     e.SetDisplayScale(entity.GetDisplayScale());
                 });
             }
-
+            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+                return;
             entity.SpawnWithParams(VanillaEnemyID.MannequinTNT, entity.Position);
         }
 

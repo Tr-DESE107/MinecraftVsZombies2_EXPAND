@@ -1064,10 +1064,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
-		<contraption id="force_pad" name="传动力板" tooltip="（需要重力板）\n改变上方物体的力" unlock="mvz2:contraption.force_pad">
+		<contraption id="force_pad" name="传动力板" tooltip="（需要反重力板）\n改变上方物体的力" unlock="mvz2:contraption.force_pad">
             <properties>
                 <bool name="mvz2:upgradeBlueprint" value="true" />
-                <id name="mvz2:upgradeFrom" value="mvz2:gravity_pad" />
+                <id name="mvz2:upgradeFrom" value="mvz2:AntiGravityPad" />
                 <bool name="mvz2:loyal" value="true" />
 
                 <bool name="mvz2:triggerActive" value="true" />
@@ -1269,7 +1269,26 @@
 				<id name="mvz2:rechargeId" value="mvz2:short" />
 			</properties>
 		</dispenser>
-		
+
+		<contraption id="AntiGravityPad" name="反重力板" tooltip="反转上方物体的重力" unlock="mvz2:contraption.AntiGravityPad">
+			<properties>
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:gravity_pad" />
+				<bool name="mvz2:loyal" value="true" />
+
+				<bool name="mvz2:triggerActive" value="true" />
+				<bool name="mvz2:shadowHidden" value="true" />
+				<bool name="mvz2:isFloor" value="true" />
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<id name="mvz2:placement" value="mvz2:force_pad" />
+				<vector3 name="mvz2:size" x="64" y="2" z="64" />
+				<idArray name="mvz2:gridLayers" value="mvz2:carrier" />
+				<string name="mvz2:sortingLayer" value="Carriers" />
+
+				<int name="mvz2:cost" value="175" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</contraption>
 
         <!--EXPAND Contraption-->
 		<dispenser id="Eradicator" name="根除者" tooltip="射出穿透肉体的飞刀" unlock="mvz2:level.halloween_8">
@@ -2249,7 +2268,7 @@
         </enemy>
 
 		<!-- expand Enemies2 -->
-		<enemy id="VillagerGhast" name="村民恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.VillagerNews">
+		<enemy id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！" unlock="mvz2:level.VillagerNews">
 			<properties>
 				<float name="mvz2:mass" value="-2" />
 				<bool name="mvz2:undead" value="false" />
@@ -2274,7 +2293,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="MutantVillager" name="突变村民" deathMessage="你怎么进门的？" unlock="mvz2:level.VillagerNews">
+		<enemy id="MutantVillager" name="突变村民" deathMessage="我也是一个广东人，所以我们可能是老乡" unlock="mvz2:level.VillagerNews">
 			<properties>
 				<float name="mvz2:mass" value="2" />
 				<float name="mvz2:maxHealth" value="2700" />
@@ -2295,7 +2314,7 @@
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
 		</enemy>
-		<enemy id="MegaMutantVillager" name="超级突变村民" deathMessage="你怎么进门的？"
+		<enemy id="MegaMutantVillager" name="超级突变村民" deathMessage="FA♂Q"
             unlock="mvz2:level.VillagerNews">
 			<properties>
 				<float name="mvz2:mass" value="2" />
@@ -2319,7 +2338,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="ImpMannequin" name="小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.TrueAndFalseSteve" >
+		<enemy id="ImpMannequin" name="小鬼玩家模型" deathMessage="年少有为" unlock="mvz2:level.TrueAndFalseSteve" >
 			<properties>
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:mass" value="-1" />
@@ -2334,7 +2353,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="MegaImpMannequin" name="超级小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.TrueAndFalseSteve" >
+		<enemy id="MegaImpMannequin" name="超级小鬼玩家模型" deathMessage="这踏马8岁？" unlock="mvz2:level.TrueAndFalseSteve" >
 			<properties>
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:mass" value="-1" />
@@ -2349,7 +2368,7 @@
 			</properties>
 		</enemy>
 		
-		<enemy id="ImpHerobrineMannequin" name="小鬼邪神模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+		<enemy id="ImpHerobrineMannequin" name="小鬼邪神模型" deathMessage="哈哈哈哈哈哈哈哈哈哈哈哈" unlock="mvz2:level.dream_10" >
 			<properties>
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:mass" value="-1" />
@@ -2364,7 +2383,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="MutantMannequin" name="突变玩家模型" deathMessage="你怎么进门的？"
+		<enemy id="MutantMannequin" name="突变玩家模型" deathMessage="是史蒂夫吗？你从隔壁皮革俱乐部学成归来了？"
             unlock="mvz2:level.TrueAndFalseSteve">
 			<properties>
 				<float name="mvz2:mass" value="2" />
@@ -2388,7 +2407,7 @@
 			</properties>
 		</enemy>
 
-		<zombie id="Mannequin" name="玩家模型" deathMessage="脑子是好的，但不是每个人都有" unlock="mvz2:level.TrueAndFalseSteve">
+		<zombie id="Mannequin" name="玩家模型" deathMessage="你怎么连自己都打不过？" unlock="mvz2:level.TrueAndFalseSteve">
 			<properties>
 				<int name="mvz2:cost" value="150" />
 				<bool name="mvz2:undead" value="false" />
@@ -2396,7 +2415,7 @@
 			</properties>
 		</zombie>
 
-		<enemy id="MannequinTNT" name="玩家模型TNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.TrueAndFalseSteve">
+		<enemy id="MannequinTNT" name="玩家模型TNT" deathMessage="触发后炸飞周围敌人" unlock="mvz2:level.TrueAndFalseSteve">
 			<properties>
 				
 				<float name="mvz2:damage" value="1000" />
@@ -2404,13 +2423,58 @@
 				<vector3 name="mvz2:size" x="48" y="48" z="48" />
 				<id name="mvz2:fragmentId" value="mvz2:mine_tnt" />
 				<id name="mvz2:placeSound" value="mvz2:grass" />
-				<id name="mvz2:shell" value="mvz2:grass" />
+				
 				<id name="mvz2:deathSound" value="mvz2:grass" />
 				<float name="mvz2:mass" value="-1" />
 				<float name="mvz2:maxHealth" value="600" />
 
 				<int name="mvz2:cost" value="150" />
 				
+			</properties>
+		</enemy>
+		
+		<!-- RANDOM ENEMY -->
+		<enemy id="RandomMutant" name="突变随机僵尸" deathMessage="是哪种突变怪物打死了你啊？" unlock="mvz2:level.vsRandomZombie">
+			<properties>
+				<float name="mvz2:mass" value="2" />
+				<float name="mvz2:maxHealth" value="1800" />
+				<float name="mvz2:maxAttackHeight" value="100" />
+				<float name="mvz2:speed" value="1" />
+				<float name="mvz2:range" value="40" />
+				<vector3 name="mvz2:size" x="80" y="170" z="60" />
+				<id name="mvz2:crySound" value="mvz2:mutant_cry" />
+				<id name="mvz2:deathSound" value="mvz2:mutant_death" />
+				<id name="mvz2:shape" value="mvz2:mutant_zombie" />
+				<float name="mvz2:takenCrushDamage" value="900" />
+				<bool name="mvz2:immuneVortex" value="true" />
+				<int name="mvz2:vehicleInteraction" value="2" />
+				<vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
+
+				<int name="mvz2:cost" value="600" />
+				<int name="mvz2:waterInteraction" value="3" />
+			</properties>
+		</enemy>
+
+		<zombie id="RandomZombie" name="随机僵尸" deathMessage="是哪种僵尸打死了你啊？" unlock="mvz2:level.vsRandomZombie">
+			<properties>
+				<int name="mvz2:cost" value="150" />
+				
+				<float name="mvz2:maxHealth" value="450" />
+			</properties>
+		</zombie>
+
+		<enemy id="RandomImp" name="随机小鬼僵尸" deathMessage="是哪种小鬼打死了你啊？" unlock="mvz2:level.vsRandomZombie" >
+			<properties>
+				<bool name="mvz2:undead" value="false" />
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18"/>
+				<id name="mvz2:deathSound" value="mvz2:Player_death_Old" />
+				<float name="mvz2:cryPitch" value="-2"/>
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2"/>
+				<float name="mvz2:maxHealth" value="300"/>
+				<float name="mvz2:speed" value="2.4"/>
+				<float name="mvz2:damage" value="100"/>
 			</properties>
 		</enemy>
 

@@ -252,6 +252,12 @@ namespace MVZ2.GameContent.Buffs
             public const string heavyCannon = "heavy_cannon";
             public const string waterStainSlide = "water_stain_slide";
             public const string blownByWoodenFan = "blown_by_wooden_fan";
+
+
+
+            //EXPAND
+            public const string AntiGravityPadGravity = "AntiGravityPadGravity";
+
         }
         public static class Obstacle
         {
@@ -570,7 +576,18 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID waterStainSlide = Get(VanillaBuffNames.Enemy.waterStainSlide);
 
             public static readonly NamespaceID blownByWoodenFan = Get(VanillaBuffNames.Enemy.blownByWoodenFan);
-            public static readonly NamespaceID lunaticEnemy = Get(VanillaBuffNames.Enemy.lunaticEnemy);        }
+            public static readonly NamespaceID lunaticEnemy = Get(VanillaBuffNames.Enemy.lunaticEnemy);
+
+
+
+
+
+
+            //EXPAND
+            public static readonly NamespaceID AntiGravityPadGravity = Get(VanillaBuffNames.Enemy.AntiGravityPadGravity);
+
+
+        }
         public static class Obstacle
         {
         }

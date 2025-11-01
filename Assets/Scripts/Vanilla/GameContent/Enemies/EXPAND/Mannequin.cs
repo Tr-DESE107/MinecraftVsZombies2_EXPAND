@@ -19,6 +19,7 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
+using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -133,7 +134,8 @@ namespace MVZ2.GameContent.Enemies
                     e.SetDisplayScale(entity.GetDisplayScale());
                 });
             }
-
+            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+                return;
             entity.SpawnWithParams(VanillaEnemyID.MannequinTNT, entity.Position);
         }
 

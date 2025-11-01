@@ -10,6 +10,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
+using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -98,7 +99,8 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-
+            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+                return;
             var pos = entity.Position;
             pos.y = entity.GetGroundY() - 100;
             var warrior = entity.SpawnWithParams(VanillaEnemyID.mesmerizer, pos);
