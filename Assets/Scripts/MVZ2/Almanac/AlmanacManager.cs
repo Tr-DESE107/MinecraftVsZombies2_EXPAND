@@ -125,7 +125,7 @@ namespace MVZ2.Almanacs
         #endregion
 
         #region 获取图鉴项显示信息
-        public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID? id, bool isEndless)
+        public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID? id, bool isEndless, bool isCommandBlock = false)
         {
             if (!NamespaceID.IsValid(id))
                 return ChoosingBlueprintViewData.Empty;
@@ -134,7 +134,7 @@ namespace MVZ2.Almanacs
                 return ChoosingBlueprintViewData.Empty;
             return new ChoosingBlueprintViewData()
             {
-                blueprint = Main.ResourceManager.GetBlueprintViewData(blueprintDef, isEndless),
+                blueprint = Main.ResourceManager.GetBlueprintViewData(blueprintDef, isEndless, isCommandBlock),
                 disabled = false
             };
         }

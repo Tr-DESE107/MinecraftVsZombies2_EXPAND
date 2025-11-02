@@ -2438,6 +2438,24 @@ MonoBehaviour:
     - {fileID: 1593830320, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: 1307917129, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: -1275393187, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
+  - name: ui/level/card_command_block_mobile
+    spritesheet:
+    - {fileID: -1177441340, guid: f45a057d7f3b72d4883d7d18d28ea03a, type: 3}
+    - {fileID: -1550992565, guid: f45a057d7f3b72d4883d7d18d28ea03a, type: 3}
+    - {fileID: -759443592, guid: f45a057d7f3b72d4883d7d18d28ea03a, type: 3}
+    - {fileID: 766832422, guid: f45a057d7f3b72d4883d7d18d28ea03a, type: 3}
+  - name: ui/level/card_mobile
+    spritesheet:
+    - {fileID: -4776567560766701095, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
+    - {fileID: 4507745102081845256, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
+    - {fileID: -7816349463641043585, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
+    - {fileID: 5696273315130911449, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
+  - name: ui/level/card_upgrade_mobile
+    spritesheet:
+    - {fileID: 355339113813773564, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
+    - {fileID: 5404499671542490641, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
+    - {fileID: 2914410065991313758, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
+    - {fileID: 6656791130363650158, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
   - name: ui/level/nightmare_broken_glasses
     spritesheet:
     - {fileID: -496670632954994581, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}

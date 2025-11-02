@@ -22,18 +22,13 @@ namespace MVZ2.UI
             SetEmpty(viewData.empty);
             SetCost(viewData.cost);
             SetTriggerActive(viewData.triggerActive);
-            foreach (var preset in normalPresets)
-            {
-                preset.SetActive(viewData.preset == BlueprintPreset.Normal);
-            }
-            foreach (var preset in upgradePresets)
-            {
-                preset.SetActive(viewData.preset == BlueprintPreset.Upgrade);
-            }
-            foreach (var preset in commandBlockPresets)
-            {
-                preset.SetActive(viewData.preset == BlueprintPreset.CommandBlock);
-            }
+
+            // Styles.
+            if (standaloneBackground) standaloneBackground.sprite = viewData.standaloneBackground;
+            if (mobileBackground) mobileBackground.sprite = viewData.mobileBackground;
+            if (mobileFrameTop) mobileFrameTop.sprite = viewData.mobileFrameTop;
+            if (mobileFrameBottom) mobileFrameBottom.sprite = viewData.mobileFrameBottom;
+
             var icon = viewData.icon;
             iconImage.enabled = icon && !viewData.iconGrayscale;
             iconImage.sprite = icon;
@@ -145,20 +140,32 @@ namespace MVZ2.UI
         private GameObject emptyObj = null!;
         [SerializeField]
         private GameObject rootObj = null!;
+
+        [Header("Styles (Standalone)")]
         [SerializeField]
-        private GameObject[] normalPresets = null!;
+        private Image standaloneBackground = null!;
+
+        [Header("Styles (Mobile)")]
         [SerializeField]
-        private GameObject[] upgradePresets = null!;
+        private Image mobileBackground = null!;
         [SerializeField]
-        protected GameObject[] commandBlockPresets = null!;
+        private Image mobileFrameTop = null!;
+        [SerializeField]
+        private Image mobileFrameBottom = null!;
+
+        [Header("Elements")]
         [SerializeField]
         private Image iconImage = null!;
         [SerializeField]
         private Image iconImageCommandBlock = null!;
         [SerializeField]
-        private Image twinkleImage = null!;
+        private GameObject triggerCostObject = null!;
         [SerializeField]
         private TextMeshProUGUI costText = null!;
+
+        [Header("Overlays")]
+        [SerializeField]
+        private Image twinkleImage = null!;
         [SerializeField]
         private Image rechargeImage = null!;
         [SerializeField]
@@ -170,9 +177,9 @@ namespace MVZ2.UI
         [SerializeField]
         private GameObject disabledObject = null!;
         [SerializeField]
-        private GameObject triggerCostObject = null!;
-        [SerializeField]
         private TextMeshProUGUI hotkeyText = null!;
+
+        [Header("Miscs")]
         [SerializeField]
         private UIModel model = null!;
         [SerializeField]
@@ -185,14 +192,14 @@ namespace MVZ2.UI
         public string cost;
         public Sprite? icon;
         public bool triggerActive;
-        public BlueprintPreset preset;
         public bool iconGrayscale;
+
+        // Styles.
+        public Sprite? standaloneBackground;
+        public Sprite? mobileBackground;
+        public Sprite? mobileFrameTop;
+        public Sprite? mobileFrameBottom;
+
         public static readonly BlueprintViewData Empty = new BlueprintViewData { empty = true };
-    }
-    public enum BlueprintPreset
-    {
-        Normal,
-        Upgrade,
-        CommandBlock,
     }
 }
