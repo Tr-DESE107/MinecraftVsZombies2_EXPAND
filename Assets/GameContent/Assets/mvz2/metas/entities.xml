@@ -1874,7 +1874,7 @@
 		</enemy>
 
 
-        <enemy id="HeavyGutant" name="突变重炮手" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
+        <enemy id="HeavyGutant" name="突变重炮手" deathMessage="你怎么进门的？" unlock="mvz2:level.MutantCrisis">
             <properties>
 				<float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="3000"/>
@@ -1918,7 +1918,7 @@
             </properties>
         </enemy>
         <enemy id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？"
-            unlock="mvz2:level.shrine_8">
+            unlock="mvz2:level.MutantCrisis">
             <properties>
                 <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="6000" />

@@ -2199,6 +2199,39 @@
 		</entry
 		-->
 
+		<entry id="mvz2:mega_mutant_zombie">
+			<header>
+				<p>超级突变僵尸可以粉碎你的器械，并在血量低至一半时投掷小鬼僵尸</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>6000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>超级突变僵尸生来就是力量的二倍化身，他以自己的二倍力量为荣，他徒手便能手撕二个黑曜石，他是无数二倍器械和二倍玩家的梦魇。如此强大的怪物，谁能想到他在背地里很喜欢二倍的小猫咪？</p>
+				<p>可是被他抱过二倍的猫咪不知为何都去世了。</p>
+				<p/>
+				<p>呃，上述文本我没在抖机灵啊(存疑)，超级突变僵尸可是古早换皮怪，就是换了个眼睛就有二倍血量！</p>
+				<p/>
+				<p><![CDATA[<color=white>红瞳真可爱。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:HeavyGutant">
+			<header>
+				<p>突变重炮手可以粉碎你的器械，并在血量低至一半时投掷炸弹。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>3000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>他在海盗选美大赛上获得了第二名，输给了火枪手僵尸，原因是因为他脸上有疤（恼）</p>
+				<p/>
+				<p>大概是因为他长得太丑了所以没有小鬼愿意爬他身上，他于是选择拿炮弹的弹药当投掷的小鬼。</p>
+				<p>还好他们没有意识到炮管里该装正经TNT。</p>
+			</flavor>
+		</entry>
+
 		<!--Villager EXPAND -->
 		<entry id="mvz2:MutantVillager">
 			<header>
@@ -2333,6 +2366,47 @@
 				<p><![CDATA[<color=grey>这是否说明玩家模型TNT和玩家模型是同种■■？</color>]]></p>
 			</flavor>
 		</entry>
+		<entry id="mvz2:RandomZombie">
+			<header>
+				<p>随机僵尸血量归零后会变成其他怪物。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>450</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>怪物们显然也是喜欢过万圣节的，不少怪物就喜欢把南瓜带在头上，让其他怪物猜一猜南瓜后面的是谁。就和开盲盒一样豪丸</p>
+				<p>为了你好，别问为什么它叫随机僵尸却能变成骷髅和其他怪物</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:RandomImp">
+			<header>
+				<p>随机小鬼僵尸血量归零后会变成其他小鬼类怪物。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>2</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这帮坏小鬼来找你们讨要糖了。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:RandomMutant">
+			<header>
+				<p>突变随机僵尸血量归零后会变成其他突变类怪物。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>1800</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这个突变怪物的伪装做的不是特别好，血量太低了。</p>
+				<p/>
+				<p>嗯...好吧，我觉得应该不是突变类怪物带上了南瓜头。</p>
+				<p>这看上去就是这家伙死后原地召唤其他突变怪物。</p>
+			</flavor>
+		</entry>
+		
 		
 		
     </enemies>
