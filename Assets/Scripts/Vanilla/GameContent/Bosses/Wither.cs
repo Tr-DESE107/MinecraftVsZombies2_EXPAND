@@ -164,16 +164,8 @@ namespace MVZ2.GameContent.Bosses
                 return;
             if (!HasArmor(self))
                 return;
-            if (self.Level.IsBossRevenge())
-            {
-                // Boss复仇模式下95%子弹减伤
-                param.damage.Multiply(BOSS_REVENGE_PROJECTILE_DAMAGE_MULTIPLIER);
-            }
-            else
-            {
-                // 免疫并移除子弹
-                result.SetFinalValue(false);
-            }
+            // 免疫并移除子弹
+            result.SetFinalValue(false);
             var projectile = hit.Projectile;
             projectile.Remove();
         }

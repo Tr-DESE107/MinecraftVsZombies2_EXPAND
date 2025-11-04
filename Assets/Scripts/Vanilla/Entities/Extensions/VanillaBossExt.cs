@@ -21,5 +21,9 @@ namespace MVZ2.Vanilla.Bosses
                 b.SetProperty(BossRevengeBuff.PROP_HEALTH_MULTIPLIER, healthMultiplier);
             });
         }
+        public static bool IsBossRevengeVersion(this Entity entity)
+        {
+            return entity.HasBuff(VanillaBuffID.Boss.bossRevenge);
+        }
     }
 }

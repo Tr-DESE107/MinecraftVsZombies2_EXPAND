@@ -7,6 +7,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -76,8 +77,14 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
+                var time = 300;
+                if (entity.IsBossRevengeVersion())
+                {
+                    // Boss复仇模式下行动速度减半
+                    time *= 2;
+                }
                 var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetTime(300);
+                stateTimer.ResetTime(time);
             }
             public override void OnExit(EntityStateMachine machine, Entity entity)
             {
@@ -209,6 +216,11 @@ namespace MVZ2.GameContent.Bosses
                     SetSkullCharges(entity, skullCharges);
                 }
                 var maxCharges = head == 0 ? MAX_SKULL_CHARGE_MAIN : MAX_SKULL_CHARGE;
+                if (entity.IsBossRevengeVersion())
+                {
+                    // Boss复仇模式下发射头颅速度减半
+                    maxCharges *= 2;
+                }
                 skullCharges[head] += entity.GetAttackSpeed();
 
                 while (skullCharges[head] >= maxCharges)
@@ -667,8 +679,9 @@ namespace MVZ2.GameContent.Bosses
 
                                 entity.PlaySound(VanillaSoundID.witherSpawn);
                                 int count = 1;
-                                if (entity.Level.IsBossRevenge())
+                                if (entity.IsBossRevengeVersion())
                                 {
+                                    // Boss复仇模式下一次召唤3只床战士
                                     count = 3;
                                 }
                                 for (int i = 0; i < count; i++)
