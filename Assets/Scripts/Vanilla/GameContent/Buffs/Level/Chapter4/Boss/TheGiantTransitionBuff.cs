@@ -4,6 +4,7 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -71,6 +72,7 @@ namespace MVZ2.GameContent.Buffs.Level
                     var giant = level.Spawn(VanillaBossID.theGiant, new Vector3(VanillaLevelExt.LEVEL_WIDTH, 0, level.GetLawnCenterZ()), null)?.Let(e =>
                     {
                         TheGiant.SetAppear(e);
+                        e.ApplyBuffForBossRevenge(0.8f);
                     });
                     // 音乐。
                     level.PlayMusic(VanillaMusicID.mausoleumBoss);

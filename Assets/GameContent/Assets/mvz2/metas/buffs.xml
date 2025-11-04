@@ -29,6 +29,7 @@
     <buff id="i_zombie_attack_booster" polarity="positive" level="3000" target="enemy" />
     <buff id="i_zombie_skeleton_warrior" polarity="positive" level="2000" target="enemy" />
     <buff id="i_zombie_skeleton_warrior_armor" polarity="positive" level="2000" target="armor" />
+    <buff id="boss_revenge" polarity="none" level="5000" target="boss" />
 
     <!-- Core -->
     <buff id="gem_carrier" polarity="none" level="2000" target="enemy" />
