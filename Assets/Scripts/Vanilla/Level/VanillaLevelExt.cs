@@ -288,6 +288,11 @@ namespace MVZ2.Vanilla.Level
         public static float CalculateSpawnPoints(this LevelEngine level, int wave, int flags)
         {
             var totalWave = level.GetLevelTotalWaves(wave, flags);
+            var isBossFight = level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT || level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT_2;
+            if (isBossFight)
+            {
+                totalWave = level.GetTotalFlags() * level.GetWavesPerFlag();
+            }
             var basePoints = Mathf.FloorToInt(totalWave * 0.8f) / 2 + 1;
             var power = level.GetSpawnPointPower();
             var multiplier = level.GetSpawnPointMultiplier();
@@ -296,7 +301,7 @@ namespace MVZ2.Vanilla.Level
             {
                 multiplier *= 2.5f;
             }
-            if (level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT || level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT_2)
+            if (isBossFight)
             {
                 multiplier = 1;
             }
