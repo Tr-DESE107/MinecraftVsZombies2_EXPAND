@@ -2914,6 +2914,67 @@ MonoBehaviour:
     - {fileID: -653343630, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
     - {fileID: -884453189, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
     - {fileID: -1616654256, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+  - name: ui/almanac/Contraption(icon)
+    spritesheet:
+    - {fileID: 1079723256, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 991955814, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1062228199, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 422011222, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1841488468, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -776234839, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1719865411, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 2081645858, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1697344410, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 166867186, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 603422937, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -317500619, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 473946420, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 184884667, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 329657581, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1967998593, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 894361736, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -281020122, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -531099193, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1621902021, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 2102970847, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 249573335, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1218811106, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1019362437, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1113474601, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1974725860, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -98126898, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -2060677450, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1439996142, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1067232676, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1166161416, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1211576534, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1544247236, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1281563986, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1724605035, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 540908546, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1049735073, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -117782995, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1399639826, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1393160704, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1828116531, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 249760435, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1290874975, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1735968231, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1013986913, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 143092654, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1114290531, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 6053069, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 6153461, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -780727462, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 1800302954, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 50158686, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 401399837, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1446313710, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -820120608, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1136956528, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: 336480968, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -1556317961, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
+    - {fileID: -770557260, guid: 66d4f3c83b6f6e7418f6cdbc6e9af995, type: 3}
   - name: ui/almanac/Expand_attribute
     spritesheet:
     - {fileID: 2097023941, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
@@ -2941,7 +3002,15 @@ MonoBehaviour:
     - {fileID: -1924353111, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
     - {fileID: 1457824713, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
     - {fileID: 1064927941, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 36846174, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -185026927, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 518770433, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 331003317, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -1260967316, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 285874240, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -1209680113, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1776438321, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -459864235, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1159955616, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
   - name: ui/almanac/grid_layer_tags
     spritesheet:
     - {fileID: 1321867714, guid: f4743b7a556142b4db02b61d15e9da06, type: 3}
