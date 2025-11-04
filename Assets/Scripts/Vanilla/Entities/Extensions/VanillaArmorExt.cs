@@ -87,6 +87,11 @@ namespace MVZ2.Vanilla.Entities
                     armor.Destroy(destroyInfo);
                 }
             }
+            else
+            {
+                result.Amount = amount;
+                result.SpendAmount = amount;
+            }
 
             if (result.IsValid())
             {

@@ -225,6 +225,11 @@ namespace MVZ2.Vanilla.Entities
                 result.SpendAmount = Mathf.Min(hpBefore, amount);
                 result.Fatal = hpBefore > 0 && entity.Health <= 0;
             }
+            else
+            {
+                result.Amount = amount;
+                result.SpendAmount = amount;
+            }
 
             if (entity.Health <= 0)
             {
