@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Effects
                 var wither = entity.Spawn(VanillaBossID.wither, entity.Position)?.Let(e =>
                 {
                     Wither.Appear(e);
-                    e.ApplyBuffForBossRevenge();
+                    e.ApplyBuffForBossRevenge(1f);
                 });
             }
         }

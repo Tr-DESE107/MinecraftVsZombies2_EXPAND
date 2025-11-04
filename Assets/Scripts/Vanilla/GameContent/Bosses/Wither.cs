@@ -13,6 +13,7 @@ using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -163,7 +164,16 @@ namespace MVZ2.GameContent.Bosses
                 return;
             if (!HasArmor(self))
                 return;
-            result.SetFinalValue(false);
+            if (self.Level.IsBossRevenge())
+            {
+                // Boss复仇模式下95%子弹减伤
+                param.damage.Multiply(BOSS_REVENGE_PROJECTILE_DAMAGE_MULTIPLIER);
+            }
+            else
+            {
+                // 免疫并移除子弹
+                result.SetFinalValue(false);
+            }
             var projectile = hit.Projectile;
             projectile.Remove();
         }
@@ -376,6 +386,7 @@ namespace MVZ2.GameContent.Bosses
         public const float FLY_HEIGHT = 80;
         public const float EAT_HEALING = 300;
         public const float GOLDEN_APPLE_DAMAGE = 600;
+        public const float BOSS_REVENGE_PROJECTILE_DAMAGE_MULTIPLIER = 0.05f;
         #endregion 常量
 
         private static WitherStateMachine stateMachine = new WitherStateMachine();

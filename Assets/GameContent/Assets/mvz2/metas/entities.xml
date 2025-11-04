@@ -2088,6 +2088,7 @@
         <!-- Bosses -->
         <boss id="frankenstein" name="科学怪人的怪物">
             <properties>
+                <bool name="mvz2:undead" value="true" />
                 <int name="mvz2:waterInteraction" value="1" />
                 <float name="mvz2:maxHealth" value="25000" />
                 <vector3 name="mvz2:size" x="60" y="200" z="60" />
@@ -2107,6 +2108,7 @@
         </boss>
         <boss id="nightmareaper" name="梦魇收割者">
             <properties>
+                <bool name="mvz2:undead" value="true" />
                 <int name="mvz2:waterInteraction" value="0" />
                 <float name="mvz2:maxHealth" value="4000" />
                 <id name="mvz2:shell" value="mvz2:bone" />
@@ -2126,10 +2128,12 @@
         </boss>
         <boss id="wither" name="凋灵">
             <properties>
+                <bool name="mvz2:undead" value="true" />
                 <int name="mvz2:waterInteraction" value="1" />
                 <float name="mvz2:maxHealth" value="12000" />
                 <float name="mvz2:gravity" value="0" />
-                <id name="mvz2:shell" value="mvz2:bone" />
+                <id name="mvz2:shell" value="mvz2:nether" />
+                <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <vector3 name="mvz2:size" x="64" y="160" z="64" />
                 <vector3 name="mvz2:shadowScale" x="2" y="2" z="2" />
                 <color name="mvz2:bloodColor" value="#00000000" />
@@ -2138,6 +2142,7 @@
         </boss>
         <boss id="the_giant" name="巨人">
             <properties>
+                <bool name="mvz2:undead" value="true" />
                 <int name="mvz2:waterInteraction" value="1" />
                 <float name="mvz2:maxHealth" value="20000" />
                 <vector3 name="mvz2:size" x="240" y="320" z="320" />
@@ -2149,6 +2154,7 @@
         </boss>
         <boss id="the_giant_snake_tail" name="巨人蛇尾">
             <properties>
+                <bool name="mvz2:undead" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <int name="mvz2:waterInteraction" value="1" />
                 <float name="mvz2:maxHealth" value="1" />

@@ -666,10 +666,25 @@ namespace MVZ2.GameContent.Bosses
                                 substateTimer.ResetTime(30);
 
                                 entity.PlaySound(VanillaSoundID.witherSpawn);
-                                entity.SpawnWithParams(VanillaEnemyID.bedserker, entity.Position + entity.GetFacingDirection() * 80)?.Let(e =>
+                                int count = 1;
+                                if (entity.Level.IsBossRevenge())
                                 {
-                                    Explosion.Spawn(entity, e.GetCenter(), 60);
-                                });
+                                    count = 3;
+                                }
+                                for (int i = 0; i < count; i++)
+                                {
+                                    var lane = entity.GetLane();
+                                    var laneOffsetLength = (i + 1) / 2;
+                                    var laneOffsetDirection = ((i + 1) % 2) * 2 - 1;
+                                    lane += laneOffsetDirection * laneOffsetLength;
+                                    var position = entity.Position;
+                                    position.z = entity.Level.GetEntityLaneZ(lane);
+                                    position += entity.GetFacingDirection() * 80;
+                                    entity.SpawnWithParams(VanillaEnemyID.bedserker, position)?.Let(e =>
+                                    {
+                                        Explosion.Spawn(entity, e.GetCenter(), 60);
+                                    });
+                                }
                                 entity.PlaySound(VanillaSoundID.explosion);
                             }
                         }
