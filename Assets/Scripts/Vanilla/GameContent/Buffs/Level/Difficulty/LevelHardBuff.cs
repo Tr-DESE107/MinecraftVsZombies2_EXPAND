@@ -19,6 +19,7 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new BooleanModifier(VanillaLevelProps.NO_CARTS, true));
 
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.GUNPOWDER_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 2));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.ELASTIC_CLOUD_BOUNCE_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 1.5f));
 
             AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS_POWER, NumberOperator.AddMultiple, 0.2f));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.NAPSTABLOOK_PARALYSIS_TIME, IntegerOperator.Multiply, 2));

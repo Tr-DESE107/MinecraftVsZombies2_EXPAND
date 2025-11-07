@@ -16,6 +16,8 @@ namespace MVZ2.GameContent.Difficulties
         // Contraptions
         public static readonly VanillaDifficultyPropertyMeta<float> GUNPOWDER_DAMAGE_MULTIPLIER = Get<float>("gunpowderDamageMultiplier", 1);
         public static float GetGunpowderDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(GUNPOWDER_DAMAGE_MULTIPLIER);
+        public static readonly VanillaDifficultyPropertyMeta<float> ELASTIC_CLOUD_BOUNCE_DAMAGE_MULTIPLIER = Get<float>("elastic_cloud_bounce_damage", 1);
+        public static float GetElasticCloudBounceDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(ELASTIC_CLOUD_BOUNCE_DAMAGE_MULTIPLIER);
 
         // Enemies
         public static readonly VanillaDifficultyPropertyMeta<int> NAPSTABLOOK_PARALYSIS_TIME = Get<int>("napstablookParalysisTime", 45);

@@ -801,7 +801,7 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>3000</color>]]></p>
-                <p>耐久消耗：<![CDATA[<color=red>150（怪物），20（子弹）</color>]]></p>
+                <p>耐久消耗：<![CDATA[<color=red>300（怪物），450（怪物，困难难度），20（子弹）</color>]]></p>
                 <p>技能：<![CDATA[<color=red>击退并弹飞半径2.5格内的所有敌方怪物</color>]]></p>
             </properties>
             <flavor>

@@ -237,7 +237,8 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 
 **Contraptions**
 
-- The explosion damage of Gunpowder Barrel and Gunpowder is 3000.
+- The explosion damage of Gunpowder Barrel and Gunpowder is 300.
+- The toughness cost of Elastic Clouds to bounce a monster is 450.
 
 **Monsters**
 
