@@ -14,7 +14,9 @@ Material:
   m_ValidKeywords:
   - LIT
   m_InvalidKeywords:
+  - DEPTH_TEST
   - _ALPHAPREMULTIPLY_ON
+  - _SPOTLIT_ON
   - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -46,6 +48,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ClearCoatMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DepthMap:
+        m_Texture: {fileID: 8600000, guid: 51293162492f9c549a1f9962e776f95b, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -116,6 +122,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _BackgroundLit: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
@@ -133,6 +140,8 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 0
     - _Cutoff: 0.01
+    - _DepthOffset: 100
+    - _DepthTestEnabled: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
@@ -144,8 +153,10 @@ Material:
     - _Glossiness: 0
     - _GlossinessSource: 0
     - _GlossyReflections: 1
+    - _Grayscale: 0
     - _HSVTint: 0
     - _LIT: 1
+    - _LightDisabled: 0
     - _Metallic: 0.05
     - _Mode: 0
     - _NormalScale: 1.05
@@ -160,6 +171,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
     - _SpecularHighlights: 1
+    - _SpotLit: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 1
@@ -176,6 +188,8 @@ Material:
     - _ColorOffset: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _GrayscaleFactor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    - _LevelMapST: {r: 14, g: 10.2, b: 0, a: 0}
     - _LightMapST: {r: 14, g: 10.2, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 0.5}
