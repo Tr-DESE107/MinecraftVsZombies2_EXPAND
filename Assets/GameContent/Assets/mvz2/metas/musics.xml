@@ -356,6 +356,8 @@
             <p>而最后，这压迫感会将你推向深渊。</p>
         </description>
     </music>
+
+
     <music id="ship_map" name="美猴王-地图">
         <track main="mvz2:ship_map"/>
         <source>书虫大冒险 Vol.2</source>
@@ -376,6 +378,21 @@
             <p>星莲船关卡的音乐。</p>
             <p>原曲是《东方星莲船》Extra关的音乐《夜空中的UFO恋曲》。</p>
             <p>=====乐评施工中=====</p>
+        </description>
+    </music>
+    <music id="ship_final" name="魔界地方都市秘境" >
+        <unlock>
+            <condition required="mvz2:level.ship_11"/>
+        </unlock>
+        <track main="mvz2:ship_final"/>
+        <source>东方星莲船</source>
+        <description>
+            <p>圣辇船最终关的音乐。</p>
+            <p>是《东方星莲船》中第五关的音乐。</p>
+            <p>天空阴云密布，船上却阳光直射。</p>
+            <p>有的人一辈子活在亲人死亡的阴影中，有的人则活在万人赞颂的光芒之下。</p>
+            <p>下面的人想飞上来，上面的人却也想落下去。</p>
+            <p>然而，这重重阴云把他们隔开，怎么也无法如愿。</p>
         </description>
     </music>
 </musics>

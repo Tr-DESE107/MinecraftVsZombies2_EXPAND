@@ -3494,6 +3494,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d5d2493e2334f04eaa30e9109e8abad
+    m_Address: mvz2:ship_final
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d88a598c5aab984891215c1f4414390
     m_Address: mvz2:entity/projectiles/giant_spike
     m_ReadOnly: 0

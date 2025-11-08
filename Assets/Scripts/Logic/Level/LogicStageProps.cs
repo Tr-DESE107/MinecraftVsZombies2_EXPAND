@@ -12,9 +12,9 @@ namespace MVZ2Logic.Level
     [PropertyRegistryRegion(PropertyRegions.level)]
     public static class LogicStageProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T? defaultValue = default)
         {
-            return new PropertyMeta<T>(name);
+            return new PropertyMeta<T>(name, defaultValue);
         }
 
         #region 模型预设
@@ -41,7 +41,7 @@ namespace MVZ2Logic.Level
         #endregion
 
         #region 传送带速度
-        public static readonly PropertyMeta<float> CONVEY_SPEED = Get<float>("conveySpeed");
+        public static readonly PropertyMeta<float> CONVEY_SPEED = Get<float>("conveySpeed", 1f);
         public static float GetConveySpeed(this LevelEngine game) => game.GetProperty<float>(CONVEY_SPEED);
         #endregion
 

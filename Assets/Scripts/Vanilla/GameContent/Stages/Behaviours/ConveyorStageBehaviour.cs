@@ -15,7 +15,6 @@ namespace MVZ2.GameContent.Stages
     {
         public ConveyorStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.SetProperty(LogicStageProps.CONVEY_SPEED, 1f);
         }
         public override void Start(LevelEngine level)
         {

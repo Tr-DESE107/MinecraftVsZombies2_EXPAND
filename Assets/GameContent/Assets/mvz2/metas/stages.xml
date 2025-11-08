@@ -1245,7 +1245,7 @@
             <spawn id="mvz2:pop_captain"/>
         </spawns>
     </stage>
-    <stage id="ship_11" name="圣辇船" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:ultimate_battle" >
+    <stage id="ship_11" name="圣辇船" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:ship_final" >
         <unlock>
             <condition required="mvz2:level.ship_10"/>
         </unlock>
@@ -1256,27 +1256,29 @@
             <talk type="map" value="mvz2:ship_11_map"/>
         </talks>
         <conveyor>
-            <entry id="mvz2:obsidian" count="8"/>
-            <entry id="mvz2:small_dispenser" count="5"/>
-            <entry id="mvz2:punchton" count="5"/>
-            <entry id="mvz2:tnt" count="3"/>
-            <entry id="mvz2:soul_furnace" count="10"/>
-            <entry id="mvz2:silvenser" count="8"/>
-            <entry id="mvz2:magichest" count="3"/>
+            <entry id="mvz2:triplenser" count="5"/>
+            <entry id="mvz2:firework_dispenser" count="2"/>
+            <entry id="mvz2:repeatenser" count="5"/>
+            <entry id="mvz2:beacon" count="10"/>
+            <entry id="mvz2:wooden_fan" count="4"/>
+            <entry id="mvz2:elastic_cloud" count="5"/>
+            <entry id="mvz2:jeweled_pagoda" count="1" minCount="0"/>
         </conveyor>
-        <clear pickupModel="mvz2:entity.dream_key"/>
+        <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
-            <spawn id="mvz2:skeleton"/>
-            <spawn id="mvz2:ghost"/>
-            <spawn id="mvz2:mummy"/>
-            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:undead_flying_object"/>
+            <spawn id="mvz2:zombie_cloud"/>
+            <spawn id="mvz2:cannoneer_zombie"/>
+            <spawn id="mvz2:pop_captain"/>
         </spawns>
         <time firstWave="1"/>
         <properties>
             <bool name="noEnergy" value="true"/>
+            <id name="clearSound" value="mvz2:final_item"/>
+            <float name="conveySpeed" value="0.75" />
         </properties>
     </stage>
     <stage id="ship_endless" name="圣辇船无尽" type="endless" >

@@ -721,6 +721,8 @@ namespace MVZ2.Vanilla.Level
                     GhostBuff.Illuminate(buff);
                 }
             }
+            var model = level.GetAreaModelInterface();
+            model?.TriggerAnimation("Thunder");
             level.PlaySound(VanillaSoundID.thunder);
         }
         public static void StartRain(this LevelEngine level)

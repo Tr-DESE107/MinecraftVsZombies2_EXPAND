@@ -60,6 +60,7 @@ namespace MVZ2.GameContent.Buffs
             public const string beaconMeteor = "beacon_meteor";
             public const string sorcerersScrollStarshard = "sorcerers_scroll_starshard";
             public const string skywardNight = "skyward_night";
+            public const string redDragonStage = "red_dragon_stage";
 
             // Random China
             public const string greedyVacuum = "greedy_vacuum";
