@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cab57ed8db44e444f856b2a84c122438
+guid: 5f3a092b11f65cc4a954e2922bb956f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,186 +106,89 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: placement_tags_upgrade_origin_0
+      name: DESE107_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 1
+        y: 43
         width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7945eb1334f216419ccbaf3a37b6a8e
-      internalID: 690988992
+      spriteID: cf66d45a4abf1c34aa7324bf16567a66
+      internalID: -1957711845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placement_tags_upgrade_origin_1
+      name: DESE107_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 34
+        y: 51
+        width: 42
+        height: 14
+      alignment: 9
+      pivot: {x: 0.8571429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 059d3d5a4d66feb43a4e21f8ace7b257
-      internalID: 2002797089
+      spriteID: 08671fad90d02d843bf3c7afbdb90301
+      internalID: 991816405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placement_tags_upgrade_origin_2
+      name: DESE107_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1
+        y: 3
+        width: 16
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8717949}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89cf315372977f44d82c045ba79bbccf
-      internalID: 431275516
+      spriteID: 3b94d1e303321e14f8d2a63300e09913
+      internalID: 673082340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placement_tags_upgrade_origin_3
+      name: DESE107_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 20
+        y: 6
+        width: 19
+        height: 36
+      alignment: 9
+      pivot: {x: 0.4736842, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dab3e56e51c14b546b0555d832a5c729
-      internalID: 1096689521
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placement_tags_upgrade_origin_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d748cf45867d0b04b9c7733353b588a9
-      internalID: 1462865819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placement_tags_upgrade_origin_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5acbdcd6cf0ab70468d609132d6c2045
-      internalID: -844512223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placement_tags_upgrade_origin_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e00f3180bf48923409de81308a3ee891
-      internalID: -256576371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placement_tags_upgrade_origin_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d4391987f1b1524babd658348298f4a
-      internalID: 2246664
+      spriteID: 1aed3cda35b44134dae8748118599a65
+      internalID: -1490030898
       vertices: []
       indices: 
       edges: []
@@ -301,14 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      placement_tags_upgrade_origin_0: 690988992
-      placement_tags_upgrade_origin_1: 2002797089
-      placement_tags_upgrade_origin_2: 431275516
-      placement_tags_upgrade_origin_3: 1096689521
-      placement_tags_upgrade_origin_4: 1462865819
-      placement_tags_upgrade_origin_5: -844512223
-      placement_tags_upgrade_origin_6: -256576371
-      placement_tags_upgrade_origin_7: 2246664
+      DESE107_0: -1957711845
+      DESE107_1: 991816405
+      DESE107_2: 673082340
+      DESE107_3: -1490030898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

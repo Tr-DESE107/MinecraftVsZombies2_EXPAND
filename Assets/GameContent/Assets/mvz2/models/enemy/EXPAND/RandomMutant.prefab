@@ -565,6 +565,10 @@ PrefabInstance:
       propertyPath: sprites.Array.data[2]
       value: 
       objectReference: {fileID: 1454977949, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+    - target: {fileID: 6820799436738267014, guid: 5b197e2b4a8161c4e8f1808052883a63, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1338618253, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
     - target: {fileID: 7023629671900661716, guid: 5b197e2b4a8161c4e8f1808052883a63, type: 3}
       propertyPath: m_Sprite
       value: 

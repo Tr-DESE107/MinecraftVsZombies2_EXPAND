@@ -5552,6 +5552,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66d4f3c83b6f6e7418f6cdbc6e9af995
+    m_Address: mvz2:ui/almanac/Contraption(icon)
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66d6b2cec1b5a03498ee84ec03d69134
     m_Address: mvz2:characters/doremy
     m_ReadOnly: 0
