@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-28 02:29+0800\n"
-"PO-Revision-Date: 2025-10-28 14:30+0800\n"
+"POT-Creation-Date: 2025-11-08 05:55+0800\n"
+"PO-Revision-Date: 2025-11-09 12:33+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2623,27 +2623,27 @@ msgstr "English (United States)"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1282
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1281
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue without filling up the contraption slots?"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1286
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1285
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 "The blueprints selected last time contained multiple identical contraptions."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1288
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1287
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 "The blueprints selected last time contained contraptions that are not "
 "unlocked yet."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1290
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1289
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 "The artifacts selected last time contained multiple identical artifacts."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1292
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1291
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 "The artifacts selected last time contained artifacts that are not unlocked "
@@ -4045,8 +4045,20 @@ msgstr "Monkey King Map"
 msgctxt "music.description"
 msgid ""
 "圣辇船地图的音乐。\n"
-"=====乐评施工中====="
+"《书虫大冒险 Vol.2》中，当主角Lex从童话中回到图书馆后，邪恶Lex突然出现，夺走"
+"了魔法钢笔，并把他拉入了第五本书——《美猴王》。\n"
+"这本书中充斥着大量的有着中国元素的敌人：猛兽、神话、生肖、鬼怪……内容十分惊"
+"艳。\n"
+"这也是我最喜欢的一本书。"
 msgstr ""
+"The theme for the map of Palanquin Ship.\n"
+"In <i>Bookworm Adventures Vol. 2</i>, after Lex returns to The Great Library "
+"from Fractured Fairytales, Evilex suddenly appeared and stole the Magic Pen, "
+"then drags him into Book 5—<i>The Monkey King</i>.\n"
+"This book is filled with enemies featuring numerous Chinese elements: "
+"mythical beasts, mythology, zodiac, ghosts... The contents are truly "
+"amazing.\n"
+"This is also my favorite book."
 
 #. Name for music mvz2:ship_level
 #: Music meta file
@@ -4064,10 +4076,44 @@ msgstr "UFO Romance in the Night Sky"
 #: Music meta file
 msgctxt "music.description"
 msgid ""
-"星莲船关卡的音乐。\n"
+"圣辇船关卡的音乐。\n"
 "原曲是《东方星莲船》Extra关的音乐《夜空中的UFO恋曲》。\n"
-"=====乐评施工中====="
+"晴空一片，万里无云——哦抱歉，云还是有的。\n"
+"史蒂夫踏上了这艘飞在空中的船，开始了他新的征程。"
 msgstr ""
+"The theme for the levels of Palanquin Ship.\n"
+"The original soundtrack is <i>UFO Romance in the Night Sky</i> from the "
+"extra stage of <i>Undefined Fantastic Object</i>.\n"
+"The sky is clear, without a single cloud—oh, sorry, there are still some "
+"clouds.\n"
+"Steve boards this ship flying through the air and set sail on his new "
+"journey."
+
+#. Name for music mvz2:ship_final
+#: Music meta file
+msgctxt "music.name"
+msgid "魔界地方都市秘境"
+msgstr "Rural Makai City Esoteria"
+
+#. Description for music mvz2:ship_final
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"圣辇船最终关的音乐。\n"
+"是《东方星莲船》中第五关的音乐。\n"
+"天空阴云密布，船上却阳光直射。\n"
+"有的人一辈子活在亲人死亡的阴影中，有的人则活在万人赞颂的光芒之下。\n"
+"下面的人想飞上来，上面的人却也想落下去。\n"
+"然而，这重重阴云把他们隔开，怎么也无法如愿。"
+msgstr ""
+"The theme for the final level of Palanquin Ship.\n"
+"This soundtrack is from the fifth stage of <i>Undefined Fantastic Object</"
+"i>.\n"
+"The sky was overcast, yet the ship basked in sunlight.\n"
+"One has lived their entire life in the shadow of its loved one's death, "
+"while the other has lived in the light of a thousand praises.\n"
+"The one below yearns for the sky, while the one above dreams to land.\n"
+"Yet the dense clouds lay between them, no matter how much they desire."
 
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
@@ -4725,12 +4771,6 @@ msgstr "琉"
 #. Name for credit staff 地图背景-圣辇船
 #: Credits meta file
 msgctxt "staff_name"
-msgid "一个发射器"
-msgstr "一个发射器"
-
-#. Name for credit staff 地图背景-圣辇船
-#: Credits meta file
-msgctxt "staff_name"
 msgid "creator"
 msgstr "creator"
 
@@ -5283,6 +5323,10 @@ msgstr "NORMAL"
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
+
+#~ msgctxt "staff_name"
+#~ msgid "一个发射器"
+#~ msgstr "一个发射器"
 
 #~ msgctxt "stat_category"
 #~ msgid "敌人生成"

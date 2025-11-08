@@ -363,7 +363,9 @@
         <source>书虫大冒险 Vol.2</source>
         <description>
             <p>圣辇船地图的音乐。</p>
-            <p>=====乐评施工中=====</p>
+            <p>《书虫大冒险 Vol.2》中，当主角Lex从童话中回到图书馆后，邪恶Lex突然出现，夺走了魔法钢笔，并把他拉入了第五本书——《美猴王》。</p>
+            <p>这本书中充斥着大量的有着中国元素的敌人：猛兽、神话、生肖、鬼怪……内容十分惊艳。</p>
+            <p>这也是我最喜欢的一本书。</p>
         </description>
     </music>
     <music id="ship_level" name="晴空中的UFO恋曲" >
@@ -375,9 +377,10 @@
         <origin>夜空中的UFO恋曲</origin>
         <author>Dr.糕萌酸钾-Studio</author>
         <description>
-            <p>星莲船关卡的音乐。</p>
+            <p>圣辇船关卡的音乐。</p>
             <p>原曲是《东方星莲船》Extra关的音乐《夜空中的UFO恋曲》。</p>
-            <p>=====乐评施工中=====</p>
+            <p>晴空一片，万里无云——哦抱歉，云还是有的。</p>
+            <p>史蒂夫踏上了这艘飞在空中的船，开始了他新的征程。</p>
         </description>
     </music>
     <music id="ship_final" name="魔界地方都市秘境" >

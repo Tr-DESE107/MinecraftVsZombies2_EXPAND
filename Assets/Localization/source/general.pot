@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-28 02:29+0800\n"
+"POT-Creation-Date: 2025-11-08 05:55+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2687,27 +2687,27 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1282
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1281
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1286
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1285
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1288
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1287
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1290
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1289
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1292
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1291
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
@@ -3892,7 +3892,9 @@ msgstr ""
 msgctxt "music.description"
 msgid ""
 "圣辇船地图的音乐。\n"
-"=====乐评施工中====="
+"《书虫大冒险 Vol.2》中，当主角Lex从童话中回到图书馆后，邪恶Lex突然出现，夺走了魔法钢笔，并把他拉入了第五本书——《美猴王》。\n"
+"这本书中充斥着大量的有着中国元素的敌人：猛兽、神话、生肖、鬼怪……内容十分惊艳。\n"
+"这也是我最喜欢的一本书。"
 msgstr ""
 
 #. Name for music mvz2:ship_level
@@ -3911,9 +3913,28 @@ msgstr ""
 #: Music meta file
 msgctxt "music.description"
 msgid ""
-"星莲船关卡的音乐。\n"
+"圣辇船关卡的音乐。\n"
 "原曲是《东方星莲船》Extra关的音乐《夜空中的UFO恋曲》。\n"
-"=====乐评施工中====="
+"晴空一片，万里无云——哦抱歉，云还是有的。\n"
+"史蒂夫踏上了这艘飞在空中的船，开始了他新的征程。"
+msgstr ""
+
+#. Name for music mvz2:ship_final
+#: Music meta file
+msgctxt "music.name"
+msgid "魔界地方都市秘境"
+msgstr ""
+
+#. Description for music mvz2:ship_final
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"圣辇船最终关的音乐。\n"
+"是《东方星莲船》中第五关的音乐。\n"
+"天空阴云密布，船上却阳光直射。\n"
+"有的人一辈子活在亲人死亡的阴影中，有的人则活在万人赞颂的光芒之下。\n"
+"下面的人想飞上来，上面的人却也想落下去。\n"
+"然而，这重重阴云把他们隔开，怎么也无法如愿。"
 msgstr ""
 
 #. Name for archive tag mvz2:prologue
@@ -4488,12 +4509,6 @@ msgstr ""
 #: Credits meta file
 msgctxt "staff_name"
 msgid "琉"
-msgstr ""
-
-#. Name for credit staff 地图背景-圣辇船
-#: Credits meta file
-msgctxt "staff_name"
-msgid "一个发射器"
 msgstr ""
 
 #. Name for credit staff 地图背景-圣辇船
