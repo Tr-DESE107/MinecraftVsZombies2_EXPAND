@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4036976acf82622429e22bb5619bad51
+guid: 7bcc33aabbd2bdf4b88f38a476c86f34
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HerobrineSuit_0
+      name: MutantDESE107_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 40
-        width: 32
-        height: 22
+        x: 4
+        y: 68
+        width: 64
+        height: 44
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba6524a74766b740a853f282cc7475e
+      internalID: -1064381215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MutantDESE107_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 68
+        width: 52
+        height: 91
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,92 +145,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35762c488cffbd945a8abb14bc3ebf6b
-      internalID: -1279478123
+      spriteID: 7172850a2999beb47871c6d408155988
+      internalID: 810968058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HerobrineSuit_1
+      name: MutantDESE107_2
       rect:
         serializedVersion: 2
-        x: 33
-        y: 48
-        width: 42
-        height: 14
-      alignment: 9
-      pivot: {x: 0.8571429, y: 0.5}
+        x: 5
+        y: 7
+        width: 31
+        height: 60
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea0e9cc92016ba641a86e60fce34f106
-      internalID: 945290061
+      spriteID: af7f0df32be565246a3a34c142a8d75b
+      internalID: 1262129738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HerobrineSuit_2
+      name: MutantDESE107_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 39
-      alignment: 9
-      pivot: {x: 0.5, y: 0.8717949}
+        x: 37
+        y: 21
+        width: 31
+        height: 45
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9783aeaf197e24c428a8c7f013eb76b9
-      internalID: 1410227935
+      spriteID: 31fda7b96c381a649812f09c9c0d0a87
+      internalID: 522449581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HerobrineSuit_3
+      name: MutantDESE107_4
       rect:
         serializedVersion: 2
-        x: 19
-        y: 3
-        width: 19
-        height: 36
-      alignment: 9
-      pivot: {x: 0.4736842, y: 0}
+        x: 69
+        y: 17
+        width: 36
+        height: 49
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddf81e2c7d74f60479687b7b665869e7
-      internalID: 1527118571
+      spriteID: ad2a77493500ef24a82af2bf3ae79303
+      internalID: -236235080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HerobrineSuit_4
+      name: MutantDESE107_5
       rect:
         serializedVersion: 2
-        x: 39
-        y: 3
-        width: 19
-        height: 36
-      alignment: 9
-      pivot: {x: 0.4736842, y: 0}
+        x: 106
+        y: 36
+        width: 36
+        height: 30
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9b463e898ddd80488aa66ba33f9aa35
-      internalID: 135264619
+      spriteID: f30af7632bbd6dc4a9062d46abdc7b02
+      internalID: -331270383
       vertices: []
       indices: 
       edges: []
@@ -225,11 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HerobrineSuit_0: -1279478123
-      HerobrineSuit_1: 945290061
-      HerobrineSuit_2: 1410227935
-      HerobrineSuit_3: 1527118571
-      HerobrineSuit_4: 135264619
+      MutantDESE107_0: -1064381215
+      MutantDESE107_1: 810968058
+      MutantDESE107_2: 1262129738
+      MutantDESE107_3: 522449581
+      MutantDESE107_4: -236235080
+      MutantDESE107_5: -331270383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

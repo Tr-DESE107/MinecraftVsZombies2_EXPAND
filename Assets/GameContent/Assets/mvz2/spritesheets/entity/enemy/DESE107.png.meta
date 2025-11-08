@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4036976acf82622429e22bb5619bad51
+guid: 5f3a092b11f65cc4a954e2922bb956f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,11 +110,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HerobrineSuit_0
+      name: DESE107_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 40
+        x: 1
+        y: 43
         width: 32
         height: 22
       alignment: 7
@@ -124,18 +124,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35762c488cffbd945a8abb14bc3ebf6b
-      internalID: -1279478123
+      spriteID: cf66d45a4abf1c34aa7324bf16567a66
+      internalID: -1957711845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HerobrineSuit_1
+      name: DESE107_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 48
+        x: 34
+        y: 51
         width: 42
         height: 14
       alignment: 9
@@ -145,18 +145,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea0e9cc92016ba641a86e60fce34f106
-      internalID: 945290061
+      spriteID: 08671fad90d02d843bf3c7afbdb90301
+      internalID: 991816405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HerobrineSuit_2
+      name: DESE107_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 1
+        y: 3
         width: 16
         height: 39
       alignment: 9
@@ -166,18 +166,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9783aeaf197e24c428a8c7f013eb76b9
-      internalID: 1410227935
+      spriteID: 3b94d1e303321e14f8d2a63300e09913
+      internalID: 673082340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HerobrineSuit_3
+      name: DESE107_3
       rect:
         serializedVersion: 2
-        x: 19
-        y: 3
+        x: 20
+        y: 6
         width: 19
         height: 36
       alignment: 9
@@ -187,29 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddf81e2c7d74f60479687b7b665869e7
-      internalID: 1527118571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HerobrineSuit_4
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 3
-        width: 19
-        height: 36
-      alignment: 9
-      pivot: {x: 0.4736842, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9b463e898ddd80488aa66ba33f9aa35
-      internalID: 135264619
+      spriteID: 1aed3cda35b44134dae8748118599a65
+      internalID: -1490030898
       vertices: []
       indices: 
       edges: []
@@ -225,11 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HerobrineSuit_0: -1279478123
-      HerobrineSuit_1: 945290061
-      HerobrineSuit_2: 1410227935
-      HerobrineSuit_3: 1527118571
-      HerobrineSuit_4: 135264619
+      DESE107_0: -1957711845
+      DESE107_1: 991816405
+      DESE107_2: 673082340
+      DESE107_3: -1490030898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
