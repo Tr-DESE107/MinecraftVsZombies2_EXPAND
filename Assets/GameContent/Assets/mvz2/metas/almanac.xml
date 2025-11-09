@@ -2227,6 +2227,24 @@
                     <p>这到底是什么东西？</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:shou" name="寅丸 星" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture character="mvz2:shou"/>
+                <header>
+                    <p>被圣白莲选中的虎妖怪，毘沙门天的弟子。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>她本是一只普通的虎妖怪，被圣 白莲选中而成为了毘沙门天的弟子兼化身。</p>
+                    <p>她和白莲的关系说起来比较复杂。白莲供奉毘沙门天，而她又选择了星作为弟子，也作为毘沙门天的化身。因此白莲实际上也在供奉她自己的弟子。</p>
+                    <p>星在工作上十分优秀，表面看上去十分冷静而威严，然而其实是个很感性的家伙。</p>
+                    <p>红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白莲的旅途。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Areas -->
         <group id="mvz2:areas" name="地点" order="400">
