@@ -2407,6 +2407,26 @@
                     <p>但是，我真的很想回家。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:starshard.ufo_fragment" name="星之碎片：飞碟碎片" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture model="mvz2:entity.starshard.ship"/>
+                <header>
+                    <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
+                </header>
+                <flavor>
+                    <p>未知人士留下了一些记录。</p>
+                    <p/>
+                    <p>星之记录 其五：</p>
+                    <p>这该死的异变还在持续着。</p>
+                    <p>我没有任何其他选择，只能与它继续进行斗争。</p>
+                    <p>我发现我的理智似乎出现了裂痕。</p>
+                    <p>我看到了本不应看到的东西，然后那幻觉又立即消失了。</p>
+                    <p>那些飞碟还在天上飞着。</p>
+                    <p>我到底还能撑多久……？</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Important Items -->
         <group id="mvz2:important" name="重要物品" order="600">

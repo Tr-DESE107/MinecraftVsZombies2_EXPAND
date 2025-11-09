@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-07 05:30+0800\n"
+"POT-Creation-Date: 2025-11-09 05:02+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2330,7 +2330,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+1110（铁炮）</color>\n"
-"移速：<color=red>0.5，1（失去铁炮后）</color>\n"
+"速度：<color=red>0.5，1（失去铁炮后）</color>\n"
 "发射间隔：<color=red>8秒</color>"
 msgstr ""
 
@@ -2351,7 +2351,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
-"移速：<color=red>2</color>"
+"速度：<color=red>2</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:cannonball_zombie
@@ -3237,6 +3237,53 @@ msgctxt "misc.description"
 msgid "我的水桶、告示牌和灵魂沙呢？"
 msgstr ""
 
+#. Name for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "云山之拳"
+msgstr ""
+
+#. Header for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "云山之拳在碰到敌人后会向前发射，击杀并打飞一行的敌怪。"
+msgstr ""
+
+#. Flavor for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"云山是由云朵变化过来的僧侣妖怪，守护在僧侣云居 一轮身旁。\n"
+"在命莲寺众人的讨论和计划下，云山为圣辇船提供了一些云朵拳头作为最终防线。\n"
+"可别小看这些拳头，被击飞的怪物一下子可是能飞十万八千里。"
+msgstr ""
+
+#. Name for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "伞兵僵尸"
+msgstr ""
+
+#. Header for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "伞兵僵尸会在圣辇船的每一大波怪物到来时从天而降，然后将雨伞作为护盾。"
+msgstr ""
+
+#. Properties for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>200+270（雨伞）+？（随机头盔）</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "危险动作，小鬼僵尸请勿轻易尝试。"
+msgstr ""
+
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3630,6 +3677,29 @@ msgid ""
 "远处似乎有什么金属工具深深嵌在了墙壁上。"
 msgstr ""
 
+#. Name for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "圣辇船"
+msgstr ""
+
+#. Header for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一艘飞翔于天空中的巨大船只。"
+msgstr ""
+
+#. Flavor for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，需要乘船去往。倘若随意变换寺庙，会造成一些不便。\n"
+"因此白莲又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。\n"
+"如今白莲杳无音讯，星和命莲寺众人商讨后，登上圣辇船，踏上了寻找白莲的路途。\n"
+"\n"
+"据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？"
+msgstr ""
+
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3720,6 +3790,27 @@ msgid ""
 "最后也只能什么也不剩下。\n"
 "这里固然很美，各种奇特的力量也值得进行研究。\n"
 "但是，我真的很想回家。"
+msgstr ""
+
+#. Name for misc mvz2:starshard.ufo_fragment
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "星之碎片：飞碟碎片"
+msgstr ""
+
+#. Flavor for misc mvz2:starshard.ufo_fragment
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"未知人士留下了一些记录。\n"
+"\n"
+"星之记录 其五：\n"
+"这该死的异变还在持续着。\n"
+"我没有任何其他选择，只能与它继续进行斗争。\n"
+"我发现我的理智似乎出现了裂痕。\n"
+"我看到了本不应看到的东西，然后那幻觉又立即消失了。\n"
+"那些飞碟还在天上飞着。\n"
+"我到底还能撑多久……？"
 msgstr ""
 
 #. Name for almanac group mvz2:important

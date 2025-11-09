@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-07 05:30+0800\n"
-"PO-Revision-Date: 2025-11-07 17:30+0800\n"
+"POT-Creation-Date: 2025-11-09 05:02+0800\n"
+"PO-Revision-Date: 2025-11-09 17:05+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2789,7 +2789,7 @@ msgstr "The heavy cannons of Cannoneer Zombies can help them block bullets and f
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+1110（铁炮）</color>\n"
-"移速：<color=red>0.5，1（失去铁炮后）</color>\n"
+"速度：<color=red>0.5，1（失去铁炮后）</color>\n"
 "发射间隔：<color=red>8秒</color>"
 msgstr ""
 "Toughness: <color=red>200+1100 (Cannon)</color>\n"
@@ -2816,9 +2816,9 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
-"移速：<color=red>2</color>"
+"速度：<color=red>2</color>"
 msgstr ""
-"Toughness: <color=red>100</color>\n"
+"Toughness: <color=red>200</color>\n"
 "Speed: <color=red>2</color>"
 
 #. Flavor for enemies mvz2:cannonball_zombie
@@ -3891,6 +3891,58 @@ msgctxt "misc.description"
 msgid "我的水桶、告示牌和灵魂沙呢？"
 msgstr "Where're my water buckets, signs and soul sands?"
 
+#. Name for misc mvz2:unzan_fist
+#: Almanac meta file
+#, fuzzy
+#| msgctxt "entity.name"
+#| msgid "云山之拳"
+msgctxt "misc.name"
+msgid "云山之拳"
+msgstr "Unzan's Fist"
+
+#. Header for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "云山之拳在碰到敌人后会向前发射，击杀并打飞一行的敌怪。"
+msgstr ""
+
+#. Flavor for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"云山是由云朵变化过来的僧侣妖怪，守护在僧侣云居 一轮身旁。\n"
+"在命莲寺众人的讨论和计划下，云山为圣辇船提供了一些云朵拳头作为最终防线。\n"
+"可别小看这些拳头，被击飞的怪物一下子可是能飞十万八千里。"
+msgstr ""
+
+#. Name for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "伞兵僵尸"
+msgstr ""
+
+#. Header for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "伞兵僵尸会在圣辇船的每一大波怪物到来时从天而降，然后将雨伞作为护盾。"
+msgstr ""
+
+#. Properties for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>200+270（雨伞）+？（随机头盔）</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+"Toughness: <color=red>200+270 (Umbrella)+? (Random Helmet)</color>\n"
+"Speed: <color=red>1</color>"
+
+#. Flavor for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "危险动作，小鬼僵尸请勿轻易尝试。"
+msgstr ""
+
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -4372,6 +4424,30 @@ msgstr ""
 "\n"
 "There seem to be a metallic tool deeply embedded in the wall in the distance."
 
+#. Name for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "圣辇船"
+msgstr ""
+
+#. Header for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一艘飞翔于天空中的巨大船只。"
+msgstr ""
+
+#. Flavor for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，"
+"需要乘船去往。倘若随意变换寺庙，会造成一些不便。\n"
+"因此白莲又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。\n"
+"如今白莲杳无音讯，星和命莲寺众人商讨后，登上圣辇船，踏上了寻找白莲的路途。\n"
+"\n"
+"据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？"
+msgstr ""
+
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -4500,6 +4576,33 @@ msgstr ""
 "In the end, there is nothing left.\n"
 "This place is certainly beautiful, and the various strange powers are worth studying.\n"
 "Yet I really want to go home."
+
+#. Name for misc mvz2:starshard.ufo_fragment
+#: Almanac meta file
+#, fuzzy
+#| msgctxt "misc.name"
+#| msgid "星之碎片：小神灵"
+msgctxt "misc.name"
+msgid "星之碎片：飞碟碎片"
+msgstr "Starshard: Little Divine Spirit"
+
+#. Flavor for misc mvz2:starshard.ufo_fragment
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"未知人士留下了一些记录。\n"
+"\n"
+"星之记录 其五：\n"
+"这该死的异变还在持续着。\n"
+"我没有任何其他选择，只能与它继续进行斗争。\n"
+"我发现我的理智似乎出现了裂痕。\n"
+"我看到了本不应看到的东西，然后那幻觉又立即消失了。\n"
+"那些飞碟还在天上飞着。\n"
+"我到底还能撑多久……？"
+msgstr ""
+"Records left by an anonymous person.\n"
+"\n"
+"Star Record 5:"
 
 #. Name for almanac group mvz2:important
 #: Almanac meta file
@@ -6494,6 +6597,14 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>100</color>\n"
+#~ "移速：<color=red>2</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>100</color>\n"
+#~ "Speed: <color=red>2</color>"
 
 #~ msgctxt "artifacts.description"
 #~ msgid "我用金属探测器探测到你的右肩里有个箭头，所以请你立即将所有财物交给我。"
