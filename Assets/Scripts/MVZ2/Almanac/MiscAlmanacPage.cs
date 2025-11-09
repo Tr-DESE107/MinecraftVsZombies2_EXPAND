@@ -52,7 +52,7 @@ namespace MVZ2.Almanacs
                 }
             });
         }
-        public void SetActiveEntry(Sprite? image, string name, string description, bool sized, bool zoom)
+        public void SetActiveEntry(Sprite? image, Color color, string name, string description, bool sized, bool zoom)
         {
             entryImageRegion.gameObject.SetActive(true);
             entryModel.gameObject.SetActive(false);
@@ -62,6 +62,7 @@ namespace MVZ2.Almanacs
                 entryImageFull.enabled = false;
                 entryImageSized.sprite = image;
                 entryImageSized.enabled = image;
+                entryImageSized.color = color;
                 if (image.Exists())
                 {
                     entryImageSized.rectTransform.sizeDelta = image.rect.size;
@@ -71,6 +72,7 @@ namespace MVZ2.Almanacs
             {
                 entryImageFull.sprite = image;
                 entryImageFull.enabled = image;
+                entryImageFull.color = color;
                 entryImageSized.sprite = null;
                 entryImageSized.enabled = false;
                 entryImageSized.rectTransform.sizeDelta = Vector2.zero;

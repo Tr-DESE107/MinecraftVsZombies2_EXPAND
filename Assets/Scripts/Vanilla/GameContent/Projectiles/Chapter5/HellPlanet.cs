@@ -35,8 +35,8 @@ namespace MVZ2.GameContent.Projectiles
             {
                 var orbitDistance = GetOrbitDistance(entity);
                 var targetOffset = Quaternion.Euler(0, orbitAngle, 0) * (Vector3.right * orbitDistance);
-                var targetPosition = parent.Position + targetOffset;
-                entity.Velocity = (targetPosition - entity.Position);
+                var targetPosition = parent.GetCenter() + targetOffset;
+                entity.Velocity = (targetPosition - entity.GetCenter());
             }
             SetNoDestroyOutsideLawn(entity, entity.GetChildren().Length > 0);
         }

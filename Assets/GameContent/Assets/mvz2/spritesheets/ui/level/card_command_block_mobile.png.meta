@@ -1,21 +1,9 @@
 fileFormatVersion: 2
-guid: a62d2d86c3da6164fb85ab8fef46149f
+guid: f45a057d7f3b72d4883d7d18d28ea03a
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -4776567560766701095
-    second: card_mobile_0
-  - first:
-      213: 4507745102081845256
-    second: card_mobile_1
-  - first:
-      213: -7816349463641043585
-    second: card_mobile_2
-  - first:
-      213: 5696273315130911449
-    second: card_mobile_3
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -123,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: card_mobile_0
+      name: card_command_block_mobile_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,20 +131,20 @@ TextureImporter:
         width: 120
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d1c8de5c1936bdb0800000000000000
-      internalID: -4776567560766701095
+      spriteID: c771e7c74a944514986408f2904bdbd4
+      internalID: -1177441340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: card_mobile_1
+      name: card_command_block_mobile_1
       rect:
         serializedVersion: 2
         x: 121
@@ -164,56 +152,56 @@ TextureImporter:
         width: 120
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 808689b894abe8e30800000000000000
-      internalID: 4507745102081845256
+      spriteID: 51a5fc9fe5252ef42b23b53d632b1814
+      internalID: -1550992565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: card_mobile_2
+      name: card_command_block_mobile_2
       rect:
         serializedVersion: 2
         x: 242
-        y: 48
+        y: 49
         width: 112
-        height: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7d4c5b539fb68390800000000000000
-      internalID: -7816349463641043585
+      spriteID: 40705e64ebea8444b84ff138d02ddb48
+      internalID: -759443592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: card_mobile_3
+      name: card_command_block_mobile_3
       rect:
         serializedVersion: 2
         x: 242
         y: 23
         width: 24
-        height: 24
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9da2ae3666a3d0f40800000000000000
-      internalID: 5696273315130911449
+      spriteID: a8f9046d8333fc240a82bf00c0902907
+      internalID: 766832422
       vertices: []
       indices: 
       edges: []
@@ -229,11 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      card_mobile_0: -4776567560766701095
-      card_mobile_1: 4507745102081845256
-      card_mobile_2: -7816349463641043585
-      card_mobile_3: 5696273315130911449
-      card_mobile_4: -304888982
+      card_command_block_mobile_0: -1177441340
+      card_command_block_mobile_1: -1550992565
+      card_command_block_mobile_2: -759443592
+      card_command_block_mobile_3: 766832422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

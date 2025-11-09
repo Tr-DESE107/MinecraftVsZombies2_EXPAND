@@ -144,6 +144,8 @@ namespace MVZ2.Vanilla
 
         [TranslateMsg("怪物说明-还没有遇到", CONTEXT_ALMANAC)]
         public const string NOT_ENCOUNTERED_YET = "（还没有遇到）";
+        [TranslateMsg("图鉴说明-未知", CONTEXT_ALMANAC)]
+        public const string ALMANAC_UNKNOWN = "？？？";
 
 
         [TranslateMsg("音乐名-无", CONTEXT_MUSIC_NAME)]

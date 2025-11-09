@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-13 11:56+0800\n"
-"PO-Revision-Date: 2025-10-13 11:59+0800\n"
+"POT-Creation-Date: 2025-10-28 02:29+0800\n"
+"PO-Revision-Date: 2025-10-28 14:30+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1162,183 +1162,188 @@ msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Vanilla\VanillaStrings.cs:147
+#: Scripts\Vanilla\VanillaStrings.cs:145
+msgctxt "almanac"
+msgid "？？？"
+msgstr "???"
+
+#: Scripts\Vanilla\VanillaStrings.cs:149
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
 
 # 命令输出，{0}为命令名
-#: Scripts\Vanilla\VanillaStrings.cs:150
+#: Scripts\Vanilla\VanillaStrings.cs:152
 msgctxt "command.output"
 msgid "未找到命令{0}！"
 msgstr "Command {0} not found!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:152
+#: Scripts\Vanilla\VanillaStrings.cs:154
 msgctxt "command.output"
 msgid "/{0} - {1}"
 msgstr "/{0} - {1}"
 
 # 命令输出-help
-#: Scripts\Vanilla\VanillaStrings.cs:154
+#: Scripts\Vanilla\VanillaStrings.cs:156
 msgctxt "command.output"
 msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
 msgstr ""
 "For more information about a command, please enter '/help <command name>'"
 
 # 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
-#: Scripts\Vanilla\VanillaStrings.cs:156
+#: Scripts\Vanilla\VanillaStrings.cs:158
 msgctxt "command.output"
 msgid "{0}: [{1}] {2}"
 msgstr "{0}: [{1}] {2}"
 
 # 命令输出-blueprint，{0}为参数
-#: Scripts\Vanilla\VanillaStrings.cs:158
+#: Scripts\Vanilla\VanillaStrings.cs:160
 msgctxt "command.output"
 msgid "蓝图槽位参数{0}超出范围"
 msgstr "The parameter of blueprint slot {0} is out of its range."
 
 # 命令输出-cheat，{0}为参数
-#: Scripts\Vanilla\VanillaStrings.cs:160
+#: Scripts\Vanilla\VanillaStrings.cs:162
 msgctxt "command.output"
 msgid "未找到作弊命令{0}"
 msgstr "Cheat {0} not found"
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\VanillaStrings.cs:162
+#: Scripts\Vanilla\VanillaStrings.cs:164
 msgctxt "command.output"
 msgid "已启用{0}"
 msgstr "Enabled {0}"
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\VanillaStrings.cs:164
+#: Scripts\Vanilla\VanillaStrings.cs:166
 msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr "Disabled {0}"
 
 # 命令输出-save
-#: Scripts\Vanilla\VanillaStrings.cs:166
+#: Scripts\Vanilla\VanillaStrings.cs:168
 msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr "Level state has been successfully saved"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:168
+#: Scripts\Vanilla\VanillaStrings.cs:170
 msgctxt "command.output"
 msgid "已解锁游戏状态{0}"
 msgstr "Unlocked game state {0}"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:170
+#: Scripts\Vanilla\VanillaStrings.cs:172
 msgctxt "command.output"
 msgid "无法解锁游戏状态{0}：该状态已被解锁"
 msgstr "Cannot unlock game state {0}: This state is already unlocked"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:172
+#: Scripts\Vanilla\VanillaStrings.cs:174
 msgctxt "command.output"
 msgid "已重新锁定游戏状态{0}"
 msgstr "Relocked game state {0}"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:174
+#: Scripts\Vanilla\VanillaStrings.cs:176
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr "Cannot relock game state {0}: This state is not unlocked"
 
-#: Scripts\Vanilla\VanillaStrings.cs:176
+#: Scripts\Vanilla\VanillaStrings.cs:178
 msgctxt "command.output"
 msgid "命令格式错误"
 msgstr "Wrong command format"
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:178
+#: Scripts\Vanilla\VanillaStrings.cs:180
 msgctxt "command.output"
 msgid "该命令只能在关卡中被调用"
 msgstr "This command can only be called in a level."
 
-#: Scripts\Vanilla\VanillaStrings.cs:180
+#: Scripts\Vanilla\VanillaStrings.cs:182
 msgctxt "command.output"
 msgid "参数{0}格式错误"
 msgstr "Incorrect format of parameter {0}"
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:182
+#: Scripts\Vanilla\VanillaStrings.cs:184
 msgctxt "command.output"
 msgid "参数数量错误"
 msgstr "Incorrect parameter count"
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:184
+#: Scripts\Vanilla\VanillaStrings.cs:186
 msgctxt "command.output"
 msgid "参数{0}丢失"
 msgstr "Missing parameter {0}"
 
 # 命令输出，{0}为有效参数列表
-#: Scripts\Vanilla\VanillaStrings.cs:186
+#: Scripts\Vanilla\VanillaStrings.cs:188
 msgctxt "command.output"
 msgid "参数错误，有效值为{0}"
 msgstr "Incorrect parameter, valid values are {0}"
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:188
+#: Scripts\Vanilla\VanillaStrings.cs:190
 msgctxt "command.output"
 msgid "参数丢失，有效值为{0}"
 msgstr "Missing parameter, valid values are {0}"
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:191
+#: Scripts\Vanilla\VanillaStrings.cs:193
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr "Godmode"
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:193
+#: Scripts\Vanilla\VanillaStrings.cs:195
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr "Infinite Energy"
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:195
+#: Scripts\Vanilla\VanillaStrings.cs:197
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr "Instant Recharge"
 
-#: Scripts\Vanilla\VanillaStrings.cs:197
+#: Scripts\Vanilla\VanillaStrings.cs:199
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr "Infinite Starshards"
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:200
+#: Scripts\Vanilla\VanillaStrings.cs:202
 msgctxt "command_parameter.type"
 msgid "真值"
 msgstr "Boolean"
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:202
+#: Scripts\Vanilla\VanillaStrings.cs:204
 msgctxt "command_parameter.type"
 msgid "整数"
 msgstr "Integer"
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:204
+#: Scripts\Vanilla\VanillaStrings.cs:206
 msgctxt "command_parameter.type"
 msgid "实数"
 msgstr "Real"
 
 # 按键名
-#: Scripts\Vanilla\VanillaStrings.cs:206
+#: Scripts\Vanilla\VanillaStrings.cs:208
 msgctxt "command_parameter.type"
 msgid "ID"
 msgstr "ID"
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:208
+#: Scripts\Vanilla\VanillaStrings.cs:210
 msgctxt "command_parameter.type"
 msgid "命令"
 msgstr "Command"
 
-#: Scripts\Vanilla\VanillaStrings.cs:210
+#: Scripts\Vanilla\VanillaStrings.cs:212
 msgctxt "command_parameter.type"
 msgid "未知"
 msgstr "Unknown"
@@ -1734,12 +1739,12 @@ msgstr "Failed to export logs."
 msgid "日志已导出至{0}。"
 msgstr "The log files have been successfully exported to {0}."
 
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:550
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:564
 msgctxt "command.output"
 msgid "<color=red>命令不存在：{0}</color>"
 msgstr "<color=red>Command not found: {0}</color>"
 
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:552
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:566
 msgctxt "command.output"
 msgid "<color=red>错误：{0}</color>"
 msgstr "<color=red>Error: {0}</color>"
@@ -2738,34 +2743,34 @@ msgstr ""
 "Best Streak:\n"
 "{0}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:827
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:829
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:831
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr "Scale: {0}"
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:833
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr "{0}: {1}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:835
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr "Hold left mouse and drag to move; Scroll to scale"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:837
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:855
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr "Drag with one finger to move; Touch with two fingers to scale"

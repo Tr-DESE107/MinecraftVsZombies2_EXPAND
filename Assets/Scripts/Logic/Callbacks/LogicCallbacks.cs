@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MVZ2Logic.Almanacs;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 
 namespace MVZ2Logic.Callbacks
 {
@@ -35,10 +36,22 @@ namespace MVZ2Logic.Callbacks
             public int userIndex;
             public string userName;
         }
+        public struct GetBlueprintStyleParams
+        {
+            public SeedDefinition blueprintDefinition;
+            public bool isCommandBlock;
+
+            public GetBlueprintStyleParams(SeedDefinition blueprintID, bool isCommandBlock)
+            {
+                this.blueprintDefinition = blueprintID;
+                this.isCommandBlock = isCommandBlock;
+            }
+        }
         public readonly static CallbackType<GetAlmanacEntryTagsParams> GET_ALMANAC_ENTRY_TAGS = new();
         public readonly static CallbackType<GetInnateBlueprintsParams> GET_INNATE_BLUEPRINTS = new();
         public readonly static CallbackType<GetInnateArtifactsParams> GET_INNATE_ARTIFACTS = new();
         public readonly static CallbackType<EmptyCallbackParams> GET_BLUEPRINT_SLOT_COUNT = new();
+        public readonly static CallbackType<GetBlueprintStyleParams> GET_BLUEPRINT_STYLE = new();
 
         public readonly static CallbackType<StringCallbackParams> IS_SPECIAL_USER_NAME = new();
         public readonly static CallbackType<PostUserLoadParams> POST_USER_LOAD = new();

@@ -556,7 +556,7 @@ namespace MVZ2.Level
             };
 
             var orderedBlueprints = new List<NamespaceID?>();
-            Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
+            Main.AlmanacManager.GetOrderedContraptionsByAlmanac(blueprints, orderedBlueprints);
             var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless())).ToArray();
             choosingBlueprints = orderedBlueprints.ToArray();
 
@@ -1152,8 +1152,7 @@ namespace MVZ2.Level
             {
                 if (!NamespaceID.IsValid(id))
                     return ChoosingBlueprintViewData.Empty;
-                var viewData = Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless());
-                viewData.blueprint.preset = BlueprintPreset.CommandBlock;
+                var viewData = Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless(), true);
                 viewData.blueprint.iconGrayscale = true;
                 var blueprintDef = Main.Game.GetSeedDefinition(id);
                 if (blueprintDef != null && blueprintDef.IsUpgradeBlueprint())

@@ -7,21 +7,24 @@ namespace MVZ2.Metas
 {
     public class BlueprintMetaList
     {
-        public BlueprintMetaList(BlueprintOptionMeta[] options, BlueprintEntityMeta[] entities, BlueprintErrorMeta[] errors)
+        public BlueprintMetaList(BlueprintOptionMeta[] options, BlueprintEntityMeta[] entities, BlueprintErrorMeta[] errors, BlueprintStyleMeta[] styles)
         {
             Options = options;
             Entities = entities;
             Errors = errors;
+            Styles = styles;
         }
 
         public BlueprintOptionMeta[] Options { get; private set; }
         public BlueprintEntityMeta[] Entities { get; private set; }
         public BlueprintErrorMeta[] Errors { get; private set; }
+        public BlueprintStyleMeta[] Styles { get; private set; }
         public static BlueprintMetaList FromXmlNode(string nsp, XmlNode node, string defaultNsp)
         {
             var options = new List<BlueprintOptionMeta>();
             var errors = new List<BlueprintErrorMeta>();
             var entities = new List<BlueprintEntityMeta>();
+            var styles = new List<BlueprintStyleMeta>();
             for (var i = 0; i < node.ChildNodes.Count; i++)
             {
                 var child = node.ChildNodes[i];
@@ -37,8 +40,12 @@ namespace MVZ2.Metas
                 {
                     LoadEntities(nsp, entities, child, defaultNsp);
                 }
+                else if (child.Name == "styles")
+                {
+                    LoadStyles(nsp, styles, child, defaultNsp);
+                }
             }
-            return new BlueprintMetaList(options.ToArray(), entities.ToArray(), errors.ToArray());
+            return new BlueprintMetaList(options.ToArray(), entities.ToArray(), errors.ToArray(), styles.ToArray());
         }
         private static void LoadEntities(string nsp, List<BlueprintEntityMeta> entities, XmlNode node, string defaultNsp)
         {
@@ -81,6 +88,21 @@ namespace MVZ2.Metas
                     if (meta != null)
                     {
                         errors.Add(meta);
+                    }
+                }
+            }
+        }
+        private static void LoadStyles(string nsp, List<BlueprintStyleMeta> styles, XmlNode node, string defaultNsp)
+        {
+            for (var i = 0; i < node.ChildNodes.Count; i++)
+            {
+                var child = node.ChildNodes[i];
+                if (child.Name == "style")
+                {
+                    var meta = BlueprintStyleMeta.FromXmlNode(child, defaultNsp);
+                    if (meta != null)
+                    {
+                        styles.Add(meta);
                     }
                 }
             }

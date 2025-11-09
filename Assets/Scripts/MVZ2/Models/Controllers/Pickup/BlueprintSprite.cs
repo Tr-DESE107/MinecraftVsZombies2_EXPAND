@@ -12,18 +12,13 @@ namespace MVZ2.Models
         {
             costText.text = viewData.cost;
             triggerCostRoot.SetActive(viewData.triggerActive);
-            foreach (var preset in normalPresets)
-            {
-                preset.SetActive(viewData.preset == BlueprintPreset.Normal);
-            }
-            foreach (var preset in upgradePresets)
-            {
-                preset.SetActive(viewData.preset == BlueprintPreset.Upgrade);
-            }
-            foreach (var preset in commandBlockPresets)
-            {
-                preset.SetActive(viewData.preset == BlueprintPreset.CommandBlock);
-            }
+
+            // Styles
+            if (standaloneBackground) standaloneBackground.sprite = viewData.standaloneBackground;
+            if (mobileBackground) mobileBackground.sprite = viewData.mobileBackground;
+            if (mobileFrameTop) mobileFrameTop.sprite = viewData.mobileFrameTop;
+            if (mobileFrameBottom) mobileFrameBottom.sprite = viewData.mobileFrameBottom;
+
             var icon = viewData.icon;
             iconRenderer.enabled = icon && !viewData.iconGrayscale;
             iconRenderer.sprite = icon;
@@ -59,14 +54,22 @@ namespace MVZ2.Models
         protected GameObject triggerCostRoot = null!;
         [SerializeField]
         protected TextMeshPro costText = null!;
-        [SerializeField]
-        protected GameObject[] normalPresets = null!;
-        [SerializeField]
-        protected GameObject[] upgradePresets = null!;
-        [SerializeField]
-        protected GameObject[] commandBlockPresets = null!;
+
         [SerializeField]
         protected Vector2 iconSpriteSize;
+
+        [Header("Styles (Standalone)")]
+        [SerializeField]
+        private SpriteRenderer standaloneBackground = null!;
+
+        [Header("Styles (Mobile)")]
+        [SerializeField]
+        private SpriteRenderer mobileBackground = null!;
+        [SerializeField]
+        private SpriteRenderer mobileFrameTop = null!;
+        [SerializeField]
+        private SpriteRenderer mobileFrameBottom = null!;
+
         [SerializeField]
         protected bool lockAspect;
     }

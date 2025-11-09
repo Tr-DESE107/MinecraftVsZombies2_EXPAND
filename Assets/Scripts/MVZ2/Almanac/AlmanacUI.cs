@@ -84,13 +84,13 @@ namespace MVZ2.Almanacs
         {
             enemies.SetActiveEntry(model, name, description);
         }
-        public void SetActiveArtifactEntry(Sprite? sprite, string name, string description)
+        public void SetActiveArtifactEntry(Sprite? sprite, Color color, string name, string description)
         {
-            artifacts.SetActiveEntry(sprite, name, description, true, false);
+            artifacts.SetActiveEntry(sprite, color, name, description, true, false);
         }
         public void SetActiveMiscEntry(Sprite? sprite, string name, string description, bool sized = false, bool zoom = true)
         {
-            miscs.SetActiveEntry(sprite, name, description, sized, zoom);
+            miscs.SetActiveEntry(sprite, Color.white, name, description, sized, zoom);
         }
         public void SetActiveMiscEntry(ModelBuilder model, string name, string description)
         {

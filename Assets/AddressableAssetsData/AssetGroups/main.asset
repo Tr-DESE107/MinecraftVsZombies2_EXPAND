@@ -8562,11 +8562,11 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2cfaa6b4cafa4e4cb84af18ad63d07f
-    m_Address: mvz2:ui/level/mobile/card_upgrade_mobile
+    m_Address: mvz2:ui/level/card_upgrade_mobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3186b48658bcbe458396f03e2f38590
     m_Address: mvz2:entity/contraption/diamond_spikes
@@ -8723,11 +8723,11 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a62d2d86c3da6164fb85ab8fef46149f
-    m_Address: mvz2:ui/level/mobile/card_mobile
+    m_Address: mvz2:ui/level/card_mobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a63910147a739b64b8e08fe64c258544
     m_Address: mvz2:halloween
@@ -12552,11 +12552,11 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f45a057d7f3b72d4883d7d18d28ea03a
-    m_Address: mvz2:ui/level/mobile/card_command_block_mobile
+    m_Address: mvz2:ui/level/card_command_block_mobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f45a6df23c71d23459d9697033f1c6c9
     m_Address: mvz2:arcade/a_tooth_for_a_tooth

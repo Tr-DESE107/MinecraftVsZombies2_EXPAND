@@ -11,9 +11,12 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -23,7 +26,6 @@ namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        #region 选项
         public BlueprintMetaList? GetBlueprintMetaList(string spaceName)
         {
             var modResource = GetModResource(spaceName);
@@ -31,6 +33,7 @@ namespace MVZ2.Managers
                 return null;
             return modResource.BlueprintMetaList;
         }
+        #region 选项
         public BlueprintOptionMeta[] GetModBlueprintOptionMetas(string spaceName)
         {
             var metalist = GetBlueprintMetaList(spaceName);
@@ -53,6 +56,20 @@ namespace MVZ2.Managers
             return modResource.BlueprintMetaList.Errors;
         }
         #endregion
+
+        #region 样式
+
+        public BlueprintStyleMeta? GetBlueprintStyleMeta(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return null;
+            var metalist = GetBlueprintMetaList(id.SpaceName);
+            if (metalist == null)
+                return null;
+            return metalist.Styles.FirstOrDefault(s => s.ID == id.Path);
+        }
+        #endregion
+
         public BlueprintViewData GetBlueprintViewData(SeedPack seed)
         {
             if (seed == null)
@@ -66,7 +83,8 @@ namespace MVZ2.Managers
             var sprite = GetBlueprintIcon(seedDef);
             string costStr = string.Empty;
 
-            bool commandBlock = seedDef.GetID() == VanillaContraptionID.commandBlock;
+            var seedID = seedDef.GetID();
+            bool commandBlock = seedID == VanillaContraptionID.commandBlock;
             if (!commandBlock)
             {
                 var costSB = new StringBuilder();
@@ -77,23 +95,18 @@ namespace MVZ2.Managers
                 }
                 costStr = costSB.ToString();
             }
-            BlueprintPreset preset = BlueprintPreset.Normal;
-            if (isCommandBlock || commandBlock)
-            {
-                preset = BlueprintPreset.CommandBlock;
-            }
-            else if (seedDef.IsUpgradeBlueprint())
-            {
-                preset = BlueprintPreset.Upgrade;
-            }
-            return new BlueprintViewData()
+
+            var viewData = new BlueprintViewData()
             {
                 icon = sprite,
                 cost = costStr,
                 triggerActive = seedDef.IsTriggerActive(),
-                preset = preset,
                 iconGrayscale = isCommandBlock
             };
+            var styleID = GetBlueprintStyleID(seedDef, isCommandBlock);
+            var styleMeta = GetBlueprintStyleMeta(styleID);
+            SetBlueprintViewDataStyle(ref viewData, styleMeta);
+            return viewData;
         }
         public BlueprintViewData GetBlueprintViewData(NamespaceID? seedID, bool isEndless, bool isCommandBlock = false)
         {
@@ -109,14 +122,17 @@ namespace MVZ2.Managers
         }
         public BlueprintViewData GetDefaultBlueprintViewData(bool isCommandBlock = false)
         {
-            return new BlueprintViewData()
+            var viewData = new BlueprintViewData()
             {
                 triggerActive = false,
                 cost = "0",
                 icon = GetDefaultSprite(),
-                preset = isCommandBlock ? BlueprintPreset.CommandBlock : BlueprintPreset.Normal,
                 iconGrayscale = isCommandBlock,
             };
+            var styleID = isCommandBlock ? LogicBlueprintStyles.normal : LogicBlueprintStyles.commandBlock;
+            var styleMeta = GetBlueprintStyleMeta(styleID);
+            SetBlueprintViewDataStyle(ref viewData, styleMeta);
+            return viewData;
         }
         public string GetBlueprintName(NamespaceID blueprintID, bool commandBlock)
         {
@@ -166,6 +182,24 @@ namespace MVZ2.Managers
         public Sprite? GetBlueprintIcon(SeedDefinition seedDef)
         {
             return Main.IsMobile() ? GetBlueprintIconMobile(seedDef) : GetBlueprintIconStandalone(seedDef);
+        }
+        private NamespaceID GetBlueprintStyleID(SeedDefinition seedDef, bool isCommandBlock)
+        {
+            var defaultValue = LogicBlueprintStyles.normal;
+            var result = new CallbackResult();
+            result.SetValue(defaultValue);
+            var args = new LogicCallbacks.GetBlueprintStyleParams(seedDef, isCommandBlock);
+            Global.Game.RunCallbackWithResultFiltered(LogicCallbacks.GET_BLUEPRINT_STYLE, args, result, seedDef);
+
+            return result.GetValue<NamespaceID>() ?? defaultValue;
+        }
+        private void SetBlueprintViewDataStyle(ref BlueprintViewData viewData, BlueprintStyleMeta? styleMeta)
+        {
+            var main = Main;
+            viewData.standaloneBackground = main.GetFinalSprite(styleMeta?.StandaloneBackground);
+            viewData.mobileBackground = main.GetFinalSprite(styleMeta?.MobileBackground);
+            viewData.mobileFrameTop = main.GetFinalSprite(styleMeta?.MobileFrameTop);
+            viewData.mobileFrameBottom = main.GetFinalSprite(styleMeta?.MobileFrameBottom);
         }
     }
 }

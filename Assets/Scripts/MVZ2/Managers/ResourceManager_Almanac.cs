@@ -33,6 +33,40 @@ namespace MVZ2.Managers
                 return entry;
             return entries.groups.SelectMany(g => g.entries).FirstOrDefault(e => e.id == id);
         }
+        public AlmanacMetaEntry[] GetAlmanacMetaEntries(string category)
+        {
+            List<AlmanacMetaEntry> list = new List<AlmanacMetaEntry>();
+            foreach (var modResource in modResources)
+            {
+                var metaList = modResource.AlmanacMetaList;
+                if (metaList == null)
+                    continue;
+                foreach (var categoryMeta in metaList.categories)
+                {
+                    if (categoryMeta.name != category || categoryMeta.entries == null)
+                        continue;
+                    list.AddRange(categoryMeta.entries);
+                }
+            }
+            return list.ToArray();
+        }
+        public AlmanacMetaGroup[] GetAlmanacMetaGroups(string category)
+        {
+            List<AlmanacMetaGroup> list = new List<AlmanacMetaGroup>();
+            foreach (var modResource in modResources)
+            {
+                var metaList = modResource.AlmanacMetaList;
+                if (metaList == null)
+                    continue;
+                foreach (var categoryMeta in metaList.categories)
+                {
+                    if (categoryMeta.name != category || categoryMeta.groups == null)
+                        continue;
+                    list.AddRange(categoryMeta.groups);
+                }
+            }
+            return list.ToArray();
+        }
         public AlmanacTagMeta? GetAlmanacTagMeta(NamespaceID? id)
         {
             if (!NamespaceID.IsValid(id))
@@ -99,6 +133,7 @@ namespace MVZ2.Managers
                     {
                         AddConditionListUnlocks(entry.unlock);
                         AddConditionListUnlocks(entry.encounterUnlock);
+                        AddConditionListUnlocks(entry.silhouetteUnlock);
                     }
                 }
                 if (category.groups != null)
@@ -109,6 +144,7 @@ namespace MVZ2.Managers
                         {
                             AddConditionListUnlocks(entry.unlock);
                             AddConditionListUnlocks(entry.encounterUnlock);
+                            AddConditionListUnlocks(entry.silhouetteUnlock);
                         }
                     }
                 }
