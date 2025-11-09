@@ -2333,6 +2333,22 @@
                     <p>远处似乎有什么金属工具深深嵌在了墙壁上。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:end_ship" name="末地船" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture sprite="mvz2:misc/end_ship"/>
+                <header>
+                    <p>一艘飞翔于幻想乡天空中的船只，时不时会袭击飞在空中的妖怪们。</p>
+                </header>
+                <flavor>
+                    <p>原本只是会出现在末地中的飞行船只，不知为何竟出现在了幻想乡的空中。</p>
+                    <p>奇怪的是，上面没有末影人，有的只是普通的、形似海盗的僵尸。</p>
+                    <p>更加奇怪的是，里面居然有一颗末影水晶以极快的速度来修复船体。</p>
+                    <p>这导致任何想破坏这艘船的人，必须要先把内部的末影水晶破坏掉，然而这艘船在落入下风时也会选择以极快的速度逃跑。</p>
+                    <p>总之，关于这艘船的一切，都是个谜。</p>
+                </flavor>
+            </entry>
             <entry id="mvz2:palanquin_ship" name="圣辇船" >
                 <unlock>
                     <condition required="mvz2:level.ship_2"/>

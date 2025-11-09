@@ -161,6 +161,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
   - name: misc/dream
     sprite: {fileID: 21300000, guid: 8826f776dff1c6a4d8d72030535a150e, type: 3}
+  - name: misc/end_ship
+    sprite: {fileID: 21300000, guid: 7e371a692db43054c88eb8560c9ebd74, type: 3}
   - name: misc/eternal_night_swamp
     sprite: {fileID: 21300000, guid: 95c5376f1e749954692fa0c793e7dafb, type: 3}
   - name: misc/explosion_before_3_years

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-09 05:02+0800\n"
-"PO-Revision-Date: 2025-11-09 17:05+0800\n"
+"POT-Creation-Date: 2025-11-09 07:06+0800\n"
+"PO-Revision-Date: 2025-11-09 19:10+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3893,9 +3893,6 @@ msgstr "Where're my water buckets, signs and soul sands?"
 
 #. Name for misc mvz2:unzan_fist
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "entity.name"
-#| msgid "云山之拳"
 msgctxt "misc.name"
 msgid "云山之拳"
 msgstr "Unzan's Fist"
@@ -3919,13 +3916,14 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "伞兵僵尸"
-msgstr ""
+msgstr "Paratrooper Zombie"
 
 #. Header for misc mvz2:paratrooper_zombie
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "伞兵僵尸会在圣辇船的每一大波怪物到来时从天而降，然后将雨伞作为护盾。"
 msgstr ""
+"Paratrooper Zombies descend from the sky during each huge wave of monsters on the Palanquin Ship, using their umbrellas as shields."
 
 #. Properties for misc mvz2:paratrooper_zombie
 #: Almanac meta file
@@ -3934,14 +3932,14 @@ msgid ""
 "生命：<color=red>200+270（雨伞）+？（随机头盔）</color>\n"
 "速度：<color=red>1</color>"
 msgstr ""
-"Toughness: <color=red>200+270 (Umbrella)+? (Random Helmet)</color>\n"
+"Toughness: <color=red>200+270 (umbrella)+? (random helmet)</color>\n"
 "Speed: <color=red>1</color>"
 
 #. Flavor for misc mvz2:paratrooper_zombie
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "危险动作，小鬼僵尸请勿轻易尝试。"
-msgstr ""
+msgstr "Dangerous action. Imp Zombies should not attempt this."
 
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
@@ -4254,6 +4252,29 @@ msgctxt "misc.description"
 msgid "这到底是什么东西？"
 msgstr "What the heck is this?"
 
+#. Name for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "寅丸 星"
+msgstr "Toramaru Shou"
+
+#. Header for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "被圣白莲选中的虎妖怪，毘沙门天的弟子。"
+msgstr ""
+
+#. Flavor for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"她本是一只普通的虎妖怪，被圣 白莲选中而成为了毘沙门天的弟子兼化身。\n"
+"她和白莲的关系说起来比较复杂。白莲供奉毘沙门天，而她又选择了星作为弟子，也作为毘沙门天的化身。因此白莲实际上也在供奉她自己的弟子。\n"
+"星在工作上十分优秀，表面看上去十分冷静而威严，然而其实是个很感性的家伙。\n"
+"红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白"
+"莲的旅途。"
+msgstr ""
+
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -4424,11 +4445,34 @@ msgstr ""
 "\n"
 "There seem to be a metallic tool deeply embedded in the wall in the distance."
 
+#. Name for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "末地船"
+msgstr "End Ship"
+
+#. Header for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一艘飞翔于幻想乡天空中的船只，时不时会袭击飞在空中的妖怪们。"
+msgstr ""
+
+#. Flavor for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"原本只是会出现在末地中的飞行船只，不知为何竟出现在了幻想乡的空中。\n"
+"奇怪的是，上面没有末影人，有的只是普通的、形似海盗的僵尸。\n"
+"更加奇怪的是，里面居然有一颗末影水晶以极快的速度来修复船体。\n"
+"这导致任何想破坏这艘船的人，必须要先把内部的末影水晶破坏掉，然而这艘船在落入下风时也会选择以极快的速度逃跑。\n"
+"总之，关于这艘船的一切，都是个谜。"
+msgstr ""
+
 #. Name for misc mvz2:palanquin_ship
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "圣辇船"
-msgstr ""
+msgstr "Palanquin Ship"
 
 #. Header for misc mvz2:palanquin_ship
 #: Almanac meta file
@@ -4579,12 +4623,9 @@ msgstr ""
 
 #. Name for misc mvz2:starshard.ufo_fragment
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "misc.name"
-#| msgid "星之碎片：小神灵"
 msgctxt "misc.name"
 msgid "星之碎片：飞碟碎片"
-msgstr "Starshard: Little Divine Spirit"
+msgstr "Starshard: UFO Piece"
 
 #. Flavor for misc mvz2:starshard.ufo_fragment
 #: Almanac meta file
@@ -6225,6 +6266,12 @@ msgstr "Miko"
 msgctxt "character.name"
 msgid "影像"
 msgstr "Hologram"
+
+#. Name for character mvz2:shou
+#: Character meta file
+msgctxt "character.name"
+msgid "星"
+msgstr "Shou"
 
 #. Name for artifact mvz2:almanac
 #: Artifact meta file
