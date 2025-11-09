@@ -2315,6 +2315,22 @@
                     <p>远处似乎有什么金属工具深深嵌在了墙壁上。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:palanquin_ship" name="圣辇船" >
+                <unlock>
+                    <condition required="mvz2:level.ship_2"/>
+                </unlock>
+                <picture sprite="mvz2:misc/ship"/>
+                <header>
+                    <p>一艘飞翔于天空中的巨大船只。</p>
+                </header>
+                <flavor>
+                    <p>圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，需要乘船去往。倘若随意变换寺庙，会造成一些不便。</p>
+                    <p>因此白莲又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。</p>
+                    <p>如今白莲杳无音讯，星和命莲寺众人商讨后，登上圣辇船，踏上了寻找白莲的路途。</p>
+                    <p/>
+                    <p>据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Starshards -->
         <group id="mvz2:starshards" name="星之碎片" order="500">
