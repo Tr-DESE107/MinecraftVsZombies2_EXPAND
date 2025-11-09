@@ -187,6 +187,7 @@
     <buff id="dragon_tooth" polarity="negative" level="0" target="enemy" />
     <buff id="skyward_beacon_night" polarity="none" level="5000" target="contraption" />
     <buff id="skyward_night" polarity="mixed" level="3000" target="level" />
+    <buff id="red_dragon_stage" polarity="none" level="4000" target="level" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />
