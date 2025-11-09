@@ -159,6 +159,9 @@
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     
+    <model name="paratrooper_zombie" type="entity" path="mvz2:enemy/ship/paratrooper_zombie" width="96" height="106" xOffset="30" yOffset="-47">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
     <model name="undead_flying_object_red" type="entity" path="mvz2:enemy/ship/undead_flying_object" width="80" height="56" xOffset="0" yOffset="-24">
         <animator updateOnShot="true">
             <parameters>

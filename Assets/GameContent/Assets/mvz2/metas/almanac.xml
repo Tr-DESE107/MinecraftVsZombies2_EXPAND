@@ -1399,7 +1399,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200+1110（铁炮）</color>]]></p>
-                <p>移速：<![CDATA[<color=red>0.5，1（失去铁炮后）</color>]]></p>
+                <p>速度：<![CDATA[<color=red>0.5，1（失去铁炮后）</color>]]></p>
                 <p>发射间隔：<![CDATA[<color=red>8秒</color>]]></p>
             </properties>
             <flavor>
@@ -1412,7 +1412,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>100</color>]]></p>
-                <p>移速：<![CDATA[<color=red>2</color>]]></p>
+                <p>速度：<![CDATA[<color=red>2</color>]]></p>
             </properties>
             <flavor>
                 <p>没错，炮弹也是一只僵尸！</p>
@@ -2004,6 +2004,41 @@
                 </header>
                 <flavor>
                     <p>我的水桶、告示牌和灵魂沙呢？</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:unzan_fist" name="云山之拳" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture model="mvz2:entity.unzan_fist"/>
+                <header>
+                    <p>云山之拳在碰到敌人后会向前发射，击杀并打飞一行的敌怪。</p>
+                </header>
+                <flavor>
+                    <p>云山是由云朵变化过来的僧侣妖怪，守护在僧侣云居 一轮身旁。</p>
+                    <p>在命莲寺众人的讨论和计划下，云山为圣辇船提供了一些云朵拳头作为最终防线。</p>
+                    <p>可别小看这些拳头，被击飞的怪物一下子可是能飞十万八千里。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:paratrooper_zombie" name="伞兵僵尸" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture model="mvz2:entity.paratrooper_zombie"/>
+                <tags>
+                    <tag id="mvz2:shell" value="mvz2:flesh"/>
+                    <tag id="mvz2:mass" value="0"/>
+                    <tag id="mvz2:shell_shield" value="mvz2:leather"/>
+                </tags>
+                <header>
+                    <p>伞兵僵尸会在圣辇船的每一大波怪物到来时从天而降，然后将雨伞作为护盾。</p>
+                </header>
+                <properties>
+                    <p>生命：<![CDATA[<color=red>200+270（雨伞）+？（随机头盔）</color>]]></p>
+                    <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>危险动作，小鬼僵尸请勿轻易尝试。</p>
                 </flavor>
             </entry>
         </group>

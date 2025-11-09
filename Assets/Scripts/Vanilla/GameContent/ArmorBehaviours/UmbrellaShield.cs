@@ -19,12 +19,12 @@ namespace MVZ2.GameContent.Armors
         public override void PostUpdate(Armor armor)
         {
             base.PostUpdate(armor);
-            var droop = false;
-            if (armor.Owner != null && !ParatroopBuff.IsParachuting(armor.Owner))
+            var raised = false;
+            if (armor.Owner != null && ParatroopBuff.IsParachuting(armor.Owner))
             {
-                droop = true;
+                raised = true;
             }
-            armor.SetModelProperty("TongueDroop", droop);
+            armor.SetModelProperty("Raised", raised);
         }
         private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {

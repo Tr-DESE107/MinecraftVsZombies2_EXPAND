@@ -1193,6 +1193,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a6935911a14b294597e34fb03cfb049
+    m_Address: mvz2:misc/human_village
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a6dd592d75f77949b5f1183e7c15b3c
     m_Address: mvz2:random/explosion2
     m_ReadOnly: 0
@@ -2773,6 +2780,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d46665dd2b4ecc408e108d369a274e8
+    m_Address: mvz2:enemy/ship/paratrooper_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d50904b4df307a468139bc01a46f67a
     m_Address: mvz2:held/starshards/castle
     m_ReadOnly: 0
@@ -3594,6 +3608,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 508b6af64add28a4aa27df24e84640ff
     m_Address: mvz2:map/dream/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50bf732bad4c58e4594fe0d57da0eeff
+    m_Address: mvz2:misc/abandoned_house
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6251,6 +6272,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e2855d040c62c5448c709e7cd230d01
+    m_Address: mvz2:misc/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e2905d730b40b3468f8b5ab3bb1a3f8
     m_Address: mvz2:entity/projectiles/firework_big
     m_ReadOnly: 0
@@ -7391,6 +7419,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a81e7ee6085bf10488c8ac5cec8948f8
+    m_Address: mvz2:misc/fall_from_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a84ced210884b2b4cac4a4b7d7f4f6a6
     m_Address: mvz2:entity/projectiles/soulfire_ball
