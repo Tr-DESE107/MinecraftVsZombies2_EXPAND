@@ -412,7 +412,12 @@
             <layer sprite="mvz2:characters/armor_stand" />
         </variant>
     </character>
-    <character id="nue" name="星">
+    <character id="nue" name="鵺">
+        <variant id="mvz2:normal" width="448" height="896" extendRight="0" pivotX="0.5" pivotY="0">
+            <layer sprite="mvz2:characters/armor_stand" />
+        </variant>
+    </character>
+    <character id="sekibanki" name="赤蛮奇">
         <variant id="mvz2:normal" width="448" height="896" extendRight="0" pivotX="0.5" pivotY="0">
             <layer sprite="mvz2:characters/armor_stand" />
         </variant>

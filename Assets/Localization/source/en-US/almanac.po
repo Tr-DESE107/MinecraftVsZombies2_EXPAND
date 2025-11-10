@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-10 10:28+0800\n"
-"PO-Revision-Date: 2025-11-10 10:42+0800\n"
+"POT-Creation-Date: 2025-11-10 11:14+0800\n"
+"PO-Revision-Date: 2025-11-10 11:16+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4080,6 +4080,16 @@ msgstr ""
 "However, the denizens of Gensokyo united, and quelled her ridiculous plot. Branded a criminal, she now wanders, a fugitive endorsed by "
 "none. But beware — the fire of defiance is not so easily extinguished."
 
+#. Flavor for misc mvz2:seija
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"在史蒂夫从圣辇船坠落之后，似乎是她救了史蒂夫。\n"
+"然而此举并不是出于好心，而是盯上了史蒂夫身上的星之碎片。\n"
+"“只要拥有这些星之碎片，说不定就能恢复针妙丸的地位，再颠覆整个幻想乡。”\n"
+"她这样想着。"
+msgstr ""
+
 #. Name for misc mvz2:shinmyoumaru
 #: Almanac meta file
 msgctxt "misc.name"
@@ -4275,6 +4285,7 @@ msgid ""
 "她本是一只普通的虎妖怪，被圣 白莲选中而成为了毘沙门天的弟子兼化身。\n"
 "她和白莲的关系说起来比较复杂。白莲供奉毘沙门天，而她又选择了星作为弟子，也作为毘沙门天的化身。因此白莲实际上也在供奉她自己的弟子。\n"
 "星在工作上十分优秀，表面看上去十分冷静而威严，然而其实是个很感性的家伙。\n"
+"\n"
 "红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白"
 "莲的旅途。"
 msgstr ""
@@ -4283,9 +4294,57 @@ msgstr ""
 "as becoming his avatar. Because of this, Byakuren is actually also worshipping her own disciple.\n"
 "Shou is a diligent worker, and always carries a calm yet serious expression. Deep inside however, she's actually quite an emotional "
 "person.\n"
+"\n"
 "After the Red Dragon appeared, Byakuren suddenly disappeared. Shou, after discussing with her fellows at the Myouren temple, decided "
 "to find Steve in order to deal with the End Ship floating in the sky. After that, accompanied by Murasa (the captain) and Steve, they "
 "began the journey to find Byakuren."
+
+#. Name for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "封兽 鵺"
+msgstr "Houjuu Nue"
+
+#. Header for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "命莲寺的妖怪，有着让物体变得无法识别的能力。"
+msgstr ""
+
+#. Flavor for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"鵺（yè）是一名神秘的大妖怪，在之后才加入到命莲寺，因此与命莲寺中的其他人并不合群。\n"
+"喜欢找乐子、妨碍他人做事，常常会使用自己的能力干扰他人行动。\n"
+"被她施加能力的物体，会失去原本的认知特征，在别人眼里会把它视作是自己认为合理的物体——比如飞在空中的奇怪物体，别人会把它看作是飞碟。\n"
+"\n"
+"然而，在异变发生后，她的性格大变，变得十分消极和恍惚，认为这一切都没有任何意义。\n"
+"到底是发生了什么？"
+msgstr ""
+
+#. Name for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "赤蛮奇"
+msgstr "Sekibanki"
+
+#. Header for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "居住在人类村庄的妖怪，拥有让自己的头飞行的能力。"
+msgstr ""
+
+#. Flavor for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"赤蛮奇伪装成普通人类而居住在人类村庄，在这里过着平凡的生活。\n"
+"拥有身首分离，并让头飞行的能力，据说还有非常多的其他头颅可用。\n"
+"\n"
+"在史蒂夫坠船并离开一座废弃的房屋后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。\n"
+"人类村庄发生过什么吗？"
+msgstr ""
 
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
@@ -6296,6 +6355,18 @@ msgstr "Hologram"
 msgctxt "character.name"
 msgid "星"
 msgstr "Shou"
+
+#. Name for character mvz2:nue
+#: Character meta file
+msgctxt "character.name"
+msgid "鵺"
+msgstr "Nue"
+
+#. Name for character mvz2:sekibanki
+#: Character meta file
+msgctxt "character.name"
+msgid "赤蛮奇"
+msgstr "Sekibanki"
 
 #. Name for artifact mvz2:almanac
 #: Artifact meta file

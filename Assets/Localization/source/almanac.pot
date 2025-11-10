@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-10 10:59+0800\n"
+"POT-Creation-Date: 2025-11-10 11:14+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3400,6 +3400,16 @@ msgid ""
 "如今她在四处游荡，成了个不受任何人欢迎的家伙。然而，天邪鬼对“逆转”的那种渴望，似乎也并不会轻易被熄灭就是了。"
 msgstr ""
 
+#. Flavor for misc mvz2:seija
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"在史蒂夫从圣辇船坠落之后，似乎是她救了史蒂夫。\n"
+"然而此举并不是出于好心，而是盯上了史蒂夫身上的星之碎片。\n"
+"“只要拥有这些星之碎片，说不定就能恢复针妙丸的地位，再颠覆整个幻想乡。”\n"
+"她这样想着。"
+msgstr ""
+
 #. Name for misc mvz2:shinmyoumaru
 #: Almanac meta file
 msgctxt "misc.name"
@@ -3585,6 +3595,29 @@ msgid ""
 "\n"
 "然而，在异变发生后，她的性格大变，变得十分消极和恍惚，认为这一切都没有任何意义。\n"
 "到底是发生了什么？"
+msgstr ""
+
+#. Name for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "赤蛮奇"
+msgstr ""
+
+#. Header for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "居住在人类村庄的妖怪，拥有让自己的头飞行的能力。"
+msgstr ""
+
+#. Flavor for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"赤蛮奇伪装成普通人类而居住在人类村庄，在这里过着平凡的生活。\n"
+"拥有身首分离，并让头飞行的能力，据说还有非常多的其他头颅可用。\n"
+"\n"
+"在史蒂夫坠船并离开一座废弃的房屋后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。\n"
+"人类村庄发生过什么吗？"
 msgstr ""
 
 #. Name for almanac group mvz2:areas
@@ -5476,6 +5509,18 @@ msgstr ""
 #: Character meta file
 msgctxt "character.name"
 msgid "星"
+msgstr ""
+
+#. Name for character mvz2:nue
+#: Character meta file
+msgctxt "character.name"
+msgid "鵺"
+msgstr ""
+
+#. Name for character mvz2:sekibanki
+#: Character meta file
+msgctxt "character.name"
+msgid "赤蛮奇"
 msgstr ""
 
 #. Name for artifact mvz2:almanac
