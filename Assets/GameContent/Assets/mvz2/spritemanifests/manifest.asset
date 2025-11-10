@@ -203,6 +203,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f27fff12ebffcfe4cb3a825f5f701c61, type: 3}
   - name: misc/two_travelers
     sprite: {fileID: 21300000, guid: f0f2c4189e67b6e42987f8f1b3af835d, type: 3}
+  - name: misc/visitor_which_finding_child
+    sprite: {fileID: 21300000, guid: b522d5e4d42cf19448322c74ae697a63, type: 3}
   - name: misc/wither
     sprite: {fileID: 21300000, guid: cb2161762d5c5c54f989ec0a1e6d85e9, type: 3}
   - name: mobile_blueprint/add_pearl

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-10 01:30+0800\n"
+"POT-Creation-Date: 2025-11-10 01:51+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4210,6 +4210,27 @@ msgid ""
 "在他出来之后，遭到了赤蛮奇的质问，问他为什么会从这间屋子里出来。\n"
 "然而具体发生了什么，史蒂夫并不知情。\n"
 "这间屋子发生过什么事情吗？"
+msgstr ""
+
+#. Name for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "寻找孩子的访客"
+msgstr ""
+
+#. Header for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。"
+msgstr ""
+
+#. Flavor for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"史蒂夫解决掉红龙的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。\n"
+"那位访客自称灯兰 樱，为了寻找自己的孩子而来。\n"
+"在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。"
 msgstr ""
 
 #. Name for entity counter mvz2:low_enemy

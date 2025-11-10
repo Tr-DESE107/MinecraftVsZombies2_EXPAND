@@ -2723,6 +2723,22 @@
                     </flavor>
                 </flavors>
             </entry>
+            <entry id="mvz2:visitor_which_finding_child" name="寻找孩子的访客" >
+                <unlock>
+                    <condition required="mvz2:level.ship_11"/>
+                </unlock>
+                <picture sprite="mvz2:misc/visitor_which_finding_child"/>
+                <header>
+                    <p>白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>史蒂夫解决掉红龙的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。</p>
+                        <p>那位访客自称灯兰 樱，为了寻找自己的孩子而来。</p>
+                        <p>在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。</p>
+                    </flavor>
+                </flavors>
+            </entry>
         </group>
     </misc>
 </almanac>
