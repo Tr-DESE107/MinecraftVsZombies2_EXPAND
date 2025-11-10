@@ -13,6 +13,7 @@ namespace MVZ2.GameContent.Notes
         public const string dream = "dream";
         public const string castle = "castle";
         public const string mausoleum = "mausoleum";
+        public const string ship = "ship";
     }
     public static class VanillaNoteID
     {
@@ -22,6 +23,7 @@ namespace MVZ2.GameContent.Notes
         public static readonly NamespaceID dream = Get(VanillaNoteNames.dream);
         public static readonly NamespaceID castle = Get(VanillaNoteNames.castle);
         public static readonly NamespaceID mausoleum = Get(VanillaNoteNames.mausoleum);
+        public static readonly NamespaceID ship = Get(VanillaNoteNames.ship);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

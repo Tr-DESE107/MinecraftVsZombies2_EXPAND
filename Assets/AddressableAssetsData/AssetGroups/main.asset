@@ -5600,6 +5600,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e371a692db43054c88eb8560c9ebd74
+    m_Address: mvz2:misc/end_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e530d21185c00548b56d2627d93d61f
     m_Address: mvz2:iron_curtain
     m_ReadOnly: 0
@@ -7791,6 +7798,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b33024c345002ad49ae6387d3b1fc9de
+    m_Address: mvz2:note/background_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b34bc915055138f4b98fddeb34062934
     m_Address: mvz2:ui/level/progress_bar/level_progress_flag_pole
     m_ReadOnly: 0
@@ -7923,6 +7937,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b522d5e4d42cf19448322c74ae697a63
+    m_Address: mvz2:misc/visitor_which_finding_child
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b54bd6db18c4f8d418444457577bbd31
     m_Address: mvz2:misc/steves_house
@@ -9690,6 +9711,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df4339844dabc79468b681d3c124227f
     m_Address: mvz2:mobile_blueprint/small_dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df7c136338ab89e43af4d789fbcbfa52
+    m_Address: mvz2:note/ship
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

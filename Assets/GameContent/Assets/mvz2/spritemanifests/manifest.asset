@@ -429,6 +429,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 13026b5d2e6efdc4e9f551e6433d1600, type: 3}
   - name: note/background_mausoleum
     sprite: {fileID: 21300000, guid: e22d8952fb88ae345a9f5ae2e633b5d4, type: 3}
+  - name: note/background_ship
+    sprite: {fileID: 21300000, guid: b33024c345002ad49ae6387d3b1fc9de, type: 3}
   - name: note/castle
     sprite: {fileID: 21300000, guid: de792c288e4a5a2479cdbbca7dfb0fb5, type: 3}
   - name: note/dream
@@ -443,6 +445,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b453b81b803463f4ba41b29936133619, type: 3}
   - name: note/prologue
     sprite: {fileID: 21300000, guid: 32f36e28f5381c345b9988e80c40ee5a, type: 3}
+  - name: note/ship
+    sprite: {fileID: 21300000, guid: df7c136338ab89e43af4d789fbcbfa52, type: 3}
   - name: options/add_pearl
     sprite: {fileID: 21300000, guid: 7fe15cf03f7a8c64cb0f6007db72398c, type: 3}
   - name: options/lengthen_board
