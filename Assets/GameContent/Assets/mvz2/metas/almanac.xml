@@ -1292,7 +1292,7 @@
                 <p>反射壁僵尸使用反射壁保护自己，并对飞来的子弹作出反击。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200+600</color>]]></p>
+                <p>生命：<![CDATA[<color=red>200+710</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>特点：<![CDATA[<color=red>子弹击中反射壁并消失后，产生伤害相同的子弹进行回击</color>]]></p>
             </properties>
