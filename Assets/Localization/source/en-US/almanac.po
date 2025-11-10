@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-09 07:06+0800\n"
-"PO-Revision-Date: 2025-11-09 19:10+0800\n"
+"POT-Creation-Date: 2025-11-10 10:28+0800\n"
+"PO-Revision-Date: 2025-11-10 10:42+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3901,7 +3901,7 @@ msgstr "Unzan's Fist"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "云山之拳在碰到敌人后会向前发射，击杀并打飞一行的敌怪。"
-msgstr ""
+msgstr "Unzan's Fist launches forward upon contact with an enemy, killing and knocking back a row of monsters."
 
 #. Flavor for misc mvz2:unzan_fist
 #: Almanac meta file
@@ -3911,6 +3911,10 @@ msgid ""
 "在命莲寺众人的讨论和计划下，云山为圣辇船提供了一些云朵拳头作为最终防线。\n"
 "可别小看这些拳头，被击飞的怪物一下子可是能飞十万八千里。"
 msgstr ""
+"Unzan is a monk youkai transformed from clouds who guards Ichirin Kumoi.\n"
+"Through discussions and planning by the members of Myouren Temple, Unzan provided the Palanquin Ship some cloud fists as a final line "
+"of defense.\n"
+"Don't underestimate these fists—monsters punched by them will get knock backed 108,000 li away in an instant."
 
 #. Name for misc mvz2:paratrooper_zombie
 #: Almanac meta file
@@ -4262,7 +4266,7 @@ msgstr "Toramaru Shou"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "被圣白莲选中的虎妖怪，毘沙门天的弟子。"
-msgstr ""
+msgstr "A tiger youkai chosen by Byakuren, and a disciple of the Bishamonten."
 
 #. Flavor for misc mvz2:shou
 #: Almanac meta file
@@ -4274,6 +4278,14 @@ msgid ""
 "红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白"
 "莲的旅途。"
 msgstr ""
+"She was originally a normal tiger youkai, then was selected by Byakuren and became Bishamonten's disciple and avatar.\n"
+"Her and Byakuren's relationship is quite complicated. Byakuren worshipped Bishamonten, and even elected Shou as his disciple, as well "
+"as becoming his avatar. Because of this, Byakuren is actually also worshipping her own disciple.\n"
+"Shou is a diligent worker, and always carries a calm yet serious expression. Deep inside however, she's actually quite an emotional "
+"person.\n"
+"After the Red Dragon appeared, Byakuren suddenly disappeared. Shou, after discussing with her fellows at the Myouren temple, decided "
+"to find Steve in order to deal with the End Ship floating in the sky. After that, accompanied by Murasa (the captain) and Steve, they "
+"began the journey to find Byakuren."
 
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
@@ -4476,12 +4488,14 @@ msgstr "Palanquin Ship"
 
 #. Header for misc mvz2:palanquin_ship
 #: Almanac meta file
+#, fuzzy
 msgctxt "misc.description"
 msgid "一艘飞翔于天空中的巨大船只。"
-msgstr ""
+msgstr "A giant ship flying through the sky."
 
 #. Flavor for misc mvz2:palanquin_ship
 #: Almanac meta file
+#, fuzzy
 msgctxt "misc.description"
 msgid ""
 "圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，"
@@ -4491,6 +4505,16 @@ msgid ""
 "\n"
 "据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？"
 msgstr ""
+"There are two Palanquin Ships in total. The first was created by Byakuren Hijiri using her magic, and it has now landed and become "
+"Myouren Temple. Although it can still be transformed back into a ship, some people need to travel to Makai and require a ship for "
+"that. Randomly changing the temple back into a ship would cause some inconveniences.\n"
+"Therefore, Byakuren used her magic to create a second Palanquin Ship for traveling between Gensokyo and Makai, as a dedicated means of "
+"transportation.\n"
+"Now that Byakuren has gone missing, Shou and the people of Myouren Temple discussed the matter and boarded the Palanquin Ship, setting "
+"out on a journey to find Byakuren.\n"
+"\n"
+"There are rumors that aliens haved visited the skies above Gensokyo. It seems that certain teleporting signals might be able to draw "
+"them out?"
 
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file

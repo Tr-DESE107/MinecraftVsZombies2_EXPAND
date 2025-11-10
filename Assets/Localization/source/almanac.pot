@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-09 07:06+0800\n"
+"POT-Creation-Date: 2025-11-10 10:59+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3559,7 +3559,32 @@ msgid ""
 "她本是一只普通的虎妖怪，被圣 白莲选中而成为了毘沙门天的弟子兼化身。\n"
 "她和白莲的关系说起来比较复杂。白莲供奉毘沙门天，而她又选择了星作为弟子，也作为毘沙门天的化身。因此白莲实际上也在供奉她自己的弟子。\n"
 "星在工作上十分优秀，表面看上去十分冷静而威严，然而其实是个很感性的家伙。\n"
+"\n"
 "红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白莲的旅途。"
+msgstr ""
+
+#. Name for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "封兽 鵺"
+msgstr ""
+
+#. Header for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "命莲寺的妖怪，有着让物体变得无法识别的能力。"
+msgstr ""
+
+#. Flavor for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"鵺（yè）是一名神秘的大妖怪，在之后才加入到命莲寺，因此与命莲寺中的其他人并不合群。\n"
+"喜欢找乐子、妨碍他人做事，常常会使用自己的能力干扰他人行动。\n"
+"被她施加能力的物体，会失去原本的认知特征，在别人眼里会把它视作是自己认为合理的物体——比如飞在空中的奇怪物体，别人会把它看作是飞碟。\n"
+"\n"
+"然而，在异变发生后，她的性格大变，变得十分消极和恍惚，认为这一切都没有任何意义。\n"
+"到底是发生了什么？"
 msgstr ""
 
 #. Name for almanac group mvz2:areas
