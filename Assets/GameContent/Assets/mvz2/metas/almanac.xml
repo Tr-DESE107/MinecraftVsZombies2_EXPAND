@@ -2673,6 +2673,23 @@
                     </flavor>
                 </flavors>
             </entry>
+            <entry id="mvz2:abandoned_house" name="废弃的房屋" >
+                <unlock>
+                    <condition required="mvz2:level.ship_7"/>
+                </unlock>
+                <picture sprite="mvz2:misc/abandoned_house"/>
+                <header>
+                    <p>人类村庄中一座废弃的房屋。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>史蒂夫从圣辇船中坠落时，被鬼人 正邪救到了这处房屋中。</p>
+                        <p>在他出来之后，遭到了赤蛮奇的质问，问他为什么会从这间屋子里出来。</p>
+                        <p>然而具体发生了什么，史蒂夫并不知情。</p>
+                        <p>这间屋子发生过什么事情吗？</p>
+                    </flavor>
+                </flavors>
+            </entry>
         </group>
     </misc>
 </almanac>
