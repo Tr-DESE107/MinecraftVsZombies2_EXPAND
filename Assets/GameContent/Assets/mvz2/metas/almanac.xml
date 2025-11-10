@@ -331,7 +331,7 @@
                 <p>伤害：<![CDATA[<color=red>80</color>]]></p>
                 <p>溅射伤害：<![CDATA[<color=red>20（不伤害直接目标）</color>]]></p>
                 <p>特点：<![CDATA[<color=red>需要烧毁器械补充燃料</color>]]></p>
-                <p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
+                <p>燃料上限：<![CDATA[<color=red>120</color>]]></p>
                 <p>技能：<![CDATA[<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球</color>]]></p>
             </properties>
             <flavor>
