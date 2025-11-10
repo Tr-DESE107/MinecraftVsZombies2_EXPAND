@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-10 11:14+0800\n"
-"PO-Revision-Date: 2025-11-10 11:16+0800\n"
+"POT-Creation-Date: 2025-11-10 01:04+0800\n"
+"PO-Revision-Date: 2025-11-10 13:12+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3914,7 +3914,7 @@ msgstr ""
 "Unzan is a monk youkai transformed from clouds who guards Ichirin Kumoi.\n"
 "Through discussions and planning by the members of Myouren Temple, Unzan provided the Palanquin Ship some cloud fists as a final line "
 "of defense.\n"
-"Don't underestimate these fists—monsters punched by them will get knock backed 108,000 li away in an instant."
+"Don't underestimate these fists—monsters punched by them will get knocked back 108,000 li away in an instant."
 
 #. Name for misc mvz2:paratrooper_zombie
 #: Almanac meta file
@@ -4089,6 +4089,10 @@ msgid ""
 "“只要拥有这些星之碎片，说不定就能恢复针妙丸的地位，再颠覆整个幻想乡。”\n"
 "她这样想着。"
 msgstr ""
+"After Steve fell from the Palanquin Ship, it seemed that she was the one who saved him.\n"
+"However, this act wasn't out of kindness, it was because she had set her sights on the Starshards that Steve carries.\n"
+"\"As long as I have these starshards, I might be able to restore Shinmyoumaru's status and overturn the entire Gensokyo.\"\n"
+"That's what she was thinking."
 
 #. Name for misc mvz2:shinmyoumaru
 #: Almanac meta file
@@ -4270,13 +4274,13 @@ msgstr "What the heck is this?"
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "寅丸 星"
-msgstr "Toramaru Shou"
+msgstr "Shou Toramaru"
 
 #. Header for misc mvz2:shou
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "被圣白莲选中的虎妖怪，毘沙门天的弟子。"
-msgstr "A tiger youkai chosen by Byakuren, and a disciple of the Bishamonten."
+msgstr "A tiger youkai taken in by Byakuren Hijiri, and also a disciple of Bishamonten."
 
 #. Flavor for misc mvz2:shou
 #: Almanac meta file
@@ -4289,27 +4293,26 @@ msgid ""
 "红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白"
 "莲的旅途。"
 msgstr ""
-"She was originally a normal tiger youkai, then was selected by Byakuren and became Bishamonten's disciple and avatar.\n"
-"Her and Byakuren's relationship is quite complicated. Byakuren worshipped Bishamonten, and even elected Shou as his disciple, as well "
-"as becoming his avatar. Because of this, Byakuren is actually also worshipping her own disciple.\n"
-"Shou is a diligent worker, and always carries a calm yet serious expression. Deep inside however, she's actually quite an emotional "
+"She was originally an ordinary tiger youkai, but was then taken in by Byakuren Hijiri and became an avatar of Bishamonten.\n"
+"Her relationship with Byakuren is rather complicated. Byakuren worships Bishamonten, and Shou is her disciple, as well as being the "
+"avatar of Bishamonten. Thus, Byakuren is essentially worshipping her own disciple.\n"
+"Shou performs excellently in her duties. She may look very calm and dignified on the surface, but she is actually a very emotional "
 "person.\n"
 "\n"
-"After the Red Dragon appeared, Byakuren suddenly disappeared. Shou, after discussing with her fellows at the Myouren temple, decided "
-"to find Steve in order to deal with the End Ship floating in the sky. After that, accompanied by Murasa (the captain) and Steve, they "
-"began the journey to find Byakuren."
+"With the appearance of the Red Dragon and the news of Byakuren being lost, Shou discussed with the monks of Myouren Temple and found "
+"the End Ship that Steve is dealing with in the sky. After that, she, Captain Murasa and Steve embarked on a journey to find Byakuren."
 
 #. Name for misc mvz2:nue
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "封兽 鵺"
-msgstr "Houjuu Nue"
+msgstr "Nue Houjuu"
 
 #. Header for misc mvz2:nue
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "命莲寺的妖怪，有着让物体变得无法识别的能力。"
-msgstr ""
+msgstr "A youkai of Myouren Temple, capable of making objects unidentifiable."
 
 #. Flavor for misc mvz2:nue
 #: Almanac meta file
@@ -4322,6 +4325,14 @@ msgid ""
 "然而，在异变发生后，她的性格大变，变得十分消极和恍惚，认为这一切都没有任何意义。\n"
 "到底是发生了什么？"
 msgstr ""
+"Nue is a mysterious great youkai who joined Myouren Temple later on, and thus does not quite fit in with the others there.\n"
+"She enjoys causing mischief and getting in others' way, often using her abilities to interfere with their actions.\n"
+"Objects affected by her power lose their original identifiable characteristics, and are perceived by others as whatever they deem most "
+"plausible—for example, a strange object flying in the sky would be seen as a UFO.\n"
+"\n"
+"However, after the incident began, her personality changed drastically. She became deeply pessimistic and dazed, believing that none "
+"of this mattered anymore.\n"
+"What exactly happened?"
 
 #. Name for misc mvz2:sekibanki
 #: Almanac meta file
@@ -4333,7 +4344,7 @@ msgstr "Sekibanki"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "居住在人类村庄的妖怪，拥有让自己的头飞行的能力。"
-msgstr ""
+msgstr "A youkai living in the Human Village, possessing the ability to make her head fly."
 
 #. Flavor for misc mvz2:sekibanki
 #: Almanac meta file
@@ -4344,6 +4355,36 @@ msgid ""
 "\n"
 "在史蒂夫坠船并离开一座废弃的房屋后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。\n"
 "人类村庄发生过什么吗？"
+msgstr ""
+"Sekibanki disguises herself as an ordinary human in the Human Village, leading a mundane life.\n"
+"She possesses the power to detach her head from her body and make her heads fly, and it is said that she has many other heads "
+"available for use.\n"
+"\n"
+"After Steve fell from the ship and came out of an abandoned house, she found Steve and questioned why he had come out of that house, "
+"yet she didn't reveal the reason for asking.\n"
+"What happened in the Human Village?"
+
+#. Name for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "圣 白莲"
+msgstr "Byakuren Hijiri"
+
+#. Header for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "命莲寺的住持，法力无边的高僧。"
+msgstr ""
+
+#. Flavor for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"白莲的弟弟——命莲，也是一位法力高强的僧人，但最后还是寿限已至，离世了。\n"
+"因此白莲开始恐惧死亡，她作为一名研习佛法的僧人，最后竟靠着妖怪的力量达成了不老，成为了一名“妖僧”。\n"
+"就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。\n"
+"\n"
+"三年前，巨人和红龙同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。"
 msgstr ""
 
 #. Name for almanac group mvz2:areas
@@ -4526,7 +4567,7 @@ msgstr "End Ship"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "一艘飞翔于幻想乡天空中的船只，时不时会袭击飞在空中的妖怪们。"
-msgstr ""
+msgstr "A ship that flies above Gensokyo, attacking the youkai in the skies every so often."
 
 #. Flavor for misc mvz2:end_ship
 #: Almanac meta file
@@ -4538,6 +4579,12 @@ msgid ""
 "这导致任何想破坏这艘船的人，必须要先把内部的末影水晶破坏掉，然而这艘船在落入下风时也会选择以极快的速度逃跑。\n"
 "总之，关于这艘船的一切，都是个谜。"
 msgstr ""
+"Originally only belonging to the end dimension, it is unknown how or why the ship ended up sailing in Gensokyo.\n"
+"Inexplicably, there are no endermen on board, just regular, pirate-like zombies.\n"
+"Even more inexplicably, inside the ship is an end crystal that repairs the ship's hull with lightning speed.\n"
+"As a result, anyone who dares to take down this ship, must first destroy the end crystal within. However, if the ship realises it is "
+"at a disadvantage, it will also choose to escape in the blink of an eye.\n"
+"In summary, anything and everything about this ship, is an enigmatic mystery."
 
 #. Name for misc mvz2:palanquin_ship
 #: Almanac meta file
@@ -4547,14 +4594,12 @@ msgstr "Palanquin Ship"
 
 #. Header for misc mvz2:palanquin_ship
 #: Almanac meta file
-#, fuzzy
 msgctxt "misc.description"
 msgid "一艘飞翔于天空中的巨大船只。"
 msgstr "A giant ship flying through the sky."
 
 #. Flavor for misc mvz2:palanquin_ship
 #: Almanac meta file
-#, fuzzy
 msgctxt "misc.description"
 msgid ""
 "圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，"
@@ -4572,8 +4617,8 @@ msgstr ""
 "Now that Byakuren has gone missing, Shou and the people of Myouren Temple discussed the matter and boarded the Palanquin Ship, setting "
 "out on a journey to find Byakuren.\n"
 "\n"
-"There are rumors that aliens haved visited the skies above Gensokyo. It seems that certain teleporting signals might be able to draw "
-"them out?"
+"There are rumors that aliens have visited the skies above Gensokyo. It seems that certain teleportation signals might be able to draw "
+"them out."
 
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
@@ -4726,7 +4771,13 @@ msgid ""
 msgstr ""
 "Records left by an anonymous person.\n"
 "\n"
-"Star Record 5:"
+"Star Record 5:\n"
+"This damned abnormality just keeps going.\n"
+"I have no other choice but to continue fighting it.\n"
+"I feel cracks forming in my sanity.\n"
+"I saw things I shouldn't have seen, then the hallucinations vanished immediately.\n"
+"Those UFOs are still flying in the sky.\n"
+"How much longer can I hold on...?"
 
 #. Name for almanac group mvz2:important
 #: Almanac meta file
@@ -6367,6 +6418,12 @@ msgstr "Nue"
 msgctxt "character.name"
 msgid "赤蛮奇"
 msgstr "Sekibanki"
+
+#. Name for character mvz2:byakuren
+#: Character meta file
+msgctxt "character.name"
+msgid "白莲"
+msgstr "Byakuren"
 
 #. Name for artifact mvz2:almanac
 #: Artifact meta file

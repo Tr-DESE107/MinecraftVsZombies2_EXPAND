@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-10 11:14+0800\n"
+"POT-Creation-Date: 2025-11-10 01:04+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3620,6 +3620,29 @@ msgid ""
 "人类村庄发生过什么吗？"
 msgstr ""
 
+#. Name for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "圣 白莲"
+msgstr ""
+
+#. Header for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "命莲寺的住持，法力无边的高僧。"
+msgstr ""
+
+#. Flavor for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"白莲的弟弟——命莲，也是一位法力高强的僧人，但最后还是寿限已至，离世了。\n"
+"因此白莲开始恐惧死亡，她作为一名研习佛法的僧人，最后竟靠着妖怪的力量达成了不老，成为了一名“妖僧”。\n"
+"就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。\n"
+"\n"
+"三年前，巨人和红龙同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。"
+msgstr ""
+
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -5521,6 +5544,12 @@ msgstr ""
 #: Character meta file
 msgctxt "character.name"
 msgid "赤蛮奇"
+msgstr ""
+
+#. Name for character mvz2:byakuren
+#: Character meta file
+msgctxt "character.name"
+msgid "白莲"
 msgstr ""
 
 #. Name for artifact mvz2:almanac

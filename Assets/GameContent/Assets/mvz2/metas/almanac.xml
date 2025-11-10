@@ -2296,6 +2296,25 @@
                     <p>人类村庄发生过什么吗？</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:byakuren" name="圣 白莲" >
+                <unlock>
+                    <condition required="mvz2:level.ship_8"/>
+                </unlock>
+                <picture character="mvz2:byakuren"/>
+                <header>
+                    <p>命莲寺的住持，法力无边的高僧。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>白莲的弟弟——命莲，也是一位法力高强的僧人，但最后还是寿限已至，离世了。</p>
+                    <p>因此白莲开始恐惧死亡，她作为一名研习佛法的僧人，最后竟靠着妖怪的力量达成了不老，成为了一名“妖僧”。</p>
+                    <p>就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。</p>
+                    <p/>
+                    <p>三年前，巨人和红龙同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Areas -->
         <group id="mvz2:areas" name="地点" order="400">
