@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-10 01:20+0800\n"
+"POT-Creation-Date: 2025-11-10 01:30+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2995,6 +2995,50 @@ msgid ""
 "他们和巨人一直战斗到天亮。最后，巨人的核心被摧毁，所有尸体又再一次散落到悬崖下方。只不过这次，再也没有怨念出现了。\n"
 "骑士往下面扔了一点食物，随后带着大家离开了。\n"
 "“他们已经饿了很久了，就让他们吃一点吧。”"
+msgstr ""
+
+#. Name for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "红龙"
+msgstr ""
+
+#. Header for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "红龙是一头喷火的猛兽，为了报杀母之仇，定要摧毁幻想乡的一切。"
+msgstr ""
+
+#. Properties for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>？</color>\n"
+"阶段1：<color=red>？</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"骑士一行人踏入了一处巨大的山洞，他们举着火把慢慢前进着。\n"
+"山洞中遍布着很多骸骨。有羊的，牛的，其他怪物的，遍地都是——但好像唯独没有人的头骨。\n"
+"骑士听着深处的动静，最终带领队伍找到了他们的目标——一头红龙。\n"
+"红龙见到他们，十分惊讶。它张开口，说出了人类的语言：\n"
+"“你们这些人类，来到这里是想做什么？这里不是你们应该来的地方！”\n"
+"有一位同伴争先答到：\n"
+"“国王的梦预示着王国会被怪物毁灭，因此，我们以国王的名义，要取你的龙头！”\n"
+"红龙瞪大了眼睛，随后又突然尖锐起来。那眼中包含的是悲哀，还有——愤怒。\n"
+"“我曾亲眼看见我的母亲死于你们人类之手。她杀死了很多的人类，导致人类群起而攻之。从那时，我就对你们人类产生了畏惧之心。“\n"
+"“一百年来，我一直避免招惹你们，我本以为这样就不会引来杀身之祸。如今，你们却因为一场无聊的梦便要我的命？”\n"
+"“这就是我所应得的东西？！只是因为你们这群人类自诩为高等生灵？！”\n"
+"红龙的愤怒化作火焰从口中喷出，瞬间点燃了整片巢穴。\n"
+"在那场火焰和钢铁交织的战斗中，红龙逐渐落入下风。最后红龙被骑士刺中喉咙，倒在了地上。\n"
+"“贪婪……会成为你们人类的坟墓……”\n"
+"“我……诅咒……你们……”\n"
+"红龙就这样闭上了眼睛。\n"
+"龙巢的火熄灭了。同伴们将龙的尸体分解，把它的牙、眼、爪、骨、鳞、和心脏作为战利品收集了起来。\n"
+"骑士默默看着他们兴奋的样子，最后却什么也没要。"
 msgstr ""
 
 #. Name for almanac group mvz2:misc_entities
