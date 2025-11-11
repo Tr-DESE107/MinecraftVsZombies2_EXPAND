@@ -1317,6 +1317,11 @@ MonoBehaviour:
     - {fileID: 1063143524, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
     - {fileID: -409706261, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
     - {fileID: 1360310571, guid: 1723b13d8d44a654a8424dc59197b0aa, type: 3}
+  - name: characters/sekibanki
+    spritesheet:
+    - {fileID: 479599236, guid: 5e391a23c6381c14c9f44d8b0da02c2b, type: 3}
+    - {fileID: 176700473, guid: 5e391a23c6381c14c9f44d8b0da02c2b, type: 3}
+    - {fileID: 408445904, guid: 5e391a23c6381c14c9f44d8b0da02c2b, type: 3}
   - name: characters/shinmyoumaru
     spritesheet:
     - {fileID: 1774088793, guid: d0159b237963ff745a734fae1c80132f, type: 3}
