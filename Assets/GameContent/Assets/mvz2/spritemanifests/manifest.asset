@@ -457,6 +457,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 850d4c9b6833d8047ac10f992af536ff, type: 3}
   - name: products/blueprint_slot
     sprite: {fileID: 21300000, guid: a4fb4d341a16ba64cbad7dd992c94206, type: 3}
+  - name: products/cake
+    sprite: {fileID: 21300000, guid: 78ada02b958a3804fac1e795d393ee64, type: 3}
   - name: products/obsidian_first_aid
     sprite: {fileID: 21300000, guid: beb139d5d07db39408272c27eaea0034, type: 3}
   - name: products/starshard_slot

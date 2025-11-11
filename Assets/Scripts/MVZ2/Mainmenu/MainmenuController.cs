@@ -686,7 +686,7 @@ namespace MVZ2.Mainmenu
 
             var playTimeText = GetPlayTimeText(stats?.PlayTimeMilliseconds ?? 0);
 
-            var entries = stats?.GetAllDirectEntries() ?? Array.Empty<UserStatEntry>();
+            var entries = stats?.GetAllDirectEntries() ?? Array.Empty<UserStatDirectEntry>();
             var entriesViewData = GetDirectEntriesViewData(nsp, entries);
 
             var categories = stats?.GetAllCategories() ?? Array.Empty<UserStatCategory>();
@@ -761,13 +761,13 @@ namespace MVZ2.Mainmenu
             }
             return categoriesViewData;
         }
-        private StatDirectEntryViewData[] GetDirectEntriesViewData(string nsp, UserStatEntry[] entries)
+        private StatDirectEntryViewData[] GetDirectEntriesViewData(string nsp, UserStatDirectEntry[] entries)
         {
             var entriesViewData = new List<StatDirectEntryViewData>();
             for (int i = 0; i < entries.Length; i++)
             {
                 var entry = entries[i];
-                var meta = main.ResourceManager.GetStatDirectEntryMeta(entry.ID);
+                var meta = main.ResourceManager.GetStatDirectEntryMeta(new NamespaceID(nsp, entry.ID));
                 if (meta == null)
                     continue;
                 // 子项。

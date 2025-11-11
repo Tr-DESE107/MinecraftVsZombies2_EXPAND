@@ -287,5 +287,16 @@
                 <stage price="15000" unlocks="mvz2:artifact.dragon_tooth"/>
             </stages>
         </product>
+        <product id="cake" sprite="mvz2:products/cake">
+            <talks>
+                <talk character="mvz2:crazy_villager">蛋糕！在你完成所有内容后，来大吃一顿吧！</talk>
+                <talk character="mvz2:tokiko">蛋糕！在一切都结束之后，来大吃一顿吧！</talk>
+            </talks>
+            <stages>
+                <stage price="20000">
+                    <stat entry="mvz2:deceived_by_the_cake" value="1" />
+                </stage>
+            </stages>
+        </product>
     </products>
 </store>

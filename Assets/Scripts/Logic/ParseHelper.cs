@@ -19,6 +19,10 @@ namespace MVZ2Logic
         {
             return int.TryParse(str, NumberStyles.Integer, provider, out parsed);
         }
+        public static bool TryParseLong(string str, out long parsed)
+        {
+            return long.TryParse(str, NumberStyles.Integer, provider, out parsed);
+        }
         public static bool TryParseFloat(string str, out float parsed)
         {
             return float.TryParse(str, NumberStyles.Float, provider, out parsed);

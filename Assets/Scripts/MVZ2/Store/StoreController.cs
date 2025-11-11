@@ -168,15 +168,47 @@ namespace MVZ2.Store
                 var desc = Main.LanguageManager._n(PURCHASE_DESCRIPTION, price, price);
                 Main.Scene.ShowDialogSelect(title, desc, (purchase) =>
                 {
-                    if (purchase && NamespaceID.IsValid(stage.Unlocks))
+                    if (!purchase)
+                        return;
+
+                    bool operated = false;
+                    // 解锁内容
+                    if (NamespaceID.IsValid(stage.Unlocks))
                     {
-                        Main.SaveManager.AddMoney(-price);
-                        Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
                         Main.SaveManager.Unlock(stage.Unlocks);
-                        Main.SaveManager.SaveToFile(); // 购买物品后保存游戏
-                        UpdateMoney();
-                        UpdatePage();
+                        operated = true;
                     }
+                    // 设置统计
+                    var stats = stage.Stats;
+                    if (stats != null && stats.Length > 0)
+                    {
+                        foreach (var stat in stats)
+                        {
+                            if (!NamespaceID.IsValid(stat.Entry))
+                                continue;
+                            var value = stat.Value;
+                            if (NamespaceID.IsValid(stat.Category))
+                            {
+                                var statValue = Main.SaveManager.GetStat(stat.Category, stat.Entry);
+                                Main.SaveManager.SetStat(stat.Category, stat.Entry, statValue + value);
+                            }
+                            else
+                            {
+                                var statValue = Main.SaveManager.GetDirectEntryStat(stat.Entry);
+                                Main.SaveManager.SetDirectEntryStat(stat.Entry, statValue + value);
+                            }
+                        }
+                        operated = true;
+                    }
+                    if (!operated)
+                    {
+                        return;
+                    }
+                     Main.SaveManager.AddMoney(-price);
+                    Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
+                    Main.SaveManager.SaveToFile(); // 购买物品后保存游戏
+                    UpdateMoney();
+                    UpdatePage();
                 });
             }
             else

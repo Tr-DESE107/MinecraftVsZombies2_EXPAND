@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-08 05:55+0800\n"
+"POT-Creation-Date: 2025-11-11 04:12+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1397,29 +1397,29 @@ msgid "已跳过对话\"{0}\""
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:245
+#: Scripts\MVZ2\Store\StoreController.cs:277
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:247
+#: Scripts\MVZ2\Store\StoreController.cs:279
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] ""
 msgstr[1] ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:249
+#: Scripts\MVZ2\Store\StoreController.cs:281
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:251
+#: Scripts\MVZ2\Store\StoreController.cs:283
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:253
+#: Scripts\MVZ2\Store\StoreController.cs:285
 msgid "{0}/{1}"
 msgstr ""
 
@@ -2631,47 +2631,47 @@ msgid "FPS: {0}"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:795
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:828
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:797
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:830
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:799
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:832
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:801
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:834
 msgid "确认要退出吗？"
 msgstr ""
 
 # 存档导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:803
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:836
 msgid "导出存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:805
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:838
 msgid "导入存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:807
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:840
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:809
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
 # 存档导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:811
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
 msgid "存档已导出至{0}。"
 msgstr ""
 
@@ -3136,6 +3136,12 @@ msgstr ""
 #: Stats meta file
 msgctxt "stat_category"
 msgid "我是僵尸-游戏结束"
+msgstr ""
+
+#. Name for stat entry mvz2:deceived_by_the_cake
+#: Stats meta file
+msgctxt "stat_entry"
+msgid "被蛋糕欺骗"
 msgstr ""
 
 #. Name for achievement mvz2:ghost_buster
@@ -4431,6 +4437,18 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid "红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到更多的伤害！"
+msgstr ""
+
+#. Store item description of mvz2:cake by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "蛋糕！在你完成所有内容后，来大吃一顿吧！"
+msgstr ""
+
+#. Store item description of mvz2:cake by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "蛋糕！在一切都结束之后，来大吃一顿吧！"
 msgstr ""
 
 #. Name for credits category 内容设计

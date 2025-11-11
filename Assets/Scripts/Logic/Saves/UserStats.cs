@@ -24,14 +24,14 @@ namespace MVZ2Logic.Saves
                 cate = CreateCategory(category);
             cate.SetStatValue(entry, value);
         }
-        public long GetStatValue(NamespaceID entryID)
+        public long GetDirectEntryValue(string entryID)
         {
             var entry = GetDirectEntry(entryID);
             if (entry == null)
                 return 0;
             return entry.Value;
         }
-        public void SetStatValue(NamespaceID entryID, long value)
+        public void SetDirectEntryValue(string entryID, long value)
         {
             var entry = GetDirectEntry(entryID);
             if (entry == null)
@@ -65,25 +65,25 @@ namespace MVZ2Logic.Saves
         #endregion
 
         #region Direct Entry
-        public bool HasDirectEntry(NamespaceID id)
+        public bool HasDirectEntry(string id)
         {
             return entries.Exists(e => e.ID == id);
         }
-        public UserStatEntry[] GetAllDirectEntries()
+        public UserStatDirectEntry[] GetAllDirectEntries()
         {
             return entries.ToArray();
         }
-        private NamespaceID[] GetAllDirectEntriesID()
+        private string[] GetAllDirectEntriesID()
         {
             return entries.Select(e => e.ID).ToArray();
         }
-        private UserStatEntry GetDirectEntry(NamespaceID id)
+        private UserStatDirectEntry GetDirectEntry(string id)
         {
             return entries.FirstOrDefault(e => e.ID == id);
         }
-        private UserStatEntry CreateDirectEntry(NamespaceID name)
+        private UserStatDirectEntry CreateDirectEntry(string name)
         {
-            var entry = new UserStatEntry(name);
+            var entry = new UserStatDirectEntry(name);
             entries.Add(entry);
             return entry;
         }
@@ -124,7 +124,7 @@ namespace MVZ2Logic.Saves
                 {
                     if (seriEntry == null)
                         continue;
-                    var entry = UserStatEntry.FromSerializable(seriEntry);
+                    var entry = UserStatDirectEntry.FromSerializable(seriEntry);
                     if (entry == null)
                         continue;
                     stats.entries.Add(entry);
@@ -139,7 +139,7 @@ namespace MVZ2Logic.Saves
         #endregion
 
         private List<UserStatCategory> categories = new List<UserStatCategory>();
-        private List<UserStatEntry> entries = new List<UserStatEntry>();
+        private List<UserStatDirectEntry> entries = new List<UserStatDirectEntry>();
         public long PlayTimeMilliseconds { get; set; }
     }
     [Serializable]
@@ -147,7 +147,7 @@ namespace MVZ2Logic.Saves
     public class SerializableUserStats
     {
         public SerializableUserStatCategory?[]? categories;
-        public SerializableUserStatEntry?[]? directEntries;
+        public SerializableUserStatDirectEntry?[]? directEntries;
         public long playTimeMilliseconds;
         [Obsolete]
         [BsonIgnoreIfNull]

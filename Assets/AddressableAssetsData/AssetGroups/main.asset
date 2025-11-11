@@ -5278,6 +5278,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78ada02b958a3804fac1e795d393ee64
+    m_Address: mvz2:products/cake
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 78bc18d9bcc5d3e4dad53d303451348e
     m_Address: mvz2:icon/knockback_wave
     m_ReadOnly: 0
@@ -5599,13 +5606,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7e371a692db43054c88eb8560c9ebd74
-    m_Address: mvz2:misc/end_ship
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e530d21185c00548b56d2627d93d61f
     m_Address: mvz2:iron_curtain
@@ -7938,13 +7938,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b522d5e4d42cf19448322c74ae697a63
-    m_Address: mvz2:misc/visitor_which_finding_child
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b54bd6db18c4f8d418444457577bbd31
     m_Address: mvz2:misc/steves_house
     m_ReadOnly: 0
@@ -9991,6 +9984,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e732382db38cd764888b963c49cc59c5
     m_Address: mvz2:note/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e779343a9de67c347bd835c88e914d14
+    m_Address: mvz2:level/ship/cloudy_noise
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

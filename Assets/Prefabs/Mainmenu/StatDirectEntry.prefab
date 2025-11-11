@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6367409979486402063}
   - component: {fileID: 4634623423253051662}
-  - component: {fileID: 2632934492770754563}
+  - component: {fileID: 8208360500499675046}
   m_Layer: 0
   m_Name: StatDirectEntry
   m_TagString: Untagged
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &2632934492770754563
+--- !u!114 &8208360500499675046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,11 +228,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1320391207590137092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f5217c3bdf53444d9dcb6ee3024d6d7, type: 3}
+  m_Script: {fileID: 11500000, guid: fead747543e4d7148a41b16ded5dcf50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 80695898958722919}
-  countText: {fileID: 6308298725610873866}
+  numberText: {fileID: 6308298725610873866}
 --- !u!1 &2093880781267265213
 GameObject:
   m_ObjectHideFlags: 0

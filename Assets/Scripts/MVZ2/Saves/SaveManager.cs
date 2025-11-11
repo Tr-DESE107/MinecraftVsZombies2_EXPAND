@@ -382,6 +382,20 @@ namespace MVZ2.Saves
                 return;
             saveData.SetStat(category.Path, entry, value);
         }
+        public long GetDirectEntryStat(NamespaceID entry)
+        {
+            var saveData = GetModSaveData(entry.SpaceName);
+            if (saveData == null)
+                return 0;
+            return saveData.GetDirectEntryStat(entry.Path);
+        }
+        public void SetDirectEntryStat(NamespaceID entry, long value)
+        {
+            var saveData = GetModSaveData(entry.SpaceName);
+            if (saveData == null)
+                return;
+            saveData.SetDirectEntryStat(entry.Path, value);
+        }
         #endregion
 
         #region 成就
