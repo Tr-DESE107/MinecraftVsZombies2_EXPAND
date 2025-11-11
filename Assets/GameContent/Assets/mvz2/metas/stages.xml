@@ -1352,6 +1352,26 @@
             <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
+    <stage id="ufo_blitz" name="飞碟闪电战" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.ship_9"/>
+        </unlock>
+        <conveyor>
+            <entry id="mvz2:tnt" count="1" minCount="0"/>
+            <entry id="mvz2:black_hole_bomb" count="1"/>
+            <entry id="mvz2:lightning_orb" count="5"/>
+            <entry id="mvz2:magichest" count="1" minCount="0"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="4" pointsMultiplier="0.5" pointsAddition="2">
+            <spawn id="mvz2:undead_flying_object_blitz"/>
+            <spawn id="mvz2:undead_flying_object"/>
+        </spawns>
+        <time firstWave="1" waveMax="2" waveAdvance="2"/>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+        </properties>
+    </stage>
 
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >

@@ -36,7 +36,10 @@ namespace MVZ2.GameContent.Spawns
         {
         }
 
-        public void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, ref float totalPoints)
+        public void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, float maxPoints, ref float points)
+        {
+        }
+        public void PostSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, float maxPoints, ref float points)
         {
         }
         public int GetRandomSpawnLane(SpawnDefinition definition, LevelEngine level)

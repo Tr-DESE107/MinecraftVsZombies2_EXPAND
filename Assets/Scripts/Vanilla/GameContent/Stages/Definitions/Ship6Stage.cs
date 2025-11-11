@@ -5,10 +5,10 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.ufoBlitz)]
-    public partial class UFOBlitzStage : StageDefinition
+    [StageDefinition(VanillaStageNames.ship6)]
+    public partial class Ship6Stage : StageDefinition
     {
-        public UFOBlitzStage(string nsp, string name) : base(nsp, name)
+        public Ship6Stage(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(new UFOBlitzStageBehaviour(this));
             AddBehaviour(new WaveStageBehaviour(this));

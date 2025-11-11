@@ -84,6 +84,7 @@ namespace MVZ2.GameContent.Stages
         public const string whackAGhost = "whack_a_ghost";
         public const string breakout = "breakout";
         public const string bigTroubleAndLittleZombie = "big_trouble_and_little_zombie";
+        public const string ufoBlitz = "ufo_blitz";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
