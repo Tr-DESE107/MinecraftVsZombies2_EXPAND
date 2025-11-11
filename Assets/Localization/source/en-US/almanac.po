@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-10 01:30+0800\n"
-"PO-Revision-Date: 2025-11-10 13:31+0800\n"
+"POT-Creation-Date: 2025-11-19 05:13+0800\n"
+"PO-Revision-Date: 2025-11-19 17:14+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -831,7 +831,7 @@ msgstr ""
 #. Header for contraptions mvz2:punchton
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
+msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\" />石制品，但之后需要一定时间来修复自身。"
 msgstr ""
 "Punchtons can knock back enemy monsters and crush <tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>hard objects, but they need time to "
 "repair themselves after that."
@@ -883,7 +883,7 @@ msgstr ""
 #. Header for contraptions mvz2:soul_furnace
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "灵魂熔炉发射恐怖的<tag id=\"mvz2:fire\"/>灵魂火，但需要烧毁前方的器械来补充燃料。"
+msgid "灵魂熔炉发射恐怖的<tag id=\"mvz2:fire\" />灵魂火，但需要烧毁前方的器械来补充燃料。"
 msgstr "Soul Furnaces shoot terrifying <tag id=\"mvz2:fire\"/>soulfires, but will burn the contraption in the front as its fuel."
 
 #. Properties for contraptions mvz2:soul_furnace
@@ -912,7 +912,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯的飞刀。"
+msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr "Silvensers shoot piercing knives which can slice <tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>the flesh."
 
 #. Properties for contraptions mvz2:silvenser
@@ -1075,7 +1075,7 @@ msgstr "\"It's over zombies, I have the high ground!\" Those were his last words
 #. Header for contraptions mvz2:totenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "图腾发射器在发射飞镖的同时还会<tag id=\"mvz2:fire\"/>喷火烧伤近处的敌人。"
+msgid "图腾发射器在发射飞镖的同时还会<tag id=\"mvz2:fire\" />喷火烧伤近处的敌人。"
 msgstr "Totensers shoot poisonous darts and burn nearby enemies with <tag id=\"mvz2:fire\"/>fire."
 
 #. Properties for contraptions mvz2:totenser
@@ -1992,7 +1992,7 @@ msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>4支/1.5秒</color>\n"
 "伤害：<color=red>20</color>\n"
-"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\"/>发光</color>"
+"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\" />发光</color>"
 msgstr ""
 "Fire rate: <color=red>4 shots/1.5s</color>\n"
 "Damage: <color=red>20</color>\n"
@@ -2232,7 +2232,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
-"弱点：<color=red>被<tag id=\"mvz2:light_source\"/>光照到时会失去虚无效果</color>"
+"弱点：<color=red>被<tag id=\"mvz2:light_source\" />光照到时会失去虚无效果</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Resistance: <color=red>Reduces 90% taken damage in ethereal form</color>\n"
@@ -2257,7 +2257,7 @@ msgstr "Mummies will release gas after they die, which can heal the undead and d
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
-"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\"/>火烧掉</color>"
+"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\" />火烧掉</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Weakness：<color=red><tag id=\"mvz2:fire\"/>Fire can burn its gas</color>"
@@ -2308,7 +2308,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>160</color>\n"
 "速度：<color=red>2</color>\n"
-"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\"/>防御性器械</color>"
+"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\" />防御性器械</color>"
 msgstr ""
 "Toughness: <color=red>160</color>\n"
 "Speed: <color=red>2</color>\n"
@@ -2388,7 +2388,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "速度：<color=red>2</color>，而后<color=red>0.6</color>（产卵后）\n"
-"特点：<color=red>碰到的<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯会被寄生</color>"
+"特点：<color=red>碰到的<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯会被寄生</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Speed: <color=red>2</color>, then <color=red>0.6</color> (After laying eggs)\n"
@@ -2495,7 +2495,7 @@ msgid ""
 "马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
 "身体速度：<color=red>1</color>\n"
 "头颅速度：<color=red>2</color>\n"
-"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\"/>高器械</color>"
+"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\" />高器械</color>"
 msgstr ""
 "Toughness: <color=red>400 (Horse), 300 (Body), 200 (Head)</color>\n"
 "Horse Speed: <color=red>2 (Before jump), 1 (After jump)</color>\n"
@@ -2782,7 +2782,7 @@ msgstr "At least this cloud doesn’t flip you off."
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。"
-msgstr "The heavy cannons of Cannoneer Zombies can help them block bullets and fire a Zombie Cannonball every once in a while."
+msgstr "The bulky cannons of Cannoneer Zombies block bullets and fire a Zombie Cannonball every once in a while."
 
 #. Properties for enemies mvz2:cannoneer_zombie
 #: Almanac meta file
@@ -3169,7 +3169,7 @@ msgstr ""
 #. Properties for artifacts mvz2:broken_lantern
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red><tag id=\"mvz2:light_source\"/>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
+msgid "效果：<color=red><tag id=\"mvz2:light_source\" />发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
 msgstr ""
 "Effect: <color=red>+25% produce speed and attack speed, but x50% light range for <tag id=\"mvz2:light_source\"/>glowing contraptions</"
 "color>"
@@ -3625,21 +3625,25 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "红龙"
-msgstr "Red Dragon"
+msgstr "The Red Dragon"
 
 #. Header for misc mvz2:red_dragon
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "红龙是一头喷火的猛兽，为了报杀母之仇，定要摧毁幻想乡的一切。"
-msgstr ""
+msgstr "The Red Dragon is a ferocious beast that breathes fire. To avenge its mother, it swears to destroy all of Gensokyo."
 
 #. Properties for misc mvz2:red_dragon
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"生命：<color=red>？</color>\n"
-"阶段1：<color=red>？</color>"
+"生命：<color=red>40000</color>\n"
+"阶段1：<color=red>火焰弹、龙卷风、吞食、火焰吐息</color>\n"
+"阶段2：<color=red>巨型火球、火焰龙卷风、火焰流星、飞空、扫尾</color>"
 msgstr ""
+"Toughness: <color=red>40000</color>\n"
+"Phase 1: <color=red>Fire Charges, Tornado, Devour, Fire Breath</color>\n"
+"Phase 2: <color=red>Giant Fire Ball, Flame Tornado, Meteor, Fly, Tail Swipe</color>"
 
 #. Flavor for misc mvz2:red_dragon
 #: Almanac meta file
@@ -3664,6 +3668,30 @@ msgid ""
 "龙巢的火熄灭了。同伴们将龙的尸体分解，把它的牙、眼、爪、骨、鳞、和心脏作为战利品收集了起来。\n"
 "骑士默默看着他们兴奋的样子，最后却什么也没要。"
 msgstr ""
+"The Knight and his group ventured into a giant cave, advancing deeper step by step with torches in their hands.\n"
+"The cave was filled with countless skeletal remains of sheeps, cows, and other monsters. They were scattered everywhere, yet there "
+"doesn't seem to be any human skulls.\n"
+"The Knight listened to the sounds from the depths and eventually lead his team to their target—a red dragon.\n"
+"The Red Dragon was very surprised to see them. It opened its mouth and spoke in the human's language:\n"
+"\"You humans, what do you think you're doing here? This is no place for your kind!\"\n"
+"A companion rushed to answer:\n"
+"\"The King's dream foretells the kingdom's imminent destruction by monsters. Thus, in the name of the King, we have come for your head!"
+"\"\n"
+"The Red Dragon's eyes widened, then suddenly sharpened. Those eyes were filled with sorrow and... rage.\n"
+"\"I witnessed my mother's death by the hands of you humans. She killed many of your kind, which led to them rising up against her. "
+"From that point on, I have developed a fear of you humans.\"\n"
+"\"For a hundred years, I have avoided provoking you so that no harm would come to me. Yet today, you come for my life because of some "
+"stupid dream?\"\n"
+"\"Is this what I deserve?! Just because you humans deem yourselves to be superior beings?!\"\n"
+"The Red Dragon's fury manifested into flames breathed from its mouth, instantly setting its entire lair ablaze.\n"
+"In that fierce battle where fire and steel clashed, the Red Dragon slowly fell into a disadvantage. In the end, with a final stab to "
+"the throat by the Knight, the Red Dragon collapsed to the ground.\n"
+"\"Greed... will become you humans' grave...\"\n"
+"\"Curse... you all...\"\n"
+"With that, the Red Dragon's eyes fell shut.\n"
+"The fire in the dragon's lair died out. The Knight's companions dismembered the Dragon's corpse, collecting its teeth, eyes, claws, "
+"bones, scales, and heart as war trophies.\n"
+"The Knight watched their exhilaration in silence. In the end, he claimed nothing for himself."
 
 #. Name for almanac group mvz2:misc_entities
 #: Almanac meta file
@@ -4134,9 +4162,9 @@ msgid ""
 "她这样想着。"
 msgstr ""
 "After Steve fell from the Palanquin Ship, it seemed that she was the one who saved him.\n"
-"However, this act wasn't out of kindness, it was because she had set her sights on the Starshards that Steve carries.\n"
-"\"As long as I have these starshards, I might be able to restore Shinmyoumaru's status and overturn the entire Gensokyo.\"\n"
-"That's what she was thinking."
+"However, this wasn't an act out of kindness, but rather because she had set her sights on the Starshards that Steve carries.\n"
+"\"As long as I have these Starshards, I might be able to restore Shinmyoumaru's status and overturn the entire Gensokyo.\" This was "
+"what she thought."
 
 #. Name for misc mvz2:shinmyoumaru
 #: Almanac meta file
@@ -4344,7 +4372,7 @@ msgstr ""
 "person.\n"
 "\n"
 "With the appearance of the Red Dragon and the news of Byakuren being lost, Shou discussed with the monks of Myouren Temple and found "
-"the End Ship that Steve is dealing with in the sky. After that, she, Captain Murasa and Steve embarked on a journey to find Byakuren."
+"the End Ship that Steve is dealing with in the sky. After that, she, Captain Murasa and Steve set out on a journey to find Byakuren."
 
 #. Name for misc mvz2:nue
 #: Almanac meta file
@@ -4369,13 +4397,13 @@ msgid ""
 "然而，在异变发生后，她的性格大变，变得十分消极和恍惚，认为这一切都没有任何意义。\n"
 "到底是发生了什么？"
 msgstr ""
-"Nue is a mysterious great youkai who joined Myouren Temple later on, and thus does not quite fit in with the others there.\n"
-"She enjoys causing mischief and getting in others' way, often using her abilities to interfere with their actions.\n"
-"Objects affected by her power lose their original identifiable characteristics, and are perceived by others as whatever they deem most "
-"plausible—for example, a strange object flying in the sky would be seen as a UFO.\n"
+"Nue is a mysterious great youkai who joined the Myouren Temple later on, so she doesn't fit in well with the others there.\n"
+"She enjoys causing mischief and getting in others' way, often using her abilities to interfere with what people are doing.\n"
+"Objects affected by her ability lose their original identifiable characteristics, and are perceived by others as whatever they "
+"consider most plausible—for example, a strange object flying in the sky would be seen as a UFO.\n"
 "\n"
-"However, after the incident began, her personality changed drastically. She became deeply pessimistic and dazed, believing that none "
-"of this mattered anymore.\n"
+"However, after the incident began, her personality changed drastically. She became deeply pessimistic and dazed, believing that "
+"nothing mattered anymore.\n"
 "What exactly happened?"
 
 #. Name for misc mvz2:sekibanki
@@ -4400,13 +4428,12 @@ msgid ""
 "在史蒂夫坠船并离开一座废弃的房屋后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。\n"
 "人类村庄发生过什么吗？"
 msgstr ""
-"Sekibanki disguises herself as an ordinary human in the Human Village, leading a mundane life.\n"
-"She possesses the power to detach her head from her body and make her heads fly, and it is said that she has many other heads "
-"available for use.\n"
+"Sekibanki disguises herself as an ordinary human in the Human Village, living a simple life there.\n"
+"She possesses the ability to detach her head from her body and make it fly. It is said that she can also multiply her heads.\n"
 "\n"
 "After Steve fell from the ship and came out of an abandoned house, she found Steve and questioned why he had come out of that house, "
 "yet she didn't reveal the reason for asking.\n"
-"What happened in the Human Village?"
+"Did something happen in the Human Village?"
 
 #. Name for misc mvz2:byakuren
 #: Almanac meta file
@@ -4418,7 +4445,7 @@ msgstr "Byakuren Hijiri"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "命莲寺的住持，法力无边的高僧。"
-msgstr ""
+msgstr "The abbot of Myouren Temple, as well as a high monk with boundless magical power."
 
 #. Flavor for misc mvz2:byakuren
 #: Almanac meta file
@@ -4430,6 +4457,15 @@ msgid ""
 "\n"
 "三年前，巨人和红龙同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。"
 msgstr ""
+"Byakuren's younger brother, Myouren, was also a monk with immense magical power, but he eventually reached the end of his life and "
+"passed away.\n"
+"Byakuren therefore began to fear death, and as a monk who had studied Buddhism, she ultimately relied on the power of youkai to "
+"achieve immortality, becoming a \"youkai monk\".\n"
+"Thus, Byakuren became a contradictory existence. However, even after humans discovered her secret ties with youkai, and even after "
+"being sealed away, she still continues to revere Buddhism and save all living beings.\n"
+"\n"
+"Three years ago, the Giant and the Red Dragon appeared at the same time, and she was summoned to eliminate the Red Dragon. However, "
+"this led her to a karmic entanglement, keeping her bound for the past three years."
 
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
@@ -4611,7 +4647,7 @@ msgstr "End Ship"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "一艘飞翔于幻想乡天空中的船只，时不时会袭击飞在空中的妖怪们。"
-msgstr "A ship that flies above Gensokyo, attacking the youkai in the skies every so often."
+msgstr "A ship flying through the sky of Gensokyo, attacking youkai in the sky every so often."
 
 #. Flavor for misc mvz2:end_ship
 #: Almanac meta file
@@ -4623,12 +4659,12 @@ msgid ""
 "这导致任何想破坏这艘船的人，必须要先把内部的末影水晶破坏掉，然而这艘船在落入下风时也会选择以极快的速度逃跑。\n"
 "总之，关于这艘船的一切，都是个谜。"
 msgstr ""
-"Originally only belonging to the end dimension, it is unknown how or why the ship ended up sailing in Gensokyo.\n"
-"Inexplicably, there are no endermen on board, just regular, pirate-like zombies.\n"
-"Even more inexplicably, inside the ship is an end crystal that repairs the ship's hull with lightning speed.\n"
-"As a result, anyone who dares to take down this ship, must first destroy the end crystal within. However, if the ship realises it is "
-"at a disadvantage, it will also choose to escape in the blink of an eye.\n"
-"In summary, anything and everything about this ship, is an enigmatic mystery."
+"Originally only appearing in the End dimension. It is unknown how the ship ended up in the skies of Gensokyo.\n"
+"What's strange is that there are no Endermen on board, just regular, pirate-like zombies.\n"
+"What's even stranger is that the ship holds an End Crystal inside it that rapidly repairs the ship's hull.\n"
+"This means that anyone who dares to take down this ship must first destroy the End Crystal inside it. However, when at a disadvantage, "
+"it will choose to flee at lightning speed.\n"
+"Ultimately, everything about this ship, is a mystery."
 
 #. Name for misc mvz2:palanquin_ship
 #: Almanac meta file
@@ -4640,7 +4676,7 @@ msgstr "Palanquin Ship"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "一艘飞翔于天空中的巨大船只。"
-msgstr "A giant ship flying through the sky."
+msgstr "A giant ship soaring through the sky."
 
 #. Flavor for misc mvz2:palanquin_ship
 #: Almanac meta file
@@ -4653,13 +4689,13 @@ msgid ""
 "\n"
 "据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？"
 msgstr ""
-"There are two Palanquin Ships in total. The first was created by Byakuren Hijiri using her magic, and it has now landed and become "
-"Myouren Temple. Although it can still be transformed back into a ship, some people need to travel to Makai and require a ship for "
-"that. Randomly changing the temple back into a ship would cause some inconveniences.\n"
-"Therefore, Byakuren used her magic to create a second Palanquin Ship for traveling between Gensokyo and Makai, as a dedicated means of "
+"There are two Palanquin Ships in total. The first was created by Byakuren Hijiri using magic, which has since landed and been "
+"renovated into the Myouren Temple. Although it can still transform back into a ship, some people need to travel to Makai and require a "
+"ship to get there. Constantly transforming the temple back and forth into a ship would cause some inconvenience.\n"
+"Therefore, Byakuren used her magic to create a second Palanquin Ship for traveling between Gensokyo and Makai as a dedicated means of "
 "transportation.\n"
-"Now that Byakuren has gone missing, Shou and the people of Myouren Temple discussed the matter and boarded the Palanquin Ship, setting "
-"out on a journey to find Byakuren.\n"
+"Now that Byakuren has vanished without a trace, after Shou discussed the matter with the members of Myouren Temple, they boarded the "
+"Palanquin Ship and set out on a journey to find Byakuren.\n"
 "\n"
 "There are rumors that aliens have visited the skies above Gensokyo. It seems that certain teleportation signals might be able to draw "
 "them out."
@@ -4816,8 +4852,8 @@ msgstr ""
 "Records left by an anonymous person.\n"
 "\n"
 "Star Record 5:\n"
-"This damned abnormality just keeps going.\n"
-"I have no other choice but to continue fighting it.\n"
+"This damn aberration just keeps going on.\n"
+"I have no other choices but to continue fighting it.\n"
 "I feel cracks forming in my sanity.\n"
 "I saw things I shouldn't have seen, then the hallucinations vanished immediately.\n"
 "Those UFOs are still flying in the sky.\n"
@@ -4907,7 +4943,7 @@ msgstr "A technique used to repair defensive contraptions."
 #. Properties for misc mvz2:obsidian_first_aid
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\"/>防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
+msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\" />防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
 msgstr ""
 "Effect: <color=red><tag id=\"mvz2:defensive\"/>Defensive contraptions can be placed directly on the same contraptions to restore all "
 "toughness, without the need to be dug up</color>"
@@ -5061,7 +5097,7 @@ msgstr "Abandoned House"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "人类村庄中一座废弃的房屋。"
-msgstr ""
+msgstr "An abandoned house in the Human Village."
 
 #. Flavor for misc mvz2:abandoned_house
 #: Almanac meta file
@@ -5072,6 +5108,35 @@ msgid ""
 "然而具体发生了什么，史蒂夫并不知情。\n"
 "这间屋子发生过什么事情吗？"
 msgstr ""
+"When Steve fell from the Palanquin Ship, he was rescued by Seija Kijin and brought to this house.\n"
+"After he came out, he was questioned by Sekibanki, who asked him why he had come out from this house.\n"
+"However, Steve had no idea what actually happened.\n"
+"Did something happened in this house?"
+
+#. Name for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "寻找孩子的访客"
+msgstr "Visitor in Search of Their Child"
+
+#. Header for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。"
+msgstr "Byakuren revealed that four years ago, a visitor came to look for their child."
+
+#. Flavor for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"史蒂夫解决掉红龙的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。\n"
+"那位访客自称灯兰 樱，为了寻找自己的孩子而来。\n"
+"在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。"
+msgstr ""
+"After Steve resolved the Red Dragon problem, Byakuren told him that four years ago, a visitor came to the Myouren Temple.\n"
+"The visitor called themselves Sakura Touran and came to find their child.\n"
+"After failing to search for their child, the visitor never appeared again. However, Byakuren remained optimistic about the presence of "
+"this visitor."
 
 #. Name for entity counter mvz2:low_enemy
 #: Entity meta file
@@ -6862,6 +6927,12 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "misc.description"
+#~ msgid ""
+#~ "生命：<color=red>？</color>\n"
+#~ "阶段1：<color=red>？</color>"
+#~ msgstr "Toughness: <color=red>40000>?"
 
 #~ msgctxt "enemies.description"
 #~ msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-10 01:51+0800\n"
+"POT-Creation-Date: 2025-11-19 05:13+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -765,7 +765,7 @@ msgstr ""
 #. Header for contraptions mvz2:punchton
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
+msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\" />石制品，但之后需要一定时间来修复自身。"
 msgstr ""
 
 #. Properties for contraptions mvz2:punchton
@@ -807,7 +807,7 @@ msgstr ""
 #. Header for contraptions mvz2:soul_furnace
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "灵魂熔炉发射恐怖的<tag id=\"mvz2:fire\"/>灵魂火，但需要烧毁前方的器械来补充燃料。"
+msgid "灵魂熔炉发射恐怖的<tag id=\"mvz2:fire\" />灵魂火，但需要烧毁前方的器械来补充燃料。"
 msgstr ""
 
 #. Properties for contraptions mvz2:soul_furnace
@@ -830,7 +830,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯的飞刀。"
+msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr ""
 
 #. Properties for contraptions mvz2:silvenser
@@ -971,7 +971,7 @@ msgstr ""
 #. Header for contraptions mvz2:totenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "图腾发射器在发射飞镖的同时还会<tag id=\"mvz2:fire\"/>喷火烧伤近处的敌人。"
+msgid "图腾发射器在发射飞镖的同时还会<tag id=\"mvz2:fire\" />喷火烧伤近处的敌人。"
 msgstr ""
 
 #. Properties for contraptions mvz2:totenser
@@ -1690,7 +1690,7 @@ msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>4支/1.5秒</color>\n"
 "伤害：<color=red>20</color>\n"
-"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\"/>发光</color>"
+"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\" />发光</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:high_frequency_pulse_dispenser
@@ -1881,7 +1881,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
-"弱点：<color=red>被<tag id=\"mvz2:light_source\"/>光照到时会失去虚无效果</color>"
+"弱点：<color=red>被<tag id=\"mvz2:light_source\" />光照到时会失去虚无效果</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:ghost
@@ -1901,7 +1901,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
-"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\"/>火烧掉</color>"
+"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\" />火烧掉</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:mummy
@@ -1942,7 +1942,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>160</color>\n"
 "速度：<color=red>2</color>\n"
-"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\"/>防御性器械</color>"
+"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\" />防御性器械</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:spider
@@ -2008,7 +2008,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "速度：<color=red>2</color>，而后<color=red>0.6</color>（产卵后）\n"
-"特点：<color=red>碰到的<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯会被寄生</color>"
+"特点：<color=red>碰到的<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯会被寄生</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:mother_terror
@@ -2097,7 +2097,7 @@ msgid ""
 "马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
 "身体速度：<color=red>1</color>\n"
 "头颅速度：<color=red>2</color>\n"
-"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\"/>高器械</color>"
+"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\" />高器械</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:dullahan
@@ -2656,7 +2656,7 @@ msgstr ""
 #. Properties for artifacts mvz2:broken_lantern
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red><tag id=\"mvz2:light_source\"/>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
+msgid "效果：<color=red><tag id=\"mvz2:light_source\" />发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:broken_lantern
@@ -3013,8 +3013,9 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"生命：<color=red>？</color>\n"
-"阶段1：<color=red>？</color>"
+"生命：<color=red>40000</color>\n"
+"阶段1：<color=red>火焰弹、龙卷风、吞食、火焰吐息</color>\n"
+"阶段2：<color=red>巨型火球、火焰龙卷风、火焰流星、飞空、扫尾</color>"
 msgstr ""
 
 #. Flavor for misc mvz2:red_dragon
@@ -4062,7 +4063,7 @@ msgstr ""
 #. Properties for misc mvz2:obsidian_first_aid
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\"/>防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
+msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\" />防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
 msgstr ""
 
 #. Flavor for misc mvz2:obsidian_first_aid
