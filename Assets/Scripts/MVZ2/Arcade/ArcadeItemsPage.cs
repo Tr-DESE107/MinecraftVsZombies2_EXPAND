@@ -12,7 +12,7 @@ namespace MVZ2.Arcade
         public void SetActive(bool active)
         {
             gameObject.SetActive(active);
-            itemsScrollRect.verticalNormalizedPosition = 0;
+            itemsScrollRect.verticalNormalizedPosition = 1;
         }
         protected virtual void Awake()
         {
