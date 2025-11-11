@@ -1290,6 +1290,10 @@ MonoBehaviour:
     - {fileID: -353247052, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
     - {fileID: -1472680690, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
     - {fileID: 1527462565, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+  - name: characters/nue
+    spritesheet:
+    - {fileID: -363754419, guid: ea907a3e2eaa545429191634d8af4841, type: 3}
+    - {fileID: 1797197900, guid: ea907a3e2eaa545429191634d8af4841, type: 3}
   - name: characters/orant
     spritesheet:
     - {fileID: -337755752, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}

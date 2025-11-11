@@ -413,8 +413,11 @@
         </variant>
     </character>
     <character id="nue" name="鵺">
-        <variant id="mvz2:normal" width="448" height="896" extendRight="0" pivotX="0.5" pivotY="0">
-            <layer sprite="mvz2:characters/armor_stand" />
+        <variant id="mvz2:normal" width="761" height="1280" extendRight="0" pivotX="0.5" pivotY="0">
+            <layer sprite="mvz2:characters/nue[0]" />
+        </variant>
+        <variant id="mvz2:close_eyes" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/nue[1]" positionX="368" positionY="112" />
         </variant>
     </character>
     <character id="sekibanki" name="赤蛮奇">
