@@ -686,11 +686,16 @@ namespace MVZ2.Mainmenu
 
             var playTimeText = GetPlayTimeText(stats?.PlayTimeMilliseconds ?? 0);
 
+            var entries = stats?.GetAllDirectEntries() ?? Array.Empty<UserStatEntry>();
+            var entriesViewData = GetDirectEntriesViewData(nsp, entries);
+
             var categories = stats?.GetAllCategories() ?? Array.Empty<UserStatCategory>();
             var categoriesViewData = GetCategoriesViewData(nsp, categories);
+
             var viewData = new StatsViewData()
             {
                 playTimeText = playTimeText,
+                entries = entriesViewData,
                 categories = categoriesViewData
             };
             ui.UpdateStats(viewData);
@@ -718,6 +723,9 @@ namespace MVZ2.Mainmenu
                 var metaOperation = meta?.Operation ?? StatOperation.Sum;
 
                 var title = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_CATEGORY, metaName);
+
+                // 大类数字显示。
+                string categoryNumberString = string.Empty;
                 long categoryNumber = 0;
                 switch (metaOperation)
                 {
@@ -728,6 +736,9 @@ namespace MVZ2.Mainmenu
                         categoryNumber = category.GetMax();
                         break;
                 }
+                categoryNumberString = categoryNumber.ToString();
+
+                // 子项。
                 var entries = category.GetAllEntries();
                 var entriesViewData = new List<StatEntryViewData>();
                 for (int j = 0; j < entries.Length; j++)
@@ -744,11 +755,33 @@ namespace MVZ2.Mainmenu
                 categoriesViewData[i] = new StatCategoryViewData()
                 {
                     entries = entriesViewData.OrderByDescending(e => e.count).ToArray(),
-                    sum = categoryNumber.ToString(),
+                    sum = categoryNumberString,
                     title = title
                 };
             }
             return categoriesViewData;
+        }
+        private StatDirectEntryViewData[] GetDirectEntriesViewData(string nsp, UserStatEntry[] entries)
+        {
+            var entriesViewData = new List<StatDirectEntryViewData>();
+            for (int i = 0; i < entries.Length; i++)
+            {
+                var entry = entries[i];
+                var meta = main.ResourceManager.GetStatDirectEntryMeta(entry.ID);
+                if (meta == null)
+                    continue;
+                // 子项。
+                var name = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_ENTRY, meta.Name);
+                var count = entry.Value;
+                if (count <= 0)
+                    continue;
+                entriesViewData.Add(new StatDirectEntryViewData()
+                {
+                    name = name,
+                    number = count.ToString()
+                });
+            }
+            return entriesViewData.ToArray();
         }
         #endregion
 

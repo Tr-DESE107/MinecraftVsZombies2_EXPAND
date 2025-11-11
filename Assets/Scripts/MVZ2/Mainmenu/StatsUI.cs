@@ -13,12 +13,25 @@ namespace MVZ2.Mainmenu
         public void UpdateStats(StatsViewData viewData)
         {
             playTimeText.text = viewData.playTimeText;
-            categoryList.updateList(viewData.categories.Length, (i, obj) =>
+            if (entryList.Exists())
             {
-                var category = obj.GetComponent<StatCategoryUI>();
-                category.UpdateCategory(viewData.categories[i]);
-                category.SetExpanded(false);
-            });
+                entryList.gameObject.SetActive(viewData.entries.Length > 0);
+                entryList.updateList(viewData.entries.Length, (i, obj) =>
+                {
+                    var category = obj.GetComponent<StatDirectEntryUI>();
+                    category.UpdateEntry(viewData.entries[i]);
+                });
+            }
+            if (categoryList.Exists())
+            {
+                categoryList.gameObject.SetActive(viewData.categories.Length > 0);
+                categoryList.updateList(viewData.categories.Length, (i, obj) =>
+                {
+                    var category = obj.GetComponent<StatCategoryUI>();
+                    category.UpdateCategory(viewData.categories[i]);
+                    category.SetExpanded(false);
+                });
+            }
         }
         private void Awake()
         {
@@ -28,6 +41,8 @@ namespace MVZ2.Mainmenu
         [SerializeField]
         private TextMeshProUGUI playTimeText = null!;
         [SerializeField]
+        private ElementList entryList = null!;
+        [SerializeField]
         private ElementList categoryList = null!;
         [SerializeField]
         private Button backButton = null!;
@@ -35,6 +50,7 @@ namespace MVZ2.Mainmenu
     public struct StatsViewData
     {
         public string playTimeText;
+        public StatDirectEntryViewData[] entries;
         public StatCategoryViewData[] categories;
     }
 }

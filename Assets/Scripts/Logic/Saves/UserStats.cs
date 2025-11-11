@@ -24,6 +24,22 @@ namespace MVZ2Logic.Saves
                 cate = CreateCategory(category);
             cate.SetStatValue(entry, value);
         }
+        public long GetStatValue(NamespaceID entryID)
+        {
+            var entry = GetDirectEntry(entryID);
+            if (entry == null)
+                return 0;
+            return entry.Value;
+        }
+        public void SetStatValue(NamespaceID entryID, long value)
+        {
+            var entry = GetDirectEntry(entryID);
+            if (entry == null)
+                entry = CreateDirectEntry(entryID);
+            entry.Value = value;
+        }
+
+        #region Category
         public bool HasCategory(string name)
         {
             return categories.Exists(e => e.Name == name);
@@ -31,34 +47,6 @@ namespace MVZ2Logic.Saves
         public UserStatCategory[] GetAllCategories()
         {
             return categories.ToArray();
-        }
-        public SerializableUserStats ToSerializable()
-        {
-            return new SerializableUserStats()
-            {
-                categories = categories.Select(e => e.ToSerializable()).ToArray(),
-                playTimeMilliseconds = PlayTimeMilliseconds,
-            };
-        }
-        public static UserStats FromSerializable(SerializableUserStats serializable)
-        {
-            var stats = new UserStats();
-            if (serializable.categories != null)
-            {
-                foreach (var seriCategory in serializable.categories)
-                {
-                    if (seriCategory == null)
-                        continue;
-                    var category = UserStatCategory.FromSerializable(seriCategory);
-                    if (category == null)
-                        continue;
-                    stats.categories.Add(category);
-                }
-            }
-
-            stats.PlayTimeMilliseconds = serializable.playTimeMilliseconds;
-
-            return stats;
         }
         private string[] GetAllCategoryNames()
         {
@@ -74,7 +62,84 @@ namespace MVZ2Logic.Saves
             categories.Add(entry);
             return entry;
         }
+        #endregion
+
+        #region Direct Entry
+        public bool HasDirectEntry(NamespaceID id)
+        {
+            return entries.Exists(e => e.ID == id);
+        }
+        public UserStatEntry[] GetAllDirectEntries()
+        {
+            return entries.ToArray();
+        }
+        private NamespaceID[] GetAllDirectEntriesID()
+        {
+            return entries.Select(e => e.ID).ToArray();
+        }
+        private UserStatEntry GetDirectEntry(NamespaceID id)
+        {
+            return entries.FirstOrDefault(e => e.ID == id);
+        }
+        private UserStatEntry CreateDirectEntry(NamespaceID name)
+        {
+            var entry = new UserStatEntry(name);
+            entries.Add(entry);
+            return entry;
+        }
+        #endregion
+
+        #region Serialization
+        public SerializableUserStats ToSerializable()
+        {
+            return new SerializableUserStats()
+            {
+                categories = categories.Select(e => e.ToSerializable()).ToArray(),
+                directEntries = entries.Select(e => e.ToSerializable()).ToArray(),
+                playTimeMilliseconds = PlayTimeMilliseconds,
+            };
+        }
+        public static UserStats FromSerializable(SerializableUserStats serializable)
+        {
+            var stats = new UserStats();
+
+            // Categories.
+            if (serializable.categories != null)
+            {
+                foreach (var seriCategory in serializable.categories)
+                {
+                    if (seriCategory == null)
+                        continue;
+                    var category = UserStatCategory.FromSerializable(seriCategory);
+                    if (category == null)
+                        continue;
+                    stats.categories.Add(category);
+                }
+            }
+
+            // Direct Entries.
+            if (serializable.directEntries != null)
+            {
+                foreach (var seriEntry in serializable.directEntries)
+                {
+                    if (seriEntry == null)
+                        continue;
+                    var entry = UserStatEntry.FromSerializable(seriEntry);
+                    if (entry == null)
+                        continue;
+                    stats.entries.Add(entry);
+                }
+            }
+
+            // Play Time.
+            stats.PlayTimeMilliseconds = serializable.playTimeMilliseconds;
+
+            return stats;
+        }
+        #endregion
+
         private List<UserStatCategory> categories = new List<UserStatCategory>();
+        private List<UserStatEntry> entries = new List<UserStatEntry>();
         public long PlayTimeMilliseconds { get; set; }
     }
     [Serializable]
@@ -82,6 +147,7 @@ namespace MVZ2Logic.Saves
     public class SerializableUserStats
     {
         public SerializableUserStatCategory?[]? categories;
+        public SerializableUserStatEntry?[]? directEntries;
         public long playTimeMilliseconds;
         [Obsolete]
         [BsonIgnoreIfNull]

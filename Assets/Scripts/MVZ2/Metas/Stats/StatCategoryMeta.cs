@@ -48,7 +48,7 @@ namespace MVZ2.Metas
         private static readonly Dictionary<string, StatCategoryType> typeDict = new Dictionary<string, StatCategoryType>()
         {
             { "entity", StatCategoryType.Entity },
-            { "stage", StatCategoryType.Stage }
+            { "stage", StatCategoryType.Stage },
         };
         private static readonly Dictionary<string, StatOperation> operationDict = new Dictionary<string, StatOperation>()
         {
@@ -59,7 +59,7 @@ namespace MVZ2.Metas
     public enum StatCategoryType
     {
         Entity,
-        Stage
+        Stage,
     }
     public enum StatOperation
     {

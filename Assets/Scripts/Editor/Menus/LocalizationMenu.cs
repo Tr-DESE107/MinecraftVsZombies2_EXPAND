@@ -178,6 +178,11 @@ namespace MVZ2.Editor
                 var id = new NamespaceID(spaceName, category.ID);
                 AddTranslation(potGenerator, category.Name, statsReference, $"Name for stat category {id}", VanillaStrings.CONTEXT_STAT_CATEGORY);
             }
+            foreach (var entry in statsEntryList.entries)
+            {
+                var id = new NamespaceID(spaceName, entry.ID);
+                AddTranslation(potGenerator, entry.Name, statsReference, $"Name for stat entry {id}", VanillaStrings.CONTEXT_STAT_ENTRY);
+            }
             // 成就
             var achievementsDocument = LoadMetaXmlDocument(spaceName, "achievements.xml");
             var achievementList = AchievementMetaList.FromXmlNode(achievementsDocument["achievements"], spaceName);
