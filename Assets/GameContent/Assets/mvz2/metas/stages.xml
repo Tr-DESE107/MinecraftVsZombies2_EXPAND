@@ -1137,7 +1137,7 @@
             <spawn id="mvz2:iron_helmetted_zombie"/>
             <spawn id="mvz2:undead_flying_object"/>
             <spawn id="mvz2:zombie_cloud"/>
-            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:dullahan"/>
         </spawns>
     </stage>
     <stage id="ship_6" name="圣辇船" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
@@ -1201,7 +1201,7 @@
             <spawn id="mvz2:undead_flying_object"/>
             <spawn id="mvz2:zombie_cloud"/>
             <spawn id="mvz2:cannoneer_zombie"/>
-            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:ghast"/>
         </spawns>
     </stage>
     <stage id="ship_9" name="圣辇船" dayNumber="9" >
