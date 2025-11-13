@@ -59,6 +59,10 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 result.SetValue(LogicBlueprintStyles.commandBlock);
             }
+            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.forcePad))
+            {
+                result.SetValue(LogicBlueprintStyles.GoldCard);
+            }
             else if (definition.IsUpgradeBlueprint())
             {
                 result.SetValue(LogicBlueprintStyles.upgrade);

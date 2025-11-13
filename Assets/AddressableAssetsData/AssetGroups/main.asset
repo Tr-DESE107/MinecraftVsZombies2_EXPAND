@@ -73,6 +73,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01511f8b95f92d9428f27682a40fd63a
+    m_Address: mvz2:enemy/EXPAND/ImpDESE107
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01521753285ac654189928e17b81a748
     m_Address: mvz2:enemy/castle/NetherTroopCarrier
     m_ReadOnly: 0
@@ -2126,6 +2133,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 268b8b4827c8ede4195ce3bff8a0e620
     m_Address: mvz2:projectile/fire_charge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26b14da8d6f023d4883737d21390b55f
+    m_Address: mvz2:enemy/EXPAND/DESE107
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5209,6 +5223,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f3a092b11f65cc4a954e2922bb956f4
+    m_Address: mvz2:entity/enemy/DESE107
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f4cc3fb20d2e444dadca8933f948c21
     m_Address: mvz2:random/cloth/cloth1
     m_ReadOnly: 0
@@ -6607,6 +6628,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bcc33aabbd2bdf4b88f38a476c86f34
+    m_Address: mvz2:entity/enemy/MutantDESE107
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7bf48cdb4ddd8074c8c39a084c5e181f
     m_Address: mvz2:entity/enemy/bone_wall
@@ -8234,6 +8262,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9bdca5ac48ec0b544bbe298bec6e82a7
     m_Address: mvz2:armor/wicked_hermit_hat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bf5a6c05559dcd48b49029e995474c4
+    m_Address: mvz2:enemy/EXPAND/MutantDESE107
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9878,11 +9913,11 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd9181611fa05f34e9e0f6ea22795c7d
-    m_Address: mvz2:ui/level/mobile/GoldCardMobile
+    m_Address: mvz2:ui/level/GoldCardMobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdab62905818ab343b09f4857c660b11
     m_Address: mvz2:characters/shinmyoumaru_big
