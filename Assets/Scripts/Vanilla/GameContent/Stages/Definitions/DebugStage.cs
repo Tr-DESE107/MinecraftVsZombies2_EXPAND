@@ -43,16 +43,18 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.desirePot,
-                VanillaContraptionID.beacon,
-                VanillaContraptionID.thunderDrum,
-                VanillaContraptionID.lightningOrb,
-                VanillaContraptionID.fireworkDispenser,
-                VanillaEnemyID.necromancer,
-                VanillaEnemyID.EvilMage,
-                VanillaEnemyID.KingofReverser,
-                VanillaEnemyID.skeleton,
-                VanillaEnemyID.KingSkeleton,
+                VanillaContraptionID.magichest,
+                VanillaContraptionID.elasticCloud,
+                VanillaContraptionID.teslaCoil,
+                //VanillaContraptionID.lightningOrb,
+                //VanillaContraptionID.fireworkDispenser,
+                VanillaEnemyID.WintherMage,
+                VanillaEnemyID.NetherArcher,
+                VanillaEnemyID.MegaMutantVillager,
+                VanillaEnemyID.MutantVillager,
+                VanillaEnemyID.MutantMannequin,
+                VanillaEnemyID.RandomMutant,
+                VanillaEnemyID.HostMutant,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

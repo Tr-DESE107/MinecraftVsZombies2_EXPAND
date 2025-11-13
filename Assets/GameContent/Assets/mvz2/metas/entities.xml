@@ -226,31 +226,31 @@
             </properties>
         </smallSpider>
 		<mutantZombie id="2" parent="enemy">
-			<behaviours>
-				<behaviour operator="remove" id="mvz2:enemy_state"/>
-				<behaviour operator="remove" id="mvz2:enemy_melee"/>
-				<behaviour operator="remove" id="mvz2:enemy_death_disappear"/>
-			</behaviours>
-			<properties>
-				<float name="mvz2:mass" value="2" />
-				<float name="mvz2:maxHealth" value="3000" />
-				<float name="mvz2:maxAttackHeight" value="100" />
-				<float name="mvz2:speed" value="1" />
-				<float name="mvz2:range" value="40" />
-				<vector3 name="mvz2:size" x="80" y="170" z="60" />
-				<id name="mvz2:crySound" value="mvz2:mutant_cry" />
-				<id name="mvz2:deathSound" value="mvz2:mutant_death" />
-				<id name="mvz2:shape" value="mvz2:mutant_zombie" />
-				<float name="mvz2:takenCrushDamage" value="900" />
-				<bool name="mvz2:immuneVortex" value="true" />
-				<int name="mvz2:vehicleInteraction" value="2" />
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="remove" id="mvz2:enemy_death_disappear"/>
+            </behaviours>
+            <properties>
+                <float name="mvz2:mass" value="2" />
+                <float name="mvz2:maxHealth" value="3000" />
+                <float name="mvz2:maxAttackHeight" value="100" />
+                <float name="mvz2:speed" value="1" />
+                <float name="mvz2:range" value="40" />
+                <vector3 name="mvz2:size" x="80" y="170" z="60" />
+                <id name="mvz2:crySound" value="mvz2:mutant_cry" />
+                <id name="mvz2:deathSound" value="mvz2:mutant_death" />
+                <id name="mvz2:shape" value="mvz2:mutant_zombie" />
+                <float name="mvz2:takenCrushDamage" value="900" />
+                <bool name="mvz2:immuneVortex" value="true" />
+                <int name="mvz2:vehicleInteraction" value="2" />
 
-				<vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
+                <vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
 
-				<int name="mvz2:cost" value="300" />
-				<int name="mvz2:waterInteraction" value="3" />
-			</properties>
-		</mutantZombie>
+                <int name="mvz2:cost" value="300" />
+                <int name="mvz2:waterInteraction" value="3" />
+            </properties>
+        </mutantZombie>
         <energyPickup id="6" parent="pickup">
             <behaviours>
                 <behaviour operator="add" id="mvz2:pickup_collect_value"/>
@@ -1561,29 +1561,37 @@
                 <int name="mvz2:waterInteraction" value="3" />
             </properties>
         </smallSpider>
-        <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
-            <properties>
-                <float name="mvz2:mass" value="-2" />
-                <bool name="mvz2:undead" value="false" />
-                <bool name="mvz2:flying_enemy" value="true" />
-                <float name="mvz2:maxHealth" value="100" />
-                <float name="mvz2:damage" value="150" />
-                <float name="mvz2:range" value="800" />
-                <vector3 name="mvz2:size" x="64" y="64" z="64" />
-                <vector3 name="mvz2:shotOffset" x="10" y="10" z="0" />
-                <vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
-                <id name="mvz2:shell" value="mvz2:nether" />
-                <id name="mvz2:shape" value="mvz2:ghast" />
-                <id name="mvz2:projectileId" value="mvz2:fire_charge" />
-                <id name="mvz2:crySound" value="mvz2:ghast_cry" />
-                <id name="mvz2:deathSound" value="mvz2:ghast_death" />
-                <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
+		<enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" >
+			<unlock>
+				<condition required="mvz2:level.dream_6"/>
+			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:ghast/state"/>
+				<behaviour operator="replace" source="mvz2:enemy_walk" id="mvz2:ghast/move"/>
+				<behaviour operator="remove" id="mvz2:enemy_melee"/>
+			</behaviours>
+			<properties>
+				<float name="mvz2:mass" value="-2" />
+				<bool name="mvz2:undead" value="false" />
+				<bool name="mvz2:flying_enemy" value="true" />
+				<float name="mvz2:maxHealth" value="100" />
+				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:size" x="64" y="64" z="64" />
+				<vector3 name="mvz2:shotOffset" x="10" y="10" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:shape" value="mvz2:ghast" />
+				<id name="mvz2:projectileId" value="mvz2:fire_charge" />
+				<id name="mvz2:crySound" value="mvz2:ghast_cry" />
+				<id name="mvz2:deathSound" value="mvz2:ghast_death" />
+				<idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
 
-                <int name="mvz2:cost" value="125" />
-                <int name="mvz2:waterInteraction" value="3" />
-                <int name="mvz2:airInteraction" value="3" />
-            </properties>
-        </enemy>
+				<int name="mvz2:cost" value="125" />
+				<int name="mvz2:waterInteraction" value="3" />
+				<int name="mvz2:airInteraction" value="3" />
+			</properties>
+		</enemy>
         <spider id="mother_terror" name="恐怖之母" deathMessage="生异形啊" unlock="mvz2:level.dream_8">
             <properties>
                 <float name="mvz2:maxHealth" value="200" />
@@ -1629,8 +1637,8 @@
                 <int name="mvz2:airInteraction" value="2" />
             </properties>
         </smallSpider>
-        
-        <enemy id="HostMutant" name="宿主突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.dream_10" >
+
+		<mutantZombie id="HostMutant" name="宿主突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.dream_10" >
             <properties>
 				<float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="8000"/>
@@ -1649,7 +1657,7 @@
                 <int name="mvz2:cost" value="300" />
                 <int name="mvz2:waterInteraction" value="3"/>
             </properties>
-        </enemy>
+        </mutantZombie>
         <enemy id="HostIMP" name="宿主小鬼僵尸" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
             <properties>
 				<float name="mvz2:mass" value="-1" />
@@ -1959,6 +1967,10 @@
 		</enemy>
 
 		<humanoid id="WintherMage" name="凋灵巫师" deathMessage="骸死我了" unlock="mvz2:level.castle_12">
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state"/>
+				<behaviour operator="remove" id="mvz2:enemy_melee"/>
+			</behaviours>
 			<properties>
 				<float name="mvz2:range" value="800" />
 				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
@@ -2186,7 +2198,7 @@
 		</enemy>
 
 
-        <enemy id="HeavyGutant" name="突变重炮手" deathMessage="你怎么进门的？" unlock="mvz2:level.MutantCrisis">
+		<mutantZombie id="HeavyGutant" name="突变重炮手" deathMessage="你怎么进门的？" unlock="mvz2:level.MutantCrisis">
             <properties>
 				<float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="3000"/>
@@ -2205,11 +2217,11 @@
                 <int name="mvz2:cost" value="300" />
                 <int name="mvz2:waterInteraction" value="3"/>
             </properties>
-        </enemy>
+        </mutantZombie>
 
 		<!-- expand Enemies -->
-		
-        <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.prologue">
+
+		<mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.prologue">
             <properties>
                 <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="3000" />
@@ -2228,8 +2240,8 @@
                 <int name="mvz2:cost" value="300" />
                 <int name="mvz2:waterInteraction" value="3" />
             </properties>
-        </enemy>
-        <enemy id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？"
+        </mutantZombie>
+		<mutantZombie id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？"
             unlock="mvz2:level.MutantCrisis">
             <properties>
                 <float name="mvz2:mass" value="2" />
@@ -2250,7 +2262,7 @@
                 <int name="mvz2:cost" value="500" />
                 <int name="mvz2:waterInteraction" value="3" />
             </properties>
-        </enemy>
+        </mutantZombie>
         <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了" unlock="mvz2:level.prologue">
             <properties>
                 <float name="mvz2:mass" value="-1" />
@@ -2268,6 +2280,11 @@
 
 		<!-- expand Enemies2 -->
 		<enemy id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！" unlock="mvz2:level.VillagerNews">
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:ghast/state"/>
+				<behaviour operator="replace" source="mvz2:enemy_walk" id="mvz2:ghast/move"/>
+				<behaviour operator="remove" id="mvz2:enemy_melee"/>
+			</behaviours>
 			<properties>
 				<float name="mvz2:mass" value="-2" />
 				<bool name="mvz2:undead" value="false" />
@@ -2292,7 +2309,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="MutantVillager" name="突变村民" deathMessage="我也是一个广东人，所以我们可能是老乡" unlock="mvz2:level.VillagerNews">
+		<mutantZombie id="MutantVillager" name="突变村民" deathMessage="我也是一个广东人，所以我们可能是老乡" unlock="mvz2:level.VillagerNews">
 			<properties>
 				<float name="mvz2:mass" value="2" />
 				<float name="mvz2:maxHealth" value="2700" />
@@ -2312,8 +2329,8 @@
 				<int name="mvz2:cost" value="300" />
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
-		</enemy>
-		<enemy id="MegaMutantVillager" name="超级突变村民" deathMessage="FA♂Q"
+		</mutantZombie>
+		<mutantZombie id="MegaMutantVillager" name="超级突变村民" deathMessage="FA♂Q"
             unlock="mvz2:level.VillagerNews">
 			<properties>
 				<float name="mvz2:mass" value="2" />
@@ -2335,7 +2352,7 @@
 				<int name="mvz2:cost" value="500" />
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
-		</enemy>
+		</mutantZombie>
 
 		<enemy id="ImpMannequin" name="小鬼玩家模型" deathMessage="年少有为" unlock="mvz2:level.TrueAndFalseSteve" >
 			<properties>
@@ -2382,7 +2399,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="MutantMannequin" name="突变玩家模型" deathMessage="是史蒂夫吗？你从隔壁皮革俱乐部学成归来了？"
+		<mutantZombie id="MutantMannequin" name="突变玩家模型" deathMessage="是史蒂夫吗？你从隔壁皮革俱乐部学成归来了？"
             unlock="mvz2:level.TrueAndFalseSteve">
 			<properties>
 				<float name="mvz2:mass" value="2" />
@@ -2404,7 +2421,7 @@
 				<int name="mvz2:cost" value="500" />
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
-		</enemy>
+		</mutantZombie>
 
 		<zombie id="Mannequin" name="玩家模型" deathMessage="你怎么连自己都打不过？" unlock="mvz2:level.TrueAndFalseSteve">
 			<properties>
@@ -2433,7 +2450,7 @@
 		</enemy>
 		
 		<!-- RANDOM ENEMY -->
-		<enemy id="RandomMutant" name="突变随机僵尸" deathMessage="是哪种突变怪物打死了你啊？" unlock="mvz2:level.vsRandomZombie">
+		<mutantZombie id="RandomMutant" name="突变随机僵尸" deathMessage="是哪种突变怪物打死了你啊？" unlock="mvz2:level.vsRandomZombie">
 			<properties>
 				<float name="mvz2:mass" value="2" />
 				<float name="mvz2:maxHealth" value="1800" />
@@ -2452,7 +2469,7 @@
 				<int name="mvz2:cost" value="600" />
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
-		</enemy>
+		</mutantZombie>
 
 		<zombie id="RandomZombie" name="随机僵尸" deathMessage="是哪种僵尸打死了你啊？" unlock="mvz2:level.vsRandomZombie">
 			<properties>
@@ -2714,7 +2731,11 @@
             </properties>
         </humanoid>
         <humanoid id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
-            <properties>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+            </behaviours>
+			<properties>
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
                 <vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
