@@ -322,7 +322,7 @@ namespace MVZ2.GameContent.Bosses
                             if (substateTimer.Expired)
                             {
                                 substateTimer.ResetTime(90);
-                                stateMachine.SetSubState(entity, SUBSTATE_CHARGING);
+                                stateMachine.StartSubState(entity, SUBSTATE_CHARGING);
                             }
                         }
                         break;
@@ -339,7 +339,7 @@ namespace MVZ2.GameContent.Bosses
                             var vel = entity.Velocity;
                             vel.x = entity.GetFacingX() * -20;
                             entity.Velocity = vel;
-                            stateMachine.SetSubState(entity, SUBSTATE_DASH);
+                            stateMachine.StartSubState(entity, SUBSTATE_DASH);
                             substateTimer.ResetTime(20);
                         }
                         break;
@@ -368,7 +368,7 @@ namespace MVZ2.GameContent.Bosses
                                 pos.x = endX;
 
                                 vel.x = 0;
-                                stateMachine.SetSubState(entity, SUBSTATE_DASH_END);
+                                stateMachine.StartSubState(entity, SUBSTATE_DASH_END);
                                 substateTimer.ResetTime(30);
                             }
                             entity.Position = pos;
@@ -432,7 +432,7 @@ namespace MVZ2.GameContent.Bosses
                             if (substateTimer.Expired)
                             {
                                 substateTimer.ResetTime(30);
-                                stateMachine.SetSubState(entity, SUBSTATE_READY);
+                                stateMachine.StartSubState(entity, SUBSTATE_READY);
                             }
                         }
                         break;
@@ -469,7 +469,7 @@ namespace MVZ2.GameContent.Bosses
 
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_DASH);
+                            stateMachine.StartSubState(entity, SUBSTATE_DASH);
                             substateTimer.ResetTime(20);
                         }
                         break;
@@ -554,14 +554,14 @@ namespace MVZ2.GameContent.Bosses
                     var distance2D = new Vector2(GetTargetX(entity) - entity.Position.x, GetTargetZ(entity) - entity.Position.z);
                     if (distance2D.sqrMagnitude < 100)
                     {
-                        stateMachine.SetSubState(entity, SUBSTATE_FALLING);
+                        stateMachine.StartSubState(entity, SUBSTATE_FALLING);
                     }
                 }
                 else if (substate == SUBSTATE_FALLING)
                 {
                     if (entity.GetRelativeY() <= 1)
                     {
-                        stateMachine.SetSubState(entity, SUBSTATE_ON_GROUND);
+                        stateMachine.StartSubState(entity, SUBSTATE_ON_GROUND);
                         entity.PlaySound(VanillaSoundID.witherSpawn);
                         entity.PlaySound(VanillaSoundID.explosion);
                         entity.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN));
@@ -657,7 +657,7 @@ namespace MVZ2.GameContent.Bosses
                             if (substateTimer.Expired)
                             {
                                 substateTimer.ResetTime(30);
-                                stateMachine.SetSubState(entity, SUBSTATE_ROAR);
+                                stateMachine.StartSubState(entity, SUBSTATE_ROAR);
                                 entity.PlaySound(VanillaSoundID.witherCry);
                                 entity.SetAnimationBool("Shaking", true);
                             }
@@ -674,7 +674,7 @@ namespace MVZ2.GameContent.Bosses
                             if (substateTimer.Expired)
                             {
                                 entity.SetAnimationBool("Shaking", false);
-                                stateMachine.SetSubState(entity, SUBSTATE_SUMMONED);
+                                stateMachine.StartSubState(entity, SUBSTATE_SUMMONED);
                                 substateTimer.ResetTime(30);
 
                                 entity.PlaySound(VanillaSoundID.witherSpawn);

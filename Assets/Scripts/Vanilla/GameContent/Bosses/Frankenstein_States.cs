@@ -144,12 +144,12 @@ namespace MVZ2.GameContent.Bosses
                 {
                     case SUBSTATE_AWAKE_START:
                         entity.PlaySound(IsSteelPhase(entity) ? VanillaSoundID.frankensteinSteelLaugh : VanillaSoundID.frankensteinLaugh);
-                        stateMachine.SetSubState(entity, SUBSTATE_AWAKE_LAUGH);
+                        stateMachine.StartSubState(entity, SUBSTATE_AWAKE_LAUGH);
                         substateTimer.ResetTime(60);
                         break;
 
                     case SUBSTATE_AWAKE_LAUGH:
-                        stateMachine.SetSubState(entity, SUBSTATE_AWAKE_RISE);
+                        stateMachine.StartSubState(entity, SUBSTATE_AWAKE_RISE);
                         substateTimer.ResetTime(100);
                         break;
 
@@ -183,7 +183,7 @@ namespace MVZ2.GameContent.Bosses
                     {
                         case SUBSTATE_DEAD_STAND:
                             DropHead(entity);
-                            stateMachine.SetSubState(entity, SUBSTATE_DEAD_HEAD_DROPPED);
+                            stateMachine.StartSubState(entity, SUBSTATE_DEAD_HEAD_DROPPED);
                             substateTimer.ResetTime(120);
                             break;
                         case SUBSTATE_DEAD_HEAD_DROPPED:
@@ -260,7 +260,7 @@ namespace MVZ2.GameContent.Bosses
                     {
                         substate = SUBSTATE_GUN_FIRE;
                         substateTimer.ResetTime(shootingPeriodFrames);
-                        stateMachine.SetSubState(entity, substate);
+                        stateMachine.StartSubState(entity, substate);
                     }
                 }
                 // 寻找机枪目标
@@ -410,7 +410,7 @@ namespace MVZ2.GameContent.Bosses
 
             private void FireMissile(EntityStateMachine stateMachine, Entity boss)
             {
-                stateMachine.SetSubState(boss, SUBSTATE_MISSILE_FIRED);
+                stateMachine.StartSubState(boss, SUBSTATE_MISSILE_FIRED);
                 var substateTimer = stateMachine.GetSubStateTimer(boss);
                 substateTimer?.ResetTime(9);
 
@@ -449,7 +449,7 @@ namespace MVZ2.GameContent.Bosses
                     switch (substate)
                     {
                         case SUBSTATE_JUMP_READY:
-                            stateMachine.SetSubState(entity, SUBSTATE_JUMP_IN_AIR);
+                            stateMachine.StartSubState(entity, SUBSTATE_JUMP_IN_AIR);
                             Jump(entity);
                             break;
 
@@ -575,12 +575,12 @@ namespace MVZ2.GameContent.Bosses
                     switch (substate)
                     {
                         case SUBSTATE_PUNCH_READY:
-                            stateMachine.SetSubState(entity, SUBSTATE_PUNCH_FIRE);
+                            stateMachine.StartSubState(entity, SUBSTATE_PUNCH_FIRE);
                             substateTimer.ResetTime(3);
                             break;
 
                         case SUBSTATE_PUNCH_FIRE:
-                            stateMachine.SetSubState(entity, SUBSTATE_PUNCH_FINISHED);
+                            stateMachine.StartSubState(entity, SUBSTATE_PUNCH_FINISHED);
                             substateTimer.ResetTime(15);
                             Punch(entity);
                             break;
@@ -623,7 +623,7 @@ namespace MVZ2.GameContent.Bosses
                     switch (substate)
                     {
                         case SUBSTATE_SHOCK_READY:
-                            stateMachine.SetSubState(entity, SUBSTATE_SHOCK_FINISHED);
+                            stateMachine.StartSubState(entity, SUBSTATE_SHOCK_FINISHED);
                             entity.Target = FindShockingTarget(entity);
                             if (entity.Target != null)
                             {

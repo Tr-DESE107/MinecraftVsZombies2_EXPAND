@@ -475,7 +475,7 @@ namespace MVZ2.GameContent.Bosses
         #region 吃豆人
         public static bool IsPacman(Entity entity)
         {
-            var state = stateMachine.GetEntityState(entity);
+            var state = stateMachine.GetStateNumber(entity);
             var subState = stateMachine.GetSubState(entity);
             return state == STATE_PACMAN && subState == PacmanState.SUBSTATE_PACMAN;
         }
@@ -495,7 +495,7 @@ namespace MVZ2.GameContent.Bosses
         {
             if (!IsPacman(entity))
                 return;
-            stateMachine.SetSubState(entity, PacmanState.SUBSTATE_PACMAN_DEATH);
+            stateMachine.StartSubState(entity, PacmanState.SUBSTATE_PACMAN_DEATH);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(60);
             entity.PlaySound(VanillaSoundID.pacmanFail);
@@ -519,13 +519,13 @@ namespace MVZ2.GameContent.Bosses
         #region 贪吃蛇
         public static bool IsSnake(Entity entity)
         {
-            var state = stateMachine.GetEntityState(entity);
+            var state = stateMachine.GetStateNumber(entity);
             var subState = stateMachine.GetSubState(entity);
             return state == STATE_SNAKE && subState == SnakeState.SUBSTATE_SNAKE;
         }
         public static bool CanAttractByBlackhole(Entity entity)
         {
-            var state = stateMachine.GetEntityState(entity);
+            var state = stateMachine.GetStateNumber(entity);
             var subState = stateMachine.GetSubState(entity);
             return state == STATE_SNAKE && (subState == SnakeState.SUBSTATE_SNAKE || subState == SnakeState.SUBSTATE_SNAKE_DEATH);
         }
@@ -533,7 +533,7 @@ namespace MVZ2.GameContent.Bosses
         {
             if (!IsSnake(entity))
                 return;
-            stateMachine.SetSubState(entity, SnakeState.SUBSTATE_SNAKE_DEATH);
+            stateMachine.StartSubState(entity, SnakeState.SUBSTATE_SNAKE_DEATH);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(30);
             entity.PlaySound(VanillaSoundID.pacmanFail);

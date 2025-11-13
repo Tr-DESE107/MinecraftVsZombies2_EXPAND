@@ -3753,6 +3753,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53824a27cae636544b1d80094c86f879
+    m_Address: mvz2:misc/red_dragon_and_byakuren
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 538c7d5127bd5374092dc11853cec911
     m_Address: mvz2:firework_twinkle
     m_ReadOnly: 0
@@ -7658,6 +7665,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adcf9c3fb53a8544bb6a5d9711171830
+    m_Address: mvz2:entity/boss/red_dragon_close_eyes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adecf731c88b78646a29bb745f5ada9b
     m_Address: mvz2:mobile_blueprint/dream_crystal
     m_ReadOnly: 0
@@ -8337,6 +8351,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be9b5f79551d77d45a54270ddcd700eb
+    m_Address: mvz2:boss/red_dragon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: beb139d5d07db39408272c27eaea0034
     m_Address: mvz2:products/obsidian_first_aid
     m_ReadOnly: 0
@@ -8381,6 +8402,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfce65959617bce4ab0ffb4a5d19df4c
     m_Address: mvz2:level/dream/pool_sparkle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfcfd34812223b64fafaee05b62b9ae6
+    m_Address: mvz2:entity/boss/red_dragon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9172,6 +9200,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d04fa54aea815bb44be98b8a3bb2ed5b
     m_Address: mvz2:entity/contraptions/soul_furnace_light
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d062afaff4776ff409fec750fe591d05
+    m_Address: mvz2:arcade/ufo_blitz
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

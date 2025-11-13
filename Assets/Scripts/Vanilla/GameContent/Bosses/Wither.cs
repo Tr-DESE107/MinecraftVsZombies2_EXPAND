@@ -208,7 +208,7 @@ namespace MVZ2.GameContent.Bosses
             var vel = entity.Velocity;
             vel.x = 0;
             entity.Velocity = vel;
-            stateMachine.SetSubState(entity, EatState.SUBSTATE_EATEN);
+            stateMachine.StartSubState(entity, EatState.SUBSTATE_EATEN);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(20);
         }

@@ -213,7 +213,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_ROTATE_1:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_ROTATE_2);
+                            stateMachine.StartSubState(entity, SUBSTATE_ROTATE_2);
                             substateTimer.ResetTime(30);
                         }
                         break;
@@ -258,7 +258,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_RAISE:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_HAMMERED);
+                            stateMachine.StartSubState(entity, SUBSTATE_HAMMERED);
                             substateTimer.ResetTime(8);
                             smashDetectBuffer.Clear();
                             hammerSmashDetector.DetectMultiple(entity, smashDetectBuffer);
@@ -340,7 +340,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_PREPARE:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_WRAPPED);
+                            stateMachine.StartSubState(entity, SUBSTATE_WRAPPED);
                             substateTimer.ResetTime(12);
                             var level = entity.Level;
                             var pos = entity.Position;
@@ -354,7 +354,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_WRAPPED:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_BOMB_THROWN);
+                            stateMachine.StartSubState(entity, SUBSTATE_BOMB_THROWN);
                             substateTimer.ResetTime(30);
 
                             var pos = entity.Position;
@@ -373,7 +373,7 @@ namespace MVZ2.GameContent.Bosses
                         if (substateTimer.Expired)
                         {
                             var level = entity.Level;
-                            stateMachine.SetSubState(entity, SUBSTATE_RETURN);
+                            stateMachine.StartSubState(entity, SUBSTATE_RETURN);
                             substateTimer.ResetTime(23);
                             var pos = entity.Position;
                             pos.x = level.GetEntityColumnX(entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0);
@@ -388,7 +388,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_RETURN:
                         if (entity.IsOnGround)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_LANDED);
+                            stateMachine.StartSubState(entity, SUBSTATE_LANDED);
                             substateTimer.ResetTime(17);
                         }
                         break;
@@ -427,7 +427,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_PREPARE:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_JUMP);
+                            stateMachine.StartSubState(entity, SUBSTATE_JUMP);
                             var pos = entity.Position;
                             pos.x += entity.GetFacingX() * 80;
                             pos.y = entity.Level.GetGroundY(pos);
@@ -448,7 +448,7 @@ namespace MVZ2.GameContent.Bosses
                             }
                             else
                             {
-                                stateMachine.SetSubState(entity, SUBSTATE_LANDED);
+                                stateMachine.StartSubState(entity, SUBSTATE_LANDED);
                                 substateTimer?.ResetTime(17);
                             }
                         }
@@ -485,7 +485,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_JUMP:
                         if (entity.IsOnGround)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_LANDED);
+                            stateMachine.StartSubState(entity, SUBSTATE_LANDED);
                             substateTimer?.ResetTime(17);
                         }
                         break;
@@ -521,7 +521,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_JUMP:
                         if (entity.IsOnGround)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_LANDED);
+                            stateMachine.StartSubState(entity, SUBSTATE_LANDED);
                             substateTimer?.ResetTime(17);
                         }
                         break;
@@ -569,7 +569,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_FABRICED:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_OFF);
+                            stateMachine.StartSubState(entity, SUBSTATE_OFF);
                             substateTimer?.ResetTime(10);
                         }
                         break;
