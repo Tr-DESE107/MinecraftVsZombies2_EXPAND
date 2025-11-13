@@ -119,6 +119,8 @@ namespace MVZ2.Vanilla.Entities
         public void SetSubState(Entity entity, int value) => entity.SetBehaviourField(PROP_SUBSTATE, value);
         public int GetPreviousState(Entity boss) => boss.GetBehaviourField<int>(PROP_PREVIOUS_STATE);
         public void SetPreviousState(Entity boss, int value) => boss.SetBehaviourField(PROP_PREVIOUS_STATE, value);
+        public int GetNextStateIndex(Entity boss) => boss.GetBehaviourField<int>(PROP_NEXT_STATE_INDEX);
+        public void SetNextStateIndex(Entity boss, int value) => boss.SetBehaviourField(PROP_NEXT_STATE_INDEX, value);
         public FrameTimer GetStateTimer(Entity entity)
         {
             var timer = entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
@@ -167,6 +169,8 @@ namespace MVZ2.Vanilla.Entities
         private static readonly VanillaEntityPropertyMeta<int> PROP_SUBSTATE = new VanillaEntityPropertyMeta<int>("SubState");
         [EntityPropertyRegistry(PROP_REGION)]
         private static readonly VanillaEntityPropertyMeta<int> PROP_PREVIOUS_STATE = new VanillaEntityPropertyMeta<int>("PreviousState");
+        [EntityPropertyRegistry(PROP_REGION)]
+        private static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_STATE_INDEX = new VanillaEntityPropertyMeta<int>("next_state_index");
         [EntityPropertyRegistry(PROP_REGION)]
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         [EntityPropertyRegistry(PROP_REGION)]

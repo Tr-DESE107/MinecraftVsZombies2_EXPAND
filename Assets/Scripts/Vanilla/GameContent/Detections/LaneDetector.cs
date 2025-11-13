@@ -22,6 +22,7 @@ namespace MVZ2.GameContent.Detections
             var sizeZ = zSize;
             var center = self.GetCenter();
             center.x = (minX + maxX) * 0.5f;
+            center.y = sizeY * 0.5f;
             return new Bounds(center, new Vector3(maxX - minX, sizeY, sizeZ));
         }
         private float ySize;

@@ -45,7 +45,8 @@ namespace MVZ2.Vanilla.Bosses
         public const int THE_GIANT_CHASE = PRIVATE_NUMBER + 8;
 
         public const int RED_DRAGON_SPIT = PRIVATE_NUMBER + 0;
-        
+        public const int RED_DRAGON_JUMP = PRIVATE_NUMBER + 1;
+
 
         private const int PRIVATE_NUMBER = 10000;
     }

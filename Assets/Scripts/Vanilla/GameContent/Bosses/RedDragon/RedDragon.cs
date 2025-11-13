@@ -7,6 +7,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -45,25 +46,35 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion 事件
 
+        public static Vector3 GetSpitSourcePosition(Entity entity)
+        {
+            return entity.Position + entity.GetFacingDirection() * 400 + Vector3.up * 40;
+        }
+
         #region 字段
         public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
+        public static Vector3 GetJumpTarget(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_JUMP_TARGET);
+        public static void SetJumpTarget(Entity entity, Vector3 value) => entity.SetBehaviourField(PROP_JUMP_TARGET, value);
         #endregion
 
         #region 常量
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("jump_target");
 
         public const int STATE_IDLE = VanillaBossStates.IDLE;
         public const int STATE_APPEAR = VanillaBossStates.APPEAR;
         public const int STATE_STUNNED = VanillaBossStates.STUNNED;
         public const int STATE_DEATH = VanillaBossStates.DEATH;
         public const int STATE_SPIT = VanillaBossStates.RED_DRAGON_SPIT;
+        public const int STATE_JUMP = VanillaBossStates.RED_DRAGON_JUMP;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_APPEAR = 1;
         public const int ANIMATION_STATE_STUNNED = 2;
         public const int ANIMATION_STATE_DEATH = 3;
         public const int ANIMATION_STATE_SPIT = 10000;
+        public const int ANIMATION_STATE_JUMP = 10001;
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;
