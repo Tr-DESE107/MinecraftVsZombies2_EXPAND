@@ -101,6 +101,7 @@ namespace MVZ2.GameContent.Effects
         public const string skywardBeam = "skyward_beam";
         public const string skywardBeaconTarget = "skyward_beacon_target";
         public const string skywardSky = "skyward_sky";
+        public const string tornado = "tornado";
     }
     public static class VanillaEffectID
     {
@@ -198,6 +199,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID skywardBeam = Get(VanillaEffectNames.skywardBeam);
         public static readonly NamespaceID skywardBeaconTarget = Get(VanillaEffectNames.skywardBeaconTarget);
         public static readonly NamespaceID skywardSky = Get(VanillaEffectNames.skywardSky);
+        public static readonly NamespaceID tornado = Get(VanillaEffectNames.tornado);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

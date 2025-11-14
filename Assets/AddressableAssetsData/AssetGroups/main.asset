@@ -4481,6 +4481,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61de7625116ab1d499a71a5aaff6ec07
+    m_Address: mvz2:mobile_blueprint/red_dragon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 61e062545e6a32f479757806ec86d744
     m_Address: mvz2:mobile_blueprint/reflective_barrier_zombie
     m_ReadOnly: 0
@@ -8904,6 +8911,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caca3af0af5361a46ab0d57829875c5c
+    m_Address: mvz2:entity/effects/tornado_model
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: caf294fde03a7ab4d81dbd866034edb2
     m_Address: mvz2:contraption/mausoleum/note_block
     m_ReadOnly: 0
@@ -9638,6 +9652,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db4a012185788e54e88f73508d85cf25
+    m_Address: mvz2:tornado
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db4a7538480f6ac45bd2ed7e224f0bb5
     m_Address: mvz2:entity/enemy/hell_chariot
@@ -10604,6 +10625,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1ca318cee6cb0f4e9bf3673036fa482
+    m_Address: mvz2:effect/tornado
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1d32022e0316ea4d90c7859511d1871
     m_Address: mvz2:effect/fire_breath
