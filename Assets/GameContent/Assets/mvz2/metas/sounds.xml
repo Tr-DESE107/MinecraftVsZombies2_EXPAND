@@ -24,6 +24,9 @@
     <sound name="bash">
         <sample path="mvz2:bash" weight="1" />
     </sound>
+    <sound name="big_chomp">
+        <sample path="mvz2:bigchomp" weight="1" />
+    </sound>
     <sound name="bloody">
         <sample path="mvz2:bloody" weight="1" />
     </sound>

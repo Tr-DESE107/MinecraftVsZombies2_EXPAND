@@ -31,35 +31,8 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new JumpState());
                 AddState(new SpitState());
                 AddState(new FlapWingsState());
+                AddState(new EatState());
             }
-        }
-        #endregion
-
-        #region 状态池
-        private class RedDragonStatePoolPhase1 : StateMachineStatePool
-        {
-            protected override int[] GetStates()
-            {
-                return states;
-            }
-            protected override bool CanStartState(Entity entity, int state)
-            {
-                switch (state)
-                {
-                    case STATE_SPIT:
-                    case STATE_FLAP_WINGS:
-                        if (!entity.Level.EntityExists(e => entity.IsHostile(e) && e.IsVulnerableEntity()))
-                            return false;
-                        break;
-                }
-                return base.CanStartState(entity, state);
-            }
-            private static int[] states = new int[]
-            {
-                STATE_SPIT,
-                STATE_FLAP_WINGS,
-                STATE_JUMP
-            };
         }
         #endregion
 
@@ -75,6 +48,64 @@ namespace MVZ2.GameContent.Bosses
             return entity.Level.EntityExists(e => e.GetLane() == lane && entity.IsHostile(e) && e.IsVulnerableEntity());
         }
         #region 待命
+        private static bool CanSwitchStatePhase1(Entity entity, int state)
+        {
+            switch (state)
+            {
+                case STATE_SPIT:
+                case STATE_FLAP_WINGS:
+                    if (!entity.Level.EntityExists(e => entity.IsHostile(e) && e.IsVulnerableEntity()))
+                        return false;
+                    break;
+                case STATE_EAT:
+                    if (!HasEatableTargets(entity))
+                        return false;
+                    break;
+            }
+            return true;
+        }
+        private static bool CanSwitchStatePhase2(Entity entity, int state)
+        {
+            return true;
+        }
+        private static void SwitchState(Entity entity, int state)
+        {
+            switch (state)
+            {
+                case STATE_SPIT:
+                case STATE_FLAP_WINGS:
+                    if (HasEnemiesInTheLane(entity))
+                    {
+                        stateMachine.StartState(entity, state);
+                    }
+                    else
+                    {
+                        var jumpTarget = FindEnemyJumpTargetPosition(entity);
+                        JumpTo(entity, jumpTarget, state);
+                    }
+                    break;
+                case STATE_EAT:
+                    {
+                        var middleLane = entity.Level.GetMaxLaneCount() / 2;
+                        if (entity.GetLane() == middleLane)
+                        {
+                            stateMachine.StartState(entity, state);
+                        }
+                        else
+                        {
+                            var jumpTarget = GetJumpBorderPositionByLane(entity, middleLane);
+                            JumpTo(entity, jumpTarget, state);
+                        }
+                    }
+                    break;
+                case STATE_JUMP:
+                    {
+                        var jumpTarget = FindRandomJumpTargetPosition(entity);
+                        JumpTo(entity, jumpTarget, STATE_IDLE);
+                    }
+                    break;
+            }
+        }
         private class IdleState : EntityStateMachineState
         {
             public IdleState() : base(STATE_IDLE, ANIMATION_STATE_IDLE) { }
@@ -100,34 +131,23 @@ namespace MVZ2.GameContent.Bosses
                 stateTimer.Run(stateMachine.GetSpeed(entity));
                 if (stateTimer.Expired)
                 {
-                    StateMachineStatePool pool = GetPhase(entity) == PHASE_2 ? statePoolPhase2 : statePoolPhase1;
                     var nextIndex = stateMachine.GetNextStateIndex(entity);
-                    nextIndex = pool.FindNextStateIndex(entity, nextIndex);
+                    int[] pool;
+                    if (GetPhase(entity) == PHASE_1)
+                    {
+                        pool = statePoolPhase1;
+                        nextIndex = pool.FindNextStateIndex(nextIndex, state => CanSwitchStatePhase1(entity, state));
+                    }
+                    else
+                    {
+                        pool = statePoolPhase2;
+                        nextIndex = pool.FindNextStateIndex(nextIndex, state => CanSwitchStatePhase2(entity, state));
+                    }
                     if (nextIndex >= 0)
                     {
-                        var state = pool.GetState(nextIndex);
+                        var state = pool[nextIndex];
                         stateMachine.SetNextStateIndex(entity, nextIndex + 1);
-                        switch (state)
-                        {
-                            case STATE_SPIT:
-                            case STATE_FLAP_WINGS:
-                                if (HasEnemiesInTheLane(entity))
-                                {
-                                    stateMachine.StartState(entity, state);
-                                }
-                                else
-                                {
-                                    var jumpTarget = FindEnemyJumpTargetPosition(entity);
-                                    JumpTo(entity, jumpTarget, state);
-                                }
-                                break;
-                            case STATE_JUMP:
-                                {
-                                    var jumpTarget = FindRandomJumpTargetPosition(entity);
-                                    JumpTo(entity, jumpTarget, STATE_IDLE);
-                                }
-                                break;
-                        }
+                        SwitchState(entity, state);
                     }
                     else
                     {
@@ -156,6 +176,13 @@ namespace MVZ2.GameContent.Bosses
                 return VanillaLevelExt.LEFT_BORDER - 80;
             }
         }
+        private static Vector3 GetJumpBorderPositionByLane(Entity boss, int lane)
+        {
+            float x = GetJumpBorderX(boss);
+            var z = boss.Level.GetEntityLaneZ(lane);
+            var y = boss.Level.GetGroundY(x, z);
+            return new Vector3(x, y, z);
+        }
         private static int[] FindLanesWithEnemies(Entity boss)
         {
             var entities = boss.Level.FindEntities(e => e.IsVulnerableEntity() && boss.IsHostile(e));
@@ -163,19 +190,14 @@ namespace MVZ2.GameContent.Bosses
         }
         private static Vector3 FindEnemyJumpTargetPosition(Entity boss)
         {
-            float x = GetJumpBorderX(boss);
-
             var lanes = FindLanesWithEnemies(boss);
             var rng = boss.RNG;
             var lane = lanes.Random(rng);
 
-            var z = boss.Level.GetEntityLaneZ(lane);
-            var y = boss.Level.GetGroundY(x, z);
-            return new Vector3(x, y, z);
+            return GetJumpBorderPositionByLane(boss, lane);
         }
         private static Vector3 FindRandomJumpTargetPosition(Entity boss)
         {
-            float x = GetJumpBorderX(boss);
             var currentLane = boss.GetLane();
             var lane = boss.RNG.Next(boss.Level.GetMaxLaneCount() - 1); // 自己的一行不算
             if (lane >= currentLane)
@@ -183,9 +205,7 @@ namespace MVZ2.GameContent.Bosses
                 // 如果获取到的行数大于或等于该实体目前的行数，则目标行数+1。
                 lane++;
             }
-            var z = boss.Level.GetEntityLaneZ(lane);
-            var y = boss.Level.GetGroundY(x, z);
-            return new Vector3(x, y, z);
+            return GetJumpBorderPositionByLane(boss, lane);
         }
 
         private class JumpState : EntityStateMachineState
@@ -401,7 +421,7 @@ namespace MVZ2.GameContent.Bosses
         #region 扇风
         private class FlapWingsState : EntityStateMachineState
         {
-            public FlapWingsState() : base(STATE_FLAP_WINGS, STATE_FLAP_WINGS) { }
+            public FlapWingsState() : base(STATE_FLAP_WINGS, ANIMATION_STATE_FLAP_WINGS) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -475,9 +495,177 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 吞食
+        public static Bounds GetEatDetectionHitbox(Entity entity)
+        {
+            var size = new Vector3(100, 64, 500);
+            var position = entity.Position + entity.GetFacingDirection() * 300;
+            position.y += size.y * 0.5f;
+            return new Bounds(position, size);
+        }
+        public static Bounds GetEatHitbox(Entity entity, float time)
+        {
+            var size = new Vector3(100, 64, 100);
+            var position = entity.Position + entity.GetFacingDirection() * 300;
+            position.y += size.y * 0.5f;
+            position.z += 200 - 400 * time;
+            return new Bounds(position, size);
+        }
+        private static bool HasEatableTargets(Entity boss)
+        {
+            return eatDetector.DetectEntityCount(boss) > 0;
+        }
+        private class EatState : EntityStateMachineState
+        {
+            public EatState() : base(STATE_EAT, ANIMATION_STATE_EAT) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_SWALLOW:
+                    case SUBSTATE_SWALLOW_END:
+                        return ANIMATION_SUBSTATE_SWALLOW;
+                }
+                return substate;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(2 / 3f);
+                SetEatenEntities(entity, null);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        if (timer.Expired)
+                        {
+                            entity.PlaySound(VanillaSoundID.fling);
+                            entity.PlaySound(VanillaSoundID.bigChomp, 0.5f);
+                            stateMachine.StartSubState(entity, SUBSTATE_EAT);
+                            timer.ResetSeconds(0.25f);
+                        }
+                        break;
+                    case SUBSTATE_EAT:
+                        Eat(entity, timer.GetPassedPercentage());
+                        if (timer.Expired)
+                        {
+                            var entities = GetEatenEntities(entity);
+                            if (entities != null && entities.Count > 0)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_SWALLOW);
+                                timer.ResetSeconds(1f);
+                            }
+                            else
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_END);
+                                timer.ResetSeconds(0.5f);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_SWALLOW:
+                        if (timer.Expired)
+                        {
+                            Swallow(entity);
+                            SetEatenEntities(entity, null);
+                            stateMachine.StartSubState(entity, SUBSTATE_SWALLOW_END);
+                            timer.ResetSeconds(2 / 3f);
+                        }
+                        break;
+                    case SUBSTATE_SWALLOW_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                CheckDeath(entity);
+            }
+
+            private void Eat(Entity entity, float time)
+            {
+                var hitbox = GetEatHitbox(entity, time);
+                var mask = EntityCollisionHelper.MASK_VULNERABLE;
+                var targets = entity.Level.OverlapBox(hitbox.center, hitbox.size, entity.GetFaction(), mask, mask);
+                foreach (var collider in targets)
+                {
+                    var target = collider.Entity;
+                    if (!target.ExistsAndAlive())
+                        return;
+                    if (collider.IsForMain() && target.Type != EntityTypes.BOSS)
+                    {
+                        if (target.Type != EntityTypes.PLANT)
+                        {
+                            target.PlayDeathSound();
+                        }
+                        target.Die(new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER), entity);
+                        EatEntity(entity, target);
+                    }
+                    else
+                    {
+                        collider.TakeDamage(entity.GetDamage() * BITE_DAMAGE_MULTIPLIER, new DamageEffectList(), entity);
+                    }
+                }
+            }
+            private void EatEntity(Entity entity, Entity target)
+            {
+                var entities = GetEatenEntities(entity);
+                if (entities == null)
+                {
+                    entities = new List<NamespaceID>();
+                    SetEatenEntities(entity, entities);
+                }
+                entities.Add(target.GetDefinitionID());
+            }
+            private void Swallow(Entity entity)
+            {
+                var entities = GetEatenEntities(entity);
+                if (entities == null)
+                    return;
+                entity.HealEffects(entities.Count * HEAL_PER_ENTITY, entity);
+                entity.PlaySound(VanillaSoundID.gulp, 0.5f);
+            }
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_EAT = 1;
+            public const int SUBSTATE_END = 2;
+            public const int SUBSTATE_SWALLOW = 3;
+            public const int SUBSTATE_SWALLOW_END = 4;
+            public const int ANIMATION_SUBSTATE_SWALLOW = 3;
+
+        }
+        #endregion
 
         private static RedDragonStateMachine stateMachine = new RedDragonStateMachine();
-        private static RedDragonStatePoolPhase1 statePoolPhase1 = new RedDragonStatePoolPhase1();
-        private static RedDragonStatePoolPhase1 statePoolPhase2 = new RedDragonStatePoolPhase1();
+        private static RedDragonEatDetector eatDetector = new RedDragonEatDetector();
+        private static int[] statePoolPhase1 = new int[]
+        {
+            STATE_SPIT,
+            STATE_FLAP_WINGS,
+            STATE_EAT,
+            STATE_JUMP
+        };
+        private static int[] statePoolPhase2 = new int[]
+        {
+            STATE_SPIT,
+            STATE_FLAP_WINGS,
+            STATE_EAT,
+            STATE_JUMP
+        };
     }
 }
