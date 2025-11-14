@@ -4936,6 +4936,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d0179030351ecb4ba947b75859e5e46
+    m_Address: mvz2:bigchomp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d19f900e36343048a4dac575a84e01d
     m_Address: mvz2:sweeping_beam
     m_ReadOnly: 0
