@@ -319,6 +319,7 @@
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:dynamite" value="true" />
                 <float name="mvz2:damage" value="1800" />
                 <float name="mvz2:range" value="40" />
                 <id name="mvz2:placeSound" value="mvz2:grass" />
@@ -405,6 +406,7 @@
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:dynamite" value="true" />
                 <float name="mvz2:damage" value="1800" />
                 <float name="mvz2:range" value="120" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
@@ -930,6 +932,7 @@
                 <condition required="mvz2:level.ship_1" />
             </unlock>
             <properties>
+                <bool name="mvz2:dynamite" value="true" />
                 <bool name="mvz2:producer" value="true" />
                 <float name="mvz2:range" value="120" />
                 <float name="mvz2:damage" value="150" />
