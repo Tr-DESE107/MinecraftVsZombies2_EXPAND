@@ -60,10 +60,13 @@ namespace MVZ2.GameContent.Bosses
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static Vector3 GetJumpTarget(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_JUMP_TARGET);
         public static void SetJumpTarget(Entity entity, Vector3 value) => entity.SetBehaviourField(PROP_JUMP_TARGET, value);
+        public static int GetJumpFinishState(Entity entity) => entity.GetBehaviourField<int>(PROP_JUMP_FINISH_STATE);
+        public static void SetJumpFinishState(Entity entity, int value) => entity.SetBehaviourField(PROP_JUMP_FINISH_STATE, value);
         #endregion
 
         #region 常量
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_JUMP_FINISH_STATE = new VanillaEntityPropertyMeta<int>("jump_finish_state", -1);
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("jump_target");
 
         public const int STATE_IDLE = VanillaBossStates.IDLE;
