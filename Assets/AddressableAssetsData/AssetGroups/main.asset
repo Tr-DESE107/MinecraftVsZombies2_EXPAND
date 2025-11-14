@@ -409,6 +409,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0956cac1579b9f0488f0d2efa60181e8
+    m_Address: mvz2:dragon/growl3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0965daa567616694fa6190a4c12d2b96
     m_Address: mvz2:contraption/dream/dream_crystal
     m_ReadOnly: 0
@@ -2256,6 +2263,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3330f8521f4b9da4e90aa78d28d0cff0
+    m_Address: mvz2:dragon/hit2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 333296bf7a142dd43a413222f3881bcb
     m_Address: mvz2:mobile_blueprint/parasite_terror
     m_ReadOnly: 0
@@ -2677,6 +2691,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bbc1de7456497846a75c87114c4c797
     m_Address: mvz2:talk/dialog_beat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bc47810a195c3345aada5aa793cbc57
+    m_Address: mvz2:dragon/wings3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3181,6 +3202,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4605e1989dbbcba43aaa16e9691cb235
     m_Address: mvz2:entity/imp/imp_laugh2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 460c4229762c9f345934e5c0dfc1d6d3
+    m_Address: mvz2:dragon/wings5
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3907,6 +3935,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56a5720d6703b83409f19bdb395b38bd
+    m_Address: mvz2:dragon/hit4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56d9698bb3001c84ca50c3f36113cb5d
     m_Address: mvz2:entity/effects/combat_trail_punch
     m_ReadOnly: 0
@@ -3920,6 +3955,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5711de483c5b63c49bd2e8ccea607e3b
+    m_Address: mvz2:dragon/hit3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57298386a0b940c498c0ff59a77ac315
     m_Address: mvz2:entity/contraption/high_frequency_pulse_dispenser
@@ -4949,6 +4991,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e2e81c1e4fe8914aa3f1e44c59baf9b
+    m_Address: mvz2:dragon/wings6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6e399f794d7929e41bb7f68e107fd2c5
     m_Address: mvz2:contraption/halloween/silvenser
@@ -6622,6 +6671,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9373619474fe6df40910c05fa0585342
+    m_Address: mvz2:dragon/wings4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93775bbcfc92d274fbfd2a524caa8be9
     m_Address: mvz2:enemy/castle/soulsand
     m_ReadOnly: 0
@@ -8001,6 +8057,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4ebea51b3aebd6468e7eb88dd6473cc
+    m_Address: mvz2:dragon/growl1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4f225f0cc6c7994baa6e1a69bc2bbab
     m_Address: mvz2:random/crystal/crystal2
     m_ReadOnly: 0
@@ -8175,6 +8238,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9bd42e82e36d2a408e1296b062977a6
+    m_Address: mvz2:dragon/hit1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9be44ffa4015754eaf65066f0522ab8
     m_Address: mvz2:mobile_blueprint/hell_chariot
@@ -9032,6 +9102,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd9fb24b2c51dc9499b06218585ad8b9
     m_Address: mvz2:boon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cda9b966b0af322469e2240c7fc9a144
+    m_Address: mvz2:dragon/wings1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10031,6 +10108,20 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e58747cfc51159946a322fe45e595e73
+    m_Address: mvz2:dragon/growl4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5b9ab4cd52c2394ead71c0db2654032
+    m_Address: mvz2:dragon/growl2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e5e566d19ad3e024c8c3e91f928d8be1
     m_Address: mvz2:entity/effects/gas_diffusion
     m_ReadOnly: 0
@@ -10191,6 +10282,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9ea214f35eecd049ba429962ef2169d
+    m_Address: mvz2:dragon/wings2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea4c0b7c8c4abc444bbed3969cda9a5e
     m_Address: mvz2:projectile/arrow

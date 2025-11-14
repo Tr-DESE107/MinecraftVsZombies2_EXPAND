@@ -186,6 +186,24 @@
     <sound name="divine_shield">
         <sample path="mvz2:divine_shield" weight="1" />
     </sound>
+    <sound name="dragon_growl">
+        <sample path="mvz2:dragon/growl1" weight="1" />
+        <sample path="mvz2:dragon/growl2" weight="1" />
+        <sample path="mvz2:dragon/growl3" weight="1" />
+        <sample path="mvz2:dragon/growl4" weight="1" />
+    </sound>
+    <sound name="dragon_hit">
+        <sample path="mvz2:dragon/hit1" weight="1" />
+        <sample path="mvz2:dragon/hit2" weight="1" />
+        <sample path="mvz2:dragon/hit3" weight="1" />
+        <sample path="mvz2:dragon/hit4" weight="1" />
+    </sound>
+    <sound name="dragon_wings">
+        <sample path="mvz2:dragon/wings1" weight="1" />
+        <sample path="mvz2:dragon/wings2" weight="1" />
+        <sample path="mvz2:dragon/wings3" weight="1" />
+        <sample path="mvz2:dragon/wings4" weight="1" />
+    </sound>
     <sound name="dream_alarm">
         <sample path="mvz2:entity/dream_alarm" weight="1" />
     </sound>

@@ -50,6 +50,10 @@ namespace MVZ2.GameContent.Bosses
         {
             return entity.Position + entity.GetFacingDirection() * 400 + Vector3.up * 40;
         }
+        public static Vector3 GetTornadoSourcePosition(Entity entity)
+        {
+            return entity.Position + entity.GetFacingDirection() * 240;
+        }
 
         #region 字段
         public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
@@ -68,6 +72,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_DEATH = VanillaBossStates.DEATH;
         public const int STATE_SPIT = VanillaBossStates.RED_DRAGON_SPIT;
         public const int STATE_JUMP = VanillaBossStates.RED_DRAGON_JUMP;
+        public const int STATE_FLAP_WINGS = VanillaBossStates.RED_DRAGON_FLAP_WINGS;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_APPEAR = 1;

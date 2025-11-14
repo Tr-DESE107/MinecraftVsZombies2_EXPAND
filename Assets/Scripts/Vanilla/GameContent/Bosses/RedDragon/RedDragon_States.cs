@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -11,6 +12,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -25,6 +27,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new IdleState());
                 AddState(new JumpState());
                 AddState(new SpitState());
+                AddState(new FlapWingsState());
             }
         }
         #endregion
@@ -41,6 +44,7 @@ namespace MVZ2.GameContent.Bosses
                 switch (state)
                 {
                     case STATE_SPIT:
+                    case STATE_FLAP_WINGS:
                         if (!spitDetector.DetectExists(entity))
                             return false;
                         break;
@@ -50,7 +54,8 @@ namespace MVZ2.GameContent.Bosses
             private static int[] states = new int[]
             {
                 STATE_JUMP,
-                STATE_SPIT
+                STATE_SPIT,
+                STATE_FLAP_WINGS
             };
             private RedDragonSpitDetector spitDetector = new RedDragonSpitDetector();
         }
@@ -330,53 +335,85 @@ namespace MVZ2.GameContent.Bosses
             public const int ANIMATION_SUBSTATE_END = 2;
 
         }
+        private class FlapWingsState : EntityStateMachineState
+        {
+            public FlapWingsState() : base(STATE_FLAP_WINGS, STATE_FLAP_WINGS) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(2 / 3f);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        if (timer.Expired)
+                        {
+                            entity.PlaySound(VanillaSoundID.dragonWings);
+                            stateMachine.StartSubState(entity, SUBSTATE_FLAP_1);
+                            timer.ResetSeconds(1f);
+                        }
+                        break;
+                    case SUBSTATE_FLAP_1:
+                        if (timer.Expired)
+                        {
+                            entity.PlaySound(VanillaSoundID.dragonWings);
+                            stateMachine.StartSubState(entity, SUBSTATE_FLAP_2);
+                            timer.ResetSeconds(1f);
+                        }
+                        break;
+                    case SUBSTATE_FLAP_2:
+                        if (timer.Expired)
+                        {
+                            entity.PlaySound(VanillaSoundID.dragonGrowl);
+                            entity.PlaySound(VanillaSoundID.dragonWings);
+                            entity.Level.ShakeScreen(10, 0, 15);
+                            ShootTornado(entity);
+                            stateMachine.StartSubState(entity, SUBSTATE_END);
+                            timer.ResetSeconds(7 / 12f);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                CheckDeath(entity);
+            }
+
+            private void ShootTornado(Entity entity)
+            {
+                var param = entity.GetSpawnParams();
+                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * 0.05f);
+                var position = GetTornadoSourcePosition(entity);
+                entity.Spawn(VanillaEffectID.tornado, position, param)?.Let(e =>
+                {
+                    e.Velocity = entity.GetFacingDirection() * 2;
+                });
+            }
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_FLAP_1 = 1;
+            public const int SUBSTATE_FLAP_2 = 2;
+            public const int SUBSTATE_END = 3;
+
+        }
         #endregion
 
 
         private static RedDragonStateMachine stateMachine = new RedDragonStateMachine();
         private static RedDragonStatePoolPhase1 statePoolPhase1 = new RedDragonStatePoolPhase1();
         private static RedDragonStatePoolPhase1 statePoolPhase2 = new RedDragonStatePoolPhase1();
-    }
-
-    public abstract class StateMachineStatePool
-    {
-        public StateMachineStatePool()
-        {
-        }
-
-        public int FindNextStateIndex(Entity entity, int currentIndex)
-        {
-            var states = GetStates();
-            var length = states.Length;
-            if (length <= 0)
-                return -1;
-            if (currentIndex < 0)
-            {
-                currentIndex = 0;
-            }
-            for (int i = 0; i < length; i++)
-            {
-                var index = (currentIndex + i) % length;
-                var state = states[index];
-                if (!CanStartState(entity, state))
-                    continue;
-                return index;
-            }
-            return -1;
-        }
-        public int GetState(int currentIndex)
-        {
-            var states = GetStates();
-            if (currentIndex < 0 || currentIndex >= states.Length)
-            {
-                return 0;
-            }
-            return states[currentIndex];
-        }
-        protected abstract int[] GetStates();
-        protected virtual bool CanStartState(Entity entity, int state)
-        {
-            return true;
-        }
     }
 }

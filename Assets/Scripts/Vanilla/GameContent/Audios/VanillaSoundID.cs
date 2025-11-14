@@ -50,6 +50,9 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
         public readonly static NamespaceID divineShield = Get("divine_shield");
         public readonly static NamespaceID divineShieldCast = Get("divine_shield_cast");
+        public readonly static NamespaceID dragonGrowl = Get("dragon_growl");
+        public readonly static NamespaceID dragonHit = Get("dragon_hit");
+        public readonly static NamespaceID dragonWings = Get("dragon_wings");
         public readonly static NamespaceID dreamAlarm = Get("dream_alarm");
         public readonly static NamespaceID earthquake = Get("earthquake");
         public readonly static NamespaceID electricSpark = Get("electric_spark");
