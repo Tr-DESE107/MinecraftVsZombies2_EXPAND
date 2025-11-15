@@ -4,9 +4,12 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -31,6 +34,9 @@ namespace MVZ2.GameContent.Enemies
                 if (entity.Timeout <= 0)
                 {
                     entity.Die(entity);
+                    var randomID = GetRandomSkeletonID(entity.RNG);
+
+                    entity.SpawnWithParams(randomID, entity.Position);
                 }
             }
         }
@@ -42,5 +48,29 @@ namespace MVZ2.GameContent.Enemies
             entity.Level.Spawn(VanillaEffectID.boneParticles, entity.GetCenter(), entity);
             entity.Remove();
         }
+
+        public NamespaceID GetRandomSkeletonID(RandomGenerator rng)
+        {
+            var index = rng.WeightedRandom(RandomSkeletonWeights);
+            return RandomSkeleton[index];
+        }
+
+        private static NamespaceID[] RandomSkeleton = new NamespaceID[]
+        {
+            //怪物出怪
+            VanillaEnemyID.SkeletonHead,
+            VanillaEnemyID.MeleeSkeleton,
+            VanillaEnemyID.skeleton,
+            VanillaEnemyID.skeletonHorse,
+
+        };
+
+        private static int[] RandomSkeletonWeights = new int[]
+        {
+            10,
+            5,
+            5,
+            2
+        };
     }
 }

@@ -152,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
+  m_Sprite: {fileID: 243241027, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5098,7 +5098,7 @@ Transform:
   m_GameObject: {fileID: 7205638117583305540}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.22, z: 0}
+  m_LocalPosition: {x: -0.022, y: 0.328, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5145,7 +5145,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7cd67e193c23b1f46ae2e123c4a0bd3a, type: 3}
+  m_Sprite: {fileID: -1477325465, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5247,7 +5247,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1830890523, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
+  m_Sprite: {fileID: -184146754, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5297,12 +5297,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -1044190659, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
-  - {fileID: 1229034249, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
-  - {fileID: -1823374141, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
-  - {fileID: -1003954353, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
-  - {fileID: -1770725842, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
-  - {fileID: -1830890523, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
+  - {fileID: 1495812930, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+  - {fileID: -475850040, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+  - {fileID: 1575108489, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+  - {fileID: -1641503494, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+  - {fileID: 1831842489, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+  - {fileID: -184146754, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
   index: 5
 --- !u!1 &8303818626491733163
 GameObject:

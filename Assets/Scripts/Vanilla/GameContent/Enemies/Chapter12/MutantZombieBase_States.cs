@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -209,11 +208,15 @@ namespace MVZ2.Vanilla.Enemies
 
                                 var impPos = entity.Position + new Vector3(entity.GetFacingX() * 24, 155, 0);
                                 var impVel = new Vector3(entity.GetFacingX() * 20, 0, 0);
-                                entity.SpawnWithParams(VanillaEnemyID.imp, impPos)?.Let(e =>
+                                var impID = GetImpID(entity);
+                                if (impID != null)
                                 {
-                                    e.PlaySound(VanillaSoundID.impLaugh);
-                                    e.Velocity = impVel;
-                                });
+                                    entity.SpawnWithParams(impID, impPos)?.Let(e =>
+                                    {
+                                        e.PlaySound(VanillaSoundID.impLaugh);
+                                        e.Velocity = impVel;
+                                    });
+                                }
 
                                 subStateTimer.ResetTime(10);
                                 stateMachine.SetSubState(entity, SUBSTATE_THROWN);

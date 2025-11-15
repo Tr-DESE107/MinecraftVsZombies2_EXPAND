@@ -27,6 +27,13 @@
                 frameBottom="mvz2:ui/level/card_upgrade_mobile[1]" 
                 frameTop="mvz2:ui/level/card_upgrade_mobile[2]" />
         </style>
+        <style id="GoldCard">
+            <standalone background="mvz2:ui/level/GoldCard" />
+            <mobile
+                background="mvz2:ui/level/GoldCardMobile[0]"
+                frameBottom="mvz2:ui/level/GoldCardMobile[1]"
+                frameTop="mvz2:ui/level/GoldCardMobile[2]" />
+        </style>
     </styles>
     <options>
         <option id="return_pearl" cost="25" name="返回弹珠">

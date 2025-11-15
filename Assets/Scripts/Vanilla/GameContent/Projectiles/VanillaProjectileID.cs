@@ -8,6 +8,7 @@ namespace MVZ2.GameContent.Projectiles
     public static class VanillaProjectileNames
     {
         public const string arrow = "arrow";
+        public const string purpleArrow = "purpleArrow";
         public const string mineTNTSeed = "mine_tnt_seed";
         public const string snowball = "snowball";
         public const string largeSnowball = "large_snowball";
@@ -15,8 +16,14 @@ namespace MVZ2.GameContent.Projectiles
         public const string soulfireBall = "soulfire_ball";
         public const string spiceGas = "spice_gas";
         public const string knife = "knife";
+        public const string RedKnife = "RedKnife";
         public const string bullet = "bullet";
         public const string missile = "missile";
+
+        public const string Poisonball = "Poisonball";
+        public const string largePoisonball = "largePoisonball";
+        public const string CopperBall = "CopperBall";
+        public const string CopperOreBall = "CopperOreBall";
 
         public const string largeArrow = "large_arrow";
         public const string breakoutPearl = "breakout_pearl";
@@ -57,6 +64,7 @@ namespace MVZ2.GameContent.Projectiles
     public static class VanillaProjectileID
     {
         public static readonly NamespaceID arrow = Get(VanillaProjectileNames.arrow);
+        public static readonly NamespaceID purpleArrow = Get(VanillaProjectileNames.purpleArrow);
         public static readonly NamespaceID mineTNTSeed = Get(VanillaProjectileNames.mineTNTSeed);
         public static readonly NamespaceID snowball = Get(VanillaProjectileNames.snowball);
         public static readonly NamespaceID largeSnowball = Get(VanillaProjectileNames.largeSnowball);
@@ -64,8 +72,15 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID soulfireBall = Get(VanillaProjectileNames.soulfireBall);
         public static readonly NamespaceID spiceGas = Get(VanillaProjectileNames.spiceGas);
         public static readonly NamespaceID knife = Get(VanillaProjectileNames.knife);
+        public static readonly NamespaceID RedKnife = Get(VanillaProjectileNames.RedKnife);
+
         public static readonly NamespaceID bullet = Get(VanillaProjectileNames.bullet);
         public static readonly NamespaceID missile = Get(VanillaProjectileNames.missile);
+
+        public static readonly NamespaceID Poisonball = Get(VanillaProjectileNames.Poisonball);
+        public static readonly NamespaceID largePoisonball = Get(VanillaProjectileNames.largePoisonball);
+        public static readonly NamespaceID CopperBall = Get(VanillaProjectileNames.CopperBall);
+        public static readonly NamespaceID CopperOreBall = Get(VanillaProjectileNames.CopperOreBall);
 
         public static readonly NamespaceID largeArrow = Get(VanillaProjectileNames.largeArrow);
         public static readonly NamespaceID breakoutPearl = Get(VanillaProjectileNames.breakoutPearl);

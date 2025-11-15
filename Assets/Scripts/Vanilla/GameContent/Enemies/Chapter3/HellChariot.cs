@@ -131,6 +131,8 @@ namespace MVZ2.GameContent.Enemies
                 var anubisandOffset = ANUBISAND_OFFSET;
                 anubisandOffset.x *= entity.GetFacingX();
                 var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
+                var SkeletonHead = entity.SpawnWithParams(VanillaEnemyID.SkeletonHead, entity.Position + anubisandOffset);
+                var mesmerizer = entity.SpawnWithParams(VanillaEnemyID.mesmerizer, entity.Position + anubisandOffset);
                 entity.Remove();
             }
         }

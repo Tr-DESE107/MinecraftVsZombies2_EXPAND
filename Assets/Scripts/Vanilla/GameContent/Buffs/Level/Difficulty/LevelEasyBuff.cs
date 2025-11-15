@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Buffs.Level
             AddAura(new ArmorAura());
             AddModifier(new FloatModifier(LogicStageProps.CONVEY_SPEED, NumberOperator.Multiply, 1.5f));
 
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.REDSTONE_ORE_DROP_COUNT, IntegerOperator.Add, 2));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.GUNPOWDER_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0.66666666666f));
 
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.NAPSTABLOOK_PARALYSIS_TIME, IntegerOperator.Add, -22));

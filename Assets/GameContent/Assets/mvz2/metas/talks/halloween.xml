@@ -19,6 +19,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">哦对了，顺带一提：</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long3">我们的矿场是以太阳能工作的，而现在是晚上。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">所以，它现在没法被使用了！</sentence>
+          <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">哈哈，开心吗？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end">靠着你的熔炉活过今晚吧！</sentence>
       </sentences>
     </section>
@@ -414,7 +415,7 @@
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">我会夺取你的灵魂！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">看吧，灵魂熔炉！它能发射致命的灵魂火球，击中后还会焚烧一群敌人！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">但代价是什么？它需要牺牲前方的器械来当作它的燃料！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">但代价是什么？它需要本格的其他器械来当作它的燃料！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">让怪物们下地狱吧！</sentence>
       </sentences>
     </section>

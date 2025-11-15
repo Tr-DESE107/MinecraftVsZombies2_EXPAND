@@ -95,7 +95,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8758573435546264408, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2824068865285970502, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1115450523450534183}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
 --- !u!4 &445580812849193297 stripped
@@ -169,6 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2593932528300210225 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2824068865285970502, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
+  m_PrefabInstance: {fileID: 346324514104566391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2763121134967841597 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2492443635037471050, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
@@ -396,6 +404,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b774393e4088b5f41b3a2f3dcbab906e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1264139756299405160
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2593932528300210225}
+    m_Modifications:
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077353550279379691, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+      propertyPath: m_Name
+      value: SandstoneHelmet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+--- !u!4 &1115450523450534183 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2229774665032019535, guid: 39201c466a6abe34abfb1877f2a47ce0, type: 3}
+  m_PrefabInstance: {fileID: 1264139756299405160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5987807105617554965
 PrefabInstance:
   m_ObjectHideFlags: 0

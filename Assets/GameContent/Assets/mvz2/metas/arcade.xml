@@ -2,16 +2,32 @@
     <minigame id="whack_a_ghost" stage="mvz2:whack_a_ghost" area="mvz2:halloween" icon="mvz2:arcade/whack_a_ghost" />
     <minigame id="breakout" stage="mvz2:breakout" area="mvz2:dream" icon="mvz2:arcade/breakout" />
     <minigame id="big_trouble_and_little_zombie" stage="mvz2:big_trouble_and_little_zombie" area="mvz2:castle" icon="mvz2:arcade/big_trouble_and_little_zombie" />
+    <minigame id="a_tooth_for_a_tooth" stage="mvz2:a_tooth_for_a_tooth" area="mvz2:halloween" icon="mvz2:arcade/a_tooth_for_a_tooth" />
+    <minigame id="Do_Magic_Tricks" stage="mvz2:Do_Magic_Tricks" area="mvz2:day" icon="mvz2:arcade/Do_Magic_Tricks" />
+    <minigame id="MutantCrisis" stage="mvz2:MutantCrisis" area="mvz2:day" icon="mvz2:arcade/MutantCrisis" />
+    <minigame id="ContraptionDevourer" stage="mvz2:ContraptionDevourer" area="mvz2:day" icon="mvz2:arcade/ContraptionDevourer" />
+    <minigame id="RandomChinaAndPot" stage="mvz2:RandomChinaAndPot" area="mvz2:day" icon="mvz2:arcade/RandomChinaAndPot" />
+    <minigame id="PerformanceArt" stage="mvz2:PerformanceArt" area="mvz2:day" icon="mvz2:arcade/PerformanceArt" />
+    <minigame id="WhackASkeleton" stage="mvz2:WhackASkeleton" area="mvz2:mausoleum" icon="mvz2:arcade/WhackASkeleton" />
+    <minigame id="MutantCrisis_2" stage="mvz2:MutantCrisis_2" area="mvz2:day" icon="mvz2:arcade/MutantCrisis_2" />
+    <minigame id="VillagerNews" stage="mvz2:VillagerNews" area="mvz2:day" icon="mvz2:arcade/VillagerNews" />
+    <minigame id="TrueAndFalseSteve" stage="mvz2:TrueAndFalseSteve" area="mvz2:day" icon="mvz2:arcade/TrueAndFalseSteve" />
+    <minigame id="ContraptionDevourer_2" stage="mvz2:ContraptionDevourer_2" area="mvz2:day" icon="mvz2:arcade/ContraptionDevourer_2" />
+    <minigame id="RandomChinaDevourer" stage="mvz2:RandomChinaDevourer" area="mvz2:day" icon="mvz2:arcade/RandomChinaDevourer" />
+    <minigame id="vsRandomZombie" stage="mvz2:vsRandomZombie" area="mvz2:halloween" icon="mvz2:arcade/vsRandomZombie" />
 
-    <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" />
-    <puzzle id="puzzle_i_skeleton" stage="mvz2:puzzle_i_skeleton" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" />
-    <puzzle id="puzzle_can_you_pass_it" stage="mvz2:puzzle_can_you_pass_it" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_i_zombie" />
-    <puzzle id="puzzle_absolute_defense" stage="mvz2:puzzle_absolute_defense" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_i_skeleton" />
-    <puzzle id="puzzle_dead_balloon" stage="mvz2:puzzle_dead_balloon" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_can_you_pass_it mvz2:level.mausoleum_11" />
-    <puzzle id="puzzle_unbreakable" stage="mvz2:puzzle_unbreakable" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_absolute_defense" />
-    <puzzle id="puzzle_mineclear" stage="mvz2:puzzle_mineclear" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_dead_balloon" />
-    <puzzle id="puzzle_fire_in_the_hole" stage="mvz2:puzzle_fire_in_the_hole" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_unbreakable" />
-    <puzzle id="puzzle_all_your_observes_are_belong_to_us" stage="mvz2:puzzle_all_your_observes_are_belong_to_us" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_mineclear" />
-    <puzzle id="puzzle_i_zombie_endless" stage="mvz2:puzzle_i_zombie_endless" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
+    <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />
+    <puzzle id="puzzle_i_skeleton" stage="mvz2:puzzle_i_skeleton" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_skeleton" />
+    <puzzle id="puzzle_can_you_pass_it" stage="mvz2:puzzle_can_you_pass_it" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_can_you_pass_it" hiddenUntil="mvz2:level.puzzle_i_zombie" />
+    <puzzle id="puzzle_absolute_defense" stage="mvz2:puzzle_absolute_defense" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_absolute_defense" hiddenUntil="mvz2:level.puzzle_i_skeleton" />
+    <puzzle id="puzzle_dead_balloon" stage="mvz2:puzzle_dead_balloon" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_dead_balloon" hiddenUntil="mvz2:level.puzzle_can_you_pass_it mvz2:level.mausoleum_11" />
+    <puzzle id="puzzle_unbreakable" stage="mvz2:puzzle_unbreakable" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_unbreakable" hiddenUntil="mvz2:level.puzzle_absolute_defense" />
+    <puzzle id="puzzle_mineclear" stage="mvz2:puzzle_mineclear" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_mineclear" hiddenUntil="mvz2:level.puzzle_dead_balloon" />
+    <puzzle id="puzzle_fire_in_the_hole" stage="mvz2:puzzle_fire_in_the_hole" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_fire_in_the_hole" hiddenUntil="mvz2:level.puzzle_unbreakable" />
+    <puzzle id="puzzle_all_your_observes_are_belong_to_us" stage="mvz2:puzzle_all_your_observes_are_belong_to_us" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_all_your_observes_are_belong_to_us" hiddenUntil="mvz2:level.puzzle_mineclear" />
+    <puzzle id="puzzle_i_zombie_endless" stage="mvz2:puzzle_i_zombie_endless" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
+    
+    
+    <puzzle id="puzzleRandomCvsRandomE" stage="mvz2:puzzleRandomCvsRandomE" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzleRandomCvsRandomE" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
 
 </arcade>

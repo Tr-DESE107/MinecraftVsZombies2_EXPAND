@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -52,7 +53,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             entity.GetBuffs<GhostBuff>(buffBuffer);
             if (buffBuffer.Count <= 0)
                 return;
-            if (damageInfo.HasEffect(VanillaDamageEffects.FIRE) || damageInfo.HasEffect(VanillaDamageEffects.LIGHTNING))
+            if (damageInfo.HasEffect(VanillaDamageEffects.FIRE) || damageInfo.HasEffect(VanillaDamageEffects.LIGHTNING) || damageInfo.HasEffect(VanillaDamageEffects.SoulColdFire))
             {
                 foreach (var buff in buffBuffer)
                 {
@@ -64,7 +65,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             {
                 if (buff.GetProperty<bool>(PROP_ETHEREAL))
                 {
-                    damageInfo.Multiply(0.1f);
+                    damageInfo.Multiply(buff.Level.GetGhostTakenDamageMultiplier());
                     break;
                 }
             }

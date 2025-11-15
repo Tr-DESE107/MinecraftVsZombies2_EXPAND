@@ -20,6 +20,9 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID divineShield = Get("divine_shield");
         public static readonly NamespaceID vulnerable = Get("vulnerable");
         public static readonly NamespaceID goldenGrid = Get("golden_grid");
+
+        public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles");
+        public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

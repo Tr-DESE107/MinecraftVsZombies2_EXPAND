@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
@@ -82,6 +83,16 @@ namespace MVZ2.GameContent.Effects
                             target.SetCenter(newCenter);
                             target.StopChangingLane();
                         }
+
+                        if (hostile && target.IsEntityOf(VanillaEnemyID.SixQiZombie))
+                        {
+                            target.Velocity = Vector3.zero;
+                            var newCenter = target.GetCenter() * 0.7f + entity.GetCenter() * 0.3f;
+                            target.SetCenter(newCenter);
+                            target.StopChangingLane();
+                            target.Health = 0;
+                        }
+
                     }
                     else if (target.Type == EntityTypes.PROJECTILE)
                     {

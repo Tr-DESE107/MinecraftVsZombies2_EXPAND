@@ -17,7 +17,11 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly VanillaDifficultyPropertyMeta<float> GUNPOWDER_DAMAGE_MULTIPLIER = Get<float>("gunpowderDamageMultiplier", 1);
         public static float GetGunpowderDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(GUNPOWDER_DAMAGE_MULTIPLIER);
 
+        public static readonly VanillaDifficultyPropertyMeta<int> REDSTONE_ORE_DROP_COUNT = Get<int>("redstoneOreDropCount", 10);
+        public static int GetRedstoneOreDropCount(this LevelEngine level) => level.GetProperty<int>(REDSTONE_ORE_DROP_COUNT);
+
         // Enemies
+        public static readonly VanillaDifficultyPropertyMeta<float> GHOST_TAKEN_DAMAGE_MULTIPLIER = Get<float>("ghostDamageMultiplier", 0.1f);
         public static readonly VanillaDifficultyPropertyMeta<int> NAPSTABLOOK_PARALYSIS_TIME = Get<int>("napstablookParalysisTime", 45);
         public static readonly VanillaDifficultyPropertyMeta<float> GHAST_DAMAGE_MULTIPLIER = Get<float>("ghastDamageMultiplier", 1f);
         public static readonly VanillaDifficultyPropertyMeta<int> MOTHER_TERROR_EGG_COUNT = Get<int>("motherTerrorEggCount", 1);
@@ -25,6 +29,7 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly VanillaDifficultyPropertyMeta<float> REVERSE_SATELLITE_DAMAGE_MULTIPLIER = Get<float>("reverseSatelliteDamageMultiplier", 1f);
         public static readonly VanillaDifficultyPropertyMeta<int> SKELETON_HORSE_JUMP_TIMES = Get<int>("skeletonHorseJumpTimes", 1);
         public static readonly VanillaDifficultyPropertyMeta<int> WICKED_HERMIT_ZOMBIE_STUN_TIME = Get<int>("wickedHermitZombieStunTime", 150);
+        public static float GetGhostTakenDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(GHOST_TAKEN_DAMAGE_MULTIPLIER);
         public static int GetNapstablookParalysisTime(this LevelEngine level) => level.GetProperty<int>(NAPSTABLOOK_PARALYSIS_TIME);
         public static float GetGhastDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(GHAST_DAMAGE_MULTIPLIER);
         public static int GetMotherTerrorEggCount(this LevelEngine level) => level.GetProperty<int>(MOTHER_TERROR_EGG_COUNT);

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla;
@@ -61,6 +62,15 @@ namespace MVZ2.GameContent.Contraptions
                 }
             }
             var anvil = entity.SpawnWithParams(VanillaContraptionID.anvil, pos);
+
+            foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
+            {
+                if (e.HasBuff<FlyBuff>())
+                {
+                    e.RemoveBuffs<FlyBuff>();
+                }
+            }
+
         }
         public const float AFFECT_HEIGHT = 64;
         public const float MIN_HEIGHT = 5;

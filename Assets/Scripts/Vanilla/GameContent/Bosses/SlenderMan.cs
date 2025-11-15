@@ -286,10 +286,10 @@ namespace MVZ2.GameContent.Bosses
             var title = Global.Localization.GetText(CHOOSE_FATE_TITLE);
             var desc = Global.Localization.GetText(CHOOSE_FATE_DESCRIPTION);
 
-            int count = level.GetSlendermanFateChoiceCount();
+            int count = Mathf.Max(1, level.GetSlendermanFateChoiceCount() + entity.RNG.Next(-1, 2));
             var rng = GetFateOptionRNG(entity);
             var selected = rng != null ? fateOptions.RandomTake(count, rng).ToArray() : fateOptions.Take(count).ToArray();
-            var options = selected.Select(i => GetFateOptionText(i)).ToArray();
+            var options = selected.Select(i => GetFateOptionText(entity.RNG, i)).ToArray();
             level.ShowDialog(title, desc, options, (i) =>
             {
                 var option = selected[i];
@@ -442,10 +442,11 @@ namespace MVZ2.GameContent.Bosses
                 contraption.ShortCircuit(300, new EntitySourceReference(boss));
             }
         }
-        private static string GetFateOptionText(int option)
+        private static string GetFateOptionText(RandomGenerator rng, int option)
         {
             var index = Array.IndexOf(fateOptions, option);
-            var text = fateTexts[index];
+            int randomInt = rng.Next(0, 7);
+            string text = randomInt < 6 ? fateTexts[index] : "???";
             return Global.Localization.GetText(text);
         }
         #endregion
@@ -548,14 +549,19 @@ namespace MVZ2.GameContent.Bosses
         {
             VanillaEnemyID.zombie,
             VanillaEnemyID.leatherCappedZombie,
+            VanillaEnemyID.HostZombie,
             VanillaEnemyID.ironHelmettedZombie,
+            VanillaEnemyID.flagZombie,
+
         };
 
         private static int[] portalPoolWeights = new int[]
         {
+            20,
+            10,
             10,
             5,
-            2
+            1
         };
         private static NamespaceID[] mindSwapPool = new NamespaceID[]
         {
@@ -566,6 +572,7 @@ namespace MVZ2.GameContent.Bosses
             VanillaBlueprintID.FromEntity(VanillaContraptionID.pistenser),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
+            VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk)
         };
         private static NamespaceID[] hardMindSwapPool = new NamespaceID[]
@@ -578,7 +585,11 @@ namespace MVZ2.GameContent.Bosses
             VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.zombie)
+            VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.ghast)
+
         };
         private static int[] fateOptions = new int[]
         {

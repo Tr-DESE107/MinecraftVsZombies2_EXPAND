@@ -45,6 +45,9 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
         public static readonly NamespaceID SACRIFICE = Get("sacrifice");
 
+        public static readonly NamespaceID SoulColdFire = Get("SoulColdFire");
+        public static readonly NamespaceID WITHER = Get("WITHER");
+        public static readonly NamespaceID VOID = Get("VOID");
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

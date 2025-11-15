@@ -12,6 +12,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string obsidian = "obsidian";
         public const string mineTNT = "mine_tnt";
 
+
         public const string smallDispenser = "small_dispenser";
         public const string moonlightSensor = "moonlight_sensor";
         public const string glowstone = "glowstone";
@@ -20,6 +21,8 @@ namespace MVZ2.GameContent.Contraptions
         public const string soulFurnace = "soul_furnace";
         public const string silvenser = "silvenser";
         public const string magichest = "magichest";
+
+        public const string Poisonser = "Poisonser";
 
         public const string lilyPad = "lily_pad";
         public const string drivenser = "drivenser";
@@ -52,7 +55,9 @@ namespace MVZ2.GameContent.Contraptions
         public const string triplenser = "triplenser";
         public const string fireworkDispenser = "firework_dispenser";
         public const string repeatenser = "repeatenser";
+        
         public const string beacon = "beacon";
+        
         public const string woodenFan = "wooden_fan";
         public const string elasticCloud = "elastic_cloud";
         public const string jeweledPagoda = "jeweled_pagoda";
@@ -61,7 +66,6 @@ namespace MVZ2.GameContent.Contraptions
         public const string forcePad = "force_pad";
         public const string goldenDropper = "golden_dropper";
         public const string skywardBeacon = "skyward_beacon";
-
         public const string highFrequencyPulseDispenser = "high_frequency_pulse_dispenser";
         public const string hfpd = highFrequencyPulseDispenser;
         public const string diamondSpikes = "diamond_spikes";
@@ -70,6 +74,17 @@ namespace MVZ2.GameContent.Contraptions
         public const string anvil = "anvil";
         public const string randomChina = "random_china";
         public const string errorBlock = "error_block";
+
+
+        //EXPAND
+        public const string GlowingObsidian = "GlowingObsidian";
+        public const string RedStoneOre = "RedStoneOre";
+        public const string DispenShield = "DispenShield";
+        public const string Eradicator = "Eradicator";
+        public const string Eviltombstone = "Eviltombstone";
+        public const string CopperDropper = "CopperDropper";
+        public const string AntiGravityPad = "AntiGravityPad";
+
     }
     public static class VanillaContraptionID
     {
@@ -86,6 +101,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID soulFurnace = Get(VanillaContraptionNames.soulFurnace);
         public static readonly NamespaceID silvenser = Get(VanillaContraptionNames.silvenser);
         public static readonly NamespaceID magichest = Get(VanillaContraptionNames.magichest);
+
+        public static readonly NamespaceID Poisonser = Get(VanillaContraptionNames.Poisonser);
 
         public static readonly NamespaceID lilyPad = Get(VanillaContraptionNames.lilyPad);
         public static readonly NamespaceID drivenser = Get(VanillaContraptionNames.drivenser);
@@ -136,6 +153,17 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
         public static readonly NamespaceID randomChina = Get(VanillaContraptionNames.randomChina);
         public static readonly NamespaceID errorBlock = Get(VanillaContraptionNames.errorBlock);
+
+
+        //EXPAND
+        public static readonly NamespaceID GlowingObsidian = Get(VanillaContraptionNames.GlowingObsidian);
+        public static readonly NamespaceID RedStoneOre = Get(VanillaContraptionNames.RedStoneOre);
+        public static readonly NamespaceID DispenShield = Get(VanillaContraptionNames.DispenShield);
+        public static readonly NamespaceID Eviltombstone = Get(VanillaContraptionNames.Eviltombstone);
+        public static readonly NamespaceID CopperDropper = Get(VanillaContraptionNames.CopperDropper);
+        public static readonly NamespaceID Eradicator = Get(VanillaContraptionNames.Eradicator);
+        public static readonly NamespaceID AntiGravityPad = Get(VanillaContraptionNames.AntiGravityPad);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

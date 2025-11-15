@@ -127,11 +127,43 @@ namespace MVZ2.GameContent.Contraptions
             var riseTimer = GetRiseTimer(self);
             if (riseTimer == null || !riseTimer.Expired)
                 return;
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER, VanillaDamageEffects.EXPLOSION);
-            self.Explode(self.Position, self.GetRange(), self.GetFaction(), self.GetDamage(), damageEffects);
+            var damageEffects = new DamageEffectList(
+                VanillaDamageEffects.MUTE,
+                VanillaDamageEffects.IGNORE_ARMOR,
+                VanillaDamageEffects.EXPLOSION
+            );
+
+            // 获取爆炸范围并执行爆炸
+            float range = self.GetRange();
+            var damageOutputs = self.Explode(
+                self.Position,
+                range,
+                self.GetFaction(),
+                self.GetDamage(),
+                damageEffects
+            );
+
+            // 移植TNT的击飞逻辑
+            foreach (var output in damageOutputs)
+            {
+                if (output == null)
+                    continue;
+                var result = output.BodyResult;
+                if (result != null && result.Fatal)
+                {
+                    var target = output.Entity;
+                    var distance = (target.Position - self.Position).magnitude;
+                    var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
+                    target.Velocity = target.Velocity + Vector3.up * speed;
+                }
+            }
+
+            // 同步TNT特效
+            Explosion.Spawn(self, self.GetCenter(), range);
+
             self.Level.Spawn(VanillaEffectID.mineDebris, self.Position, self);
             self.Remove();
-            self.PlaySound(VanillaSoundID.mineExplode);
+            self.PlaySound(VanillaSoundID.explosion); // 使用TNT爆炸音效
             self.Level.ShakeScreen(10, 0, 15);
             self.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(self), self.GetDefinitionID());
         }

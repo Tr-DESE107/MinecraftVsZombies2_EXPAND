@@ -14,6 +14,7 @@ using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -42,6 +43,8 @@ namespace MVZ2.GameContent.Contraptions
                 fuel = I_ZOMBIE_FUEL;
             }
             SetFuel(entity, fuel);
+
+            SetEvokeTimer(entity, new FrameTimer(MAX_EVOKE_TIME));
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -56,7 +59,16 @@ namespace MVZ2.GameContent.Contraptions
                 else
                 {
                     EvokedUpdate(entity);
+
+                    var timer = GetEvokeTimer(entity);
+                    if (timer.RunToExpiredAndNotNull())
+                    {
+                        Explode(entity, 120, 600);
+                        entity.Level.ShakeScreen(10, 0, 15);
+                        entity.Remove();
+                    }
                 }
+
             }
 
             UpdateSacrifice(entity);
@@ -90,6 +102,9 @@ namespace MVZ2.GameContent.Contraptions
             fuel = Mathf.Max(REFUEL_THRESOLD, fuel);
             SetFuel(entity, fuel);
             entity.SetEvoked(true);
+
+            var timer = GetEvokeTimer(entity);
+            timer?.Reset();
         }
 
         public int GetFuel(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_FUEL);
@@ -110,9 +125,11 @@ namespace MVZ2.GameContent.Contraptions
         }
         public float GetDisplayFuel(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_DISPLAY_FUEL);
         public void SetDisplayFuel(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_DISPLAY_FUEL, value);
+        public FrameTimer? GetEvokeTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOKE_TIMER);
+        public void SetEvokeTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_EVOKE_TIMER, value);
         public bool CanSacrifice(Entity entity, Entity soulFurnace)
         {
-            bool canSacrifice = entity.Type == EntityTypes.PLANT && !entity.IsDead && GetFuel(soulFurnace) <= REFUEL_THRESOLD;
+            bool canSacrifice = entity.Type == EntityTypes.PLANT && !entity.IsDead;
             var result = new CallbackResult(canSacrifice);
             entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.CAN_CONTRAPTION_SACRIFICE, new VanillaLevelCallbacks.ContraptionSacrificeValueParams(entity, soulFurnace), result, entity.GetDefinitionID());
             return result.GetValue<bool>();
@@ -162,7 +179,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             var column = furnace.GetColumn();
             var lane = furnace.GetLane();
-            var targetGrid = furnace.Level.GetGrid(column + 1 * furnace.GetFacingX(), lane);
+            var targetGrid = furnace.Level.GetGrid(column, lane);
             if (targetGrid == null)
                 return;
             var layers = targetGrid.GetLayers();
@@ -170,7 +187,7 @@ namespace MVZ2.GameContent.Contraptions
             foreach (var layer in orderedLayers)
             {
                 var ent = targetGrid.GetLayerEntity(layer);
-                if (ent == null || !CanSacrifice(ent, furnace))
+                if (ent == null || ent == furnace || !CanSacrifice(ent, furnace))
                     continue;
                 var fuel = GetSacrificeFuel(ent, furnace);
                 Sacrifice(ent, furnace, fuel);
@@ -212,13 +229,41 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
 
+        public static DamageOutput[] Explode(Entity entity, float range, float damage)
+        {
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
+            var damageOutputs = entity.Level.Explode(entity.Position, range, VanillaFactions.NEUTRAL, damage, damageEffects, entity);
+            foreach (var output in damageOutputs)
+            {
+                if (output == null)
+                    continue;
+                var result = output.BodyResult;
+                if (result != null && result.Fatal)
+                {
+                    var target = output.Entity;
+                    var distance = (target.Position - entity.Position).magnitude;
+                    var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
+                    target.Velocity = target.Velocity + Vector3.up * speed;
+                }
+            }
+            Explosion.Spawn(entity, entity.GetCenter(), range);
+            entity.PlaySound(VanillaSoundID.explosion);
+            entity.Level.ShakeScreen(10, 0, 15);
+
+
+            return damageOutputs;
+        }
+
         private static readonly NamespaceID ID = VanillaContraptionID.soulFurnace;
         public static readonly VanillaEntityPropertyMeta<int> PROP_FUEL = new VanillaEntityPropertyMeta<int>("Fuel");
         public static readonly VanillaEntityPropertyMeta<float> PROP_DISPLAY_FUEL = new VanillaEntityPropertyMeta<float>("DisplayFuel");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOKE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvokeTimer");
         public const int MAX_FUEL = 60;
         public const int REFUEL_THRESOLD = 10;
         public const int I_ZOMBIE_FUEL = REFUEL_THRESOLD + 5;
+        public const int MAX_EVOKE_TIME = 150;
         private Detector evocationDetector;
         private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
+
     }
 }

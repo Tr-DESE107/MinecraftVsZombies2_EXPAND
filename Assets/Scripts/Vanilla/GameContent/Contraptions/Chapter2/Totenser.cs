@@ -28,6 +28,21 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             InitShootTimer(entity);
         }
+
+        // 核心修改：添加随机发射逻辑
+        public override Entity? Shoot(Entity entity)
+        {
+            if (entity.RNG.Next(4) == 0)
+            {
+                var param = entity.GetShootParams();
+                param.projectileID = VanillaProjectileID.Poisonball;
+                param.damage *= 3;
+                entity.TriggerAnimation("Shoot");
+                return entity.ShootProjectile(param);
+            }
+            return base.Shoot(entity);
+        }
+
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);

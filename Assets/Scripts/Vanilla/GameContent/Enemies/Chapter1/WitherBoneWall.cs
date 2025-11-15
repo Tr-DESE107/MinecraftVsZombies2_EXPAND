@@ -1,0 +1,76 @@
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using Tools;
+
+namespace MVZ2.GameContent.Enemies
+{
+    [EntityBehaviourDefinition(VanillaEnemyNames.WitherBoneWall)]
+    public class WitherBoneWall : StateEnemy
+    {
+        public WitherBoneWall(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.Timeout = entity.GetMaxTimeout();
+            entity.PlaySound(VanillaSoundID.boneWallBuild);
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            entity.SetModelDamagePercent();
+            if (entity.Timeout >= 0)
+            {
+                entity.Timeout--;
+                if (entity.Timeout <= 0)
+                {
+                    entity.Die(entity);
+                    var randomID = GetRandomSkeletonID(entity.RNG);
+
+                    entity.SpawnWithParams(randomID, entity.Position);
+                }
+            }
+        }
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+                return;
+            entity.Level.Spawn(VanillaEffectID.wither_bone_particles, entity.GetCenter(), entity);
+            entity.Remove();
+        }
+
+        public NamespaceID GetRandomSkeletonID(RandomGenerator rng)
+        {
+            var index = rng.WeightedRandom(RandomSkeletonWeights);
+            return RandomSkeleton[index];
+        }
+
+        private static NamespaceID[] RandomSkeleton = new NamespaceID[]
+        {
+            //¹ÖÎï³ö¹Ö
+            VanillaEnemyID.WitherSkeleton,
+            VanillaEnemyID.NetherWarrior,
+            VanillaEnemyID.NetherArcher,
+            VanillaEnemyID.dullahanHead,
+
+        };
+
+        private static int[] RandomSkeletonWeights = new int[]
+        {
+            10,
+            2,
+            2,
+            5
+        };
+    }
+}

@@ -83,6 +83,11 @@ namespace MVZ2.GameContent.Contraptions
             entity.TriggerAnimation("ShootBack");
 
             var param = entity.GetShootParams();
+            if (entity.RNG.Next(3) == 0)
+            {
+                param.projectileID = VanillaProjectileID.dart;
+
+            }
 
             var offset = entity.GetShotOffset();
             offset.x *= -1;

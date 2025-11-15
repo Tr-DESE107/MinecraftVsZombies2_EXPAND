@@ -43,6 +43,15 @@ namespace MVZ2.GameContent.Contraptions
             {
                 IgnitedUpdate(entity);
             }
+            if (entity.IsHostile(0))
+            {
+                Ignite(entity);
+            }
+            if (entity.HasBuff<FrankensteinShockedBuff>())
+            {
+                entity.RemoveBuffs<FrankensteinShockedBuff>();
+                return;
+            }
         }
         public override void PostTakeDamage(DamageOutput result)
         {

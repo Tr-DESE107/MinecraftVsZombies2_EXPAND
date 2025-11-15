@@ -17,6 +17,8 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -100,10 +102,6 @@ namespace MVZ2.GameContent.Contraptions
             target2Self.y = 0;
             var distance = target2Self.magnitude;
             var priority = -distance;
-            if (target.Position.y > self.Position.y + 40)
-            {
-                priority += 300;
-            }
             return priority;
         }
         public static void Shock(Entity source, float damage, int faction, float shockRadius, Vector3 targetPosition, DamageEffectList? damageEffects = null)
@@ -129,7 +127,16 @@ namespace MVZ2.GameContent.Contraptions
             }
             foreach (var collider in detectBuffer)
             {
+                var entity = collider.Entity;
+                
                 collider.TakeDamage(damage, damageEffects, source);
+
+                // 只对器械类型的实体使用短路  
+                if (entity.Type == EntityTypes.PLANT)
+                {
+                    //entity.ShortCircuit(150);
+                    entity.ShortCircuit(150, new EntitySourceReference(entity));
+                }
             }
         }
         public static void CreateArc(Entity source, Vector3 sourcePosition, Vector3 targetPosition)

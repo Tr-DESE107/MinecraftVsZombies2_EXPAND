@@ -900,6 +900,7 @@
     <section>
       <characters>
         <character id="mvz2:futo" side="left" />
+        <character id="mvz2:crazy_villager" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
@@ -908,7 +909,12 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">呃……中国是什么地方？</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:daze">一个庞大的文明古国，拥有众多的——呃。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:cringe">记不清了，距离吾上次知道那里的事情也已经一千多年了。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:normal" onClick="end">但要注意，皇帝这种职位，尤其能够强化他的人民！</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:normal">但要注意，皇帝这种职位，尤其能够强化他的人民！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">还有个像是气功仙人的家伙。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">我觉得该使用黑洞炸弹对付他。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">有什么依据吗？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">我觉得该使用黑洞炸弹对付他。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"  onClick="end">...行，那就使用黑洞炸弹对付他。</sentence>
       </sentences>
     </section>
   </group>

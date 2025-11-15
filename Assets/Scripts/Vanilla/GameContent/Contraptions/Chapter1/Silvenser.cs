@@ -2,6 +2,7 @@
 
 using System.Linq;
 using MVZ2.GameContent.Buffs.Projectiles;
+using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
@@ -34,6 +35,21 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateAI(entity);
             ShootTick(entity);
             EvokedUpdate(entity);
+        }
+
+        // 核心修改：添加随机发射逻辑
+        public override Entity? Shoot(Entity entity)
+        {
+            if (entity.RNG.Next(6) == 0)
+            {
+                var param = entity.GetShootParams();
+                // 将 "mvz2:purpleArrow" 拆分为命名空间和名称
+                param.projectileID = VanillaProjectileID.RedKnife;
+                param.damage *= 2;
+                entity.TriggerAnimation("Shoot");
+                return entity.ShootProjectile(param);
+            }
+            return base.Shoot(entity);
         }
 
         protected override void OnEvoke(Entity entity)

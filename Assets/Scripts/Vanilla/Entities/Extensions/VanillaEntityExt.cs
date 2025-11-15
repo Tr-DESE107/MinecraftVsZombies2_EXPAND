@@ -1072,6 +1072,34 @@ namespace MVZ2.Vanilla.Entities
             entity.RemoveBuffs(buffDefinition);
             PostRemoveStatusEffect(entity, buffDefinition, source);
         }
+
+        public static void InflictRegenerationBuff(this Entity entity, float Heal, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.Regeneration);
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            buff.SetProperty(RegenerationBuff.PROP_HEAL_AMOUNT, Heal);
+            buff.SetProperty(RegenerationBuff.PROP_TIMEOUT, time);
+        }
+
+        public static void InflictCorropoisonBuff(this Entity entity, float damage, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.Corropoison);
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            buff.SetProperty(CorropoisonBuff.PROP_DAMAGE_AMOUNT, damage);
+            buff.SetProperty(CorropoisonBuff.PROP_TIMEOUT, time);
+        }
         #region 魅惑
         public static void CharmPermanent(this Entity entity, int faction, ILevelSourceReference? source)
         {

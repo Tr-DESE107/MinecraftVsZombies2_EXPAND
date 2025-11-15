@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
@@ -10,11 +11,13 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -152,6 +155,42 @@ namespace MVZ2.GameContent.Contraptions
                 Global.Saves.SaveToFile(); // 完成成就后保存游戏。
             }
         }
+        public override void PostDeath(Entity entity, DeathInfo damageInfo)
+        {
+            base.PostDeath(entity, damageInfo);
+            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+                return;
+
+            var grid = entity.GetGrid();
+            if (grid == null)
+                return;
+
+            var game = Global.Game;
+            var almanac = Global.Almanac;
+            var saves = Global.Saves;
+            var level = entity.Level;
+            var rng = entity.RNG;
+            entity.ClearTakenGrids();
+            var unlockedContraptions = saves.GetUnlockedContraptions();
+            var validContraptions = unlockedContraptions.Where(id =>
+            {
+                if (!almanac.IsContraptionInAlmanac(id))
+                    return false;
+                var def = game.GetEntityDefinition(id);
+                if (def != null && def.IsUpgradeBlueprint())
+                    return false;
+                return grid.CanSpawnEntity(id);
+            });
+            if (validContraptions.Count() <= 0)
+                return;
+            var contraptionID = validContraptions.Random(rng);
+            var spawned = entity.SpawnWithParams(contraptionID, entity.Position);
+            if (spawned != null && spawned.HasBuff<NocturnalBuff>())
+            {
+                spawned.RemoveBuffs<NocturnalBuff>();
+            }
+        }
+
         private SeedPack[] GetBlueprintsToCopy(Entity entity)
         {
             var level = entity.Level;
