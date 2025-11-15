@@ -1,35 +1,35 @@
 <grids>
     <layers>
-        <layer id="protector" >
+        <layer id="protector">
             <almanac tag="mvz2:grid_layer_protector" />
         </layer>
-        <layer id="tool" >
+        <layer id="tool">
             <almanac tag="mvz2:grid_layer_tool" />
         </layer>
-        <layer id="main" >
+        <layer id="main">
             <almanac tag="mvz2:grid_layer_main" />
         </layer>
-        <layer id="carrier" >
+        <layer id="carrier">
             <almanac tag="mvz2:grid_layer_carrier" />
         </layer>
     </layers>
     <errors>
-        <error id="grid_disabled"/>
-        <error id="already_taken"/>
+        <error id="grid_disabled" />
+        <error id="already_taken" />
         <error id="only_drivenser" />
         <error id="first_aid" />
         <error id="not_unlocked" />
-        <error id="right_of_line" message="必须放置在红线右侧"/>
-        <error id="not_on_statues" message="你不能在雕像上放置器械"/>
-        <error id="not_on_spawners" message="你不能在刷怪笼上放置器械"/>
-        <error id="need_lilypad" message="请先放睡莲"/>
-        <error id="not_on_water" message="你不能在水上放置该器械"/>
-        <error id="not_on_plane" message="你不能在薄面上放置该器械"/>
-        <error id="not_on_land" message="你不能在陆地上放置该器械"/>
-        <error id="not_on_air" message="你不能在空中放置该器械"/>
-        <error id="only_can_sleep" message="只能放置在可以睡觉的器械上"/>
-        <error id="only_can_mill" message="只能放置在刷怪笼或者器械上"/>
-        <error id="only_upgrade" message="只能放置在目标器械上"/>
+        <error id="right_of_line" message="必须放置在红线右侧" />
+        <error id="not_on_statues" message="你不能在雕像上放置器械" />
+        <error id="not_on_spawners" message="你不能在刷怪笼上放置器械" />
+        <error id="need_lilypad" message="请先放睡莲" />
+        <error id="not_on_water" message="你不能在水上放置该器械" />
+        <error id="not_on_plane" message="你不能在薄面上放置该器械" />
+        <error id="not_on_land" message="你不能在陆地上放置该器械" />
+        <error id="not_on_air" message="你不能在空中放置该器械" />
+        <error id="only_can_sleep" message="只能放置在可以睡觉的器械上" />
+        <error id="only_can_mill" message="只能放置在刷怪笼或者器械上" />
+        <error id="only_upgrade" message="只能放置在目标器械上" />
     </errors>
-    <grid id="wood_slope" slope="16" overlaySprite="mvz2:level/grids/bevel"/>
+    <grid id="wood_slope" slope="16" overlaySprite="mvz2:level/grids/bevel" />
 </grids>

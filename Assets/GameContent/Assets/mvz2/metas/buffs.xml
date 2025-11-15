@@ -180,8 +180,8 @@
     <buff id="water_stain_slide" polarity="positive" level="4000" target="enemy" />
     <buff id="blown_by_wooden_fan" polarity="negative" level="4000" target="enemy" />
     <buff id="wooden_fan_blow" polarity="positive" level="3000" target="contraption" />
-    <buff id="elastic_cloud_bounce_cooldown" polarity="none" level="1000" target="contraption"/>
-    <buff id="elastic_cloud_evocation" polarity="none" level="1000" target="contraption"/>
+    <buff id="elastic_cloud_bounce_cooldown" polarity="none" level="1000" target="contraption" />
+    <buff id="elastic_cloud_evocation" polarity="none" level="1000" target="contraption" />
     <buff id="golden_grid" polarity="negative" level="0" target="grid" />
     <buff id="sorcerers_scroll_starshard" polarity="mixed" level="1000" target="level" />
     <buff id="dragon_tooth" polarity="negative" level="0" target="enemy" />

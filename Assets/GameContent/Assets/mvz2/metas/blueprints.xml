@@ -1,41 +1,41 @@
 <blueprints>
     <errors>
-        <error id="recharging" message="重新充能中…"/>
-        <error id="not_enough_energy" message="能量不足"/>
-        <error id="tutorial" message="无法使用"/>
-        <error id="decrepify" message="受到衰老诅咒！"/>
+        <error id="recharging" message="重新充能中…" />
+        <error id="not_enough_energy" message="能量不足" />
+        <error id="tutorial" message="无法使用" />
+        <error id="decrepify" message="受到衰老诅咒！" />
     </errors>
     <styles>
         <style id="normal">
-            <standalone background="mvz2:ui/level/card"/>
+            <standalone background="mvz2:ui/level/card" />
             <mobile 
                 background="mvz2:ui/level/card_mobile[0]" 
                 frameBottom="mvz2:ui/level/card_mobile[1]" 
-                frameTop="mvz2:ui/level/card_mobile[2]"/>
+                frameTop="mvz2:ui/level/card_mobile[2]" />
         </style>
         <style id="command_block">
-            <standalone background="mvz2:ui/level/card_command_block"/>
+            <standalone background="mvz2:ui/level/card_command_block" />
             <mobile 
                 background="mvz2:ui/level/card_command_block_mobile[0]" 
                 frameBottom="mvz2:ui/level/card_command_block_mobile[1]" 
-                frameTop="mvz2:ui/level/card_command_block_mobile[2]"/>
+                frameTop="mvz2:ui/level/card_command_block_mobile[2]" />
         </style>
         <style id="upgrade">
-            <standalone background="mvz2:ui/level/card_upgrade"/>
+            <standalone background="mvz2:ui/level/card_upgrade" />
             <mobile 
                 background="mvz2:ui/level/card_upgrade_mobile[0]" 
                 frameBottom="mvz2:ui/level/card_upgrade_mobile[1]" 
-                frameTop="mvz2:ui/level/card_upgrade_mobile[2]"/>
+                frameTop="mvz2:ui/level/card_upgrade_mobile[2]" />
         </style>
     </styles>
     <options>
-        <option id="return_pearl" cost="25" name="返回弹珠" >
+        <option id="return_pearl" cost="25" name="返回弹珠">
             <icon sprite="mvz2:options/return_pearl" />
         </option>
-        <option id="lengthen_board" cost="125" name="增长挡板" >
+        <option id="lengthen_board" cost="125" name="增长挡板">
             <icon sprite="mvz2:options/lengthen_board" />
         </option>
-        <option id="add_pearl" cost="50" name="增加弹珠" >
+        <option id="add_pearl" cost="50" name="增加弹珠">
             <icon sprite="mvz2:options/add_pearl" />
         </option>
     </options>

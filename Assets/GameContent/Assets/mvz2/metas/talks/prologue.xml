@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <talks order="0">
   <group id="tutorial" tags="mvz2:prologue;mvz2:tutorial">
-    <archive name="教程" music="mvz2:mainmenu" background="mvz2:misc/steves_house" >
+    <archive name="教程" music="mvz2:mainmenu" background="mvz2:misc/steves_house">
       <unlock>
-        <condition required="mvz2:level.prologue"/>
+        <condition required="mvz2:level.prologue" />
       </unlock>
     </archive>
     <section canAutoSkip="false" onSkip="sentence 3;action create_tutorial_form">
@@ -58,9 +58,9 @@
     </section>
   </group>
   <group id="prologue_note" tags="mvz2:prologue;mvz2:note">
-    <archive name="藏宝图？" background="mvz2:archive/prologue_note" >
+    <archive name="藏宝图？" background="mvz2:archive/prologue_note">
       <unlock>
-        <condition required="mvz2:level.prologue"/>
+        <condition required="mvz2:level.prologue" />
       </unlock>
     </archive>
     <section>

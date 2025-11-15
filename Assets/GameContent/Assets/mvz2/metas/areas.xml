@@ -180,51 +180,51 @@
         <lighting background="#7F7F7F" />
         <grids width="80" height="80" leftX="260" bottomZ="40" lanes="5" columns="9">
             <!-- Lane 1 -->
-            <grid id="mvz2:wood_slope" yOffset="80"/>
-            <grid id="mvz2:wood_slope" yOffset="64"/>
-            <grid id="mvz2:wood_slope" yOffset="48"/>
-            <grid id="mvz2:wood_slope" yOffset="32"/>
-            <grid id="mvz2:wood_slope" yOffset="16"/>
+            <grid id="mvz2:wood_slope" yOffset="80" />
+            <grid id="mvz2:wood_slope" yOffset="64" />
+            <grid id="mvz2:wood_slope" yOffset="48" />
+            <grid id="mvz2:wood_slope" yOffset="32" />
+            <grid id="mvz2:wood_slope" yOffset="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <!-- Lane 2 -->
-            <grid id="mvz2:wood_slope" yOffset="80"/>
-            <grid id="mvz2:wood_slope" yOffset="64"/>
-            <grid id="mvz2:wood_slope" yOffset="48"/>
-            <grid id="mvz2:wood_slope" yOffset="32"/>
-            <grid id="mvz2:wood_slope" yOffset="16"/>
+            <grid id="mvz2:wood_slope" yOffset="80" />
+            <grid id="mvz2:wood_slope" yOffset="64" />
+            <grid id="mvz2:wood_slope" yOffset="48" />
+            <grid id="mvz2:wood_slope" yOffset="32" />
+            <grid id="mvz2:wood_slope" yOffset="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <!-- Lane 3 -->
-            <grid id="mvz2:wood_slope" yOffset="80"/>
-            <grid id="mvz2:wood_slope" yOffset="64"/>
-            <grid id="mvz2:wood_slope" yOffset="48"/>
-            <grid id="mvz2:wood_slope" yOffset="32"/>
-            <grid id="mvz2:wood_slope" yOffset="16"/>
+            <grid id="mvz2:wood_slope" yOffset="80" />
+            <grid id="mvz2:wood_slope" yOffset="64" />
+            <grid id="mvz2:wood_slope" yOffset="48" />
+            <grid id="mvz2:wood_slope" yOffset="32" />
+            <grid id="mvz2:wood_slope" yOffset="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <!-- Lane 4 -->
-            <grid id="mvz2:wood_slope" yOffset="80"/>
-            <grid id="mvz2:wood_slope" yOffset="64"/>
-            <grid id="mvz2:wood_slope" yOffset="48"/>
-            <grid id="mvz2:wood_slope" yOffset="32"/>
-            <grid id="mvz2:wood_slope" yOffset="16"/>
+            <grid id="mvz2:wood_slope" yOffset="80" />
+            <grid id="mvz2:wood_slope" yOffset="64" />
+            <grid id="mvz2:wood_slope" yOffset="48" />
+            <grid id="mvz2:wood_slope" yOffset="32" />
+            <grid id="mvz2:wood_slope" yOffset="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <!-- Lane 5 -->
-            <grid id="mvz2:wood_slope" yOffset="80"/>
-            <grid id="mvz2:wood_slope" yOffset="64"/>
-            <grid id="mvz2:wood_slope" yOffset="48"/>
-            <grid id="mvz2:wood_slope" yOffset="32"/>
-            <grid id="mvz2:wood_slope" yOffset="16"/>
+            <grid id="mvz2:wood_slope" yOffset="80" />
+            <grid id="mvz2:wood_slope" yOffset="64" />
+            <grid id="mvz2:wood_slope" yOffset="48" />
+            <grid id="mvz2:wood_slope" yOffset="32" />
+            <grid id="mvz2:wood_slope" yOffset="16" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />
             <grid id="mvz2:wood" />

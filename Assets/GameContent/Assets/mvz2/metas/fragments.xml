@@ -1,321 +1,321 @@
 <fragments>
     <fragment name="dispenser">
         <colorKeys>
-            <key hex="#4F4F4F" time="0.35"/>
-            <key hex="#ABABAB" time="0.7"/>
-            <key hex="#C3A26D" time="0.3"/>
+            <key hex="#4F4F4F" time="0.35" />
+            <key hex="#ABABAB" time="0.7" />
+            <key hex="#C3A26D" time="0.3" />
         </colorKeys>
     </fragment>
     <fragment name="furnace">
         <colorKeys>
-            <key hex="#4F4F4F" time="0.5"/>
-            <key hex="#ABABAB" time="1"/>
+            <key hex="#4F4F4F" time="0.5" />
+            <key hex="#ABABAB" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="obsidian" blend="true">
         <colorKeys>
-            <key hex="#39305A" time="0"/>
-            <key hex="#101010" time="1"/>
+            <key hex="#39305A" time="0" />
+            <key hex="#101010" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="obsidian_armor" blend="true">
         <colorKeys>
-            <key hex="#5A555A" time="0"/>
-            <key hex="#312829" time="1"/>
+            <key hex="#5A555A" time="0" />
+            <key hex="#312829" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="mine_tnt">
         <colorKeys>
-            <key hex="#FF0000" time="0.6"/>
-            <key hex="#FFFFFF" time="0.9"/>
-            <key hex="#000000" time="1"/>
+            <key hex="#FF0000" time="0.6" />
+            <key hex="#FFFFFF" time="0.9" />
+            <key hex="#000000" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="moonlight_sensor">
         <colorKeys>
-            <key hex="#56452B" time="0.45"/>
-            <key hex="#BAC6D7" time="0.90"/>
-            <key hex="#354359" time="0.95"/>
-            <key hex="#282217" time="1"/>
+            <key hex="#56452B" time="0.45" />
+            <key hex="#BAC6D7" time="0.90" />
+            <key hex="#354359" time="0.95" />
+            <key hex="#282217" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="glowstone">
         <colorKeys>
-            <key hex="#FFFFFF" time="0.15"/>
-            <key hex="#CE8452" time="0.30"/>
-            <key hex="#FFDE73" time="0.50"/>
-            <key hex="#6B4221" time="1"/>
+            <key hex="#FFFFFF" time="0.15" />
+            <key hex="#CE8452" time="0.30" />
+            <key hex="#FFDE73" time="0.50" />
+            <key hex="#6B4221" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="soul_furnace">
         <colorKeys>
-            <key hex="#9F5A10" time="0.35"/>
-            <key hex="#733808" time="0.70"/>
-            <key hex="#4E1D00" time="1"/>
+            <key hex="#9F5A10" time="0.35" />
+            <key hex="#733808" time="0.70" />
+            <key hex="#4E1D00" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="silvenser">
         <colorKeys>
-            <key hex="#0012FE" time="0.4"/>
-            <key hex="#FFFFFF" time="1"/>
+            <key hex="#0012FE" time="0.4" />
+            <key hex="#FFFFFF" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="magichest">
         <colorKeys>
-            <key hex="#0000FF" time="0.3"/>
-            <key hex="#FF0000" time="0.6"/>
-            <key hex="#FFFFFF" time="1"/>
+            <key hex="#0000FF" time="0.3" />
+            <key hex="#FF0000" time="0.6" />
+            <key hex="#FFFFFF" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="lily_pad">
         <colorKeys>
-            <key hex="#104018" time="0.75"/>
-            <key hex="#0B2B10" time="1"/>
+            <key hex="#104018" time="0.75" />
+            <key hex="#0B2B10" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="gravity_pad">
         <colorKeys>
-            <key hex="#BA00FF" time="0.75"/>
-            <key hex="#DD80FF" time="1"/>
+            <key hex="#BA00FF" time="0.75" />
+            <key hex="#DD80FF" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="anvil">
         <colorKeys>
-            <key hex="#262626" time="0.5"/>
-            <key hex="#383838" time="1"/>
+            <key hex="#262626" time="0.5" />
+            <key hex="#383838" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="totenser">
         <colorKeys>
-            <key hex="#CC6600" time="0.333"/>
-            <key hex="#FF6A00" time="0.667"/>
-            <key hex="#CC2200" time="1"/>
+            <key hex="#CC6600" time="0.333" />
+            <key hex="#FF6A00" time="0.667" />
+            <key hex="#CC2200" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="dream_crystal">
         <colorKeys>
-            <key hex="#FE95FF" time="0.5"/>
-            <key hex="#F3A4FF" time="0.8"/>
-            <key hex="#F471FF" time="1"/>
+            <key hex="#FE95FF" time="0.5" />
+            <key hex="#F3A4FF" time="0.8" />
+            <key hex="#F471FF" time="1" />
         </colorKeys>
         <alphaKeys>
-            <key alpha="0.5" time="0"/>
-            <key alpha="0.5" time="1"/>
+            <key alpha="0.5" time="0" />
+            <key alpha="0.5" time="1" />
         </alphaKeys>
     </fragment>
     <fragment name="wooden_dropper">
         <colorKeys>
-            <key hex="#C6A570" time="0.5"/>
-            <key hex="#805E36" time="1"/>
+            <key hex="#C6A570" time="0.5" />
+            <key hex="#805E36" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="spike_block">
         <colorKeys>
-            <key hex="#9D9D9D" time="0.5"/>
-            <key hex="#7A7A7A" time="1"/>
+            <key hex="#9D9D9D" time="0.5" />
+            <key hex="#7A7A7A" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="thunder_drum">
         <colorKeys>
-            <key hex="#F0DABE" time="0.5"/>
-            <key hex="#FF0000" time="1"/>
+            <key hex="#F0DABE" time="0.5" />
+            <key hex="#FF0000" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="tesla_coil">
         <colorKeys>
-            <key hex="#D8D8D8" time="0.5"/>
-            <key hex="#FF0000" time="1"/>
+            <key hex="#D8D8D8" time="0.5" />
+            <key hex="#FF0000" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="giant_bowl">
         <colorKeys>
-            <key hex="#C87878" time="0.45"/>
-            <key hex="#000000" time="0.9"/>
-            <key hex="#FFFF00" time="1"/>
+            <key hex="#C87878" time="0.45" />
+            <key hex="#000000" time="0.9" />
+            <key hex="#FFFF00" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="note_block">
         <colorKeys>
-            <key hex="#764A34" time="0.4"/>
-            <key hex="#62402E" time="0.6"/>
-            <key hex="#483021" time="0.8"/>
-            <key hex="#342013" time="1"/>
+            <key hex="#764A34" time="0.4" />
+            <key hex="#62402E" time="0.6" />
+            <key hex="#483021" time="0.8" />
+            <key hex="#342013" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="lightning_orb" blend="true">
         <colorKeys>
-            <key hex="#ECD03C" time="0"/>
-            <key hex="#D49819" time="0.333"/>
-            <key hex="#AE6F00" time="0.667"/>
-            <key hex="#000000" time="1"/>
+            <key hex="#ECD03C" time="0" />
+            <key hex="#D49819" time="0.333" />
+            <key hex="#AE6F00" time="0.667" />
+            <key hex="#000000" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="hellfire" blend="true">
         <colorKeys>
-            <key hex="#854242" time="0"/>
-            <key hex="#723232" time="0.333"/>
-            <key hex="#652828" time="0.667"/>
-            <key hex="#411616" time="1"/>
+            <key hex="#854242" time="0" />
+            <key hex="#723232" time="0.333" />
+            <key hex="#652828" time="0.667" />
+            <key hex="#411616" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="hellfire_cursed" blend="true">
         <colorKeys>
-            <key hex="#1A231A" time="0"/>
-            <key hex="#161E16" time="0.333"/>
-            <key hex="#0E150E" time="0.667"/>
-            <key hex="#0C110C" time="1"/>
+            <key hex="#1A231A" time="0" />
+            <key hex="#161E16" time="0.333" />
+            <key hex="#0E150E" time="0.667" />
+            <key hex="#0C110C" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="black_hole_bomb">
         <colorKeys>
-            <key hex="#760CE0" time="0.6"/>
-            <key hex="#FFFFFF" time="0.9"/>
-            <key hex="#FFFF00" time="1"/>
+            <key hex="#760CE0" time="0.6" />
+            <key hex="#FFFFFF" time="0.9" />
+            <key hex="#FFFF00" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="desire_pot">
         <colorKeys>
-            <key hex="#69976C" time="1"/>
+            <key hex="#69976C" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="gunpowder_barrel">
         <colorKeys>
-            <key hex="#C6A570" time="0.5"/>
-            <key hex="#805E36" time="1"/>
+            <key hex="#C6A570" time="0.5" />
+            <key hex="#805E36" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="repeatenser">
         <colorKeys>
-            <key hex="#4F4F4F" time="0.35"/>
-            <key hex="#ABABAB" time="0.7"/>
-            <key hex="#7D5A32" time="1"/>
+            <key hex="#4F4F4F" time="0.35" />
+            <key hex="#ABABAB" time="0.7" />
+            <key hex="#7D5A32" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="beacon">
         <colorKeys>
-            <key hex="#39305A" time="0.2"/>
-            <key hex="#A8D0D9" time="0.6"/>
-            <key hex="#54D9D0" time="1"/>
+            <key hex="#39305A" time="0.2" />
+            <key hex="#A8D0D9" time="0.6" />
+            <key hex="#54D9D0" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="firework_dispenser">
         <colorKeys>
-            <key hex="#4F4F4F" time="0.35"/>
-            <key hex="#ABABAB" time="0.7"/>
-            <key hex="#FF0000" time="0.85"/>
-            <key hex="#FFFFFF" time="1"/>
+            <key hex="#4F4F4F" time="0.35" />
+            <key hex="#ABABAB" time="0.7" />
+            <key hex="#FF0000" time="0.85" />
+            <key hex="#FFFFFF" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="elastic_cloud">
         <colorKeys>
-            <key hex="#C881C9" time="1"/>
+            <key hex="#C881C9" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="infectenser">
         <colorKeys>
-            <key hex="#FF0000" time="0.2"/>
-            <key hex="#4F4F4F" time="0.6"/>
-            <key hex="#ABABAB" time="1"/>
+            <key hex="#FF0000" time="0.2" />
+            <key hex="#4F4F4F" time="0.6" />
+            <key hex="#ABABAB" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="force_pad">
         <colorKeys>
-            <key hex="#0000FF" time="0.75"/>
-            <key hex="#0080FF" time="1"/>
+            <key hex="#0000FF" time="0.75" />
+            <key hex="#0080FF" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="golden_dropper">
         <colorKeys>
-            <key hex="#FFD400" time="0.5"/>
-            <key hex="#FFA900" time="1"/>
+            <key hex="#FFD400" time="0.5" />
+            <key hex="#FFA900" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="skyward_beacon">
         <colorKeys>
-            <key hex="#84b6b3" time="0.2"/>
-            <key hex="#ffd665" time="0.6"/>
-            <key hex="#FFFFFF" time="1"/>
+            <key hex="#84b6b3" time="0.2" />
+            <key hex="#ffd665" time="0.6" />
+            <key hex="#FFFFFF" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="skyward_beacon_night">
         <colorKeys>
-            <key hex="#254b72" time="0.2"/>
-            <key hex="#dadada" time="0.6"/>
-            <key hex="#12294c" time="1"/>
+            <key hex="#254b72" time="0.2" />
+            <key hex="#dadada" time="0.6" />
+            <key hex="#12294c" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="high_frequency_pulse_dispenser">
         <colorKeys>
-            <key hex="#940000" time="0.333"/>
-            <key hex="#4E4E4E" time="0.666"/>
-            <key hex="#ABABAB" time="1"/>
+            <key hex="#940000" time="0.333" />
+            <key hex="#4E4E4E" time="0.666" />
+            <key hex="#ABABAB" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="diamond_spikes">
         <colorKeys>
-            <key hex="#48FFFF" time="0.75"/>
-            <key hex="#30C6C6" time="1"/>
+            <key hex="#48FFFF" time="0.75" />
+            <key hex="#30C6C6" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="command_block">
         <colorKeys>
-            <key hex="#C27546" time="0.3"/>
-            <key hex="#CB9F83" time="0.6"/>
-            <key hex="#B3B0B9" time="1"/>
+            <key hex="#C27546" time="0.3" />
+            <key hex="#CB9F83" time="0.6" />
+            <key hex="#B3B0B9" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="random_china">
         <colorKeys>
-            <key hex="#FFFFFF" time="0.66"/>
-            <key hex="#0000FF" time="1"/>
+            <key hex="#FFFFFF" time="0.66" />
+            <key hex="#0000FF" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="error_block">
         <colorKeys>
-            <key hex="#0072FF" time="0.25"/>
-            <key hex="#E8E6D9" time="0.75"/>
-            <key hex="#FF0000" time="1"/>
+            <key hex="#0072FF" time="0.25" />
+            <key hex="#E8E6D9" time="0.75" />
+            <key hex="#FF0000" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="hell_chariot">
         <colorKeys>
-            <key hex="#24232B" time="0.25"/>
-            <key hex="#161112" time="0.5"/>
-            <key hex="#46262C" time="0.75"/>
-            <key hex="#381A1F" time="1"/>
+            <key hex="#24232B" time="0.25" />
+            <key hex="#161112" time="0.5" />
+            <key hex="#46262C" time="0.75" />
+            <key hex="#381A1F" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="soul_sand">
         <colorKeys>
-            <key hex="#463529" time="1"/>
+            <key hex="#463529" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="reflective_barrier">
         <colorKeys>
-            <key hex="#869C2E" time="1"/>
+            <key hex="#869C2E" time="1" />
         </colorKeys>
         <alphaKeys>
-            <key alpha="0.75" time="1"/>
+            <key alpha="0.75" time="1" />
         </alphaKeys>
     </fragment>
     <fragment name="shikaisen_staff">
         <colorKeys>
-            <key hex="#BB8028" time="0.5"/>
-            <key hex="#DAB276" time="1"/>
+            <key hex="#BB8028" time="0.5" />
+            <key hex="#DAB276" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="divine_shield">
         <colorKeys>
-            <key hex="#FFE45B" time="1"/>
+            <key hex="#FFE45B" time="1" />
         </colorKeys>
         <alphaKeys>
-            <key alpha="0.5" time="1"/>
+            <key alpha="0.5" time="1" />
         </alphaKeys>
     </fragment>
     <fragment name="cannon">
         <colorKeys>
-            <key hex="#313131" time="0.7"/>
-            <key hex="#FFFFFF" time="1"/>
+            <key hex="#313131" time="0.7" />
+            <key hex="#FFFFFF" time="1" />
         </colorKeys>
     </fragment>
 </fragments>

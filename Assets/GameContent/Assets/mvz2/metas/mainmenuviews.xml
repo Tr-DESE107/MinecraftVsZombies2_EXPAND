@@ -1,5 +1,5 @@
 <views>
-    <view id="default" priority="0" spritesheet="mvz2:mainmenu/view/default"/>
+    <view id="default" priority="0" spritesheet="mvz2:mainmenu/view/default" />
     <view id="halloween" priority="100" spritesheet="mvz2:mainmenu/view/halloween">
         <conditions>
             <condition required="mvz2:level.prologue" />

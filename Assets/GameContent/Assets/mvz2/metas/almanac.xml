@@ -1,177 +1,177 @@
 <almanac>
     <tags>
-        <tag id="placement_buried" name="埋藏器械" description="只能放置在实心地面上" priority="0" >
+        <tag id="placement_buried" name="埋藏器械" description="只能放置在实心地面上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#57433c" />
         </tag>
-        <tag id="placement_land" name="陆地器械" description="只能放置在地面上" priority="0" >
+        <tag id="placement_land" name="陆地器械" description="只能放置在地面上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#57433c" />
         </tag>
-        <tag id="placement_aquatic" name="水生器械" description="只能放置在水中" priority="0" >
+        <tag id="placement_aquatic" name="水生器械" description="只能放置在水中" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#347871" />
         </tag>
-        <tag id="placement_suspension" name="悬浮器械" description="不依赖于承载者便可放置在特殊格子上" priority="0" >
+        <tag id="placement_suspension" name="悬浮器械" description="不依赖于承载者便可放置在特殊格子上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#4587a6" />
         </tag>
 
-        <tag id="placement_infectenser" name="升级器械：小型发射器" description="必须放置在小型发射器上" priority="0" >
+        <tag id="placement_infectenser" name="升级器械：小型发射器" description="必须放置在小型发射器上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
-        <tag id="placement_force_pad" name="升级器械：重力板" description="必须放置在重力板上" priority="0" >
+        <tag id="placement_force_pad" name="升级器械：重力板" description="必须放置在重力板上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
-        <tag id="placement_golden_dropper" name="升级器械：木制投掷器" description="必须放置在木制投掷器上" priority="0" >
+        <tag id="placement_golden_dropper" name="升级器械：木制投掷器" description="必须放置在木制投掷器上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
-        <tag id="placement_beacon" name="升级器械：信标" description="必须放置在信标上" priority="0" >
+        <tag id="placement_beacon" name="升级器械：信标" description="必须放置在信标上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
-        <tag id="placement_repeatenser" name="升级器械：连射发射器" description="必须放置在连射发射器上" priority="0" >
+        <tag id="placement_repeatenser" name="升级器械：连射发射器" description="必须放置在连射发射器上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
-        <tag id="placement_diamond_spikes" name="升级器械：尖刺方块" description="必须放置在尖刺方块上" priority="0" >
+        <tag id="placement_diamond_spikes" name="升级器械：尖刺方块" description="必须放置在尖刺方块上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
 
-        <tag id="grid_layer_main" name="主要位" description="占据格子的主要位" priority="1000" >
+        <tag id="grid_layer_main" name="主要位" description="占据格子的主要位" priority="1000">
             <icon sprite="mvz2:ui/almanac/grid_layer_tags[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#7a7a7a" />
         </tag>
-        <tag id="grid_layer_carrier" name="承载位" description="占据格子的承载位" priority="1000" >
+        <tag id="grid_layer_carrier" name="承载位" description="占据格子的承载位" priority="1000">
             <icon sprite="mvz2:ui/almanac/grid_layer_tags[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#627e63" />
         </tag>
-        <tag id="grid_layer_protector" name="保护位" description="占据格子的保护位" priority="1000" >
+        <tag id="grid_layer_protector" name="保护位" description="占据格子的保护位" priority="1000">
             <icon sprite="mvz2:ui/almanac/grid_layer_tags[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#80703f" />
         </tag>
-        <tag id="grid_layer_tool" name="工具位" description="占据格子的工具位" priority="1000" >
+        <tag id="grid_layer_tool" name="工具位" description="占据格子的工具位" priority="1000">
             <icon sprite="mvz2:ui/almanac/grid_layer_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#515151" />
         </tag>
 
-        <tag id="shell" name="材质" enum="mvz2:shell" priority="2000" >
+        <tag id="shell" name="材质" enum="mvz2:shell" priority="2000">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
         </tag>
-        <tag id="shell_armor" name="盔甲材质" enum="mvz2:shell" priority="2000" >
+        <tag id="shell_armor" name="盔甲材质" enum="mvz2:shell" priority="2000">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
             <mark sprite="mvz2:ui/almanac/special_marks[0]" />
         </tag>
-        <tag id="shell_shield" name="护盾材质" enum="mvz2:shell" priority="2000" >
+        <tag id="shell_shield" name="护盾材质" enum="mvz2:shell" priority="2000">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
             <mark sprite="mvz2:ui/almanac/special_marks[1]" />
         </tag>
-        <tag id="shell_head" name="头材质" enum="mvz2:shell" priority="2000" >
+        <tag id="shell_head" name="头材质" enum="mvz2:shell" priority="2000">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
             <mark sprite="mvz2:ui/almanac/special_marks[3]" />
         </tag>
-        <tag id="shell_horse" name="马材质" enum="mvz2:shell" priority="2000" >
+        <tag id="shell_horse" name="马材质" enum="mvz2:shell" priority="2000">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
             <mark sprite="mvz2:ui/almanac/special_marks[4]" />
         </tag>
-        <tag id="shell_staff" name="手杖材质" enum="mvz2:shell" priority="2000" >
+        <tag id="shell_staff" name="手杖材质" enum="mvz2:shell" priority="2000">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
             <mark sprite="mvz2:ui/almanac/special_marks[2]" />
         </tag>
 
-        <tag id="mass" name="质量" enum="mvz2:mass" priority="3000" >
+        <tag id="mass" name="质量" enum="mvz2:mass" priority="3000">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
         </tag>
-        <tag id="mass_head" name="头质量" enum="mvz2:mass" priority="3000" >
+        <tag id="mass_head" name="头质量" enum="mvz2:mass" priority="3000">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
             <mark sprite="mvz2:ui/almanac/special_marks[3]" />
         </tag>
-        <tag id="mass_horse" name="马质量" enum="mvz2:mass" priority="3000" >
-            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]"/>
+        <tag id="mass_horse" name="马质量" enum="mvz2:mass" priority="3000">
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
             <mark sprite="mvz2:ui/almanac/special_marks[4]" />
         </tag>
 
 
 
-        <tag id="light_source" name="发光" description="会发出光芒" priority="4000" >
+        <tag id="light_source" name="发光" description="会发出光芒" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#753b00" />
         </tag>
-        <tag id="nocturnal" name="夜用" description="白天失效" priority="4000" >
+        <tag id="nocturnal" name="夜用" description="白天失效" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#283593" />
         </tag>
-        <tag id="defensive" name="防御性" description="阻挡怪物用的器械" priority="4000" >
+        <tag id="defensive" name="防御性" description="阻挡怪物用的器械" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
         </tag>
-        <tag id="floor_contraption" name="地面器械" description="不会被一般怪物发现" priority="4000" >
+        <tag id="floor_contraption" name="地面器械" description="不会被一般怪物发现" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="low" name="低矮" description="不会被一般高度或更高的子弹击中" priority="4000" >
+        <tag id="low" name="低矮" description="不会被一般高度或更高的子弹击中" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[4]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="high" name="高" description="阻挡跳跃" priority="4000" >
+        <tag id="high" name="高" description="阻挡跳跃" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[5]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="flying" name="飞行" description="不会被一般高度或更低的子弹击中" priority="4000" >
+        <tag id="flying" name="飞行" description="不会被一般高度或更低的子弹击中" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="can_trigger" name="可触发" description="可通过触发器产生某些效果" priority="4000" >
+        <tag id="can_trigger" name="可触发" description="可通过触发器产生某些效果" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[7]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#727272" />
         </tag>
-        <tag id="fire" name="火焰" description="可点燃物体" priority="4000" >
+        <tag id="fire" name="火焰" description="可点燃物体" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[8]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#96503a" />
         </tag>
-        <tag id="loyal" name="忠诚" description="免疫精神控制" priority="4000" >
+        <tag id="loyal" name="忠诚" description="免疫精神控制" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[9]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
         </tag>
-        <tag id="drownproof" name="不会溺水" description="可在水中存活" priority="4000" >
+        <tag id="drownproof" name="不会溺水" description="可在水中存活" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[10]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#347871" />
         </tag>
-        <tag id="control_immunity" name="控制免疫" description="不会被定身" priority="4000" >
+        <tag id="control_immunity" name="控制免疫" description="不会被定身" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[11]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#778a78" />
         </tag>
-        <tag id="not_undead" name="非亡灵" description="不是亡灵生物" priority="4000" >
+        <tag id="not_undead" name="非亡灵" description="不是亡灵生物" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[13]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
         </tag>
 
 
         <enum id="mass" type="int">
-            <value value="-2" name="很轻" description="受到的击退极大" sprite="mvz2:ui/almanac/mass_tags[0]" backgroundColor="#696a7f"/>
-            <value value="-1" name="轻" description="受到的击退较大" sprite="mvz2:ui/almanac/mass_tags[1]" backgroundColor="#696a7f"/>
-            <value value="0" name="中" description="受到的击退一般" sprite="mvz2:ui/almanac/mass_tags[2]" backgroundColor="#696a7f"/>
-            <value value="1" name="重" description="受到的击退较小" sprite="mvz2:ui/almanac/mass_tags[3]" backgroundColor="#696a7f"/>
-            <value value="2" name="很重" description="不受到击退" sprite="mvz2:ui/almanac/mass_tags[4]" backgroundColor="#696a7f"/>
+            <value value="-2" name="很轻" description="受到的击退极大" sprite="mvz2:ui/almanac/mass_tags[0]" backgroundColor="#696a7f" />
+            <value value="-1" name="轻" description="受到的击退较大" sprite="mvz2:ui/almanac/mass_tags[1]" backgroundColor="#696a7f" />
+            <value value="0" name="中" description="受到的击退一般" sprite="mvz2:ui/almanac/mass_tags[2]" backgroundColor="#696a7f" />
+            <value value="1" name="重" description="受到的击退较小" sprite="mvz2:ui/almanac/mass_tags[3]" backgroundColor="#696a7f" />
+            <value value="2" name="很重" description="不受到击退" sprite="mvz2:ui/almanac/mass_tags[4]" backgroundColor="#696a7f" />
         </enum>
         <enum id="shell" type="id">
-            <value value="mvz2:stone" name="石头" description="阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[0]" backgroundColor="#6b6b6b"/>
-            <value value="mvz2:grass" name="草" description="会被锐利物体穿透，受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[1]" backgroundColor="#a48f34"/>
-            <value value="mvz2:flesh" name="血肉" description="会被锐利物体穿透" sprite="mvz2:ui/almanac/shell_tags[2]" backgroundColor="#934329"/>
-            <value value="mvz2:leather" name="皮革" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[3]" backgroundColor="#893b25"/>
-            <value value="mvz2:metal" name="金属" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[4]" backgroundColor="#aaaaaa"/>
-            <value value="mvz2:bone" name="骨" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[5]" backgroundColor="#494b3e"/>
-            <value value="mvz2:wood" name="木头" description="受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[6]" backgroundColor="#b28553"/>
-            <value value="mvz2:nether" name="下界" description="免疫火焰伤害" sprite="mvz2:ui/almanac/shell_tags[7]" backgroundColor="#36131d"/>
-            <value value="mvz2:diamond" name="钻石" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[8]" backgroundColor="#417368"/>
-            <value value="mvz2:sand" name="沙子" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[9]" backgroundColor="#b4b590"/>
-            <value value="mvz2:netherrack" name="下界岩" description="免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[10]" backgroundColor="#36131d"/>
-            <value value="mvz2:cloud" name="云" description="受到0.5x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[11]" backgroundColor="#b67ba6"/>
-            <value value="mvz2:lightning" name="闪电" description="吸收闪电伤害" sprite="mvz2:ui/almanac/shell_tags[12]" backgroundColor="#b38f47"/>
+            <value value="mvz2:stone" name="石头" description="阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[0]" backgroundColor="#6b6b6b" />
+            <value value="mvz2:grass" name="草" description="会被锐利物体穿透，受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[1]" backgroundColor="#a48f34" />
+            <value value="mvz2:flesh" name="血肉" description="会被锐利物体穿透" sprite="mvz2:ui/almanac/shell_tags[2]" backgroundColor="#934329" />
+            <value value="mvz2:leather" name="皮革" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[3]" backgroundColor="#893b25" />
+            <value value="mvz2:metal" name="金属" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[4]" backgroundColor="#aaaaaa" />
+            <value value="mvz2:bone" name="骨" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[5]" backgroundColor="#494b3e" />
+            <value value="mvz2:wood" name="木头" description="受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[6]" backgroundColor="#b28553" />
+            <value value="mvz2:nether" name="下界" description="免疫火焰伤害" sprite="mvz2:ui/almanac/shell_tags[7]" backgroundColor="#36131d" />
+            <value value="mvz2:diamond" name="钻石" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[8]" backgroundColor="#417368" />
+            <value value="mvz2:sand" name="沙子" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[9]" backgroundColor="#b4b590" />
+            <value value="mvz2:netherrack" name="下界岩" description="免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[10]" backgroundColor="#36131d" />
+            <value value="mvz2:cloud" name="云" description="受到0.5x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[11]" backgroundColor="#b67ba6" />
+            <value value="mvz2:lightning" name="闪电" description="吸收闪电伤害" sprite="mvz2:ui/almanac/shell_tags[12]" backgroundColor="#b38f47" />
         </enum>
     </tags>
     <contraptions>
@@ -299,7 +299,7 @@
         </entry>
         <entry id="mvz2:punchton">
             <header>
-                <p>冲击活塞能够击退前方的敌方怪物并击碎<![CDATA[<tag id="mvz2:shell" enum="mvz2:stone"/>]]>石制品，但之后需要一定时间来修复自身。</p>
+                <p>冲击活塞能够击退前方的敌方怪物并击碎<![CDATA[<tag id="mvz2:shell" enum="mvz2:stone" />]]>石制品，但之后需要一定时间来修复自身。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>100（无视护甲）</color>]]></p>
@@ -325,7 +325,7 @@
         </entry>
         <entry id="mvz2:soul_furnace">
             <header>
-                <p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire"/>灵魂火，但需要烧毁前方的器械来补充燃料。]]></p>
+                <p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要烧毁前方的器械来补充燃料。]]></p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>80</color>]]></p>
@@ -340,7 +340,7 @@
         </entry>
         <entry id="mvz2:silvenser">
             <header>
-                <p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh"/>]]>血肉之躯的飞刀。</p>
+                <p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>15，30（对肉体）</color>]]></p>
@@ -427,7 +427,7 @@
         </entry>
         <entry id="mvz2:totenser">
             <header>
-                <p><![CDATA[图腾发射器在发射飞镖的同时还会<tag id="mvz2:fire"/>喷火烧伤近处的敌人。]]></p>
+                <p><![CDATA[图腾发射器在发射飞镖的同时还会<tag id="mvz2:fire" />喷火烧伤近处的敌人。]]></p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
@@ -636,7 +636,7 @@
                 <p>“我受不了了！！！！！！！！！！！！”</p>
                 <p>“吵死了！！！！！！！！！！！！”</p>
                 <p>“我要搬家！！！！！！！！！！！！”</p>
-                <p/>
+                <p />
                 <p>……至少上一个这栋楼的住户是这么说的。</p>
             </flavor>
         </entry>
@@ -653,7 +653,7 @@
                 <p>烧吧！将我眼前的所有不公，全部烧成灰烬！</p>
                 <p>烧吧！我所憎恨的邪恶之物，尽数应受惩罚！</p>
                 <p>烧吧！在他们惊恐的眼神中，向其降下毁灭！</p>
-                <p/>
+                <p />
                 <p>火焰啊！把我内心中的黑暗，沮丧，还有憎恨，统统烧个干净！</p>
                 <p><![CDATA[<b>让这明亮的火光，照亮整个世界！！！</b>]]></p>
             </flavor>
@@ -671,7 +671,7 @@
             <flavor>
                 <p>看着这座墓碑，恍惚中，你的脑海中似乎浮现出了一句熟悉的话：</p>
                 <p>“比起死亡，我更害怕的是被遗忘。”</p>
-                <p/>
+                <p />
                 <p>这是谁说的呢？</p>
             </flavor>
         </entry>
@@ -687,7 +687,7 @@
             </properties>
             <flavor>
                 <p>你知道的，真空不能传声，所以他其实听不到他邻居产生的噪音。</p>
-                <p/>
+                <p />
                 <p>天哪！别再讲你这笑话了！烂死了！！！</p>
             </flavor>
         </entry>
@@ -700,9 +700,9 @@
             </properties>
             <flavor>
                 <p>我是壶中的神灵，我能实现你的愿望，让我听听你内心中的欲望吧……</p>
-                <p/>
+                <p />
                 <p>让壶解禁？</p>
-                <p/>
+                <p />
                 <p>嗯……我刚才好像什么都没有听到。</p>
             </flavor>
         </entry>
@@ -825,79 +825,79 @@
         </entry>
 
         <!-- Chapter 6 -->
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
 
         <!-- Chapter 7 -->
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
 
         <!-- Chapter 8 -->
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
 
         <!-- Chapter 9 -->
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
 
         <!-- Chapter 10 -->
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
 
         <!-- Chapter 11 -->
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
 
         <!-- Chapter 12 -->
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
 
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
             <tags>
-                <tag id="mvz2:placement_infectenser"/>
+                <tag id="mvz2:placement_infectenser" />
             </tags>
             <header>
                 <p>传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。</p>
@@ -913,7 +913,7 @@
         </entry>
         <entry id="mvz2:force_pad">
             <tags>
-                <tag id="mvz2:placement_force_pad"/>
+                <tag id="mvz2:placement_force_pad" />
             </tags>
             <header>
                 <p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
@@ -929,7 +929,7 @@
         </entry>
         <entry id="mvz2:golden_dropper">
             <tags>
-                <tag id="mvz2:placement_golden_dropper"/>
+                <tag id="mvz2:placement_golden_dropper" />
             </tags>
             <header>
                 <p>金制投掷器向敌人发射金球，金球在击中敌人后有概率产生绿宝石，并在敌人间反弹。</p>
@@ -946,7 +946,7 @@
         </entry>
         <entry id="mvz2:skyward_beacon">
             <tags>
-                <tag id="mvz2:placement_beacon"/>
+                <tag id="mvz2:placement_beacon" />
             </tags>
             <header>
                 <p>御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。</p>
@@ -963,15 +963,15 @@
                 <p>不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）</p>
             </flavor>
         </entry>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
 
         <!-- Upgrades 2 -->
         <entry id="mvz2:high_frequency_pulse_dispenser">
             <tags>
-                <tag id="mvz2:placement_repeatenser"/>
+                <tag id="mvz2:placement_repeatenser" />
             </tags>
             <header>
                 <p>高频脉冲发射器一次能发射四支箭矢。</p>
@@ -979,7 +979,7 @@
             <properties>
                 <p>发射速度：<![CDATA[<color=red>4支/1.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>永久改为发射六支箭矢，并<tag id="mvz2:light_source"/>发光</color>]]></p>
+                <p>技能：<![CDATA[<color=red>永久改为发射六支箭矢，并<tag id="mvz2:light_source" />发光</color>]]></p>
             </properties>
             <flavor>
                 <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
@@ -988,14 +988,14 @@
                 <p>高——闭嘴吧。</p>
             </flavor>
         </entry>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
-        <entry/>
+        <entry />
+        <entry />
+        <entry />
+        <entry />
+        <entry />
         <entry id="mvz2:diamond_spikes">
             <tags>
-                <tag id="mvz2:placement_diamond_spikes"/>
+                <tag id="mvz2:placement_diamond_spikes" />
             </tags>
             <header>
                 <p>钻石尖刺会对走在上面的敌人造成双重伤害，并具有更高的耐久。</p>
@@ -1011,7 +1011,7 @@
                 <p>……哈哈，怎么可能会有这种荒唐的事情呢？</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry />
 
         <entry id="mvz2:command_block" hidden="true">
             <header>
@@ -1109,7 +1109,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
                 <p>抗性：<![CDATA[<color=red>虚无状态下减少90%受到的伤害</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>被<tag id="mvz2:light_source"/>光照到时会失去虚无效果</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>被<tag id="mvz2:light_source" />光照到时会失去虚无效果</color>]]></p>
             </properties>
             <flavor>
                 <p>当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵——被你吓死了。</p>
@@ -1121,7 +1121,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>毒雾可以被<tag id="mvz2:fire"/>火烧掉</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>毒雾可以被<tag id="mvz2:fire" />火烧掉</color>]]></p>
             </properties>
             <flavor>
                 <p>就跟奶奶们一样，木乃伊特别喜欢香水。它们甚至狂热到把香味刻进自己的骨子里，恨不得把周围的人都熏死。天哪，估计只有“木爷伊”能忍受这种气味了。</p>
@@ -1147,7 +1147,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>160</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>可以爬上并越过<tag id="mvz2:defensive"/>防御性器械</color>]]></p>
+                <p>特点：<![CDATA[<color=red>可以爬上并越过<tag id="mvz2:defensive" />防御性器械</color>]]></p>
             </properties>
             <flavor>
                 <p>蜘蛛开的网吧相当赚钱，因为大家都被黏住了。</p>
@@ -1188,7 +1188,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>，而后<color=red>0.6</color>（产卵后）]]></p>
-                <p>特点：<![CDATA[<color=red>碰到的<tag id="mvz2:shell" enum="mvz2:flesh"/>血肉之躯会被寄生</color>]]></p>
+                <p>特点：<![CDATA[<color=red>碰到的<tag id="mvz2:shell" enum="mvz2:flesh" />血肉之躯会被寄生</color>]]></p>
             </properties>
             <flavor>
                 <p>擅长在网络文件中捆绑流氓软件和BUG。</p>
@@ -1250,7 +1250,7 @@
                 <p>马速度：<![CDATA[<color=red>2（跳跃前），1（跳跃后）</color>]]></p>
                 <p>身体速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>头颅速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:high"/>高器械</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:high" />高器械</color>]]></p>
             </properties>
             <flavor>
                 <p>因为无头骑士总是喜欢在写文章的时候把开头擦掉。</p>
@@ -1536,7 +1536,7 @@
         </entry>
         <entry id="mvz2:bottled_blackhole">
             <silhouette>
-                <condition required="mvz2:level.dream_11"/>
+                <condition required="mvz2:level.dream_11" />
             </silhouette>
             <header>
                 <p>被装入瓶子中的一个小型黑洞。</p>
@@ -1583,7 +1583,7 @@
             </properties>
             <flavor>
                 <p>万宝槌的仿制品，没有什么魔力，只能普通地造成物理伤害。</p>
-                <p/>
+                <p />
                 <p>却说那小人参见小人，图谋以小搏大。蚍蜉欲撼参天木，终作金靴踏下尘。</p>
                 <p>小人遭缚，小人遁形。小人间彼此算计，最终却成了知己。</p>
                 <p>然族民百姓叫苦不迭，城内苍生忧心忡忡。</p>
@@ -1616,13 +1616,13 @@
         </entry> -->
         <entry id="mvz2:broken_lantern">
             <silhouette>
-                <condition required="mvz2:level.castle_11"/>
+                <condition required="mvz2:level.castle_11" />
             </silhouette>
             <header>
                 <p>辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red><tag id="mvz2:light_source"/>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
+                <p>效果：<![CDATA[<color=red><tag id="mvz2:light_source" />发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
             </properties>
             <flavor>
                 <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
@@ -1638,7 +1638,7 @@
             <flavor>
                 <p>“这是我们之间的秘密哦……”</p>
                 <p>她这么告诉你。</p>
-                <p/>
+                <p />
                 <p>但是，可不止你们两个人之间可以有秘密。</p>
                 <p><![CDATA[<b>一个人也是可以有秘密的。</b>]]></p>
             </flavor>
@@ -1686,16 +1686,16 @@
             </properties>
             <flavor>
                 <p>巨人的眼睛盯着你看——它似乎有话想对你说。</p>
-                <p/>
+                <p />
                 <p>“朋友啊，你觉得，像青娥那样的家伙，在经历了这种事情过后，会悔过自新，选择当一个好人吗？”</p>
                 <p>“会？呵呵，那你就错了。”</p>
                 <p>“只要利益足够诱人，这种人就只会愈发、愈发的贪婪——”</p>
                 <p><![CDATA[<color=red>“然后，永无止境地<b>贪婪</b>下去！！！”</color>]]></p>
-                <p/>
+                <p />
                 <p>眼睛愤怒地缩紧了瞳孔。</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry />
         <entry id="mvz2:ufo_toy">
             <header>
                 <p>一个带有魔力的四棱锥玩具。</p>
@@ -1760,11 +1760,11 @@
     <misc>
         <!-- Bosses -->
         <group id="mvz2:bosses" name="头目" order="100">
-            <entry id="mvz2:frankenstein" name="科学怪人的怪物" >
+            <entry id="mvz2:frankenstein" name="科学怪人的怪物">
                 <unlock>
-                    <condition required="mvz2:level.halloween_11"/>
+                    <condition required="mvz2:level.halloween_11" />
                 </unlock>
-                <picture sprite="mvz2:misc/frankenstein"/>
+                <picture sprite="mvz2:misc/frankenstein" />
                 <header>
                     <p>尸块组成的怪物，科幻小说中的杀人魔。</p>
                 </header>
@@ -1777,11 +1777,11 @@
                     <p>她的过去与你无关。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_boss" name="梦魇" >
+            <entry id="mvz2:nightmare_boss" name="梦魇">
                 <unlock>
-                    <condition required="mvz2:level.dream_11"/>
+                    <condition required="mvz2:level.dream_11" />
                 </unlock>
-                <picture sprite="mvz2:misc/nightmare_art"/>
+                <picture sprite="mvz2:misc/nightmare_art" />
                 <header>
                     <p>梦魇是具有蒙骗感官和腐蚀能力的恐怖魔物，具有无数的化身。</p>
                 </header>
@@ -1798,11 +1798,11 @@
                     <p>骑士离开王宫，骑上自己的马，便准备出发了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:wither" name="凋灵" >
+            <entry id="mvz2:wither" name="凋灵">
                 <unlock>
-                    <condition required="mvz2:level.castle_11"/>
+                    <condition required="mvz2:level.castle_11" />
                 </unlock>
-                <picture sprite="mvz2:misc/wither"/>
+                <picture sprite="mvz2:misc/wither" />
                 <header>
                     <p>凋灵代表着死亡和枯萎，它会抹除一切生命的迹象。</p>
                 </header>
@@ -1822,11 +1822,11 @@
                     <p>骑士握着手中的护身符。黑色的骷髅头中，闪烁着白色的，诡异的光。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:the_giant" name="巨人" >
+            <entry id="mvz2:the_giant" name="巨人">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_11"/>
+                    <condition required="mvz2:level.mausoleum_11" />
                 </unlock>
-                <picture sprite="mvz2:misc/giant_in_mausoleum[4]"/>
+                <picture sprite="mvz2:misc/giant_in_mausoleum[4]" />
                 <header>
                     <p>巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。</p>
                 </header>
@@ -1853,8 +1853,8 @@
         </group>
         <!-- Misc Entities -->
         <group id="mvz2:misc_entities" name="杂项实体" order="200">
-            <entry id="mvz2:miner" name="矿场" >
-                <picture model="mvz2:entity.miner"/>
+            <entry id="mvz2:miner" name="矿场">
+                <picture model="mvz2:entity.miner" />
                 <header>
                     <p>史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。</p>
                 </header>
@@ -1867,8 +1867,8 @@
                     <p>……不过既然它需要太阳能，为什么不直接把太阳能变成能量呢？</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:minecart" name="矿车" >
-                <picture model="mvz2:entity.minecart"/>
+            <entry id="mvz2:minecart" name="矿车">
+                <picture model="mvz2:entity.minecart" />
                 <header>
                     <p>史蒂夫家里的最后防线，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
                 </header>
@@ -1878,12 +1878,12 @@
                     <p>“那是我年轻的时候的故事……”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:gargoyle_statue" name="石像鬼雕像" >
-                <picture model="mvz2:entity.gargoyle_statue"/>
+            <entry id="mvz2:gargoyle_statue" name="石像鬼雕像">
+                <picture model="mvz2:entity.gargoyle_statue" />
                 <tags>
-                    <tag id="mvz2:shell" value="mvz2:stone"/>
-                    <tag id="mvz2:grid_layer_main"/>
-                    <tag id="mvz2:grid_layer_carrier"/>
+                    <tag id="mvz2:shell" value="mvz2:stone" />
+                    <tag id="mvz2:grid_layer_main" />
+                    <tag id="mvz2:grid_layer_carrier" />
                 </tags>
                 <header>
                     <p>石像鬼雕像会在最后一波时变成石像鬼。</p>
@@ -1895,8 +1895,8 @@
                     <p>永夜沼泽的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变成活物。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:pumpkin_carriage" name="南瓜马车" >
-                <picture model="mvz2:entity.pumpkin_carriage"/>
+            <entry id="mvz2:pumpkin_carriage" name="南瓜马车">
+                <picture model="mvz2:entity.pumpkin_carriage" />
                 <header>
                     <p>永夜沼泽的最后防线，会发出绿色光芒，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
                 </header>
@@ -1904,11 +1904,11 @@
                     <p>南瓜中的永恒火焰无法被水浇灭，被风吹灭或者被其他化学反应影响。如果你想藏身的话最好把它扔了——这玩意真的关不掉。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:napstablook" name="小幽灵" >
+            <entry id="mvz2:napstablook" name="小幽灵">
                 <unlock>
-                    <condition required="mvz2:level.halloween_6"/>
+                    <condition required="mvz2:level.halloween_6" />
                 </unlock>
-                <picture model="mvz2:entity.napstablook"/>
+                <picture model="mvz2:entity.napstablook" />
                 <header>
                     <p>小幽灵会在你使用铁剑击中它时生气，然后麻痹你的剑。</p>
                 </header>
@@ -1916,11 +1916,11 @@
                     <p>只是个路过的幽灵而已。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nyan_cat" name="彩虹猫" >
+            <entry id="mvz2:nyan_cat" name="彩虹猫">
                 <unlock>
-                    <condition required="mvz2:level.dream_1"/>
+                    <condition required="mvz2:level.dream_1" />
                 </unlock>
-                <picture model="mvz2:entity.nyan_cat"/>
+                <picture model="mvz2:entity.nyan_cat" />
                 <header>
                     <p>彩虹猫能萌死任何接触到的敌人。</p>
                 </header>
@@ -1928,11 +1928,11 @@
                     <p>NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nyaightmare" name="噩梦猫" >
+            <entry id="mvz2:nyaightmare" name="噩梦猫">
                 <unlock>
-                    <condition required="mvz2:level.dream_7"/>
+                    <condition required="mvz2:level.dream_7" />
                 </unlock>
-                <picture model="mvz2:entity.nyaightmare"/>
+                <picture model="mvz2:entity.nyaightmare" />
                 <header>
                     <p>噩梦猫会刺死任何它所恨的人。</p>
                 </header>
@@ -1940,11 +1940,11 @@
                     <p>“我恨你。”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:bowl_chariot" name="碗车" >
+            <entry id="mvz2:bowl_chariot" name="碗车">
                 <unlock>
-                    <condition required="mvz2:level.castle_1"/>
+                    <condition required="mvz2:level.castle_1" />
                 </unlock>
-                <picture model="mvz2:entity.bowl_chariot"/>
+                <picture model="mvz2:entity.bowl_chariot" />
                 <header>
                     <p>碗车在碰到敌人后会冲锋，并把碗里的巨石掉出来二次打击敌人。</p>
                 </header>
@@ -1952,15 +1952,15 @@
                     <p>之前的小人族剩下的部分防御工事，不过巨石的效果对凋灵骷髅们没什么作用就是了——甚至还不如直接用车撞死它们。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:reverse_satellite" name="反则卫星" >
+            <entry id="mvz2:reverse_satellite" name="反则卫星">
                 <unlock>
-                    <condition required="mvz2:level.castle_1"/>
+                    <condition required="mvz2:level.castle_1" />
                 </unlock>
-                <picture model="mvz2:entity.reverse_satellite"/>
+                <picture model="mvz2:entity.reverse_satellite" />
                 <tags>
-                    <tag id="mvz2:shell" value="mvz2:metal"/>
-                    <tag id="mvz2:flying"/>
-                    <tag id="mvz2:not_undead"/>
+                    <tag id="mvz2:shell" value="mvz2:metal" />
+                    <tag id="mvz2:flying" />
+                    <tag id="mvz2:not_undead" />
                 </tags>
                 <header>
                     <p>反则卫星是在一大波僵尸出现后，在辉针城中出现的可疑飞行物，会将你的视野180度旋转。</p>
@@ -1975,11 +1975,11 @@
                     <p>……甚至还可以影响人们的认知？</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:ballista" name="小型弩车" >
+            <entry id="mvz2:ballista" name="小型弩车">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_1"/>
+                    <condition required="mvz2:level.mausoleum_1" />
                 </unlock>
-                <picture model="mvz2:entity.ballista"/>
+                <picture model="mvz2:entity.ballista" />
                 <header>
                     <p>小型弩车在碰到敌人后会发射致命弩箭，并向前冲锋碾压敌人。</p>
                 </header>
@@ -1990,14 +1990,14 @@
                     <p>你别问为什么能直接压死还要发射弩箭，不然这就不叫“画蛇添足”了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:monster_spawner" name="刷怪笼" >
+            <entry id="mvz2:monster_spawner" name="刷怪笼">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_2"/>
+                    <condition required="mvz2:level.mausoleum_2" />
                 </unlock>
-                <picture model="mvz2:entity.monster_spawner"/>
+                <picture model="mvz2:entity.monster_spawner" />
                 <tags>
-                    <tag id="mvz2:grid_layer_main"/>
-                    <tag id="mvz2:grid_layer_carrier"/>
+                    <tag id="mvz2:grid_layer_main" />
+                    <tag id="mvz2:grid_layer_carrier" />
                 </tags>
                 <header>
                     <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的怪物。</p>
@@ -2009,8 +2009,8 @@
         </group>
         <!-- Characters -->
         <group id="mvz2:characters" name="人物" order="300">
-            <entry id="mvz2:villager" name="村民" >
-                <picture character="mvz2:crazy_villager"/>
+            <entry id="mvz2:villager" name="村民">
+                <picture character="mvz2:crazy_villager" />
                 <header>
                     <p>与史蒂夫共同生活的白衣村民，原名戴夫。</p>
                 </header>
@@ -2022,8 +2022,8 @@
                     <p>常与史蒂夫提起幻想乡的事情，而在今天终于踏上了征途。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:orant" name="欧兰特" >
-                <picture character="mvz2:orant"/>
+            <entry id="mvz2:orant" name="欧兰特">
+                <picture character="mvz2:orant" />
                 <header>
                     <p>欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。</p>
                 </header>
@@ -2035,11 +2035,11 @@
                     <p>只需要知道她常和灵魂与恐惧作伴就可以了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:doremy" name="哆来咪·苏伊特" >
+            <entry id="mvz2:doremy" name="哆来咪·苏伊特">
                 <unlock>
-                    <condition required="mvz2:level.dream_1"/>
+                    <condition required="mvz2:level.dream_1" />
                 </unlock>
-                <picture character="mvz2:doremy"/>
+                <picture character="mvz2:doremy" />
                 <header>
                     <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
                 </header>
@@ -2051,11 +2051,11 @@
                     <p>被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:tokiko" name="朱鹭子" >
+            <entry id="mvz2:tokiko" name="朱鹭子">
                 <unlock>
-                    <condition required="mvz2:kourindou_visited"/>
+                    <condition required="mvz2:kourindou_visited" />
                 </unlock>
-                <picture character="mvz2:tokiko"/>
+                <picture character="mvz2:tokiko" />
                 <header>
                     <p>常在香霖堂附近活动的读书妖怪，在霖之助失踪后成为了香霖堂的店主。</p>
                 </header>
@@ -2069,11 +2069,11 @@
                     <p>所以不要随便抢别人的书哦。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:seija" name="鬼人 正邪" >
+            <entry id="mvz2:seija" name="鬼人 正邪">
                 <unlock>
-                    <condition required="mvz2:level.castle_1"/>
+                    <condition required="mvz2:level.castle_1" />
                 </unlock>
-                <picture character="mvz2:seija"/>
+                <picture character="mvz2:seija" />
                 <header>
                     <p>一名天邪鬼，曾利用了针妙丸，妄图使用万宝槌的力量颠覆幻想乡的强弱规则。</p>
                 </header>
@@ -2087,11 +2087,11 @@
                     <p>如今她在四处游荡，成了个不受任何人欢迎的家伙。然而，天邪鬼对“逆转”的那种渴望，似乎也并不会轻易被熄灭就是了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:shinmyoumaru" name="少名 针妙丸" >
+            <entry id="mvz2:shinmyoumaru" name="少名 针妙丸">
                 <unlock>
-                    <condition required="mvz2:level.castle_2"/>
+                    <condition required="mvz2:level.castle_2" />
                 </unlock>
-                <picture character="mvz2:shinmyoumaru"/>
+                <picture character="mvz2:shinmyoumaru" />
                 <header>
                     <p>一寸法师的后代，辉针城的城主，如今小人族的领导者。</p>
                 </header>
@@ -2106,11 +2106,11 @@
                     <p>不过，至少在她这一代，这些教训是再也忘不掉的了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:futo" name="物部 布都" >
+            <entry id="mvz2:futo" name="物部 布都">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_1"/>
+                    <condition required="mvz2:level.mausoleum_1" />
                 </unlock>
-                <picture character="mvz2:futo"/>
+                <picture character="mvz2:futo" />
                 <header>
                     <p>日本古代大氏族物部氏的后人，丰聪耳神子的手下。</p>
                 </header>
@@ -2123,11 +2123,11 @@
                     <p>后来也被时代的浪潮推动，开始慢慢习惯现代的生活了，变成了一位看起来稍微有点傻傻的女孩。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:marisa" name="雾雨 魔理沙" >
+            <entry id="mvz2:marisa" name="雾雨 魔理沙">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_1"/>
+                    <condition required="mvz2:level.mausoleum_1" />
                 </unlock>
-                <picture character="mvz2:marisa"/>
+                <picture character="mvz2:marisa" />
                 <header>
                     <p>一位普通的魔法使，也是森近 霖之助曾经的好友。</p>
                 </header>
@@ -2140,11 +2140,11 @@
                     <p>随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:miko" name="丰聪耳 神子" >
+            <entry id="mvz2:miko" name="丰聪耳 神子">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_1"/>
+                    <condition required="mvz2:level.mausoleum_1" />
                 </unlock>
-                <picture character="mvz2:miko"/>
+                <picture character="mvz2:miko" />
                 <header>
                     <p>日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。</p>
                 </header>
@@ -2158,11 +2158,11 @@
                     <p>而这次，她们两者达成合作，一起抵御来自幻想乡外的巨物威胁。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:seiga" name="霍 青娥" >
+            <entry id="mvz2:seiga" name="霍 青娥">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_3"/>
+                    <condition required="mvz2:level.mausoleum_3" />
                 </unlock>
-                <picture character="mvz2:seiga"/>
+                <picture character="mvz2:seiga" />
                 <header>
                     <p>一名使用邪术的邪仙。</p>
                 </header>
@@ -2177,11 +2177,11 @@
                     <p>据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:mysterious_hologram" name="神秘影像" >
+            <entry id="mvz2:mysterious_hologram" name="神秘影像">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_11"/>
+                    <condition required="mvz2:level.mausoleum_11" />
                 </unlock>
-                <picture character="mvz2:hologram"/>
+                <picture character="mvz2:hologram" />
                 <header>
                     <p>出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。</p>
                 </header>
@@ -2195,8 +2195,8 @@
         </group>
         <!-- Areas -->
         <group id="mvz2:areas" name="地点" order="400">
-            <entry id="mvz2:steves_house" name="史蒂夫的家" >
-                <picture sprite="mvz2:misc/steves_house"/>
+            <entry id="mvz2:steves_house" name="史蒂夫的家">
+                <picture sprite="mvz2:misc/steves_house" />
                 <header>
                     <p>这里是史蒂夫和坑爹村民住的地方。</p>
                 </header>
@@ -2204,8 +2204,8 @@
                     <p>史蒂夫不受村庄中的其他人欢迎，于是他们搬到了公路附近的一片广阔平原上，开始了两人独居的生活。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:eternal_night_swamp" name="永夜沼泽" >
-                <picture sprite="mvz2:misc/eternal_night_swamp"/>
+            <entry id="mvz2:eternal_night_swamp" name="永夜沼泽">
+                <picture sprite="mvz2:misc/eternal_night_swamp" />
                 <header>
                     <p>时间停在万圣夜的被诅咒的沼泽，灵魂术士欧兰特居住于此。</p>
                 </header>
@@ -2218,11 +2218,11 @@
                     </flavor>
                 </flavors>
             </entry>
-            <entry id="mvz2:dream_world" name="梦境世界" >
+            <entry id="mvz2:dream_world" name="梦境世界">
                 <unlock>
-                    <condition required="mvz2:level.dream_1"/>
+                    <condition required="mvz2:level.dream_1" />
                 </unlock>
-                <picture sprite="mvz2:misc/dream"/>
+                <picture sprite="mvz2:misc/dream" />
                 <header>
                     <p>梦境世界是由哆来咪管理的，所有人的梦境所处的地方。</p>
                 </header>
@@ -2230,15 +2230,15 @@
                     <p>所有生物的梦境都互相连通，而梦境世界就是这些梦境所处的地方。</p>
                     <p>哆来咪监视并管理着梦境世界，阻止任何企图利用梦境世界干扰现实世界，并破坏梦境世界秩序的人。</p>
                     <p>史蒂夫和村民来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。</p>
-                    <p/>
+                    <p />
                     <p>这里和宇宙相通，某些宇宙中的天体在这里可能会产生奇特的反应。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_world" name="噩梦世界" >
+            <entry id="mvz2:nightmare_world" name="噩梦世界">
                 <unlock>
-                    <condition required="mvz2:level.dream_7"/>
+                    <condition required="mvz2:level.dream_7" />
                 </unlock>
-                <picture sprite="mvz2:misc/nightmare"/>
+                <picture sprite="mvz2:misc/nightmare" />
                 <header>
                     <p>噩梦世界是被梦魇所腐化的梦境世界。</p>
                 </header>
@@ -2246,11 +2246,11 @@
                     <p>哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:shining_needle_castle" name="辉针城" >
+            <entry id="mvz2:shining_needle_castle" name="辉针城">
                 <unlock>
-                    <condition required="mvz2:level.castle_1"/>
+                    <condition required="mvz2:level.castle_1" />
                 </unlock>
-                <picture sprite="mvz2:misc/castle"/>
+                <picture sprite="mvz2:misc/castle" />
                 <header>
                     <p>辉针城是小人族们的城池，在一年前遭到了凋灵骷髅们的入侵。</p>
                 </header>
@@ -2260,15 +2260,15 @@
                     <p>后来小人族的后裔遗忘了这一祖训，过量使用了万宝槌的魔力，导致了这座倒城的出现，小人族也被囚禁在了这里。</p>
                     <p>再然后，小人族的末裔——少名针妙丸又受到了天邪鬼的蛊惑，用万宝槌在幻想乡惹出了大乱子。</p>
                     <p>不知道多少年过去之后，小人们会再次遗忘之前的惨痛教训呢？</p>
-                    <p/>
+                    <p />
                     <p>顺带一提，天花板——哦不，地板上好像有什么东西在微微发光。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:hall_of_dreams_great_mausoleum" name="梦殿大祀庙" >
+            <entry id="mvz2:hall_of_dreams_great_mausoleum" name="梦殿大祀庙">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_1"/>
+                    <condition required="mvz2:level.mausoleum_1" />
                 </unlock>
-                <picture sprite="mvz2:misc/mausoleum"/>
+                <picture sprite="mvz2:misc/mausoleum" />
                 <header>
                     <p>物部 布都和丰聪耳 神子曾复活于幻想乡的地点。</p>
                 </header>
@@ -2276,38 +2276,38 @@
                     <p>这地方位于命莲寺地下——这并非神子有意为之，佛教徒们为了防止她的复活，故意将命莲寺建在了它的上方。</p>
                     <p>如今神子已经复活，她又将梦殿大祀庙搬到了仙界，而这里则成为了遗址。众多欲望的化身——小神灵仍然徘徊在这里，点缀着这里的黑暗。</p>
                     <p>如今，这地方又再次被使用，作为封印巨人的囚笼。</p>
-                    <p/>
+                    <p />
                     <p>远处似乎有什么金属工具深深嵌在了墙壁上。</p>
                 </flavor>
             </entry>
         </group>
         <!-- Starshards -->
         <group id="mvz2:starshards" name="星之碎片" order="500">
-            <entry id="mvz2:starshard.magic_candy" name="星之碎片：神奇糖果" >
-                <picture model="mvz2:entity.starshard.halloween"/>
+            <entry id="mvz2:starshard.magic_candy" name="星之碎片：神奇糖果">
+                <picture model="mvz2:entity.starshard.halloween" />
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
                 </header>
                 <flavor>
                     <p>未知人士留下了一些记录。</p>
-                    <p/>
+                    <p />
                     <p>星之记录 其一：</p>
                     <p>自那件事以来，每当我沉睡于梦中，总会在深不可测的黑暗中看到一个物体，它闪着星形的光，随之它便离我远去。</p>
                     <p>我并不理解这是什么意思。后来即使不在梦中，我也总是能看到类似的物体，这十分反常。</p>
                     <p>当我离开不属于我的那片土地时，我在一片朦胧中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦" >
+            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦">
                 <unlock>
-                    <condition required="mvz2:level.dream_1"/>
+                    <condition required="mvz2:level.dream_1" />
                 </unlock>
-                <picture model="mvz2:entity.starshard.dream"/>
+                <picture model="mvz2:entity.starshard.dream" />
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
                 </header>
                 <flavor>
                     <p>未知人士留下了一些记录。</p>
-                    <p/>
+                    <p />
                     <p>星之记录 其二：</p>
                     <p>我做了一个很古怪的梦。</p>
                     <p>我梦见我在一个满是眼睛的紫色空间中，不断漂浮沉沦。我看到一个黄色头发的少女，持着紫色的阳伞坐在空中。</p>
@@ -2315,17 +2315,17 @@
                     <p>我睁开眼睛，发现自己正在一片粉色花朵的树环绕的空地上。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.miracle_mallet" name="星之碎片：万宝槌" >
+            <entry id="mvz2:starshard.miracle_mallet" name="星之碎片：万宝槌">
                 <unlock>
-                    <condition required="mvz2:level.castle_1"/>
+                    <condition required="mvz2:level.castle_1" />
                 </unlock>
-                <picture model="mvz2:entity.starshard.castle"/>
+                <picture model="mvz2:entity.starshard.castle" />
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
                 </header>
                 <flavor>
                     <p>未知人士留下了一些记录。</p>
-                    <p/>
+                    <p />
                     <p>星之记录 其三：</p>
                     <p>我来到这里已经三年了。这三年来，我一直独居在某个荒无人烟的地方，常打交道的那位店主似乎也没有发现我的真实身份。</p>
                     <p>最近几天，我又做了一个梦。</p>
@@ -2336,17 +2336,17 @@
                     <p>……如果真的有能实现这些愿望的东西，那才真的有鬼了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.shinrei" name="星之碎片：小神灵" >
+            <entry id="mvz2:starshard.shinrei" name="星之碎片：小神灵">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_1"/>
+                    <condition required="mvz2:level.mausoleum_1" />
                 </unlock>
-                <picture model="mvz2:entity.starshard.mausoleum"/>
+                <picture model="mvz2:entity.starshard.mausoleum" />
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
                 </header>
                 <flavor>
                     <p>未知人士留下了一些记录。</p>
-                    <p/>
+                    <p />
                     <p>星之记录 其四：</p>
                     <p>我想回家。</p>
                     <p>我已经不知道多少次产生这个念头了。</p>
@@ -2359,11 +2359,11 @@
         </group>
         <!-- Important Items -->
         <group id="mvz2:important" name="重要物品" order="600">
-            <entry id="mvz2:ender_chest" name="末影箱" >
+            <entry id="mvz2:ender_chest" name="末影箱">
                 <unlock>
-                    <condition required="mvz2:level.dream_5"/>
+                    <condition required="mvz2:level.dream_5" />
                 </unlock>
-                <picture model="mvz2:entity.ender_chest"/>
+                <picture model="mvz2:entity.ender_chest" />
                 <header>
                     <p>末影箱可以将村民的存货取出来，并让他重新开张商店。</p>
                 </header>
@@ -2372,11 +2372,11 @@
                     <p>“梦里。”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_box" name="梦魇魔盒" >
+            <entry id="mvz2:nightmare_box" name="梦魇魔盒">
                 <unlock>
-                    <condition required="mvz2:level.dream_11"/>
+                    <condition required="mvz2:level.dream_11" />
                 </unlock>
-                <picture sprite="mvz2:map/dream/nightmare_box" fixedSize="true" zoom="false"/>
+                <picture sprite="mvz2:map/dream/nightmare_box" fixedSize="true" zoom="false" />
                 <header>
                     <p>梦魇魔盒是将梦魇的黑魔法收集起来制作而成，并可以使梦境世界变成噩梦世界的容器。</p>
                 </header>
@@ -2384,11 +2384,11 @@
                     <p>梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:gensokyo_map" name="幻想乡地图" >
+            <entry id="mvz2:gensokyo_map" name="幻想乡地图">
                 <unlock>
-                    <condition required="mvz2:entered_gensokyo"/>
+                    <condition required="mvz2:entered_gensokyo" />
                 </unlock>
-                <picture sprite="mvz2:map/gensokyo/map"/>
+                <picture sprite="mvz2:map/gensokyo/map" />
                 <header>
                     <p>坑爹村民绘制的幻想乡地图。</p>
                 </header>
@@ -2397,16 +2397,16 @@
                     <p>能用这张地图的也是神人了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:obsidian_first_aid" name="黑曜石修复术" >
+            <entry id="mvz2:obsidian_first_aid" name="黑曜石修复术">
                 <unlock>
-                    <condition required="mvz2:obsidian_first_aid"/>
+                    <condition required="mvz2:obsidian_first_aid" />
                 </unlock>
-                <picture sprite="mvz2:products/obsidian_first_aid" fixedSize="true" zoom="false"/>
+                <picture sprite="mvz2:products/obsidian_first_aid" fixedSize="true" zoom="false" />
                 <header>
                     <p>用于修复防御性器械的技术。</p>
                 </header>
                 <properties>
-                    <p>效果：<![CDATA[<color=red>可以直接在<tag id="mvz2:defensive"/>防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>]]></p>
+                    <p>效果：<![CDATA[<color=red>可以直接在<tag id="mvz2:defensive" />防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>]]></p>
                 </properties>
                 <flavor>
                     <p>“你的修复术好像和我的不太一样，你这是怎么修的？”</p>
@@ -2417,34 +2417,34 @@
         </group>
         <!-- Lore -->
         <group id="mvz2:lore" name="剧情" order="700">
-            <entry id="mvz2:blurred_note" name="模糊的字条" >
+            <entry id="mvz2:blurred_note" name="模糊的字条">
                 <unlock>
-                    <condition required="mvz2:level.dream_10"/>
+                    <condition required="mvz2:level.dream_10" />
                 </unlock>
-                <picture sprite="mvz2:note/dream"/>
+                <picture sprite="mvz2:note/dream" />
                 <header>
                     <p>梦境世界捡到的一张纸条，因为身处梦境的原因，无法查看其内容。</p>
                 </header>
                 <flavors>
                     <flavor>
                         <conditions>
-                            <condition requiredNot="mvz2:kourindou_visited_mausoleum_1"/>
+                            <condition requiredNot="mvz2:kourindou_visited_mausoleum_1" />
                         </conditions>
                         <p>？？？</p>
                     </flavor>
                     <flavor>
                         <conditions>
-                            <condition required="mvz2:kourindou_visited_mausoleum_1"/>
+                            <condition required="mvz2:kourindou_visited_mausoleum_1" />
                         </conditions>
                         <p>在辉针城结束后的香霖堂，村民曾将这张纸条拿出去看了一眼，然而却又把它慌张地收了起来。</p>
                     </flavor>
                 </flavors>
             </entry>
-            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" >
+            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓">
                 <unlock>
-                    <condition required="mvz2:level.dream_11"/>
+                    <condition required="mvz2:level.dream_11" />
                 </unlock>
-                <picture sprite="mvz2:misc/grave_in_dream" fixedSize="true" zoom="false"/>
+                <picture sprite="mvz2:misc/grave_in_dream" fixedSize="true" zoom="false" />
                 <header>
                     <p>哆来咪提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
                 </header>
@@ -2454,11 +2454,11 @@
                     <p>似乎，这个谜就要从这场冒险中解开了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:explosion_before_3_years" name="三年前的爆炸" >
+            <entry id="mvz2:explosion_before_3_years" name="三年前的爆炸">
                 <unlock>
-                    <condition required="mvz2:level.castle_4"/>
+                    <condition required="mvz2:level.castle_4" />
                 </unlock>
-                <picture sprite="mvz2:misc/explosion_before_3_years"/>
+                <picture sprite="mvz2:misc/explosion_before_3_years" />
                 <header>
                     <p>在三年前，幻想乡内曾经发生过一起巨大的爆炸。</p>
                 </header>
@@ -2467,11 +2467,11 @@
                     <p>后来辉针城内产生的凋灵骷髅可能也是这件事所导致的。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:two_travelers" name="两位旅人" >
+            <entry id="mvz2:two_travelers" name="两位旅人">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_4"/>
+                    <condition required="mvz2:level.mausoleum_4" />
                 </unlock>
-                <picture sprite="mvz2:misc/two_travelers"/>
+                <picture sprite="mvz2:misc/two_travelers" />
                 <header>
                     <p>在四年前，曾有两个旅人来到幻想乡。</p>
                 </header>
@@ -2481,11 +2481,11 @@
                     <p>但是，不久之后，异变就发生了。并且他们两个再也没有出现在幻想乡过。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:murder" name="凶杀" >
+            <entry id="mvz2:murder" name="凶杀">
                 <unlock>
-                    <condition required="mvz2:level.mausoleum_7"/>
+                    <condition required="mvz2:level.mausoleum_7" />
                 </unlock>
-                <picture sprite="mvz2:misc/murder"/>
+                <picture sprite="mvz2:misc/murder" />
                 <header>
                     <p>三年前，幻想乡中发生过一场凶杀案。</p>
                 </header>
