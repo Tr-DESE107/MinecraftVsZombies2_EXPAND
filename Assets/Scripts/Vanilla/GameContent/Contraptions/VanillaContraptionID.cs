@@ -55,9 +55,9 @@ namespace MVZ2.GameContent.Contraptions
         public const string triplenser = "triplenser";
         public const string fireworkDispenser = "firework_dispenser";
         public const string repeatenser = "repeatenser";
-        
+
         public const string beacon = "beacon";
-        
+
         public const string woodenFan = "wooden_fan";
         public const string elasticCloud = "elastic_cloud";
         public const string jeweledPagoda = "jeweled_pagoda";

@@ -4,21 +4,17 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
-using MVZ2.GameContent.Pickups;
 
 namespace MVZ2.GameContent.Enemies
 {

@@ -133,7 +133,7 @@ namespace MVZ2.GameContent.Stages
 
         //EXPAND Puzzle
         public const string puzzleRandomCvsRandomE = "puzzleRandomCvsRandomE";
-        
+
     }
     public static class VanillaStageID
     {

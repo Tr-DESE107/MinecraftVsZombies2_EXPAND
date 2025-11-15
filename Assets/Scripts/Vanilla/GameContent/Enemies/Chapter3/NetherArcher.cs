@@ -123,20 +123,23 @@ namespace MVZ2.GameContent.Enemies
 
             var arrow = entity.ShootProjectile(param);
 
-            // 无论血量如何，都添加基础火焰效果
-            var fireBuff = arrow.AddBuff<HellfireIgnitedBuff>();
-
-            if (entity.Health <= entity.GetMaxHealth() / 2)
+            if (arrow != null)
             {
-                // 半血时强化效果
-                HellfireIgnitedBuff.Curse(fireBuff);
+                // 无论血量如何，都添加基础火焰效果
+                var fireBuff = arrow.AddBuff<HellfireIgnitedBuff>();
 
-                // 轻微自伤，平衡机制
-                entity.TakeDamage(
-                    10,
-                    new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DAMAGE_BLINK, VanillaDamageEffects.IGNORE_ARMOR),
-                    entity
-                );
+                if (entity.Health <= entity.GetMaxHealth() / 2)
+                {
+                    // 半血时强化效果
+                    HellfireIgnitedBuff.Curse(fireBuff);
+
+                    // 轻微自伤，平衡机制
+                    entity.TakeDamage(
+                        10,
+                        new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DAMAGE_BLINK, VanillaDamageEffects.IGNORE_ARMOR),
+                        entity
+                    );
+                }
             }
         }
 

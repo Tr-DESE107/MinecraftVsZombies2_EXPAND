@@ -4,30 +4,13 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2Logic;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
-using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
-using MVZ2Logic;
-using MVZ2Logic.Level;
-using PVZEngine;
-using PVZEngine.Buffs;
-using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -62,10 +45,12 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.RemoveBuffs<BoatBuff>();
                 // µôÂäËé´¬µôÂäÎï
-                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity);
-                effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
-                effect.ChangeModel(VanillaModelID.boatItem);
-                effect.SetDisplayScale(entity.GetDisplayScale());
+                entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity)?.Let(effect =>
+                {
+                    effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
+                    effect.ChangeModel(VanillaModelID.boatItem);
+                    effect.SetDisplayScale(entity.GetDisplayScale());
+                });
             }
 
             //var grid = entity.GetGrid();

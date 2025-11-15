@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -17,8 +18,6 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -128,7 +127,7 @@ namespace MVZ2.GameContent.Contraptions
             foreach (var collider in detectBuffer)
             {
                 var entity = collider.Entity;
-                
+
                 collider.TakeDamage(damage, damageEffects, source);
 
                 // 只对器械类型的实体使用短路  
