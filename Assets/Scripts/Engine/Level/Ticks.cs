@@ -28,5 +28,11 @@ namespace PVZEngine
         {
             return perTick * tps;
         }
+        public static float SmoothDamp(float current, float target, float damp, int targetTPS = 30)
+        {
+            var newDamp = 1 - Mathf.Pow(1 - damp, targetTPS / tps);
+            current += (target - current) * newDamp;
+            return current;
+        }
     }
 }

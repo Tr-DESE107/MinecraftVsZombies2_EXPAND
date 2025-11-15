@@ -249,8 +249,8 @@ namespace MVZ2.GameContent.Bosses
                         {
                             Vector3 target = GetJumpTarget(entity);
                             var pos = entity.Position;
-                            pos.x = pos.x * 0.8f + target.x * 0.2f;
-                            pos.z = pos.z * 0.8f + target.z * 0.2f;
+                            pos.x = Ticks.SmoothDamp(pos.x, target.x, 0.2f);
+                            pos.z = Ticks.SmoothDamp(pos.z, target.z, 0.2f);
                             entity.Position = pos;
                             if (entity.IsOnGround)
                             {
