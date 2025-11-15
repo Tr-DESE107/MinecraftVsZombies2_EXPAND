@@ -49,11 +49,6 @@ namespace MVZ2.GameContent.Effects
                 entity.TriggerAnimation("Flash");
                 entity.PlaySound(VanillaSoundID.shutter);
             }
-            else if (entity.Timeout <= 15)
-            {
-                var color = new Color(1, 1, 1, (entity.Timeout / 15f));
-                entity.SetTint(color);
-            }
         }
         #endregion
 

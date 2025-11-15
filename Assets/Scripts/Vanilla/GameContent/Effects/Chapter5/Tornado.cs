@@ -23,11 +23,6 @@ namespace MVZ2.GameContent.Effects
             entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_VULNERABLE;
             entity.Level.AddLoopSoundEntity(VanillaSoundID.tornado, entity.ID);
         }
-        public override void Update(Entity entity)
-        {
-            base.Update(entity);
-            entity.SetTint(new Color(1, 1, 1, Mathf.Clamp01(entity.Timeout / 30f)));
-        }
         public override void PostCollision(EntityCollision collision, int state)
         {
             base.PostCollision(collision, state);

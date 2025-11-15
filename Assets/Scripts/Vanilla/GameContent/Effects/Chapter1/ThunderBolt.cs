@@ -21,13 +21,6 @@ namespace MVZ2.GameContent.Effects
             base.Init(entity);
             entity.Level.PlaySound(VanillaSoundID.thunder);
         }
-        public override void Update(Entity entity)
-        {
-            base.Update(entity);
-            var tint = entity.GetTint();
-            tint.a = entity.Timeout < 0 ? 1 : entity.Timeout / 30f;
-            entity.SetTint(tint);
-        }
         #endregion
     }
 }

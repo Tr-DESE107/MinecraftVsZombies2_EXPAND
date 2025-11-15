@@ -2781,6 +2781,9 @@
             </properties>
         </effect>
         <effect id="broken_armor">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout" />
+            </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="60" />
                 <int name="mvz2:waterInteraction" value="1" />
@@ -2791,7 +2794,11 @@
         </effect>
         <effect id="thunder_bolt">
             <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
                 <behaviour operator="add" id="mvz2:light_fadeout" />
+                <properties behaviour="mvz2:fadeout_by_timeout">
+                    <float name="fade_timeout" value="1" />
+                </properties>
             </behaviours>
             <properties>
                 <bool name="mvz2:decorative" value="false" />
@@ -2895,6 +2902,9 @@
             </properties>
         </effect>
         <effect id="electric_arc">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_max_timeout"/>
+            </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="60" />
             </properties>
@@ -2910,6 +2920,9 @@
             </properties>
         </effect>
         <effect id="frankenstein_head">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:friction" value="0.1" />
                 <float name="mvz2:gravity" value="1" />
@@ -3015,6 +3028,9 @@
             </properties>
         </effect>
         <effect id="nightmareaper_shadow">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_max_timeout"/>
+            </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="30" />
             </properties>
@@ -3045,6 +3061,9 @@
             </properties>
         </effect>
         <effect id="floating_text">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
+            </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="90" />
             </properties>
@@ -3056,6 +3075,12 @@
             </properties>
         </effect>
         <effect id="nightmare_glass">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
+                <properties behaviour="mvz2:fadeout_by_timeout">
+                    <float name="fade_timeout" value="1" />
+                </properties>
+            </behaviours>
             <properties>
                 <string name="mvz2:sortingLayer" value="ScreenCover" />
                 <int name="mvz2:sortingOrder" value="9999" />
@@ -3078,6 +3103,9 @@
             </properties>
         </effect>
         <effect id="mutant_zombie_weapon">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
+            </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="90" />
                 <int name="mvz2:waterInteraction" value="1" />
@@ -3108,6 +3136,9 @@
             </properties>
         </effect>
         <effect id="seija_camera_frame">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
+            </behaviours>
             <properties>
                 <int name="mvz2:sortingOrder" value="9999" />
                 <bool name="mvz2:decorative" value="false" />
@@ -3129,13 +3160,23 @@
             </properties>
         </effect>
         <effect id="castle_twilight">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
+                <properties behaviour="mvz2:fadeout_by_timeout">
+                    <float name="fade_timeout" value="1" />
+                </properties>
+            </behaviours>
             <properties>
                 <int name="mvz2:sortingOrder" value="-9999" />
             </properties>
         </effect>
         <effect id="thunder_bolt_horizontal">
             <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
                 <behaviour operator="add" id="mvz2:light_fadeout" />
+                <properties behaviour="mvz2:fadeout_by_timeout">
+                    <float name="fade_timeout" value="1" />
+                </properties>
             </behaviours>
             <properties>
                 <bool name="mvz2:decorative" value="false" />

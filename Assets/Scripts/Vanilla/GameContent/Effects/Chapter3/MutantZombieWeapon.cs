@@ -14,11 +14,6 @@ namespace MVZ2.GameContent.Effects
         public MutantZombieWeapon(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Update(Entity entity)
-        {
-            base.Update(entity);
-            entity.SetTint(new Color(1, 1, 1, Mathf.Clamp01(entity.Timeout / 15f)));
-        }
         public override void PostContactGround(Entity entity, Vector3 velocity)
         {
             base.PostContactGround(entity, velocity);

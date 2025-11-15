@@ -17,7 +17,6 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            entity.SetTint(new Color(1, 1, 1, Mathf.Clamp01(entity.Timeout / 15f)));
             entity.SetModelDamagePercent(1);
             entity.RenderRotation += new Vector3(0, 0, -entity.Velocity.x);
         }

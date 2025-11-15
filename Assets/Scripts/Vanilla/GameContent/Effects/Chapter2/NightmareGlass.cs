@@ -41,13 +41,6 @@ namespace MVZ2.GameContent.Effects
                     WhiteFlashBuff.AddToEntity(entity, 2);
                 }
             }
-
-            if (entity.Timeout <= 30)
-            {
-                var tint = entity.GetTint();
-                tint.a = entity.Timeout / 30f;
-                entity.SetTint(tint);
-            }
         }
         public static int GetBreakTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_BREAK_TIMEOUT);
         public static void SetBreakTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_BREAK_TIMEOUT, value);
