@@ -36,6 +36,8 @@ namespace MVZ2.GameContent.Bosses
         {
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
+
+            entity.SetAnimationFloat("HeadRotation", GetHeadRotation(entity));
         }
         public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
@@ -48,9 +50,21 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion 事件
 
+        public static Vector3 GetNeckDirection(Entity entity)
+        {
+            var headRotation = GetHeadRotation(entity);
+            var neckDirection = Quaternion.Euler(0, headRotation, 0) * Vector3.right;
+            neckDirection.x *= entity.GetFacingX();
+            return neckDirection;
+        }
         public static Vector3 GetSpitSourcePosition(Entity entity)
         {
-            return entity.Position + entity.GetFacingDirection() * 400 + Vector3.up * 40;
+            var neckDirection = GetNeckDirection(entity);
+            return GetNeckRootPosition(entity) + neckDirection * 260;
+        }
+        public static Vector3 GetNeckRootPosition(Entity entity)
+        {
+            return entity.Position + entity.GetFacingDirection() * 140 + Vector3.up * 40;
         }
         public static Vector3 GetTornadoSourcePosition(Entity entity)
         {
@@ -58,6 +72,8 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 字段
+        public static float GetHeadRotation(Entity entity) => entity.GetBehaviourField<float>(PROP_HEAD_ROTATION);
+        public static void SetHeadRotation(Entity entity, float value) => entity.SetBehaviourField(PROP_HEAD_ROTATION, value);
         public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static Vector3 GetJumpTarget(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_JUMP_TARGET);
@@ -71,6 +87,7 @@ namespace MVZ2.GameContent.Bosses
         #region 常量
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
         private static readonly VanillaEntityPropertyMeta<int> PROP_JUMP_FINISH_STATE = new VanillaEntityPropertyMeta<int>("jump_finish_state", -1);
+        private static readonly VanillaEntityPropertyMeta<float> PROP_HEAD_ROTATION = new VanillaEntityPropertyMeta<float>("head_rotation");
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("jump_target");
         private static readonly VanillaEntityPropertyMeta<List<NamespaceID>> PROP_EATEN_ENTITIES = new VanillaEntityPropertyMeta<List<NamespaceID>>("eaten_entities");
 
@@ -82,6 +99,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_JUMP = VanillaBossStates.RED_DRAGON_JUMP;
         public const int STATE_FLAP_WINGS = VanillaBossStates.RED_DRAGON_FLAP_WINGS;
         public const int STATE_EAT = VanillaBossStates.RED_DRAGON_EAT;
+        public const int STATE_FIRE_BREATH = VanillaBossStates.RED_DRAGON_FIRE_BREATH;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_APPEAR = 1;

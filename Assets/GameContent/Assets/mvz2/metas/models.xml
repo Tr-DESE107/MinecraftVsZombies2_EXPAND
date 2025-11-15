@@ -412,6 +412,7 @@
     <model name="skyward_beacon_target" type="entity" path="mvz2:effect/skyward_beacon_target" width="64" height="24" xOffset="0" yOffset="0" />
     <model name="skyward_sky" type="entity" path="mvz2:effect/skyward_sky" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="tornado" type="entity" path="mvz2:effect/tornado" width="96" height="200" xOffset="0" yOffset="-100"/>
+    <model name="dragon_fire_breath" type="entity" path="mvz2:effect/dragon_fire_breath" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0" />

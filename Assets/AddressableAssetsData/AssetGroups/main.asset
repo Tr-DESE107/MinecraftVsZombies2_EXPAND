@@ -3711,6 +3711,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51df1f582280e3e4b801aac0f71d1b69
+    m_Address: mvz2:effect/dragon_fire_breath
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52224e26acb83e248a1a595c220c3f0d
     m_Address: mvz2:entity/boss/wither
     m_ReadOnly: 0

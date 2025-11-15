@@ -48,6 +48,7 @@ namespace MVZ2.Vanilla.Bosses
         public const int RED_DRAGON_JUMP = PRIVATE_NUMBER + 1;
         public const int RED_DRAGON_FLAP_WINGS = PRIVATE_NUMBER + 2;
         public const int RED_DRAGON_EAT = PRIVATE_NUMBER + 3;
+        public const int RED_DRAGON_FIRE_BREATH = PRIVATE_NUMBER + 4;
 
 
         private const int PRIVATE_NUMBER = 10000;
