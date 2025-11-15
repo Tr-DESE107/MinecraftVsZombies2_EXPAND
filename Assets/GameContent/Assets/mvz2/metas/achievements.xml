@@ -1,52 +1,52 @@
 <achievements>
     <achievement id="ghost_buster" name="捉鬼敢死队" description="在不照亮任何一次的情况下杀死一个幽灵。" icon="mvz2:achievements/ghost_buster">
         <unlock>
-            <condition required="mvz2:achievement.ghost_buster"/>
+            <condition required="mvz2:achievement.ghost_buster" />
         </unlock>
     </achievement>
     <achievement id="double_trouble" name="活塞递推" description="使用冲击活塞将一个怪物推到另一个冲击活塞面前。" icon="mvz2:achievements/double_trouble">
         <unlock>
-            <condition required="mvz2:achievement.double_trouble"/>
+            <condition required="mvz2:achievement.double_trouble" />
         </unlock>
     </achievement>
     <achievement id="rickroll_drown" name="永远不会让你湿亡" description="让一只没有船的僵尸走进水中并沉没。" icon="mvz2:achievements/rickroll_drown">
         <unlock>
-            <condition required="mvz2:achievement.rickroll_drown"/>
+            <condition required="mvz2:achievement.rickroll_drown" />
         </unlock>
     </achievement>
     <achievement id="return_to_sender" name="见鬼去吧" description="用一枚火焰弹杀死一只恶魂。" icon="mvz2:achievements/return_to_sender">
         <unlock>
-            <condition required="mvz2:achievement.return_to_sender"/>
+            <condition required="mvz2:achievement.return_to_sender" />
         </unlock>
     </achievement>
     <achievement id="mesmerised_matchup" name="倒反天罡" description="用友好的怪物杀死敌对的器械，或者让器械反杀怪物。" icon="mvz2:achievements/mesmerised_matchup">
         <unlock>
-            <condition required="mvz2:achievement.mesmerised_matchup"/>
+            <condition required="mvz2:achievement.mesmerised_matchup" />
         </unlock>
     </achievement>
     <achievement id="bonebreaker" name="碎骨者" description="摔死一只骷髅。（射箭的那个！）" icon="mvz2:achievements/bonebreaker">
         <unlock>
-            <condition required="mvz2:achievement.bonebreaker"/>
+            <condition required="mvz2:achievement.bonebreaker" />
         </unlock>
     </achievement>
     <achievement id="reforged" name="重铸版" description="使用黑曜石修复术修复一个铁砧。" icon="mvz2:achievements/reforged">
         <unlock>
-            <condition required="mvz2:achievement.reforged"/>
+            <condition required="mvz2:achievement.reforged" />
         </unlock>
     </achievement>
     <achievement id="overdraw" name="往死里抽" description="使用欲望壶的技能抽到两张欲望壶。" icon="mvz2:achievements/overdraw">
         <unlock>
-            <condition required="mvz2:achievement.overdraw"/>
+            <condition required="mvz2:achievement.overdraw" />
         </unlock>
     </achievement>
     <achievement id="railgun" name="电磁炮" description="使用被闪电充能的TNT杀死一只炮手僵尸。" icon="mvz2:achievements/railgun">
         <unlock>
-            <condition required="mvz2:achievement.railgun"/>
+            <condition required="mvz2:achievement.railgun" />
         </unlock>
     </achievement>
     <achievement id="midas_touchdown" name="金无足赤" description="在不使用重力的情况下，使一只无头骑士被地板杀死。" icon="mvz2:achievements/midas_touchdown">
         <unlock>
-            <condition required="mvz2:achievement.midas_touchdown"/>
+            <condition required="mvz2:achievement.midas_touchdown" />
         </unlock>
     </achievement>
 </achievements>

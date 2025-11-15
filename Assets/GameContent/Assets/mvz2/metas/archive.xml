@@ -1,17 +1,17 @@
 <archive>
     <tags>
-        <tag id="prologue" name="序章" priority="0"/>
-        <tag id="halloween" name="万圣夜" priority="1"/>
-        <tag id="dream" name="梦境世界" priority="2"/>
-        <tag id="gensokyo" name="幻想乡" priority="2"/>
-        <tag id="castle" name="辉针城" priority="3"/>
-        <tag id="mausoleum" name="梦殿大祀庙" priority="4"/>
-        <tag id="tutorial" name="教程" priority="1000"/>
-        <tag id="note" name="纸条" priority="1000"/>
-        <tag id="special" name="特殊" priority="1000"/>
-        <tag id="intro" name="入场对话" priority="1100"/>
-        <tag id="over" name="结束对话" priority="1100"/>
-        <tag id="map" name="地图对话" priority="1100"/>
-        <tag id="store" name="商店对话" priority="1100"/>
+        <tag id="prologue" name="序章" priority="0" />
+        <tag id="halloween" name="万圣夜" priority="1" />
+        <tag id="dream" name="梦境世界" priority="2" />
+        <tag id="gensokyo" name="幻想乡" priority="2" />
+        <tag id="castle" name="辉针城" priority="3" />
+        <tag id="mausoleum" name="梦殿大祀庙" priority="4" />
+        <tag id="tutorial" name="教程" priority="1000" />
+        <tag id="note" name="纸条" priority="1000" />
+        <tag id="special" name="特殊" priority="1000" />
+        <tag id="intro" name="入场对话" priority="1100" />
+        <tag id="over" name="结束对话" priority="1100" />
+        <tag id="map" name="地图对话" priority="1100" />
+        <tag id="store" name="商店对话" priority="1100" />
     </tags>
 </archive>

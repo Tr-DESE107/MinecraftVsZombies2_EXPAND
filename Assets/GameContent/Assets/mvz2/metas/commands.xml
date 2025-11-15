@@ -3,7 +3,7 @@
         <description>显示帮助界面。</description>
         <variant>
             <description>显示帮助界面。</description>
-            <params/>
+            <params />
         </variant>
         <variant>
             <description>查询命令的作用。</description>
@@ -36,27 +36,27 @@
         <description>杀死实体。</description>
         <variant>
             <description>杀死所有怪物。</description>
-            <params/>
+            <params />
         </variant>
         <variant subname="contraption">
             <description>杀死所有器械。</description>
-            <params/>
+            <params />
         </variant>
         <variant subname="enemy">
             <description>杀死所有怪物。</description>
-            <params/>
+            <params />
         </variant>
         <variant subname="obstacle">
             <description>杀死所有障碍物。</description>
-            <params/>
+            <params />
         </variant>
         <variant subname="boss">
             <description>杀死所有头目。</description>
-            <params/>
+            <params />
         </variant>
         <variant subname="all">
             <description>杀死所有实体。</description>
-            <params/>
+            <params />
         </variant>
     </command>
     <command id="blueprint" inLevel="true">
@@ -109,26 +109,26 @@
         <description>立即充能所有蓝图。</description>
         <variant>
             <description>立即充能所有蓝图。</description>
-            <params/>
+            <params />
         </variant>
     </command>
     <command id="cheat" inLevel="true">
         <description>启用关卡中的作弊选项。再次使用后关闭该效果。</description>
         <variant subname="energy">
             <description>无限能量。</description>
-            <params/>
+            <params />
         </variant>
         <variant subname="recharge">
             <description>所有蓝图无需充能。</description>
-            <params/>
+            <params />
         </variant>
         <variant subname="starshard">
             <description>无限星之碎片。</description>
-            <params/>
+            <params />
         </variant>
         <variant subname="godmode">
             <description>不会游戏结束。</description>
-            <params/>
+            <params />
         </variant>
     </command>
     <command id="repeat">
@@ -144,28 +144,28 @@
         <description>清屏。</description>
         <variant>
             <description>清屏。</description>
-            <params/>
+            <params />
         </variant>
     </command>
     <command id="clearlevel" inLevel="true">
         <description>生成一个通关掉落物。</description>
         <variant>
             <description>生成一个通关掉落物。</description>
-            <params/>
+            <params />
         </variant>
     </command>
     <command id="save" inLevel="true">
         <description>保存当前关卡的进度。</description>
         <variant>
             <description>保存当前关卡的进度。</description>
-            <params/>
+            <params />
         </variant>
     </command>
     <command id="load" inLevel="true">
         <description>重新读取当前关卡的进度。</description>
         <variant>
             <description>重新读取当前关卡的进度。</description>
-            <params/>
+            <params />
         </variant>
     </command>
     <command id="spawnblueprint" inLevel="true">

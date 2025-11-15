@@ -1,121 +1,121 @@
 <artifacts>
-    <artifact id="almanac" name="图鉴" tooltip="本场战斗每出现2种怪物，开始战斗时+25能量" sprite="mvz2:artifacts/almanac" >
+    <artifact id="almanac" name="图鉴" tooltip="本场战斗每出现2种怪物，开始战斗时+25能量" sprite="mvz2:artifacts/almanac">
         <unlock>
-            <condition required="mvz2:level.halloween_5"/>
+            <condition required="mvz2:level.halloween_5" />
         </unlock>
     </artifact>
-    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌方怪物" sprite="mvz2:artifacts/hoe" >
+    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌方怪物" sprite="mvz2:artifacts/hoe">
         <unlock>
-            <condition required="mvz2:artifact.hoe"/>
+            <condition required="mvz2:artifact.hoe" />
         </unlock>
     </artifact>
-    <artifact id="dream_key" name="梦境钥匙" tooltip="对器械使用星之碎片会恢复所有耐久，并在此期间无敌" sprite="mvz2:artifacts/dream_key" >
+    <artifact id="dream_key" name="梦境钥匙" tooltip="对器械使用星之碎片会恢复所有耐久，并在此期间无敌" sprite="mvz2:artifacts/dream_key">
         <unlock>
-            <condition required="mvz2:level.halloween_11"/>
+            <condition required="mvz2:level.halloween_11" />
         </unlock>
     </artifact>
-    <artifact id="the_creatures_heart" name="怪物的心" tooltip="场上每有一个同类器械，该器械的能量消耗减少5" sprite="mvz2:artifacts/the_creatures_heart" >
+    <artifact id="the_creatures_heart" name="怪物的心" tooltip="场上每有一个同类器械，该器械的能量消耗减少5" sprite="mvz2:artifacts/the_creatures_heart">
         <unlock>
-            <condition required="mvz2:artifact.the_creatures_heart"/>
+            <condition required="mvz2:artifact.the_creatures_heart" />
         </unlock>
     </artifact>
     
-    <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="器械每秒恢复10点耐久" sprite="mvz2:artifacts/sweet_sleep_pillow" >
+    <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="器械每秒恢复10点耐久" sprite="mvz2:artifacts/sweet_sleep_pillow">
         <unlock>
-            <condition required="mvz2:level.dream_2"/>
+            <condition required="mvz2:level.dream_2" />
         </unlock>
     </artifact>
-    <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得2个星之碎片，但怪物数量+200%" sprite="mvz2:artifacts/pagoda_branch" >
+    <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得2个星之碎片，但怪物数量+200%" sprite="mvz2:artifacts/pagoda_branch">
         <unlock>
-            <condition required="mvz2:artifact.pagoda_branch"/>
+            <condition required="mvz2:artifact.pagoda_branch" />
         </unlock>
     </artifact>
-    <artifact id="dream_butterfly" name="梦蝶" tooltip="刚放置的器械无敌3秒" sprite="mvz2:artifacts/dream_butterfly" >
+    <artifact id="dream_butterfly" name="梦蝶" tooltip="刚放置的器械无敌3秒" sprite="mvz2:artifacts/dream_butterfly">
         <unlock>
-            <condition required="mvz2:level.dream_11"/>
+            <condition required="mvz2:level.dream_11" />
         </unlock>
     </artifact>
-    <artifact id="dark_matter" name="暗物质" tooltip="器械生产效率×200%，但场景变得黑暗" sprite="mvz2:artifacts/dark_matter" >
+    <artifact id="dark_matter" name="暗物质" tooltip="器械生产效率×200%，但场景变得黑暗" sprite="mvz2:artifacts/dark_matter">
         <unlock>
-            <condition required="mvz2:artifact.dark_matter"/>
+            <condition required="mvz2:artifact.dark_matter" />
         </unlock>
     </artifact>
-    <artifact id="bottled_blackhole" name="瓶装黑洞" tooltip="每有一个蓝图空位，+10%器械伤害" sprite="mvz2:artifacts/bottled_blackhole" >
+    <artifact id="bottled_blackhole" name="瓶装黑洞" tooltip="每有一个蓝图空位，+10%器械伤害" sprite="mvz2:artifacts/bottled_blackhole">
         <unlock>
-            <condition required="mvz2:artifact.bottled_blackhole"/>
-        </unlock>
-    </artifact>
-
-    <artifact id="smart_phone" name="智能手机" tooltip="你在最后一波开始前每有10能量，关卡结束时便获得10金钱" sprite="mvz2:artifacts/smart_phone" >
-        <unlock>
-            <condition required="mvz2:kourindou_visited_castle"/>
-        </unlock>
-    </artifact>
-    <artifact id="inverted_mirror" name="倒置的镜子" tooltip="敌人的射弹能够击中其他敌人" sprite="mvz2:artifacts/inverted_mirror" >
-        <unlock>
-            <condition required="mvz2:artifact.inverted_mirror"/>
-        </unlock>
-    </artifact>
-    <artifact id="miracle_mallet_replica" name="万宝槌仿制品" tooltip="+15%器械伤害" sprite="mvz2:artifacts/miracle_mallet_replica" >
-        <unlock>
-            <condition required="mvz2:level.castle_11"/>
-        </unlock>
-    </artifact>
-    <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/wither_skeleton_skull" >
-        <unlock>
-            <condition required="mvz2:artifact.wither_skeleton_skull"/>
-        </unlock>
-    </artifact>
-    <artifact id="nether_star" name="下界之星" tooltip="每有4个星之碎片被使用，生成一个星之碎片" sprite="mvz2:artifacts/nether_star" >
-        <unlock>
-            <condition required="mvz2:artifact.nether_star"/>
-        </unlock>
-    </artifact>
-    <artifact id="broken_lantern" name="破灯笼" tooltip="发光的器械+25%生产速度和攻击速度，但×50%光照范围" sprite="mvz2:artifacts/broken_lantern" >
-        <unlock>
-            <condition required="mvz2:artifact.broken_lantern"/>
+            <condition required="mvz2:artifact.bottled_blackhole" />
         </unlock>
     </artifact>
 
-    <artifact id="manipulative_talismans" name="控制灵符" tooltip="怪物死亡并倒下时有10%的概率复活，并变为友方" sprite="mvz2:artifacts/manipulative_talismans" >
+    <artifact id="smart_phone" name="智能手机" tooltip="你在最后一波开始前每有10能量，关卡结束时便获得10金钱" sprite="mvz2:artifacts/smart_phone">
         <unlock>
-            <condition required="mvz2:level.mausoleum_3"/>
+            <condition required="mvz2:kourindou_visited_castle" />
         </unlock>
     </artifact>
-    <artifact id="greedy_vacuum" name="贪婪吸尘器" tooltip="自动收集能量掉落物和星之碎片" sprite="mvz2:artifacts/greedy_vacuum" >
+    <artifact id="inverted_mirror" name="倒置的镜子" tooltip="敌人的射弹能够击中其他敌人" sprite="mvz2:artifacts/inverted_mirror">
         <unlock>
-            <condition required="mvz2:artifact.greedy_vacuum"/>
+            <condition required="mvz2:artifact.inverted_mirror" />
         </unlock>
     </artifact>
-    <artifact id="lightbomb" name="圣光炸弹" tooltip="器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害" sprite="mvz2:artifacts/lightbomb" >
+    <artifact id="miracle_mallet_replica" name="万宝槌仿制品" tooltip="+15%器械伤害" sprite="mvz2:artifacts/miracle_mallet_replica">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11"/>
+            <condition required="mvz2:level.castle_11" />
         </unlock>
     </artifact>
-    <artifact id="eye_of_the_giant" name="巨人之眼" tooltip="器械x250%伤害，但x50%攻击速度" sprite="mvz2:artifacts/eye_of_the_giant" >
+    <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/wither_skeleton_skull">
         <unlock>
-            <condition required="mvz2:artifact.eye_of_the_giant"/>
+            <condition required="mvz2:artifact.wither_skeleton_skull" />
+        </unlock>
+    </artifact>
+    <artifact id="nether_star" name="下界之星" tooltip="每有4个星之碎片被使用，生成一个星之碎片" sprite="mvz2:artifacts/nether_star">
+        <unlock>
+            <condition required="mvz2:artifact.nether_star" />
+        </unlock>
+    </artifact>
+    <artifact id="broken_lantern" name="破灯笼" tooltip="发光的器械+25%生产速度和攻击速度，但×50%光照范围" sprite="mvz2:artifacts/broken_lantern">
+        <unlock>
+            <condition required="mvz2:artifact.broken_lantern" />
         </unlock>
     </artifact>
 
-    <artifact id="ufo_toy" name="飞碟玩具" tooltip="拾取三个同色宝石后，再生成一个同色的宝石" sprite="mvz2:artifacts/ufo_toy" >
+    <artifact id="manipulative_talismans" name="控制灵符" tooltip="怪物死亡并倒下时有10%的概率复活，并变为友方" sprite="mvz2:artifacts/manipulative_talismans">
         <unlock>
-            <condition required="mvz2:level.ship_3"/>
+            <condition required="mvz2:level.mausoleum_3" />
         </unlock>
     </artifact>
-    <artifact id="dowsing_rods" name="探宝棒" tooltip="击杀怪物时有25%概率掉落额外资源" sprite="mvz2:artifacts/dowsing_rods" >
+    <artifact id="greedy_vacuum" name="贪婪吸尘器" tooltip="自动收集能量掉落物和星之碎片" sprite="mvz2:artifacts/greedy_vacuum">
         <unlock>
-            <condition required="mvz2:artifact.dowsing_rods"/>
+            <condition required="mvz2:artifact.greedy_vacuum" />
         </unlock>
     </artifact>
-    <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="将星之碎片的效果变为格斗术" sprite="mvz2:artifacts/sorcerers_scroll" >
+    <artifact id="lightbomb" name="圣光炸弹" tooltip="器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害" sprite="mvz2:artifacts/lightbomb">
         <unlock>
-            <condition required="mvz2:level.ship_11"/>
+            <condition required="mvz2:level.mausoleum_11" />
         </unlock>
     </artifact>
-    <artifact id="dragon_tooth" name="龙牙" tooltip="生命值为50%或以下的敌人受到的伤害x200%" sprite="mvz2:artifacts/dragon_tooth" >
+    <artifact id="eye_of_the_giant" name="巨人之眼" tooltip="器械x250%伤害，但x50%攻击速度" sprite="mvz2:artifacts/eye_of_the_giant">
         <unlock>
-            <condition required="mvz2:artifact.dragon_tooth"/>
+            <condition required="mvz2:artifact.eye_of_the_giant" />
+        </unlock>
+    </artifact>
+
+    <artifact id="ufo_toy" name="飞碟玩具" tooltip="拾取三个同色宝石后，再生成一个同色的宝石" sprite="mvz2:artifacts/ufo_toy">
+        <unlock>
+            <condition required="mvz2:level.ship_3" />
+        </unlock>
+    </artifact>
+    <artifact id="dowsing_rods" name="探宝棒" tooltip="击杀怪物时有25%概率掉落额外资源" sprite="mvz2:artifacts/dowsing_rods">
+        <unlock>
+            <condition required="mvz2:artifact.dowsing_rods" />
+        </unlock>
+    </artifact>
+    <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="将星之碎片的效果变为格斗术" sprite="mvz2:artifacts/sorcerers_scroll">
+        <unlock>
+            <condition required="mvz2:level.ship_11" />
+        </unlock>
+    </artifact>
+    <artifact id="dragon_tooth" name="龙牙" tooltip="生命值为50%或以下的敌人受到的伤害x200%" sprite="mvz2:artifacts/dragon_tooth">
+        <unlock>
+            <condition required="mvz2:artifact.dragon_tooth" />
         </unlock>
     </artifact>
 

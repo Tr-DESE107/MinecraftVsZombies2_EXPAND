@@ -225,7 +225,7 @@
     <sound name="fast_forward" priority="64">
         <sample path="mvz2:fast_forward" weight="1" />
     </sound>
-    <sound name="fatigue" >
+    <sound name="fatigue">
         <sample path="mvz2:fatigue" weight="1" />
     </sound>
     <sound name="final_item" priority="0">
@@ -421,7 +421,7 @@
         <sample path="mvz2:lose_music" weight="1" />
     </sound>
     <sound name="low_quality_egypt">
-        <sample path="mvz2:low_quality_egypt" weight="1"/>
+        <sample path="mvz2:low_quality_egypt" weight="1" />
     </sound>
     <sound name="lurker">
         <sample path="mvz2:lurker" weight="1" />

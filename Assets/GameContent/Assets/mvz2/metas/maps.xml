@@ -1,123 +1,123 @@
 <maps>
-    <map id="halloween" area="mvz2:halloween" >
+    <map id="halloween" area="mvz2:halloween">
         <presets>
             <preset id="mvz2:halloween" model="mvz2:halloween" backgroundColor="#00001A" music="mvz2:halloween_map" />
         </presets>
         <stages endless="mvz2:halloween_endless">
-            <stage id="mvz2:halloween_1"/>
-            <stage id="mvz2:halloween_2"/>
-            <stage id="mvz2:halloween_3"/>
-            <stage id="mvz2:halloween_4"/>
-            <stage id="mvz2:halloween_5"/>
-            <stage id="mvz2:halloween_6"/>
-            <stage id="mvz2:halloween_7"/>
-            <stage id="mvz2:halloween_8"/>
-            <stage id="mvz2:halloween_9"/>
-            <stage id="mvz2:halloween_10"/>
-            <stage id="mvz2:halloween_11"/>
+            <stage id="mvz2:halloween_1" />
+            <stage id="mvz2:halloween_2" />
+            <stage id="mvz2:halloween_3" />
+            <stage id="mvz2:halloween_4" />
+            <stage id="mvz2:halloween_5" />
+            <stage id="mvz2:halloween_6" />
+            <stage id="mvz2:halloween_7" />
+            <stage id="mvz2:halloween_8" />
+            <stage id="mvz2:halloween_9" />
+            <stage id="mvz2:halloween_10" />
+            <stage id="mvz2:halloween_11" />
         </stages>
     </map>
-    <map id="dream" area="mvz2:dream" >
+    <map id="dream" area="mvz2:dream">
         <presets>
             <preset id="mvz2:dream" model="mvz2:dream" backgroundColor="#000E24" music="mvz2:dream_map">
                 <conditions>
-                    <condition requiredNot="mvz2:dream_is_nightmare"/>
+                    <condition requiredNot="mvz2:dream_is_nightmare" />
                 </conditions>
             </preset>
             <preset id="mvz2:nightmare" model="mvz2:nightmare" backgroundColor="#24000E" music="mvz2:nightmare_map">
                 <conditions>
-                    <condition required="mvz2:dream_is_nightmare"/>
+                    <condition required="mvz2:dream_is_nightmare" />
                 </conditions>
             </preset>
         </presets>
         <stages endless="mvz2:dream_endless">
-            <stage id="mvz2:dream_1"/>
-            <stage id="mvz2:dream_2"/>
-            <stage id="mvz2:dream_3"/>
-            <stage id="mvz2:dream_4"/>
-            <stage id="mvz2:dream_5"/>
-            <stage id="mvz2:dream_6"/>
-            <stage id="mvz2:dream_7"/>
-            <stage id="mvz2:dream_8"/>
-            <stage id="mvz2:dream_9"/>
-            <stage id="mvz2:dream_10"/>
-            <stage id="mvz2:dream_11"/>
+            <stage id="mvz2:dream_1" />
+            <stage id="mvz2:dream_2" />
+            <stage id="mvz2:dream_3" />
+            <stage id="mvz2:dream_4" />
+            <stage id="mvz2:dream_5" />
+            <stage id="mvz2:dream_6" />
+            <stage id="mvz2:dream_7" />
+            <stage id="mvz2:dream_8" />
+            <stage id="mvz2:dream_9" />
+            <stage id="mvz2:dream_10" />
+            <stage id="mvz2:dream_11" />
         </stages>
     </map>
     <map id="gensokyo" width="1020" height="600">
         <presets>
-            <preset id="mvz2:gensokyo" model="mvz2:gensokyo" backgroundColor="#7F7F7F" music="mvz2:gensokyo_map"/>
+            <preset id="mvz2:gensokyo" model="mvz2:gensokyo" backgroundColor="#7F7F7F" music="mvz2:gensokyo_map" />
         </presets>
         <talks>
             <talk id="mvz2:entered_gensokyo">
                 <conditions>
-                    <condition required="mvz2:level.dream_11" requiredNot="mvz2:entered_gensokyo"/>
+                    <condition required="mvz2:level.dream_11" requiredNot="mvz2:entered_gensokyo" />
                 </conditions>
             </talk>
             <talk id="mvz2:exited_kourindou">
                 <conditions>
-                    <condition required="mvz2:kourindou_visited" requiredNot="mvz2:entered_castle"/>
+                    <condition required="mvz2:kourindou_visited" requiredNot="mvz2:entered_castle" />
                 </conditions>
             </talk>
             <talk id="mvz2:exited_kourindou_mausoleum">
                 <conditions>
-                    <condition required="mvz2:kourindou_visited_mausoleum_1" requiredNot="mvz2:entered_mausoleum"/>
+                    <condition required="mvz2:kourindou_visited_mausoleum_1" requiredNot="mvz2:entered_mausoleum" />
                 </conditions>
             </talk>
         </talks>
     </map>
-    <map id="castle" area="mvz2:castle" >
+    <map id="castle" area="mvz2:castle">
         <presets>
-            <preset id="mvz2:castle" model="mvz2:castle" backgroundColor="#552400" music="mvz2:castle_map"/>
+            <preset id="mvz2:castle" model="mvz2:castle" backgroundColor="#552400" music="mvz2:castle_map" />
         </presets>
         <stages endless="mvz2:castle_endless">
-            <stage id="mvz2:castle_1"/>
-            <stage id="mvz2:castle_2"/>
-            <stage id="mvz2:castle_3"/>
-            <stage id="mvz2:castle_4"/>
-            <stage id="mvz2:castle_5"/>
-            <stage id="mvz2:castle_6"/>
-            <stage id="mvz2:castle_7"/>
-            <stage id="mvz2:castle_8"/>
-            <stage id="mvz2:castle_9"/>
-            <stage id="mvz2:castle_10"/>
-            <stage id="mvz2:castle_11"/>
+            <stage id="mvz2:castle_1" />
+            <stage id="mvz2:castle_2" />
+            <stage id="mvz2:castle_3" />
+            <stage id="mvz2:castle_4" />
+            <stage id="mvz2:castle_5" />
+            <stage id="mvz2:castle_6" />
+            <stage id="mvz2:castle_7" />
+            <stage id="mvz2:castle_8" />
+            <stage id="mvz2:castle_9" />
+            <stage id="mvz2:castle_10" />
+            <stage id="mvz2:castle_11" />
         </stages>
     </map>
     <map id="mausoleum" area="mvz2:mausoleum" width="3200" height="2400">
         <presets>
-            <preset id="mvz2:mausoleum" model="mvz2:mausoleum" backgroundColor="#18255E" music="mvz2:mausoleum_map"/>
+            <preset id="mvz2:mausoleum" model="mvz2:mausoleum" backgroundColor="#18255E" music="mvz2:mausoleum_map" />
         </presets>
         <stages endless="mvz2:mausoleum_endless">
-            <stage id="mvz2:mausoleum_1"/>
-            <stage id="mvz2:mausoleum_2"/>
-            <stage id="mvz2:mausoleum_3"/>
-            <stage id="mvz2:mausoleum_4"/>
-            <stage id="mvz2:mausoleum_5"/>
-            <stage id="mvz2:mausoleum_6" area="mvz2:mausoleum_minigame"/>
-            <stage id="mvz2:mausoleum_7"/>
-            <stage id="mvz2:mausoleum_8"/>
-            <stage id="mvz2:mausoleum_9"/>
-            <stage id="mvz2:mausoleum_10"/>
-            <stage id="mvz2:mausoleum_11"/>
+            <stage id="mvz2:mausoleum_1" />
+            <stage id="mvz2:mausoleum_2" />
+            <stage id="mvz2:mausoleum_3" />
+            <stage id="mvz2:mausoleum_4" />
+            <stage id="mvz2:mausoleum_5" />
+            <stage id="mvz2:mausoleum_6" area="mvz2:mausoleum_minigame" />
+            <stage id="mvz2:mausoleum_7" />
+            <stage id="mvz2:mausoleum_8" />
+            <stage id="mvz2:mausoleum_9" />
+            <stage id="mvz2:mausoleum_10" />
+            <stage id="mvz2:mausoleum_11" />
         </stages>
     </map>
     <map id="ship" area="mvz2:ship" width="4200" height="3600">
         <presets>
-            <preset id="mvz2:ship" model="mvz2:ship" backgroundColor="#A4D8F0" music="mvz2:ship_map"/>
+            <preset id="mvz2:ship" model="mvz2:ship" backgroundColor="#A4D8F0" music="mvz2:ship_map" />
         </presets>
         <stages endless="mvz2:ship_endless">
-            <stage id="mvz2:ship_1"/>
-            <stage id="mvz2:ship_2"/>
-            <stage id="mvz2:ship_3"/>
-            <stage id="mvz2:ship_4"/>
-            <stage id="mvz2:ship_5"/>
-            <stage id="mvz2:ship_6"/>
-            <stage id="mvz2:ship_7"/>
-            <stage id="mvz2:ship_8"/>
-            <stage id="mvz2:ship_9"/>
-            <stage id="mvz2:ship_10"/>
-            <stage id="mvz2:ship_11"/>
+            <stage id="mvz2:ship_1" />
+            <stage id="mvz2:ship_2" />
+            <stage id="mvz2:ship_3" />
+            <stage id="mvz2:ship_4" />
+            <stage id="mvz2:ship_5" />
+            <stage id="mvz2:ship_6" />
+            <stage id="mvz2:ship_7" />
+            <stage id="mvz2:ship_8" />
+            <stage id="mvz2:ship_9" />
+            <stage id="mvz2:ship_10" />
+            <stage id="mvz2:ship_11" />
         </stages>
     </map>
 </maps>
