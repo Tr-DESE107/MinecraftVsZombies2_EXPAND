@@ -496,17 +496,14 @@ namespace MVZ2.GameContent.Bosses
                 {
                     if (!ent.IsVulnerableEntity() || !boss.IsHostile(ent) || ent.GetColumn() != bossColumn || ent.GetLane() != bossLane)
                         continue;
+                    var damage = ent.GetTakenCrushDamage();
+                    var damageOutput = ent.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.IGNORE_ARMOR), boss);
                     if (ent.Type == EntityTypes.PLANT)
                     {
-                        var damageOutput = ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
                         if (damageOutput?.BodyResult?.Fatal ?? false)
                         {
                             boss.PlaySound(VanillaSoundID.smash);
                         }
-                    }
-                    else
-                    {
-                        ent.TakeDamage(1800, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR), boss);
                     }
                 }
                 level.ShakeScreen(5, 0, 15);
@@ -598,14 +595,8 @@ namespace MVZ2.GameContent.Bosses
             {
                 foreach (Entity ent in boss.Level.FindEntities(e => IsPunchable(boss, e)))
                 {
-                    if (ent.Type == EntityTypes.PLANT)
-                    {
-                        ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
-                    }
-                    else
-                    {
-                        ent.TakeDamage(1800, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
-                    }
+                    var damage = ent.GetTakenCrushDamage();
+                    ent.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.IGNORE_ARMOR), boss);
                 }
                 boss.Level.ShakeScreen(5, 0, 15);
                 boss.PlaySound(VanillaSoundID.teslaAttack);

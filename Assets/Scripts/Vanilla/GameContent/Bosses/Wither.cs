@@ -7,6 +7,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Callbacks;
@@ -85,7 +86,7 @@ namespace MVZ2.GameContent.Bosses
             if (!other.IsHostile(self))
                 return;
             var otherCollider = collision.OtherCollider;
-            var crushDamage = 1000000;
+            var crushDamage = VanillaMod.INSTA_DAMAGE_AMOUNT;
             var substate = stateMachine.GetSubState(self);
             if (other.IsInvincible())
             {

@@ -282,8 +282,12 @@ namespace MVZ2.GameContent.Bosses
                 bool jabbed = false;
                 foreach (IEntityCollider collider in entity.Level.OverlapBox(target.GetCenter(), Vector3.one * 40, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
                 {
-                    collider.TakeDamage(10000, new DamageEffectList(), entity);
-                    jabbed = true;
+                    var damage = collider.Entity.GetTakenCrushDamage();
+                    var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
+                    if (damageOutput.HasAnyFatal())
+                    {
+                        jabbed = true;
+                    }
                 }
                 if (jabbed)
                 {

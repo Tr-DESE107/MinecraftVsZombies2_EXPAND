@@ -198,7 +198,6 @@ namespace MVZ2.GameContent.Bosses
 
         private static readonly Vector3 CENTER_POSITION = new Vector3(620, 0, 300);
         private static readonly Vector3 APPEAR_POSITION = new Vector3(620, 300, 0);
-        private const float JAB_DAMAGE = 10000;
         private const int SPIN_DAMAGE_INTERVAL = 3;
         private const float SPIN_RADIUS = 120;
         private const float SPIN_HEIGHT = 50;

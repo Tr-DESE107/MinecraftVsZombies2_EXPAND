@@ -8,6 +8,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Contraptions;
@@ -133,7 +134,7 @@ namespace MVZ2.GameContent.Bosses
             var otherCollider = collision.OtherCollider;
             if (!other.IsInvincible() && other.Type == EntityTypes.PLANT)
             {
-                var crushDamage = 1000000;
+                var crushDamage = VanillaMod.INSTA_DAMAGE_AMOUNT;
                 var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
                 if (result != null && result.HasAnyFatal())
                 {
@@ -448,8 +449,12 @@ namespace MVZ2.GameContent.Bosses
             for (int i = 0; i < smashDetectBuffer.Count; i++)
             {
                 var collider = smashDetectBuffer[i];
-                collider.TakeDamage(entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), entity);
-                damaged = true;
+                var damage = collider.Entity.GetTakenCrushDamage();
+                var output = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), entity);
+                if (output.HasAnyFatal())
+                {
+                    damaged = true;
+                }
             }
             if (damaged)
             {
@@ -602,7 +607,6 @@ namespace MVZ2.GameContent.Bosses
         public const int EYE_BULLET_COUNT = 4;
         public const float EYE_BULLET_DAMAGE_MULTIPLIER = 3f;
         public const float EYE_BULLET_SPEED = 30;
-        public const float SMASH_DAMAGE_MULTIPLIER = 100;
         public const int ROAR_STUN_TIME = 150;
 
         public const int PACMAN_BLOCK_COUNT = 8;
