@@ -7735,13 +7735,6 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: adcf9c3fb53a8544bb6a5d9711171830
-    m_Address: mvz2:entity/boss/red_dragon_close_eyes
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adecf731c88b78646a29bb745f5ada9b
     m_Address: mvz2:mobile_blueprint/dream_crystal
     m_ReadOnly: 0
@@ -8486,13 +8479,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfce65959617bce4ab0ffb4a5d19df4c
     m_Address: mvz2:level/dream/pool_sparkle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bfcfd34812223b64fafaee05b62b9ae6
-    m_Address: mvz2:entity/boss/red_dragon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
