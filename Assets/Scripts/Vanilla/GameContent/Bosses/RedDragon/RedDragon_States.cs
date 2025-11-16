@@ -29,6 +29,7 @@ namespace MVZ2.GameContent.Bosses
             public RedDragonStateMachine()
             {
                 AddState(new IdleState());
+                AddState(new StunnedState());
                 AddState(new JumpState());
                 AddState(new SpitState());
                 AddState(new FlapWingsState());
@@ -158,6 +159,69 @@ namespace MVZ2.GameContent.Bosses
                     }
                 }
             }
+        }
+        #endregion
+
+        #region 眩晕
+        public static void Stun(Entity dragon, float seconds)
+        {
+            stateMachine.StartState(dragon, STATE_STUNNED);
+            var timer = stateMachine.GetSubStateTimer(dragon);
+            timer.ResetSeconds(seconds);
+            Explosion.Spawn(dragon, dragon.GetCenter(), 200f);
+            dragon.PlaySound(VanillaSoundID.explosion);
+            dragon.PlaySound(VanillaSoundID.meteorLand);
+            dragon.Level.ShakeScreen(20, 0, 30);
+        }
+        private class StunnedState : EntityStateMachineState
+        {
+            public StunnedState() : base(STATE_STUNNED, ANIMATION_STATE_STUNNED) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                return substate;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.ResetSeconds(2f);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        // 倒地
+                        if (timer.PassedSecondsFromMax(5 / 6f))
+                        {
+                            entity.PlaySound(VanillaSoundID.thump);
+                            entity.Level.ShakeScreen(10, 0, 15);
+                        }
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_END);
+                            timer.ResetSeconds(2f);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                CheckDeath(entity);
+            }
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_END = 1;
         }
         #endregion
 
@@ -653,11 +717,11 @@ namespace MVZ2.GameContent.Bosses
                     {
                         eatenFlags |= EATEN_FLAG_CORPSE;
                     }
-                    else if (entityDef.GetShellID() == VanillaShellID.wood)
+                    if (entityDef.GetShellID() == VanillaShellID.wood)
                     {
                         eatenFlags |= EATEN_FLAG_CHARCOAL;
                     }
-                    else if (entityDef.IsDynamite())
+                    if (entityDef.IsDynamite())
                     {
                         eatenFlags |= EATEN_FLAG_DYNAMITE;
                     }
@@ -689,7 +753,8 @@ namespace MVZ2.GameContent.Bosses
         private static void SelfExplode(Entity entity)
         {
             SetEatenFlags(entity, 0);
-            stateMachine.StartState(entity, STATE_IDLE);
+            Stun(entity, SELF_EXPLODE_STUN_SECONDS);
+            entity.PlaySound(VanillaSoundID.dragonHit);
         }
         private class FireBreathState : EntityStateMachineState
         {
@@ -735,13 +800,13 @@ namespace MVZ2.GameContent.Bosses
                             SetHeadRotation(entity, headRotation);
                             if (timer.Expired)
                             {
+                                entity.PlaySound(VanillaSoundID.dragonGrowl);
                                 if (ShouldExplodeOnBreath(entity))
                                 {
                                     SelfExplode(entity);
                                 }
                                 else
                                 {
-                                    entity.PlaySound(VanillaSoundID.dragonGrowl);
                                     stateMachine.StartSubState(entity, SUBSTATE_LOOP);
                                     timer.ResetSeconds(3f);
                                 }
