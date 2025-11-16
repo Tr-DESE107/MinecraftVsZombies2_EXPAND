@@ -6,6 +6,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
+using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -640,6 +641,28 @@ namespace MVZ2.GameContent.Bosses
                 var entities = GetEatenEntities(entity);
                 if (entities == null)
                     return;
+                var eatenFlags = GetEatenFlags(entity);
+                foreach (var entityID in entities)
+                {
+                    if (!NamespaceID.IsValid(entityID))
+                        continue;
+                    var entityDef = entity.Level.Content.GetEntityDefinition(entityID);
+                    if (entityDef == null)
+                        continue;
+                    if (entityDef.GetShellID() == VanillaShellID.flesh && entityDef.IsUndead())
+                    {
+                        eatenFlags |= EATEN_FLAG_CORPSE;
+                    }
+                    else if (entityDef.GetShellID() == VanillaShellID.wood)
+                    {
+                        eatenFlags |= EATEN_FLAG_CHARCOAL;
+                    }
+                    else if (entityDef.IsDynamite())
+                    {
+                        eatenFlags |= EATEN_FLAG_DYNAMITE;
+                    }
+                }
+                SetEatenFlags(entity, eatenFlags);
                 entity.HealEffects(entities.Count * HEAL_PER_ENTITY, entity);
                 entity.PlaySound(VanillaSoundID.gulp, 0.5f);
             }
@@ -654,6 +677,20 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 火焰吐息
+        private static bool ShouldExplodeOnBreath(Entity entity)
+        {
+            var eatenFlags = GetEatenFlags(entity);
+            if ((eatenFlags & EATEN_FLAG_CORPSE) != 0 && (eatenFlags & EATEN_FLAG_CHARCOAL) != 0)
+                return true;
+            if ((eatenFlags & EATEN_FLAG_DYNAMITE) != 0)
+                return true;
+            return false;
+        }
+        private static void SelfExplode(Entity entity)
+        {
+            SetEatenFlags(entity, 0);
+            stateMachine.StartState(entity, STATE_IDLE);
+        }
         private class FireBreathState : EntityStateMachineState
         {
             public FireBreathState() : base(STATE_FIRE_BREATH, ANIMATION_STATE_SPIT) { }
@@ -675,6 +712,13 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.ResetSeconds(1f);
+                SetFireInMouth(entity, true);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetHeadRotation(entity, 0);
+                SetFireInMouth(entity, false);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -691,9 +735,16 @@ namespace MVZ2.GameContent.Bosses
                             SetHeadRotation(entity, headRotation);
                             if (timer.Expired)
                             {
-                                entity.PlaySound(VanillaSoundID.dragonGrowl);
-                                stateMachine.StartSubState(entity, SUBSTATE_LOOP);
-                                timer.ResetSeconds(3f);
+                                if (ShouldExplodeOnBreath(entity))
+                                {
+                                    SelfExplode(entity);
+                                }
+                                else
+                                {
+                                    entity.PlaySound(VanillaSoundID.dragonGrowl);
+                                    stateMachine.StartSubState(entity, SUBSTATE_LOOP);
+                                    timer.ResetSeconds(3f);
+                                }
                             }
                         }
                         break;
@@ -709,6 +760,7 @@ namespace MVZ2.GameContent.Bosses
                             {
                                 stateMachine.StartSubState(entity, SUBSTATE_END);
                                 timer.ResetSeconds(0.5f);
+                                SetFireInMouth(entity, false);
                             }
                         }
                         break;
@@ -734,8 +786,10 @@ namespace MVZ2.GameContent.Bosses
 
             private void ShootFireBreath(Entity entity)
             {
+                var fireVariant = GetFireVariant(entity);
                 var param = entity.GetSpawnParams();
                 param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * 0.2f);
+                param.SetProperty(VanillaEntityProps.VARIANT, fireVariant);
                 var position = GetSpitSourcePosition(entity);
                 entity.Spawn(VanillaEffectID.dragonFireBreath, position, param)?.Let(e =>
                 {

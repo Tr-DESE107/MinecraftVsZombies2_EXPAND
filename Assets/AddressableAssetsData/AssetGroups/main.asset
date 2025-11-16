@@ -3641,13 +3641,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5087351033f1d0d4ab74797ba2defe46
-    m_Address: mvz2:entity/projectiles/cursed_fire_trail
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 508b6af64add28a4aa27df24e84640ff
     m_Address: mvz2:map/dream/map
     m_ReadOnly: 0
@@ -10058,13 +10051,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e2f7e29ca0c62d5468d4cab32fae9562
-    m_Address: mvz2:entity/effects/cursed_fire_particle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e331ed1f540bbb04db318b073f0720ac
     m_Address: mvz2:talk/dialog_faint

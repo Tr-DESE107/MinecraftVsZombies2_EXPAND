@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+		_FireHSVOffset ("HSV Offset", Vector) = (0, 0, 0, 0)
 		_NoiseTex("Noise Texture", 2D) = "white" {}
 		_EdgeColor("Edge Color", Color) = (1,1,1,1)
 		_LocalRect("Local Rect", Vector) = (0, 0, 1, 1)
@@ -13,6 +14,7 @@
 
 	HLSLINCLUDE
 	#include "UnityCG.cginc"
+	#include "..\hlsl\hsv.hlsl"
 	#pragma target 3.0
 
 	sampler2D _MainTex;
@@ -24,6 +26,7 @@
 	float4 _LocalRect;
 	half _LifeTime;
 	half _ClipThresold;
+	float3 _FireHSVOffset;
 
 	struct a2v
 	{
@@ -57,6 +60,7 @@
 	{
 		// 获取原本贴图颜色
 		half4 col = tex2D(_MainTex, i.uv);
+		col = ModifyHSV(col, _FireHSVOffset);
 		col.rgba *= i.color.rgba;
 		clip(col.a - 0.1);
 		

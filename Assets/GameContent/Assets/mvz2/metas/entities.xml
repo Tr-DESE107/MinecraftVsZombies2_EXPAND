@@ -1545,6 +1545,7 @@
                 <condition required="mvz2:level.castle_3" />
             </unlock>
             <properties>
+                <bool name="mvz2:dynamite" value="true" />
                 <id name="mvz2:starting_armor" value="mvz2:berserker_helmet" />
                 <float name="mvz2:range" value="80" />
                 <float name="mvz2:speed" value="2" />
@@ -1980,6 +1981,7 @@
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
             </behaviours>
             <properties>
+                <bool name="mvz2:dynamite" value="true" />
                 <id name="mvz2:starting_armor" value="mvz2:bedserker_helmet" />
                 <float name="mvz2:range" value="80" />
                 <float name="mvz2:speed" value="2" />
@@ -3463,7 +3465,7 @@
             </properties>
         </effect>
         <effect id="dragon_fire_breath">
-            <behaviours includeSelf="false">
+            <behaviours>
                 <behaviour operator="add" id="mvz2:light_fadeout"/>
                 <behaviour operator="add" id="mvz2:dot_collision_damage"/>
             </behaviours>
@@ -3474,7 +3476,7 @@
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <bool name="mvz2:isFire" value="true" />
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
+                <vector3 name="mvz2:lightRange" x="160" y="160" z="160" />
                 <color name="mvz2:lightColor" value="#FFAA00" />
             </properties>
         </effect>
