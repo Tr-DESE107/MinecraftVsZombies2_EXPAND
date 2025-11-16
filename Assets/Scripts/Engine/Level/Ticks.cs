@@ -7,11 +7,17 @@ namespace PVZEngine
     public static class Ticks
     {
         private static int tps = 30;
+        public const int defaultTPS = 30;
         public static void SetTPS(int tps)
         {
             Ticks.tps = tps;
         }
         public static int GetTPS() => tps;
+        public static float FromTargetTPS(float value, int targetTPS = defaultTPS)
+        {
+            var multiplier = targetTPS / (float)tps;
+            return value * multiplier;
+        }
         public static int FromSeconds(float seconds)
         {
             return Mathf.FloorToInt(seconds * tps);
@@ -28,9 +34,9 @@ namespace PVZEngine
         {
             return perTick * tps;
         }
-        public static float SmoothDamp(float current, float target, float damp, int targetTPS = 30)
+        public static float SmoothDamp(float current, float target, float damp, int targetTPS = defaultTPS)
         {
-            var newDamp = 1 - Mathf.Pow(1 - damp, targetTPS / tps);
+            var newDamp = 1 - Mathf.Pow(1 - damp, targetTPS / (float)tps);
             current += (target - current) * newDamp;
             return current;
         }

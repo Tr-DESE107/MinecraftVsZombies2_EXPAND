@@ -468,7 +468,7 @@ namespace MVZ2.GameContent.Bosses
                 var param = entity.GetShootParams();
                 param.projectileID = VanillaProjectileID.fireCharge;
                 param.velocity = GetNeckDirection(entity) * 20;
-                param.position = GetSpitSourcePosition(entity);
+                param.position = GetSpitSourcePosition(entity) + Vector3.down * 12; // 火焰弹高度的一半
                 param.soundID = VanillaSoundID.fireCharge;
                 param.damage = entity.GetDamage() * 1;
                 entity.ShootProjectile(param);
@@ -853,9 +853,9 @@ namespace MVZ2.GameContent.Bosses
             {
                 var fireVariant = GetFireVariant(entity);
                 var param = entity.GetSpawnParams();
-                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * 0.2f);
+                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * Ticks.FromPerSecond(FIRE_BREATH_DPS_MULTIPLIER));
                 param.SetProperty(VanillaEntityProps.VARIANT, fireVariant);
-                var position = GetSpitSourcePosition(entity);
+                var position = GetSpitSourcePosition(entity) + Vector3.down * 48; // 龙息高度的一半
                 entity.Spawn(VanillaEffectID.dragonFireBreath, position, param)?.Let(e =>
                 {
                     e.Velocity = GetNeckDirection(entity) * 20;
