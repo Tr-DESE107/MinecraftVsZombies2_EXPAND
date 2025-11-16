@@ -19,9 +19,9 @@ namespace MVZ2.Vanilla.Entities
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            var fadeTimeout = entity.GetProperty<float>(PROP_FADE_TIMEOUT);
-            var fadeFrames = Ticks.FromSeconds(fadeTimeout);
-            var alpha = entity.Timeout < 0 ? 1 : Mathf.Clamp01(entity.Timeout / fadeFrames);
+            var fadeSeconds = entity.GetProperty<float>(PROP_FADE_TIMEOUT);
+            var timeoutSeconds = Ticks.ToSeconds(entity.Timeout);
+            var alpha = entity.Timeout < 0 ? 1 : Mathf.Clamp01(timeoutSeconds / fadeSeconds);
             entity.SetProperty(PROP_TINT_MULTIPLIER, new Color(1, 1, 1, alpha));
         }
         public static readonly VanillaEntityPropertyMeta<float> PROP_FADE_TIMEOUT = new VanillaEntityPropertyMeta<float>("fade_timeout", 0.5f);

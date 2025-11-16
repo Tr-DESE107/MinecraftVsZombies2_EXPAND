@@ -3455,6 +3455,7 @@
         </effect>
         <effect id="tornado">
             <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout" />
                 <behaviour operator="add" id="mvz2:dot_collision_damage"/>
             </behaviours>
             <properties>
