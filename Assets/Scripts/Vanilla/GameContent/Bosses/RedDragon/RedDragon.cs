@@ -122,9 +122,16 @@ namespace MVZ2.GameContent.Bosses
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;
 
-        public const float HEAL_PER_ENTITY = 100;
+        public const float EAT_HEAL_PER_ENTITY = 100;
+        public const float EAT_HITBOX_WIDTH = 64;
+        public const float EAT_HITBOX_HEIGHT = 64;
+        public const float EAT_HITBOX_Z_LENGTH = 64;
+        public const float EAT_HITBOX_RANGE = 200;
+        public const float EAT_HITBOX_DISTANCE_X = 320;
         public const float BITE_DAMAGE_MULTIPLIER = 3;
+
         public const float SELF_EXPLODE_STUN_SECONDS = 2f;
+
         public const float FIRE_BREATH_DAMAGE_MULTIPLIER = 0.01f;
         public const float FIRE_BREATH_SPEED = 20f;
 

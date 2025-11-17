@@ -565,17 +565,17 @@ namespace MVZ2.GameContent.Bosses
         #region 吞食
         public static Bounds GetEatDetectionHitbox(Entity entity)
         {
-            var size = new Vector3(100, 64, 500);
-            var position = entity.Position + entity.GetFacingDirection() * 300;
+            var size = new Vector3(EAT_HITBOX_WIDTH, EAT_HITBOX_HEIGHT, EAT_HITBOX_Z_LENGTH + EAT_HITBOX_RANGE * 2);
+            var position = entity.Position + entity.GetFacingDirection() * EAT_HITBOX_DISTANCE_X;
             position.y += size.y * 0.5f;
             return new Bounds(position, size);
         }
         public static Bounds GetEatHitbox(Entity entity, float time)
         {
-            var size = new Vector3(100, 64, 100);
-            var position = entity.Position + entity.GetFacingDirection() * 300;
+            var size = new Vector3(EAT_HITBOX_WIDTH, EAT_HITBOX_HEIGHT, EAT_HITBOX_Z_LENGTH);
+            var position = entity.Position + entity.GetFacingDirection() * EAT_HITBOX_DISTANCE_X;
             position.y += size.y * 0.5f;
-            position.z += 200 - 400 * time;
+            position.z += EAT_HITBOX_RANGE * (1 - 2 * time);
             return new Bounds(position, size);
         }
         private static bool HasEatableTargets(Entity boss)
@@ -727,7 +727,7 @@ namespace MVZ2.GameContent.Bosses
                     }
                 }
                 SetEatenFlags(entity, eatenFlags);
-                entity.HealEffects(entities.Count * HEAL_PER_ENTITY, entity);
+                entity.HealEffects(entities.Count * EAT_HEAL_PER_ENTITY, entity);
                 entity.PlaySound(VanillaSoundID.gulp, 0.5f);
             }
             public const int SUBSTATE_START = 0;
