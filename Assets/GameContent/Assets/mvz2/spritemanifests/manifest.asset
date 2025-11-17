@@ -573,8 +573,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 97bbf718dcb8d714cbce072750f648a2, type: 3}
   - name: entity/boss/gun_fire
     sprite: {fileID: 21300000, guid: c6834e54b22c072438a7aa1583ebc4f5, type: 3}
-  - name: entity/boss/red_dragon_close_eyes
-    sprite: {fileID: 21300000, guid: adcf9c3fb53a8544bb6a5d9711171830, type: 3}
   - name: entity/boss/seija_bomb
     sprite: {fileID: 21300000, guid: cd0fcd035e19f2b4c8f8a3029a1241d3, type: 3}
   - name: entity/boss/seija_camera
@@ -701,8 +699,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4de17fa916d0f324b8a0e7936a1cc303, type: 3}
   - name: entity/effects/combat_trail_wave
     sprite: {fileID: 21300000, guid: 727d9b6ad4e6962458354304fc84ccbc, type: 3}
-  - name: entity/effects/cursed_fire_particle
-    sprite: {fileID: 21300000, guid: e2f7e29ca0c62d5468d4cab32fae9562, type: 3}
   - name: entity/effects/dark_hole_circle
     sprite: {fileID: 21300000, guid: d019990e5b66306429a8c40bebc19912, type: 3}
   - name: entity/effects/desire_lump
@@ -771,6 +767,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9274a6de61534f940b4da30c3fffcb67, type: 3}
   - name: entity/effects/thunder_bolt
     sprite: {fileID: 21300000, guid: 498cfe5e32569bc43ae84fc47f7622ce, type: 3}
+  - name: entity/effects/tornado_model
+    sprite: {fileID: 21300000, guid: caca3af0af5361a46ab0d57829875c5c, type: 3}
   - name: entity/effects/vortex
     sprite: {fileID: 21300000, guid: 57a43fd6f9e8d124fb3ac37bc690d4aa, type: 3}
   - name: entity/effects/vulnerable_particle
@@ -857,8 +855,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 838820327528a4d439a51f03582183f9, type: 3}
   - name: entity/projectiles/cursed_fireball
     sprite: {fileID: 21300000, guid: 0d1eecefbebaead49b85fb2324fde531, type: 3}
-  - name: entity/projectiles/cursed_fire_trail
-    sprite: {fileID: 21300000, guid: 5087351033f1d0d4ab74797ba2defe46, type: 3}
   - name: entity/projectiles/dart
     sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
   - name: entity/projectiles/falling_star
@@ -1409,6 +1405,74 @@ MonoBehaviour:
   - name: misc/red_dragon_and_byakuren
     spritesheet:
     - {fileID: 21300000, guid: 53824a27cae636544b1d80094c86f879, type: 3}
+  - name: shading/fire_block_0
+    spritesheet:
+    - {fileID: 1207791398, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1830623111, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 1449591853, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -419614916, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -124614949, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -394312034, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1717160111, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1541653399, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 839574434, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1257788782, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 756090429, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1990259013, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -935902216, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -334583671, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 1884019170, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1126959436, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -261593633, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -372336306, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -565950146, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1109377378, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 1944033859, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 463741166, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 1113352045, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 978203428, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 1648629952, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 199228465, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1212163043, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1522878427, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -2019328204, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: 1575206864, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -1715633496, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+    - {fileID: -554341111, guid: 1143ec22777085e4da98117d2864f022, type: 3}
+  - name: shading/fire_block_1
+    spritesheet:
+    - {fileID: 431551590, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -1407088032, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 383519602, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 1812729753, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -726971378, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -765954762, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -1063766817, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 1215615035, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -1703096560, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -1048653725, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 1518477984, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -749763606, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 77571776, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -122504419, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 534436495, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 532893016, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 1599300792, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -1934472254, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 2104372039, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 2123769530, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -249733014, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -2079959310, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 886789698, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -700776416, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 233844921, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -1289015144, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 686562584, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -2055894059, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -1133305082, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -858319120, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: 1288100966, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
+    - {fileID: -220271953, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
   - name: ui/zoom
     spritesheet:
     - {fileID: 2118295651, guid: 6d34689b106ed35498dffaa3069fa3f5, type: 3}
@@ -1653,74 +1717,6 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1738491610, guid: 4fa4eb018eeee64479e6ea997fc1968a, type: 3}
     - {fileID: 1815303640, guid: 4fa4eb018eeee64479e6ea997fc1968a, type: 3}
-  - name: entity/contraption/fire_block_0
-    spritesheet:
-    - {fileID: 1207791398, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1830623111, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 1449591853, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -419614916, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -124614949, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -394312034, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1717160111, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1541653399, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 839574434, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1257788782, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 756090429, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1990259013, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -935902216, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -334583671, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 1884019170, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1126959436, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -261593633, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -372336306, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -565950146, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1109377378, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 1944033859, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 463741166, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 1113352045, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 978203428, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 1648629952, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 199228465, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1212163043, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1522878427, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -2019328204, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: 1575206864, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -1715633496, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-    - {fileID: -554341111, guid: 1143ec22777085e4da98117d2864f022, type: 3}
-  - name: entity/contraption/fire_block_1
-    spritesheet:
-    - {fileID: 431551590, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -1407088032, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 383519602, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 1812729753, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -726971378, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -765954762, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -1063766817, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 1215615035, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -1703096560, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -1048653725, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 1518477984, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -749763606, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 77571776, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -122504419, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 534436495, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 532893016, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 1599300792, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -1934472254, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 2104372039, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 2123769530, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -249733014, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -2079959310, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 886789698, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -700776416, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 233844921, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -1289015144, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 686562584, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -2055894059, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -1133305082, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -858319120, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: 1288100966, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
-    - {fileID: -220271953, guid: 25f988ff03e536a4e82397cc65d1cd24, type: 3}
   - name: entity/contraption/force_pad
     spritesheet:
     - {fileID: 1391612616, guid: 9b59635ff8434c74fa29b53b688e15fb, type: 3}

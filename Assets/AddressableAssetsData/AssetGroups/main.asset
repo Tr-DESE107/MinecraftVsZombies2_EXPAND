@@ -795,7 +795,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1143ec22777085e4da98117d2864f022
-    m_Address: mvz2:entity/contraption/fire_block_0
+    m_Address: mvz2:shading/fire_block_0
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1747,7 +1747,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25f988ff03e536a4e82397cc65d1cd24
-    m_Address: mvz2:entity/contraption/fire_block_1
+    m_Address: mvz2:shading/fire_block_1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
