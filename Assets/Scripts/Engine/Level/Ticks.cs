@@ -40,5 +40,11 @@ namespace PVZEngine
             current += (target - current) * newDamp;
             return current;
         }
+        public static Vector3 SmoothDamp(Vector3 current, Vector3 target, float damp, int targetTPS = defaultTPS)
+        {
+            var newDamp = 1 - Mathf.Pow(1 - damp, targetTPS / (float)tps);
+            current += (target - current) * newDamp;
+            return current;
+        }
     }
 }

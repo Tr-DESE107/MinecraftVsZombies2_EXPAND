@@ -35,6 +35,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new FlapWingsState());
                 AddState(new EatState());
                 AddState(new FireBreathState());
+                AddState(new LargeFireballState());
             }
         }
         #endregion
@@ -65,6 +66,13 @@ namespace MVZ2.GameContent.Bosses
         }
         private static bool CanSwitchStatePhase2(Entity entity, int state)
         {
+            switch (state)
+            {
+                case STATE_LARGE_FIREBALL:
+                    if (!entity.Level.EntityExists(e => entity.IsHostile(e) && e.IsVulnerableEntity()))
+                        return false;
+                    break;
+            }
             return true;
         }
         private static void SwitchState(Entity entity, int state)
@@ -73,6 +81,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 case STATE_SPIT:
                 case STATE_FLAP_WINGS:
+                case STATE_LARGE_FIREBALL:
                     if (HasEnemiesInTheLane(entity))
                     {
                         stateMachine.StartState(entity, state);
@@ -258,8 +267,16 @@ namespace MVZ2.GameContent.Bosses
         private static Vector3 FindEnemyJumpTargetPosition(Entity boss)
         {
             var lanes = FindLanesWithEnemies(boss);
-            var rng = boss.RNG;
-            var lane = lanes.Random(rng);
+            int lane;
+            if (lanes.Length <= 0)
+            {
+                lane = boss.GetLane();
+            }
+            else
+            {
+                var rng = boss.RNG;
+                lane = lanes.Random(rng);
+            }
 
             return GetJumpBorderPositionByLane(boss, lane);
         }
@@ -873,15 +890,105 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 爆炸火球
+        private class LargeFireballState : EntityStateMachineState
+        {
+            public LargeFireballState() : base(STATE_LARGE_FIREBALL, ANIMATION_STATE_SPIT) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        return ANIMATION_SUBSTATE_START;
+                    case SUBSTATE_CREATE:
+                        return ANIMATION_SUBSTATE_CREATE;
+                    case SUBSTATE_END:
+                        return ANIMATION_SUBSTATE_END;
+                }
+                return base.GetAnimationSubstate(substate);
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(1f);
+
+                SetFireInMouth(entity, true);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetFireInMouth(entity, false);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        if (timer.Expired)
+                        {
+                            CreateLargeFireball(entity);
+                            entity.PlaySound(VanillaSoundID.dragonGrowl);
+                            stateMachine.StartSubState(entity, SUBSTATE_CREATE);
+                            timer.ResetSeconds(2f);
+                        }
+                        break;
+                    case SUBSTATE_CREATE:
+                        if (timer.Expired)
+                        {
+                            SetFireInMouth(entity, false);
+                            stateMachine.StartSubState(entity, SUBSTATE_END);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                CheckDeath(entity);
+            }
+
+            private void CreateLargeFireball(Entity entity)
+            {
+                var param = entity.GetShootParams();
+                param.projectileID = VanillaProjectileID.explosiveLargeFireball;
+                param.velocity = GetNeckDirection(entity) * 1;
+                param.position = GetSpitSourcePosition(entity) + Vector3.down * 20; // 离地有一定距离
+                param.soundID = VanillaSoundID.dragonBreath;
+                param.damage = entity.GetDamage() * 18;
+                entity.ShootProjectile(param);
+            }
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_CREATE = 1;
+            public const int SUBSTATE_END = 2;
+            public const int ANIMATION_SUBSTATE_START = 0;
+            public const int ANIMATION_SUBSTATE_CREATE = 1;
+            public const int ANIMATION_SUBSTATE_END = 2;
+
+        }
+        #endregion
+
         public const float FIRE_BREATH_ANGLE_START = -30;
         public const float FIRE_BREATH_ANGLE_END = 30;
         private static RedDragonStateMachine stateMachine = new RedDragonStateMachine();
         private static RedDragonEatDetector eatDetector = new RedDragonEatDetector();
         private static int[] statePoolPhase1 = new int[]
         {
-            STATE_SPIT,
-            STATE_FLAP_WINGS,
-            STATE_EAT,
+            //STATE_SPIT,
+            //STATE_FLAP_WINGS,
+            //STATE_EAT,
+            STATE_LARGE_FIREBALL,
             STATE_JUMP
         };
         private static int[] statePoolPhase2 = new int[]

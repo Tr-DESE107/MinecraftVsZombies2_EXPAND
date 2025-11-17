@@ -109,6 +109,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_FLAP_WINGS = VanillaBossStates.RED_DRAGON_FLAP_WINGS;
         public const int STATE_EAT = VanillaBossStates.RED_DRAGON_EAT;
         public const int STATE_FIRE_BREATH = VanillaBossStates.RED_DRAGON_FIRE_BREATH;
+        public const int STATE_LARGE_FIREBALL = VanillaBossStates.RED_DRAGON_LARGE_FIREBALL;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_APPEAR = 1;

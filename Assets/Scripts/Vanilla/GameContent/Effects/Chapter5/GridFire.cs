@@ -5,7 +5,9 @@ using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -41,6 +43,17 @@ namespace MVZ2.GameContent.Contraptions
         public void BeBlown(Entity entity, Entity source)
         {
             entity.Timeout = Mathf.Min(entity.Timeout, 15);
+        }
+        public static Entity? Spawn(LawnGrid grid, Entity source, SpawnParams spawnParam)
+        {
+            if (!grid.IsLand())
+                return null;
+            var level = source.Level;
+            if (level.EntityExists(e => e.IsEntityOf(VanillaEffectID.gridFire) && e.GetGrid() == grid))
+                return null;
+            var position = grid.GetEntityPosition();
+
+            return source.Spawn(VanillaEffectID.gridFire, position, spawnParam);
         }
         private Detector detector;
         private List<Entity> igniteBuffer = new List<Entity>();
