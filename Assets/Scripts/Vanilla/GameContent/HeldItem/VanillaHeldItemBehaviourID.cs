@@ -23,6 +23,7 @@ namespace MVZ2.GameContent.HeldItems
         public const string triggerCart = "triggerCart";
         public const string pickup = "pickup";
         public const string selectBlueprint = "select_blueprint";
+        public const string putOutFire = "put_out_fire";
     }
     public static class VanillaHeldItemBehaviourID
     {
@@ -42,6 +43,7 @@ namespace MVZ2.GameContent.HeldItems
         public static readonly NamespaceID triggerCart = Get(VanillaHeldItemBehaviourNames.triggerCart);
         public static readonly NamespaceID pickup = Get(VanillaHeldItemBehaviourNames.pickup);
         public static readonly NamespaceID selectBlueprint = Get(VanillaHeldItemBehaviourNames.selectBlueprint);
+        public static readonly NamespaceID putOutFire = Get(VanillaHeldItemBehaviourNames.putOutFire);
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

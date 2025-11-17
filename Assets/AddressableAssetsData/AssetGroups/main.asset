@@ -346,6 +346,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07a88248ffda4ee4f9e109e8e44ab62e
+    m_Address: mvz2:entity/boss/red_dragon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07f0858ead454ce4dae7b219cc8ba50e
     m_Address: mvz2:enemy/dream/mother_terror
     m_ReadOnly: 0
@@ -6643,6 +6650,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92f7647b88ad2954f83aab42c430daf9
+    m_Address: mvz2:units/dragon_fire_breath
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9303069b7e7b65a4388dcc5d16a3325f
     m_Address: mvz2:enemy/ship/pop_captain
     m_ReadOnly: 0
@@ -7156,6 +7170,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f1cb921a0f582e4a87d3e4b42d62ba4
     m_Address: mvz2:effect/frankenstein_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f3cc08294fee334a9708218b2bfbaf0
+    m_Address: mvz2:effect/grid_fire
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10640,6 +10661,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0b1c732be86b9540a64ef15d5231c50
+    m_Address: mvz2:units/red_dragon_fire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0c451f64229d1d4da4b4c9d3f02cff9
     m_Address: mvz2:buzzer
     m_ReadOnly: 0
@@ -11205,6 +11233,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd2838bb0318cb74e8bd8b76e7e86ead
+    m_Address: mvz2:units/red_dragon_fire_group
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd39fe758a297d8448167d0de18eceff
     m_Address: mvz2:mind_control

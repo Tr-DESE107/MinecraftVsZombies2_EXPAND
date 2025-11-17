@@ -808,7 +808,7 @@ namespace MVZ2.GameContent.Bosses
                                 else
                                 {
                                     stateMachine.StartSubState(entity, SUBSTATE_LOOP);
-                                    timer.ResetSeconds(3f);
+                                    timer.ResetSeconds(1.5f);
                                 }
                             }
                         }
@@ -853,12 +853,12 @@ namespace MVZ2.GameContent.Bosses
             {
                 var fireVariant = GetFireVariant(entity);
                 var param = entity.GetSpawnParams();
-                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * Ticks.FromPerSecond(FIRE_BREATH_DPS_MULTIPLIER));
+                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * FIRE_BREATH_DAMAGE_MULTIPLIER);
                 param.SetProperty(VanillaEntityProps.VARIANT, fireVariant);
                 var position = GetSpitSourcePosition(entity) + Vector3.down * 48; // 龙息高度的一半
                 entity.Spawn(VanillaEffectID.dragonFireBreath, position, param)?.Let(e =>
                 {
-                    e.Velocity = GetNeckDirection(entity) * 20;
+                    e.Velocity = GetNeckDirection(entity) * FIRE_BREATH_SPEED;
                 });
             }
             public const int SUBSTATE_START = 0;
@@ -871,8 +871,8 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        public const float FIRE_BREATH_ANGLE_START = -60;
-        public const float FIRE_BREATH_ANGLE_END = 60;
+        public const float FIRE_BREATH_ANGLE_START = -30;
+        public const float FIRE_BREATH_ANGLE_END = 30;
         private static RedDragonStateMachine stateMachine = new RedDragonStateMachine();
         private static RedDragonEatDetector eatDetector = new RedDragonEatDetector();
         private static int[] statePoolPhase1 = new int[]

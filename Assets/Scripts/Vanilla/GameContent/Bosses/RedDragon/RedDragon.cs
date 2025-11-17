@@ -134,7 +134,8 @@ namespace MVZ2.GameContent.Bosses
         public const float HEAL_PER_ENTITY = 100;
         public const float BITE_DAMAGE_MULTIPLIER = 3;
         public const float SELF_EXPLODE_STUN_SECONDS = 2f;
-        public const float FIRE_BREATH_DPS_MULTIPLIER = 3f;
+        public const float FIRE_BREATH_DAMAGE_MULTIPLIER = 0.01f;
+        public const float FIRE_BREATH_SPEED = 20f;
 
         public const int EATEN_FLAG_CORPSE = 1;
         public const int EATEN_FLAG_CHARCOAL = 1 << 1;
