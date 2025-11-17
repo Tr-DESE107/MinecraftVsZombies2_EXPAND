@@ -56,7 +56,11 @@ namespace MVZ2.Vanilla.Entities
         public const string obstacleDestroyContraption = "obstacle_destroy_contraption";
         #endregion
 
+        #region Bosses
         public const string bossCommon = "boss_common";
+        public const string bossDamageLimit = "boss_damage_limit";
+        #endregion
+
         public const string cartCommon = "cart_common";
 
 

@@ -121,14 +121,6 @@ namespace MVZ2.GameContent.Bosses
                 FinishEat(self);
             }
         }
-        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
-        {
-            base.PreTakeDamage(damageInfo, result);
-            if (damageInfo.Amount > 600)
-            {
-                damageInfo.SetAmount(600);
-            }
-        }
         public override void PostTakeDamage(DamageOutput result)
         {
             base.PostTakeDamage(result);

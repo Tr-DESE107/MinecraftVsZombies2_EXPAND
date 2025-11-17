@@ -151,7 +151,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 damageInfo.Multiply(1 - malleable / MAX_MALLEABLE_DAMAGE);
             }
-            if (damageInfo.Amount > 600)
+            if (damageInfo.Amount > 600 && !damageInfo.HasEffect(VanillaDamageEffects.BYPASS_BOSS_ARMOR))
             {
                 damageInfo.SetAmount(600);
             }

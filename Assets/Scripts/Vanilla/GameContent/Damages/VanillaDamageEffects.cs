@@ -38,6 +38,7 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID SELF_DAMAGE = Get("self_damage");
         public static readonly NamespaceID TRANSFERRED = Get("transferred");
         public static readonly NamespaceID NO_DAMAGE_BLINK = Get("no_damage_blink");
+        public static readonly NamespaceID BYPASS_BOSS_ARMOR = Get("bypass_boss_armor");
 
         // Death Effect
         public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");

@@ -77,14 +77,6 @@ namespace MVZ2.GameContent.Bosses
             base.PostDeath(boss, damageInfo);
             stateMachine.StartState(boss, STATE_DEAD);
         }
-        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
-        {
-            base.PreTakeDamage(damageInfo, result);
-            if (damageInfo.Amount > 600)
-            {
-                damageInfo.SetAmount(600);
-            }
-        }
         #endregion 事件
 
         private static void EnterSteelPhase(Entity boss)

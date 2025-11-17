@@ -42,15 +42,6 @@ namespace MVZ2.GameContent.Bosses
             entity.SetModelProperty("FireInMouth", GetFireInMouth(entity));
             entity.SetModelProperty("FireVariant", GetFireVariant(entity));
         }
-        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
-        {
-            base.PreTakeDamage(damageInfo, result);
-            var entity = damageInfo.Entity;
-            if (damageInfo.Amount > 600)
-            {
-                damageInfo.SetAmount(600);
-            }
-        }
         #endregion 事件
 
         public static Vector3 GetNeckDirection(Entity entity)

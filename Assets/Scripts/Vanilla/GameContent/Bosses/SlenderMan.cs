@@ -90,14 +90,6 @@ namespace MVZ2.GameContent.Bosses
             }
             entity.SetAnimationBool("IsDead", entity.IsDead);
         }
-        public override void PreTakeDamage(DamageInput damage, CallbackResult result)
-        {
-            base.PreTakeDamage(damage, result);
-            if (damage.Amount > 500)
-            {
-                damage.SetAmount(500);
-            }
-        }
         public override void PostTakeDamage(DamageOutput damage)
         {
             base.PostTakeDamage(damage);

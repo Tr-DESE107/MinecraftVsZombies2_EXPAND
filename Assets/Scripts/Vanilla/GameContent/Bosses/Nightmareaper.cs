@@ -70,14 +70,6 @@ namespace MVZ2.GameContent.Bosses
 
             CheckTimerAndWallsDestruction(entity);
         }
-        public override void PreTakeDamage(DamageInput input, CallbackResult result)
-        {
-            base.PreTakeDamage(input, result);
-            if (input.Amount > 600)
-            {
-                input.SetAmount(600);
-            }
-        }
         #endregion
 
         private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)

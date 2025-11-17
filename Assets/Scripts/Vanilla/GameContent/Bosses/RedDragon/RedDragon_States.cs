@@ -755,6 +755,8 @@ namespace MVZ2.GameContent.Bosses
             SetEatenFlags(entity, 0);
             Stun(entity, SELF_EXPLODE_STUN_SECONDS);
             entity.PlaySound(VanillaSoundID.dragonHit);
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.BYPASS_BOSS_ARMOR, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.EXPLOSION);
+            entity.TakeDamage(entity.GetMaxHealth() * 0.5f, damageEffects, entity);
         }
         private class FireBreathState : EntityStateMachineState
         {
