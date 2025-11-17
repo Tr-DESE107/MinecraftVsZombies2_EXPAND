@@ -102,6 +102,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 5
             public const string aboveCloud = "above_cloud";
             public const string dragonTooth = "dragon_tooth";
+            public const string clearGridOnLand = "clear_grid_on_land";
 
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
