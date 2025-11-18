@@ -10,6 +10,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -19,6 +20,7 @@ namespace MVZ2.GameContent.Bosses
     {
         public RedDragon(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
         }
 
         #region 回调
@@ -85,6 +87,8 @@ namespace MVZ2.GameContent.Bosses
         public static void SetEatenFlags(Entity entity, int value) => entity.SetBehaviourField(PROP_EATEN_FLAGS, value);
         public static Vector3 GetJumpTarget(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_JUMP_TARGET);
         public static void SetJumpTarget(Entity entity, Vector3 value) => entity.SetBehaviourField(PROP_JUMP_TARGET, value);
+        public static Color GetTintMultiplier(Entity entity) => entity.GetBehaviourField<Color>(PROP_TINT_MULTIPLIER);
+        public static void SetTintMultiplier(Entity entity, Color value) => entity.SetBehaviourField(PROP_TINT_MULTIPLIER, value);
         public static int GetJumpFinishState(Entity entity) => entity.GetBehaviourField<int>(PROP_JUMP_FINISH_STATE);
         public static void SetJumpFinishState(Entity entity, int value) => entity.SetBehaviourField(PROP_JUMP_FINISH_STATE, value);
         public static List<NamespaceID>? GetEatenEntities(Entity entity) => entity.GetBehaviourField<List<NamespaceID>>(PROP_EATEN_ENTITIES);
@@ -98,6 +102,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<int> PROP_JUMP_FINISH_STATE = new VanillaEntityPropertyMeta<int>("jump_finish_state", -1);
         private static readonly VanillaEntityPropertyMeta<float> PROP_HEAD_ROTATION = new VanillaEntityPropertyMeta<float>("head_rotation");
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("jump_target");
+        private static readonly VanillaEntityPropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaEntityPropertyMeta<Color>("tint_multiplier", Color.white);
         private static readonly VanillaEntityPropertyMeta<List<NamespaceID>> PROP_EATEN_ENTITIES = new VanillaEntityPropertyMeta<List<NamespaceID>>("eaten_entities");
 
         public const int STATE_IDLE = VanillaBossStates.IDLE;

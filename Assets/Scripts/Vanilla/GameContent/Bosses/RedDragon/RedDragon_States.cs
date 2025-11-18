@@ -35,6 +35,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 AddState(new IdleState());
                 AddState(new StunnedState());
+                AddState(new DeathState());
                 AddState(new JumpState());
                 AddState(new SpitState());
                 AddState(new FlapWingsState());
@@ -223,8 +224,8 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
-                var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetSeconds(2f);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(2f);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -262,6 +263,75 @@ namespace MVZ2.GameContent.Bosses
             }
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_END = 1;
+        }
+        #endregion
+
+        #region 死亡
+        private class DeathState : EntityStateMachineState
+        {
+            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_STUNNED) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                return 0;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(2f);
+
+                entity.PlaySound(VanillaSoundID.dragonHit);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetTintMultiplier(entity, Color.white);
+            }
+            public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateLogic(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        // 倒地
+                        if (timer.PassedSecondsFromMax(5 / 6f))
+                        {
+                            entity.PlaySound(VanillaSoundID.thump);
+                            entity.Level.ShakeScreen(10, 0, 15);
+                        }
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_FADE);
+                            timer.ResetSeconds(2f);
+                        }
+                        break;
+                    case SUBSTATE_FADE:
+                        {
+                            SetTintMultiplier(entity, Color.Lerp(Color.white, Color.black, timer.GetPassedPercentage() * 2));
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_DISAPPEAR);
+                                timer.ResetSeconds(1f);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_DISAPPEAR:
+                        {
+                            SetTintMultiplier(entity, Color.Lerp(Color.black, Color.clear, timer.GetPassedPercentage()));
+                            if (timer.Expired)
+                            {
+                                entity.Remove();
+                            }
+                        }
+                        break;
+                }
+            }
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_FADE = 1;
+            public const int SUBSTATE_DISAPPEAR = 2;
         }
         #endregion
 
