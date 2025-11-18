@@ -273,7 +273,7 @@
     <model name="wither" type="entity" path="mvz2:boss/wither" width="112" height="168" xOffset="6" yOffset="-84" />
     <model name="the_giant" type="entity" path="mvz2:boss/the_giant" width="256" height="332" xOffset="0" yOffset="-40" />
     <model name="the_giant_snake_tail" type="entity" path="mvz2:boss/the_giant_snake_tail" width="80" height="80" xOffset="0" yOffset="-40" />
-    <model name="red_dragon" type="entity" path="mvz2:boss/red_dragon" width="840" height="510" xOffset="-69" yOffset="-170"/>
+    <model name="red_dragon" type="entity" path="mvz2:boss/red_dragon" width="840" height="510" xOffset="-93" yOffset="-170"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28" />
@@ -407,7 +407,7 @@
     <model name="combat_smash_trail" type="entity" path="mvz2:effect/combat_smash_trail" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="combat_smash" type="entity" path="mvz2:effect/combat_smash" width="100" height="140" xOffset="0" yOffset="-70" />
     <model name="combat_uppercut_trail" type="entity" path="mvz2:effect/combat_uppercut_trail" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
-    <model name="combat_uppercut" type="entity" path="mvz2:effect/combat_uppercut" width="100" height="100" xOffset="0" yOffset="-50" />
+    <model name="combat_uppercut" type="entity" path="mvz2:effect/combat_uppercut" width="100" height="120" xOffset="0" yOffset="-60" />
     <model name="skyward_beam" type="entity" path="mvz2:effect/skyward_beam" width="32" height="100" xOffset="0" yOffset="-50" />
     <model name="skyward_beacon_target" type="entity" path="mvz2:effect/skyward_beacon_target" width="64" height="24" xOffset="0" yOffset="0" />
     <model name="skyward_sky" type="entity" path="mvz2:effect/skyward_sky" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
@@ -458,7 +458,7 @@
     <model name="beacon_meteor" type="entity" path="mvz2:projectile/beacon_meteor" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="firework" type="entity" path="mvz2:projectile/firework" width="38" height="12" xOffset="0" yOffset="0" />
     <model name="firework_big" type="entity" path="mvz2:projectile/firework_big" width="38" height="30" xOffset="0" yOffset="0" />
-    <model name="falling_star" type="entity" path="mvz2:projectile/falling_star" width="64" height="16" xOffset="16" yOffset="0" />
+    <model name="falling_star" type="entity" path="mvz2:projectile/falling_star" width="64" height="16" xOffset="24" yOffset="0" />
     <model name="explosive_large_fireball" type="entity" path="mvz2:projectile/explosive_large_fireball" width="130" height="256" xOffset="0" yOffset="-128" />
 
 
