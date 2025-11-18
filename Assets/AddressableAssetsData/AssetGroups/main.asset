@@ -738,6 +738,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10ab12937d2381c4a837d26087f00bbe
+    m_Address: mvz2:ui/level/progress_bar/red_dragon_fill
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 10b37d050648cf446b27f08918ea2a16
     m_Address: mvz2:effect/nightmare_portal
     m_ReadOnly: 0
@@ -1059,6 +1066,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 164a1955926ffd74f91690054fa78281
+    m_Address: mvz2:entity/effects/tornado_model_burning
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 164c517f4b3a40f49a48c0f998d7fd7e
     m_Address: mvz2:ready_set_build
@@ -2185,6 +2199,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3197d6937f6ec6b489717190a1a006f8
+    m_Address: mvz2:level/ship/ship_depth_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31d9bab9e0866384faddc3f3fd0790a6
     m_Address: mvz2:shock
@@ -5761,6 +5782,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f0e9cb01345db444817411ea1b5b4c1
+    m_Address: mvz2:ui/level/progress_bar/red_dragon_foreground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f17579a8f0c42344b02ba3589ca2d6e
     m_Address: mvz2:ui/level/pause_image_5
     m_ReadOnly: 0
@@ -7006,6 +7034,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b6b62c26c46a2540b6df22f5c17fee6
+    m_Address: mvz2:ui/level/progress_bar/red_dragon_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b8f9b60cb93b264999ef94bc554c64b
     m_Address: mvz2:achievements
@@ -8946,6 +8981,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9f749b0027f2b94f8dbc619feb089de
+    m_Address: mvz2:fire_breath_big
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca16cff8842786b4aaeaa7bc6d92b003
     m_Address: mvz2:buffs
     m_ReadOnly: 0
@@ -10215,6 +10257,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e779343a9de67c347bd835c88e914d14
     m_Address: mvz2:level/ship/cloudy_noise
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e80ea5436acf0b544906c4d53a5919e4
+    m_Address: mvz2:level/ship/ship_back_2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

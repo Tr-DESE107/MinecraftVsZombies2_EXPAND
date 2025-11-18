@@ -52,6 +52,8 @@ namespace MVZ2.Vanilla.Bosses
         public const int RED_DRAGON_LARGE_FIREBALL = PRIVATE_NUMBER + 5;
         public const int RED_DRAGON_ROAR = PRIVATE_NUMBER + 6;
         public const int RED_DRAGON_SPIT_UP = PRIVATE_NUMBER + 7;
+        public const int RED_DRAGON_FLY = PRIVATE_NUMBER + 8;
+        public const int RED_DRAGON_TAIL_SWIPE = PRIVATE_NUMBER + 9;
 
 
         private const int PRIVATE_NUMBER = 10000;
