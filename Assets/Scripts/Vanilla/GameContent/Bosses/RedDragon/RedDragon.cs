@@ -109,6 +109,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_FLAP_WINGS = VanillaBossStates.RED_DRAGON_FLAP_WINGS;
         public const int STATE_EAT = VanillaBossStates.RED_DRAGON_EAT;
         public const int STATE_FIRE_BREATH = VanillaBossStates.RED_DRAGON_FIRE_BREATH;
+        public const int STATE_ROAR = VanillaBossStates.RED_DRAGON_ROAR;
         public const int STATE_LARGE_FIREBALL = VanillaBossStates.RED_DRAGON_LARGE_FIREBALL;
 
         public const int ANIMATION_STATE_IDLE = 0;
@@ -130,6 +131,8 @@ namespace MVZ2.GameContent.Bosses
         public const float EAT_HITBOX_RANGE = 200;
         public const float EAT_HITBOX_DISTANCE_X = 320;
         public const float BITE_DAMAGE_MULTIPLIER = 3;
+
+        public const float ROAR_SECONDS = 2f;
 
         public const float SELF_EXPLODE_STUN_SECONDS = 2f;
 

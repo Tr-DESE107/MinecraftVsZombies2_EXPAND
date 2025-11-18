@@ -98,6 +98,7 @@ namespace MVZ2.GameContent.Projectiles
                 var target = output.Entity;
                 if (target.IsEntityOf(VanillaBossID.redDragon))
                 {
+                    target.PlaySound(VanillaSoundID.dragonHit);
                     RedDragon.Stun(target, 5f);
                 }
             }

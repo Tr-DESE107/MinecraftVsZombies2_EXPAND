@@ -2,12 +2,15 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
@@ -35,6 +38,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new FlapWingsState());
                 AddState(new EatState());
                 AddState(new FireBreathState());
+                AddState(new RoarState());
                 AddState(new LargeFireballState());
             }
         }
@@ -69,6 +73,7 @@ namespace MVZ2.GameContent.Bosses
             switch (state)
             {
                 case STATE_LARGE_FIREBALL:
+                case STATE_FLAP_WINGS:
                     if (!entity.Level.EntityExists(e => entity.IsHostile(e) && e.IsVulnerableEntity()))
                         return false;
                     break;
@@ -140,6 +145,15 @@ namespace MVZ2.GameContent.Bosses
             }
             private void UpdateStateSwitch(EntityStateMachine stateMachine, Entity entity)
             {
+                // 转阶段
+                if (entity.Health <= entity.GetMaxHealth() * 0.5f && GetPhase(entity) == PHASE_1)
+                {
+                    SetPhase(entity, PHASE_2);
+                    SetEatenFlags(entity, 0);
+                    stateMachine.StartState(entity, STATE_ROAR);
+                    return;
+                }
+
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.Run(stateMachine.GetSpeed(entity));
                 if (stateTimer.Expired)
@@ -511,6 +525,15 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.ResetSeconds(2 / 3f);
+                if (GetPhase(entity) == PHASE_2)
+                {
+                    SetFireInMouth(entity, true);
+                }
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetFireInMouth(entity, false);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -543,6 +566,7 @@ namespace MVZ2.GameContent.Bosses
                             entity.PlaySound(VanillaSoundID.dragonWings);
                             entity.Level.ShakeScreen(10, 0, 15);
                             ShootTornado(entity);
+                            SetFireInMouth(entity, false);
                             stateMachine.StartSubState(entity, SUBSTATE_END);
                             timer.ResetSeconds(7 / 12f);
                         }
@@ -563,12 +587,25 @@ namespace MVZ2.GameContent.Bosses
 
             private void ShootTornado(Entity entity)
             {
+                var variant = Tornado.VARIANT_NORMAL;
+                var speed = 2;
+                bool phase2 = GetPhase(entity) == PHASE_2;
+                if (phase2)
+                {
+                    variant = Tornado.VARIANT_FIRE;
+                    speed = 4;
+                }
+
                 var param = entity.GetSpawnParams();
-                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * 0.05f);
+                param.SetProperty(VanillaEntityProps.VARIANT, variant);
                 var position = GetTornadoSourcePosition(entity);
                 entity.Spawn(VanillaEffectID.tornado, position, param)?.Let(e =>
                 {
-                    e.Velocity = entity.GetFacingDirection() * 2;
+                    e.Velocity = entity.GetFacingDirection() * speed;
+                    if (phase2)
+                    {
+                        e.PlaySound(VanillaSoundID.refuel);
+                    }
                 });
             }
             public const int SUBSTATE_START = 0;
@@ -890,6 +927,86 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 吼叫
+        private class RoarState : EntityStateMachineState
+        {
+            public RoarState() : base(STATE_ROAR, ANIMATION_STATE_SPIT) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        return ANIMATION_SUBSTATE_START;
+                    case SUBSTATE_ROAR:
+                        return ANIMATION_SUBSTATE_ROAR;
+                    case SUBSTATE_END:
+                        return ANIMATION_SUBSTATE_END;
+                }
+                return base.GetAnimationSubstate(substate);
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(1f);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        if (timer.Expired)
+                        {
+                            Roar(entity);
+                            stateMachine.StartSubState(entity, SUBSTATE_ROAR);
+                            timer.ResetSeconds(ROAR_SECONDS);
+                        }
+                        break;
+                    case SUBSTATE_ROAR:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_END);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                CheckDeath(entity);
+            }
+
+            private void Roar(Entity entity)
+            {
+                var param = entity.GetSpawnParams();
+                var position = GetSpitSourcePosition(entity);
+                entity.Spawn(VanillaEffectID.amplifiedRoar, position, param);
+                var time = Ticks.FromSeconds(ROAR_SECONDS);
+                entity.Level.ShakeScreen(15, 0, time);
+                entity.BossRoar(time);
+                entity.PlaySound(VanillaSoundID.dragonGrowl);
+            }
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_ROAR = 1;
+            public const int SUBSTATE_END = 2;
+            public const int ANIMATION_SUBSTATE_START = 0;
+            public const int ANIMATION_SUBSTATE_ROAR = 1;
+            public const int ANIMATION_SUBSTATE_END = 2;
+
+        }
+        #endregion
+
         #region 爆炸火球
         private class LargeFireballState : EntityStateMachineState
         {
@@ -968,6 +1085,7 @@ namespace MVZ2.GameContent.Bosses
                 param.soundID = VanillaSoundID.dragonBreath;
                 param.damage = entity.GetDamage() * 18;
                 entity.ShootProjectile(param);
+                entity.PlaySound(VanillaSoundID.refuel);
             }
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_CREATE = 1;
@@ -985,17 +1103,15 @@ namespace MVZ2.GameContent.Bosses
         private static RedDragonEatDetector eatDetector = new RedDragonEatDetector();
         private static int[] statePoolPhase1 = new int[]
         {
-            //STATE_SPIT,
-            //STATE_FLAP_WINGS,
-            //STATE_EAT,
-            STATE_LARGE_FIREBALL,
+            STATE_SPIT,
+            STATE_FLAP_WINGS,
+            STATE_EAT,
             STATE_JUMP
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            STATE_SPIT,
+            STATE_LARGE_FIREBALL,
             STATE_FLAP_WINGS,
-            STATE_EAT,
             STATE_JUMP
         };
     }

@@ -2,7 +2,10 @@
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
@@ -24,6 +27,28 @@ namespace MVZ2.Vanilla.Bosses
         public static bool IsBossRevengeVersion(this Entity entity)
         {
             return entity.HasBuff(VanillaBuffID.Boss.bossRevenge);
+        }
+        public static void BossRoar(this Entity entity, int stunTime)
+        {
+            foreach (var ent in entity.Level.FindEntities(e => CanBossRoarStun(entity, e)))
+            {
+                if (ent.IsEntityOf(VanillaContraptionID.lightningOrb))
+                    continue;
+                if (ent.IsEntityOf(VanillaContraptionID.noteBlock))
+                {
+                    if (!ent.HasBuff<NoteBlockChargedBuff>())
+                    {
+                        ent.AddBuff<NoteBlockChargedBuff>();
+                        ent.PlaySound(VanillaSoundID.growBig);
+                    }
+                    continue;
+                }
+                ent.Stun(stunTime);
+            }
+        }
+        public static bool CanBossRoarStun(this Entity entity, Entity target)
+        {
+            return (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.ENEMY) && target.IsHostile(entity) && target.CanDeactive();
         }
     }
 }

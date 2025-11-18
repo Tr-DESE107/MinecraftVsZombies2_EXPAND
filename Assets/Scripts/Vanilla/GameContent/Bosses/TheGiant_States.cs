@@ -7,6 +7,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
@@ -74,21 +75,7 @@ namespace MVZ2.GameContent.Bosses
         private static void RoarLoop(Entity entity)
         {
             entity.Level.ShakeScreen(15, 0, 5);
-            foreach (var ent in entity.Level.FindEntities(e => CanRoarStun(entity, e)))
-            {
-                if (ent.IsEntityOf(VanillaContraptionID.lightningOrb))
-                    continue;
-                if (ent.IsEntityOf(VanillaContraptionID.noteBlock))
-                {
-                    if (!ent.HasBuff<NoteBlockChargedBuff>())
-                    {
-                        ent.AddBuff<NoteBlockChargedBuff>();
-                        ent.PlaySound(VanillaSoundID.growBig);
-                    }
-                    continue;
-                }
-                ent.Stun(ROAR_STUN_TIME);
-            }
+            entity.BossRoar(ROAR_STUN_TIME);
         }
         private static bool CanCrawl(Entity entity)
         {
@@ -238,7 +225,7 @@ namespace MVZ2.GameContent.Bosses
                         if (!phase2)
                         {
                             lastState = STATE_ROAR;
-                            if (entity.Level.EntityExists(e => CanRoarStun(entity, e)))
+                            if (entity.Level.EntityExists(e => entity.CanBossRoarStun(e)))
                             {
                                 return lastState;
                             }

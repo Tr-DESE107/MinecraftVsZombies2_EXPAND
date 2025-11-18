@@ -3487,6 +3487,8 @@
             <properties>
                 <int name="mvz2:maxTimeout" value="150"/>
                 <vector3 name="mvz2:size" x="48" y="200" z="48" />
+                <vector3 name="mvz2:lightRange" x="120" y="240" z="120" />
+                <color name="mvz2:lightColor" value="#FFAA00" />
             </properties>
         </effect>
         <effect id="dragon_fire_breath">

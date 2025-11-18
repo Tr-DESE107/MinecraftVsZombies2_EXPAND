@@ -467,10 +467,6 @@ namespace MVZ2.GameContent.Bosses
         {
             return outerArmDetector.DetectExists(entity) || innerArmDetector.DetectExists(entity);
         }
-        public static bool CanRoarStun(Entity entity, Entity target)
-        {
-            return target.Type == EntityTypes.PLANT && target.IsHostile(entity) && target.CanDeactive();
-        }
 
         #region 吃豆人
         public static bool IsPacman(Entity entity)
