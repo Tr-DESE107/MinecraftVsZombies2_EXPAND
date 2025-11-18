@@ -26,4 +26,10 @@
         <bar sprite="mvz2:ui/level/progress_bar/the_giant_bar" fromLeft="true" />
         <padding left="5" right="5" top="7" bottom="10" />
     </bar>
+    <bar id="red_dragon" type="boss" width="150" height="39">
+        <background sprite="mvz2:ui/level/progress_bar/red_dragon_background" />
+        <foreground sprite="mvz2:ui/level/progress_bar/red_dragon_foreground" />
+        <bar sprite="mvz2:ui/level/progress_bar/red_dragon_fill" fromLeft="true" mode="filled" />
+        <padding left="17" right="17" top="22" bottom="4" />
+    </bar>
 </bars>
