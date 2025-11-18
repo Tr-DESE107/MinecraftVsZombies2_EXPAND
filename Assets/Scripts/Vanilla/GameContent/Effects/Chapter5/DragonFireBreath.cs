@@ -50,6 +50,8 @@ namespace MVZ2.GameContent.Effects
         }
         private void UpdateGridFire(Entity entity)
         {
+            if (entity.GetRelativeY() > 20) // 距离地面过高
+                return;
             var grid = entity.GetGrid();
             if (grid == null)
                 return;

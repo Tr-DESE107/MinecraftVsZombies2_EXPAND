@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
@@ -15,6 +16,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -40,6 +42,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new FireBreathState());
                 AddState(new RoarState());
                 AddState(new LargeFireballState());
+                AddState(new SpitUpState());
             }
         }
         #endregion
@@ -120,6 +123,20 @@ namespace MVZ2.GameContent.Bosses
                     {
                         var jumpTarget = FindRandomJumpTargetPosition(entity);
                         JumpTo(entity, jumpTarget, STATE_IDLE);
+                    }
+                    break;
+                case STATE_SPIT_UP:
+                    {
+                        var middleLane = entity.Level.GetMaxLaneCount() / 2;
+                        if (entity.GetLane() == middleLane)
+                        {
+                            stateMachine.StartState(entity, state);
+                        }
+                        else
+                        {
+                            var jumpTarget = GetJumpBorderPositionByLane(entity, middleLane);
+                            JumpTo(entity, jumpTarget, state);
+                        }
                     }
                     break;
             }
@@ -1096,6 +1113,111 @@ namespace MVZ2.GameContent.Bosses
 
         }
         #endregion
+        
+        #region 向天喷射
+        private class SpitUpState : EntityStateMachineState
+        {
+            public SpitUpState() : base(STATE_SPIT_UP, ANIMATION_STATE_SPIT_UP) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        return ANIMATION_SUBSTATE_START;
+                    case SUBSTATE_SPIT:
+                        return ANIMATION_SUBSTATE_SPIT;
+                    case SUBSTATE_END:
+                        return ANIMATION_SUBSTATE_END;
+                }
+                return base.GetAnimationSubstate(substate);
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(1f);
+
+                SetFireInMouth(entity, true);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetFireInMouth(entity, false);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        if (timer.Expired)
+                        {
+                            entity.PlaySound(VanillaSoundID.dragonGrowl);
+                            stateMachine.StartSubState(entity, SUBSTATE_SPIT);
+                            timer.ResetSeconds(2f);
+                        }
+                        break;
+                    case SUBSTATE_SPIT:
+                        if (timer.PassedIntervalSeconds(0.2f))
+                        {
+                            ShootBreath(entity);
+                        }
+                        if (timer.Expired)
+                        {
+                            var buff = entity.Level.NewBuff<BeaconMeteorBuff>();
+                            BeaconMeteorBuff.SetFaction(buff, entity.GetFaction());
+                            BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * METEOR_DAMAGE_MULTIPLIER);
+                            BeaconMeteorBuff.SetCount(buff, METEOR_COUNT);
+                            BeaconMeteorBuff.SetHSVOffset(buff, METEOR_HSV_OFFSET);
+                            BeaconMeteorBuff.SetRNG(buff, new RandomGenerator(entity.RNG.Next()));
+                            entity.Level.AddBuff(buff);
+
+                            SetFireInMouth(entity, false);
+                            stateMachine.StartSubState(entity, SUBSTATE_END);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                CheckDeath(entity);
+            }
+
+            private void ShootBreath(Entity entity)
+            {
+                var fireVariant = GetFireVariant(entity);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * FIRE_BREATH_DAMAGE_MULTIPLIER);
+                param.SetProperty(VanillaEntityProps.VARIANT, fireVariant);
+                param.SetProperty(VanillaEntityProps.MAX_TIMEOUT, 30);
+                var source = GetNeckRootPosition(entity);
+                var direction = new Vector3(entity.GetFacingX() * 0.3f, 1).normalized;
+                var position = source + direction * NECK_LENGTH;
+                entity.Spawn(VanillaEffectID.dragonFireBreath, position, param)?.Let(e =>
+                {
+                    e.Velocity = direction * FIRE_BREATH_SPEED;
+                });
+            }
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_SPIT = 1;
+            public const int SUBSTATE_END = 2;
+            public const int ANIMATION_SUBSTATE_START = 0;
+            public const int ANIMATION_SUBSTATE_SPIT = 1;
+            public const int ANIMATION_SUBSTATE_END = 2;
+
+        }
+        #endregion
 
         public const float FIRE_BREATH_ANGLE_START = -30;
         public const float FIRE_BREATH_ANGLE_END = 30;
@@ -1112,6 +1234,7 @@ namespace MVZ2.GameContent.Bosses
         {
             STATE_LARGE_FIREBALL,
             STATE_FLAP_WINGS,
+            STATE_SPIT_UP,
             STATE_JUMP
         };
     }

@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Bosses
         public static Vector3 GetSpitSourcePosition(Entity entity)
         {
             var neckDirection = GetNeckDirection(entity);
-            return GetNeckRootPosition(entity) + neckDirection * 260;
+            return GetNeckRootPosition(entity) + neckDirection * NECK_LENGTH;
         }
         public static Vector3 GetNeckRootPosition(Entity entity)
         {
@@ -111,6 +111,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_FIRE_BREATH = VanillaBossStates.RED_DRAGON_FIRE_BREATH;
         public const int STATE_ROAR = VanillaBossStates.RED_DRAGON_ROAR;
         public const int STATE_LARGE_FIREBALL = VanillaBossStates.RED_DRAGON_LARGE_FIREBALL;
+        public const int STATE_SPIT_UP = VanillaBossStates.RED_DRAGON_SPIT_UP;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_APPEAR = 1;
@@ -120,9 +121,12 @@ namespace MVZ2.GameContent.Bosses
         public const int ANIMATION_STATE_JUMP = 10001;
         public const int ANIMATION_STATE_FLAP_WINGS = 10002;
         public const int ANIMATION_STATE_EAT = 10003;
+        public const int ANIMATION_STATE_SPIT_UP = 10004;
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;
+
+        public const float NECK_LENGTH = 260;
 
         public const float EAT_HEAL_PER_ENTITY = 100;
         public const float EAT_HITBOX_WIDTH = 64;
@@ -138,6 +142,10 @@ namespace MVZ2.GameContent.Bosses
 
         public const float FIRE_BREATH_DAMAGE_MULTIPLIER = 0.01f;
         public const float FIRE_BREATH_SPEED = 20f;
+
+        public const float METEOR_DAMAGE_MULTIPLIER = 3f;
+        public const int METEOR_COUNT = 3;
+        public static readonly Vector3 METEOR_HSV_OFFSET = new Vector3(-30f, 0, 0);
 
         public const int EATEN_FLAG_CORPSE = 1;
         public const int EATEN_FLAG_CHARCOAL = 1 << 1;
