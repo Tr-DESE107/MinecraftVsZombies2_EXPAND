@@ -52,6 +52,10 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion 事件
 
+        public static void SetAppear(Entity entity)
+        {
+            stateMachine.StartState(entity, STATE_APPEAR);
+        }
         public static Vector3 GetNeckDirection(Entity entity)
         {
             var headRotation = GetHeadRotation(entity);

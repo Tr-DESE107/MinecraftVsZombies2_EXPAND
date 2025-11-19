@@ -1283,7 +1283,6 @@
             <bool name="noEnergy" value="true" />
             <bool name="mvz2:adventure" value="true"/>
             <id name="clearSound" value="mvz2:final_item" />
-            <float name="conveySpeed" value="0.75" />
         </properties>
     </stage>
     <stage id="ship_endless" name="圣辇船无尽" type="endless">

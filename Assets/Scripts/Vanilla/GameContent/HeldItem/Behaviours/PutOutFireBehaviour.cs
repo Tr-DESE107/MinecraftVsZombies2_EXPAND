@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.EFFECT:
-                    if (interaction == PointerInteraction.Down || interaction == PointerInteraction.Hold || interaction == PointerInteraction.Streak)
+                    if (interaction == PointerInteraction.Down)
                     {
                         entity.PlaySound(VanillaSoundID.fizz);
                         entity.Remove();

@@ -191,6 +191,8 @@
     <buff id="red_dragon_stage" polarity="none" level="4000" target="level" />
     <buff id="clear_grid_on_land" polarity="none" level="5000" target="entity" />
     <buff id="beacon_meteor_no_destroy" polarity="none" level="5000" target="projectile" />
+    <buff id="red_dragon_transition" polarity="none" level="5000" target="level" />
+    <buff id="red_dragon_cleared" polarity="none" level="5000" target="level" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />

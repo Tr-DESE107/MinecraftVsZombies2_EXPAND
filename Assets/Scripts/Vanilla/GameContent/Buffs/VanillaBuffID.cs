@@ -61,6 +61,8 @@ namespace MVZ2.GameContent.Buffs
             public const string sorcerersScrollStarshard = "sorcerers_scroll_starshard";
             public const string skywardNight = "skyward_night";
             public const string redDragonStage = "red_dragon_stage";
+            public const string redDragonTransition = "red_dragon_transition";
+            public const string redDragonCleared = "red_dragon_cleared";
 
             // Random China
             public const string greedyVacuum = "greedy_vacuum";
