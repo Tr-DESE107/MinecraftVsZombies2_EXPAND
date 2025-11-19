@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Contraptions;
@@ -23,6 +24,7 @@ using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -1397,6 +1399,8 @@ namespace MVZ2.GameContent.Bosses
                             if (timer.Expired)
                             {
                                 stateMachine.StartState(entity, STATE_TAIL_SWIPE);
+                                var swipeSubstate = TailSwipeState.GetRandomReadySubstate(entity.RNG);
+                                stateMachine.StartSubState(entity, swipeSubstate);
                                 SetRotation(entity, 180);
                             }
                         }
@@ -1509,12 +1513,20 @@ namespace MVZ2.GameContent.Bosses
                         }
                         break;
                     case SUBSTATE_CLOCKWISE:
+                        if (timer.PassedSecondsFromMax(0.1f))
+                        {
+                            Swipe(entity, -1);
+                        }
                         if (timer.Expired)
                         {
                             stateMachine.StartState(entity, STATE_IDLE);
                         }
                         break;
                     case SUBSTATE_COUNTERCLOCKWISE:
+                        if (timer.PassedSecondsFromMax(0.1f))
+                        {
+                            Swipe(entity, 1);
+                        }
                         if (timer.Expired)
                         {
                             stateMachine.StartState(entity, STATE_IDLE);
@@ -1526,6 +1538,45 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnUpdateLogic(machine, entity);
                 CheckDeath(entity);
+            }
+            private void Swipe(Entity entity, int laneDirection)
+            {
+                var level = entity.Level;
+                var column = entity.GetColumn();
+                var lane = entity.GetLane();
+                var columnDirection = entity.IsFacingLeft() ? -1 : 1;
+                var column2 = column + columnDirection * TAIL_SWIPE_COLUMN_RANGE;
+                var minColumn = Mathf.Min(column, column2);
+                var maxColumn = Mathf.Max(column, column2);
+                for (int x = minColumn; x < maxColumn; x++)
+                {
+                    for (int z = lane + TAIL_SWIPE_LANE_RANGE_START; z <= lane + TAIL_SWIPE_LANE_RANGE_END; z++)
+                    {
+                        var grid = level.GetGrid(x, z);
+                        if (grid == null)
+                            continue;
+                        foreach (var gridEntity in grid.GetEntities())
+                        {
+                            if (gridEntity.Type != EntityTypes.PLANT || !entity.IsHostile(gridEntity))
+                                continue;
+                            var targetLane = z + laneDirection;
+                            var targetGrid = level.GetGrid(x, targetLane);
+                            if (targetGrid == null)
+                            {
+                                gridEntity.Die(new DamageEffectList(VanillaDamageEffects.OUT_OF_BOUND), entity);
+                            }
+                            else
+                            {
+                                gridEntity.StartChangingGrid(x, targetLane);
+                            }
+                            gridEntity.PlaySound(VanillaSoundID.punch, 0.75f);
+                        }
+                    }
+                }
+            }
+            public static int GetRandomReadySubstate(RandomGenerator rng)
+            {
+                return rng.Next(2) == 1 ? SUBSTATE_COUNTERCLOCKWISE_READY : SUBSTATE_CLOCKWISE_READY;
             }
             public const int SUBSTATE_CLOCKWISE_READY = 0;
             public const int SUBSTATE_COUNTERCLOCKWISE_READY = 1;
@@ -1550,9 +1601,9 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            //STATE_LARGE_FIREBALL,
-            //STATE_FLAP_WINGS,
-            //STATE_SPIT_UP,
+            STATE_LARGE_FIREBALL,
+            STATE_FLAP_WINGS,
+            STATE_SPIT_UP,
             STATE_FLY,
             STATE_JUMP
         };

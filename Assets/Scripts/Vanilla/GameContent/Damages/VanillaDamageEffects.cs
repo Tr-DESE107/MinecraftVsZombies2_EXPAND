@@ -45,6 +45,7 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID NO_DEATH_TRIGGER = Get("no_death_trigger");
         public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
         public static readonly NamespaceID SACRIFICE = Get("sacrifice");
+        public static readonly NamespaceID OUT_OF_BOUND = Get("out_of_bound");
 
         public static NamespaceID Get(string name)
         {

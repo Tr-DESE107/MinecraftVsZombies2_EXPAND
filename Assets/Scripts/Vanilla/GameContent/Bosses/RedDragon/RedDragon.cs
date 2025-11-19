@@ -191,6 +191,10 @@ namespace MVZ2.GameContent.Bosses
 
         public const float FIRE_EXPLOSION_DAMAGE_MULTIPLIER = 3;
 
+        public const int TAIL_SWIPE_COLUMN_RANGE = 6;
+        public const int TAIL_SWIPE_LANE_RANGE_START = -2;
+        public const int TAIL_SWIPE_LANE_RANGE_END = 2;
+
         public const int EATEN_FLAG_CORPSE = 1;
         public const int EATEN_FLAG_CHARCOAL = 1 << 1;
         public const int EATEN_FLAG_DYNAMITE = 1 << 2;
