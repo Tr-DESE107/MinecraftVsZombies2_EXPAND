@@ -170,6 +170,9 @@ namespace MVZ2.GameContent.Bosses
 
         public const float NECK_LENGTH = 260;
 
+        public const float APPEAR_START_X = -1000;
+        public const float APPEAR_START_Y = 160;
+
         public const float EAT_HEAL_PER_ENTITY = 100;
         public const float EAT_HITBOX_WIDTH = 64;
         public const float EAT_HITBOX_HEIGHT = 64;

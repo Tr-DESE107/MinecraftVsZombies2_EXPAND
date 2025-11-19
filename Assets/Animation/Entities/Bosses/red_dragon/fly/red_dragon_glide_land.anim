@@ -1214,7 +1214,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 745144560
+      path: 4152553584
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -1223,7 +1223,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3394820812
+      path: 3537196882
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1232,7 +1232,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 679743161
+      path: 929504337
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1241,7 +1241,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1066227527
+      path: 3717989171
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1250,7 +1250,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 94875990
+      path: 1667212685
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1259,7 +1259,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1860750713
+      path: 3890900617
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1268,7 +1268,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1260056163
+      path: 3114784154
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1277,7 +1277,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 853252298
+      path: 3385930834
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1286,7 +1286,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4166983553
+      path: 108007003
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1295,7 +1295,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3682231740
+      path: 3893169432
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1304,7 +1304,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1104177781
+      path: 2421717740
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1313,7 +1313,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2609155409
+      path: 2998398277
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1322,7 +1322,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 689985782
+      path: 2484381769
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1331,7 +1331,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4143652462
+      path: 2147073438
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1340,7 +1340,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1150789262
+      path: 3600988013
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1349,7 +1349,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3443163672
+      path: 523130964
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1358,7 +1358,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1864803876
+      path: 1892005068
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1367,7 +1367,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2024539505
+      path: 1612810479
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1376,7 +1376,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2658116381
+      path: 2189153489
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1385,7 +1385,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1601218610
+      path: 4133406971
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1394,7 +1394,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 852406135
+      path: 3150711943
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1403,7 +1403,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3678722136
+      path: 3183266947
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1412,7 +1412,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 899473026
+      path: 3616377590
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1421,7 +1421,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3615616276
+      path: 3361931260
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1430,7 +1430,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2234343686
+      path: 3064608400
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1439,7 +1439,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1319736028
+      path: 1493606674
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1448,7 +1448,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2053041987
+      path: 3143429751
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1457,7 +1457,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1061163368
+      path: 2813282719
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1466,7 +1466,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 348083632
+      path: 1767325757
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1475,7 +1475,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1187361563
+      path: 2112773982
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1484,7 +1484,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1712702401
+      path: 2157650771
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1493,7 +1493,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 561582467
+      path: 318653973
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1502,7 +1502,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 118762458
+      path: 418855218
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1511,7 +1511,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 372224366
+      path: 4029281144
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1520,7 +1520,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1053843793
+      path: 1187434240
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1529,7 +1529,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1268616381
+      path: 3646101073
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -5672,7 +5672,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5684,7 +5684,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5696,7 +5696,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5708,7 +5708,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg/rearlegtip
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5720,7 +5720,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg/rearlegtip
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5732,7 +5732,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg/rearlegtip
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5744,7 +5744,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5756,7 +5756,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5768,7 +5768,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5780,7 +5780,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5792,7 +5792,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5804,7 +5804,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5816,7 +5816,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5828,7 +5828,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5840,7 +5840,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -5924,42 +5924,6 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg/frontlegtip/frontfoot
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg/frontlegtip/frontfoot
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg/frontlegtip/frontfoot
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
     path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg/frontlegtip
     classID: 4
     script: {fileID: 0}
@@ -5996,7 +5960,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6008,7 +5972,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6020,7 +5984,259 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/wing
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/wing
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/wing
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5/head/jaw
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5/head/jaw
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5/head/jaw
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg/rearlegtip
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg/rearlegtip
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg/rearlegtip
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg/frontlegtip/frontfoot
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg/frontlegtip/frontfoot
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg/frontlegtip/frontfoot
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6057,6 +6273,42 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
     path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/wing1
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6140,7 +6392,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6152,7 +6404,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6164,259 +6416,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg1/rearlegtip1
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg1/rearlegtip1
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg1/rearlegtip1
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/wing
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/wing
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/wing
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6464,7 +6464,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6476,7 +6476,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6488,7 +6488,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6536,7 +6536,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6548,7 +6548,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6560,7 +6560,43 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1/frontlegtip1
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1/frontlegtip1
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1/frontlegtip1
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6716,7 +6752,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6728,7 +6764,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6740,7 +6776,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6752,7 +6788,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6764,7 +6800,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6776,7 +6812,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6788,7 +6824,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6800,7 +6836,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6812,7 +6848,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/tail/tail2/tail3/tail4
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6859,8 +6895,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5/head/jaw
+    attribute: m_LocalEulerAngles.x
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg1/rearlegtip1
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6872,43 +6908,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5/head/jaw
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/neck/neck2/neck3/neck4/neck5/head/jaw
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1/frontlegtip1
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1/frontlegtip1
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg1/rearlegtip1
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -6920,7 +6920,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/body/frontleg1/frontlegtip1
+    path: Root/Center/Main/RotationRoot/ModelPivot/red_dragon/rearleg1/rearlegtip1
     classID: 4
     script: {fileID: 0}
     flags: 0

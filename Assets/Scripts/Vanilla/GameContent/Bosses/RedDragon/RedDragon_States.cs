@@ -36,6 +36,7 @@ namespace MVZ2.GameContent.Bosses
             public RedDragonStateMachine()
             {
                 AddState(new IdleState());
+                AddState(new AppearState());
                 AddState(new StunnedState());
                 AddState(new DeathState());
                 AddState(new JumpState());
@@ -63,6 +64,114 @@ namespace MVZ2.GameContent.Bosses
             var lane = entity.GetLane();
             return entity.Level.EntityExists(e => e.GetLane() == lane && entity.IsHostile(e) && e.IsVulnerableEntity());
         }
+
+
+        #region 飞行
+        private class AppearState : EntityStateMachineState
+        {
+            public AppearState() : base(STATE_APPEAR, ANIMATION_STATE_FLY) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_FLY:
+                        return ANIMATION_SUBSTATE_FLY;
+                    case SUBSTATE_GLIDE:
+                        return ANIMATION_SUBSTATE_GLIDE;
+                    case SUBSTATE_LAND:
+                        return ANIMATION_SUBSTATE_LAND;
+                }
+                return base.GetAnimationSubstate(substate);
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(2f);
+
+                SetRotation(entity, 180);
+                var targetLane = entity.Level.GetMaxLaneCount() / 2;
+                var position = entity.Position;
+                position.x = APPEAR_START_X;
+                position.y = APPEAR_START_Y;
+                position.z = entity.Level.GetEntityLaneZ(targetLane);
+                entity.Position = position;
+                SetGravityMultiplier(entity, 0);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetRotation(entity, 0);
+                SetGravityMultiplier(entity, 1);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_FLY:
+                        {
+                            entity.Velocity = entity.GetFacingDirection() * -100; // 向右飞，但是仍面朝左侧，只是模型旋转了180度。
+                            if (timer.PassedIntervalSeconds(0.5f))
+                            {
+                                entity.PlaySound(VanillaSoundID.dragonWings);
+                            }
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_GLIDE);
+                                timer.ResetSeconds(1f);
+                                entity.PlaySound(VanillaSoundID.dragonGrowl);
+                                SetRotation(entity, 0);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_GLIDE:
+                        var middleLane = entity.Level.GetMaxLaneCount() / 2;
+                        var targetPosition = GetJumpBorderPositionByLane(entity, middleLane);
+                        entity.Velocity = (targetPosition - entity.Position).normalized * 100;
+                        if (entity.IsOnGround)
+                        {
+                            entity.Level.ShakeScreen(20, 0, 30);
+                            entity.PlaySound(VanillaSoundID.thump);
+                            stateMachine.StartSubState(entity, SUBSTATE_LAND);
+                            timer.ResetSeconds(1f);
+                        }
+                        break;
+                    case SUBSTATE_LAND:
+                        {
+                            var position = entity.Position;
+                            position.x = Ticks.SmoothDamp(position.x, GetJumpBorderX(entity), 0.2f);
+                            entity.Position = position;
+                            entity.Velocity = Ticks.SmoothDamp(entity.Velocity, Vector3.zero, 0.2f);
+
+                            LandCrush(entity);
+
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartState(entity, STATE_ROAR);
+                                stateMachine.StartSubState(entity, RoarState.ANIMATION_SUBSTATE_APPEAR_START);
+                            }
+                        }
+                        break;
+                }
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                CheckDeath(entity);
+            }
+            public const int SUBSTATE_FLY = 0;
+            public const int SUBSTATE_GLIDE = 1;
+            public const int SUBSTATE_LAND = 2;
+            public const int ANIMATION_SUBSTATE_FLY = 1;
+            public const int ANIMATION_SUBSTATE_GLIDE = 2;
+            public const int ANIMATION_SUBSTATE_LAND = 3;
+        }
+        #endregion
+
         #region 待命
         private static bool CanSwitchStatePhase1(Entity entity, int state)
         {
@@ -1024,6 +1133,8 @@ namespace MVZ2.GameContent.Bosses
                         return ANIMATION_SUBSTATE_ROAR;
                     case SUBSTATE_END:
                         return ANIMATION_SUBSTATE_END;
+                    case SUBSTATE_APPEAR_START:
+                        return ANIMATION_SUBSTATE_APPEAR_START;
                 }
                 return base.GetAnimationSubstate(substate);
             }
@@ -1042,6 +1153,7 @@ namespace MVZ2.GameContent.Bosses
                 switch (substate)
                 {
                     case SUBSTATE_START:
+                    case SUBSTATE_APPEAR_START:
                         if (timer.Expired)
                         {
                             Roar(entity);
@@ -1083,9 +1195,11 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_ROAR = 1;
             public const int SUBSTATE_END = 2;
+            public const int SUBSTATE_APPEAR_START = 3;
             public const int ANIMATION_SUBSTATE_START = 0;
             public const int ANIMATION_SUBSTATE_ROAR = 1;
             public const int ANIMATION_SUBSTATE_END = 2;
+            public const int ANIMATION_SUBSTATE_APPEAR_START = 3;
 
         }
         #endregion
@@ -1588,6 +1702,7 @@ namespace MVZ2.GameContent.Bosses
             public const int ANIMATION_SUBSTATE_COUNTERCLOCKWISE = 3;
         }
         #endregion
+
         public const float FIRE_BREATH_ANGLE_START = -30;
         public const float FIRE_BREATH_ANGLE_END = 30;
         private static RedDragonStateMachine stateMachine = new RedDragonStateMachine();
