@@ -75,7 +75,6 @@ namespace MVZ2.GameContent.Effects
                 case STATE_IDLE:
                     {
                         var speed = entity.Level.GetCrushingWallsSpeed();
-                        var difficulty = entity.Level.Difficulty;
 
                         progress += speed * 0.01f / 30f;
                         progress = Mathf.Clamp01(progress);

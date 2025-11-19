@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Projectiles
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetProperty(PROP_TRIGGER_TIMER, TimerHelper.NewSecondTimer(TRIGGER_SECONDS));
+            SetTriggerTimer(entity, TimerHelper.NewSecondTimer(TRIGGER_SECONDS));
             entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_BOSS;
         }
         public override void PostCollision(EntityCollision collision, int state)
@@ -132,6 +132,17 @@ namespace MVZ2.GameContent.Projectiles
             entity.SetFaction(source.GetFaction());
             entity.Velocity = source.GetFacingDirection() * 10;
         }
+        public static void SetTriggerTime(Entity entity, float seconds)
+        {
+            var timer = GetTriggerTimer(entity);
+            if (timer == null)
+            {
+                return;
+            }
+            timer.ResetSeconds(seconds);
+        }
+        public static void SetTriggerTimer(Entity entity, FrameTimer? value) => entity.SetProperty(PROP_TRIGGER_TIMER, value);
+        public static FrameTimer? GetTriggerTimer(Entity entity) => entity.GetProperty<FrameTimer>(PROP_TRIGGER_TIMER);
         public const float TRIGGER_SECONDS = 10f;
         public const float EXPLODE_SECONDS = 1f;
         public const float FIRE_DAMAGE_DIVISOR = 600f;

@@ -5,6 +5,7 @@ using System.Linq;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Shells;
@@ -108,7 +109,7 @@ namespace MVZ2.GameContent.Bosses
                 {
                     case SUBSTATE_FLY:
                         {
-                            entity.Velocity = entity.GetFacingDirection() * -100; // 向右飞，但是仍面朝左侧，只是模型旋转了180度。
+                            entity.Velocity = entity.GetFacingDirection() * -FLY_SPEED; // 向右飞，但是仍面朝左侧，只是模型旋转了180度。
                             if (timer.PassedIntervalSeconds(0.5f))
                             {
                                 entity.PlaySound(VanillaSoundID.dragonWings);
@@ -125,7 +126,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_GLIDE:
                         var middleLane = entity.Level.GetMaxLaneCount() / 2;
                         var targetPosition = GetJumpBorderPositionByLane(entity, middleLane);
-                        entity.Velocity = (targetPosition - entity.Position).normalized * 100;
+                        entity.Velocity = (targetPosition - entity.Position).normalized * FLY_SPEED;
                         if (entity.IsOnGround)
                         {
                             entity.Level.ShakeScreen(20, 0, 30);
@@ -773,26 +774,44 @@ namespace MVZ2.GameContent.Bosses
 
             private void ShootTornado(Entity entity)
             {
+                var level = entity.Level;
                 var variant = Tornado.VARIANT_NORMAL;
                 var speed = 2;
+                int count = 1;
                 bool phase2 = GetPhase(entity) == PHASE_2;
                 if (phase2)
                 {
                     variant = Tornado.VARIANT_FIRE;
                     speed = 4;
                 }
+                else
+                {
+                    count = level.GetRedDragonTornadoCount();
+                }
 
                 var param = entity.GetSpawnParams();
                 param.SetProperty(VanillaEntityProps.VARIANT, variant);
-                var position = GetTornadoSourcePosition(entity);
-                entity.Spawn(VanillaEffectID.tornado, position, param)?.Let(e =>
+
+                var lane = entity.GetLane();
+                for (int i = 0; i < count; i++)
                 {
-                    e.Velocity = entity.GetFacingDirection() * speed;
-                    if (phase2)
+                    var laneOffsetLength = (i + 1) / 2;
+                    var laneOffsetDirection = (i % 2) * 2 - 1;
+                    var laneOffset = laneOffsetDirection * laneOffsetLength;
+                    var targetLane = lane + laneOffset;
+                    if (targetLane < 0 || targetLane >= level.GetMaxLaneCount())
+                        continue;
+                    var position = GetTornadoSourcePosition(entity);
+                    position.z = level.GetEntityLaneZ(targetLane);
+                    entity.Spawn(VanillaEffectID.tornado, position, param)?.Let(e =>
                     {
-                        e.PlaySound(VanillaSoundID.refuel);
-                    }
-                });
+                        e.Velocity = entity.GetFacingDirection() * speed;
+                        if (phase2)
+                        {
+                            e.PlaySound(VanillaSoundID.refuel);
+                        }
+                    });
+                }
             }
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_FLAP_1 = 1;
@@ -995,8 +1014,17 @@ namespace MVZ2.GameContent.Bosses
             SetEatenFlags(entity, 0);
             Stun(entity, SELF_EXPLODE_STUN_SECONDS);
             entity.PlaySound(VanillaSoundID.dragonHit);
+            float damage;
+            if (entity.Level.IsBossRevenge())
+            {
+                damage = 1800;
+            }
+            else
+            {
+                damage = entity.GetMaxHealth() * 0.5f;
+            }
             var damageEffects = new DamageEffectList(VanillaDamageEffects.BYPASS_BOSS_ARMOR, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.EXPLOSION);
-            entity.TakeDamage(entity.GetMaxHealth() * 0.5f, damageEffects, entity);
+            entity.TakeDamage(damage, damageEffects, entity);
         }
         private class FireBreathState : EntityStateMachineState
         {
@@ -1269,13 +1297,20 @@ namespace MVZ2.GameContent.Bosses
 
             private void CreateLargeFireball(Entity entity)
             {
+                var level = entity.Level;
+                var speed = level.GetRedDragonGiantFireballSpeed();
+
                 var param = entity.GetShootParams();
                 param.projectileID = VanillaProjectileID.explosiveLargeFireball;
-                param.velocity = GetNeckDirection(entity) * 1;
+                param.velocity = GetNeckDirection(entity) * speed;
                 param.position = GetSpitSourcePosition(entity) + Vector3.down * 20; // 离地有一定距离
                 param.soundID = VanillaSoundID.dragonBreath;
                 param.damage = entity.GetDamage() * 18;
-                entity.ShootProjectile(param);
+                entity.ShootProjectile(param)?.Let(p =>
+                {
+                    var triggerTime = ExplosiveLargeFireball.TRIGGER_SECONDS / speed;
+                    ExplosiveLargeFireball.SetTriggerTime(p, triggerTime);
+                });
                 entity.PlaySound(VanillaSoundID.refuel);
             }
             public const int SUBSTATE_START = 0;
@@ -1459,7 +1494,7 @@ namespace MVZ2.GameContent.Bosses
                             if (timer.Expired)
                             {
                                 stateMachine.StartSubState(entity, SUBSTATE_GLIDE);
-                                timer.ResetSeconds(1f);
+                                timer.ResetSeconds(1.5f); // 这个时间会影响灭火的反应时间，算上飞走和飞回的时间，算是两倍
 
                                 var targetLane = FindRandomLaneWithEnemy(entity);
                                 var position = entity.Position;
@@ -1474,7 +1509,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_GLIDE:
                         ShootBreath(entity);
                         entity.Level.ShakeScreen(10, 0, 2);
-                        entity.Velocity = entity.GetFacingDirection() * 100;
+                        entity.Velocity = entity.GetFacingDirection() * FLY_SPEED;
                         if (timer.Expired)
                         {
                             SetRotation(entity, 180);
@@ -1484,7 +1519,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_GLIDE_BACK:
                         var middleLane = entity.Level.GetMaxLaneCount() / 2;
                         var targetPosition = GetJumpBorderPositionByLane(entity, middleLane);
-                        entity.Velocity = (targetPosition - entity.Position).normalized * 100;
+                        entity.Velocity = (targetPosition - entity.Position).normalized * FLY_SPEED;
                         if (entity.IsOnGround)
                         {
                             entity.Level.ShakeScreen(20, 0, 30);
@@ -1537,8 +1572,9 @@ namespace MVZ2.GameContent.Bosses
             }
             private void DetonateFireGrids(Entity entity)
             {
-                float radius = 32;
-                foreach (var fire in entity.Level.FindEntities(e => e.IsEntityOf(VanillaEffectID.gridFire) && entity.IsFriendly(entity)))
+                var level = entity.Level;
+                float radius = level.GetRedDragonFireExplosionRadius();
+                foreach (var fire in level.FindEntities(e => e.IsEntityOf(VanillaEffectID.gridFire) && entity.IsFriendly(entity)))
                 {
                     var center = fire.GetCenter();
                     var damage = entity.GetDamage() * FIRE_EXPLOSION_DAMAGE_MULTIPLIER;

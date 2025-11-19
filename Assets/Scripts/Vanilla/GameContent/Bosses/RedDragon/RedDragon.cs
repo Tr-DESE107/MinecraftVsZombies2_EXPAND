@@ -133,7 +133,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<int> PROP_JUMP_FINISH_STATE = new VanillaEntityPropertyMeta<int>("jump_finish_state", -1);
         private static readonly VanillaEntityPropertyMeta<float> PROP_HEAD_ROTATION = new VanillaEntityPropertyMeta<float>("head_rotation");
         private static readonly VanillaEntityPropertyMeta<float> PROP_ROTATION = new VanillaEntityPropertyMeta<float>("rotation");
-        private static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1);
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("jump_target");
         private static readonly VanillaEntityPropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaEntityPropertyMeta<Color>("tint_multiplier", Color.white);
         private static readonly VanillaEntityPropertyMeta<List<NamespaceID>> PROP_EATEN_ENTITIES = new VanillaEntityPropertyMeta<List<NamespaceID>>("eaten_entities");
@@ -195,6 +195,7 @@ namespace MVZ2.GameContent.Bosses
         public const int METEOR_COUNT = 3;
         public static readonly Vector3 METEOR_HSV_OFFSET = new Vector3(-30f, 0, 0);
 
+        public const float FLY_SPEED = 50f;
         public const float FIRE_EXPLOSION_DAMAGE_MULTIPLIER = 3;
 
         public const int TAIL_SWIPE_COLUMN_RANGE = 6;

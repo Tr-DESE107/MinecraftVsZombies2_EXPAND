@@ -48,6 +48,9 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly VanillaDifficultyPropertyMeta<float> WITHER_REGENERATION = Get<float>("witherRegeneration", 1);
         public static readonly VanillaDifficultyPropertyMeta<bool> WITHER_SKULL_WITHERS_TARGET = Get<bool>("witherSkullWithersTarget");
         public static readonly VanillaDifficultyPropertyMeta<bool> THE_GIANT_IS_MALLEABLE = Get<bool>("theGiantIsMalleable");
+        public static readonly VanillaDifficultyPropertyMeta<float> RED_DRAGON_FIRE_EXPLOSION_RADIUS = Get<float>("red_dragon_fire_explosion_radius", 32f);
+        public static readonly VanillaDifficultyPropertyMeta<float> RED_DRAGON_GIANT_FIREBALL_SPEED = Get<float>("red_dragon_giant_fireball_speed", 1f);
+        public static readonly VanillaDifficultyPropertyMeta<int> RED_DRAGON_TORNADO_COUNT = Get<int>("red_dragon_tornado_count", 3);
 
         public static bool FrankensteinNoSteelPhase(this LevelEngine level) => level.GetProperty<bool>(FRANKENSTEIN_NO_STEEL);
         public static bool FrankensteinInstantSteelPhase(this LevelEngine level) => level.GetProperty<bool>(FRANKENSTEIN_INSTANT_STEEL);
@@ -61,6 +64,9 @@ namespace MVZ2.GameContent.Difficulties
         public static float GetWitherRegeneration(this LevelEngine level) => level.GetProperty<float>(WITHER_REGENERATION);
         public static bool WitherSkullWithersTarget(this LevelEngine level) => level.GetProperty<bool>(WITHER_SKULL_WITHERS_TARGET);
         public static bool TheGiantIsMalleable(this LevelEngine level) => level.GetProperty<bool>(THE_GIANT_IS_MALLEABLE);
+        public static float GetRedDragonFireExplosionRadius(this LevelEngine level) => level.GetProperty<float>(RED_DRAGON_FIRE_EXPLOSION_RADIUS);
+        public static float GetRedDragonGiantFireballSpeed(this LevelEngine level) => level.GetProperty<float>(RED_DRAGON_GIANT_FIREBALL_SPEED);
+        public static int GetRedDragonTornadoCount(this LevelEngine level) => level.GetProperty<int>(RED_DRAGON_TORNADO_COUNT);
 
         // Level
         public static readonly VanillaDifficultyPropertyMeta<float> STARSHARD_CARRIER_COUNTER_INCREAMENT = Get<float>("starshardCarrierCounterIncreament", 1f);
