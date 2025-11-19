@@ -204,7 +204,7 @@ namespace MVZ2.Store
                     {
                         return;
                     }
-                     Main.SaveManager.AddMoney(-price);
+                    Main.SaveManager.AddMoney(-price);
                     Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
                     Main.SaveManager.SaveToFile(); // 购买物品后保存游戏
                     UpdateMoney();

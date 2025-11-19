@@ -703,6 +703,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fc841fb9e17aad4eb59243fd0144927
+    m_Address: mvz2:misc/red_dragon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0fd484fcbd2c9ed4dbad79aa98011525
     m_Address: mvz2:entity/effects/shine_ring
     m_ReadOnly: 0
@@ -3087,6 +3094,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4336090f31f575f439b5673e5dc6e8c4
+    m_Address: mvz2:ship_boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4339bf5f9f84c374c80373f3c986dc65
     m_Address: mvz2:ui/level/pickaxe_slot
@@ -5740,6 +5754,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e371a692db43054c88eb8560c9ebd74
+    m_Address: mvz2:misc/end_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e530d21185c00548b56d2627d93d61f
     m_Address: mvz2:iron_curtain
     m_ReadOnly: 0
@@ -8141,6 +8162,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b522d5e4d42cf19448322c74ae697a63
+    m_Address: mvz2:misc/visitor_which_finding_child
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b54bd6db18c4f8d418444457577bbd31
     m_Address: mvz2:misc/steves_house
     m_ReadOnly: 0
@@ -9515,6 +9543,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d45f50a6e09e447469497cf77a6d16b5
     m_Address: mvz2:ui/level/progress_bar/the_giant_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d48244988b1911e418e1b2b636f88599
+    m_Address: mvz2:arcade/red_dragons_revenge
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

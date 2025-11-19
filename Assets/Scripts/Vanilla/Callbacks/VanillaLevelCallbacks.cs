@@ -25,7 +25,7 @@ namespace MVZ2.Vanilla.Callbacks
 
             public WaveEnemySpawnParams(LevelEngine level, int wave, float maxPoints)
             {
-                this.level = level; 
+                this.level = level;
                 this.wave = wave;
                 this.maxPoints = maxPoints;
             }

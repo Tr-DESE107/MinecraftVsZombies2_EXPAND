@@ -5,8 +5,6 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using Tools;
-using UnityEngine;
-using static MVZ2.GameContent.Bosses.Nightmareaper;
 
 namespace MVZ2.Vanilla.Entities
 {

@@ -2,10 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Buffs.Carts;
-using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
@@ -20,11 +17,8 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -1293,7 +1287,7 @@ namespace MVZ2.GameContent.Bosses
 
         }
         #endregion
-        
+
         #region 向天喷射
         private class SpitUpState : EntityStateMachineState
         {

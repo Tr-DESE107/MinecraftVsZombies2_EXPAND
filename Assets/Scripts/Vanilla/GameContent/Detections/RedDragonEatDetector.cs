@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Bosses;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
 using UnityEngine;
 

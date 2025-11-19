@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ghast = GetFromEntity(VanillaEnemyID.ghast);
 
         public static readonly NamespaceID mutantZombie = GetFromEntity(VanillaEnemyID.mutantZombie);
-        
+
 
         public static readonly NamespaceID boneWall = GetFromEntity(VanillaEnemyID.boneWall);
         public static readonly NamespaceID napstablook = GetFromEntity(VanillaEnemyID.napstablook);

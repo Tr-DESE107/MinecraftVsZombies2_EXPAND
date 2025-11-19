@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Stages
                 level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
                 targetEnemy
                     ?.Run(e => level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy))
-                    ?.Let(e => 
+                    ?.Let(e =>
                     {
                         Frankenstein.DoTransformationEffects(e);
                         e.ApplyBuffForBossRevenge();

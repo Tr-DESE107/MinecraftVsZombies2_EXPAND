@@ -4,11 +4,9 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Bosses
