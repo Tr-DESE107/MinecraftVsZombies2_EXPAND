@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-11 09:26+0800\n"
+"POT-Creation-Date: 2025-11-19 05:25+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -841,47 +841,47 @@ msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
 
 # 梦魇对话框标题
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
 msgid "选择你的命运"
 msgstr ""
 
 # 梦魇对话框文本
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
 msgid "选吧。"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:505
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
 msgid "潘多拉的魔盒"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:507
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
 msgid "尸潮"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:509
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
 msgid "衰老"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:511
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
 msgid "疯狂"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:513
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:505
 msgid "成真"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:515
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:507
 msgid "深潜者"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:517
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:509
 msgid "黑太阳"
 msgstr ""
 
@@ -3012,6 +3012,36 @@ msgctxt "levelname"
 msgid "飞碟闪电战"
 msgstr ""
 
+#. Name for stage mvz2:frankensteins_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "科学怪人的复仇"
+msgstr ""
+
+#. Name for stage mvz2:nightmares_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦魇的复仇"
+msgstr ""
+
+#. Name for stage mvz2:withers_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "凋灵的复仇"
+msgstr ""
+
+#. Name for stage mvz2:the_giants_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "巨人的复仇"
+msgstr ""
+
+#. Name for stage mvz2:red_dragons_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "红龙的复仇"
+msgstr ""
+
 #. Name for stage mvz2:puzzle_i_zombie
 #: Stage meta file
 msgctxt "levelname"
@@ -3947,6 +3977,22 @@ msgid ""
 "有的人一辈子活在亲人死亡的阴影中，有的人则活在万人赞颂的光芒之下。\n"
 "下面的人想飞上来，上面的人却也想落下去。\n"
 "然而，这重重阴云把他们隔开，怎么也无法如愿。"
+msgstr ""
+
+#. Name for music mvz2:ship_boss
+#: Music meta file
+msgctxt "music.name"
+msgid "美猴王-头目"
+msgstr ""
+
+#. Description for music mvz2:ship_boss
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"红龙的音乐。\n"
+"在《书虫大冒险 Vol.2》中，主角Lex在《美猴王》这本书中击败了强大的敌人，得到了许多珍贵的宝物，结识了黄飞鸿和美猴王这两位同伴，并最终击败了四大天王和二郎神，到达了天庭。\n"
+"玉皇大帝告诉他，Lex的旅程尚未结束，他们发现了一种威胁，一种威胁到所有书中世界的威胁。Lex觉得这是邪恶Lex所为，但玉皇大帝却认为，Lex无法击败邪恶Lex的。\n"
+"最终，Lex离开了这本书，再次了回到图书馆。"
 msgstr ""
 
 #. Name for archive tag mvz2:prologue

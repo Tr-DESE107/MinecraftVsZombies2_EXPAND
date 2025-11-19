@@ -96,16 +96,13 @@ namespace MVZ2.GameContent.Stages
         {
             base.AfterBossWaveUpdate(level);
             ClearEnemies(level);
-            if (!level.IsRerun)
+            if (!level.IsRerun && level.IsAdventure())
             {
-                if (!level.IsCleared)
+                if (!level.IsCleared && !level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
                 {
-                    if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
+                    if (!level.HasBuff<RedDragonClearedBuff>())
                     {
-                        if (!level.HasBuff<RedDragonClearedBuff>())
-                        {
-                            level.AddBuff<RedDragonClearedBuff>();
-                        }
+                        level.AddBuff<RedDragonClearedBuff>();
                     }
                 }
             }

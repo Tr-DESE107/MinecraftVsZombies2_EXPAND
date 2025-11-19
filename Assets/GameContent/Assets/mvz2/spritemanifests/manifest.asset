@@ -49,6 +49,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2f65e88c41fd23d4987bba1066e05ba3, type: 3}
   - name: arcade/nightmares_revenge
     sprite: {fileID: 21300000, guid: eb0eb64f7392deb41831563ed71fa81a, type: 3}
+  - name: arcade/red_dragons_revenge
+    sprite: {fileID: 21300000, guid: d48244988b1911e418e1b2b636f88599, type: 3}
   - name: arcade/the_giants_revenge
     sprite: {fileID: 21300000, guid: 0d4b43785901a8f4390699a767958f94, type: 3}
   - name: arcade/ufo_blitz
@@ -979,8 +981,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7513cd2470186434dac756e22275249b, type: 3}
   - name: level/ship/ship_back
     sprite: {fileID: 21300000, guid: 0d763afc8cc9cb644953bb63087e098a, type: 3}
+  - name: level/ship/ship_back_2
+    sprite: {fileID: 21300000, guid: e80ea5436acf0b544906c4d53a5919e4, type: 3}
   - name: level/ship/ship_depth
     sprite: {fileID: 21300000, guid: 7bf9c6f0c642bdd42af1ea3a5cb5bdbc, type: 3}
+  - name: level/ship/ship_depth_2
+    sprite: {fileID: 21300000, guid: 3197d6937f6ec6b489717190a1a006f8, type: 3}
   - name: level/ship/sky
     sprite: {fileID: 21300000, guid: 13f4669be302ba24296364d49d0b1219, type: 3}
   - name: map/castle/map
