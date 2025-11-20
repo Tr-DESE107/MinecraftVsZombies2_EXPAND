@@ -1564,6 +1564,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 225d38786ef5c7c438cda9d1e948a93a
+    m_Address: mvz2:effect/fallen_end_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 227276bdfee6c7545b14314ef224f18b
     m_Address: mvz2:random/wood3
     m_ReadOnly: 0
