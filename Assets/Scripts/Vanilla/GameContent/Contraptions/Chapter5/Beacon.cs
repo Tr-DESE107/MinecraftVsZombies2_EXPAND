@@ -55,25 +55,6 @@ namespace MVZ2.GameContent.Contraptions
                 var evoTimer = GetEvocationTimer(entity);
                 if (evoTimer.RunToExpiredAndNotNull())
                 {
-                    // 转化所有敌对的陨石Buff。
-                    var faction = entity.GetFaction();
-                    foreach (var enemyBuff in entity.Level.GetBuffs<BeaconMeteorBuff>())
-                    {
-                        if (!EngineEntityExt.IsHostile(faction, BeaconMeteorBuff.GetFaction(enemyBuff)))
-                            continue;
-                        BeaconMeteorBuff.SetFaction(enemyBuff, faction);
-                        BeaconMeteorBuff.SetDamage(enemyBuff, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
-                        BeaconMeteorBuff.SetHSVOffset(enemyBuff, Vector3.zero);
-                    }
-
-                    // 添加陨石BUFF。
-                    var buff = entity.Level.NewBuff<BeaconMeteorBuff>();
-                    BeaconMeteorBuff.SetFaction(buff, faction);
-                    BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
-                    BeaconMeteorBuff.SetCount(buff, EVOCATION_METEOR_COUNT);
-                    BeaconMeteorBuff.SetRNG(buff, new RandomGenerator(entity.RNG.Next()));
-                    entity.Level.AddBuff(buff);
-
                     entity.SetEvoked(false);
                 }
             }
@@ -114,6 +95,26 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
             var timer = GetEvocationTimer(entity);
             timer?.Reset();
+
+
+            // 转化所有敌对的陨石Buff。
+            var faction = entity.GetFaction();
+            foreach (var enemyBuff in entity.Level.GetBuffs<BeaconMeteorBuff>())
+            {
+                if (!EngineEntityExt.IsHostile(faction, BeaconMeteorBuff.GetFaction(enemyBuff)))
+                    continue;
+                BeaconMeteorBuff.SetFaction(enemyBuff, faction);
+                BeaconMeteorBuff.SetDamage(enemyBuff, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
+                BeaconMeteorBuff.SetHSVOffset(enemyBuff, Vector3.zero);
+            }
+
+            // 添加陨石BUFF。
+            var buff = entity.Level.NewBuff<BeaconMeteorBuff>();
+            BeaconMeteorBuff.SetFaction(buff, faction);
+            BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
+            BeaconMeteorBuff.SetCount(buff, EVOCATION_METEOR_COUNT);
+            BeaconMeteorBuff.SetRNG(buff, new RandomGenerator(entity.RNG.Next()));
+            entity.Level.AddBuff(buff);
         }
         public static FrameTimer? GetShootTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_SHOOT_TIMER);
         public static void SetShootTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_SHOOT_TIMER, timer);

@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Buffs.Level
         public override void OnCreate(Buff buff)
         {
             base.OnCreate(buff);
-            SetTimer(buff, new FrameTimer(30));
+            SetTimer(buff, new FrameTimer(90));
             SetState(buff, STATE_WAIT);
         }
         public override void PostUpdate(Buff buff)

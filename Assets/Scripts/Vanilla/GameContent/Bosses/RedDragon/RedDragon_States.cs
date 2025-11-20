@@ -1621,6 +1621,16 @@ namespace MVZ2.GameContent.Bosses
                             entity.PlaySound(VanillaSoundID.dragonGrowl);
                             stateMachine.StartSubState(entity, SUBSTATE_SPIT);
                             timer.ResetSeconds(2f);
+
+
+                            var buff = entity.Level.NewBuff<BeaconMeteorBuff>();
+                            BeaconMeteorBuff.SetFaction(buff, entity.GetFaction());
+                            BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * METEOR_DAMAGE_MULTIPLIER);
+                            BeaconMeteorBuff.SetCount(buff, METEOR_COUNT);
+                            BeaconMeteorBuff.SetHSVOffset(buff, METEOR_HSV_OFFSET);
+                            BeaconMeteorBuff.SetRNG(buff, new RandomGenerator(entity.RNG.Next()));
+                            entity.Level.AddBuff(buff);
+
                         }
                         break;
                     case SUBSTATE_SPIT:
@@ -1630,14 +1640,6 @@ namespace MVZ2.GameContent.Bosses
                         }
                         if (timer.Expired)
                         {
-                            var buff = entity.Level.NewBuff<BeaconMeteorBuff>();
-                            BeaconMeteorBuff.SetFaction(buff, entity.GetFaction());
-                            BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * METEOR_DAMAGE_MULTIPLIER);
-                            BeaconMeteorBuff.SetCount(buff, METEOR_COUNT);
-                            BeaconMeteorBuff.SetHSVOffset(buff, METEOR_HSV_OFFSET);
-                            BeaconMeteorBuff.SetRNG(buff, new RandomGenerator(entity.RNG.Next()));
-                            entity.Level.AddBuff(buff);
-
                             SetFireInMouth(entity, false);
                             stateMachine.StartSubState(entity, SUBSTATE_END);
                             timer.ResetSeconds(0.5f);
