@@ -526,10 +526,12 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_OUTER_LIFT:
                         return ANIMATION_SUBSTATE_OUTER_LIFT;
                     case SUBSTATE_OUTER_SMASH:
+                    case SUBSTATE_OUTER_SMASHED:
                         return ANIMATION_SUBSTATE_OUTER_SMASH;
                     case SUBSTATE_INNER_LIFT:
                         return ANIMATION_SUBSTATE_INNER_LIFT;
                     case SUBSTATE_INNER_SMASH:
+                    case SUBSTATE_INNER_SMASHED:
                         return ANIMATION_SUBSTATE_INNER_SMASH;
                 }
                 return 0;
@@ -768,6 +770,8 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_REFORMED:
                         return ANIMATION_SUBSTATE_REFROMED;
                     case SUBSTATE_PACMAN:
+                    case SUBSTATE_PACMAN_DEATH:
+                    case SUBSTATE_PACMAN_END:
                         return ANIMATION_SUBSTATE_PACMAN;
                 }
                 return 0;
@@ -1002,6 +1006,8 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_REFORMED:
                         return ANIMATION_SUBSTATE_REFROMED;
                     case SUBSTATE_SNAKE:
+                    case SUBSTATE_SNAKE_DEATH:
+                    case SUBSTATE_SNAKE_END:
                         return ANIMATION_SUBSTATE_SNAKE;
                 }
                 return 0;
