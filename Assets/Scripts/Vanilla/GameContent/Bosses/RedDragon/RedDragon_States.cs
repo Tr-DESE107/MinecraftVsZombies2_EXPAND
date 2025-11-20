@@ -680,9 +680,16 @@ namespace MVZ2.GameContent.Bosses
             }
             private void DestroyShipEntities(Entity dragon)
             {
-                foreach (var entity in dragon.Level.FindEntities(e => e.GetColumn() > 1 && e.IsVulnerableEntity() && e.ExistsAndAlive()))
+                foreach (var entity in dragon.Level.FindEntities(e => e.GetColumn() > 1 && e.ExistsAndAlive()))
                 {
-                    entity.Die(new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), dragon);
+                    if (entity.IsVulnerableEntity())
+                    {
+                        entity.Die(new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), dragon);
+                    }
+                    else if (entity.IsEntityOf(VanillaEffectID.gridFire))
+                    {
+                        entity.Remove();
+                    }
                 }
             }
             private void DestroyShipGrids(Entity dragon)
