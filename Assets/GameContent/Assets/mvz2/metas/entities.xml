@@ -3520,5 +3520,14 @@
                 <color name="mvz2:lightColor" value="#FFAA00" />
             </properties>
         </effect>
+        <effect id="fallen_end_ship">
+            <behaviours includeSelf="false"/>
+            <properties>
+                <string name="mvz2:sortingLayer" value="Background" />
+                <float name="mvz2:gravity" value="1"/>
+                <float name="mvz2:groundLimitOffset" value="-2000"/>
+                <int name="mvz2:maxTimeout" value="90" />
+            </properties>
+        </effect>
     </entries>
 </entities>

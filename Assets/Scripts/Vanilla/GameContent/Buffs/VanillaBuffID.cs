@@ -74,6 +74,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 5
             public const string waterStainWet = "water_stain_wet";
             public const string goldenGrid = "golden_grid";
+            public const string shipBrokenGrid = "ship_broken_grid";
         }
         public static class Entity
         {
@@ -395,6 +396,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 5
             public static readonly NamespaceID waterStainWet = Get(VanillaBuffNames.Grid.waterStainWet);
             public static readonly NamespaceID goldenGrid = Get(VanillaBuffNames.Grid.goldenGrid);
+            public static readonly NamespaceID shipBrokenGrid = Get(VanillaBuffNames.Grid.shipBrokenGrid);
         }
         public static class Entity
         {

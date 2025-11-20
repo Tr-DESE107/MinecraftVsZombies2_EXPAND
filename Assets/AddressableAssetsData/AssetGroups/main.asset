@@ -1263,6 +1263,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1af0b1831d8e64641ad5caca61364c6c
+    m_Address: mvz2:level/ship/end_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1affba9129ab411489955b3026819333
     m_Address: mvz2:random/netherrack/break5
     m_ReadOnly: 0
@@ -5599,6 +5606,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bbdb1cb55aa9ed4c87ba2033ff9a7f0
+    m_Address: mvz2:dragon/end
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7bf48cdb4ddd8074c8c39a084c5e181f
     m_Address: mvz2:entity/enemy/bone_wall
@@ -10298,7 +10312,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e80ea5436acf0b544906c4d53a5919e4
-    m_Address: mvz2:level/ship/ship_back_2
+    m_Address: mvz2:level/ship/deck
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -37,6 +37,6 @@ namespace MVZ2.GameContent.Buffs.Level
             }
         }
         public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
-        public const int MAX_TIMEOUT = 150;
+        public const int MAX_TIMEOUT = 480;
     }
 }

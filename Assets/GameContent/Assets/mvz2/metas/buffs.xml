@@ -193,6 +193,7 @@
     <buff id="beacon_meteor_no_destroy" polarity="none" level="5000" target="projectile" />
     <buff id="red_dragon_transition" polarity="none" level="5000" target="level" />
     <buff id="red_dragon_cleared" polarity="none" level="5000" target="level" />
+    <buff id="ship_broken_grid" polarity="none" level="5000" target="grid" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />

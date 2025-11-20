@@ -25,6 +25,9 @@ namespace MVZ2.GameContent.Bosses
         {
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, PROP_GRAVITY_MULTIPLIER));
+            AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, PROP_GROUND_LIMIT_OFFSET));
+            AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, PROP_INVINCIBLE));
+            AddModifier(new BooleanModifier(VanillaEntityProps.INVISIBLE, PROP_INVINCIBLE));
         }
 
         #region 回调
@@ -106,12 +109,16 @@ namespace MVZ2.GameContent.Bosses
         #region 字段
         public static bool GetFireInMouth(Entity entity) => entity.GetBehaviourField<bool>(PROP_FIRE_IN_MOUTH);
         public static void SetFireInMouth(Entity entity, bool value) => entity.SetBehaviourField(PROP_FIRE_IN_MOUTH, value);
+        public static bool GetInvincible(Entity entity) => entity.GetBehaviourField<bool>(PROP_INVINCIBLE);
+        public static void SetInvincible(Entity entity, bool value) => entity.SetBehaviourField(PROP_INVINCIBLE, value);
         public static float GetHeadRotation(Entity entity) => entity.GetBehaviourField<float>(PROP_HEAD_ROTATION);
         public static void SetHeadRotation(Entity entity, float value) => entity.SetBehaviourField(PROP_HEAD_ROTATION, value);
         public static float GetRotation(Entity entity) => entity.GetBehaviourField<float>(PROP_ROTATION);
         public static void SetRotation(Entity entity, float value) => entity.SetBehaviourField(PROP_ROTATION, value);
         public static float GetGravityMultiplier(Entity entity) => entity.GetBehaviourField<float>(PROP_GRAVITY_MULTIPLIER);
         public static void SetGravityMultiplier(Entity entity, float value) => entity.SetBehaviourField(PROP_GRAVITY_MULTIPLIER, value);
+        public static float GetGroundLimitOffset(Entity entity) => entity.GetBehaviourField<float>(PROP_GROUND_LIMIT_OFFSET);
+        public static void SetGroundLimitOffset(Entity entity, float value) => entity.SetBehaviourField(PROP_GROUND_LIMIT_OFFSET, value);
         public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static int GetEatenFlags(Entity entity) => entity.GetBehaviourField<int>(PROP_EATEN_FLAGS);
@@ -128,12 +135,14 @@ namespace MVZ2.GameContent.Bosses
 
         #region 常量
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FIRE_IN_MOUTH = new VanillaEntityPropertyMeta<bool>("fire_in_mouth");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_INVINCIBLE = new VanillaEntityPropertyMeta<bool>("invincible");
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
         private static readonly VanillaEntityPropertyMeta<int> PROP_EATEN_FLAGS = new VanillaEntityPropertyMeta<int>("eaten_flags");
         private static readonly VanillaEntityPropertyMeta<int> PROP_JUMP_FINISH_STATE = new VanillaEntityPropertyMeta<int>("jump_finish_state", -1);
         private static readonly VanillaEntityPropertyMeta<float> PROP_HEAD_ROTATION = new VanillaEntityPropertyMeta<float>("head_rotation");
         private static readonly VanillaEntityPropertyMeta<float> PROP_ROTATION = new VanillaEntityPropertyMeta<float>("rotation");
         private static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1);
+        private static readonly VanillaEntityPropertyMeta<float> PROP_GROUND_LIMIT_OFFSET = new VanillaEntityPropertyMeta<float>("ground_limit_offset");
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("jump_target");
         private static readonly VanillaEntityPropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaEntityPropertyMeta<Color>("tint_multiplier", Color.white);
         private static readonly VanillaEntityPropertyMeta<List<NamespaceID>> PROP_EATEN_ENTITIES = new VanillaEntityPropertyMeta<List<NamespaceID>>("eaten_entities");
@@ -155,6 +164,8 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_SPIT_UP = VanillaBossStates.RED_DRAGON_SPIT_UP;
         public const int STATE_FLY = VanillaBossStates.RED_DRAGON_FLY;
         public const int STATE_TAIL_SWIPE = VanillaBossStates.RED_DRAGON_TAIL_SWIPE;
+        public const int STATE_DEATH_ROAR = VanillaBossStates.RED_DRAGON_DEATH_ROAR;
+        public const int STATE_DEATH_FLY = VanillaBossStates.RED_DRAGON_DEATH_FLY;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_APPEAR = 1;
@@ -167,6 +178,7 @@ namespace MVZ2.GameContent.Bosses
         public const int ANIMATION_STATE_SPIT_UP = 10004;
         public const int ANIMATION_STATE_FLY = 10005;
         public const int ANIMATION_STATE_TAIL_SWIPE = 10006;
+        public const int ANIMATION_STATE_DEATH_FLY = 10007;
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;

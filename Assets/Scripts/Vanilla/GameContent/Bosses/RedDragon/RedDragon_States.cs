@@ -2,6 +2,8 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
@@ -18,6 +20,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
@@ -34,6 +37,8 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new AppearState());
                 AddState(new StunnedState());
                 AddState(new DeathState());
+                AddState(new DeathRoarState());
+                AddState(new DeathFlyState());
                 AddState(new JumpState());
                 AddState(new SpitState());
                 AddState(new FlapWingsState());
@@ -59,7 +64,16 @@ namespace MVZ2.GameContent.Bosses
             var lane = entity.GetLane();
             return entity.Level.EntityExists(e => e.GetLane() == lane && entity.IsHostile(e) && e.IsVulnerableEntity());
         }
-
+        private static void Roar(Entity entity)
+        {
+            var param = entity.GetSpawnParams();
+            var position = GetSpitSourcePosition(entity);
+            entity.Spawn(VanillaEffectID.amplifiedRoar, position, param);
+            var time = Ticks.FromSeconds(ROAR_SECONDS);
+            entity.Level.ShakeScreen(15, 0, time);
+            entity.BossRoar(time);
+            entity.PlaySound(VanillaSoundID.dragonGrowl);
+        }
 
         #region 飞行
         private class AppearState : EntityStateMachineState
@@ -92,6 +106,8 @@ namespace MVZ2.GameContent.Bosses
                 position.z = entity.Level.GetEntityLaneZ(targetLane);
                 entity.Position = position;
                 SetGravityMultiplier(entity, 0);
+
+                SetInvincible(entity, true);
             }
             public override void OnExit(EntityStateMachine machine, Entity entity)
             {
@@ -264,6 +280,7 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.ResetSeconds(2f);
+                SetInvincible(entity, false);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -383,10 +400,15 @@ namespace MVZ2.GameContent.Bosses
         #region 死亡
         private class DeathState : EntityStateMachineState
         {
-            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_STUNNED) { }
+            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_DEATH) { }
             public override int GetAnimationSubstate(int substate)
             {
-                return 0;
+                switch (substate)
+                {
+                    case SUBSTATE_SPECIAL:
+                        return ANIMATION_SUBSTATE_END;
+                }
+                return ANIMATION_SUBSTATE_START;
             }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
@@ -418,8 +440,16 @@ namespace MVZ2.GameContent.Bosses
                         }
                         if (timer.Expired)
                         {
-                            stateMachine.StartSubState(entity, SUBSTATE_FADE);
-                            timer.ResetSeconds(2f);
+                            if (entity.Level.AreaID == VanillaAreaID.ship && !entity.Level.IsRerun && entity.Level.IsAdventure())
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_SPECIAL);
+                                timer.ResetSeconds(2f);
+                            }
+                            else
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_FADE);
+                                timer.ResetSeconds(2f);
+                            }
                         }
                         break;
                     case SUBSTATE_FADE:
@@ -441,11 +471,245 @@ namespace MVZ2.GameContent.Bosses
                             }
                         }
                         break;
+                    case SUBSTATE_SPECIAL:
+                        {
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartState(entity, STATE_DEATH_ROAR);
+                            }
+                        }
+                        break;
                 }
             }
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_FADE = 1;
             public const int SUBSTATE_DISAPPEAR = 2;
+            public const int SUBSTATE_SPECIAL = 3;
+            public const int ANIMATION_SUBSTATE_START = 0;
+            public const int ANIMATION_SUBSTATE_END = 1;
+        }
+        #endregion
+
+        #region 死亡吼叫
+        private class DeathRoarState : EntityStateMachineState
+        {
+            public DeathRoarState() : base(STATE_DEATH_ROAR, ANIMATION_STATE_SPIT) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        return ANIMATION_SUBSTATE_START;
+                    case SUBSTATE_ROAR:
+                        return ANIMATION_SUBSTATE_ROAR;
+                    case SUBSTATE_END:
+                        return ANIMATION_SUBSTATE_END;
+                }
+                return base.GetAnimationSubstate(substate);
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(1f);
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        if (timer.Expired)
+                        {
+                            Roar(entity);
+                            stateMachine.StartSubState(entity, SUBSTATE_ROAR);
+                            timer.ResetSeconds(ROAR_SECONDS);
+                        }
+                        break;
+                    case SUBSTATE_ROAR:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_END);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_DEATH_FLY);
+                        }
+                        break;
+                }
+            }
+
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_ROAR = 1;
+            public const int SUBSTATE_END = 2;
+            public const int ANIMATION_SUBSTATE_START = 0;
+            public const int ANIMATION_SUBSTATE_ROAR = 1;
+            public const int ANIMATION_SUBSTATE_END = 2;
+
+        }
+        #endregion
+
+        #region 死亡飞行
+        private class DeathFlyState : EntityStateMachineState
+        {
+            public DeathFlyState() : base(STATE_DEATH_FLY, ANIMATION_STATE_DEATH_FLY) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        return ANIMATION_SUBSTATE_START;
+                    case SUBSTATE_FLY:
+                    case SUBSTATE_DAMAGED:
+                        return ANIMATION_SUBSTATE_FLY;
+                    case SUBSTATE_FALL:
+                    case SUBSTATE_SMASHED:
+                        return ANIMATION_SUBSTATE_FALL;
+                }
+                return base.GetAnimationSubstate(substate);
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetSeconds(4 / 3f);
+                SetGravityMultiplier(entity, 0);
+                SetGroundLimitOffset(entity, -2000);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetGravityMultiplier(entity, 1);
+                SetGroundLimitOffset(entity, 0);
+            }
+            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
+            {
+                base.OnUpdateLogic(machine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        {
+                            if (timer.PassedIntervalSeconds(0.5f))
+                            {
+                                entity.PlaySound(VanillaSoundID.dragonWings);
+                            }
+                            entity.Velocity = Vector3.up * 10;
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_FLY);
+                                timer.ResetSeconds(5f);
+                                entity.PlaySound(VanillaSoundID.dragonGrowl);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_FLY:
+                        {
+                            if (timer.PassedIntervalSeconds(0.5f))
+                            {
+                                entity.PlaySound(VanillaSoundID.dragonWings);
+                            }
+                            entity.Velocity = Vector3.up * 5;
+                            if (timer.PassedIntervalSeconds(2f))
+                            {
+                                entity.PlaySound(VanillaSoundID.dragonGrowl);
+                            }
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_DAMAGED);
+                                timer.ResetSeconds(1f);
+
+                                entity.Level.ShakeScreen(10, 0, 15);
+                                entity.PlaySound(VanillaSoundID.dragonHit);
+                                SetGravityMultiplier(entity, 1);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_DAMAGED:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_FALL);
+                            entity.PlaySound(VanillaSoundID.dragonEnd);
+                        }
+                        break;
+                    case SUBSTATE_FALL:
+                        if (entity.IsOnGround)
+                        {
+                            SmashShip(entity);
+
+                            stateMachine.StartSubState(entity, SUBSTATE_SMASHED);
+                            timer.ResetSeconds(5f);
+                        }
+                        break;
+                    case SUBSTATE_SMASHED:
+                        if (timer.Expired)
+                        {
+                            entity.Remove();
+                        }
+                        break;
+                }
+            }
+
+            private void SmashShip(Entity entity)
+            {
+                entity.Level.ShakeScreen(30, 0, 60);
+                Explosion.Spawn(entity, entity.Position, 1000);
+                entity.PlaySound(VanillaSoundID.explosion);
+                entity.PlaySound(VanillaSoundID.meteorLand);
+                if (entity.Level.AreaID == VanillaAreaID.ship)
+                {
+                    var areaModel = entity.Level.GetAreaModelInterface();
+                    areaModel?.SetModelProperty("Broken", true);
+                    DestroyShipEntities(entity);
+                    DestroyShipGrids(entity);
+                    entity.Spawn(VanillaEffectID.fallenEndShip, new Vector3(VanillaLevelExt.LEVEL_WIDTH, 0, 0))?.Let(e =>
+                    {
+                        var velocity = e.Velocity;
+                        velocity.y = entity.Velocity.y;
+                        e.Velocity = velocity;
+                    });
+                }
+            }
+            private void DestroyShipEntities(Entity dragon)
+            {
+                foreach (var entity in dragon.Level.FindEntities(e => e.GetColumn() > 1 && e.IsVulnerableEntity() && e.ExistsAndAlive()))
+                {
+                    entity.Die(new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), dragon);
+                }
+            }
+            private void DestroyShipGrids(Entity dragon)
+            {
+                var level = dragon.Level;
+                for (int x = 2; x < level.GetMaxColumnCount(); x++)
+                {
+                    for (int z = 0; z < level.GetMaxLaneCount(); z++)
+                    {
+                        var grid = level.GetGrid(x, z);
+                        if (grid == null)
+                            continue;
+                        grid.RemoveBuffs(VanillaBuffID.Grid.goldenGrid);
+                        grid.AddBuff(VanillaBuffID.Grid.shipBrokenGrid);
+                    }
+                }
+            }
+
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_FLY = 1;
+            public const int SUBSTATE_DAMAGED = 2;
+            public const int SUBSTATE_FALL = 3;
+            public const int SUBSTATE_SMASHED = 4;
+            public const int ANIMATION_SUBSTATE_START = 0;
+            public const int ANIMATION_SUBSTATE_FLY = 1;
+            public const int ANIMATION_SUBSTATE_FALL = 2;
+
         }
         #endregion
 
@@ -1204,16 +1468,6 @@ namespace MVZ2.GameContent.Bosses
                 CheckDeath(entity);
             }
 
-            private void Roar(Entity entity)
-            {
-                var param = entity.GetSpawnParams();
-                var position = GetSpitSourcePosition(entity);
-                entity.Spawn(VanillaEffectID.amplifiedRoar, position, param);
-                var time = Ticks.FromSeconds(ROAR_SECONDS);
-                entity.Level.ShakeScreen(15, 0, time);
-                entity.BossRoar(time);
-                entity.PlaySound(VanillaSoundID.dragonGrowl);
-            }
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_ROAR = 1;
             public const int SUBSTATE_END = 2;
@@ -1549,11 +1803,6 @@ namespace MVZ2.GameContent.Bosses
                         }
                         break;
                 }
-            }
-            public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
-            {
-                base.OnUpdateLogic(machine, entity);
-                CheckDeath(entity);
             }
             private void ShootBreath(Entity entity)
             {
