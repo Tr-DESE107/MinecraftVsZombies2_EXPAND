@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Bosses
         public static float GetDecay(Entity entity) => entity.GetBehaviourField<float>(PROP_DECAY);
         public static void SetDecay(Entity entity, float value) => entity.SetBehaviourField(PROP_DECAY, value);
         private static readonly VanillaEntityPropertyMeta<float> PROP_CURRENT_DAMAGE_AMOUNT = new VanillaEntityPropertyMeta<float>("current_damage_amount");
-        private static readonly VanillaEntityPropertyMeta<float> PROP_MAX_DAMAGE_AMOUNT = new VanillaEntityPropertyMeta<float>("max_damage_amount", 1200);
+        private static readonly VanillaEntityPropertyMeta<float> PROP_MAX_DAMAGE_AMOUNT = new VanillaEntityPropertyMeta<float>("max_damage_amount", 600);
         private static readonly VanillaEntityPropertyMeta<float> PROP_DECAY = new VanillaEntityPropertyMeta<float>("decay", 40);
     }
 }
