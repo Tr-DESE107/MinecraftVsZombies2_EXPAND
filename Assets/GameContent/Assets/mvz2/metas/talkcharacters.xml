@@ -432,8 +432,17 @@
         </variant>
     </character>
     <character id="byakuren" name="白莲">
-        <variant id="mvz2:normal" width="448" height="896" extendRight="0" pivotX="0.5" pivotY="0">
-            <layer sprite="mvz2:characters/armor_stand" />
+        <variant id="mvz2:normal" width="573" height="1280" extendRight="0" pivotX="0.5" pivotY="0">
+            <layer sprite="mvz2:characters/byakuren[0]" />
+        </variant>
+        <variant id="mvz2:close_eyes" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/byakuren[1]" positionX="176" positionY="208" />
+        </variant>
+        <variant id="mvz2:serious" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/byakuren[2]" positionX="176" positionY="208" />
+        </variant>
+        <variant id="mvz2:serious_close_eyes" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/byakuren[3]" positionX="176" positionY="208" />
         </variant>
     </character>
 </characters>
