@@ -112,7 +112,7 @@
         <boss id="4" parent="entity">
             <behaviours>
                 <behaviour operator="add" id="mvz2:boss_common" />
-                <behaviour operator="add" id="mvz2:boss_damage_limit" />
+                <behaviour operator="add" id="mvz2:boss_resistance" />
             </behaviours>
             <properties>
                 <bool name="mvz2:receivesLight" value="true" />
@@ -2128,7 +2128,7 @@
         <boss id="seija" name="鬼人正邪">
             <behaviours>
                 <!-- 使用正邪自己的减伤机制 -->
-                <behaviour operator="remove" id="mvz2:boss_damage_limit" /> 
+                <behaviour operator="replace" source="mvz2:boss_resistance" id="mvz2:boss_resistance_seija" /> 
             </behaviours>
             <properties>
                 <int name="mvz2:waterInteraction" value="1" />
@@ -2155,7 +2155,7 @@
         <boss id="the_giant" name="巨人">
             <behaviours>
                 <!-- 使用巨人自己的减伤机制 -->
-                <behaviour operator="remove" id="mvz2:boss_damage_limit" /> 
+                <behaviour operator="replace" source="mvz2:boss_resistance" id="mvz2:boss_resistance_the_giant" /> 
             </behaviours>
             <properties>
                 <bool name="mvz2:undead" value="true" />
@@ -2170,7 +2170,7 @@
         </boss>
         <boss id="the_giant_snake_tail" name="巨人蛇尾">
             <behaviours>
-                <behaviour operator="remove" id="mvz2:boss_damage_limit" /> 
+                <behaviour operator="remove" id="mvz2:boss_resistance" /> 
             </behaviours>
             <properties>
                 <bool name="mvz2:undead" value="true" />

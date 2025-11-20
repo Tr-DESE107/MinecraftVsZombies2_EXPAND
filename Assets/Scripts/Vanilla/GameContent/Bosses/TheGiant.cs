@@ -142,20 +142,6 @@ namespace MVZ2.GameContent.Bosses
                 }
             }
         }
-        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
-        {
-            base.PreTakeDamage(damageInfo, result);
-            var entity = damageInfo.Entity;
-            var malleable = GetMalleable(entity);
-            if (malleable >= 0)
-            {
-                damageInfo.Multiply(1 - malleable / MAX_MALLEABLE_DAMAGE);
-            }
-            if (damageInfo.Amount > 600 && !damageInfo.HasEffect(VanillaDamageEffects.BYPASS_BOSS_ARMOR))
-            {
-                damageInfo.SetAmount(600);
-            }
-        }
         public override void PostTakeDamage(DamageOutput result)
         {
             base.PostTakeDamage(result);

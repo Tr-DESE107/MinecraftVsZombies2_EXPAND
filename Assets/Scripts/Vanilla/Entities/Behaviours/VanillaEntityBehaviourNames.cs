@@ -58,7 +58,9 @@ namespace MVZ2.Vanilla.Entities
 
         #region Bosses
         public const string bossCommon = "boss_common";
-        public const string bossDamageLimit = "boss_damage_limit";
+        public const string bossResistance = "boss_resistance";
+        public const string bossResistance_Seija = "boss_resistance_seija";
+        public const string bossResistance_TheGiant = "boss_resistance_the_giant";
         #endregion
 
         public const string cartCommon = "cart_common";
