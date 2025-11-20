@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-19 05:25+0800\n"
-"PO-Revision-Date: 2025-11-19 18:27+0800\n"
+"POT-Creation-Date: 2025-11-20 12:27+0800\n"
+"PO-Revision-Date: 2025-11-20 12:29+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -858,39 +858,39 @@ msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
 msgid "选择你的命运"
 msgstr "Choose your fate"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
 msgid "选吧。"
 msgstr "Choose."
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
 msgid "潘多拉的魔盒"
 msgstr "Pandora's Box"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
 msgid "尸潮"
 msgstr "Biohazard"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
 msgid "衰老"
 msgstr "Decrepify"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:502
 msgid "疯狂"
 msgstr "Insanity"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:505
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:504
 msgid "成真"
 msgstr "Come True"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:507
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:506
 msgid "深潜者"
 msgstr "The Lurker"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:509
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:508
 msgid "黑太阳"
 msgstr "The Black Sun"
 
@@ -4024,7 +4024,7 @@ msgstr "Mega Man X5 / Mega Man"
 #: Music meta file
 msgctxt "music.origin"
 msgid "暗影恶魔/威利博士关卡头目"
-msgstr "Shadow Devil / Dr. Willy Stage Boss"
+msgstr "Shadow Devil / Dr. Wily Stage Boss"
 
 #. Description for music mvz2:mausoleum_boss
 #: Music meta file
@@ -4172,7 +4172,7 @@ msgid ""
 "许多珍贵的宝物，结识了黄飞鸿和美猴王这两位同伴，并最终击败了四大天王和二郎"
 "神，到达了天庭。\n"
 "玉皇大帝告诉他，Lex的旅程尚未结束，他们发现了一种威胁，一种威胁到所有书中世界"
-"的威胁。Lex觉得这是邪恶Lex所为，但玉皇大帝却认为，Lex无法击败邪恶Lex的。\n"
+"的威胁。Lex觉得这是邪恶Lex所为，但玉皇大帝却认为，Lex无法击败邪恶Lex。\n"
 "最终，Lex离开了这本书，再次了回到图书馆。"
 msgstr ""
 "The Red Dragon's theme.\n"
