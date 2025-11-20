@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Buffs.Level
                 level.Spawn(VanillaBossID.redDragon, new Vector3(RedDragon.APPEAR_START_X, RedDragon.APPEAR_START_Y, level.GetLawnCenterZ()), null)?.Let(e =>
                 {
                     RedDragon.SetAppear(e);
-                    e.ApplyBuffForBossRevenge(1f);
+                    e.ApplyBuffForBossRevenge(0.8f);
                 });
             }
             else
