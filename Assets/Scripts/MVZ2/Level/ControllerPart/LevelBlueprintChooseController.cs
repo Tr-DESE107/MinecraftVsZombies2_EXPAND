@@ -811,9 +811,15 @@ namespace MVZ2.Level
         private void OpenChooseArtifactDialog(int slotIndex)
         {
             choosingArtifactSlotIndex = slotIndex;
-            choosingArtifacts = Main.SaveManager.GetUnlockedArtifacts();
+
+            var choosing = new List<NamespaceID?>();
+            var unlockedArtifacts = Main.SaveManager.GetUnlockedArtifacts();
+            Main.AlmanacManager.GetOrderedArtifactsByAlmanac(unlockedArtifacts, choosing);
+            choosingArtifacts = choosing.ToArray();
             var viewDatas = choosingArtifacts.Select(id =>
             {
+                if (!NamespaceID.IsValid(id))
+                    return ArtifactSelectItemViewData.Empty;
                 var sprite = GetArtifactIcon(id);
                 var disabled = !CanChooseArtifact(id);
                 return new ArtifactSelectItemViewData()
@@ -1038,7 +1044,7 @@ namespace MVZ2.Level
         private void UI_OnArtifactChooseItemPointerEnterCallback(int index)
         {
             var id = choosingArtifacts?[index];
-            if (id == null)
+            if (!NamespaceID.IsValid(id))
                 return;
             var item = chooseUI.GetArtifactSelectItem(index);
             if (!item.Exists())
@@ -1301,7 +1307,7 @@ namespace MVZ2.Level
 
         private ArtifactChooseItem?[]? chosenArtifacts;
         private int choosingArtifactSlotIndex;
-        private NamespaceID[]? choosingArtifacts;
+        private NamespaceID?[]? choosingArtifacts;
 
         private bool isViewingLawn;
         private bool viewLawnFinished;
