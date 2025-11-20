@@ -278,8 +278,9 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
+                var seconds = GetPhase(entity) == PHASE_1 ? 3f : 2f; // 一阶段行动更慢
                 var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetSeconds(2f);
+                stateTimer.ResetSeconds(seconds);
                 SetInvincible(entity, false);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
