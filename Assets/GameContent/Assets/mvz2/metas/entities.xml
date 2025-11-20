@@ -2189,7 +2189,7 @@
             <properties>
                 <int name="mvz2:waterInteraction" value="1" />
                 <int name="mvz2:airInteraction" value="0" />
-                <float name="mvz2:maxHealth" value="40000" />
+                <float name="mvz2:maxHealth" value="60000" />
                 <id name="mvz2:shell" value="mvz2:flesh" />
                 <vector3 name="mvz2:size" x="240" y="210" z="210" />
                 <vector3 name="mvz2:shadowScale" x="8" y="8" z="8" />

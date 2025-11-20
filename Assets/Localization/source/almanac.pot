@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-19 05:13+0800\n"
+"POT-Creation-Date: 2025-11-20 03:01+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3013,7 +3013,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"生命：<color=red>40000</color>\n"
+"生命：<color=red>60000</color>\n"
 "阶段1：<color=red>火焰弹、龙卷风、吞食、火焰吐息</color>\n"
 "阶段2：<color=red>巨型火球、火焰龙卷风、火焰流星、飞空、扫尾</color>"
 msgstr ""
@@ -5434,6 +5434,12 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "巨人蛇尾"
+msgstr ""
+
+#. Name for entity mvz2:red_dragon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "红龙"
 msgstr ""
 
 #. Name for entity mvz2:minecart
