@@ -413,6 +413,33 @@ namespace MVZ2.Talk
                         }
                     }
                     break;
+                case "backcolor":
+                    {
+                        switch (args[0])
+                        {
+                            case "set":
+                                ui.SetBackcolor(ParseArgumentColor(args[1]));
+                                break;
+                            case "fade":
+                                {
+                                    if (args.Length >= 4)
+                                    {
+                                        ui.SetBackcolor(ParseArgumentColor(args[1]));
+                                        ui.StartBackcolorFade(ParseArgumentColor(args[2]), ParseArgumentFloat(args[3]));
+                                    }
+                                    else if (args.Length == 3)
+                                    {
+                                        ui.StartBackcolorFade(ParseArgumentColor(args[1]), ParseArgumentFloat(args[2]));
+                                    }
+                                    else if (args.Length == 2)
+                                    {
+                                        ui.StartBackcolorFade(ParseArgumentColor(args[1]), 1);
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                    break;
 
                 case "shake":
                     {

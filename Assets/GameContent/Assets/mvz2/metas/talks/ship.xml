@@ -584,40 +584,96 @@
       </sentences>
     </section>
   </group>
+  
   <group id="kourindou_visit_ship_2" tags="mvz2:ship;mvz2:store">
-    <archive name="访问香霖堂-梦殿大祀庙" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou">
+    <archive name="访问香霖堂-圣辇船" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou">
       <unlock>
         <condition required="mvz2:kourindou_visited_ship_2" />
       </unlock>
     </archive>
-    <section onSkip="unlock mvz2:kourindou_visited_ship_2;end">
+    <section onSkip="music fade 1;backcolor set #0000;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_ship_2;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
-        <character id="mvz2:tokiko" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">啊，你们——</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_surprised" variant="mvz2:surprised">……</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" variant="mvz2:worried">发生什么了？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onStart="shake">神子在封印巨人的时候，不知道怎么回事，突然就有符纸飞到它的头上了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy">然后这符纸就干扰了施法，巨人的封印就这样被打破了！</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" onStart="shake">怎、怎么会发生这种事……</sentence>
+        <sentence speaker="mvz2:marisa" speakerName="？？？" sounds="mvz2:dialog_beat" onStart="music fade 0;shake">你这家伙少给我得意了！</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="？？？" sounds="mvz2:dialog_beat" onStart="shake">什么啊！不都是你来惹事吗！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>……？好像在吵架？</text>
+          <click>
+            <script>bubble hide</script>
+            <script>character create mvz2:tokiko right mvz2:angry</script>
+            <script>character create mvz2:marisa left</script>
+            <script>delay 0.5</script>
+
+            <script>playsound mvz2:dialog_surprised</script>
+            <script>delay 1</script>
+
+            <script>next</script>
+          </click>
+        </sentence>
+
+        <sentence speaker="mvz2:marisa" description="（魔理沙和朱鹭子入场）" sounds="mvz2:talk">哦？有人来了啊。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_explosive" onStart="shake">喂！给我好好道歉啊！</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk" variant="mvz2:angry">切，懒得说废话了，我这次就先走了。</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk">
+          <text>你给我等着！</text>
+          <click>
+            <script>bubble hide</script>
+            <script>character leave mvz2:marisa right</script>
+            <script>delay 2</script>
+
+            <script>next</script>
+          </click>
+        </sentence>
+
+        <sentence speaker="mvz2:tokiko" description="（魔理沙离开）" sounds="mvz2:talk" variant="mvz2:worried">你们回来了啊。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">发生什么了？</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">抱歉，刚才有些失礼。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">没事。刚才那是魔理沙吧？你们两个怎么了？</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">她呀，我和那家伙之前关系就不好。在这场异变发生后，她对我的态度就更加恶劣了。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">因为她之前是霖之助最亲密的朋友之一，在我接下这家店之后，她就觉得我是在霸占霖之助的店。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">所以她每次来到店里的时候，我就知道准没好事发生。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这样啊。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">都是我的错。</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">史蒂夫？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">之前有一位邪仙，她来找我，让我在神子施法的时候使用她给我的符纸。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我本来并不想听她的，但是，那符纸自己飞了过去。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">如果不是我的话——</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">不过，我倒是一直有个问题想问你。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">你当时，为什么要接下这家店呢？当时发生了什么？</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">这件事啊……</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">没事的，史蒂夫，你没有错。你只是被她利用了而已。</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">我其实也听说过一些那位邪仙的传闻。据说她十分邪恶，别人的想法她都不会去考虑，唯一会想着的只有自己。</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">她也常常会去人类村庄找人，被她利用也不是什么稀奇的事情了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">原来如此。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……只是不知道，怎么该向神子她们交代呢？</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" variant="mvz2:normal">别太难过了，史蒂夫，开心一些吧。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">对了，我还有一些东西可以卖了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="unlock mvz2:kourindou_visited_ship_2;end">那么，开始令人兴奋的购物环节吧！</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">我还是跟你们说了吧。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" onStart="music volume 1;music play mvz2:distress">在三年前的某一天，我照常来到这家店看书。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">在我临走之前，霖之助突然把我叫住了。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">他说，他之后可能会离开很长一段时间，问我愿不愿意帮忙暂时接手这家店。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">当时我只是个到处闲逛的妖怪，只是喜欢看看书之类的，没多想就答应了。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">那之后才发现看店原来是这么困难的事情，不过我还是撑到现在了。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">就这样。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……原来是霖之助主动委托你来接手的啊。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">魔理沙她不知道吗？</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">她应该不知道，不然她也不会对我态度这么差。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这样啊，我明白了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="music fade 0;backcolor fade #000F"><![CDATA[<color=blue>（……不过，我倒是获得了两个新的情报。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird"><![CDATA[<color=blue>（第一，霖之助是知道自己要“失踪”长达三年的。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird"><![CDATA[<color=blue>（第二，霖之助没有把自己要“失踪”的事情告诉他最亲密的朋友。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（这是为什么？）</color>]]></text>
+          <click>
+            <script>bubble hide</script>
+            <script>delay 2</script>
+
+            <script>next</script>
+          </click>
+        </sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_surprised mvz2:villager_long1">
+          <start>
+            <script>backcolor set #0000</script>
+            <script>music volume 1</script>
+            <script>music play mvz2:gensokyo_map</script>
+            <script>character variant mvz2:tokiko mvz2:surprised</script>
+          </start>
+          <text>对了，我们要新上架一批货物了！</text>
+        </sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onStart="character variant mvz2:tokiko mvz2:normal" onClick="unlock mvz2:kourindou_visited_ship_2;end">来看看吧！不买不给送！</sentence>
       </sentences>
     </section>
   </group>

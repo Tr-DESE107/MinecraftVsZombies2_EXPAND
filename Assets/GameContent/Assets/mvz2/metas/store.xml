@@ -33,6 +33,11 @@
                 <condition required="mvz2:level.mausoleum_11" requiredNot="mvz2:entered_ship" />
             </conditions>
         </talk>
+        <talk id="mvz2:kourindou_visit_ship_2">
+            <conditions>
+                <condition required="mvz2:level.ship_6" requiredNot="mvz2:kourindou_visited_ship_2" />
+            </conditions>
+        </talk>
     </talks>
     <chats>
         <group character="mvz2:crazy_villager">

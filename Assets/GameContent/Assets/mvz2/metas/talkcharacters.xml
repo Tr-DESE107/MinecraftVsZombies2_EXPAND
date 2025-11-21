@@ -132,6 +132,12 @@
             </unlock>
             <layer sprite="mvz2:characters/tokiko[5]" positionX="0" positionY="0" />
         </variant>
+        <variant id="mvz2:angry" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:kourindou_visited_ship_2" />
+            </unlock>
+            <layer sprite="mvz2:characters/tokiko[6]" positionX="208" positionY="80" />
+        </variant>
     </character>
     <character id="seija" name="正邪">
         <variant id="mvz2:normal" width="560" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
@@ -317,10 +323,13 @@
         <variant id="mvz2:sad" width="636" height="1280" extendRight="0" pivotX="0.5" pivotY="0.65">
             <layer sprite="mvz2:characters/marisa[1]" />
         </variant>
-        <!-- 
         <variant id="mvz2:angry" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:kourindou_visited_ship_2" />
+            </unlock>
             <layer sprite="mvz2:characters/marisa[4]" positionX="288" positionY="192" />
         </variant>
+        <!-- 
         <variant id="mvz2:scared" parent="mvz2:normal">
             <layer sprite="mvz2:characters/marisa[5]" positionX="288" positionY="192" />
         </variant>

@@ -1171,7 +1171,7 @@
     </stage>
     <stage id="ship_7" name="圣辇船" dayNumber="7">
         <unlock>
-            <condition required="mvz2:level.ship_6" />
+            <condition required="mvz2:kourindou_visited_ship_2" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_7" />
