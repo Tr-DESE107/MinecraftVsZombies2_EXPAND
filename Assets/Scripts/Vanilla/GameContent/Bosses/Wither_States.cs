@@ -679,11 +679,6 @@ namespace MVZ2.GameContent.Bosses
 
                                 entity.PlaySound(VanillaSoundID.witherSpawn);
                                 int count = 1;
-                                if (entity.IsBossRevengeVersion())
-                                {
-                                    // Boss复仇模式下一次召唤3只床战士
-                                    count = 3;
-                                }
                                 for (int i = 0; i < count; i++)
                                 {
                                     var lane = entity.GetLane();
