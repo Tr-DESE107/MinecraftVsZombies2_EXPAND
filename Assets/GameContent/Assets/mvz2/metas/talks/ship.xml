@@ -224,24 +224,15 @@
     </archive>
     <section onSkip="music stop;end">
       <characters>
-        <character id="mvz2:futo" side="left" />
+        <character id="mvz2:shou" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">啊，似乎出现了新的怪物，一种手持魔法障壁的僵尸。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">此种障壁吾曾见过，乃是回声障壁，可反弹射弹。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">原来是能够反弹子弹的僵尸啊，多谢你提醒我。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">不必多礼。不过，其实看着汝战斗，吾有很多地方都看不懂。比如——</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:dialog_weird" onStart="music stop" variant="mvz2:daze">
-          <click>
-            <script>bubble hide</script>
-            <script>delay 1</script>
-            <script>character variant mvz2:futo mvz2:scared</script>
-            <script>next</script>
-          </click>
-          <text>“器械”是何物？</text>
-        </sentence>
-        <sentence speaker="mvz2:steve" description="（沉默）" sounds="mvz2:talk" onClick="end">要不我们之后再解释吧？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">前方出现了大量的飞碟！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">飞、飞碟？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">幻想乡之前确实有过与飞碟有关的异变，但现在的飞碟和之前的那种不一样。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">这些飞碟，纯粹是僵尸那一方的怪物。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onClick="end">小心它们！它们可能会对战斗进行各种各样的干扰！</sentence>
       </sentences>
     </section>
   </group>
@@ -257,10 +248,10 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是闪电之珠！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能够阻挡怪物的前进，并且免疫对方的子弹！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">并且，当敌人的子弹击中它时，它反而可以利用它恢复自己的耐久！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">这可是高阶的法术器械！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">这是三头发射器！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它可以向它所在的行，以及相邻的两行发射箭矢！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">同时，如果它位于最边缘位置，那么它会改为向自身所在行发射两支箭矢！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">把你的火力扩散到全战场吧！</sentence>
       </sentences>
     </section>
   </group>
@@ -272,19 +263,18 @@
     </archive>
     <section>
       <characters>
-        <character id="mvz2:crazy_villager" side="left" />
-        <character id="mvz2:miko" side="right" />
+        <character id="mvz2:shou" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">巨人是什么来头？当年发生了什么？</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">巨人是在两年前突然出现在幻想乡的，那时它伴随着另一只可怕的巨兽同时出现，带来了很多混乱。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">我们和命莲寺势力达成合作，我们制伏了巨人，把它封印在了这里。而命莲寺方面则负责击退那只巨兽。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那么，巨人到底是什么？</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">虽说是巨人，但它其实是一群僵尸的集合体。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">它体内的某种魔力把它们的血肉融合在了一起，如同软泥一般变化无常，可以变成很多生物的模样。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">因为它的这个特点，我们没有什么办法彻底杀死它，只能把它封印在我们之前复活使用的梦殿大祀庙遗址这里。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">是吗，我明白了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">星，那位圣 白莲大人，是个怎么样的人？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">她是一位法力高强，而又心地善良的高僧。她帮助过非常多的妖怪，这艘船的船长村纱就是被她所拯救。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">不过，由于她和妖怪走的太近，她曾经被封印在魔界之中，后来我们这些妖怪又借助着圣辇船把她救了出来。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那关于这艘——圣辇船呢？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣辇船也是圣大人当时为了拯救村纱而使用法力创造的。不过现在的这艘船和之前的那一艘船并非同一艘。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">第一艘变成了现在的命莲寺。虽然寺庙仍然可以再变回船的样子，但仍有些不便。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">因此圣大人又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end"><![CDATA[<color=blue>（随随便便就能创造一艘在空中飞行的船吗……确实法力高强啊。）</color>]]></sentence>
       </sentences>
     </section>
   </group>
@@ -299,16 +289,17 @@
     </archive>
     <section>
       <characters>
-        <character id="mvz2:miko" side="right" />
+        <character id="mvz2:shou" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">对了，顺带一提。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">战场上的那些笼子是由巨人的魔力产生的，它能召唤新的僵尸。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">我们所使用的封印魔法比较特殊，它对其他魔力或者生物非常敏感。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">如果周围有什么僵尸存在的话，封印很有可能会失败。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">这就是我们要去找你的原因。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">原来如此，明白了。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">今天出现的敌人有——蜘蛛吗？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的，在那之前我们已经见过这些虫子了。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">佛教曾有与蜘蛛有关的故事。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">传说佛世尊曾想使用蜘蛛丝救一恶人脱离地狱，然而恶人最终又因自己导致蛛丝断裂，重新坠入深渊。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">还有这样的故事啊。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">不过，你我皆非恶人，这蜘蛛也非比寻常。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onClick="end">不要因它致使自己坠入地狱就好。</sentence>
       </sentences>
     </section>
   </group>
@@ -324,9 +315,10 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">双向发射器登场！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">它能够像发射器一样向前发射箭矢，并且还可以同时向后方发射双倍的箭矢！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">当心你的背后！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">开始庆祝吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这是烟花发射器，在它上方一定范围内存在飞行敌人时，它会自动使用烟花轰炸它们！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">不过，它也只能攻击到高空中的敌人！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">庆祝的时候到了！</sentence>
       </sentences>
     </section>
   </group>
@@ -336,42 +328,71 @@
         <condition required="mvz2:level.ship_3" />
       </unlock>
     </archive>
-    <section onSkip="item hide;music fade 1;end">
+    <section onSkip="item hide;end">
       <characters>
-        <character id="mvz2:seiga" side="right" />
+        <character id="mvz2:shou" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:dialog_weird">请问，是史蒂夫吗？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是我，您是？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">啊，我是神子的朋友，青娥。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">史蒂夫小弟弟，我找你有些事情。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">什么事？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">听说你正在为神子她们清理僵尸，然后还要帮她们巩固封印，对吧？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" onStart="item show mvz2:artifacts/manipulative_talismans">那——我这里有些灵符，交给你。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">灵符？这是什么？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">就是能控制僵尸的工具啦，能让僵尸为你们而战哦。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">这么好用的东西？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">不过，能答应我的一个请求吗？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:dialog_weird" onStart="music fade 0">在神子她们巩固封印的时候，就使用这些灵符吧。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">另外，不要告诉她们哦。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">好的。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:happy">哎呀，真听话啊。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:normal">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">嗯……？船头好像站着一个人？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">诶，是……</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" variant="mvz2:unhappy">哦，原来是她。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">那家伙是封兽 鵺（yè），和我一样同是命莲寺势力的妖怪。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:dialog_surprised">
+          <text>哦？</text>
           <click>
-            <script>character leave mvz2:seiga</script>
-            <script>playsound mvz2:dialog_flashback</script>
             <script>bubble hide</script>
-            <script>delay 2</script>
+            <script>character create mvz2:nue right</script>
+            <script>delay 1</script>
+
             <script>next</script>
           </click>
-          <text>那么，再见了，小弟弟。</text>
         </sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake"><![CDATA[<color=blue>（很可疑啊！）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="item hide;music fade 1;end"><![CDATA[<color=blue>（我还是不要照她说的做好了……）</color>]]></sentence>
+
+        <sentence speaker="mvz2:nue" description="（鵺出场）" sounds="mvz2:talk">是你啊，说要解决幻想乡异变的，那个外界来的孩子。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">最近妖怪之间也开始有关于你的传闻了。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">我记得你好像叫，史蒂夫？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">嗯，是的。你在这里是为了？</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:close_eyes">……没什么，只是看到这船又飞上天空，来看看罢了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">你要帮我们寻找圣吗？</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">……圣吗？抱歉，我做不到。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:normal">我当初就已经和她们说过了，我拒绝帮忙。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" variant="mvz2:angry" onStart="shake">所以，你这家伙，到底为什么？你不也是圣大人的弟子吗？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">现在她需要我们出手相助，你却要在这个节骨眼上拒绝帮忙？！</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:close_eyes">……</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:normal">史蒂夫是吧，你年纪轻轻来到这里，着实勇气可嘉。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">不过，非常可惜，虽然我不知道这里真正发生了什么，但是——</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:dialog_weird">你们目前所做的一切，都没有任何意义。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" onStart="shake">你这是什么意思？凭什么否定我们目前做的一切？！</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:close_eyes">……</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">总有一天，你们会明白的。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:normal">好了，史蒂夫，我送你一件东西。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">
+          <start>
+            <script>item show mvz2:artifacts/ufo_toy</script>
+          </start>
+          <text>这是人类村庄那边比较流行的一款小玩具，不过你不要小看它。</text>
+        </sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">我给这个玩具加了点小小的魔力，如果运用得当，可以创造出财富。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">
+          <start>
+            <script>item hide</script>
+          </start>
+          <text>给。</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">……谢谢？</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk">好了，恕我真的没办法打起精神帮你们的忙，这是我能提供的最大限度的帮助了。</sentence>
+        <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:close_eyes">
+          <text>再见。</text>
+          <click>
+            <script>bubble hide</script>
+            <script>character leave mvz2:nue</script>
+            <script>delay 2</script>
+
+            <script>next</script>
+          </click>
+        </sentence>
+        <sentence speaker="mvz2:shou" description="（鵺离开）" sounds="mvz2:talk" onClick="end">这家伙，还是和以前一样让人恼火……！</sentence>
       </sentences>
     </section>
   </group>

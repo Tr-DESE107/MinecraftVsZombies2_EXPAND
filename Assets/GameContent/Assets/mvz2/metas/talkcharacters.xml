@@ -449,7 +449,7 @@
         </variant>
     </character>
     <character id="nue" name="鵺">
-        <variant id="mvz2:normal" width="761" height="1280" extendRight="0" pivotX="0.5" pivotY="0">
+        <variant id="mvz2:normal" width="761" height="1280"  extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/nue[0]" />
         </variant>
         <variant id="mvz2:close_eyes" parent="mvz2:normal" >
@@ -457,7 +457,7 @@
         </variant>
     </character>
     <character id="sekibanki" name="赤蛮奇">
-        <variant id="mvz2:normal" width="598" height="1280" extendRight="0" pivotX="0.5" pivotY="0">
+        <variant id="mvz2:normal" width="598" height="1280" extendLeft="150" extendRight="150" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/sekibanki[0]" />
         </variant>
         <variant id="mvz2:angry" parent="mvz2:normal" >
@@ -468,7 +468,7 @@
         </variant>
     </character>
     <character id="byakuren" name="白莲">
-        <variant id="mvz2:normal" width="573" height="1280" extendRight="0" pivotX="0.5" pivotY="0">
+        <variant id="mvz2:normal" width="573" height="1280" extendLeft="150" extendRight="150"  pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/byakuren[0]" />
         </variant>
         <variant id="mvz2:close_eyes" parent="mvz2:normal" >
