@@ -23,7 +23,15 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID mummy = GetFromEntity(VanillaEnemyID.mummy);
         public static readonly NamespaceID necromancer = GetFromEntity(VanillaEnemyID.necromancer);
 
+        public static readonly NamespaceID spider = GetFromEntity(VanillaEnemyID.spider);
+        public static readonly NamespaceID caveSpider = GetFromEntity(VanillaEnemyID.caveSpider);
         public static readonly NamespaceID ghast = GetFromEntity(VanillaEnemyID.ghast);
+        public static readonly NamespaceID motherTerror = GetFromEntity(VanillaEnemyID.motherTerror);
+
+        public static readonly NamespaceID mesmerizer = GetFromEntity(VanillaEnemyID.mesmerizer);
+        public static readonly NamespaceID berserker = GetFromEntity(VanillaEnemyID.berserker);
+        public static readonly NamespaceID dullahan = GetFromEntity(VanillaEnemyID.dullahan);
+        public static readonly NamespaceID hellChariot = GetFromEntity(VanillaEnemyID.hellChariot);
 
         public static readonly NamespaceID mutantZombie = GetFromEntity(VanillaEnemyID.mutantZombie);
 
