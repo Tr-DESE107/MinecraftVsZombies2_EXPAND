@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
+using MVZ2.Map;
 using MVZ2.Metas;
 using MVZ2.Saves;
 using MVZ2.Scenes;
@@ -12,7 +13,10 @@ using MVZ2.Talk;
 using MVZ2.Talks;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using Tools;
 using UnityEngine;
@@ -88,6 +92,9 @@ namespace MVZ2.Store
             ui.OnProductClick += OnProductClickCallback;
 
             chatRNG = new RandomGenerator(new Guid().GetHashCode());
+            talkSystem = new DefaultTalkSystem(talkController);
+
+            talkController.OnTalkAction += OnTalkActionCallback;
         }
         private void Update()
         {
@@ -217,6 +224,10 @@ namespace MVZ2.Store
                 Main.Scene.ShowDialogMessage(title, desc);
             }
         }
+        private void OnTalkActionCallback(string cmd, string[] parameters)
+        {
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
+        }
         #endregion
         private void UpdateProducts()
         {
@@ -292,6 +303,7 @@ namespace MVZ2.Store
         private bool pointingProduct;
         private int page;
         private RandomGenerator chatRNG = null!;
+        private ITalkSystem talkSystem = null!;
 
 
         [SerializeField]
