@@ -91,6 +91,7 @@ namespace MVZ2.Tests
 
             SerializableLevelController seriLevel = levelController.SaveGame();
             var json = seriLevel.ToBson();
+            var json1 = seriLevel.level.ToBson();
 
             SerializableLevelController seriLevel2 = SerializeHelper.FromBson<SerializableLevelController>(json);
             yield return GotoLevel();
@@ -98,11 +99,11 @@ namespace MVZ2.Tests
             LoadLevel(levelController2, seriLevel2, areaId, stageId);
 
             SerializableLevelController seriLevel3 = levelController2.SaveGame();
-            var json2 = seriLevel3.ToBson();
+            var json2 = seriLevel3.level.ToBson();
 
-            Debug.Log(json);
+            Debug.Log(json1);
             Debug.Log(json2);
-            Assert.AreEqual(json, json2);
+            Assert.AreEqual(json1, json2);
         }
         [UnityTest]
         public static IEnumerator LevelSerializationTestPrologue()
@@ -362,6 +363,7 @@ namespace MVZ2.Tests
         }
         private static void LoadLevel(LevelController level, SerializableLevelController seri, NamespaceID areaId, NamespaceID stageId)
         {
+            level.SetActive(true);
             level.LoadGame(seri, Main.Game, areaId, stageId);
             level.ResumeGame(9999);
         }
