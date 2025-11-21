@@ -25,6 +25,10 @@ namespace MVZ2.Level.Components
         {
             Controller.SkipTalk(id, section, onSkipped);
         }
+        public void SkipAllTalks(NamespaceID id, Action? onSkipped = null)
+        {
+            Controller.SkipAllTalks(id, onSkipped);
+        }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "talk");
     }
 }

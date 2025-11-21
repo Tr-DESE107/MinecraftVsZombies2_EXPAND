@@ -32,6 +32,7 @@ namespace MVZ2.Level
         public void StartTalk(NamespaceID groupId, int section, float delay = 0, Action? onEnd = null) => talkController.StartTalk(groupId, section, delay, onEnd);
         public bool WillSkipTalk(NamespaceID groupId, int section) => talkController.WillSkipTalk(groupId, section);
         public void SkipTalk(NamespaceID groupId, int section, Action? onSkip = null) => talkController.SkipTalk(groupId, section, onSkip);
+        public void SkipAllTalks(NamespaceID groupId, Action? onSkip = null) => talkController.SkipAllTalks(groupId, onSkip);
 
         #region 设置对话
         private NamespaceID? GetTalkIDOfType(string type)

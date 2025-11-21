@@ -72,11 +72,12 @@ namespace MVZ2Logic.Level.Components
         void StartTalk(NamespaceID id, int section, float delay = 1, Action? onEnd = null);
         bool WillSkipTalk(NamespaceID id, int section);
         void SkipTalk(NamespaceID id, int section, Action? onSkipped = null);
+        void SkipAllTalks(NamespaceID id, Action? onSkipped = null);
         void SimpleStartTalk(NamespaceID groupId, int section, float delay = 0, Action? onSkipped = null, Action? onStarted = null, Action? onEnd = null)
         {
             if (WillSkipTalk(groupId, section))
             {
-                SkipTalk(groupId, section, () =>
+                SkipAllTalks(groupId, () =>
                 {
                     onSkipped?.Invoke();
                     onEnd?.Invoke();

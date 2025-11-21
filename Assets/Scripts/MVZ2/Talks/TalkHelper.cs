@@ -13,7 +13,7 @@ namespace MVZ2.Talks
         {
             if (controller.WillSkipTalk(groupId, section))
             {
-                controller.SkipTalk(groupId, section, () =>
+                controller.SkipAllTalks(groupId, () =>
                 {
                     onSkipped?.Invoke();
                     onEnd?.Invoke();
@@ -29,7 +29,7 @@ namespace MVZ2.Talks
         {
             if (controller.WillSkipTalk(groupId, section))
             {
-                await controller.SkipTalkAsync(groupId, section);
+                await controller.SkipAllTalksAsync(groupId);
                 return TalkResult.Skipped;
             }
 

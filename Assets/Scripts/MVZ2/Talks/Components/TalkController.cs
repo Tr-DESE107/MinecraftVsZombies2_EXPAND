@@ -92,6 +92,11 @@ namespace MVZ2.Talk
             await SkipTalkAsync(groupId, sectionIndex);
             onSkipped?.Invoke();
         }
+        public async void SkipAllTalks(NamespaceID groupId, Action? onSkipped = null)
+        {
+            await SkipAllTalksAsync(groupId);
+            onSkipped?.Invoke();
+        }
         public async Task SkipTalkAsync(NamespaceID groupId, int sectionIndex)
         {
             var meta = Main.ResourceManager.GetTalkGroup(groupId);
@@ -107,6 +112,33 @@ namespace MVZ2.Talk
             {
                 await ExecuteScriptsAsync(section.startScripts);
                 await ExecuteScriptsAsync(section.skipScripts);
+            }
+        }
+        public async Task SkipAllTalksAsync(NamespaceID groupId)
+        {
+            var meta = Main.ResourceManager.GetTalkGroup(groupId);
+            if (meta != null && meta.archive != null)
+            {
+                var dialogName = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, meta.archive.name);
+                var popup = Main.LanguageManager._(DIALOG_SKIPPED, dialogName);
+                Main.Scene.ShowPopup(popup);
+            }
+
+            int loopCount = 0;
+            while (IsTalking)
+            {
+                loopCount++;
+                if (loopCount >= 256)
+                {
+                    Log.LogError($"Cannot skip talk {groupId}: Infinite loop!");
+                    break;
+                }
+                var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
+                if (section != null)
+                {
+                    await ExecuteScriptsAsync(section.startScripts);
+                    await ExecuteScriptsAsync(section.skipScripts);
+                }
             }
         }
         public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)
