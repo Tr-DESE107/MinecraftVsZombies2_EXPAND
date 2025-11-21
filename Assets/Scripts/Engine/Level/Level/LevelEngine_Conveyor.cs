@@ -151,7 +151,7 @@ namespace PVZEngine.Level
                 if (seriSeed == null)
                     continue;
                 seed.LoadFromSerializable(this, seriSeed);
-                IncreaseLevelObjectReference(seed);
+                IncreaseLevelObjectReference(seed, true);
             }
         }
         #endregion

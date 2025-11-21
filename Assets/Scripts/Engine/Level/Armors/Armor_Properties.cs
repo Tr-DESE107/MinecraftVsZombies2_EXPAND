@@ -52,6 +52,7 @@ namespace PVZEngine.Armors
                     Health = Mathf.Min(after, Health * (after / before));
                 }
             }
+            properties.RemoveFallbackCache(name);
         }
         PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {

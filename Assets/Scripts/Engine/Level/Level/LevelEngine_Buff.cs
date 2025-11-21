@@ -45,7 +45,7 @@ namespace PVZEngine.Level
                 // 关卡拥有的所有BUFF引用计数+1
                 foreach (var buff in buffs)
                 {
-                    IncreaseLevelObjectReference(buff);
+                    IncreaseLevelObjectReference(buff, true);
                 }
             }
         }

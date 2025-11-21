@@ -75,7 +75,7 @@ namespace PVZEngine.Level
                     if (entities.TryGetValue(id, out var entity))
                     {
                         entity.LoadFromSerializable(seriEnt);
-                        IncreaseLevelObjectReference(entity);
+                        IncreaseLevelObjectReference(entity, true);
                     }
                 }
             }

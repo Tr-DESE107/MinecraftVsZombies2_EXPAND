@@ -145,7 +145,7 @@ namespace PVZEngine.Level
         #endregion
 
         #region 引用计数
-        public void IncreaseLevelObjectReference(ILevelObject obj)
+        public void IncreaseLevelObjectReference(ILevelObject obj, bool loadLevel = false)
         {
             if (levelObjectReferences.TryGetValue(obj, out var count))
             {
@@ -154,18 +154,22 @@ namespace PVZEngine.Level
             else
             {
                 levelObjectReferences.Add(obj, 1);
-                obj.OnAddToLevel(this);
+                // 加载关卡的过程中不触发加入关卡事件
+                if (!loadLevel)
+                {
+                    obj.OnAddToLevel(this);
+                }
             }
             foreach (var child in obj.GetChildrenObjects())
             {
-                IncreaseLevelObjectReference(child);
+                IncreaseLevelObjectReference(child, loadLevel);
             }
         }
-        public void IncreaseLevelObjectChildReference(ILevelObject parent, ILevelObject child)
+        public void IncreaseLevelObjectChildReference(ILevelObject parent, ILevelObject child, bool loadLevel = false)
         {
             if (parent == this || HasLevelObjectReference(parent))
             {
-                IncreaseLevelObjectReference(child);
+                IncreaseLevelObjectReference(child, loadLevel);
             }
         }
         public void DecreaseLevelObjectReference(ILevelObject obj)

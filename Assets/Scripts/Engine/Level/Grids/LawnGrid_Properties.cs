@@ -47,6 +47,7 @@ namespace PVZEngine.Grids
         }
         void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
+            properties.RemoveFallbackCache(name);
         }
         #endregion
 
