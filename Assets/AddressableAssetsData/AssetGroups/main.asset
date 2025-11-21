@@ -4355,6 +4355,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d32c904c5a41ec4a98e3a8b28e408fa
+    m_Address: mvz2:entity/projectiles/large_fireball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d3cf3664e1b8304f90a615e9b1e27af
     m_Address: mvz2:talk/villager/villager_extra_long3
     m_ReadOnly: 0

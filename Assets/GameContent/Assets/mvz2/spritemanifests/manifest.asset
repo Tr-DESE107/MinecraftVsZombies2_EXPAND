@@ -889,6 +889,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8af07b31f932791429fddf24a251679f, type: 3}
   - name: entity/projectiles/knife
     sprite: {fileID: 21300000, guid: 85842c2e1aa457b418e743fc8faeae75, type: 3}
+  - name: entity/projectiles/large_fireball
+    sprite: {fileID: 21300000, guid: 5d32c904c5a41ec4a98e3a8b28e408fa, type: 3}
   - name: entity/projectiles/mine_tnt_seed
     sprite: {fileID: 21300000, guid: b71c1daafbba0124f80126366dd3a4e6, type: 3}
   - name: entity/projectiles/missile
