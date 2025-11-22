@@ -1315,6 +1315,7 @@
       </sentences>
     </section>
   </group>
+
   <!-- Day 10 -->
   <group id="ship_10" tags="mvz2:ship;mvz2:intro">
     <archive name="圣辇船第10天入场" music="mvz2:mainmenu" background="mvz2:misc/ship">
@@ -1324,41 +1325,36 @@
     </archive>
     <section>
       <characters>
-        <character id="mvz2:miko" side="right" />
+        <character id="mvz2:byakuren" side="right" variant="mvz2:serious_close_eyes" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">神子大人，前天那件事，我还是想找你道歉。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我那个时候太激动了……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">没关系的，我理解你。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">那种环境下长大的孩子，多多少少会对这些事情有些敏感。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">谢谢您。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">比起那些事情——巨人的封印已经快要松动了。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">希望你能够准备好迎接这场艰难的战斗。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">嗯，我会的。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">经过数天与红龙的战斗，我的法力已经耗尽了。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">接下来我就无法继续战斗了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（连续战斗好几天吗，真的是超人……）</color>]]></sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">那条红龙，虽说我有愧于它，但它确确实实为这里带来了破坏和死亡。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious">情况不像它的母亲那样，因此我希望它能为这些破坏，以及他人的性命付出真正的代价。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我见识到了您强大的力量，希望您能够同意。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">要对付红龙吗……好吧，那就交给我了。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:normal" onClick="end">感激不尽。</sentence>
       </sentences>
     </section>
   </group>
   <group id="ship_note" tags="mvz2:ship;mvz2:note">
-    <archive name="僵尸卷轴" background="mvz2:archive/ship_note">
+    <archive name="僵尸海盗地图" background="mvz2:archive/ship_note">
       <unlock>
         <condition required="mvz2:level.ship_10" />
       </unlock>
     </archive>
     <section>
       <characters>
-        <character id="mvz2:futo" side="left" variant="mvz2:daze" />
+        <character id="mvz2:shou" side="left" variant="mvz2:question" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">看不懂。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">……何物？</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">似为僵尸之战书，但用者为古中国之文言文所作。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">你看得懂吗，布都？</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:dialog_weird" variant="mvz2:cringe">否。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">那算了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这是什么？海盗地图？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">是那些僵尸画的吧。目标地点好像就是红龙的巢穴。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" variant="mvz2:normal" onClick="end">不过如今那条红龙已经出山，这张地图也已经不需要了。</sentence>
       </sentences>
     </section>
   </group>
@@ -1370,20 +1366,21 @@
     </archive>
     <section>
       <characters>
-        <character id="mvz2:miko" side="right" />
+        <character id="mvz2:byakuren" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">明天巨人差不多就要打破封印了，史蒂夫。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">请你做好准备吧。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">明白。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">还有，关于那件事，希望你能够镇静。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">在巨人的问题解决之后，你也许可以去找找我认识的一位高僧。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">也许，她能够帮你在这些问题上指条明路。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这、这样吗。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">感谢你，神子大人。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">这是我应做的。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" onClick="end">加油吧，孩子，祝你能找到属于自己的光。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">对了，白莲大人，我这次前来，其实有求于您。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我帮神子大人解决了巨人的问题，她向我推荐了您，说我可以帮我解决我的问题。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">是什么问题呢？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我想知道我的父母到底是谁。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">原来是身世之谜吗。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">容我猜想一下，随你而来的这位村民，应该是您的养父？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:close_eyes">……有意思。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:normal">我明白了，等到红龙的事情得到解决，我会为您解惑。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">感、感谢白莲大人！</sentence>
       </sentences>
     </section>
   </group>
