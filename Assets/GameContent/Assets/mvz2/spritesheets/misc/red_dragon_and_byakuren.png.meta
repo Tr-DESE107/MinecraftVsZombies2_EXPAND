@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 676
+        y: 1352
         width: 1200
         height: 676
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1200
-        y: 676
+        y: 1352
         width: 1200
         height: 676
       alignment: 0
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 676
         width: 1200
         height: 676
       alignment: 0
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1200
-        y: 0
+        y: 676
         width: 1200
         height: 676
       alignment: 0
@@ -202,6 +202,48 @@ TextureImporter:
       bones: []
       spriteID: c0b852e275aea4344990027033ce7c10
       internalID: -769793748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_dragon_and_byakuren_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1200
+        height: 676
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a4f61629230b84e91694f87742cff5
+      internalID: 70954157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_dragon_and_byakuren_5
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 1200
+        height: 676
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3c7b199c6e1d04cb45f8e7ca6d7f6a
+      internalID: 396635967
       vertices: []
       indices: 
       edges: []
@@ -221,6 +263,8 @@ TextureImporter:
       red_dragon_and_byakuren_1: -209213463
       red_dragon_and_byakuren_2: 1281296700
       red_dragon_and_byakuren_3: -769793748
+      red_dragon_and_byakuren_4: 70954157
+      red_dragon_and_byakuren_5: 396635967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1017,16 +1017,15 @@
     </archive>
     <section>
       <characters>
-        <character id="mvz2:futo" side="left" />
+        <character id="mvz2:byakuren" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……戴夫去哪儿了？</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:daze">戴夫？那白袍村人？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的，不知道为什么，最近他是到处乱跑。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">然后很长时间之后才回来，也不知道他去干什么了。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">嗯……吾亦不清楚。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">总之，还是准备今天的战斗吧。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（总算是回到船上了……）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">啊，您就是——白莲大人吗？</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">正是。您可是星口中的史蒂夫？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">不过，那艘末地船又出现了，等我把它们击退再说！</sentence>
       </sentences>
     </section>
   </group>
@@ -1042,10 +1041,10 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">啊！看来我回来的正是时候！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这是黑洞炸弹，它在引爆后会炸出一个小型黑洞，吸引周围的怪物！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">并且，能持续对范围内的敌人造成伤害！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="end">集中火力对付他们吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">弹弹弹！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">这是弹性云！能够起到防御作用！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">和之前的防御器械不同的是，它不会被僵尸攻击，而是会将僵尸弹走！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end">不过，弹走僵尸也是会消耗它的耐久的，这点要注意！</sentence>
       </sentences>
     </section>
   </group>
@@ -1055,70 +1054,147 @@
         <condition required="mvz2:level.ship_8" />
       </unlock>
     </archive>
-    <section onSkip="music fade 1;end">
+    <section onSkip="forecolor set #0000;foreground alpha 0;end">
       <characters>
-        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:shou" side="left" />
+        <character id="mvz2:byakuren" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">戴夫，你这几天去哪儿了？你有时候总是看不见人影。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">随便逛逛！找找能卖的东西！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">我就靠这招找到过不少绿宝石呢！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">我脸上有萤火虫吗？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">戴夫。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">你是不是，在瞒着我什么呢？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嗯？确实！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">我就故意没告诉你，昨天香霖堂偷偷打折了！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake"><![CDATA[<color=blue>（算了，还是别想这么多了。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（毕竟戴夫……疯了。）</color>]]></sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">战斗结束了，白莲大人有什么事？</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我先介绍一下自己吧。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">正如您所知道的那样，我是命莲寺的住持，圣 白莲。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我此次出行是为了制伏那条红龙，结果却一时心软，让它逃走了。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious_close_eyes">我酿成如此大错，实属不该。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" variant="mvz2:worried">圣大人，您为什么最后没有选择制伏它？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">明明它就在您眼前倒下，那是把它封印住的最佳时机。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">结果您却还是把它放走了。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣大人，您在三年前消灭第一头红龙之后，一直都非常奇怪。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">这些年来，您到底怎么了？</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious">也许是时候该告诉你们了，星。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious_close_eyes">在三年前的时候，那头红龙伴随着巨人一同出现。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">巨人造成了很多破坏，而红龙则不停在幻想乡上空飞行。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">人与妖怪们对它们深感恐惧，并且提出要消灭他们，让它们为这些破坏付出代价。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">巨人交给了梦殿大祀庙一方，而我则负责制伏那头红龙。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我一生中拯救人与妖怪无数，然而对于这次的目标，我没有任何办法。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">
+          <text>对方是外界来的生物，我对它知之甚少，因此唯一的方法只有将其消灭。</text>
           <click>
             <script>bubble hide</script>
-            <script>character leave mvz2:crazy_villager</script>
+            <script>forecolor fade #000F</script>
             <script>delay 2</script>
+
+            <script>foreground alpha 1</script>
+            <script>foreground change mvz2:misc/red_dragon_and_byakuren[4]</script>
             <script>next</script>
           </click>
-          <text>没事我就先走了！我又看到一颗巨大的绿宝石了！</text>
         </sentence>
-        <sentence speaker="mvz2:steve" description="（村民离场）" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:miko" speakerName="？？？" sounds="mvz2:dialog_weird">那位先生……实在是个可怜人。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">那一天，妖怪们找到了红龙的巢穴，我走进了洞穴中，其余的妖怪则留在了洞口外面。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">就在巢穴的深处，我见到了那条红龙。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:dialog_weird">
+          <text>然而，意想不到的事情发生了。那条红龙，开口说了话。</text>
           <click>
             <script>bubble hide</script>
-            <script>character create mvz2:miko right mvz2:close_eyes</script>
-            <script>delay 1</script>
+            <script>forecolor fade #0000 2</script>
+            <script>delay 3</script>
+
             <script>next</script>
           </click>
-          <text>……？</text>
         </sentence>
-        <sentence speaker="mvz2:steve" description="（神子出场）" sounds="mvz2:talk">神子大人？</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:close_eyes">不过，他也很幸运——他有你这样的孩子。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:normal">史蒂夫，这么多天以来，实在是辛苦你了。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">介意和我多说说关于你的事情吗？</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">你的内心，似乎有一种强烈的欲望挥之不去。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……嗯。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">之前说过了，戴夫是我的养父。我本不属于他们的世界。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我和你们很像，是一名普通的人类。但是他们那里的居民都是方形的。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">在那里，我几乎无时无刻不被人视作怪胎……只有戴夫才对我好。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">因为这些痛苦的回忆，我很长时间里都无比渴望得到一个答案——</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird"><![CDATA[<color=red>我的亲生父母到底是谁？</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">神子小姐，您知道我的父母——</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:close_eyes">……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:normal">很抱歉，我并不清楚。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake">啊，对、对不起，我、我稍微有些多嘴了……！</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:calm">……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">史蒂夫，我觉得你可能需要注意一下。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">你太过于在意这件事了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake;music fade 0">！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake">对、对不起！我冒犯您了！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake">我、我、我、我不该问的！抱歉！</sentence>
-        <sentence speaker="mvz2:miko" description="（史蒂夫离开）" sounds="mvz2:dialog_flashback;mvz2:talk" variant="mvz2:surprised">等、等等！</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:worried">……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:worried" onClick="music fade 1;end">别走啊……</sentence>
+
+        <sentence speaker="mvz2:none" description="（白莲回忆和红龙的谈话）" speakerName="红龙" sounds="mvz2:talk">我知道你是来做什么的。你是来除我的。</sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">可是，你是否清楚，我并未危害任何人？</sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">我来此处并非本意，在这里做过的唯一之事便是于天空之上飞翔。</sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">我不想与你们为敌，可你们却恐惧我们，要消灭我们。</sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">人类从来都是这样。他们宁愿消灭我们，也不愿相信我们有任何清白。</sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">
+          <text>你身为高洁之人，也要狩猎我们这些无辜者吗？</text>
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor fade #000F</script>
+            <script>delay 1</script>
+
+            <script>next</script>
+          </click>
+        </sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">那时的红龙对我说了这些话。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">事实上，当时的幻想乡确实没有任何红龙袭击的报告，也没有任何受到红龙火焰破坏的迹象。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">它在幻想乡从未消灭或摧毁哪怕一人一物，然而幻想乡的居民在巨人的恐惧下，却还是要消灭它。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">当时的我陷入了两难。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">若放过红龙，仇恨红龙者大有人在，它迟早也会被其他妖怪杀死，而我也会失去人们的信任。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">若将其制伏，则是伤害无辜，绝非正义。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">
+          <text>时间，对当时的我来说实在是太少了。</text>
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor fade #0000</script>
+            <script>delay 1</script>
+            
+            <script>next</script>
+          </click>
+        </sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">你犹豫了。</sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">那我来帮你做决定吧。</sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">我有我要保护的东西，你也不能就这样空手而归。</sentence>
+        <sentence speaker="mvz2:none" speakerName="红龙" sounds="mvz2:talk">
+          <text>开打吧，这样对我们两者都好。</text>
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor set #000F</script>
+            <script>playsound mvz2:dragon_growl</script>
+            <script>shake</script>
+            <script>delay 2</script>
+            
+            <script>next</script>
+          </click>
+        </sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">那之后，红龙和我进行了战斗。最后，红龙体力不支，我也收了手。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">
+          <text>我本想饶它一命。哪知，那条红龙最终却拼尽全力站了起来，撞向了洞穴的墙壁。</text>
+          <click>
+            <script>bubble hide</script>
+            <script>playsound mvz2:dragon_growl</script>
+            <script>delay 1</script>
+
+            <script>playsound mvz2:explosion</script>
+            <script>delay 2</script>
+
+            <script>forecolor fade #0000 2</script>
+            <script>foreground change mvz2:misc/red_dragon_and_byakuren[5]</script>
+            <script>delay 2</script>
+            
+            <script>next</script>
+          </click>
+        </sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">等我从那些烟尘中看清发生了什么时，它已经死去，用它巨大的身躯堵住了通往巢穴深处的道路。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">
+          <text>那时的我最后什么都做不了。只能拿着战斗中掉落的一颗龙牙，离开了巢穴。</text>
+          <click>
+            <script>bubble hide</script>
+            <script>character variant mvz2:shou mvz2:worried</script>
+            <script>character variant mvz2:byakuren mvz2:serious_close_eyes</script>
+            <script>foreground fade 0</script>
+            <script>delay 2</script>
+            
+            <script>next</script>
+          </click>
+        </sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onStart="shake">居然是，这个样子的吗……</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">人和妖怪们把我奉为屠龙英雄，就这样过了三年，谁也不知道背后真正的故事。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">世人皆知我屠恶龙，可谁知我未曾屠，龙未曾恶？</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">此番纠缠，反倒入了因果。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">今日的红龙，便是之前的业，造就的孽。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那，现在的那条红龙是……？</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious">现在的红龙，就是三年前的母亲拼死保护的孩子。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">它为了为母报仇，三年后便开始在幻想乡大肆破坏。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我为了履行责任，才独自来到这里和红龙搏斗。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious_close_eyes">星，我离开命莲寺时，什么都没有对你们说，实在是抱歉。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我曾想过告诉你们这一切的真相，但又怕这真相在公之于众后，命莲寺，以及你们会受到牵连。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">所以，那时的我才决定，我必须要亲手了结这件事情。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣大人……</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我的懦弱，让这件事成为了我自己的心魔，纠缠了我整整三年。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" onClick="end">事到如今，已经不能再继续这样下去了。</sentence>
       </sentences>
     </section>
   </group>
