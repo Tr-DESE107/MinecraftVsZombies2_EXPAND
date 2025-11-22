@@ -318,6 +318,11 @@ namespace MVZ2.Talk
                                     LeaveCharacter(characterId);
                                 }
                                 break;
+                            case "leaveall":
+                                {
+                                    LeaveAllCharacters();
+                                }
+                                break;
                             case "faint":
                                 {
                                     var characterId = ParseArgumentNamespaceID(args[1]);
@@ -660,14 +665,14 @@ namespace MVZ2.Talk
         {
             if (scripts == null)
                 return;
-            IsRunningScripts = true;
-            ui.SetBlockerActive(true);
+            RunningScriptCount++;
+            ui.SetBlockerActive(RunningScriptCount > 0);
             foreach (TalkScript scr in scripts)
             {
                 await ExecuteScriptAsync(scr);
             }
-            IsRunningScripts = false;
-            ui.SetBlockerActive(false);
+            RunningScriptCount--;
+            ui.SetBlockerActive(RunningScriptCount > 0);
         }
         private void ExecuteAction(string[] args)
         {
@@ -735,21 +740,10 @@ namespace MVZ2.Talk
         /// </summary>
         private void StartSentence()
         {
-            // 获取脚本组。
             var sentence = GetTalkSentence();
             if (sentence == null)
                 return;
 
-            if (sentence.sounds != null)
-            {
-                foreach (var sound in sentence.sounds)
-                {
-                    Main.SoundManager.Play2D(sound);
-                }
-            }
-
-            // 执行脚本组。
-            _ = ExecuteScriptsAsync(sentence.startScripts);
 
             NamespaceID? speakerID = sentence.speaker;
             // 对话状态。
@@ -814,6 +808,18 @@ namespace MVZ2.Talk
             ui.SetSpeechBubbleDirection(bubbleDirection);
             ui.SetSpeechBubbleShowing(true);
             ui.ForceReshowSpeechBubble();
+
+            // 播放音效。
+            if (sentence.sounds != null)
+            {
+                foreach (var sound in sentence.sounds)
+                {
+                    Main.SoundManager.Play2D(sound);
+                }
+            }
+
+            // 执行脚本组。
+            _ = ExecuteScriptsAsync(sentence.startScripts);
         }
 
         private void EndTalk()
@@ -825,11 +831,7 @@ namespace MVZ2.Talk
             IsTalking = false;
             canClick = false;
 
-            for (int i = characterList.Count - 1; i >= 0; i--)
-            {
-                var characterData = characterList[i];
-                LeaveCharacter(characterData.id);
-            }
+            LeaveAllCharacters();
             ui.SetSpeechBubbleShowing(false);
             ui.SetSkipButtonActive(false);
             ui.SetBlockerActive(false);
@@ -886,6 +888,14 @@ namespace MVZ2.Talk
             characterList.RemoveAt(index);
             ui.LeaveCharacterAt(index);
         }
+        private void LeaveAllCharacters()
+        {
+            for (int i = characterList.Count - 1; i >= 0; i--)
+            {
+                var characterData = characterList[i];
+                LeaveCharacter(characterData.id);
+            }
+        }
         private void FaintCharacter(NamespaceID id, float duration)
         {
             var index = GetCharacterIndex(id);
@@ -934,7 +944,7 @@ namespace MVZ2.Talk
         public const string FORGROUND_TALK_TEMPLATE = "<color=blue>[{0}]</color>\n{1}";
         [TranslateMsg("跳过对话时的提示，{0}为对话名称")]
         public const string DIALOG_SKIPPED = "已跳过对话\"{0}\"";
-        public bool IsRunningScripts { get; private set; }
+        public int RunningScriptCount { get; private set; }
         public bool IsTalking { get; private set; }
         public readonly static NamespaceID DEFAULT_VARIANT_ID = new NamespaceID("mvz2", "normal");
         private MainManager Main => MainManager.Instance;

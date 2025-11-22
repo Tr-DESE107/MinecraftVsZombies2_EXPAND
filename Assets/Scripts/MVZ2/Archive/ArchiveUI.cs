@@ -33,6 +33,10 @@ namespace MVZ2.Archives
         {
             simulation.SetBackground(background);
         }
+        public void SetShake(Vector3 shake)
+        {
+            simulation.SetShake(shake);
+        }
         private void Awake()
         {
             indexUI.OnReturnClick += () => OnIndexReturnClick?.Invoke();

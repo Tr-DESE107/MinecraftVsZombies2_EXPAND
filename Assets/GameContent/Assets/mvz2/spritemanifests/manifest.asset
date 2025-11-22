@@ -1447,7 +1447,10 @@ MonoBehaviour:
     - {fileID: 1080469031, guid: 7891ad9049ccbeb45810adbce12d4cfa, type: 3}
   - name: misc/red_dragon_and_byakuren
     spritesheet:
-    - {fileID: 21300000, guid: 53824a27cae636544b1d80094c86f879, type: 3}
+    - {fileID: -907083140, guid: 53824a27cae636544b1d80094c86f879, type: 3}
+    - {fileID: -209213463, guid: 53824a27cae636544b1d80094c86f879, type: 3}
+    - {fileID: 1281296700, guid: 53824a27cae636544b1d80094c86f879, type: 3}
+    - {fileID: -769793748, guid: 53824a27cae636544b1d80094c86f879, type: 3}
   - name: shading/fire_block_0
     spritesheet:
     - {fileID: 1207791398, guid: 1143ec22777085e4da98117d2864f022, type: 3}

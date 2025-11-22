@@ -46,6 +46,10 @@ namespace MVZ2.Archives
             talkSystem = new ArchiveTalkSystem(this, simulationTalk);
             simulationTalk.OnTalkAction += OnTalkActionCallback;
         }
+        private void Update()
+        {
+            ui.SetShake(((Vector3)Main.ShakeManager.GetShake2D()) * 100);
+        }
         #endregion
 
         #region 事件回调

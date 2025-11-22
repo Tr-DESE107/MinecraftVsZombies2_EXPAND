@@ -3627,6 +3627,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dce52e9fb4e43b4a9bf9a9af890bcf9
+    m_Address: mvz2:characters/byakuren
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4de17fa916d0f324b8a0e7936a1cc303
     m_Address: mvz2:entity/effects/combat_trail_uppercut
     m_ReadOnly: 0
@@ -4438,6 +4445,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e391a23c6381c14c9f44d8b0da02c2b
+    m_Address: mvz2:characters/sekibanki
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e410d297dd6abe4995aee049367ea81
     m_Address: mvz2:armors
@@ -7770,6 +7784,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab0a17cb9a387c649abb945478f9a3ad
+    m_Address: mvz2:talks/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab1cac139d76a6f478c12842a619042d
     m_Address: mvz2:entity/contraptions/magichest_flash
     m_ReadOnly: 0
@@ -10450,6 +10471,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea907a3e2eaa545429191634d8af4841
+    m_Address: mvz2:characters/nue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea93029bdd8e6d44bbca9f126b03388c
     m_Address: mvz2:misc/mausoleum
