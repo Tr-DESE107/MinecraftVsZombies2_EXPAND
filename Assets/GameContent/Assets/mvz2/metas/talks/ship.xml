@@ -106,7 +106,7 @@
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">我们命莲寺的住持——圣 白莲大人，因此独自离开了寺庙前去降伏这头恶龙。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">但是，她已经好几天没有回来了，我们也没有她的任何消息，因此我们决定要乘坐圣辇船前去寻找她的下落。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">圣辇船是……？</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣辇船是我们的一艘可以在空中飞行的船，创造它的也是圣大人。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣辇船是我们的一艘可以在空中飞行的船，创造它的也是圣。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（又、又是空中吗……）</color>]]></sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">那么，为什么需要我帮忙呢？</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">因为，在天空上我们总是会遭到另一艘敌对船只的袭击。</sentence>
@@ -209,7 +209,7 @@
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">并且这艘船一旦败下阵来就会以近乎传送般的速度逃跑，根本没多少人能追得上它。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">因此这件事也不了了之了。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（原来是末影水晶吗……）</color>]]></sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onClick="end">我们这次航行的目的主要是为了找到圣大人，因此只需要您帮忙赶走它们就好了。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onClick="end">我们这次航行的目的主要是为了找到圣，因此只需要您帮忙赶走它们就好了。</sentence>
       </sentences>
     </section>
   </group>
@@ -270,9 +270,9 @@
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">她是一位法力高强，而又心地善良的高僧。她帮助过非常多的妖怪，这艘船的船长村纱就是被她所拯救。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">不过，由于她和妖怪走的太近，她曾经被封印在魔界之中，后来我们这些妖怪又借助着圣辇船把她救了出来。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">那关于这艘——圣辇船呢？</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣辇船也是圣大人当时为了拯救村纱而使用法力创造的。不过现在的这艘船和之前的那一艘船并非同一艘。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣辇船也是圣当时为了拯救村纱而使用法力创造的。不过现在的这艘船和之前的那一艘船并非同一艘。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">第一艘变成了现在的命莲寺。虽然寺庙仍然可以再变回船的样子，但仍有些不便。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">因此圣大人又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">因此圣又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end"><![CDATA[<color=blue>（随随便便就能创造一艘在空中飞行的船吗……确实法力高强啊。）</color>]]></sentence>
       </sentences>
     </section>
@@ -355,7 +355,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">你要帮我们寻找圣吗？</sentence>
         <sentence speaker="mvz2:nue" sounds="mvz2:talk">……圣吗？抱歉，我做不到。</sentence>
         <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:normal">我当初就已经和她们说过了，我拒绝帮忙。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" variant="mvz2:angry" onStart="shake">所以，你这家伙，到底为什么？你不也是圣大人的弟子吗？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" variant="mvz2:angry" onStart="shake">所以，你这家伙，到底为什么？你不也是圣的弟子吗？</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">现在她需要我们出手相助，你却要在这个节骨眼上拒绝帮忙？！</sentence>
         <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:close_eyes">……</sentence>
         <sentence speaker="mvz2:nue" sounds="mvz2:talk" variant="mvz2:normal">史蒂夫是吧，你年纪轻轻来到这里，着实勇气可嘉。</sentence>
@@ -461,12 +461,12 @@
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">是的，第一条龙其实是在三年前，异变刚发生时出现的。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">那条龙是和一只巨大的僵尸一起出现的，它们一起对幻想乡造成了很多破坏。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">鉴于事情的严重性，我们也和梦殿大祀庙那边的人达成了合作，一起解决它们两个。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">梦殿大祀庙那边把巨人封印在了地下，而圣大人则亲手杀死了那条恶龙。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">梦殿大祀庙那边把巨人封印在了地下，而圣则亲手杀死了那条恶龙。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">直接杀死吗……？</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">虽然她杀生这件事曾经也产生过一些争议，不过大家还是把圣大人奉为了屠龙英雄。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_weird" variant="mvz2:worried">但是，圣大人在那之后，似乎变得有些奇怪。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">虽然她杀生这件事曾经也产生过一些争议，不过大家还是把她奉为了屠龙英雄。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_weird" variant="mvz2:worried">但是，她在那之后，似乎变得有些奇怪。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">奇怪？</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">总感觉，圣大人一直有什么事情说不出口。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">总感觉，圣一直有什么事情说不出口。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end"><![CDATA[<color=blue>（这件事，背后还有什么隐情吗？）</color>]]></sentence>
       </sentences>
@@ -508,8 +508,8 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">对了，我有个问题一直想问。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">你们和白莲大人同是命莲寺的人，为什么却没有她去哪里了的线索，只能漫无目的地寻找呢？</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">这个……我来说说吧。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onStart="music fade 0">那时，红龙再次出现，圣大人当时正在寺里看着那条龙四处毁坏。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">我们赶到了她的身旁，正惊讶于眼前的发生的事情。那之后，圣大人忽然动身，准备离开寺庙。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onStart="music fade 0">那时，红龙再次出现，圣当时正在寺里看着那条龙四处毁坏。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">我们赶到了她的身旁，正惊讶于眼前的发生的事情。那之后，她忽然动身，准备离开寺庙。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">我连忙上去问她怎么回事，但她只留下了一句话。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:dialog_weird">她说：“我去了结此番因果。”</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">那之后，她便离开了我们，什么也没有说。</sentence>
@@ -731,13 +731,17 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（不知道什么时候才是个头呢……）</color>]]></sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" onStart="shake;music fade 0">史蒂夫！你快过来！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">怎么了？</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" onStart="shake">找到圣大人了！快看那边！</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_explosive" onStart="shake">圣大人正在和红龙战斗！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake">
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" onStart="shake">找到圣了！快看那边！</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_explosive" onStart="shake">她正在和红龙战斗！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut">
+          <start>
+            <script>shake</script>
+          </start>
           <text>什么？！</text>
           <click>
             <script>bubble hide</script>
-            <script>forecolor fade #000F</script>
+            <script>playsound mvz2:dialog_flashback</script>
+            <script>forecolor fade #FFFF</script>
             <script>delay 1</script>
 
             <script>playsound mvz2:dragon_growl</script>
@@ -764,21 +768,18 @@
 
             <script>foreground alpha 1</script>
             <script>foreground change mvz2:misc/red_dragon_and_byakuren[0]</script>
-            <script>forecolor fade #000F #0000 1</script>
+            <script>forecolor fade #FFFF #FFF0 1</script>
             <script>delay 3</script>
 
             <script>next</script>
           </click>
         </sentence>
         <sentence speaker="mvz2:steve" description="（远处的白莲击倒了红龙，她降落在了红龙面前）" sounds="mvz2:dialog_cut" onStart="shake"><![CDATA[<color=blue>（红、红龙被白莲击倒了！）</color>]]></sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" onStart="shake">圣大人！看这里！</sentence>
-        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" onStart="shake">圣！看这里！</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk" onStart="shake">好！这下就能把那条恶龙控制住了！</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">只要圣大人把它封印起来……</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_weird">圣大人？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">只要把它封印起来，一切就都结束了！</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">
-          <text>圣大人，您为什么什么都不做？</text>
+          <text>那条龙看起来暂时是晕过去了，我这就去帮您！</text>
           <click>
             <script>bubble hide</script>
             <script>delay 2</script>
@@ -786,7 +787,7 @@
             <script>playsound mvz2:dialog_surprised</script>
             <script>forecolor fade #FFFF #FFF0 0.1</script>
             <script>foreground change mvz2:misc/red_dragon_and_byakuren[1]</script>
-            <script>delay 1</script>
+            <script>delay 0.5</script>
 
             <script>playsound mvz2:dragon_growl</script>
             <script>playsound mvz2:fire_breath_big</script>
@@ -800,14 +801,14 @@
             <script>next</script>
           </click>
         </sentence>
-        <sentence speaker="mvz2:shou" description="（红龙睁开眼睛，抓住机会向白莲喷了一口火）" sounds="mvz2:dialog_cut" onStart="shake">圣、圣大人！</sentence>
+        <sentence speaker="mvz2:shou" description="（红龙突然睁开眼睛，抓住机会向白莲喷了一口火）" sounds="mvz2:dialog_cut" onStart="shake">圣、圣！您没事吧！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake">
           <text>怎么回事！</text>
           <click>
             <script>bubble hide</script>
             <script>playsound mvz2:dragon_growl</script>
             <script>playsound mvz2:dragon_wings</script>
-            <script>forecolor set #000F</script>
+            <script>forecolor fade #FFFF</script>
             <script>shake</script>
             <script>delay 1</script>
 
@@ -816,7 +817,7 @@
 
             <script>playsound mvz2:dragon_growl</script>
             <script>playsound mvz2:dialog_bang</script>
-            <script>forecolor set #0000</script>
+            <script>forecolor set #FFF0</script>
             <script>foreground change mvz2:misc/red_dragon_and_byakuren[3]</script>
             <script>shake</script>
             <script>delay 2</script>
@@ -837,6 +838,7 @@
             <script>delay 1</script>
 
             <script>playsound mvz2:dialog_explosive</script>
+            <script>playsound mvz2:meteor_land</script>
             <script>shake</script>
             <script>delay 1</script>
 
@@ -870,7 +872,7 @@
             <script>background alpha 1</script>
             <script>background change mvz2:misc/abandoned_house</script>
             <script>forecolor fade #000F #0000 2</script>
-            <script>delay 2</script>
+            <script>delay 3</script>
             
             <script>bubble show</script>
           </start>
@@ -925,7 +927,16 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">我记得，我是从圣辇船上掉下来了。那么高的地方，我应该早就摔死了才对啊。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">难不成，是那个天邪鬼救了我？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">没想到她还会救人啊。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="forecolor fade #0000 #000F 2;section 2">算了，总之先出去吧。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>算了，总之先出去吧。</text>
+          <click>
+            <script>bubble hide</script>
+            <script>forecolor fade #0000 #000F 2</script>
+            <script>delay 2</script>
+
+            <script>section 2</script>
+          </click>
+        </sentence>
       </sentences>
     </section>
     <section onSkip="background alpha 0;music fade 1;music play mvz2:ship_map;end">
@@ -959,7 +970,7 @@
             <script>character create mvz2:sekibanki right mvz2:angry</script>
             <script>delay 0.5</script>
 
-            <script>playsound mvz2:dialog_weird</script>
+            <script>playsound mvz2:dialog_surprised</script>
             <script>forecolor fade #FFFF #FFF0 0.1</script>
             <script>delay 2</script>
 
@@ -1064,17 +1075,16 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">战斗结束了，白莲大人有什么事？</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我先介绍一下自己吧。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">正如您所知道的那样，我是命莲寺的住持，圣 白莲。</sentence>
-        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我此次出行是为了制伏那条红龙，结果却一时心软，让它逃走了。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我此次出行是为了制伏那条红龙，结果却一时疏忽，让它逃走了。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious_close_eyes">我酿成如此大错，实属不该。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk" variant="mvz2:worried">圣大人，您为什么最后没有选择制伏它？</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">明明它就在您眼前倒下，那是把它封印住的最佳时机。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">结果您却还是把它放走了。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣大人，您在三年前消灭第一头红龙之后，一直都非常奇怪。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" variant="mvz2:worried">圣，我一直都有问题想问您。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">您在命莲寺的时候，看到红龙之后，头也不回地就离开了我们。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">并且，您在三年前消灭第一头红龙之后，一直都非常奇怪。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">这些年来，您到底怎么了？</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious">也许是时候该告诉你们了，星。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious_close_eyes">在三年前的时候，那头红龙伴随着巨人一同出现。</sentence>
-        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">巨人造成了很多破坏，而红龙则不停在幻想乡上空飞行。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">巨人造成了很多破坏，甚至夺走了许多的生命，而红龙则不停在幻想乡上空飞行。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">人与妖怪们对它们深感恐惧，并且提出要消灭他们，让它们为这些破坏付出代价。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">巨人交给了梦殿大祀庙一方，而我则负责制伏那头红龙。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我一生中拯救人与妖怪无数，然而对于这次的目标，我没有任何办法。</sentence>
@@ -1121,6 +1131,7 @@
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">那时的红龙对我说了这些话。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">事实上，当时的幻想乡确实没有任何红龙袭击的报告，也没有任何受到红龙火焰破坏的迹象。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">它在幻想乡从未消灭或摧毁哪怕一人一物，然而幻想乡的居民在巨人的恐惧下，却还是要消灭它。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">没有人愿意相信红龙是无辜的。哪怕它现在真的什么也没做，人们也不愿留它。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">当时的我陷入了两难。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">若放过红龙，仇恨红龙者大有人在，它迟早也会被其他妖怪杀死，而我也会失去人们的信任。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">若将其制伏，则是伤害无辜，绝非正义。</sentence>
@@ -1190,10 +1201,10 @@
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">它为了为母报仇，三年后便开始在幻想乡大肆破坏。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我为了履行责任，才独自来到这里和红龙搏斗。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:serious_close_eyes">星，我离开命莲寺时，什么都没有对你们说，实在是抱歉。</sentence>
-        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我曾想过告诉你们这一切的真相，但又怕这真相在公之于众后，命莲寺，以及你们会受到牵连。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我曾想过告诉你们这一切的真相，但又怕这真相在公之于众后，人们不相信我所说的话，命莲寺以及你们的声誉会受到影响。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">所以，那时的我才决定，我必须要亲手了结这件事情。</sentence>
-        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣大人……</sentence>
-        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我的懦弱，让这件事成为了我自己的心魔，纠缠了我整整三年。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣……</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">这件事成为了我自己的心魔，纠缠了我整整三年。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" onClick="end">事到如今，已经不能再继续这样下去了。</sentence>
       </sentences>
     </section>
