@@ -1219,16 +1219,15 @@
     </archive>
     <section>
       <characters>
-        <character id="mvz2:futo" side="left" />
+        <character id="mvz2:shou" side="left" variant="mvz2:worried" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">看，那边有一种新的怪物！</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">穿着锦绣华丽，简直如同古代中国的皇帝一般！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">呃……中国是什么地方？</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:daze">一个庞大的文明古国，拥有众多的——呃。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:cringe">记不清了，距离吾上次知道那里的事情也已经一千多年了。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:normal" onClick="end">但要注意，皇帝这种职位，尤其能够强化他的人民！</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">实在是没想到，圣竟然经历过那样的事情……</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" variant="mvz2:normal">先不管那些了，该战斗了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">前面好像出现了一种很壮的僵尸，还拿着锈蚀船锚。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">他不会用那个玩意砸我的器械吧？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onClick="end">……那应该就是了。</sentence>
       </sentences>
     </section>
   </group>
@@ -1240,13 +1239,17 @@
     </archive>
     <section>
       <characters>
+        <character id="mvz2:shou" side="right" variant="mvz2:question" />
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">我的回合，抽卡！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这是欲望壶，它在拥有星之碎片的怪物出现时，会复制怪物身上的星之碎片！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">不过，他的兄弟差不多都已经进禁卡池了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">闪亮亮！这是珠光宝塔！</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_weird">这东西怎么长得好像……我师傅的宝塔？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:short3">当然，这是个仿制品！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">它能把一整行的空地禁用并变为黄金，暂时无法在上面放置器械！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">但是，每禁用一定数量的空地，它就会生成一个星之碎片！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">把一切都点成黄金吧！</sentence>
       </sentences>
     </section>
   </group>
@@ -1256,128 +1259,59 @@
         <condition required="mvz2:level.ship_9" />
       </unlock>
     </archive>
-    <section onSkip="music fade 1;end">
+    <section onSkip="music fade 1;forecolor set #0000;end">
       <characters>
+        <character id="mvz2:shou" side="left" variant="mvz2:unhappy"/>
+        <character id="mvz2:byakuren" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（战斗过后，大家又都开始忙其他的事情去了，就剩我一个人留在这儿。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（难得景色不错，继续在这儿呆一会吧。）</color>]]></sentence>
-        <sentence speaker="mvz2:seiga" speakerName="？？？" sounds="mvz2:talk" onStart="music fade 0">哎呀，瞧瞧这是谁？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">圣，我有些事情要说。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">什么事情？</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">之前我们在圣辇船遇到了鵺，我们向她寻求帮助，但她却十分冷漠。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_beat" onStart="shake">甚至说我们做的这一切都没有任何意义！</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:dialog_explosive" onStart="shake">她怎么能这么说呢！</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">鵺吗？她的态度我也知情。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">自从异变发生之后，她变得非常的恍惚与消极。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">不过，她会这样，其实我觉得她反而是有一些她自己的理由的。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">也许，她是看到了我们看不到的什么东西吧。</sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk" onStart="mvz2:normal">是这样的吗……？</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:close_eyes"><![CDATA[毕竟，她是一位和<color=red>认知</color>有关的妖怪。]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird" onStart="music fade 0">……认知？</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk"><![CDATA[没错，鵺能影响某物在别人眼中的外观与形象，也就是改变别人对事物的<color=red>认知</color>。]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>认知……</text>
           <click>
             <script>bubble hide</script>
-            <script>character create mvz2:seiga left</script>
             <script>delay 1</script>
-            <script>next</script>
-          </click>
-          <text>！谁在那儿！</text>
-        </sentence>
-        <sentence speaker="mvz2:steve" description="（青娥出场）" sounds="mvz2:dialog_cut" onStart="shake">你、你、你——你不是之前那个——</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:happy">又见面了呢，小弟弟。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:normal">你一定在想我为什么会在这里，对吧？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">我也就被关了几天而已，对于不老不死的仙人而言，一眨眼可就过去了哦。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">所以，你来这儿是为了——</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">放松，小弟弟。你的身上有我想要的力量。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">所以，我这次还是来请你帮忙的哦。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake">不行，你的忙我绝对不会再帮了！</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:happy">哈哈，我就知道。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">不过，我这里恐怕有些你想知道的事情哦。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……什么？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:dialog_weird" variant="mvz2:normal"><![CDATA[<color=red>史蒂夫·奥格拉斯</color>]]>，是吧？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">我之前，好像见过有些人，在找有这个名字的人呢，而且和你长得很相似。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">说不定，他们和你可能会有什么血缘关系呢。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake">！你、你怎么会知道……！</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" onStart="music play mvz2:suspension;music volume 1">所以，小弟弟，要不要再帮我一些忙呢？</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">连同上次没有给你的报酬一起，这次，我会告诉你一些很重要的东西呢。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">不、不行……怎么能听你的！</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:happy" onStart="music volume 0"><![CDATA[<color=red>就算再也不知道自己的身世，被人歧视，孤独地活在这个世界上</color>]]>，也是可以的嘛？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_judge" onStart="shake">！！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake;character variant mvz2:seiga mvz2:normal;forecolor fade #000F #0000 1">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我不想再那样活着……可是……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="forecolor fade #000F #0000 1">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我……</sentence>
-        <sentence speaker="mvz2:steve" onStart="forecolor set #000F">
-          <start>
+
             <script>forecolor set #000F</script>
-          </start>
-          <text>我帮你。</text>
-          <click>
-            <script>bubble hide</script>
-            <script>forecolor fade #000F #0000 1</script>
-            <script>delay 2</script>
-            <script>next</script>
-          </click>
-        </sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake;music fade 1;">但……你必须要告诉我那些事情！！！</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:happy">放心放心，我可向来都信守承诺的哦。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:normal">只不过，现在还不能告诉你，别太贪心哦。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:evil">呵呵，那我们说好咯，那我就——</sentence>
-        <sentence speaker="mvz2:miko" speakerName="？？？" sounds="mvz2:dialog_weird" onStart="music stop">你就滚回之前的牢里去吧。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:dialog_surprised" variant="mvz2:vigilant">！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">
-          <text>！</text>
-          <click>
-            <script>bubble hide</script>
-            <script>playsound mvz2:dialog_flashback</script>
-            <script>forecolor fade #FFF0 #FFFF 0.5</script>
-            <script>delay 0.5</script>
-            
-            <script>character create mvz2:miko right mvz2:angry</script>
-            <script>delay 0.5</script>
-
-            <script>forecolor set #0000</script>
-            <script>playsound mvz2:dialog_judge</script>
             <script>shake</script>
-            <script>delay 1</script>
-
+            <script>playsound mvz2:dialog_judge</script>
             <script>next</script>
           </click>
         </sentence>
-        <sentence speaker="mvz2:miko" description="（神子出场）" sounds="mvz2:talk">你果然还是那个青娥。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:cringe">哎、哎呀……是神子啊……</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">原谅我吧~看在我们是老友的份上？</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">我们是老友不错，你为了自己在外面再怎么作恶，我也管不到。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:dialog_explosive" onStart="shake">但我实在无法忍受，你如此欺骗和利用史蒂夫！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk">拜托，我也没做什么伤天害理的事情啊，只是让他帮我做事而已~</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:angry_close_eyes">我不想听你的任何解释。现在回到之前的监牢里去，再待上几年！</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:vigilant">切~算了。</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:normal">
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（等等，认知……！）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut">
+          <start>
+            <script>shake</script>
+          </start>
+          <text><![CDATA[<color=blue>（难道这场异变产生的原因，是那个东西！）</color>]]></text>
           <click>
             <script>bubble hide</script>
-            <script>character leave mvz2:seiga</script>
+            <script>forecolor fade #0000</script>
+            <script>character variant mvz2:shou mvz2:worried</script>
+            <script>character variant mvz2:byakuren mvz2:serious</script>
             <script>delay 2</script>
 
             <script>next</script>
           </click>
-          <text>那么，再也不见咯~史蒂夫小弟弟。</text>
         </sentence>
-        <sentence speaker="mvz2:steve" description="（青娥离场）" sounds="mvz2:talk" onStart="character variant mvz2:miko mvz2:calm">……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" onStart="music volume 1;music play mvz2:ship_map">你怎么样，史蒂夫？青娥她没做什么伤害你的事情吧？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">没有，但是，她说她知道我父母的事情……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:calm_close_eyes">不可能的。这是她向来用于哄骗别人的伎俩。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:calm">你和我之前的对话，她当时可能也在偷听，才知道了这些事情。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">所以，答案又消失了吗……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我真的——好想、好想知道……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">还是说，我其实也跟她说的一样——太贪心了吗？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我本来就不该有这种欲望，对吗？</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:calm_close_eyes">不是的，孩子。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:calm">人有欲望，这件事本身并不是问题。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:dialog_weird">问题是，<![CDATA[<color=red>人失去了控制欲望的能力，而去做坏事。</color>]]></sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">你对自己父母这件事情的执念实在是有些太深了。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:calm_close_eyes">但是，你仍然有知道答案的权利。而这个答案只能由你自己去寻找，并且，绝不要像青娥那样，使用如此邪恶的手段。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">嗯……</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:normal">起来吧，史蒂夫，冷静一下。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">之后还要解决巨人的问题，这几天就不要去想这些事情了，你需要休息。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">嗯。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">谢谢你，神子大人。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_explosive" onStart="shake"><![CDATA[<color=blue>（不对，怎么可能呢！幻想乡里怎么可能有那种东西呢！）</color>]]></sentence>
+        <sentence speaker="mvz2:shou" sounds="mvz2:talk">史蒂夫，您怎么了？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">没、没什么。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" onClick="music fade 1;end">……</sentence>
       </sentences>
     </section>
   </group>
