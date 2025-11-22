@@ -640,6 +640,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0da8ea7b3ec83e94793e912ac5ea6c81
+    m_Address: mvz2:misc/dead_red_dragon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0deb751d188532a459548c9e64ada4b5
     m_Address: mvz2:damage/bone/bone_hit2
     m_ReadOnly: 0
@@ -3353,6 +3360,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4793d226f42daea46946880a3e168402
+    m_Address: mvz2:misc/dragon_fallen_place
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47a0f3ede9a8bce49b1f3b6615f97e01
     m_Address: mvz2:armor/emperor_crown
@@ -7891,6 +7905,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adecf731c88b78646a29bb745f5ada9b
     m_Address: mvz2:mobile_blueprint/dream_crystal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae189aa75b161e44f93053f5011c464e
+    m_Address: mvz2:archive/ship_note
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

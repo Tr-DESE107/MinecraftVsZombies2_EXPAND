@@ -1254,7 +1254,7 @@
             <condition required="mvz2:level.ship_10" />
         </unlock>
         <model preset="cloudy" />
-        <talks>
+        <talks noStartMusic="true">
             <talk type="start" value="mvz2:ship_11" />
             <talk type="end" value="mvz2:ship_11_over" />
             <talk type="map" value="mvz2:ship_11_map" />

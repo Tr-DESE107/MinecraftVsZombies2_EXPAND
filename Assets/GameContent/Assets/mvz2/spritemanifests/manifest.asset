@@ -171,6 +171,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 50bf732bad4c58e4594fe0d57da0eeff, type: 3}
   - name: misc/castle
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
+  - name: misc/dead_red_dragon
+    sprite: {fileID: 21300000, guid: 0da8ea7b3ec83e94793e912ac5ea6c81, type: 3}
+  - name: misc/dragon_fallen_place
+    sprite: {fileID: 21300000, guid: 4793d226f42daea46946880a3e168402, type: 3}
   - name: misc/dream
     sprite: {fileID: 21300000, guid: 8826f776dff1c6a4d8d72030535a150e, type: 3}
   - name: misc/end_ship
