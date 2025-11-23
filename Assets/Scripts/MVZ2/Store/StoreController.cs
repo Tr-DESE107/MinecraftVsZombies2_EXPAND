@@ -62,6 +62,10 @@ namespace MVZ2.Store
                     continue;
                 ui.SetStoreUIVisible(false);
                 await talkController.SimpleStartTalkAsync(talk, 0, 1);
+
+                // 如果对话去了其他页面，那就不触发之后的对话。
+                if (!gameObject.activeInHierarchy)
+                    break;
             }
             ui.SetStoreUIVisible(true);
         }
