@@ -1059,6 +1059,7 @@
             <properties>
                 <bool name="mvz2:cannotDig" value="true" />
                 <bool name="mvz2:invisible" value="true" />
+                <int name="mvz2:collisionDetection" value="2" />
                 <bool name="mvz2:invincible" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
