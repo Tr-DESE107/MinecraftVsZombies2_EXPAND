@@ -20,6 +20,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             detector = new HellfireIgniteDetector(0)
             {
+                factionTarget = FactionTarget.Any,
                 mask = EntityCollisionHelper.MASK_PROJECTILE,
             };
         }
