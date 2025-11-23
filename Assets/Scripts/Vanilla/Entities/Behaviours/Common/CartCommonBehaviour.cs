@@ -5,9 +5,9 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Carts;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Difficulties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -43,14 +43,14 @@ namespace MVZ2.Vanilla.Entities
             switch (entity.State)
             {
                 default:
-                    if (entity.Position.x < VanillaLevelExt.CART_TARGET_X)
+                    if (entity.Position.x < LevelPositions.CART_TARGET_X)
                     {
                         velocity.x = 10;
                     }
                     else
                     {
                         var pos = entity.Position;
-                        pos.x = VanillaLevelExt.CART_TARGET_X;
+                        pos.x = LevelPositions.CART_TARGET_X;
                         entity.Position = pos;
                         velocity.x = 0;
                     }
@@ -73,7 +73,7 @@ namespace MVZ2.Vanilla.Entities
                         }
                     }
                     // 如果超出屏幕，消失。
-                    if (entity.GetBounds().min.x >= VanillaLevelExt.GetBorderX(true))
+                    if (entity.GetBounds().min.x >= LevelPositions.GetBorderX(true))
                     {
                         entity.Remove();
                     }

@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;

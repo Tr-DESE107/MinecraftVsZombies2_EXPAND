@@ -9,15 +9,15 @@ using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
@@ -339,7 +339,7 @@ namespace MVZ2.GameContent.Stages
                     {
                         pickup.Timeout = Math.Min(pickup.Timeout, 30);
                     }
-                    if (level.GetHeldItemType() == VanillaHeldTypes.pickaxe)
+                    if (level.GetHeldItemType() == LogicHeldTypes.pickaxe)
                     {
                         StartState(level, STATE_DIG_CONTRAPTIONS);
                     }
@@ -399,15 +399,14 @@ namespace MVZ2.GameContent.Stages
             }
         }
 
-        public static FrameTimer? GetTutorialTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, PROP_TUTORIAL_TIMER);
-        public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, PROP_TUTORIAL_TIMER, value);
-        public static RandomGenerator? GetTutorialRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(ID, PROP_TUTORIAL_RNG);
-        public static void SetTutorialRNG(LevelEngine level, RandomGenerator value) => level.SetBehaviourField(ID, PROP_TUTORIAL_RNG, value);
-        public static int GetTutorialState(LevelEngine level) => level.GetBehaviourField<int>(ID, PROP_STATE);
-        public static void SetTutorialState(LevelEngine level, int value) => level.SetBehaviourField(ID, PROP_STATE, value);
+        public static FrameTimer? GetTutorialTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
+        public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetProperty(PROP_TUTORIAL_TIMER, value);
+        public static RandomGenerator? GetTutorialRNG(LevelEngine level) => level.GetProperty<RandomGenerator>(PROP_TUTORIAL_RNG);
+        public static void SetTutorialRNG(LevelEngine level, RandomGenerator value) => level.SetProperty(PROP_TUTORIAL_RNG, value);
+        public static int GetTutorialState(LevelEngine level) => level.GetProperty<int>(PROP_STATE);
+        public static void SetTutorialState(LevelEngine level, int value) => level.SetProperty(PROP_STATE, value);
 
 
-        private static readonly NamespaceID ID = VanillaStageID.tutorial;
         public static readonly string[] tutorialStrings = new string[]
         {
             STRING_STATE_0,

@@ -3,10 +3,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Level.Components;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;

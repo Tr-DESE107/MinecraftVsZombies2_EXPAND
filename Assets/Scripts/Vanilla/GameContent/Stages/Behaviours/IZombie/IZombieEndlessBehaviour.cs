@@ -2,9 +2,9 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.IZombie;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Stages
     {
         public IZombieEndlessBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.SetProperty(VanillaStageProps.ENDLESS, true);
+            stageDef.SetProperty(LogicStageProps.ENDLESS, true);
             stageDef.SetPickaxeCountLimit(MAX_PICKAXE_COUNT);
             normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f));
             normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f));
@@ -65,16 +65,16 @@ namespace MVZ2.GameContent.Stages
         {
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.imp),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.ghost),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.dullahan),
             });
         }
         public const int ROUNDS_PER_PICKAXE = 2;

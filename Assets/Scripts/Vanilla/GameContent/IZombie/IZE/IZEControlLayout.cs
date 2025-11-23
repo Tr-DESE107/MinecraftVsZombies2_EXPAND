@@ -2,7 +2,7 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Stages;
-using MVZ2Logic;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.IZombie;
 using Tools;
 

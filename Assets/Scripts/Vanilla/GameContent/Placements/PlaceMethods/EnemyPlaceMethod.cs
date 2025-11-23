@@ -2,7 +2,7 @@
 
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Grids;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;

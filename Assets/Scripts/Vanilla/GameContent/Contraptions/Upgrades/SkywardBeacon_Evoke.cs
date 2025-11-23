@@ -3,7 +3,8 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.Contraptions
             var sky = entity.Level.FindFirstEntity(e => e.IsEntityOf(VanillaEffectID.skywardSky));
             if (sky == null)
             {
-                var pos = new Vector3((VanillaLevelExt.LEFT_BORDER + VanillaLevelExt.RIGHT_BORDER) * 0.5f, 0, VanillaLevelExt.LAWN_HEIGHT * 0.5f);
+                var pos = new Vector3((LevelPositions.LEFT_BORDER + LevelPositions.RIGHT_BORDER) * 0.5f, 0, LevelPositions.LAWN_HEIGHT * 0.5f);
                 entity.Spawn(VanillaEffectID.skywardSky, pos);
             }
             else

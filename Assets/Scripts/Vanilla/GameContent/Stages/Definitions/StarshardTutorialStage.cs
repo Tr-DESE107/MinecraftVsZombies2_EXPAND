@@ -4,16 +4,16 @@ using MukioI18n;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -105,7 +105,7 @@ namespace MVZ2.GameContent.Stages
                 case STATE_CLICK_STARSHARD:
                     {
                         var heldEntityType = level.GetHeldItemType();
-                        if (heldEntityType == VanillaHeldTypes.starshard)
+                        if (heldEntityType == LogicHeldTypes.starshard)
                         {
                             StartState(level, STATE_EVOKE_DISPENSER);
                         }
@@ -179,10 +179,10 @@ namespace MVZ2.GameContent.Stages
                     break;
             }
         }
-        public static FrameTimer? GetTutorialTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, PROP_TUTORIAL_TIMER);
-        public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, PROP_TUTORIAL_TIMER, value);
-        public static int GetTutorialState(LevelEngine level) => level.GetBehaviourField<int>(ID, PROP_STATE);
-        public static void SetTutorialState(LevelEngine level, int value) => level.SetBehaviourField(ID, PROP_STATE, value);
+        public static FrameTimer? GetTutorialTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
+        public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetProperty(PROP_TUTORIAL_TIMER, value);
+        public static int GetTutorialState(LevelEngine level) => level.GetProperty<int>(PROP_STATE);
+        public static void SetTutorialState(LevelEngine level, int value) => level.SetProperty(PROP_STATE, value);
         private static readonly NamespaceID ID = VanillaStageID.starshardTutorial;
 
         public static readonly string[] tutorialStrings = new string[]

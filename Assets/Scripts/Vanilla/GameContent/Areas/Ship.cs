@@ -6,9 +6,9 @@ using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Armors;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -98,7 +98,7 @@ namespace MVZ2.GameContent.Areas
             var position = grid.GetEntityPosition() + Vector3.up * 600;
             var entity = level.Spawn(enemyID, position, null)?.Let(e =>
             {
-                e.EquipArmorTo(VanillaArmorSlots.shield, VanillaArmorID.umbrellaShield);
+                e.EquipArmorTo(LogicArmorSlots.shield, VanillaArmorID.umbrellaShield);
                 e.AddBuff<ParatroopBuff>();
             });
             return entity;
@@ -113,8 +113,8 @@ namespace MVZ2.GameContent.Areas
         }
         public static float GetSkyOffsetSpeed(LevelEngine level) => level.GetProperty<float>(PROP_SKY_OFFSET_SPEED);
         public static void SetSkyOffsetSpeed(LevelEngine level, float value) => level.SetProperty<float>(PROP_SKY_OFFSET_SPEED, value);
-        public static RandomGenerator? GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(PROP_RNG);
-        public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(PROP_RNG, rng);
+        public static RandomGenerator? GetRNG(LevelEngine level) => level.GetProperty<RandomGenerator>(PROP_RNG);
+        public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetProperty(PROP_RNG, rng);
 
         public static readonly NamespaceID[] paratroopsToSpawn = new NamespaceID[]
         {

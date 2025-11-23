@@ -4,7 +4,8 @@ using System;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -60,6 +61,67 @@ namespace MVZ2.Vanilla.Entities
             }
         }
 
+        public static void CheckAlignToLane(this Entity entity)
+        {
+            if (entity.IsChangingLane())
+                return;
+            var level = entity.Level;
+
+            var minLane = 0;
+            var maxLane = level.GetMaxLaneCount() - 1;
+
+            var lane = Mathf.Clamp(entity.GetLane(), minLane, maxLane);
+            var targetZ = level.GetEntityLaneZ(lane);
+            var targetZDistance = entity.Position.z - targetZ;
+
+            if (Mathf.Abs(targetZDistance) < CHANGE_LANE_THRESOLD)
+                return;
+
+            int targetLane;
+            int adjacentLane = lane - Math.Sign(targetZDistance);
+            if (adjacentLane >= minLane && adjacentLane <= maxLane)
+            {
+                var adjacentZ = level.GetEntityLaneZ(adjacentLane);
+                var adjacentZDistance = entity.Position.z - adjacentZ;
+                if (Mathf.Abs(targetZDistance) < Mathf.Abs(adjacentZDistance))
+                {
+                    targetLane = lane;
+                }
+                else
+                {
+                    targetLane = adjacentLane;
+                }
+            }
+            else
+            {
+                targetLane = lane;
+            }
+            entity.StartChangingLane(targetLane);
+        }
+
+        #region 地图限制
+        public static bool IsEnemyOutsideLeft(this Entity entity, float margin = 0)
+        {
+            var bounds = entity.GetBounds();
+            return bounds.max.x < LevelPositions.ENEMY_LEFT_BORDER + margin;
+        }
+        public static bool IsEnemyOutsideRight(this Entity entity, float margin = 0)
+        {
+            var bounds = entity.GetBounds();
+            return bounds.min.x > LevelPositions.ENEMY_RIGHT_BORDER - margin;
+        }
+        public static void LimitEnemyFromRight(this Entity entity, float margin = 0)
+        {
+            var bounds = entity.GetBounds();
+            var target = LevelPositions.ENEMY_RIGHT_BORDER - margin;
+            var different = bounds.min.x - target;
+
+            Vector3 pos = entity.Position;
+            pos.x -= different;
+            entity.Position = pos;
+        }
+        #endregion
+
         #region 骑乘
         public static void RideOn(this Entity passenger, Entity horse)
         {
@@ -114,67 +176,6 @@ namespace MVZ2.Vanilla.Entities
         public static void UpdatePassengerPosition(this Entity passenger, Entity horse)
         {
             passenger.Position = horse.Position + horse.GetPassengerOffset();
-        }
-        #endregion
-
-        public static void CheckAlignToLane(this Entity entity)
-        {
-            if (entity.IsChangingLane())
-                return;
-            var level = entity.Level;
-
-            var minLane = 0;
-            var maxLane = level.GetMaxLaneCount() - 1;
-
-            var lane = Mathf.Clamp(entity.GetLane(), minLane, maxLane);
-            var targetZ = level.GetEntityLaneZ(lane);
-            var targetZDistance = entity.Position.z - targetZ;
-
-            if (Mathf.Abs(targetZDistance) < CHANGE_LANE_THRESOLD)
-                return;
-
-            int targetLane;
-            int adjacentLane = lane - Math.Sign(targetZDistance);
-            if (adjacentLane >= minLane && adjacentLane <= maxLane)
-            {
-                var adjacentZ = level.GetEntityLaneZ(adjacentLane);
-                var adjacentZDistance = entity.Position.z - adjacentZ;
-                if (Mathf.Abs(targetZDistance) < Mathf.Abs(adjacentZDistance))
-                {
-                    targetLane = lane;
-                }
-                else
-                {
-                    targetLane = adjacentLane;
-                }
-            }
-            else
-            {
-                targetLane = lane;
-            }
-            entity.StartChangingLane(targetLane);
-        }
-
-        #region 地图限制
-        public static bool IsEnemyOutsideLeft(this Entity entity, float margin = 0)
-        {
-            var bounds = entity.GetBounds();
-            return bounds.max.x < VanillaLevelExt.ENEMY_LEFT_BORDER + margin;
-        }
-        public static bool IsEnemyOutsideRight(this Entity entity, float margin = 0)
-        {
-            var bounds = entity.GetBounds();
-            return bounds.min.x > VanillaLevelExt.ENEMY_RIGHT_BORDER - margin;
-        }
-        public static void LimitEnemyFromRight(this Entity entity, float margin = 0)
-        {
-            var bounds = entity.GetBounds();
-            var target = VanillaLevelExt.ENEMY_RIGHT_BORDER - margin;
-            var different = bounds.min.x - target;
-
-            Vector3 pos = entity.Position;
-            pos.x -= different;
-            entity.Position = pos;
         }
         #endregion
 

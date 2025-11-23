@@ -126,18 +126,6 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 变种
-        public static readonly PropertyMeta<int> VARIANT = Get<int>("variant");
-        public static int GetVariant(this Entity entity)
-        {
-            return entity.GetProperty<int>(VARIANT);
-        }
-        public static void SetVariant(this Entity entity, int value)
-        {
-            entity.SetProperty(VARIANT, value);
-        }
-        #endregion
-
         #region 沉没
         public static readonly PropertyMeta<int> WATER_INTERACTION = Get<int>("waterInteraction");
         public static int GetWaterInteraction(this EntityDefinition entityDef)
@@ -167,14 +155,6 @@ namespace MVZ2.Vanilla.Entities
         public static void SetAirInteraction(this Entity entity, int value)
         {
             entity.SetProperty(AIR_INTERACTION, value);
-        }
-        #endregion
-
-        #region 起始位置偏移
-        public static readonly PropertyMeta<Vector3> STARTING_POSITION_OFFSET = Get<Vector3>("starting_position_offset");
-        public static Vector3 GetStartingPositionOffset(this EntityDefinition entityDef)
-        {
-            return entityDef.GetProperty<Vector3>(STARTING_POSITION_OFFSET);
         }
         #endregion
 
@@ -216,102 +196,12 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 音效
-        public static readonly PropertyMeta<NamespaceID> HIT_SOUND = Get<NamespaceID>("hitSound");
-        public static readonly PropertyMeta<NamespaceID> DEATH_SOUND = Get<NamespaceID>("deathSound");
-        public static readonly PropertyMeta<NamespaceID> PLACE_SOUND = Get<NamespaceID>("placeSound");
-        public static readonly PropertyMeta<float> CRY_PITCH = Get<float>("cryPitch");
-        public static NamespaceID? GetHitSound(this Entity entity)
-        {
-            return entity.GetProperty<NamespaceID>(HIT_SOUND);
-        }
-        public static NamespaceID? GetPlaceSound(this EntityDefinition definition)
-        {
-            return definition.GetProperty<NamespaceID>(PLACE_SOUND);
-        }
-        public static NamespaceID? GetPlaceSound(this Entity entity)
-        {
-            return entity.GetProperty<NamespaceID>(PLACE_SOUND);
-        }
-        public static NamespaceID? GetDeathSound(this Entity entity)
-        {
-            return entity.GetProperty<NamespaceID>(DEATH_SOUND);
-        }
-        public static void PlayDeathSound(this Entity entity)
-        {
-            var deathSound = entity.GetDeathSound();
-            if (NamespaceID.IsValid(deathSound))
-                entity.PlayCrySound(deathSound);
-        }
-        public static float GetCryPitch(this Entity entity)
-        {
-            return entity.GetProperty<float>(CRY_PITCH);
-        }
-        #endregion
 
         #region 换行
         public static readonly PropertyMeta<float> CHANGE_LANE_SPEED = Get<float>("changeLaneSpeed");
         public static float GetChangeLaneSpeed(this Entity entity) => entity.GetProperty<float>(VanillaEntityProps.CHANGE_LANE_SPEED);
         #endregion
 
-        #region 显示
-        public static readonly PropertyMeta<string> SORTING_LAYER = Get<string>("sortingLayer");
-        public static readonly PropertyMeta<int> SORTING_ORDER = Get<int>("sortingOrder");
-        public static string? GetSortingLayer(this Entity entity)
-        {
-            return entity.GetProperty<string>(VanillaEntityProps.SORTING_LAYER);
-        }
-        public static void SetSortingLayer(this Entity entity, string layer)
-        {
-            entity.SetProperty(VanillaEntityProps.SORTING_LAYER, layer);
-        }
-        public static int GetSortingOrder(this Entity entity)
-        {
-            return entity.GetProperty<int>(VanillaEntityProps.SORTING_ORDER);
-        }
-        public static void SetSortingOrder(this Entity entity, int layer)
-        {
-            entity.SetProperty(VanillaEntityProps.SORTING_ORDER, layer);
-        }
-        #endregion
-
-        #region 更新
-        public static readonly PropertyMeta<bool> UPDATE_BEFORE_GAME = Get<bool>("updateBeforeGame");
-        public static readonly PropertyMeta<bool> UPDATE_IN_PAUSE = Get<bool>("updateInPause");
-        public static readonly PropertyMeta<bool> UPDATE_AFTER_GAME_OVER = Get<bool>("updateAfterGameOver");
-        public static void SetCanUpdateBeforeGameStart(this Entity entity, bool value)
-        {
-            entity.SetProperty(UPDATE_BEFORE_GAME, value);
-        }
-        public static bool CanUpdateBeforeGameStart(this Entity entity)
-        {
-            return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
-        }
-        public static bool CanUpdateInPause(this Entity entity)
-        {
-            return entity.GetProperty<bool>(UPDATE_IN_PAUSE);
-        }
-        public static bool CanUpdateAfterGameOver(this Entity entity)
-        {
-            return entity.GetProperty<bool>(UPDATE_AFTER_GAME_OVER);
-        }
-        #endregion
-
-        #region 影子
-
-        public static readonly PropertyMeta<bool> SHADOW_HIDDEN = Get<bool>("shadowHidden");
-        public static readonly PropertyMeta<float> SHADOW_ALPHA = Get<float>("shadowAlpha");
-        public static readonly PropertyMeta<Vector3> SHADOW_SCALE = Get<Vector3>("shadowScale");
-        public static readonly PropertyMeta<Vector3> SHADOW_OFFSET = Get<Vector3>("shadowOffset");
-        public static bool IsShadowHidden(this Entity entity) => entity.GetProperty<bool>(VanillaEntityProps.SHADOW_HIDDEN);
-        public static void SetShadowHidden(this Entity entity, bool value) => entity.SetProperty(VanillaEntityProps.SHADOW_HIDDEN, value);
-        public static float GetShadowAlpha(this Entity entity) => entity.GetProperty<float>(VanillaEntityProps.SHADOW_ALPHA);
-        public static void SetShadowAlpha(this Entity entity, float value) => entity.SetProperty(VanillaEntityProps.SHADOW_ALPHA, value);
-        public static Vector3 GetShadowScale(this Entity entity) => entity.GetProperty<Vector3>(VanillaEntityProps.SHADOW_SCALE);
-        public static void SetShadowScale(this Entity entity, Vector3 value) => entity.SetProperty(VanillaEntityProps.SHADOW_SCALE, value);
-        public static Vector3 GetShadowOffset(this Entity entity) => entity.GetProperty<Vector3>(VanillaEntityProps.SHADOW_OFFSET);
-        public static void SetShadowOffset(this Entity entity, Vector3 value) => entity.SetProperty(VanillaEntityProps.SHADOW_OFFSET, value);
-        #endregion
 
         #region 时限
         public static readonly PropertyMeta<int> MAX_TIMEOUT = Get<int>("maxTimeout");
@@ -383,49 +273,6 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 光照
-        public static readonly PropertyMeta<bool> IS_LIGHT_SOURCE = Get<bool>("isLightSource");
-        public static readonly PropertyMeta<bool> RECEIVES_LIGHT = Get<bool>("receivesLight");
-        public static readonly PropertyMeta<Vector3> LIGHT_RANGE = Get<Vector3>("lightRange");
-        public static readonly PropertyMeta<Color> LIGHT_COLOR = Get<Color>("lightColor");
-        public static void SetLightSource(this Entity entity, bool value)
-        {
-            entity.SetProperty(IS_LIGHT_SOURCE, value);
-        }
-        public static bool IsLightSource(this EntityDefinition definition)
-        {
-            return definition.GetProperty<bool>(IS_LIGHT_SOURCE);
-        }
-        public static bool IsLightSource(this Entity entity)
-        {
-            return entity.GetProperty<bool>(IS_LIGHT_SOURCE);
-        }
-        public static void SetReceivesLight(this Entity entity, bool value)
-        {
-            entity.SetProperty(RECEIVES_LIGHT, value);
-        }
-        public static bool ReceivesLight(this Entity entity)
-        {
-            return entity.GetProperty<bool>(RECEIVES_LIGHT);
-        }
-        public static void SetLightRange(this Entity entity, Vector3 value)
-        {
-            entity.SetProperty(LIGHT_RANGE, value);
-        }
-        public static Vector3 GetLightRange(this Entity entity)
-        {
-            return entity.GetProperty<Vector3>(LIGHT_RANGE);
-        }
-        public static void SetLightColor(this Entity entity, Color value)
-        {
-            entity.SetProperty(LIGHT_COLOR, value);
-        }
-        public static Color GetLightColor(this Entity entity)
-        {
-            return entity.GetProperty<Color>(LIGHT_COLOR);
-        }
-        #endregion
-
         #region 血液
         public static readonly PropertyMeta<Color> BLOOD_COLOR = Get<Color>("bloodColor");
         public static readonly PropertyMeta<Color> BLOOD_COLOR_CENSORED = Get<Color>("bloodColorCensored");
@@ -440,59 +287,6 @@ namespace MVZ2.Vanilla.Entities
         public static Color GetBloodColor(this Entity entity)
         {
             return Global.Options.HasBloodAndGore() ? entity.GetBloodColorNormal() : entity.GetBloodColorCensored();
-        }
-        #endregion
-
-        #region HSV
-        public static readonly PropertyMeta<Vector3> HSV = Get<Vector3>("hsv");
-        public static void SetHSV(this Entity entity, float h, float s, float v) => entity.SetHSV(new Vector3(h, s, v));
-        public static void SetHSV(this Entity entity, Vector3 value) => entity.SetProperty(HSV, value);
-        public static Vector3 GetHSV(this Entity entity) => entity.GetProperty<Vector3>(HSV);
-        public static void SetHSVToColor(this Entity entity, Color srcColor)
-        {
-            entity.SetHSVToColor(srcColor, Color.red);
-        }
-        public static void SetHSVToColor(this Entity entity, Color srcColor, Color dstColor)
-        {
-            Color.RGBToHSV(srcColor, out var srcH, out var srcS, out var srcV);
-            Color.RGBToHSV(dstColor, out var dstH, out var dstS, out var dstV);
-            var h = (srcH - dstH) * 360;
-            var s = (srcS - dstS) * 100;
-            var v = (srcV - dstV) * 100;
-            entity.SetHSV(h, s, v);
-        }
-        #endregion
-
-        #region 灰度
-        public static readonly PropertyMeta<bool> GRAYSCALE = Get<bool>("grayscale");
-        public static void SetGrayscale(this Entity entity, bool value) => entity.SetProperty(GRAYSCALE, value);
-        public static bool IsGrayscale(this Entity entity) => entity.GetProperty<bool>(GRAYSCALE);
-        #endregion
-
-        #region 深度检测
-        public static readonly PropertyMeta<bool> DEPTH_TEST = Get<bool>("depth_test");
-        public static void SetDepthTtest(this Entity entity, bool value) => entity.SetProperty(DEPTH_TEST, value);
-        public static bool IsDepthTest(this Entity entity) => entity.GetProperty<bool>(DEPTH_TEST);
-        #endregion
-
-        #region 蓝图
-        public static readonly PropertyMeta<int> COST = Get<int>("cost");
-        public static readonly PropertyMeta<NamespaceID> RECHARGE_ID = Get<NamespaceID>("rechargeId");
-        public static int GetCost(this Entity entity)
-        {
-            return entity.GetProperty<int>(COST);
-        }
-        public static int GetCost(this EntityDefinition entity)
-        {
-            return entity.GetProperty<int>(COST);
-        }
-        public static NamespaceID? GetRechargeID(this Entity entity)
-        {
-            return entity.GetProperty<NamespaceID>(RECHARGE_ID);
-        }
-        public static NamespaceID? GetRechargeID(this EntityDefinition entity)
-        {
-            return entity.GetProperty<NamespaceID>(RECHARGE_ID);
         }
         #endregion
 

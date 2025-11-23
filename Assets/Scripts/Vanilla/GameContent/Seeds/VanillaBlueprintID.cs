@@ -42,10 +42,6 @@ namespace MVZ2.GameContent.Seeds
         public static readonly NamespaceID ufoGreen = Get(VanillaBlueprintNames.ufoGreen);
         public static readonly NamespaceID ufoBlue = Get(VanillaBlueprintNames.ufoBlue);
         public static readonly NamespaceID ufoRainbow = Get(VanillaBlueprintNames.ufoRainbow);
-        public static NamespaceID FromEntity(NamespaceID entityID)
-        {
-            return entityID;
-        }
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

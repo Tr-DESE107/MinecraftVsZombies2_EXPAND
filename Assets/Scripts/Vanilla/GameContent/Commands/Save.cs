@@ -2,8 +2,10 @@
 
 using MVZ2.Vanilla;
 using MVZ2Logic;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 
 namespace MVZ2.GameContent.Commands
 {
@@ -19,7 +21,7 @@ namespace MVZ2.GameContent.Commands
             if (level == null)
                 return;
             level.SaveStateData();
-            PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_SAVE_SUCCESS, VanillaStrings.CONTEXT_COMMAND_OUTPUT));
+            PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_SAVE_SUCCESS, LogicStrings.CONTEXT_COMMAND_OUTPUT));
         }
     }
 }

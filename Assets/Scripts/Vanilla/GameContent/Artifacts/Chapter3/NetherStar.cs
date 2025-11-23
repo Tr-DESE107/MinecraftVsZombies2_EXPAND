@@ -2,8 +2,8 @@
 
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;

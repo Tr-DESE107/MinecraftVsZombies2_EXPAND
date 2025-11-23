@@ -3,6 +3,7 @@
 using System;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -122,11 +123,11 @@ namespace MVZ2.Vanilla.Enemies
         {
         }
         private const string PROP_REGION = "state_enemy";
-        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
-        public const int STATE_CAST = VanillaEnemyStates.CAST;
-        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+        public const int STATE_IDLE = LogicEnemyStates.IDLE;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
+        public const int STATE_CAST = LogicEnemyStates.CAST;
+        public const int STATE_DEATH = LogicEnemyStates.DEATH;
         [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DEATH_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DeathTimer");
     }

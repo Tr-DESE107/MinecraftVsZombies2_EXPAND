@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -14,7 +15,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public FrankensteinStageBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Multiply(VanillaAreaProps.GLOBAL_LIGHT, PROP_LIGHT_MULTIPLIER));
+            AddModifier(ColorModifier.Multiply(LogicAreaProps.GLOBAL_LIGHT, PROP_LIGHT_MULTIPLIER));
         }
         public override void PostAdd(Buff buff)
         {

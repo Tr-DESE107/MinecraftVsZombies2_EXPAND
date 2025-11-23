@@ -7,9 +7,10 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -106,7 +107,7 @@ namespace MVZ2.GameContent.Contraptions
             if (grid != null)
             {
                 var spawnParams = entity.GetSpawnParams();
-                spawnParams.SetProperty(VanillaEntityProps.VARIANT, entity.GetVariant());
+                spawnParams.SetProperty(LogicEntityProps.VARIANT, entity.GetVariant());
                 var spawned = grid.SpawnPlacedEntity(targetID.GetID(), spawnParams);
                 if (spawned != null)
                 {

@@ -7,13 +7,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson.IO;
 using MVZ2.IO;
-using MVZ2.Logic.Level;
 using MVZ2.Managers;
 using MVZ2.Scenes;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic;
 using MVZ2Logic.Games;
+using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Serialization;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
@@ -150,12 +149,12 @@ namespace MVZ2.Level
         {
             var meta = Main.Game.GetStageDefinition(stageID);
             if (meta == null)
-                return Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_UNKNOWN);
-            var levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, meta.GetLevelName());
+                return Main.LanguageManager._p(LogicStrings.CONTEXT_LEVEL_NAME, LogicStrings.LEVEL_NAME_UNKNOWN);
+            var levelName = Main.LanguageManager._p(LogicStrings.CONTEXT_LEVEL_NAME, meta.GetLevelName());
             var dayNumber = meta.GetDayNumber();
             if (dayNumber > 0)
             {
-                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, dayNumber, levelName, dayNumber);
+                levelName = Main.LanguageManager._pn(LogicStrings.CONTEXT_LEVEL_NAME, LogicStrings.LEVEL_NAME_DAY_TEMPLATE, dayNumber, levelName, dayNumber);
             }
             return levelName;
         }
@@ -163,16 +162,16 @@ namespace MVZ2.Level
         {
             var name = level.GetLevelName();
             if (string.IsNullOrEmpty(name))
-                name = VanillaStrings.LEVEL_NAME_UNKNOWN;
-            var levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, name);
+                name = LogicStrings.LEVEL_NAME_UNKNOWN;
+            var levelName = Main.LanguageManager._p(LogicStrings.CONTEXT_LEVEL_NAME, name);
             int dayNumber = level.GetDayNumber();
             if (dayNumber > 0)
             {
-                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, dayNumber, levelName, dayNumber);
+                levelName = Main.LanguageManager._pn(LogicStrings.CONTEXT_LEVEL_NAME, LogicStrings.LEVEL_NAME_DAY_TEMPLATE, dayNumber, levelName, dayNumber);
             }
             if (level.IsEndless() && level.CurrentFlag > 0)
             {
-                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE, level.CurrentFlag, levelName, level.CurrentFlag);
+                levelName = Main.LanguageManager._pn(LogicStrings.CONTEXT_LEVEL_NAME, LogicStrings.LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE, level.CurrentFlag, levelName, level.CurrentFlag);
             }
             return levelName;
         }

@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Carts;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -15,7 +16,7 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public NightmareLevelBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new NamespaceIDModifier(VanillaStageProps.CLEAR_SOUND, SetOperator.Set, VanillaSoundID.agnoy));
+            AddModifier(new NamespaceIDModifier(LogicStageProps.CLEAR_SOUND, SetOperator.Set, VanillaSoundID.agnoy));
             AddModifier(new ColorModifier(VanillaAreaProps.WATER_COLOR, BlendOperator.One, BlendOperator.Zero, new Color(0.89f, 0, 0, 1)));
             AddModifier(new ColorModifier(VanillaAreaProps.WATER_COLOR_CENSORED, BlendOperator.One, BlendOperator.Zero, new Color(0, 0, 0.5f, 1)));
         }

@@ -12,9 +12,11 @@ using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Difficulties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -81,12 +83,12 @@ namespace MVZ2.GameContent.Stages
                         level.WaveState = STATE_NEXT_ROUND;
                         if (maxRound <= 0)
                         {
-                            level.ShowAdvicePlural(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_STREAK, currentRound, 0, 150, currentRound.ToString());
+                            level.ShowAdvicePlural(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_STREAK, currentRound, 0, 150, currentRound.ToString());
                         }
                         else
                         {
                             var remained = maxRound - currentRound;
-                            level.ShowAdvicePlural(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_ROUNDS_LEFT, remained, 0, 150, remained.ToString());
+                            level.ShowAdvicePlural(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_ROUNDS_LEFT, remained, 0, 150, remained.ToString());
                         }
                         var roundTimer = GetRoundTimer(level);
                         roundTimer?.Reset();
@@ -219,10 +221,10 @@ namespace MVZ2.GameContent.Stages
                 level.GameOver(GameOverTypes.INSTANT, null, VanillaStrings.DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES);
             }
         }
-        public NamespaceID? GetCurrentLayout(LevelEngine level) => level.GetBehaviourField<NamespaceID>(PROP_CURRENT_LAYOUT);
-        public void SetCurrentLayout(LevelEngine level, NamespaceID value) => level.SetBehaviourField(PROP_CURRENT_LAYOUT, value);
-        public FrameTimer? GetRoundTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_ROUND_TIMER);
-        public void SetRoundTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_ROUND_TIMER, value);
+        public NamespaceID? GetCurrentLayout(LevelEngine level) => level.GetProperty<NamespaceID>(PROP_CURRENT_LAYOUT);
+        public void SetCurrentLayout(LevelEngine level, NamespaceID value) => level.SetProperty(PROP_CURRENT_LAYOUT, value);
+        public FrameTimer? GetRoundTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_ROUND_TIMER);
+        public void SetRoundTimer(LevelEngine level, FrameTimer value) => level.SetProperty(PROP_ROUND_TIMER, value);
 
         #region 属性字段
         private const string PROP_REGION = "i_zombie_stage";

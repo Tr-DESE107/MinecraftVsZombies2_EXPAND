@@ -8,7 +8,7 @@ using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Saves;
 using MVZ2.Store;
-using MVZ2.Vanilla.Saves;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using Tools;
 using UnityEngine;

@@ -3,7 +3,7 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;

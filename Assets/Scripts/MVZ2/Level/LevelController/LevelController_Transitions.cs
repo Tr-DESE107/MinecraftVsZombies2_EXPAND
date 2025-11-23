@@ -4,12 +4,11 @@ using System.Collections;
 using System.Linq;
 using MVZ2.Level.UI;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using UnityEngine;
@@ -30,7 +29,7 @@ namespace MVZ2.Level
         private IEnumerator GameStartToPreviewTransition()
         {
             Music.Play(VanillaMusicID.choosing);
-            level.CreatePreviewEnemies(VanillaLevelExt.GetEnemySpawnRect());
+            level.CreatePreviewEnemies(LevelPositions.GetEnemySpawnRect());
             yield return new WaitForSeconds(1);
             yield return MoveCameraToChoose();
             yield return new WaitForSeconds(1);

@@ -3,9 +3,8 @@
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
-using MVZ2.Vanilla.SeedPacks;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;

@@ -3,11 +3,11 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Artifacts
                     {
                         var spawnParams = new SpawnParams();
                         var contraptionID = GetRandomContraptionID(entity.Level, rng);
-                        var blueprintID = VanillaBlueprintID.FromEntity(contraptionID);
+                        var blueprintID = LogicBlueprintID.FromEntity(contraptionID);
                         spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                         entity.Produce(VanillaPickupID.blueprintPickup, spawnParams);
                         break;

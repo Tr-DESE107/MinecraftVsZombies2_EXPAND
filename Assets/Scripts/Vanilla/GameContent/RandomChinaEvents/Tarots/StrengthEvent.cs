@@ -5,7 +5,7 @@ using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;

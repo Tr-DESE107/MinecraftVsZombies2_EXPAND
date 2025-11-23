@@ -4,9 +4,9 @@ using MukioI18n;
 using MVZ2.GameContent.Stages;
 using MVZ2.Level;
 using MVZ2.UI;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 
 namespace MVZ2.Options
 {
@@ -46,7 +46,7 @@ namespace MVZ2.Options
                     {
                         if (Level.IsGameStarted() || Level.GetCurrentFlag() > 0)
                         {
-                            var title = Main.LanguageManager._(VanillaStrings.BACK);
+                            var title = Main.LanguageManager._(LogicStrings.BACK);
                             var desc = Main.LanguageManager._(DIALOG_DESC_LEAVE_LEVEL);
 
                             var result = await Main.Scene.ShowDialogSelectAsync(title, desc);
@@ -87,7 +87,7 @@ namespace MVZ2.Options
         #region 更新元素
         protected void UpdateLeaveLevelButton()
         {
-            var textKey = Global.Saves.IsLevelCleared(VanillaStageID.prologue) ? VanillaStrings.BACK_TO_MAP : VanillaStrings.BACK_TO_MAINMENU;
+            var textKey = Global.Saves.IsLevelCleared(VanillaStageID.prologue) ? LogicStrings.BACK_TO_MAP : LogicStrings.BACK_TO_MAINMENU;
             var text = Main.LanguageManager._(textKey);
             dialog.SetButtonText(TextButtonType.LeaveLevel, text);
         }

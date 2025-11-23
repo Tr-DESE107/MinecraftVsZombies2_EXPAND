@@ -3,52 +3,38 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
-using MVZ2.Vanilla.Saves;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
-using MVZ2Logic.Games;
-using MVZ2Logic.HeldItems;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using PVZEngine.SeedPacks;
-using Tools;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace MVZ2.Vanilla.Level
 {
     public static partial class VanillaLevelExt
     {
-        public static bool IsDay(this LevelEngine level)
+        public static T? GetStageBehaviour<T>(this LevelEngine level) where T : StageBehaviour
         {
-            var dayNightCycle = level.GetDayNightCycleOverride();
-            if (dayNightCycle != VanillaDayNightCycles.NONE)
-            {
-                return dayNightCycle == VanillaDayNightCycles.DAY;
-            }
-            var areaTags = level.GetAreaTags();
-            return areaTags.Contains(VanillaAreaTags.day);
+            if (level == null || level.StageDefinition == null)
+                return null;
+            return level.StageDefinition.GetBehaviour<T>();
         }
+
+        #region 推车
         public static void SpawnCarts(this LevelEngine game, NamespaceID cartRef, float x, float xInterval)
         {
             var carts = game.GetEntities(EntityTypes.CART);
@@ -59,18 +45,58 @@ namespace MVZ2.Vanilla.Level
                 game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
             }
         }
+        #endregion
+
+        #region 游戏结束检查
         public static void CheckGameOver(this LevelEngine level)
         {
             if (level.IsCleared) // 关卡通关后不能再死亡
                 return;
             if (level.IsGodMode()) // 上帝模式
                 return;
-            var gameOverEnemy = level.FindFirstEntity(e => e.Position.x < GetBorderX(false) && e.CanEntityEnterHouse());
+            var gameOverEnemy = level.FindFirstEntity(e => e.Position.x < LevelPositions.GetBorderX(false) && e.CanEntityEnterHouse());
             if (gameOverEnemy != null)
             {
                 level.GameOver(GameOverTypes.ENEMY, gameOverEnemy, null);
             }
         }
+        #endregion
+
+        #region 通关检查
+        public static void CheckClearUpdate(this LevelEngine level)
+        {
+            var lastEnemy = level.GetFirstAliveEnemy();
+            if (lastEnemy != null)
+            {
+                level.SetLastEnemyPosition(lastEnemy.Position);
+            }
+            else if (level.HasNoAliveEnemy())
+            {
+                level.PostWaveFinished(level.CurrentWave);
+                level.SetNoEnergy(true);
+                if (!level.IsAllEnemiesCleared())
+                {
+                    level.SetAllEnemiesCleared(true);
+                    var lastEnemyPosition = level.GetLastEnemyPosition();
+                    Vector3 position;
+                    if (lastEnemyPosition.x <= LevelPositions.GetBorderX(false))
+                    {
+                        var x = level.GetEnemySpawnX();
+                        var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
+                        var y = level.GetGroundY(x, z);
+                        position = new Vector3(x, y, z);
+                    }
+                    else
+                    {
+                        position = lastEnemyPosition;
+                    }
+                    ClearPickup.Produce(level, position);
+                }
+            }
+        }
+        #endregion
+
+        #region 范围伤害
         public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source, Predicate<IEntityCollider>? filter = null)
         {
             return level.Explode(center, radius, faction, amount, effects, new EntitySourceReference(source), filter);
@@ -126,331 +152,9 @@ namespace MVZ2.Vanilla.Level
             }
             return damageOutputs.ToArray();
         }
-
-        #region 手持物品
-        public static NamespaceID? GetHeldSeedEntityID(this LevelEngine level)
-        {
-            var data = level.GetHeldItemData();
-            if (data == null)
-                return null;
-            return data.GetSeedEntityID(level);
-        }
-        public static bool IsHoldingExclusiveItem(this LevelEngine level)
-        {
-            if (!level.IsHoldingItem())
-                return false;
-            var holdingDefinition = level.GetHeldItemDefinition();
-            if (holdingDefinition == null)
-                return false;
-            return holdingDefinition.Exclusive;
-        }
-        public static bool IsHoldingItem(this LevelEngine level)
-        {
-            var type = level.GetHeldItemType();
-            return NamespaceID.IsValid(type) && type != BuiltinHeldTypes.none;
-        }
-        public static bool IsHoldingPickaxe(this LevelEngine level)
-        {
-            return level.GetHeldItemType() == VanillaHeldTypes.pickaxe;
-        }
-        public static bool IsHoldingStarshard(this LevelEngine level)
-        {
-            return level.GetHeldItemType() == VanillaHeldTypes.starshard;
-        }
-        public static bool IsHoldingSword(this LevelEngine level)
-        {
-            return level.GetHeldItemType() == VanillaHeldTypes.sword;
-        }
-        public static bool IsHoldingBlueprint(this LevelEngine level, SeedPack seedPack)
-        {
-            var data = level.GetHeldItemData();
-            if (data == null)
-                return false;
-            return data.IsHoldingBlueprint(level, seedPack);
-        }
-        public static bool IsHoldingClassicBlueprint(this LevelEngine level, int i)
-        {
-            var data = level.GetHeldItemData();
-            if (data == null)
-                return false;
-            return data.IsHoldingClassicBlueprint(i);
-        }
-        public static bool IsHoldingConveyorBlueprint(this LevelEngine level, int i)
-        {
-            var data = level.GetHeldItemData();
-            if (data == null)
-                return false;
-            return data.IsHoldingConveyorBlueprint(i);
-        }
-        public static bool IsHoldingTrigger(this LevelEngine level)
-        {
-            return level.GetHeldItemType() == VanillaHeldTypes.trigger;
-        }
-        public static bool IsHoldingEntity(this LevelEngine level, Entity entity)
-        {
-            return level.GetHoldingEntity() == entity;
-        }
-        public static Entity? GetHoldingEntity(this LevelEngine level)
-        {
-            var data = level.GetHeldItemData();
-            if (data == null)
-                return null;
-            return data.GetHoldingEntity(level);
-        }
         #endregion
 
-        public static void CreatePreviewEnemies(this LevelEngine level, IEnumerable<NamespaceID> spawnsID, Rect region)
-        {
-            List<SpawnDefinition> spawnToCreate = new List<SpawnDefinition>();
-            foreach (var spawnID in spawnsID)
-            {
-                var spawnDefinition = level.Content.GetSpawnDefinition(spawnID);
-                if (spawnDefinition == null)
-                    continue;
-                int count = spawnDefinition.GetPreviewCount();
-
-                for (int i = 0; i < count; i++)
-                {
-                    spawnToCreate.Add(spawnDefinition);
-                }
-            }
-
-            List<Entity> createdEnemies = new List<Entity>();
-            float radius = 80;
-            while (spawnToCreate.Count > 0)
-            {
-                var creatingSpawnDef = spawnToCreate.ToArray();
-                foreach (var spawnDef in creatingSpawnDef)
-                {
-                    var x = Random.Range(region.xMin, region.xMax);
-                    var z = Random.Range(region.yMin, region.yMax);
-                    var y = level.GetGroundY(x, z);
-                    Vector3 pos = new Vector3(x, y, z);
-
-                    if (radius > 0 && createdEnemies.Any(e => Vector3.Distance(e.Position, pos) < radius))
-                        continue;
-
-                    var param = new SpawnParams();
-                    param.SetProperty(VanillaEnemyProps.PREVIEW_ENEMY, true);
-                    var enm = spawnDef.SpawnPreviewEntity(level, pos, param);
-                    if (enm != null)
-                    {
-                        createdEnemies.Add(enm);
-                    }
-
-                    spawnToCreate.Remove(spawnDef);
-                }
-                radius--;
-            }
-        }
-        #region Waves
-        public static void PostWaveFinished(this LevelEngine level, int wave)
-        {
-            if (level.IsHugeWave(wave))
-            {
-                level.CurrentFlag++;
-            }
-            level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_WAVE_FINISHED, new LevelCallbacks.PostWaveParams(level, wave), wave);
-        }
-        public static void NextWave(this LevelEngine level)
-        {
-            level.PostWaveFinished(level.CurrentWave);
-            level.CurrentWave++;
-            level.RunWave();
-        }
-        public static void RunWave(this LevelEngine level)
-        {
-            level.SpawnWaveEnemies(level.CurrentWave);
-
-            var wave = level.CurrentWave;
-            level.StageDefinition.PostWave(level, wave);
-            level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, new LevelCallbacks.PostWaveParams(level, wave));
-        }
-        public static int GetLevelTotalWaves(this LevelEngine level, int wave, int flags)
-        {
-            var wavesPerFlag = level.GetWavesPerFlag();
-            var waveModular = (wave - 1) % wavesPerFlag + 1;
-            try
-            {
-                return checked(waveModular + flags * wavesPerFlag);
-            }
-            catch (OverflowException)
-            {
-                return int.MaxValue;
-            }
-        }
-        /// <summary>
-        /// 波次生成敌人所需要的总等级花费。
-        /// </summary>
-        /// <param name="level"></param>
-        /// <param name="wave"></param>
-        /// <param name="flags"></param>
-        /// <returns></returns>
-        public static float CalculateSpawnPoints(this LevelEngine level, int wave, int flags)
-        {
-            var totalWave = level.GetLevelTotalWaves(wave, flags);
-            var isBossFight = level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT || level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT_2;
-            if (isBossFight)
-            {
-                totalWave = level.GetTotalFlags() * level.GetWavesPerFlag();
-            }
-            var basePoints = Mathf.FloorToInt(totalWave * 0.8f) / 2 + 1;
-            var power = level.GetSpawnPointPower();
-            var multiplier = level.GetSpawnPointMultiplier();
-            var addition = level.GetSpawnPointAddition();
-            if (level.IsHugeWave(wave) && (level.WaveState == VanillaLevelStates.STATE_STARTED || level.WaveState == VanillaLevelStates.STATE_FINAL_WAVE))
-            {
-                multiplier *= 2.5f;
-            }
-            if (isBossFight)
-            {
-                multiplier = 1;
-            }
-            return Mathf.Ceil(Mathf.Min(Mathf.Pow(basePoints, power) * multiplier + addition, 500));
-        }
-        public static float CalculateSpawnPoints(this LevelEngine level)
-        {
-            return level.CalculateSpawnPoints(level.CurrentWave, level.CurrentFlag);
-        }
-        /// <summary>
-        /// 本波用于限制生成怪物的数值，防止前期生成无法处理的怪物。
-        /// </summary>
-        /// <param name="level"></param>
-        /// <param name="wave"></param>
-        /// <param name="flags"></param>
-        /// <returns></returns>
-        public static float GetCurrentSpawnLimitWave(this LevelEngine level, int wave, int flags)
-        {
-            var rounds = flags / level.GetTotalFlags();
-            // 每经过一轮，当前波数视为+1。
-            return wave + rounds;
-        }
-        public static void SpawnWaveEnemies(this LevelEngine level, int wave)
-        {
-            // 获取本波的生成点数。
-            var maxPoints = level.CalculateSpawnPoints();
-            var totalPoints = maxPoints;
-
-            // 波数限制，防止前期生成无法处理的怪物。
-            var currentWaveLevelLimit = level.GetCurrentSpawnLimitWave(wave, level.CurrentFlag);
-
-            // 当前的有效敌人池。
-            var pool = level.GetEnemyPool();
-            var spawnDefs = pool.Select(id => level.Content.GetSpawnDefinition(id)).OfType<SpawnDefinition>();
-            foreach (var spawnDef in spawnDefs)
-            {
-                spawnDef.PreSpawnAtWave(level, wave, maxPoints, ref totalPoints);
-            }
-            var preResult = new CallbackResult(totalPoints);
-            var preArgs = new VanillaLevelCallbacks.WaveEnemySpawnParams(level, wave, maxPoints);
-            level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_WAVE_ENEMY_SPAWN, preArgs, preResult);
-            totalPoints = preResult.GetValue<float>();
-
-            var validSpawnDefs = spawnDefs.Where(def => def.CanSpawnInLevel(level));
-
-            // 已生成怪物数量。
-            int spawnedCount = 0;
-
-            // 没有剩余点数，或者生成的敌人数量大于50只，则中断。
-            while (totalPoints > 0 && spawnedCount < 50)
-            {
-                // 当前所有可以生成的敌人。
-                // 不被当前波次限制。
-                var possibleSpawnDefs = validSpawnDefs.Where(def => def.GetSpawnLevel() <= totalPoints);
-
-                // 没有可生成的敌人了，跳出
-                if (possibleSpawnDefs.Count() <= 0)
-                    break;
-
-                IEnumerable<SpawnDefinition> finalSpawnPool = possibleSpawnDefs;
-                // 根据当前波次限制获取有效的敌人。
-                var limitedSpawnDefs = possibleSpawnDefs.Where(def => def.GetMinSpawnWave() <= currentWaveLevelLimit);
-
-                // 如果根据当前波次限制之后，没有可以生成的敌人，则不进行限制。
-                if (limitedSpawnDefs.Count() > 0)
-                {
-                    finalSpawnPool = limitedSpawnDefs;
-                }
-
-                // 随机生成一个敌人。
-                var rng = level.GetSpawnRNG();
-                var spawnDef = finalSpawnPool.WeightedRandom(i => i.GetWeight(level), rng);
-                level.SpawnEnemyAtRandomLane(spawnDef);
-                totalPoints -= spawnDef.GetSpawnLevel();
-                spawnedCount++;
-            }
-
-            if (level.IsFinalWave(wave))
-            {
-                // 最后一波如果还有没生成过的敌人，强制全部生成一次
-                var notSpawnedDefs = validSpawnDefs.Where(def => !level.IsEnemySpawned(def.GetID()));
-                foreach (var notSpawnedDef in notSpawnedDefs)
-                {
-                    level.SpawnEnemyAtRandomLane(notSpawnedDef);
-                }
-            }
-
-            // 生成怪物之后。
-            foreach (var spawnDef in spawnDefs)
-            {
-                spawnDef.PostSpawnAtWave(level, wave, maxPoints, ref totalPoints);
-            }
-            var postResult = new CallbackResult(totalPoints);
-            var postArgs = new VanillaLevelCallbacks.WaveEnemySpawnParams(level, wave, maxPoints);
-            level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.POST_WAVE_ENEMY_SPAWN, postArgs, postResult);
-        }
-        public static bool WillEnemySpawn(this LevelEngine level, NamespaceID spawnID)
-        {
-            var pool = level.GetEnemyPool();
-            if (pool == null)
-                return false;
-            return pool.Any(e => e == spawnID);
-        }
-        public static Entity? SpawnEnemyAtRandomLane(this LevelEngine level, SpawnDefinition spawnDef)
-        {
-            var lane = spawnDef.GetRandomSpawnLane(level);
-            return level.SpawnEnemy(spawnDef, lane);
-        }
-        public static Entity? SpawnEnemyAtRandomLane(this LevelEngine level, NamespaceID spawnID)
-        {
-            var spawnDef = level.Content.GetSpawnDefinition(spawnID);
-            if (spawnDef == null)
-                return null;
-            var x = level.GetEnemySpawnX();
-            return level.SpawnEnemyAtRandomLane(spawnDef);
-        }
-        public static Entity? SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane)
-        {
-            var x = level.GetEnemySpawnX();
-            return level.SpawnEnemy(spawnDef, lane, x);
-        }
-        public static Entity? SpawnEnemy(this LevelEngine level, NamespaceID spawnID, int lane)
-        {
-            var spawnDef = level.Content.GetSpawnDefinition(spawnID);
-            if (spawnDef == null)
-                return null;
-            var x = level.GetEnemySpawnX();
-            return level.SpawnEnemy(spawnDef, lane, x);
-        }
-        public static Entity? SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane, float x)
-        {
-            var z = level.GetEntityLaneZ(lane);
-            var y = level.GetGroundY(x, z);
-            var pos = new Vector3(x, y, z);
-            var spawnEntityID = spawnDef.GetSpawnEntity();
-            if (!NamespaceID.IsValid(spawnEntityID))
-                return null;
-            return level.Spawn(spawnEntityID, pos, null)?.Let(e =>
-            {
-                level.TriggerEnemySpawned(spawnDef.GetID(), e);
-            });
-        }
-        public static void TriggerEnemySpawned(this LevelEngine level, NamespaceID spawnID, Entity enemy)
-        {
-            level.AddSpawnedEnemyID(spawnID);
-            level.StageDefinition.PostEnemySpawned(enemy);
-            level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, new EntityCallbackParams(enemy));
-        }
+        #region 生成旗帜僵尸
         public static Entity? SpawnFlagZombie(this LevelEngine level)
         {
             var lane = level.GetRandomEnemySpawnLane();
@@ -466,236 +170,7 @@ namespace MVZ2.Vanilla.Level
         }
         #endregion
 
-        #region 预览敌人
-        public static void CreatePreviewEnemies(this LevelEngine level, Rect region)
-        {
-            var pool = level.GetEnemyPool();
-            var spawnIDs = pool.Where(e => NamespaceID.IsValid(e));
-            level.CreatePreviewEnemies(spawnIDs, region);
-        }
-        public static void RemovePreviewEnemies(this LevelEngine level)
-        {
-            foreach (var enemy in level.FindEntities(e => e.IsPreviewEnemy()))
-            {
-                enemy.Remove();
-            }
-        }
-        #endregion
-
-        #region Positions
-
-        public static float GetLeftUIBorderX(this LevelEngine level)
-        {
-            if (Global.Game.UseMobileLayout())
-            {
-                return 160;
-            }
-            return GetBorderX(false);
-        }
-        public static Vector2 GetMoneyPanelEntityPosition(this LevelEngine level)
-        {
-            var x = level.GetLeftUIBorderX() + MONEY_PANEL_X_TO_LEFT;
-            var y = MONEY_PANEL_Y_TO_BOTTOM;
-            return new Vector2(x, y);
-        }
-        public static Vector2 GetStarshardEntityPosition(this LevelEngine level)
-        {
-            var x = level.GetLeftUIBorderX() + STARSHARD_X_TO_LEFT;
-            var y = STARSHARD_Y_TO_BOTTOM;
-            return new Vector2(x, y);
-        }
-        public static Vector2 GetEnergySlotEntityPosition(this LevelEngine level)
-        {
-            var x = level.GetLeftUIBorderX() + ENERGY_SLOT_WIDTH * 0.5f;
-            var y = GetScreenHeight() - ENERGY_SLOT_WIDTH * 0.5f;
-            return new Vector2(x, y);
-        }
-        public static Vector2 GetScreenCenterPosition(this LevelEngine level)
-        {
-            var x = level.GetLeftUIBorderX() + SCREEN_WIDTH * 0.5f;
-            var y = SCREEN_HEIGHT * 0.5f;
-            return new Vector2(x, y);
-        }
-        public static Rect GetEnemySpawnRect()
-        {
-            return new Rect(MIN_PREVIEW_X, MIN_PREVIEW_Y, MAX_PREVIEW_X - MIN_PREVIEW_X, MAX_PREVIEW_Y - MIN_PREVIEW_Y);
-        }
-        public static float GetScreenHeight()
-        {
-            return SCREEN_HEIGHT;
-        }
-        public static float GetBorderX(bool right)
-        {
-            return right ? RIGHT_BORDER : LEFT_BORDER;
-        }
-        public static float GetAttackBorderX(bool right)
-        {
-            return right ? ATTACK_RIGHT_BORDER : ATTACK_LEFT_BORDER;
-        }
-        public static float GetPickupBorderX(bool right)
-        {
-            return right ? PICKUP_RIGHT_BORDER : PICKUP_LEFT_BORDER;
-        }
-        public static float GetEnemyRightBorderX()
-        {
-            return ENEMY_RIGHT_BORDER;
-        }
-        public const float ENERGY_SLOT_WIDTH = 48;
-
-        public const float MONEY_PANEL_X_TO_LEFT = 16;
-        public const float MONEY_PANEL_Y_TO_BOTTOM = 32;
-
-        public const float STARSHARD_X_TO_LEFT = 128 + 165 + 16;
-        public const float STARSHARD_Y_TO_BOTTOM = 32;
-
-        public const float MIN_PREVIEW_X = 1080;
-        public const float MAX_PREVIEW_X = 1300;
-        public const float MIN_PREVIEW_Y = 50;
-        public const float MAX_PREVIEW_Y = 450;
-
-        public const float GRID_SIZE = 80;
-        public const float LAWN_HEIGHT = 600;
-        public const float LEVEL_WIDTH = 1400;
-        public const float LEVEL_LEFTMOST = 0;
-        public const float LEVEL_RIGHTMOST = LEVEL_LEFTMOST + LEVEL_WIDTH;
-        public const float CART_START_X = 150;
-        public const float CART_TARGET_X = LEFT_BORDER;
-        public const float SCREEN_WIDTH = 800;
-        public const float SCREEN_HEIGHT = 600;
-        public const float LEFT_BORDER = 220;
-        public const float RIGHT_BORDER = LEFT_BORDER + SCREEN_WIDTH;
-        public const float LAWN_CENTER_X = (LEFT_BORDER + RIGHT_BORDER) * 0.5f;
-
-        public const float PICKUP_LEFT_BORDER = LEFT_BORDER + 50;
-        public const float PICKUP_RIGHT_BORDER = RIGHT_BORDER - 50;
-        public const float ATTACK_LEFT_BORDER = LEFT_BORDER;
-        public const float ATTACK_RIGHT_BORDER = RIGHT_BORDER;
-
-        public const float ENEMY_LEFT_BORDER = LEFT_BORDER - 60;
-        public const float ENEMY_RIGHT_BORDER = RIGHT_BORDER + 30;
-
-
-        public const float PROJECTILE_LEFT_BORDER = LEFT_BORDER - 40;
-        public const float PROJECTILE_RIGHT_BORDER = RIGHT_BORDER + 40;
-        public const float PROJECTILE_UP_BORDER = 540;
-        public const float PROJECTILE_DOWN_BORDER = -40;
-        public const float PROJECTILE_TOP_BORDER = 1000;
-        public const float PROJECTILE_BOTTOM_BORDER = -1000;
-        #endregion
-
-        #region Wave
-        public static Entity? GetFirstAliveEnemy(this LevelEngine level)
-        {
-            return level.FindFirstEntity(e => e.IsAliveEnemy());
-        }
-        public static bool HasNoAliveEnemy(this LevelEngine level)
-        {
-            var first = level.GetFirstAliveEnemy();
-            if (first != null)
-                return false;
-            if (level.AssumeHasEnemies())
-                return false;
-            return true;
-        }
-        public static void CheckClearUpdate(this LevelEngine level)
-        {
-            var lastEnemy = level.GetFirstAliveEnemy();
-            if (lastEnemy != null)
-            {
-                level.SetLastEnemyPosition(lastEnemy.Position);
-            }
-            else if (level.HasNoAliveEnemy())
-            {
-                level.PostWaveFinished(level.CurrentWave);
-                level.SetNoEnergy(true);
-                if (!level.IsAllEnemiesCleared())
-                {
-                    level.SetAllEnemiesCleared(true);
-                    var lastEnemyPosition = level.GetLastEnemyPosition();
-                    Vector3 position;
-                    if (lastEnemyPosition.x <= VanillaLevelExt.GetBorderX(false))
-                    {
-                        var x = level.GetEnemySpawnX();
-                        var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
-                        var y = level.GetGroundY(x, z);
-                        position = new Vector3(x, y, z);
-                    }
-                    else
-                    {
-                        position = lastEnemyPosition;
-                    }
-                    ClearPickup.Produce(level, position);
-                }
-            }
-        }
-        public static T? GetStageBehaviour<T>(this LevelEngine level) where T : StageBehaviour
-        {
-            if (level == null || level.StageDefinition == null)
-                return null;
-            return level.StageDefinition.GetBehaviour<T>();
-        }
-        #endregion
-
-        #region 蓝图
-        public static void SetupBattleBlueprints(this LevelEngine level, BlueprintChooseItem[] items)
-        {
-            var oldSeedPacks = level.GetAllSeedPacks();
-            for (int i = 0; i < level.GetSeedSlotCount(); i++)
-            {
-                NamespaceID? blueprintID = null;
-                bool commandBlock = false;
-                if (i < items.Length)
-                {
-                    var item = items[i];
-                    blueprintID = item.id;
-                    commandBlock = item.isCommandBlock;
-                }
-                if (blueprintID == null)
-                {
-                    level.RemoveSeedPackAt(i);
-                    continue;
-                }
-                var seedPack = level.GetLastBlueprint(blueprintID, commandBlock, oldSeedPacks);
-                if (seedPack == null)
-                {
-                    seedPack = level.CreateSeedPack(blueprintID);
-                    seedPack?.Let(s =>
-                    {
-                        if (level.CurrentFlag <= 0)
-                        {
-                            s.SetStartRecharge(true);
-                        }
-                        else
-                        {
-                            s.FullRecharge();
-                        }
-                        s.SetCommandBlock(commandBlock);
-                    });
-                }
-                level.ReplaceSeedPackAt(i, seedPack);
-            }
-        }
-        public static void FillSeedPacks(this LevelEngine level, IEnumerable<NamespaceID> seedPacks)
-        {
-            var oldSeedPacks = level.GetAllSeedPacks();
-            int count = seedPacks.Count();
-            for (int i = 0; i < count; i++)
-            {
-                var id = seedPacks.ElementAt(i);
-                var seedPack = level.GetLastBlueprint(id, false, oldSeedPacks);
-                if (seedPack == null)
-                {
-                    seedPack = level.CreateSeedPack(id);
-                    seedPack?.SetStartRecharge(true);
-                }
-                level.ReplaceSeedPackAt(i, seedPack);
-            }
-        }
-        public static ClassicSeedPack? GetLastBlueprint(this LevelEngine level, NamespaceID blueprintID, bool commandBlock, IEnumerable<ClassicSeedPack?> oldSeedPacks)
-        {
-            return oldSeedPacks.FirstOrDefault(s => s != null && s.GetDefinitionID() == blueprintID && s.IsCommandBlock() == commandBlock);
-        }
-        #endregion
+        #region 打雷
         public static void Thunder(this LevelEngine level)
         {
             level.AddBuff<ThunderBuff>();
@@ -710,44 +185,33 @@ namespace MVZ2.Vanilla.Level
             model?.TriggerAnimation("Thunder");
             level.PlaySound(VanillaSoundID.thunder);
         }
+        #endregion
+
+        #region 下雨
         public static void StartRain(this LevelEngine level)
         {
-            level.Spawn(VanillaEffectID.rain, new Vector3(VanillaLevelExt.LEVEL_WIDTH * 0.5f, 0, 0), null);
+            level.Spawn(VanillaEffectID.rain, new Vector3(LevelPositions.LEVEL_WIDTH * 0.5f, 0, 0), null);
         }
-        public static IEnumerable<int> GetAllLanes(this LevelEngine level)
+        #endregion
+
+        #region 一大波
+        public static bool IsDuringHugeWave(this LevelEngine level)
         {
-            return Enumerable.Range(0, level.GetMaxLaneCount());
-        }
-        #region 水路
-        public static IEnumerable<int> GetWaterLanes(this LevelEngine level)
-        {
-            return level.GetAllLanes().Where(l => level.IsWaterLane(l));
-        }
-        public static bool IsWaterLane(this LevelEngine level, int lane)
-        {
-            for (int column = 0; column < level.GetMaxColumnCount(); column++)
+            var waveState = level.WaveState;
+            if (waveState == VanillaLevelStates.STATE_HUGE_WAVE_APPROACHING)
+                return true;
+            if (level.IsHugeWave(level.CurrentWave))
             {
-                var grid = level.GetGrid(column, lane);
-                if (grid == null)
-                    continue;
-                if (grid.IsWater())
+                if (waveState == VanillaLevelStates.STATE_STARTED)
+                    return true;
+                if (waveState == VanillaLevelStates.STATE_FINAL_WAVE)
                     return true;
             }
             return false;
         }
-        public static bool IsWaterGrid(this LevelEngine level, int column, int lane)
-        {
-            var grid = level.GetGrid(column, lane);
-            if (grid == null)
-                return false;
-            return grid.IsWater();
-        }
-        public static bool IsWaterAt(this LevelEngine level, float x, float z)
-        {
-            var column = level.GetColumn(x);
-            var lane = level.GetLane(z);
-            return level.IsWaterGrid(column, lane);
-        }
+        #endregion
+
+        #region 导电
         public static bool IsConductiveGrid(this LevelEngine level, int column, int lane)
         {
             var grid = level.GetGrid(column, lane);
@@ -787,148 +251,13 @@ namespace MVZ2.Vanilla.Level
         }
         #endregion
 
-        #region 空路
-        public static IEnumerable<int> GetAirLanes(this LevelEngine level)
+        #region 手持物品
+        public static NamespaceID? GetHeldSeedEntityID(this LevelEngine level)
         {
-            return level.GetAllLanes().Where(l => level.IsAirLane(l));
-        }
-        public static bool IsAirLane(this LevelEngine level, int lane)
-        {
-            for (int column = 0; column < level.GetMaxColumnCount(); column++)
-            {
-                var grid = level.GetGrid(column, lane);
-                if (grid == null)
-                    continue;
-                if (grid.IsCloud())
-                    return true;
-            }
-            return false;
-        }
-        public static bool IsAirGrid(this LevelEngine level, int column, int lane)
-        {
-            var grid = level.GetGrid(column, lane);
-            if (grid == null)
-                return false;
-            return grid.IsCloud();
-        }
-        public static bool IsAirAt(this LevelEngine level, float x, float z)
-        {
-            var column = level.GetColumn(x);
-            var lane = level.GetLane(z);
-            return level.IsAirGrid(column, lane);
-        }
-        #endregion
-
-        public static bool IsDuringHugeWave(this LevelEngine level)
-        {
-            var waveState = level.WaveState;
-            if (waveState == VanillaLevelStates.STATE_HUGE_WAVE_APPROACHING)
-                return true;
-            if (level.IsHugeWave(level.CurrentWave))
-            {
-                if (waveState == VanillaLevelStates.STATE_STARTED)
-                    return true;
-                if (waveState == VanillaLevelStates.STATE_FINAL_WAVE)
-                    return true;
-            }
-            return false;
-        }
-        public static void UpdatePersistentLevelUnlocks(this LevelEngine level)
-        {
-            var saves = Global.Saves;
-            level.SetSeedSlotCount(saves.GetBlueprintSlots());
-            level.SetStarshardSlotCount(saves.GetStarshardSlots());
-            level.SetArtifactSlotCount(saves.GetArtifactSlots());
-        }
-        public static bool ValidateGridOutOfBounds(this LevelEngine level, Vector2Int position)
-        {
-            if (position.x < 0 || position.y < 0)
-                return false;
-            if (position.x >= level.GetMaxColumnCount() || position.y >= level.GetMaxLaneCount())
-                return false;
-            return true;
-        }
-
-        #region 障碍物生成
-        public static LawnGrid[] FindObstacleSpawnGrids(this LevelEngine level, NamespaceID[]? layersToTake, RandomGenerator rng, int count, int minColumn, Func<LawnGrid, float> weightGetter)
-        {
-            if (count <= 0 || rng == null || weightGetter == null)
-                return Array.Empty<LawnGrid>();
-            var allPossible = new HashSet<LawnGrid>();
-            var allPreferred = new HashSet<LawnGrid>();
-            level.FindAllObstacleSpawnGrids(layersToTake, minColumn, allPossible, allPreferred);
-
-            var preferredCount = Mathf.Min(allPreferred.Count, count);
-            var possibleCount = Mathf.Min(allPossible.Count, count - preferredCount);
-
-            List<LawnGrid> results = new List<LawnGrid>();
-            if (preferredCount > 0)
-            {
-                var weights = allPreferred.Select(g => weightGetter(g)).ToArray();
-                results.AddRange(allPreferred.WeightedRandomTake(weights, preferredCount, rng));
-            }
-            if (possibleCount > 0)
-            {
-                var weights = allPossible.Select(g => weightGetter(g)).ToArray();
-                results.AddRange(allPossible.WeightedRandomTake(weights, possibleCount, rng));
-            }
-            return results.ToArray();
-        }
-        private static void FindAllObstacleSpawnGrids(this LevelEngine level, NamespaceID[]? layersToTake, int minColumn, HashSet<LawnGrid> possible, HashSet<LawnGrid> preferred)
-        {
-            for (int col = minColumn; col < level.GetMaxColumnCount(); col++)
-            {
-                for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
-                {
-                    var grid = level.GetGrid(col, lane);
-                    if (grid == null)
-                        continue;
-
-                    bool isPossible = true;
-                    bool isPrefered = true;
-                    if (layersToTake != null)
-                    {
-                        foreach (var layer in layersToTake)
-                        {
-                            var layerEntity = grid.GetLayerEntity(layer);
-                            if (layerEntity != null)
-                            {
-                                isPrefered = false;
-                                if (layerEntity.Type != EntityTypes.PLANT)
-                                {
-                                    isPossible = false;
-                                }
-                            }
-                        }
-                    }
-                    if (isPrefered)
-                    {
-                        preferred.Add(grid);
-                    }
-                    else if (isPossible) // 如果是优先选择的地格，则不可以出现在所有可能的地格中，否则可能会导致两个障碍物生成在一起。
-                    {
-                        possible.Add(grid);
-                    }
-                }
-            }
-        }
-        public static bool IsPossibleGridForObstacleSpawn(this LawnGrid grid, NamespaceID[] layersToTake)
-        {
-            return !layersToTake.Any(l => grid.GetLayerEntity(l) is Entity ent && ent.Type != EntityTypes.PLANT);
-        }
-        public static bool IsPreferredGridForObstacleSpawn(this LawnGrid grid, NamespaceID[] layersToTake)
-        {
-            return !layersToTake.Any(l => grid.GetLayerEntity(l) is Entity ent);
-        }
-        #endregion
-
-        #region 传送带
-        public static SeedPack? ConveyRandomSeedPack(this LevelEngine level)
-        {
-            var pool = level.GetConveyorPool();
-            if (pool == null)
+            var data = level.GetHeldItemData();
+            if (data == null)
                 return null;
-            return level.ConveyRandomSeedPack(pool);
+            return data.GetSeedEntityID(level);
         }
         #endregion
     }

@@ -2,8 +2,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.HeldItems;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Games;
+using MVZ2Logic.Inputs;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Callbacks;
@@ -156,10 +157,8 @@ namespace MVZ2Logic.HeldItems
         private List<NamespaceID> behaviours = new List<NamespaceID>();
         private List<HeldItemBehaviourDefinition> behavioursCache = new List<HeldItemBehaviourDefinition>();
     }
-    public enum LawnArea
-    {
-        Side,
-        Main,
-        Bottom
-    }
+}
+
+namespace MVZ2Logic.Level
+{
 }

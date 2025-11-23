@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2.Managers;
 using MVZ2.Saves;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using UnityEngine;
 
 namespace MVZ2.Mainmenu.UI
@@ -65,8 +65,8 @@ namespace MVZ2.Mainmenu.UI
         private async void OnDeleteButtonClickCallback()
         {
             var userIndex = GetSelectedUserIndex();
-            var title = main.LanguageManager._(VanillaStrings.WARNING);
-            var desc = main.LanguageManager._(VanillaStrings.WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
+            var title = main.LanguageManager._(LogicStrings.WARNING);
+            var desc = main.LanguageManager._(LogicStrings.WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
             var result = await main.Scene.ShowDialogSelectAsync(title, desc);
             if (result)
             {

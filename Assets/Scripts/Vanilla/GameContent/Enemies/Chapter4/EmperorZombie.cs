@@ -5,9 +5,9 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -98,9 +98,9 @@ namespace MVZ2.GameContent.Enemies
             }
         }
         #region 常量
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_CAST = VanillaEnemyStates.CAST;
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_CAST = LogicEnemyStates.CAST;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
         public const int CAST_COOLDOWN = 150;
         public const int CAST_TIME = 30;
         public const int SHIELD_DETECT_TIME = 30;

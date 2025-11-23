@@ -1,5 +1,5 @@
 using System.IO;
-using MVZ2Logic;
+using MVZ2Logic.Serialization;
 using UnityEditor;
 using UnityEngine;
 

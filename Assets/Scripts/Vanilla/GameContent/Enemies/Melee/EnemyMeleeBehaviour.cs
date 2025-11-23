@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -150,6 +151,6 @@ namespace MVZ2.Vanilla.Enemies
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_MELEE_TARGET = new VanillaEntityPropertyMeta<EntityID>("melee_target");
         #endregion
 
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
     }
 }

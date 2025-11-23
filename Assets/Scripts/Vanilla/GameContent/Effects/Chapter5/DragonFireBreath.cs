@@ -4,6 +4,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -16,7 +17,7 @@ namespace MVZ2.GameContent.Effects
     {
         public DragonFireBreath(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Override(VanillaEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR, VanillaModifierPriorities.EARLY));
+            AddModifier(ColorModifier.Override(LogicEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR, VanillaModifierPriorities.EARLY));
         }
         public override void Init(Entity entity)
         {

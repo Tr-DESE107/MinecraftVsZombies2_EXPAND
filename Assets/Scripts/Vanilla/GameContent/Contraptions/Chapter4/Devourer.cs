@@ -7,13 +7,14 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Obstacles;
 using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -200,7 +201,7 @@ namespace MVZ2.GameContent.Contraptions
                 target.Die(effects, devourer);
                 var spawnParams = devourer.GetSpawnParams();
                 var entityID = target.GetDefinitionID();
-                var blueprintID = VanillaBlueprintID.FromEntity(entityID);
+                var blueprintID = LogicBlueprintID.FromEntity(entityID);
                 spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                 devourer.Produce(VanillaPickupID.blueprintPickup, spawnParams);
             }

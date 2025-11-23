@@ -5,6 +5,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
@@ -38,7 +39,7 @@ namespace MVZ2.GameContent.Contraptions
             for (int i = 0; i < MAGE_COUNT; i++)
             {
                 var param = entity.GetSpawnParams();
-                param.SetProperty(VanillaEntityProps.VARIANT, mageClass);
+                param.SetProperty(LogicEntityProps.VARIANT, mageClass);
                 entity.Spawn(VanillaEnemyID.skeletonMage, pos, param)?.Let(e =>
                 {
                     e.AddBuff<NecrotombstoneRisingBuff>();

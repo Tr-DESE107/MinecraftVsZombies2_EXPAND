@@ -6,6 +6,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -32,7 +33,7 @@ namespace MVZ2.GameContent.Pickups
                 var unlockID = VanillaArtifactID.GetUnlockID(artifactID);
                 saves.Unlock(unlockID);
                 saves.SaveToFile(); // 获得制品后保存游戏。
-                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_YOU_FOUND_A_NEW_ARTIFACT, 0, 150);
+                level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_YOU_FOUND_A_NEW_ARTIFACT, 0, 150);
             }
             level.PlaySoundIfNotNull(pickup.GetCollectSound());
             level.Spawn(VanillaEffectID.starParticles, pickup.Position, pickup);

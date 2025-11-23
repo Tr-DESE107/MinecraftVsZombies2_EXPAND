@@ -3,7 +3,7 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.Supporters;
-using MVZ2.Vanilla.Callbacks;
+using MVZ2Logic.Callbacks;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -15,9 +15,9 @@ namespace MVZ2.Level
     {
         private void AddLevelCallbacks_Sponsors(LevelEngine level)
         {
-            level.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, EnginePostUseEntityBlueprintCallback);
+            level.AddTrigger(LogicLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, EnginePostUseEntityBlueprintCallback);
         }
-        private void EnginePostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
+        private void EnginePostUseEntityBlueprintCallback(LogicLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
             if (!Main.OptionsManager.ShowSponsorNames())
                 return;

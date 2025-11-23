@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -27,7 +28,7 @@ namespace MVZ2.GameContent.Effects
         #region 公有方法
         public BreakoutBoard(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaCallbacks.POST_POINTER_ACTION, PostPointerActionCallback);
+            AddTrigger(LogicCallbacks.POST_POINTER_ACTION, PostPointerActionCallback);
         }
         public override void Init(Entity entity)
         {
@@ -100,7 +101,7 @@ namespace MVZ2.GameContent.Effects
             }
             entity.SetAnimationBool("Upgraded", IsUpgraded(entity));
         }
-        private void PostPointerActionCallback(VanillaCallbacks.PostPointerActionParams param, CallbackResult result)
+        private void PostPointerActionCallback(LogicCallbacks.PostPointerActionParams param, CallbackResult result)
         {
             var type = param.type;
             var phase = param.phase;
@@ -310,8 +311,8 @@ namespace MVZ2.GameContent.Effects
         public const int STATE_IDLE = VanillaEffectStates.IDLE;
         public const int STATE_RETURN = VanillaEffectStates.BREAKOUT_BOARD_RETURN;
         public const int STATE_FIRED = VanillaEffectStates.BREAKOUT_BOARD_FIRED;
-        public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;
-        public const float MIN_X = VanillaLevelExt.LEFT_BORDER + 40;
+        public const float MAX_X = LevelPositions.RIGHT_BORDER - 40;
+        public const float MIN_X = LevelPositions.LEFT_BORDER + 40;
         private List<Entity> boardsBuffer = new List<Entity>();
         private List<Entity> bulletBuffer = new List<Entity>();
     }

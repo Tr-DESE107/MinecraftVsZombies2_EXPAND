@@ -11,8 +11,8 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Shells;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -47,8 +47,8 @@ namespace MVZ2.GameContent.Bosses
         }
         private static int GetOutbound(Entity entity)
         {
-            const float leftX = VanillaLevelExt.LEFT_BORDER + 40;
-            const float rightX = VanillaLevelExt.RIGHT_BORDER - 40;
+            const float leftX = LevelPositions.LEFT_BORDER + 40;
+            const float rightX = LevelPositions.RIGHT_BORDER - 40;
             float topY = entity.Level.GetGridTopZ();
             float bottomY = entity.Level.GetGridBottomZ();
             if (entity.Position.x <= leftX)
@@ -181,7 +181,7 @@ namespace MVZ2.GameContent.Bosses
                 entity.Velocity = velocity;
 
                 float leftX = CENTER_POSITION.x + 40;
-                float rightX = VanillaLevelExt.RIGHT_BORDER - 40;
+                float rightX = LevelPositions.RIGHT_BORDER - 40;
                 float topY = entity.Level.GetGridTopZ();
                 float bottomY = entity.Level.GetGridBottomZ();
                 bool outOfRightRegion = entity.Position.x <= leftX || entity.Position.z <= bottomY || entity.Position.x >= rightX || entity.Position.z >= topY;

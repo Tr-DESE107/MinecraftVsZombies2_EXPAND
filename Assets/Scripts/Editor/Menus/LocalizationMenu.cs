@@ -7,7 +7,7 @@ using MVZ2.Localization;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
-using MVZ2Logic;
+using MVZ2Logic.Localization;
 using Newtonsoft.Json;
 using PVZEngine;
 using UnityEditor;
@@ -57,15 +57,15 @@ namespace MVZ2.Editor
             var blueprintsReference = "Blueprints meta file";
             foreach (var tag in almanacEntryList.tags)
             {
-                AddTranslation(potGenerator, tag.name, almanacReference, $"Name for almanac tag {tag.id}", VanillaStrings.CONTEXT_ALMANAC_TAG_NAME);
-                AddTranslation(potGenerator, tag.description, almanacReference, $"Description for almanac tag {tag.id}", VanillaStrings.CONTEXT_ALMANAC_TAG_DESCRIPTION);
+                AddTranslation(potGenerator, tag.name, almanacReference, $"Name for almanac tag {tag.id}", LogicStrings.CONTEXT_ALMANAC_TAG_NAME);
+                AddTranslation(potGenerator, tag.description, almanacReference, $"Description for almanac tag {tag.id}", LogicStrings.CONTEXT_ALMANAC_TAG_DESCRIPTION);
             }
             foreach (var tagEnum in almanacEntryList.enums)
             {
                 foreach (var value in tagEnum.values)
                 {
-                    AddTranslation(potGenerator, value.name, almanacReference, $"Name for almanac tag enum value {value.value} of enum {tagEnum.id}", VanillaStrings.CONTEXT_ALMANAC_TAG_ENUM_NAME);
-                    AddTranslation(potGenerator, value.description, almanacReference, $"Description for almanac tag enum value {value.value} of enum {tagEnum.id}", VanillaStrings.CONTEXT_ALMANAC_TAG_ENUM_DESCRIPTION);
+                    AddTranslation(potGenerator, value.name, almanacReference, $"Name for almanac tag enum value {value.value} of enum {tagEnum.id}", LogicStrings.CONTEXT_ALMANAC_TAG_ENUM_NAME);
+                    AddTranslation(potGenerator, value.description, almanacReference, $"Description for almanac tag enum value {value.value} of enum {tagEnum.id}", LogicStrings.CONTEXT_ALMANAC_TAG_ENUM_DESCRIPTION);
                 }
             }
             foreach (var category in almanacEntryList.categories)
@@ -73,7 +73,7 @@ namespace MVZ2.Editor
                 var categoryName = category.name;
                 foreach (var group in category.groups)
                 {
-                    AddTranslation(potGenerator, group.name, almanacReference, $"Name for almanac group {group.id}", VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME);
+                    AddTranslation(potGenerator, group.name, almanacReference, $"Name for almanac group {group.id}", LogicStrings.CONTEXT_ALMANAC_GROUP_NAME);
                     foreach (var entry in group.entries)
                     {
                         AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
@@ -99,7 +99,7 @@ namespace MVZ2.Editor
             foreach (var meta in characterList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.id);
-                AddTranslation(potGenerator, meta.name, characterReference, $"Name for character {id}", VanillaStrings.CONTEXT_CHARACTER_NAME);
+                AddTranslation(potGenerator, meta.name, characterReference, $"Name for character {id}", LogicStrings.CONTEXT_CHARACTER_NAME);
             }
             foreach (var meta in artifactsList.metas)
             {
@@ -109,7 +109,7 @@ namespace MVZ2.Editor
             }
             foreach (var error in blueprintsList.Errors)
             {
-                AddTranslation(potGenerator, error.Message, blueprintsReference, $"Message for blueprint error {error.ID}", VanillaStrings.CONTEXT_BLUEPRINT_ERROR);
+                AddTranslation(potGenerator, error.Message, blueprintsReference, $"Message for blueprint error {error.ID}", LogicStrings.CONTEXT_BLUEPRINT_ERROR);
             }
             foreach (var option in blueprintsList.Options)
             {
@@ -167,7 +167,7 @@ namespace MVZ2.Editor
             foreach (var meta in stageList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, stageReference, $"Name for stage {id}", VanillaStrings.CONTEXT_LEVEL_NAME);
+                AddTranslation(potGenerator, meta.Name, stageReference, $"Name for stage {id}", LogicStrings.CONTEXT_LEVEL_NAME);
             }
             // 统计
             var statsDocument = LoadMetaXmlDocument(spaceName, "stats.xml");
@@ -176,12 +176,12 @@ namespace MVZ2.Editor
             foreach (var category in statsEntryList.categories)
             {
                 var id = new NamespaceID(spaceName, category.ID);
-                AddTranslation(potGenerator, category.Name, statsReference, $"Name for stat category {id}", VanillaStrings.CONTEXT_STAT_CATEGORY);
+                AddTranslation(potGenerator, category.Name, statsReference, $"Name for stat category {id}", LogicStrings.CONTEXT_STAT_CATEGORY);
             }
             foreach (var entry in statsEntryList.entries)
             {
                 var id = new NamespaceID(spaceName, entry.ID);
-                AddTranslation(potGenerator, entry.Name, statsReference, $"Name for stat entry {id}", VanillaStrings.CONTEXT_STAT_ENTRY);
+                AddTranslation(potGenerator, entry.Name, statsReference, $"Name for stat entry {id}", LogicStrings.CONTEXT_STAT_ENTRY);
             }
             // 成就
             var achievementsDocument = LoadMetaXmlDocument(spaceName, "achievements.xml");
@@ -190,8 +190,8 @@ namespace MVZ2.Editor
             foreach (var achievement in achievementList.metas)
             {
                 var id = new NamespaceID(spaceName, achievement.ID);
-                AddTranslation(potGenerator, achievement.Name, achievementsReference, $"Name for achievement {id}", VanillaStrings.CONTEXT_ACHIEVEMENT);
-                AddTranslation(potGenerator, achievement.Description, achievementsReference, $"Description for achievement {id}", VanillaStrings.CONTEXT_ACHIEVEMENT);
+                AddTranslation(potGenerator, achievement.Name, achievementsReference, $"Name for achievement {id}", LogicStrings.CONTEXT_ACHIEVEMENT);
+                AddTranslation(potGenerator, achievement.Description, achievementsReference, $"Description for achievement {id}", LogicStrings.CONTEXT_ACHIEVEMENT);
             }
             // 音乐
             var musicsDocument = LoadMetaXmlDocument(spaceName, "musics.xml");
@@ -200,11 +200,11 @@ namespace MVZ2.Editor
             foreach (var music in musicsList.metas)
             {
                 var id = new NamespaceID(spaceName, music.ID);
-                AddTranslation(potGenerator, music.Name, musicsReference, $"Name for music {id}", VanillaStrings.CONTEXT_MUSIC_NAME);
-                AddTranslation(potGenerator, music.Source, musicsReference, $"Source for music {id}", VanillaStrings.CONTEXT_MUSIC_SOURCE);
-                AddTranslation(potGenerator, music.Origin, musicsReference, $"Origin for music {id}", VanillaStrings.CONTEXT_MUSIC_ORIGIN);
-                AddTranslation(potGenerator, music.Author, musicsReference, $"Author for music {id}", VanillaStrings.CONTEXT_MUSIC_AUTHOR);
-                AddTranslation(potGenerator, music.Description, musicsReference, $"Description for music {id}", VanillaStrings.CONTEXT_MUSIC_DESCRIPTION);
+                AddTranslation(potGenerator, music.Name, musicsReference, $"Name for music {id}", LogicStrings.CONTEXT_MUSIC_NAME);
+                AddTranslation(potGenerator, music.Source, musicsReference, $"Source for music {id}", LogicStrings.CONTEXT_MUSIC_SOURCE);
+                AddTranslation(potGenerator, music.Origin, musicsReference, $"Origin for music {id}", LogicStrings.CONTEXT_MUSIC_ORIGIN);
+                AddTranslation(potGenerator, music.Author, musicsReference, $"Author for music {id}", LogicStrings.CONTEXT_MUSIC_AUTHOR);
+                AddTranslation(potGenerator, music.Description, musicsReference, $"Description for music {id}", LogicStrings.CONTEXT_MUSIC_DESCRIPTION);
             }
             // 档案
             var archiveDocument = LoadMetaXmlDocument(spaceName, "archive.xml");
@@ -213,7 +213,7 @@ namespace MVZ2.Editor
             foreach (var tag in archiveList.Tags)
             {
                 var id = new NamespaceID(spaceName, tag.ID);
-                AddTranslation(potGenerator, tag.Name, archiveReference, $"Name for archive tag {id}", VanillaStrings.CONTEXT_ARCHIVE_TAG_NAME);
+                AddTranslation(potGenerator, tag.Name, archiveReference, $"Name for archive tag {id}", LogicStrings.CONTEXT_ARCHIVE_TAG_NAME);
             }
             // 网格
             {
@@ -223,7 +223,7 @@ namespace MVZ2.Editor
                 foreach (var error in gridList.errors)
                 {
                     var id = new NamespaceID(spaceName, error.ID);
-                    AddTranslation(potGenerator, error.Message, gridReference, $"Message for grid error {id}", VanillaStrings.CONTEXT_ADVICE);
+                    AddTranslation(potGenerator, error.Message, gridReference, $"Message for grid error {id}", LogicStrings.CONTEXT_ADVICE);
                 }
             }
             // 商店
@@ -234,7 +234,7 @@ namespace MVZ2.Editor
             {
                 foreach (var chat in chatGroup.Chats)
                 {
-                    AddTranslation(potGenerator, chat.Text, storeReference, $"Store chat from character {chatGroup.Character}", VanillaStrings.CONTEXT_STORE_TALK);
+                    AddTranslation(potGenerator, chat.Text, storeReference, $"Store chat from character {chatGroup.Character}", LogicStrings.CONTEXT_STORE_TALK);
                 }
             }
             foreach (var product in storeList.Products)
@@ -242,7 +242,7 @@ namespace MVZ2.Editor
                 var id = new NamespaceID(spaceName, product.ID);
                 foreach (var talk in product.Talks)
                 {
-                    AddTranslation(potGenerator, talk.Text, storeReference, $"Store item description of {id} by character {talk.Character}", VanillaStrings.CONTEXT_STORE_TALK);
+                    AddTranslation(potGenerator, talk.Text, storeReference, $"Store item description of {id} by character {talk.Character}", LogicStrings.CONTEXT_STORE_TALK);
                 }
                 foreach (var stage in product.Stages)
                 {
@@ -256,10 +256,10 @@ namespace MVZ2.Editor
                 var creditsReference = "Credits meta file";
                 foreach (var category in creditsList.categories)
                 {
-                    AddTranslation(potGenerator, category.Name, creditsReference, $"Name for credits category {category.Name}", VanillaStrings.CONTEXT_CREDITS_CATEGORY);
+                    AddTranslation(potGenerator, category.Name, creditsReference, $"Name for credits category {category.Name}", LogicStrings.CONTEXT_CREDITS_CATEGORY);
                     foreach (var entry in category.Entries)
                     {
-                        AddTranslation(potGenerator, entry, creditsReference, $"Name for credit staff {category.Name}", VanillaStrings.CONTEXT_STAFF_NAME);
+                        AddTranslation(potGenerator, entry, creditsReference, $"Name for credit staff {category.Name}", LogicStrings.CONTEXT_STAFF_NAME);
                     }
                 }
             }
@@ -271,14 +271,14 @@ namespace MVZ2.Editor
                 foreach (var meta in metaList.metas)
                 {
                     var id = new NamespaceID(spaceName, meta.ID);
-                    AddTranslation(potGenerator, meta.Description, reference, $"Description for command \"{id}\"", VanillaStrings.CONTEXT_COMMAND_DESCRIPTION);
+                    AddTranslation(potGenerator, meta.Description, reference, $"Description for command \"{id}\"", LogicStrings.CONTEXT_COMMAND_DESCRIPTION);
 
                     foreach (var variant in meta.Variants)
                     {
-                        AddTranslation(potGenerator, variant.Description, reference, $"Description for command variant \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_VARIANT_DESCRIPTION);
+                        AddTranslation(potGenerator, variant.Description, reference, $"Description for command variant \"{id} {variant.Subname}\"", LogicStrings.CONTEXT_COMMAND_VARIANT_DESCRIPTION);
                         foreach (var param in variant.Parameters)
                         {
-                            AddTranslation(potGenerator, param.Description, reference, $"Description for parameter {param.Name} of command \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_PARAMETER_DESCRIPTION);
+                            AddTranslation(potGenerator, param.Description, reference, $"Description for parameter {param.Name} of command \"{id} {variant.Subname}\"", LogicStrings.CONTEXT_COMMAND_PARAMETER_DESCRIPTION);
                         }
                     }
                 }
@@ -315,18 +315,18 @@ namespace MVZ2.Editor
                 {
                     var groupName = group.archive.name;
                     var groupID = new NamespaceID(spaceName, group.id);
-                    var groupContext = VanillaStrings.GetTalkTextContext(groupID);
-                    AddTranslation(potGenerator, groupName, reference, $"Archive name for talk group {group.id}", VanillaStrings.CONTEXT_ARCHIVE);
+                    var groupContext = LogicStrings.GetTalkTextContext(groupID);
+                    AddTranslation(potGenerator, groupName, reference, $"Archive name for talk group {group.id}", LogicStrings.CONTEXT_ARCHIVE);
                     for (int i = 0; i < group.sections.Length; i++)
                     {
                         var section = group.sections[i];
-                        AddTranslation(potGenerator, section.archiveText, reference, $"Archive text for talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_ARCHIVE);
+                        AddTranslation(potGenerator, section.archiveText, reference, $"Archive text for talk group {group.id}'s section {i}", LogicStrings.CONTEXT_ARCHIVE);
                         for (int j = 0; j < section.sentences.Length; j++)
                         {
                             var sentence = section.sentences[j];
                             AddTranslation(potGenerator, sentence.text, reference, $"Text for talk sentence {j} in talk group {group.id}'s section {i}", groupContext);
-                            AddTranslation(potGenerator, sentence.description, reference, $"Description for talk sentence {j} in talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_ARCHIVE);
-                            AddTranslation(potGenerator, sentence.speakerName, reference, $"Speaker Name for talk sentence {j} in talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_CHARACTER_NAME);
+                            AddTranslation(potGenerator, sentence.description, reference, $"Description for talk sentence {j} in talk group {group.id}'s section {i}", LogicStrings.CONTEXT_ARCHIVE);
+                            AddTranslation(potGenerator, sentence.speakerName, reference, $"Speaker Name for talk sentence {j} in talk group {group.id}'s section {i}", LogicStrings.CONTEXT_CHARACTER_NAME);
                         }
                     }
                 }
@@ -530,8 +530,8 @@ namespace MVZ2.Editor
         }
         private static void AddAlmanacEntryTranslation(MukioPotGenerator potGenerator, AlmanacMetaEntry entry, string categoryName)
         {
-            AddTranslation(potGenerator, entry.name, almanacReference, $"Name for {categoryName} {entry.id}", VanillaStrings.GetAlmanacNameContext(categoryName));
-            var context = VanillaStrings.GetAlmanacDescriptionContext(categoryName);
+            AddTranslation(potGenerator, entry.name, almanacReference, $"Name for {categoryName} {entry.id}", LogicStrings.GetAlmanacNameContext(categoryName));
+            var context = LogicStrings.GetAlmanacDescriptionContext(categoryName);
             AddTranslation(potGenerator, entry.header, almanacReference, $"Header for {categoryName} {entry.id}", context);
             AddTranslation(potGenerator, entry.properties, almanacReference, $"Properties for {categoryName} {entry.id}", context);
             foreach (var flavor in entry.GetAllFlavors())

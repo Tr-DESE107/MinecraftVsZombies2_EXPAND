@@ -4,7 +4,9 @@ using System;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.Vanilla;
 using MVZ2Logic;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Buffs;
 
@@ -47,7 +49,7 @@ namespace MVZ2.GameContent.Commands
                     cheatNameKey = VanillaStrings.CHEAT_NAME_STARSHARD;
                     break;
                 default:
-                    throw new ArgumentException(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_CHEAT_NOT_FOUND, VanillaStrings.CONTEXT_COMMAND_OUTPUT, cheatCode));
+                    throw new ArgumentException(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_CHEAT_NOT_FOUND, LogicStrings.CONTEXT_COMMAND_OUTPUT, cheatCode));
             }
 
             if (level.HasBuff(buffDefinition))
@@ -61,7 +63,7 @@ namespace MVZ2.GameContent.Commands
                 msg = VanillaStrings.COMMAND_CHEAT_ENABLED;
             }
             var cheatName = Global.Localization.GetTextParticular(cheatNameKey, VanillaStrings.CONTEXT_COMMAND_CHEAT_NAME);
-            PrintLine(Global.Localization.GetTextParticular(msg, VanillaStrings.CONTEXT_COMMAND_OUTPUT, cheatName));
+            PrintLine(Global.Localization.GetTextParticular(msg, LogicStrings.CONTEXT_COMMAND_OUTPUT, cheatName));
         }
     }
 }

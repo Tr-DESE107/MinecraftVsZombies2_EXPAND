@@ -7,8 +7,9 @@ using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
-using MVZ2Logic.Almanacs;
+using MVZ2Logic.Almanac;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Modding;
 using PVZEngine;
@@ -33,10 +34,10 @@ namespace MVZ2.GameContent.GlobalCallbacks
 
             switch (category)
             {
-                case VanillaAlmanacCategories.CONTRAPTIONS:
+                case LogicAlmanacCategories.CONTRAPTIONS:
                     GetContraptionEntryTags(entryID, tags);
                     break;
-                case VanillaAlmanacCategories.ENEMIES:
+                case LogicAlmanacCategories.ENEMIES:
                     GetEnemyEntryTags(entryID, tags);
                     break;
             }

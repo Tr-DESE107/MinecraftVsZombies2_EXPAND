@@ -2,7 +2,8 @@
 
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -51,7 +52,7 @@ namespace MVZ2.GameContent.Projectiles
         public override void Update(Entity projectile)
         {
             var bounds = projectile.GetBounds();
-            if (bounds.max.x < VanillaLevelExt.PROJECTILE_LEFT_BORDER)
+            if (bounds.max.x < LevelPositions.PROJECTILE_LEFT_BORDER)
             {
                 projectile.Remove();
                 return;
@@ -84,6 +85,6 @@ namespace MVZ2.GameContent.Projectiles
             base.Update(projectile);
         }
 
-        public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;
+        public const float MAX_X = LevelPositions.RIGHT_BORDER - 40;
     }
 }

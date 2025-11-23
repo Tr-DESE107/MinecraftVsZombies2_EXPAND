@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -18,7 +19,7 @@ namespace MVZ2.GameContent.Projectiles
         public Note(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_DISPLAY_SCALE_MULTIPLIER));
-            AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_DISPLAY_SCALE_MULTIPLIER));
+            AddModifier(new Vector3Modifier(LogicEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_DISPLAY_SCALE_MULTIPLIER));
             AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.Multiply, PROP_DAMAGE_GROWTH));
         }
         public override void Init(Entity entity)

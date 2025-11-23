@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -228,9 +229,9 @@ namespace MVZ2.GameContent.Enemies
         public const float MAX_MOVE_SPEED = 15f;
         public const float MOVE_FACTOR = 0.5f;
 
-        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
-        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
-        public const int STATE_LEAVE = VanillaEnemyStates.LEAVE;
+        public const int STATE_IDLE = LogicEnemyStates.IDLE;
+        public const int STATE_DEATH = LogicEnemyStates.DEATH;
+        public const int STATE_LEAVE = LogicEnemyStates.LEAVE;
         public const int STATE_STAY = VanillaEnemyStates.UFO_STAY;
         public const int STATE_ACT = VanillaEnemyStates.UFO_ACT;
 

@@ -4,6 +4,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -290,12 +291,12 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_IDLE = LogicEnemyStates.IDLE;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
         public const int STATE_SMASH_DOWN = VanillaEnemyStates.POP_CAPTAIN_SMASH_DOWN;
         public const int STATE_SMASH_UP = VanillaEnemyStates.POP_CAPTAIN_SMASH_UP;
-        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+        public const int STATE_DEATH = LogicEnemyStates.DEATH;
 
         public const int ANIMATION_STATE_IDLE = EnemyStateBehaviour.ANIMATION_STATE_IDLE;
         public const int ANIMATION_STATE_WALK = EnemyStateBehaviour.ANIMATION_STATE_WALK;

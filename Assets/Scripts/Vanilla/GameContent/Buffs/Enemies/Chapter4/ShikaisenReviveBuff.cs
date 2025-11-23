@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -20,7 +21,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public ShikaisenReviveBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(VanillaEnemyProps.ASSUME_ALIVE, true));
+            AddModifier(new BooleanModifier(LogicEnemyProps.ASSUME_ALIVE, true));
             AddTrigger(VanillaLevelCallbacks.PRE_ENEMY_FAINT, PreEnemyFaintCallback);
         }
         private void PreEnemyFaintCallback(EntityCallbackParams param, CallbackResult result)

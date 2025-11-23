@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Areas;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
@@ -20,7 +19,7 @@ namespace MVZ2.GameContent.Buffs.Level
         {
             AddModifier(new ColorModifier(LogicLevelProps.SCREEN_COVER, PROP_SCREEN_COVER));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
-            AddModifier(new BooleanModifier(VanillaStageProps.AUTO_COLLECT_ALL, true));
+            AddModifier(new BooleanModifier(LogicStageProps.AUTO_COLLECT_ALL, true));
         }
         public override void PostAdd(Buff buff)
         {

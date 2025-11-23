@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -30,7 +31,7 @@ namespace MVZ2.GameContent.Enemies
             var param = entity.GetSpawnParams();
             if (entity.IsPreviewEnemy())
             {
-                param.SetProperty(VanillaEnemyProps.PREVIEW_ENEMY, true);
+                param.SetProperty(LogicEnemyProps.PREVIEW_ENEMY, true);
             }
             entity.Spawn(VanillaEnemyID.skeletonHorse, entity.Position, param)?.Let(e =>
             {

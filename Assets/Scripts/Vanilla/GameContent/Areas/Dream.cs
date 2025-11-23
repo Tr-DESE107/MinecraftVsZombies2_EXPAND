@@ -4,15 +4,14 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
-using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -65,11 +64,11 @@ namespace MVZ2.GameContent.Areas
         }
         public static float GetPoolWave(LevelEngine level)
         {
-            return level.GetBehaviourField<float>(PROP_POOL_WAVE);
+            return level.GetProperty<float>(PROP_POOL_WAVE);
         }
         public static void SetPoolWave(LevelEngine level, float value)
         {
-            level.SetBehaviourField(PROP_POOL_WAVE, value);
+            level.SetProperty(PROP_POOL_WAVE, value);
         }
 
         private void UpdateNightmareOrDream(LevelEngine level)

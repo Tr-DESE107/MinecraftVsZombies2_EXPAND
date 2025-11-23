@@ -8,13 +8,13 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Placements;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
+using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -69,7 +69,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 var areaTags = level.AreaDefinition.GetAreaTags();
                 if (areaTags != null)
                 {
-                    if (areaTags.Contains(VanillaAreaTags.noWater))
+                    if (areaTags.Contains(LogicAreaTags.noWater))
                     {
                         // 无水地形的水生器械
                         if (entityDef.GetPlacementID() == VanillaPlacementID.aquatic)
@@ -163,7 +163,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             }
             // 水生器械
             var areaTags = level.AreaDefinition.GetAreaTags();
-            if (areaTags != null && areaTags.Contains(VanillaAreaTags.water))
+            if (areaTags != null && areaTags.Contains(LogicAreaTags.water))
             {
                 if (!chosenBlueprintEntityDefs.Any(e => e.GetPlacementID() == VanillaPlacementID.aquatic) && entityDefsForChoose.Any(e => e.GetPlacementID() == VanillaPlacementID.aquatic))
                 {

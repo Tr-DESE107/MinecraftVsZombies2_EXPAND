@@ -4,29 +4,26 @@ using System;
 using System.Linq;
 using System.Reflection;
 using MVZ2.GameContent.Seeds;
-using MVZ2.GameContent.Spawns;
 using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
 using MVZ2.Metas;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Conditions;
-using MVZ2Logic.Debugs;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Errors;
 using MVZ2Logic.Games;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Notes;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Resources;
+using MVZ2Logic.Shapes;
+using MVZ2Logic.Spawns;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
@@ -172,7 +169,7 @@ namespace MVZ2.Modding
                     model = def.GetModelID(),
                     mobileIcon = new SpriteReference(mobileID)
                 };
-                var blueprintID = VanillaBlueprintID.FromEntity(entityID);
+                var blueprintID = LogicBlueprintID.FromEntity(entityID);
                 var seedDef = new EntitySeed(blueprintID.SpaceName, blueprintID.Path, info);
                 mod.AddDefinition(seedDef);
             }
@@ -254,7 +251,7 @@ namespace MVZ2.Modding
                 {
                     if (NamespaceID.IsValid(entityID))
                     {
-                        var def = new VanillaSpawnDefinition(nsp, name);
+                        var def = new LogicSpawnDefinition(nsp, name);
                         var preview = new SpawnPreviewBehaviour();
                         var inLevel = new SpawnInLevelBehaviour();
                         var endless = new SpawnEndlessBehaviour();
@@ -445,17 +442,17 @@ namespace MVZ2.Modding
                 var area = mod.GetAreaDefinition(new NamespaceID(nsp, meta.ID));
                 if (area == null)
                     continue;
-                area.SetProperty(VanillaAreaProps.MODEL_ID, meta.ModelID);
-                area.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
+                area.SetProperty(LogicAreaProps.MODEL_ID, meta.ModelID);
+                area.SetProperty(LogicStageProps.MUSIC_ID, meta.MusicID);
                 area.SetProperty(EngineAreaProps.CART_REFERENCE, meta.Cart);
                 area.SetProperty(EngineAreaProps.AREA_TAGS, meta.Tags);
-                area.SetProperty(VanillaAreaProps.STARSHARD_ICON, meta.StarshardIcon);
+                area.SetProperty(LogicAreaProps.STARSHARD_ICON, meta.StarshardIcon);
 
                 area.SetProperty(EngineAreaProps.ENEMY_SPAWN_X, meta.EnemySpawnX);
-                area.SetProperty(VanillaAreaProps.DOOR_Z, meta.DoorZ);
+                area.SetProperty(LogicAreaProps.DOOR_Z, meta.DoorZ);
 
-                area.SetProperty(VanillaAreaProps.BACKGROUND_LIGHT, meta.BackgroundLight);
-                area.SetProperty(VanillaAreaProps.GLOBAL_LIGHT, meta.GlobalLight);
+                area.SetProperty(LogicAreaProps.BACKGROUND_LIGHT, meta.BackgroundLight);
+                area.SetProperty(LogicAreaProps.GLOBAL_LIGHT, meta.GlobalLight);
 
                 area.SetProperty(EngineAreaProps.GRID_WIDTH, meta.GridWidth);
                 area.SetProperty(EngineAreaProps.GRID_HEIGHT, meta.GridHeight);
@@ -523,29 +520,29 @@ namespace MVZ2.Modding
                 stageDef.SetDayNumber(meta.DayNumber);
                 stageDef.SetStartEnergy(meta.StartEnergy);
 
-                stageDef.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
+                stageDef.SetProperty(LogicStageProps.MUSIC_ID, meta.MusicID);
                 stageDef.SetProperty(LogicStageProps.STAGE_TYPE, meta.Type);
                 stageDef.SetProperty<IConditionList>(LogicStageProps.UNLOCK_CONDITIONS, meta.UnlockConditions);
                 stageDef.SetProperty(LogicStageProps.MODEL_PRESET, meta.ModelPreset);
 
-                stageDef.SetProperty(VanillaStageProps.NO_START_TALK_MUSIC, meta.NoStartTalkMusic);
+                stageDef.SetProperty(LogicStageProps.NO_START_TALK_MUSIC, meta.NoStartTalkMusic);
 
-                stageDef.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);
-                stageDef.SetProperty(VanillaStageProps.CLEAR_PICKUP_CONTENT_ID, meta.ClearPickupContentID);
-                stageDef.SetProperty(VanillaStageProps.DROPS_TROPHY, meta.DropsTrophy);
-                stageDef.SetProperty(VanillaStageProps.END_NOTE_ID, meta.EndNote);
+                stageDef.SetProperty(LogicStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);
+                stageDef.SetProperty(LogicStageProps.CLEAR_PICKUP_CONTENT_ID, meta.ClearPickupContentID);
+                stageDef.SetProperty(LogicStageProps.DROPS_TROPHY, meta.DropsTrophy);
+                stageDef.SetProperty(LogicStageProps.END_NOTE_ID, meta.EndNote);
 
-                stageDef.SetProperty(VanillaStageProps.START_CAMERA_POSITION, (int)meta.StartCameraPosition);
-                stageDef.SetProperty(VanillaStageProps.START_TRANSITION, meta.StartTransition);
+                stageDef.SetProperty(LogicStageProps.START_CAMERA_POSITION, (int)meta.StartCameraPosition);
+                stageDef.SetProperty(LogicStageProps.START_TRANSITION, meta.StartTransition);
 
                 stageDef.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
                 stageDef.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
                 stageDef.SetProperty(EngineStageProps.CONTINUED_FIRST_WAVE_TIME, meta.EndlessFirstWaveTime);
-                stageDef.SetProperty(VanillaStageProps.WAVE_MAX_TIME, meta.MaxWaveTime);
-                stageDef.SetProperty(VanillaStageProps.WAVE_ADVANCE_TIME, meta.AdvanceWaveTime);
-                stageDef.SetProperty(VanillaStageProps.WAVE_ADVANCE_HEALTH_PERCENT, meta.AdvanceHealthPercent);
+                stageDef.SetProperty(LogicStageProps.WAVE_MAX_TIME, meta.MaxWaveTime);
+                stageDef.SetProperty(LogicStageProps.WAVE_ADVANCE_TIME, meta.AdvanceWaveTime);
+                stageDef.SetProperty(LogicStageProps.WAVE_ADVANCE_HEALTH_PERCENT, meta.AdvanceHealthPercent);
 
-                stageDef.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
+                stageDef.SetProperty(LogicStageProps.ENEMY_POOL, meta.Spawns);
                 stageDef.SetProperty<IStageTalkMeta[]>(LogicStageProps.TALKS, meta.Talks);
                 stageDef.SetProperty<IConveyorPoolEntry[]>(LogicStageProps.CONVEYOR_POOL, meta.ConveyorPool);
 
@@ -586,26 +583,26 @@ namespace MVZ2.Modding
                 if (meta == null)
                     continue;
                 var weight = meta.Weight;
-                def.SetProperty(VanillaSpawnProps.PREVIEW_ENTITY, meta.PreviewEntity);
-                def.SetProperty(VanillaSpawnProps.PREVIEW_VARIANT, meta.PreviewVariant);
-                def.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
+                def.SetProperty(LogicSpawnProps.PREVIEW_ENTITY, meta.PreviewEntity);
+                def.SetProperty(LogicSpawnProps.PREVIEW_VARIANT, meta.PreviewVariant);
+                def.SetProperty(LogicSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
 
-                def.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
-                def.SetProperty(VanillaSpawnProps.SPAWN_LEVEL, meta.SpawnLevel);
-                def.SetProperty(VanillaSpawnProps.SPAWN_IN_WATER, meta.Terrain?.Water ?? false);
-                def.SetProperty(VanillaSpawnProps.SPAWN_IN_AIR, meta.Terrain?.Air ?? false);
-                def.SetProperty(VanillaSpawnProps.SPAWN_ENTITY, meta.Entity);
-                def.SetProperty(VanillaSpawnProps.SPAWN_ENTITY_VARIANT, meta.EntityVariant);
+                def.SetProperty(LogicSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
+                def.SetProperty(LogicSpawnProps.SPAWN_LEVEL, meta.SpawnLevel);
+                def.SetProperty(LogicSpawnProps.SPAWN_IN_WATER, meta.Terrain?.Water ?? false);
+                def.SetProperty(LogicSpawnProps.SPAWN_IN_AIR, meta.Terrain?.Air ?? false);
+                def.SetProperty(LogicSpawnProps.SPAWN_ENTITY, meta.Entity);
+                def.SetProperty(LogicSpawnProps.SPAWN_ENTITY_VARIANT, meta.EntityVariant);
 
-                def.SetProperty(VanillaSpawnProps.NO_ENDLESS, meta.NoEndless);
-                def.SetProperty(VanillaSpawnProps.EXCLUDED_AREA_TAGS, meta.Terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>());
+                def.SetProperty(LogicSpawnProps.NO_ENDLESS, meta.NoEndless);
+                def.SetProperty(LogicSpawnProps.EXCLUDED_AREA_TAGS, meta.Terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>());
 
                 if (weight != null)
                 {
-                    def.SetProperty(VanillaSpawnProps.WEIGHT_BASE, weight.Base);
-                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
-                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
-                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
+                    def.SetProperty(LogicSpawnProps.WEIGHT_BASE, weight.Base);
+                    def.SetProperty(LogicSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
+                    def.SetProperty(LogicSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
+                    def.SetProperty(LogicSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
                 }
             }
 
@@ -639,8 +636,8 @@ namespace MVZ2.Modding
                 var meta = res.GetGridMeta(id);
                 if (meta == null)
                     continue;
-                def.SetProperty(VanillaGridProps.OVERLAY_SPRITE, meta.OverlaySprite);
-                def.SetProperty(VanillaGridProps.SLOPE, meta.Slope);
+                def.SetProperty(LogicGridProps.OVERLAY_SPRITE, meta.OverlaySprite);
+                def.SetProperty(LogicGridProps.SLOPE, meta.Slope);
                 mod.AddDefinition(def);
             }
         }

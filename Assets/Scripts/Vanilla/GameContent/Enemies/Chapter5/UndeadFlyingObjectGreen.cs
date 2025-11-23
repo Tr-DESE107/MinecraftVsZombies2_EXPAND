@@ -3,10 +3,10 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Blueprints;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Enemies
             var stolen = GetStolenEntityID(entity);
             if (NamespaceID.IsValid(stolen))
             {
-                var blueprintID = VanillaBlueprintID.FromEntity(stolen);
+                var blueprintID = LogicBlueprintID.FromEntity(stolen);
                 var spawnParams = entity.GetSpawnParams();
                 spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                 var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);

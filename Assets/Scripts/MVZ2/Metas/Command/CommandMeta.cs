@@ -5,8 +5,8 @@ using System.Text;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2.Managers;
-using MVZ2.Vanilla;
 using MVZ2Logic.Commands;
+using MVZ2Logic.Localization;
 
 namespace MVZ2.Metas
 {
@@ -137,17 +137,17 @@ namespace MVZ2.Metas
             switch (Type)
             {
                 case TYPE_COMMAND:
-                    return VanillaStrings.PARAMETER_TYPE_COMMAND;
+                    return LogicStrings.PARAMETER_TYPE_COMMAND;
                 case TYPE_ID:
-                    return VanillaStrings.PARAMETER_TYPE_ID;
+                    return LogicStrings.PARAMETER_TYPE_ID;
                 case TYPE_BOOL:
-                    return VanillaStrings.PARAMETER_TYPE_BOOLEAN;
+                    return LogicStrings.PARAMETER_TYPE_BOOLEAN;
                 case TYPE_INT:
-                    return VanillaStrings.PARAMETER_TYPE_INT;
+                    return LogicStrings.PARAMETER_TYPE_INT;
                 case TYPE_FLOAT:
-                    return VanillaStrings.PARAMETER_TYPE_FLOAT;
+                    return LogicStrings.PARAMETER_TYPE_FLOAT;
             }
-            return VanillaStrings.PARAMETER_TYPE_UNKNOWN;
+            return LogicStrings.PARAMETER_TYPE_UNKNOWN;
         }
         public const string TYPE_BOOL = "bool";
         public const string TYPE_INT = "int";

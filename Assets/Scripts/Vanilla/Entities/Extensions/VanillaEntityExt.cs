@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Areas;
-using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Buffs.Contraptions;
@@ -17,11 +16,13 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic;
+using MVZ2Logic.Armors;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -309,22 +310,6 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 音效
-
-        public static void PlayCrySound(this Entity entity, NamespaceID soundID, float pitchMultiplier = 1, float volume = 1)
-        {
-            var pitch = entity.GetCryPitch() * pitchMultiplier;
-            entity.PlaySound(soundID, pitch, volume);
-        }
-        public static void PlaySound(this Entity entity, NamespaceID soundID, float pitch = 1, float volume = 1)
-        {
-            entity.Level.PlaySound(soundID, entity.Position, pitch, volume);
-        }
-        public static void PlaySoundIfNotNull(this Entity entity, NamespaceID? soundID, float pitch = 1, float volume = 1)
-        {
-            if (soundID == null)
-                return;
-            entity.PlaySound(soundID, pitch, volume);
-        }
         public static void PlayHitSound(this DamageOutput damage)
         {
             if (damage == null)
@@ -498,41 +483,9 @@ namespace MVZ2.Vanilla.Entities
             ChangeGridBuff.Stop(buff);
         }
         #endregion
-        public static bool IsVulnerableEntity(this Entity entity)
-        {
-            return entity.Type == EntityTypes.PLANT || entity.Type == EntityTypes.ENEMY || entity.Type == EntityTypes.OBSTACLE || entity.Type == EntityTypes.BOSS;
-        }
-        public static bool IsAliveEnemy(this Entity entity)
-        {
-            if (entity.Type != EntityTypes.ENEMY)
-                return false;
-            if (entity.IsDead && !entity.AssumeAlive())
-                return false;
-            if (entity.IsNotActiveEnemy())
-                return false;
-            if (!entity.IsHostile(entity.Level.Option.LeftFaction))
-                return false;
-            return true;
-        }
         public static bool CanEntityEnterHouse(this Entity entity)
         {
             return entity.Type == EntityTypes.ENEMY && !entity.IsDead && !entity.IsHarmless() && entity.IsHostile(entity.Level.Option.LeftFaction);
-        }
-        public static bool IsFriendlyEntity(this Entity entity)
-        {
-            return entity.Level.IsFriendlyFaction(entity.GetFaction());
-        }
-        public static bool IsHostileEntity(this Entity entity)
-        {
-            return entity.Level.IsHostileFaction(entity.GetFaction());
-        }
-        public static bool IsFriendlyFaction(this LevelEngine level, int faction)
-        {
-            return EngineEntityExt.IsFriendly(faction, level.Option.LeftFaction);
-        }
-        public static bool IsHostileFaction(this LevelEngine level, int faction)
-        {
-            return !IsFriendlyFaction(level, faction);
         }
         public static EntitySeed? GetEntitySeedDefinition(this Entity entity)
         {
@@ -882,11 +835,11 @@ namespace MVZ2.Vanilla.Entities
         #region 护甲
         public static Armor? GetMainArmor(this Entity entity)
         {
-            return entity.GetArmorAtSlot(VanillaArmorSlots.main);
+            return entity.GetArmorAtSlot(LogicArmorSlots.main);
         }
         public static Armor EquipMainArmor(this Entity entity, NamespaceID id)
         {
-            return entity.EquipArmorTo(VanillaArmorSlots.main, id);
+            return entity.EquipArmorTo(LogicArmorSlots.main, id);
         }
         #endregion
 

@@ -2,8 +2,8 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Definitions;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 

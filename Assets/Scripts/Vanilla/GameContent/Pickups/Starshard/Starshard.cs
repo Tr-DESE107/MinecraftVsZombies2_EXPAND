@@ -2,7 +2,6 @@
 
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -96,11 +95,11 @@ namespace MVZ2.GameContent.Pickups
         }
         public static float GetMinX()
         {
-            return VanillaLevelExt.GetPickupBorderX(false) + 10;
+            return LevelPositions.GetPickupBorderX(false) + 10;
         }
         public static float GetMaxX()
         {
-            return VanillaLevelExt.GetPickupBorderX(true) - 10;
+            return LevelPositions.GetPickupBorderX(true) - 10;
         }
         public static float GetMinZ(Entity pickup)
         {
@@ -108,7 +107,7 @@ namespace MVZ2.GameContent.Pickups
         }
         public static float GetMaxZ(Entity pickup)
         {
-            return VanillaLevelExt.SCREEN_HEIGHT - 120 - pickup.Position.y;
+            return LevelPositions.SCREEN_HEIGHT - 120 - pickup.Position.y;
         }
         public override NamespaceID GetModelID(NamespaceID origin)
         {

@@ -3,19 +3,16 @@
 using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
-using MVZ2.GameContent.Armors;
-using MVZ2.HeldItems;
 using MVZ2.Level;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
 using MVZ2.UI;
-using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic;
+using MVZ2Logic.Armors;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -468,7 +465,7 @@ namespace MVZ2.Entities
                 return;
             var tint = armor.GetTint();
             var colorOffset = armor.GetColorOffset();
-            if (slot == VanillaArmorSlots.main)
+            if (slot == LogicArmorSlots.main)
             {
                 tint *= Entity.GetHelmetTint();
                 colorOffset += Entity.GetHelmetColorOffset();
@@ -528,7 +525,7 @@ namespace MVZ2.Entities
                 var behaviour = Entity.Definition.GetBehaviour<IEnemyStateBehaviour>();
                 if (behaviour != null)
                 {
-                    Model.SetAnimatorInt("AnimationState", behaviour.GetAnimationState(VanillaEnemyStates.WALK));
+                    Model.SetAnimatorInt("AnimationState", behaviour.GetAnimationState(LogicEnemyStates.WALK));
                 }
             }
             var groundPos = Entity.Position;
@@ -836,22 +833,22 @@ namespace MVZ2.Entities
             {
                 { EngineEntityProps.TINT, PropertyName.Tint },
                 { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
-                { VanillaEntityProps.HSV, PropertyName.HSV },
-                { VanillaEntityProps.GRAYSCALE, PropertyName.Grayscale },
-                { VanillaEntityProps.DEPTH_TEST, PropertyName.DepthTest },
+                { LogicEntityProps.HSV, PropertyName.HSV },
+                { LogicEntityProps.GRAYSCALE, PropertyName.Grayscale },
+                { LogicEntityProps.DEPTH_TEST, PropertyName.DepthTest },
                 { EngineEntityProps.FLIP_X, PropertyName.FlipX },
                 { EngineEntityProps.DISPLAY_SCALE, PropertyName.DisplayScale },
-                { VanillaEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
-                { VanillaEntityProps.SORTING_ORDER, PropertyName.SortingOrder },
+                { LogicEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
+                { LogicEntityProps.SORTING_ORDER, PropertyName.SortingOrder },
 
-                { VanillaEntityProps.SHADOW_HIDDEN, PropertyName.ShadowHidden },
-                { VanillaEntityProps.SHADOW_OFFSET, PropertyName.ShadowOffset },
-                { VanillaEntityProps.SHADOW_SCALE, PropertyName.ShadowScale },
-                { VanillaEntityProps.SHADOW_ALPHA, PropertyName.ShadowAlpha },
+                { LogicEntityProps.SHADOW_HIDDEN, PropertyName.ShadowHidden },
+                { LogicEntityProps.SHADOW_OFFSET, PropertyName.ShadowOffset },
+                { LogicEntityProps.SHADOW_SCALE, PropertyName.ShadowScale },
+                { LogicEntityProps.SHADOW_ALPHA, PropertyName.ShadowAlpha },
 
-                { VanillaEntityProps.IS_LIGHT_SOURCE, PropertyName.LightSource },
-                { VanillaEntityProps.LIGHT_COLOR, PropertyName.LightColor },
-                { VanillaEntityProps.LIGHT_RANGE, PropertyName.LightRange },
+                { LogicEntityProps.IS_LIGHT_SOURCE, PropertyName.LightSource },
+                { LogicEntityProps.LIGHT_COLOR, PropertyName.LightColor },
+                { LogicEntityProps.LIGHT_RANGE, PropertyName.LightRange },
             };
             public enum PropertyName
             {

@@ -8,8 +8,8 @@ using MukioI18n;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Saves;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Localization;
 using MVZ2Logic.Scenes;
 using UnityEngine;
 
@@ -79,20 +79,20 @@ namespace MVZ2.Scenes
             switch (e)
             {
                 case DirectoryNotFoundException dirNotFound:
-                    return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_DIRECTORY_NOT_FOUND);
+                    return main.LanguageManager._p(LogicStrings.CONTEXT_ERROR, ERROR_DIRECTORY_NOT_FOUND);
                 case FileNotFoundException fileNotFound:
-                    return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_FILE_NOT_FOUND);
+                    return main.LanguageManager._p(LogicStrings.CONTEXT_ERROR, ERROR_FILE_NOT_FOUND);
                 case IOException io:
                     if (io.Message.Contains("Sharing Violation"))
                     {
-                        return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_SHARING_VIOLATION);
+                        return main.LanguageManager._p(LogicStrings.CONTEXT_ERROR, ERROR_SHARING_VIOLATION);
                     }
                     else
                     {
-                        return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_FAILED_TO_LOAD_FILE);
+                        return main.LanguageManager._p(LogicStrings.CONTEXT_ERROR, ERROR_FAILED_TO_LOAD_FILE);
                     }
                 case FormatException format:
-                    return main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_INCORRECT_FILE_FORMAT);
+                    return main.LanguageManager._p(LogicStrings.CONTEXT_ERROR, ERROR_INCORRECT_FILE_FORMAT);
                 default:
                     return e.Message;
             }
@@ -101,11 +101,11 @@ namespace MVZ2.Scenes
         {
             Debug.LogException(e);
             var innerMessage = GetErrorMessage(e);
-            var title = main.LanguageManager._(VanillaStrings.ERROR);
-            var message = main.LanguageManager._p(VanillaStrings.CONTEXT_ERROR, ERROR_FAILED_TO_INITIALIZE, innerMessage);
+            var title = main.LanguageManager._(LogicStrings.ERROR);
+            var message = main.LanguageManager._p(LogicStrings.CONTEXT_ERROR, ERROR_FAILED_TO_INITIALIZE, innerMessage);
             var options = new string[]
             {
-                main.LanguageManager._(VanillaStrings.QUIT)
+                main.LanguageManager._(LogicStrings.QUIT)
             };
             main.Scene.ShowDialog(title, message, options, i =>
             {
@@ -123,14 +123,14 @@ namespace MVZ2.Scenes
                         var corruptedUserNames = corruptedIndexes.Select(i => main.SaveManager.GetUserName(i));
                         var names = string.Join(", ", corruptedUserNames);
                         var currentName = main.SaveManager.GetCurrentUserName();
-                        var title = main.LanguageManager._(VanillaStrings.WARNING);
+                        var title = main.LanguageManager._(LogicStrings.WARNING);
                         var desc = main.LanguageManager._(ERROR_SOME_USERS_CORRUPTED, currentName, names);
                         await main.Scene.ShowDialogMessageAsync(title, desc);
                     }
                     break;
                 case SaveDataState.AllCorrupted:
                     {
-                        var title = main.LanguageManager._(VanillaStrings.WARNING);
+                        var title = main.LanguageManager._(LogicStrings.WARNING);
                         var desc = main.LanguageManager._(ERROR_ALL_USERS_CORRUPTED);
                         await main.Scene.ShowDialogMessageAsync(title, desc);
 
@@ -142,7 +142,7 @@ namespace MVZ2.Scenes
                     break;
                 case SaveDataState.FullCorrupted:
                     {
-                        var title = main.LanguageManager._(VanillaStrings.WARNING);
+                        var title = main.LanguageManager._(LogicStrings.WARNING);
                         var desc = main.LanguageManager._(ERROR_FULL_USERS_CORRUPTED);
                         await main.Scene.ShowDialogMessageAsync(title, desc);
 

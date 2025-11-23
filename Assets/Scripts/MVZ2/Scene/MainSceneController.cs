@@ -25,8 +25,9 @@ using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Game;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Games;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Scenes;
 using PVZEngine;
 using UnityEngine;
@@ -52,7 +53,7 @@ namespace MVZ2.Scenes
         {
             ShowDialog(title, desc, new string[]
             {
-                main.LanguageManager._(VanillaStrings.CONFIRM),
+                main.LanguageManager._(LogicStrings.CONFIRM),
             }, (index) => onSelect?.Invoke());
         }
         public Task ShowDialogMessageAsync(string title, string desc)
@@ -65,16 +66,16 @@ namespace MVZ2.Scenes
         {
             ShowDialog(title, desc, new string[]
             {
-                main.LanguageManager._(VanillaStrings.YES),
-                main.LanguageManager._(VanillaStrings.NO),
+                main.LanguageManager._(LogicStrings.YES),
+                main.LanguageManager._(LogicStrings.NO),
             }, (index) => onSelect?.Invoke(index == 0));
         }
         public void ShowDialogSelectTask(string title, string desc, Func<bool, Task>? onSelect = null)
         {
             var options = new string[]
             {
-                main.LanguageManager._(VanillaStrings.YES),
-                main.LanguageManager._(VanillaStrings.NO),
+                main.LanguageManager._(LogicStrings.YES),
+                main.LanguageManager._(LogicStrings.NO),
             };
             Func<int, Task>? intSelect = null;
             if (onSelect != null)

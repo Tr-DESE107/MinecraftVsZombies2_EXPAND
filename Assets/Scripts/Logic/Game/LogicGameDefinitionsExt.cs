@@ -2,12 +2,16 @@
 
 using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Errors;
+using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Notes;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Shapes;
 using PVZEngine;
 
 namespace MVZ2Logic.Games

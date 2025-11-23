@@ -7,7 +7,7 @@ using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Saves;
 using MVZ2.Scenes;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using UnityEngine;
 
@@ -159,23 +159,23 @@ namespace MVZ2.MusicRoom
             var sourceKey = meta.Source;
             if (!string.IsNullOrEmpty(sourceKey))
             {
-                var source = GetTranslatedStringParticular(VanillaStrings.CONTEXT_MUSIC_SOURCE, sourceKey);
+                var source = GetTranslatedStringParticular(LogicStrings.CONTEXT_MUSIC_SOURCE, sourceKey);
                 infoBuilder.AppendLine(GetTranslatedString(INFORMATION_SOURCE, source));
             }
             var originKey = meta.Origin;
             if (!string.IsNullOrEmpty(originKey))
             {
-                var origin = GetTranslatedStringParticular(VanillaStrings.CONTEXT_MUSIC_ORIGIN, originKey);
+                var origin = GetTranslatedStringParticular(LogicStrings.CONTEXT_MUSIC_ORIGIN, originKey);
                 infoBuilder.AppendLine(GetTranslatedString(INFORMATION_ORIGIN, origin));
             }
             var authorKey = meta.Author;
             if (!string.IsNullOrEmpty(authorKey))
             {
-                var author = GetTranslatedStringParticular(VanillaStrings.CONTEXT_MUSIC_AUTHOR, authorKey);
+                var author = GetTranslatedStringParticular(LogicStrings.CONTEXT_MUSIC_AUTHOR, authorKey);
                 infoBuilder.AppendLine(GetTranslatedString(INFORMATION_AUTHOR, author));
             }
 
-            var description = GetTranslatedStringParticular(VanillaStrings.CONTEXT_MUSIC_DESCRIPTION, meta.Description);
+            var description = GetTranslatedStringParticular(LogicStrings.CONTEXT_MUSIC_DESCRIPTION, meta.Description);
 
             var mainTrack = Main.ResourceManager.GetMusicClip(meta.MainTrack);
             string totalTime;

@@ -5,12 +5,12 @@ using System.Linq;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Stages
             base.Start(level);
             if (level.CurrentFlag == 0)
             {
-                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_ENDLESS_HINT, 1, 150);
+                level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_ENDLESS_HINT, 1, 150);
             }
         }
         public override void Update(LevelEngine level)
@@ -77,7 +77,7 @@ namespace MVZ2.GameContent.Stages
                 level.WaveState = VanillaLevelStates.STATE_AFTER_FINAL_WAVE;
                 roundTimer?.ResetTime(150);
                 level.PlaySound(VanillaSoundID.hugeWave);
-                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_MORE_ENEMIES_APPROACHING, 1000, 150);
+                level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_MORE_ENEMIES_APPROACHING, 1000, 150);
             }
         }
         protected virtual void AfterFinalWaveUpdate(LevelEngine level)
@@ -156,8 +156,8 @@ namespace MVZ2.GameContent.Stages
             }
             return entries.ToArray();
         }
-        public FrameTimer? GetRoundTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_ROUND_TIMER);
-        public void SetRoundTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_ROUND_TIMER, value);
+        public FrameTimer? GetRoundTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_ROUND_TIMER);
+        public void SetRoundTimer(LevelEngine level, FrameTimer value) => level.SetProperty(PROP_ROUND_TIMER, value);
         public FrameTimer GetOrCreateRoundTimer(LevelEngine level)
         {
             var roundTimer = GetRoundTimer(level);

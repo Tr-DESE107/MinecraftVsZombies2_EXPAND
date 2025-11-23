@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -27,9 +28,9 @@ namespace MVZ2.GameContent.Effects
             var param = spawner.GetSpawnParams();
             var size = Vector3.one * (radius * 2);
             param.SetProperty(EngineEntityProps.SIZE, size);
-            param.SetProperty(VanillaEntityProps.LIGHT_RANGE, size);
+            param.SetProperty(LogicEntityProps.LIGHT_RANGE, size);
             param.SetProperty(EngineEntityProps.TINT, color);
-            param.SetProperty(VanillaEntityProps.LIGHT_COLOR, color);
+            param.SetProperty(LogicEntityProps.LIGHT_COLOR, color);
             return spawner.Spawn(VanillaEffectID.fireworkBlast, position, param);
         }
         public static Entity? SpawnFireworkBlast(Entity spawner, Vector3 position, float radius, RandomGenerator rng)

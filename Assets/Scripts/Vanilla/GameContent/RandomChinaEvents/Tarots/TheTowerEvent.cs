@@ -4,7 +4,7 @@ using MukioI18n;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
             var level = contraption.Level;
             for (int i = 0; i < tntCount; i++)
             {
-                float x = rng.Next(VanillaLevelExt.ATTACK_LEFT_BORDER, VanillaLevelExt.ATTACK_RIGHT_BORDER);
+                float x = rng.Next(LevelPositions.ATTACK_LEFT_BORDER, LevelPositions.ATTACK_RIGHT_BORDER);
                 float y = rng.Next(600f, 2000f);
                 float z = rng.Next(level.GetGridBottomZ(), level.GetGridTopZ());
                 contraption.SpawnWithParams(VanillaProjectileID.flyingTNT, new Vector3(x, y, z));

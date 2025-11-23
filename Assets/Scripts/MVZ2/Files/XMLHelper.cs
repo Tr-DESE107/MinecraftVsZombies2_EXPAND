@@ -7,6 +7,7 @@ using System.Linq;
 using System.Xml;
 using MVZ2.Metas;
 using MVZ2Logic;
+using MVZ2Logic.Resources;
 using PVZEngine;
 using PVZEngine.Definitions;
 using UnityEngine;

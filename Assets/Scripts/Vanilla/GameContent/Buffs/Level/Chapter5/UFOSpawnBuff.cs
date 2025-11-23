@@ -2,9 +2,10 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Grids;
@@ -18,9 +19,9 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public UFOSpawnBuff(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.PRE_WAVE_ENEMY_SPAWN, PreWaveEnemySpawnCallback);
+            AddTrigger(LogicLevelCallbacks.PRE_WAVE_ENEMY_SPAWN, PreWaveEnemySpawnCallback);
         }
-        private void PreWaveEnemySpawnCallback(VanillaLevelCallbacks.WaveEnemySpawnParams args, CallbackResult result)
+        private void PreWaveEnemySpawnCallback(LogicLevelCallbacks.WaveEnemySpawnParams args, CallbackResult result)
         {
             var level = args.level;
             var totalPoints = result.GetValue<float>();

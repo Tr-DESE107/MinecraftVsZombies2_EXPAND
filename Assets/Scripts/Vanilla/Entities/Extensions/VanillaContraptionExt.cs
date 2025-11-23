@@ -9,6 +9,8 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;

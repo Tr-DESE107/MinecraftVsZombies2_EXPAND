@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -59,7 +60,7 @@ namespace MVZ2.GameContent.Areas
                     MonsterSpawner.SetEntityToSpawn(e, entityToSpawn);
 
                     var param = e.GetSpawnParams();
-                    param.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, true);
+                    param.SetProperty(LogicEntityProps.UPDATE_BEFORE_GAME, true);
                     e.Spawn(VanillaEffectID.spawnerAppearEmbers, e.GetCenter(), param);
                     e.PlaySound(VanillaSoundID.odd);
                 });
@@ -73,8 +74,8 @@ namespace MVZ2.GameContent.Areas
         {
             return grid.Column - SPAWNER_MIN_COLUMN + 1;
         }
-        public static RandomGenerator? GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(PROP_RNG);
-        public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(PROP_RNG, rng);
+        public static RandomGenerator? GetRNG(LevelEngine level) => level.GetProperty<RandomGenerator>(PROP_RNG);
+        public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetProperty(PROP_RNG, rng);
         public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("SpawnerRNG");
         public static readonly NamespaceID[] entitiesToSpawn = new NamespaceID[]
         {

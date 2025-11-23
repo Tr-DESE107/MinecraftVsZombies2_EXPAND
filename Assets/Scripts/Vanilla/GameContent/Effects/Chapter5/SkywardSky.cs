@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;

@@ -10,16 +10,18 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Options;
+using MVZ2Logic.Resources;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Definitions;
 using UnityEngine;
@@ -391,7 +393,7 @@ namespace MVZ2.Level
             }
             else
             {
-                var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                var title = Main.LanguageManager._(LogicStrings.ERROR);
                 var desc = Main.LanguageManager._(contraptionMessage);
                 await Main.Scene.ShowDialogMessageAsync(title, desc);
             }
@@ -405,7 +407,7 @@ namespace MVZ2.Level
             }
             else
             {
-                var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                var title = Main.LanguageManager._(LogicStrings.ERROR);
                 var desc = Main.LanguageManager._(artifactMessage);
                 await Main.Scene.ShowDialogMessageAsync(title, desc);
             }
@@ -685,7 +687,7 @@ namespace MVZ2.Level
                 return false;
             if (item.innate)
             {
-                errorMessage = Main.LanguageManager._(VanillaStrings.INNATE);
+                errorMessage = Main.LanguageManager._(LogicStrings.INNATE);
                 return true;
             }
             return GetBlueprintTooltipError(item.id, out errorMessage, item.isCommandBlock);
@@ -706,7 +708,7 @@ namespace MVZ2.Level
                 return false;
             if (item.innate)
             {
-                errorMessage = Main.LanguageManager._(VanillaStrings.INNATE);
+                errorMessage = Main.LanguageManager._(LogicStrings.INNATE);
                 return true;
             }
             return false;
@@ -728,13 +730,13 @@ namespace MVZ2.Level
                 var seedDef = Main.Game.GetSeedDefinition(blueprintID);
                 if (seedDef != null && seedDef.IsUpgradeBlueprint())
                 {
-                    errorMessage = Main.LanguageManager._(VanillaStrings.TOOLTIP_CANNOT_IMITATE_THIS_CONTRAPTION);
+                    errorMessage = Main.LanguageManager._(LogicStrings.TOOLTIP_CANNOT_IMITATE_THIS_CONTRAPTION);
                     return true;
                 }
             }
             if (level.IsBlueprintNotRecommmended(blueprintID))
             {
-                errorMessage = Main.LanguageManager._(VanillaStrings.NOT_RECOMMONEDED_IN_LEVEL);
+                errorMessage = Main.LanguageManager._(LogicStrings.NOT_RECOMMONEDED_IN_LEVEL);
                 return true;
             }
             return false;
@@ -1084,7 +1086,7 @@ namespace MVZ2.Level
                 Game.RunCallback(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, new LogicLevelCallbacks.GetBlueprintWarningsParams(Level, blueprintsForChoose, chosen, warnings));
                 foreach (var warning in warnings)
                 {
-                    var title = Main.LanguageManager._(VanillaStrings.WARNING);
+                    var title = Main.LanguageManager._(LogicStrings.WARNING);
                     var desc = warning;
                     var result = await Main.Scene.ShowDialogSelectAsync(title, desc);
                     if (!result)
@@ -1270,7 +1272,7 @@ namespace MVZ2.Level
             UI.SetReceiveRaycasts(true);
             UI.SetBlueprintsSortingToChoosing(false);
             chooseUI.SetViewLawnReturnBlockerActive(true);
-            Level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_CONTINUE, 1000, -1);
+            Level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, LogicStrings.ADVICE_CLICK_TO_CONTINUE, 1000, -1);
             while (!viewLawnFinished)
             {
                 yield return null;

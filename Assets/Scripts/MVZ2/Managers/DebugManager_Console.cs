@@ -8,14 +8,12 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Metas;
-using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
-using MVZ2Logic.Command;
 using MVZ2Logic.Commands;
-using MVZ2Logic.Debugs;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Games;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -88,7 +86,7 @@ namespace MVZ2.Managers
                 }
                 catch (Exception ex)
                 {
-                    var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
+                    var msg = Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
                     PrintLine(msg);
                 }
             }
@@ -110,7 +108,7 @@ namespace MVZ2.Managers
             }
             if (definition == null)
             {
-                msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_NOT_FOUND, command);
+                msg = Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_NOT_FOUND, command);
                 return false;
             }
             try
@@ -119,7 +117,7 @@ namespace MVZ2.Managers
             }
             catch (Exception ex)
             {
-                msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
+                msg = Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
                 return false;
             }
             return true;
@@ -473,15 +471,15 @@ namespace MVZ2.Managers
                 return;
             // 在关卡外执行关卡命令
             if (def.MustInLevel() && !Global.Level.IsInLevel())
-                throw new InvalidOperationException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MUST_IN_LEVEL));
+                throw new InvalidOperationException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_MUST_IN_LEVEL));
 
             var variants = def.GetVariants();
             if (variants == null)
-                throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_FORMAT));
+                throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_FORMAT));
             var variant = GetBestFitCommandVariant(variants, parts);
             // 命令变体不存在。
             if (variant == null)
-                throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_FORMAT));
+                throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_FORMAT));
 
             // 检测命令变体的子名称是否正确。
             var hasSubname = !string.IsNullOrEmpty(variant.Subname);
@@ -492,14 +490,14 @@ namespace MVZ2.Managers
                 {
                     var possibleSubnames = GetCommandPossibleSubnameTexts(variants);
                     var subnameStr = string.Join(",", possibleSubnames);
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MISSING_SUBNAME, subnameStr));
+                    throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_MISSING_SUBNAME, subnameStr));
                 }
                 // 子名称不正确
                 if (!variant.Subname.Equals(parts[1], StringComparison.OrdinalIgnoreCase))
                 {
                     var possibleSubnames = GetCommandPossibleSubnameTexts(variants);
                     var subnameStr = string.Join(",", possibleSubnames);
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_SUBNAME, subnameStr));
+                    throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_SUBNAME, subnameStr));
                 }
             }
             // 检测命令变体的参数是否正确。
@@ -512,13 +510,13 @@ namespace MVZ2.Managers
                     if (parameter.Optional)
                         continue;
 
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MISSING_PARAMETER, parameter.Name));
+                    throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_MISSING_PARAMETER, parameter.Name));
                 }
                 var part = parts[partIndex];
 
                 if (!FitsCommandParameter(parameter, part))
                 {
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_PARAMETER, parameter.Name));
+                    throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_PARAMETER, parameter.Name));
                 }
             }
             var actualParamLength = variant.GetParameterIndexOfCommandPart(parts.Length);
@@ -526,7 +524,7 @@ namespace MVZ2.Managers
             var maxParameterCount = variant.Parameters.Length;
             if (actualParamLength < minParameterCount || actualParamLength > maxParameterCount)
             {
-                throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_PARAMETER_COUNT));
+                throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_PARAMETER_COUNT));
             }
         }
         #endregion
@@ -561,9 +559,9 @@ namespace MVZ2.Managers
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;
         public const string DEFAULT_VALUE_PARAMETER = CommandUtility.DEFAULT_VALUE_PARAMETER;
-        [TranslateMsg("命令输出，{0}为命令名", VanillaStrings.CONTEXT_COMMAND_OUTPUT)]
+        [TranslateMsg("命令输出，{0}为命令名", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_NOT_FOUND = "<color=red>命令不存在：{0}</color>";
-        [TranslateMsg("命令输出，{0}为错误", VanillaStrings.CONTEXT_COMMAND_OUTPUT)]
+        [TranslateMsg("命令输出，{0}为错误", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_ERROR = "<color=red>错误：{0}</color>";
     }
 }

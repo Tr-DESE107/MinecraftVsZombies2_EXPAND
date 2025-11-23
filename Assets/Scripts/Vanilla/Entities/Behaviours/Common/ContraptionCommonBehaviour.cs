@@ -3,8 +3,8 @@
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;

@@ -4,7 +4,6 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;

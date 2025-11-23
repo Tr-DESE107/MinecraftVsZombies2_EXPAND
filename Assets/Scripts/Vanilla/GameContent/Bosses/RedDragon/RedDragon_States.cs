@@ -15,6 +15,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -670,7 +671,7 @@ namespace MVZ2.GameContent.Bosses
                     areaModel?.SetModelProperty("Broken", true);
                     DestroyShipEntities(entity);
                     DestroyShipGrids(entity);
-                    entity.Spawn(VanillaEffectID.fallenEndShip, new Vector3(VanillaLevelExt.LEVEL_WIDTH, 0, 0))?.Let(e =>
+                    entity.Spawn(VanillaEffectID.fallenEndShip, new Vector3(LevelPositions.LEVEL_WIDTH, 0, 0))?.Let(e =>
                     {
                         var velocity = e.Velocity;
                         velocity.y = entity.Velocity.y;
@@ -731,11 +732,11 @@ namespace MVZ2.GameContent.Bosses
         {
             if (boss.IsFacingLeft())
             {
-                return VanillaLevelExt.RIGHT_BORDER + 80;
+                return LevelPositions.RIGHT_BORDER + 80;
             }
             else
             {
-                return VanillaLevelExt.LEFT_BORDER - 80;
+                return LevelPositions.LEFT_BORDER - 80;
             }
         }
         private static Vector3 GetJumpBorderPositionByLane(Entity boss, int lane)
@@ -1061,7 +1062,7 @@ namespace MVZ2.GameContent.Bosses
                 }
 
                 var param = entity.GetSpawnParams();
-                param.SetProperty(VanillaEntityProps.VARIANT, variant);
+                param.SetProperty(LogicEntityProps.VARIANT, variant);
 
                 var lane = entity.GetLane();
                 for (int i = 0; i < count; i++)
@@ -1395,7 +1396,7 @@ namespace MVZ2.GameContent.Bosses
                 var fireVariant = GetFireVariant(entity);
                 var param = entity.GetSpawnParams();
                 param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * FIRE_BREATH_DAMAGE_MULTIPLIER);
-                param.SetProperty(VanillaEntityProps.VARIANT, fireVariant);
+                param.SetProperty(LogicEntityProps.VARIANT, fireVariant);
                 var position = GetSpitSourcePosition(entity) + Vector3.down * 48; // 龙息高度的一半
                 entity.Spawn(VanillaEffectID.dragonFireBreath, position, param)?.Let(e =>
                 {
@@ -1673,7 +1674,7 @@ namespace MVZ2.GameContent.Bosses
                 var fireVariant = GetFireVariant(entity);
                 var param = entity.GetSpawnParams();
                 param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * FIRE_BREATH_DAMAGE_MULTIPLIER);
-                param.SetProperty(VanillaEntityProps.VARIANT, fireVariant);
+                param.SetProperty(LogicEntityProps.VARIANT, fireVariant);
                 param.SetProperty(VanillaEntityProps.MAX_TIMEOUT, 30);
                 var source = GetNeckRootPosition(entity);
                 var direction = new Vector3(entity.GetFacingX() * 0.3f, 1).normalized;
@@ -1820,7 +1821,7 @@ namespace MVZ2.GameContent.Bosses
                 var fireVariant = GetFireVariant(entity);
                 var param = entity.GetSpawnParams();
                 param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * FIRE_BREATH_DAMAGE_MULTIPLIER);
-                param.SetProperty(VanillaEntityProps.VARIANT, fireVariant);
+                param.SetProperty(LogicEntityProps.VARIANT, fireVariant);
                 param.SetProperty(VanillaEntityProps.MAX_TIMEOUT, 30);
                 var source = GetNeckRootPosition(entity);
                 var direction = new Vector3(entity.GetFacingX() * 0.3f, -1).normalized;

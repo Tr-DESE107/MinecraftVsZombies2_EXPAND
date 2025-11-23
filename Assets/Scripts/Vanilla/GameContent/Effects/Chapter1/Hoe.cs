@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;

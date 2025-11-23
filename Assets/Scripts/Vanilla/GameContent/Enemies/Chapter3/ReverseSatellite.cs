@@ -5,10 +5,10 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -91,7 +91,7 @@ namespace MVZ2.GameContent.Enemies
         {
             var pos = enemy.Position;
             var velocity = enemy.Velocity;
-            var centerX = VanillaLevelExt.LAWN_CENTER_X;
+            var centerX = LevelPositions.LAWN_CENTER_X;
             var centerZ = enemy.Level.GetLawnCenterZ();
             var backDistanceX = 200;
             var backDistanceZ = 80;
@@ -137,7 +137,7 @@ namespace MVZ2.GameContent.Enemies
             enemy.Velocity = velocity;
 
             var pos = enemy.Position;
-            if (pos.x > VanillaLevelExt.RIGHT_BORDER || pos.y > 640f || pos.z < -40f)
+            if (pos.x > LevelPositions.RIGHT_BORDER || pos.y > 640f || pos.z < -40f)
             {
                 enemy.Remove();
             }
@@ -146,8 +146,8 @@ namespace MVZ2.GameContent.Enemies
         public static void SetLeaveTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(FIELD_LEAVE_TIMER, value);
         public static bool IsLeft(Entity entity) => entity.GetBehaviourField<bool>(FIELD_LEFT);
         public static void SetLeft(Entity entity, bool value) => entity.SetBehaviourField(FIELD_LEFT, value);
-        public const int STATE_STAY = VanillaEnemyStates.WALK;
-        public const int STATE_LEAVE = VanillaEnemyStates.LEAVE;
+        public const int STATE_STAY = LogicEnemyStates.WALK;
+        public const int STATE_LEAVE = LogicEnemyStates.LEAVE;
         public const int LEAVE_TIME = 900;
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_LEFT = new VanillaEntityPropertyMeta<bool>("is_left");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("LeaveTimer");

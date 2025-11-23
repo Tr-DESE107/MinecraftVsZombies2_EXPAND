@@ -2,8 +2,6 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.HeldItems;
-using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.HeldItems;
@@ -29,9 +27,9 @@ namespace MVZ2.GameContent.Stages
         }
         public override void Update(LevelEngine level)
         {
-            if (level.GetHeldItemType() == BuiltinHeldTypes.none)
+            if (level.GetHeldItemType() == LogicHeldTypes.none)
             {
-                var builder = new HeldItemBuilder(VanillaHeldTypes.sword);
+                var builder = new HeldItemBuilder(LogicHeldTypes.sword);
                 builder.SetCannotCancel(true);
                 level.SetHeldItem(builder);
             }
@@ -89,8 +87,8 @@ namespace MVZ2.GameContent.Stages
             buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(3, 5, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
         }
         #region 关卡属性
-        private void SetThunderTimer(LevelEngine level, FrameTimer timer) => level.SetBehaviourField(PROP_THUNDER_TIMER, timer);
-        private FrameTimer? GetThunderTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_THUNDER_TIMER);
+        private void SetThunderTimer(LevelEngine level, FrameTimer timer) => level.SetProperty(PROP_THUNDER_TIMER, timer);
+        private FrameTimer? GetThunderTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_THUNDER_TIMER);
         #endregion
 
         #region 属性字段

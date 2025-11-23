@@ -4,7 +4,7 @@ using System;
 using MukioI18n;
 using MVZ2.Debugs;
 using MVZ2.IO;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using UnityEngine;
 
 namespace MVZ2.Managers
@@ -30,12 +30,12 @@ namespace MVZ2.Managers
             string title, desc;
             if (!success)
             {
-                title = Main.LanguageManager._(VanillaStrings.ERROR);
+                title = Main.LanguageManager._(LogicStrings.ERROR);
                 desc = Main.LanguageManager._(ERROR_NOT_EXPORTED);
             }
             else
             {
-                title = Main.LanguageManager._(VanillaStrings.HINT);
+                title = Main.LanguageManager._(LogicStrings.HINT);
                 desc = Main.LanguageManager._(HINT_EXPORTED, path);
             }
             await Main.Scene.ShowDialogMessageAsync(title, desc);

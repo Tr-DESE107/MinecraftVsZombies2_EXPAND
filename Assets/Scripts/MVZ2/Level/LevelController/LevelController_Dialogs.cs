@@ -6,8 +6,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.Level.UI;
 using MVZ2.Options;
-using MVZ2.Vanilla;
-using MVZ2Logic;
+using MVZ2Logic.Localization;
 using Tools;
 using UnityEngine;
 
@@ -34,7 +33,7 @@ namespace MVZ2.Level
         #region 重新开始确认
         public void ShowRestartConfirmDialog()
         {
-            var title = Localization._(VanillaStrings.RESTART);
+            var title = Localization._(LogicStrings.RESTART);
             var desc = Localization._(DIALOG_DESC_RESTART);
             Scene.ShowDialogSelectTask(title, desc, async (confirm) =>
             {

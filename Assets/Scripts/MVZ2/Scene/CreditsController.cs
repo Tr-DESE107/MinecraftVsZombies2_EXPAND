@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using UnityEngine;
 
 namespace MVZ2.Scenes
@@ -20,8 +20,8 @@ namespace MVZ2.Scenes
             {
                 var viewData = new CreditsCategoryViewData()
                 {
-                    name = main.LanguageManager._p(VanillaStrings.CONTEXT_CREDITS_CATEGORY, category.Name),
-                    entries = category.Entries.Select(e => main.LanguageManager._p(VanillaStrings.CONTEXT_STAFF_NAME, e)).ToArray(),
+                    name = main.LanguageManager._p(LogicStrings.CONTEXT_CREDITS_CATEGORY, category.Name),
+                    entries = category.Entries.Select(e => main.LanguageManager._p(LogicStrings.CONTEXT_STAFF_NAME, e)).ToArray(),
                 };
                 viewDatas.Add(viewData);
             }

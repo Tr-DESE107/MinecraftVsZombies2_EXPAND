@@ -2,9 +2,9 @@
 
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Seeds
         public override void Update(SeedPack seedPack, float rechargeSpeed)
         {
             base.Update(seedPack, rechargeSpeed);
-            seedPack.SetProperty(EngineSeedProps.DISABLE_ID, IsValid(seedPack) ? null : VanillaBlueprintErrors.invalid);
+            seedPack.SetProperty(EngineSeedProps.DISABLE_ID, IsValid(seedPack) ? null : LogicBlueprintErrors.invalid);
         }
         public override void Use(SeedPack seedPack)
         {

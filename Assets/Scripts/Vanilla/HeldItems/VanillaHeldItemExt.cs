@@ -2,14 +2,11 @@
 
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
-using MVZ2.HeldItems;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
-using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.HeldItems
 {
@@ -33,47 +30,6 @@ namespace MVZ2.Vanilla.HeldItems
                 var seed = heldDefinition.GetSeedPack(level, data);
                 return seed?.GetSeedEntityID();
             }
-        }
-        public static bool IsHoldingBlueprint(this IHeldItemData data, LevelEngine level, SeedPack seedPack)
-        {
-            if (seedPack is ClassicSeedPack classic)
-            {
-                var classicIndex = level.GetSeedPackIndex(classic);
-                if (classicIndex >= 0)
-                {
-                    return data.IsHoldingClassicBlueprint(classicIndex);
-                }
-            }
-            if (seedPack is ConveyorSeedPack conveyor)
-            {
-                var conveyorIndex = level.GetConveyorSeedPackIndex(conveyor);
-                if (conveyorIndex >= 0)
-                {
-                    return data.IsHoldingConveyorBlueprint(conveyorIndex);
-                }
-            }
-            return false;
-        }
-        public static bool IsHoldingClassicBlueprint(this IHeldItemData heldItemData, int i)
-        {
-            return heldItemData != null && heldItemData.Type == BuiltinHeldTypes.blueprint && heldItemData.GetSeedPackIndex() == i;
-        }
-        public static bool IsHoldingConveyorBlueprint(this IHeldItemData heldItemData, int i)
-        {
-            return heldItemData != null && heldItemData.Type == BuiltinHeldTypes.conveyor && heldItemData.GetSeedPackIndex() == i;
-        }
-        public static SeedPack? GetSeedPack(this HeldItemDefinition heldItemDef, LevelEngine level, IHeldItemData? data)
-        {
-            if (data == null)
-                return null;
-            var behaviours = heldItemDef.GetBehaviours();
-            foreach (var behaviour in behaviours)
-            {
-                if (behaviour is not IBlueprintHeldItemBehaviour blueprintBehaviour)
-                    continue;
-                return blueprintBehaviour.GetSeedPack(level, data);
-            }
-            return null;
         }
     }
 }

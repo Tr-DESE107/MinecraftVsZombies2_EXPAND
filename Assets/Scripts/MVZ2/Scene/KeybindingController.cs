@@ -6,7 +6,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using UnityEngine;
 
@@ -50,7 +50,7 @@ namespace MVZ2.Scenes
         }
         private void OnKeybindingResetButtonClickCallback()
         {
-            var title = Main.LanguageManager._(VanillaStrings.WARNING);
+            var title = Main.LanguageManager._(LogicStrings.WARNING);
             var desc = Main.LanguageManager._(RESET_KEY_BINDINGS_WARNING);
             Main.Scene.ShowDialogSelect(title, desc, (confirm) =>
             {
@@ -107,7 +107,7 @@ namespace MVZ2.Scenes
         private KeybindingItemViewData GetKeybindingItemViewData(NamespaceID id, int index, bool conflict)
         {
             var nameKey = Main.OptionsManager.GetHotkeyNameKey(id);
-            var name = Main.LanguageManager._p(VanillaStrings.CONTEXT_HOTKEY_NAME, nameKey);
+            var name = Main.LanguageManager._p(LogicStrings.CONTEXT_HOTKEY_NAME, nameKey);
 
             var keyCode = Main.OptionsManager.GetKeyBinding(id);
             var keyColor = Color.white;

@@ -3,7 +3,7 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using Tools.Mathematics;
 using UnityEngine;
@@ -19,9 +19,9 @@ namespace MVZ2.GameContent.Detections
             var projectileSize = GetProjectileSize(self, Vector3.one * 32);
 
             var minX = 0;
-            var maxX = VanillaLevelExt.LEVEL_WIDTH;
+            var maxX = LevelPositions.LEVEL_WIDTH;
             var minZ = 0;
-            var maxZ = VanillaLevelExt.LAWN_HEIGHT;
+            var maxZ = LevelPositions.LAWN_HEIGHT;
             var sizeY = 800;
             sizeY = 1000;
             var center = self.GetCenter();

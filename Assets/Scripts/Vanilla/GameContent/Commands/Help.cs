@@ -3,9 +3,10 @@
 using System.Linq;
 using MVZ2.Vanilla;
 using MVZ2Logic;
-using MVZ2Logic.Debugs;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Games;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Localization;
 
 namespace MVZ2.GameContent.Commands
 {
@@ -31,12 +32,12 @@ namespace MVZ2.GameContent.Commands
                     if (def == null)
                         continue;
                     var desc = def.GetDescription();
-                    var description = string.IsNullOrEmpty(desc) ? string.Empty : localization.GetTextParticular(desc, VanillaStrings.CONTEXT_COMMAND_DESCRIPTION);
-                    var output = localization.GetTextParticular(VanillaStrings.COMMAND_HELP_COMMAND_LIST_TEMPLATE, VanillaStrings.CONTEXT_COMMAND_OUTPUT, name, description);
+                    var description = string.IsNullOrEmpty(desc) ? string.Empty : localization.GetTextParticular(desc, LogicStrings.CONTEXT_COMMAND_DESCRIPTION);
+                    var output = localization.GetTextParticular(VanillaStrings.COMMAND_HELP_COMMAND_LIST_TEMPLATE, LogicStrings.CONTEXT_COMMAND_OUTPUT, name, description);
                     PrintLine(output);
                 }
                 PrintLine();
-                var details = localization.GetTextParticular(VanillaStrings.COMMAND_HELP_DETAILS, VanillaStrings.CONTEXT_COMMAND_OUTPUT);
+                var details = localization.GetTextParticular(VanillaStrings.COMMAND_HELP_DETAILS, LogicStrings.CONTEXT_COMMAND_OUTPUT);
                 PrintLine(details);
             }
             else
@@ -55,14 +56,14 @@ namespace MVZ2.GameContent.Commands
                     {
                         PrintLine();
                         PrintLine(variant.GetGrammarText(commandName));
-                        PrintLine(localization.GetTextParticular(variant.Description, VanillaStrings.CONTEXT_COMMAND_VARIANT_DESCRIPTION));
+                        PrintLine(localization.GetTextParticular(variant.Description, LogicStrings.CONTEXT_COMMAND_VARIANT_DESCRIPTION));
                         PrintLine();
                         foreach (var param in variant.Parameters)
                         {
                             var paramName = param.Name;
-                            var desc = localization.GetTextParticular(param.Description, VanillaStrings.CONTEXT_COMMAND_PARAMETER_DESCRIPTION);
-                            var type = localization.GetTextParticular(param.GetTypeName(), VanillaStrings.CONTEXT_COMMAND_PARAMETER_TYPE);
-                            var msg = localization.GetTextParticular(VanillaStrings.COMMAND_HELP_PARAMETER_TEMPLATE, VanillaStrings.CONTEXT_COMMAND_OUTPUT, paramName, type, desc);
+                            var desc = localization.GetTextParticular(param.Description, LogicStrings.CONTEXT_COMMAND_PARAMETER_DESCRIPTION);
+                            var type = localization.GetTextParticular(param.GetTypeName(), LogicStrings.CONTEXT_COMMAND_PARAMETER_TYPE);
+                            var msg = localization.GetTextParticular(VanillaStrings.COMMAND_HELP_PARAMETER_TEMPLATE, LogicStrings.CONTEXT_COMMAND_OUTPUT, paramName, type, desc);
                             PrintLine(msg);
                         }
                     }

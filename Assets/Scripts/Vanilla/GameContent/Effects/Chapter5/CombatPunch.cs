@@ -3,7 +3,7 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Effects
             var position = entity.Position;
             position.y = entity.GetGroundY();
             entity.Position = position;
-            if (entity.Position.x >= VanillaLevelExt.LEVEL_RIGHTMOST)
+            if (entity.Position.x >= LevelPositions.LEVEL_RIGHTMOST)
             {
                 entity.Remove();
             }

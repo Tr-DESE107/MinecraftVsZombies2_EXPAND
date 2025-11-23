@@ -7,9 +7,9 @@ using System.Globalization;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
-using MVZ2.Vanilla;
-using MVZ2Logic;
 using MVZ2Logic.Games;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Resources;
 using PVZEngine;
 using UnityEngine;
 
@@ -137,7 +137,7 @@ namespace MVZ2.Localization
         {
             try
             {
-                if (TryGetLocalizedStringParticular(VanillaStrings.CONTEXT_LANGUAGE_NAME, CURRENT_LANGUAGE_NAME, language, out var name))
+                if (TryGetLocalizedStringParticular(LogicStrings.CONTEXT_LANGUAGE_NAME, CURRENT_LANGUAGE_NAME, language, out var name))
                 {
                     return name;
                 }
@@ -246,7 +246,7 @@ namespace MVZ2.Localization
         public const string EN = "en-US";
         public const string SOURCE_LANGUAGE = CN;
 
-        [TranslateMsg("当前语言名称", VanillaStrings.CONTEXT_LANGUAGE_NAME)]
+        [TranslateMsg("当前语言名称", LogicStrings.CONTEXT_LANGUAGE_NAME)]
         public const string CURRENT_LANGUAGE_NAME = "中文";
 
         private List<string> allLanguages = new List<string>() { SOURCE_LANGUAGE };

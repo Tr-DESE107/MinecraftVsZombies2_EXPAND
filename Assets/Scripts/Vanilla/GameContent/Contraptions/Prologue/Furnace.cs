@@ -3,10 +3,9 @@
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -25,7 +24,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR_OFFSET));
             AddModifier(new BooleanModifier(VanillaEntityProps.IS_FIRE, BooleanOperator.And, PROP_BURNING));
-            AddModifier(new BooleanModifier(VanillaEntityProps.IS_LIGHT_SOURCE, BooleanOperator.And, PROP_BURNING));
+            AddModifier(new BooleanModifier(LogicEntityProps.IS_LIGHT_SOURCE, BooleanOperator.And, PROP_BURNING));
         }
         public override void Init(Entity entity)
         {

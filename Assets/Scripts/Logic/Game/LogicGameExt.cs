@@ -2,10 +2,11 @@
 
 using System.Collections.Generic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Callbacks;
 

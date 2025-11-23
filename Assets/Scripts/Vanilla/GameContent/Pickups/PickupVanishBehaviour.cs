@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -16,7 +17,7 @@ namespace MVZ2.GameContent.Pickups
         public PickupVanishBehaviour(string nsp, string name) : base(nsp, name)
         {
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULT));
-            AddModifier(new FloatModifier(VanillaEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
+            AddModifier(new FloatModifier(LogicEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
         }
         public override void Update(Entity pickup)
         {

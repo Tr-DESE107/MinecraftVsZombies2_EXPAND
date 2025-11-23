@@ -7,9 +7,9 @@ using System.Text;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2.Saves;
-using MVZ2Logic;
-using MVZ2Logic.Almanacs;
+using MVZ2Logic.Almanac;
 using MVZ2Logic.Games;
+using MVZ2Logic.Resources;
 using PVZEngine;
 
 namespace MVZ2.Metas

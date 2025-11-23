@@ -7,10 +7,11 @@ using MVZ2.GameContent.Models;
 using MVZ2.Grids;
 using MVZ2.Managers;
 using MVZ2.Models;
-using MVZ2.Vanilla.Grids;
-using MVZ2Logic;
+using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Resources;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

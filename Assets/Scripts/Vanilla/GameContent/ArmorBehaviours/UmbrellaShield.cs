@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
+using MVZ2Logic.Armors;
 using PVZEngine.Armors;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -32,7 +33,7 @@ namespace MVZ2.GameContent.Armors
             var info = param.deathInfo;
             if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
-            var shield = entity.GetArmorAtSlot(VanillaArmorSlots.shield);
+            var shield = entity.GetArmorAtSlot(LogicArmorSlots.shield);
             if (shield == null)
                 return;
             if (!shield.Definition.HasBehaviour(this))

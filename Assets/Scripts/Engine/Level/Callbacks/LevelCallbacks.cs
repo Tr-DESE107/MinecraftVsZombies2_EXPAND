@@ -4,6 +4,7 @@ using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 using UnityEngine;
 
 namespace PVZEngine.Callbacks
@@ -27,6 +28,15 @@ namespace PVZEngine.Callbacks
         public LevelCallbackParams(LevelEngine level)
         {
             this.level = level;
+        }
+    }
+    public struct SeedPackCallbackParams
+    {
+        public SeedPack seedPack;
+
+        public SeedPackCallbackParams(SeedPack seedPack)
+        {
+            this.seedPack = seedPack;
         }
     }
     public struct EntityCallbackParams

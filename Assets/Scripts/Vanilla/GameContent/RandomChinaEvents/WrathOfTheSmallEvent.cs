@@ -4,8 +4,8 @@ using MukioI18n;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
             var level = contraption.Level;
             var randomLane = rng.Next(0, level.GetMaxLaneCount());
             var z = level.GetEntityLaneZ(randomLane);
-            var x = VanillaLevelExt.GetBorderX(false);
+            var x = LevelPositions.GetBorderX(false);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
             contraption.Spawn(VanillaProjectileID.largeSnowball, pos)?.Let(e =>

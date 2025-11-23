@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -15,7 +16,7 @@ namespace MVZ2.GameContent.Buffs.Effects
     {
         public LightFadeoutBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Multiply(VanillaEntityProps.LIGHT_COLOR, PROP_COLOR_MULTIPLIER));
+            AddModifier(ColorModifier.Multiply(LogicEntityProps.LIGHT_COLOR, PROP_COLOR_MULTIPLIER));
         }
         public override void PostAdd(Buff buff)
         {

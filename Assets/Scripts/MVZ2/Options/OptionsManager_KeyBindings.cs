@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using UnityEngine;
 
@@ -85,37 +85,37 @@ namespace MVZ2.Options
         }
         private Dictionary<NamespaceID, KeyBindingMeta> keyBindingMetas = new Dictionary<NamespaceID, KeyBindingMeta>();
 
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_UNKNOWN = "？？？";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_PICKAXE = "铁镐";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_STARSHARD = "星之碎片";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_TRIGGER = "触发器";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_FASTFORWARD = "快进";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_CONSOLE = "控制台";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT1 = "蓝图1";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT2 = "蓝图2";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT3 = "蓝图3";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT4 = "蓝图4";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT5 = "蓝图5";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT6 = "蓝图6";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT7 = "蓝图7";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT8 = "蓝图8";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT9 = "蓝图9";
-        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT10 = "蓝图10";
         #endregion
     }

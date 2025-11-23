@@ -3,6 +3,7 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -17,7 +18,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public SacrificedBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Set, -0.5f, VanillaModifierPriorities.FORCE));
-            AddModifier(new Vector3Modifier(VanillaEntityProps.LIGHT_RANGE, NumberOperator.Multiply, PROP_LIGHT_RANGE));
+            AddModifier(new Vector3Modifier(LogicEntityProps.LIGHT_RANGE, NumberOperator.Multiply, PROP_LIGHT_RANGE));
             AddModifier(new BooleanModifier(VanillaEntityProps.AI_FROZEN, true));
         }
         public override void PostUpdate(Buff buff)

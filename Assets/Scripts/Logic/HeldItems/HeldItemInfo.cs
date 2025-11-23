@@ -2,7 +2,7 @@
 
 using PVZEngine;
 
-namespace MVZ2.HeldItems
+namespace MVZ2Logic.HeldItems
 {
     public interface IHeldItemPropertyContainer
     {

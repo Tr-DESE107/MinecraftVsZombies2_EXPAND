@@ -6,6 +6,7 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Armors;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -28,7 +29,7 @@ namespace MVZ2.GameContent.Armors
             var info = param.deathInfo;
             if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
-            var shield = entity.GetArmorAtSlot(VanillaArmorSlots.shield);
+            var shield = entity.GetArmorAtSlot(LogicArmorSlots.shield);
             if (shield == null)
                 return;
             if (!shield.Definition.HasBehaviour(this))

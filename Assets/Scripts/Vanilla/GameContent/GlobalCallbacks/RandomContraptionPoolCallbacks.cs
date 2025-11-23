@@ -2,11 +2,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Placements;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Level;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine;
@@ -53,7 +51,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 var areaTags = level.GetAreaTags();
                 if (areaTags != null)
                 {
-                    if (areaTags.Contains(VanillaAreaTags.noWater) && definition.GetPlacementID() == VanillaPlacementID.aquatic)
+                    if (areaTags.Contains(LogicAreaTags.noWater) && definition.GetPlacementID() == VanillaPlacementID.aquatic)
                         continue;
                 }
                 results.Add(contraptionID);

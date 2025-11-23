@@ -312,6 +312,7 @@
         </spawns>
         <properties>
             <integer name="statueCount" value="2" />
+            <bool name="endless" value="true" />
         </properties>
     </stage>
 
@@ -539,6 +540,9 @@
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:leather_capped_zombie" />
         </spawns>
+        <properties>
+            <bool name="endless" value="true" />
+        </properties>
     </stage>
 
     <!-- Castle -->
@@ -776,6 +780,9 @@
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:leather_capped_zombie" />
         </spawns>
+        <properties>
+            <bool name="endless" value="true" />
+        </properties>
     </stage>
 
     <!-- Mausoleum -->
@@ -1028,6 +1035,7 @@
         </spawns>
         <properties>
             <integer name="spawnerCount" value="1" />
+            <bool name="endless" value="true" />
         </properties>
     </stage>
 
@@ -1266,6 +1274,9 @@
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:leather_capped_zombie" />
         </spawns>
+        <properties>
+            <bool name="endless" value="true" />
+        </properties>
     </stage>
 
     
@@ -1543,6 +1554,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="endless" value="true" />
         </properties>
     </stage>
 </stages>

@@ -2,9 +2,9 @@
 
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -113,8 +113,8 @@ namespace MVZ2.GameContent.Enemies
         private static readonly NamespaceID ID = VanillaEnemyID.skeleton;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_BOW_FIRED = new VanillaEntityPropertyMeta<bool>("bowFired");
         public static readonly VanillaEntityPropertyMeta<int> PROP_BOW_POWER = new VanillaEntityPropertyMeta<int>("bowPower");
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
         public const int BOW_POWER_PULL_SPEED = 100;
         public const int BOW_POWER_RESTORE_SPEED = 1000;
         public const int BOW_POWER_MAX = 10000;

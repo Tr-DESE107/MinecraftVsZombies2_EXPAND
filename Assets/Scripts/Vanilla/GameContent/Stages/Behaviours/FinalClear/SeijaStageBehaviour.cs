@@ -10,9 +10,9 @@ using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -78,7 +78,7 @@ namespace MVZ2.GameContent.Stages
         private void StartBattle(LevelEngine level)
         {
             level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
-            var x = VanillaLevelExt.ENEMY_RIGHT_BORDER;
+            var x = LevelPositions.ENEMY_RIGHT_BORDER;
             var z = level.GetEntityLaneZ(level.GetMaxLaneCount() / 2);
             var y = level.GetGroundY(x, z);
             level.Spawn(VanillaBossID.seija, new Vector3(x, y, z), null)?.Let(e =>

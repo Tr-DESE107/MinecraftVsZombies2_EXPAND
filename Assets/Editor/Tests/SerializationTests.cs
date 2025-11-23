@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MVZ2Logic;
+using MVZ2Logic.Serialization;
 using NUnit.Framework;
 using PVZEngine;
 using PVZEngine.Level;

@@ -2,7 +2,7 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -16,13 +16,13 @@ namespace MVZ2.GameContent.Detections
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
-            var minX = VanillaLevelExt.LEVEL_LEFTMOST;
-            var maxX = VanillaLevelExt.LEVEL_RIGHTMOST;
+            var minX = LevelPositions.LEVEL_LEFTMOST;
+            var maxX = LevelPositions.LEVEL_RIGHTMOST;
             var minY = self.Position.y - WoodenFan.AFFECT_HEIGHT;
             var maxY = self.Position.y + WoodenFan.AFFECT_HEIGHT;
             var sizeX = maxX - minX;
             var sizeY = maxY - minY;
-            var sizeZ = evoked ? VanillaLevelExt.LAWN_HEIGHT : self.Level.GetGridHeight();
+            var sizeZ = evoked ? LevelPositions.LAWN_HEIGHT : self.Level.GetGridHeight();
             var center = self.GetCenter();
             center.x = (minX + maxX) * 0.5f;
             center.y = (minY + maxY) * 0.5f;

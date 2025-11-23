@@ -9,7 +9,7 @@ using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Localization;
 using MVZ2.Managers;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using UnityEngine;
 
 namespace MVZ2.Addons
@@ -84,7 +84,7 @@ namespace MVZ2.Addons
                                     {
                                         var metadata = Main.LanguageManager.GetLanguagePackMetadata(reference);
                                         var languagePackName = metadata?.name ?? key;
-                                        var title = Main.LanguageManager._(VanillaStrings.WARNING);
+                                        var title = Main.LanguageManager._(LogicStrings.WARNING);
                                         var desc = Main.LanguageManager._(WARNING_OVERRIDE_LANGUAGE_PACK, languagePackName);
                                         var result = await Main.Scene.ShowDialogSelectAsync(title, desc);
                                         if (!result)
@@ -96,7 +96,7 @@ namespace MVZ2.Addons
                                     }
                                     if (!await Main.LanguageManager.ValidateLanguagePack(path))
                                     {
-                                        var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                                        var title = Main.LanguageManager._(LogicStrings.ERROR);
                                         var desc = Main.LanguageManager._(ERROR_FAILED_TO_IMPORT);
                                         Main.Scene.ShowDialogMessage(title, desc);
                                         return;
@@ -134,13 +134,13 @@ namespace MVZ2.Addons
                                 break;
                             if (!success)
                             {
-                                var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                                var title = Main.LanguageManager._(LogicStrings.ERROR);
                                 var desc = Main.LanguageManager._(ERROR_NOT_SAVED);
                                 await Main.Scene.ShowDialogMessageAsync(title, desc);
                             }
                             else
                             {
-                                var title = Main.LanguageManager._(VanillaStrings.HINT);
+                                var title = Main.LanguageManager._(LogicStrings.HINT);
                                 var desc = Main.LanguageManager._(HINT_SAVED, path);
                                 await Main.Scene.ShowDialogMessageAsync(title, desc);
                             }
@@ -155,7 +155,7 @@ namespace MVZ2.Addons
                             var key = selected.GetFileName();
                             var metadata = Main.LanguageManager.GetLanguagePackMetadata(selected);
                             var languagePackName = metadata?.name ?? key;
-                            var title = Main.LanguageManager._(VanillaStrings.WARNING);
+                            var title = Main.LanguageManager._(LogicStrings.WARNING);
                             var desc = Main.LanguageManager._(WARNING_DELETE_LANGUAGE_PACK, languagePackName);
                             var result = await Main.Scene.ShowDialogSelectAsync(title, desc);
                             if (result)

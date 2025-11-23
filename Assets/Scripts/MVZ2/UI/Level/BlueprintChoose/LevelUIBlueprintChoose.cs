@@ -2,7 +2,7 @@
 
 using System;
 using MVZ2.Level.UI;
-using MVZ2Logic;
+using MVZ2Logic.Inputs;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;

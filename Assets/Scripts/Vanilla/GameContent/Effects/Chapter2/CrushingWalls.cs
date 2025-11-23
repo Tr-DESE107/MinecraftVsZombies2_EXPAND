@@ -3,12 +3,13 @@
 using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
@@ -26,11 +27,11 @@ namespace MVZ2.GameContent.Effects
         #region 公有方法
         public CrushingWalls(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaCallbacks.POST_POINTER_ACTION, PostPointerActionCallback, filter: PointerPhase.Press);
+            AddTrigger(LogicCallbacks.POST_POINTER_ACTION, PostPointerActionCallback, filter: PointerPhase.Press);
         }
         #endregion
 
-        public void PostPointerActionCallback(VanillaCallbacks.PostPointerActionParams param, CallbackResult result)
+        public void PostPointerActionCallback(LogicCallbacks.PostPointerActionParams param, CallbackResult result)
         {
             var type = param.type;
             var phase = param.phase;

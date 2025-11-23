@@ -10,11 +10,11 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using Tools;
@@ -149,7 +149,7 @@ namespace MVZ2.Store
             if (productMeta == null)
                 return;
             var textKey = productMeta.GetMessage(characterId);
-            var message = GetTranslatedString(VanillaStrings.CONTEXT_STORE_TALK, textKey);
+            var message = GetTranslatedString(LogicStrings.CONTEXT_STORE_TALK, textKey);
             pointingProduct = true;
             ui.ShowTalk(message);
         }
@@ -229,7 +229,7 @@ namespace MVZ2.Store
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
+            Global.Game.RunCallbackFiltered(LogicCallbacks.TALK_ACTION, new LogicCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         #endregion
         private void UpdateProducts()
@@ -258,7 +258,7 @@ namespace MVZ2.Store
             var chat = Main.StoreManager.GetRandomChat(characterId, chatRNG);
             if (chat == null)
                 return;
-            var message = GetTranslatedString(VanillaStrings.CONTEXT_STORE_TALK, chat.Text);
+            var message = GetTranslatedString(LogicStrings.CONTEXT_STORE_TALK, chat.Text);
             ui.ShowTalk(message);
             var soundID = chat.Sound;
             if (NamespaceID.IsValid(soundID))

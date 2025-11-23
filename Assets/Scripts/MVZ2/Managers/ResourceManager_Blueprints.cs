@@ -6,15 +6,12 @@ using System.Text;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Metas;
 using MVZ2.UI;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -139,7 +136,7 @@ namespace MVZ2.Managers
             string name = main.Game.GetBlueprintName(blueprintID);
             if (commandBlock)
             {
-                name = Global.Localization.GetTextParticular(name, VanillaStrings.COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE);
+                name = Global.Localization.GetTextParticular(name, LogicStrings.COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE);
             }
             return name;
         }

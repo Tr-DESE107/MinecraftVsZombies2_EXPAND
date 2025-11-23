@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Metas;
 using MVZ2.Modding;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -60,10 +60,10 @@ namespace MVZ2.Managers
                 var meta = GetMusicMeta(musicID);
                 if (meta != null)
                 {
-                    return main.LanguageManager._p(VanillaStrings.CONTEXT_MUSIC_NAME, meta.Name);
+                    return main.LanguageManager._p(LogicStrings.CONTEXT_MUSIC_NAME, meta.Name);
                 }
             }
-            return main.LanguageManager._p(VanillaStrings.CONTEXT_MUSIC_NAME, VanillaStrings.MUSIC_NAME_NONE);
+            return main.LanguageManager._p(LogicStrings.CONTEXT_MUSIC_NAME, LogicStrings.MUSIC_NAME_NONE);
         }
 
         #region 私有方法

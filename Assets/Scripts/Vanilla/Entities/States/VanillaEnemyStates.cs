@@ -4,14 +4,6 @@ namespace MVZ2.Vanilla.Enemies
 {
     public static class VanillaEnemyStates
     {
-        public const int IDLE = 0;
-        public const int WALK = 1;
-        public const int MELEE_ATTACK = 2;
-        public const int CAST = 3;
-        public const int DEATH = 4;
-        public const int RANGED_ATTACK = 5;
-        public const int LEAVE = 6;
-
         public const int NAPSTABLOOK_ANGRY = PRIVATE_NUMBER + 0;
 
         public const int SPIDER_CLIMB = PRIVATE_NUMBER + 0;

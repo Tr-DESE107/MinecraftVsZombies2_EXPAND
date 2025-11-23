@@ -12,10 +12,11 @@ using MVZ2.IO;
 using MVZ2.Modding;
 using MVZ2.OldSaves;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
-using MVZ2Logic;
 using MVZ2Logic.Games;
+using MVZ2Logic.Saves;
+using MVZ2Logic.Serialization;
+using MVZ2Logic.Unlocks;
 using PVZEngine;
 using UnityEngine;
 
@@ -306,7 +307,7 @@ namespace MVZ2.Saves
             }
             return newUserDataList;
         }
-        private VanillaSaveData[]? ImportOldUserData(UserDataList userList, OldSaveData[] userDatas)
+        private LogicSaveData[]? ImportOldUserData(UserDataList userList, OldSaveData[] userDatas)
         {
             if (userDatas == null)
                 return null;
@@ -325,7 +326,7 @@ namespace MVZ2.Saves
                 return null;
 
             var allUsers = userList.GetAllUsers();
-            VanillaSaveData[] results = new VanillaSaveData[allUsers.Length];
+            LogicSaveData[] results = new LogicSaveData[allUsers.Length];
             for (int i = 0; i < allUsers.Length; i++)
             {
                 var user = allUsers[i];
@@ -335,14 +336,14 @@ namespace MVZ2.Saves
                 if (oldData == null)
                     continue;
                 var data = vanillaMod.Logic?.CreateSaveData();
-                if (data is not VanillaSaveData vanilla)
+                if (data is not LogicSaveData vanilla)
                     continue;
                 ImportUserDataFromOld(vanilla, oldData);
                 results[i] = vanilla;
             }
             return results;
         }
-        private void ImportUserDataFromOld(VanillaSaveData saveData, OldSaveData oldData)
+        private void ImportUserDataFromOld(LogicSaveData saveData, OldSaveData oldData)
         {
             if (oldData == null)
                 return;
@@ -350,7 +351,7 @@ namespace MVZ2.Saves
             ImportAchievementsUserDataFromOld(saveData, oldData.achievements);
             ImportEndlessUserDataFromOld(saveData, oldData.endless);
         }
-        private void ImportMainUserDataFromOld(VanillaSaveData saveData, OldSaveDataMain oldData)
+        private void ImportMainUserDataFromOld(LogicSaveData saveData, OldSaveDataMain oldData)
         {
             if (oldData == null)
                 return;
@@ -360,7 +361,7 @@ namespace MVZ2.Saves
             {
                 if (oldData.currentLevel > i)
                 {
-                    var unlockName = VanillaSaveExt.GetLevelClearUnlockID(oldLevelIDList[i]);
+                    var unlockName = LogicUnlockNames.GetLevelClearUnlock(oldLevelIDList[i]);
                     saveData.Unlock(unlockName);
                 }
             }
@@ -401,18 +402,18 @@ namespace MVZ2.Saves
             saveData.SetMoney(oldData.money);
             // 卡槽
             if (oldData.cardSlots >= 7)
-                saveData.Unlock(VanillaUnlockNames.blueprintSlot1);
+                saveData.Unlock(LogicUnlockNames.blueprintSlot1);
             if (oldData.cardSlots >= 8)
-                saveData.Unlock(VanillaUnlockNames.blueprintSlot2);
+                saveData.Unlock(LogicUnlockNames.blueprintSlot2);
             if (oldData.cardSlots >= 9)
-                saveData.Unlock(VanillaUnlockNames.blueprintSlot3);
+                saveData.Unlock(LogicUnlockNames.blueprintSlot3);
             if (oldData.cardSlots >= 10)
-                saveData.Unlock(VanillaUnlockNames.blueprintSlot4);
+                saveData.Unlock(LogicUnlockNames.blueprintSlot4);
             // 星之碎片槽
             if (oldData.starshardSlots >= 4)
-                saveData.Unlock(VanillaUnlockNames.starshardSlot1);
+                saveData.Unlock(LogicUnlockNames.starshardSlot1);
             if (oldData.starshardSlots >= 5)
-                saveData.Unlock(VanillaUnlockNames.starshardSlot2);
+                saveData.Unlock(LogicUnlockNames.starshardSlot2);
             // 升级
             if ((oldData.upgrades & 1) != 0)
             {
@@ -441,7 +442,7 @@ namespace MVZ2.Saves
                 saveData.Unlock(VanillaUnlockNames.trigger);
             }
         }
-        private void ImportAchievementsUserDataFromOld(VanillaSaveData saveData, OldSaveDataAchievements oldData)
+        private void ImportAchievementsUserDataFromOld(LogicSaveData saveData, OldSaveDataAchievements oldData)
         {
             if (oldData == null)
                 return;
@@ -456,7 +457,7 @@ namespace MVZ2.Saves
                 }
             }
         }
-        private void ImportEndlessUserDataFromOld(VanillaSaveData saveData, OldSaveDataEndless oldData)
+        private void ImportEndlessUserDataFromOld(LogicSaveData saveData, OldSaveDataEndless oldData)
         {
             if (oldData == null || oldData.flags == null)
                 return;

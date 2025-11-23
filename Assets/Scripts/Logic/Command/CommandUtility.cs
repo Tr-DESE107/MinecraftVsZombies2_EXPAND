@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MVZ2Logic.Command
+namespace MVZ2Logic.Commands
 {
     public static class CommandUtility
     {

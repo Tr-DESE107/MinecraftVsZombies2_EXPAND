@@ -3,7 +3,7 @@
 using MukioI18n;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using Tools;
@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
                 return;
             for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
             {
-                contraption.Spawn(cartRef, new Vector3(VanillaLevelExt.CART_START_X, 0, level.GetEntityLaneZ(lane)))?.Let(e =>
+                contraption.Spawn(cartRef, new Vector3(LevelPositions.CART_START_X, 0, level.GetEntityLaneZ(lane)))?.Let(e =>
                 {
                     e.TriggerCart();
                 });

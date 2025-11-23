@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Stages
             level.SetStarshardSlotCount(5);
             var cartRef = level.GetCartReference();
             if (cartRef != null)
-                level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
+                level.SpawnCarts(cartRef, LevelPositions.CART_START_X, 20);
         }
         public override void OnUpdate(LevelEngine level)
         {

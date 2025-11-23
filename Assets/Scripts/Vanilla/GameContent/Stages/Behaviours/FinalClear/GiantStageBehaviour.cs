@@ -5,8 +5,8 @@ using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Stages
                 return;
             if (!level.EntityExists(VanillaEffectID.spiritUniverse))
             {
-                var pos = new Vector3((VanillaLevelExt.LEFT_BORDER + VanillaLevelExt.RIGHT_BORDER) * 0.5f, 0, VanillaLevelExt.LAWN_HEIGHT * 0.5f);
+                var pos = new Vector3((LevelPositions.LEFT_BORDER + LevelPositions.RIGHT_BORDER) * 0.5f, 0, LevelPositions.LAWN_HEIGHT * 0.5f);
                 level.Spawn(VanillaEffectID.spiritUniverse, pos, null);
             }
         }

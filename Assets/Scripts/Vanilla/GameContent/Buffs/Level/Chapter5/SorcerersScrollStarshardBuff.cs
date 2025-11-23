@@ -2,7 +2,7 @@
 
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Sprites;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using MVZ2Logic.Modifiers;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
@@ -15,8 +15,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public SorcerersScrollStarshardBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new SpriteReferenceModifier(VanillaAreaProps.STARSHARD_ICON, SetOperator.Set, VanillaSprites.combat));
-            AddModifier(new NamespaceIDModifier(VanillaLevelProps.STARSHARD_HELD_TYPE, SetOperator.Set, VanillaHeldTypes.combat));
+            AddModifier(new SpriteReferenceModifier(LogicAreaProps.STARSHARD_ICON, SetOperator.Set, VanillaSprites.combat));
+            AddModifier(new NamespaceIDModifier(LogicLevelProps.STARSHARD_HELD_TYPE, SetOperator.Set, VanillaHeldTypes.combat));
         }
     }
 }

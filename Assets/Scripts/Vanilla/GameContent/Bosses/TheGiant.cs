@@ -11,12 +11,11 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
@@ -270,7 +269,7 @@ namespace MVZ2.GameContent.Bosses
         }
         public static bool AtLeft(Entity entity)
         {
-            return entity.Position.x < VanillaLevelExt.LAWN_CENTER_X;
+            return entity.Position.x < LevelPositions.LAWN_CENTER_X;
         }
         public static bool CanBeStunned(Entity entity)
         {

@@ -3,7 +3,7 @@
 using System;
 using MVZ2.Managers;
 using MVZ2.Talk;
-using MVZ2Logic.Archives;
+using MVZ2Logic.Archive;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Talk;
 using PVZEngine.Level;

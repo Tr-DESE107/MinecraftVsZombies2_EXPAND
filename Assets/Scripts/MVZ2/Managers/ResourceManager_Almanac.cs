@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
 using MVZ2.Modding;
-using MVZ2.Vanilla.Almanacs;
+using MVZ2Logic.Almanac;
 using PVZEngine;
 using UnityEngine;
 
@@ -113,12 +113,12 @@ namespace MVZ2.Managers
         }
         public bool IsContraptionInAlmanac(NamespaceID id)
         {
-            var entry = GetAlmanacMetaEntry(VanillaAlmanacCategories.CONTRAPTIONS, id);
+            var entry = GetAlmanacMetaEntry(LogicAlmanacCategories.CONTRAPTIONS, id);
             return entry != null && entry.index >= 0;
         }
         public bool IsEnemyInAlmanac(NamespaceID id)
         {
-            var entry = GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id);
+            var entry = GetAlmanacMetaEntry(LogicAlmanacCategories.ENEMIES, id);
             return entry != null && entry.index >= 0;
         }
         private void LoadUnlocks_Almanac(ModResource resource)

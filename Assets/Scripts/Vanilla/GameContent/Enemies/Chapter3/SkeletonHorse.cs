@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -149,8 +150,8 @@ namespace MVZ2.GameContent.Enemies
         public const int JUMP_STATE_NONE = 0;
         public const int JUMP_STATE_JUMP = 1;
         public const int JUMP_STATE_LAND = 2;
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
         public const int STATE_GALLOP = VanillaEnemyStates.SKELETON_HORSE_GALLOP;
         public const int STATE_JUMP = VanillaEnemyStates.SKELETON_HORSE_JUMP;
         public const int STATE_LAND = VanillaEnemyStates.SKELETON_HORSE_LAND;

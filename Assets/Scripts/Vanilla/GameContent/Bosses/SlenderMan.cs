@@ -11,15 +11,14 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -550,26 +549,26 @@ namespace MVZ2.GameContent.Bosses
         };
         private static NamespaceID[] mindSwapPool = new NamespaceID[]
         {
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.lilyPad),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.drivenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.vortexHopper),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.pistenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk)
+            LogicBlueprintID.FromEntity(VanillaContraptionID.lilyPad),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.drivenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.vortexHopper),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.pistenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.totenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamSilk)
         };
         private static NamespaceID[] hardMindSwapPool = new NamespaceID[]
         {
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.lilyPad),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.drivenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.vortexHopper),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.pistenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.zombie)
+            LogicBlueprintID.FromEntity(VanillaContraptionID.lilyPad),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.drivenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.vortexHopper),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.pistenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.totenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
+            LogicBlueprintID.FromEntity(VanillaEnemyID.zombie)
         };
         private static int[] fateOptions = new int[]
         {

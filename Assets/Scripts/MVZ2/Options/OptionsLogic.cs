@@ -6,10 +6,10 @@ using MukioI18n;
 using MVZ2.Cameras;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
 using MVZ2Logic.Games;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Options;
 using PVZEngine;
 using UnityEngine;
 
@@ -334,20 +334,20 @@ namespace MVZ2.Options
         #region 更新元素
         protected string GetValueText(bool value)
         {
-            return Main.LanguageManager._(value ? VanillaStrings.YES : VanillaStrings.NO);
+            return Main.LanguageManager._(value ? LogicStrings.YES : LogicStrings.NO);
         }
         protected string GetValueTextOnOff(bool value)
         {
-            return Main.LanguageManager._(value ? VanillaStrings.ON : VanillaStrings.OFF);
+            return Main.LanguageManager._(value ? LogicStrings.ON : LogicStrings.OFF);
         }
         protected string GetValueTextCommandBlockMode(int value)
         {
             switch (value)
             {
                 case CommandBlockModes.PREVIOUS:
-                    return Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE, COMMAND_BLOCK_MODE_PREVIOUS);
+                    return Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_BLOCK_MODE, COMMAND_BLOCK_MODE_PREVIOUS);
             }
-            return Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE, COMMAND_BLOCK_MODE_MANUAL);
+            return Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_BLOCK_MODE, COMMAND_BLOCK_MODE_MANUAL);
         }
         protected string GetValueTextFPSMode(int value)
         {
@@ -367,7 +367,7 @@ namespace MVZ2.Options
                     key = FPS_MODE_BOTTOM_RIGHT;
                     break;
             }
-            return Main.LanguageManager._p(VanillaStrings.CONTEXT_FPS_MODE, key);
+            return Main.LanguageManager._p(LogicStrings.CONTEXT_FPS_MODE, key);
         }
         protected string GetDifficultyText(NamespaceID id)
         {
@@ -645,20 +645,20 @@ namespace MVZ2.Options
         [TranslateMsg("选项")]
         public const string OPTION_SHOW_HOTKEYS = "显示快捷键";
 
-        [TranslateMsg("命令方块模式", VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE)]
+        [TranslateMsg("命令方块模式", LogicStrings.CONTEXT_COMMAND_BLOCK_MODE)]
         public const string COMMAND_BLOCK_MODE_MANUAL = "手选";
-        [TranslateMsg("命令方块模式", VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE)]
+        [TranslateMsg("命令方块模式", LogicStrings.CONTEXT_COMMAND_BLOCK_MODE)]
         public const string COMMAND_BLOCK_MODE_PREVIOUS = "前位";
 
-        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        [TranslateMsg("FPS模式", LogicStrings.CONTEXT_FPS_MODE)]
         public const string FPS_MODE_DISABLED = "关闭";
-        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        [TranslateMsg("FPS模式", LogicStrings.CONTEXT_FPS_MODE)]
         public const string FPS_MODE_TOP_LEFT = "左上";
-        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        [TranslateMsg("FPS模式", LogicStrings.CONTEXT_FPS_MODE)]
         public const string FPS_MODE_TOP_RIGHT = "右上";
-        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        [TranslateMsg("FPS模式", LogicStrings.CONTEXT_FPS_MODE)]
         public const string FPS_MODE_BOTTOM_LEFT = "左下";
-        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        [TranslateMsg("FPS模式", LogicStrings.CONTEXT_FPS_MODE)]
         public const string FPS_MODE_BOTTOM_RIGHT = "右下";
 
         [TranslateMsg("选项，{0}为量")]

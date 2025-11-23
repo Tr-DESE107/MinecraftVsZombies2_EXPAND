@@ -2,7 +2,7 @@
 
 using PVZEngine;
 
-namespace MVZ2Logic.Almanacs
+namespace MVZ2Logic.Almanac
 {
     public struct AlmanacEntryTagInfo
     {

@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -17,10 +18,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, new Vector3(2f, 2f, 2f)));
             AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, new Vector3(2f, 2f, 2f)));
-            AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, new Vector3(2f, 2f, 2f)));
+            AddModifier(new Vector3Modifier(LogicEntityProps.SHADOW_SCALE, NumberOperator.Multiply, new Vector3(2f, 2f, 2f)));
             AddModifier(new MaxHealthModifier(NumberOperator.Multiply, 4f));
             AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.Multiply, 4f));
-            AddModifier(new FloatModifier(VanillaEntityProps.CRY_PITCH, NumberOperator.Multiply, 0.5f));
+            AddModifier(new FloatModifier(LogicEnemyProps.CRY_PITCH, NumberOperator.Multiply, 0.5f));
         }
         public override void PostUpdate(Buff buff)
         {

@@ -7,7 +7,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -344,7 +344,7 @@ namespace MVZ2.GameContent.Bosses
                             substateTimer.ResetTime(12);
                             var level = entity.Level;
                             var pos = entity.Position;
-                            pos.x = entity.IsFacingLeft() ? VanillaLevelExt.LEFT_BORDER + 40 : VanillaLevelExt.RIGHT_BORDER - 40;
+                            pos.x = entity.IsFacingLeft() ? LevelPositions.LEFT_BORDER + 40 : LevelPositions.RIGHT_BORDER - 40;
                             pos.y = entity.Level.GetGroundY(pos.x, pos.z);
                             entity.Position = pos;
                             entity.PlaySound(VanillaSoundID.gapWarp);

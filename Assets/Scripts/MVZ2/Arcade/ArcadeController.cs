@@ -5,17 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.Logic.Level;
 using MVZ2.Managers;
 using MVZ2.Saves;
 using MVZ2.Scenes;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using UnityEngine;
 
@@ -138,7 +136,7 @@ namespace MVZ2.Arcade
             string name;
             if (unlocked)
             {
-                name = GetTranslatedStringParticular(VanillaStrings.CONTEXT_LEVEL_NAME, stageDef.GetLevelName());
+                name = GetTranslatedStringParticular(LogicStrings.CONTEXT_LEVEL_NAME, stageDef.GetLevelName());
             }
             else
             {

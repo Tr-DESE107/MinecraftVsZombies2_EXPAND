@@ -5,6 +5,7 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -19,7 +20,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Set, PROP_GRAVITY));
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
-            AddModifier(ColorModifier.Multiply(VanillaEntityProps.LIGHT_COLOR, PROP_TINT_MULTIPLIER));
+            AddModifier(ColorModifier.Multiply(LogicEntityProps.LIGHT_COLOR, PROP_TINT_MULTIPLIER));
         }
         public override void Init(Entity entity)
         {

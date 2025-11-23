@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -51,7 +52,7 @@ namespace MVZ2.Vanilla.Enemies
         {
             entity.SetBehaviourField(PROP_DEATH_TIMER, frameTimer);
         }
-        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+        public const int STATE_DEATH = LogicEnemyStates.DEATH;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DEATH_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DeathTimer");
     }
 

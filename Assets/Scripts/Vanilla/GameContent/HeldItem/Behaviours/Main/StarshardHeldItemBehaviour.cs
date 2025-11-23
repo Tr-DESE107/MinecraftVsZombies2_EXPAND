@@ -2,14 +2,14 @@
 
 using MVZ2.GameContent.Models;
 using MVZ2.GameContent.Pickups;
-using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;

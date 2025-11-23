@@ -9,7 +9,7 @@ using MVZ2.Modding;
 using MVZ2.Sprites;
 using MVZ2.Talk;
 using MVZ2.TalkData;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using UnityEngine;
 
@@ -46,7 +46,7 @@ namespace MVZ2.Managers
         }
         public string GetCharacterName(string nameKey)
         {
-            return main.LanguageManager._p(VanillaStrings.CONTEXT_CHARACTER_NAME, nameKey);
+            return main.LanguageManager._p(LogicStrings.CONTEXT_CHARACTER_NAME, nameKey);
         }
         public Sprite? GetCharacterSprite(NamespaceID characterID)
         {

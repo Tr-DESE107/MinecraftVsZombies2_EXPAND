@@ -3,16 +3,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Saves;
 using MVZ2.UI;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Almanacs;
-using MVZ2Logic;
+using MVZ2Logic.Almanac;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Games;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Resources;
 using PVZEngine;
 using UnityEngine;
 
@@ -23,37 +23,37 @@ namespace MVZ2.Almanacs
         #region 获取图鉴项列表
         public void GetOrderedContraptionsByAlmanac(IEnumerable<NamespaceID> contraptionsID, List<NamespaceID?> appendList)
         {
-            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.CONTRAPTIONS, (id, entry) => contraptionsID.Contains(id) && !entry.hidden);
+            var idList = GetUnlockedAlmanacEntries(LogicAlmanacCategories.CONTRAPTIONS, (id, entry) => contraptionsID.Contains(id) && !entry.hidden);
             var ordered = CompressLayout(idList, GetBlueprintCountPerRow());
             appendList.AddRange(ordered);
         }
         public void GetContraptionPageEntries(List<NamespaceID?> appendList)
         {
-            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.CONTRAPTIONS, (id, entry) => Main.SaveManager.IsContraptionUnlocked(id) && !entry.hidden);
+            var idList = GetUnlockedAlmanacEntries(LogicAlmanacCategories.CONTRAPTIONS, (id, entry) => Main.SaveManager.IsContraptionUnlocked(id) && !entry.hidden);
             var ordered = CompressLayout(idList, GetBlueprintCountPerRow());
             appendList.AddRange(ordered);
         }
         public void GetEnemyPageEntries(List<NamespaceID?> appendList)
         {
-            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.ENEMIES, (id, entry) => Main.SaveManager.IsEnemyUnlocked(id) && !entry.hidden);
+            var idList = GetUnlockedAlmanacEntries(LogicAlmanacCategories.ENEMIES, (id, entry) => Main.SaveManager.IsEnemyUnlocked(id) && !entry.hidden);
             var ordered = CompressLayout(idList, GetEnemyCountPerRow());
             appendList.AddRange(ordered);
         }
         public void GetOrderedArtifactsByAlmanac(IEnumerable<NamespaceID> artifactsID, List<NamespaceID?> appendList)
         {
-            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.ARTIFACTS, (id, entry) => artifactsID.Contains(id) && !entry.hidden);
+            var idList = GetUnlockedAlmanacEntries(LogicAlmanacCategories.ARTIFACTS, (id, entry) => artifactsID.Contains(id) && !entry.hidden);
             var ordered = CompressLayout(idList, GetMiscCountPerRow());
             appendList.AddRange(ordered);
         }
         public void GetArtifactPageEntries(List<NamespaceID?> appendList)
         {
-            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.ARTIFACTS, ShouldArtifactShowInAlmanac);
+            var idList = GetUnlockedAlmanacEntries(LogicAlmanacCategories.ARTIFACTS, ShouldArtifactShowInAlmanac);
             var ordered = CompressLayout(idList, GetMiscCountPerRow());
             appendList.AddRange(ordered);
         }
         public void GetMiscPageGroups(List<AlmanacEntryGroup> appendList)
         {
-            var groups = Main.ResourceManager.GetAlmanacMetaGroups(VanillaAlmanacCategories.MISC);
+            var groups = Main.ResourceManager.GetAlmanacMetaGroups(LogicAlmanacCategories.MISC);
             foreach (var group in groups)
             {
                 var entries = group.entries;
@@ -152,7 +152,7 @@ namespace MVZ2.Almanacs
             if (def == null)
                 return AlmanacEntryViewData.Empty;
 
-            var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id);
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(LogicAlmanacCategories.ENEMIES, id);
             Sprite? icon = null;
             Color color = Color.white;
             Vector2 offset = Vector2.zero;
@@ -162,7 +162,7 @@ namespace MVZ2.Almanacs
             }
             if (!icon)
             {
-                var blueprintID = VanillaBlueprintID.FromEntity(id);
+                var blueprintID = LogicBlueprintID.FromEntity(id);
                 var blueprintDef = Main.Game.GetSeedDefinition(blueprintID);
                 if (blueprintDef != null)
                 {
@@ -180,7 +180,7 @@ namespace MVZ2.Almanacs
             if (def == null)
                 return AlmanacEntryViewData.Empty;
 
-            var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ARTIFACTS, id);
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(LogicAlmanacCategories.ARTIFACTS, id);
             Sprite? icon = GetArtifactThumbnail(entry, def);
             Color color = Main.SaveManager.IsArtifactUnlocked(id) ? Color.white : Color.black;
             return new AlmanacEntryViewData() { sprite = icon, color = color };
@@ -190,7 +190,7 @@ namespace MVZ2.Almanacs
             if (!NamespaceID.IsValid(id))
                 return AlmanacEntryViewData.Empty;
 
-            var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, id);
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(LogicAlmanacCategories.MISC, id);
             if (entry == null)
                 return AlmanacEntryViewData.Empty;
 
@@ -200,7 +200,7 @@ namespace MVZ2.Almanacs
         {
             return new AlmanacEntryGroupViewData()
             {
-                name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME, group.name),
+                name = Main.LanguageManager._p(LogicStrings.CONTEXT_ALMANAC_GROUP_NAME, group.name),
                 entries = group.entries.Select(GetMiscEntryViewData).ToArray()
             };
         }

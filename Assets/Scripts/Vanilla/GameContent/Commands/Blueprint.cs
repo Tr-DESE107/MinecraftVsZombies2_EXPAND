@@ -3,8 +3,10 @@
 using System;
 using MVZ2.Vanilla;
 using MVZ2Logic;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Level;
 
@@ -27,7 +29,7 @@ namespace MVZ2.GameContent.Commands
             var slot = ParseHelper.ParseInt(parameters[1]);
             if (slot < 0 || slot >= level.GetSeedSlotCount())
             {
-                var msg = Global.Localization.GetTextParticular(VanillaStrings.COMMAND_BLUEPRINT_SLOT_OUT_OF_RANGE, VanillaStrings.CONTEXT_COMMAND_OUTPUT, slot.ToString());
+                var msg = Global.Localization.GetTextParticular(VanillaStrings.COMMAND_BLUEPRINT_SLOT_OUT_OF_RANGE, LogicStrings.CONTEXT_COMMAND_OUTPUT, slot.ToString());
                 throw new ArgumentException(msg);
             }
             if (mode == "set")

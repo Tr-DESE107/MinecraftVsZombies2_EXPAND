@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using UnityEngine;
 
@@ -33,7 +33,7 @@ namespace MVZ2.Scenes
                 string name = "???";
                 if (meta != null)
                 {
-                    name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, meta.Name ?? string.Empty);
+                    name = main.LanguageManager._p(LogicStrings.CONTEXT_ACHIEVEMENT, meta.Name ?? string.Empty);
                     icon = main.GetFinalSprite(meta.Icon);
                 }
                 if (ui.Exists())

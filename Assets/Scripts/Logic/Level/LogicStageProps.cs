@@ -41,7 +41,7 @@ namespace MVZ2Logic.Level
         #endregion
 
         #region 传送带速度
-        public static readonly PropertyMeta<float> CONVEY_SPEED = Get<float>("conveySpeed", 1f);
+        public static readonly PropertyMeta<float> CONVEY_SPEED = Get("conveySpeed", 1f);
         public static float GetConveySpeed(this LevelEngine game) => game.GetProperty<float>(CONVEY_SPEED);
         #endregion
 
@@ -54,6 +54,219 @@ namespace MVZ2Logic.Level
             if (talks == null)
                 return Array.Empty<IStageTalkMeta>();
             return talks.Where(t => t.Type == type).ToArray();
+        }
+        #endregion
+
+        #region 无尽模式
+        public static readonly PropertyMeta<bool> ENDLESS = Get<bool>("endless");
+        public static bool IsEndless(this StageDefinition stage)
+        {
+            return stage.GetProperty<bool>(ENDLESS);
+        }
+        public static bool IsEndless(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(ENDLESS);
+        }
+        #endregion
+
+        #region 我是僵尸模式
+        public static readonly PropertyMeta<bool> I_ZOMBIE = Get<bool>("iZombie");
+        public static bool IsIZombie(this StageDefinition stage) => stage.GetProperty<bool>(I_ZOMBIE);
+        public static bool IsIZombie(this LevelEngine level) => level.GetProperty<bool>(I_ZOMBIE);
+        public static void SetIZombie(this StageDefinition stage, bool value) => stage.SetProperty(I_ZOMBIE, value);
+        #endregion
+
+        #region 冒险模式
+        public static readonly PropertyMeta<bool> ADVENTURE = Get<bool>("adventure");
+        public static bool IsAdventure(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(ADVENTURE);
+        }
+        public static void SetAdventure(this LevelEngine level, bool value)
+        {
+            level.SetProperty(ADVENTURE, value);
+        }
+        #endregion
+
+        #region Boss复仇模式
+        public static readonly PropertyMeta<bool> BOSS_REVENGE = Get<bool>("boss_revenge");
+        public static bool IsBossRevenge(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(BOSS_REVENGE);
+        }
+        public static void SetBossRevenge(this LevelEngine level, bool value)
+        {
+            level.SetProperty(BOSS_REVENGE, value);
+        }
+        #endregion
+
+        #region 关卡天数
+        public static readonly PropertyMeta<int> DAY_NUMBER = Get<int>("dayNumber");
+        public static int GetDayNumber(this LevelEngine level)
+        {
+            return level.GetProperty<int>(DAY_NUMBER);
+        }
+        public static int GetDayNumber(this StageDefinition stage)
+        {
+            return stage.GetProperty<int>(DAY_NUMBER);
+        }
+        public static void SetDayNumber(this StageDefinition stage, int number)
+        {
+            stage.SetProperty(DAY_NUMBER, number);
+        }
+        #endregion
+
+        #region 关卡名
+        public static readonly PropertyMeta<string> LEVEL_NAME = Get<string>("levelName");
+        public static string? GetLevelName(this LevelEngine level)
+        {
+            return level.GetProperty<string>(LEVEL_NAME);
+        }
+        public static string? GetLevelName(this StageDefinition stage)
+        {
+            return stage.GetProperty<string>(LEVEL_NAME);
+        }
+        public static void SetLevelName(this StageDefinition stage, string name)
+        {
+            stage.SetProperty(LEVEL_NAME, name);
+        }
+        #endregion
+
+        #region 结束笔记ID
+        public static readonly PropertyMeta<NamespaceID> END_NOTE_ID = Get<NamespaceID>("endNoteId");
+        public static NamespaceID? GetEndNoteID(this LevelEngine game)
+        {
+            return game.GetProperty<NamespaceID>(END_NOTE_ID);
+        }
+        #endregion
+
+        #region 音乐ID
+        public static readonly PropertyMeta<NamespaceID> MUSIC_ID = Get<NamespaceID>("musicId");
+        public static NamespaceID? GetMusicID(this LevelEngine game)
+        {
+            return game.GetProperty<NamespaceID>(MUSIC_ID);
+        }
+        public static void SetMusicID(this LevelEngine game, NamespaceID value)
+        {
+            game.SetProperty(MUSIC_ID, value);
+        }
+        #endregion
+
+        #region 需要选卡
+
+        public static readonly PropertyMeta<bool> NEED_BLUEPRINTS = Get<bool>("needBlueprints");
+        public static void SetNeedBlueprints(this StageDefinition stage, bool value)
+        {
+            stage.SetProperty(NEED_BLUEPRINTS, value);
+        }
+        public static bool NeedBlueprints(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(NEED_BLUEPRINTS);
+        }
+        #endregion
+
+        #region 无开场对话音乐
+        public static readonly PropertyMeta<bool> NO_START_TALK_MUSIC = Get<bool>("noStartTalkMusic");
+        public static bool NoStartTalkMusic(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(NO_START_TALK_MUSIC);
+        }
+        #endregion
+
+        #region 出怪池
+
+        public static readonly PropertyMeta<NamespaceID[]> ENEMY_POOL = Get<NamespaceID[]>("enemyPool");
+        public static NamespaceID[]? GetEnemyPool(this LevelEngine game)
+        {
+            return game.GetProperty<NamespaceID[]>(ENEMY_POOL);
+        }
+        public static void SetEnemyPool(this LevelEngine game, NamespaceID[] value)
+        {
+            game.SetProperty(ENEMY_POOL, value);
+        }
+        #endregion
+
+        #region 波次
+        public static readonly PropertyMeta<float> WAVE_MAX_TIME = Get<float>("waveMaxTime");
+        public static readonly PropertyMeta<float> WAVE_ADVANCE_TIME = Get<float>("waveAdvanceTime");
+        public static readonly PropertyMeta<float> WAVE_ADVANCE_HEALTH_PERCENT = Get<float>("waveAdvanceHealthPercent");
+        public static float GetWaveMaxSeconds(this LevelEngine level) => level.GetProperty<float>(WAVE_MAX_TIME);
+        public static float GetWaveAdvanceSeconds(this LevelEngine level) => level.GetProperty<float>(WAVE_ADVANCE_TIME);
+        public static float GetWaveAdvanceHealthPercent(this LevelEngine level) => level.GetProperty<float>(WAVE_ADVANCE_HEALTH_PERCENT);
+        #endregion
+
+        #region 无能量
+        public static readonly PropertyMeta<bool> NO_ENERGY = Get<bool>("noEnergy");
+        public static bool IsNoEnergy(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(NO_ENERGY);
+        }
+        public static void SetNoEnergy(this LevelEngine game, bool value)
+        {
+            game.SetProperty(NO_ENERGY, value);
+        }
+        #endregion
+
+        #region 自动收集
+        public static readonly PropertyMeta<bool> AUTO_COLLECT_ALL = Get<bool>("autoCollectAll");
+        public static readonly PropertyMeta<bool> AUTO_COLLECT_ENERGY = Get<bool>("autoCollectEnergy");
+        public static readonly PropertyMeta<bool> AUTO_COLLECT_MONEY = Get<bool>("autoCollectMoney");
+        public static readonly PropertyMeta<bool> AUTO_COLLECT_STARSHARD = Get<bool>("autoCollectStarshard");
+        public static bool IsAutoCollectAll(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(AUTO_COLLECT_ALL);
+        }
+        public static bool IsAutoCollectEnergy(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(AUTO_COLLECT_ENERGY);
+        }
+        public static bool IsAutoCollectMoney(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(AUTO_COLLECT_MONEY);
+        }
+        public static bool IsAutoCollectStarshard(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(AUTO_COLLECT_STARSHARD);
+        }
+        #endregion
+
+        #region 开局位置
+        public static readonly PropertyMeta<string> START_TRANSITION = Get<string>("startTransition");
+        public static readonly PropertyMeta<int> START_CAMERA_POSITION = Get<int>("startCameraPosition");
+        public static string? GetStartTransition(this StageDefinition stage)
+        {
+            return stage.GetProperty<string>(START_TRANSITION);
+        }
+        public static LevelCameraPosition GetStartCameraPosition(this StageDefinition stage)
+        {
+            return (LevelCameraPosition)stage.GetProperty<int>(START_CAMERA_POSITION);
+        }
+        #endregion
+
+        #region 通关掉落
+        public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_MODEL = Get<NamespaceID>("clearPickupModel");
+        public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_CONTENT_ID = Get<NamespaceID>("clear_pickup_content_id");
+        public static readonly PropertyMeta<NamespaceID> CLEAR_SOUND = Get<NamespaceID>("clearSound");
+        public static readonly PropertyMeta<bool> DROPS_TROPHY = Get<bool>("dropsTrophy");
+        public static NamespaceID? GetClearPickupModel(this LevelEngine level)
+        {
+            return level.GetProperty<NamespaceID>(CLEAR_PICKUP_MODEL);
+        }
+        public static NamespaceID? GetClearPickupContentID(this LevelEngine level)
+        {
+            return level.GetProperty<NamespaceID>(CLEAR_PICKUP_CONTENT_ID);
+        }
+        public static bool DropsTrophy(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(DROPS_TROPHY);
+        }
+        public static void SetClearSound(this StageDefinition stage, NamespaceID value)
+        {
+            stage.SetProperty(CLEAR_SOUND, value);
+        }
+        public static NamespaceID? GetClearSound(this LevelEngine level)
+        {
+            return level.GetProperty<NamespaceID>(CLEAR_SOUND);
         }
         #endregion
     }

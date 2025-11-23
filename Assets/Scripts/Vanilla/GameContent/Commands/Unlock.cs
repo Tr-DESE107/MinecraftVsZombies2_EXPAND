@@ -3,7 +3,9 @@
 using System.Text;
 using MVZ2.Vanilla;
 using MVZ2Logic;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Localization;
 using PVZEngine;
 
 namespace MVZ2.GameContent.Commands
@@ -25,11 +27,11 @@ namespace MVZ2.GameContent.Commands
                 {
                     saves.Unlock(id);
                     saves.SaveToFile();
-                    PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_UNLOCK_ADD_SUCCESS, VanillaStrings.CONTEXT_COMMAND_OUTPUT, id.ToString()));
+                    PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_UNLOCK_ADD_SUCCESS, LogicStrings.CONTEXT_COMMAND_OUTPUT, id.ToString()));
                 }
                 else
                 {
-                    PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_UNLOCK_ADD_FAILED_ALREADY_UNLOCKED, VanillaStrings.CONTEXT_COMMAND_OUTPUT, id.ToString()));
+                    PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_UNLOCK_ADD_FAILED_ALREADY_UNLOCKED, LogicStrings.CONTEXT_COMMAND_OUTPUT, id.ToString()));
                 }
             }
             else if (parameters[0] == "remove")
@@ -39,11 +41,11 @@ namespace MVZ2.GameContent.Commands
                 {
                     saves.Relock(id);
                     saves.SaveToFile();
-                    PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_UNLOCK_REMOVE_SUCCESS, VanillaStrings.CONTEXT_COMMAND_OUTPUT, id.ToString()));
+                    PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_UNLOCK_REMOVE_SUCCESS, LogicStrings.CONTEXT_COMMAND_OUTPUT, id.ToString()));
                 }
                 else
                 {
-                    PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_UNLOCK_REMOVE_FAILED_NOT_UNLOCKED, VanillaStrings.CONTEXT_COMMAND_OUTPUT, id.ToString()));
+                    PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_UNLOCK_REMOVE_FAILED_NOT_UNLOCKED, LogicStrings.CONTEXT_COMMAND_OUTPUT, id.ToString()));
                 }
             }
             else if (parameters[0] == "list")

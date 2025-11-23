@@ -5,6 +5,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -21,9 +22,9 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         public HellfireIgnitedBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new BooleanModifier(VanillaEntityProps.IS_FIRE, true));
-            AddModifier(new BooleanModifier(VanillaEntityProps.IS_LIGHT_SOURCE, true));
-            AddModifier(new Vector3Modifier(VanillaEntityProps.LIGHT_RANGE, NumberOperator.Add, PROP_LIGHT_RANGE_ADDITION));
-            AddModifier(ColorModifier.Override(VanillaEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR));
+            AddModifier(new BooleanModifier(LogicEntityProps.IS_LIGHT_SOURCE, true));
+            AddModifier(new Vector3Modifier(LogicEntityProps.LIGHT_RANGE, NumberOperator.Add, PROP_LIGHT_RANGE_ADDITION));
+            AddModifier(ColorModifier.Override(LogicEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR));
             AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostProjectileHitCallback);
         }
         public override void PostAdd(Buff buff)

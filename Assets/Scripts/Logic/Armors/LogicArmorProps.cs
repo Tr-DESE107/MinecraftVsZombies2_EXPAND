@@ -3,7 +3,7 @@
 using PVZEngine;
 using PVZEngine.Armors;
 
-namespace MVZ2.Vanilla.Entities
+namespace MVZ2Logic.Armors
 {
     [PropertyRegistryRegion(PropertyRegions.armor)]
     public static class LogicArmorProps
@@ -19,7 +19,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void SetArmorType(this ArmorDefinition armor, NamespaceID? value)
         {
-            armor.SetProperty<NamespaceID>(ARMOR_TYPE, value);
+            armor.SetProperty(ARMOR_TYPE, value);
         }
         public static readonly PropertyMeta<bool> IGNORED = Get<bool>("ignored");
         public static bool IsIgnored(this ArmorDefinition armor)
@@ -32,7 +32,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void SetIgnored(this ArmorDefinition armor, bool value)
         {
-            armor.SetProperty<bool>(IGNORED, value);
+            armor.SetProperty(IGNORED, value);
         }
     }
 }

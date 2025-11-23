@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2Logic.Command;
+using MVZ2Logic.Commands;
 using UnityEngine;
 
 namespace MVZ2.Debugs

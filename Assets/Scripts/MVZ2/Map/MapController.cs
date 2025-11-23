@@ -16,13 +16,16 @@ using MVZ2.Talk;
 using MVZ2.Talks;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Difficulties;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using MVZ2Logic.Maps;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -236,7 +239,7 @@ namespace MVZ2.Map
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
+            Global.Game.RunCallbackFiltered(LogicCallbacks.TALK_ACTION, new LogicCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         private void OnOptionsDialogCloseCallback()
         {
@@ -602,14 +605,14 @@ namespace MVZ2.Map
         {
             if (!NamespaceID.IsValid(areaID) || Global.Game.GetAreaDefinition(areaID) == null)
             {
-                var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                var title = Main.LanguageManager._(LogicStrings.ERROR);
                 var desc = Main.LanguageManager._(ERROR_AREA_NOT_EXISTS, areaID);
                 Main.Scene.ShowDialogMessage(title, desc);
                 yield break;
             }
             if (!NamespaceID.IsValid(stageID) || Global.Game.GetStageDefinition(stageID) == null)
             {
-                var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                var title = Main.LanguageManager._(LogicStrings.ERROR);
                 var desc = Main.LanguageManager._(ERROR_STAGE_NOT_EXISTS, stageID);
                 Main.Scene.ShowDialogMessage(title, desc);
                 yield break;

@@ -8,11 +8,11 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -136,7 +136,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         public const int SHOOT_COOLDOWN = 135;
         public const int SHOOT_DURATION = 15;
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
     }
 }

@@ -3,9 +3,9 @@
 using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Armors;
+using MVZ2Logic.Blueprints;
 using PVZEngine;
 using UnityEngine;
 

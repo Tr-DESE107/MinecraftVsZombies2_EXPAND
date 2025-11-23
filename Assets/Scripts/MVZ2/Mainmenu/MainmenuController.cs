@@ -18,11 +18,11 @@ using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
 using MVZ2Logic.Games;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Resources;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using Tools.Mathematics;
@@ -183,7 +183,7 @@ namespace MVZ2.Mainmenu
         {
             main.SoundManager.Play2D(VanillaSoundID.paper);
             main.MusicManager.Stop();
-            var buttonText = main.LanguageManager._(Vanilla.VanillaStrings.BACK);
+            var buttonText = main.LanguageManager._(LogicStrings.BACK);
             main.Scene.DisplayNote(VanillaNoteID.help, buttonText);
         }
         private void OnUserManageButtonClickCallback()
@@ -193,7 +193,7 @@ namespace MVZ2.Mainmenu
         }
         private void OnQuitButtonClickCallback()
         {
-            var title = main.LanguageManager._(Vanilla.VanillaStrings.QUIT);
+            var title = main.LanguageManager._(LogicStrings.QUIT);
             var desc = main.LanguageManager._(QUIT_DESC);
             main.Scene.ShowDialogSelect(title, desc, (value) =>
             {
@@ -287,8 +287,8 @@ namespace MVZ2.Mainmenu
                         var currentName = main.SaveManager.GetUserName(userIndex);
                         if (!main.SaveManager.CanRenameUser(currentName))
                         {
-                            var title = main.LanguageManager._(VanillaStrings.HINT);
-                            var desc = main.LanguageManager._(VanillaStrings.ERROR_MESSAGE_CANNOT_RENAME_THIS_USER);
+                            var title = main.LanguageManager._(LogicStrings.HINT);
+                            var desc = main.LanguageManager._(LogicStrings.ERROR_MESSAGE_CANNOT_RENAME_THIS_USER);
                             main.Scene.ShowDialogMessage(title, desc);
                             break;
                         }
@@ -302,8 +302,8 @@ namespace MVZ2.Mainmenu
                 case UserManageDialog.ButtonType.Delete:
                     {
                         var userIndex = GetSelectedUserIndex();
-                        var title = main.LanguageManager._(VanillaStrings.WARNING);
-                        var desc = main.LanguageManager._(VanillaStrings.WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
+                        var title = main.LanguageManager._(LogicStrings.WARNING);
+                        var desc = main.LanguageManager._(LogicStrings.WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
                         main.Scene.ShowDialogSelect(title, desc, (value) =>
                         {
                             if (value)
@@ -364,12 +364,12 @@ namespace MVZ2.Mainmenu
                         string title, desc;
                         if (!success)
                         {
-                            title = main.LanguageManager._(VanillaStrings.ERROR);
+                            title = main.LanguageManager._(LogicStrings.ERROR);
                             desc = main.LanguageManager._(ERROR_NOT_EXPORTED);
                         }
                         else
                         {
-                            title = main.LanguageManager._(VanillaStrings.HINT);
+                            title = main.LanguageManager._(LogicStrings.HINT);
                             desc = main.LanguageManager._(HINT_EXPORTED, path);
                         }
                         await main.Scene.ShowDialogMessageAsync(title, desc);
@@ -401,7 +401,7 @@ namespace MVZ2.Mainmenu
                 catch (Exception)
                 {
                     // 加载失败，用户文件可能损坏。
-                    var title = main.LanguageManager._(VanillaStrings.ERROR);
+                    var title = main.LanguageManager._(LogicStrings.ERROR);
                     var desc = main.LanguageManager._(ERROR_CORRUPT_USER_DATA_PACK);
                     main.Scene.ShowDialogMessage(title, desc);
                     return;
@@ -414,7 +414,7 @@ namespace MVZ2.Mainmenu
                     // 如果不能重命名，直接提示错误。
                     if (!main.SaveManager.CanRenameUser(userName))
                     {
-                        var title = main.LanguageManager._(VanillaStrings.ERROR);
+                        var title = main.LanguageManager._(LogicStrings.ERROR);
                         var desc = main.LanguageManager._(ERROR_DUPLICATE_IMPORTING_USER_NAME_AND_CANNOT_RENAME);
                         main.Scene.ShowDialogMessage(title, desc);
                         return;
@@ -524,7 +524,7 @@ namespace MVZ2.Mainmenu
             }
             catch (Exception e)
             {
-                var title = main.LanguageManager._(VanillaStrings.ERROR);
+                var title = main.LanguageManager._(LogicStrings.ERROR);
                 var desc = main.LanguageManager._(ERROR_MESSAGE_UNABLE_TO_DELETE_USER, e.Message);
                 main.Scene.ShowDialogMessage(title, desc);
                 Debug.LogError($"Unable to delete user{userIndex}'s save data : {e}");
@@ -554,7 +554,7 @@ namespace MVZ2.Mainmenu
             }
             catch (Exception e)
             {
-                var title = main.LanguageManager._(VanillaStrings.ERROR);
+                var title = main.LanguageManager._(LogicStrings.ERROR);
                 var desc = main.LanguageManager._(ERROR_MESSAGE_UNABLE_TO_SWITCH_TO_USER, e.Message);
                 main.Scene.ShowDialogMessage(title, desc);
                 Debug.LogError($"Unable to switch to user{userIndex}'s save data : {e}");
@@ -722,7 +722,7 @@ namespace MVZ2.Mainmenu
                 var metaType = meta?.Type ?? StatCategoryType.Entity;
                 var metaOperation = meta?.Operation ?? StatOperation.Sum;
 
-                var title = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_CATEGORY, metaName);
+                var title = main.LanguageManager._p(LogicStrings.CONTEXT_STAT_CATEGORY, metaName);
 
                 // 大类数字显示。
                 string categoryNumberString = string.Empty;
@@ -771,7 +771,7 @@ namespace MVZ2.Mainmenu
                 if (meta == null)
                     continue;
                 // 子项。
-                var name = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_ENTRY, meta.Name);
+                var name = main.LanguageManager._p(LogicStrings.CONTEXT_STAT_ENTRY, meta.Name);
                 var count = entry.Value;
                 if (count <= 0)
                     continue;
@@ -804,9 +804,9 @@ namespace MVZ2.Mainmenu
                     var metaDescription = meta.Description;
 
                     var icon = main.GetFinalSprite(iconRef);
-                    var name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaName);
+                    var name = main.LanguageManager._p(LogicStrings.CONTEXT_ACHIEVEMENT, metaName);
                     var earned = main.SaveManager.IsAchievementEarned(new NamespaceID(nsp, meta.ID));
-                    var description = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaDescription);
+                    var description = main.LanguageManager._p(LogicStrings.CONTEXT_ACHIEVEMENT, metaDescription);
                     viewDatas[i] = new AchievementEntryViewData()
                     {
                         icon = icon,

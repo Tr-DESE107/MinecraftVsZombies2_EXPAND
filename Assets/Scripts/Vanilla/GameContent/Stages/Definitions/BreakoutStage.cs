@@ -4,8 +4,6 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla.HeldItems;
-using MVZ2.Vanilla.Level;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -56,7 +54,7 @@ namespace MVZ2.GameContent.Stages
             }
             if (board == null)
                 return;
-            if (level.GetHeldItemType() == BuiltinHeldTypes.none)
+            if (level.GetHeldItemType() == LogicHeldTypes.none)
             {
                 var builder = new HeldItemBuilder(VanillaHeldTypes.breakoutBoard, 100);
                 builder.SetEntityID(board.ID);

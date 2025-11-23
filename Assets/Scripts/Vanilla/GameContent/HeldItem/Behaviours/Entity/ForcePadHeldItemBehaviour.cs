@@ -2,11 +2,12 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Models;
-using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;

@@ -9,14 +9,10 @@ using MVZ2.HeldItems;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.HeldItems;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
@@ -135,7 +131,7 @@ namespace MVZ2.Level
         }
         private void UpdateHeldItemCursor(NamespaceID heldType, NamespaceID? modelID)
         {
-            bool isHeldItemNone = heldType == BuiltinHeldTypes.none || !NamespaceID.IsValid(modelID);
+            bool isHeldItemNone = heldType == LogicHeldTypes.none || !NamespaceID.IsValid(modelID);
             if (isHeldItemNone)
             {
                 if (heldItemCursorSource != null)

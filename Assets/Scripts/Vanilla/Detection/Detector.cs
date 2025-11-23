@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Entities;
@@ -165,7 +165,7 @@ namespace MVZ2.Vanilla.Detections
         }
         protected bool TargetInLawn(float x)
         {
-            return x > VanillaLevelExt.GetAttackBorderX(false) && x < VanillaLevelExt.GetAttackBorderX(true);
+            return x > LevelPositions.GetAttackBorderX(false) && x < LevelPositions.GetAttackBorderX(true);
         }
         protected EntityDefinition? GetEntityDefinition(LevelEngine level, NamespaceID entityID)
         {

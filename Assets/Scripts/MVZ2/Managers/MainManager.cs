@@ -23,6 +23,8 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
 using MVZ2Logic;
+using MVZ2Logic.Resources;
+using MVZ2Logic.Serialization;
 using PVZEngine;
 using UnityEditor;
 using UnityEngine;

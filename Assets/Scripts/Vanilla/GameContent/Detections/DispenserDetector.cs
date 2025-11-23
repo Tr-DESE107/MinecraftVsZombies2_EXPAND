@@ -3,7 +3,7 @@
 using System;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Detections
             var sizeX = range < 0 ? 800 : range;
             if (direction * self.GetFacingX() > 0)
             {
-                var limitedRange = VanillaLevelExt.GetAttackBorderX(true) - source.x;
+                var limitedRange = LevelPositions.GetAttackBorderX(true) - source.x;
                 sizeX = Mathf.Min(sizeX, limitedRange);
             }
             var centerX = source.x + sizeX * 0.5f * self.GetFacingX() * direction;

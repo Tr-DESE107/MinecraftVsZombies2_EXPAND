@@ -5,10 +5,9 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -23,7 +22,7 @@ namespace MVZ2.GameContent.Buffs.Level
         {
             AddModifier(new ColorModifier(LogicLevelProps.SCREEN_COVER, PROP_SCREEN_COVER));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
-            AddModifier(new BooleanModifier(VanillaStageProps.AUTO_COLLECT_ALL, true));
+            AddModifier(new BooleanModifier(LogicStageProps.AUTO_COLLECT_ALL, true));
         }
         public override void PostAdd(Buff buff)
         {
@@ -59,7 +58,7 @@ namespace MVZ2.GameContent.Buffs.Level
                     e.ApplyBuffForBossRevenge();
                 });
 
-                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS, 100, 120);
+                level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS, 100, 120);
 
                 buff.Remove();
             }

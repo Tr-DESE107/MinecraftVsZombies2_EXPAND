@@ -8,11 +8,12 @@ using MVZ2.Managers;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
-using MVZ2Logic.Archives;
+using MVZ2Logic.Archive;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Resources;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
@@ -92,7 +93,7 @@ namespace MVZ2.Archives
         }
         private void OnTalkActionCallback(string cmd, params string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
+            Global.Game.RunCallbackFiltered(LogicCallbacks.TALK_ACTION, new LogicCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         #endregion
 
@@ -103,8 +104,8 @@ namespace MVZ2.Archives
         }
         private void ShowReplayDialog()
         {
-            var title = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_TALK_END);
-            var desc = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_REPLAY);
+            var title = Main.LanguageManager._p(LogicStrings.CONTEXT_ARCHIVE, LogicStrings.ARCHIVE_TALK_END);
+            var desc = Main.LanguageManager._p(LogicStrings.CONTEXT_ARCHIVE, LogicStrings.ARCHIVE_REPLAY);
             Main.Scene.ShowDialogSelect(title, desc, (value) =>
             {
                 if (value && NamespaceID.IsValid(viewingTalkID))
@@ -153,7 +154,7 @@ namespace MVZ2.Archives
             var group = Main.ResourceManager.GetTalkGroup(groupID);
             if (group == null || group.archive == null)
                 return;
-            var name = GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
+            var name = GetTranslatedString(LogicStrings.CONTEXT_ARCHIVE, group.archive.name);
             var backgroundRef = group.archive.background;
             var background = Main.GetFinalSprite(backgroundRef);
             var musicID = group.archive.music;
@@ -164,19 +165,19 @@ namespace MVZ2.Archives
             for (int i = 0; i < sectionsViewData.Length; i++)
             {
                 var section = sections[i];
-                var description = GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, section.archiveText);
+                var description = GetTranslatedString(LogicStrings.CONTEXT_ARCHIVE, section.archiveText);
                 var talks = section.sentences.Select(s =>
                 {
-                    var description = GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, s.description);
+                    var description = GetTranslatedString(LogicStrings.CONTEXT_ARCHIVE, s.description);
                     string characterName = s.GetSpeakerName(Main);
-                    var text = GetTranslatedString(VanillaStrings.GetTalkTextContext(groupID), s.text);
+                    var text = GetTranslatedString(LogicStrings.GetTalkTextContext(groupID), s.text);
                     if (string.IsNullOrEmpty(description))
                     {
-                        return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, SENTENCE_TEMPLATE, characterName, text);
+                        return GetTranslatedString(LogicStrings.CONTEXT_ARCHIVE, SENTENCE_TEMPLATE, characterName, text);
                     }
                     else
                     {
-                        return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, SENTENCE_TEMPLATE_DESCRIPTION, description, characterName, text);
+                        return GetTranslatedString(LogicStrings.CONTEXT_ARCHIVE, SENTENCE_TEMPLATE_DESCRIPTION, description, characterName, text);
                     }
                 });
                 var talksString = string.Join('\n', talks);
@@ -205,7 +206,7 @@ namespace MVZ2.Archives
                 var group = Main.ResourceManager.GetTalkGroup(t);
                 if (group == null || group.archive == null)
                     return false;
-                var name = GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
+                var name = GetTranslatedString(LogicStrings.CONTEXT_ARCHIVE, group.archive.name);
                 var selectedTags = selectedTagIndexes.Select(i => tagsList[i]);
                 return (string.IsNullOrEmpty(searchPattern) || name.Contains(searchPattern)) && (selectedTags.Count() <= 0 || selectedTags.Any(t => group.tags.Contains(t)));
             });
@@ -215,7 +216,7 @@ namespace MVZ2.Archives
                 var group = Main.ResourceManager.GetTalkGroup(t);
                 if (group == null || group.archive == null)
                     return t.ToString();
-                return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
+                return GetTranslatedString(LogicStrings.CONTEXT_ARCHIVE, group.archive.name);
             }).ToArray());
         }
         private void PlayTalk(NamespaceID groupID)

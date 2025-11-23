@@ -2,11 +2,12 @@
 
 using System.Linq;
 using MVZ2.GameContent.Areas;
-using MVZ2.GameContent.Armors;
 using MVZ2Logic;
+using MVZ2Logic.Armors;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
-using MVZ2Logic.IZombie;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -29,12 +30,12 @@ namespace MVZ2.GameContent.Commands
             if (parameters[0] == "armor")
             {
                 var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
-                SpawnArmorEnemies(level, id, VanillaArmorSlots.main);
+                SpawnArmorEnemies(level, id, LogicArmorSlots.main);
             }
             else if (parameters[0] == "shield")
             {
                 var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
-                SpawnArmorEnemies(level, id, VanillaArmorSlots.shield);
+                SpawnArmorEnemies(level, id, LogicArmorSlots.shield);
             }
             else if (parameters[0] == "paratroops")
             {
