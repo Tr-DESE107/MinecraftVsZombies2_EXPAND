@@ -2155,6 +2155,9 @@
             <behaviours>
                 <!-- 使用巨人自己的减伤机制 -->
                 <behaviour operator="replace" source="mvz2:boss_resistance" id="mvz2:boss_resistance_the_giant" /> 
+                <properties behaviour="mvz2:boss_resistance">
+                    <float name="max_damage_amount" value="1200" />
+                </properties>
             </behaviours>
             <properties>
                 <bool name="mvz2:undead" value="true" />
