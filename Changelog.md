@@ -1,6 +1,50 @@
-## Fixed
-- Contraptions can be placed on a command block that transforming into a lily pad.
-- Instant evoke function now no longer can be used on nocturnal contraptions during day.
+## Added
+- Added chapter 5 - Palanquin Ship.
+- Added "HDR Lighting" option.
+- Added "Height Indicator" option.
+- Added playtime statistics.
+- Added Debug Console, which can be enabled by creating a special save file named "Debug".
+- Added blueprint hover descriptions in levels for mobile devices.
+- Added hover descriptions for some options.
+- Added "Lightning" material, used for Lightning Orb.
+
+## Modified
+
+### Balance
+- Silvenser energy cost reduced from 175 to 150.
+- Dream Crystal healing amount increased from 40/sec to 60/sec.
+- Bottle Blackhole damage bonus reduced from 15% to 10%.
+- Talisman Zombie toughness increased from 200 to 350.
+- Zombies whose Divine Shield is broken can no longer be re-shielded by Emperor Zombie for 5 seconds.
+- Gargoyle Statue and Spawner now prioritize spawning in locations without contraptions.
+- Adjusted the appearance mechanism for Starshard monsters; now, one monster carrying a Starshard appears every 6 waves, and only one.
+- Adjusted the Boss damage reduction mechanism; bosses now take a maximum of 600 damage within 0.5 seconds, instead of limiting single-hit damage to below 600.
+
+### Graphics
+- Adjusted the textures for buttons and scrollbars, as well as the style of some widgets in the options interface.
+- Reworked the texture for Splitenser.
+- Reworked the character texture for Seija.
+- Adjusted the background darkness effect upon Nightmare's appearance and the background darkness effect after a large wave of monsters in level 4-11.
+
+### Almanac
+- Adjusted the flavor text for Furnace in the Almanac.
+- Changed the wording in some Almanac entries to "friendly units".
+- Adjusted the monster thumbnails in the Almanac.
+- Locked hidden artifacts now appear as silhouettes in the Almanac.
+
+### Others
+- Night-time contraptions during the day can no longer use the instant evoke function.
+- All darkness effects are now canceled after a level is completed.
+- Levels that have already been completed can no longer result in a game over due to certain monsters.
+
+## Fixes
+- Fixed an issue where the "Earned!" text for achievements sometimes would not be translated according to the game language.
+- Fixed an issue where the Dream Shield effect would not display when particles were turned off.
+- Fixed an issue where contraptions could be placed on Command Blocks that were about to transform into Lily Pads.
+- Fixed an issue where clicking the Nightmare fate choosing button while holding a contraption would immediately place the contraption at the pointer's position.
+- Fixed an issue where gems dropped by a Berserker infected by an Infectenser would also incorrectly display the infection icon.
+- Fixed an issue where two-finger tap on mobile devices was recognized as a mouse right-click.
+- Fixed an issue where Reverse Satellite was incorrectly classified as undead.
 
 ---
 
