@@ -113,8 +113,7 @@ namespace MVZ2.Store
         #region UI 事件回调
         private void OnReturnClickCallback()
         {
-            Hide();
-            OnReturnClick?.Invoke();
+            Return();
         }
         private void OnPageButtonClickCallback(bool next)
         {
@@ -272,7 +271,6 @@ namespace MVZ2.Store
                 return string.Empty;
             return Main.LanguageManager._p(context, text, args);
         }
-        public event Action? OnReturnClick;
 
         [TranslateMsg("商店对话框标题")]
         public const string PURCHASE = "购买物品";

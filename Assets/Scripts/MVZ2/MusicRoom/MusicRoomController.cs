@@ -44,11 +44,10 @@ namespace MVZ2.MusicRoom
         #region 事件回调
         private void OnIndexReturnClickCallback()
         {
-            Hide();
             Main.MusicManager.Stop();
             Main.MusicManager.SetTrackWeight(0);
             playingSubTrack = false;
-            OnReturnClick?.Invoke();
+            Return();
         }
         private void OnMusicItemClickCallback(int index)
         {
@@ -209,7 +208,6 @@ namespace MVZ2.MusicRoom
             return Main.LanguageManager._p(context, text, args);
         }
         #endregion
-        public event Action? OnReturnClick;
         [TranslateMsg("音乐室中的信息模板，{0}为音乐来源")]
         public const string INFORMATION_SOURCE = "来源：{0}";
         [TranslateMsg("音乐室中的信息模板，{0}为音乐原曲")]

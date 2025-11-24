@@ -51,8 +51,7 @@ namespace MVZ2.Archives
         #region 事件回调
         private void OnIndexReturnClickCallback()
         {
-            Hide();
-            OnReturnClick?.Invoke();
+            Return();
         }
         private void OnDetailsReturnClickCallback()
         {
@@ -252,7 +251,6 @@ namespace MVZ2.Archives
             return Main.LanguageManager._p(context, text, args);
         }
         #endregion
-        public event Action? OnReturnClick;
         [TranslateMsg("对话档案中语句的模板，{0}为人物，{1}为语句内容")]
         public const string SENTENCE_TEMPLATE = "<b>[{0}]</b> {1}";
         [TranslateMsg("对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容")]
