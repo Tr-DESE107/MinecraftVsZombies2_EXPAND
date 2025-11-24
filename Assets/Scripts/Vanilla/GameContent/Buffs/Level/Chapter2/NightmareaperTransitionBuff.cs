@@ -2,9 +2,9 @@
 
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
+using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;

@@ -2,9 +2,11 @@
 
 using MukioI18n;
 using MVZ2.GameContent.Armors;
-using MVZ2.Vanilla;
+using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.RandomChina;
 using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 using Tools;

@@ -5,7 +5,7 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 
-namespace MVZ2.GameContent.Buffs.Carts
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.changeGrid)]
     public class ChangeGridBuff : BuffDefinition
@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Buffs.Carts
             pos.z = pos.z * revFactor + targetZ * factor;
             var xDiff = pos.x - targetX;
             var zDiff = pos.z - targetZ;
-            var sqrDistance = (xDiff * xDiff) + (zDiff * zDiff);
+            var sqrDistance = xDiff * xDiff + zDiff * zDiff;
             if (sqrDistance <= 1)
             {
                 pos.x = targetX;

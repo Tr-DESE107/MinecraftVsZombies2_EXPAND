@@ -3,9 +3,10 @@
 using MukioI18n;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;

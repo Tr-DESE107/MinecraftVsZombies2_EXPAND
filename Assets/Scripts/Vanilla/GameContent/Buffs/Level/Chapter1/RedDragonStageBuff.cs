@@ -7,7 +7,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Level;
 using Tools;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Level
 {
     [BuffDefinition(VanillaBuffNames.Level.redDragonStage)]
     public class RedDragonStageBuff : BuffDefinition

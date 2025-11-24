@@ -4,7 +4,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Bosses
 {
     [BuffDefinition(VanillaBuffNames.Boss.theGiantPhase3)]
     public class TheGiantPhase3Buff : BuffDefinition

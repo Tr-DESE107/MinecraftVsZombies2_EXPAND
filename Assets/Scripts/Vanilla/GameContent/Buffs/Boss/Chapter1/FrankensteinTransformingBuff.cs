@@ -7,7 +7,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Bosses
 {
     [BuffDefinition(VanillaBuffNames.Boss.frankensteinTransforming)]
     public class FrankensteinTransformingBuff : BuffDefinition

@@ -2,10 +2,11 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Placements;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Almanacs;
+using MVZ2.Vanilla.Almanac;
 using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Almanac;
 using MVZ2Logic.Callbacks;

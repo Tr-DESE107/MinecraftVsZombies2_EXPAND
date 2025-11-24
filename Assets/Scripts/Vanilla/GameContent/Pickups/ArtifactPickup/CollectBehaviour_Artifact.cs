@@ -2,8 +2,9 @@
 
 using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Pickups;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;

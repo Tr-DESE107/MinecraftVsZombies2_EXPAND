@@ -3,8 +3,10 @@
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
+using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.RandomChina;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;

@@ -9,7 +9,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.charm)]
     public class CharmBuff : BuffDefinition
@@ -74,7 +74,6 @@ namespace MVZ2.GameContent.Buffs
         public static readonly VanillaBuffPropertyMeta<int> PROP_FACTION = new VanillaBuffPropertyMeta<int>("Faction");
         public static readonly VanillaBuffPropertyMeta<EntityID> PROP_SOURCE = new VanillaBuffPropertyMeta<EntityID>("Source");
     }
-
     public static class CharmModes
     {
         public const int PERMANENT = 0;

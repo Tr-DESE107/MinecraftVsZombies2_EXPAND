@@ -6,7 +6,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Level;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Carts
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.changeLane)]
     public class ChangeLaneBuff : BuffDefinition

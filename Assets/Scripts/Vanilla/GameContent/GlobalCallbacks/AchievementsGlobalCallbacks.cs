@@ -3,8 +3,8 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;

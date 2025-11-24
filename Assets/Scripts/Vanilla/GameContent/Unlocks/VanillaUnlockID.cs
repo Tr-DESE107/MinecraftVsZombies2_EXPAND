@@ -4,7 +4,7 @@ using MVZ2.GameContent.Stages;
 using MVZ2Logic.Unlocks;
 using PVZEngine;
 
-namespace MVZ2.Vanilla
+namespace MVZ2.Vanilla.Unlocks
 {
     public static class VanillaUnlockNames
     {

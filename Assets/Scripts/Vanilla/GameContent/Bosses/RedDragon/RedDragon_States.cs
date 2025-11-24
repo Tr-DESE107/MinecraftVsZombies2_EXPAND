@@ -15,6 +15,8 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Projectiles;
+using MVZ2.Vanilla.StateMachine;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;

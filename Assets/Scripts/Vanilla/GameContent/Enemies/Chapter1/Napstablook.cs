@@ -2,9 +2,9 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Entities;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;

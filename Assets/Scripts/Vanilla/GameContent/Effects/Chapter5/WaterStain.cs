@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Effects;
-using MVZ2.Vanilla;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;

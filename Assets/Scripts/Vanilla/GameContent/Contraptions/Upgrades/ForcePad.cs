@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;

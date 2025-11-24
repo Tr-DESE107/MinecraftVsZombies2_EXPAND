@@ -10,7 +10,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Level;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.withered)]
     public class WitheredBuff : BuffDefinition

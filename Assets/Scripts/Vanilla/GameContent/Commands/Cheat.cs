@@ -2,7 +2,7 @@
 
 using System;
 using MVZ2.GameContent.Buffs.Level;
-using MVZ2.Vanilla;
+using MVZ2.Vanilla.Localization;
 using MVZ2Logic;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Definitions;

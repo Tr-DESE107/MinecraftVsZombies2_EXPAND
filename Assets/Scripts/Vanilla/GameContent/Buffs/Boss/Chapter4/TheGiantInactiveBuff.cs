@@ -8,7 +8,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Bosses
 {
     [BuffDefinition(VanillaBuffNames.Boss.theGiantInactive)]
     public class TheGiantInactiveBuff : BuffDefinition

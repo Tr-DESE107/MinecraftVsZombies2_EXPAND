@@ -4,7 +4,7 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 
-namespace MVZ2.GameContent.Buffs.Contraptions
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.clearGridOnLand)]
     public class ClearGridOnLandBuff : BuffDefinition

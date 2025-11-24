@@ -2,7 +2,7 @@
 
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
+using MVZ2.Vanilla.ChapterTransitions;
 using MVZ2Logic;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Notes;

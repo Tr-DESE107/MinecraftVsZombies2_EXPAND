@@ -12,6 +12,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Entities;

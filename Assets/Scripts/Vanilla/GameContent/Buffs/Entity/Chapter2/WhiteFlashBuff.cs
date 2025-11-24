@@ -7,7 +7,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.whiteFlash)]
     public class WhiteFlashBuff : BuffDefinition
@@ -40,8 +40,8 @@ namespace MVZ2.GameContent.Buffs
         public static Buff AddToEntity(Entity entity, int timeout)
         {
             var buff = entity.NewBuff<WhiteFlashBuff>();
-            buff.SetProperty(WhiteFlashBuff.PROP_TIMEOUT, timeout);
-            buff.SetProperty(WhiteFlashBuff.PROP_MAX_TIMEOUT, timeout);
+            buff.SetProperty(PROP_TIMEOUT, timeout);
+            buff.SetProperty(PROP_MAX_TIMEOUT, timeout);
             entity.AddBuff(buff);
             return buff;
         }

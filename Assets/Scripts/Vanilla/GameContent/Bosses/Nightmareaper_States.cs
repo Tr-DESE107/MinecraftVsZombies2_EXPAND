@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
@@ -12,6 +13,7 @@ using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
+using MVZ2.Vanilla.StateMachine;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;

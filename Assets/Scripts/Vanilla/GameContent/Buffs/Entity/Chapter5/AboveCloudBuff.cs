@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
@@ -13,7 +14,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.aboveCloud)]
     public class AboveCloudBuff : BuffDefinition
@@ -132,7 +133,7 @@ namespace MVZ2.GameContent.Buffs
         {
             if (inside != buff.GetProperty<bool>(PROP_INSIDE_CLOUD))
             {
-                buff.SetProperty<bool>(PROP_INSIDE_CLOUD, inside);
+                buff.SetProperty(PROP_INSIDE_CLOUD, inside);
                 entity.PlayAirSplashSound();
                 if (inside)
                 {

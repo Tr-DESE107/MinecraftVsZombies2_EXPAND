@@ -4,7 +4,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
-namespace MVZ2.GameContent.Buffs.Armors
+namespace MVZ2.GameContent.Buffs.Contraptions
 {
     [BuffDefinition(VanillaBuffNames.Contraption.witherSkeletonSkullReduceHealth)]
     public class WitherSkeletonSkullReduceHealthBuff : BuffDefinition

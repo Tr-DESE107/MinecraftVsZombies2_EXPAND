@@ -2,7 +2,7 @@
 
 using MVZ2.Level.Components;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Enemies;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;

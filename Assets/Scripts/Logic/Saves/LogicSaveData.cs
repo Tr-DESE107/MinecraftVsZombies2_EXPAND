@@ -15,7 +15,7 @@ namespace MVZ2Logic.Saves
         }
         protected override SerializableModSaveData CreateSerializable()
         {
-            return new SerializableVanillaSaveData()
+            return new SerializableLogicSaveData()
             {
                 version = 0,
                 lastMapID = LastMapID,
@@ -24,11 +24,11 @@ namespace MVZ2Logic.Saves
                 lastSelection = LastSelection,
             };
         }
-        public static LogicSaveData DeserializeFrom(SerializableVanillaSaveData seri)
+        public static LogicSaveData DeserializeFrom(SerializableLogicSaveData seri)
         {
             if (string.IsNullOrEmpty(seri.spaceName))
             {
-                throw MissingSerializeDataException.Property<SerializableVanillaSaveData>(nameof(seri.spaceName));
+                throw MissingSerializeDataException.Property<SerializableLogicSaveData>(nameof(seri.spaceName));
             }
             var saveData = new LogicSaveData(seri.spaceName);
             saveData.LoadFromSerializable(seri);
@@ -84,7 +84,7 @@ namespace MVZ2Logic.Saves
         private int money;
     }
     [Serializable]
-    public class SerializableVanillaSaveData : SerializableModSaveData
+    public class SerializableLogicSaveData : SerializableModSaveData
     {
         public NamespaceID? lastMapID;
         public NamespaceID? mapTalkID;

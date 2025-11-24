@@ -2,8 +2,9 @@
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;

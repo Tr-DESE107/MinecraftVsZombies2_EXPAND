@@ -6,7 +6,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Level
 {
     [BuffDefinition(VanillaBuffNames.Level.swordParalyzed)]
     public class SwordParalyzedBuff : BuffDefinition

@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;

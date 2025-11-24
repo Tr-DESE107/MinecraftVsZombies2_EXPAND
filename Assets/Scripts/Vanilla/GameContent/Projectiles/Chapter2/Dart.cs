@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

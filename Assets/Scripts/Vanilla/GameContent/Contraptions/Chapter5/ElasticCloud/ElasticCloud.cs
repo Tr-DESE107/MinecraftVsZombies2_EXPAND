@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;

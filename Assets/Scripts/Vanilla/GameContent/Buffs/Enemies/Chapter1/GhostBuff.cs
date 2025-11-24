@@ -5,7 +5,6 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;

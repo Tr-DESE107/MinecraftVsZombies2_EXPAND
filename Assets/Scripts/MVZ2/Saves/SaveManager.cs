@@ -7,7 +7,7 @@ using System.Linq;
 using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2.OldSave;
-using MVZ2.Vanilla;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Difficulties;

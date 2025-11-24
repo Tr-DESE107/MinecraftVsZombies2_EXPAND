@@ -8,7 +8,7 @@ using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Contraptions
+namespace MVZ2.GameContent.Buffs.Enemies
 {
     [BuffDefinition(VanillaBuffNames.Enemy.necrotombstoneRising)]
     public class NecrotombstoneRisingBuff : BuffDefinition

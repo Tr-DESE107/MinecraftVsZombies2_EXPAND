@@ -2,9 +2,11 @@
 
 using System.Diagnostics.CodeAnalysis;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
@@ -12,7 +14,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
-namespace MVZ2.Vanilla.Enemies
+namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyMelee)]
     public class EnemyMeleeBehaviour : AIEntityBehaviour

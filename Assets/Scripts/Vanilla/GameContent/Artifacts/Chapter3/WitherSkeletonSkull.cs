@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.Armors;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine;

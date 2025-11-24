@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;

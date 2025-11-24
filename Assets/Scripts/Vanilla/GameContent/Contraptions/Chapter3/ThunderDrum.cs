@@ -2,8 +2,8 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;

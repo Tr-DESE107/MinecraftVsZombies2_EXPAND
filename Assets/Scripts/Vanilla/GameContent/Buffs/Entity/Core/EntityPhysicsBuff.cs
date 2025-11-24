@@ -7,7 +7,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
-namespace MVZ2.GameContent.Buffs
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.entityPhysics)]
     public class EntityPhysicsBuff : BuffDefinition

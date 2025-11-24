@@ -5,7 +5,6 @@ using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Effects;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;

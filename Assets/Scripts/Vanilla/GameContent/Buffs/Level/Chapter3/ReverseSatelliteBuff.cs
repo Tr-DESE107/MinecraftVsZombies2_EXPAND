@@ -10,7 +10,7 @@ using PVZEngine.Modifiers;
 using Tools.Mathematics;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Level
 {
     [BuffDefinition(VanillaBuffNames.Level.reverseSatellite)]
     public class ReverseSatelliteBuff : BuffDefinition

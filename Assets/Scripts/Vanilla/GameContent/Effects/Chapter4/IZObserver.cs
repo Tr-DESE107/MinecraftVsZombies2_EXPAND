@@ -2,7 +2,7 @@
 
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;

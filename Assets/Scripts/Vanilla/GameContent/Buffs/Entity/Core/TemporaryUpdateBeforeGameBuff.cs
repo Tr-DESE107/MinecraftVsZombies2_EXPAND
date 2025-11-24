@@ -7,7 +7,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 
-namespace MVZ2.GameContent.Buffs
+namespace MVZ2.GameContent.Buffs.Entities
 {
     [BuffDefinition(VanillaBuffNames.Entity.temporaryUpdateBeforeGame)]
     public class TemporaryUpdateBeforeGameBuff : BuffDefinition

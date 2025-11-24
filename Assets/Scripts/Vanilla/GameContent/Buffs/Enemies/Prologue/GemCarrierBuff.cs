@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Pickups;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;

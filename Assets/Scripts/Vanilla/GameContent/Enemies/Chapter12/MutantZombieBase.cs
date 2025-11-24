@@ -3,13 +3,13 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.StateMachine;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 
-namespace MVZ2.Vanilla.Enemies
+namespace MVZ2.GameContent.Enemies
 {
     public abstract partial class MutantZombieBase : EnemyBehaviour
     {

@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Armors;
-using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;

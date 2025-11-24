@@ -5,7 +5,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Level
 {
     [BuffDefinition(VanillaBuffNames.Level.pagodaBranchLevel)]
     public class PagodaBranchLevelBuff : BuffDefinition

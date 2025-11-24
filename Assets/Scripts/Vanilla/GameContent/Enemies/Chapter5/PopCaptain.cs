@@ -2,16 +2,15 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
-using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.StateMachine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
-namespace MVZ2.Vanilla.Enemies
+namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.popCaptain)]
     public partial class PopCaptain : EnemyBehaviour
