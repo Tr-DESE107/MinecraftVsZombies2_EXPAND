@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
@@ -19,9 +20,14 @@ namespace MVZ2.GameContent.Projectiles
             projectile.Velocity += projectile.Velocity.normalized * 0.3f;
 
             var rotation = projectile.RenderRotation;
-            rotation.x += projectile.Velocity.magnitude * 30;
-            rotation.x %= 360;
-            projectile.RenderRotation = rotation;
+            var quaternion = Quaternion.Euler(rotation);
+            var axis = quaternion * Vector3.right;
+            var rotate = Quaternion.AngleAxis(projectile.Velocity.magnitude * 15, axis);
+            var newRotation = rotation + rotate.eulerAngles;
+            newRotation.x %= 360;
+            newRotation.y %= 360;
+            newRotation.z %= 360;
+            projectile.RenderRotation = newRotation;
         }
         protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput? damage)
         {
