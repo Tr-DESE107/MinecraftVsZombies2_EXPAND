@@ -131,7 +131,6 @@ namespace MVZ2.GameContent.Buffs
             public const string easyContraption = "easy_contraption";
 
             // Prologue
-            public const string productionColor = "production_color";
             public const string obsidianArmor = "obsidian_armor";
             public const string mineTNTInvincible = "mine_tnt_invincible";
 
@@ -448,7 +447,6 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID easyContraption = Get(VanillaBuffNames.Contraption.easyContraption);
 
             // Prologue
-            public static readonly NamespaceID productionColor = Get(VanillaBuffNames.Contraption.productionColor);
             public static readonly NamespaceID obsidianArmor = Get(VanillaBuffNames.Contraption.obsidianArmor);
             public static readonly NamespaceID mineTNTInvincible = Get(VanillaBuffNames.Contraption.mineTNTInvincible);
 

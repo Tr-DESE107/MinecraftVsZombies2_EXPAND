@@ -14,6 +14,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
@@ -24,12 +25,13 @@ namespace MVZ2.GameContent.Contraptions
     {
         public Furnace(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR_OFFSET));
+            AddModifier(new BooleanModifier(VanillaEntityProps.IS_FIRE, BooleanOperator.And, PROP_BURNING));
+            AddModifier(new BooleanModifier(VanillaEntityProps.IS_LIGHT_SOURCE, BooleanOperator.And, PROP_BURNING));
         }
         public override void Init(Entity entity)
         {
             base.Init(entity);
-
-            entity.AddBuff<ProductionColorBuff>();
 
             var productionTimer = new FrameTimer(entity.RNG.Next(90, 375));
             SetProductionTimer(entity, productionTimer);
@@ -64,8 +66,12 @@ namespace MVZ2.GameContent.Contraptions
                     frozen = true;
                 }
             }
+            if (frozen)
+            {
+                entity.SetProperty(PROP_COLOR_OFFSET, Color.clear);
+            }
+            entity.SetProperty(PROP_BURNING, !frozen);
             entity.SetAnimationBool("Frozen", frozen);
-            entity.SetLightSource(!frozen);
         }
 
         public override void PostDeath(Entity entity, DeathInfo deathInfo)
@@ -101,25 +107,22 @@ namespace MVZ2.GameContent.Contraptions
                 productionTimer.Frame = productionTimer.MaxFrame;
             }
 
-            var buffs = entity.GetBuffs<ProductionColorBuff>();
-            foreach (var buff in buffs)
+            var color = entity.GetProperty<Color>(PROP_COLOR_OFFSET);
+            float colorValue = color.a;
+            if (productionTimer.Frame < 30)
             {
-                var color = buff.GetProperty<Color>(ProductionColorBuff.PROP_COLOR);
-                float colorValue = color.a;
-                if (productionTimer.Frame < 30)
-                {
-                    colorValue = Mathf.Lerp(1, 0, productionTimer.Frame / 30f);
-                }
-                else
-                {
-                    colorValue = Mathf.Max(0, colorValue - 1 / 30f);
-                }
-                color.r = 1;
-                color.g = 1;
-                color.b = 1;
-                color.a = colorValue;
-                buff.SetProperty(ProductionColorBuff.PROP_COLOR, color);
+                colorValue = Mathf.Lerp(1, 0, productionTimer.Frame / 30f);
             }
+            else
+            {
+                colorValue = Mathf.Max(0, colorValue - 1 / 30f);
+            }
+            color.r = 1;
+            color.g = 1;
+            color.b = 1;
+            color.a = colorValue;
+            entity.SetProperty(PROP_COLOR_OFFSET, color);
+
             if (productionTimer.Expired)
             {
                 if (entity.IsFriendlyEntity())
@@ -189,5 +192,7 @@ namespace MVZ2.GameContent.Contraptions
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
         private static readonly VanillaEntityPropertyMeta<int> PROP_DROPPED_REDSTONES = new VanillaEntityPropertyMeta<int>("LastRemaionRedstones");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_BURNING = new VanillaEntityPropertyMeta<bool>("burning", true);
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta<Color>("color_offset");
     }
 }
