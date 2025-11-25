@@ -8,8 +8,8 @@ using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.TalkData;
 using MVZ2.UI;
-using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
 using PVZEngine;
@@ -551,14 +551,14 @@ namespace MVZ2.Talk
                                 var sprite = Main.GetFinalSprite(ParseArgumentSpriteReference(args[1]));
                                 ui.ShowTalkItem(sprite);
                                 showingTalkItem = true;
-                                Main.SoundManager.Play2D(VanillaSoundID.dialogItemShow);
+                                Main.SoundManager.Play2D(LogicSoundID.dialogItemShow);
                                 break;
                             case "hide":
                                 if (showingTalkItem)
                                 {
                                     showingTalkItem = false;
                                     ui.HideTalkItem();
-                                    Main.SoundManager.Play2D(VanillaSoundID.dialogItemHide);
+                                    Main.SoundManager.Play2D(LogicSoundID.dialogItemHide);
                                 }
                                 break;
                         }

@@ -10,7 +10,7 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
-using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Audios;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Localization;
@@ -214,7 +214,7 @@ namespace MVZ2.Store
                         return;
                     }
                     Main.SaveManager.AddMoney(-price);
-                    Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
+                    Main.SoundManager.Play2D(LogicSoundID.cashRegister);
                     Main.SaveManager.SaveToFile(); // 购买物品后保存游戏
                     UpdateMoney();
                     UpdatePage();

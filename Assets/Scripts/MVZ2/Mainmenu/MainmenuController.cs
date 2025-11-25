@@ -18,8 +18,8 @@ using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
@@ -52,9 +52,9 @@ namespace MVZ2.Mainmenu
 
             UpdateWindowView();
 
-            if (!main.MusicManager.IsPlaying(VanillaMusicID.mainmenu))
+            if (!main.MusicManager.IsPlaying(LogicMusicID.mainmenu))
             {
-                main.MusicManager.Play(VanillaMusicID.mainmenu);
+                main.MusicManager.Play(LogicMusicID.mainmenu);
             }
             ui.SetVersion(Application.version);
             var name = main.SaveManager.GetCurrentUserName() ?? string.Empty;
@@ -181,7 +181,7 @@ namespace MVZ2.Mainmenu
         }
         private void OnHelpButtonClickCallback()
         {
-            main.SoundManager.Play2D(VanillaSoundID.paper);
+            main.SoundManager.Play2D(LogicSoundID.paper);
             main.MusicManager.Stop();
             var buttonText = main.LanguageManager._(LogicStrings.BACK);
             main.Scene.DisplayNote(VanillaNoteID.help, buttonText);
@@ -458,7 +458,7 @@ namespace MVZ2.Mainmenu
                 ui.SetBackgroundDark(true);
                 UpdateWindowView();
                 main.MusicManager.Stop();
-                main.SoundManager.Play2D(VanillaSoundID.loseMusic);
+                main.SoundManager.Play2D(LogicSoundID.loseMusic);
 
                 foreach (var button in GetAllButtons())
                 {

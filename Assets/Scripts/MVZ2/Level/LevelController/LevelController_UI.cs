@@ -4,8 +4,8 @@ using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Options;
 using MVZ2.UI;
-using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
@@ -129,7 +129,7 @@ namespace MVZ2.Level
         {
             var ui = GetUIPreset();
             ui.ShowReadySetBuild();
-            level.PlaySound(VanillaSoundID.readySetBuild);
+            level.PlaySound(LogicSoundID.readySetBuild);
         }
         #endregion
 
@@ -229,7 +229,7 @@ namespace MVZ2.Level
                 if (!IsPauseDisabled())
                 {
                     PauseGame();
-                    level.PlaySound(VanillaSoundID.pause);
+                    level.PlaySound(LogicSoundID.pause);
                     ShowOptionsDialog();
                 }
             }

@@ -7,8 +7,8 @@ using MukioI18n;
 using MVZ2.Entities;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
@@ -112,7 +112,7 @@ namespace MVZ2.Level
                 return;
             HideTooltip();
             OpenEnemyAlmanac(entity.GetDefinitionID());
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         #endregion
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MVZ2.Entities;
 using MVZ2.GlobalGames;
 using MVZ2.Level.Components;
-using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
@@ -231,7 +231,7 @@ namespace MVZ2.Level
         private void SetGameOver()
         {
             isGameOver = true;
-            level.PlaySound(VanillaSoundID.loseMusic);
+            level.PlaySound(LogicSoundID.loseMusic);
             level.HideAdvice();
 
             var areaModel = GetAreaModel();
@@ -275,7 +275,7 @@ namespace MVZ2.Level
         }
         public async Task ExitLevelToNote(NamespaceID id)
         {
-            Sounds.Play2D(VanillaSoundID.paper);
+            Sounds.Play2D(LogicSoundID.paper);
 
             var buttonText = Localization._(LogicStrings.CONTINUE);
             Scene.DisplayNote(id, buttonText);

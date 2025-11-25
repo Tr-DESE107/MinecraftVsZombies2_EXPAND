@@ -14,12 +14,12 @@ using MVZ2.Models;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.UI;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Almanac;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
@@ -41,8 +41,8 @@ namespace MVZ2.Almanacs
             base.Display();
             ui.DisplayPage(AlmanacPageType.Index);
             UpdateEntries();
-            if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
-                Main.MusicManager.Play(VanillaMusicID.choosing);
+            if (!Main.MusicManager.IsPlaying(LogicMusicID.choosing))
+                Main.MusicManager.Play(LogicMusicID.choosing);
         }
         public void OpenEnemyAlmanac(NamespaceID id)
         {
@@ -114,14 +114,14 @@ namespace MVZ2.Almanacs
             if (eventData.IsMouseButNotLeft())
                 return;
             SetActiveContraptionEntry(VanillaContraptionID.commandBlock);
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private void OnContraptionEntryClickCallback(int index, PointerEventData data)
         {
             if (data.IsMouseButNotLeft())
                 return;
             SetActiveContraptionEntry(contraptionEntries[index]);
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private void OnMiscEntryClickCallback(AlmanacPageType page, int index)
         {
@@ -134,7 +134,7 @@ namespace MVZ2.Almanacs
                     SetActiveArtifactEntry(artifactEntries[index]);
                     break;
             }
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private void OnGroupEntryClickCallback(AlmanacPageType page, int groupIndex, int entryIndex)
         {
@@ -149,7 +149,7 @@ namespace MVZ2.Almanacs
                     }
                     break;
             }
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         #region 缩放
         private void OnZoomClickCallback(AlmanacPageType page)
@@ -185,7 +185,7 @@ namespace MVZ2.Almanacs
                 ui.StartZoom();
                 zoomIndex = 0;
             }
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private void OnZoomReturnClickCallback()
         {
@@ -256,7 +256,7 @@ namespace MVZ2.Almanacs
             if (Main.InputManager.GetActivePointerType() != PointerTypes.TOUCH)
                 return;
             LockTooltipEntryTag(tagTooltipLockedTarget == index ? -1 : index);
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private void OnDescriptionIconEnterCallback(AlmanacPageType page, string linkID)
         {
@@ -290,7 +290,7 @@ namespace MVZ2.Almanacs
             {
                 LockTooltipDescription(linkID);
             }
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         #endregion
 

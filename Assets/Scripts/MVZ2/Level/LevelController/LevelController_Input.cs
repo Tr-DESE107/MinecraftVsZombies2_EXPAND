@@ -6,7 +6,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Managers;
 using MVZ2.Options;
-using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
@@ -127,7 +127,7 @@ namespace MVZ2.Level
                 if (!IsPauseDisabled())
                 {
                     PauseGame();
-                    level.PlaySound(VanillaSoundID.pause);
+                    level.PlaySound(LogicSoundID.pause);
                     ShowPausedDialog();
                 }
             }
@@ -145,7 +145,7 @@ namespace MVZ2.Level
                 if (!IsPauseDisabled())
                 {
                     PauseGame();
-                    level.PlaySound(VanillaSoundID.pause);
+                    level.PlaySound(LogicSoundID.pause);
                     ShowOptionsDialog();
                 }
             }

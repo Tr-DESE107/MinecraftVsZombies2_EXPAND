@@ -8,7 +8,7 @@ using MukioI18n;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Saves;
-using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Scenes;
 using UnityEngine;
@@ -63,7 +63,7 @@ namespace MVZ2.Scenes
                     }
                     main.Scene.DisplayMainmenu();
                 }
-                main.MusicManager.Play(VanillaMusicID.mainmenu);
+                main.MusicManager.Play(LogicMusicID.mainmenu);
             }
             catch (Exception e)
             {

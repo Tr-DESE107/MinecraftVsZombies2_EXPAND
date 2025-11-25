@@ -14,11 +14,11 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Inputs;
@@ -48,9 +48,9 @@ namespace MVZ2.Map
             ui.SetDragRootVisible(false);
             ui.SetOptionsDialogActive(false);
             ui.SetRaycastBlockerActive(false);
-            if (!Main.SoundManager.IsPlaying(VanillaSoundID.travel))
+            if (!Main.SoundManager.IsPlaying(LogicSoundID.travel))
             {
-                Main.SoundManager.Play2D(VanillaSoundID.travel);
+                Main.SoundManager.Play2D(LogicSoundID.travel);
             }
             Main.Scene.SetPortalAlpha(1);
             Main.Scene.PortalFadeOut();
@@ -621,7 +621,7 @@ namespace MVZ2.Map
             ui.SetHintText(Main.LanguageManager._(HINT_TEXT_ENTERING_LEVEL));
             ui.SetRaycastBlockerActive(true);
             Main.MusicManager.Stop();
-            Main.SoundManager.Play2D(VanillaSoundID.spring);
+            Main.SoundManager.Play2D(LogicSoundID.spring);
             yield return new WaitForSeconds(1);
             var task = GotoLevelAsync(areaID, stageID);
             while (!task.IsCompleted)

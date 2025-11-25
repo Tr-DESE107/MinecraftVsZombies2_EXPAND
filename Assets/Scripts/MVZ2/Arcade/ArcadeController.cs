@@ -8,8 +8,8 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.Managers;
 using MVZ2.Saves;
 using MVZ2.Scenes;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Stats;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
@@ -27,8 +27,8 @@ namespace MVZ2.Arcade
             ui.DisplayPage(ArcadeUI.ArcadePage.Index);
             ui.SetAllInteractable(true);
             UpdateItems();
-            if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
-                Main.MusicManager.Play(VanillaMusicID.choosing);
+            if (!Main.MusicManager.IsPlaying(LogicMusicID.choosing))
+                Main.MusicManager.Play(LogicMusicID.choosing);
         }
         public void DisplayMinigames()
         {
@@ -66,12 +66,12 @@ namespace MVZ2.Arcade
                     DisplayPuzzles();
                     break;
             }
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private async void OnItemClickCallback(ArcadeUI.ArcadePage page, int index)
         {
             var items = page == ArcadeUI.ArcadePage.Puzzle ? puzzleItems : minigameItems;
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
 
             var arcadeID = items[index];
             var arcadeMeta = Main.ResourceManager.GetArcadeMeta(arcadeID);

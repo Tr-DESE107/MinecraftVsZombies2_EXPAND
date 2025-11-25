@@ -10,9 +10,9 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
@@ -89,7 +89,7 @@ namespace MVZ2.Level
             if (chosenBlueprints.Count > 0 && isChoosingBlueprints && InputManager.IsPointerDown(PointerTypes.MOUSE, MouseButtons.RIGHT) && !HasPanelFlags() && !Main.Scene.HasDialog() && !Controller.IsOpeningExtraScene())
             {
                 UnloadAllBlueprints();
-                Level.PlaySound(VanillaSoundID.tap);
+                Level.PlaySound(LogicSoundID.tap);
             }
         }
         public void ApplyChoose()
@@ -202,7 +202,7 @@ namespace MVZ2.Level
             LoadBlueprint(seedPackIndex, id, commandBlock);
 
             // 播放音效。
-            Level.PlaySound(VanillaSoundID.tap);
+            Level.PlaySound(LogicSoundID.tap);
         }
         public void UnchooseBlueprint(int index)
         {
@@ -213,7 +213,7 @@ namespace MVZ2.Level
             }
             UnloadBlueprint(index);
 
-            Level.PlaySound(VanillaSoundID.tap);
+            Level.PlaySound(LogicSoundID.tap);
             Controller.HideTooltip();
         }
 
@@ -833,7 +833,7 @@ namespace MVZ2.Level
             }).ToArray();
             chooseUI.ShowArtifactChoosePanel(viewDatas);
             AddPanelFlag(PanelFlags.Artifact);
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private void ChooseArtifact(int index)
         {
@@ -856,7 +856,7 @@ namespace MVZ2.Level
             SetChosenArtifact(choosingArtifactSlotIndex, isCancel ? null : id);
             Controller.HideTooltip();
             CloseArtifactChoosePanel();
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private void InheritArtifacts()
         {

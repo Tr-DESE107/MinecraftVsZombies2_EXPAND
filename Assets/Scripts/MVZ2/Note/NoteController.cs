@@ -5,8 +5,8 @@ using MVZ2.Map;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
-using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.Notes;
@@ -58,7 +58,7 @@ namespace MVZ2.Note
         private void OnNoteFlipClickCallback()
         {
             isFlipped = !isFlipped;
-            main.SoundManager.Play2D(VanillaSoundID.paper);
+            main.SoundManager.Play2D(LogicSoundID.paper);
             var sprRef = isFlipped ? definition.GetFlipNoteSprite() : definition.GetNoteSprite();
             ui.SetNoteSprite(main.GetFinalSprite(sprRef));
             ui.SetFlipAtLeft(isFlipped);

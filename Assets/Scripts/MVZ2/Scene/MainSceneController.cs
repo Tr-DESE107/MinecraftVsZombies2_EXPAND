@@ -23,8 +23,8 @@ using MVZ2.Store;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Game;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Saves;
@@ -114,7 +114,7 @@ namespace MVZ2.Scenes
             achievementHint.Show(achievements);
             if (achievements.Count() > 0)
             {
-                main.SoundManager.Play2D(VanillaSoundID.achievement);
+                main.SoundManager.Play2D(LogicSoundID.achievement);
             }
         }
         #endregion

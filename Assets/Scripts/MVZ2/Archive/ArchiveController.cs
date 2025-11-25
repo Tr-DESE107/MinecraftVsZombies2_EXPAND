@@ -8,9 +8,9 @@ using MVZ2.Managers;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
-using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
 using MVZ2Logic.Archive;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
@@ -27,8 +27,8 @@ namespace MVZ2.Archives
             base.Display();
             ui.DisplayPage(ArchiveUI.Page.Index);
             UpdateIndex();
-            if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
-                Main.MusicManager.Play(VanillaMusicID.choosing);
+            if (!Main.MusicManager.IsPlaying(LogicMusicID.choosing))
+                Main.MusicManager.Play(LogicMusicID.choosing);
         }
 
         #region 私有方法
@@ -243,8 +243,8 @@ namespace MVZ2.Archives
         }
         private void ReturnFromSimulation()
         {
-            if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
-                Main.MusicManager.Play(VanillaMusicID.choosing);
+            if (!Main.MusicManager.IsPlaying(LogicMusicID.choosing))
+                Main.MusicManager.Play(LogicMusicID.choosing);
             Main.MusicManager.StopFade();
             Main.MusicManager.SetVolume(1);
             ui.DisplayPage(ArchiveUI.Page.Details);
