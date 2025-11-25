@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-20 12:27+0800\n"
+"POT-Creation-Date: 2025-11-25 02:57+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1397,29 +1397,29 @@ msgid "已跳过对话\"{0}\""
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:277
+#: Scripts\MVZ2\Store\StoreController.cs:275
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:279
+#: Scripts\MVZ2\Store\StoreController.cs:277
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] ""
 msgstr[1] ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:281
+#: Scripts\MVZ2\Store\StoreController.cs:279
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:283
+#: Scripts\MVZ2\Store\StoreController.cs:281
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:285
+#: Scripts\MVZ2\Store\StoreController.cs:283
 msgid "{0}/{1}"
 msgstr ""
 
@@ -1733,17 +1733,17 @@ msgid "蓝图10"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐来源
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:214
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:212
 msgid "来源：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐原曲
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:216
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:214
 msgid "原曲：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐作者
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:218
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:216
 msgid "作者：{0}"
 msgstr ""
 
@@ -2687,27 +2687,27 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1281
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1287
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1285
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1291
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1287
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1293
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1289
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1295
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1291
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1297
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
@@ -2773,61 +2773,61 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:256
+#: Scripts\MVZ2\Archive\ArchiveController.cs:254
 msgid "<b>[{0}]</b> {1}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:258
+#: Scripts\MVZ2\Archive\ArchiveController.cs:256
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
 msgstr ""
 
 # 未解锁的小游戏关卡名
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:214
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:212
 msgid "未解锁"
 msgstr ""
 
 # 无尽模式的小游戏的连胜显示，{0}为最高连胜
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:216
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:214
 msgid ""
 "最高连胜：\n"
 "{0}"
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:843
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr ""
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:855
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr ""
@@ -5065,6 +5065,12 @@ msgstr ""
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "重新锁定游戏状态。"
+msgstr ""
+
+#. Description for command variant "mvz2:unlock list"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "打印所有当前存档目前解锁的游戏状态。"
 msgstr ""
 
 #. Description for command "mvz2:test"

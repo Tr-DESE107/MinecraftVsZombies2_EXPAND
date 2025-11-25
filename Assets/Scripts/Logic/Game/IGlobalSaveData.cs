@@ -16,6 +16,7 @@ namespace MVZ2Logic.Games
         NamespaceID[] GetUnlockedContraptions();
         NamespaceID[] GetUnlockedEnemies();
         NamespaceID[] GetUnlockedArtifacts();
+        NamespaceID[] GetAllUnlocks();
 
         ModSaveData GetModSaveData(string spaceName);
         T? GetModSaveData<T>(string spaceName);

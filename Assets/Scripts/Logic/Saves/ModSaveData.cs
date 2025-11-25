@@ -26,6 +26,10 @@ namespace MVZ2Logic.Saves
         {
             return unlocks.Contains(unlockID);
         }
+        public string[] GetUnlocks()
+        {
+            return unlocks.ToArray();
+        }
         #endregion
 
         #region 关卡难度记录

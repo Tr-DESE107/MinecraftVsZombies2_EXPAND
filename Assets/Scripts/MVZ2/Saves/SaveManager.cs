@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MVZ2.GameContent.Commands;
 using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2.OldSave;
+using MVZ2.OldSaves;
 using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
@@ -236,6 +238,18 @@ namespace MVZ2.Saves
         public NamespaceID[] GetUnlockedProducts()
         {
             return unlockedProductsCache.ToArray();
+        }
+        public NamespaceID[] GetAllUnlocks()
+        {
+            List<NamespaceID> results = new List<NamespaceID>();
+            foreach (var saveData in modSaveDatas)
+            {
+                foreach (var unlock in saveData.GetUnlocks())
+                {
+                    results.Add(new NamespaceID(saveData.Namespace, unlock));
+                }
+            }
+            return results.ToArray();
         }
 
         #endregion
