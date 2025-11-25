@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-25 02:57+0800\n"
+"POT-Creation-Date: 2025-11-26 09:39+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -521,12 +521,6 @@ msgid "错误"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AceOfDiamondsEvent.cs:41
-msgctxt "random_china.event_name"
-msgid "方片A"
-msgstr ""
-
-# 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:35
 msgctxt "random_china.event_name"
 msgid "神秘埃及"
@@ -551,9 +545,39 @@ msgid "地狱金属"
 msgstr ""
 
 # 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\IndependenceDayEvent.cs:37
+msgctxt "random_china.event_name"
+msgid "独立日"
+msgstr ""
+
+# 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\ObsidianPrisonEvent.cs:56
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfClubsEvent.cs:29
+msgctxt "random_china.event_name"
+msgid "梅花A"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfDiamondsEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "方片A"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfHeartsEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "红桃A"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "黑桃A"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -575,15 +599,39 @@ msgid "超级充能"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheHangedManEvent.cs:31
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:46
 msgctxt "random_china.event_name"
-msgid "倒吊人-XII"
+msgid "VIII-力量"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheTowerEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:32
 msgctxt "random_china.event_name"
-msgid "塔-XVI"
+msgid "IV-皇帝"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:32
+msgctxt "random_china.event_name"
+msgid "0-愚者"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHangedManEvent.cs:31
+msgctxt "random_china.event_name"
+msgid "XII-倒吊人"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:34
+msgctxt "random_china.event_name"
+msgid "XVII-星星"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheTowerEvent.cs:32
+msgctxt "random_china.event_name"
+msgid "XVI-塔"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -1733,17 +1781,17 @@ msgid "蓝图10"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐来源
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:212
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:211
 msgid "来源：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐原曲
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:214
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:213
 msgid "原曲：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐作者
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:216
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:215
 msgid "作者：{0}"
 msgstr ""
 
@@ -5070,7 +5118,7 @@ msgstr ""
 #. Description for command variant "mvz2:unlock list"
 #: Commands meta file
 msgctxt "command_variant.description"
-msgid "打印所有当前存档目前解锁的游戏状态。"
+msgid "打印当前存档所有目前解锁的游戏状态。"
 msgstr ""
 
 #. Description for command "mvz2:test"

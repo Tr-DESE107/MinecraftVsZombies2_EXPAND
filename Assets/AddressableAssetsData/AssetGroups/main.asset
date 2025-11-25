@@ -4229,6 +4229,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b26242804d0b9045b70e9e7346391a9
+    m_Address: mvz2:time_warp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b26f4e24b68dee49b2c8d3592d95d91
     m_Address: mvz2:entity/boss/seija_camera
     m_ReadOnly: 0

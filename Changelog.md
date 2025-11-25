@@ -7,6 +7,7 @@
 - Added blueprint hover descriptions in levels for mobile devices.
 - Added hover descriptions for some options.
 - Added "Lightning" material, used for Lightning Orb.
+- Added 8 new Random China events.
 
 ## Modified
 

@@ -9,6 +9,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -17,6 +18,7 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using static UnityEditor.UIElements.ToolbarMenu;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -133,6 +135,22 @@ namespace MVZ2.GameContent.Enemies
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z) + FLY_HEIGHT;
             return new Vector3(x, y, z);
+        }
+
+        public static Entity? SpawnAtGrid(LawnGrid grid, int variant)
+        {
+            var column = grid.Column;
+            var lane = grid.Lane;
+            var pos = grid.GetEntityPosition();
+            pos.y += UndeadFlyingObject.START_HEIGHT;
+
+            var level = grid.Level;
+            return level.Spawn(VanillaEnemyID.ufo, pos, null)?.Let(e =>
+            {
+                e.SetVariant(variant);
+                UndeadFlyingObject.SetTargetGridX(e, column);
+                UndeadFlyingObject.SetTargetGridY(e, lane);
+            });
         }
 
         #region 属性

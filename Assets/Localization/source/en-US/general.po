@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-25 02:57+0800\n"
-"PO-Revision-Date: 2025-11-25 15:02+0800\n"
+"POT-Creation-Date: 2025-11-26 09:39+0800\n"
+"PO-Revision-Date: 2025-11-26 09:40+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -576,12 +576,6 @@ msgid "错误"
 msgstr "Error"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AceOfDiamondsEvent.cs:41
-msgctxt "random_china.event_name"
-msgid "方片A"
-msgstr "Ace of Diamonds"
-
-# 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:35
 msgctxt "random_china.event_name"
 msgid "神秘埃及"
@@ -606,10 +600,39 @@ msgid "地狱金属"
 msgstr "Hell Metal"
 
 # 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\IndependenceDayEvent.cs:37
+msgctxt "random_china.event_name"
+msgid "独立日"
+msgstr "Independence Day"
+
+# 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\ObsidianPrisonEvent.cs:56
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
 msgstr "Obsidian Prisons"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfClubsEvent.cs:29
+msgctxt "random_china.event_name"
+msgid "梅花A"
+msgstr "Ace of Clubs"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfDiamondsEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "方片A"
+msgstr "Ace of Diamonds"
+
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfHeartsEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "红桃A"
+msgstr "Ace of Hearts"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "黑桃A"
+msgstr "Ace of Spades"
 
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\RaceCarsEvent.cs:34
@@ -630,16 +653,40 @@ msgid "超级充能"
 msgstr "Super Recharge"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheHangedManEvent.cs:31
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:46
 msgctxt "random_china.event_name"
-msgid "倒吊人-XII"
-msgstr "The Hanged Man - XII"
+msgid "VIII-力量"
+msgstr "VII - Strength"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheTowerEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:32
 msgctxt "random_china.event_name"
-msgid "塔-XVI"
-msgstr "The Tower - XVI"
+msgid "IV-皇帝"
+msgstr "IV - The Emperor"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:32
+msgctxt "random_china.event_name"
+msgid "0-愚者"
+msgstr "0 - The Fool"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHangedManEvent.cs:31
+msgctxt "random_china.event_name"
+msgid "XII-倒吊人"
+msgstr "XII - The Hanged Man"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:34
+msgctxt "random_china.event_name"
+msgid "XVII-星星"
+msgstr "XVII - The Star"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheTowerEvent.cs:32
+msgctxt "random_china.event_name"
+msgid "XVI-塔"
+msgstr "XVI - The Tower"
 
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\WorldwideCelebrationEvent.cs:30
@@ -1679,15 +1726,15 @@ msgctxt "hotkey.name"
 msgid "蓝图10"
 msgstr "Blueprint 10"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:212
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:211
 msgid "来源：{0}"
 msgstr "Source: {0}"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:214
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:213
 msgid "原曲：{0}"
 msgstr "Origin: {0}"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:216
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:215
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
@@ -5362,7 +5409,7 @@ msgstr "Relocks a game state."
 #. Description for command variant "mvz2:unlock list"
 #: Commands meta file
 msgctxt "command_variant.description"
-msgid "打印所有当前存档目前解锁的游戏状态。"
+msgid "打印当前存档所有目前解锁的游戏状态。"
 msgstr "Prints all currently unlocked game states of the current user."
 
 #. Description for command "mvz2:test"
@@ -5412,6 +5459,41 @@ msgstr "NORMAL"
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
+
+# 随机瓷器事件名称
+#~ msgctxt "random_china.event_name"
+#~ msgid "皇帝-V"
+#~ msgstr "The Emperor - V"
+
+# 随机瓷器事件名称
+#~ msgctxt "random_china.event_name"
+#~ msgid "愚者-0"
+#~ msgstr "The Fool - 0"
+
+# 随机瓷器事件名称
+#~ msgctxt "random_china.event_name"
+#~ msgid "倒吊人-XII"
+#~ msgstr "The Hanged Man - XII"
+
+# 随机瓷器事件名称
+#~ msgctxt "random_china.event_name"
+#~ msgid "星星-XVII"
+#~ msgstr "The Star - XVII"
+
+# 随机瓷器事件名称
+#~ msgctxt "random_china.event_name"
+#~ msgid "力量-VIII"
+#~ msgstr "Strength - VIII"
+
+# 随机瓷器事件名称
+#~ msgctxt "random_china.event_name"
+#~ msgid "塔-XVI"
+#~ msgstr "The Tower - XVI"
+
+# 随机瓷器事件名称
+#~ msgctxt "random_china.event_name"
+#~ msgid "皇帝-VIII"
+#~ msgstr "The Strength - VIII"
 
 #~ msgctxt "staff_name"
 #~ msgid "一个发射器"

@@ -29,6 +29,6 @@ namespace MVZ2.GameContent.RandomChinaEvents
             }
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
-        public const string NAME = "倒吊人-XII";
+        public const string NAME = "XII-倒吊人";
     }
 }

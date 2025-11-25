@@ -8,13 +8,15 @@ namespace MVZ2.Vanilla
 {
     public abstract class RandomChinaEventDefinition : Definition
     {
-        public RandomChinaEventDefinition(string nsp, string path, string name) : base(nsp, path)
+        public RandomChinaEventDefinition(string nsp, string path, string name, float weight = 1) : base(nsp, path)
         {
             Text = name;
+            Weight = weight;
         }
         public abstract void Run(Entity contraption, RandomGenerator rng);
 
         public override string GetDefinitionType() => VanillaDefinitionTypes.RANDOM_CHINA_EVENT;
         public string Text { get; set; }
+        public float Weight { get; set; }
     }
 }

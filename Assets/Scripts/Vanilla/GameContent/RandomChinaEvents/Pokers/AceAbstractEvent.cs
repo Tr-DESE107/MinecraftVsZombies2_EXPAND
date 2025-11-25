@@ -10,10 +10,9 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.RandomChinaEvents
 {
-    [RandomChinaEventDefinition(VanillaRandomChinaEventNames.aceOfDiamonds)]
-    public class AceOfDiamondsEvent : RandomChinaEventDefinition
+    public abstract class AceAbstractEvent : RandomChinaEventDefinition
     {
-        public AceOfDiamondsEvent(string nsp, string path) : base(nsp, path, NAME)
+        public AceAbstractEvent(string nsp, string path, string name, float weight = 1) : base(nsp, path, name, weight)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -23,22 +22,15 @@ namespace MVZ2.GameContent.RandomChinaEvents
             {
                 if (pickup.IsCollected() || pickup.IsImportantPickup())
                     continue;
-                contraption.Spawn(VanillaPickupID.emerald, pickup.Position)?.Let(e =>
-                {
-                    e.Velocity = Vector3.up * 2f;
-                });
+                Transform(pickup, contraption);
                 pickup.Remove();
             }
             foreach (var enemy in level.GetEntities(EntityTypes.ENEMY))
             {
-                contraption.Spawn(VanillaPickupID.emerald, enemy.Position)?.Let(e =>
-                {
-                    e.Velocity = Vector3.up * 2f;
-                });
+                Transform(enemy, contraption);
                 enemy.Remove();
             }
         }
-        [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
-        public const string NAME = "方片A";
+        protected abstract void Transform(Entity target, Entity china);
     }
 }

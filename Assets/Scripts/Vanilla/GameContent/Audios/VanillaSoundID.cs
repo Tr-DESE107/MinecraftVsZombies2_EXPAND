@@ -207,6 +207,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID thump = Get("thump");
         public readonly static NamespaceID thunder = Get("thunder");
         public readonly static NamespaceID throwSound = Get("throw");
+        public readonly static NamespaceID timeWarp = Get("time_warp");
         public readonly static NamespaceID tornado = Get("tornado");
         public readonly static NamespaceID touhouDeath = Get("touhou_death");
         public readonly static NamespaceID tractorBeam = Get("tractor_beam");
