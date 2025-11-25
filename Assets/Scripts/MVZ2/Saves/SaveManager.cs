@@ -4,11 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MVZ2.GameContent.Commands;
 using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2.OldSave;
-using MVZ2.OldSaves;
 using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
@@ -181,6 +179,15 @@ namespace MVZ2.Saves
             if (modSaveData == null)
                 return false;
             return modSaveData.IsUnlocked(unlockId.Path);
+        }
+        public bool IsGroupUnlocked(NamespaceID groupID)
+        {
+            if (!NamespaceID.IsValid(groupID))
+                return false;
+            var meta = Main.ResourceManager.GetUnlockGroupMeta(groupID);
+            if (meta == null || meta.Conditions == null)
+                return false;
+            return meta.Conditions.MeetsConditions(this);
         }
         public NamespaceID[] GetLevelDifficultyRecords(NamespaceID stageID)
         {

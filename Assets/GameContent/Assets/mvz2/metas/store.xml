@@ -289,7 +289,7 @@
         </product>
         <product id="cake" sprite="mvz2:products/cake">
             <unlock>
-                <condition required="mvz2:level.ship_11" />
+                <condition requiredGroups="mvz2:game_completed" />
             </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">蛋糕！在你完成所有内容后，来大吃一顿吧！</talk>

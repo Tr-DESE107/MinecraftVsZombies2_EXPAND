@@ -2619,6 +2619,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38a421cd9039dda44a63f44fef5540a9
+    m_Address: mvz2:unlocks
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38f39658893e90548a7455a7585c6c63
     m_Address: mvz2:mausoleum_map
     m_ReadOnly: 0

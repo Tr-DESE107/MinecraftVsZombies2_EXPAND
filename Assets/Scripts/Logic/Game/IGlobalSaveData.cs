@@ -8,6 +8,7 @@ namespace MVZ2Logic.Games
     public interface IGlobalSaveData
     {
         bool IsUnlocked(NamespaceID unlockID);
+        bool IsGroupUnlocked(NamespaceID unlockID);
         void Unlock(NamespaceID unlockID);
         void Relock(NamespaceID unlockID);
         bool IsContraptionUnlocked(NamespaceID contraptionID);
