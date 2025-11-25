@@ -1231,7 +1231,7 @@
         </contraption>
         <contraption id="command_block" name="命令方块" tooltip="模仿一个器械">
             <unlock>
-                <condition required="mvz2:level.mausoleum_5" />
+                <condition requiredGroups="mvz2:command_block" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />

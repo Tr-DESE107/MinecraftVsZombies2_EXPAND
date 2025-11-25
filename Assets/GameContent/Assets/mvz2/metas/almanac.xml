@@ -2612,7 +2612,7 @@
         <group id="mvz2:important" name="重要物品" order="600">
             <entry id="mvz2:ender_chest" name="末影箱">
                 <unlock>
-                    <condition required="mvz2:level.dream_5" />
+                    <condition requiredGroups="mvz2:store" />
                 </unlock>
                 <picture model="mvz2:entity.ender_chest" />
                 <header>

@@ -57,10 +57,10 @@
         <talks>
             <talk type="start" value="mvz2:starshard_tutorial">
                 <conditions>
-                    <condition requiredNot="mvz2:starshard" />
+                    <condition requiredNotGroups="mvz2:starshard" />
                 </conditions>
                 <repeat>
-                    <condition requiredNot="mvz2:starshard" />
+                    <condition requiredNotGroups="mvz2:starshard" />
                 </repeat>
             </talk>
             <talk type="end" value="mvz2:halloween_2_over" />
@@ -165,15 +165,15 @@
         <talks>
             <talk type="start" value="mvz2:trigger_tutorial">
                 <conditions>
-                    <condition requiredNot="mvz2:trigger" />
+                    <condition requiredNotGroups="mvz2:trigger" />
                 </conditions>
                 <repeat>
-                    <condition requiredNot="mvz2:trigger" />
+                    <condition requiredNotGroups="mvz2:trigger" />
                 </repeat>
             </talk>
             <talk type="start" value="mvz2:halloween_7">
                 <conditions>
-                    <condition required="mvz2:trigger" />
+                    <condition requiredGroups="mvz2:trigger" />
                 </conditions>
             </talk>
             <talk type="end" value="mvz2:halloween_7_over" />
@@ -200,10 +200,10 @@
         <talks>
             <talk type="start" value="mvz2:seventh_slot">
                 <conditions>
-                    <condition requiredNot="mvz2:blueprint_slot.1 mvz2:level.dream_5" />
+                    <condition requiredNot="mvz2:blueprint_slot.1" requiredNotGroups="mvz2:store" />
                 </conditions>
                 <repeat>
-                    <condition requiredNot="mvz2:blueprint_slot.1 mvz2:level.dream_5" />
+                    <condition requiredNot="mvz2:blueprint_slot.1" requiredNotGroups="mvz2:store" />
                 </repeat>
             </talk>
             <talk type="end" value="mvz2:halloween_8_over" />

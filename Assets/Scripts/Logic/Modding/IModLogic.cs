@@ -18,5 +18,6 @@ namespace MVZ2Logic.Modding
         Definition[] GetDefinitions();
         ModSaveData CreateSaveData();
         ModSaveData LoadSaveData(string json);
+        void PostAllSaveDataLoaded();
     }
 }

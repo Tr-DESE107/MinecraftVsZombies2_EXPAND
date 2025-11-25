@@ -6,8 +6,8 @@ using System.IO;
 using System.Linq;
 using MVZ2.IO;
 using MVZ2.Managers;
+using MVZ2.Modding;
 using MVZ2.OldSave;
-using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Difficulties;
@@ -75,12 +75,16 @@ namespace MVZ2.Saves
         public void LoadUserData(int index)
         {
             modSaveDatas.Clear();
-            foreach (var mod in Main.ModManager.GetAllModInfos())
+            var modInfos = Main.ModManager.GetAllModInfos();
+            foreach (var mod in modInfos)
             {
-                LoadModData(index, mod.Namespace);
+                LoadModData(index, mod);
             }
             EvaluateUnlocks(true);
-            CheckUserDataFix();
+            foreach (var mod in modInfos)
+            {
+                PostAllModDataLoaded(index, mod);
+            }
 
             var userName = GetUserName(index) ?? string.Empty;
             var param = new LogicCallbacks.PostUserLoadParams()
@@ -135,12 +139,11 @@ namespace MVZ2.Saves
                 status.State = SaveDataState.FullCorrupted;
             }
         }
-        private void LoadModData(int userIndex, string spaceName)
+        private void LoadModData(int userIndex, ModInfo? modInfo)
         {
-            var path = GetUserModSaveDataPath(userIndex, spaceName);
-            var modInfo = Main.ModManager.GetModInfo(spaceName);
             if (modInfo == null || modInfo.Logic == null)
                 return;
+            var path = GetUserModSaveDataPath(userIndex, modInfo.Namespace);
             ModSaveData saveData;
             if (!File.Exists(path))
             {
@@ -152,6 +155,12 @@ namespace MVZ2.Saves
                 saveData = modInfo.Logic.LoadSaveData(saveDataJson);
             }
             modSaveDatas.Add(saveData);
+        }
+        private void PostAllModDataLoaded(int userIndex, ModInfo? modInfo)
+        {
+            if (modInfo == null || modInfo.Logic == null)
+                return;
+            modInfo.Logic.PostAllSaveDataLoaded();
         }
         #endregion
 
@@ -503,14 +512,6 @@ namespace MVZ2.Saves
             }
             unlockedAchievementsCache.Clear();
             unlockedAchievementsCache.AddRange(newAchievements);
-        }
-        private void CheckUserDataFix()
-        {
-            // 通过梦境世界第7关，并且没有通过第11关。
-            if (IsUnlocked(VanillaUnlockID.dream7) && !IsUnlocked(VanillaUnlockID.dream11))
-            {
-                Unlock(VanillaUnlockID.dreamIsNightmare);
-            }
         }
         #endregion
 

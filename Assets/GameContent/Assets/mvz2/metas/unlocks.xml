@@ -1,4 +1,54 @@
 <unlocks>
+    <group id="starshard">
+        <conditions>
+            <condition required="mvz2:starshard" />
+        </conditions>
+    </group>
+    <group id="almanac">
+        <conditions>
+            <condition required="mvz2:level.halloween_5" />
+        </conditions>
+    </group>
+    <group id="trigger">
+        <conditions>
+            <condition required="mvz2:trigger" />
+        </conditions>
+    </group>
+    <group id="halloween_finished">
+        <conditions>
+            <condition required="mvz2:level.halloween_11" />
+        </conditions>
+    </group>
+    <group id="entered_dream">
+        <conditions>
+            <condition required="mvz2:entered_dream" />
+        </conditions>
+    </group>
+    <group id="store">
+        <conditions>
+            <condition required="mvz2:level.dream_5" />
+        </conditions>
+    </group>
+    <group id="gensokyo">
+        <conditions>
+            <condition required="mvz2:level.dream_11" />
+        </conditions>
+    </group>
+    <group id="music_room">
+        <conditions>
+            <condition required="mvz2:level.castle_5" />
+        </conditions>
+    </group>
+    <group id="command_block">
+        <conditions>
+            <condition required="mvz2:level.mausoleum_5" />
+        </conditions>
+    </group>
+    <group id="arcade">
+        <conditions>
+            <condition required="mvz2:level.mausoleum_6" />
+        </conditions>
+    </group>
     <group id="game_completed">
         <conditions>
             <condition required="mvz2:level.ship_11" />

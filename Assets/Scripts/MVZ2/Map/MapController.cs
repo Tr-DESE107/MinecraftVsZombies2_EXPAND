@@ -14,9 +14,7 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
-using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
-using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
@@ -27,6 +25,7 @@ using MVZ2Logic.Localization;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
+using MVZ2Logic.Unlocks;
 using PVZEngine;
 using PVZEngine.Definitions;
 using UnityEngine;
@@ -163,7 +162,7 @@ namespace MVZ2.Map
             UpdateModelElements(model);
             UpdateModelEndlessFlags(model);
             SetCameraBackgroundColor(mapPreset.backgroundColor);
-            model.SetMapKeyArrowVisible(!Main.SaveManager.IsUnlocked(VanillaUnlockID.enteredDream));
+            model.SetMapKeyArrowVisible(!Main.SaveManager.IsUnlocked(LogicUnlockGroupID.enteredDream));
         }
         #endregion
 
@@ -271,7 +270,7 @@ namespace MVZ2.Map
         private async void OnMapKeyClickCallback()
         {
             ui.SetRaycastBlockerActive(true);
-            if (!Main.SaveManager.IsUnlocked(VanillaUnlockID.enteredDream) && MapID == VanillaMapID.halloween)
+            if (!Main.SaveManager.IsUnlocked(LogicUnlockGroupID.enteredDream) && MapID == VanillaMapID.halloween)
             {
                 await talkController.SimpleStartTalkAsync(VanillaTalkID.halloweenFinal, 0, 0);
             }
@@ -290,14 +289,7 @@ namespace MVZ2.Map
         }
         private void OnMapNightmareBoxClickCallback()
         {
-            if (Main.SaveManager.DreamIsNightmare())
-            {
-                Main.SaveManager.Relock(VanillaUnlockID.dreamIsNightmare);
-            }
-            else
-            {
-                Main.SaveManager.Unlock(VanillaUnlockID.dreamIsNightmare);
-            }
+            Main.SaveManager.SetDreamIsNightmare(!Main.SaveManager.DreamIsNightmare());
             ReloadMap();
         }
         private void OnMapPinClickCallback(NamespaceID id)
@@ -674,7 +666,7 @@ namespace MVZ2.Map
             model.SetEndlessButtonColor(endlessColor);
             model.SetEndlessButtonText("\u221E");
 
-            model.SetMapKeyActive(Main.SaveManager.IsUnlocked(VanillaUnlockID.halloween11));
+            model.SetMapKeyActive(Main.SaveManager.IsUnlocked(LogicUnlockGroupID.halloweenFinished));
 
 
             if (unclearedMapButtonIndex >= 0)

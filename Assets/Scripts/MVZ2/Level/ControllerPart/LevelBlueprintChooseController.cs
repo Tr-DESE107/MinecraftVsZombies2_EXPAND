@@ -10,7 +10,6 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Blueprints;

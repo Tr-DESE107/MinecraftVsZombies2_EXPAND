@@ -12,6 +12,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -240,7 +241,7 @@ namespace MVZ2.GameContent.HeldItems
 
         private bool IsTriggerSwapped()
         {
-            return Global.Saves.IsUnlocked(VanillaUnlockID.trigger) && Global.Options.IsTriggerSwapped();
+            return Global.Saves.IsTriggerUnlocked() && Global.Options.IsTriggerSwapped();
         }
         private bool IsValidPointer(PointerInteractionData pointerParams)
         {

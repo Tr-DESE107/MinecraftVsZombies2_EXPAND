@@ -6,10 +6,10 @@ using MukioI18n;
 using MVZ2.Cameras;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Options;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using UnityEngine;
 

@@ -106,6 +106,63 @@ namespace MVZ2Logic.Saves
         {
             return save.IsUnlocked(LogicUnlockID.GetLevelClearUnlock(stageID));
         }
+        #region 解锁
+        public static bool IsAlmanacUnlocked(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.almanac);
+        }
+        public static bool IsStoreUnlocked(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.store);
+        }
+        public static bool IsMusicRoomUnlocked(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.musicRoom);
+        }
+        public static bool IsArcadeUnlocked(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.arcade);
+        }
+        public static bool IsGensokyoUnlocked(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.gensokyo);
+        }
+        public static bool IsTriggerUnlocked(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.trigger);
+        }
+        public static bool IsStarshardUnlocked(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.starshard);
+        }
+        public static bool IsCommandBlockUnlocked(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.commandBlock);
+        }
+        /// <summary>
+        /// 梦境世界是否是梦魇状态。
+        /// </summary>
+        /// <param name="save"></param>
+        /// <returns></returns>
+        public static bool DreamIsNightmare(this IGlobalSaveData save)
+        {
+            // 玩家设置。
+            return save.IsUnlocked(LogicUnlockID.dreamIsNightmare);
+        }
+        public static void SetDreamIsNightmare(this IGlobalSaveData save, bool value)
+        {
+            if (value)
+            {
+                save.Unlock(LogicUnlockID.dreamIsNightmare);
+            }
+            else
+            {
+                save.Relock(LogicUnlockID.dreamIsNightmare);
+            }
+        }
+        #endregion
+
+        #region 解锁判断
         public static bool IsValidAndLocked(this IGlobalSaveData save, NamespaceID? unlockId)
         {
             return NamespaceID.IsValid(unlockId) && !save.IsUnlocked(unlockId);
@@ -124,5 +181,6 @@ namespace MVZ2Logic.Saves
                 return true;
             return unlocks.All(u => save.IsInvalidOrUnlocked(u));
         }
+        #endregion
     }
 }

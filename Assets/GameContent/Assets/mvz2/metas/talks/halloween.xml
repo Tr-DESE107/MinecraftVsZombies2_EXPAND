@@ -370,7 +370,7 @@
   <group id="trigger_tutorial" tags="mvz2:halloween;mvz2:tutorial">
     <archive name="触发教程" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp">
       <unlock>
-        <condition required="mvz2:trigger" />
+        <condition requiredGroups="mvz2:trigger" />
       </unlock>
     </archive>
     <section onSkip="action start_trigger_tutorial;end">

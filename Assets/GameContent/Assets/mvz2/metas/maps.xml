@@ -51,7 +51,7 @@
         <talks>
             <talk id="mvz2:entered_gensokyo">
                 <conditions>
-                    <condition required="mvz2:level.dream_11" requiredNot="mvz2:entered_gensokyo" />
+                    <condition requiredGroups="mvz2:gensokyo" requiredNot="mvz2:entered_gensokyo" />
                 </conditions>
             </talk>
             <talk id="mvz2:exited_kourindou">
