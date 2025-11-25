@@ -288,6 +288,9 @@
             </stages>
         </product>
         <product id="cake" sprite="mvz2:products/cake">
+            <unlock>
+                <condition required="mvz2:level.ship_11" />
+            </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">蛋糕！在你完成所有内容后，来大吃一顿吧！</talk>
                 <talk character="mvz2:tokiko">蛋糕！在一切都结束之后，来大吃一顿吧！</talk>
