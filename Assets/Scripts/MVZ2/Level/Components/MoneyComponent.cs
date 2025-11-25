@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Level.Components;
@@ -66,6 +65,6 @@ namespace MVZ2.Level.Components
         }
         // ���������
         private Dictionary<Entity, int> delayedMoneyEntities = new Dictionary<Entity, int>();
-        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "money");
+        public static readonly NamespaceID componentID = new NamespaceID(Global.BuiltinNamespace, "money");
     }
 }

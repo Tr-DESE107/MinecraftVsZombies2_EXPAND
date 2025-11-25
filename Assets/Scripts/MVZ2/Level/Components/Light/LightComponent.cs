@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Vanilla;
+using MVZ2Logic;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -101,7 +101,7 @@ namespace MVZ2.Level.Components
 
         #region 属性字段
         private LightSourceUpdateList lightSources;
-        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "lighting");
+        public static readonly NamespaceID componentID = new NamespaceID(Global.BuiltinNamespace, "lighting");
         #endregion
     }
     [Serializable]

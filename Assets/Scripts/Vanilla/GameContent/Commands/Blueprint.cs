@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Commands
             if (mode == "set")
             {
                 var idParam = parameters[2];
-                var id = NamespaceID.Parse(idParam, Global.Game.DefaultNamespace);
+                var id = NamespaceID.Parse(idParam, Global.BuiltinNamespace);
 
                 if (!level.IsConveyorMode())
                 {

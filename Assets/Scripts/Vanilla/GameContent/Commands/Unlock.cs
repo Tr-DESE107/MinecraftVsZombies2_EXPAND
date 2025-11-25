@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Commands
 
             if (parameters[0] == "add")
             {
-                var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
+                var id = NamespaceID.Parse(parameters[1], Global.BuiltinNamespace);
                 if (!saves.IsUnlocked(id))
                 {
                     saves.Unlock(id);
@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Commands
             }
             else if (parameters[0] == "remove")
             {
-                var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
+                var id = NamespaceID.Parse(parameters[1], Global.BuiltinNamespace);
                 if (saves.IsUnlocked(id))
                 {
                     saves.Relock(id);

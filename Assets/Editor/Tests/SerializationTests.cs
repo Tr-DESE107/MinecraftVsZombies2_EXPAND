@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MVZ2Logic;
 using MVZ2Logic.Serialization;
 using NUnit.Framework;
 using PVZEngine;
@@ -14,7 +15,7 @@ namespace MVZ2.EditorTests
         [Test]
         public static void RNGTest()
         {
-            SerializeHelper.init("mvz2");
+            SerializeHelper.init(Global.BuiltinNamespace);
 
             var rng = new RandomGenerator(1234);
 

@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Commands
             if (level == null)
                 return;
 
-            var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
+            var id = NamespaceID.Parse(parameters[1], Global.BuiltinNamespace);
 
             float x = level.GetEntityColumnX(Mathf.FloorToInt(level.GetMaxColumnCount() * 0.5f));
             float z = level.GetEntityLaneZ(Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f));

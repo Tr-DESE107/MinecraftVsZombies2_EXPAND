@@ -15,10 +15,6 @@ namespace MVZ2
     {
         void Start()
         {
-            var levelEngineAssembly = typeof(LevelEngine).Assembly;
-            var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
-            PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
-            PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
             ModManager.OnRegisterMods += RegisterMod;
             Addressables.LoadSceneAsync("Main", LoadSceneMode.Single);
         }

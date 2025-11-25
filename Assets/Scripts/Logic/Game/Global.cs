@@ -17,9 +17,12 @@ namespace MVZ2Logic
             Music = param.music;
             GUI = param.gui;
             Scene = param.scene;
-            Game = param.game;
             Localization = param.localization;
             Debugs = param.debug;
+        }
+        public static void InitGame(IGlobalGame game)
+        {
+            Game = game;
         }
         public static IGlobalModels Models { get; private set; } = null!;
         public static IGlobalAlmanac Almanac { get; private set; } = null!;
@@ -37,7 +40,6 @@ namespace MVZ2Logic
     }
     public struct GlobalParams
     {
-        public IGlobalGame game;
         public IGlobalModels models;
         public IGlobalAlmanac almanac;
         public IGlobalSaveData saveData;

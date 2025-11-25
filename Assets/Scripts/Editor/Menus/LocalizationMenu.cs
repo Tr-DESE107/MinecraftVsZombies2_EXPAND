@@ -7,6 +7,7 @@ using MVZ2.Localization;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
+using MVZ2Logic;
 using MVZ2Logic.Localization;
 using Newtonsoft.Json;
 using PVZEngine;
@@ -37,7 +38,7 @@ namespace MVZ2.Editor
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
 
-            var spaceName = "mvz2";
+            var spaceName = Global.BuiltinNamespace;
 
             var almanacDocument = LoadMetaXmlDocument(spaceName, "almanac.xml");
             var entitiesDocument = LoadMetaXmlDocument(spaceName, "entities.xml");
@@ -159,7 +160,7 @@ namespace MVZ2.Editor
             TranslateMsgAttributeFinder.FindAll(potGenerator);
 
             // 统计
-            var spaceName = "mvz2";
+            var spaceName = Global.BuiltinNamespace;
             // 关卡
             var stageDocument = LoadMetaXmlDocument(spaceName, "stages.xml");
             var stageList = StageMetaList.FromXmlNode(stageDocument["stages"], spaceName);
@@ -302,7 +303,7 @@ namespace MVZ2.Editor
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
 
-            var spaceName = "mvz2";
+            var spaceName = Global.BuiltinNamespace;
 
             var talkDir = Path.Combine(GetMetaDirectory(spaceName), "talks");
             foreach (var filePath in Directory.GetFiles(talkDir, "*.xml", SearchOption.TopDirectoryOnly))

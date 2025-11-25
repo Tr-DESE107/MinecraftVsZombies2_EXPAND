@@ -14,10 +14,6 @@ namespace MVZ2.Tests
     {
         public async Task Init()
         {
-            var levelEngineAssembly = typeof(LevelEngine).Assembly;
-            var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
-            PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
-            PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
             ModManager.OnRegisterMods += RegisterMod;
 
             mainGame.SetActive(true);

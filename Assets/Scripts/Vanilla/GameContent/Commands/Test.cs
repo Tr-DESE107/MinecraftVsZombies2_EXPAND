@@ -29,12 +29,12 @@ namespace MVZ2.GameContent.Commands
 
             if (parameters[0] == "armor")
             {
-                var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
+                var id = NamespaceID.Parse(parameters[1], Global.BuiltinNamespace);
                 SpawnArmorEnemies(level, id, LogicArmorSlots.main);
             }
             else if (parameters[0] == "shield")
             {
-                var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
+                var id = NamespaceID.Parse(parameters[1], Global.BuiltinNamespace);
                 SpawnArmorEnemies(level, id, LogicArmorSlots.shield);
             }
             else if (parameters[0] == "paratroops")

@@ -2,7 +2,6 @@
 
 using System;
 using System.Linq;
-using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
@@ -124,7 +123,7 @@ namespace MVZ2.Level.Components
         public string[] AdviceArgs { get; private set; } = Array.Empty<string>();
         public int AdvicePriority { get; private set; }
         public int AdviceTimeout { get; private set; }
-        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "advice");
+        public static readonly NamespaceID componentID = new NamespaceID(Global.BuiltinNamespace, "advice");
     }
     [Serializable]
     public class SerializableAdviceComponent : ISerializableLevelComponent

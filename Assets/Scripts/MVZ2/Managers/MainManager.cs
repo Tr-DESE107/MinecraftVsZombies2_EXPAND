@@ -11,6 +11,7 @@ using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Collisions;
 using MVZ2.Cursors;
+using MVZ2.GameContent.Effects;
 using MVZ2.GlobalGames;
 using MVZ2.IO;
 using MVZ2.Level;
@@ -23,9 +24,11 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
 using MVZ2Logic;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Resources;
 using MVZ2Logic.Serialization;
 using PVZEngine;
+using PVZEngine.Level;
 using UnityEditor;
 using UnityEngine;
 
@@ -203,7 +206,14 @@ namespace MVZ2.Managers
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
             Input.simulateMouseWithTouches = false;
+
             Game = new GlobalGame(this);
+            Global.InitGame(Game);
+
+            var levelEngineAssembly = typeof(LevelEngine).Assembly;
+            var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
+            PropertyMapper.InitPropertyMaps(BuiltinNamespace, levelEngineAssembly.GetTypes());
+            PropertyMapper.InitPropertyMaps(BuiltinNamespace, logicAssembly.GetTypes());
 
             Global.Init(new GlobalParams()
             {
@@ -216,7 +226,6 @@ namespace MVZ2.Managers
                 music = MusicManager,
                 gui = new GlobalGUI(this),
                 scene = Scene,
-                game = Game,
                 localization = LanguageManager,
                 debug = DebugManager
             });
@@ -354,6 +363,7 @@ namespace MVZ2.Managers
 
         private Task? initTask;
         private TaskPipeline? loadPipeline;
+
         [SerializeField]
         private string builtinNamespace = "mvz2";
 #if UNITY_EDITOR
