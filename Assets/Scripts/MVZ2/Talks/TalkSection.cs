@@ -13,14 +13,16 @@ namespace MVZ2.TalkData
         public string archiveText = string.Empty;
         public bool canAutoSkip;
         public TalkScript[] startScripts;
+        public TalkScript[]? autoSkipScripts;
         public TalkScript[] skipScripts;
         public TalkCharacter[] characters;
         public TalkSentence[] sentences;
 
-        private TalkSection(TalkScript[] startScripts, TalkScript[] skipScripts, TalkCharacter[] characters, TalkSentence[] sentences)
+        private TalkSection(TalkScript[] startScripts, TalkScript[]? autoSkipScripts, TalkScript[] skipScripts, TalkCharacter[] characters, TalkSentence[] sentences)
         {
             this.startScripts = startScripts;
             this.skipScripts = skipScripts;
+            this.autoSkipScripts = autoSkipScripts;
             this.characters = characters;
             this.sentences = sentences;
         }
@@ -30,6 +32,7 @@ namespace MVZ2.TalkData
             XmlNode node = document.CreateElement("section");
             node.CreateAttribute("canAutoSkip", canAutoSkip.ToString());
             node.CreateAttribute("onStart", string.Join(";", startScripts.Where(s => s != null).Select(s => s.ToString())));
+            node.CreateAttribute("onAutoSkip", string.Join(";", autoSkipScripts.Where(s => s != null).Select(s => s.ToString())));
             node.CreateAttribute("onSkip", string.Join(";", skipScripts.Where(s => s != null).Select(s => s.ToString())));
 
             if (!string.IsNullOrEmpty(archiveText))
@@ -67,6 +70,7 @@ namespace MVZ2.TalkData
             var canAutoSkip = node.GetAttributeBool("canAutoSkip") ?? true;
 
             var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart")) ?? Array.Empty<TalkScript>();
+            var autoSkipScripts = TalkScript.ParseArray(node.GetAttribute("onAutoSkip"));
             var skipScripts = TalkScript.ParseArray(node.GetAttribute("onSkip")) ?? GetDefaultSkipScripts();
 
             var textNode = node["text"];
@@ -102,7 +106,7 @@ namespace MVZ2.TalkData
                         sentences.Add(meta);
                 }
             }
-            return new TalkSection(startScripts, skipScripts, characters.ToArray(), sentences.ToArray())
+            return new TalkSection(startScripts, autoSkipScripts, skipScripts, characters.ToArray(), sentences.ToArray())
             {
                 canAutoSkip = canAutoSkip,
                 archiveText = archiveText,

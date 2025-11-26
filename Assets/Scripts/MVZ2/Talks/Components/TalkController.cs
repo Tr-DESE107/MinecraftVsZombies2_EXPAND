@@ -30,7 +30,7 @@ namespace MVZ2.Talk
         /// <summary>
         /// 开始进行对话。
         /// </summary>
-        public async Task StartTalkAsync(NamespaceID groupId, int sectionIndex, float delay = 0)
+        public async Task StartTalkAsync(NamespaceID groupId, int startingSection, float delay = 0)
         {
             var group = Main.ResourceManager.GetTalkGroup(groupId);
             if (group == null)
@@ -38,25 +38,11 @@ namespace MVZ2.Talk
             if (IsTalking)
                 return;
             tcs = new TaskCompletionSource<object?>();
-            IsTalking = true;
 
-            groupID = groupId;
-            this.sectionIndex = sectionIndex;
-            sentenceIndex = 0;
-
-            ui.SetSpeechBubbleShowing(false);
-            ui.SetBlockerActive(true);
-            ui.SetRaycastReceiverActive(true);
-            ui.SetForecolor(Color.clear);
-            ui.SetBackcolor(Color.clear);
-            ui.SetForegroundAlpha(0);
-            ui.SetBackgroundAlpha(0);
-            ui.SetForegroundSprite(null);
-            ui.SetBackgroundSprite(null);
-            ClearCharacters();
+            SetupForStarting(groupId, startingSection);
 
             // 执行开始指令。
-            var section = group.sections[sectionIndex];
+            var section = group.sections[startingSection];
             await ExecuteScriptsAsync(section.startScripts);
 
             // 延迟。
@@ -64,6 +50,7 @@ namespace MVZ2.Talk
             {
                 await Main.CoroutineManager.DelaySeconds(delay);
             }
+
             // 延迟完毕。
             // 创建角色。
             var characters = section.characters;
@@ -74,72 +61,41 @@ namespace MVZ2.Talk
                     CreateCharacter(chr.id, chr.variant, ParseCharacterSide(chr.side));
                 }
             }
+
             // 延迟半秒。
             await Main.CoroutineManager.DelaySeconds(0.5f);
 
             // 设置阻挡和跳过按钮。
+            canClick = true;
             ui.SetBlockerActive(false);
             ui.SetSkipButtonActive(true);
-
             // 开始语句。
-            canClick = true;
             StartSentence();
 
-            await tcs.Task;
-        }
-        public async void SkipTalk(NamespaceID groupId, int sectionIndex, Action? onSkipped = null)
-        {
-            await SkipTalkAsync(groupId, sectionIndex);
-            onSkipped?.Invoke();
-        }
-        public async void SkipAllTalks(NamespaceID groupId, Action? onSkipped = null)
-        {
-            await SkipAllTalksAsync(groupId);
-            onSkipped?.Invoke();
-        }
-        public async Task SkipTalkAsync(NamespaceID groupId, int sectionIndex)
-        {
-            var meta = Main.ResourceManager.GetTalkGroup(groupId);
-            if (meta != null && meta.archive != null)
+            if (tcs != null)
             {
-                var dialogName = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, meta.archive.name);
+                await tcs.Task;
+            }
+        }
+        public async void AutoSkipTalks(NamespaceID groupId, int sectionIndex, Action? onSkipped = null)
+        {
+            await AutoSkipTalksAsync(groupId, sectionIndex);
+            onSkipped?.Invoke();
+        }
+        public async Task AutoSkipTalksAsync(NamespaceID groupId, int startSection)
+        {
+            var group = Main.ResourceManager.GetTalkGroup(groupId);
+            if (group == null)
+                return;
+            if (group.archive != null)
+            {
+                var dialogName = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
                 var popup = Main.LanguageManager._(DIALOG_SKIPPED, dialogName);
                 Main.Scene.ShowPopup(popup);
             }
-
-            var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
-            if (section != null)
-            {
-                await ExecuteScriptsAsync(section.startScripts);
-                await ExecuteScriptsAsync(section.skipScripts);
-            }
-        }
-        public async Task SkipAllTalksAsync(NamespaceID groupId)
-        {
-            var meta = Main.ResourceManager.GetTalkGroup(groupId);
-            if (meta != null && meta.archive != null)
-            {
-                var dialogName = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, meta.archive.name);
-                var popup = Main.LanguageManager._(DIALOG_SKIPPED, dialogName);
-                Main.Scene.ShowPopup(popup);
-            }
-
-            int loopCount = 0;
-            while (IsTalking)
-            {
-                loopCount++;
-                if (loopCount >= 256)
-                {
-                    Log.LogError($"Cannot skip talk {groupId}: Infinite loop!");
-                    break;
-                }
-                var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
-                if (section != null)
-                {
-                    await ExecuteScriptsAsync(section.startScripts);
-                    await ExecuteScriptsAsync(section.skipScripts);
-                }
-            }
+            var section = group.sections[startSection];
+            // 执行开始指令。
+            await ExecuteScriptsAsync(section.autoSkipScripts ?? section.skipScripts);
         }
         public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)
         {
@@ -824,23 +780,8 @@ namespace MVZ2.Talk
 
         private void EndTalk()
         {
-            groupID = null;
-            sectionIndex = -1;
-            sentenceIndex = -1;
+            ResetForEnding();
 
-            IsTalking = false;
-            canClick = false;
-
-            LeaveAllCharacters();
-            ui.SetSpeechBubbleShowing(false);
-            ui.SetSkipButtonActive(false);
-            ui.SetBlockerActive(false);
-            ui.SetRaycastReceiverActive(false);
-
-            ui.StartBackcolorFade(Color.clear, 1);
-            ui.StartForecolorFade(Color.clear, 1);
-            ui.StartBackgroundFade(0, 1);
-            ui.StartForegroundFade(0, 1);
             if (tcs != null)
             {
                 var source = tcs;
@@ -931,6 +872,58 @@ namespace MVZ2.Talk
                 default:
                     return SpeechBubbleDirection.Up;
             }
+        }
+
+        private void SetupForStarting(NamespaceID groupId, int startingSection)
+        {
+            IsTalking = true;
+            groupID = groupId;
+            sectionIndex = startingSection;
+            sentenceIndex = 0;
+
+            ResetUIForStarting();
+        }
+        private void ResetUIForStarting()
+        {
+            ui.SetSpeechBubbleShowing(false);
+            ui.SetRaycastReceiverActive(true);
+
+            ui.SetForecolor(Color.clear);
+            ui.SetBackcolor(Color.clear);
+            ui.SetForegroundAlpha(0);
+            ui.SetBackgroundAlpha(0);
+            ui.SetForegroundSprite(null);
+            ui.SetBackgroundSprite(null);
+
+            ui.SetBlockerActive(true);
+            ui.SetSkipButtonActive(false);
+
+            ClearCharacters();
+        }
+        private void ResetForEnding()
+        {
+            groupID = null;
+            sectionIndex = -1;
+            sentenceIndex = -1;
+            IsTalking = false;
+            canClick = false;
+
+            ResetUIForEnding();
+        }
+        private void ResetUIForEnding()
+        {
+            ui.SetSpeechBubbleShowing(false);
+            ui.SetRaycastReceiverActive(false);
+
+            ui.StartBackcolorFade(Color.clear, 1);
+            ui.StartForecolorFade(Color.clear, 1);
+            ui.StartBackgroundFade(0, 1);
+            ui.StartForegroundFade(0, 1);
+
+            ui.SetBlockerActive(false);
+            ui.SetSkipButtonActive(false);
+
+            LeaveAllCharacters();
         }
 
         #endregion

@@ -13,7 +13,7 @@ namespace MVZ2.Talks
         {
             if (controller.WillSkipTalk(groupId, section))
             {
-                controller.SkipAllTalks(groupId, () =>
+                controller.AutoSkipTalks(groupId, section, () =>
                 {
                     onSkipped?.Invoke();
                     onEnd?.Invoke();
@@ -22,14 +22,14 @@ namespace MVZ2.Talks
             else
             {
                 onStarted?.Invoke();
-                controller.StartTalk(groupId, section, delay, onEnd);
+                controller.StartTalk(groupId, section, delay, onEnd: onEnd);
             }
         }
         public static async Task<TalkResult> SimpleStartTalkAsync(this TalkController controller, NamespaceID groupId, int section, float delay = 0, Action? onStarted = null)
         {
             if (controller.WillSkipTalk(groupId, section))
             {
-                await controller.SkipAllTalksAsync(groupId);
+                await controller.AutoSkipTalksAsync(groupId, section);
                 return TalkResult.Skipped;
             }
 

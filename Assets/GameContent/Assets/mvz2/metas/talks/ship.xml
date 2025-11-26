@@ -722,7 +722,7 @@
         <condition required="mvz2:level.ship_7" />
       </unlock>
     </archive>
-    <section onSkip="foreground alpha 0;forecolor set #000F;music fade 0;section 1">
+    <section onAutoSkip="" onSkip="foreground alpha 0;forecolor set #000F;music fade 0;section 1">
       <characters>
         <character id="mvz2:steve" side="self" />
       </characters>
@@ -802,7 +802,10 @@
           </click>
         </sentence>
         <sentence speaker="mvz2:shou" description="（红龙突然睁开眼睛，抓住机会向白莲喷了一口火）" sounds="mvz2:dialog_cut" onStart="shake">圣、圣！您没事吧！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut">
+          <start>
+            <script>shake</script>
+          </start>
           <text>怎么回事！</text>
           <click>
             <script>bubble hide</script>
@@ -825,7 +828,10 @@
             <script>next</script>
           </click>
         </sentence>
-        <sentence speaker="mvz2:shou" description="（红龙飞了过来）" sounds="mvz2:dialog_cut" onStart="shake">
+        <sentence speaker="mvz2:shou" description="（红龙飞了过来）" sounds="mvz2:dialog_cut">
+          <start>
+            <script>shake</script>
+          </start>
           <text>红、红龙，飞过来了！</text>
           <click>
             <script>bubble hide</script>
@@ -856,7 +862,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_explosive" onStart="shake" onClick="music fade 0;section 1">史蒂夫！！！！</sentence>
       </sentences>
     </section>
-    <section onSkip="forecolor set #000F;music fade 0;item hide;character leave mvz2:seija;section 2">
+    <section onAutoSkip="" onSkip="forecolor set #000F;music fade 0;item hide;character leave mvz2:seija;section 2">
       <text>史蒂夫在一间屋子里醒来。</text>
       <characters>
         <character id="mvz2:steve" side="self" />
@@ -939,7 +945,7 @@
         </sentence>
       </sentences>
     </section>
-    <section onSkip="background alpha 0;music fade 1;music play mvz2:ship_map;end">
+    <section onAutoSkip="" onSkip="background alpha 0;music fade 1;music play mvz2:ship_map;end">
       <text>史蒂夫走出了屋子。</text>
       <characters>
         <character id="mvz2:steve" side="self" />

@@ -19,17 +19,11 @@ namespace MVZ2Logic.Level
             if (component == null) return;
             component.StartTalk(groupId, section, delay, onEnd);
         }
-        public static void SkipTalk(this LevelEngine level, NamespaceID groupId, int section, Action? onSkipped = null)
+        public static void SkipAllTalks(this LevelEngine level, NamespaceID groupId, int section, Action? onSkipped = null)
         {
             var component = level.GetTalkComponent();
             if (component == null) return;
-            component.SkipTalk(groupId, section, onSkipped);
-        }
-        public static void SkipAllTalks(this LevelEngine level, NamespaceID groupId, Action? onSkipped = null)
-        {
-            var component = level.GetTalkComponent();
-            if (component == null) return;
-            component.SkipAllTalks(groupId, onSkipped);
+            component.AutoSkipTalks(groupId, section, onSkipped);
         }
         public static void SimpleStartTalk(this LevelEngine level, NamespaceID groupId, int section, float delay = 0, Action? onSkipped = null, Action? onStarted = null, Action? onEnd = null)
         {
