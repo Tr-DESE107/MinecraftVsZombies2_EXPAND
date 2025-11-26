@@ -83,7 +83,6 @@ namespace MVZ2.GameContent.Buffs
             public const string faction = "faction";
             public const string changeLane = "change_lane";
             public const string changeGrid = "change_grid";
-            public const string damageColor = "damage_color";
             public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
             public const string destroyConflictGridEntitiesOnLand = "destroy_conflict_grid_entities_on_land";
 
@@ -223,8 +222,6 @@ namespace MVZ2.GameContent.Buffs
             public const string bigTrouble = "big_trouble";
             public const string soulsandSummoned = "soulsand_summoned";
             public const string seijaMesmerizer = "seija_mesmerizer";
-            public const string beingRiden = "being_riden";
-            public const string ridingPassenger = "riding_passenger";
 
             // Chapter 4
             public const string wickedHermitWarp = "wicked_hermit_warp";
@@ -404,7 +401,6 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID entityPhysics = Get(VanillaBuffNames.Entity.entityPhysics);
             public static readonly NamespaceID faction = Get(VanillaBuffNames.Entity.faction);
             public static readonly NamespaceID changeLane = Get(VanillaBuffNames.Entity.changeLane);
-            public static readonly NamespaceID damageColor = Get(VanillaBuffNames.Entity.damageColor);
             public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.Entity.temporaryUpdateBeforeGame);
             public static readonly NamespaceID destroyConflictGridEntitiesOnLand = Get(VanillaBuffNames.Entity.destroyConflictGridEntitiesOnLand);
 
@@ -540,8 +536,6 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID bigTrouble = Get(VanillaBuffNames.Enemy.bigTrouble);
             public static readonly NamespaceID soulsandSummoned = Get(VanillaBuffNames.Enemy.soulsandSummoned);
             public static readonly NamespaceID seijaMesmerizer = Get(VanillaBuffNames.Enemy.seijaMesmerizer);
-            public static readonly NamespaceID beingRiden = Get(VanillaBuffNames.Enemy.beingRiden);
-            public static readonly NamespaceID ridingPassenger = Get(VanillaBuffNames.Enemy.ridingPassenger);
 
             // Chapter 4
             public static readonly NamespaceID wickedHermitWarp = Get(VanillaBuffNames.Enemy.wickedHermitWarp);

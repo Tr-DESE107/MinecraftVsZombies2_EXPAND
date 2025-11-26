@@ -84,21 +84,6 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region 无害
-        /// <summary>
-        /// 无法进屋
-        /// </summary>
-        public static readonly PropertyMeta<bool> HARMLESS = Get<bool>("harmless");
-        public static bool IsHarmless(this Entity enemy)
-        {
-            return enemy.GetProperty<bool>(HARMLESS);
-        }
-        public static bool IsHarmless(this EntityDefinition enemy)
-        {
-            return enemy.GetProperty<bool>(HARMLESS);
-        }
-        #endregion
-
         #region 不与行对齐
         public static readonly PropertyMeta<bool> NO_ALIGN_TO_LANE = Get<bool>("no_align_to_lane");
         public static bool NoAlignToLane(this Entity enemy)

@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
@@ -25,7 +24,7 @@ namespace MVZ2.GameContent.Buffs.Entities
             AddModifier(new FloatModifier(EngineEntityProps.FRICTION, NumberOperator.Multiply, PROP_FRICTION_MULTI));
             AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, PROP_GROUND_LIMIT_OFFSET));
             AddModifier(new FloatModifier(LogicEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
-            AddModifier(new BooleanModifier(VanillaEnemyProps.HARMLESS, PROP_FALLING));
+            AddModifier(new BooleanModifier(LogicEnemyProps.HARMLESS, PROP_FALLING));
             AddModifier(new BooleanModifier(LogicEntityProps.DEPTH_TEST, true));
         }
         public override void PostAdd(Buff buff)

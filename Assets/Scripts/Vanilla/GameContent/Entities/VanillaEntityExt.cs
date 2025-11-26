@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.FrameworksContent.Buffs.Entities;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
@@ -24,6 +25,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic;
 using MVZ2Logic.Armors;
+using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
@@ -72,11 +74,6 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 伤害
-        public static void DamageBlink(this Entity entity)
-        {
-            if (entity != null && !entity.HasBuff<DamageColorBuff>())
-                entity.AddBuff<DamageColorBuff>();
-        }
         public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, NamespaceID? armorSlot = null)
         {
             return entity.TakeDamageSourced(amount, effects, null, armorSlot);

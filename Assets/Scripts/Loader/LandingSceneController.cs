@@ -2,6 +2,7 @@ using System.Reflection;
 using MVZ2.Managers;
 using MVZ2.Modding;
 using MVZ2.Vanilla;
+using MVZ2Logic;
 using MVZ2Logic.Definitions;
 using PVZEngine;
 using PVZEngine.Level;
@@ -21,7 +22,7 @@ namespace MVZ2
         private static void RegisterMod(IModManager manager)
         {
             var mod = new VanillaMod();
-            var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) };
+            var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)), Assembly.GetAssembly(typeof(LogicMain)) };
             var main = MainManager.Instance;
             var game = main.Game;
             var modLoader = new ModLoader(main);

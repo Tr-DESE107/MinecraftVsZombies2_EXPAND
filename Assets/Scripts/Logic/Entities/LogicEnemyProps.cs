@@ -77,5 +77,20 @@ namespace MVZ2Logic.Entities
             return enemy.GetProperty<NamespaceID[]>(COUNTER_TAGS);
         }
         #endregion
+
+        #region 无害
+        /// <summary>
+        /// 无法进屋
+        /// </summary>
+        public static readonly PropertyMeta<bool> HARMLESS = Get<bool>("harmless");
+        public static bool IsHarmless(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(HARMLESS);
+        }
+        public static bool IsHarmless(this EntityDefinition enemy)
+        {
+            return enemy.GetProperty<bool>(HARMLESS);
+        }
+        #endregion
     }
 }

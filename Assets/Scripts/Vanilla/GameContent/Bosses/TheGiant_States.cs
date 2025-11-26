@@ -1561,7 +1561,7 @@ namespace MVZ2.GameContent.Bosses
                     for (int i = 0; i < 50; i++)
                     {
                         var zombieParam = entity.GetSpawnParams();
-                        zombieParam.SetProperty(VanillaEnemyProps.HARMLESS, true);
+                        zombieParam.SetProperty(LogicEnemyProps.HARMLESS, true);
                         zombieParam.SetProperty(VanillaEnemyProps.NO_REWARD, true);
                         zombieParam.SetProperty(VanillaEntityProps.FALL_RESISTANCE, -10000f);
                         entity.Spawn(VanillaEnemyID.zombie, entity.GetCenter(), zombieParam)?.Let(e =>

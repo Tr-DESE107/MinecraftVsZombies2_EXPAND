@@ -213,7 +213,6 @@ namespace MVZ2.Managers
             var levelEngineAssembly = typeof(LevelEngine).Assembly;
             var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
             PropertyMapper.InitPropertyMaps(BuiltinNamespace, levelEngineAssembly.GetTypes());
-            PropertyMapper.InitPropertyMaps(BuiltinNamespace, logicAssembly.GetTypes());
 
             Global.Init(new GlobalParams()
             {
