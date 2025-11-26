@@ -67,6 +67,8 @@ namespace MVZ2.Vanilla.Unlocks
 
         public static readonly NamespaceID brokenLantern = Get(VanillaUnlockNames.brokenLantern);
         public static readonly NamespaceID bottledBlackhole = Get(VanillaUnlockNames.bottledBlackhole);
+
+        public static readonly NamespaceID blueprintSlot1 = Get(LogicUnlockNames.blueprintSlot1);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

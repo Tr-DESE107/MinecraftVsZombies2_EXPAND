@@ -169,7 +169,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                     {
                         case 0:
                             saves.AddMoney(-750);
-                            saves.Unlock(LogicUnlockID.blueprintSlot1);
+                            saves.Unlock(VanillaUnlockID.blueprintSlot1);
                             saves.SaveToFile(); // 完成蓝图槽位交易后保存游戏。
                             level.UpdatePersistentLevelUnlocks();
                             system.StartSection(3);

@@ -106,6 +106,12 @@ namespace MVZ2Logic.Saves
         {
             return save.IsUnlocked(LogicUnlockID.GetLevelClearUnlock(stageID));
         }
+
+        public static bool IsEnemyEncountered(this IGlobalSaveData save, NamespaceID enemyID)
+        {
+            return Global.VanillaInterface.IsEnemyEncountered(save, enemyID);
+        }
+
         #region Ω‚À¯
         public static bool IsAlmanacUnlocked(this IGlobalSaveData save)
         {
@@ -147,18 +153,11 @@ namespace MVZ2Logic.Saves
         public static bool DreamIsNightmare(this IGlobalSaveData save)
         {
             // ÕÊº“…Ë÷√°£
-            return save.IsUnlocked(LogicUnlockID.dreamIsNightmare);
+            return Global.VanillaInterface.DreamIsNightmare(save);
         }
         public static void SetDreamIsNightmare(this IGlobalSaveData save, bool value)
         {
-            if (value)
-            {
-                save.Unlock(LogicUnlockID.dreamIsNightmare);
-            }
-            else
-            {
-                save.Relock(LogicUnlockID.dreamIsNightmare);
-            }
+            Global.VanillaInterface.SetDreamIsNightmare(save, value);
         }
         #endregion
 

@@ -10,7 +10,6 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
-using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;

@@ -6,8 +6,6 @@ namespace MVZ2Logic.Unlocks
 {
     public static class LogicUnlockNames
     {
-        public const string dreamIsNightmare = "dream_is_nightmare";
-
         public const string blueprintSlot1 = "blueprint_slot.1";
         public const string blueprintSlot2 = "blueprint_slot.2";
         public const string blueprintSlot3 = "blueprint_slot.3";
@@ -25,8 +23,6 @@ namespace MVZ2Logic.Unlocks
     }
     public static class LogicUnlockID
     {
-        public static readonly NamespaceID blueprintSlot1 = Get(LogicUnlockNames.blueprintSlot1);
-        public static readonly NamespaceID dreamIsNightmare = Get(LogicUnlockNames.dreamIsNightmare);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(Global.BuiltinNamespace, name);
