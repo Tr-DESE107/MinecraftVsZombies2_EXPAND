@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
-using MVZ2.Map;
 using MVZ2.Metas;
 using MVZ2.Saves;
 using MVZ2.Scenes;
