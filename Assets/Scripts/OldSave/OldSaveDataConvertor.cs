@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Stats;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Saves;
+using MVZ2Logic.Stats;
 using MVZ2Logic.Unlocks;
 using PVZEngine;
 
@@ -143,7 +144,7 @@ namespace MVZ2.OldSave
                         break;
                 }
                 saveData.SetCurrentEndlessFlag(stageID, pair.Value.current);
-                saveData.SetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS.Path, new NamespaceID(Global.BuiltinNamespace, stageID), pair.Value.max);
+                saveData.SetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS.Path, new NamespaceID(Global.BuiltinNamespace, stageID), pair.Value.max);
             }
         }
         private static readonly string[] oldLevelIDList = new string[]

@@ -6,6 +6,7 @@ using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
+using MVZ2Logic.Stats;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
@@ -80,7 +81,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var entity = param.entity;
             if (!entity.Level.IsIZombie())
             {
-                Global.Saves.AddStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, entity.GetDefinitionID(), 1);
+                Global.Saves.AddStat(LogicStats.CATEGORY_ENEMY_NEUTRALIZE, entity.GetDefinitionID(), 1);
             }
         }
         private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)

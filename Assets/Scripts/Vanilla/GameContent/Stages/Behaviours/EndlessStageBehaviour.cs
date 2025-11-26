@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
+using MVZ2Logic.Stats;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -61,9 +62,9 @@ namespace MVZ2.GameContent.Stages
             var level = param.level;
             if (!level.IsEndless())
                 return;
-            if (Global.Saves.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
+            if (Global.Saves.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
             {
-                Global.Saves.SetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
+                Global.Saves.SetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
             }
         }
         #region 更新关卡

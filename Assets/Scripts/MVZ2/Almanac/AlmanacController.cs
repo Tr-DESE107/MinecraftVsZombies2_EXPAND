@@ -14,7 +14,6 @@ using MVZ2.Models;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.UI;
-using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Almanac;
 using MVZ2Logic.Artifacts;
@@ -26,6 +25,7 @@ using MVZ2Logic.Inputs;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
 using MVZ2Logic.Saves;
+using MVZ2Logic.Stats;
 using PVZEngine;
 using PVZEngine.Level;
 using Tools.Mathematics;
@@ -410,7 +410,7 @@ namespace MVZ2.Almanacs
             }
 
             var encounterCondition = entry.encounterUnlock;
-            bool encountered = (encounterCondition != null && encounterCondition.MeetsConditions(Main.SaveManager)) || Main.SaveManager.GetStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
+            bool encountered = (encounterCondition != null && encounterCondition.MeetsConditions(Main.SaveManager)) || Main.SaveManager.GetStat(LogicStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
             if (encountered)
             {
                 UpdateEntryTags(AlmanacPageType.Enemies, type, enemyID);

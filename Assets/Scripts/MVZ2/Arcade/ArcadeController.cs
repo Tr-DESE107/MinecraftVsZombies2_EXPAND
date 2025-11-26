@@ -8,12 +8,12 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.Managers;
 using MVZ2.Saves;
 using MVZ2.Scenes;
-using MVZ2.Vanilla.Stats;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Saves;
+using MVZ2Logic.Stats;
 using PVZEngine;
 using UnityEngine;
 
@@ -145,7 +145,7 @@ namespace MVZ2.Arcade
             var hint = string.Empty;
             if (unlocked && stageDef.GetStageType() == StageTypes.TYPE_PUZZLE_ENDLESS)
             {
-                var flags = Main.SaveManager.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
+                var flags = Main.SaveManager.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
                 hint = GetTranslatedString(ENDLESS_MAX_STREAKS, flags);
             }
             var icon = Main.GetFinalSprite(meta.Icon);

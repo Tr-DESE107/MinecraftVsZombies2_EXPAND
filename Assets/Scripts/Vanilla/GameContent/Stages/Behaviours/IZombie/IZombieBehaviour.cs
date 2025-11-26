@@ -18,6 +18,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
+using MVZ2Logic.Stats;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -161,9 +162,9 @@ namespace MVZ2.GameContent.Stages
 
             if (level.IsEndless())
             {
-                if (Global.Saves.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
+                if (Global.Saves.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
                 {
-                    Global.Saves.SetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
+                    Global.Saves.SetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
                 }
             }
         }

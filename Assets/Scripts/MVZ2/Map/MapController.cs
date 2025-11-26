@@ -14,7 +14,6 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
-using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
@@ -24,6 +23,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Saves;
+using MVZ2Logic.Stats;
 using MVZ2Logic.Talk;
 using MVZ2Logic.Unlocks;
 using PVZEngine;
@@ -723,7 +723,7 @@ namespace MVZ2.Map
             var stageID = mapMeta.endlessStage;
             if (!NamespaceID.IsValid(stageID))
                 return 0;
-            return (int)Main.SaveManager.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
+            return (int)Main.SaveManager.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
         }
         private void ReloadMap()
         {
