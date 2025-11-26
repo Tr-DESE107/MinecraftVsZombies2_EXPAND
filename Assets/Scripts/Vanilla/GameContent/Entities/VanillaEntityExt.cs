@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.FrameworksContent.Buffs.Entities;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;

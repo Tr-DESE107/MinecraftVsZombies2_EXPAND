@@ -182,5 +182,23 @@ namespace MVZ2Logic.Saves
             return unlocks.All(u => save.IsInvalidOrUnlocked(u));
         }
         #endregion
+
+        #region µ÷ÊÔÓÃ»§
+        public static bool IsDebugUser(this IGlobalSaveData saves)
+        {
+            var userName = saves.GetCurrentUserName();
+            return saves.IsDebugUserName(userName);
+        }
+        public static bool IsDebugUserName(this IGlobalSaveData saves, string? name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return false;
+            return debugUserNames.Any(n => n.Equals(name, System.StringComparison.OrdinalIgnoreCase));
+        }
+        public static readonly string[] debugUserNames = new string[]
+        {
+            "debug",
+        };
+        #endregion
     }
 }

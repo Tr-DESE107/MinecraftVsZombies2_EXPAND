@@ -23,7 +23,6 @@ using MVZ2.Store;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Game;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;

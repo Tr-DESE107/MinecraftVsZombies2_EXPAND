@@ -7,7 +7,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.FrameworksContent.Buffs.Entities
+namespace MVZ2Logic.Contents.Buffs.Entities
 {
     [BuffDefinition(FrameworksBuffNames.Entity.damageColor)]
     public class DamageColorBuff : BuffDefinition

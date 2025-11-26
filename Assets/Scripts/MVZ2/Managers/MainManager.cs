@@ -11,7 +11,6 @@ using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Collisions;
 using MVZ2.Cursors;
-using MVZ2.GameContent.Effects;
 using MVZ2.GlobalGames;
 using MVZ2.IO;
 using MVZ2.Level;
