@@ -13,6 +13,7 @@
 
 ### Balance
 - Moonlight Sensors's evocation production multiplier reduced from 250% to 200%.
+- Soul Furnace is now no longer a nocturnal contraption, its gained fuel amount and capacity also get doubled.
 - Silvenser's energy cost reduced from 175 to 150.
 - Dream Crystal healing amount increased from 40/sec to 60/sec.
 - Bottle Blackhole damage bonus reduced from 15% to 10%.
