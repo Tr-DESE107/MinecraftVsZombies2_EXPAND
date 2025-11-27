@@ -12,7 +12,8 @@
 ## Modified
 
 ### Balance
-- Silvenser energy cost reduced from 175 to 150.
+- Moonlight Sensors's evocation production multiplier reduced from 250% to 200%.
+- Silvenser's energy cost reduced from 175 to 150.
 - Dream Crystal healing amount increased from 40/sec to 60/sec.
 - Bottle Blackhole damage bonus reduced from 15% to 10%.
 - Talisman Zombie toughness increased from 200 to 350.
