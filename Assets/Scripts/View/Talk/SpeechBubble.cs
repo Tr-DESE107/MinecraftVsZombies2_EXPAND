@@ -3,7 +3,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace MVZ2.Talk
+namespace MVZ2.UI.Talk
 {
     public class SpeechBubble : MonoBehaviour
     {

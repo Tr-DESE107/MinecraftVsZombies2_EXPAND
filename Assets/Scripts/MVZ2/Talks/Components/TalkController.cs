@@ -8,6 +8,7 @@ using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.TalkData;
 using MVZ2.UI;
+using MVZ2.UI.Talk;
 using MVZ2Logic;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Localization;

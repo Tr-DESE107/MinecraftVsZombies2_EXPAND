@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2.MusicRoom
+namespace MVZ2.UI.MusicRoom
 {
     public class MusicBar : MonoBehaviour, IPointerUpHandler
     {

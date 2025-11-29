@@ -2,12 +2,11 @@
 
 using System;
 using System.Collections.Generic;
-using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace MVZ2.Talk
+namespace MVZ2.UI.Talk
 {
     public class TalkUI : MonoBehaviour
     {

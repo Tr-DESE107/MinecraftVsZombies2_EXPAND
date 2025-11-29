@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Titlescreen
+namespace MVZ2.UI.Titlescreen
 {
     public class TitlescreenUI : MonoBehaviour
     {

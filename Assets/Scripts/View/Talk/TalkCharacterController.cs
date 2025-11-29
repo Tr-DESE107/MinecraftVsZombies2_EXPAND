@@ -3,7 +3,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Talk
+namespace MVZ2.UI.Talk
 {
     public class TalkCharacterController : MonoBehaviour
     {
@@ -84,7 +84,7 @@ namespace MVZ2.Talk
             }
             _animator.SetFloat("Blend", blendValue);
             _animator.SetFloat("DisappearBlend", disappearBlend);
-            if ((leaving && blendValue <= 0.01f) || (disappearing && disappearBlend >= 1))
+            if (leaving && blendValue <= 0.01f || disappearing && disappearBlend >= 1)
             {
                 Destroy(gameObject);
             }

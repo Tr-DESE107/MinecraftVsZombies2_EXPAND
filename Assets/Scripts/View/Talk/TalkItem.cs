@@ -3,7 +3,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Talk
+namespace MVZ2.UI.Talk
 {
     public class TalkItem : MonoBehaviour
     {

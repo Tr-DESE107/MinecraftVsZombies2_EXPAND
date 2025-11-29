@@ -3,7 +3,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace MVZ2.Scenes
+namespace MVZ2.UI
 {
     public class FPSDisplayer : MonoBehaviour
     {

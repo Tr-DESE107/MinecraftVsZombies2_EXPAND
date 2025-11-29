@@ -4,6 +4,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Scenes;
+using MVZ2.UI.Titlescreen;
 using UnityEngine;
 
 namespace MVZ2.Titlescreen
