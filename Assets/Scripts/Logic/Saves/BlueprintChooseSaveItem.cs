@@ -7,12 +7,12 @@ using PVZEngine;
 namespace MVZ2Logic.Saves
 {
     [Serializable]
-    public class BlueprintSelectionItem
+    public class BlueprintChooseSaveItem
     {
         public NamespaceID id;
         public bool isCommandBlock;
 
-        public BlueprintSelectionItem(NamespaceID id, bool isCommandBlock = false)
+        public BlueprintChooseSaveItem(NamespaceID id, bool isCommandBlock = false)
         {
             this.id = id;
             this.isCommandBlock = isCommandBlock;
@@ -24,7 +24,7 @@ namespace MVZ2Logic.Saves
         }
         public override bool Equals(object obj)
         {
-            if (obj is not BlueprintSelectionItem item)
+            if (obj is not BlueprintChooseSaveItem item)
                 return false;
             return this == item;
         }
@@ -34,7 +34,7 @@ namespace MVZ2Logic.Saves
             hashCode = hashCode * 31 + isCommandBlock.GetHashCode();
             return hashCode;
         }
-        public static bool operator ==(BlueprintSelectionItem lhs, BlueprintSelectionItem rhs)
+        public static bool operator ==(BlueprintChooseSaveItem lhs, BlueprintChooseSaveItem rhs)
         {
             if (lhs is null)
             {
@@ -46,7 +46,7 @@ namespace MVZ2Logic.Saves
             }
             return lhs.id == rhs.id && lhs.isCommandBlock == rhs.isCommandBlock;
         }
-        public static bool operator !=(BlueprintSelectionItem lhs, BlueprintSelectionItem rhs)
+        public static bool operator !=(BlueprintChooseSaveItem lhs, BlueprintChooseSaveItem rhs)
         {
             return !(lhs == rhs);
         }

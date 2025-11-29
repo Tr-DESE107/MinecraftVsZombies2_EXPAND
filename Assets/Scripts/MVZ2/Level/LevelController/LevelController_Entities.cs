@@ -82,7 +82,7 @@ namespace MVZ2.Level
         {
             SetHoveredEntity(entityCtrl);
             // 显示查看图鉴提示
-            if (!IsGameStarted() && entityCtrl.Entity.IsPreviewEnemy() && CanChooseBlueprints())
+            if (!IsGameStarted() && entityCtrl.Entity.IsPreviewEnemy() && ChooseBlueprintsInteractable())
             {
                 ShowTooltip(new EntityTooltipSource(this, entityCtrl));
             }
@@ -104,7 +104,7 @@ namespace MVZ2.Level
             var entity = entityCtrl.Entity;
             if (pointer.type == PointerTypes.MOUSE && pointer.button != MouseButtons.LEFT)
                 return;
-            if (!entity.IsPreviewEnemy() || !Main.SaveManager.IsAlmanacUnlocked() || !CanChooseBlueprints())
+            if (!entity.IsPreviewEnemy() || !Main.SaveManager.IsAlmanacUnlocked() || !ChooseBlueprintsInteractable())
                 return;
             var entityID = entityCtrl.Entity.GetDefinitionID();
             if (!Main.ResourceManager.IsEnemyInAlmanac(entityID) || !Main.SaveManager.IsEnemyUnlocked(entityID))

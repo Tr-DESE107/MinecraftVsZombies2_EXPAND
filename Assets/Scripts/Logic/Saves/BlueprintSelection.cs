@@ -7,10 +7,10 @@ namespace MVZ2Logic.Saves
     [Serializable]
     public class BlueprintSelection
     {
-        public BlueprintSelectionItem[] blueprints;
+        public BlueprintChooseSaveItem[] blueprints;
         public ArtifactSelectionItem?[] artifacts;
 
-        public BlueprintSelection(BlueprintSelectionItem[] blueprints, ArtifactSelectionItem?[] artifacts)
+        public BlueprintSelection(BlueprintChooseSaveItem[] blueprints, ArtifactSelectionItem?[] artifacts)
         {
             this.blueprints = blueprints;
             this.artifacts = artifacts;

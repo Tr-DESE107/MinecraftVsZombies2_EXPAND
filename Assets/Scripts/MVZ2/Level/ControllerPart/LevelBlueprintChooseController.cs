@@ -21,26 +21,14 @@ using MVZ2Logic.Options;
 using MVZ2Logic.Resources;
 using MVZ2Logic.Saves;
 using PVZEngine;
-using PVZEngine.Definitions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {
-    public interface ILevelBlueprintChooseController : ILevelControllerPart
+    public class LevelBlueprintChooseController : LevelControllerPart
     {
-        void ApplyChoose();
-        void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints);
-        void DestroyChosenBlueprintUIAt(int index);
-        bool IsChosenBlueprintCommandBlock(int index);
-        string GetChosenBlueprintTooltipError(int index);
-        string GetBlueprintTooltipError(NamespaceID blueprintID, bool commandBlock);
-        bool IsInteractable();
-        void UnchooseBlueprint(int index);
-        void Refresh(IEnumerable<NamespaceID> blueprints);
-    }
-    public class LevelBlueprintChooseController : LevelControllerPart, ILevelBlueprintChooseController
-    {
+        #region 生命周期
         public override void Init(LevelController controller)
         {
             base.Init(controller);
@@ -69,115 +57,119 @@ namespace MVZ2.Level
             chooseUI.OnArtifactChoosingItemExit += UI_OnArtifactChooseItemPointerExitCallback;
             chooseUI.OnArtifactChoosingBackClicked += UI_OnArtifactChooseReturnClickCallback;
         }
-
-        protected override SerializableLevelControllerPart GetSerializable()
-        {
-            return new SerializableLevelBlueprintChooseController()
-            {
-                id = ID
-            };
-        }
-        public override void LoadFromSerializable(SerializableLevelControllerPart seri)
-        {
-        }
-
         public override void UpdateFrame(float deltaTime, float simulationSpeed)
         {
             base.UpdateFrame(deltaTime, simulationSpeed);
-            if (chosenBlueprints.Count > 0 && isChoosingBlueprints && InputHelper.IsPointerDown(PointerTypes.MOUSE, MouseButtons.RIGHT) && !HasPanelFlags() && !Main.Scene.HasDialog() && !Controller.IsOpeningExtraScene())
+            if (chosenBlueprintControllers.Count > 0 && isChoosingBlueprints && InputHelper.IsPointerDown(PointerTypes.MOUSE, MouseButtons.RIGHT) && !HasPanelFlags() && !Main.Scene.HasDialog() && !Controller.IsOpeningExtraScene())
             {
                 UnloadAllBlueprints();
                 Level.PlaySound(LogicSoundID.tap);
             }
         }
+        #endregion
+
+        #region 对外接口
         public void ApplyChoose()
         {
-            ClearChosenBlueprintControllers();
-
             chooseUI.SetChosenBlueprintsVisible(false);
             // 如果根本没有进行选卡，那就不进行替换。
             if (choosingBlueprints == null)
                 return;
-            // 替换制品。
-            Level.ReplaceArtifacts(chosenArtifacts.Select(i => i?.id).ToArray());
+            choosingBlueprints = null;
 
             // 替换蓝图。
-            Level.SetupBattleBlueprints(chosenBlueprints.ToArray());
-            chosenBlueprints.Clear();
-            choosingBlueprints = null;
+            Level.SetupBattleBlueprints(chosenBlueprintControllers.Select(e => e.ToChooseItem()).ToArray());
+            ClearChosenBlueprints();
+
+            // 替换制品。
+            Level.ReplaceArtifacts(chosenArtifacts.Select(i => i?.id).ToArray());
             chosenArtifacts = null;
         }
         public bool IsInteractable()
         {
             return isChoosingBlueprints && !isViewingLawn;
         }
-
-        #region 选择蓝图
-
-        #region 已选蓝图控制器
-        private void CreateChosenBlueprintController(Blueprint blueprint, int index, SeedDefinition seedDef)
+        public void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
         {
-            var controller = new ChosenBlueprintController(Controller, blueprint, index, seedDef);
-            controller.Init();
-            chosenBlueprintControllers.Insert(index, controller);
-            UpdateControllerIndexes();
-        }
-        private bool RemoveChosenBlueprintController(int index)
-        {
-            var controller = chosenBlueprintControllers[index];
-            if (controller == null)
-                return false;
-            controller.Remove();
-            chosenBlueprintControllers.Remove(controller);
-            UpdateControllerIndexes();
-            return true;
-        }
-        private void ClearChosenBlueprintControllers()
-        {
-            for (int i = chosenBlueprintControllers.Count - 1; i >= 0; i--)
-            {
-                var controller = chosenBlueprintControllers[i];
-                controller.Destroy();
-            }
-            chosenBlueprintControllers.Clear();
-        }
+            chooseUI.SetSideUIBlend(0);
+            chooseUI.SetBlueprintChooseBlend(0);
 
+            isChoosingBlueprints = true;
+
+            chooseUI.HideCommandBlockPanel();
+            ClearPanelFlags();
+            UI.SetBlueprintsSortingToChoosing(true);
+            chooseUI.SetChosenBlueprintsVisible(true);
+
+            // 继承制品。
+            InheritArtifacts();
+
+            Refresh(blueprints);
+
+            // 边缘UI。
+            chooseUI.SetSideUIDisplaying(true);
+            chooseUI.SetBlueprintChooseDisplaying(true);
+        }
         #endregion
 
-        #region 蓝图移动
-        private void AddChosenBlueprint(int seedPackIndex, BlueprintChooseItem item)
+        #region 蓝图UI和控制器
+        private void CreateChosenBlueprint(int seedPackIndex, BlueprintChooseItem item)
         {
             var seedID = item.id;
             var seedDef = Game.GetSeedDefinition(seedID);
             if (seedDef == null)
                 return;
 
-            chosenBlueprints.Insert(seedPackIndex, item);
-
-            // 更新可选蓝图UI。
-            UpdateBlueprintChooseItem(seedID, item.isCommandBlock);
-
             // 创造已选蓝图UI。
             var blueprint = chooseUI.CreateChosenBlueprint();
             chooseUI.InsertChosenBlueprint(seedPackIndex, blueprint);
             blueprint.transform.position = chooseUI.GetChosenBlueprintPosition(seedPackIndex);
 
-            // 创建已选蓝图控制器。
-            CreateChosenBlueprintController(blueprint, seedPackIndex, seedDef);
+            // 绑定已选蓝图控制器。
+            var controller = blueprint.GetComponent<ChosenBlueprintController>();
+            controller.CommandBlock = item.isCommandBlock;
+            controller.Innate = item.innate;
+            controller.Init(Controller, blueprint, seedPackIndex, seedDef);
+            chosenBlueprintControllers.Insert(seedPackIndex, controller);
+            UpdateControllerIndexes();
+
+            // 更新可选蓝图UI。
+            UpdateBlueprintChooseItem(seedID, item.isCommandBlock);
         }
-        private void RemoveChosenBlueprint(int index)
+        private void UnbindChosenBlueprint(int index)
         {
-            var choosingItem = chosenBlueprints[index];
-            chosenBlueprints.RemoveAt(index);
             chooseUI.RemoveChosenBlueprintAt(index);
-            RemoveChosenBlueprintController(index);
+
+            // 解绑已选蓝图控制器。
+            var controller = chosenBlueprintControllers[index];
+            if (controller.Exists())
+            {
+                controller.Unload();
+                chosenBlueprintControllers.Remove(controller);
+                UpdateControllerIndexes();
+            }
         }
         private void ClearChosenBlueprints()
         {
-            chosenBlueprints.Clear();
-            ClearChosenBlueprintControllers();
+            // 清除已选蓝图控制器。
+            for (int i = chosenBlueprintControllers.Count - 1; i >= 0; i--)
+            {
+                var controller = chosenBlueprintControllers[i];
+                controller.Unload();
+                chooseUI.DestroyChosenBlueprintAt(i);
+            }
+            chosenBlueprintControllers.Clear();
         }
+        private void UpdateControllerIndexes()
+        {
+            for (int i = 0; i < chosenBlueprintControllers.Count; i++)
+            {
+                chosenBlueprintControllers[i].Index = i;
+            }
+        }
+        #endregion
 
+        #region 选择蓝图
         public void ChooseBlueprint(int index)
         {
             var id = choosingBlueprints?[index];
@@ -192,20 +184,87 @@ namespace MVZ2.Level
         public void ChooseBlueprint(NamespaceID id, bool commandBlock)
         {
             var seedSlots = Level.GetSeedSlotCount();
-            var seedPackIndex = chosenBlueprints.Count;
+            var seedPackIndex = chosenBlueprintControllers.Count;
             if (seedPackIndex >= seedSlots)
                 return;
-            if (chosenBlueprints.Any(i => i.id == id && i.isCommandBlock == commandBlock))
+            if (chosenBlueprintControllers.Any(i => i.GetDefinitionID() == id && i.IsCommandBlock() == commandBlock))
                 return;
             LoadBlueprint(seedPackIndex, id, commandBlock);
 
             // 播放音效。
             Level.PlaySound(LogicSoundID.tap);
         }
+        private void LoadBlueprint(int seedPackIndex, NamespaceID seedID, bool commandBlock)
+        {
+            // 创建一个已选蓝图。
+            CreateChosenBlueprint(seedPackIndex, new BlueprintChooseItem(seedID, isCommandBlock: commandBlock));
+
+            // 卸载原先位置的已选蓝图，用来进行移动动画。
+            var blueprintUI = chooseUI.GetChosenBlueprintAt(seedPackIndex);
+            chooseUI.RemoveChosenBlueprintAt(seedPackIndex);
+
+            // 将蓝图移动到目标位置。
+            // 获取源位置。
+            Vector3 sourcePos = GetChoosingBlueprintSourcePosition(seedPackIndex, seedID, commandBlock);
+            if (blueprintUI.Exists())
+            {
+                blueprintUI.transform.position = sourcePos;
+            }
+
+            // 加一个占位符，先把目标位置占住，移动完毕后再移除
+            var targetPlaceHolder = chooseUI.CreateChosenBlueprint();
+            targetPlaceHolder.UpdateView(BlueprintViewData.Empty);
+            chooseUI.InsertChosenBlueprint(seedPackIndex, targetPlaceHolder);
+
+            // 创建移动中的蓝图。
+            var movingBlueprint = CreateMovingBlueprint();
+            movingBlueprint.transform.position = sourcePos;
+            if (blueprintUI.Exists())
+            {
+                movingBlueprint.SetBlueprint(blueprintUI);
+            }
+            movingBlueprint.SetMotion(sourcePos, targetPlaceHolder.transform);
+            movingBlueprint.OnMotionFinished += (movingBlueprint) =>
+            {
+                // 移除占位符并替换为该蓝图
+                if (blueprintUI.Exists())
+                {
+                    var index = chooseUI.GetChosenBlueprintIndex(targetPlaceHolder);
+                    chooseUI.DestroyChosenBlueprint(targetPlaceHolder);
+                    chooseUI.InsertChosenBlueprint(index, blueprintUI);
+                }
+                DestroyMovingBlueprint(movingBlueprint);
+            };
+        }
+        private Vector3 GetChoosingBlueprintSourcePosition(int index, NamespaceID seedID, bool commandBlock)
+        {
+            Blueprint? choosingBlueprintItem = null;
+            if (commandBlock)
+            {
+                choosingBlueprintItem = chooseUI.GetCommandBlockSlotBlueprint();
+            }
+            else
+            {
+                var choosingIndex = Array.IndexOf(choosingBlueprints, seedID);
+                choosingBlueprintItem = chooseUI.GetBlueprintChooseItem(choosingIndex);
+            }
+
+            if (choosingBlueprintItem.Exists())
+            {
+                return choosingBlueprintItem.transform.position;
+            }
+            else
+            {
+                return chooseUI.GetChosenBlueprintPosition(index);
+            }
+        }
+        #endregion
+
+        #region 取消选择
         public void UnchooseBlueprint(int index)
         {
-            var choosingItem = chosenBlueprints[index];
-            if (choosingItem.innate)
+            var choosingItem = chosenBlueprintControllers[index];
+            if (choosingItem.Innate)
             {
                 return;
             }
@@ -215,77 +274,23 @@ namespace MVZ2.Level
             Controller.HideTooltip();
         }
 
-        private void LoadBlueprint(int seedPackIndex, NamespaceID seedID, bool commandBlock)
-        {
-            AddChosenBlueprint(seedPackIndex, new BlueprintChooseItem(seedID, isCommandBlock: commandBlock));
-
-            var blueprintUI = chooseUI.GetChosenBlueprintAt(seedPackIndex);
-            chooseUI.RemoveChosenBlueprintAt(seedPackIndex);
-
-            // 将蓝图移动到目标位置。
-            Vector3 sourcePos;
-            Vector3 targetPos = chooseUI.GetChosenBlueprintPosition(seedPackIndex);
-
-            Blueprint? choosingBlueprintItem = null;
-            if (commandBlock)
-            {
-                choosingBlueprintItem = chooseUI.GetCommandBlockSlotBlueprint();
-            }
-            else
-            {
-
-                var choosingIndex = Array.IndexOf(choosingBlueprints, seedID);
-                choosingBlueprintItem = chooseUI.GetBlueprintChooseItem(choosingIndex);
-            }
-
-            if (choosingBlueprintItem.Exists())
-            {
-                sourcePos = choosingBlueprintItem.transform.position;
-            }
-            else
-            {
-                sourcePos = targetPos;
-            }
-            if (blueprintUI.Exists())
-            {
-                blueprintUI.transform.position = sourcePos;
-            }
-
-            // 加一个占位符
-            var placeHolder = chooseUI.CreateChosenBlueprint();
-            placeHolder.UpdateView(BlueprintViewData.Empty);
-            chooseUI.InsertChosenBlueprint(seedPackIndex, placeHolder);
-
-            var movingBlueprint = CreateMovingBlueprint();
-            movingBlueprint.transform.position = sourcePos;
-            if (blueprintUI.Exists())
-            {
-                movingBlueprint.SetBlueprint(blueprintUI);
-            }
-            movingBlueprint.SetMotion(sourcePos, placeHolder.transform);
-            movingBlueprint.OnMotionFinished += (movingBlueprint) =>
-            {
-                // 移除占位符并替换为该蓝图
-                if (blueprintUI.Exists())
-                {
-                    var index = chooseUI.GetChosenBlueprintIndex(placeHolder);
-                    chooseUI.DestroyChosenBlueprint(placeHolder);
-                    chooseUI.InsertChosenBlueprint(index, blueprintUI);
-                }
-                RemoveMovingBlueprint(movingBlueprint);
-            };
-        }
         private void UnloadBlueprint(int index)
         {
-            var choosingItem = chosenBlueprints[index];
-            var blueprintUI = chooseUI.GetChosenBlueprintAt(index);
+            // 获取当前已选的蓝图。
+            var chosenController = chosenBlueprintControllers[index];
+            var blueprintUI = chosenController.GetBlueprintUI();
 
-            RemoveChosenBlueprint(index);
+            // 解绑当前已选的蓝图，用于移动。
+            UnbindChosenBlueprint(index);
 
+            // 获取移动的源位置。
             Vector3 sourcePos = blueprintUI.Exists() ? blueprintUI.transform.position : Vector3.zero;
 
-            NamespaceID id = choosingItem.id;
-            bool commandBlock = choosingItem.isCommandBlock;
+            // 获取要卸载的蓝图ID和命令方块状态。
+            NamespaceID id = chosenController.GetDefinitionID();
+            bool commandBlock = chosenController.IsCommandBlock();
+
+            // 获取目标位置。
             Blueprint? targetBlueprint = null;
             if (commandBlock)
             {
@@ -297,8 +302,15 @@ namespace MVZ2.Level
                 targetBlueprint = chooseUI.GetBlueprintChooseItem(choosingIndex);
             }
 
-            if (targetBlueprint.Exists())
+            if (!targetBlueprint.Exists())
             {
+                // 如果目标位置不存在，则直接更新目标位置。
+                UpdateBlueprintChooseItem(id, commandBlock);
+                Destroy(chosenController.gameObject);
+            }
+            else
+            {
+                // 如果目标位置存在，则创建移动蓝图用于移动动画。
                 var movingBlueprint = CreateMovingBlueprint();
                 movingBlueprint.transform.position = sourcePos;
                 if (blueprintUI.Exists())
@@ -309,40 +321,16 @@ namespace MVZ2.Level
                 movingBlueprint.OnMotionFinished += (movingBlueprint) =>
                 {
                     UpdateBlueprintChooseItem(id, commandBlock);
-                    RemoveMovingBlueprint(movingBlueprint);
+                    DestroyMovingBlueprint(movingBlueprint);
                 };
             }
-            else
-            {
-                UpdateBlueprintChooseItem(id, commandBlock);
-            }
         }
+        #endregion
 
-        private void MoveChosenBlueprint(int fromIndex, int toIndex)
-        {
-            if (fromIndex == toIndex)
-                return;
-            var item = chosenBlueprints[fromIndex];
-            var controller = chosenBlueprintControllers[fromIndex];
-            var blueprint = chooseUI.GetChosenBlueprintAt(fromIndex);
-
-            chosenBlueprints.RemoveAt(fromIndex);
-            chosenBlueprintControllers.RemoveAt(fromIndex);
-            chooseUI.RemoveChosenBlueprintAt(fromIndex);
-
-            if (toIndex > chosenBlueprints.Count)
-            {
-                toIndex = chosenBlueprints.Count;
-            }
-            chosenBlueprints.Insert(toIndex, item);
-            chosenBlueprintControllers.Insert(toIndex, controller);
-            if (blueprint.Exists())
-                chooseUI.InsertChosenBlueprint(toIndex, blueprint);
-
-            UpdateControllerIndexes();
-        }
+        #region 交换蓝图
         private void SwapChosenBlueprints(int index1, int index2)
         {
+            // 位置相同则不交换。
             if (index1 == index2)
                 return;
             var min = Mathf.Min(index1, index2);
@@ -350,21 +338,43 @@ namespace MVZ2.Level
             MoveChosenBlueprint(min, max);
             MoveChosenBlueprint(max - 1, min);
         }
-
-        private void UpdateControllerIndexes()
+        private void MoveChosenBlueprint(int fromIndex, int toIndex)
         {
-            for (int i = 0; i < chosenBlueprintControllers.Count; i++)
+            // 位置相同则不移动。
+            if (fromIndex == toIndex)
+                return;
+
+            // 获取源位置的蓝图UI和控制器。
+            var controller = chosenBlueprintControllers[fromIndex];
+            var blueprint = controller.GetBlueprintUI();
+
+            // 移除源位置的蓝图UI和控制器。
+            chosenBlueprintControllers.RemoveAt(fromIndex);
+            chooseUI.RemoveChosenBlueprintAt(fromIndex);
+
+            // 将目标位置限制在一定范围内。
+            toIndex = Mathf.Clamp(toIndex, 0, chosenBlueprintControllers.Count);
+
+            // 将蓝图控制器和UI插入到目标位置。
+            chosenBlueprintControllers.Insert(toIndex, controller);
+            if (blueprint.Exists())
             {
-                chosenBlueprintControllers[i].Index = i;
+                chooseUI.InsertChosenBlueprint(toIndex, blueprint);
             }
+
+            // 更新蓝图控制器的索引。
+            UpdateControllerIndexes();
         }
+        #endregion
+
+        #region 移动蓝图
         private MovingBlueprint CreateMovingBlueprint()
         {
             var movingBlueprint = chooseUI.CreateMovingBlueprint();
             movingBlueprints.Add(movingBlueprint);
             return movingBlueprint;
         }
-        private void RemoveMovingBlueprint(MovingBlueprint blueprint)
+        private void DestroyMovingBlueprint(MovingBlueprint blueprint)
         {
             movingBlueprints.Remove(blueprint);
             chooseUI.RemoveMovingBlueprint(blueprint);
@@ -380,7 +390,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 替换
-        public async void ReplaceChoosingBlueprints(BlueprintSelectionItem[] blueprints)
+        public async void ReplaceChoosingBlueprints(BlueprintChooseSaveItem[] blueprints)
         {
             if (blueprints == null)
                 return;
@@ -410,7 +420,7 @@ namespace MVZ2.Level
                 await Main.Scene.ShowDialogMessageAsync(title, desc);
             }
         }
-        private bool ValidateReplaceBlueprints(BlueprintSelectionItem[] blueprints, out string? errorMessage)
+        private bool ValidateReplaceBlueprints(BlueprintChooseSaveItem[] blueprints, out string? errorMessage)
         {
             if (blueprints.GroupBy(x => x).Any(g => g.Count() > 1))
             {
@@ -445,24 +455,24 @@ namespace MVZ2.Level
             errorMessage = null;
             return true;
         }
-        private void ReplaceBlueprints(BlueprintSelectionItem[] targetBlueprints)
+        private void ReplaceBlueprints(BlueprintChooseSaveItem[] targetBlueprints)
         {
             // 移除所有正在移动的蓝图。
             ClearMovingBlueprints();
 
             var slotCount = Level.GetSeedSlotCount();
 
-            var innateCount = chosenBlueprints.Count(i => i.innate);
-            var chosen = chosenBlueprints.Where(i => !i.innate);
+            var innateCount = chosenBlueprintControllers.Count(i => i.Innate);
+            var chosen = chosenBlueprintControllers.Where(i => !i.Innate);
             var targets = targetBlueprints.Take(slotCount - innateCount).ToArray();
-            var retainBlueprints = targets.Where(i => chosen.Any(item => i.Compare(item))).ToArray();
+            var retainBlueprints = targets.Where(i => chosen.Any(item => item.CompareChooseSaveItem(i))).ToArray();
             var pickBlueprints = targets.Except(retainBlueprints).ToArray();
-            var removeBlueprints = chosen.Where(item => !targets.Any(i => i.Compare(item))).ToArray();
+            var removeBlueprints = chosen.Where(item => !targets.Any(i => item.CompareChooseSaveItem(i))).ToArray();
 
             // 首先卸下要移除的蓝图。
             foreach (var item in removeBlueprints)
             {
-                var existingIndex = chosenBlueprints.IndexOf(item);
+                var existingIndex = chosenBlueprintControllers.IndexOf(item);
                 UnloadBlueprint(existingIndex);
             }
             // 然后装载要添加的蓝图。
@@ -476,10 +486,13 @@ namespace MVZ2.Level
             foreach (var item in retainBlueprints)
             {
                 var targetIndex = Array.IndexOf(targets, item) + innateCount;
-                var existingIndex = chosenBlueprints.FindIndex(i => item.Compare(i));
+                var existingIndex = chosenBlueprintControllers.FindIndex(i => i.CompareChooseSaveItem(item));
                 SwapChosenBlueprints(existingIndex, targetIndex);
             }
         }
+        #endregion
+
+        #region 替换制品
         private void ReplaceArtifacts(ArtifactSelectionItem?[] artifactsID)
         {
             var slotCount = Level.GetArtifactSlotCount();
@@ -501,40 +514,24 @@ namespace MVZ2.Level
         }
         #endregion
 
+        #region 取消选择所有蓝图
         private void UnloadAllBlueprints()
         {
             // 移除所有正在移动的蓝图。
             ClearMovingBlueprints();
 
             // 卸下要移除的蓝图。
-            for (int i = chosenBlueprints.Count - 1; i >= 0; i--)
+            for (int i = chosenBlueprintControllers.Count - 1; i >= 0; i--)
             {
-                var item = chosenBlueprints[i];
-                if (item.innate)
+                var controller = chosenBlueprintControllers[i];
+                if (controller.Innate)
                     continue;
                 UnloadBlueprint(i);
             }
         }
-        public void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
-        {
-            chooseUI.SetSideUIBlend(0);
-            chooseUI.SetBlueprintChooseBlend(0);
+        #endregion
 
-            isChoosingBlueprints = true;
-
-            chooseUI.HideCommandBlockPanel();
-            ClearPanelFlags();
-            UI.SetBlueprintsSortingToChoosing(true);
-            chooseUI.SetChosenBlueprintsVisible(true);
-            // 制品。
-            InheritArtifacts();
-
-            Refresh(blueprints);
-
-            // 边缘UI。
-            chooseUI.SetSideUIDisplaying(true);
-            chooseUI.SetBlueprintChooseDisplaying(true);
-        }
+        #region 刷新
         public void Refresh(IEnumerable<NamespaceID> blueprints)
         {
             chooseUI.SetChosenBlueprintsSlotCount(Level.GetSeedSlotCount());
@@ -544,23 +541,34 @@ namespace MVZ2.Level
         private void RefreshBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
         {
             // 保存之前的选卡ID。
-            var chosenBlueprintBefore = chosenBlueprints.Where(i => !i.innate).ToArray();
+            var chosenBlueprintBefore = chosenBlueprintControllers.Where(i => !i.Innate).ToArray();
 
             // 更新可选蓝图。
-            bool canRepick = Main.SaveManager.GetLastSelection() != null;
-            var panelViewData = new BlueprintChoosePanelViewData()
+            RefreshBlueprintsForChoose(blueprints);
+
+            // 刷新所有已选蓝图。
+            RefreshChosenBlueprints(chosenBlueprintBefore);
+
+            // 刷新选卡界面的元素。
+            RefreshChooseBlueprintPanelElements();
+
+            // 如果有丢失的卡牌，取消他们的选择。
+            for (int i = chosenBlueprintControllers.Count - 1; i >= 0; i--)
             {
-                canViewLawn = Level.CurrentFlag > 0,
-                hasCommandBlock = Main.SaveManager.IsCommandBlockUnlocked(),
-                canRepick = canRepick,
-            };
+                var item = chosenBlueprintControllers[i];
+                if (item.Innate)
+                    continue;
+                if (choosingBlueprints.Contains(item.GetDefinitionID()))
+                    continue;
+                UnchooseBlueprint(i);
+            }
+        }
+        #endregion
 
-            var orderedBlueprints = new List<NamespaceID?>();
-            Main.AlmanacManager.GetOrderedContraptionsByAlmanac(blueprints, orderedBlueprints);
-            var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless())).ToArray();
-            choosingBlueprints = orderedBlueprints.ToArray();
-
-
+        #region 刷新已选蓝图
+        private void RefreshChosenBlueprints(ChosenBlueprintController[] chosenBlueprintBefore)
+        {
+            // 清除所有已选蓝图和移动中的蓝图，然后重新设置已选蓝图。
             var seedSlotCount = Level.GetSeedSlotCount();
             ClearMovingBlueprints();
             ClearChosenBlueprints();
@@ -570,66 +578,62 @@ namespace MVZ2.Level
                 if (i < innateBlueprints.Length)
                 {
                     // 加入固有蓝图。
-                    AddChosenBlueprint(i, new BlueprintChooseItem(innateBlueprints[i], innate: true));
+                    CreateChosenBlueprint(i, new BlueprintChooseItem(innateBlueprints[i], innate: true));
                 }
                 else if (i < innateBlueprints.Length + chosenBlueprintBefore.Length)
                 {
                     // 重新计算选卡映射。
-                    AddChosenBlueprint(i, chosenBlueprintBefore[i - innateBlueprints.Length]);
+                    CreateChosenBlueprint(i, chosenBlueprintBefore[i - innateBlueprints.Length].ToChooseItem());
                 }
             }
 
-            // 更新UI。
-            var commandBlockSlotViewData = Main.AlmanacManager.GetChoosingBlueprintViewData(VanillaContraptionID.commandBlock, Level.IsEndless());
+            foreach (var blueprintController in chosenBlueprintControllers)
+            {
+                if (blueprintController.Exists())
+                {
+                    blueprintController.UpdateView();
+                }
+            }
+        }
+        #endregion
+
+        #region 刷新选卡界面元素
+        private void RefreshChooseBlueprintPanelElements()
+        {
+            bool canRepick = Main.SaveManager.GetLastSelection() != null;
+            var panelViewData = new BlueprintChoosePanelViewData()
+            {
+                canViewLawn = Level.CurrentFlag > 0,
+                hasCommandBlock = Main.SaveManager.IsCommandBlockUnlocked(),
+                canRepick = canRepick,
+            };
+            chooseUI.UpdateBlueprintChooseElements(panelViewData);
             chooseUI.SetBlueprintChooseViewAlmanacButtonActive(Main.SaveManager.IsAlmanacUnlocked());
             chooseUI.SetBlueprintChooseViewStoreButtonActive(Main.SaveManager.IsStoreUnlocked());
-            chooseUI.UpdateBlueprintChooseElements(panelViewData);
+        }
+        #endregion
+
+        #region 刷新可选蓝图
+        private void RefreshBlueprintsForChoose(IEnumerable<NamespaceID> blueprints)
+        {
+            // 更新可选蓝图ID。
+            var orderedBlueprints = new List<NamespaceID?>();
+            Main.AlmanacManager.GetOrderedContraptionsByAlmanac(blueprints, orderedBlueprints);
+            choosingBlueprints = orderedBlueprints.ToArray();
+
+            // 更新可选蓝图UI。
+            bool isEndless = Level.IsEndless();
+            var blueprintViewDatas = choosingBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id, isEndless)).ToArray();
             chooseUI.UpdateBlueprintChooseItems(blueprintViewDatas);
-            chooseUI.UpdateCommandBlockItem(commandBlockSlotViewData);
-            for (int i = 0; i < orderedBlueprints.Count; i++)
+            for (int i = 0; i < choosingBlueprints.Length; i++)
             {
                 UpdateBlueprintChooseItem(i);
             }
-            UpdateCommandBlockItem();
-            UpdateChosenBlueprints();
 
-            // 如果有丢失的卡牌，取消他们的选择。
-            for (int i = chosenBlueprints.Count - 1; i >= 0; i--)
-            {
-                var item = chosenBlueprints[i];
-                if (item.innate)
-                    continue;
-                if (choosingBlueprints.Contains(item.id))
-                    continue;
-                UnchooseBlueprint(i);
-            }
-        }
-        private void UpdateChosenBlueprints()
-        {
-            var slotCount = Level.GetSeedSlotCount();
-            for (int i = 0; i < slotCount; i++)
-            {
-                BlueprintViewData viewData = BlueprintViewData.Empty;
-                if (i < chosenBlueprints.Count)
-                {
-                    var item = chosenBlueprints[i];
-                    var blueprint = item.id;
-                    var seedDef = Game.GetSeedDefinition(blueprint);
-                    if (seedDef != null)
-                    {
-                        viewData = Main.ResourceManager.GetBlueprintViewData(seedDef, Level.IsEndless(), item.isCommandBlock);
-                    }
-                }
-                var blueprintUI = chooseUI.GetChosenBlueprintAt(i);
-                if (blueprintUI.Exists())
-                {
-                    blueprintUI.UpdateView(viewData);
-                    blueprintUI.SetDisabled(false);
-                    blueprintUI.SetRecharge(0);
-                    blueprintUI.SetSelected(false);
-                    blueprintUI.SetTwinkleAlpha(0);
-                }
-            }
+            // 更新命令方块项。
+            var commandBlockSlotViewData = Main.AlmanacManager.GetChoosingBlueprintViewData(VanillaContraptionID.commandBlock, isEndless);
+            chooseUI.UpdateCommandBlockItem(commandBlockSlotViewData);
+            UpdateCommandBlockItem();
         }
         private void UpdateBlueprintChooseItem(NamespaceID id, bool commandBlock)
         {
@@ -651,7 +655,7 @@ namespace MVZ2.Level
             var id = choosingBlueprints[index];
             if (!NamespaceID.IsValid(id))
                 return;
-            bool selected = chosenBlueprints.Any(i => i.id == id && !i.isCommandBlock);
+            bool selected = chosenBlueprintControllers.Any(i => i.GetDefinitionID() == id && !i.IsCommandBlock());
             bool notRecommended = Level.IsBlueprintNotRecommmended(id);
 
             blueprintChooseItem.SetDisabled(selected);
@@ -662,33 +666,55 @@ namespace MVZ2.Level
             var blueprintChooseItem = chooseUI.GetCommandBlockSlotBlueprint();
             if (!blueprintChooseItem.Exists())
                 return;
-            bool selected = chosenBlueprints.Any(i => i.isCommandBlock);
+            bool selected = chosenBlueprintControllers.Any(i => i.IsCommandBlock());
             blueprintChooseItem.SetDisabled(selected);
             blueprintChooseItem.SetRecharge(selected ? 1 : 0);
         }
-        public void DestroyChosenBlueprintUIAt(int index)
+        #endregion
+
+        #region 能否选择
+        private bool CanChooseBlueprint(NamespaceID? id)
         {
-            chooseUI.DestroyChosenBlueprintAt(index);
-        }
-        public bool IsChosenBlueprintCommandBlock(int index)
-        {
-            var item = chosenBlueprints[index];
-            if (item == null)
+            if (id == null)
                 return false;
-            return item.isCommandBlock;
+            return true;
         }
+        private bool CanChooseCommandBlock()
+        {
+            if (chosenBlueprintControllers.Any(i => i.IsCommandBlock()))
+                return false;
+            if (chosenBlueprintControllers.Count >= Level.GetSeedSlotCount())
+                return false;
+            return true;
+        }
+        private bool CanChooseCommandBlockBlueprint([NotNullWhen(true)] NamespaceID? id)
+        {
+            var seedDef = Main.Game.GetSeedDefinition(id);
+            if (seedDef != null && seedDef.IsUpgradeBlueprint())
+            {
+                return false;
+            }
+            if (!choosingBlueprints.Contains(id))
+            {
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+        #region 提示文本
         public bool GetChosenBlueprintTooltipError(int index, out string? errorMessage)
         {
             errorMessage = null;
-            var item = chosenBlueprints[index];
+            var item = chosenBlueprintControllers[index];
             if (item == null)
                 return false;
-            if (item.innate)
+            if (item.Innate)
             {
                 errorMessage = Main.LanguageManager._(LogicStrings.INNATE);
                 return true;
             }
-            return GetBlueprintTooltipError(item.id, out errorMessage, item.isCommandBlock);
+            return GetBlueprintTooltipError(item.GetDefinitionID(), out errorMessage, item.IsCommandBlock());
         }
         public string GetChosenBlueprintTooltipError(int index)
         {
@@ -746,33 +772,6 @@ namespace MVZ2.Level
                 return errorMessage;
             }
             return string.Empty;
-        }
-        private bool CanChooseBlueprint(NamespaceID? id)
-        {
-            if (id == null)
-                return false;
-            return true;
-        }
-        private bool CanChooseCommandBlock()
-        {
-            if (chosenBlueprints.Any(i => i.isCommandBlock))
-                return false;
-            if (chosenBlueprints.Count >= Level.GetSeedSlotCount())
-                return false;
-            return true;
-        }
-        private bool CanChooseCommandBlockBlueprint([NotNullWhen(true)] NamespaceID? id)
-        {
-            var seedDef = Main.Game.GetSeedDefinition(id);
-            if (seedDef != null && seedDef.IsUpgradeBlueprint())
-            {
-                return false;
-            }
-            if (!choosingBlueprints.Contains(id))
-            {
-                return false;
-            }
-            return true;
         }
         #endregion
 
@@ -1071,12 +1070,12 @@ namespace MVZ2.Level
         #region 界面元素
         private async void UI_OnStartClickCallback()
         {
-            var chosen = chosenBlueprints.ToArray();
+            var chosen = chosenBlueprintControllers.Select(i => i.ToChooseItem()).ToArray();
             if (!Main.OptionsManager.AreBlueprintChooseWarningsDisabled())
             {
                 List<string> warnings = new List<string>();
 
-                if (chosenBlueprints.Count < Level.GetSeedSlotCount())
+                if (chosenBlueprintControllers.Count < Level.GetSeedSlotCount())
                 {
                     warnings.Add(Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL));
                 }
@@ -1094,7 +1093,7 @@ namespace MVZ2.Level
             isChoosingBlueprints = false;
 
             // 保存上次选择
-            var selectionBlueprints = chosen.Where(i => !i.innate).Select(i => new BlueprintSelectionItem(i.id, i.isCommandBlock)).ToArray();
+            var selectionBlueprints = chosen.Where(i => !i.innate).Select(i => i.ToSaveItem()).ToArray();
             var selectionArtifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e?.id) && !e.innate).Select(i => i != null ? new ArtifactSelectionItem(i.id) : null).ToArray();
             var selection = new BlueprintSelection(selectionBlueprints, selectionArtifacts);
             Main.SaveManager.SetLastSelection(selection);
@@ -1139,16 +1138,20 @@ namespace MVZ2.Level
                 return;
             if (!CanChooseCommandBlock())
                 return;
-            var previous = chosenBlueprints.LastOrDefault();
-            bool previousValid = previous != null && !previous.isCommandBlock && CanChooseCommandBlockBlueprint(previous.id);
-            if (previousValid && Main.OptionsManager.GetCommandBlockMode() == CommandBlockModes.PREVIOUS)
+            if (Main.OptionsManager.GetCommandBlockMode() == CommandBlockModes.PREVIOUS)
             {
-                ChooseCommandBlockBlueprint(previous!.id);
+                var previous = chosenBlueprintControllers.LastOrDefault();
+                if (previous != null && !previous.IsCommandBlock())
+                {
+                    var id = previous.GetDefinitionID();
+                    if (CanChooseCommandBlockBlueprint(id))
+                    {
+                        ChooseCommandBlockBlueprint(id);
+                        return;
+                    }
+                }
             }
-            else
-            {
-                ShowCommandBlockPanel();
-            }
+            ShowCommandBlockPanel();
         }
         private void ShowCommandBlockPanel()
         {
@@ -1236,6 +1239,20 @@ namespace MVZ2.Level
 
         #endregion
 
+        #region 序列化
+        protected override SerializableLevelControllerPart GetSerializable()
+        {
+            return new SerializableLevelBlueprintChooseController()
+            {
+                id = ID
+            };
+        }
+        public override void LoadFromSerializable(SerializableLevelControllerPart seri)
+        {
+        }
+        #endregion
+
+        #region 面板标识符
         private void AddPanelFlag(PanelFlags flag)
         {
             panelFlags |= flag;
@@ -1252,6 +1269,9 @@ namespace MVZ2.Level
         {
             return panelFlags != PanelFlags.None;
         }
+        #endregion
+
+        #region 过渡
         private IEnumerator BlueprintChosenTransition()
         {
             chooseUI.SetBlueprintChooseDisplaying(false);
@@ -1283,7 +1303,9 @@ namespace MVZ2.Level
             isViewingLawn = false;
             viewLawnFinished = false;
         }
+        #endregion
 
+        #region 属性字段
         [TranslateMsg("对话框内容")]
         public const string WARNING_SELECTED_BLUEPRINTS_NOT_FULL = "你没有携带满蓝图，确认要继续吗？";
         [TranslateMsg("关卡UI")]
@@ -1300,7 +1322,6 @@ namespace MVZ2.Level
 
         private bool isChoosingBlueprints;
         private PanelFlags panelFlags = PanelFlags.None;
-        private List<BlueprintChooseItem> chosenBlueprints = new List<BlueprintChooseItem>();
         private NamespaceID?[]? choosingBlueprints;
         private List<ChosenBlueprintController> chosenBlueprintControllers = new List<ChosenBlueprintController>();
         private List<MovingBlueprint> movingBlueprints = new List<MovingBlueprint>();
@@ -1311,7 +1332,9 @@ namespace MVZ2.Level
 
         private bool isViewingLawn;
         private bool viewLawnFinished;
+        #endregion
 
+        #region 内嵌类
         [Flags]
         private enum PanelFlags
         {
@@ -1431,6 +1454,7 @@ namespace MVZ2.Level
             private int index;
             private ITooltipTarget target;
         }
+        #endregion
     }
     [Serializable]
     public class SerializableLevelBlueprintChooseController : SerializableLevelControllerPart

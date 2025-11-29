@@ -11,18 +11,9 @@ using UnityEngine;
 
 namespace MVZ2.Level
 {
-    public interface ILevelBlueprintController : ILevelControllerPart
+    public class LevelBlueprintController : LevelControllerPart
     {
-        BlueprintController? GetCurrentBlueprintControllerByIndex(int index);
-        void DestroyClassicBlueprintAt(int index);
-        void DestroyConveyorBlueprintAt(int index);
-        float GetConveyorSpeed();
-        void SetUIConveyorMode(bool conveyor);
-        ConveyorBlueprintController? GetConveyorBlueprintController(int index);
-        void SetConveyorBlueprintUIPosition(int index, float position);
-    }
-    public class LevelBlueprintController : LevelControllerPart, ILevelBlueprintController
-    {
+        #region 热键
         public void ForceUpdateBlueprintHotkeyTexts()
         {
             foreach (var blueprint in classicBlueprints)
@@ -38,8 +29,9 @@ namespace MVZ2.Level
                 blueprint.ForceUpdateBlueprintHotkeyText();
             }
         }
-        #region 引擎层
+        #endregion
 
+        #region 引擎层
         public override void AddEngineCallbacks(LevelEngine level)
         {
             base.AddEngineCallbacks(level);
@@ -111,8 +103,8 @@ namespace MVZ2.Level
             UI.Blueprints.InsertClassicBlueprint(index, classicBlueprint);
             UI.Blueprints.ForceAlignBlueprint(index);
 
-            var controller = new ClassicBlueprintController(Controller, classicBlueprint, index, seed);
-            controller.Init();
+            var controller = classicBlueprint.GetComponent<ClassicBlueprintController>();
+            controller.Init(Controller, classicBlueprint, index, seed);
             classicBlueprints[index] = controller;
             return controller;
         }
@@ -121,7 +113,8 @@ namespace MVZ2.Level
             var controller = GetClassicBlueprintController(index);
             if (controller == null)
                 return;
-            controller.Destroy();
+            controller.Unload();
+            UI.Blueprints.DestroyClassicBlueprintAt(index);
             classicBlueprints[index] = null;
         }
         #endregion
@@ -146,8 +139,8 @@ namespace MVZ2.Level
             {
                 conveyorBlueprints[i].Index++;
             }
-            var controller = new ConveyorBlueprintController(Controller, conveyorBlueprint, index, seed);
-            controller.Init();
+            var controller = conveyorBlueprint.GetComponent<ConveyorBlueprintController>();
+            controller.Init(Controller, conveyorBlueprint, index, seed);
             conveyorBlueprints.Insert(index, controller);
             return controller;
         }
@@ -156,7 +149,8 @@ namespace MVZ2.Level
             var controller = GetConveyorBlueprintController(index);
             if (controller == null)
                 return;
-            controller.Destroy();
+            controller.Unload();
+            UI.Blueprints.DestroyConveyorBlueprintAt(index);
             conveyorBlueprints.RemoveAt(index);
             for (int i = index; i < conveyorBlueprints.Count; i++)
             {
@@ -164,7 +158,6 @@ namespace MVZ2.Level
             }
         }
         #endregion
-
         public BlueprintController? GetCurrentBlueprintControllerByIndex(int index)
         {
             if (Level.IsConveyorMode())
@@ -214,6 +207,7 @@ namespace MVZ2.Level
 
         #endregion
 
+        #region 序列化
         protected override SerializableLevelControllerPart GetSerializable()
         {
             var classicBlueprints = this.classicBlueprints.Select(b => b == null ? null : b.ToSerializable()).ToArray();
@@ -263,6 +257,7 @@ namespace MVZ2.Level
                 }
             }
         }
+        #endregion
 
         #region 传送带
         public void SetUIConveyorMode(bool mode)

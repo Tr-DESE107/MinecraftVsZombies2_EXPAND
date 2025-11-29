@@ -14,46 +14,86 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {
-    public abstract class BlueprintController
+    public abstract class BlueprintController : MonoBehaviour
     {
-        #region 公有方法
-        public BlueprintController(ILevelController controller, Blueprint ui, int index)
+        #region 生命周期
+        protected virtual void InitBlueprint(ILevelController controller, Blueprint blueprint, int index)
         {
+            if (inited)
+                return;
             Controller = controller;
-            this.ui = ui;
+            ui = blueprint;
             Index = index;
 
             modelInterface = new BlueprintModelInterface(this);
             tooltipSource = new BlueprintTooltipSource(this);
-        }
-        public void Init()
-        {
+
             UpdateView();
+            InitModel();
+
+            inited = true;
+            UpdateActive();
+        }
+        public void Unload()
+        {
+            inited = false;
+            UpdateActive();
+        }
+        private void OnEnable()
+        {
+            UpdateActive();
+        }
+        private void OnDisable()
+        {
+            UpdateActive();
+        }
+        private void UpdateActive()
+        {
+            var active = inited && enabled;
+            if (active != lastActive)
+            {
+                lastActive = active;
+                if (active)
+                {
+                    OnActive();
+                }
+                else
+                {
+                    OnDeactive();
+                }
+            }
+        }
+        protected virtual void OnActive()
+        {
+            ui.OnPointerInteraction += OnPointerInteractionCallback;
+        }
+        protected virtual void OnDeactive()
+        {
+            ui.OnPointerInteraction -= OnPointerInteractionCallback;
+        }
+        #endregion
+
+        #region 模型
+        public Model GetModel()
+        {
+            return ui.Model;
+        }
+        private void InitModel()
+        {
             var model = GetModel();
             if (model != null)
             {
                 // TODO 把这个蓝图的内嵌蓝图ID给它改一下
                 model.Init(null!, Controller.GetCamera());
             }
-            AddCallbacks();
         }
-        public Model GetModel()
-        {
-            return ui.Model;
-        }
+        #endregion
+
+        #region UI
         public void UpdateView()
         {
             BlueprintViewData viewData = GetBlueprintViewData();
             ui.UpdateView(viewData);
-        }
-        public virtual void Remove()
-        {
-            RemoveCallbacks();
-        }
-        public void Destroy()
-        {
-            Remove();
-            OnDestroy();
         }
         public virtual BlueprintViewData GetBlueprintViewData()
         {
@@ -68,11 +108,8 @@ namespace MVZ2.Level
                 description = string.Empty
             };
         }
-        public abstract SeedDefinition GetSeedDefinition();
-        public abstract bool IsCommandBlock();
         #endregion
 
-        #region 私有方法
 
         #region 事件回调
         private void OnPointerInteractionCallback(Blueprint blueprint, PointerEventData eventData, PointerInteraction interaction)
@@ -89,50 +126,48 @@ namespace MVZ2.Level
         }
         #endregion
 
-        protected virtual void AddCallbacks()
+        public Blueprint GetBlueprintUI()
         {
-            ui.OnPointerInteraction += OnPointerInteractionCallback;
+            return ui;
         }
-        protected virtual void RemoveCallbacks()
-        {
-            ui.OnPointerInteraction -= OnPointerInteractionCallback;
-        }
-        protected abstract void OnDestroy();
+        public abstract SeedDefinition GetSeedDefinition();
+        public abstract bool IsCommandBlock();
         private string GetName()
         {
             return Main.ResourceManager.GetBlueprintName(GetSeedDefinition().GetID(), IsCommandBlock());
         }
-        #endregion
 
         #region 属性字段
         public MainManager Main => MainManager.Instance;
         public LevelEngine Level => Controller.GetEngine();
         public int Index { get; set; }
-        public ILevelController Controller { get; private set; }
-        protected Blueprint ui;
-        protected IModelInterface modelInterface;
-        protected ITooltipSource tooltipSource;
+        public ILevelController Controller { get; private set; } = null!;
+        protected Blueprint ui = null!;
+        protected IModelInterface modelInterface = null!;
+        protected ITooltipSource tooltipSource = null!;
+        private bool inited = false;
+        private bool lastActive = false;
         #endregion
-        private class BlueprintTooltipSource : ITooltipSource
+    }
+    public class BlueprintTooltipSource : ITooltipSource
+    {
+        public BlueprintTooltipSource(BlueprintController blueprintController)
         {
-            public BlueprintTooltipSource(BlueprintController blueprintController)
-            {
-                this.blueprintController = blueprintController;
-            }
-            public Camera GetCamera()
-            {
-                return blueprintController.Controller.GetCamera();
-            }
-            public ITooltipTarget GetTarget()
-            {
-                return blueprintController.ui;
-            }
-            public TooltipContent GetContent()
-            {
-                return blueprintController.GetTooltipViewData();
-            }
-            private BlueprintController blueprintController;
+            this.blueprintController = blueprintController;
         }
+        public Camera GetCamera()
+        {
+            return blueprintController.Controller.GetCamera();
+        }
+        public ITooltipTarget GetTarget()
+        {
+            return blueprintController.GetBlueprintUI();
+        }
+        public TooltipContent GetContent()
+        {
+            return blueprintController.GetTooltipViewData();
+        }
+        private BlueprintController blueprintController;
     }
     public class SerializableBlueprintController
     {

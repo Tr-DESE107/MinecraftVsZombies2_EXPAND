@@ -16,8 +16,6 @@ namespace MVZ2.Level.UI
             if (!blueprint)
                 return;
             blueprints.Insert(index, blueprint.gameObject);
-            blueprint.Index = index;
-            blueprint.IsInConveyor = false;
             blueprint.OnPointerInteraction += OnBlueprintPointerInteractionCallback;
         }
         public override bool RemoveBlueprint(Blueprint blueprint)
@@ -26,8 +24,6 @@ namespace MVZ2.Level.UI
                 return false;
             if (blueprints.Remove(blueprint.gameObject))
             {
-                blueprint.Index = -1;
-                blueprint.IsInConveyor = false;
                 blueprint.OnPointerInteraction -= OnBlueprintPointerInteractionCallback;
                 return true;
             }
@@ -39,8 +35,6 @@ namespace MVZ2.Level.UI
                 return false;
             if (blueprints.DestroyItem(blueprint.gameObject))
             {
-                blueprint.Index = -1;
-                blueprint.IsInConveyor = false;
                 blueprint.OnPointerInteraction -= OnBlueprintPointerInteractionCallback;
                 return true;
             }

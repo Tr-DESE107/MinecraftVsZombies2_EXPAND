@@ -3,48 +3,31 @@
 using MVZ2.UI;
 using MVZ2Logic;
 using MVZ2Logic.Blueprints;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
+using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {
-    public abstract class RuntimeBlueprintController : BlueprintController
+    public abstract class RuntimeBlueprintController : BlueprintController, ILevelRaycastReceiver
     {
-        #region 公有方法
-        public RuntimeBlueprintController(ILevelController controller, Blueprint ui, int index, SeedPack seedPack) : base(controller, ui, index)
+        #region 初始化
+        public virtual void Init(ILevelController controller, Blueprint ui, int index, SeedPack seedPack)
         {
             SeedPack = seedPack;
             ui.gameObject.name = seedPack.GetDefinitionID().ToString();
-            seedPack.SetModelInterface(modelInterface);
-            UpdateModelInsertions();
+            InitBlueprint(controller, ui, index);
         }
-        public override void Remove()
-        {
-            base.Remove();
-            SeedPack.SetModelInterface(null);
-        }
-        public void ForceUpdateBlueprintHotkeyText()
-        {
-            UpdateHotkeyText();
-        }
-        protected override void AddCallbacks()
-        {
-            base.AddCallbacks();
-            SeedPack.OnDefinitionChanged += OnDefinitionChangedCallback;
-            SeedPack.OnModelInsertionAdded += OnModelInsertionAddedCallback;
-            SeedPack.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
-        }
-        protected override void RemoveCallbacks()
-        {
-            base.RemoveCallbacks();
-            SeedPack.OnDefinitionChanged -= OnDefinitionChangedCallback;
-            SeedPack.OnModelInsertionAdded -= OnModelInsertionAddedCallback;
-            SeedPack.OnModelInsertionRemoved -= OnModelInsertionRemovedCallback;
-        }
+        #endregion
+
+        #region 生命周期
         public virtual void UpdateFixed()
         {
             var model = GetModel();
@@ -68,10 +51,58 @@ namespace MVZ2.Level
                 UpdateHotkeyText();
             }
         }
+        protected override void OnActive()
+        {
+            base.OnActive();
+            SeedPack.OnDefinitionChanged += OnDefinitionChangedCallback;
+            SeedPack.OnModelInsertionAdded += OnModelInsertionAddedCallback;
+            SeedPack.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
+
+            SeedPack.SetModelInterface(modelInterface);
+            UpdateModelInsertions();
+        }
+        protected override void OnDeactive()
+        {
+            base.OnDeactive();
+            SeedPack.OnDefinitionChanged -= OnDefinitionChangedCallback;
+            SeedPack.OnModelInsertionAdded -= OnModelInsertionAddedCallback;
+            SeedPack.OnModelInsertionRemoved -= OnModelInsertionRemovedCallback;
+
+            SeedPack.SetModelInterface(null);
+        }
+        #endregion
+
+        #region 模型
+        private void UpdateModelInsertions()
+        {
+            var model = GetModel();
+            if (model)
+                model.UpdateModelInsertions(SeedPack.GetModelInsertions());
+        }
+        #endregion
+
+        #region UI
         public override BlueprintViewData GetBlueprintViewData()
         {
             return Main.ResourceManager.GetBlueprintViewData(SeedPack);
         }
+        public override TooltipContent GetTooltipViewData()
+        {
+            var viewData = base.GetTooltipViewData();
+            viewData.error = GetTooltipErrorMessage();
+            return viewData;
+        }
+        private string GetTooltipErrorMessage()
+        {
+            if (!CanPick(out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
+            {
+                return Main.LanguageManager._p(LogicStrings.CONTEXT_BLUEPRINT_ERROR, errorMessage);
+            }
+            return string.Empty;
+        }
+        #endregion
+
+        #region 逻辑
         public bool CanPick()
         {
             return CanPick(out _);
@@ -80,19 +111,23 @@ namespace MVZ2.Level
         {
             return SeedPack.CanPick(out errorMessage);
         }
-        public override TooltipContent GetTooltipViewData()
+        protected virtual bool ShouldBlueprintTwinkle(SeedPack seedPack)
         {
-            var viewData = base.GetTooltipViewData();
-            viewData.error = GetTooltipErrorMessage();
-            return viewData;
-        }
-        public override SeedDefinition GetSeedDefinition()
-        {
-            return SeedPack.Definition;
+            if (SeedPack.IsTwinkling())
+            {
+                return true;
+            }
+            else if (Level.IsHoldingTrigger() && SeedPack.CanInstantTrigger())
+            {
+                return true;
+            }
+            else if (Level.IsHoldingStarshard() && SeedPack.WillInstantEvoke())
+            {
+                return true;
+            }
+            return false;
         }
         #endregion
-
-        #region 私有方法
 
         #region 事件回调
         private void OnDefinitionChangedCallback(SeedDefinition seedDef)
@@ -113,29 +148,20 @@ namespace MVZ2.Level
         }
         #endregion
 
-        protected virtual bool ShouldBlueprintTwinkle(SeedPack seedPack)
+        public override SeedDefinition GetSeedDefinition()
         {
-            if (SeedPack.IsTwinkling())
-            {
-                return true;
-            }
-            else if (Level.IsHoldingTrigger() && SeedPack.CanInstantTrigger())
-            {
-                return true;
-            }
-            else if (Level.IsHoldingStarshard() && SeedPack.WillInstantEvoke())
-            {
-                return true;
-            }
-            return false;
+            return SeedPack.Definition;
         }
-        private string GetTooltipErrorMessage()
+        public override bool IsCommandBlock()
         {
-            if (!CanPick(out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
-            {
-                return Main.LanguageManager._p(LogicStrings.CONTEXT_BLUEPRINT_ERROR, errorMessage);
-            }
-            return string.Empty;
+            return SeedPack.IsCommandBlock();
+        }
+        protected abstract bool IsInConveyor();
+
+        #region 热键
+        public void ForceUpdateBlueprintHotkeyText()
+        {
+            UpdateHotkeyText();
         }
         private void UpdateHotkeyText()
         {
@@ -149,11 +175,34 @@ namespace MVZ2.Level
             var hotkey = Main.OptionsManager.GetBlueprintKeyBinding(Index);
             return hotkey != KeyCode.None ? Main.InputManager.GetKeyCodeName(hotkey) : string.Empty;
         }
-        private void UpdateModelInsertions()
+        #endregion
+
+        #region ILevelRaycastReceiver接口实现
+        bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData eventData)
         {
-            var model = GetModel();
-            if (model)
-                model.UpdateModelInsertions(SeedPack.GetModelInsertions());
+            if (definition == null)
+                return false;
+            if (Index < 0)
+                return false;
+            var target = new HeldItemTargetBlueprint(level, Index, IsInConveyor());
+            var pointer = InputHelper.GetPointerDataFromEventData(eventData);
+            return definition.IsValidFor(target, data, pointer);
+        }
+        int ILevelRaycastReceiver.GetSortingLayer()
+        {
+            var rectTrans = transform as RectTransform;
+            var canvas = rectTrans?.GetRootCanvas();
+            if (!canvas.Exists())
+                return 0;
+            return canvas.sortingLayerID;
+        }
+        int ILevelRaycastReceiver.GetSortingOrder()
+        {
+            var rectTrans = transform as RectTransform;
+            var canvas = rectTrans?.GetRootCanvas();
+            if (!canvas.Exists())
+                return 0;
+            return canvas.sortingOrder;
         }
         #endregion
 
@@ -184,13 +233,8 @@ namespace MVZ2.Level
         #endregion
 
         #region 属性字段
-        public SeedPack SeedPack { get; private set; }
+        public SeedPack SeedPack { get; private set; } = null!;
         private int lastIndex = -1;
         #endregion
-    }
-    public struct BlueprintPickupInfo
-    {
-        public bool instantTrigger;
-        public bool instantEvoke;
     }
 }

@@ -18,12 +18,12 @@ namespace MVZ2.Level
         {
             ui.SetBlueprintsSortingToChoosing(false);
         }
-        public bool CanChooseBlueprints()
+        public bool ChooseBlueprintsInteractable()
         {
             return BlueprintChoosePart.IsInteractable();
         }
-        public ILevelBlueprintController BlueprintController => blueprintController;
-        public ILevelBlueprintChooseController BlueprintChoosePart => blueprintChooseController;
+        public LevelBlueprintController BlueprintController => blueprintController;
+        public LevelBlueprintChooseController BlueprintChoosePart => blueprintChooseController;
         [SerializeField]
         LevelBlueprintController blueprintController = null!;
         [SerializeField]

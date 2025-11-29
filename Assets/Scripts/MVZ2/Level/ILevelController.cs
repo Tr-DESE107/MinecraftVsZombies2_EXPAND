@@ -14,10 +14,10 @@ namespace MVZ2.Level
         ILevelUI GetUI();
         LevelEngine GetEngine();
         Camera GetCamera();
-        ILevelBlueprintController BlueprintController { get; }
-        ILevelBlueprintChooseController BlueprintChoosePart { get; }
+        LevelBlueprintController BlueprintController { get; }
+        LevelBlueprintChooseController BlueprintChoosePart { get; }
 
-        bool CanChooseBlueprints();
+        bool ChooseBlueprintsInteractable();
         void OpenAlmanac();
         void OpenStore();
         bool IsOpeningExtraScene();
