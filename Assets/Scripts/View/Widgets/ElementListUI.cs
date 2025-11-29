@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-namespace MVZ2.UI
+namespace MVZ2.UI.Widgets
 {
     public class ElementListUI : MonoBehaviour
     {
@@ -108,7 +108,7 @@ namespace MVZ2.UI
         }
         public RectTransform CreateItem()
         {
-            var item = Object.Instantiate(_template, _listRoot);
+            var item = Instantiate(_template, _listRoot);
             //激活
             item.gameObject.SetActive(true);
             return item;
@@ -118,7 +118,7 @@ namespace MVZ2.UI
             if (Remove(item))
             {
                 item.SetParent(null);
-                Object.Destroy(item.gameObject);
+                Destroy(item.gameObject);
                 return true;
             }
             return false;

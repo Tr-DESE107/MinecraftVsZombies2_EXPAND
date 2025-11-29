@@ -2,11 +2,11 @@
 
 using System;
 using System.Collections.Generic;
-using MVZ2.UI;
+using MVZ2.UI.Widgets;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Addons
+namespace MVZ2.UI.Addons
 {
     public class LanguagePacksUI : MonoBehaviour
     {

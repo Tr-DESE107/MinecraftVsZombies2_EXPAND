@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace MVZ2.UI
+namespace MVZ2.UI.Widgets
 {
     public class ElementList : MonoBehaviour
     {
@@ -84,7 +84,7 @@ namespace MVZ2.UI
         }
         public GameObject CreateItem()
         {
-            var item = Object.Instantiate(_template, _listRoot);
+            var item = Instantiate(_template, _listRoot);
             //激活
             item.SetActive(true);
             return item;
@@ -102,7 +102,7 @@ namespace MVZ2.UI
             if (Remove(item))
             {
                 item.transform.SetParent(null);
-                Object.Destroy(item);
+                Destroy(item);
                 return true;
             }
             return false;

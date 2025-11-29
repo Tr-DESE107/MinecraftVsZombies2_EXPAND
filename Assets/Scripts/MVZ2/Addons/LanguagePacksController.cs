@@ -9,6 +9,7 @@ using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Localization;
 using MVZ2.Managers;
+using MVZ2.UI.Addons;
 using MVZ2Logic.Localization;
 using UnityEngine;
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Addons
+namespace MVZ2.UI.Addons
 {
     public class AddonsUI : MonoBehaviour
     {
