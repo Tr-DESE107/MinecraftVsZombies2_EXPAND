@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
-using MVZ2.UI;
+using MVZ2.UI.Keybinding;
 using MVZ2Logic.Localization;
 using PVZEngine;
 using UnityEngine;

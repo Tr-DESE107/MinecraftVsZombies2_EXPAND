@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2.UI
+namespace MVZ2.UI.Almanac
 {
     public class AlmanacTagIcon : MonoBehaviour, ITooltipTarget, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {

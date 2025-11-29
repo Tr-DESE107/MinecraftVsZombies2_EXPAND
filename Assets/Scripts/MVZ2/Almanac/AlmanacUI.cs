@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using MVZ2.Models;
 using MVZ2.UI;
+using MVZ2.UI.Almanac;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

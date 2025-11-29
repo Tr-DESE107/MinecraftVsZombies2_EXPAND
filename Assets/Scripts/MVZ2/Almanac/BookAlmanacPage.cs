@@ -2,6 +2,7 @@
 
 using System;
 using MVZ2.UI;
+using MVZ2.UI.Almanac;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

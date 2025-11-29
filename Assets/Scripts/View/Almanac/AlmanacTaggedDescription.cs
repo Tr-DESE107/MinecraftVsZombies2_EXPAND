@@ -4,7 +4,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-namespace MVZ2.UI
+namespace MVZ2.UI.Almanac
 {
     public class AlmanacTaggedDescription : MonoBehaviour
     {

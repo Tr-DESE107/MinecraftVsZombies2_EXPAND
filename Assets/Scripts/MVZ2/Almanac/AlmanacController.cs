@@ -14,6 +14,7 @@ using MVZ2.Models;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.UI;
+using MVZ2.UI.Almanac;
 using MVZ2Logic;
 using MVZ2Logic.Almanac;
 using MVZ2Logic.Artifacts;

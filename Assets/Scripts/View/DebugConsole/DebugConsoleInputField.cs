@@ -13,7 +13,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-namespace MVZ2.UI
+namespace MVZ2.UI.DebugConsole
 {
     /// <summary>
     /// Editable text input field.
@@ -544,7 +544,7 @@ namespace MVZ2.UI
 
         void SetText(string value, bool sendCallback = true)
         {
-            if (this.text == value)
+            if (text == value)
                 return;
 
             if (value == null)
@@ -1458,7 +1458,7 @@ namespace MVZ2.UI
                     return;
                 }
 
-                if (selectedObject != null && selectedObject != this.gameObject)
+                if (selectedObject != null && selectedObject != gameObject)
                 {
                     if (selectedObject == m_PreviouslySelectedObject)
                         return;
@@ -2062,7 +2062,7 @@ namespace MVZ2.UI
                 return EditState.Continue;
 
             // Convert carriage return and end-of-text characters to newline.
-            if (c == '\r' || (int)c == 3)
+            if (c == '\r' || c == 3)
                 c = '\n';
 
             // Convert Shift Enter to Vertical tab
@@ -2219,7 +2219,7 @@ namespace MVZ2.UI
             // Determine the current scroll position of the text within the viewport
             m_ScrollPosition = GetScrollPositionRelativeToViewport();
 
-            m_ScrollPosition += (1f / m_TextComponent.textInfo.lineCount) * scrollDirection * m_ScrollSensitivity;
+            m_ScrollPosition += 1f / m_TextComponent.textInfo.lineCount * scrollDirection * m_ScrollSensitivity;
 
             m_ScrollPosition = Mathf.Clamp01(m_ScrollPosition);
 
@@ -2240,7 +2240,7 @@ namespace MVZ2.UI
 
             float scrollPosition = (m_TextComponent.textInfo.lineInfo[0].ascender - viewportRect.yMax + m_TextComponent.rectTransform.anchoredPosition.y) / (m_TextComponent.preferredHeight - viewportRect.height);
 
-            scrollPosition = (int)((scrollPosition * 1000) + 0.5f) / 1000.0f;
+            scrollPosition = (int)(scrollPosition * 1000 + 0.5f) / 1000.0f;
 
             return scrollPosition;
         }
@@ -3849,7 +3849,7 @@ namespace MVZ2.UI
             float rightOffset = viewportWSRect.xMax - (caretPosition.x + m_TextComponent.margin.z + m_CaretWidth);
             if (rightOffset < 0f)
             {
-                if (!multiLine || (multiLine && isCharVisible))
+                if (!multiLine || multiLine && isCharVisible)
                 {
                     //Debug.Log("Shifting text to the LEFT by " + rightOffset.ToString("f3"));
                     m_TextComponent.rectTransform.anchoredPosition += new Vector2(rightOffset, 0);
@@ -3858,7 +3858,7 @@ namespace MVZ2.UI
                 }
             }
 
-            float leftOffset = (caretPosition.x - m_TextComponent.margin.x) - viewportWSRect.xMin;
+            float leftOffset = caretPosition.x - m_TextComponent.margin.x - viewportWSRect.xMin;
             if (leftOffset < 0f)
             {
                 //Debug.Log("Shifting text to the RIGHT by " + leftOffset.ToString("f3"));
@@ -3933,7 +3933,7 @@ namespace MVZ2.UI
             if (characterValidation == CharacterValidation.Integer || characterValidation == CharacterValidation.Decimal)
             {
                 // Integer and decimal
-                bool cursorBeforeDash = (pos == 0 && text.Length > 0 && text[0] == '-');
+                bool cursorBeforeDash = pos == 0 && text.Length > 0 && text[0] == '-';
                 bool selectionAtStart = stringPositionInternal == 0 || stringSelectPositionInternal == 0;
                 if (!cursorBeforeDash)
                 {
@@ -3957,9 +3957,9 @@ namespace MVZ2.UI
             }
             else if (characterValidation == CharacterValidation.Name)
             {
-                char prevChar = (text.Length > 0) ? text[Mathf.Clamp(pos - 1, 0, text.Length - 1)] : ' ';
-                char lastChar = (text.Length > 0) ? text[Mathf.Clamp(pos, 0, text.Length - 1)] : ' ';
-                char nextChar = (text.Length > 0) ? text[Mathf.Clamp(pos + 1, 0, text.Length - 1)] : '\n';
+                char prevChar = text.Length > 0 ? text[Mathf.Clamp(pos - 1, 0, text.Length - 1)] : ' ';
+                char lastChar = text.Length > 0 ? text[Mathf.Clamp(pos, 0, text.Length - 1)] : ' ';
+                char nextChar = text.Length > 0 ? text[Mathf.Clamp(pos + 1, 0, text.Length - 1)] : '\n';
 
                 if (char.IsLetter(ch))
                 {
@@ -4021,8 +4021,8 @@ namespace MVZ2.UI
                 if (kEmailSpecialCharacters.IndexOf(ch) != -1) return ch;
                 if (ch == '.')
                 {
-                    char lastChar = (text.Length > 0) ? text[Mathf.Clamp(pos, 0, text.Length - 1)] : ' ';
-                    char nextChar = (text.Length > 0) ? text[Mathf.Clamp(pos + 1, 0, text.Length - 1)] : '\n';
+                    char lastChar = text.Length > 0 ? text[Mathf.Clamp(pos, 0, text.Length - 1)] : ' ';
+                    char nextChar = text.Length > 0 ? text[Mathf.Clamp(pos + 1, 0, text.Length - 1)] : '\n';
                     if (lastChar != '.' && nextChar != '.')
                         return ch;
                 }
@@ -4082,7 +4082,7 @@ namespace MVZ2.UI
 
                 if (shouldHideSoftKeyboard == false && m_ReadOnly == false)
                 {
-                    m_SoftKeyboard = (inputType == InputType.Password) ?
+                    m_SoftKeyboard = inputType == InputType.Password ?
                         TouchScreenKeyboard.Open(m_Text, keyboardType, false, multiLine, true, false, "", characterLimit) :
                         TouchScreenKeyboard.Open(m_Text, keyboardType, inputType == InputType.AutoCorrect, multiLine, false, false, "", characterLimit);
 
@@ -4518,7 +4518,7 @@ namespace MVZ2.UI
 
         public static bool SetClass<T>(ref T currentValue, T newValue) where T : class
         {
-            if ((currentValue == null && newValue == null) || (currentValue != null && currentValue.Equals(newValue)))
+            if (currentValue == null && newValue == null || currentValue != null && currentValue.Equals(newValue))
                 return false;
 
             currentValue = newValue;

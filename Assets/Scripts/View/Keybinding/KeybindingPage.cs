@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.UI
+namespace MVZ2.UI.Keybinding
 {
     public class KeybindingPage : MonoBehaviour
     {
