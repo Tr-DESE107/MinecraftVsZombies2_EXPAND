@@ -3,7 +3,7 @@
 using System;
 using UnityEngine;
 
-namespace MVZ2.Archives
+namespace MVZ2.UI.Archive
 {
     public class ArchiveUI : MonoBehaviour
     {
