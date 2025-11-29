@@ -4,7 +4,7 @@ using System;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2
+namespace PVZEngine.Base
 {
     [Serializable]
     public class NamespaceIDReference

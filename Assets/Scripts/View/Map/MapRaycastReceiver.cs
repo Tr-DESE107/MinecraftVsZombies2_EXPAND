@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2.Map
+namespace MVZ2.UI.Map
 {
     public class MapRaycastReceiver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IScrollHandler
     {
