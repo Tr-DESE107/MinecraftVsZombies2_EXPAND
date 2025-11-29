@@ -5,7 +5,7 @@ using MVZ2.UI.Widgets;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Arcade
+namespace MVZ2.UI.Arcade
 {
     public class ArcadeItemsPage : MonoBehaviour
     {

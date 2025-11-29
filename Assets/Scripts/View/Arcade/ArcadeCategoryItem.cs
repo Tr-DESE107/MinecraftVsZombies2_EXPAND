@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Arcade
+namespace MVZ2.UI.Arcade
 {
     public class ArcadeCategoryItem : MonoBehaviour
     {
