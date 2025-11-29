@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Mainmenu.UI
+namespace MVZ2.UI
 {
     public class UserManageItem : MonoBehaviour
     {

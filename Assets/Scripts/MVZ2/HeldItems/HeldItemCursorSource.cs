@@ -2,6 +2,7 @@
 
 using MVZ2.Cursors;
 using MVZ2.Level;
+using MVZ2Logic.Cursor;
 
 namespace MVZ2.HeldItems
 {

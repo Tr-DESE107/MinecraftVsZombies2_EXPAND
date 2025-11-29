@@ -3,7 +3,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace MVZ2.Mainmenu
+namespace MVZ2.UI.Mainmenu
 {
     public class StatEntryUI : MonoBehaviour
     {

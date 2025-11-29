@@ -10,6 +10,7 @@ using MVZ2.Models;
 using MVZ2.UI;
 using MVZ2.View.Level;
 using MVZ2Logic.Armors;
+using MVZ2Logic.Cursor;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;

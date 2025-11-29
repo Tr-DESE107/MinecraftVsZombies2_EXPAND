@@ -3,9 +3,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace MVZ2.UI.Widgets
+namespace MVZ2.UI
 {
     public class ElementArray : MonoBehaviour
     {

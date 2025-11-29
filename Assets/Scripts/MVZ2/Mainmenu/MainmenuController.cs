@@ -18,6 +18,8 @@ using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
+using MVZ2.UI;
+using MVZ2.UI.Mainmenu;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
@@ -110,6 +112,7 @@ namespace MVZ2.Mainmenu
             mainmenuActionDict.Add(MainmenuButtonType.Achievement, OnAchievementButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.MusicRoom, OnMusicRoomButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Arcade, OnArcadeButtonClickCallback);
+            ui.OnMainmenuButtonUpdateSprite += OnMainmenuButtonUpdateSpriteCallback;
             ui.OnMainmenuButtonClick += OnMainmenuButtonClickCallback;
 
             ui.OnUserManageDialogButtonClick += OnUserManageButtonClickCallback;
@@ -160,6 +163,20 @@ namespace MVZ2.Mainmenu
         #endregion
 
         #region 事件回调
+        private void OnMainmenuButtonUpdateSpriteCallback(MainmenuButtonType type, MainmenuButton button)
+        {
+            var sprKey = button.NormalSprite;
+            if (!button.Interactable)
+            {
+                sprKey = button.DisabledSprite;
+            }
+            else if (button.IsHovered)
+            {
+                sprKey = button.HoveredSprite;
+            }
+            var spr = main.GetFinalSprite(sprKey);
+            button.SetSprite(spr);
+        }
         private void OnMainmenuButtonClickCallback(MainmenuButtonType type)
         {
             if (mainmenuActionDict.TryGetValue(type, out var action))

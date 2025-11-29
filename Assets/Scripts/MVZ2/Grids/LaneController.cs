@@ -2,7 +2,7 @@
 
 using System;
 using System.Linq;
-using MVZ2.UI.Widgets;
+using MVZ2.UI;
 using MVZ2Logic.Inputs;
 using UnityEngine;
 using UnityEngine.EventSystems;

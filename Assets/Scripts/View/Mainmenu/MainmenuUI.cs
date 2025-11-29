@@ -2,11 +2,10 @@
 
 using System;
 using System.Collections.Generic;
-using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 
-namespace MVZ2.Mainmenu.UI
+namespace MVZ2.UI.Mainmenu
 {
     public class MainmenuUI : MonoBehaviour
     {
@@ -104,6 +103,7 @@ namespace MVZ2.Mainmenu.UI
             foreach (var pair in mainmenuButtonDict)
             {
                 var type = pair.Key;
+                pair.Value.OnUpdateSprite += (button) => OnMainmenuButtonUpdateSprite?.Invoke(type, button);
                 pair.Value.OnClick += () => OnMainmenuButtonClick?.Invoke(type);
             }
 
@@ -115,6 +115,7 @@ namespace MVZ2.Mainmenu.UI
             achievements.OnReturnClick += () => OnAchievementsReturnButtonClick?.Invoke();
         }
         public event Action<MainmenuButtonType>? OnMainmenuButtonClick;
+        public event Action<MainmenuButtonType, MainmenuButton>? OnMainmenuButtonUpdateSprite;
         public event Action? OnUserManageDialogCreateNewUserButtonClick;
         public event Action<UserManageDialog.ButtonType>? OnUserManageDialogButtonClick;
         public event Action<int>? OnUserManageDialogUserSelect;
