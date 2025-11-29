@@ -2,7 +2,7 @@
 
 using System;
 using MVZ2.Level;
-using MVZ2.Managers;
+using MVZ2.View.Level;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
@@ -27,7 +27,7 @@ namespace MVZ2.UI
             if (definition == null)
                 return false;
             var target = new HeldItemTargetLawn(level, area);
-            var pointer = InputManager.GetPointerDataFromEventData(eventData);
+            var pointer = InputHelper.GetPointerDataFromEventData(eventData);
             return definition.IsValidFor(target, data, pointer);
         }
         int ILevelRaycastReceiver.GetSortingLayer()

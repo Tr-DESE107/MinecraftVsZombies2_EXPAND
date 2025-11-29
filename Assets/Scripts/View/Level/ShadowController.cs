@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace MVZ2.Entities
+namespace MVZ2.View.Level
 {
     public class ShadowController : MonoBehaviour
     {

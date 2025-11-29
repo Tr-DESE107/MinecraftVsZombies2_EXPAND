@@ -7,7 +7,6 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
 using MVZ2.Level.UI;
-using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.HeldItems;
@@ -70,7 +69,7 @@ namespace MVZ2.Level
             }
             else
             {
-                heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Main.InputManager.GetPointerPosition());
+                heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(InputHelper.GetPointerPosition());
             }
             ui.SetHeldItemPosition(heldItemPosition);
         }
@@ -227,10 +226,10 @@ namespace MVZ2.Level
         {
             var eventData = entity.GetHoveredPointerEventData(0);
             var pointerId = eventData.pointerId;
-            var pointerPosition = Main.InputManager.GetPointerPosition(pointerId);
+            var pointerPosition = InputHelper.GetPointerPosition(pointerId);
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
             var target = entity.GetHeldItemTarget(worldPosition);
-            var pointerParams = InputManager.GetPointerDataFromEventData(eventData);
+            var pointerParams = InputHelper.GetPointerDataFromEventData(eventData);
             return level.GetHeldHighlight(target, pointerParams);
         }
         private HeldHighlight GetGridHeldHighlight(int gridIndex, int pointerId)
@@ -241,11 +240,11 @@ namespace MVZ2.Level
             var gridUI = gridLayout.GetGrid(lane, column);
             if (grid != null && gridUI.Exists())
             {
-                var screenPos = Main.InputManager.GetPointerPosition(pointerId);
+                var screenPos = InputHelper.GetPointerPosition(pointerId);
                 var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
                 var position = gridUI.TransformWorld2ColliderPosition(worldPos);
                 var target = new HeldItemTargetGrid(grid, position);
-                var type = InputManager.GetPointerDataFromPointerId(pointerId);
+                var type = InputHelper.GetPointerDataFromPointerId(pointerId);
                 return level.GetHeldHighlight(target, type);
             }
             return HeldHighlight.None;
@@ -253,13 +252,13 @@ namespace MVZ2.Level
         private HeldHighlight GetBlueprintHeldHighlight(int blueprintIndex, int pointerId, bool conveyor)
         {
             var target = new HeldItemTargetBlueprint(level, blueprintIndex, conveyor);
-            var pointerParams = InputManager.GetPointerDataFromPointerId(pointerId);
+            var pointerParams = InputHelper.GetPointerDataFromPointerId(pointerId);
             return level.GetHeldHighlight(target, pointerParams);
         }
         private HeldHighlight GetLawnAreaHeldHighlight(LawnArea area, int pointerId)
         {
             var target = new HeldItemTargetLawn(level, area);
-            var pointerParams = InputManager.GetPointerDataFromPointerId(pointerId);
+            var pointerParams = InputHelper.GetPointerDataFromPointerId(pointerId);
             return level.GetHeldHighlight(target, pointerParams);
         }
         private void UpdateHeldHighlight()

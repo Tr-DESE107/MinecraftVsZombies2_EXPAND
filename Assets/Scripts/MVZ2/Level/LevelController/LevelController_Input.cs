@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Managers;
 using MVZ2.Options;
+using MVZ2.View.Level;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
@@ -40,14 +40,14 @@ namespace MVZ2.Level
         {
             if (Input.touchCount > 0)
             {
-                foreach (var position in Main.InputManager.GetTouchUps())
+                foreach (var position in InputHelper.GetTouchUps())
                 {
                     OnPointerRelease(position);
                 }
             }
             else
             {
-                foreach (var position in Main.InputManager.GetMouseUps(MouseButtons.LEFT))
+                foreach (var position in InputHelper.GetMouseUps(MouseButtons.LEFT))
                 {
                     OnPointerRelease(position);
                 }
@@ -57,7 +57,7 @@ namespace MVZ2.Level
         {
             var eventSystem = EventSystem.current;
             var results = new List<RaycastResult>();
-            var pointerId = InputManager.GetPointerIdByButtonAndType(pointer.button, pointer.type);
+            var pointerId = InputHelper.GetPointerIdByButtonAndType(pointer.button, pointer.type);
             var eventData = new PointerEventData(eventSystem)
             {
                 position = pointer.position,

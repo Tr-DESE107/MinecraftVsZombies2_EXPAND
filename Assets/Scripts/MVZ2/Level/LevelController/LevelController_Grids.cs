@@ -5,7 +5,6 @@ using System.Linq;
 using MVZ2.Entities;
 using MVZ2.GameContent.Models;
 using MVZ2.Grids;
-using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
@@ -113,7 +112,7 @@ namespace MVZ2.Level
                 if (grid != null)
                 {
                     var pointerPosition = gridUI.TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
-                    var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(data, interaction);
+                    var pointerParams = InputHelper.GetPointerInteractionParamsFromEventData(data, interaction);
                     var target = new HeldItemTargetGrid(grid, pointerPosition);
                     level.DoHeldItemPointerEvent(target, pointerParams);
                 }

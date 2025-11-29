@@ -2,12 +2,11 @@
 
 using System;
 using System.Collections.Generic;
-using MVZ2.Managers;
 using MVZ2Logic.Inputs;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2
+namespace MVZ2.View.Level
 {
     public class LevelPointerInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerReleaseHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler, IDropHandler
     {
@@ -25,7 +24,7 @@ namespace MVZ2
                 {
                     OnPointerInteraction?.Invoke(this, eventData, PointerInteraction.Hold);
                 }
-                if (InputManager.IsPointerHolding(eventData.pointerId))
+                if (InputHelper.IsPointerHolding(eventData.pointerId))
                 {
                     OnPointerInteraction?.Invoke(this, eventData, PointerInteraction.Streak);
                 }

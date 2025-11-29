@@ -8,7 +8,6 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.UI;
-using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Audios;
@@ -85,7 +84,7 @@ namespace MVZ2.Level
         public override void UpdateFrame(float deltaTime, float simulationSpeed)
         {
             base.UpdateFrame(deltaTime, simulationSpeed);
-            if (chosenBlueprints.Count > 0 && isChoosingBlueprints && InputManager.IsPointerDown(PointerTypes.MOUSE, MouseButtons.RIGHT) && !HasPanelFlags() && !Main.Scene.HasDialog() && !Controller.IsOpeningExtraScene())
+            if (chosenBlueprints.Count > 0 && isChoosingBlueprints && InputHelper.IsPointerDown(PointerTypes.MOUSE, MouseButtons.RIGHT) && !HasPanelFlags() && !Main.Scene.HasDialog() && !Controller.IsOpeningExtraScene())
             {
                 UnloadAllBlueprints();
                 Level.PlaySound(LogicSoundID.tap);

@@ -8,6 +8,7 @@ using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
 using MVZ2.UI;
+using MVZ2.View.Level;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
@@ -306,7 +307,7 @@ namespace MVZ2.Entities
             if (definition == null)
                 return false;
             var target = GetHeldItemTarget(d);
-            var pointer = InputManager.GetPointerDataFromEventData(d);
+            var pointer = InputHelper.GetPointerDataFromEventData(d);
             return definition.IsValidFor(target, data, pointer);
         }
         int ILevelRaycastReceiver.GetSortingLayer()

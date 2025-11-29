@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using MukioI18n;
 using MVZ2.Entities;
-using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Entities;
@@ -62,7 +61,7 @@ namespace MVZ2.Level
             {
                 // 触发手持物品指针事件。
                 var target = entityCtrl.GetHeldItemTarget(eventData);
-                var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(eventData, interaction);
+                var pointerParams = InputHelper.GetPointerInteractionParamsFromEventData(eventData, interaction);
                 level.DoHeldItemPointerEvent(target, pointerParams);
             }
 
@@ -101,7 +100,7 @@ namespace MVZ2.Level
         {
             if (IsGameStarted())
                 return;
-            var pointer = InputManager.GetPointerDataFromEventData(eventData);
+            var pointer = InputHelper.GetPointerDataFromEventData(eventData);
             var entity = entityCtrl.Entity;
             if (pointer.type == PointerTypes.MOUSE && pointer.button != MouseButtons.LEFT)
                 return;

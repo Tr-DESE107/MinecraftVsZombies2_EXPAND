@@ -2,8 +2,8 @@
 
 using System;
 using MVZ2.Level;
-using MVZ2.Managers;
 using MVZ2.Models;
+using MVZ2.View.Level;
 using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
@@ -152,7 +152,7 @@ namespace MVZ2.Grids
             if (grid == null)
                 return false;
             var target = new HeldItemTargetGrid(grid, TransformWorld2ColliderPosition(eventData.pointerCurrentRaycast.worldPosition));
-            var pointer = InputManager.GetPointerDataFromEventData(eventData);
+            var pointer = InputHelper.GetPointerDataFromEventData(eventData);
             return definition.IsValidFor(target, data, pointer);
         }
         int ILevelRaycastReceiver.GetSortingLayer()

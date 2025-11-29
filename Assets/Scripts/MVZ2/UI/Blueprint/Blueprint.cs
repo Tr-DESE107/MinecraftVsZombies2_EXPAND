@@ -2,8 +2,8 @@
 
 using System;
 using MVZ2.Level;
-using MVZ2.Managers;
 using MVZ2.Models;
+using MVZ2.View.Level;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using PVZEngine.Level;
@@ -97,7 +97,7 @@ namespace MVZ2.UI
             if (Index < 0)
                 return false;
             var target = new HeldItemTargetBlueprint(level, Index, IsInConveyor);
-            var pointer = InputManager.GetPointerDataFromEventData(eventData);
+            var pointer = InputHelper.GetPointerDataFromEventData(eventData);
             return definition.IsValidFor(target, data, pointer);
         }
         int ILevelRaycastReceiver.GetSortingLayer()

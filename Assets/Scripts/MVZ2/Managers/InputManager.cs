@@ -5,179 +5,15 @@ using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.Inputs;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace MVZ2.Managers
 {
     public partial class InputManager : MonoBehaviour, IGlobalInput
     {
         #region 检测指针状态
-        public static bool IsPointerDown(int type, int button) => IsPointerDown(GetPointerIdByButtonAndType(button, type));
-        public static bool IsPointerHolding(int type, int button) => IsPointerHolding(GetPointerIdByButtonAndType(button, type));
-        public static bool IsPointerUp(int type, int button) => IsPointerUp(GetPointerIdByButtonAndType(button, type));
         public int GetActivePointerType()
         {
             return currentPointerType;
-        }
-        public static bool IsPointerDown(int pointerId)
-        {
-            return IsPointerOfPhase(pointerId, PointerPhase.Press);
-        }
-        public static bool IsPointerHolding(int pointerId)
-        {
-            return IsPointerOfPhase(pointerId, PointerPhase.Hold);
-        }
-        public static bool IsPointerUp(int pointerId)
-        {
-            return IsPointerOfPhase(pointerId, PointerPhase.Release);
-        }
-        public static bool IsPointerOfPhase(int pointerId, PointerPhase phase)
-        {
-            if (IsPointerMouse(pointerId))
-            {
-                var mouseButton = GetPointerButton(pointerId);
-                switch (phase)
-                {
-                    case PointerPhase.Press:
-                        return Input.GetMouseButtonDown(mouseButton);
-                    case PointerPhase.Hold:
-                        return Input.GetMouseButton(mouseButton);
-                    case PointerPhase.Release:
-                        return Input.GetMouseButtonUp(mouseButton);
-                }
-                return false;
-            }
-            var touches = Input.touches;
-            for (int i = 0; i < touches.Length; i++)
-            {
-                var touch = touches[i];
-                if (touch.fingerId == pointerId)
-                {
-                    switch (phase)
-                    {
-                        case PointerPhase.Press:
-                            return touch.phase == TouchPhase.Began;
-                        case PointerPhase.Hold:
-                            return touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved;
-                        case PointerPhase.Release:
-                            return touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled;
-                    }
-                }
-            }
-            return false;
-        }
-        #endregion
-
-        #region 指针ID转换
-        public static int GetPointerIdByButtonAndType(int button, int type)
-        {
-            return type == PointerTypes.MOUSE ? -button - 1 : button;
-        }
-        public static int GetPointerButton(int pointerId)
-        {
-            return IsPointerMouse(pointerId) ? -pointerId - 1 : pointerId;
-        }
-        public static int GetPointerType(int pointerId)
-        {
-            return IsPointerMouse(pointerId) ? PointerTypes.MOUSE : PointerTypes.TOUCH;
-        }
-        public static bool IsPointerMouse(int pointerId)
-        {
-            return pointerId < 0;
-        }
-        #endregion
-
-        #region 指针数据
-        public static PointerData GetPointerDataFromEventData(PointerEventData eventData)
-        {
-            return GetPointerDataFromPointerId(eventData.pointerId);
-        }
-        public static PointerData GetPointerDataFromPointerId(int pointerId)
-        {
-            return new PointerData()
-            {
-                button = GetPointerButton(pointerId),
-                type = GetPointerType(pointerId)
-            };
-        }
-        public static PointerInteractionData GetPointerInteractionParamsFromEventData(PointerEventData eventData, PointerInteraction interaction)
-        {
-            return new PointerInteractionData()
-            {
-                pointer = GetPointerDataFromEventData(eventData),
-                interaction = interaction
-            };
-        }
-        public static PointerInteractionData GetPointerInteractionParamsFromPointerId(int pointerId, PointerInteraction interaction)
-        {
-            return new PointerInteractionData()
-            {
-                pointer = GetPointerDataFromPointerId(pointerId),
-                interaction = PointerInteraction.Hold
-            };
-        }
-        #endregion
-
-        #region 获取指针位置
-        public Vector2 GetPointerPosition(int pointerId)
-        {
-            if (IsPointerMouse(pointerId))
-            {
-                return Input.mousePosition;
-            }
-            var touches = Input.touches;
-            for (int i = 0; i < touches.Length; i++)
-            {
-                var touch = touches[i];
-                if (touch.fingerId == pointerId)
-                {
-                    return touch.position;
-                }
-            }
-            return Vector2.zero;
-        }
-        public Vector2 GetPointerPosition()
-        {
-            if (Input.touchCount > 0)
-            {
-                return Input.GetTouch(0).position;
-            }
-            return Input.mousePosition;
-        }
-        #endregion
-
-        #region 获取所有指针
-        public IEnumerable<PointerPositionParams> GetTouchUps()
-        {
-            var touches = Input.touches;
-            if (touches.Length > 0)
-            {
-                for (int i = 0; i < touches.Length; i++)
-                {
-                    var touch = touches[i];
-                    if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
-                    {
-                        yield return new PointerPositionParams()
-                        {
-                            button = i,
-                            type = PointerTypes.TOUCH,
-                            position = touch.position
-                        };
-                    }
-                }
-            }
-        }
-        public IEnumerable<PointerPositionParams> GetMouseUps(int button)
-        {
-            if (Input.GetMouseButtonUp(button))
-            {
-                yield return new PointerPositionParams()
-                {
-                    button = button,
-                    type = PointerTypes.MOUSE,
-                    position = Input.mousePosition
-                };
-            }
         }
         #endregion
 
@@ -310,7 +146,7 @@ namespace MVZ2.Managers
         }
         Vector2 IGlobalInput.GetPointerScreenPosition()
         {
-            return GetPointerPosition();
+            return InputHelper.GetPointerPosition();
         }
         Vector2 IGlobalInput.GetPointerScreenPosition(int type, int button)
         {
@@ -326,27 +162,21 @@ namespace MVZ2.Managers
         }
         bool IGlobalInput.IsPointerDown(int type, int button)
         {
-            return IsPointerDown(type, button);
+            return InputHelper.IsPointerDown(type, button);
         }
         bool IGlobalInput.IsPointerHolding(int type, int button)
         {
-            return IsPointerHolding(type, button);
+            return InputHelper.IsPointerHolding(type, button);
         }
         bool IGlobalInput.IsPointerUp(int type, int button)
         {
-            return IsPointerUp(type, button);
+            return InputHelper.IsPointerUp(type, button);
         }
         public MainManager Main => MainManager.Instance;
         private int currentPointerType = PointerTypes.MOUSE;
         private Vector2 lastMousePosition;
         private List<Vector2> lastTouchPositions = new List<Vector2>();
         private List<PointerEventCacheData> pointerEventCacheList = new List<PointerEventCacheData>();
-    }
-    public struct PointerPositionParams
-    {
-        public int type;
-        public int button;
-        public Vector2 position;
     }
     public struct PointerEventCacheData
     {
