@@ -446,6 +446,14 @@ PrefabInstance:
       value: wither_skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
