@@ -1222,6 +1222,28 @@
                 </flavor>
         </entry>
 
+		
+		<entry id="mvz2:EXPANDispenser">
+			<tags>
+				<tag id="mvz2:placement_repeatenser" />
+			</tags>
+			<header>
+				<p>万象天枢能与其他发射器融合并获取无与伦比的能力。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>1-6535</color>]]></p>
+				<p>技能：<![CDATA[<color=red>视情况而定</color>]]></p>
+			</properties>
+			<flavor>
+				<p>有不少人可能好奇他的简称E.X.P.A.N.D.都代表了什么？嗯，E代表Expand，D代表Dispenser，剩下来的四个字母都代表了什么？其实他本人也没想好。</p>
+				<p>一个D开头的机器智者建议他叫Expand Xenogenesis Power Amplifier Nexus Dispenser，另一个C开头的机器智者建议他叫Expand Xenosynthesis Polyfusion Augment Nexus Dispenser，这两个他都感觉不错，都是他看不懂但觉得高级的英文单词。</p>
+				<p>让他本人多思考会吧，等他想出来了希望不会要求其他器械把他的名字念6遍</p>
+				<p/>
+				<p>嗯，顺带一提这个大概算帅气的中文名字是■■■给他取的。真是中二少女啊。</p>
+			</flavor>
+		</entry>
+       
         <entry id="mvz2:command_block" hidden="true">
             <header>
                 <p>命令方块允许你同时携带两份同样的蓝图，分别计算充能时间。</p>

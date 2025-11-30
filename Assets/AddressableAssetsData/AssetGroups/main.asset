@@ -1074,6 +1074,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 140f6c1a111a65b429394ba5a7912041
+    m_Address: mvz2:armor/MannequinCannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1432552aec5d22d4896ea621c722f5b7
     m_Address: mvz2:effect/bone_particles
     m_ReadOnly: 0
@@ -6252,6 +6259,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74d20e5d00a671e4c8fc95b83b0e9703
+    m_Address: mvz2:entity/contraption/EXPANDispenser_Drivenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74d8652e30ae6cc4facf859271ca3fff
     m_Address: mvz2:commands
     m_ReadOnly: 0
@@ -6953,6 +6967,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8049c7a1615839440a581a9703083ac7
     m_Address: mvz2:entity/boss/seija_fabric
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 806b878d92e83964e80151c096c7d48a
+    m_Address: mvz2:entity/armor/MannequinCannon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8911,6 +8932,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a95ce05ec9225b245882a09e4183edc7
+    m_Address: mvz2:entity/enemy/CannoneerManeequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9654ff76c5f31a4d87e757c55e35a6d
     m_Address: mvz2:entity/enemy/emperor_zombie
     m_ReadOnly: 0
@@ -9611,6 +9639,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6c295ca92d14d04283dd69c86c8470f
+    m_Address: mvz2:enemy/castle/WintherMage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6d4138f51d2b2544b3de25c02fe7076
     m_Address: mvz2:enemy/castle/LeatherWitherSkeleton
     m_ReadOnly: 0
@@ -9813,6 +9848,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb7b1b4f6370f4c43bf840d5d2d93ee1
+    m_Address: mvz2:contraption/upgrade/EXPANDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb82960c34438084dbe2e212ab303367
     m_Address: mvz2:entity/mummy/mummy3
@@ -10191,13 +10233,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c4ae58b609a3ebf40a18ffe33777e65b
-    m_Address: mvz2:enemy/castle/WintherMage
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4bdf350a8df52941b184c7cd8e2f543
     m_Address: mvz2:effect/cursed_fire_particles
@@ -12298,6 +12333,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efac489457ac2b44ab5afdf082831b62
+    m_Address: mvz2:enemy/ship/CannoneerManeequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efbb503450c16564b96f353482b7d802
     m_Address: mvz2:contraption/castle/golden_apple

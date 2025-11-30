@@ -59,7 +59,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 result.SetValue(LogicBlueprintStyles.commandBlock);
             }
-            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.forcePad))
+            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.forcePad)|| seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.EXPANDispenser))
             {
                 result.SetValue(LogicBlueprintStyles.GoldCard);
             }

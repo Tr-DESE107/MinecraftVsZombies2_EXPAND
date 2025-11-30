@@ -1642,6 +1642,11 @@ MonoBehaviour:
     - {fileID: -528585260921630623, guid: 03832b8b573fa884993ba7232246622f, type: 3}
     - {fileID: 658849057890657363, guid: 03832b8b573fa884993ba7232246622f, type: 3}
     - {fileID: 5196036857812072691, guid: 03832b8b573fa884993ba7232246622f, type: 3}
+  - name: entity/armor/MannequinCannon
+    spritesheet:
+    - {fileID: 852463497, guid: 806b878d92e83964e80151c096c7d48a, type: 3}
+    - {fileID: -1095099751, guid: 806b878d92e83964e80151c096c7d48a, type: 3}
+    - {fileID: 1774718613, guid: 806b878d92e83964e80151c096c7d48a, type: 3}
   - name: entity/armor/necromancer_helmet
     spritesheet:
     - {fileID: -401330018, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
@@ -1893,6 +1898,16 @@ MonoBehaviour:
     - {fileID: 2097030706, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
     - {fileID: -2081611256, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
     - {fileID: -1668233880, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
+  - name: entity/contraption/EXPANDispenser_Drivenser
+    spritesheet:
+    - {fileID: -1108916319, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
+    - {fileID: 1974756629, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
+    - {fileID: -1950983147, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
+    - {fileID: 964857577, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
+    - {fileID: -1809084736, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
+    - {fileID: -886510208, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
+    - {fileID: -335878768, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
+    - {fileID: -549213879, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
   - name: entity/contraption/firework_dispenser
     spritesheet:
     - {fileID: 1738491610, guid: 4fa4eb018eeee64479e6ea997fc1968a, type: 3}
@@ -2351,6 +2366,13 @@ MonoBehaviour:
     - {fileID: -94971770, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
     - {fileID: 1939102905, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
     - {fileID: 578030354, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
+  - name: entity/enemy/CannoneerManeequin
+    spritesheet:
+    - {fileID: 1694852501, guid: a95ce05ec9225b245882a09e4183edc7, type: 3}
+    - {fileID: -583230075, guid: a95ce05ec9225b245882a09e4183edc7, type: 3}
+    - {fileID: 1020362298, guid: a95ce05ec9225b245882a09e4183edc7, type: 3}
+    - {fileID: 94796305, guid: a95ce05ec9225b245882a09e4183edc7, type: 3}
+    - {fileID: -877136901, guid: a95ce05ec9225b245882a09e4183edc7, type: 3}
   - name: entity/enemy/cannoneer_zombie
     spritesheet:
     - {fileID: 419887219, guid: 67a299599bce8ba49a895bdf56cbdace, type: 3}

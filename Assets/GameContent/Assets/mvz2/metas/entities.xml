@@ -1320,6 +1320,21 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
+		<dispenser id="EXPANDispenser" name="万象天枢" tooltip="（需要连射发射器）\n一次射出四支箭矢">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_9" />
+			</unlock>
+			<properties>
+				
+				<id name="mvz2:upgradeFrom" value="mvz2:repeatenser" />
+				<id name="mvz2:placement" value="mvz2:upgrade" />
+				<color name="mvz2:lightColor" value="#FFAA00" />
+
+				<int name="mvz2:cost" value="250" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</dispenser>
+		
         <contraption id="diamond_spikes" name="钻石尖刺" tooltip="（需要尖刺方块）\n更快扎伤上面的敌人，并具有更高耐久">
             <unlock>
                 <condition required="mvz2:level.castle_5" />

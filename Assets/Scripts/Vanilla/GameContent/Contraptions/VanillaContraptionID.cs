@@ -84,6 +84,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string Eviltombstone = "Eviltombstone";
         public const string CopperDropper = "CopperDropper";
         public const string AntiGravityPad = "AntiGravityPad";
+        public const string EXPANDispenser = "EXPANDispenser";
 
     }
     public static class VanillaContraptionID
@@ -163,6 +164,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID CopperDropper = Get(VanillaContraptionNames.CopperDropper);
         public static readonly NamespaceID Eradicator = Get(VanillaContraptionNames.Eradicator);
         public static readonly NamespaceID AntiGravityPad = Get(VanillaContraptionNames.AntiGravityPad);
+        public static readonly NamespaceID EXPANDispenser = Get(VanillaContraptionNames.EXPANDispenser);
 
         private static NamespaceID Get(string name)
         {
