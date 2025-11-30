@@ -6,5 +6,6 @@ namespace MVZ2Logic.Games
     {
         bool HasBloodAndGore();
         bool IsTriggerSwapped();
+        float GetParticleAmount();
     }
 }

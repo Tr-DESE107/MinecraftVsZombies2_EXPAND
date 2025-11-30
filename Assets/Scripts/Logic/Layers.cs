@@ -3,7 +3,7 @@
 using System;
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2Logic
 {
     public static class Layers
     {

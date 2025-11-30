@@ -3,10 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Models;
 using UnityEngine;
 
-namespace MVZ2.Level
+namespace MVZ2.Models
 {
     [DisallowMultipleComponent]
     public class AreaModel : Model

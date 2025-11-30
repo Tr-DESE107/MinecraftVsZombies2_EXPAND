@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace MVZ2.Level
+namespace MVZ2.Models
 {
     public class AreaModelPreset : MonoBehaviour
     {

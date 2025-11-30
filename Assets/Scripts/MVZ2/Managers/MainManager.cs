@@ -208,6 +208,7 @@ namespace MVZ2.Managers
 
             Game = new GlobalGame(this);
             Global.InitGame(Game);
+            ModelFactories.SetFactory(new ModelFactory());
 
             var levelEngineAssembly = typeof(LevelEngine).Assembly;
             var logicAssembly = typeof(LogicDefinitionTypes).Assembly;

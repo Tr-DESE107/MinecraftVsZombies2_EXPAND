@@ -18,7 +18,7 @@ namespace MVZ2.Models
         public Model? Build(Transform parent)
         {
             var res = mainManager.ResourceManager;
-            if (id == null)
+            if (!NamespaceID.IsValid(id))
                 return null;
             var modelMeta = res.GetModelMeta(id);
             if (modelMeta == null || modelMeta.Path == null)
@@ -45,9 +45,5 @@ namespace MVZ2.Models
         public Camera camera;
         public int seed;
         private MainManager mainManager;
-    }
-    public interface IModelBuilder
-    {
-        public Model? Build(Transform parent);
     }
 }

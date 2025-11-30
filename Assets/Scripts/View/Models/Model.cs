@@ -43,22 +43,22 @@ namespace MVZ2.Models
             rng = new RandomGenerator(seed);
             eventCamera = camera;
             modelComponents.Clear();
-            GetComponentsInChildren<ModelComponent>(true, modelComponents);
+            GetComponentsInChildren<IModelComponent>(true, modelComponents);
             foreach (var comp in modelComponents)
             {
-                if (!comp)
+                if (comp == null)
                     continue;
-                comp.Model = this;
+                comp.SetModel(this);
                 comp.Init();
             }
             modelInterface = new ModelParentInterface(this);
         }
         public void UpdateFixed()
         {
-            modelComponents.RemoveAll(e => !e);
+            modelComponents.RemoveAll(e => e == null);
             foreach (var comp in modelComponents)
             {
-                if (!comp || !comp.enabled)
+                if (comp == null || !comp.IsEnabled())
                     continue;
                 comp.UpdateLogic();
             }
@@ -81,10 +81,10 @@ namespace MVZ2.Models
             if (!gameObject.activeInHierarchy)
                 return;
             GraphicGroup.UpdateFrame(deltaTime);
-            modelComponents.RemoveAll(e => !e);
+            modelComponents.RemoveAll(e => e == null);
             foreach (var comp in modelComponents)
             {
-                if (!comp || !comp.enabled)
+                if (comp == null || !comp.IsEnabled())
                     continue;
                 comp.UpdateFrame(deltaTime);
             }
@@ -175,7 +175,7 @@ namespace MVZ2.Models
             serializable.insertions = insertions.ToArray();
             foreach (var comp in modelComponents)
             {
-                if (!comp.Exists())
+                if (comp == null)
                     continue;
                 comp.SaveToSerializable(serializable);
             }
@@ -224,7 +224,7 @@ namespace MVZ2.Models
             }
             foreach (var comp in modelComponents)
             {
-                if (!comp.Exists())
+                if (comp == null)
                     continue;
                 comp.LoadFromSerializable(serializable);
             }
@@ -237,7 +237,7 @@ namespace MVZ2.Models
         #endregion
 
         #region 子模型
-        public Model? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
+        public Model? CreateChildModel(string anchorName, NamespaceID key, NamespaceID id)
         {
             var existing = GetChildModel(key);
             if (existing)
@@ -245,8 +245,7 @@ namespace MVZ2.Models
             var anchor = GetAnchor(anchorName);
             if (!anchor.Exists())
                 return null;
-            var builder = new ModelBuilder(modelID, eventCamera, 0);
-            var child = builder.Build(anchor.transform);
+            var child = ModelFactories.Create(id, eventCamera, anchor.transform);
             if (!child.Exists())
                 return null;
             child.transform.localPosition = Vector3.zero;
@@ -332,7 +331,7 @@ namespace MVZ2.Models
             propertyDict.SetProperty(name, value);
             foreach (var comp in modelComponents)
             {
-                if (!comp)
+                if (comp == null)
                     continue;
                 comp.OnPropertySet(name, value);
             }
@@ -341,7 +340,7 @@ namespace MVZ2.Models
         {
             foreach (var comp in modelComponents)
             {
-                if (!comp)
+                if (comp == null)
                     continue;
                 comp.OnTrigger(name);
             }
@@ -475,7 +474,7 @@ namespace MVZ2.Models
         private ModelParentInterface modelInterface = null!;
         private RandomGenerator rng = null!;
         private PropertyDictionaryString propertyDict = new PropertyDictionaryString();
-        private List<ModelComponent> modelComponents = new List<ModelComponent>();
+        private List<IModelComponent> modelComponents = new List<IModelComponent>();
         private HashSet<NamespaceID> insertions = new HashSet<NamespaceID>();
 
         // 嵌套

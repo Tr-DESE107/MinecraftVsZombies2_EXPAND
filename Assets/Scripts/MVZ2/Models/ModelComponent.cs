@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MVZ2.Models
 {
-    public abstract class ModelComponent : MonoBehaviour
+    public abstract class ModelComponent : MonoBehaviour, IModelComponent
     {
         public virtual void Init() { }
         public virtual void UpdateLogic() { }
@@ -48,6 +48,16 @@ namespace MVZ2.Models
             UpdateFrame(Time.deltaTime);
 #endif
         }
-        public Model Model { get; set; } = null!;
+        public Model Model { get; private set; } = null!;
+
+        void IModelComponent.SetModel(Model model)
+        {
+            Model = model;
+        }
+
+        bool IModelComponent.IsEnabled()
+        {
+            return this && enabled;
+        }
     }
 }

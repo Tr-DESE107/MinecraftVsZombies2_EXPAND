@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Rendering
+namespace MVZ2.Models
 {
     [ExecuteAlways]
     public class RotationLocker : MonoBehaviour
