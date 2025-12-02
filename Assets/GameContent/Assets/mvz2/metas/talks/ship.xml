@@ -1189,7 +1189,7 @@
           <text>那时的我最后什么都做不了。只能拿着战斗中掉落的一颗龙牙，离开了巢穴。</text>
           <click>
             <script>bubble hide</script>
-            <script>character variant mvz2:shou mvz2:worried</script>
+            <script>character variant mvz2:shou mvz2:sad</script>
             <script>character variant mvz2:byakuren mvz2:serious_close_eyes</script>
             <script>foreground fade 0</script>
             <script>delay 2</script>
@@ -1252,7 +1252,7 @@
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">闪亮亮！这是珠光宝塔！</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:dialog_weird">这东西怎么长得好像……我师傅的宝塔？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:short3">当然，这是个仿制品！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">当然，这是个仿制品！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">它能把一整行的空地禁用并变为黄金，暂时无法在上面放置器械！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">但是，每禁用一定数量的空地，它就会生成一个星之碎片！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">把一切都点成黄金吧！</sentence>
