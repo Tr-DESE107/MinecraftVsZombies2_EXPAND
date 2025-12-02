@@ -1352,6 +1352,15 @@ MonoBehaviour:
     - {fileID: 333754236, guid: c2e6ace3e57f0964eb3d1cfe1113a3cd, type: 3}
     - {fileID: -622170376, guid: c2e6ace3e57f0964eb3d1cfe1113a3cd, type: 3}
     - {fileID: -43281677, guid: c2e6ace3e57f0964eb3d1cfe1113a3cd, type: 3}
+  - name: characters/shou
+    spritesheet:
+    - {fileID: 587364902, guid: 160f9fc9ad1c8524f8dc892654dc1557, type: 3}
+    - {fileID: 1917327756, guid: 160f9fc9ad1c8524f8dc892654dc1557, type: 3}
+    - {fileID: 1880934132, guid: 160f9fc9ad1c8524f8dc892654dc1557, type: 3}
+    - {fileID: -220064195, guid: 160f9fc9ad1c8524f8dc892654dc1557, type: 3}
+    - {fileID: -632824485, guid: 160f9fc9ad1c8524f8dc892654dc1557, type: 3}
+    - {fileID: 1405602645, guid: 160f9fc9ad1c8524f8dc892654dc1557, type: 3}
+    - {fileID: 1387713995, guid: 160f9fc9ad1c8524f8dc892654dc1557, type: 3}
   - name: characters/tokiko
     spritesheet:
     - {fileID: 1468632406, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}

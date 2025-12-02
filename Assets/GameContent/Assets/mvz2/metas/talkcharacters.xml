@@ -408,8 +408,44 @@
         </variant>
     </character>
     <character id="shou" name="星">
-        <variant id="mvz2:normal" width="448" height="896" extendRight="0" pivotX="0.5" pivotY="0">
-            <layer sprite="mvz2:characters/armor_stand" />
+        <variant id="mvz2:normal" width="632" height="1280"  extendLeft="100" extendRight="50" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/shou[0]" />
+        </variant>
+        <variant id="mvz2:unhappy" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_3" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[1]" positionX="304" positionY="176" />
+        </variant>
+        <variant id="mvz2:angry" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_3" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[4]" positionX="304" positionY="128" />
+        </variant>
+        <variant id="mvz2:worried" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_4" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[2]" positionX="304" positionY="176" />
+        </variant>
+        <variant id="mvz2:surprised" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_6" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[6]" positionX="304" positionY="128" />
+        </variant>
+        <variant id="mvz2:sad" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_8" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[3]" positionX="304" positionY="176" />
+        </variant>
+        <variant id="mvz2:question" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_9" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[5]" positionX="304" positionY="128" />
         </variant>
     </character>
     <character id="nue" name="鵺">
