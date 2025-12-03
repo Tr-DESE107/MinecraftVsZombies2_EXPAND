@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-27 11:58+0800\n"
+"POT-Creation-Date: 2025-12-03 07:50+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -572,7 +572,7 @@ msgstr ""
 #. Description for almanac tag enum value mvz2:cloud of enum shell
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
-msgid "受到0.5x冲击伤害"
+msgid "受到0.5x冲击或火焰伤害"
 msgstr ""
 
 #. Name for almanac tag enum value mvz2:lightning of enum shell
