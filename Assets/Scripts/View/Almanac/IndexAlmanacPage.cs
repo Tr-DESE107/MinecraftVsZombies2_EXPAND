@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Almanacs
+namespace MVZ2.UI.Almanac
 {
     public class IndexAlmanacPage : AlmanacPage
     {

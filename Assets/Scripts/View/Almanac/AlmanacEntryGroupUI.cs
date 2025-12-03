@@ -5,7 +5,7 @@ using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 
-namespace MVZ2.Almanacs
+namespace MVZ2.UI.Almanac
 {
     public class AlmanacEntryGroupUI : MonoBehaviour
     {

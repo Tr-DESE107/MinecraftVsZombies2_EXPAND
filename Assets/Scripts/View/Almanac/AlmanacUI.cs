@@ -8,7 +8,7 @@ using MVZ2.UI.Almanac;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MVZ2.Almanacs
+namespace MVZ2.UI.Almanac
 {
     public class AlmanacUI : MonoBehaviour
     {
@@ -76,12 +76,12 @@ namespace MVZ2.Almanacs
         {
             miscs.SetGroups(groups);
         }
-        public void SetActiveContraptionEntry(ModelBuilder model, string name, string description, string cost, string recharge)
+        public void SetActiveContraptionEntry(IModelBuilder model, string name, string description, string cost, string recharge)
         {
             standaloneContraptions.SetActiveEntry(model, name, description, cost, recharge);
             mobileContraptions.SetActiveEntry(model, name, description, cost, recharge);
         }
-        public void SetActiveEnemyEntry(ModelBuilder model, string name, string description)
+        public void SetActiveEnemyEntry(IModelBuilder model, string name, string description)
         {
             enemies.SetActiveEntry(model, name, description);
         }
@@ -93,7 +93,7 @@ namespace MVZ2.Almanacs
         {
             miscs.SetActiveEntry(sprite, Color.white, name, description, sized, zoom);
         }
-        public void SetActiveMiscEntry(ModelBuilder model, string name, string description)
+        public void SetActiveMiscEntry(IModelBuilder model, string name, string description)
         {
             miscs.SetActiveEntry(model, name, description);
         }

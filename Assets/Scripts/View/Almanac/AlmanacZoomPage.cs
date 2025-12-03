@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Almanacs
+namespace MVZ2.UI.Almanac
 {
     public class AlmanacZoomPage : MonoBehaviour
     {

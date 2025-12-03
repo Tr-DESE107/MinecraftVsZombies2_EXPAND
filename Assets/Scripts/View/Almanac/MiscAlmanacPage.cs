@@ -6,7 +6,7 @@ using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Almanacs
+namespace MVZ2.UI.Almanac
 {
     public class MiscAlmanacPage : BookAlmanacPage
     {
@@ -80,7 +80,7 @@ namespace MVZ2.Almanacs
             iconZoomButtonRoot.SetActive(zoom);
             SetDescription(name, description);
         }
-        public void SetActiveEntry(ModelBuilder model, string name, string description)
+        public void SetActiveEntry(IModelBuilder model, string name, string description)
         {
             entryImageRegion.gameObject.SetActive(false);
             entryModel.gameObject.SetActive(true);
