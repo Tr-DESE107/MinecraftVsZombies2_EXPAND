@@ -60,7 +60,7 @@
             <p>原来是大部分传送带关卡都会播放的音乐，在这里只用于万圣夜。</p>
         </description>
     </music>
-    <music id="halloween_boss" name="莱克死灵之书-首领">
+    <music id="halloween_boss" name="莱克死灵之书-头目">
         <track main="mvz2:halloween_boss" />
         <source>书虫大冒险</source>
         <description>
@@ -254,7 +254,7 @@
             <p>“这是我唯一剩下的愿望了”</p>
         </description>
     </music>
-    <music id="wither_boss" name="惊疑星球-首领">
+    <music id="wither_boss" name="惊疑星球-头目">
         <unlock>
             <condition required="mvz2:level.castle_11" />
         </unlock>

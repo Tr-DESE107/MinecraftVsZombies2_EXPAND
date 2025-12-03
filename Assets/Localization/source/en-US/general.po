@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-26 09:39+0800\n"
-"PO-Revision-Date: 2025-11-26 09:40+0800\n"
+"POT-Creation-Date: 2025-12-03 08:30+0800\n"
+"PO-Revision-Date: 2025-12-03 20:30+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -629,7 +629,7 @@ msgid "红桃A"
 msgstr "Ace of Hearts"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:24
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:20
 msgctxt "random_china.event_name"
 msgid "黑桃A"
 msgstr "Ace of Spades"
@@ -653,19 +653,19 @@ msgid "超级充能"
 msgstr "Super Recharge"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:46
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:43
 msgctxt "random_china.event_name"
 msgid "VIII-力量"
 msgstr "VII - Strength"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:29
 msgctxt "random_china.event_name"
 msgid "IV-皇帝"
 msgstr "IV - The Emperor"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:30
 msgctxt "random_china.event_name"
 msgid "0-愚者"
 msgstr "0 - The Fool"
@@ -677,7 +677,7 @@ msgid "XII-倒吊人"
 msgstr "XII - The Hanged Man"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:34
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:30
 msgctxt "random_china.event_name"
 msgid "XVII-星星"
 msgstr "XVII - The Star"
@@ -1403,7 +1403,7 @@ msgstr "Version {0}"
 msgid "点击以开始！"
 msgstr "Click to start!"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:874
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:936
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1411,30 +1411,30 @@ msgstr ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:876
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:938
 msgid "已跳过对话\"{0}\""
 msgstr "Dialogue skipped: {0}"
 
-#: Scripts\MVZ2\Store\StoreController.cs:275
+#: Scripts\MVZ2\Store\StoreController.cs:289
 msgid "购买物品"
 msgstr "Purchase"
 
-#: Scripts\MVZ2\Store\StoreController.cs:277
+#: Scripts\MVZ2\Store\StoreController.cs:291
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] "Are you sure you want to purchase this for {0:N0}?"
 msgstr[1] "Are you sure you want to purchase this for {0:N0}?"
 
-#: Scripts\MVZ2\Store\StoreController.cs:279
+#: Scripts\MVZ2\Store\StoreController.cs:293
 msgid "金钱不足"
 msgstr "Not Enough Money"
 
-#: Scripts\MVZ2\Store\StoreController.cs:281
+#: Scripts\MVZ2\Store\StoreController.cs:295
 msgid "你没有足够的金钱！"
 msgstr ""
 "You don't have enough money! Come back when you're a little mmmm... richer!"
 
-#: Scripts\MVZ2\Store\StoreController.cs:283
+#: Scripts\MVZ2\Store\StoreController.cs:297
 msgid "{0}/{1}"
 msgstr "{0}/{1}"
 
@@ -1738,7 +1738,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:728
+#: Scripts\MVZ2\Map\MapController.cs:732
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1746,7 +1746,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:730
+#: Scripts\MVZ2\Map\MapController.cs:734
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1754,11 +1754,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:732
+#: Scripts\MVZ2\Map\MapController.cs:736
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:734
+#: Scripts\MVZ2\Map\MapController.cs:738
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1767,12 +1767,12 @@ msgstr ""
 "{0}/{1}"
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:736
+#: Scripts\MVZ2\Map\MapController.cs:740
 msgid "目标地点{0}不存在。"
 msgstr "Target area {0} does not exist."
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:738
+#: Scripts\MVZ2\Map\MapController.cs:742
 msgid "目标关卡{0}不存在。"
 msgstr "Target stage {0} does not exist."
 
@@ -2764,11 +2764,11 @@ msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Archive\ArchiveController.cs:254
+#: Scripts\MVZ2\Archive\ArchiveController.cs:258
 msgid "<b>[{0}]</b> {1}"
 msgstr "<b>[{0}]</b> {1}"
 
-#: Scripts\MVZ2\Archive\ArchiveController.cs:256
+#: Scripts\MVZ2\Archive\ArchiveController.cs:260
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -3430,7 +3430,7 @@ msgstr ""
 #. Name for music mvz2:halloween_boss
 #: Music meta file
 msgctxt "music.name"
-msgid "莱克死灵之书-首领"
+msgid "莱克死灵之书-头目"
 msgstr "Lexonomicon Boss"
 
 #. Description for music mvz2:halloween_boss
@@ -3901,7 +3901,7 @@ msgstr ""
 #. Name for music mvz2:wither_boss
 #: Music meta file
 msgctxt "music.name"
-msgid "惊疑星球-首领"
+msgid "惊疑星球-头目"
 msgstr "Astounding Planet Boss"
 
 #. Description for music mvz2:wither_boss
@@ -4268,6 +4268,12 @@ msgstr "Castle"
 msgctxt "archive.tagname"
 msgid "梦殿大祀庙"
 msgstr "Mausoleum"
+
+#. Name for archive tag mvz2:ship
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "圣辇船"
+msgstr "Ship"
 
 #. Name for archive tag mvz2:tutorial
 #: Archive meta file
@@ -5459,6 +5465,10 @@ msgstr "NORMAL"
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
+
+#~ msgctxt "music.name"
+#~ msgid "莱克死灵之书-首领"
+#~ msgstr "Lexonomicon Boss"
 
 # 随机瓷器事件名称
 #~ msgctxt "random_china.event_name"
