@@ -359,6 +359,9 @@
 
 
     <music id="ship_map" name="美猴王-地图">
+        <unlock>
+            <condition required="mvz2:level.ship_1" />
+        </unlock>
         <track main="mvz2:ship_map" />
         <source>书虫大冒险 Vol.2</source>
         <description>
