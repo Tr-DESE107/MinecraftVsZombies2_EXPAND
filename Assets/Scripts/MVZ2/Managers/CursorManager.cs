@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
 using MVZ2Logic.Cursor;
+using MVZ2Logic.Games;
 using UnityEngine;
 
 namespace MVZ2.Cursors
 {
-    public class CursorManager : MonoBehaviour
+    public class CursorManager : MonoBehaviour, IGlobalCursors
     {
         public void AddCursorSource(CursorSource source)
         {
@@ -27,11 +28,6 @@ namespace MVZ2.Cursors
                 return true;
             }
             return false;
-        }
-        private void Awake()
-        {
-            GameCursor.OnAddSource += (source) => AddCursorSource(source);
-            GameCursor.OnRemoveSource += (source) => RemoveCursorSource(source);
         }
         private void OnEnable()
         {

@@ -21,6 +21,7 @@ namespace MVZ2Logic
             Scene = param.scene;
             Localization = param.localization;
             Debugs = param.debug;
+            Cursors = param.cursors;
         }
         public static void InitGame(IGlobalGame game)
         {
@@ -42,6 +43,7 @@ namespace MVZ2Logic
         public static IGlobalGame Game { get; private set; } = null!;
         public static IGlobalLocalization Localization { get; private set; } = null!;
         public static IGlobalDebug Debugs { get; private set; } = null!;
+        public static IGlobalCursors Cursors { get; private set; } = null!;
         public static IVanillaInterface VanillaInterface { get; private set; } = null!;
         public static string BuiltinNamespace => Game.DefaultNamespace;
     }
@@ -58,5 +60,6 @@ namespace MVZ2Logic
         public IGlobalScene scene;
         public IGlobalLocalization localization;
         public IGlobalDebug debug;
+        public IGlobalCursors cursors;
     }
 }
