@@ -2,6 +2,7 @@
 
 using System.Xml;
 using MVZ2.IO;
+using MVZ2.UI.Level;
 using MVZ2Logic.Resources;
 using UnityEngine;
 
@@ -103,10 +104,5 @@ namespace MVZ2.Metas
                 return ProgressBarMode.Filled;
             return ProgressBarMode.Sliced;
         }
-    }
-    public enum ProgressBarMode
-    {
-        Sliced = 0,
-        Filled = 1
     }
 }

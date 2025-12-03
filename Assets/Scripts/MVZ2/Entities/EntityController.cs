@@ -7,6 +7,7 @@ using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
 using MVZ2.UI;
+using MVZ2.UI.Level;
 using MVZ2.View.Level;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Cursor;

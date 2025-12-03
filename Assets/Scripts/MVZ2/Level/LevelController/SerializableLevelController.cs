@@ -4,7 +4,7 @@ using System;
 using MongoDB.Bson.Serialization.Attributes;
 using MVZ2.Entities;
 using MVZ2.Grids;
-using MVZ2.Level.UI;
+using MVZ2.UI.Level;
 using MVZ2.Models;
 using PVZEngine;
 using PVZEngine.Level;

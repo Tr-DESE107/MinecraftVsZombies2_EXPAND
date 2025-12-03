@@ -22,7 +22,7 @@ using MVZ2.Saves;
 using MVZ2.Store;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
-using MVZ2.Vanilla;
+using MVZ2.UI.Scene;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
@@ -444,6 +444,8 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Addons, addons);
             pages.Add(MainScenePageType.MusicRoom, musicRoom);
             pages.Add(MainScenePageType.Arcade, arcade);
+
+            ui.OnDebugIconClick += (icon) => main.Scene.DisplayConsole();
         }
         private void Update()
         {

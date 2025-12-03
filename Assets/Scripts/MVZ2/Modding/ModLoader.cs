@@ -22,6 +22,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Notes;
 using MVZ2Logic.Resources;
+using MVZ2Logic.Seeds;
 using MVZ2Logic.Shapes;
 using MVZ2Logic.Spawns;
 using PVZEngine;

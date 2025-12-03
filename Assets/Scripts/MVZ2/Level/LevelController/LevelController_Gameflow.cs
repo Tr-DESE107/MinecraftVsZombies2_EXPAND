@@ -17,7 +17,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using static MVZ2.Level.UI.LevelUIPreset;
+using static MVZ2.UI.Level.LevelUIPreset;
 
 namespace MVZ2.Level
 {

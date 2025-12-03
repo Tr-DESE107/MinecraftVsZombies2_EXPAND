@@ -316,28 +316,4 @@ namespace MVZ2.Level
         public SerializableBlueprintController?[]? classicBlueprints;
         public SerializableBlueprintController?[]? conveyorBlueprints;
     }
-    public interface ILevelBlueprintRuntimeUI
-    {
-        void SetBlueprintsActive(bool active);
-        void SetConveyorMode(bool mode);
-        Blueprint CreateClassicBlueprint();
-        void InsertClassicBlueprint(int index, Blueprint blueprint);
-        void SetClassicBlueprintSlotCount(int count);
-        void DestroyClassicBlueprintAt(int index);
-        void ForceAlignBlueprint(int index);
-
-        Blueprint ConveyBlueprint();
-        void InsertConveyorBlueprint(int index, Blueprint blueprint);
-        void SetConveyorBlueprintSlotCount(int count);
-        void DestroyConveyorBlueprintAt(int index);
-        void SetConveyorBlueprintNormalizedPosition(int index, float position);
-    }
-
-    public interface ILevelUI
-    {
-        void SetReceiveRaycasts(bool receive);
-        void SetBlueprintsSortingToChoosing(bool choosing);
-        ILevelBlueprintRuntimeUI Blueprints { get; }
-        LevelUIBlueprintChoose BlueprintChoose { get; }
-    }
 }

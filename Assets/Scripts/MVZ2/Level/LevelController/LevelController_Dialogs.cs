@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
-using MVZ2.Level.UI;
+using MVZ2.UI.Level;
 using MVZ2.Options;
 using MVZ2Logic.Localization;
 using Tools;

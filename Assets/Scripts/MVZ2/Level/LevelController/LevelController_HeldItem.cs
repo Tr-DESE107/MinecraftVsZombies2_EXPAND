@@ -5,7 +5,7 @@ using MVZ2.Entities;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
-using MVZ2.Level.UI;
+using MVZ2.UI.Level;
 using MVZ2.Models;
 using MVZ2Logic;
 using MVZ2Logic.Blueprints;

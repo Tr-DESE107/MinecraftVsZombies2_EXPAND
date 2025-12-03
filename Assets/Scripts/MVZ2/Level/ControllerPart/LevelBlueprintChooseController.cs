@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.Level.UI;
+using MVZ2.UI.Level;
 using MVZ2.UI;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Audios;

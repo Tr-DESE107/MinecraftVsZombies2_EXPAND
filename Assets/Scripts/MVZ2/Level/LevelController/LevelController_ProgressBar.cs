@@ -2,7 +2,7 @@
 
 using System;
 using System.Linq;
-using MVZ2.Level.UI;
+using MVZ2.UI.Level;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
