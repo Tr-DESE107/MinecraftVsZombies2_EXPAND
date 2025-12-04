@@ -326,6 +326,18 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 炸药
+        public static readonly PropertyMeta<bool> DYNAMITE = Get<bool>("dynamite");
+        public static bool IsDynamite(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(DYNAMITE);
+        }
+        public static bool IsDynamite(this Entity entity)
+        {
+            return entity.GetProperty<bool>(DYNAMITE);
+        }
+        #endregion
+
         #region 火焰
 
         public static readonly PropertyMeta<bool> IS_FIRE = Get<bool>("isFire");

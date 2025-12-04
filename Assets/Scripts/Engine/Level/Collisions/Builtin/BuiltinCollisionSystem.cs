@@ -55,7 +55,7 @@ namespace PVZEngine.Level.Collisions
                 ;
                 var sorter = new ColliderComparer(collider1);
 
-                 var rect1 = collider1.GetCollisionRect();
+                var rect1 = collider1.GetCollisionRect();
                 foreach (var pair in quadTrees)
                 {
                     var flag = pair.Key;

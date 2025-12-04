@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-28 02:29+0800\n"
+"POT-Creation-Date: 2025-11-27 11:58+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -733,7 +733,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "提供能量：<color=red>1点/1.6秒，而后1点/1秒</color>\n"
-"技能：<color=red>立即升级，发出蓝光，并使生产量变为2.5倍</color>"
+"技能：<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:moonlight_sensor
@@ -765,7 +765,7 @@ msgstr ""
 #. Header for contraptions mvz2:punchton
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
+msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\" />石制品，但之后需要一定时间来修复自身。"
 msgstr ""
 
 #. Properties for contraptions mvz2:punchton
@@ -807,7 +807,7 @@ msgstr ""
 #. Header for contraptions mvz2:soul_furnace
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "灵魂熔炉发射恐怖的<tag id=\"mvz2:fire\"/>灵魂火，但需要烧毁前方的器械来补充燃料。"
+msgid "灵魂熔炉发射恐怖的<tag id=\"mvz2:fire\" />灵魂火，但需要烧毁前方的器械来补充燃料。"
 msgstr ""
 
 #. Properties for contraptions mvz2:soul_furnace
@@ -817,7 +817,7 @@ msgid ""
 "伤害：<color=red>80</color>\n"
 "溅射伤害：<color=red>20（不伤害直接目标）</color>\n"
 "特点：<color=red>需要烧毁器械补充燃料</color>\n"
-"燃料上限：<color=red>60</color>\n"
+"燃料上限：<color=red>120</color>\n"
 "技能：<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球</color>"
 msgstr ""
 
@@ -830,7 +830,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯的飞刀。"
+msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr ""
 
 #. Properties for contraptions mvz2:silvenser
@@ -971,7 +971,7 @@ msgstr ""
 #. Header for contraptions mvz2:totenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "图腾发射器在发射飞镖的同时还会<tag id=\"mvz2:fire\"/>喷火烧伤近处的敌人。"
+msgid "图腾发射器在发射飞镖的同时还会<tag id=\"mvz2:fire\" />喷火烧伤近处的敌人。"
 msgstr ""
 
 #. Properties for contraptions mvz2:totenser
@@ -1555,7 +1555,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>3000</color>\n"
-"耐久消耗：<color=red>150（怪物），20（子弹）</color>\n"
+"耐久消耗：<color=red>300（怪物），450（怪物，困难难度），20（子弹）</color>\n"
 "技能：<color=red>击退并弹飞半径2.5格内的所有敌方怪物</color>"
 msgstr ""
 
@@ -1690,7 +1690,7 @@ msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>4支/1.5秒</color>\n"
 "伤害：<color=red>20</color>\n"
-"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\"/>发光</color>"
+"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\" />发光</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:high_frequency_pulse_dispenser
@@ -1881,7 +1881,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
-"弱点：<color=red>被<tag id=\"mvz2:light_source\"/>光照到时会失去虚无效果</color>"
+"弱点：<color=red>被<tag id=\"mvz2:light_source\" />光照到时会失去虚无效果</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:ghost
@@ -1901,7 +1901,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
-"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\"/>火烧掉</color>"
+"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\" />火烧掉</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:mummy
@@ -1942,7 +1942,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>160</color>\n"
 "速度：<color=red>2</color>\n"
-"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\"/>防御性器械</color>"
+"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\" />防御性器械</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:spider
@@ -2008,7 +2008,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "速度：<color=red>2</color>，而后<color=red>0.6</color>（产卵后）\n"
-"特点：<color=red>碰到的<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯会被寄生</color>"
+"特点：<color=red>碰到的<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯会被寄生</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:mother_terror
@@ -2097,7 +2097,7 @@ msgid ""
 "马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
 "身体速度：<color=red>1</color>\n"
 "头颅速度：<color=red>2</color>\n"
-"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\"/>高器械</color>"
+"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\" />高器械</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:dullahan
@@ -2163,7 +2163,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"生命：<color=red>200+600</color>\n"
+"生命：<color=red>200+710</color>\n"
 "速度：<color=red>1</color>\n"
 "特点：<color=red>子弹击中反射壁并消失后，产生伤害相同的子弹进行回击</color>"
 msgstr ""
@@ -2330,7 +2330,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+1110（铁炮）</color>\n"
-"移速：<color=red>0.5，1（失去铁炮后）</color>\n"
+"速度：<color=red>0.5，1（失去铁炮后）</color>\n"
 "发射间隔：<color=red>8秒</color>"
 msgstr ""
 
@@ -2351,7 +2351,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
-"移速：<color=red>2</color>"
+"速度：<color=red>2</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:cannonball_zombie
@@ -2656,7 +2656,7 @@ msgstr ""
 #. Properties for artifacts mvz2:broken_lantern
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red><tag id=\"mvz2:light_source\"/>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
+msgid "效果：<color=red><tag id=\"mvz2:light_source\" />发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:broken_lantern
@@ -2997,6 +2997,51 @@ msgid ""
 "“他们已经饿了很久了，就让他们吃一点吧。”"
 msgstr ""
 
+#. Name for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "红龙"
+msgstr ""
+
+#. Header for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "红龙是一头喷火的猛兽，为了报杀母之仇，定要摧毁幻想乡的一切。"
+msgstr ""
+
+#. Properties for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>50000</color>\n"
+"阶段1：<color=red>火焰弹、龙卷风、吞食、火焰吐息</color>\n"
+"阶段2：<color=red>巨型火球、火焰龙卷风、火焰流星、飞空、扫尾</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"骑士一行人踏入了一处巨大的山洞，他们举着火把慢慢前进着。\n"
+"山洞中遍布着很多骸骨。有羊的，牛的，其他怪物的，遍地都是——但好像唯独没有人的头骨。\n"
+"骑士听着深处的动静，最终带领队伍找到了他们的目标——一头红龙。\n"
+"红龙见到他们，十分惊讶。它张开口，说出了人类的语言：\n"
+"“你们这些人类，来到这里是想做什么？这里不是你们应该来的地方！”\n"
+"有一位同伴争先答到：\n"
+"“国王的梦预示着王国会被怪物毁灭，因此，我们以国王的名义，要取你的龙头！”\n"
+"红龙瞪大了眼睛，随后又突然尖锐起来。那眼中包含的是悲哀，还有——愤怒。\n"
+"“我曾亲眼看见我的母亲死于你们人类之手。她杀死了很多的人类，导致人类群起而攻之。从那时，我就对你们人类产生了畏惧之心。“\n"
+"“一百年来，我一直避免招惹你们，我本以为这样就不会引来杀身之祸。如今，你们却因为一场无聊的梦便要我的命？”\n"
+"“这就是我所应得的东西？！只是因为你们这群人类自诩为高等生灵？！”\n"
+"红龙的愤怒化作火焰从口中喷出，瞬间点燃了整片巢穴。\n"
+"在那场火焰和钢铁交织的战斗中，红龙逐渐落入下风。最后红龙被骑士刺中喉咙，倒在了地上。\n"
+"“贪婪……会成为你们人类的坟墓……”\n"
+"“我……诅咒……你们……”\n"
+"红龙就这样闭上了眼睛。\n"
+"龙巢的火熄灭了。同伴们将龙的尸体分解，把它的牙、眼、爪、骨、鳞、和心脏作为战利品收集了起来。\n"
+"骑士默默看着他们兴奋的样子，最后却什么也没要。"
+msgstr ""
+
 #. Name for almanac group mvz2:misc_entities
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3237,6 +3282,53 @@ msgctxt "misc.description"
 msgid "我的水桶、告示牌和灵魂沙呢？"
 msgstr ""
 
+#. Name for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "云山之拳"
+msgstr ""
+
+#. Header for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "云山之拳在碰到敌人后会向前发射，击杀并打飞一行的敌怪。"
+msgstr ""
+
+#. Flavor for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"云山是由云朵变化过来的僧侣妖怪，守护在僧侣云居 一轮身旁。\n"
+"在命莲寺众人的讨论和计划下，云山为圣辇船提供了一些云朵拳头作为最终防线。\n"
+"可别小看这些拳头，被击飞的怪物一下子可是能飞十万八千里。"
+msgstr ""
+
+#. Name for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "伞兵僵尸"
+msgstr ""
+
+#. Header for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "伞兵僵尸会在圣辇船的每一大波怪物到来时从天而降，然后将雨伞作为护盾。"
+msgstr ""
+
+#. Properties for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>200+270（雨伞）+？（随机头盔）</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "危险动作，小鬼僵尸请勿轻易尝试。"
+msgstr ""
+
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3351,6 +3443,16 @@ msgid ""
 "曾为了颠覆幻想乡的格局而利用了针妙丸，使用了她的万宝槌，甚至动员了幻想乡的弱势妖怪妄图推翻一切。\n"
 "不过，最终这种荒唐的闹剧还是遭到了幻想乡众人的镇压，她自己也因此曾遭到通缉。\n"
 "如今她在四处游荡，成了个不受任何人欢迎的家伙。然而，天邪鬼对“逆转”的那种渴望，似乎也并不会轻易被熄灭就是了。"
+msgstr ""
+
+#. Flavor for misc mvz2:seija
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"在史蒂夫从圣辇船坠落之后，似乎是她救了史蒂夫。\n"
+"然而此举并不是出于好心，而是盯上了史蒂夫身上的星之碎片。\n"
+"“只要拥有这些星之碎片，说不定就能恢复针妙丸的地位，再颠覆整个幻想乡。”\n"
+"她这样想着。"
 msgstr ""
 
 #. Name for misc mvz2:shinmyoumaru
@@ -3493,6 +3595,99 @@ msgctxt "misc.description"
 msgid "这到底是什么东西？"
 msgstr ""
 
+#. Name for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "寅丸 星"
+msgstr ""
+
+#. Header for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "被圣白莲选中的虎妖怪，毘沙门天的弟子。"
+msgstr ""
+
+#. Flavor for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"她本是一只普通的虎妖怪，被圣 白莲选中而成为了毘沙门天的弟子兼化身。\n"
+"她和白莲的关系说起来比较复杂。白莲供奉毘沙门天，而她又选择了星作为弟子，也作为毘沙门天的化身。因此白莲实际上也在供奉她自己的弟子。\n"
+"星在工作上十分优秀，表面看上去十分冷静而威严，然而其实是个很感性的家伙。\n"
+"\n"
+"红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白莲的旅途。"
+msgstr ""
+
+#. Name for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "封兽 鵺"
+msgstr ""
+
+#. Header for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "命莲寺的妖怪，有着让物体变得无法识别的能力。"
+msgstr ""
+
+#. Flavor for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"鵺（yè）是一名神秘的大妖怪，在之后才加入到命莲寺，因此与命莲寺中的其他人并不合群。\n"
+"喜欢找乐子、妨碍他人做事，常常会使用自己的能力干扰他人行动。\n"
+"被她施加能力的物体，会失去原本的认知特征，在别人眼里会把它视作是自己认为合理的物体——比如飞在空中的奇怪物体，别人会把它看作是飞碟。\n"
+"\n"
+"然而，在异变发生后，她的性格大变，变得十分消极和恍惚，认为这一切都没有任何意义。\n"
+"到底是发生了什么？"
+msgstr ""
+
+#. Name for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "赤蛮奇"
+msgstr ""
+
+#. Header for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "居住在人类村庄的妖怪，拥有让自己的头飞行的能力。"
+msgstr ""
+
+#. Flavor for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"赤蛮奇伪装成普通人类而居住在人类村庄，在这里过着平凡的生活。\n"
+"拥有身首分离，并让头飞行的能力，据说还有非常多的其他头颅可用。\n"
+"\n"
+"在史蒂夫坠船并离开一座废弃的房屋后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。\n"
+"人类村庄发生过什么吗？"
+msgstr ""
+
+#. Name for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "圣 白莲"
+msgstr ""
+
+#. Header for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "命莲寺的住持，法力无边的高僧。"
+msgstr ""
+
+#. Flavor for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"白莲的弟弟——命莲，也是一位法力高强的僧人，但最后还是寿限已至，离世了。\n"
+"因此白莲开始恐惧死亡，她作为一名研习佛法的僧人，最后竟靠着妖怪的力量达成了不老，成为了一名“妖僧”。\n"
+"就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。\n"
+"\n"
+"三年前，巨人和红龙同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。"
+msgstr ""
+
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3630,6 +3825,52 @@ msgid ""
 "远处似乎有什么金属工具深深嵌在了墙壁上。"
 msgstr ""
 
+#. Name for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "末地船"
+msgstr ""
+
+#. Header for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一艘飞翔于幻想乡天空中的船只，时不时会袭击飞在空中的妖怪们。"
+msgstr ""
+
+#. Flavor for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"原本只是会出现在末地中的飞行船只，不知为何竟出现在了幻想乡的空中。\n"
+"奇怪的是，上面没有末影人，有的只是普通的、形似海盗的僵尸。\n"
+"更加奇怪的是，里面居然有一颗末影水晶以极快的速度来修复船体。\n"
+"这导致任何想破坏这艘船的人，必须要先把内部的末影水晶破坏掉，然而这艘船在落入下风时也会选择以极快的速度逃跑。\n"
+"总之，关于这艘船的一切，都是个谜。"
+msgstr ""
+
+#. Name for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "圣辇船"
+msgstr ""
+
+#. Header for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一艘飞翔于天空中的巨大船只。"
+msgstr ""
+
+#. Flavor for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，需要乘船去往。倘若随意变换寺庙，会造成一些不便。\n"
+"因此白莲又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。\n"
+"如今白莲杳无音讯，星和命莲寺众人商讨后，登上圣辇船，踏上了寻找白莲的路途。\n"
+"\n"
+"据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？"
+msgstr ""
+
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3722,6 +3963,27 @@ msgid ""
 "但是，我真的很想回家。"
 msgstr ""
 
+#. Name for misc mvz2:starshard.ufo_fragment
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "星之碎片：飞碟碎片"
+msgstr ""
+
+#. Flavor for misc mvz2:starshard.ufo_fragment
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"未知人士留下了一些记录。\n"
+"\n"
+"星之记录 其五：\n"
+"这该死的异变还在持续着。\n"
+"我没有任何其他选择，只能与它继续进行斗争。\n"
+"我发现我的理智似乎出现了裂痕。\n"
+"我看到了本不应看到的东西，然后那幻觉又立即消失了。\n"
+"那些飞碟还在天上飞着。\n"
+"我到底还能撑多久……？"
+msgstr ""
+
 #. Name for almanac group mvz2:important
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3801,7 +4063,7 @@ msgstr ""
 #. Properties for misc mvz2:obsidian_first_aid
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\"/>防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
+msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\" />防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
 msgstr ""
 
 #. Flavor for misc mvz2:obsidian_first_aid
@@ -3927,6 +4189,49 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "细节尚不知情。"
+msgstr ""
+
+#. Name for misc mvz2:abandoned_house
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "废弃的房屋"
+msgstr ""
+
+#. Header for misc mvz2:abandoned_house
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "人类村庄中一座废弃的房屋。"
+msgstr ""
+
+#. Flavor for misc mvz2:abandoned_house
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"史蒂夫从圣辇船中坠落时，被鬼人 正邪救到了这处房屋中。\n"
+"在他出来之后，遭到了赤蛮奇的质问，问他为什么会从这间屋子里出来。\n"
+"然而具体发生了什么，史蒂夫并不知情。\n"
+"这间屋子发生过什么事情吗？"
+msgstr ""
+
+#. Name for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "寻找孩子的访客"
+msgstr ""
+
+#. Header for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。"
+msgstr ""
+
+#. Flavor for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"史蒂夫解决掉红龙的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。\n"
+"那位访客自称灯兰 樱，为了寻找自己的孩子而来。\n"
+"在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。"
 msgstr ""
 
 #. Name for entity counter mvz2:low_enemy
@@ -5131,6 +5436,12 @@ msgctxt "entity.name"
 msgid "巨人蛇尾"
 msgstr ""
 
+#. Name for entity mvz2:red_dragon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "红龙"
+msgstr ""
+
 #. Name for entity mvz2:minecart
 #: Entity meta file
 msgctxt "entity.name"
@@ -5309,6 +5620,30 @@ msgstr ""
 #: Character meta file
 msgctxt "character.name"
 msgid "影像"
+msgstr ""
+
+#. Name for character mvz2:shou
+#: Character meta file
+msgctxt "character.name"
+msgid "星"
+msgstr ""
+
+#. Name for character mvz2:nue
+#: Character meta file
+msgctxt "character.name"
+msgid "鵺"
+msgstr ""
+
+#. Name for character mvz2:sekibanki
+#: Character meta file
+msgctxt "character.name"
+msgid "赤蛮奇"
+msgstr ""
+
+#. Name for character mvz2:byakuren
+#: Character meta file
+msgctxt "character.name"
+msgid "白莲"
 msgstr ""
 
 #. Name for artifact mvz2:almanac

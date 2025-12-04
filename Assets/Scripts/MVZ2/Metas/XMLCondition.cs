@@ -22,16 +22,28 @@ namespace MVZ2.Metas
             {
                 node.CreateAttribute("requiredNot", string.Join(' ', RequiredNot.Select(e => e.ToString())));
             }
+            if (RequiredGroups != null && RequiredGroups.Length > 0)
+            {
+                node.CreateAttribute("requiredGroups", string.Join(' ', RequiredGroups.Select(e => e.ToString())));
+            }
+            if (RequiredNotGroups != null && RequiredNotGroups.Length > 0)
+            {
+                node.CreateAttribute("requiredNotGroups", string.Join(' ', RequiredNotGroups.Select(e => e.ToString())));
+            }
             return node;
         }
         public static XMLCondition FromXmlNode(XmlNode node, string defaultNsp)
         {
             var required = node.GetAttributeNamespaceIDArray("required", defaultNsp);
             var requiredNot = node.GetAttributeNamespaceIDArray("requiredNot", defaultNsp);
+            var requiredGroups = node.GetAttributeNamespaceIDArray("requiredGroups", defaultNsp);
+            var requiredNotGroups = node.GetAttributeNamespaceIDArray("requiredNotGroups", defaultNsp);
             return new XMLCondition()
             {
                 Required = required,
-                RequiredNot = requiredNot
+                RequiredNot = requiredNot,
+                RequiredGroups = requiredGroups,
+                RequiredNotGroups = requiredNotGroups
             };
         }
         public static XMLCondition FromSingle(NamespaceID id)
@@ -52,11 +64,17 @@ namespace MVZ2.Metas
         {
             if (Required != null && Required.Any(c => !save.IsUnlocked(c)))
                 return false;
+            if (RequiredGroups != null && RequiredGroups.Any(c => !save.IsGroupUnlocked(c)))
+                return false;
             if (RequiredNot != null && RequiredNot.Any(c => save.IsUnlocked(c)))
+                return false;
+            if (RequiredNotGroups != null && RequiredNotGroups.Any(c => save.IsGroupUnlocked(c)))
                 return false;
             return true;
         }
         public NamespaceID[]? Required { get; set; }
         public NamespaceID[]? RequiredNot { get; set; }
+        public NamespaceID[]? RequiredGroups { get; set; }
+        public NamespaceID[]? RequiredNotGroups { get; set; }
     }
 }

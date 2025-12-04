@@ -6,7 +6,7 @@ namespace MVZ2.UI
 {
     public class TooltipAnchor : MonoBehaviour, ITooltipAnchor
     {
-        public bool IsDisabled => disabled || !isActiveAndEnabled;
+        public bool IsDisabled => !this || disabled || !isActiveAndEnabled;
         public Vector2 Pivot => pivot;
         public Vector3 Position => transform.position;
         [SerializeField]

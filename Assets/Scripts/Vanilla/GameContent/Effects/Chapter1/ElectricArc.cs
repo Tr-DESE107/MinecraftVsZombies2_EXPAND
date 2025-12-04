@@ -24,9 +24,6 @@ namespace MVZ2.GameContent.Effects
         {
             base.Update(entity);
             entity.SetModelProperty("Source", entity.Position);
-            var tint = entity.GetTint();
-            tint.a = entity.Timeout / (float)entity.GetMaxTimeout();
-            entity.SetTint(tint);
         }
         public static void Connect(Entity arc, Vector3 position)
         {

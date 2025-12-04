@@ -72,7 +72,7 @@
         <condition required="mvz2:starshard" />
       </unlock>
     </archive>
-    <section onStart="action prepare_starshard_tutorial" onSkip="action start_starshard_tutorial;end">
+    <section onStart="action prepare_starshard_tutorial" onSkip="action start_starshard_tutorial;end" onAutoSkip="action prepare_starshard_tutorial;action start_starshard_tutorial">
       <text>开始段落</text>
       <characters>
         <character id="mvz2:crazy_villager" side="left" />

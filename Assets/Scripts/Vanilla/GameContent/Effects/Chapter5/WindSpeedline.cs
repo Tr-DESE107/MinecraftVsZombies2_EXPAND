@@ -17,12 +17,12 @@ namespace MVZ2.GameContent.Effects
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetModelProperty("Size", entity.GetScaledSize());
+            UpdateModelSize(entity);
         }
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            entity.SetModelProperty("Size", entity.GetScaledSize());
+            UpdateModelSize(entity);
             if (!entity.Parent.ExistsAndAlive())
             {
                 entity.Remove();
@@ -31,6 +31,12 @@ namespace MVZ2.GameContent.Effects
             {
                 entity.SetFlipX(entity.Parent.IsFlipX());
             }
+        }
+        private void UpdateModelSize(Entity entity)
+        {
+            var size = entity.GetScaledSize();
+            size.y = 80f;
+            entity.SetModelProperty("Size", size);
         }
         #endregion
     }

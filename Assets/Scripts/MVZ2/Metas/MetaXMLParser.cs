@@ -101,6 +101,9 @@ namespace MVZ2.Metas
                 case "buffs":
                     resource.BuffMetaList = BuffMetaList.FromXmlNode(document["buffs"], defaultNsp);
                     break;
+                case "unlocks":
+                    resource.UnlockMetaList = UnlockMetaList.FromXmlNode(document["unlocks"], defaultNsp);
+                    break;
             }
         }
         public static ColliderConstructor LoadColliderConstructor(this XmlNode node)

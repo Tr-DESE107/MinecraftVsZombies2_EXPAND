@@ -18,10 +18,10 @@ namespace MVZ2.GameContent.Buffs.Level
         public BeaconMeteorBuff(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void PostAdd(Buff buff)
+        public override void OnCreate(Buff buff)
         {
-            base.PostAdd(buff);
-            SetTimer(buff, new FrameTimer(30));
+            base.OnCreate(buff);
+            SetTimer(buff, new FrameTimer(90));
             SetState(buff, STATE_WAIT);
         }
         public override void PostUpdate(Buff buff)
@@ -53,7 +53,7 @@ namespace MVZ2.GameContent.Buffs.Level
                             var rng = GetRNG(buff);
                             if (rng != null)
                             {
-                                SpawnMeteor(buff.Level, rng, GetFaction(buff), GetDamage(buff));
+                                SpawnMeteor(buff.Level, rng, GetFaction(buff), GetDamage(buff), GetHSVOffset(buff));
                             }
 
                             var count = GetCount(buff);
@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Buffs.Level
                     break;
             }
         }
-        public static Entity? SpawnMeteor(LevelEngine level, RandomGenerator rng, int faction, float damage)
+        public static Entity? SpawnMeteor(LevelEngine level, RandomGenerator rng, int faction, float damage, Vector3 hsvOffset)
         {
             var column = rng.Next(0, level.GetMaxColumnCount());
             var lane = rng.Next(0, level.GetMaxLaneCount());
@@ -85,10 +85,12 @@ namespace MVZ2.GameContent.Buffs.Level
             var param = new SpawnParams();
             param.SetProperty(EngineEntityProps.FACTION, faction);
             param.SetProperty(VanillaEntityProps.DAMAGE, damage);
+            param.SetProperty(VanillaEntityProps.HSV, hsvOffset);
             var meteor = level.Spawn(VanillaProjectileID.beaconMeteor, pos, null, param)?.Let(e =>
             {
                 e.Velocity = velocity;
                 e.PlaySound(VanillaSoundID.bombFalling);
+                e.AddBuff(VanillaBuffID.Projectile.beaconMeteorNoDestroy);
             });
             return meteor;
         }
@@ -100,6 +102,8 @@ namespace MVZ2.GameContent.Buffs.Level
         public static int GetFaction(Buff buff) => buff.GetProperty<int>(PROP_FACTION);
         public static void SetState(Buff buff, int value) => buff.SetProperty(PROP_STATE, value);
         public static int GetState(Buff buff) => buff.GetProperty<int>(PROP_STATE);
+        public static void SetHSVOffset(Buff buff, Vector3 value) => buff.SetProperty(HSV_OFFSET, value);
+        public static Vector3 GetHSVOffset(Buff buff) => buff.GetProperty<Vector3>(HSV_OFFSET);
         public static void SetTimer(Buff buff, FrameTimer value) => buff.SetProperty(PROP_TIMER, value);
         public static FrameTimer? GetTimer(Buff buff) => buff.GetProperty<FrameTimer>(PROP_TIMER);
         public static void SetRNG(Buff buff, RandomGenerator value) => buff.SetProperty(PROP_RNG, value);
@@ -115,6 +119,7 @@ namespace MVZ2.GameContent.Buffs.Level
         public static readonly VanillaBuffPropertyMeta<float> PROP_DAMAGE = new VanillaBuffPropertyMeta<float>("damage");
         public static readonly VanillaBuffPropertyMeta<int> PROP_FACTION = new VanillaBuffPropertyMeta<int>("faction");
         public static readonly VanillaBuffPropertyMeta<int> PROP_COUNT = new VanillaBuffPropertyMeta<int>("count");
+        public static readonly VanillaBuffPropertyMeta<Vector3> HSV_OFFSET = new VanillaBuffPropertyMeta<Vector3>("hsv_offset");
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
         public static readonly VanillaBuffPropertyMeta<RandomGenerator> PROP_RNG = new VanillaBuffPropertyMeta<RandomGenerator>("rng");
         public static readonly VanillaBuffPropertyMeta<int> PROP_STATE = new VanillaBuffPropertyMeta<int>("state");

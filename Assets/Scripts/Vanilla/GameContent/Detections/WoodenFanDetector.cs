@@ -34,6 +34,29 @@ namespace MVZ2.GameContent.Detections
             }
             return new Bounds(center, new Vector3(sizeX, sizeY, sizeZ));
         }
+        protected override bool ValidateCollider(DetectionParams param, IEntityCollider collider)
+        {
+            // 目标的Z中心必须被吹到。
+            var self = param.entity;
+            float minZ, maxZ;
+            if (evoked)
+            {
+                minZ = self.Level.GetGridBottomZ();
+                maxZ = self.Level.GetGridTopZ();
+            }
+            else
+            {
+                var sizeZ = self.Level.GetGridHeight();
+                var centerZ = self.GetCenter().z;
+                minZ = centerZ - sizeZ * 0.5f;
+                maxZ = centerZ + sizeZ * 0.5f;
+            }
+
+            var bounds = collider.GetBoundingBox();
+            if (bounds.center.z < minZ || bounds.center.z > maxZ)
+                return false;
+            return base.ValidateCollider(param, collider);
+        }
         private bool evoked;
     }
 }

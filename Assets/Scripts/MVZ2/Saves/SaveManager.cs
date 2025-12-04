@@ -180,6 +180,15 @@ namespace MVZ2.Saves
                 return false;
             return modSaveData.IsUnlocked(unlockId.Path);
         }
+        public bool IsGroupUnlocked(NamespaceID groupID)
+        {
+            if (!NamespaceID.IsValid(groupID))
+                return false;
+            var meta = Main.ResourceManager.GetUnlockGroupMeta(groupID);
+            if (meta == null || meta.Conditions == null)
+                return false;
+            return meta.Conditions.MeetsConditions(this);
+        }
         public NamespaceID[] GetLevelDifficultyRecords(NamespaceID stageID)
         {
             if (stageID == null)
@@ -236,6 +245,18 @@ namespace MVZ2.Saves
         public NamespaceID[] GetUnlockedProducts()
         {
             return unlockedProductsCache.ToArray();
+        }
+        public NamespaceID[] GetAllUnlocks()
+        {
+            List<NamespaceID> results = new List<NamespaceID>();
+            foreach (var saveData in modSaveDatas)
+            {
+                foreach (var unlock in saveData.GetUnlocks())
+                {
+                    results.Add(new NamespaceID(saveData.Namespace, unlock));
+                }
+            }
+            return results.ToArray();
         }
 
         #endregion
@@ -381,6 +402,20 @@ namespace MVZ2.Saves
             if (saveData == null)
                 return;
             saveData.SetStat(category.Path, entry, value);
+        }
+        public long GetDirectEntryStat(NamespaceID entry)
+        {
+            var saveData = GetModSaveData(entry.SpaceName);
+            if (saveData == null)
+                return 0;
+            return saveData.GetDirectEntryStat(entry.Path);
+        }
+        public void SetDirectEntryStat(NamespaceID entry, long value)
+        {
+            var saveData = GetModSaveData(entry.SpaceName);
+            if (saveData == null)
+                return;
+            saveData.SetDirectEntryStat(entry.Path, value);
         }
         #endregion
 

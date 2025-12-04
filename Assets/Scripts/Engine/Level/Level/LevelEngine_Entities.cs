@@ -72,9 +72,11 @@ namespace PVZEngine.Level
                 {
                     var seriEnt = seri.entities[i];
                     var id = seriEnt.id;
-                    var entity = entities[id];
-                    entity.LoadFromSerializable(seriEnt);
-                    IncreaseLevelObjectReference(entity);
+                    if (entities.TryGetValue(id, out var entity))
+                    {
+                        entity.LoadFromSerializable(seriEnt);
+                        IncreaseLevelObjectReference(entity, true);
+                    }
                 }
             }
             if (seri.entityTrash != null)
@@ -83,7 +85,10 @@ namespace PVZEngine.Level
                 {
                     var seriEnt = seri.entityTrash[i];
                     var id = seriEnt.id;
-                    entityTrash[id].LoadFromSerializable(seriEnt);
+                    if (entityTrash.TryGetValue(id, out var entity))
+                    {
+                        entity.LoadFromSerializable(seriEnt);
+                    }
                 }
             }
         }

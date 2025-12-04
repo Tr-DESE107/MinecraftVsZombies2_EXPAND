@@ -29,6 +29,7 @@
     <buff id="i_zombie_attack_booster" polarity="positive" level="3000" target="enemy" />
     <buff id="i_zombie_skeleton_warrior" polarity="positive" level="2000" target="enemy" />
     <buff id="i_zombie_skeleton_warrior_armor" polarity="positive" level="2000" target="armor" />
+    <buff id="boss_revenge" polarity="none" level="5000" target="boss" />
 
     <!-- Core -->
     <buff id="gem_carrier" polarity="none" level="2000" target="enemy" />
@@ -42,7 +43,6 @@
     <buff id="random_enemy_speed" polarity="none" level="2000" target="enemy" />
 
     <!-- Prologue -->
-    <buff id="production_color" polarity="none" level="5000" target="contraption" />
     <buff id="mine_tnt_invincible" polarity="positive" level="4000" target="contraption" />
     <buff id="obsidian_armor" polarity="positive" level="1000" target="contraption" />
     <buff id="cart_fade_in" polarity="none" level="4000" target="cart" />
@@ -187,6 +187,12 @@
     <buff id="dragon_tooth" polarity="negative" level="0" target="enemy" />
     <buff id="skyward_beacon_night" polarity="none" level="5000" target="contraption" />
     <buff id="skyward_night" polarity="mixed" level="3000" target="level" />
+    <buff id="red_dragon_stage" polarity="none" level="4000" target="level" />
+    <buff id="clear_grid_on_land" polarity="none" level="5000" target="entity" />
+    <buff id="beacon_meteor_no_destroy" polarity="none" level="5000" target="projectile" />
+    <buff id="red_dragon_transition" polarity="none" level="5000" target="level" />
+    <buff id="red_dragon_cleared" polarity="none" level="5000" target="level" />
+    <buff id="ship_broken_grid" polarity="none" level="5000" target="grid" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />

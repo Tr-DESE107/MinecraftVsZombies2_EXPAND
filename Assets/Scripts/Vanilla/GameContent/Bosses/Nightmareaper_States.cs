@@ -234,7 +234,7 @@ namespace MVZ2.GameContent.Bosses
                         case SUBSTATE_READY_3:
                             if (entity.Target != null)
                                 Jab(entity, entity.Target);
-                            stateMachine.SetSubState(entity, substate + 1);
+                            stateMachine.StartSubState(entity, substate + 1);
                             substateTimer.ResetTime(9);
                             break;
 
@@ -245,7 +245,7 @@ namespace MVZ2.GameContent.Bosses
                             if (jabTarget != null)
                             {
                                 entity.TriggerAnimation("Jab");
-                                stateMachine.SetSubState(entity, substate + 1);
+                                stateMachine.StartSubState(entity, substate + 1);
                                 substateTimer.ResetTime(21);
                             }
                             else
@@ -282,8 +282,12 @@ namespace MVZ2.GameContent.Bosses
                 bool jabbed = false;
                 foreach (IEntityCollider collider in entity.Level.OverlapBox(target.GetCenter(), Vector3.one * 40, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
                 {
-                    collider.TakeDamage(10000, new DamageEffectList(), entity);
-                    jabbed = true;
+                    var damage = collider.Entity.GetTakenCrushDamage();
+                    var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
+                    if (damageOutput.HasAnyFatal())
+                    {
+                        jabbed = true;
+                    }
                 }
                 if (jabbed)
                 {
@@ -341,7 +345,7 @@ namespace MVZ2.GameContent.Bosses
                         StartOrEndUpdate(entity);
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_LOOP);
+                            stateMachine.StartSubState(entity, SUBSTATE_LOOP);
                             substateTimer.ResetTime(210);
                         }
                         break;
@@ -350,7 +354,7 @@ namespace MVZ2.GameContent.Bosses
                         LoopUpdate(entity);
                         if (substateTimer.Expired && GetOutbound(entity) < 0)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_END);
+                            stateMachine.StartSubState(entity, SUBSTATE_END);
                             substateTimer.ResetTime(30);
                         }
                         break;
@@ -593,7 +597,7 @@ namespace MVZ2.GameContent.Bosses
                             entity.SetModelProperty("RageState", 1);
                             entity.SetModelProperty("RageProgress", 0);
                             entity.SetAnimationBool("Shake", false);
-                            stateMachine.SetSubState(entity, SUBSTATE_EXTEND);
+                            stateMachine.StartSubState(entity, SUBSTATE_EXTEND);
                             subStateTimer.ResetTime(15);
                         }
                         break;
@@ -611,7 +615,7 @@ namespace MVZ2.GameContent.Bosses
                             }
                             entity.PlaySound(VanillaSoundID.smash);
                             subStateTimer.ResetTime(15);
-                            stateMachine.SetSubState(entity, SUBSTATE_INSERT);
+                            stateMachine.StartSubState(entity, SUBSTATE_INSERT);
                         }
                         break;
                     case SUBSTATE_INSERT:
@@ -626,7 +630,7 @@ namespace MVZ2.GameContent.Bosses
                                 CrushingWalls.Close(wall);
                             }
                             subStateTimer.ResetTime(15);
-                            stateMachine.SetSubState(entity, SUBSTATE_PULL);
+                            stateMachine.StartSubState(entity, SUBSTATE_PULL);
                         }
                         break;
                     case SUBSTATE_PULL:
@@ -683,7 +687,7 @@ namespace MVZ2.GameContent.Bosses
                         {
                             entity.SetAnimationBool("Shake", false);
                             subStateTimer.ResetTime(21);
-                            stateMachine.SetSubState(entity, SUBSTATE_FAINT);
+                            stateMachine.StartSubState(entity, SUBSTATE_FAINT);
                         }
                         break;
                     case SUBSTATE_FAINT:
@@ -691,7 +695,7 @@ namespace MVZ2.GameContent.Bosses
                         {
                             entity.AddBuff<NightmareaperFallBuff>();
                             subStateTimer.ResetTime(60);
-                            stateMachine.SetSubState(entity, SUBSTATE_DROP);
+                            stateMachine.StartSubState(entity, SUBSTATE_DROP);
                         }
                         break;
                     case SUBSTATE_DROP:

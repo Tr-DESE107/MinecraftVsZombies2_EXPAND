@@ -125,6 +125,10 @@ namespace MVZ2.Map
                     continue;
                 Main.SaveManager.SetMapTalk(talk);
                 await talkController.SimpleStartTalkAsync(talk, 0, 3);
+
+                // 如果对话去了其他页面，那就不触发之后的对话。
+                if (!gameObject.activeInHierarchy)
+                    break;
             }
             UpdateUIArrows();
             Main.SaveManager.SetMapTalk(null);

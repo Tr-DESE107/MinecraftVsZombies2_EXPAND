@@ -36,5 +36,14 @@ namespace MVZ2.Managers
             }
             return entryID.ToString();
         }
+        public StatEntryMeta? GetStatDirectEntryMeta(NamespaceID entryID)
+        {
+            if (!NamespaceID.IsValid(entryID))
+                return null;
+            var stageMetalist = GetStatMetaList(entryID.SpaceName);
+            if (stageMetalist == null)
+                return null;
+            return stageMetalist.entries.FirstOrDefault(m => m.ID == entryID.Path);
+        }
     }
 }

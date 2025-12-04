@@ -626,7 +626,6 @@ namespace MVZ2.Modding
                 def.SetProperty(LogicNoteProps.NOTE_SPRITE, meta.sprite);
                 def.SetProperty(LogicNoteProps.FLIP_NOTE_SPRITE, meta.flipSprite);
                 def.SetProperty(LogicNoteProps.START_TALK, meta.startTalk);
-                mod.AddDefinition(def);
             }
         }
         private void LoadGridProperties(Mod mod)

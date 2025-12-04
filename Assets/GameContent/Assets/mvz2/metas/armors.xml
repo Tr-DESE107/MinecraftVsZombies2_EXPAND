@@ -153,7 +153,7 @@
             <props>
                 <bool name="mvz2:noDiscard" value="true" />
                 <id name="mvz2:shell" value="mvz2:stone" />
-                <float name="mvz2:maxHealth" value="600" />
+                <float name="mvz2:maxHealth" value="710" />
                 <id name="mvz2:hitSound" value="mvz2:glass" />
                 <id name="mvz2:deathSound" value="mvz2:glass_break" />
             </props>

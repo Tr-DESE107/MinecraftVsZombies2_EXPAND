@@ -14,6 +14,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");
         public readonly static NamespaceID bash = Get("bash");
+        public readonly static NamespaceID bigChomp = Get("big_chomp");
         public readonly static NamespaceID biohazard = Get("biohazard");
         public readonly static NamespaceID bloody = Get("bloody");
         public readonly static NamespaceID blow = Get("blow");
@@ -50,6 +51,11 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID dirtRise = Get("dirt_rise");
         public readonly static NamespaceID divineShield = Get("divine_shield");
         public readonly static NamespaceID divineShieldCast = Get("divine_shield_cast");
+        public readonly static NamespaceID dragonEnd = Get("dragon_end");
+        public readonly static NamespaceID dragonBreath = Get("dragon_breath");
+        public readonly static NamespaceID dragonGrowl = Get("dragon_growl");
+        public readonly static NamespaceID dragonHit = Get("dragon_hit");
+        public readonly static NamespaceID dragonWings = Get("dragon_wings");
         public readonly static NamespaceID dreamAlarm = Get("dream_alarm");
         public readonly static NamespaceID earthquake = Get("earthquake");
         public readonly static NamespaceID electricSpark = Get("electric_spark");
@@ -65,6 +71,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID fallSmall = Get("fall_small");
         public readonly static NamespaceID fatigue = Get("fatigue");
         public readonly static NamespaceID fire = Get("fire");
+        public readonly static NamespaceID fireBreathBig = Get("fire_breath_big");
         public readonly static NamespaceID fireworkBlast = Get("firework_blast");
         public readonly static NamespaceID fireworkLargeBlast = Get("firework_large_blast");
         public readonly static NamespaceID fireworkLaunch = Get("firework_launch");
@@ -200,6 +207,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID thump = Get("thump");
         public readonly static NamespaceID thunder = Get("thunder");
         public readonly static NamespaceID throwSound = Get("throw");
+        public readonly static NamespaceID timeWarp = Get("time_warp");
+        public readonly static NamespaceID tornado = Get("tornado");
         public readonly static NamespaceID touhouDeath = Get("touhou_death");
         public readonly static NamespaceID tractorBeam = Get("tractor_beam");
         public readonly static NamespaceID trainTravel = Get("train_travel");

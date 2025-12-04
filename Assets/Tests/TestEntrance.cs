@@ -19,6 +19,8 @@ namespace MVZ2.Tests
             PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
             PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
             ModManager.OnRegisterMods += RegisterMod;
+
+            mainGame.SetActive(true);
             await main.Initialize();
             main.InitLoad();
             var initTask = main.GetInitTask();
@@ -38,6 +40,8 @@ namespace MVZ2.Tests
             mod.Init(game);
             manager.RegisterMod(mod);
         }
+        [SerializeField]
+        private GameObject mainGame;
         [SerializeField]
         private MainManager main;
     }

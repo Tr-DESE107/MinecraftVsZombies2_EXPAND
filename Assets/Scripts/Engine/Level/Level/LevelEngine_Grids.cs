@@ -69,7 +69,7 @@ namespace PVZEngine.Level
                 var grid = grids[i];
                 var seriGrid = seri.grids[i];
                 grid.LoadFromSerializable(seriGrid);
-                IncreaseLevelObjectReference(grid);
+                IncreaseLevelObjectReference(grid, true);
             }
         }
         #endregion

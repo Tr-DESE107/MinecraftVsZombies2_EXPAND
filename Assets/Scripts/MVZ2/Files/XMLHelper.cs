@@ -68,6 +68,15 @@ namespace MVZ2.IO
                 return null;
             return value;
         }
+        public static long? GetAttributeLong(this XmlNode node, string name)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!ParseHelper.TryParseLong(attr.Value, out var value))
+                return null;
+            return value;
+        }
         public static float? GetAttributeFloat(this XmlNode node, string name)
         {
             var attr = node.Attributes[name];

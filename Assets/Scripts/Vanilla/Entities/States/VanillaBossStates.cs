@@ -44,6 +44,20 @@ namespace MVZ2.Vanilla.Bosses
         public const int THE_GIANT_FAINT = PRIVATE_NUMBER + 7;
         public const int THE_GIANT_CHASE = PRIVATE_NUMBER + 8;
 
+        public const int RED_DRAGON_SPIT = PRIVATE_NUMBER + 0;
+        public const int RED_DRAGON_JUMP = PRIVATE_NUMBER + 1;
+        public const int RED_DRAGON_FLAP_WINGS = PRIVATE_NUMBER + 2;
+        public const int RED_DRAGON_EAT = PRIVATE_NUMBER + 3;
+        public const int RED_DRAGON_FIRE_BREATH = PRIVATE_NUMBER + 4;
+        public const int RED_DRAGON_LARGE_FIREBALL = PRIVATE_NUMBER + 5;
+        public const int RED_DRAGON_ROAR = PRIVATE_NUMBER + 6;
+        public const int RED_DRAGON_SPIT_UP = PRIVATE_NUMBER + 7;
+        public const int RED_DRAGON_FLY = PRIVATE_NUMBER + 8;
+        public const int RED_DRAGON_TAIL_SWIPE = PRIVATE_NUMBER + 9;
+        public const int RED_DRAGON_DEATH_ROAR = PRIVATE_NUMBER + 10;
+        public const int RED_DRAGON_DEATH_FLY = PRIVATE_NUMBER + 11;
+
+
         private const int PRIVATE_NUMBER = 10000;
     }
 }

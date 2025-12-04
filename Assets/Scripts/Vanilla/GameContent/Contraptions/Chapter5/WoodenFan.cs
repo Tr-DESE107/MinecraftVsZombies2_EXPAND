@@ -151,7 +151,7 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_STATE_TIMER, timer);
         public static readonly VanillaEntityPropertyMeta<int> PROP_FAN_STATE = new VanillaEntityPropertyMeta<int>("fan_state");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("state_timer");
-        public const float AFFECT_HEIGHT = 160f;
+        public const float AFFECT_HEIGHT = 400f;
         public const int FAN_STATE_IDLE = 0;
         public const int FAN_STATE_READY = 1;
         public const int FAN_STATE_BLOW = 2;

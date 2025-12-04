@@ -51,8 +51,7 @@ namespace MVZ2.Arcade
         #region 事件回调
         private void OnIndexReturnClickCallback()
         {
-            Hide();
-            OnReturnClick?.Invoke();
+            Return();
         }
         private void OnPageReturnClickCallback(ArcadeUI.ArcadePage page)
         {
@@ -209,7 +208,6 @@ namespace MVZ2.Arcade
         {
             return Main.LanguageManager._p(context, text, args);
         }
-        public event Action? OnReturnClick;
 
         [TranslateMsg("未解锁的小游戏关卡名")]
         public const string LEVEL_NAME_NOT_UNLOCKED = "未解锁";

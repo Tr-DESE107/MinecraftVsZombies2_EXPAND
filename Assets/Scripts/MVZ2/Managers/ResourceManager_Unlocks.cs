@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
 using MVZ2.Modding;
+using MVZ2.Unlocks;
 using PVZEngine;
 using UnityEngine;
 
@@ -11,6 +12,30 @@ namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {
+        #region 解锁组
+        public UnlockGroupMeta? GetUnlockGroupMeta(NamespaceID? groupID)
+        {
+            if (!NamespaceID.IsValid(groupID))
+                return null;
+            var resources = GetModResource(groupID.SpaceName);
+            var metaList = resources.UnlockMetaList;
+            if (metaList == null)
+                return null;
+            return metaList.groups.FirstOrDefault(m => m.ID == groupID.Path);
+        }
+        private void LoadUnlocks_Unlocks(ModResource resource)
+        {
+            if (resource.UnlockMetaList == null)
+                return;
+            foreach (var group in resource.UnlockMetaList.groups)
+            {
+                AddConditionListUnlocks(group?.Conditions);
+            }
+
+        }
+        #endregion
+
+        #region 所有解锁条件
         public NamespaceID[] GetAllUnlockConditions()
         {
             return unlockConditionList.ToArray();
@@ -28,6 +53,7 @@ namespace MVZ2.Managers
             LoadUnlocks_Stages(resource);
             LoadUnlocks_Store(resource);
             LoadUnlocks_Talks(resource);
+            LoadUnlocks_Unlocks(resource);
         }
         private void AddConditionListUnlocks(XMLConditionList? conditions)
         {
@@ -59,5 +85,6 @@ namespace MVZ2.Managers
             unlockConditionList.Add(unlock);
         }
         private HashSet<NamespaceID> unlockConditionList = new HashSet<NamespaceID>();
+        #endregion
     }
 }

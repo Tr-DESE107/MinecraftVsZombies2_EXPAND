@@ -47,15 +47,21 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 preset = new LevelPreset(level);
             }
+            else
+            {
+                preset = new DefaultPreset();
+            }
 
             if (preset != null)
             {
                 preset.TalkAction(system, cmd, parameters);
             }
         }
-        private abstract class TalkPreset
+        private class TalkPreset
         {
-            public abstract void TalkAction(ITalkSystem system, string cmd, string[] parameters);
+            public virtual void TalkAction(ITalkSystem system, string cmd, string[] parameters)
+            {
+            }
         }
         private class LevelPreset : TalkPreset
         {
@@ -174,7 +180,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 });
             }
         }
-        private class MapPreset : TalkPreset
+        private class MapPreset : DefaultPreset
         {
             private IMapInterface map;
             public MapPreset(IMapInterface map)
@@ -183,6 +189,26 @@ namespace MVZ2.GameContent.GlobalCallbacks
             }
             public override void TalkAction(ITalkSystem system, string cmd, string[] parameters)
             {
+                base.TalkAction(system, cmd, parameters);
+                var saves = Global.Saves;
+                switch (cmd)
+                {
+                    case "show_nightmare":
+                        map.SetPreset(VanillaMapPresetID.nightmare);
+                        saves.Unlock(VanillaUnlockID.dreamIsNightmare);
+                        saves.SaveToFile(); // 转换到噩梦世界时保存游戏
+                        break;
+                }
+            }
+        }
+        private class DefaultPreset : TalkPreset
+        {
+            public DefaultPreset()
+            {
+            }
+            public override void TalkAction(ITalkSystem system, string cmd, string[] parameters)
+            {
+                base.TalkAction(system, cmd, parameters);
                 var saves = Global.Saves;
                 switch (cmd)
                 {
@@ -192,31 +218,26 @@ namespace MVZ2.GameContent.GlobalCallbacks
                         saves.SaveToFile(); // 进入梦境过渡时保存游戏
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
                         break;
-                    case "show_nightmare":
-                        map.SetPreset(VanillaMapPresetID.nightmare);
-                        saves.Unlock(VanillaUnlockID.dreamIsNightmare);
-                        saves.SaveToFile(); // 转换到噩梦世界时保存游戏
-                        break;
                     case "goto_castle":
                         saves.SetLastMapID(VanillaMapID.castle);
                         saves.SaveToFile(); // 进入辉针城过渡时保存游戏
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
-                        break;
-                    case "chapter_3_finish":
-                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
                         break;
                     case "goto_mausoleum":
                         saves.SetLastMapID(VanillaMapID.mausoleum);
                         saves.SaveToFile(); // 进入大祀庙过渡时保存游戏
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
                         break;
-                    case "chapter_4_finish":
-                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo));
-                        break;
                     case "goto_ship":
                         saves.SetLastMapID(VanillaMapID.ship);
                         saves.SaveToFile(); // 进入圣辇船过渡时保存游戏
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.ship, VanillaAreaID.ship, VanillaStageID.ship1));
+                        break;
+                    case "chapter_3_finish":
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
+                        break;
+                    case "chapter_4_finish":
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo));
                         break;
                     case "chapter_5_finish":
                         IEnumerator coroutineFunc()

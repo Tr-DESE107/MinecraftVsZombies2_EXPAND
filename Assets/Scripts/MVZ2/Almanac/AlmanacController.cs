@@ -87,8 +87,7 @@ namespace MVZ2.Almanacs
             }
             else
             {
-                Hide();
-                OnReturnClick?.Invoke();
+                Return();
             }
         }
         private void OnIndexButtonClickCallback(IndexAlmanacPage.ButtonType button)
@@ -841,7 +840,6 @@ namespace MVZ2.Almanacs
         {
             return Main.LanguageManager._p(context, text, args);
         }
-        public event Action? OnReturnClick;
         [TranslateMsg("图鉴描述模板，{0}为能量", VanillaStrings.CONTEXT_ALMANAC)]
         public const string COST_LABEL = "花费：<color=red>{0}</color>";
         [TranslateMsg("图鉴描述模板，{0}为冷却时间", VanillaStrings.CONTEXT_ALMANAC)]

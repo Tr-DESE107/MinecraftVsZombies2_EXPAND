@@ -10,6 +10,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
@@ -288,6 +289,11 @@ namespace MVZ2.Vanilla.Level
         public static float CalculateSpawnPoints(this LevelEngine level, int wave, int flags)
         {
             var totalWave = level.GetLevelTotalWaves(wave, flags);
+            var isBossFight = level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT || level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT_2;
+            if (isBossFight)
+            {
+                totalWave = level.GetTotalFlags() * level.GetWavesPerFlag();
+            }
             var basePoints = Mathf.FloorToInt(totalWave * 0.8f) / 2 + 1;
             var power = level.GetSpawnPointPower();
             var multiplier = level.GetSpawnPointMultiplier();
@@ -296,7 +302,7 @@ namespace MVZ2.Vanilla.Level
             {
                 multiplier *= 2.5f;
             }
-            if (level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT || level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT_2)
+            if (isBossFight)
             {
                 multiplier = 1;
             }
@@ -322,7 +328,8 @@ namespace MVZ2.Vanilla.Level
         public static void SpawnWaveEnemies(this LevelEngine level, int wave)
         {
             // 获取本波的生成点数。
-            var totalPoints = level.CalculateSpawnPoints();
+            var maxPoints = level.CalculateSpawnPoints();
+            var totalPoints = maxPoints;
 
             // 波数限制，防止前期生成无法处理的怪物。
             var currentWaveLevelLimit = level.GetCurrentSpawnLimitWave(wave, level.CurrentFlag);
@@ -332,8 +339,12 @@ namespace MVZ2.Vanilla.Level
             var spawnDefs = pool.Select(id => level.Content.GetSpawnDefinition(id)).OfType<SpawnDefinition>();
             foreach (var spawnDef in spawnDefs)
             {
-                spawnDef.PreSpawnAtWave(level, wave, ref totalPoints);
+                spawnDef.PreSpawnAtWave(level, wave, maxPoints, ref totalPoints);
             }
+            var preResult = new CallbackResult(totalPoints);
+            var preArgs = new VanillaLevelCallbacks.WaveEnemySpawnParams(level, wave, maxPoints);
+            level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_WAVE_ENEMY_SPAWN, preArgs, preResult);
+            totalPoints = preResult.GetValue<float>();
 
             var validSpawnDefs = spawnDefs.Where(def => def.CanSpawnInLevel(level));
 
@@ -378,6 +389,15 @@ namespace MVZ2.Vanilla.Level
                     level.SpawnEnemyAtRandomLane(notSpawnedDef);
                 }
             }
+
+            // 生成怪物之后。
+            foreach (var spawnDef in spawnDefs)
+            {
+                spawnDef.PostSpawnAtWave(level, wave, maxPoints, ref totalPoints);
+            }
+            var postResult = new CallbackResult(totalPoints);
+            var postArgs = new VanillaLevelCallbacks.WaveEnemySpawnParams(level, wave, maxPoints);
+            level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.POST_WAVE_ENEMY_SPAWN, postArgs, postResult);
         }
         public static bool WillEnemySpawn(this LevelEngine level, NamespaceID spawnID)
         {
@@ -716,6 +736,8 @@ namespace MVZ2.Vanilla.Level
                     GhostBuff.Illuminate(buff);
                 }
             }
+            var model = level.GetAreaModelInterface();
+            model?.TriggerAnimation("Thunder");
             level.PlaySound(VanillaSoundID.thunder);
         }
         public static void StartRain(this LevelEngine level)

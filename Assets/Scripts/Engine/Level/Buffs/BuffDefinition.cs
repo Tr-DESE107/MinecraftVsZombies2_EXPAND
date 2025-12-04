@@ -30,6 +30,7 @@ namespace PVZEngine.Buffs
         {
             return auraDefinitions.ToArray();
         }
+        public virtual void OnCreate(Buff buff) { }
         public virtual void PostAdd(Buff buff) { }
         public virtual void PostRemove(Buff buff) { }
         public virtual void PostUpdate(Buff buff) { }

@@ -24,8 +24,12 @@ namespace PVZEngine.Level.Collisions
         {
             foreach (var collider in colliders)
             {
-                collider.SetIgnored(entity.GetCollisionDetection() == EntityCollisionHelper.DETECTION_IGNORE);
+                UpdateColliderDetection(collider);
             }
+        }
+        private void UpdateColliderDetection(BuiltinCollisionCollider collider)
+        {
+            collider.SetIgnored(entity.GetCollisionDetection() == EntityCollisionHelper.DETECTION_IGNORE);
         }
         public void UpdateEntityPosition()
         {
@@ -34,8 +38,12 @@ namespace PVZEngine.Level.Collisions
         {
             foreach (var collider in colliders)
             {
-                collider.ReevaluateBounds();
+                UpdateColliderSize(collider);
             }
+        }
+        private void UpdateColliderSize(BuiltinCollisionCollider collider)
+        {
+            collider.ReevaluateBounds();
         }
         public void GetCurrentCollisions(List<EntityCollision> collisions)
         {
@@ -74,6 +82,9 @@ namespace PVZEngine.Level.Collisions
             collider.OnEnabled += OnColliderEnabledCallback;
             collider.OnDisabled += OnColliderDisabledCallback;
             OnEntityColliderAdd?.Invoke(this, collider);
+
+            UpdateColliderDetection(collider);
+            UpdateColliderSize(collider);
         }
         public bool RemoveCollider(string name)
         {

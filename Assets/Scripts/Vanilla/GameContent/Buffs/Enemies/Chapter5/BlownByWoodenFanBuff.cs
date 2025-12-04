@@ -22,6 +22,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
+            if (entity.GetRidingEntity() != null)
+                return;
 
             var sourceID = GetSourceID(buff);
             var source = buff.Level.FindEntityByID(sourceID);

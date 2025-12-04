@@ -61,6 +61,9 @@ namespace MVZ2.GameContent.Buffs
             public const string beaconMeteor = "beacon_meteor";
             public const string sorcerersScrollStarshard = "sorcerers_scroll_starshard";
             public const string skywardNight = "skyward_night";
+            public const string redDragonStage = "red_dragon_stage";
+            public const string redDragonTransition = "red_dragon_transition";
+            public const string redDragonCleared = "red_dragon_cleared";
 
             // Random China
             public const string greedyVacuum = "greedy_vacuum";
@@ -72,6 +75,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 5
             public const string waterStainWet = "water_stain_wet";
             public const string goldenGrid = "golden_grid";
+            public const string shipBrokenGrid = "ship_broken_grid";
         }
         public static class Entity
         {
@@ -102,6 +106,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 5
             public const string aboveCloud = "above_cloud";
             public const string dragonTooth = "dragon_tooth";
+            public const string clearGridOnLand = "clear_grid_on_land";
 
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
@@ -132,7 +137,6 @@ namespace MVZ2.GameContent.Buffs
             public const string easyContraption = "easy_contraption";
 
             // Prologue
-            public const string productionColor = "production_color";
             public const string obsidianArmor = "obsidian_armor";
             public const string mineTNTInvincible = "mine_tnt_invincible";
             public const string GlowingObsidianArmorBuff = "GlowingObsidianArmorBuff";
@@ -264,6 +268,8 @@ namespace MVZ2.GameContent.Buffs
         }
         public static class Boss
         {
+            public const string bossRevenge = "boss_revenge";
+
             // Chapter 1
             public const string frankensteinSteel = "frankenstein_steel";
             public const string frankensteinTransforming = "frankenstein_transforming";
@@ -307,6 +313,9 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 4
             public const string hellfireIgnited = "hellfire_ignited";
+
+            // Chapter 5
+            public const string beaconMeteorNoDestroy = "beacon_meteor_no_destroy";
         }
         public static class Effect
         {
@@ -408,6 +417,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 5
             public static readonly NamespaceID waterStainWet = Get(VanillaBuffNames.Grid.waterStainWet);
             public static readonly NamespaceID goldenGrid = Get(VanillaBuffNames.Grid.goldenGrid);
+            public static readonly NamespaceID shipBrokenGrid = Get(VanillaBuffNames.Grid.shipBrokenGrid);
         }
         public static class Entity
         {
@@ -461,7 +471,6 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID easyContraption = Get(VanillaBuffNames.Contraption.easyContraption);
 
             // Prologue
-            public static readonly NamespaceID productionColor = Get(VanillaBuffNames.Contraption.productionColor);
             public static readonly NamespaceID obsidianArmor = Get(VanillaBuffNames.Contraption.obsidianArmor);
             public static readonly NamespaceID mineTNTInvincible = Get(VanillaBuffNames.Contraption.mineTNTInvincible);
 
@@ -593,6 +602,7 @@ namespace MVZ2.GameContent.Buffs
         }
         public static class Boss
         {
+            public static readonly NamespaceID bossRevenge = Get(VanillaBuffNames.Boss.bossRevenge);
             // Chapter 1
             public static readonly NamespaceID frankensteinSteel = Get(VanillaBuffNames.Boss.frankensteinSteel);
             public static readonly NamespaceID frankensteinTransforming = Get(VanillaBuffNames.Boss.frankensteinTransforming);
@@ -637,6 +647,9 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 4
             public static readonly NamespaceID hellfireIgnited = Get(VanillaBuffNames.Projectile.hellfireIgnited);
+
+            // Chapter 5
+            public static readonly NamespaceID beaconMeteorNoDestroy = Get(VanillaBuffNames.Projectile.beaconMeteorNoDestroy);
         }
         public static class Effect
         {

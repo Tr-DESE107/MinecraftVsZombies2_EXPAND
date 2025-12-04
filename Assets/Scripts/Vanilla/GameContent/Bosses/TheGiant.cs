@@ -8,6 +8,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Contraptions;
@@ -19,7 +20,6 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -133,26 +133,12 @@ namespace MVZ2.GameContent.Bosses
             var otherCollider = collision.OtherCollider;
             if (!other.IsInvincible() && other.Type == EntityTypes.PLANT)
             {
-                var crushDamage = 1000000;
+                var crushDamage = VanillaMod.INSTA_DAMAGE_AMOUNT;
                 var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
                 if (result != null && result.HasAnyFatal())
                 {
                     other.PlaySound(VanillaSoundID.smash);
                 }
-            }
-        }
-        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
-        {
-            base.PreTakeDamage(damageInfo, result);
-            var entity = damageInfo.Entity;
-            var malleable = GetMalleable(entity);
-            if (malleable >= 0)
-            {
-                damageInfo.Multiply(1 - malleable / MAX_MALLEABLE_DAMAGE);
-            }
-            if (damageInfo.Amount > 600)
-            {
-                damageInfo.SetAmount(600);
             }
         }
         public override void PostTakeDamage(DamageOutput result)
@@ -448,8 +434,12 @@ namespace MVZ2.GameContent.Bosses
             for (int i = 0; i < smashDetectBuffer.Count; i++)
             {
                 var collider = smashDetectBuffer[i];
-                collider.TakeDamage(entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), entity);
-                damaged = true;
+                var damage = collider.Entity.GetTakenCrushDamage();
+                var output = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), entity);
+                if (output.HasAnyFatal())
+                {
+                    damaged = true;
+                }
             }
             if (damaged)
             {
@@ -462,15 +452,11 @@ namespace MVZ2.GameContent.Bosses
         {
             return outerArmDetector.DetectExists(entity) || innerArmDetector.DetectExists(entity);
         }
-        public static bool CanRoarStun(Entity entity, Entity target)
-        {
-            return target.Type == EntityTypes.PLANT && target.IsHostile(entity) && target.CanDeactive();
-        }
 
         #region 吃豆人
         public static bool IsPacman(Entity entity)
         {
-            var state = stateMachine.GetEntityState(entity);
+            var state = stateMachine.GetStateNumber(entity);
             var subState = stateMachine.GetSubState(entity);
             return state == STATE_PACMAN && subState == PacmanState.SUBSTATE_PACMAN;
         }
@@ -490,7 +476,7 @@ namespace MVZ2.GameContent.Bosses
         {
             if (!IsPacman(entity))
                 return;
-            stateMachine.SetSubState(entity, PacmanState.SUBSTATE_PACMAN_DEATH);
+            stateMachine.StartSubState(entity, PacmanState.SUBSTATE_PACMAN_DEATH);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(60);
             entity.PlaySound(VanillaSoundID.pacmanFail);
@@ -514,13 +500,13 @@ namespace MVZ2.GameContent.Bosses
         #region 贪吃蛇
         public static bool IsSnake(Entity entity)
         {
-            var state = stateMachine.GetEntityState(entity);
+            var state = stateMachine.GetStateNumber(entity);
             var subState = stateMachine.GetSubState(entity);
             return state == STATE_SNAKE && subState == SnakeState.SUBSTATE_SNAKE;
         }
         public static bool CanAttractByBlackhole(Entity entity)
         {
-            var state = stateMachine.GetEntityState(entity);
+            var state = stateMachine.GetStateNumber(entity);
             var subState = stateMachine.GetSubState(entity);
             return state == STATE_SNAKE && (subState == SnakeState.SUBSTATE_SNAKE || subState == SnakeState.SUBSTATE_SNAKE_DEATH);
         }
@@ -528,7 +514,7 @@ namespace MVZ2.GameContent.Bosses
         {
             if (!IsSnake(entity))
                 return;
-            stateMachine.SetSubState(entity, SnakeState.SUBSTATE_SNAKE_DEATH);
+            stateMachine.StartSubState(entity, SnakeState.SUBSTATE_SNAKE_DEATH);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(30);
             entity.PlaySound(VanillaSoundID.pacmanFail);
@@ -602,7 +588,6 @@ namespace MVZ2.GameContent.Bosses
         public const int EYE_BULLET_COUNT = 4;
         public const float EYE_BULLET_DAMAGE_MULTIPLIER = 3f;
         public const float EYE_BULLET_SPEED = 30;
-        public const float SMASH_DAMAGE_MULTIPLIER = 100;
         public const int ROAR_STUN_TIME = 150;
 
         public const int PACMAN_BLOCK_COUNT = 8;

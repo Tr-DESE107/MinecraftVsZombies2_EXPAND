@@ -26,6 +26,10 @@ namespace MVZ2Logic.Saves
         {
             return unlocks.Contains(unlockID);
         }
+        public string[] GetUnlocks()
+        {
+            return unlocks.ToArray();
+        }
         #endregion
 
         #region 关卡难度记录
@@ -104,9 +108,13 @@ namespace MVZ2Logic.Saves
         {
             return stats.GetStatValue(category, entry);
         }
-        public void AddStat(string category, NamespaceID entry, long value)
+        public void SetDirectEntryStat(string entry, long value)
         {
-            SetStat(category, entry, GetStat(category, entry) + value);
+            stats.SetDirectEntryValue(entry, value);
+        }
+        public long GetDirectEntryStat(string entry)
+        {
+            return stats.GetDirectEntryValue(entry);
         }
         public void AddPlayTimeMilliseconds(long time)
         {

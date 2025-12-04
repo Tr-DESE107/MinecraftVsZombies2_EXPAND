@@ -109,7 +109,7 @@ namespace MVZ2.Vanilla.Enemies
                             if (subStateTimer.Expired)
                             {
                                 subStateTimer.ResetTime(20);
-                                stateMachine.SetSubState(entity, SUBSTATE_ATTACKED);
+                                stateMachine.StartSubState(entity, SUBSTATE_ATTACKED);
                                 Hammer(entity);
                             }
                             break;
@@ -219,7 +219,7 @@ namespace MVZ2.Vanilla.Enemies
                                 }
 
                                 subStateTimer.ResetTime(10);
-                                stateMachine.SetSubState(entity, SUBSTATE_THROWN);
+                                stateMachine.StartSubState(entity, SUBSTATE_THROWN);
                             }
                             break;
                         case SUBSTATE_THROWN:
@@ -266,7 +266,7 @@ namespace MVZ2.Vanilla.Enemies
                                 entity.Level.ShakeScreen(10, 0, 10);
                                 entity.PlaySound(VanillaSoundID.thump);
                                 subStateTimer.ResetTime(30);
-                                stateMachine.SetSubState(entity, SUBSTATE_DROP);
+                                stateMachine.StartSubState(entity, SUBSTATE_DROP);
                             }
                             break;
                         case SUBSTATE_DROP:

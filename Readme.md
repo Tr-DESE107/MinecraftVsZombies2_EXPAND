@@ -237,7 +237,8 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 
 **Contraptions**
 
-- The explosion damage of Gunpowder Barrel and Gunpowder is 3000.
+- The explosion damage of Gunpowder Barrel and Gunpowder is 300.
+- The toughness cost of Elastic Clouds to bounce a monster is 450.
 
 **Monsters**
 
@@ -257,6 +258,9 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Nightmareaper's Wheel of Death attack deals 40% more damage.
 - Contraptions damaged by Wither Skulls will be withering, losing 10 HP per second in 30 seconds.
 - The Giant will take less damage after every damage taken. Reforming from cells will reset this effect.
+- The Red Dragon will summon three tornados in phase 1.
+- The Red Dragon's giant fire ball in phase 2 flies and explodes faster.
+- The radius of the flame explosion caused by the Red Dragon's flying in phase 2 is doubled.
 
 **Misc**
 

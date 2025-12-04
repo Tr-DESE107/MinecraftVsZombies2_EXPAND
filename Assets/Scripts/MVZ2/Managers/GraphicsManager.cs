@@ -24,20 +24,34 @@ namespace MVZ2.Models
         [InitializeOnLoadMethod]
         private static void OnInitailize()
         {
-            Shader.SetGlobalColor("_LightBackground", Color.white);
-            Shader.SetGlobalColor("_BackgroundTint", Color.white);
-            Shader.SetGlobalColor("_LightGlobal", Color.white);
+            ResetLightingStatic();
+            EditorApplication.playModeStateChanged += OnPlayModeStateChangedCallback;
+        }
+        private static void OnPlayModeStateChangedCallback(PlayModeStateChange change)
+        {
+            if (change == PlayModeStateChange.EnteredEditMode)
+            {
+                ResetLightingStatic();
+            }
         }
 #endif
-        public void SetLighting(Color background, Color backgroundTint, Color global)
+        private static void SetLightingStatic(Color background, Color backgroundTint, Color global)
         {
             Shader.SetGlobalColor("_LightBackground", background);
             Shader.SetGlobalColor("_BackgroundTint", backgroundTint);
             Shader.SetGlobalColor("_LightGlobal", global);
         }
+        private static void ResetLightingStatic()
+        {
+            SetLightingStatic(Color.white, Color.white, Color.white);
+        }
+        public void SetLighting(Color background, Color backgroundTint, Color global)
+        {
+            SetLightingStatic(background, backgroundTint, global);
+        }
         public void ResetLighting()
         {
-            SetLighting(Color.white, Color.white, Color.white);
+            ResetLightingStatic();
         }
         public GraphicsFormat GetSupportedColorFormat()
         {

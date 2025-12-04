@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Contraptions;
@@ -91,6 +92,7 @@ namespace MVZ2.Tests
 
             SerializableLevelController seriLevel = levelController.SaveGame();
             var json = seriLevel.ToBson();
+            var json1 = seriLevel.level.ToBson();
 
             SerializableLevelController seriLevel2 = SerializeHelper.FromBson<SerializableLevelController>(json);
             yield return GotoLevel();
@@ -98,11 +100,11 @@ namespace MVZ2.Tests
             LoadLevel(levelController2, seriLevel2, areaId, stageId);
 
             SerializableLevelController seriLevel3 = levelController2.SaveGame();
-            var json2 = seriLevel3.ToBson();
+            var json2 = seriLevel3.level.ToBson();
 
-            Debug.Log(json);
+            Debug.Log(json1);
             Debug.Log(json2);
-            Assert.AreEqual(json, json2);
+            Assert.AreEqual(json1, json2);
         }
         [UnityTest]
         public static IEnumerator LevelSerializationTestPrologue()
@@ -268,6 +270,248 @@ namespace MVZ2.Tests
             }
             yield return LevelSerializationTest(areaId, stageId, 5);
         }
+        [UnityTest]
+        public static IEnumerator LevelSerializationTestDream()
+        {
+            var areaId = VanillaAreaID.dream;
+            var stageId = VanillaStageID.dream10;
+            yield return PrepareLevelSerializationTest(areaId, stageId);
+
+            var game = GetGame();
+            var level = GetLevel();
+
+
+            level.Start();
+
+            // 生成器械
+            var lilypad = game.GetEntityDefinition(VanillaContraptionID.lilyPad);
+            var drivenser = game.GetEntityDefinition(VanillaContraptionID.drivenser);
+            var gravityPad = game.GetEntityDefinition(VanillaContraptionID.gravityPad);
+            var vortexHopper = game.GetEntityDefinition(VanillaContraptionID.vortexHopper);
+            var pistenser = game.GetEntityDefinition(VanillaContraptionID.pistenser);
+            var totenser = game.GetEntityDefinition(VanillaContraptionID.totenser);
+            var dreamCrystal = game.GetEntityDefinition(VanillaContraptionID.dreamCrystal);
+            EntityLayout[] dreamLayout = new EntityLayout[]
+            {
+                new EntityLayout() { definition = lilypad, column = 3, row = 1  },
+                new EntityLayout() { definition = lilypad, column = 3, row = 2  },
+                new EntityLayout() { definition = lilypad, column = 3, row = 3  },
+                new EntityLayout() { definition = lilypad, column = 3, row = 4  },
+                new EntityLayout() { definition = lilypad, column = 4, row = 1  },
+                new EntityLayout() { definition = lilypad, column = 4, row = 2  },
+                new EntityLayout() { definition = lilypad, column = 4, row = 3  },
+                new EntityLayout() { definition = lilypad, column = 4, row = 4  },
+                new EntityLayout() { definition = lilypad, column = 5, row = 1  },
+                new EntityLayout() { definition = lilypad, column = 5, row = 2  },
+                new EntityLayout() { definition = lilypad, column = 5, row = 3  },
+                new EntityLayout() { definition = lilypad, column = 5, row = 4  },
+
+                new EntityLayout() { definition = drivenser, column = 0, row = 0  },
+                new EntityLayout() { definition = drivenser, column = 0, row = 1  },
+                new EntityLayout() { definition = drivenser, column = 0, row = 2  },
+                new EntityLayout() { definition = drivenser, column = 0, row = 3  },
+                new EntityLayout() { definition = drivenser, column = 0, row = 4  },
+                new EntityLayout() { definition = drivenser, column = 0, row = 5  },
+
+                new EntityLayout() { definition = gravityPad, column = 6, row = 0  },
+                new EntityLayout() { definition = gravityPad, column = 2, row = 1  },
+                new EntityLayout() { definition = gravityPad, column = 2, row = 2  },
+                new EntityLayout() { definition = gravityPad, column = 2, row = 3  },
+                new EntityLayout() { definition = gravityPad, column = 2, row = 4  },
+                new EntityLayout() { definition = gravityPad, column = 6, row = 5  },
+
+                new EntityLayout() { definition = vortexHopper, column = 6, row = 1  },
+                new EntityLayout() { definition = vortexHopper, column = 6, row = 2  },
+                new EntityLayout() { definition = vortexHopper, column = 6, row = 3  },
+                new EntityLayout() { definition = vortexHopper, column = 6, row = 4  },
+
+                new EntityLayout() { definition = pistenser, column = 1, row = 0  },
+                new EntityLayout() { definition = pistenser, column = 1, row = 1  },
+                new EntityLayout() { definition = pistenser, column = 1, row = 2  },
+                new EntityLayout() { definition = pistenser, column = 1, row = 3  },
+                new EntityLayout() { definition = pistenser, column = 1, row = 4  },
+                new EntityLayout() { definition = pistenser, column = 1, row = 5  },
+                new EntityLayout() { definition = pistenser, column = 2, row = 0  },
+                new EntityLayout() { definition = pistenser, column = 2, row = 1  },
+                new EntityLayout() { definition = pistenser, column = 2, row = 2  },
+                new EntityLayout() { definition = pistenser, column = 2, row = 3  },
+                new EntityLayout() { definition = pistenser, column = 2, row = 4  },
+                new EntityLayout() { definition = pistenser, column = 2, row = 5  },
+
+                new EntityLayout() { definition = totenser, column = 3, row = 0  },
+                new EntityLayout() { definition = totenser, column = 3, row = 1  },
+                new EntityLayout() { definition = totenser, column = 3, row = 2  },
+                new EntityLayout() { definition = totenser, column = 3, row = 3  },
+                new EntityLayout() { definition = totenser, column = 3, row = 4  },
+                new EntityLayout() { definition = totenser, column = 3, row = 5  },
+                new EntityLayout() { definition = totenser, column = 4, row = 0  },
+                new EntityLayout() { definition = totenser, column = 4, row = 1  },
+                new EntityLayout() { definition = totenser, column = 4, row = 2  },
+                new EntityLayout() { definition = totenser, column = 4, row = 3  },
+                new EntityLayout() { definition = totenser, column = 4, row = 4  },
+                new EntityLayout() { definition = totenser, column = 4, row = 5  },
+
+                new EntityLayout() { definition = dreamCrystal, column = 5, row = 0  },
+                new EntityLayout() { definition = dreamCrystal, column = 5, row = 1  },
+                new EntityLayout() { definition = dreamCrystal, column = 5, row = 2  },
+                new EntityLayout() { definition = dreamCrystal, column = 5, row = 3  },
+                new EntityLayout() { definition = dreamCrystal, column = 5, row = 4  },
+                new EntityLayout() { definition = dreamCrystal, column = 5, row = 5  },
+            };
+            foreach (var layout in dreamLayout)
+            {
+                var x = level.GetEntityColumnX(layout.column);
+                var z = level.GetEntityLaneZ(layout.row);
+                var height = level.GetGroundY(x, z);
+                var position = new Vector3(x, height, z);
+                level.Spawn(layout.definition, position, null);
+            }
+            // 生成僵尸
+            var enemyPool = new NamespaceID[]
+            {
+                VanillaSpawnID.spider,
+                VanillaSpawnID.caveSpider,
+                VanillaSpawnID.ghast,
+                VanillaSpawnID.motherTerror,
+            };
+            foreach (var id in enemyPool)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    var spawnDef = game.GetSpawnDefinition(id);
+                    level.SpawnEnemyAtRandomLane(spawnDef);
+                }
+            }
+            yield return LevelSerializationTest(areaId, stageId, 5);
+        }
+        [UnityTest]
+        public static IEnumerator LevelSerializationTestCastle()
+        {
+            var areaId = VanillaAreaID.castle;
+            var stageId = VanillaStageID.castle10;
+            yield return PrepareLevelSerializationTest(areaId, stageId);
+
+            var game = GetGame();
+            var level = GetLevel();
+
+
+            level.Start();
+
+            // 生成器械
+            var woodenDropper = game.GetEntityDefinition(VanillaContraptionID.woodenDropper);
+            var spikeBlock = game.GetEntityDefinition(VanillaContraptionID.spikeBlock);
+            var stoneDropper = game.GetEntityDefinition(VanillaContraptionID.stoneDropper);
+            var stoneShield = game.GetEntityDefinition(VanillaContraptionID.stoneShield);
+            var goldenApple = game.GetEntityDefinition(VanillaContraptionID.goldenApple);
+            var thunderDrum = game.GetEntityDefinition(VanillaContraptionID.thunderDrum);
+            var teslaCoil = game.GetEntityDefinition(VanillaContraptionID.teslaCoil);
+            var giantBowl = game.GetEntityDefinition(VanillaContraptionID.giantBowl);
+            EntityLayout[] levelLayout = new EntityLayout[]
+            {
+                new EntityLayout() { definition = woodenDropper, column = 0, row = 0  },
+                new EntityLayout() { definition = woodenDropper, column = 0, row = 1  },
+                new EntityLayout() { definition = woodenDropper, column = 0, row = 2  },
+                new EntityLayout() { definition = woodenDropper, column = 0, row = 3  },
+                new EntityLayout() { definition = woodenDropper, column = 0, row = 4  },
+
+                new EntityLayout() { definition = spikeBlock, column = 6, row = 0  },
+                new EntityLayout() { definition = spikeBlock, column = 6, row = 1  },
+                new EntityLayout() { definition = spikeBlock, column = 6, row = 2  },
+                new EntityLayout() { definition = spikeBlock, column = 6, row = 3  },
+                new EntityLayout() { definition = spikeBlock, column = 6, row = 4  },
+
+                new EntityLayout() { definition = stoneDropper, column = 1, row = 0  },
+                new EntityLayout() { definition = stoneDropper, column = 1, row = 1  },
+                new EntityLayout() { definition = stoneDropper, column = 1, row = 2  },
+                new EntityLayout() { definition = stoneDropper, column = 1, row = 3  },
+                new EntityLayout() { definition = stoneDropper, column = 1, row = 4  },
+                new EntityLayout() { definition = stoneDropper, column = 2, row = 0  },
+                new EntityLayout() { definition = stoneDropper, column = 2, row = 1  },
+                new EntityLayout() { definition = stoneDropper, column = 2, row = 2  },
+                new EntityLayout() { definition = stoneDropper, column = 2, row = 3  },
+                new EntityLayout() { definition = stoneDropper, column = 2, row = 4  },
+
+                new EntityLayout() { definition = stoneShield, column = 0, row = 0  },
+                new EntityLayout() { definition = stoneShield, column = 0, row = 1  },
+                new EntityLayout() { definition = stoneShield, column = 0, row = 2  },
+                new EntityLayout() { definition = stoneShield, column = 0, row = 3  },
+                new EntityLayout() { definition = stoneShield, column = 0, row = 4  },
+                new EntityLayout() { definition = stoneShield, column = 1, row = 0  },
+                new EntityLayout() { definition = stoneShield, column = 1, row = 1  },
+                new EntityLayout() { definition = stoneShield, column = 1, row = 2  },
+                new EntityLayout() { definition = stoneShield, column = 1, row = 3  },
+                new EntityLayout() { definition = stoneShield, column = 1, row = 4  },
+                new EntityLayout() { definition = stoneShield, column = 2, row = 0  },
+                new EntityLayout() { definition = stoneShield, column = 2, row = 1  },
+                new EntityLayout() { definition = stoneShield, column = 2, row = 2  },
+                new EntityLayout() { definition = stoneShield, column = 2, row = 3  },
+                new EntityLayout() { definition = stoneShield, column = 2, row = 4  },
+                new EntityLayout() { definition = stoneShield, column = 3, row = 0  },
+                new EntityLayout() { definition = stoneShield, column = 3, row = 1  },
+                new EntityLayout() { definition = stoneShield, column = 3, row = 2  },
+                new EntityLayout() { definition = stoneShield, column = 3, row = 3  },
+                new EntityLayout() { definition = stoneShield, column = 3, row = 4  },
+                new EntityLayout() { definition = stoneShield, column = 4, row = 0  },
+                new EntityLayout() { definition = stoneShield, column = 4, row = 1  },
+                new EntityLayout() { definition = stoneShield, column = 4, row = 2  },
+                new EntityLayout() { definition = stoneShield, column = 4, row = 3  },
+                new EntityLayout() { definition = stoneShield, column = 4, row = 4  },
+                new EntityLayout() { definition = stoneShield, column = 5, row = 0  },
+                new EntityLayout() { definition = stoneShield, column = 5, row = 1  },
+                new EntityLayout() { definition = stoneShield, column = 5, row = 2  },
+                new EntityLayout() { definition = stoneShield, column = 5, row = 3  },
+                new EntityLayout() { definition = stoneShield, column = 5, row = 4  },
+
+                new EntityLayout() { definition = goldenApple, column = 7, row = 0  },
+                new EntityLayout() { definition = goldenApple, column = 7, row = 1  },
+                new EntityLayout() { definition = goldenApple, column = 7, row = 2  },
+                new EntityLayout() { definition = goldenApple, column = 7, row = 3  },
+                new EntityLayout() { definition = goldenApple, column = 7, row = 4  },
+
+                new EntityLayout() { definition = thunderDrum, column = 3, row = 0  },
+                new EntityLayout() { definition = thunderDrum, column = 3, row = 1  },
+                new EntityLayout() { definition = thunderDrum, column = 3, row = 2  },
+                new EntityLayout() { definition = thunderDrum, column = 3, row = 3  },
+                new EntityLayout() { definition = thunderDrum, column = 3, row = 4  },
+
+                new EntityLayout() { definition = teslaCoil, column = 5, row = 0  },
+                new EntityLayout() { definition = teslaCoil, column = 5, row = 1  },
+                new EntityLayout() { definition = teslaCoil, column = 5, row = 2  },
+                new EntityLayout() { definition = teslaCoil, column = 5, row = 3  },
+                new EntityLayout() { definition = teslaCoil, column = 5, row = 4  },
+
+                new EntityLayout() { definition = giantBowl, column = 4, row = 0  },
+                new EntityLayout() { definition = giantBowl, column = 4, row = 1  },
+                new EntityLayout() { definition = giantBowl, column = 4, row = 2  },
+                new EntityLayout() { definition = giantBowl, column = 4, row = 3  },
+                new EntityLayout() { definition = giantBowl, column = 4, row = 4  },
+            };
+            foreach (var layout in levelLayout)
+            {
+                var x = level.GetEntityColumnX(layout.column);
+                var z = level.GetEntityLaneZ(layout.row);
+                var height = level.GetGroundY(x, z);
+                var position = new Vector3(x, height, z);
+                level.Spawn(layout.definition, position, null);
+            }
+            // 生成僵尸
+            var enemyPool = new NamespaceID[]
+            {
+                VanillaSpawnID.mesmerizer,
+                VanillaSpawnID.berserker,
+                VanillaSpawnID.dullahan,
+                VanillaSpawnID.hellChariot,
+            };
+            foreach (var id in enemyPool)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    var spawnDef = game.GetSpawnDefinition(id);
+                    level.SpawnEnemyAtRandomLane(spawnDef);
+                }
+            }
+            yield return LevelSerializationTest(areaId, stageId, 5);
+        }
         private static IEnumerator PrepareLevelSerializationTest(NamespaceID areaId, NamespaceID stageId)
         {
             yield return Init();
@@ -362,6 +606,7 @@ namespace MVZ2.Tests
         }
         private static void LoadLevel(LevelController level, SerializableLevelController seri, NamespaceID areaId, NamespaceID stageId)
         {
+            level.SetActive(true);
             level.LoadGame(seri, Main.Game, areaId, stageId);
             level.ResumeGame(9999);
         }
@@ -371,5 +616,13 @@ namespace MVZ2.Tests
         }
         private static MainManager Main => MainManager.Instance;
         private static bool inited = false;
+
+
+        public struct EntityLayout
+        {
+            public EntityDefinition definition;
+            public int column;
+            public int row;
+        }
     }
 }

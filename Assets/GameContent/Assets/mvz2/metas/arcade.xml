@@ -2,6 +2,16 @@
     <minigame id="whack_a_ghost" stage="mvz2:whack_a_ghost" area="mvz2:halloween" icon="mvz2:arcade/whack_a_ghost" />
     <minigame id="breakout" stage="mvz2:breakout" area="mvz2:dream" icon="mvz2:arcade/breakout" />
     <minigame id="big_trouble_and_little_zombie" stage="mvz2:big_trouble_and_little_zombie" area="mvz2:castle" icon="mvz2:arcade/big_trouble_and_little_zombie" />
+    <minigame id="ufo_blitz" stage="mvz2:ufo_blitz" area="mvz2:ship" icon="mvz2:arcade/ufo_blitz" />
+    <minigame/>
+    <minigame id="frankensteins_revenge" stage="mvz2:frankensteins_revenge" area="mvz2:halloween" icon="mvz2:arcade/frankensteins_revenge"/>
+    <minigame id="nightmare_revenge" stage="mvz2:nightmares_revenge" area="mvz2:dream" icon="mvz2:arcade/nightmares_revenge"/>
+    <minigame id="withers_revenge" stage="mvz2:withers_revenge" area="mvz2:castle" icon="mvz2:arcade/withers_revenge"/>
+    <minigame id="the_giants_revenge" stage="mvz2:the_giants_revenge" area="mvz2:mausoleum" icon="mvz2:arcade/the_giants_revenge" hiddenUntil="mvz2:level.mausoleum_11"/>
+    <minigame id="red_dragons_revenge" stage="mvz2:red_dragons_revenge" area="mvz2:ship" icon="mvz2:arcade/red_dragons_revenge" hiddenUntil="mvz2:level.ship_11"/>
+
+    
+    
     <minigame id="a_tooth_for_a_tooth" stage="mvz2:a_tooth_for_a_tooth" area="mvz2:halloween" icon="mvz2:arcade/a_tooth_for_a_tooth" />
     <minigame id="Do_Magic_Tricks" stage="mvz2:Do_Magic_Tricks" area="mvz2:day" icon="mvz2:arcade/Do_Magic_Tricks" />
     <minigame id="MutantCrisis" stage="mvz2:MutantCrisis" area="mvz2:day" icon="mvz2:arcade/MutantCrisis" />

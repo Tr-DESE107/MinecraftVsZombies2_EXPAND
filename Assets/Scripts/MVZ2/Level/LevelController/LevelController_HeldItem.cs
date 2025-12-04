@@ -207,7 +207,7 @@ namespace MVZ2.Level
         #region 高亮
         private HeldHighlight GetCurrentHeldHighlight()
         {
-            if (!IsGameRunning() || !level.IsHoldingItem())
+            if (!IsGameRunning())
                 return HeldHighlight.None;
             if (hoveredEntity.Exists() && hoveredEntity.GetHoveredPointerCount() > 0)
             {

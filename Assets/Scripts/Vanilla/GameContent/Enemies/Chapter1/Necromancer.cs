@@ -35,16 +35,14 @@ namespace MVZ2.GameContent.Enemies
             if (entity.State == STATE_MELEE_ATTACK)
                 return;
             var stateTimer = GetStateTimer(entity);
-            if (entity.State == STATE_CAST)
+            var attackSpeed = entity.GetAttackSpeed();
+            if (stateTimer.RunToExpiredAndNotNull(attackSpeed))
             {
-                if (stateTimer.RunToExpiredAndNotNull(entity.GetAttackSpeed()))
+                if (entity.State == STATE_CAST)
                 {
                     EndCasting(entity);
                 }
-            }
-            else
-            {
-                if (stateTimer.RunToExpiredAndNotNull(entity.GetAttackSpeed()))
+                else
                 {
                     if (!CheckBuildable(entity))
                     {

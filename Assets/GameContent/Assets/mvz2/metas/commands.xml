@@ -218,6 +218,10 @@
                 <param name="id" type="id" idType="unlock">状态ID。</param>
             </params>
         </variant>
+        <variant subname="list">
+            <description>打印当前存档所有目前解锁的游戏状态。</description>
+            <params/>
+        </variant>
     </command>
     <command id="test" inLevel="true">
         <description>进行某些测试。</description>

@@ -28,6 +28,16 @@
                 <condition required="mvz2:level.mausoleum_5" requiredNot="mvz2:kourindou_visited_mausoleum_2" />
             </conditions>
         </talk>
+        <talk id="mvz2:kourindou_visit_ship_1">
+            <conditions>
+                <condition required="mvz2:level.mausoleum_11" requiredNot="mvz2:entered_ship" />
+            </conditions>
+        </talk>
+        <talk id="mvz2:kourindou_visit_ship_2">
+            <conditions>
+                <condition required="mvz2:level.ship_6" requiredNot="mvz2:kourindou_visited_ship_2" />
+            </conditions>
+        </talk>
     </talks>
     <chats>
         <group character="mvz2:crazy_villager">
@@ -158,7 +168,7 @@
         </product>
          <product id="skyward_beacon" blueprintId="mvz2:skyward_beacon">
             <unlock>
-                <condition required="mvz2:level.mausoleum_9" />
+                <condition required="mvz2:level.ship_6" />
             </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">把御天信标放在信标上，让它发射从天而降的致命光束，打击你所指定的位置！</talk>
@@ -302,6 +312,20 @@
             </talks>
             <stages>
                 <stage price="15000" unlocks="mvz2:artifact.dragon_tooth" />
+            </stages>
+        </product>
+        <product id="cake" sprite="mvz2:products/cake">
+            <unlock>
+                <condition requiredGroups="mvz2:game_completed" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">蛋糕！在你完成所有内容后，来大吃一顿吧！</talk>
+                <talk character="mvz2:tokiko">蛋糕！在一切都结束之后，来大吃一顿吧！</talk>
+            </talks>
+            <stages>
+                <stage price="20000">
+                    <stat entry="mvz2:deceived_by_the_cake" value="1" />
+                </stage>
             </stages>
         </product>
     </products>

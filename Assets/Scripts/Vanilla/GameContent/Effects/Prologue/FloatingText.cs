@@ -6,7 +6,6 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -19,10 +18,7 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            var tint = entity.GetTint();
-            tint.a = Mathf.Clamp01(entity.Timeout / 15f);
-            entity.SetTint(tint);
-            entity.SetModelProperty("Color", tint);
+            entity.SetModelProperty("Color", entity.GetTint());
             entity.SetModelProperty("Text", GetText(entity));
         }
         public static string? GetText(Entity entity) => entity.GetBehaviourField<string>(ID, PROP_TEXT);

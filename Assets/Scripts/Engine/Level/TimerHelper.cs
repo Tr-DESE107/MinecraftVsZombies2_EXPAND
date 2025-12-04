@@ -26,6 +26,18 @@ namespace PVZEngine
         {
             timer.ResetTime(Ticks.FromSeconds(seconds));
         }
+        public static bool PassedSeconds(this FrameTimer timer, float seconds)
+        {
+            return timer.PassedFrame(Ticks.FromSeconds(seconds));
+        }
+        public static bool PassedSecondsFromMax(this FrameTimer timer, float seconds)
+        {
+            return timer.PassedFrameFromMax(Ticks.FromSeconds(seconds));
+        }
+        public static bool PassedIntervalSeconds(this FrameTimer timer, float seconds)
+        {
+            return timer.PassedInterval(Ticks.FromSeconds(seconds));
+        }
         public static bool RunToExpiredOrNull([NotNullWhen(false)] this FrameTimer? timer, float speed = 1)
         {
             if (timer == null)

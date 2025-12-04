@@ -132,6 +132,12 @@
             </unlock>
             <layer sprite="mvz2:characters/tokiko[5]" positionX="0" positionY="0" />
         </variant>
+        <variant id="mvz2:angry" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:kourindou_visited_ship_2" />
+            </unlock>
+            <layer sprite="mvz2:characters/tokiko[6]" positionX="208" positionY="80" />
+        </variant>
     </character>
     <character id="seija" name="正邪">
         <variant id="mvz2:normal" width="560" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
@@ -317,10 +323,13 @@
         <variant id="mvz2:sad" width="636" height="1280" extendRight="0" pivotX="0.5" pivotY="0.65">
             <layer sprite="mvz2:characters/marisa[1]" />
         </variant>
-        <!-- 
         <variant id="mvz2:angry" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:kourindou_visited_ship_2" />
+            </unlock>
             <layer sprite="mvz2:characters/marisa[4]" positionX="288" positionY="192" />
         </variant>
+        <!-- 
         <variant id="mvz2:scared" parent="mvz2:normal">
             <layer sprite="mvz2:characters/marisa[5]" positionX="288" positionY="192" />
         </variant>
@@ -405,6 +414,80 @@
     <character id="hologram" name="影像">
         <variant id="mvz2:normal" width="600" height="600" extendRight="0" pivotX="0.5" pivotY="0">
             <layer sprite="mvz2:characters/hologram" />
+        </variant>
+    </character>
+    <character id="shou" name="星">
+        <variant id="mvz2:normal" width="632" height="1280"  extendLeft="100" extendRight="50" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/shou[0]" />
+        </variant>
+        <variant id="mvz2:unhappy" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_3" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[1]" positionX="304" positionY="176" />
+        </variant>
+        <variant id="mvz2:angry" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_3" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[4]" positionX="304" positionY="128" />
+        </variant>
+        <variant id="mvz2:worried" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_4" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[2]" positionX="304" positionY="176" />
+        </variant>
+        <variant id="mvz2:surprised" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_6" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[6]" positionX="304" positionY="128" />
+        </variant>
+        <variant id="mvz2:sad" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_8" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[3]" positionX="304" positionY="176" />
+        </variant>
+        <variant id="mvz2:question" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.ship_9" />
+            </unlock>
+            <layer sprite="mvz2:characters/shou[5]" positionX="304" positionY="128" />
+        </variant>
+    </character>
+    <character id="nue" name="鵺">
+        <variant id="mvz2:normal" width="761" height="1280"  extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/nue[0]" />
+        </variant>
+        <variant id="mvz2:close_eyes" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/nue[1]" positionX="368" positionY="112" />
+        </variant>
+    </character>
+    <character id="sekibanki" name="赤蛮奇">
+        <variant id="mvz2:normal" width="598" height="1280" extendLeft="80" extendRight="80" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/sekibanki[0]" />
+        </variant>
+        <variant id="mvz2:angry" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/sekibanki[1]" positionX="176" positionY="128" />
+        </variant>
+        <variant id="mvz2:angry_close_eyes" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/sekibanki[2]" positionX="176" positionY="128" />
+        </variant>
+    </character>
+    <character id="byakuren" name="白莲">
+        <variant id="mvz2:normal" width="573" height="1280" extendLeft="80" extendRight="80"  pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/byakuren[0]" />
+        </variant>
+        <variant id="mvz2:close_eyes" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/byakuren[1]" positionX="176" positionY="208" />
+        </variant>
+        <variant id="mvz2:serious" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/byakuren[2]" positionX="176" positionY="208" />
+        </variant>
+        <variant id="mvz2:serious_close_eyes" parent="mvz2:normal" >
+            <layer sprite="mvz2:characters/byakuren[3]" positionX="176" positionY="208" />
         </variant>
     </character>
 </characters>

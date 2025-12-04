@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 var faction = entity.GetFaction();
                 var radius = 200f;
                 var level = entity.Level;
-                foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
+                foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE | EntityCollisionHelper.MASK_PROJECTILE, 0))
                 {
                     if (!entityCollider.IsMainCollider())
                         continue;
@@ -42,6 +42,13 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                         target.Velocity += entity.GetFacingDirection() * (10 * knockbackMultiplier) + Vector3.up * (20 * knockbackMultiplier);
 
                         target.ApplyStrongImpact();
+                    }
+                    else if (target.Type == EntityTypes.PROJECTILE)
+                    {
+                        // 弹回射弹，并将阵营改为该实体的阵营。
+                        var velocity = target.GetFacingDirection() * target.Velocity.magnitude;
+                        target.Velocity = velocity;
+                        target.SetFaction(entity.GetFaction());
                     }
                 }
                 Explosion.Spawn(entity, center, radius);

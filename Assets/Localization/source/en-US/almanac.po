@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-28 02:29+0800\n"
-"PO-Revision-Date: 2025-10-28 14:30+0800\n"
+"POT-Creation-Date: 2025-11-27 11:58+0800\n"
+"PO-Revision-Date: 2025-11-27 11:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -790,10 +790,10 @@ msgstr "Moonlight Sensors provide energy at night, and increase the yield after 
 msgctxt "contraptions.description"
 msgid ""
 "提供能量：<color=red>1点/1.6秒，而后1点/1秒</color>\n"
-"技能：<color=red>立即升级，发出蓝光，并使生产量变为2.5倍</color>"
+"技能：<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>"
 msgstr ""
 "Energy production: <color=red>1/1.6 secs, then 1/1 sec</color>\n"
-"Evocation: <color=red>Instantly upgrade, glow with blue light and increase its yield by 2.5 times</color>"
+"Evocation: <color=red>Instantly upgrade, glow with blue light and increase its yield by 2 times</color>"
 
 #. Flavor for contraptions mvz2:moonlight_sensor
 #: Almanac meta file
@@ -831,7 +831,7 @@ msgstr ""
 #. Header for contraptions mvz2:punchton
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
+msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\" />石制品，但之后需要一定时间来修复自身。"
 msgstr ""
 "Punchtons can knock back enemy monsters and crush <tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>hard objects, but they need time to "
 "repair themselves after that."
@@ -883,7 +883,7 @@ msgstr ""
 #. Header for contraptions mvz2:soul_furnace
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "灵魂熔炉发射恐怖的<tag id=\"mvz2:fire\"/>灵魂火，但需要烧毁前方的器械来补充燃料。"
+msgid "灵魂熔炉发射恐怖的<tag id=\"mvz2:fire\" />灵魂火，但需要烧毁前方的器械来补充燃料。"
 msgstr "Soul Furnaces shoot terrifying <tag id=\"mvz2:fire\"/>soulfires, but will burn the contraption in the front as its fuel."
 
 #. Properties for contraptions mvz2:soul_furnace
@@ -893,13 +893,13 @@ msgid ""
 "伤害：<color=red>80</color>\n"
 "溅射伤害：<color=red>20（不伤害直接目标）</color>\n"
 "特点：<color=red>需要烧毁器械补充燃料</color>\n"
-"燃料上限：<color=red>60</color>\n"
+"燃料上限：<color=red>120</color>\n"
 "技能：<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球</color>"
 msgstr ""
 "Damage: <color=red>80</color>\n"
 "Splash Damage: <color=red>20 (Do not damage the direct target)</color>\n"
 "Special: <color=red>Need to be fueled by burning other contraptions</color>\n"
-"Max Fuel: <color=red>60</color>\n"
+"Max Fuel: <color=red>120</color>\n"
 "Evocation: <color=red>Consume all the remaining fuel to rapidly shoot explosive soulfire balls towards random enemies</color>"
 
 #. Flavor for contraptions mvz2:soul_furnace
@@ -912,7 +912,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯的飞刀。"
+msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr "Silvensers shoot piercing knives which can slice <tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>the flesh."
 
 #. Properties for contraptions mvz2:silvenser
@@ -1075,7 +1075,7 @@ msgstr "\"It's over zombies, I have the high ground!\" Those were his last words
 #. Header for contraptions mvz2:totenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "图腾发射器在发射飞镖的同时还会<tag id=\"mvz2:fire\"/>喷火烧伤近处的敌人。"
+msgid "图腾发射器在发射飞镖的同时还会<tag id=\"mvz2:fire\" />喷火烧伤近处的敌人。"
 msgstr "Totensers shoot poisonous darts and burn nearby enemies with <tag id=\"mvz2:fire\"/>fire."
 
 #. Properties for contraptions mvz2:totenser
@@ -1815,11 +1815,11 @@ msgstr "Elastic Clouds sacrifice their own toughness to bounce away enemy monste
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>3000</color>\n"
-"耐久消耗：<color=red>150（怪物），20（子弹）</color>\n"
+"耐久消耗：<color=red>300（怪物），450（怪物，困难难度），20（子弹）</color>\n"
 "技能：<color=red>击退并弹飞半径2.5格内的所有敌方怪物</color>"
 msgstr ""
 "Toughness: <color=red>3000</color>\n"
-"Toughness Cost: <color=red>150 (Per monster), 20 (Per bullet)</color>\n"
+"Toughness Cost: <color=red>300 (Per monster), 450 (Per monster in HARD), 20 (Per bullet)</color>\n"
 "Evocation: <color=red>Knock back and bounce away all enemy monsters within a radius of 2.5 tiles</color>"
 
 #. Flavor for contraptions mvz2:elastic_cloud
@@ -1992,7 +1992,7 @@ msgctxt "contraptions.description"
 msgid ""
 "发射速度：<color=red>4支/1.5秒</color>\n"
 "伤害：<color=red>20</color>\n"
-"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\"/>发光</color>"
+"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\" />发光</color>"
 msgstr ""
 "Fire rate: <color=red>4 shots/1.5s</color>\n"
 "Damage: <color=red>20</color>\n"
@@ -2232,7 +2232,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
-"弱点：<color=red>被<tag id=\"mvz2:light_source\"/>光照到时会失去虚无效果</color>"
+"弱点：<color=red>被<tag id=\"mvz2:light_source\" />光照到时会失去虚无效果</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Resistance: <color=red>Reduces 90% taken damage in ethereal form</color>\n"
@@ -2257,7 +2257,7 @@ msgstr "Mummies will release gas after they die, which can heal the undead and d
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
-"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\"/>火烧掉</color>"
+"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\" />火烧掉</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Weakness：<color=red><tag id=\"mvz2:fire\"/>Fire can burn its gas</color>"
@@ -2308,7 +2308,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>160</color>\n"
 "速度：<color=red>2</color>\n"
-"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\"/>防御性器械</color>"
+"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\" />防御性器械</color>"
 msgstr ""
 "Toughness: <color=red>160</color>\n"
 "Speed: <color=red>2</color>\n"
@@ -2388,7 +2388,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "速度：<color=red>2</color>，而后<color=red>0.6</color>（产卵后）\n"
-"特点：<color=red>碰到的<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯会被寄生</color>"
+"特点：<color=red>碰到的<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯会被寄生</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Speed: <color=red>2</color>, then <color=red>0.6</color> (After laying eggs)\n"
@@ -2495,7 +2495,7 @@ msgid ""
 "马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
 "身体速度：<color=red>1</color>\n"
 "头颅速度：<color=red>2</color>\n"
-"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\"/>高器械</color>"
+"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\" />高器械</color>"
 msgstr ""
 "Toughness: <color=red>400 (Horse), 300 (Body), 200 (Head)</color>\n"
 "Horse Speed: <color=red>2 (Before jump), 1 (After jump)</color>\n"
@@ -2578,11 +2578,11 @@ msgstr "Reflective Barrier Zombies use reflective barriers to protect themselves
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"生命：<color=red>200+600</color>\n"
+"生命：<color=red>200+710</color>\n"
 "速度：<color=red>1</color>\n"
 "特点：<color=red>子弹击中反射壁并消失后，产生伤害相同的子弹进行回击</color>"
 msgstr ""
-"Toughness: <color=red>200+600</color>\n"
+"Toughness: <color=red>200+710</color>\n"
 "Speed: <color=red>1</color>\n"
 "Special: <color=red>When a projectile hits the reflective barrier and disappears, fire a bullet with the same damage back</color>"
 
@@ -2782,14 +2782,14 @@ msgstr "At least this cloud doesn’t flip you off."
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。"
-msgstr "The heavy cannons of Cannoneer Zombies can help them block bullets and fire a Zombie Cannonball every once in a while."
+msgstr "The bulky cannons of Cannoneer Zombies block bullets and fire a Zombie Cannonball every once in a while."
 
 #. Properties for enemies mvz2:cannoneer_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+1110（铁炮）</color>\n"
-"移速：<color=red>0.5，1（失去铁炮后）</color>\n"
+"速度：<color=red>0.5，1（失去铁炮后）</color>\n"
 "发射间隔：<color=red>8秒</color>"
 msgstr ""
 "Toughness: <color=red>200+1100 (Cannon)</color>\n"
@@ -2816,9 +2816,9 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
-"移速：<color=red>2</color>"
+"速度：<color=red>2</color>"
 msgstr ""
-"Toughness: <color=red>100</color>\n"
+"Toughness: <color=red>200</color>\n"
 "Speed: <color=red>2</color>"
 
 #. Flavor for enemies mvz2:cannonball_zombie
@@ -3169,7 +3169,7 @@ msgstr ""
 #. Properties for artifacts mvz2:broken_lantern
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red><tag id=\"mvz2:light_source\"/>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
+msgid "效果：<color=red><tag id=\"mvz2:light_source\" />发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
 msgstr ""
 "Effect: <color=red>+25% produce speed and attack speed, but x50% light range for <tag id=\"mvz2:light_source\"/>glowing contraptions</"
 "color>"
@@ -3621,6 +3621,78 @@ msgstr ""
 "The knight tossed some food down below, then led the group away.\n"
 "\"They've been starving for ages. Let them have this much to eat.\""
 
+#. Name for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "红龙"
+msgstr "The Red Dragon"
+
+#. Header for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "红龙是一头喷火的猛兽，为了报杀母之仇，定要摧毁幻想乡的一切。"
+msgstr "The Red Dragon is a ferocious beast that breathes fire. To avenge its mother, it swears to destroy all of Gensokyo."
+
+#. Properties for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>50000</color>\n"
+"阶段1：<color=red>火焰弹、龙卷风、吞食、火焰吐息</color>\n"
+"阶段2：<color=red>巨型火球、火焰龙卷风、火焰流星、飞空、扫尾</color>"
+msgstr ""
+"Toughness: <color=red>50000</color>\n"
+"Phase 1: <color=red>Fire Charges, Tornado, Devour, Fire Breath</color>\n"
+"Phase 2: <color=red>Giant Fire Ball, Flame Tornado, Meteor, Fly, Tail Swipe</color>"
+
+#. Flavor for misc mvz2:red_dragon
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"骑士一行人踏入了一处巨大的山洞，他们举着火把慢慢前进着。\n"
+"山洞中遍布着很多骸骨。有羊的，牛的，其他怪物的，遍地都是——但好像唯独没有人的头骨。\n"
+"骑士听着深处的动静，最终带领队伍找到了他们的目标——一头红龙。\n"
+"红龙见到他们，十分惊讶。它张开口，说出了人类的语言：\n"
+"“你们这些人类，来到这里是想做什么？这里不是你们应该来的地方！”\n"
+"有一位同伴争先答到：\n"
+"“国王的梦预示着王国会被怪物毁灭，因此，我们以国王的名义，要取你的龙头！”\n"
+"红龙瞪大了眼睛，随后又突然尖锐起来。那眼中包含的是悲哀，还有——愤怒。\n"
+"“我曾亲眼看见我的母亲死于你们人类之手。她杀死了很多的人类，导致人类群起而攻之。从那时，我就对你们人类产生了畏惧之心。“\n"
+"“一百年来，我一直避免招惹你们，我本以为这样就不会引来杀身之祸。如今，你们却因为一场无聊的梦便要我的命？”\n"
+"“这就是我所应得的东西？！只是因为你们这群人类自诩为高等生灵？！”\n"
+"红龙的愤怒化作火焰从口中喷出，瞬间点燃了整片巢穴。\n"
+"在那场火焰和钢铁交织的战斗中，红龙逐渐落入下风。最后红龙被骑士刺中喉咙，倒在了地上。\n"
+"“贪婪……会成为你们人类的坟墓……”\n"
+"“我……诅咒……你们……”\n"
+"红龙就这样闭上了眼睛。\n"
+"龙巢的火熄灭了。同伴们将龙的尸体分解，把它的牙、眼、爪、骨、鳞、和心脏作为战利品收集了起来。\n"
+"骑士默默看着他们兴奋的样子，最后却什么也没要。"
+msgstr ""
+"The Knight and his group ventured into a giant cave, advancing deeper step by step with torches in their hands.\n"
+"The cave was filled with countless skeletal remains of sheeps, cows, and other monsters. They were scattered everywhere, yet there "
+"doesn't seem to be any human skulls.\n"
+"The Knight listened to the sounds from the depths and eventually lead his team to their target—a red dragon.\n"
+"The Red Dragon was very surprised to see them. It opened its mouth and spoke in the human's language:\n"
+"\"You humans, what do you think you're doing here? This is no place for your kind!\"\n"
+"A companion rushed to answer:\n"
+"\"The King's dream foretells the kingdom's imminent destruction by monsters. Thus, in the name of the King, we have come for your head!"
+"\"\n"
+"The Red Dragon's eyes widened, then suddenly sharpened. Those eyes were filled with sorrow and... rage.\n"
+"\"I witnessed my mother's death by the hands of you humans. She killed many of your kind, which led to them rising up against her. "
+"From that point on, I have developed a fear of you humans.\"\n"
+"\"For a hundred years, I have avoided provoking you so that no harm would come to me. Yet today, you come for my life because of some "
+"stupid dream?\"\n"
+"\"Is this what I deserve?! Just because you humans deem yourselves to be superior beings?!\"\n"
+"The Red Dragon's fury manifested into flames breathed from its mouth, instantly setting its entire lair ablaze.\n"
+"In that fierce battle where fire and steel clashed, the Red Dragon slowly fell into a disadvantage. In the end, with a final stab to "
+"the throat by the Knight, the Red Dragon collapsed to the ground.\n"
+"\"Greed... will become you humans' grave...\"\n"
+"\"Curse... you all...\"\n"
+"With that, the Red Dragon's eyes fell shut.\n"
+"The fire in the dragon's lair died out. The Knight's companions dismembered the Dragon's corpse, collecting its teeth, eyes, claws, "
+"bones, scales, and heart as war trophies.\n"
+"The Knight watched their exhilaration in silence. In the end, he claimed nothing for himself."
+
 #. Name for almanac group mvz2:misc_entities
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3891,6 +3963,60 @@ msgctxt "misc.description"
 msgid "我的水桶、告示牌和灵魂沙呢？"
 msgstr "Where're my water buckets, signs and soul sands?"
 
+#. Name for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "云山之拳"
+msgstr "Unzan's Fist"
+
+#. Header for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "云山之拳在碰到敌人后会向前发射，击杀并打飞一行的敌怪。"
+msgstr "Unzan's Fist launches forward upon contact with an enemy, killing and knocking back a row of monsters."
+
+#. Flavor for misc mvz2:unzan_fist
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"云山是由云朵变化过来的僧侣妖怪，守护在僧侣云居 一轮身旁。\n"
+"在命莲寺众人的讨论和计划下，云山为圣辇船提供了一些云朵拳头作为最终防线。\n"
+"可别小看这些拳头，被击飞的怪物一下子可是能飞十万八千里。"
+msgstr ""
+"Unzan is a monk youkai transformed from clouds who guards Ichirin Kumoi.\n"
+"Through discussions and planning by the members of Myouren Temple, Unzan provided the Palanquin Ship some cloud fists as a final line "
+"of defense.\n"
+"Don't underestimate these fists—monsters punched by them will get knocked back 108,000 li away in an instant."
+
+#. Name for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "伞兵僵尸"
+msgstr "Paratrooper Zombie"
+
+#. Header for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "伞兵僵尸会在圣辇船的每一大波怪物到来时从天而降，然后将雨伞作为护盾。"
+msgstr ""
+"Paratrooper Zombies descend from the sky during each huge wave of monsters on the Palanquin Ship, using their umbrellas as shields."
+
+#. Properties for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>200+270（雨伞）+？（随机头盔）</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+"Toughness: <color=red>200+270 (umbrella)+? (random helmet)</color>\n"
+"Speed: <color=red>1</color>"
+
+#. Flavor for misc mvz2:paratrooper_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "危险动作，小鬼僵尸请勿轻易尝试。"
+msgstr "Dangerous action. Imp Zombies should not attempt this."
+
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -4025,6 +4151,20 @@ msgstr ""
 "\n"
 "However, the denizens of Gensokyo united, and quelled her ridiculous plot. Branded a criminal, she now wanders, a fugitive endorsed by "
 "none. But beware — the fire of defiance is not so easily extinguished."
+
+#. Flavor for misc mvz2:seija
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"在史蒂夫从圣辇船坠落之后，似乎是她救了史蒂夫。\n"
+"然而此举并不是出于好心，而是盯上了史蒂夫身上的星之碎片。\n"
+"“只要拥有这些星之碎片，说不定就能恢复针妙丸的地位，再颠覆整个幻想乡。”\n"
+"她这样想着。"
+msgstr ""
+"After Steve fell from the Palanquin Ship, it seemed that she was the one who saved him.\n"
+"However, this wasn't an act out of kindness, but rather because she had set her sights on the Starshards that Steve carries.\n"
+"\"As long as I have these Starshards, I might be able to restore Shinmyoumaru's status and overturn the entire Gensokyo.\" This was "
+"what she thought."
 
 #. Name for misc mvz2:shinmyoumaru
 #: Almanac meta file
@@ -4202,6 +4342,131 @@ msgctxt "misc.description"
 msgid "这到底是什么东西？"
 msgstr "What the heck is this?"
 
+#. Name for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "寅丸 星"
+msgstr "Shou Toramaru"
+
+#. Header for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "被圣白莲选中的虎妖怪，毘沙门天的弟子。"
+msgstr "A tiger youkai taken in by Byakuren Hijiri, and also a disciple of Bishamonten."
+
+#. Flavor for misc mvz2:shou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"她本是一只普通的虎妖怪，被圣 白莲选中而成为了毘沙门天的弟子兼化身。\n"
+"她和白莲的关系说起来比较复杂。白莲供奉毘沙门天，而她又选择了星作为弟子，也作为毘沙门天的化身。因此白莲实际上也在供奉她自己的弟子。\n"
+"星在工作上十分优秀，表面看上去十分冷静而威严，然而其实是个很感性的家伙。\n"
+"\n"
+"红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白"
+"莲的旅途。"
+msgstr ""
+"She was originally an ordinary tiger youkai, but was then taken in by Byakuren Hijiri and became an avatar of Bishamonten.\n"
+"Her relationship with Byakuren is rather complicated. Byakuren worships Bishamonten, and Shou is her disciple, as well as being the "
+"avatar of Bishamonten. Thus, Byakuren is essentially worshipping her own disciple.\n"
+"Shou performs excellently in her duties. She may look very calm and dignified on the surface, but she is actually a very emotional "
+"person.\n"
+"\n"
+"With the appearance of the Red Dragon and the news of Byakuren being lost, Shou discussed with the monks of Myouren Temple and found "
+"the End Ship that Steve is dealing with in the sky. After that, she, Captain Murasa and Steve set out on a journey to find Byakuren."
+
+#. Name for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "封兽 鵺"
+msgstr "Nue Houjuu"
+
+#. Header for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "命莲寺的妖怪，有着让物体变得无法识别的能力。"
+msgstr "A youkai of Myouren Temple, capable of making objects unidentifiable."
+
+#. Flavor for misc mvz2:nue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"鵺（yè）是一名神秘的大妖怪，在之后才加入到命莲寺，因此与命莲寺中的其他人并不合群。\n"
+"喜欢找乐子、妨碍他人做事，常常会使用自己的能力干扰他人行动。\n"
+"被她施加能力的物体，会失去原本的认知特征，在别人眼里会把它视作是自己认为合理的物体——比如飞在空中的奇怪物体，别人会把它看作是飞碟。\n"
+"\n"
+"然而，在异变发生后，她的性格大变，变得十分消极和恍惚，认为这一切都没有任何意义。\n"
+"到底是发生了什么？"
+msgstr ""
+"Nue is a mysterious great youkai who joined the Myouren Temple later on, so she doesn't fit in well with the others there.\n"
+"She enjoys causing mischief and getting in others' way, often using her abilities to interfere with what people are doing.\n"
+"Objects affected by her ability lose their original identifiable characteristics, and are perceived by others as whatever they "
+"consider most plausible—for example, a strange object flying in the sky would be seen as a UFO.\n"
+"\n"
+"However, after the incident began, her personality changed drastically. She became deeply pessimistic and dazed, believing that "
+"nothing mattered anymore.\n"
+"What exactly happened?"
+
+#. Name for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "赤蛮奇"
+msgstr "Sekibanki"
+
+#. Header for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "居住在人类村庄的妖怪，拥有让自己的头飞行的能力。"
+msgstr "A youkai living in the Human Village, possessing the ability to make her head fly."
+
+#. Flavor for misc mvz2:sekibanki
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"赤蛮奇伪装成普通人类而居住在人类村庄，在这里过着平凡的生活。\n"
+"拥有身首分离，并让头飞行的能力，据说还有非常多的其他头颅可用。\n"
+"\n"
+"在史蒂夫坠船并离开一座废弃的房屋后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。\n"
+"人类村庄发生过什么吗？"
+msgstr ""
+"Sekibanki disguises herself as an ordinary human in the Human Village, living a simple life there.\n"
+"She possesses the ability to detach her head from her body and make it fly. It is said that she can also multiply her heads.\n"
+"\n"
+"After Steve fell from the ship and came out of an abandoned house, she found Steve and questioned why he had come out of that house, "
+"yet she didn't reveal the reason for asking.\n"
+"Did something happen in the Human Village?"
+
+#. Name for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "圣 白莲"
+msgstr "Byakuren Hijiri"
+
+#. Header for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "命莲寺的住持，法力无边的高僧。"
+msgstr "The abbot of Myouren Temple, as well as a high monk with boundless magical power."
+
+#. Flavor for misc mvz2:byakuren
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"白莲的弟弟——命莲，也是一位法力高强的僧人，但最后还是寿限已至，离世了。\n"
+"因此白莲开始恐惧死亡，她作为一名研习佛法的僧人，最后竟靠着妖怪的力量达成了不老，成为了一名“妖僧”。\n"
+"就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。\n"
+"\n"
+"三年前，巨人和红龙同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。"
+msgstr ""
+"Byakuren's younger brother, Myouren, was also a monk with immense magical power, but he eventually reached the end of his life and "
+"passed away.\n"
+"Byakuren therefore began to fear death, and as a monk who had studied Buddhism, she ultimately relied on the power of youkai to "
+"achieve immortality, becoming a \"youkai monk\".\n"
+"Thus, Byakuren became a contradictory existence. However, even after humans discovered her secret ties with youkai, and even after "
+"being sealed away, she still continues to revere Buddhism and save all living beings.\n"
+"\n"
+"Three years ago, the Giant and the Red Dragon appeared at the same time, and she was summoned to eliminate the Red Dragon. However, "
+"this led her to a karmic entanglement, keeping her bound for the past three years."
+
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -4372,6 +4637,69 @@ msgstr ""
 "\n"
 "There seem to be a metallic tool deeply embedded in the wall in the distance."
 
+#. Name for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "末地船"
+msgstr "End Ship"
+
+#. Header for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一艘飞翔于幻想乡天空中的船只，时不时会袭击飞在空中的妖怪们。"
+msgstr "A ship flying through the sky of Gensokyo, attacking youkai in the sky every so often."
+
+#. Flavor for misc mvz2:end_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"原本只是会出现在末地中的飞行船只，不知为何竟出现在了幻想乡的空中。\n"
+"奇怪的是，上面没有末影人，有的只是普通的、形似海盗的僵尸。\n"
+"更加奇怪的是，里面居然有一颗末影水晶以极快的速度来修复船体。\n"
+"这导致任何想破坏这艘船的人，必须要先把内部的末影水晶破坏掉，然而这艘船在落入下风时也会选择以极快的速度逃跑。\n"
+"总之，关于这艘船的一切，都是个谜。"
+msgstr ""
+"Originally only appearing in the End dimension. It is unknown how the ship ended up in the skies of Gensokyo.\n"
+"What's strange is that there are no Endermen on board, just regular, pirate-like zombies.\n"
+"What's even stranger is that the ship holds an End Crystal inside it that rapidly repairs the ship's hull.\n"
+"This means that anyone who dares to take down this ship must first destroy the End Crystal inside it. However, when at a disadvantage, "
+"it will choose to flee at lightning speed.\n"
+"Ultimately, everything about this ship, is a mystery."
+
+#. Name for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "圣辇船"
+msgstr "Palanquin Ship"
+
+#. Header for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一艘飞翔于天空中的巨大船只。"
+msgstr "A giant ship soaring through the sky."
+
+#. Flavor for misc mvz2:palanquin_ship
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，"
+"需要乘船去往。倘若随意变换寺庙，会造成一些不便。\n"
+"因此白莲又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。\n"
+"如今白莲杳无音讯，星和命莲寺众人商讨后，登上圣辇船，踏上了寻找白莲的路途。\n"
+"\n"
+"据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？"
+msgstr ""
+"There are two Palanquin Ships in total. The first was created by Byakuren Hijiri using magic, which has since landed and been "
+"renovated into the Myouren Temple. Although it can still transform back into a ship, some people need to travel to Makai and require a "
+"ship to get there. Constantly transforming the temple back and forth into a ship would cause some inconvenience.\n"
+"Therefore, Byakuren used her magic to create a second Palanquin Ship for traveling between Gensokyo and Makai as a dedicated means of "
+"transportation.\n"
+"Now that Byakuren has vanished without a trace, after Shou discussed the matter with the members of Myouren Temple, they boarded the "
+"Palanquin Ship and set out on a journey to find Byakuren.\n"
+"\n"
+"There are rumors that aliens have visited the skies above Gensokyo. It seems that certain teleportation signals might be able to draw "
+"them out."
+
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -4501,6 +4829,36 @@ msgstr ""
 "This place is certainly beautiful, and the various strange powers are worth studying.\n"
 "Yet I really want to go home."
 
+#. Name for misc mvz2:starshard.ufo_fragment
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "星之碎片：飞碟碎片"
+msgstr "Starshard: UFO Piece"
+
+#. Flavor for misc mvz2:starshard.ufo_fragment
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"未知人士留下了一些记录。\n"
+"\n"
+"星之记录 其五：\n"
+"这该死的异变还在持续着。\n"
+"我没有任何其他选择，只能与它继续进行斗争。\n"
+"我发现我的理智似乎出现了裂痕。\n"
+"我看到了本不应看到的东西，然后那幻觉又立即消失了。\n"
+"那些飞碟还在天上飞着。\n"
+"我到底还能撑多久……？"
+msgstr ""
+"Records left by an anonymous person.\n"
+"\n"
+"Star Record 5:\n"
+"This damn aberration just keeps going on.\n"
+"I have no other choices but to continue fighting it.\n"
+"I feel cracks forming in my sanity.\n"
+"I saw things I shouldn't have seen, then the hallucinations vanished immediately.\n"
+"Those UFOs are still flying in the sky.\n"
+"How much longer can I hold on...?"
+
 #. Name for almanac group mvz2:important
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -4585,7 +4943,7 @@ msgstr "A technique used to repair defensive contraptions."
 #. Properties for misc mvz2:obsidian_first_aid
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\"/>防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
+msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\" />防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
 msgstr ""
 "Effect: <color=red><tag id=\"mvz2:defensive\"/>Defensive contraptions can be placed directly on the same contraptions to restore all "
 "toughness, without the need to be dug up</color>"
@@ -4728,6 +5086,57 @@ msgstr "Futo accidentally revealed this."
 msgctxt "misc.description"
 msgid "细节尚不知情。"
 msgstr "The details are still unknown."
+
+#. Name for misc mvz2:abandoned_house
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "废弃的房屋"
+msgstr "Abandoned House"
+
+#. Header for misc mvz2:abandoned_house
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "人类村庄中一座废弃的房屋。"
+msgstr "An abandoned house in the Human Village."
+
+#. Flavor for misc mvz2:abandoned_house
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"史蒂夫从圣辇船中坠落时，被鬼人 正邪救到了这处房屋中。\n"
+"在他出来之后，遭到了赤蛮奇的质问，问他为什么会从这间屋子里出来。\n"
+"然而具体发生了什么，史蒂夫并不知情。\n"
+"这间屋子发生过什么事情吗？"
+msgstr ""
+"When Steve fell from the Palanquin Ship, he was rescued by Seija Kijin and brought to this house.\n"
+"After he came out, he was questioned by Sekibanki, who asked him why he had come out from this house.\n"
+"However, Steve had no idea what actually happened.\n"
+"Did something happened in this house?"
+
+#. Name for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "寻找孩子的访客"
+msgstr "Visitor in Search of Their Child"
+
+#. Header for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。"
+msgstr "Byakuren revealed that four years ago, a visitor came to look for their child."
+
+#. Flavor for misc mvz2:visitor_which_finding_child
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"史蒂夫解决掉红龙的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。\n"
+"那位访客自称灯兰 樱，为了寻找自己的孩子而来。\n"
+"在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。"
+msgstr ""
+"After Steve resolved the Red Dragon problem, Byakuren told him that four years ago, a visitor came to the Myouren Temple.\n"
+"The visitor called themselves Sakura Touran and came to find their child.\n"
+"After failing to search for their child, the visitor never appeared again. However, Byakuren remained optimistic about the presence of "
+"this visitor."
 
 #. Name for entity counter mvz2:low_enemy
 #: Entity meta file
@@ -5943,6 +6352,12 @@ msgctxt "entity.name"
 msgid "巨人蛇尾"
 msgstr "The Giant Snake Tail"
 
+#. Name for entity mvz2:red_dragon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "红龙"
+msgstr "The Red Dragon"
+
 #. Name for entity mvz2:minecart
 #: Entity meta file
 msgctxt "entity.name"
@@ -6103,7 +6518,7 @@ msgstr "Futo"
 #: Character meta file
 msgctxt "character.name"
 msgid "魔理沙"
-msgstr "Marisa Kirisame"
+msgstr "Marisa"
 
 #. Name for character mvz2:seiga
 #: Character meta file
@@ -6122,6 +6537,30 @@ msgstr "Miko"
 msgctxt "character.name"
 msgid "影像"
 msgstr "Hologram"
+
+#. Name for character mvz2:shou
+#: Character meta file
+msgctxt "character.name"
+msgid "星"
+msgstr "Shou"
+
+#. Name for character mvz2:nue
+#: Character meta file
+msgctxt "character.name"
+msgid "鵺"
+msgstr "Nue"
+
+#. Name for character mvz2:sekibanki
+#: Character meta file
+msgctxt "character.name"
+msgid "赤蛮奇"
+msgstr "Sekibanki"
+
+#. Name for character mvz2:byakuren
+#: Character meta file
+msgctxt "character.name"
+msgid "白莲"
+msgstr "Byakuren"
 
 #. Name for artifact mvz2:almanac
 #: Artifact meta file
@@ -6494,6 +6933,20 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "misc.description"
+#~ msgid ""
+#~ "生命：<color=red>？</color>\n"
+#~ "阶段1：<color=red>？</color>"
+#~ msgstr "Toughness: <color=red>40000>?"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>100</color>\n"
+#~ "移速：<color=red>2</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>100</color>\n"
+#~ "Speed: <color=red>2</color>"
 
 #~ msgctxt "artifacts.description"
 #~ msgid "我用金属探测器探测到你的右肩里有个箭头，所以请你立即将所有财物交给我。"

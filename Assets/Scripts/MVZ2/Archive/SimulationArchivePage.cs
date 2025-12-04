@@ -7,6 +7,13 @@ namespace MVZ2.Archives
 {
     public class SimulationArchivePage : ArchivePage
     {
+        public void SetShake(Vector3 shake)
+        {
+            if (shakeRoot.Exists())
+            {
+                shakeRoot.localPosition = shake;
+            }
+        }
         public void SetBackground(Sprite? background)
         {
             backgroundImage.sprite = background;
@@ -15,6 +22,8 @@ namespace MVZ2.Archives
                 backgroundRatioFitter.aspectRatio = background.rect.width / background.rect.height;
             }
         }
+        [SerializeField]
+        private RectTransform shakeRoot = null!;
         [SerializeField]
         private Image backgroundImage = null!;
         [SerializeField]

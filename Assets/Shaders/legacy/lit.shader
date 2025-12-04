@@ -31,7 +31,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
         }
 
         ZWrite Off
-        ZTest Always
+        ZTest LEqual
         Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
         Cull [_Cull]
 

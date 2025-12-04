@@ -4,6 +4,7 @@ using System.Linq;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
@@ -60,7 +61,9 @@ namespace MVZ2.GameContent.Contraptions
                 return false;
             var knockbackMultiplier = enemy.GetStrongKnockbackMultiplier();
             enemy.Velocity += knockbackMultiplier * KNOCKBACK_DISTANCE * self.GetFacingDirection();
-            self.TakeDamage(BOUNCE_DAMAGE, new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), self);
+
+            var bounceDamage = BOUNCE_DAMAGE * self.Level.GetElasticCloudBounceDamageMultiplier();
+            self.TakeDamage(bounceDamage, new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), self);
             AddEnemyKnockbackCooldown(self, enemy, Ticks.FromSeconds(KNOCKBACK_COOLDOWN_SECONDS));
             PlayBounceEffect(self);
             return true;
@@ -94,7 +97,7 @@ namespace MVZ2.GameContent.Contraptions
             return GetEnemyKnockbackCooldownBuff(self, enemy) != null;
         }
         public const float KNOCKBACK_DISTANCE = 20f;
-        public const float BOUNCE_DAMAGE = 150f;
+        public const float BOUNCE_DAMAGE = 300f;
         public const float KNOCKBACK_COOLDOWN_SECONDS = 1f;
     }
 }

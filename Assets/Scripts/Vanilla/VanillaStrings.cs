@@ -245,6 +245,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_FPS_MODE = "option.fps_mode";
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
         public const string CONTEXT_STAT_CATEGORY = "stat_category";
+        public const string CONTEXT_STAT_ENTRY = "stat_entry";
         public const string CONTEXT_STORE_TALK = "store_talk";
         public const string CONTEXT_CREDITS_CATEGORY = "credits_category";
         public const string CONTEXT_STAFF_NAME = "staff_name";

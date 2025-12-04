@@ -19,11 +19,6 @@
             <condition required="mvz2:artifact.the_creatures_heart" />
         </unlock>
     </artifact>
-    <artifact id="ShrunkenHead" name="萎缩头颅" tooltip="周期性为场上我方怪物赋予骨质头盔" sprite="mvz2:artifacts/ShrunkenHead">
-        <unlock>
-            <condition required="mvz2:level.halloween_14" />
-        </unlock>
-    </artifact>
 
     <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="器械每秒恢复10点耐久" sprite="mvz2:artifacts/sweet_sleep_pillow">
         <unlock>
@@ -50,12 +45,7 @@
             <condition required="mvz2:artifact.bottled_blackhole" />
         </unlock>
     </artifact>
-    <artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather">
-        <unlock>
-            <condition required="mvz2:level.dream_6" />
-        </unlock>
-    </artifact>
-
+	
     <artifact id="smart_phone" name="智能手机" tooltip="你在最后一波开始前每有10能量，关卡结束时便获得10金钱" sprite="mvz2:artifacts/smart_phone">
         <unlock>
             <condition required="mvz2:kourindou_visited_castle" />
@@ -110,25 +100,35 @@
 
     <artifact id="ufo_toy" name="飞碟玩具" tooltip="拾取三个同色宝石后，再生成一个同色的宝石" sprite="mvz2:artifacts/ufo_toy">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_3" />
         </unlock>
     </artifact>
     <artifact id="dowsing_rods" name="探宝棒" tooltip="击杀怪物时有25%概率掉落额外资源" sprite="mvz2:artifacts/dowsing_rods">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:artifact.dowsing_rods" />
         </unlock>
     </artifact>
     <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="将星之碎片的效果变为格斗术" sprite="mvz2:artifacts/sorcerers_scroll">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_11" />
         </unlock>
     </artifact>
     <artifact id="dragon_tooth" name="龙牙" tooltip="生命值为50%或以下的敌人受到的伤害x200%" sprite="mvz2:artifacts/dragon_tooth">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:artifact.dragon_tooth" />
         </unlock>
     </artifact>
 
+	<artifact id="ShrunkenHead" name="萎缩头颅" tooltip="周期性为场上我方怪物赋予骨质头盔" sprite="mvz2:artifacts/ShrunkenHead">
+		<unlock>
+			<condition required="mvz2:level.halloween_14" />
+		</unlock>
+	</artifact>
+	<artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather">
+		<unlock>
+			<condition required="mvz2:level.dream_6" />
+		</unlock>
+	</artifact>
     <artifact id="FrankensteinBrain" name="科学怪人之脑" tooltip="场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%" sprite="mvz2:artifacts/FrankensteinBrain">
         <unlock>
             <condition required="mvz2:level.halloween_15" />

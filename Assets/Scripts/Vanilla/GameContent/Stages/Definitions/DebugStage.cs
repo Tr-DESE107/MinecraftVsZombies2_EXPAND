@@ -4,6 +4,7 @@ using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -24,8 +25,8 @@ namespace MVZ2.GameContent.Stages
             base.OnStart(level);
             ClassicStart(level);
             //ConveyorStart(level);
-            //level.LevelProgressVisible = true;
-            //level.SetProgressBarToBoss(VanillaProgressBarID.theGiant);
+            level.LevelProgressVisible = true;
+            level.SetProgressBarToBoss(VanillaProgressBarID.redDragon);
             level.SetTriggerActive(true);
             level.SetStarshardSlotCount(5);
             var cartRef = level.GetCartReference();

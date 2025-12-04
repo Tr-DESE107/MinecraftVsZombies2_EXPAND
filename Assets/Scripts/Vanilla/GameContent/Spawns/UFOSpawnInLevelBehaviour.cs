@@ -9,9 +9,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
-using PVZEngine.Buffs;
 using PVZEngine.Definitions;
-using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
@@ -26,34 +24,30 @@ namespace MVZ2.GameContent.Spawns
             MaxCount = maxCount;
         }
 
-        public void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, ref float totalPoints)
+        public void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, float maxPoints, ref float points)
+        {
+        }
+        public void PostSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, float maxPoints, ref float points)
         {
             var minWave = definition.GetMinSpawnWave();
             if (wave <= minWave)
                 return;
-            var intervalWaves = IntervalWaves;
             bool finalWave = level.IsFinalWave(wave);
-
+            if (finalWave)
+                return;
+            var intervalWaves = IntervalWaves;
             if (intervalWaves > 1)
             {
                 var flagModular = wave % level.GetWavesPerFlag();
                 var modular = flagModular % intervalWaves;
-                if (modular == (intervalWaves - 1) && !finalWave)
+                if (modular == (intervalWaves - 1))
                 {
-                    PrepareUFO(definition, level, totalPoints);
-                }
-                else if (modular == 0)
-                {
-                    SpawnUFO(definition, level, ref totalPoints);
+                    PrepareUFO(definition, level, maxPoints);
                 }
             }
             else
             {
-                if (!finalWave)
-                {
-                    PrepareUFO(definition, level, totalPoints);
-                }
-                SpawnUFO(definition, level, ref totalPoints);
+                PrepareUFO(definition, level, maxPoints);
             }
         }
         private void PrepareUFO(SpawnDefinition definition, LevelEngine level, float totalPoints)
@@ -95,48 +89,23 @@ namespace MVZ2.GameContent.Spawns
                     var y = rng.Next(UFOBackground.MIN_Y, UFOBackground.MAX_Y);
                     var pos = new Vector3(x, y, z);
                     var background = level.Spawn(VanillaEffectID.ufoBackground, pos, null);
+                    float speedMultiplier = 1;
+                    // 如果关卡运行节奏极快，则背景的UFO也会加速。
+                    var minLevelTime = Mathf.Min(level.GetWaveMaxSeconds(), level.GetWaveAdvanceSeconds());
+                    if (minLevelTime <= TARGET_BACKGROUND_TIME)
+                    {
+                        speedMultiplier = TARGET_BACKGROUND_TIME / minLevelTime;
+                    }
                     if (background != null)
                     {
-                        var velocity = UFOBackground.FLY_DIRECTION * rng.Next(UFOBackground.MIN_SPEED, UFOBackground.MAX_SPEED);
+                        var velocity = UFOBackground.FLY_DIRECTION * rng.Next(UFOBackground.MIN_SPEED, UFOBackground.MAX_SPEED) * speedMultiplier;
                         background.Velocity = velocity;
                         background.SetVariant(variant);
                     }
                 }
-                var buff = level.AddBuff<UFOSpawnBuff>();
-                UFOSpawnBuff.SetVariant(buff, variant);
+                UFOSpawnBuff.Prepare(level, variant, definition.GetSpawnLevel());
             }
             level.PlaySound(VanillaSoundID.ufoAlert);
-        }
-        private void SpawnUFO(SpawnDefinition definition, LevelEngine level, ref float totalPoints)
-        {
-            var rng = level.GetSpawnRNG();
-            HashSet<LawnGrid> possibleGrids = new HashSet<LawnGrid>();
-            var spawnLevel = definition.GetSpawnLevel();
-            foreach (var buff in level.GetBuffs<UFOSpawnBuff>())
-            {
-                var type = UFOSpawnBuff.GetVariant(buff);
-                possibleGrids.Clear();
-                UndeadFlyingObject.FillUFOPossibleSpawnGrids(level, type, level.Option.RightFaction, possibleGrids);
-
-                var filteredGrids = UndeadFlyingObject.FilterConflictSpawnGrids(level, possibleGrids);
-
-                var grid = filteredGrids.Random(rng);
-                var column = grid.Column;
-                var lane = grid.Lane;
-                var pos = grid.GetEntityPosition();
-                pos.y += UndeadFlyingObject.START_HEIGHT;
-
-                level.Spawn(VanillaEnemyID.ufo, pos, null)?.Let(e =>
-                {
-                    e.SetVariant(type);
-                    UndeadFlyingObject.SetTargetGridX(e, column);
-                    UndeadFlyingObject.SetTargetGridY(e, lane);
-                    level.TriggerEnemySpawned(VanillaSpawnID.GetFromEntity(VanillaEnemyID.ufo), e);
-                });
-                totalPoints -= spawnLevel;
-
-                buff.Remove();
-            }
         }
         public int GetRandomSpawnLane(SpawnDefinition definition, LevelEngine level)
         {
@@ -144,6 +113,7 @@ namespace MVZ2.GameContent.Spawns
         }
         public bool CanSpawnInLevel(SpawnDefinition definition, LevelEngine level) => false;
         public int GetWeight(SpawnDefinition definition, LevelEngine level) => 0;
+        public const float TARGET_BACKGROUND_TIME = 6f;
         public int IntervalWaves { get; }
         public int MaxCount { get; }
     }

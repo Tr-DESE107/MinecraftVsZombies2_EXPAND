@@ -11,6 +11,8 @@ namespace MVZ2.Vanilla.Entities
         public const string lightFadeout = "light_fadeout";
         public const string followParent = "follow_parent";
         public const string modelDamagePercent = "model_damage_percent";
+        public const string fadeoutByTimeout = "fadeout_by_timeout";
+        public const string fadeoutByMaxTimeout = "fadeout_by_max_timeout";
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
@@ -54,7 +56,13 @@ namespace MVZ2.Vanilla.Entities
         public const string obstacleDestroyContraption = "obstacle_destroy_contraption";
         #endregion
 
+        #region Bosses
         public const string bossCommon = "boss_common";
+        public const string bossResistance = "boss_resistance";
+        public const string bossResistance_Seija = "boss_resistance_seija";
+        public const string bossResistance_TheGiant = "boss_resistance_the_giant";
+        #endregion
+
         public const string cartCommon = "cart_common";
 
 
@@ -99,6 +107,7 @@ namespace MVZ2.Vanilla.Entities
         public const string waterStainBlown = "water_stain_blown";
         public const string stopParticlesWithoutParent = "stop_particles_without_parent";
         public const string skyBackground = "sky_background";
+        public const string dotCollisionDamage = "dot_collision_damage";
         #endregion
     }
 }

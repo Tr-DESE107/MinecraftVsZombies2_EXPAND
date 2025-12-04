@@ -7,6 +7,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -76,8 +77,14 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
+                var time = 300;
+                if (entity.IsBossRevengeVersion())
+                {
+                    // Boss复仇模式下行动速度减半
+                    time *= 2;
+                }
                 var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetTime(300);
+                stateTimer.ResetTime(time);
             }
             public override void OnExit(EntityStateMachine machine, Entity entity)
             {
@@ -209,6 +216,11 @@ namespace MVZ2.GameContent.Bosses
                     SetSkullCharges(entity, skullCharges);
                 }
                 var maxCharges = head == 0 ? MAX_SKULL_CHARGE_MAIN : MAX_SKULL_CHARGE;
+                if (entity.IsBossRevengeVersion())
+                {
+                    // Boss复仇模式下发射头颅速度减半
+                    maxCharges *= 2;
+                }
                 skullCharges[head] += entity.GetAttackSpeed();
 
                 while (skullCharges[head] >= maxCharges)
@@ -310,7 +322,7 @@ namespace MVZ2.GameContent.Bosses
                             if (substateTimer.Expired)
                             {
                                 substateTimer.ResetTime(90);
-                                stateMachine.SetSubState(entity, SUBSTATE_CHARGING);
+                                stateMachine.StartSubState(entity, SUBSTATE_CHARGING);
                             }
                         }
                         break;
@@ -327,7 +339,7 @@ namespace MVZ2.GameContent.Bosses
                             var vel = entity.Velocity;
                             vel.x = entity.GetFacingX() * -20;
                             entity.Velocity = vel;
-                            stateMachine.SetSubState(entity, SUBSTATE_DASH);
+                            stateMachine.StartSubState(entity, SUBSTATE_DASH);
                             substateTimer.ResetTime(20);
                         }
                         break;
@@ -356,7 +368,7 @@ namespace MVZ2.GameContent.Bosses
                                 pos.x = endX;
 
                                 vel.x = 0;
-                                stateMachine.SetSubState(entity, SUBSTATE_DASH_END);
+                                stateMachine.StartSubState(entity, SUBSTATE_DASH_END);
                                 substateTimer.ResetTime(30);
                             }
                             entity.Position = pos;
@@ -420,7 +432,7 @@ namespace MVZ2.GameContent.Bosses
                             if (substateTimer.Expired)
                             {
                                 substateTimer.ResetTime(30);
-                                stateMachine.SetSubState(entity, SUBSTATE_READY);
+                                stateMachine.StartSubState(entity, SUBSTATE_READY);
                             }
                         }
                         break;
@@ -457,7 +469,7 @@ namespace MVZ2.GameContent.Bosses
 
                         if (substateTimer.Expired)
                         {
-                            stateMachine.SetSubState(entity, SUBSTATE_DASH);
+                            stateMachine.StartSubState(entity, SUBSTATE_DASH);
                             substateTimer.ResetTime(20);
                         }
                         break;
@@ -542,14 +554,14 @@ namespace MVZ2.GameContent.Bosses
                     var distance2D = new Vector2(GetTargetX(entity) - entity.Position.x, GetTargetZ(entity) - entity.Position.z);
                     if (distance2D.sqrMagnitude < 100)
                     {
-                        stateMachine.SetSubState(entity, SUBSTATE_FALLING);
+                        stateMachine.StartSubState(entity, SUBSTATE_FALLING);
                     }
                 }
                 else if (substate == SUBSTATE_FALLING)
                 {
                     if (entity.GetRelativeY() <= 1)
                     {
-                        stateMachine.SetSubState(entity, SUBSTATE_ON_GROUND);
+                        stateMachine.StartSubState(entity, SUBSTATE_ON_GROUND);
                         entity.PlaySound(VanillaSoundID.witherSpawn);
                         entity.PlaySound(VanillaSoundID.explosion);
                         entity.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN));
@@ -645,7 +657,7 @@ namespace MVZ2.GameContent.Bosses
                             if (substateTimer.Expired)
                             {
                                 substateTimer.ResetTime(30);
-                                stateMachine.SetSubState(entity, SUBSTATE_ROAR);
+                                stateMachine.StartSubState(entity, SUBSTATE_ROAR);
                                 entity.PlaySound(VanillaSoundID.witherCry);
                                 entity.SetAnimationBool("Shaking", true);
                             }
@@ -662,14 +674,25 @@ namespace MVZ2.GameContent.Bosses
                             if (substateTimer.Expired)
                             {
                                 entity.SetAnimationBool("Shaking", false);
-                                stateMachine.SetSubState(entity, SUBSTATE_SUMMONED);
+                                stateMachine.StartSubState(entity, SUBSTATE_SUMMONED);
                                 substateTimer.ResetTime(30);
 
                                 entity.PlaySound(VanillaSoundID.witherSpawn);
-                                entity.SpawnWithParams(VanillaEnemyID.bedserker, entity.Position + entity.GetFacingDirection() * 80)?.Let(e =>
+                                int count = 1;
+                                for (int i = 0; i < count; i++)
                                 {
-                                    Explosion.Spawn(entity, e.GetCenter(), 60);
-                                });
+                                    var lane = entity.GetLane();
+                                    var laneOffsetLength = (i + 1) / 2;
+                                    var laneOffsetDirection = ((i + 1) % 2) * 2 - 1;
+                                    lane += laneOffsetDirection * laneOffsetLength;
+                                    var position = entity.Position;
+                                    position.z = entity.Level.GetEntityLaneZ(lane);
+                                    position += entity.GetFacingDirection() * 80;
+                                    entity.SpawnWithParams(VanillaEnemyID.bedserker, position)?.Let(e =>
+                                    {
+                                        Explosion.Spawn(entity, e.GetCenter(), 60);
+                                    });
+                                }
                                 entity.PlaySound(VanillaSoundID.explosion);
                             }
                         }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-28 02:29+0800\n"
+"POT-Creation-Date: 2025-11-26 09:39+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -521,12 +521,6 @@ msgid "错误"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AceOfDiamondsEvent.cs:41
-msgctxt "random_china.event_name"
-msgid "方片A"
-msgstr ""
-
-# 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:35
 msgctxt "random_china.event_name"
 msgid "神秘埃及"
@@ -551,9 +545,39 @@ msgid "地狱金属"
 msgstr ""
 
 # 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\IndependenceDayEvent.cs:37
+msgctxt "random_china.event_name"
+msgid "独立日"
+msgstr ""
+
+# 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\ObsidianPrisonEvent.cs:56
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfClubsEvent.cs:29
+msgctxt "random_china.event_name"
+msgid "梅花A"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfDiamondsEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "方片A"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfHeartsEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "红桃A"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:24
+msgctxt "random_china.event_name"
+msgid "黑桃A"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -575,15 +599,39 @@ msgid "超级充能"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheHangedManEvent.cs:31
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:46
 msgctxt "random_china.event_name"
-msgid "倒吊人-XII"
+msgid "VIII-力量"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheTowerEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:32
 msgctxt "random_china.event_name"
-msgid "塔-XVI"
+msgid "IV-皇帝"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:32
+msgctxt "random_china.event_name"
+msgid "0-愚者"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHangedManEvent.cs:31
+msgctxt "random_china.event_name"
+msgid "XII-倒吊人"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:34
+msgctxt "random_china.event_name"
+msgid "XVII-星星"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheTowerEvent.cs:32
+msgctxt "random_china.event_name"
+msgid "XVI-塔"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -841,47 +889,47 @@ msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
 
 # 梦魇对话框标题
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
 msgid "选择你的命运"
 msgstr ""
 
 # 梦魇对话框文本
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
 msgid "选吧。"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:505
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
 msgid "潘多拉的魔盒"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:507
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
 msgid "尸潮"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:509
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
 msgid "衰老"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:511
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:502
 msgid "疯狂"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:513
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:504
 msgid "成真"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:515
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:506
 msgid "深潜者"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:517
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:508
 msgid "黑太阳"
 msgstr ""
 
@@ -1397,29 +1445,29 @@ msgid "已跳过对话\"{0}\""
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:245
+#: Scripts\MVZ2\Store\StoreController.cs:275
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:247
+#: Scripts\MVZ2\Store\StoreController.cs:277
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] ""
 msgstr[1] ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:249
+#: Scripts\MVZ2\Store\StoreController.cs:279
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:251
+#: Scripts\MVZ2\Store\StoreController.cs:281
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:253
+#: Scripts\MVZ2\Store\StoreController.cs:283
 msgid "{0}/{1}"
 msgstr ""
 
@@ -1733,17 +1781,17 @@ msgid "蓝图10"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐来源
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:214
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:211
 msgid "来源：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐原曲
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:216
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:213
 msgid "原曲：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐作者
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:218
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:215
 msgid "作者：{0}"
 msgstr ""
 
@@ -2631,47 +2679,47 @@ msgid "FPS: {0}"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:795
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:828
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:797
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:830
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:799
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:832
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:801
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:834
 msgid "确认要退出吗？"
 msgstr ""
 
 # 存档导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:803
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:836
 msgid "导出存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:805
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:838
 msgid "导入存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:807
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:840
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:809
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
 # 存档导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:811
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
 msgid "存档已导出至{0}。"
 msgstr ""
 
@@ -2687,27 +2735,27 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1282
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1287
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1286
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1291
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1288
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1293
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1290
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1295
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1292
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1297
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
@@ -2773,61 +2821,61 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:256
+#: Scripts\MVZ2\Archive\ArchiveController.cs:254
 msgid "<b>[{0}]</b> {1}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:258
+#: Scripts\MVZ2\Archive\ArchiveController.cs:256
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
 msgstr ""
 
 # 未解锁的小游戏关卡名
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:214
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:212
 msgid "未解锁"
 msgstr ""
 
 # 无尽模式的小游戏的连胜显示，{0}为最高连胜
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:216
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:214
 msgid ""
 "最高连胜：\n"
 "{0}"
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:843
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr ""
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:855
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr ""
@@ -3006,6 +3054,42 @@ msgctxt "levelname"
 msgid "小僵尸和大麻烦"
 msgstr ""
 
+#. Name for stage mvz2:ufo_blitz
+#: Stage meta file
+msgctxt "levelname"
+msgid "飞碟闪电战"
+msgstr ""
+
+#. Name for stage mvz2:frankensteins_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "科学怪人的复仇"
+msgstr ""
+
+#. Name for stage mvz2:nightmares_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦魇的复仇"
+msgstr ""
+
+#. Name for stage mvz2:withers_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "凋灵的复仇"
+msgstr ""
+
+#. Name for stage mvz2:the_giants_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "巨人的复仇"
+msgstr ""
+
+#. Name for stage mvz2:red_dragons_revenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "红龙的复仇"
+msgstr ""
+
 #. Name for stage mvz2:puzzle_i_zombie
 #: Stage meta file
 msgctxt "levelname"
@@ -3136,6 +3220,12 @@ msgstr ""
 #: Stats meta file
 msgctxt "stat_category"
 msgid "我是僵尸-游戏结束"
+msgstr ""
+
+#. Name for stat entry mvz2:deceived_by_the_cake
+#: Stats meta file
+msgctxt "stat_entry"
+msgid "被蛋糕欺骗"
 msgstr ""
 
 #. Name for achievement mvz2:ghost_buster
@@ -3892,7 +3982,9 @@ msgstr ""
 msgctxt "music.description"
 msgid ""
 "圣辇船地图的音乐。\n"
-"=====乐评施工中====="
+"《书虫大冒险 Vol.2》中，当主角Lex从童话中回到图书馆后，邪恶Lex突然出现，夺走了魔法钢笔，并把他拉入了第五本书——《美猴王》。\n"
+"这本书中充斥着大量的有着中国元素的敌人：猛兽、神话、生肖、鬼怪……内容十分惊艳。\n"
+"这也是我最喜欢的一本书。"
 msgstr ""
 
 #. Name for music mvz2:ship_level
@@ -3911,9 +4003,44 @@ msgstr ""
 #: Music meta file
 msgctxt "music.description"
 msgid ""
-"星莲船关卡的音乐。\n"
+"圣辇船关卡的音乐。\n"
 "原曲是《东方星莲船》Extra关的音乐《夜空中的UFO恋曲》。\n"
-"=====乐评施工中====="
+"晴空一片，万里无云——哦抱歉，云还是有的。\n"
+"史蒂夫踏上了这艘飞在空中的船，开始了他新的征程。"
+msgstr ""
+
+#. Name for music mvz2:ship_final
+#: Music meta file
+msgctxt "music.name"
+msgid "魔界地方都市秘境"
+msgstr ""
+
+#. Description for music mvz2:ship_final
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"圣辇船最终关的音乐。\n"
+"是《东方星莲船》中第五关的音乐。\n"
+"天空阴云密布，船上却阳光直射。\n"
+"有的人一辈子活在亲人死亡的阴影中，有的人则活在万人赞颂的光芒之下。\n"
+"下面的人想飞上来，上面的人却也想落下去。\n"
+"然而，这重重阴云把他们隔开，怎么也无法如愿。"
+msgstr ""
+
+#. Name for music mvz2:ship_boss
+#: Music meta file
+msgctxt "music.name"
+msgid "美猴王-头目"
+msgstr ""
+
+#. Description for music mvz2:ship_boss
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"红龙的音乐。\n"
+"在《书虫大冒险 Vol.2》中，主角Lex在《美猴王》这本书中击败了强大的敌人，得到了许多珍贵的宝物，结识了黄飞鸿和美猴王这两位同伴，并最终击败了四大天王和二郎神，到达了天庭。\n"
+"玉皇大帝告诉他，Lex的旅程尚未结束，他们发现了一种威胁，一种威胁到所有书中世界的威胁。Lex觉得这是邪恶Lex所为，但玉皇大帝却认为，Lex无法击败邪恶Lex。\n"
+"最终，Lex离开了这本书，再次了回到图书馆。"
 msgstr ""
 
 #. Name for archive tag mvz2:prologue
@@ -4412,6 +4539,18 @@ msgctxt "store_talk"
 msgid "红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到更多的伤害！"
 msgstr ""
 
+#. Store item description of mvz2:cake by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "蛋糕！在你完成所有内容后，来大吃一顿吧！"
+msgstr ""
+
+#. Store item description of mvz2:cake by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "蛋糕！在一切都结束之后，来大吃一顿吧！"
+msgstr ""
+
 #. Name for credits category 内容设计
 #: Credits meta file
 msgctxt "credits_category"
@@ -4488,12 +4627,6 @@ msgstr ""
 #: Credits meta file
 msgctxt "staff_name"
 msgid "琉"
-msgstr ""
-
-#. Name for credit staff 地图背景-圣辇船
-#: Credits meta file
-msgctxt "staff_name"
-msgid "一个发射器"
 msgstr ""
 
 #. Name for credit staff 地图背景-圣辇船
@@ -4980,6 +5113,12 @@ msgstr ""
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "重新锁定游戏状态。"
+msgstr ""
+
+#. Description for command variant "mvz2:unlock list"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "打印当前存档所有目前解锁的游戏状态。"
 msgstr ""
 
 #. Description for command "mvz2:test"

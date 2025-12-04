@@ -14,6 +14,8 @@ namespace MVZ2.Vanilla.Entities
         {
 
         }
+
+        #region 事件
         public void Init(Entity entity)
         {
             EnterState(entity, entity.State);
@@ -32,6 +34,11 @@ namespace MVZ2.Vanilla.Entities
                 return;
             state.OnUpdateLogic(this, entity);
         }
+        protected virtual void OnEnterState(Entity entity, int state) { }
+        protected virtual void OnExitState(Entity entity, int state) { }
+        #endregion
+
+        #region 状态对象
         public void AddState(EntityStateMachineState state)
         {
             states.Add(state);
@@ -45,51 +52,13 @@ namespace MVZ2.Vanilla.Entities
             }
             return null;
         }
-        public int GetSubState(Entity entity)
-        {
-            return entity.GetBehaviourField<int>(PROP_SUBSTATE);
-        }
-        public void SetSubState(Entity entity, int value)
-        {
-            entity.SetBehaviourField(PROP_SUBSTATE, value);
-            entity.SetAnimationInt("SubState", value);
-        }
-        public virtual float GetSpeed(Entity entity)
-        {
-            return 1;
-        }
-        public int GetPreviousState(Entity boss) => boss.GetBehaviourField<int>(PROP_PREVIOUS_STATE);
-        public void SetPreviousState(Entity boss, int value) => boss.SetBehaviourField(PROP_PREVIOUS_STATE, value);
+        #endregion
 
-        public FrameTimer GetStateTimer(Entity entity)
-        {
-            var timer = entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
-            if (timer == null)
-            {
-                timer = new FrameTimer();
-                entity.SetBehaviourField(PROP_STATE_TIMER, timer);
-            }
-            return timer;
-        }
-
-        public FrameTimer GetSubStateTimer(Entity entity)
-        {
-            var timer = entity.GetBehaviourField<FrameTimer>(PROP_SUBSTATE_TIMER);
-            if (timer == null)
-            {
-                timer = new FrameTimer();
-                entity.SetBehaviourField(PROP_SUBSTATE_TIMER, timer);
-            }
-            return timer;
-        }
+        #region 实体状态
         public void StartState(Entity entity, int state)
         {
-            ExitState(entity, GetEntityState(entity));
+            ExitState(entity, GetStateNumber(entity));
             EnterState(entity, state);
-        }
-        public int GetEntityState(Entity entity)
-        {
-            return entity.State;
         }
         private void EnterState(Entity entity, int stateNum)
         {
@@ -107,8 +76,9 @@ namespace MVZ2.Vanilla.Entities
             nextStateTimer?.Stop();
 
             entity.SetAnimationInt("State", stateNum);
+            entity.SetAnimationInt("SubState", 0);
             entity.SetAnimationInt("AnimationState", state.animationState);
-            SetAnimationSubstate(entity, 0);
+            entity.SetAnimationInt("AnimationSubstate", state.GetAnimationSubstate(0));
 
             state.OnEnter(this, entity);
             OnEnterState(entity, stateNum);
@@ -121,9 +91,67 @@ namespace MVZ2.Vanilla.Entities
             state.OnExit(this, entity);
             OnExitState(entity, stateNum);
         }
-        protected virtual void OnEnterState(Entity entity, int state) { }
-        protected virtual void OnExitState(Entity entity, int state) { }
+        public int GetStateNumber(Entity entity)
+        {
+            return entity.State;
+        }
+        #endregion
 
+        #region 子状态
+        public void StartSubState(Entity entity, int value)
+        {
+            SetSubState(entity, value);
+            UpdateSubstateAnimation(entity);
+        }
+        #endregion
+
+        #region 运行速度
+        public virtual float GetSpeed(Entity entity)
+        {
+            return 1;
+        }
+        #endregion
+
+        #region 属性
+        public int GetSubState(Entity entity) => entity.GetBehaviourField<int>(PROP_SUBSTATE);
+        public void SetSubState(Entity entity, int value) => entity.SetBehaviourField(PROP_SUBSTATE, value);
+        public int GetPreviousState(Entity boss) => boss.GetBehaviourField<int>(PROP_PREVIOUS_STATE);
+        public void SetPreviousState(Entity boss, int value) => boss.SetBehaviourField(PROP_PREVIOUS_STATE, value);
+        public int GetNextStateIndex(Entity boss) => boss.GetBehaviourField<int>(PROP_NEXT_STATE_INDEX);
+        public void SetNextStateIndex(Entity boss, int value) => boss.SetBehaviourField(PROP_NEXT_STATE_INDEX, value);
+        public FrameTimer GetStateTimer(Entity entity)
+        {
+            var timer = entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
+            if (timer == null)
+            {
+                timer = new FrameTimer();
+                entity.SetBehaviourField(PROP_STATE_TIMER, timer);
+            }
+            return timer;
+        }
+        public FrameTimer GetSubStateTimer(Entity entity)
+        {
+            var timer = entity.GetBehaviourField<FrameTimer>(PROP_SUBSTATE_TIMER);
+            if (timer == null)
+            {
+                timer = new FrameTimer();
+                entity.SetBehaviourField(PROP_SUBSTATE_TIMER, timer);
+            }
+            return timer;
+        }
+        #endregion
+
+        #region 动画
+        private void UpdateSubstateAnimation(Entity entity)
+        {
+            var substate = GetSubState(entity);
+            entity.SetAnimationInt("SubState", substate);
+            var state = GetState(GetStateNumber(entity));
+            if (state != null)
+            {
+                entity.SetAnimationInt("AnimationSubstate", state.GetAnimationSubstate(substate));
+            }
+        }
         public int GetAnimationState(int stateNum)
         {
             var state = GetState(stateNum);
@@ -131,10 +159,7 @@ namespace MVZ2.Vanilla.Entities
                 return 0;
             return state.animationState;
         }
-        public void SetAnimationSubstate(Entity entity, int substate)
-        {
-            entity.SetAnimationInt("AnimationSubstate", substate);
-        }
+        #endregion
 
         private List<EntityStateMachineState> states = new List<EntityStateMachineState>();
 
@@ -142,6 +167,8 @@ namespace MVZ2.Vanilla.Entities
         private static readonly VanillaEntityPropertyMeta<int> PROP_SUBSTATE = new VanillaEntityPropertyMeta<int>("SubState");
         [EntityPropertyRegistry(PROP_REGION)]
         private static readonly VanillaEntityPropertyMeta<int> PROP_PREVIOUS_STATE = new VanillaEntityPropertyMeta<int>("PreviousState");
+        [EntityPropertyRegistry(PROP_REGION)]
+        private static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_STATE_INDEX = new VanillaEntityPropertyMeta<int>("next_state_index");
         [EntityPropertyRegistry(PROP_REGION)]
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         [EntityPropertyRegistry(PROP_REGION)]

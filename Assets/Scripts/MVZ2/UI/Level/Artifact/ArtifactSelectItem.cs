@@ -12,10 +12,14 @@ namespace MVZ2.Level.UI
     {
         public void UpdateItem(ArtifactSelectItemViewData viewData)
         {
-            iconImage.sprite = viewData.icon;
-            iconImage.enabled = iconImage.sprite;
-            selectedObj.SetActive(viewData.selected);
-            button.interactable = !viewData.disabled;
+            root?.SetActive(!viewData.empty);
+            if (!viewData.empty)
+            {
+                iconImage.sprite = viewData.icon;
+                iconImage.enabled = iconImage.sprite;
+                selectedObj.SetActive(viewData.selected);
+                button.interactable = !viewData.disabled;
+            }
         }
         private void Awake()
         {
@@ -33,6 +37,8 @@ namespace MVZ2.Level.UI
         public event Action<ArtifactSelectItem>? OnPointerEnter;
         public event Action<ArtifactSelectItem>? OnPointerExit;
         [SerializeField]
+        private GameObject? root;
+        [SerializeField]
         private Image iconImage = null!;
         [SerializeField]
         private GameObject selectedObj = null!;
@@ -45,8 +51,14 @@ namespace MVZ2.Level.UI
     }
     public struct ArtifactSelectItemViewData
     {
+        public bool empty;
         public Sprite? icon;
         public bool selected;
         public bool disabled;
+
+        public static ArtifactSelectItemViewData Empty => new ArtifactSelectItemViewData()
+        {
+            empty = true
+        };
     }
 }

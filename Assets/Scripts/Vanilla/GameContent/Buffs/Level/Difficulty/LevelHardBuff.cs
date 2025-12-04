@@ -22,6 +22,7 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.REDSTONE_ORE_DROP_COUNT, IntegerOperator.Add, -2));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.GHOST_TAKEN_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.GUNPOWDER_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 2));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.ELASTIC_CLOUD_BOUNCE_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 1.5f));
 
             AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS_POWER, NumberOperator.AddMultiple, 0.2f));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.NAPSTABLOOK_PARALYSIS_TIME, IntegerOperator.Multiply, 2));
@@ -45,6 +46,10 @@ namespace MVZ2.GameContent.Buffs.Level
 
             AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.WITHER_SKULL_WITHERS_TARGET, true));
             AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.THE_GIANT_IS_MALLEABLE, true));
+
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.RED_DRAGON_FIRE_EXPLOSION_RADIUS, NumberOperator.Multiply, 2f));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.RED_DRAGON_GIANT_FIREBALL_SPEED, NumberOperator.Multiply, 3f));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.RED_DRAGON_TORNADO_COUNT, IntegerOperator.Set, 3));
             AddAura(new EnemyAura());
         }
 

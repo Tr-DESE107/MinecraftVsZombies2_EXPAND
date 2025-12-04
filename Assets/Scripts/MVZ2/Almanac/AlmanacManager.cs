@@ -39,6 +39,12 @@ namespace MVZ2.Almanacs
             var ordered = CompressLayout(idList, GetEnemyCountPerRow());
             appendList.AddRange(ordered);
         }
+        public void GetOrderedArtifactsByAlmanac(IEnumerable<NamespaceID> artifactsID, List<NamespaceID?> appendList)
+        {
+            var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.ARTIFACTS, (id, entry) => artifactsID.Contains(id) && !entry.hidden);
+            var ordered = CompressLayout(idList, GetMiscCountPerRow());
+            appendList.AddRange(ordered);
+        }
         public void GetArtifactPageEntries(List<NamespaceID?> appendList)
         {
             var idList = GetUnlockedAlmanacEntries(VanillaAlmanacCategories.ARTIFACTS, ShouldArtifactShowInAlmanac);

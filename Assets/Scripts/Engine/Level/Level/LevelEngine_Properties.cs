@@ -55,6 +55,7 @@ namespace PVZEngine.Level
         }
         void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
+            properties.RemoveFallbackCache(name);
             OnPropertyChanged?.Invoke(name, beforeValue, afterValue, triggersEvaluation);
         }
         PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)

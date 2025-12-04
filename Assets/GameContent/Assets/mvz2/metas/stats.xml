@@ -11,4 +11,5 @@
     <category id="iz_enemy_death" name="我是僵尸-怪物死亡" type="entity" />
     <category id="iz_observer_trigger" name="我是僵尸-触发侦测器" type="stage" />
     <category id="iz_game_over" name="我是僵尸-游戏结束" type="stage" />
+    <entry id="deceived_by_the_cake" name="被蛋糕欺骗" />
 </stats>

@@ -29,9 +29,9 @@ namespace MVZ2.Level
             talkSystem = new LevelTalkSystem(level, talkController);
         }
 
-        public void StartTalk(NamespaceID groupId, int section, float delay = 0, Action? onEnd = null) => talkController.StartTalk(groupId, section, delay, onEnd);
+        public void StartTalk(NamespaceID groupId, int section, float delay = 0, Action? onEnd = null) => talkController.StartTalk(groupId, section, delay, onEnd: onEnd);
         public bool WillSkipTalk(NamespaceID groupId, int section) => talkController.WillSkipTalk(groupId, section);
-        public void SkipTalk(NamespaceID groupId, int section, Action? onSkip = null) => talkController.SkipTalk(groupId, section, onSkip);
+        public void AutoSkipTalks(NamespaceID groupId, int section, Action? onSkip = null) => talkController.AutoSkipTalks(groupId, section, onSkip);
 
         #region 设置对话
         private NamespaceID? GetTalkIDOfType(string type)

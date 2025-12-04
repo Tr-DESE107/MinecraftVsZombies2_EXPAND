@@ -8,7 +8,6 @@ using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
-using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -69,27 +68,6 @@ namespace MVZ2.GameContent.Bosses
             boss.PlaySound(VanillaSoundID.touhouDeath, volume: 0.5f);
             boss.Spawn(VanillaEffectID.seijaFaintEffect, boss.GetCenter());
             stateMachine.StartState(boss, STATE_FAINT);
-        }
-        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
-        {
-            base.PreTakeDamage(damageInfo, result);
-            var boss = damageInfo.Entity;
-            if (damageInfo.Amount > 600)
-            {
-                if (CanUseFabric(boss))
-                {
-                    UseFabric(boss);
-                }
-            }
-            if (boss.State == STATE_FABRIC)
-            {
-                result.SetFinalValue(false);
-                return;
-            }
-            if (damageInfo.Amount > 600)
-            {
-                damageInfo.SetAmount(600);
-            }
         }
         public override void PostTakeDamage(DamageOutput result)
         {
@@ -217,31 +195,31 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 常量
-        private static readonly VanillaEntityPropertyMeta<int> PROP_FABRIC_COUNT = new VanillaEntityPropertyMeta<int>("FabricCount");
-        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_FABRIC_COOLDOWN_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("FabricCooldownTimer");
-        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DANMAKU_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DanmakuTimer");
-        private static readonly VanillaEntityPropertyMeta<float> PROP_RECENT_TAKEN_DAMAGE = new VanillaEntityPropertyMeta<float>("RecentTakenDamage");
-        private static readonly VanillaEntityPropertyMeta<float> PROP_BULLET_ANGLE = new VanillaEntityPropertyMeta<float>("BulletAngle");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_FABRIC_COUNT = new VanillaEntityPropertyMeta<int>("FabricCount");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_FABRIC_COOLDOWN_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("FabricCooldownTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DANMAKU_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DanmakuTimer");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_RECENT_TAKEN_DAMAGE = new VanillaEntityPropertyMeta<float>("RecentTakenDamage");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_BULLET_ANGLE = new VanillaEntityPropertyMeta<float>("BulletAngle");
 
-        private const int MAX_FABRIC_COUNT = 3;
-        private const float FABRIC_DAMAGE_THRESOLD = 300;
-        private const float TAKEN_DAMAGE_FADE = FABRIC_DAMAGE_THRESOLD / 75f;
+        public const int MAX_FABRIC_COUNT = 3;
+        public const float FABRIC_DAMAGE_THRESOLD = 300;
+        public const float TAKEN_DAMAGE_FADE = FABRIC_DAMAGE_THRESOLD / 75f;
 
-        private const int CAMERA_ENEMY_COUNT = 3;
-        private const int GAP_BOMB_ENEMY_COUNT = 5;
-        private const int BACKFLIP_ENEMY_COUNT = 3;
-        private const float ADJUST_Z_THRESOLD = 5;
+        public const int CAMERA_ENEMY_COUNT = 3;
+        public const int GAP_BOMB_ENEMY_COUNT = 5;
+        public const int BACKFLIP_ENEMY_COUNT = 3;
+        public const float ADJUST_Z_THRESOLD = 5;
 
-        private const int STATE_IDLE = VanillaBossStates.IDLE;
-        private const int STATE_APPEAR = VanillaBossStates.APPEAR;
-        private const int STATE_FAINT = VanillaBossStates.DEATH;
-        private const int STATE_DANMAKU = VanillaBossStates.SEIJA_DANMAKU;
-        private const int STATE_HAMMER = VanillaBossStates.SEIJA_HAMMER;
-        private const int STATE_BACKFLIP = VanillaBossStates.SEIJA_BACKFLIP;
-        private const int STATE_FRONTFLIP = VanillaBossStates.SEIJA_FRONTFLIP;
-        private const int STATE_GAP_BOMB = VanillaBossStates.SEIJA_GAP_BOMB;
-        private const int STATE_CAMERA = VanillaBossStates.SEIJA_CAMERA;
-        private const int STATE_FABRIC = VanillaBossStates.SEIJA_FABRIC;
+        public const int STATE_IDLE = VanillaBossStates.IDLE;
+        public const int STATE_APPEAR = VanillaBossStates.APPEAR;
+        public const int STATE_FAINT = VanillaBossStates.DEATH;
+        public const int STATE_DANMAKU = VanillaBossStates.SEIJA_DANMAKU;
+        public const int STATE_HAMMER = VanillaBossStates.SEIJA_HAMMER;
+        public const int STATE_BACKFLIP = VanillaBossStates.SEIJA_BACKFLIP;
+        public const int STATE_FRONTFLIP = VanillaBossStates.SEIJA_FRONTFLIP;
+        public const int STATE_GAP_BOMB = VanillaBossStates.SEIJA_GAP_BOMB;
+        public const int STATE_CAMERA = VanillaBossStates.SEIJA_CAMERA;
+        public const int STATE_FABRIC = VanillaBossStates.SEIJA_FABRIC;
         #endregion 常量
 
         private static Detector hammerCheckDetector = new SeijaDetector(SeijaDetector.MODE_DETECT);

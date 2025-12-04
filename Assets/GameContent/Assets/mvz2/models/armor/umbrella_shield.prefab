@@ -129,12 +129,12 @@ GameObject:
   - component: {fileID: 7792657340211113375}
   - component: {fileID: 6801861897371722992}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: SpriteRaised
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8138222024788980317
 Transform:
   m_ObjectHideFlags: 0
@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whenFalse: 1
-  propertyName: TongueDroop
+  whenFalse: 0
+  propertyName: Raised
 --- !u!1 &1867621282444290666
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,8 +307,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8138222024788980317}
   - {fileID: 1730144112662491059}
+  - {fileID: 8138222024788980317}
   m_Father: {fileID: 771003438098303111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6367564821639696310
@@ -325,12 +325,12 @@ GameObject:
   - component: {fileID: 4965886301419984861}
   - component: {fileID: 613554058280428718}
   m_Layer: 0
-  m_Name: SpriteDroop
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1730144112662491059
 Transform:
   m_ObjectHideFlags: 0
@@ -439,8 +439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whenFalse: 0
-  propertyName: TongueDroop
+  whenFalse: 1
+  propertyName: Raised
 --- !u!1001 &6362348530100145580
 PrefabInstance:
   m_ObjectHideFlags: 0

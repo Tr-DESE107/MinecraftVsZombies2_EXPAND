@@ -101,6 +101,13 @@ namespace MVZ2.GameContent.Stages
         public const string whackAGhost = "whack_a_ghost";
         public const string breakout = "breakout";
         public const string bigTroubleAndLittleZombie = "big_trouble_and_little_zombie";
+        public const string ufoBlitz = "ufo_blitz";
+
+        public const string frankensteinsRevenge = "frankensteins_revenge";
+        public const string nightmaresRevenge = "nightmares_revenge";
+        public const string withersRevenge = "withers_revenge";
+        public const string theGiantsRevenge = "the_giants_revenge";
+        public const string redDragonsRevenge = "red_dragons_revenge";
 
         public const string a_tooth_for_a_tooth = "a_tooth_for_a_tooth";
         public const string Do_Magic_Tricks = "Do_Magic_Tricks";
@@ -148,8 +155,10 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID halloween10 = Get(VanillaStageNames.halloween10);
         public static readonly NamespaceID halloween11 = Get(VanillaStageNames.halloween11);
         public static readonly NamespaceID dream1 = Get(VanillaStageNames.dream1);
+        public static readonly NamespaceID dream10 = Get(VanillaStageNames.dream10);
         public static readonly NamespaceID dream11 = Get(VanillaStageNames.dream11);
         public static readonly NamespaceID castle1 = Get(VanillaStageNames.castle1);
+        public static readonly NamespaceID castle10 = Get(VanillaStageNames.castle10);
         public static readonly NamespaceID mausoleum1 = Get(VanillaStageNames.mausoleum1);
         public static readonly NamespaceID ship1 = Get(VanillaStageNames.ship1);
 

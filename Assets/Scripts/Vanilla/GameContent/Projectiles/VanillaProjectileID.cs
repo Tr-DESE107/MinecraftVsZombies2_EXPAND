@@ -60,6 +60,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string firework = "firework";
         public const string fireworkBig = "firework_big";
         public const string fallingStar = "falling_star";
+        public const string explosiveLargeFireball = "explosive_large_fireball";
     }
     public static class VanillaProjectileID
     {
@@ -117,6 +118,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID firework = Get(VanillaProjectileNames.firework);
         public static readonly NamespaceID fireworkBig = Get(VanillaProjectileNames.fireworkBig);
         public static readonly NamespaceID fallingStar = Get(VanillaProjectileNames.fallingStar);
+        public static readonly NamespaceID explosiveLargeFireball = Get(VanillaProjectileNames.explosiveLargeFireball);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

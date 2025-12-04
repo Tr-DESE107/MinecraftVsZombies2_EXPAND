@@ -206,7 +206,7 @@ namespace MVZ2Logic.Artifacts
                 if (artifact == null)
                     continue;
                 artifact.LoadFromSerializable(seri);
-                Level.IncreaseLevelObjectReference(artifact);
+                Level.IncreaseLevelObjectReference(artifact, true);
             }
         }
         #endregion

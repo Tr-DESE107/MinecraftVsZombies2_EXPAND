@@ -4,6 +4,7 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -55,6 +56,7 @@ namespace MVZ2.GameContent.Buffs.Level
                 level.Spawn(VanillaBossID.nightmareaper, pos, null)?.Let(e =>
                 {
                     Nightmareaper.Appear(e);
+                    e.ApplyBuffForBossRevenge();
                 });
 
                 level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS, 100, 120);

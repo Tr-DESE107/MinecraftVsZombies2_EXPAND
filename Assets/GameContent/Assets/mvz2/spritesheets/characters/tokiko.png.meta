@@ -3,7 +3,7 @@ guid: b2bf598c00945bb44bb3ca45c9a2a9f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -233,7 +233,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1096
         y: 0
-        width: 704
+        width: 738
         height: 735
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -244,6 +244,27 @@ TextureImporter:
       bones: []
       spriteID: 308f29dbf9c6f754d886c9d817d6c5ae
       internalID: -2106919776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tokiko_6
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 268
+        width: 208
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5b06736c2a42745bafcdd781660d97
+      internalID: -900475582
       vertices: []
       indices: 
       edges: []
@@ -265,6 +286,7 @@ TextureImporter:
       tokiko_3: -377323089
       tokiko_4: -79018707
       tokiko_5: -2106919776
+      tokiko_6: -900475582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

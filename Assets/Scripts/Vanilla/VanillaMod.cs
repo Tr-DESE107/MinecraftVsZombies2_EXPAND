@@ -30,6 +30,7 @@ namespace MVZ2.Vanilla
         }
         #endregion
 
+        public const float INSTA_DAMAGE_AMOUNT = 58115310;
         public const string spaceName = "mvz2";
     }
 }

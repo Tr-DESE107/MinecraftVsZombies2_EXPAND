@@ -311,7 +311,7 @@
             </header>
             <properties>
                 <p>提供能量：<![CDATA[<color=red>2点/1.6秒，而后2点/1秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即升级，发出蓝光，并使生产量变为2.5倍</color>]]></p>
+                <p>技能：<![CDATA[<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>]]></p>
             </properties>
             <flavor>
                 <p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
@@ -371,7 +371,7 @@
                 <p>伤害：<![CDATA[<color=red>80</color>]]></p>
                 <p>溅射伤害：<![CDATA[<color=red>20（不伤害直接目标）</color>]]></p>
                 <p>特点：<![CDATA[<color=red>需要烧毁本格的器械补充燃料</color>]]></p>
-                <p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
+                <p>燃料上限：<![CDATA[<color=red>120</color>]]></p>
                 <p>技能：<![CDATA[<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球，单次技能时间过长会导致不分敌我的自爆</color>]]></p>
             </properties>
             <flavor>
@@ -858,7 +858,7 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>3000</color>]]></p>
-                <p>耐久消耗：<![CDATA[<color=red>150（怪物），20（子弹）</color>]]></p>
+                <p>耐久消耗：<![CDATA[<color=red>300（怪物），450（怪物，困难难度），20（子弹）</color>]]></p>
                 <p>技能：<![CDATA[<color=red>击退并弹飞半径2.5格内的所有敌方怪物</color>]]></p>
             </properties>
             <flavor>
@@ -2187,7 +2187,7 @@
                 <p>反射壁僵尸使用反射壁保护自己，并对飞来的子弹作出反击。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200+600</color>]]></p>
+                <p>生命：<![CDATA[<color=red>200+710</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>特点：<![CDATA[<color=red>子弹击中反射壁并消失后，产生伤害相同的子弹进行回击</color>]]></p>
             </properties>
@@ -2343,7 +2343,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200+1110（铁炮）</color>]]></p>
-                <p>移速：<![CDATA[<color=red>0.5，1（失去铁炮后）</color>]]></p>
+                <p>速度：<![CDATA[<color=red>0.5，1（失去铁炮后）</color>]]></p>
                 <p>发射间隔：<![CDATA[<color=red>8秒</color>]]></p>
             </properties>
             <flavor>
@@ -2356,7 +2356,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>100</color>]]></p>
-                <p>移速：<![CDATA[<color=red>2</color>]]></p>
+                <p>速度：<![CDATA[<color=red>2</color>]]></p>
             </properties>
             <flavor>
                 <p>没错，炮弹也是一只僵尸！</p>
@@ -3097,6 +3097,40 @@
                     <p>“他们已经饿了很久了，就让他们吃一点吧。”</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:red_dragon" name="红龙" >
+                <unlock>
+                    <condition required="mvz2:level.ship_11"/>
+                </unlock>
+                <picture sprite="mvz2:misc/red_dragon"/>
+                <header>
+                    <p>红龙是一头喷火的猛兽，为了报杀母之仇，定要摧毁幻想乡的一切。</p>
+                </header>
+                <properties>
+                    <p>生命：<![CDATA[<color=red>50000</color>]]></p>
+                    <p>阶段1：<![CDATA[<color=red>火焰弹、龙卷风、吞食、火焰吐息</color>]]></p>
+                    <p>阶段2：<![CDATA[<color=red>巨型火球、火焰龙卷风、火焰流星、飞空、扫尾</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>骑士一行人踏入了一处巨大的山洞，他们举着火把慢慢前进着。</p>
+                    <p>山洞中遍布着很多骸骨。有羊的，牛的，其他怪物的，遍地都是——但好像唯独没有人的头骨。</p>
+                    <p>骑士听着深处的动静，最终带领队伍找到了他们的目标——一头红龙。</p>
+                    <p>红龙见到他们，十分惊讶。它张开口，说出了人类的语言：</p>
+                    <p>“你们这些人类，来到这里是想做什么？这里不是你们应该来的地方！”</p>
+                    <p>有一位同伴争先答到：</p>
+                    <p>“国王的梦预示着王国会被怪物毁灭，因此，我们以国王的名义，要取你的龙头！”</p>
+                    <p>红龙瞪大了眼睛，随后又突然尖锐起来。那眼中包含的是悲哀，还有——愤怒。</p>
+                    <p>“我曾亲眼看见我的母亲死于你们人类之手。她杀死了很多的人类，导致人类群起而攻之。从那时，我就对你们人类产生了畏惧之心。“</p>
+                    <p>“一百年来，我一直避免招惹你们，我本以为这样就不会引来杀身之祸。如今，你们却因为一场无聊的梦便要我的命？”</p>
+                    <p>“这就是我所应得的东西？！只是因为你们这群人类自诩为高等生灵？！”</p>
+                    <p>红龙的愤怒化作火焰从口中喷出，瞬间点燃了整片巢穴。</p>
+                    <p>在那场火焰和钢铁交织的战斗中，红龙逐渐落入下风。最后红龙被骑士刺中喉咙，倒在了地上。</p>
+                    <p>“贪婪……会成为你们人类的坟墓……”</p>
+                    <p>“我……诅咒……你们……”</p>
+                    <p>红龙就这样闭上了眼睛。</p>
+                    <p>龙巢的火熄灭了。同伴们将龙的尸体分解，把它的牙、眼、爪、骨、鳞、和心脏作为战利品收集了起来。</p>
+                    <p>骑士默默看着他们兴奋的样子，最后却什么也没要。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Misc Entities -->
         <group id="mvz2:misc_entities" name="杂项实体" order="200">
@@ -3253,6 +3287,41 @@
                     <p>我的水桶、告示牌和灵魂沙呢？</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:unzan_fist" name="云山之拳" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture model="mvz2:entity.unzan_fist"/>
+                <header>
+                    <p>云山之拳在碰到敌人后会向前发射，击杀并打飞一行的敌怪。</p>
+                </header>
+                <flavor>
+                    <p>云山是由云朵变化过来的僧侣妖怪，守护在僧侣云居 一轮身旁。</p>
+                    <p>在命莲寺众人的讨论和计划下，云山为圣辇船提供了一些云朵拳头作为最终防线。</p>
+                    <p>可别小看这些拳头，被击飞的怪物一下子可是能飞十万八千里。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:paratrooper_zombie" name="伞兵僵尸" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture model="mvz2:entity.paratrooper_zombie"/>
+                <tags>
+                    <tag id="mvz2:shell" value="mvz2:flesh"/>
+                    <tag id="mvz2:mass" value="0"/>
+                    <tag id="mvz2:shell_shield" value="mvz2:leather"/>
+                </tags>
+                <header>
+                    <p>伞兵僵尸会在圣辇船的每一大波怪物到来时从天而降，然后将雨伞作为护盾。</p>
+                </header>
+                <properties>
+                    <p>生命：<![CDATA[<color=red>200+270（雨伞）+？（随机头盔）</color>]]></p>
+                    <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>危险动作，小鬼僵尸请勿轻易尝试。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Characters -->
         <group id="mvz2:characters" name="人物" order="300">
@@ -3327,12 +3396,23 @@
                 <properties>
                     <p>画师：<![CDATA[<color=red>Cuerzor58</color>]]></p>
                 </properties>
-                <flavor>
-                    <p>正邪是一名天邪鬼。天邪鬼这种妖怪性格扭曲，喜欢和正常人反着干，渴望着把一切事物逆转过去。</p>
-                    <p>曾为了颠覆幻想乡的格局而利用了针妙丸，使用了她的万宝槌，甚至动员了幻想乡的弱势妖怪妄图推翻一切。</p>
-                    <p>不过，最终这种荒唐的闹剧还是遭到了幻想乡众人的镇压，她自己也因此曾遭到通缉。</p>
-                    <p>如今她在四处游荡，成了个不受任何人欢迎的家伙。然而，天邪鬼对“逆转”的那种渴望，似乎也并不会轻易被熄灭就是了。</p>
-                </flavor>
+                <flavors>
+                    <flavor>
+                        <p>正邪是一名天邪鬼。天邪鬼这种妖怪性格扭曲，喜欢和正常人反着干，渴望着把一切事物逆转过去。</p>
+                        <p>曾为了颠覆幻想乡的格局而利用了针妙丸，使用了她的万宝槌，甚至动员了幻想乡的弱势妖怪妄图推翻一切。</p>
+                        <p>不过，最终这种荒唐的闹剧还是遭到了幻想乡众人的镇压，她自己也因此曾遭到通缉。</p>
+                        <p>如今她在四处游荡，成了个不受任何人欢迎的家伙。然而，天邪鬼对“逆转”的那种渴望，似乎也并不会轻易被熄灭就是了。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.ship_7"/>
+                        </conditions>
+                        <p>在史蒂夫从圣辇船坠落之后，似乎是她救了史蒂夫。</p>
+                        <p>然而此举并不是出于好心，而是盯上了史蒂夫身上的星之碎片。</p>
+                        <p>“只要拥有这些星之碎片，说不定就能恢复针妙丸的地位，再颠覆整个幻想乡。”</p>
+                        <p>她这样想着。</p>
+                    </flavor>
+                </flavors>
             </entry>
             <entry id="mvz2:shinmyoumaru" name="少名 针妙丸">
                 <unlock>
@@ -3439,6 +3519,83 @@
                     <p>这到底是什么东西？</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:shou" name="寅丸 星" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture character="mvz2:shou"/>
+                <header>
+                    <p>被圣白莲选中的虎妖怪，毘沙门天的弟子。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>她本是一只普通的虎妖怪，被圣 白莲选中而成为了毘沙门天的弟子兼化身。</p>
+                    <p>她和白莲的关系说起来比较复杂。白莲供奉毘沙门天，而她又选择了星作为弟子，也作为毘沙门天的化身。因此白莲实际上也在供奉她自己的弟子。</p>
+                    <p>星在工作上十分优秀，表面看上去十分冷静而威严，然而其实是个很感性的家伙。</p>
+                    <p/>
+                    <p>红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白莲的旅途。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:nue" name="封兽 鵺" >
+                <unlock>
+                    <condition required="mvz2:level.ship_3"/>
+                </unlock>
+                <picture character="mvz2:nue"/>
+                <header>
+                    <p>命莲寺的妖怪，有着让物体变得无法识别的能力。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>鵺（yè）是一名神秘的大妖怪，在之后才加入到命莲寺，因此与命莲寺中的其他人并不合群。</p>
+                    <p>喜欢找乐子、妨碍他人做事，常常会使用自己的能力干扰他人行动。</p>
+                    <p>被她施加能力的物体，会失去原本的认知特征，在别人眼里会把它视作是自己认为合理的物体——比如飞在空中的奇怪物体，别人会把它看作是飞碟。</p>
+                    <p/>
+                    <p>然而，在异变发生后，她的性格大变，变得十分消极和恍惚，认为这一切都没有任何意义。</p>
+                    <p>到底是发生了什么？</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:sekibanki" name="赤蛮奇" >
+                <unlock>
+                    <condition required="mvz2:level.ship_7"/>
+                </unlock>
+                <picture character="mvz2:sekibanki"/>
+                <header>
+                    <p>居住在人类村庄的妖怪，拥有让自己的头飞行的能力。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>赤蛮奇伪装成普通人类而居住在人类村庄，在这里过着平凡的生活。</p>
+                    <p>拥有身首分离，并让头飞行的能力，据说还有非常多的其他头颅可用。</p>
+                    <p/>
+                    <p>在史蒂夫坠船并离开一座废弃的房屋后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。</p>
+                    <p>人类村庄发生过什么吗？</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:byakuren" name="圣 白莲" >
+                <unlock>
+                    <condition required="mvz2:level.ship_8"/>
+                </unlock>
+                <picture character="mvz2:byakuren"/>
+                <header>
+                    <p>命莲寺的住持，法力无边的高僧。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>白莲的弟弟——命莲，也是一位法力高强的僧人，但最后还是寿限已至，离世了。</p>
+                    <p>因此白莲开始恐惧死亡，她作为一名研习佛法的僧人，最后竟靠着妖怪的力量达成了不老，成为了一名“妖僧”。</p>
+                    <p>就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。</p>
+                    <p/>
+                    <p>三年前，巨人和红龙同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Areas -->
         <group id="mvz2:areas" name="地点" order="400">
@@ -3527,6 +3684,38 @@
                     <p>远处似乎有什么金属工具深深嵌在了墙壁上。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:end_ship" name="末地船" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture sprite="mvz2:misc/end_ship"/>
+                <header>
+                    <p>一艘飞翔于幻想乡天空中的船只，时不时会袭击飞在空中的妖怪们。</p>
+                </header>
+                <flavor>
+                    <p>原本只是会出现在末地中的飞行船只，不知为何竟出现在了幻想乡的空中。</p>
+                    <p>奇怪的是，上面没有末影人，有的只是普通的、形似海盗的僵尸。</p>
+                    <p>更加奇怪的是，里面居然有一颗末影水晶以极快的速度来修复船体。</p>
+                    <p>这导致任何想破坏这艘船的人，必须要先把内部的末影水晶破坏掉，然而这艘船在落入下风时也会选择以极快的速度逃跑。</p>
+                    <p>总之，关于这艘船的一切，都是个谜。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:palanquin_ship" name="圣辇船" >
+                <unlock>
+                    <condition required="mvz2:level.ship_2"/>
+                </unlock>
+                <picture sprite="mvz2:misc/ship"/>
+                <header>
+                    <p>一艘飞翔于天空中的巨大船只。</p>
+                </header>
+                <flavor>
+                    <p>圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，需要乘船去往。倘若随意变换寺庙，会造成一些不便。</p>
+                    <p>因此白莲又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。</p>
+                    <p>如今白莲杳无音讯，星和命莲寺众人商讨后，登上圣辇船，踏上了寻找白莲的路途。</p>
+                    <p/>
+                    <p>据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Starshards -->
         <group id="mvz2:starshards" name="星之碎片" order="500">
@@ -3601,6 +3790,26 @@
                     <p>最后也只能什么也不剩下。</p>
                     <p>这里固然很美，各种奇特的力量也值得进行研究。</p>
                     <p>但是，我真的很想回家。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:starshard.ufo_fragment" name="星之碎片：飞碟碎片" >
+                <unlock>
+                    <condition required="mvz2:level.ship_1"/>
+                </unlock>
+                <picture model="mvz2:entity.starshard.ship"/>
+                <header>
+                    <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
+                </header>
+                <flavor>
+                    <p>未知人士留下了一些记录。</p>
+                    <p/>
+                    <p>星之记录 其五：</p>
+                    <p>这该死的异变还在持续着。</p>
+                    <p>我没有任何其他选择，只能与它继续进行斗争。</p>
+                    <p>我发现我的理智似乎出现了裂痕。</p>
+                    <p>我看到了本不应看到的东西，然后那幻觉又立即消失了。</p>
+                    <p>那些飞碟还在天上飞着。</p>
+                    <p>我到底还能撑多久……？</p>
                 </flavor>
             </entry>
         </group>
@@ -3742,6 +3951,39 @@
                     </flavor>
                     <flavor>
                         <p>细节尚不知情。</p>
+                    </flavor>
+                </flavors>
+            </entry>
+            <entry id="mvz2:abandoned_house" name="废弃的房屋" >
+                <unlock>
+                    <condition required="mvz2:level.ship_7"/>
+                </unlock>
+                <picture sprite="mvz2:misc/abandoned_house"/>
+                <header>
+                    <p>人类村庄中一座废弃的房屋。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>史蒂夫从圣辇船中坠落时，被鬼人 正邪救到了这处房屋中。</p>
+                        <p>在他出来之后，遭到了赤蛮奇的质问，问他为什么会从这间屋子里出来。</p>
+                        <p>然而具体发生了什么，史蒂夫并不知情。</p>
+                        <p>这间屋子发生过什么事情吗？</p>
+                    </flavor>
+                </flavors>
+            </entry>
+            <entry id="mvz2:visitor_which_finding_child" name="寻找孩子的访客" >
+                <unlock>
+                    <condition required="mvz2:level.ship_11"/>
+                </unlock>
+                <picture sprite="mvz2:misc/visitor_which_finding_child"/>
+                <header>
+                    <p>白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>史蒂夫解决掉红龙的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。</p>
+                        <p>那位访客自称灯兰 樱，为了寻找自己的孩子而来。</p>
+                        <p>在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。</p>
                     </flavor>
                 </flavors>
             </entry>

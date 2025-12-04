@@ -8,6 +8,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Callbacks;
@@ -90,7 +91,7 @@ namespace MVZ2.GameContent.Bosses
             if (!other.IsHostile(self))
                 return;
             var otherCollider = collision.OtherCollider;
-            var crushDamage = 1000000;
+            var crushDamage = VanillaMod.INSTA_DAMAGE_AMOUNT;
             var substate = stateMachine.GetSubState(self);
             if (other.IsInvincible())
             {
@@ -122,14 +123,6 @@ namespace MVZ2.GameContent.Bosses
             if (self.State == STATE_EAT && substate == EatState.SUBSTATE_DASH)
             {
                 FinishEat(self);
-            }
-        }
-        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
-        {
-            base.PreTakeDamage(damageInfo, result);
-            if (damageInfo.Amount > 600)
-            {
-                damageInfo.SetAmount(600);
             }
         }
         public override void PostTakeDamage(DamageOutput result)
@@ -167,6 +160,7 @@ namespace MVZ2.GameContent.Bosses
                 return;
             if (!HasArmor(self))
                 return;
+            // 免疫并移除子弹
             result.SetFinalValue(false);
             var projectile = hit.Projectile;
             projectile.Remove();
@@ -210,7 +204,7 @@ namespace MVZ2.GameContent.Bosses
             var vel = entity.Velocity;
             vel.x = 0;
             entity.Velocity = vel;
-            stateMachine.SetSubState(entity, EatState.SUBSTATE_EATEN);
+            stateMachine.StartSubState(entity, EatState.SUBSTATE_EATEN);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(20);
         }
@@ -380,6 +374,7 @@ namespace MVZ2.GameContent.Bosses
         public const float FLY_HEIGHT = 80;
         public const float EAT_HEALING = 300;
         public const float GOLDEN_APPLE_DAMAGE = 600;
+        public const float BOSS_REVENGE_PROJECTILE_DAMAGE_MULTIPLIER = 0.05f;
         #endregion 常量
 
         private static WitherStateMachine stateMachine = new WitherStateMachine();

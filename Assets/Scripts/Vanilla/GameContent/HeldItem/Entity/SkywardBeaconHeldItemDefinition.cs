@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.HeldItems
         public SkywardBeaconHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(VanillaHeldItemBehaviourID.skywardBeacon);
+            AddBehaviour(VanillaHeldItemBehaviourID.rightMouseCancel);
         }
     }
 }

@@ -94,6 +94,7 @@ namespace PVZEngine.Entities
                     Health = Mathf.Min(after, Health * (after / before));
                 }
             }
+            properties.RemoveFallbackCache(name);
             Cache.UpdateProperty(this, name, beforeValue, afterValue);
             PostPropertyChanged?.Invoke(name, beforeValue, afterValue);
         }

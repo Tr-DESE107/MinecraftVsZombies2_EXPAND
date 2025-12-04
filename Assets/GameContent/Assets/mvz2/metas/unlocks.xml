@@ -1,0 +1,7 @@
+<unlocks>
+    <group id="game_completed">
+        <conditions>
+            <condition required="mvz2:level.ship_11" />
+        </conditions>
+    </group>
+</unlocks>

@@ -21,6 +21,7 @@ namespace PVZEngine.Buffs
             Level = level;
             Definition = definition;
             CreateAuraEffects();
+            Definition.OnCreate(this);
         }
         #endregion
 

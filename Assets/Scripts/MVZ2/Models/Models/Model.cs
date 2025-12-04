@@ -499,6 +499,18 @@ namespace MVZ2.Models
         public Dictionary<string, float>? floatParameters = new Dictionary<string, float>();
         public List<float>? layerWeights = new List<float>();
 
+        private float GetNormalizedTime(float time)
+        {
+            if (time > 1)
+            {
+                return (time - 1) % 1 + 1;
+            }
+            if (time < 0)
+            {
+                return time % 1;
+            }
+            return time;
+        }
         public SerializableAnimator(Animator animator)
         {
             int layerCount = animator.layerCount;
@@ -513,15 +525,15 @@ namespace MVZ2.Models
                 SerializableAnimatorPlayingData playingData = new SerializableAnimatorPlayingData()
                 {
                     currentHash = current.shortNameHash,
-                    currentTime = current.normalizedTime % 1,
+                    currentTime = GetNormalizedTime(current.normalizedTime),
 
                     nextHash = next.shortNameHash,
-                    nextNormalizedTime = next.normalizedTime % 1,
+                    nextNormalizedTime = GetNormalizedTime(next.normalizedTime),
                     nextLength = next.length == Mathf.Infinity ? 0 : next.length,
 
                     transitionDuration = transition.duration,
                     transitionDurationUnit = (int)transition.durationUnit,
-                    transitionTime = transition.normalizedTime % 1
+                    transitionTime = GetNormalizedTime(transition.normalizedTime)
                 };
                 playingDatas[i] = playingData;
                 layerWeights.Add(animator.GetLayerWeight(i));
@@ -605,7 +617,7 @@ namespace MVZ2.Models
                     if (playingData == null)
                         continue;
                     int currentNameHash = playingData.currentHash;
-                    float currentNormalizedTime = playingData.currentTime % 1;
+                    float currentNormalizedTime = GetNormalizedTime(playingData.currentTime);
 
                     animator.Play(currentNameHash, i, currentNormalizedTime);
                 }
@@ -618,12 +630,12 @@ namespace MVZ2.Models
                     int nextFullPathHash = playingData.nextHash;
                     if (nextFullPathHash != 0)
                     {
-                        float nextNormalizedTime = playingData.nextNormalizedTime % 1;
+                        float nextNormalizedTime = GetNormalizedTime(playingData.nextNormalizedTime);
                         float nextLength = playingData.nextLength;
 
                         var transitionDurationUnit = (DurationUnit)playingData.transitionDurationUnit;
                         float transitionDuration = playingData.transitionDuration;
-                        float transitionNormalizedTime = playingData.transitionTime % 1;
+                        float transitionNormalizedTime = GetNormalizedTime(playingData.transitionTime);
                         if (transitionDurationUnit == DurationUnit.Fixed)
                         {
                             animator.CrossFadeInFixedTime(nextFullPathHash, transitionDuration, i, nextLength, transitionNormalizedTime);

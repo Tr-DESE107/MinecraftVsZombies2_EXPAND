@@ -17,6 +17,19 @@ namespace MVZ2.Vanilla.Callbacks
 {
     public static class VanillaLevelCallbacks
     {
+        public struct WaveEnemySpawnParams
+        {
+            public LevelEngine level;
+            public int wave;
+            public float maxPoints;
+
+            public WaveEnemySpawnParams(LevelEngine level, int wave, float maxPoints)
+            {
+                this.level = level;
+                this.wave = wave;
+                this.maxPoints = maxPoints;
+            }
+        }
         public struct PreTakeDamageParams
         {
             public DamageInput input;
@@ -238,6 +251,8 @@ namespace MVZ2.Vanilla.Callbacks
 
         public readonly static CallbackType<LevelCallbackParams> POST_HUGE_WAVE_APPROACH = new();
         public readonly static CallbackType<LevelCallbackParams> POST_FINAL_WAVE = new();
+        public readonly static CallbackType<WaveEnemySpawnParams> PRE_WAVE_ENEMY_SPAWN = new();
+        public readonly static CallbackType<WaveEnemySpawnParams> POST_WAVE_ENEMY_SPAWN = new();
 
         public readonly static CallbackType<PreTakeDamageParams> PRE_ENTITY_TAKE_DAMAGE = new();
         public readonly static CallbackType<PostTakeDamageParams> POST_ENTITY_TAKE_DAMAGE = new();

@@ -3,9 +3,11 @@
 using System.Linq;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -24,6 +26,20 @@ namespace MVZ2.GameContent.Stages
     {
         public FrankensteinStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
+        }
+        public override void PostWave(LevelEngine level, int wave)
+        {
+            base.PostWave(level, wave);
+            if (wave <= 10)
+                return;
+            if (!level.HasBuff<FrankensteinStageBuff>())
+            {
+                level.AddBuff<FrankensteinStageBuff>();
+            }
+            if (!level.EntityExists(VanillaEffectID.rain))
+            {
+                level.StartRain();
+            }
         }
         protected override void AfterFinalWaveUpdate(LevelEngine level)
         {
@@ -50,10 +66,13 @@ namespace MVZ2.GameContent.Stages
             if (frankensteinTimer.Expired)
             {
                 level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
-                targetEnemy?.Run(e => level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy))?.Let(e =>
-                {
-                    Frankenstein.DoTransformationEffects(e);
-                });
+                targetEnemy
+                    ?.Run(e => level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy))
+                    ?.Let(e =>
+                    {
+                        Frankenstein.DoTransformationEffects(e);
+                        e.ApplyBuffForBossRevenge();
+                    });
                 foreach (var ent in level.FindEntities(e => !e.IsDead && e.HasBuff<FrankensteinTransformerBuff>()))
                 {
                     ent.Remove();

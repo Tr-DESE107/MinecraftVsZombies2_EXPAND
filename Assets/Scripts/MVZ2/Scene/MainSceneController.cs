@@ -431,14 +431,13 @@ namespace MVZ2.Scenes
         {
             UpdateTooltip();
             var userName = main.SaveManager.GetCurrentUserName();
-            bool debugPage = CanPageUseDebugConsole();
             bool canUse = CanUseDebugConsole(userName);
             bool consoleOpen = !debugConsole.IsActive();
-            if (Input.GetKeyDown(main.OptionsManager.GetKeyBinding(HotKeys.console)) && debugPage && canUse && consoleOpen)
+            if (Input.GetKeyDown(main.OptionsManager.GetKeyBinding(HotKeys.console)) && canUse && consoleOpen)
             {
                 DisplayConsole();
             }
-            ui.SetDebugIconActive(debugPage && canUse && consoleOpen);
+            ui.SetDebugIconActive(canUse && consoleOpen);
         }
         #endregion
 
@@ -450,6 +449,8 @@ namespace MVZ2.Scenes
         }
         private bool CanPageUseDebugConsole()
         {
+            if (main.LevelManager.IsInLevel())
+                return true;
             return currentPage != MainScenePageType.None &&
                 currentPage != MainScenePageType.Splash &&
                 currentPage != MainScenePageType.Titlescreen;

@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <models>
+    <armorconfig id="default">
+        <armor slot="mvz2:main">
+            <anchor>armor</anchor>
+        </armor>
+        <armor slot="mvz2:shield">
+            <anchor>shield</anchor>
+        </armor>
+        <armor slot="mvz2:shield" type="mvz2:handheld">
+            <anchor>shield_hands</anchor>
+        </armor>
+    </armorconfig>
+
+    <armorconfig id="humanoid">
+        <armor slot="mvz2:main">
+            <anchor>armor</anchor>
+        </armor>
+        <armor slot="mvz2:shield" type="mvz2:large_shield">
+            <anchor>shield</anchor>
+            <offset x="0" y="-7" z="0" />
+        </armor>
+        <armor slot="mvz2:shield" type="mvz2:small_shield">
+            <anchor>shield</anchor>
+            <offset x="0" y="-4" z="0" />
+        </armor>
+        <armor slot="mvz2:shield" type="mvz2:handheld">
+            <anchor>shield_hands</anchor>
+        </armor>
+    </armorconfig>
     <model name="grid_placeholder" type="grid" path="mvz2:grid/placeholder" width="80" height="80" xOffset="0" yOffset="0" />
     <model name="golden_grid" type="grid" path="mvz2:grid/golden" width="80" height="80" xOffset="0" yOffset="0" />
     <!-- Contraptions -->
@@ -148,6 +176,9 @@
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 
+    <model name="paratrooper_zombie" type="entity" path="mvz2:enemy/ship/paratrooper_zombie" width="96" height="106" xOffset="30" yOffset="-47">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
     <model name="undead_flying_object_red" type="entity" path="mvz2:enemy/ship/undead_flying_object" width="80" height="56" xOffset="0" yOffset="-24">
         <animator updateOnShot="true">
             <parameters>
@@ -336,6 +367,7 @@
     <model name="wither" type="entity" path="mvz2:boss/wither" width="112" height="168" xOffset="6" yOffset="-84" />
     <model name="the_giant" type="entity" path="mvz2:boss/the_giant" width="256" height="332" xOffset="0" yOffset="-40" />
     <model name="the_giant_snake_tail" type="entity" path="mvz2:boss/the_giant_snake_tail" width="80" height="80" xOffset="0" yOffset="-40" />
+    <model name="red_dragon" type="entity" path="mvz2:boss/red_dragon" width="840" height="510" xOffset="-93" yOffset="-170"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28" />
@@ -467,16 +499,21 @@
     <model name="zombie_cloud_raindrop" type="entity" path="mvz2:effect/zombie_cloud_raindrop" width="5" height="32" xOffset="0" yOffset="-16" />
     <model name="zombie_cloud_snowflake" type="entity" path="mvz2:effect/zombie_cloud_snowflake" width="7" height="7" xOffset="0" yOffset="0" />
     <model name="water_stain" type="entity" path="mvz2:effect/water_stain" shot="false" width="160" height="160" xOffset="0" yOffset="0" />
+    <model name="wind_speedline" type="entity" path="mvz2:effect/wind_speedline" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="pagoda_laser" type="entity" path="mvz2:effect/pagoda_laser" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="combat_punch_trail" type="entity" path="mvz2:effect/combat_punch_trail" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="combat_punch" type="entity" path="mvz2:effect/combat_punch" width="100" height="100" xOffset="0" yOffset="-50" />
     <model name="combat_smash_trail" type="entity" path="mvz2:effect/combat_smash_trail" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="combat_smash" type="entity" path="mvz2:effect/combat_smash" width="100" height="140" xOffset="0" yOffset="-70" />
     <model name="combat_uppercut_trail" type="entity" path="mvz2:effect/combat_uppercut_trail" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
-    <model name="combat_uppercut" type="entity" path="mvz2:effect/combat_uppercut" width="100" height="100" xOffset="0" yOffset="-50" />
+    <model name="combat_uppercut" type="entity" path="mvz2:effect/combat_uppercut" width="100" height="120" xOffset="0" yOffset="-60" />
     <model name="skyward_beam" type="entity" path="mvz2:effect/skyward_beam" width="32" height="100" xOffset="0" yOffset="-50" />
     <model name="skyward_beacon_target" type="entity" path="mvz2:effect/skyward_beacon_target" width="64" height="24" xOffset="0" yOffset="0" />
     <model name="skyward_sky" type="entity" path="mvz2:effect/skyward_sky" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
+    <model name="tornado" type="entity" path="mvz2:effect/tornado" width="96" height="200" xOffset="0" yOffset="-100"/>
+    <model name="dragon_fire_breath" type="entity" path="mvz2:effect/dragon_fire_breath" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="grid_fire" type="entity" path="mvz2:effect/grid_fire" width="80" height="80" xOffset="0" yOffset="-24"/>
+    <model name="fallen_end_ship" type="entity" path="mvz2:effect/fallen_end_ship" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0" />
@@ -529,7 +566,9 @@
     <model name="beacon_meteor" type="entity" path="mvz2:projectile/beacon_meteor" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="firework" type="entity" path="mvz2:projectile/firework" width="38" height="12" xOffset="0" yOffset="0" />
     <model name="firework_big" type="entity" path="mvz2:projectile/firework_big" width="38" height="30" xOffset="0" yOffset="0" />
-    <model name="falling_star" type="entity" path="mvz2:projectile/falling_star" width="64" height="16" xOffset="16" yOffset="0" />
+    <model name="falling_star" type="entity" path="mvz2:projectile/falling_star" width="64" height="16" xOffset="24" yOffset="0" />
+    <model name="explosive_large_fireball" type="entity" path="mvz2:projectile/explosive_large_fireball" width="130" height="256" xOffset="0" yOffset="-128" />
+
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0" />
@@ -552,7 +591,7 @@
     <model name="nether_vanguard_shield" type="armor" path="mvz2:armor/nether_vanguard_shield" width="34" height="34" xOffset="4" yOffset="4" />
     <model name="emperor_crown" type="armor" path="mvz2:armor/emperor_crown" width="70" height="72" xOffset="1" yOffset="18" />
     <model name="umbrella_shield" type="armor" path="mvz2:armor/umbrella_shield" width="64" height="100" xOffset="16" yOffset="0" />
-    <model name="cannon" type="armor" path="mvz2:armor/MannequinCannon" width="61" height="36" xOffset="5" yOffset="7" />
+    <model name="cannon" type="armor" path="mvz2:armor/cannon" width="61" height="36" xOffset="5" yOffset="7" />
     <model name="pop_captain_cap" type="armor" path="mvz2:armor/pop_captain_cap" width="40" height="12" xOffset="0" yOffset="-6" />
 
     <!-- HeldItems -->

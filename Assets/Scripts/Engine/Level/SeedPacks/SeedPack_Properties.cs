@@ -42,6 +42,7 @@ namespace PVZEngine.SeedPacks
         }
         void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
+            OnPropertyChangedCallback(name, beforeValue, afterValue);
         }
         PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {
@@ -64,7 +65,7 @@ namespace PVZEngine.SeedPacks
         }
         #endregion
 
-        private void OnPropertyChangedCallback(IPropertyKey key, object before, object after)
+        private void OnPropertyChangedCallback(IPropertyKey key, object? before, object? after)
         {
             properties.RemoveFallbackCache(key);
         }
