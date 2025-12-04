@@ -12,24 +12,6 @@ namespace MVZ2.Grids
 {
     public class GridLayoutController : MonoBehaviour
     {
-        public void UpdateGridsFixed()
-        {
-            if (grids == null)
-                return;
-            foreach (var grid in grids)
-            {
-                grid.UpdateFixed();
-            }
-        }
-        public void UpdateGridsFrame(float deltaTime)
-        {
-            if (grids == null)
-                return;
-            foreach (var grid in grids)
-            {
-                grid.UpdateFrame(deltaTime);
-            }
-        }
         public void InitGridViews(GridInitData[][] initDatas)
         {
             List<GridController> gridList = new List<GridController>();
@@ -56,9 +38,9 @@ namespace MVZ2.Grids
         {
             return GetLane(lane)?.GetGrid(column);
         }
-        public GridController[] GetGrids()
+        public GridController[]? GetGrids()
         {
-            return lanes.getElements<LaneController>().SelectMany(l => l.GetGrids()).ToArray();
+            return grids;
         }
         public LaneController? GetLane(int lane)
         {

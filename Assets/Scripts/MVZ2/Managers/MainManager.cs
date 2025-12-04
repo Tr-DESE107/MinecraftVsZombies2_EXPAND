@@ -229,7 +229,8 @@ namespace MVZ2.Managers
                 gui = new GlobalGUI(this),
                 scene = Scene,
                 localization = LanguageManager,
-                debug = DebugManager
+                debug = DebugManager,
+                cursors = CursorManager
             });
         }
         private void InitSerializable()

@@ -3256,6 +3256,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 453d4fef4f85ab847b33d20eb562157d
+    m_Address: mvz2:level/hp_bar_icons
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4544057c662730c4797c8c0641b95ff3
     m_Address: mvz2:entity/pickups/zombie_scroll
     m_ReadOnly: 0
@@ -6335,6 +6342,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 885cf94d2d3f2844895b0a87b1fcc5ea
+    m_Address: mvz2:level/hp_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8866a258ae8eb3e458f9c444ebdba22c
     m_Address: mvz2:mobile_blueprint/dullahan
     m_ReadOnly: 0
@@ -7023,6 +7037,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9696331d07114754fbccc29acd1b4846
     m_Address: mvz2:map/gensokyo/pins/castle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96c070c484796114fa82d278e609fca9
+    m_Address: mvz2:level/hp_bar_background
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

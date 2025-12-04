@@ -4,6 +4,7 @@ using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic.Resources;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
@@ -44,6 +45,8 @@ namespace MVZ2.Metas
 
         public string ID { get; private set; }
         public NamespaceID? AlmanacTag { get; private set; }
+        public Color HPBarColor { get; private set; }
+        public SpriteReference? HPBarIcon { get; private set; }
         public static GridLayerMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -58,7 +61,20 @@ namespace MVZ2.Metas
             {
                 almanacTag = almanacNode.GetAttributeNamespaceID("tag", defaultNsp);
             }
-            return new GridLayerMeta(id, almanacTag);
+
+            Color hpBarColor = Color.white;
+            SpriteReference? hpBarIcon = null;
+            var hpBarNode = node["hpbar"];
+            if (hpBarNode != null)
+            {
+                hpBarColor = hpBarNode.GetAttributeColor("color") ?? hpBarColor;
+                hpBarIcon = hpBarNode.GetAttributeSpriteReference("icon", defaultNsp);
+            }
+            return new GridLayerMeta(id, almanacTag)
+            {
+                HPBarColor = hpBarColor,
+                HPBarIcon = hpBarIcon,
+            };
         }
     }
     public class GridErrorMeta

@@ -309,6 +309,8 @@ namespace MVZ2.Modding
                     continue;
                 var name = meta.ID;
                 var def = new GridLayerDefinition(nsp, name, meta.AlmanacTag);
+                def.HPBarColor = meta.HPBarColor;
+                def.HPBarIcon = meta.HPBarIcon;
                 mod.AddDefinition(def);
             }
         }

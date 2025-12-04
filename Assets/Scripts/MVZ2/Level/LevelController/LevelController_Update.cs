@@ -124,7 +124,16 @@ namespace MVZ2.Level
             {
                 entity.UpdateFixed();
             }
-            gridLayout.UpdateGridsFixed();
+
+            var grids = gridLayout.GetGrids();
+            if (grids != null)
+            {
+                foreach (var grid in grids)
+                {
+                    grid.UpdateFixed();
+                }
+            }
+
             foreach (var part in parts)
             {
                 part.UpdateLogic();

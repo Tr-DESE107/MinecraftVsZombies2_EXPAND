@@ -2,15 +2,19 @@
     <layers>
         <layer id="protector">
             <almanac tag="mvz2:grid_layer_protector" />
+            <hpbar color="#00FFFF" icon="mvz2:level/hp_bar_icons[1]"/>
         </layer>
         <layer id="tool">
             <almanac tag="mvz2:grid_layer_tool" />
+            <hpbar color="#FFFF00" icon="mvz2:level/hp_bar_icons[2]"/>
         </layer>
         <layer id="main">
             <almanac tag="mvz2:grid_layer_main" />
+            <hpbar color="#FF0000"/>
         </layer>
         <layer id="carrier">
             <almanac tag="mvz2:grid_layer_carrier" />
+            <hpbar color="#FF00FF" icon="mvz2:level/hp_bar_icons[0]"/>
         </layer>
     </layers>
     <errors>
