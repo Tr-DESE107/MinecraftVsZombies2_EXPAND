@@ -6,7 +6,7 @@ using MVZ2.UI;
 using MVZ2Logic.Localization;
 using UnityEngine;
 
-namespace MVZ2.Mainmenu.UI
+namespace MVZ2.Mainmenu
 {
     public class InputNameDialogController : MonoBehaviour
     {

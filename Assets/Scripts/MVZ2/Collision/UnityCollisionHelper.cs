@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using PVZEngine.Entities;
 
-namespace MVZ2.Collision
+namespace MVZ2.Collisions
 {
     public static class UnityCollisionHelper
     {
@@ -20,7 +20,7 @@ namespace MVZ2.Collision
             {
                 if ((entityLayer & pair.Key) == 0)
                     continue;
-                objLayer |= (1 << pair.Value);
+                objLayer |= 1 << pair.Value;
             }
             return objLayer;
         }

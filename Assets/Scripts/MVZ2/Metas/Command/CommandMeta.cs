@@ -3,8 +3,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
+using MVZ2.Debugs;
 using MVZ2.IO;
-using MVZ2.Managers;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Localization;
 

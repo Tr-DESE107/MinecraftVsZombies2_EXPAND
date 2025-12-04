@@ -2,7 +2,6 @@
 
 using System;
 using System.Linq;
-using MVZ2.Entities;
 using MVZ2.GameContent.Models;
 using MVZ2.Grids;
 using MVZ2.Models;

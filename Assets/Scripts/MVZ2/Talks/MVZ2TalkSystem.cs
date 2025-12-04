@@ -2,13 +2,12 @@
 
 using System;
 using MVZ2.Managers;
-using MVZ2.Talk;
 using MVZ2Logic.Archive;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Talk;
 using PVZEngine.Level;
 
-namespace MVZ2.Talks
+namespace MVZ2.Talk
 {
     public abstract class MVZ2TalkSystem : ITalkSystem
     {

@@ -4,7 +4,7 @@ using MVZ2.Cameras;
 using MVZ2.Managers;
 using UnityEngine;
 
-namespace MVZ2.UI.Level
+namespace MVZ2.Level
 {
     [DefaultExecutionOrder(1)]
     public class CameraLimiter : MonoBehaviour

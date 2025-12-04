@@ -3,13 +3,13 @@
 using MVZ2.Level;
 using MVZ2.Models;
 
-namespace MVZ2.SeedPacks
+namespace MVZ2.Blueprints
 {
     public class BlueprintModelInterface : ModelInterface
     {
         public BlueprintModelInterface(BlueprintController ctrl)
         {
-            this.controller = ctrl;
+            controller = ctrl;
         }
         protected override Model GetModel()
         {

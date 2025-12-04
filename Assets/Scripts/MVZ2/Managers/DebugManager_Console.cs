@@ -19,7 +19,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Debugs
 {
     public partial class DebugManager : MonoBehaviour, IGlobalDebug
     {

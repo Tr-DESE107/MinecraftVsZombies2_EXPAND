@@ -11,7 +11,6 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Notes;
 using MVZ2.GameContent.Stages;
 using MVZ2.IO;
-using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Options;

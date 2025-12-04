@@ -2,12 +2,13 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Debugs;
 using MVZ2.Managers;
 using MVZ2.UI.DebugConsole;
 using MVZ2Logic.Commands;
 using UnityEngine;
 
-namespace MVZ2.Debugs
+namespace MVZ2.DebugConsole
 {
     public class DebugConsoleController : MonoBehaviour
     {
@@ -133,7 +134,7 @@ namespace MVZ2.Debugs
         {
             // 输入变化时更新自动补全
             string command = ui.GetCommand();
-            if (!historyNavigated && (command != null && command.StartsWith(DebugManager.COMMAND_CHARACTER)))
+            if (!historyNavigated && command != null && command.StartsWith(DebugManager.COMMAND_CHARACTER))
             {
                 UpdateSuggestions(command, ui.GetStringPosition());
             }

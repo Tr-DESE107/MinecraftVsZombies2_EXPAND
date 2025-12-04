@@ -2,10 +2,9 @@
 
 using System;
 using System.Threading.Tasks;
-using MVZ2.Talk;
 using PVZEngine;
 
-namespace MVZ2.Talks
+namespace MVZ2.Talk
 {
     public static class TalkHelper
     {

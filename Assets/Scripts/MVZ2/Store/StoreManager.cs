@@ -13,7 +13,7 @@ using PVZEngine;
 using Tools;
 using UnityEngine;
 
-namespace MVZ2.Almanacs
+namespace MVZ2.Store
 {
     public class StoreManager : MonoBehaviour
     {

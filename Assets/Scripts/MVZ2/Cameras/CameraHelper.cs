@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace MVZ2
+namespace MVZ2.Cameras
 {
     public static class CameraHelper
     {
