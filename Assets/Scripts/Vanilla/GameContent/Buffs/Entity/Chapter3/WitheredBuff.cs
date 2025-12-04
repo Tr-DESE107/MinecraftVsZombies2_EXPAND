@@ -8,11 +8,11 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.withered)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.withered)]
     public class WitheredBuff : BuffDefinition
     {
         public WitheredBuff(string nsp, string name) : base(nsp, name)

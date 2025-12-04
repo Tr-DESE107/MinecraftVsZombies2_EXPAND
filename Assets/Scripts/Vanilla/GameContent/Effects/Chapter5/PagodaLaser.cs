@@ -10,6 +10,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -18,7 +19,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.pagodaLaser)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.pagodaLaser)]
     public class PagodaLaser : EntityBehaviourDefinition
     {
         public PagodaLaser(string nsp, string name) : base(nsp, name)

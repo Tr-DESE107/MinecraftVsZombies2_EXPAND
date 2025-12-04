@@ -7,7 +7,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.dream11)]
+    [AutoStageDefinition(VanillaStageNames.dream11)]
     public partial class Dream11 : StageDefinition
     {
         public Dream11(string nsp, string name) : base(nsp, name)

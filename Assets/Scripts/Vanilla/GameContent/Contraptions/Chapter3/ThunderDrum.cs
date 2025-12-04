@@ -10,13 +10,13 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.thunderDrum)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.thunderDrum)]
     public class ThunderDrum : ContraptionBehaviour
     {
         public ThunderDrum(string nsp, string name) : base(nsp, name)

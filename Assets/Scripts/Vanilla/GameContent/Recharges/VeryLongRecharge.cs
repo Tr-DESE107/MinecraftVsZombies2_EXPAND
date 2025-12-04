@@ -3,10 +3,11 @@
 using MVZ2.Vanilla.Localization;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Recharges
 {
-    [RechargeDefinition(VanillaRechargeNames.veryLongTime)]
+    [AutoRechargeDefinition(VanillaRechargeNames.veryLongTime)]
     public class VeryLongRecharge : RechargeDefinition
     {
         public VeryLongRecharge(string nsp, string name) : base(nsp, name)

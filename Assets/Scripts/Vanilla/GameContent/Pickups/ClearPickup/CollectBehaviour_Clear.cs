@@ -7,13 +7,13 @@ using MVZ2.Vanilla.Pickups;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupCollectClear)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupCollectClear)]
     public class CollectBehaviour_Clear : CollectBehaviour
     {
         public CollectBehaviour_Clear(string nsp, string name) : base(nsp, name)

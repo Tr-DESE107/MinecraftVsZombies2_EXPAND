@@ -10,12 +10,12 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.soulfireBall)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.soulfireBall)]
     public class SoulfireBall : ProjectileBehaviour
     {
         public SoulfireBall(string nsp, string name) : base(nsp, name)

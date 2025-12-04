@@ -14,14 +14,14 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.magichest)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.magichest)]
     public class Magichest : ContraptionBehaviour
     {
         public Magichest(string nsp, string name) : base(nsp, name)

@@ -8,13 +8,13 @@ using MVZ2Logic.Level;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.levelEasy)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.levelEasy)]
     public class LevelEasyBuff : BuffDefinition
     {
         public LevelEasyBuff(string nsp, string name) : base(nsp, name)

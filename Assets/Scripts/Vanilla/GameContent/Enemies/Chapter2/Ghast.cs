@@ -17,13 +17,13 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.ghast)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.ghast)]
     public class Ghast : AIEntityBehaviour
     {
         public Ghast(string nsp, string name) : base(nsp, name)

@@ -11,12 +11,12 @@ using MVZ2.Vanilla.Grids;
 using MVZ2Logic.Entities;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.stoneShield)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.stoneShield)]
     public class StoneShield : ContraptionBehaviour
     {
         public StoneShield(string nsp, string name) : base(nsp, name)

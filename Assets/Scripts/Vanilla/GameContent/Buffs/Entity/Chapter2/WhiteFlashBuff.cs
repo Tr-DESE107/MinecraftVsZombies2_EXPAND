@@ -2,14 +2,14 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.whiteFlash)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.whiteFlash)]
     public class WhiteFlashBuff : BuffDefinition
     {
         public WhiteFlashBuff(string nsp, string name) : base(nsp, name)

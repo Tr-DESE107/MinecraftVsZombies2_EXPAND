@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2Logic.Level;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 

@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.nightmaresRevenge)]
+    [AutoStageDefinition(VanillaStageNames.nightmaresRevenge)]
     public partial class NightmaresRevenge : StageDefinition
     {
         public NightmaresRevenge(string nsp, string name) : base(nsp, name)

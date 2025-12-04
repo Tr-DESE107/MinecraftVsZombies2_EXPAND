@@ -10,7 +10,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.iZombieDebug)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.iZombieDebug)]
     public class IZombieDebugLayout : IZombieLayoutDefinition
     {
         public IZombieDebugLayout(string nsp, string name) : base(nsp, name, 4)

@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(LogicHeldItemNames.sword)]
+    [AutoHeldItemDefinition(LogicHeldItemNames.sword)]
     public class SwordHeldItemDefinition : HeldItemDefinition
     {
         public SwordHeldItemDefinition(string nsp, string name) : base(nsp, name)

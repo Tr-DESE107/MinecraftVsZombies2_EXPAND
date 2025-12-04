@@ -17,7 +17,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [AreaDefinition(VanillaAreaNames.halloween)]
+    [AutoAreaDefinition(VanillaAreaNames.halloween)]
     public class Halloween : AreaDefinition
     {
         public Halloween(string nsp, string name) : base(nsp, name)

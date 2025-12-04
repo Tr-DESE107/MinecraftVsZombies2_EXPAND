@@ -5,12 +5,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.obsidian)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.obsidian)]
     public class Obsidian : ContraptionBehaviour
     {
         public Obsidian(string nsp, string name) : base(nsp, name)

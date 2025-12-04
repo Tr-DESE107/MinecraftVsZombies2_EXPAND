@@ -9,12 +9,12 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.lightningOrb)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.lightningOrb)]
     public class LightningOrb : ContraptionBehaviour
     {
         public LightningOrb(string nsp, string name) : base(nsp, name)

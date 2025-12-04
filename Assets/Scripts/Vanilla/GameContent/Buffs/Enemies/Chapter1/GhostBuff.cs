@@ -10,14 +10,14 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.ghost)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.ghost)]
     public class GhostBuff : BuffDefinition
     {
         public GhostBuff(string nsp, string name) : base(nsp, name)

@@ -15,6 +15,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -23,7 +24,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
     public class UndeadFlyingObject : AIEntityBehaviour
     {
         public UndeadFlyingObject(string nsp, string name) : base(nsp, name)

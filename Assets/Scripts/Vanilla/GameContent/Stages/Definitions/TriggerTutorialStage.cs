@@ -22,7 +22,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.triggerTutorial)]
+    [AutoStageDefinition(VanillaStageNames.triggerTutorial)]
     public class TriggerTutorialStage : StageDefinition
     {
         public TriggerTutorialStage(string nsp, string name) : base(nsp, name)

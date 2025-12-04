@@ -6,12 +6,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.fireball)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.fireball)]
     public class Fireball : ProjectileBehaviour
     {
         public Fireball(string nsp, string name) : base(nsp, name)

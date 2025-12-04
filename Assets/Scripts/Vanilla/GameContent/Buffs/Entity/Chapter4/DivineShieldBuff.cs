@@ -16,12 +16,12 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.divineShield)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.divineShield)]
     public class DivineShieldBuff : BuffDefinition
     {
         public DivineShieldBuff(string nsp, string name) : base(nsp, name)

@@ -11,6 +11,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -18,7 +19,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Obstacles
 {
-    [EntityBehaviourDefinition(VanillaObstacleNames.monsterSpawner)]
+    [AutoEntityBehaviourDefinition(VanillaObstacleNames.monsterSpawner)]
     public class MonsterSpawner : ObstacleBehaviour
     {
         public MonsterSpawner(string nsp, string name) : base(nsp, name)

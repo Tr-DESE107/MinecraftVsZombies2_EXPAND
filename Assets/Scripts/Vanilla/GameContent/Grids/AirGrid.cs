@@ -4,13 +4,13 @@ using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Grids
 {
-    [GridDefinition(VanillaGridNames.air)]
+    [AutoGridDefinition(VanillaGridNames.air)]
     public class AirGrid : GridDefinition
     {
         public AirGrid(string nsp, string name) : base(nsp, name)

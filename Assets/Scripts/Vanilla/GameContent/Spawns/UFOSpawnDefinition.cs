@@ -3,11 +3,10 @@
 using MVZ2.GameContent.Enemies;
 using MVZ2Logic.Spawns;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Spawns
 {
-    [SpawnDefinition(VanillaSpawnNames.undeadFlyingObject)]
+    [AutoSpawnDefinition(VanillaSpawnNames.undeadFlyingObject)]
     public class UFOSpawnDefinition : LogicSpawnDefinition
     {
         public UFOSpawnDefinition(string nsp, string name) : base(nsp, name)

@@ -11,7 +11,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.darkMatter)]
+    [AutoArtifactDefinition(VanillaArtifactNames.darkMatter)]
     public class DarkMatter : ArtifactDefinition
     {
         public DarkMatter(string nsp, string name) : base(nsp, name)

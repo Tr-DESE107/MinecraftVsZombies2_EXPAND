@@ -9,7 +9,7 @@ using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.sorcerersScroll)]
+    [AutoArtifactDefinition(VanillaArtifactNames.sorcerersScroll)]
     public class SorcerersScroll : ArtifactDefinition
     {
         public SorcerersScroll(string nsp, string name) : base(nsp, name)

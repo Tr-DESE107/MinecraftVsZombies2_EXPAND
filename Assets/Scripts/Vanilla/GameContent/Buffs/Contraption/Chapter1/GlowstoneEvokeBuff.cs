@@ -3,14 +3,14 @@
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.glowstoneEvoke)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.glowstoneEvoke)]
     public class GlowstoneEvokeBuff : BuffDefinition
     {
         public GlowstoneEvokeBuff(string nsp, string name) : base(nsp, name)

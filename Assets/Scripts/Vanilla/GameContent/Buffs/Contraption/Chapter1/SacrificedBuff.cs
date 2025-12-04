@@ -5,14 +5,14 @@ using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.sacrificed)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.sacrificed)]
     public class SacrificedBuff : BuffDefinition
     {
         public SacrificedBuff(string nsp, string name) : base(nsp, name)

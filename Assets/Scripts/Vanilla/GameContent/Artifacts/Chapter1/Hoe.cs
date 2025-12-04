@@ -10,7 +10,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.hoe)]
+    [AutoArtifactDefinition(VanillaArtifactNames.hoe)]
     public class Hoe : ArtifactDefinition
     {
         public Hoe(string nsp, string name) : base(nsp, name)

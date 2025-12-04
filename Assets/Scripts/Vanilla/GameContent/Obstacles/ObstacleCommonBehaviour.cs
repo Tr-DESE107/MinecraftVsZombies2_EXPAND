@@ -4,12 +4,12 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Obstacles
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.obstacleCommon)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.obstacleCommon)]
     public class ObstacleCommonBehaviour : EntityBehaviourDefinition
     {
         public ObstacleCommonBehaviour(string nsp, string name) : base(nsp, name)

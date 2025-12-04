@@ -12,7 +12,7 @@ using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.cheat)]
+    [AutoCommandDefinition(VanillaCommandNames.cheat)]
     public class Cheat : CommandDefinition
     {
         public Cheat(string nsp, string name) : base(nsp, name)

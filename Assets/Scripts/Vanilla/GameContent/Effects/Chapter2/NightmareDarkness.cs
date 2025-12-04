@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.nightmareDarkness)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.nightmareDarkness)]
     public class NightmareDarkness : EffectBehaviour
     {
         public NightmareDarkness(string nsp, string name) : base(nsp, name)

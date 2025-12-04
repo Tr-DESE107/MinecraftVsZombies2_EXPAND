@@ -6,7 +6,7 @@ using MVZ2Logic.Notes;
 
 namespace MVZ2.GameContent.Notes
 {
-    [NoteDefinition(VanillaNoteNames.help)]
+    [AutoNoteDefinition(VanillaNoteNames.help)]
     public class HelpNote : NoteDefinition
     {
         public HelpNote(string nsp, string name) : base(nsp, name)

@@ -3,11 +3,12 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupAutoCollect)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupAutoCollect)]
     public class PickupAutoCollect : EntityBehaviourDefinition
     {
         public PickupAutoCollect(string nsp, string name) : base(nsp, name)

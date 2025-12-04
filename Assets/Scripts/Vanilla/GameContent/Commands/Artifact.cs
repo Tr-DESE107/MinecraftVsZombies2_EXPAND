@@ -12,7 +12,7 @@ using PVZEngine;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.artifact)]
+    [AutoCommandDefinition(VanillaCommandNames.artifact)]
     public class Artifact : CommandDefinition
     {
         public Artifact(string nsp, string name) : base(nsp, name)

@@ -12,7 +12,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.bottledBlackhole)]
+    [AutoArtifactDefinition(VanillaArtifactNames.bottledBlackhole)]
     public class BottledBlackhole : ArtifactDefinition
     {
         public BottledBlackhole(string nsp, string name) : base(nsp, name)

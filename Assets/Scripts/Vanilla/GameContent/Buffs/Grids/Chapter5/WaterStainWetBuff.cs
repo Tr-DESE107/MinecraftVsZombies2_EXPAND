@@ -2,12 +2,12 @@
 
 using MVZ2Logic.Grids;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Grids
 {
-    [BuffDefinition(VanillaBuffNames.Grid.waterStainWet)]
+    [AutoBuffDefinition(VanillaBuffNames.Grid.waterStainWet)]
     public class WaterStainWetBuff : BuffDefinition
     {
         public WaterStainWetBuff(string nsp, string name) : base(nsp, name)

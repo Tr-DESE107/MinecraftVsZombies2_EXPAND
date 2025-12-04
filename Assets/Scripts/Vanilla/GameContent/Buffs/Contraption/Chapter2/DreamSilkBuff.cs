@@ -11,8 +11,8 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using Tools.Mathematics;
@@ -20,7 +20,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.dreamSilk)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.dreamSilk)]
     public class DreamSilkBuff : BuffDefinition
     {
         public DreamSilkBuff(string nsp, string name) : base(nsp, name)

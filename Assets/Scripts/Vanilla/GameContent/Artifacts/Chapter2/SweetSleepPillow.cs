@@ -8,7 +8,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.sweetSleepPillow)]
+    [AutoArtifactDefinition(VanillaArtifactNames.sweetSleepPillow)]
     public class SweetSleepPillow : ArtifactDefinition
     {
         public SweetSleepPillow(string nsp, string name) : base(nsp, name)

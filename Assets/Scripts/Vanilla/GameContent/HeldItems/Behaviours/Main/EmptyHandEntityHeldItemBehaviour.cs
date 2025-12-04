@@ -12,7 +12,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.emptyHandEntity)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.emptyHandEntity)]
     public class EmptyHandEntityHeldItemBehaviour : HeldItemBehaviourDefinition
     {
         public EmptyHandEntityHeldItemBehaviour(string nsp, string name) : base(nsp, name)

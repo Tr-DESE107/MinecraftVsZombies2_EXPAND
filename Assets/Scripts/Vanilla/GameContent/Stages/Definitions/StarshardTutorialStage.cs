@@ -24,7 +24,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.starshardTutorial)]
+    [AutoStageDefinition(VanillaStageNames.starshardTutorial)]
     public class StarshardTutorialStage : StageDefinition
     {
         public StarshardTutorialStage(string nsp, string name) : base(nsp, name)

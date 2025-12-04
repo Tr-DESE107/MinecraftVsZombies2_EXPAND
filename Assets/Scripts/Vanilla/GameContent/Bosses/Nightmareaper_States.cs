@@ -18,6 +18,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;

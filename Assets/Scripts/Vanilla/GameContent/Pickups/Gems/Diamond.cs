@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaPickupNames.diamond)]
+    [AutoEntityBehaviourDefinition(VanillaPickupNames.diamond)]
     public class Diamond : EntityBehaviourDefinition
     {
         public Diamond(string nsp, string name) : base(nsp, name)

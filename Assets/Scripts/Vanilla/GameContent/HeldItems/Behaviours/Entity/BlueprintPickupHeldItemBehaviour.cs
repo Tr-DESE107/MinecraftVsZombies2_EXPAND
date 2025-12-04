@@ -15,14 +15,14 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.blueprintPickup)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.blueprintPickup)]
     public class BlueprintPickupHeldItemBehaviour : EntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         public BlueprintPickupHeldItemBehaviour(string nsp, string name) : base(nsp, name)

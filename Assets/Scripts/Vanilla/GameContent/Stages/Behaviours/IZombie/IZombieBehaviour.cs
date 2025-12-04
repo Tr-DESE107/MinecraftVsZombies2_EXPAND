@@ -19,7 +19,6 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Stats;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;

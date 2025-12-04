@@ -7,7 +7,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.mausoleum11)]
+    [AutoStageDefinition(VanillaStageNames.mausoleum11)]
     public partial class Mausoleum11Stage : StageDefinition
     {
         public Mausoleum11Stage(string nsp, string name) : base(nsp, name)

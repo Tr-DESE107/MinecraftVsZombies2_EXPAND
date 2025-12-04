@@ -6,7 +6,7 @@ using MVZ2Logic.Notes;
 
 namespace MVZ2.GameContent.Notes
 {
-    [NoteDefinition(VanillaNoteNames.castle)]
+    [AutoNoteDefinition(VanillaNoteNames.castle)]
     public class CastleNote : NoteDefinition
     {
         public CastleNote(string nsp, string name) : base(nsp, name)

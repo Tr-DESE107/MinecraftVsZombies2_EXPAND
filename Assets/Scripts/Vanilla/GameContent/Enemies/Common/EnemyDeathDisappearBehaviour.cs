@@ -5,13 +5,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyDeathDisappear)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyDeathDisappear)]
     public class EnemyDeathDisappearBehaviour : EntityBehaviourDefinition
     {
         public EnemyDeathDisappearBehaviour(string nsp, string name) : base(nsp, name)

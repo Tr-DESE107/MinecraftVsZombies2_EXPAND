@@ -9,7 +9,7 @@ using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.greedyVacuum)]
+    [AutoArtifactDefinition(VanillaArtifactNames.greedyVacuum)]
     public class GreedyVacuum : ArtifactDefinition
     {
         public GreedyVacuum(string nsp, string name) : base(nsp, name)

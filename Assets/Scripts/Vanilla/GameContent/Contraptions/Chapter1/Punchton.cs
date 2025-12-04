@@ -17,14 +17,15 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.punchton)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.punchton)]
     public class Punchton : ContraptionBehaviour
     {
         public Punchton(string nsp, string name) : base(nsp, name)

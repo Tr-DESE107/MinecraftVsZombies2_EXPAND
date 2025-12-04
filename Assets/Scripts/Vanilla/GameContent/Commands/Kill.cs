@@ -8,7 +8,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.kill)]
+    [AutoCommandDefinition(VanillaCommandNames.kill)]
     public class Kill : CommandDefinition
     {
         public Kill(string nsp, string name) : base(nsp, name)

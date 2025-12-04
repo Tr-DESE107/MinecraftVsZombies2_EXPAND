@@ -8,7 +8,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.izeDispensers)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.izeDispensers)]
     public class IZEDispensersLayout : IZELayout
     {
         public IZEDispensersLayout(string nsp, string name) : base(nsp, name)

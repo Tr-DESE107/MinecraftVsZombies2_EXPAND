@@ -6,14 +6,14 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.iZombieAttackBooster)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.iZombieAttackBooster)]
     public class IZombieAttackBoosterBuff : BuffDefinition
     {
         public IZombieAttackBoosterBuff(string nsp, string name) : base(nsp, name)

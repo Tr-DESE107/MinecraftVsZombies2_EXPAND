@@ -16,7 +16,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [AreaDefinition(VanillaAreaNames.dream)]
+    [AutoAreaDefinition(VanillaAreaNames.dream)]
     public class Dream : AreaDefinition
     {
         public Dream(string nsp, string name) : base(nsp, name)

@@ -10,7 +10,7 @@ using PVZEngine;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.unlock)]
+    [AutoCommandDefinition(VanillaCommandNames.unlock)]
     public class Unlock : CommandDefinition
     {
         public Unlock(string nsp, string name) : base(nsp, name)

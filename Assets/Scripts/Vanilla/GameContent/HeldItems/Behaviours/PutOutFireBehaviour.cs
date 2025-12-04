@@ -11,7 +11,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.putOutFire)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.putOutFire)]
     public class PutOutFireBehaviour : HeldItemBehaviourDefinition
     {
         public PutOutFireBehaviour(string nsp, string name) : base(nsp, name)

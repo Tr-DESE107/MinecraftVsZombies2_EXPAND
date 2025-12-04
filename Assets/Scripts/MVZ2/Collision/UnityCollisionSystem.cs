@@ -3,9 +3,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Base;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Level.Collisions;
+using PVZEngine.Collisions.Level;
 using UnityEngine;
 
 namespace MVZ2.Collisions

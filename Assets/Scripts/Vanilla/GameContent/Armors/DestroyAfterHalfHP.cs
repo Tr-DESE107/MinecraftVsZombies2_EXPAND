@@ -6,12 +6,12 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Armors;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Armors
 {
-    [ArmorBehaviourDefinition(VanillaArmorBehaviourNames.destroyAfterHalfHP)]
+    [AutoArmorBehaviourDefinition(VanillaArmorBehaviourNames.destroyAfterHalfHP)]
     public class DestroyAfterHalfHP : ArmorBehaviourDefinition
     {
         public DestroyAfterHalfHP(string nsp, string name) : base(nsp, name)

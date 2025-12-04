@@ -2,11 +2,11 @@
 
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.debugStarshard)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.debugStarshard)]
     public class DebugStarshardBuff : BuffDefinition
     {
         public DebugStarshardBuff(string nsp, string name) : base(nsp, name)

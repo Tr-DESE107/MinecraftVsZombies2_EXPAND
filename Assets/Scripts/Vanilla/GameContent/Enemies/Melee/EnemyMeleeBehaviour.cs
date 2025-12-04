@@ -11,12 +11,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyMelee)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyMelee)]
     public class EnemyMeleeBehaviour : AIEntityBehaviour
     {
         public EnemyMeleeBehaviour(string nsp, string name) : base(nsp, name)

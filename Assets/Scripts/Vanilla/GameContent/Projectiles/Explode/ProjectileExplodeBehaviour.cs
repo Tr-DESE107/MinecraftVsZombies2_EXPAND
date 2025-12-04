@@ -10,13 +10,13 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileExplode)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileExplode)]
     public class ProjectileExplodeBehaviour : EntityBehaviourDefinition
     {
         public ProjectileExplodeBehaviour(string nsp, string name) : base(nsp, name)

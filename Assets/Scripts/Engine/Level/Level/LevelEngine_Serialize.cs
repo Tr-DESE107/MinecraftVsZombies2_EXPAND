@@ -3,7 +3,7 @@
 using System.Linq;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
-using PVZEngine.Level.Collisions;
+using PVZEngine.Collisions.Level;
 
 namespace PVZEngine.Level
 {

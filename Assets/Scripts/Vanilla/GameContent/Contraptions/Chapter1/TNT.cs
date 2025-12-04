@@ -17,14 +17,14 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.tnt)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.tnt)]
     public class TNT : ContraptionBehaviour
     {
         public TNT(string nsp, string name) : base(nsp, name)

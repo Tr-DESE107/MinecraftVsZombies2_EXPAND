@@ -8,12 +8,12 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.wickedHermitZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.wickedHermitZombie)]
     public class WickedHermitZombie : AIEntityBehaviour
     {
         public WickedHermitZombie(string nsp, string name) : base(nsp, name)

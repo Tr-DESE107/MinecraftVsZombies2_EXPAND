@@ -6,12 +6,13 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2Logic.Contents.Buffs.Enemies
 {
-    [BuffDefinition(FrameworksBuffNames.Enemy.ridingPassenger)]
+    [AutoBuffDefinition(FrameworksBuffNames.Enemy.ridingPassenger)]
     public class RidingPassengerBuff : BuffDefinition
     {
         public RidingPassengerBuff(string nsp, string name) : base(nsp, name)

@@ -2,14 +2,14 @@
 
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Effects
 {
-    [BuffDefinition(VanillaBuffNames.Effect.breakoutBoardUpgrade)]
+    [AutoBuffDefinition(VanillaBuffNames.Effect.breakoutBoardUpgrade)]
     public class BreakoutBoardUpgradeBuff : BuffDefinition
     {
         public BreakoutBoardUpgradeBuff(string nsp, string name) : base(nsp, name)

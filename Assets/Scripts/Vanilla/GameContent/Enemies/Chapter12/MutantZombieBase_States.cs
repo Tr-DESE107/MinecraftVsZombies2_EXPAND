@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.StateMachine;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;

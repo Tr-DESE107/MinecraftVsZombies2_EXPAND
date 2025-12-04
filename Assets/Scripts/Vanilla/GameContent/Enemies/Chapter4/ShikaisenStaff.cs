@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.shikaisenStaff)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.shikaisenStaff)]
     public class ShikaisenStaff : EnemyBehaviour
     {
         public ShikaisenStaff(string nsp, string name) : base(nsp, name)

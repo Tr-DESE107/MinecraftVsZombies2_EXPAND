@@ -8,13 +8,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.woodenFanBlow)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.woodenFanBlow)]
     public class WoodenFanBlowBuff : BuffDefinition
     {
         public WoodenFanBlowBuff(string nsp, string name) : base(nsp, name)

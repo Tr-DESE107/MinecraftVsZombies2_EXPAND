@@ -9,13 +9,13 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.nightmareaperTransition)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.nightmareaperTransition)]
     public class NightmareaperTransitionBuff : BuffDefinition
     {
         public NightmareaperTransitionBuff(string nsp, string name) : base(nsp, name)

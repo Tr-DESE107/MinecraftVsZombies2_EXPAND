@@ -7,7 +7,6 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Placements;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;

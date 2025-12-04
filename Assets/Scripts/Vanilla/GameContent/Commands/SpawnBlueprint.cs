@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.spawnBlueprint)]
+    [AutoCommandDefinition(VanillaCommandNames.spawnBlueprint)]
     public class SpawnBlueprint : CommandDefinition
     {
         public SpawnBlueprint(string nsp, string name) : base(nsp, name)

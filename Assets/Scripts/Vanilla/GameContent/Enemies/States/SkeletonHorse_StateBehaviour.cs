@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonHorse_State)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonHorse_State)]
     public class SkeletonHorse_StateBehaviour : EnemyStateBehaviour
     {
         public SkeletonHorse_StateBehaviour(string nsp, string name) : base(nsp, name)

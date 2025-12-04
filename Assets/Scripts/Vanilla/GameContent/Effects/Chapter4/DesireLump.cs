@@ -3,14 +3,14 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.desireLump)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.desireLump)]
     public class DesireLump : EffectBehaviour
     {
 

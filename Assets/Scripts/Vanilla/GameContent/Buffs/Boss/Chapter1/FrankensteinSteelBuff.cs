@@ -7,15 +7,15 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Bosses
 {
-    [BuffDefinition(VanillaBuffNames.Boss.frankensteinSteel)]
+    [AutoBuffDefinition(VanillaBuffNames.Boss.frankensteinSteel)]
     public class FrankensteinSteelBuff : BuffDefinition
     {
         public FrankensteinSteelBuff(string nsp, string name) : base(nsp, name)

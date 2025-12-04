@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Carts
 {
-    [EntityBehaviourDefinition(VanillaCartNames.unzanFist)]
+    [AutoEntityBehaviourDefinition(VanillaCartNames.unzanFist)]
     public class UnzanFist : CartBehaviour
     {
         public UnzanFist(string nsp, string name) : base(nsp, name)

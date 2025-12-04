@@ -8,12 +8,12 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.dullahanHead)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.dullahanHead)]
     public class DullahanHead : AIEntityBehaviour
     {
         public DullahanHead(string nsp, string name) : base(nsp, name)

@@ -5,13 +5,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.boulder)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.boulder)]
     public class Boulder : ProjectileBehaviour
     {
         public Boulder(string nsp, string name) : base(nsp, name)

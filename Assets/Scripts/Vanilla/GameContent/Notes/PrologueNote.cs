@@ -9,7 +9,7 @@ using MVZ2Logic.Notes;
 
 namespace MVZ2.GameContent.Notes
 {
-    [NoteDefinition(VanillaNoteNames.prologue)]
+    [AutoNoteDefinition(VanillaNoteNames.prologue)]
     public class PrologueNote : NoteDefinition
     {
         public PrologueNote(string nsp, string name) : base(nsp, name)

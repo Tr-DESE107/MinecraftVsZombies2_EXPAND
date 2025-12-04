@@ -13,7 +13,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.brokenLantern)]
+    [AutoArtifactDefinition(VanillaArtifactNames.brokenLantern)]
     public class BrokenLantern : ArtifactDefinition
     {
         public BrokenLantern(string nsp, string name) : base(nsp, name)

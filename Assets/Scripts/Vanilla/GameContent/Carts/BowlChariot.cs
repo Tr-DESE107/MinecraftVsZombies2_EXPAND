@@ -4,13 +4,13 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Carts
 {
-    [EntityBehaviourDefinition(VanillaCartNames.bowlChariot)]
+    [AutoEntityBehaviourDefinition(VanillaCartNames.bowlChariot)]
     public class BowlChariot : CartBehaviour
     {
         public BowlChariot(string nsp, string name) : base(nsp, name)

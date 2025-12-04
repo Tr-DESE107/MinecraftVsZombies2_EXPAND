@@ -2,12 +2,12 @@
 
 using MVZ2.GameContent.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.gargoyle)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.gargoyle)]
     public class Gargoyle : AIEntityBehaviour
     {
         public Gargoyle(string nsp, string name) : base(nsp, name)

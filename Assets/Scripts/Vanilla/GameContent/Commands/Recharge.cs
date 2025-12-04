@@ -6,7 +6,7 @@ using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.recharge)]
+    [AutoCommandDefinition(VanillaCommandNames.recharge)]
     public class Recharge : CommandDefinition
     {
         public Recharge(string nsp, string name) : base(nsp, name)

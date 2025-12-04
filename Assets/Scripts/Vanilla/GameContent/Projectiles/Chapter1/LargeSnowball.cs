@@ -9,13 +9,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.largeSnowball)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.largeSnowball)]
     public class LargeSnowball : ProjectileBehaviour, IHellfireIgniteBehaviour
     {
         public LargeSnowball(string nsp, string name) : base(nsp, name)

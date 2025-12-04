@@ -4,11 +4,11 @@ using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.tntCharged)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.tntCharged)]
     public class TNTChargedBuff : BuffDefinition
     {
         public TNTChargedBuff(string nsp, string name) : base(nsp, name)

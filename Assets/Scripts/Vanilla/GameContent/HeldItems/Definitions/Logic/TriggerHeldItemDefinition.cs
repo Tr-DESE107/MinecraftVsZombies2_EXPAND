@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(LogicHeldItemNames.trigger)]
+    [AutoHeldItemDefinition(LogicHeldItemNames.trigger)]
     public class TriggerHeldItemDefinition : HeldItemDefinition
     {
         public TriggerHeldItemDefinition(string nsp, string name) : base(nsp, name)

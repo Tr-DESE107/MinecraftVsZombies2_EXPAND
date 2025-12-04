@@ -18,7 +18,6 @@ using MVZ2Logic.Maps;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
-using MVZ2Logic.Unlocks;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using UnityEngine;

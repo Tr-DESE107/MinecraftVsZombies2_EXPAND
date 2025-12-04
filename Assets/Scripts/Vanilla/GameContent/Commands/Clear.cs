@@ -6,7 +6,7 @@ using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.clear)]
+    [AutoCommandDefinition(VanillaCommandNames.clear)]
     public class Clear : CommandDefinition
     {
         public Clear(string nsp, string name) : base(nsp, name)

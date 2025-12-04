@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(VanillaHeldItemNames.combat)]
+    [AutoHeldItemDefinition(VanillaHeldItemNames.combat)]
     public class CombatHeldItemDefinition : HeldItemDefinition
     {
         public CombatHeldItemDefinition(string nsp, string name) : base(nsp, name)

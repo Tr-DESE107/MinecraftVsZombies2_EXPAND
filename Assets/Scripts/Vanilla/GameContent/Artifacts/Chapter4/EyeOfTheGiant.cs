@@ -12,7 +12,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.eyeOfTheGiant)]
+    [AutoArtifactDefinition(VanillaArtifactNames.eyeOfTheGiant)]
     public class EyeOfTheGiant : ArtifactDefinition
     {
         public EyeOfTheGiant(string nsp, string name) : base(nsp, name)

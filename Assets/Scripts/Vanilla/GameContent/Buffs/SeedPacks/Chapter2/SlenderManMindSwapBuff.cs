@@ -3,16 +3,16 @@
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Blueprints;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.SeedPacks
 {
-    [BuffDefinition(VanillaBuffNames.SeedPack.slendermanMindSwap)]
+    [AutoBuffDefinition(VanillaBuffNames.SeedPack.slendermanMindSwap)]
     public class SlenderManMindSwapBuff : BuffDefinition
     {
         public SlenderManMindSwapBuff(string nsp, string name) : base(nsp, name)

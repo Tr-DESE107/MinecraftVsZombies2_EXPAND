@@ -2,12 +2,12 @@
 
 using System.Diagnostics.CodeAnalysis;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.spider_Melee)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.spider_Melee)]
     public class Spider_MeleeBehaviour : EnemyMeleeBehaviour
     {
         public Spider_MeleeBehaviour(string nsp, string name) : base(nsp, name)

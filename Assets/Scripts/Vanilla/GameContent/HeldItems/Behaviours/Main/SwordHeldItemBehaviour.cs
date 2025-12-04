@@ -22,7 +22,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.sword)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.sword)]
     public class SwordHeldItemBehaviour : HeldItemBehaviourDefinition
     {
         public SwordHeldItemBehaviour(string nsp, string name) : base(nsp, name)

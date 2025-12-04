@@ -14,13 +14,13 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.breakoutBoard)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.breakoutBoard)]
     public class BreakoutBoard : EffectBehaviour
     {
 

@@ -8,13 +8,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.berserker)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.berserker)]
     public class Berserker : AIEntityBehaviour
     {
         public Berserker(string nsp, string name) : base(nsp, name)

@@ -5,14 +5,15 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.combatUppercut)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.combatUppercut)]
     public class CombatUppercut : EffectBehaviour
     {
         public CombatUppercut(string nsp, string name) : base(nsp, name)

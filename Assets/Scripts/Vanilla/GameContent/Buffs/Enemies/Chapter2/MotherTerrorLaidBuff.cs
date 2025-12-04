@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.motherTerrorLaid)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.motherTerrorLaid)]
     public class MotherTerrorLaidBuff : BuffDefinition
     {
         public MotherTerrorLaidBuff(string nsp, string name) : base(nsp, name)

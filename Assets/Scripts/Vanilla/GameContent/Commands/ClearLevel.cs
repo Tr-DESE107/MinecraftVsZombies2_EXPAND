@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.clearLevel)]
+    [AutoCommandDefinition(VanillaCommandNames.clearLevel)]
     public class ClearLevel : CommandDefinition
     {
         public ClearLevel(string nsp, string name) : base(nsp, name)

@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.seijaCursedDoll)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.seijaCursedDoll)]
     public class SeijaCursedDoll : EnemyBehaviour
     {
         public SeijaCursedDoll(string nsp, string name) : base(nsp, name)

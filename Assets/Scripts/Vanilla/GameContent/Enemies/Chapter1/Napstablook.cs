@@ -8,12 +8,12 @@ using MVZ2.Vanilla.Enemies;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.napstablook)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.napstablook)]
     public class Napstablook : AIEntityBehaviour
     {
         public Napstablook(string nsp, string name) : base(nsp, name)

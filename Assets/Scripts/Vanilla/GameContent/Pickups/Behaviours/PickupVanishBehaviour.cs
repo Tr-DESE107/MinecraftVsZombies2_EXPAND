@@ -5,14 +5,14 @@ using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupVanish)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupVanish)]
     public class PickupVanishBehaviour : EntityBehaviourDefinition
     {
         public PickupVanishBehaviour(string nsp, string name) : base(nsp, name)

@@ -8,12 +8,12 @@ using MVZ2.Vanilla.Pickups;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupCollectArtifact)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupCollectArtifact)]
     public class CollectBehaviour_Artifact : CollectBehaviour
     {
         public CollectBehaviour_Artifact(string nsp, string name) : base(nsp, name)

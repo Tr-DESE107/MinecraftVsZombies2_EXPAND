@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Armors;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
-using PVZEngine.Level.Collisions;
 
 namespace MVZ2Logic.Armors
 {

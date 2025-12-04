@@ -7,12 +7,12 @@ using MVZ2.Vanilla.Grids;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.dreamSilk)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.dreamSilk)]
     public class DreamSilk : ContraptionBehaviour
     {
         public DreamSilk(string nsp, string name) : base(nsp, name)

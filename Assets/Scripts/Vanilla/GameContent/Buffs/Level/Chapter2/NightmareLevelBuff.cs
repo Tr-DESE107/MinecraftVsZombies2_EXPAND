@@ -5,13 +5,14 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.nightmareLevel)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.nightmareLevel)]
     public class NightmareLevelBuff : BuffDefinition
     {
         public NightmareLevelBuff(string nsp, string name) : base(nsp, name)

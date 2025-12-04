@@ -10,7 +10,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.whackAGhost)]
+    [AutoStageDefinition(VanillaStageNames.whackAGhost)]
     public partial class WhackAGhostStage : StageDefinition
     {
         public WhackAGhostStage(string nsp, string name) : base(nsp, name)

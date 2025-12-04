@@ -9,13 +9,13 @@ using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.skywardSky)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.skywardSky)]
     public class SkywardSky : EntityBehaviourDefinition
     {
         public SkywardSky(string nsp, string name) : base(nsp, name)

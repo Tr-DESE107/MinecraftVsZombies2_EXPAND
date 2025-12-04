@@ -6,13 +6,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
-using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Seeds
 {
-    [SeedOptionDefinition(VanillaBlueprintNames.returnPearl)]
+    [AutoSeedOptionDefinition(VanillaBlueprintNames.returnPearl)]
     public class ReturnPearl : SeedOptionDefinition
     {
         public ReturnPearl(string nsp, string name) : base(nsp, name)

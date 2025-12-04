@@ -3,11 +3,11 @@
 using MVZ2.GameContent.Bosses;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.seijaMesmerizer)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.seijaMesmerizer)]
     public class SeijaMesmerizerBuff : BuffDefinition
     {
         public SeijaMesmerizerBuff(string nsp, string name) : base(nsp, name)

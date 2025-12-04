@@ -10,7 +10,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.dispenserPunchton4)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.dispenserPunchton4)]
     public class DispenserPuntchtonLayout : IZombieLayoutDefinition
     {
         public DispenserPuntchtonLayout(string nsp, string name) : base(nsp, name, 4)

@@ -5,12 +5,12 @@ using MVZ2.GameContent.Buffs.Pickups;
 using MVZ2.Vanilla.Pickups;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.ufoBlueAbsorb)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.ufoBlueAbsorb)]
     public class UFOBlueAbsorbBuff : BuffDefinition
     {
         public UFOBlueAbsorbBuff(string nsp, string name) : base(nsp, name)

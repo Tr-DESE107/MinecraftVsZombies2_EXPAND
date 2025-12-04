@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Enemies;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.iZombieSkeletonWarrior)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.iZombieSkeletonWarrior)]
     public class IZombieSkeletonWarriorBuff : BuffDefinition
     {
         public IZombieSkeletonWarriorBuff(string nsp, string name) : base(nsp, name)

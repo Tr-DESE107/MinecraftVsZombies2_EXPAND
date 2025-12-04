@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Callbacks;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.ufoSpawn)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.ufoSpawn)]
     public class UFOSpawnBuff : BuffDefinition
     {
         public UFOSpawnBuff(string nsp, string name) : base(nsp, name)

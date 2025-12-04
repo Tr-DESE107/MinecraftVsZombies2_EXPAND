@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.ship11)]
+    [AutoStageDefinition(VanillaStageNames.ship11)]
     public partial class Ship11Stage : StageDefinition
     {
         public Ship11Stage(string nsp, string name) : base(nsp, name)

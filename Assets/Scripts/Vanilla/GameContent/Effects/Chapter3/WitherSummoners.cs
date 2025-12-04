@@ -4,12 +4,12 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.witherSummoners)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.witherSummoners)]
     public class WitherSummoners : EffectBehaviour
     {
 

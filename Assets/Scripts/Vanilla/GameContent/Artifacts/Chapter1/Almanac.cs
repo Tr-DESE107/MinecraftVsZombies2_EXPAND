@@ -9,7 +9,7 @@ using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.almanac)]
+    [AutoArtifactDefinition(VanillaArtifactNames.almanac)]
     public class Almanac : ArtifactDefinition
     {
         public Almanac(string nsp, string name) : base(nsp, name)

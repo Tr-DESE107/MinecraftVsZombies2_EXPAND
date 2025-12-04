@@ -4,11 +4,11 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.stoneShieldProtected)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.stoneShieldProtected)]
     public class StoneShieldProtected : BuffDefinition
     {
         public StoneShieldProtected(string nsp, string name) : base(nsp, name)

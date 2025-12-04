@@ -4,14 +4,14 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
 
-    [BuffDefinition(VanillaBuffNames.Entity.lightFadeout)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.lightFadeout)]
     public class LightFadeoutBuff : BuffDefinition
     {
         public LightFadeoutBuff(string nsp, string name) : base(nsp, name)

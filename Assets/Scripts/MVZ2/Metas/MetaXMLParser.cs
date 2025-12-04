@@ -3,7 +3,7 @@
 using System.Xml;
 using MVZ2.IO;
 using MVZ2.Modding;
-using PVZEngine.Level.Collisions;
+using PVZEngine.Collisions;
 using UnityEngine;
 
 namespace MVZ2.Metas

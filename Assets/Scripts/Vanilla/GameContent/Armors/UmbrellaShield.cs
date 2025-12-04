@@ -5,12 +5,11 @@ using MVZ2.GameContent.Damages;
 using MVZ2Logic.Armors;
 using PVZEngine.Armors;
 using PVZEngine.Callbacks;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Armors
 {
-    [ArmorBehaviourDefinition(VanillaArmorBehaviourNames.umbrellaShield)]
+    [AutoArmorBehaviourDefinition(VanillaArmorBehaviourNames.umbrellaShield)]
     public class UmbrellaShield : ArmorBehaviourDefinition
     {
         public UmbrellaShield(string nsp, string name) : base(nsp, name)

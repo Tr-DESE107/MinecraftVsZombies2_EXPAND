@@ -6,13 +6,14 @@ using MVZ2.Vanilla.Pickups;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaPickupNames.clearPickup)]
+    [AutoEntityBehaviourDefinition(VanillaPickupNames.clearPickup)]
     public class ClearPickup : EntityBehaviourDefinition
     {
         public ClearPickup(string nsp, string name) : base(nsp, name)

@@ -4,12 +4,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.dotCollisionDamage)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.dotCollisionDamage)]
     public class DOTCollisionDamageBehaviour : EntityBehaviourDefinition
     {
         public DOTCollisionDamageBehaviour(string nsp, string name) : base(nsp, name)

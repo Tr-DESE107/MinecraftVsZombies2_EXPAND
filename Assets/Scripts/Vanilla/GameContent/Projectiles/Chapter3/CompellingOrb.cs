@@ -9,14 +9,14 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.compellingOrb)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.compellingOrb)]
     public class CompellingOrb : ProjectileBehaviour
     {
         public CompellingOrb(string nsp, string name) : base(nsp, name)

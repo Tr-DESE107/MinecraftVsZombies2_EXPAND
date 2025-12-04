@@ -6,12 +6,13 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Grids;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.damageByGold)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.damageByGold)]
     public class DamageByGoldBehaviour : EntityBehaviourDefinition
     {
         public DamageByGoldBehaviour(string nsp, string name) : base(nsp, name)

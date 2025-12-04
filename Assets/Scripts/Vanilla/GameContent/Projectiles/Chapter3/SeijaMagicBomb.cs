@@ -7,13 +7,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.seijaMagicBomb)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.seijaMagicBomb)]
     public class SeijaMagicBomb : ProjectileBehaviour
     {
         public SeijaMagicBomb(string nsp, string name) : base(nsp, name)

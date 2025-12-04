@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.silvenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.silvenser)]
     public class Silvenser : DispenserFamily
     {
         public Silvenser(string nsp, string name) : base(nsp, name)

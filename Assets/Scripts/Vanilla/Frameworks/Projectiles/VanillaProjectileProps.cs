@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using PVZEngine;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Projectiles

@@ -10,13 +10,13 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyCommon)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyCommon)]
     public class EnemyCommonBehaviour : EntityBehaviourDefinition
     {
         public EnemyCommonBehaviour(string nsp, string name) : base(nsp, name)

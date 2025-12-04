@@ -4,12 +4,12 @@ using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.nightmareDecrepify)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.nightmareDecrepify)]
     public class NightmareDecrepifyBuff : BuffDefinition
     {
         public NightmareDecrepifyBuff(string nsp, string name) : base(nsp, name)

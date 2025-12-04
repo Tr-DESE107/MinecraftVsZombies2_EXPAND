@@ -15,7 +15,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.ufoToy)]
+    [AutoArtifactDefinition(VanillaArtifactNames.ufoToy)]
     public class UFOToy : ArtifactDefinition
     {
         public UFOToy(string nsp, string name) : base(nsp, name)

@@ -15,6 +15,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -22,7 +23,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaBossNames.nightmareaper)]
+    [AutoEntityBehaviourDefinition(VanillaBossNames.nightmareaper)]
     public partial class Nightmareaper : BossBehaviour
     {
         public Nightmareaper(string nsp, string name) : base(nsp, name)

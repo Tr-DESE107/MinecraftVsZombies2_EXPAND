@@ -4,13 +4,13 @@ using MVZ2.GameContent.Fragments;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.hellfireCursed)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.hellfireCursed)]
     public class HellfireCursedBuff : BuffDefinition
     {
         public HellfireCursedBuff(string nsp, string name) : base(nsp, name)

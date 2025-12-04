@@ -9,14 +9,14 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaBossNames.seija)]
+    [AutoEntityBehaviourDefinition(VanillaBossNames.seija)]
     public partial class Seija : BossBehaviour
     {
         public Seija(string nsp, string name) : base(nsp, name)

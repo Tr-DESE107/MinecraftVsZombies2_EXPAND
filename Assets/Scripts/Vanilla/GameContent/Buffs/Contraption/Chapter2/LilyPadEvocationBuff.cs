@@ -2,15 +2,15 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.lilyPadEvocation)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.lilyPadEvocation)]
     public class LilyPadEvocationBuff : BuffDefinition
     {
         public LilyPadEvocationBuff(string nsp, string name) : base(nsp, name)

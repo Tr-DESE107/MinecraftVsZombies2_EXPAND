@@ -29,7 +29,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.tutorial)]
+    [AutoStageDefinition(VanillaStageNames.tutorial)]
     public class TutorialStage : StageDefinition
     {
         public TutorialStage(string nsp, string name) : base(nsp, name)

@@ -10,12 +10,12 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaBossNames.theGiantSnakeTail)]
+    [AutoEntityBehaviourDefinition(VanillaBossNames.theGiantSnakeTail)]
     public partial class TheGiantSnakeTail : BossBehaviour
     {
         public TheGiantSnakeTail(string nsp, string name) : base(nsp, name)

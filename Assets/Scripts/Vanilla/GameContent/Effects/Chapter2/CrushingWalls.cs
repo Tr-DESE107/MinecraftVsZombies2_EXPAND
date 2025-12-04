@@ -12,14 +12,14 @@ using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.crushingWalls)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.crushingWalls)]
     public class CrushingWalls : EffectBehaviour
     {
 

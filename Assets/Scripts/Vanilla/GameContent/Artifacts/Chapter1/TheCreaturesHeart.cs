@@ -16,7 +16,7 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.theCreaturesHeart)]
+    [AutoArtifactDefinition(VanillaArtifactNames.theCreaturesHeart)]
     public class TheCreaturesHeart : ArtifactDefinition
     {
         public TheCreaturesHeart(string nsp, string name) : base(nsp, name)

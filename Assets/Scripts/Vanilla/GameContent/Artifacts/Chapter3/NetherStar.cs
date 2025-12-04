@@ -10,7 +10,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.netherStar)]
+    [AutoArtifactDefinition(VanillaArtifactNames.netherStar)]
     public class NetherStar : ArtifactDefinition
     {
         public NetherStar(string nsp, string name) : base(nsp, name)

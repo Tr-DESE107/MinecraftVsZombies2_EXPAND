@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -13,7 +14,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.beaconMeteor)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.beaconMeteor)]
     public class BeaconMeteorBuff : BuffDefinition
     {
         public BeaconMeteorBuff(string nsp, string name) : base(nsp, name)

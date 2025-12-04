@@ -5,12 +5,12 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Entities
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.fragmented)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.fragmented)]
     public class FragmentedBehaviour : EntityBehaviourDefinition
     {
         public FragmentedBehaviour(string nsp, string name) : base(nsp, name)

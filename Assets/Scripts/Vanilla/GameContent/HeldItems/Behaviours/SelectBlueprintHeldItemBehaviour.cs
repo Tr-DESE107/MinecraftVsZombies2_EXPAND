@@ -3,7 +3,6 @@
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
@@ -14,14 +13,13 @@ using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using MVZ2Logic.Saves;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.selectBlueprint)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.selectBlueprint)]
     public class SelectBlueprintHeldItemBehaviour : HeldItemBehaviourDefinition
     {
         public SelectBlueprintHeldItemBehaviour(string nsp, string name) : base(nsp, name)

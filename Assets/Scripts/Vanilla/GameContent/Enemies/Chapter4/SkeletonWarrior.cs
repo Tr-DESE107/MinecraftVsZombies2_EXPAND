@@ -7,12 +7,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.skeletonWarrior)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.skeletonWarrior)]
     public class SkeletonWarrior : AIEntityBehaviour
     {
         public SkeletonWarrior(string nsp, string name) : base(nsp, name)

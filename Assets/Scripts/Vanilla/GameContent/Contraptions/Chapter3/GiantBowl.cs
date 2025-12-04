@@ -9,15 +9,15 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.giantBowl)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.giantBowl)]
     public class GiantBowl : ContraptionBehaviour
     {
         public GiantBowl(string nsp, string name) : base(nsp, name)

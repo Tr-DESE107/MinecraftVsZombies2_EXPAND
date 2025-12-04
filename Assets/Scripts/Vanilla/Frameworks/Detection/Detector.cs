@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Base;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools.Mathematics;

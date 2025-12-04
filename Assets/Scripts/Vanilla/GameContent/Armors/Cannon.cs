@@ -13,14 +13,14 @@ using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Armors
 {
-    [ArmorBehaviourDefinition(VanillaArmorBehaviourNames.cannon)]
+    [AutoArmorBehaviourDefinition(VanillaArmorBehaviourNames.cannon)]
     public class Cannon : ArmorBehaviourDefinition
     {
         public Cannon(string nsp, string name) : base(nsp, name)

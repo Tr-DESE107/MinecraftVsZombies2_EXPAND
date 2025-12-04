@@ -6,14 +6,14 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.vortexHopperSpin)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.vortexHopperSpin)]
     public class VortexHopperSpinBuff : BuffDefinition
     {
         public VortexHopperSpinBuff(string nsp, string name) : base(nsp, name)

@@ -4,14 +4,14 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.charm)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.charm)]
     public class CharmBuff : BuffDefinition
     {
         public CharmBuff(string nsp, string name) : base(nsp, name)

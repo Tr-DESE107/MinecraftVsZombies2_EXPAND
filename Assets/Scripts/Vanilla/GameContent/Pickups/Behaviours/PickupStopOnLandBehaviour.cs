@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupStopOnLand)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupStopOnLand)]
     public class PickupStopOnLandBehaviour : EntityBehaviourDefinition
     {
         public PickupStopOnLandBehaviour(string nsp, string name) : base(nsp, name)

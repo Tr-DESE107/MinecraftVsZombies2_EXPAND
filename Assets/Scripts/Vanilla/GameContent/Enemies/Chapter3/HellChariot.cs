@@ -10,14 +10,14 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
     public class HellChariot : AIEntityBehaviour
     {
         public HellChariot(string nsp, string name) : base(nsp, name)

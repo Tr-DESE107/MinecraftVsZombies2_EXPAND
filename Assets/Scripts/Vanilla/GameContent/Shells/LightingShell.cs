@@ -9,12 +9,13 @@ using MVZ2.Vanilla.Shells;
 using PVZEngine.Armors;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Shells;
 
 namespace MVZ2.GameContent.Shells
 {
-    [ShellDefinition(VanillaShellNames.lightning)]
+    [AutoShellDefinition(VanillaShellNames.lightning)]
     public class LightingShell : ShellDefinition
     {
         public LightingShell(string nsp, string name) : base(nsp, name)

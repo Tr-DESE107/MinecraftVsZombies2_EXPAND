@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Detections;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 

@@ -13,12 +13,12 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.elasticCloud)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.elasticCloud)]
     public class ElasticCloud : AIEntityBehaviour
     {
         public ElasticCloud(string nsp, string name) : base(nsp, name)

@@ -10,7 +10,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.highAndLow4)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.highAndLow4)]
     public class HighAndLow4Layout : IZombieLayoutDefinition
     {
         public HighAndLow4Layout(string nsp, string name) : base(nsp, name, 4)

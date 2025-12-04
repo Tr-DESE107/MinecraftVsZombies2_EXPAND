@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(LogicHeldItemNames.none)]
+    [AutoHeldItemDefinition(LogicHeldItemNames.none)]
     public class NoneHeldItemDefinition : HeldItemDefinition
     {
         public NoneHeldItemDefinition(string nsp, string name) : base(nsp, name)

@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.randomEnemySpeed)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.randomEnemySpeed)]
     public class RandomEnemySpeedBuff : BuffDefinition
     {
         public RandomEnemySpeedBuff(string nsp, string name) : base(nsp, name)

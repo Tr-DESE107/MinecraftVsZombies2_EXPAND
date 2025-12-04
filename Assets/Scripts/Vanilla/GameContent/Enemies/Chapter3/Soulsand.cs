@@ -2,13 +2,13 @@
 
 using MVZ2.Vanilla.Effects;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.soulsand)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.soulsand)]
     public class Soulsand : EnemyBehaviour
     {
         public Soulsand(string nsp, string name) : base(nsp, name)

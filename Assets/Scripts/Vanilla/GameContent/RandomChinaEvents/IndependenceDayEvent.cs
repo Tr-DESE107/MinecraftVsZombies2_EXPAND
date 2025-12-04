@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using MukioI18n;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.RandomChina;

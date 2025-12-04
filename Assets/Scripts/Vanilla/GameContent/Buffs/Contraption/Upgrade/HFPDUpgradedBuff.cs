@@ -2,13 +2,13 @@
 
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.hfpdUpgraded)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.hfpdUpgraded)]
     public class HFPDUpgradedBuff : BuffDefinition
     {
         public HFPDUpgradedBuff(string nsp, string name) : base(nsp, name)

@@ -17,6 +17,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -24,7 +25,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaBossNames.wither)]
+    [AutoEntityBehaviourDefinition(VanillaBossNames.wither)]
     public partial class Wither : BossBehaviour
     {
         public Wither(string nsp, string name) : base(nsp, name)

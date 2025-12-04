@@ -8,13 +8,13 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.necrotombstone)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.necrotombstone)]
     public class Necrotombstone : ContraptionBehaviour
     {
         public Necrotombstone(string nsp, string name) : base(nsp, name)

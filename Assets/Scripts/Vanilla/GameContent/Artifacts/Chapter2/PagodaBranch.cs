@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.pagodaBranch)]
+    [AutoArtifactDefinition(VanillaArtifactNames.pagodaBranch)]
     public class PagodaBranch : ArtifactDefinition
     {
         public PagodaBranch(string nsp, string name) : base(nsp, name)

@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Detections;
 using PVZEngine;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 

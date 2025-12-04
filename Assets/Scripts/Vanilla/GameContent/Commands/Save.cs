@@ -9,7 +9,7 @@ using MVZ2Logic.Localization;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.save)]
+    [AutoCommandDefinition(VanillaCommandNames.save)]
     public class Save : CommandDefinition
     {
         public Save(string nsp, string name) : base(nsp, name)

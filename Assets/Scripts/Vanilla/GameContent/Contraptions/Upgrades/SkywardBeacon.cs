@@ -10,15 +10,15 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.skywardBeacon)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.skywardBeacon)]
     public class SkywardBeacon : AIEntityBehaviour
     {
         public SkywardBeacon(string nsp, string name) : base(nsp, name)

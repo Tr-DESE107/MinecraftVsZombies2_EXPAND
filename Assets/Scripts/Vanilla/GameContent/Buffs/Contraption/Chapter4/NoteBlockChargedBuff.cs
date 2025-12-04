@@ -2,14 +2,14 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.noteBlockCharged)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.noteBlockCharged)]
     public class NoteBlockChargedBuff : BuffDefinition
     {
         public NoteBlockChargedBuff(string nsp, string name) : base(nsp, name)

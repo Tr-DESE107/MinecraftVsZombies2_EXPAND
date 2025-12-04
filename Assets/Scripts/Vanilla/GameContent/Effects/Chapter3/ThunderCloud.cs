@@ -7,14 +7,14 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.thunderCloud)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.thunderCloud)]
     public class ThunderCloud : EffectBehaviour
     {
         #region 公有方法

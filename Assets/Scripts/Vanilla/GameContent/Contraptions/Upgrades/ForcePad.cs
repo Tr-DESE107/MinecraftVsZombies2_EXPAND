@@ -18,13 +18,13 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.forcePad)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.forcePad)]
     public class ForcePad : ContraptionBehaviour
     {
         public ForcePad(string nsp, string name) : base(nsp, name)

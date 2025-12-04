@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(LogicHeldItemNames.conveyor)]
+    [AutoHeldItemDefinition(LogicHeldItemNames.conveyor)]
     public class ConveyorBlueprintHeldItemDefinition : BlueprintHeldItemDefinition
     {
         public ConveyorBlueprintHeldItemDefinition(string nsp, string name) : base(nsp, name)

@@ -8,7 +8,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.izeError)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.izeError)]
     public class IZEErrorLayout : IZELayout
     {
         public IZEErrorLayout(string nsp, string name) : base(nsp, name)

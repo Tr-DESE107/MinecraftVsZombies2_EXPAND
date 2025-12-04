@@ -11,12 +11,12 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.glowstone)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.glowstone)]
     public class Glowstone : ContraptionBehaviour
     {
         public Glowstone(string nsp, string name) : base(nsp, name)

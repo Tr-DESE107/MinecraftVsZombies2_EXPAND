@@ -7,13 +7,13 @@ using MVZ2.GameContent.Models;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.imp)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.imp)]
     public class Imp : AIEntityBehaviour
     {
         public Imp(string nsp, string name) : base(nsp, name)

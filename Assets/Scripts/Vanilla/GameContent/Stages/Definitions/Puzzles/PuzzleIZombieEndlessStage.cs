@@ -6,7 +6,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.puzzleIZombieEndless)]
+    [AutoStageDefinition(VanillaStageNames.puzzleIZombieEndless)]
     public class PuzzleIZombieEndlessStage : StageDefinition
     {
         public PuzzleIZombieEndlessStage(string nsp, string name) : base(nsp, name)

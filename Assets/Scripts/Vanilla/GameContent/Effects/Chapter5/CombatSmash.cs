@@ -7,13 +7,13 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.combatSmash)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.combatSmash)]
     public class CombatSmash : EffectBehaviour
     {
         public CombatSmash(string nsp, string name) : base(nsp, name)

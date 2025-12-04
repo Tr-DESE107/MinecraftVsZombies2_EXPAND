@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.necromancer)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.necromancer)]
     public class Necromancer : AIEntityBehaviour
     {
         public Necromancer(string nsp, string name) : base(nsp, name)

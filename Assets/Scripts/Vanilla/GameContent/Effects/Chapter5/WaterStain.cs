@@ -11,6 +11,8 @@ using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Collisions;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -18,7 +20,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.waterStain)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.waterStain)]
     public class WaterStain : EffectBehaviour
     {
         public WaterStain(string nsp, string name) : base(nsp, name)

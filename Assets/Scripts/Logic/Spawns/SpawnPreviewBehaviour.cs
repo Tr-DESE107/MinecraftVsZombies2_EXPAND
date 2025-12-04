@@ -3,10 +3,10 @@
 using System;
 using MVZ2Logic.Entities;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using PVZEngine.Spawns;
 
 namespace MVZ2Logic.Spawns
 {

@@ -2,12 +2,13 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.SeedPacks
 {
-    [BuffDefinition(VanillaBuffNames.SeedPack.theCreaturesHeartReduceCost)]
+    [AutoBuffDefinition(VanillaBuffNames.SeedPack.theCreaturesHeartReduceCost)]
     public class TheCreaturesHeartReduceCostBuff : BuffDefinition
     {
         public TheCreaturesHeartReduceCostBuff(string nsp, string name) : base(nsp, name)

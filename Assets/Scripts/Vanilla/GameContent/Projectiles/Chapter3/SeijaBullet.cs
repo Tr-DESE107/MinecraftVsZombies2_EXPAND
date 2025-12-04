@@ -2,13 +2,13 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.seijaBullet)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.seijaBullet)]
     public class SeijaBullet : ProjectileBehaviour
     {
         public SeijaBullet(string nsp, string name) : base(nsp, name)

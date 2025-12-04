@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.changeLane)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.changeLane)]
     public class ChangeLaneBuff : BuffDefinition
     {
         public ChangeLaneBuff(string nsp, string name) : base(nsp, name)

@@ -11,7 +11,7 @@ using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.invertedMirror)]
+    [AutoArtifactDefinition(VanillaArtifactNames.invertedMirror)]
     public class InvertedMirror : ArtifactDefinition
     {
         public InvertedMirror(string nsp, string name) : base(nsp, name)

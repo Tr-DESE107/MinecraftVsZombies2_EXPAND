@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.redDragonsRevenge)]
+    [AutoStageDefinition(VanillaStageNames.redDragonsRevenge)]
     public partial class RedDragonsRevenge : StageDefinition
     {
         public RedDragonsRevenge(string nsp, string name) : base(nsp, name)

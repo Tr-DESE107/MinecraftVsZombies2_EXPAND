@@ -11,15 +11,15 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.explosiveLargeFireball)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.explosiveLargeFireball)]
     public class ExplosiveLargeFireball : EntityBehaviourDefinition, IBeBlownBehaviour
     {
         public ExplosiveLargeFireball(string nsp, string name) : base(nsp, name)

@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.fireBreath)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.fireBreath)]
     public class FireBreath : EffectBehaviour
     {
         #region 公有方法

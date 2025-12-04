@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Localization;
 using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -18,7 +19,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.gridFire)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.gridFire)]
     public class GridFire : EntityBehaviourDefinition, IBeBlownBehaviour
     {
         public GridFire(string nsp, string name) : base(nsp, name)

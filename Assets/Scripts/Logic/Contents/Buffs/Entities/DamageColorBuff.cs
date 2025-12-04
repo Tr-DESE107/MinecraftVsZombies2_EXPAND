@@ -4,12 +4,13 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2Logic.Contents.Buffs.Entities
 {
-    [BuffDefinition(FrameworksBuffNames.Entity.damageColor)]
+    [AutoBuffDefinition(FrameworksBuffNames.Entity.damageColor)]
     public class DamageColorBuff : BuffDefinition
     {
         public DamageColorBuff(string nsp, string name) : base(nsp, name)

@@ -4,11 +4,12 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Shells;
 using PVZEngine.Damages;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
+using PVZEngine.Shells;
 
 namespace MVZ2.GameContent.Shells
 {
-    [ShellDefinition(VanillaShellNames.netherrack)]
+    [AutoShellDefinition(VanillaShellNames.netherrack)]
     public class NetherrackShell : ShellDefinition
     {
         public NetherrackShell(string nsp, string name) : base(nsp, name)

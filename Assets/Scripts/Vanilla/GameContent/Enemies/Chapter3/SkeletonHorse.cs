@@ -11,15 +11,15 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.skeletonHorse)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.skeletonHorse)]
     public class SkeletonHorse : AIEntityBehaviour
     {
         public SkeletonHorse(string nsp, string name) : base(nsp, name)

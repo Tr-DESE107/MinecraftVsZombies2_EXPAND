@@ -12,7 +12,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.pickup)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.pickup)]
     public class PickupHeldItemBehaviour : HeldItemBehaviourDefinition
     {
         public PickupHeldItemBehaviour(string nsp, string name) : base(nsp, name)

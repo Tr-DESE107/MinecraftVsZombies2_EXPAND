@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.spawn)]
+    [AutoCommandDefinition(VanillaCommandNames.spawn)]
     public class Spawn : CommandDefinition
     {
         public Spawn(string nsp, string name) : base(nsp, name)

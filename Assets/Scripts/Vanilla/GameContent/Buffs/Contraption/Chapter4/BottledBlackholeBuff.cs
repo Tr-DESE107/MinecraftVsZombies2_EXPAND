@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.bottledBlackholeDamage)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.bottledBlackholeDamage)]
     public class BottledBlackholeDamageBuff : BuffDefinition
     {
         public BottledBlackholeDamageBuff(string nsp, string name) : base(nsp, name)

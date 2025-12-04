@@ -5,12 +5,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.nocturnal)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.nocturnal)]
     public class NocturnalBuff : BuffDefinition
     {
         public NocturnalBuff(string nsp, string name) : base(nsp, name)

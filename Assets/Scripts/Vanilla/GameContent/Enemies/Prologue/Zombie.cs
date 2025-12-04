@@ -10,13 +10,13 @@ using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.zombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.zombie)]
     public class Zombie : AIEntityBehaviour
     {
         public Zombie(string nsp, string name) : base(nsp, name)

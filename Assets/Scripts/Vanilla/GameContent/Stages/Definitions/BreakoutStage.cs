@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.breakout)]
+    [AutoStageDefinition(VanillaStageNames.breakout)]
     public partial class BreakoutStage : StageDefinition
     {
         public BreakoutStage(string nsp, string name) : base(nsp, name)

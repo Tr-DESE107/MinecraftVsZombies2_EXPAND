@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [AreaDefinition(VanillaAreaNames.day)]
+    [AutoAreaDefinition(VanillaAreaNames.day)]
     public class Day : AreaDefinition
     {
         public Day(string nsp, string name) : base(nsp, name)

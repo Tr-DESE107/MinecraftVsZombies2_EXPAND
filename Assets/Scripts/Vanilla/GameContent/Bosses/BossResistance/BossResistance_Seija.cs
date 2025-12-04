@@ -3,12 +3,11 @@
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.bossResistance_Seija)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.bossResistance_Seija)]
     public partial class BossResistance_Seija : BossResistance
     {
         public BossResistance_Seija(string nsp, string name) : base(nsp, name)

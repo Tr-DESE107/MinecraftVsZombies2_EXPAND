@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.moonlightSensorLaunching)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.moonlightSensorLaunching)]
     public class MoonlightSensorLaunchingBuff : BuffDefinition
     {
         public MoonlightSensorLaunchingBuff(string nsp, string name) : base(nsp, name)

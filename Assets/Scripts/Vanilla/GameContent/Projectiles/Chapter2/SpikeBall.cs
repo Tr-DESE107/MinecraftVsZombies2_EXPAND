@@ -7,14 +7,14 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.spikeBall)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.spikeBall)]
     public class SpikeBall : ProjectileBehaviour
     {
         public SpikeBall(string nsp, string name) : base(nsp, name)

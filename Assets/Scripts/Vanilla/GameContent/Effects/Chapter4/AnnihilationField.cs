@@ -14,13 +14,13 @@ using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.annihilationField)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.annihilationField)]
     public class AnnihilationField : EffectBehaviour
     {
 

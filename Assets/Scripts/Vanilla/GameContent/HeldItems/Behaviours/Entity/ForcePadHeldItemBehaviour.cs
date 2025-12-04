@@ -14,7 +14,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.forcePad)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.forcePad)]
     public class ForcePadHeldItemBehaviour : EntityHeldItemBehaviour
     {
         public ForcePadHeldItemBehaviour(string nsp, string name) : base(nsp, name)

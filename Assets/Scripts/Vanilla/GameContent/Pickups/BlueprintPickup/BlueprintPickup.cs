@@ -9,11 +9,11 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaPickupNames.blueprintPickup)]
+    [AutoEntityBehaviourDefinition(VanillaPickupNames.blueprintPickup)]
     public class BlueprintPickup : EntityBehaviourDefinition
     {
         public BlueprintPickup(string nsp, string name) : base(nsp, name)

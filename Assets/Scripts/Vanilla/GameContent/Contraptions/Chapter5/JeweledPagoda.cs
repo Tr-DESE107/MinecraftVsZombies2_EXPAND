@@ -7,14 +7,14 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.StateMachine;
 using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.jeweledPagoda)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.jeweledPagoda)]
     public class JeweledPagoda : AIEntityBehaviour
     {
         public JeweledPagoda(string nsp, string name) : base(nsp, name)

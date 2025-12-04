@@ -4,14 +4,14 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Effects
 {
-    [BuffDefinition(VanillaBuffNames.Effect.waterStainFrozen)]
+    [AutoBuffDefinition(VanillaBuffNames.Effect.waterStainFrozen)]
     public class WaterStainFrozenBuff : BuffDefinition
     {
         public WaterStainFrozenBuff(string nsp, string name) : base(nsp, name)

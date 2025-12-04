@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.chargedBolt)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.chargedBolt)]
     public class ChargedBolt : ProjectileBehaviour
     {
         public ChargedBolt(string nsp, string name) : base(nsp, name)

@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Grids;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Grids
 {
-    [GridDefinition(VanillaGridNames.water)]
+    [AutoGridDefinition(VanillaGridNames.water)]
     public class WaterGrid : GridDefinition
     {
         public WaterGrid(string nsp, string name) : base(nsp, name)

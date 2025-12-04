@@ -3,12 +3,12 @@
 using System.Diagnostics.CodeAnalysis;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonHorse_Melee)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonHorse_Melee)]
     public class SkeletonHorse_MeleeBehaviour : EnemyMeleeBehaviour
     {
         public SkeletonHorse_MeleeBehaviour(string nsp, string name) : base(nsp, name)

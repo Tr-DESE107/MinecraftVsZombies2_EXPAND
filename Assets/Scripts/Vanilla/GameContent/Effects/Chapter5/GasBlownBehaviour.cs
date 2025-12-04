@@ -2,12 +2,12 @@
 
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.Vanilla.Effects
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.gasBlown)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.gasBlown)]
     public class GasBlownBehaviour : EntityBehaviourDefinition, IBeBlownBehaviour
     {
         public GasBlownBehaviour(string nsp, string name) : base(nsp, name)

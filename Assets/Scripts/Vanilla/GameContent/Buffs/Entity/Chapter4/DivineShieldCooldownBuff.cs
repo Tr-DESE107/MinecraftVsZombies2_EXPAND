@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.divineShieldCooldown)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.divineShieldCooldown)]
     public class DivineShieldCooldownBuff : BuffDefinition
     {
         public DivineShieldCooldownBuff(string nsp, string name) : base(nsp, name)

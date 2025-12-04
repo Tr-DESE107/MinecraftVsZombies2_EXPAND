@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.largeArrow)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.largeArrow)]
     public class LargeArrow : ProjectileBehaviour
     {
         public LargeArrow(string nsp, string name) : base(nsp, name)

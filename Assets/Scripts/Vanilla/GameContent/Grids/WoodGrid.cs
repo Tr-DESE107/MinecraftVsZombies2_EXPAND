@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Entities;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Grids
 {
-    [GridDefinition(VanillaGridNames.wood)]
+    [AutoGridDefinition(VanillaGridNames.wood)]
     public class WoodGrid : GridDefinition
     {
         public WoodGrid(string nsp, string name) : base(nsp, name)

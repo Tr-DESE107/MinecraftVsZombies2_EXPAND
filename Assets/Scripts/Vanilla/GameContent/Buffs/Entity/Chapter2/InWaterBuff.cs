@@ -6,14 +6,14 @@ using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.inWater)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.inWater)]
     public class InWaterBuff : BuffDefinition
     {
         public InWaterBuff(string nsp, string name) : base(nsp, name)

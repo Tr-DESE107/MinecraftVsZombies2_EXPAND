@@ -6,12 +6,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.seijaCameraFrame)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.seijaCameraFrame)]
     public class SeijaCameraFrame : EffectBehaviour
     {
         #region 公有方法

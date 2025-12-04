@@ -7,12 +7,12 @@ using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.StateMachine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.popCaptain)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.popCaptain)]
     public partial class PopCaptain : EnemyBehaviour
     {
         public PopCaptain(string nsp, string name) : base(nsp, name)

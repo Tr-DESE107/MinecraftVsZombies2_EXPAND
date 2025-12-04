@@ -7,7 +7,7 @@ using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.repeat)]
+    [AutoCommandDefinition(VanillaCommandNames.repeat)]
     public class Repeat : CommandDefinition
     {
         public Repeat(string nsp, string name) : base(nsp, name)

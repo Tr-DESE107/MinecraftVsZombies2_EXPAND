@@ -18,14 +18,14 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaBossNames.frankenstein)]
+    [AutoEntityBehaviourDefinition(VanillaBossNames.frankenstein)]
     public partial class Frankenstein : BossBehaviour
     {
         public Frankenstein(string nsp, string name) : base(nsp, name)

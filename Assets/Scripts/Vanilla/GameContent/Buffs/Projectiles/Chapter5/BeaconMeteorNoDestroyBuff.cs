@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Projectiles
 {
-    [BuffDefinition(VanillaBuffNames.Projectile.beaconMeteorNoDestroy)]
+    [AutoBuffDefinition(VanillaBuffNames.Projectile.beaconMeteorNoDestroy)]
     public class BeaconMeteorNoDestroyBuff : BuffDefinition
     {
         public BeaconMeteorNoDestroyBuff(string nsp, string name) : base(nsp, name)

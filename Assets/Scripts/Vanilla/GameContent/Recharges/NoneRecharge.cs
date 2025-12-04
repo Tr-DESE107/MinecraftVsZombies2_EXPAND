@@ -3,10 +3,11 @@
 using MVZ2.Vanilla.Localization;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Recharges
 {
-    [RechargeDefinition(VanillaRechargeNames.none)]
+    [AutoRechargeDefinition(VanillaRechargeNames.none)]
     public class NoneRecharge : RechargeDefinition
     {
         public NoneRecharge(string nsp, string name) : base(nsp, name)

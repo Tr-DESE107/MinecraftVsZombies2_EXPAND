@@ -14,13 +14,13 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.zombieCloud)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.zombieCloud)]
     public class ZombieCloud : AIEntityBehaviour
     {
         public ZombieCloud(string nsp, string name) : base(nsp, name)

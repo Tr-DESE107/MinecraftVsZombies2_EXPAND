@@ -11,7 +11,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleAllYourObservesAreBelongToUs)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleAllYourObservesAreBelongToUs)]
     public class PuzzleAYOABTULayout : IZombieLayoutDefinition
     {
         public PuzzleAYOABTULayout(string nsp, string name) : base(nsp, name, 6)

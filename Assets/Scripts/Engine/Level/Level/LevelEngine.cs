@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level.Collisions;
+using PVZEngine.Collisions.Level;
 using UnityEngine;
 
 namespace PVZEngine.Level

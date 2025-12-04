@@ -8,12 +8,13 @@ using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Entities
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.armorEntity)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.armorEntity)]
     public class ArmorEntityBehaviour : EntityBehaviourDefinition
     {
         #region 公有方法

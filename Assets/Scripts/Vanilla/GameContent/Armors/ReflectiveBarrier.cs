@@ -9,14 +9,14 @@ using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Armors;
+using PVZEngine.Armors;
 using PVZEngine.Callbacks;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Armors
 {
-    [ArmorBehaviourDefinition(VanillaArmorBehaviourNames.reflectiveBarrier)]
+    [AutoArmorBehaviourDefinition(VanillaArmorBehaviourNames.reflectiveBarrier)]
     public class ReflectiveBarrier : ArmorBehaviourDefinition
     {
         public ReflectiveBarrier(string nsp, string name) : base(nsp, name)

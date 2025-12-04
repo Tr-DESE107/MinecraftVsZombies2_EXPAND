@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.hfpd)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.hfpd)]
     public class HighFrequencyPulseDispenser : DispenserFamily
     {
         public HighFrequencyPulseDispenser(string nsp, string name) : base(nsp, name)

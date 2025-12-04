@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.vortexHopperDrag)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.vortexHopperDrag)]
     public class VortexHopperDragBuff : BuffDefinition
     {
         public VortexHopperDragBuff(string nsp, string name) : base(nsp, name)

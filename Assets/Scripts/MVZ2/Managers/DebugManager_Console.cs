@@ -17,6 +17,7 @@ using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.SeedPacks;
 using UnityEngine;
 
 namespace MVZ2.Debugs

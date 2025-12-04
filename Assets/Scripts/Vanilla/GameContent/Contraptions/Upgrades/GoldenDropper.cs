@@ -4,13 +4,13 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.goldenDropper)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.goldenDropper)]
     public class GoldenDropper : DispenserFamily
     {
         public GoldenDropper(string nsp, string name) : base(nsp, name)

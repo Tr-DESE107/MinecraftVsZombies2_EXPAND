@@ -20,7 +20,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.combat)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.combat)]
     public class CombatHeldItemBehaviour : HeldItemBehaviourDefinition
     {
         public CombatHeldItemBehaviour(string nsp, string name) : base(nsp, name)

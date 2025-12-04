@@ -9,12 +9,12 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.ghost)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.ghost)]
     public class Ghost : AIEntityBehaviour
     {
         public Ghost(string nsp, string name) : base(nsp, name)

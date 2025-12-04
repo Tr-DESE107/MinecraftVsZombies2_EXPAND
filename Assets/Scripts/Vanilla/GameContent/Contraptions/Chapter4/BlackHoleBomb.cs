@@ -11,14 +11,14 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.blackHoleBomb)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.blackHoleBomb)]
     public class BlackHoleBomb : ContraptionBehaviour
     {
         public BlackHoleBomb(string nsp, string name) : base(nsp, name)

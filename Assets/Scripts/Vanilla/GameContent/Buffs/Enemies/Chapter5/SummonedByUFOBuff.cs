@@ -4,15 +4,15 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.summonedByUFO)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.summonedByUFO)]
     public class SummonedByUFOBuff : BuffDefinition
     {
         public SummonedByUFOBuff(string nsp, string name) : base(nsp, name)

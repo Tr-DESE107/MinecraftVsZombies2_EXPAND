@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.spider_State)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.spider_State)]
     public class Spider_StateBehaviour : EnemyStateBehaviour
     {
         public Spider_StateBehaviour(string nsp, string name) : base(nsp, name)

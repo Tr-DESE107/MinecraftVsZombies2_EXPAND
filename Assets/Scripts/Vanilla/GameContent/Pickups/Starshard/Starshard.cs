@@ -5,13 +5,13 @@ using MVZ2.Vanilla.Pickups;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaPickupNames.starshard)]
+    [AutoEntityBehaviourDefinition(VanillaPickupNames.starshard)]
     public class Starshard : EntityBehaviourDefinition
     {
         public Starshard(string nsp, string name) : base(nsp, name)

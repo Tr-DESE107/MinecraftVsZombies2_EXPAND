@@ -9,12 +9,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.goldenApple)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.goldenApple)]
     public class GoldenApple : ContraptionBehaviour
     {
         public GoldenApple(string nsp, string name) : base(nsp, name)

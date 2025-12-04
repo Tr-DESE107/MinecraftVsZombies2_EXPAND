@@ -13,7 +13,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.trigger)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.trigger)]
     public class TriggerHeldItemBehaviour : ToEntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         public TriggerHeldItemBehaviour(string nsp, string name) : base(nsp, name)

@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.gem)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.gem)]
     public class GemBehaviour : EntityBehaviourDefinition
     {
         public GemBehaviour(string nsp, string name) : base(nsp, name)

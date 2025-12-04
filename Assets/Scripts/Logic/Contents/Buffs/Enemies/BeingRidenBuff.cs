@@ -5,10 +5,11 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2Logic.Contents.Buffs.Enemies
 {
-    [BuffDefinition(FrameworksBuffNames.Enemy.beingRiden)]
+    [AutoBuffDefinition(FrameworksBuffNames.Enemy.beingRiden)]
     public class BeingRidenBuff : BuffDefinition
     {
         public BeingRidenBuff(string nsp, string name) : base(nsp, name)

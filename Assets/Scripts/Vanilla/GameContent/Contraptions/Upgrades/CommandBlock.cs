@@ -15,13 +15,14 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.commandBlock)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.commandBlock)]
     public class CommandBlock : ContraptionBehaviour
     {
         public CommandBlock(string nsp, string name) : base(nsp, name)

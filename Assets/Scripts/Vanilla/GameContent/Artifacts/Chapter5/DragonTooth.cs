@@ -11,7 +11,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.dragonTooth)]
+    [AutoArtifactDefinition(VanillaArtifactNames.dragonTooth)]
     public class DragonTooth : ArtifactDefinition
     {
         public DragonTooth(string nsp, string name) : base(nsp, name)

@@ -8,7 +8,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.izeInstakill)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.izeInstakill)]
     public class IZEInstakillLayout : IZELayout
     {
         public IZEInstakillLayout(string nsp, string name) : base(nsp, name)

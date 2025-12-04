@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.spiritUniverseNight)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.spiritUniverseNight)]
     public class SpiritUniverseNightBuff : BuffDefinition
     {
         public SpiritUniverseNightBuff(string nsp, string name) : base(nsp, name)

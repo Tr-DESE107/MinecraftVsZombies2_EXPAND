@@ -11,7 +11,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleUnbreakable)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleUnbreakable)]
     public class PuzzleUnbreakableLayout : IZombieLayoutDefinition
     {
         public PuzzleUnbreakableLayout(string nsp, string name) : base(nsp, name, 5)

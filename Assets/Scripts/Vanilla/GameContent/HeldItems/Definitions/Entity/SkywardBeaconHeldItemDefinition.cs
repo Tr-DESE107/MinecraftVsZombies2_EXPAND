@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(VanillaHeldItemNames.skywardBeacon)]
+    [AutoHeldItemDefinition(VanillaHeldItemNames.skywardBeacon)]
     public class SkywardBeaconHeldItemDefinition : EntityHeldItemDefinition
     {
         public SkywardBeaconHeldItemDefinition(string nsp, string name) : base(nsp, name)

@@ -2,12 +2,12 @@
 
 using MVZ2.GameContent.Buffs;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.fireworkDispenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.fireworkDispenser)]
     public class FireworkDispenser : EntityBehaviourDefinition
     {
         public FireworkDispenser(string nsp, string name) : base(nsp, name)

@@ -12,7 +12,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.manipulativeTalismans)]
+    [AutoArtifactDefinition(VanillaArtifactNames.manipulativeTalismans)]
     public class ManipulativeTalismans : ArtifactDefinition
     {
         public ManipulativeTalismans(string nsp, string name) : base(nsp, name)

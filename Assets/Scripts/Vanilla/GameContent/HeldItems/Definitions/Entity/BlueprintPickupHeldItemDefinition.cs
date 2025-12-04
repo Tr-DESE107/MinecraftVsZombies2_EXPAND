@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(VanillaHeldItemNames.blueprintPickup)]
+    [AutoHeldItemDefinition(VanillaHeldItemNames.blueprintPickup)]
     public class BlueprintPickupHeldItemDefinition : EntityHeldItemDefinition
     {
         public BlueprintPickupHeldItemDefinition(string nsp, string name) : base(nsp, name)

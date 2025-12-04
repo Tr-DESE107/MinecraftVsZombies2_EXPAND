@@ -2,14 +2,14 @@
 
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.zombieCloudRaindrop)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.zombieCloudRaindrop)]
     public class ZombieCloudRaindrop : EntityBehaviourDefinition
     {
         public ZombieCloudRaindrop(string nsp, string name) : base(nsp, name)

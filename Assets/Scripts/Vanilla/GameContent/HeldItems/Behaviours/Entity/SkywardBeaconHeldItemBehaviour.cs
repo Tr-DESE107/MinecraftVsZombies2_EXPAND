@@ -16,7 +16,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.skywardBeacon)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.skywardBeacon)]
     public class SkywardBeaconHeldItemBehaviour : EntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         public SkywardBeaconHeldItemBehaviour(string nsp, string name) : base(nsp, name)

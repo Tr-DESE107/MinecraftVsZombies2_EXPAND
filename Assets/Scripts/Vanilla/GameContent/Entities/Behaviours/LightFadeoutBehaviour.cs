@@ -3,12 +3,12 @@
 using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Entities
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.lightFadeout)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.lightFadeout)]
     public class LightFadeoutBehaviour : EntityBehaviourDefinition
     {
         public LightFadeoutBehaviour(string nsp, string name) : base(nsp, name)

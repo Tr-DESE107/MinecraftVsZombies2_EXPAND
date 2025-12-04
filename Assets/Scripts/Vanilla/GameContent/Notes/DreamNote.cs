@@ -6,7 +6,7 @@ using MVZ2Logic.Notes;
 
 namespace MVZ2.GameContent.Notes
 {
-    [NoteDefinition(VanillaNoteNames.dream)]
+    [AutoNoteDefinition(VanillaNoteNames.dream)]
     public class DreamNote : NoteDefinition
     {
         public DreamNote(string nsp, string name) : base(nsp, name)

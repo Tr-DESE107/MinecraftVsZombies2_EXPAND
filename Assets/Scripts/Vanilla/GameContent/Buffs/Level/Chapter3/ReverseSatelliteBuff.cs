@@ -5,14 +5,14 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.reverseSatellite)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.reverseSatellite)]
     public class ReverseSatelliteBuff : BuffDefinition
     {
         public ReverseSatelliteBuff(string nsp, string name) : base(nsp, name)

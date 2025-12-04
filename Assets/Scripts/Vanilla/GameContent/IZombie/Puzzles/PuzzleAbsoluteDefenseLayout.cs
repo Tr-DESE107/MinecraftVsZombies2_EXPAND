@@ -10,7 +10,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleAbsoluteDefense)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleAbsoluteDefense)]
     public class PuzzleAbsoluteDefenseLayout : IZombieLayoutDefinition
     {
         public PuzzleAbsoluteDefenseLayout(string nsp, string name) : base(nsp, name, 4)

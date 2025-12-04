@@ -2,12 +2,12 @@
 
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.skywardNight)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.skywardNight)]
     public class SkywardNightBuff : BuffDefinition
     {
         public SkywardNightBuff(string nsp, string name) : base(nsp, name)

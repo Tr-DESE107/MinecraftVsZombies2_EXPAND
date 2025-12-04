@@ -10,7 +10,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.miracleMalletReplica)]
+    [AutoArtifactDefinition(VanillaArtifactNames.miracleMalletReplica)]
     public class MiracleMalletReplica : ArtifactDefinition
     {
         public MiracleMalletReplica(string nsp, string name) : base(nsp, name)

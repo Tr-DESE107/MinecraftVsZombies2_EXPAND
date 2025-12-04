@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Carts
 {
-    [EntityBehaviourDefinition(VanillaCartNames.ballista)]
+    [AutoEntityBehaviourDefinition(VanillaCartNames.ballista)]
     public class Ballista : CartBehaviour
     {
         public Ballista(string nsp, string name) : base(nsp, name)

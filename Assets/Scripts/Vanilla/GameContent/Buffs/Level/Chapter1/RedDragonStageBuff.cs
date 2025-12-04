@@ -4,12 +4,12 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.redDragonStage)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.redDragonStage)]
     public class RedDragonStageBuff : BuffDefinition
     {
         public RedDragonStageBuff(string nsp, string name) : base(nsp, name)

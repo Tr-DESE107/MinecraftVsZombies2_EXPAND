@@ -19,15 +19,15 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.mineTNT)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.mineTNT)]
     public class MineTNT : ContraptionBehaviour
     {
         public MineTNT(string nsp, string name) : base(nsp, name)

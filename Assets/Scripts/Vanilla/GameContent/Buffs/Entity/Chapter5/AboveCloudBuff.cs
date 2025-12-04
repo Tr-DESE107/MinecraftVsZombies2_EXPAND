@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.aboveCloud)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.aboveCloud)]
     public class AboveCloudBuff : BuffDefinition
     {
         public AboveCloudBuff(string nsp, string name) : base(nsp, name)

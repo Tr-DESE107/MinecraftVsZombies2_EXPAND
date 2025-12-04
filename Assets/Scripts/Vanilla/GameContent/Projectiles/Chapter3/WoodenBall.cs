@@ -6,13 +6,13 @@ using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.woodenBall)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.woodenBall)]
     public class WoodenBall : ProjectileBehaviour, IHellfireIgniteBehaviour
     {
         public WoodenBall(string nsp, string name) : base(nsp, name)

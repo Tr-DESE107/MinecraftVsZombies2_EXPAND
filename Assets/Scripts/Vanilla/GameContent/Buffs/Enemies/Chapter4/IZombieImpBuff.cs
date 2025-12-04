@@ -4,12 +4,12 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.GlobalCallbacks;
 using MVZ2.Vanilla.Enemies;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.iZombieImp)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.iZombieImp)]
     public class IZombieImpBuff : BuffDefinition
     {
         public IZombieImpBuff(string nsp, string name) : base(nsp, name)

@@ -7,12 +7,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.boneWall)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.boneWall)]
     public class BoneWall : AIEntityBehaviour
     {
         public BoneWall(string nsp, string name) : base(nsp, name)

@@ -3,11 +3,11 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.changeGrid)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.changeGrid)]
     public class ChangeGridBuff : BuffDefinition
     {
         public ChangeGridBuff(string nsp, string name) : base(nsp, name)

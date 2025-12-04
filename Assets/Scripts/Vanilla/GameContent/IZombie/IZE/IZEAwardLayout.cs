@@ -8,7 +8,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.izeAwards)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.izeAwards)]
     public class IZEAwardLayout : IZELayout
     {
         public IZEAwardLayout(string nsp, string name) : base(nsp, name)

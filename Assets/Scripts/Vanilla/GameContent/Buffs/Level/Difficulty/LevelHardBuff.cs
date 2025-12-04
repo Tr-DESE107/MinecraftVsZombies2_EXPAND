@@ -5,13 +5,13 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.levelHard)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.levelHard)]
     public class LevelHardBuff : BuffDefinition
     {
         public LevelHardBuff(string nsp, string name) : base(nsp, name)

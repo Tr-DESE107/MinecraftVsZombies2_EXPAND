@@ -7,13 +7,13 @@ using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Projectiles
 {
-    [BuffDefinition(VanillaBuffNames.Projectile.projectileKnockback)]
+    [AutoBuffDefinition(VanillaBuffNames.Projectile.projectileKnockback)]
     public class ProjectileKnockbackBuff : BuffDefinition
     {
         public ProjectileKnockbackBuff(string nsp, string name) : base(nsp, name)

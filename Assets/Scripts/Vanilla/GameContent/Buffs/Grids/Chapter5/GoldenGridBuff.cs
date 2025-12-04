@@ -7,15 +7,15 @@ using MVZ2Logic.Grids;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Grids
 {
-    [BuffDefinition(VanillaBuffNames.Grid.goldenGrid)]
+    [AutoBuffDefinition(VanillaBuffNames.Grid.goldenGrid)]
     public class GoldenGridBuff : BuffDefinition
     {
         public GoldenGridBuff(string nsp, string name) : base(nsp, name)

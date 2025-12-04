@@ -5,12 +5,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.dart)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.dart)]
     public class Dart : ProjectileBehaviour
     {
         public Dart(string nsp, string name) : base(nsp, name)

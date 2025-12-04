@@ -8,7 +8,7 @@ using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.breakoutBoard)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.breakoutBoard)]
     public class BreakoutBoardHeldItemBehaviour : EntityHeldItemBehaviour
     {
         public BreakoutBoardHeldItemBehaviour(string nsp, string name) : base(nsp, name)

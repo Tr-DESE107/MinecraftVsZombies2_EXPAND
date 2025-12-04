@@ -2,12 +2,12 @@
 
 using MVZ2Logic.Grids;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Grids
 {
-    [BuffDefinition(VanillaBuffNames.Grid.shipBrokenGrid)]
+    [AutoBuffDefinition(VanillaBuffNames.Grid.shipBrokenGrid)]
     public class ShipBrokenGridBuff : BuffDefinition
     {
         public ShipBrokenGridBuff(string nsp, string name) : base(nsp, name)

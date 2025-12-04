@@ -4,12 +4,11 @@ using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.parabot)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.parabot)]
     public class Parabot : ProjectileBehaviour
     {
         public Parabot(string nsp, string name) : base(nsp, name)

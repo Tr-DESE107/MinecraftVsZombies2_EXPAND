@@ -18,7 +18,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.dowsingRods)]
+    [AutoArtifactDefinition(VanillaArtifactNames.dowsingRods)]
     public class DowsingRods : ArtifactDefinition
     {
         public DowsingRods(string nsp, string name) : base(nsp, name)

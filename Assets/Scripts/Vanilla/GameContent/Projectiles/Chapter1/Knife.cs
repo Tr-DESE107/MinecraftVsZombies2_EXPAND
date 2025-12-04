@@ -4,11 +4,11 @@ using System.Linq;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Shells;
 using PVZEngine.Damages;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.knife)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.knife)]
     public class Knife : ProjectileBehaviour
     {
         public Knife(string nsp, string name) : base(nsp, name)

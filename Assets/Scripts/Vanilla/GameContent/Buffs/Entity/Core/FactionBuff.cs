@@ -2,13 +2,13 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.faction)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.faction)]
     public class FactionBuff : BuffDefinition
     {
         public FactionBuff(string nsp, string name) : base(nsp, name)

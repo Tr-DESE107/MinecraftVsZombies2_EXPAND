@@ -14,7 +14,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.test)]
+    [AutoCommandDefinition(VanillaCommandNames.test)]
     public class Test : CommandDefinition
     {
         public Test(string nsp, string name) : base(nsp, name)

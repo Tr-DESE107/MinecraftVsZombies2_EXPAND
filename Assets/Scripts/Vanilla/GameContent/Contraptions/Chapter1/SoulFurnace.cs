@@ -17,7 +17,9 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -25,7 +27,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.soulFurnace)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.soulFurnace)]
     public class SoulFurnace : DispenserFamily
     {
         public SoulFurnace(string nsp, string name) : base(nsp, name)

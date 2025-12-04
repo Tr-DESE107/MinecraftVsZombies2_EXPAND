@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.tornado)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.tornado)]
     public class Tornado : EntityBehaviourDefinition, IBeBlownBehaviour
     {
         public Tornado(string nsp, string name) : base(nsp, name)

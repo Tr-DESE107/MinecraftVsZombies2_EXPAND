@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.temporaryUpdateBeforeGame)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.temporaryUpdateBeforeGame)]
     public class TemporaryUpdateBeforeGameBuff : BuffDefinition
     {
         public TemporaryUpdateBeforeGameBuff(string nsp, string name) : base(nsp, name)

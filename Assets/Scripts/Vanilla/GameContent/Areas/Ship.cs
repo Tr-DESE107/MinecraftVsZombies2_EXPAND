@@ -21,7 +21,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [AreaDefinition(VanillaAreaNames.ship)]
+    [AutoAreaDefinition(VanillaAreaNames.ship)]
     public class Ship : AreaDefinition
     {
         public Ship(string nsp, string name) : base(nsp, name)

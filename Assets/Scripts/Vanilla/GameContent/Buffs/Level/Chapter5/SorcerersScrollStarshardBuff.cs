@@ -5,12 +5,12 @@ using MVZ2.GameContent.Sprites;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modifiers;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.sorcerersScrollStarshard)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.sorcerersScrollStarshard)]
     public class SorcerersScrollStarshardBuff : BuffDefinition
     {
         public SorcerersScrollStarshardBuff(string nsp, string name) : base(nsp, name)

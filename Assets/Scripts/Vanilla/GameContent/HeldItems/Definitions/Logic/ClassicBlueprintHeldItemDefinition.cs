@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(LogicHeldItemNames.blueprint)]
+    [AutoHeldItemDefinition(LogicHeldItemNames.blueprint)]
     public class ClassicBlueprintHeldItemDefinition : BlueprintHeldItemDefinition
     {
         public ClassicBlueprintHeldItemDefinition(string nsp, string name) : base(nsp, name)

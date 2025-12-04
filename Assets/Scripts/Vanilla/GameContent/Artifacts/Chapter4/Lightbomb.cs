@@ -15,7 +15,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.lightbomb)]
+    [AutoArtifactDefinition(VanillaArtifactNames.lightbomb)]
     public class Lightbomb : ArtifactDefinition
     {
         public Lightbomb(string nsp, string name) : base(nsp, name)

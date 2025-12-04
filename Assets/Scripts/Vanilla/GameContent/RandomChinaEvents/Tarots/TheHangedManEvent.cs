@@ -5,8 +5,8 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.RandomChina;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 

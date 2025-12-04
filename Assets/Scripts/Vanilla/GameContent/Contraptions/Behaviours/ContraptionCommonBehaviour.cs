@@ -9,12 +9,12 @@ using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.contraptionCommon)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.contraptionCommon)]
     public class ContraptionCommonBehaviour : EntityBehaviourDefinition
     {
         public ContraptionCommonBehaviour(string nsp, string name) : base(nsp, name)

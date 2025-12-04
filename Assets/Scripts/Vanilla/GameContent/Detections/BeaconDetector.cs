@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Level;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using Tools.Mathematics;
 using UnityEngine;

@@ -6,7 +6,7 @@ using MVZ2Logic.Notes;
 
 namespace MVZ2.GameContent.Notes
 {
-    [NoteDefinition(VanillaNoteNames.ship)]
+    [AutoNoteDefinition(VanillaNoteNames.ship)]
     public class ShipNote : NoteDefinition
     {
         public ShipNote(string nsp, string name) : base(nsp, name)

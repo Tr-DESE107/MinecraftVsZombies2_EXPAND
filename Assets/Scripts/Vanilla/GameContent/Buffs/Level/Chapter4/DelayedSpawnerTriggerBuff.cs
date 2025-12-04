@@ -4,13 +4,13 @@ using MVZ2.GameContent.Obstacles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.delayedSpawnerTrigger)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.delayedSpawnerTrigger)]
     public class DelayedSpawnerTriggerBuff : BuffDefinition
     {
         public DelayedSpawnerTriggerBuff(string nsp, string name) : base(nsp, name)

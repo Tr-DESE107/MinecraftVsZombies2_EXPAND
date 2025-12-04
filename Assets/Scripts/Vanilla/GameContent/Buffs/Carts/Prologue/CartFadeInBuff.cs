@@ -4,14 +4,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Carts
 {
-    [BuffDefinition(VanillaBuffNames.Cart.cartFadeIn)]
+    [AutoBuffDefinition(VanillaBuffNames.Cart.cartFadeIn)]
     public class CartFadeInBuff : BuffDefinition
     {
         public CartFadeInBuff(string nsp, string name) : base(nsp, name)

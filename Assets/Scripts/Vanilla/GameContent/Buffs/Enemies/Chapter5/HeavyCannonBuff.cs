@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.heavyCannon)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.heavyCannon)]
     public class HeavyCannonBuff : BuffDefinition
     {
         public HeavyCannonBuff(string nsp, string name) : base(nsp, name)

@@ -7,13 +7,13 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.nightmareaperTimer)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.nightmareaperTimer)]
     public class NightmareaperTimer : EffectBehaviour
     {
         public NightmareaperTimer(string nsp, string name) : base(nsp, name)

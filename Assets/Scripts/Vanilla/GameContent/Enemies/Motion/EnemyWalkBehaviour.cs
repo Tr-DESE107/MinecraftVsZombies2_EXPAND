@@ -4,12 +4,12 @@ using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyWalk)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyWalk)]
     public class EnemyWalkBehaviour : AIEntityBehaviour
     {
         public EnemyWalkBehaviour(string nsp, string name) : base(nsp, name)

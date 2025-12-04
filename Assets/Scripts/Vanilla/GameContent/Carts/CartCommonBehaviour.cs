@@ -7,7 +7,6 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Effects;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Difficulties;
@@ -16,12 +15,12 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Carts
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.cartCommon)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.cartCommon)]
     public class CartCommonBehaviour : EntityBehaviourDefinition
     {
         public CartCommonBehaviour(string nsp, string name) : base(nsp, name)

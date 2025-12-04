@@ -19,15 +19,16 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaBossNames.theGiant)]
+    [AutoEntityBehaviourDefinition(VanillaBossNames.theGiant)]
     public partial class TheGiant : BossBehaviour
     {
         public TheGiant(string nsp, string name) : base(nsp, name)

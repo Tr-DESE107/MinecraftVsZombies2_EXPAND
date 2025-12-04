@@ -9,13 +9,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.spider)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.spider)]
     public class Spider : AIEntityBehaviour
     {
         public Spider(string nsp, string name) : base(nsp, name)

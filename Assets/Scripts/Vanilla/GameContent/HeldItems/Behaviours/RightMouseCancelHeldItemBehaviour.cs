@@ -11,7 +11,7 @@ using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.rightMouseCancel)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.rightMouseCancel)]
     public class RightMouseCancelHeldItemBehaviour : HeldItemBehaviourDefinition
     {
         public RightMouseCancelHeldItemBehaviour(string nsp, string name) : base(nsp, name)

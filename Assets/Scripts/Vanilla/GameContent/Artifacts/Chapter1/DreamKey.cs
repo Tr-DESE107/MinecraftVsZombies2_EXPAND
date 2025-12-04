@@ -16,7 +16,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.dreamKey)]
+    [AutoArtifactDefinition(VanillaArtifactNames.dreamKey)]
     public class DreamKey : ArtifactDefinition
     {
         public DreamKey(string nsp, string name) : base(nsp, name)

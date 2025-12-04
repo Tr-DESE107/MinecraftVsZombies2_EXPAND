@@ -8,14 +8,15 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileExplodeFirework)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileExplodeFirework)]
     public class ProjectileExplodeBehaviour_Firework : ProjectileExplodeBehaviour
     {
         public ProjectileExplodeBehaviour_Firework(string nsp, string name) : base(nsp, name)

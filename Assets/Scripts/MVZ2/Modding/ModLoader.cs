@@ -28,10 +28,11 @@ using MVZ2Logic.Spawns;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
-using PVZEngine.Definitions;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
+using PVZEngine.Spawns;
+using PVZEngine.Difficulties;
 
 namespace MVZ2.Modding
 {

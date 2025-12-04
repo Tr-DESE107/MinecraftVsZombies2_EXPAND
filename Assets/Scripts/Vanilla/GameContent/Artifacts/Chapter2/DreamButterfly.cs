@@ -12,7 +12,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.dreamButterfly)]
+    [AutoArtifactDefinition(VanillaArtifactNames.dreamButterfly)]
     public class DreamButterfly : ArtifactDefinition
     {
         public DreamButterfly(string nsp, string name) : base(nsp, name)

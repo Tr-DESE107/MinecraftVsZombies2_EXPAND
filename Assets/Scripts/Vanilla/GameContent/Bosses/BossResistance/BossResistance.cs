@@ -5,13 +5,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.bossResistance)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.bossResistance)]
     public partial class BossResistance : EntityBehaviourDefinition
     {
         public BossResistance(string nsp, string name) : base(nsp, name)

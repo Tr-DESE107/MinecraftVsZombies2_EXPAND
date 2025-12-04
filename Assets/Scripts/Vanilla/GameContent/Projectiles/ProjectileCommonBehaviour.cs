@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -15,7 +16,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileCommon)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileCommon)]
     public class ProjectileCommonBehaviour : EntityBehaviourDefinition
     {
         public ProjectileCommonBehaviour(string nsp, string name) : base(nsp, name)

@@ -2,11 +2,11 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.punchtonAchievement)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.punchtonAchievement)]
     public class PunchtonAchievementBuff : BuffDefinition
     {
         public PunchtonAchievementBuff(string nsp, string name) : base(nsp, name)

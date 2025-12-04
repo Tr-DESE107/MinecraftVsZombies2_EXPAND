@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(LogicHeldItemNames.starshard)]
+    [AutoHeldItemDefinition(LogicHeldItemNames.starshard)]
     public class StarshardHeldItemDefinition : HeldItemDefinition
     {
         public StarshardHeldItemDefinition(string nsp, string name) : base(nsp, name)

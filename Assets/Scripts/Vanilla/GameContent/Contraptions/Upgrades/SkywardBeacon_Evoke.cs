@@ -5,13 +5,13 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skywardBeacon_Evoke)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.skywardBeacon_Evoke)]
     public class SkywardBeacon_Evoke : ContraptionEvokeBehaviour
     {
         public SkywardBeacon_Evoke(string nsp, string name) : base(nsp, name)

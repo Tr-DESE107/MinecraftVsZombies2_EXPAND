@@ -6,7 +6,6 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Entities;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Unlocks;
@@ -16,12 +15,13 @@ using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Grids;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.dullahan)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.dullahan)]
     public class Dullahan : AIEntityBehaviour
     {
         public Dullahan(string nsp, string name) : base(nsp, name)

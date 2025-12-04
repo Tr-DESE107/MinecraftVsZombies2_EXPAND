@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(VanillaHeldItemNames.breakoutBoard)]
+    [AutoHeldItemDefinition(VanillaHeldItemNames.breakoutBoard)]
     public class BreakoutBoardHeldItemDefinition : EntityHeldItemDefinition
     {
         public BreakoutBoardHeldItemDefinition(string nsp, string name) : base(nsp, name)

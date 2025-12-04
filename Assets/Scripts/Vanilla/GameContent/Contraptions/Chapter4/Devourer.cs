@@ -19,14 +19,14 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.devourer)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.devourer)]
     public class Devourer : ContraptionBehaviour
     {
         public Devourer(string nsp, string name) : base(nsp, name)

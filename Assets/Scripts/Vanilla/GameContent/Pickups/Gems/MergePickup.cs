@@ -6,12 +6,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.mergePickup)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.mergePickup)]
     public class MergePickup : EntityBehaviourDefinition
     {
         public MergePickup(string nsp, string name) : base(nsp, name)

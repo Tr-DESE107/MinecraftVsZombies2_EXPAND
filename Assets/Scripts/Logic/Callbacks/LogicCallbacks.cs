@@ -6,7 +6,7 @@ using MVZ2Logic.Inputs;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Definitions;
+using PVZEngine.SeedPacks;
 using UnityEngine;
 
 namespace MVZ2Logic.Callbacks

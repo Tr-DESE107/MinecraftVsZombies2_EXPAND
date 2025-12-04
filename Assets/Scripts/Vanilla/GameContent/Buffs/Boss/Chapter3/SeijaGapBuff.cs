@@ -4,14 +4,14 @@ using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Bosses
 {
-    [BuffDefinition(VanillaBuffNames.Boss.seijaGap)]
+    [AutoBuffDefinition(VanillaBuffNames.Boss.seijaGap)]
     public class SeijaGapBuff : BuffDefinition
     {
         public SeijaGapBuff(string nsp, string name) : base(nsp, name)

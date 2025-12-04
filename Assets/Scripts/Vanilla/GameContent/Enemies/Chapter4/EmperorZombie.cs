@@ -13,13 +13,13 @@ using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.emperorZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.emperorZombie)]
     public class EmperorZombie : AIEntityBehaviour
     {
         public EmperorZombie(string nsp, string name) : base(nsp, name)

@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.fragment)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.fragment)]
     public class Fragment : EffectBehaviour
     {
 

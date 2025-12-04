@@ -5,12 +5,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.shikaisenZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.shikaisenZombie)]
     public class ShikaisenZombie : AIEntityBehaviour
     {
         public ShikaisenZombie(string nsp, string name) : base(nsp, name)

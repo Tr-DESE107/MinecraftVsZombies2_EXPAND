@@ -12,13 +12,13 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.noteBlock)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.noteBlock)]
     public class NoteBlock : DispenserFamily
     {
         public NoteBlock(string nsp, string name) : base(nsp, name)

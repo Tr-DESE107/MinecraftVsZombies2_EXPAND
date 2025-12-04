@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Bosses
 {
-    [BuffDefinition(VanillaBuffNames.Boss.bossRevenge)]
+    [AutoBuffDefinition(VanillaBuffNames.Boss.bossRevenge)]
     public class BossRevengeBuff : BuffDefinition
     {
         public BossRevengeBuff(string nsp, string name) : base(nsp, name)

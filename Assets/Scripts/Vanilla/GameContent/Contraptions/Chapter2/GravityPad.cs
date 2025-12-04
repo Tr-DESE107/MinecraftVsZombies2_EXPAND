@@ -13,13 +13,13 @@ using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.gravityPad)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.gravityPad)]
     public class GravityPad : ContraptionBehaviour
     {
         public GravityPad(string nsp, string name) : base(nsp, name)

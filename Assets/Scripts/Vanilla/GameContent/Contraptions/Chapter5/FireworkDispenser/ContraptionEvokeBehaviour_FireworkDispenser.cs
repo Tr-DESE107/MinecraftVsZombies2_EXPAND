@@ -6,12 +6,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.contraptionEvokeFireworkDispenser)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.contraptionEvokeFireworkDispenser)]
     public class ContraptionEvokeBehaviour_FireworkDispenser : ContraptionEvokeBehaviour
     {
         public ContraptionEvokeBehaviour_FireworkDispenser(string nsp, string name) : base(nsp, name)

@@ -12,7 +12,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.blueprint)]
+    [AutoCommandDefinition(VanillaCommandNames.blueprint)]
     public class Blueprint : CommandDefinition
     {
         public Blueprint(string nsp, string name) : base(nsp, name)

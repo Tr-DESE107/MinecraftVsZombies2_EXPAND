@@ -4,45 +4,45 @@ using PVZEngine;
 
 namespace MVZ2Logic.Definitions
 {
-    public class SeedOptionDefinitionAttribute : DefinitionAttribute
+    public class AutoSeedOptionDefinitionAttribute : DefinitionAttribute
     {
-        public SeedOptionDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.SEED_OPTION)
+        public AutoSeedOptionDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.SEED_OPTION)
         {
         }
     }
-    public class NoteDefinitionAttribute : DefinitionAttribute
+    public class AutoNoteDefinitionAttribute : DefinitionAttribute
     {
-        public NoteDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.NOTE)
+        public AutoNoteDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.NOTE)
         {
         }
     }
-    public class ArtifactDefinitionAttribute : DefinitionAttribute
+    public class AutoArtifactDefinitionAttribute : DefinitionAttribute
     {
-        public ArtifactDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.ARTIFACT)
+        public AutoArtifactDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.ARTIFACT)
         {
         }
     }
-    public class HeldItemDefinitionAttribute : DefinitionAttribute
+    public class AutoHeldItemDefinitionAttribute : DefinitionAttribute
     {
-        public HeldItemDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.HELD_ITEM)
+        public AutoHeldItemDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.HELD_ITEM)
         {
         }
     }
-    public class HeldItemBehaviourDefinitionAttribute : DefinitionAttribute
+    public class AutoHeldItemBehaviourDefinitionAttribute : DefinitionAttribute
     {
-        public HeldItemBehaviourDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.HELD_ITEM_BEHAVIOUR)
+        public AutoHeldItemBehaviourDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.HELD_ITEM_BEHAVIOUR)
         {
         }
     }
-    public class IZombieLayoutDefinitionAttribute : DefinitionAttribute
+    public class AutoIZombieLayoutDefinitionAttribute : DefinitionAttribute
     {
-        public IZombieLayoutDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.I_ZOMBIE_LAYOUT)
+        public AutoIZombieLayoutDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.I_ZOMBIE_LAYOUT)
         {
         }
     }
-    public class CommandDefinitionAttribute : DefinitionAttribute
+    public class AutoCommandDefinitionAttribute : DefinitionAttribute
     {
-        public CommandDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.COMMAND)
+        public AutoCommandDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.COMMAND)
         {
         }
     }

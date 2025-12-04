@@ -3,12 +3,12 @@
 using MVZ2.GameContent.Seeds;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.tutorialPickaxeDisable)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.tutorialPickaxeDisable)]
     public class TutorialPickaxeDisableBuff : BuffDefinition
     {
         public TutorialPickaxeDisableBuff(string nsp, string name) : base(nsp, name)

@@ -7,12 +7,12 @@ using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.dragonTooth)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.dragonTooth)]
     public class DragonToothBuff : BuffDefinition
     {
         public DragonToothBuff(string nsp, string name) : base(nsp, name)

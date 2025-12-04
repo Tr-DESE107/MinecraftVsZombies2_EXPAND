@@ -4,14 +4,14 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Pickups
 {
-    [BuffDefinition(VanillaBuffNames.Pickup.absorbedByUFO)]
+    [AutoBuffDefinition(VanillaBuffNames.Pickup.absorbedByUFO)]
     public class AbsorbedByUFOBuff : BuffDefinition
     {
         public AbsorbedByUFOBuff(string nsp, string name) : base(nsp, name)

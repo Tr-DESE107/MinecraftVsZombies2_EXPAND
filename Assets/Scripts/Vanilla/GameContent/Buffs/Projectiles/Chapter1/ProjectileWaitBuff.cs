@@ -3,14 +3,14 @@
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Projectiles
 {
-    [BuffDefinition(VanillaBuffNames.Projectile.projectileWait)]
+    [AutoBuffDefinition(VanillaBuffNames.Projectile.projectileWait)]
     public class ProjectileWaitBuff : BuffDefinition
     {
         public ProjectileWaitBuff(string nsp, string name) : base(nsp, name)

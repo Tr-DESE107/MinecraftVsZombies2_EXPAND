@@ -6,12 +6,12 @@ using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.hellfireIgnitedArrow)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.hellfireIgnitedArrow)]
     public class HellfireIgnitedArrowBehaviour : ProjectileBehaviour, IHellfireIgniteBehaviour
     {
         public HellfireIgnitedArrowBehaviour(string nsp, string name) : base(nsp, name)

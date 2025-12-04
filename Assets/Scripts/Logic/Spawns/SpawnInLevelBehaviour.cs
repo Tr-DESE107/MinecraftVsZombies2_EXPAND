@@ -2,9 +2,9 @@
 
 using System.Linq;
 using MVZ2Logic.Level;
-using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
+using PVZEngine.Spawns;
 
 namespace MVZ2Logic.Spawns
 {

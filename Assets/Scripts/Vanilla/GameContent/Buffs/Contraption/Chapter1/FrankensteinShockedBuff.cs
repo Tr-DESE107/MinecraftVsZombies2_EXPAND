@@ -6,12 +6,12 @@ using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.frankensteinShocked)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.frankensteinShocked)]
     public class FrankensteinShockedBuff : BuffDefinition
     {
         public FrankensteinShockedBuff(string nsp, string name) : base(nsp, name)

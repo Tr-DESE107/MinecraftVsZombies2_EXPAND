@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Bosses
 {
-    [BuffDefinition(VanillaBuffNames.Boss.frankensteinTransforming)]
+    [AutoBuffDefinition(VanillaBuffNames.Boss.frankensteinTransforming)]
     public class FrankensteinTransformingBuff : BuffDefinition
     {
         public FrankensteinTransformingBuff(string nsp, string name) : base(nsp, name)

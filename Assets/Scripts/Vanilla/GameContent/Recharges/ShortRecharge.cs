@@ -3,10 +3,11 @@
 using MVZ2.Vanilla.Localization;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Recharges
 {
-    [RechargeDefinition(VanillaRechargeNames.shortTime)]
+    [AutoRechargeDefinition(VanillaRechargeNames.shortTime)]
     public class ShortRecharge : RechargeDefinition
     {
         public ShortRecharge(string nsp, string name) : base(nsp, name)

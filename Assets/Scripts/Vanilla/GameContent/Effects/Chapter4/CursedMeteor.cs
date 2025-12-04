@@ -8,13 +8,13 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.cursedMeteor)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.cursedMeteor)]
     public class CursedMeteor : EffectBehaviour
     {
 

@@ -11,15 +11,16 @@ using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.mesmerizer)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.mesmerizer)]
     public class Mesmerizer : AIEntityBehaviour
     {
         public Mesmerizer(string nsp, string name) : base(nsp, name)

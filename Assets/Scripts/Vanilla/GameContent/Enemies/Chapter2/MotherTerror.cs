@@ -12,12 +12,12 @@ using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.motherTerror)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.motherTerror)]
     public class MotherTerror : AIEntityBehaviour
     {
         public MotherTerror(string nsp, string name) : base(nsp, name)

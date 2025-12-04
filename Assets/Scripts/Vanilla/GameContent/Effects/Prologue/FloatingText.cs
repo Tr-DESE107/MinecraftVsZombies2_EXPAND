@@ -3,12 +3,12 @@
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.floatingText)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.floatingText)]
     public class FloatingText : EffectBehaviour
     {
         public FloatingText(string nsp, string name) : base(nsp, name)

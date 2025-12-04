@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.SeedPacks;
 using Tools;
 

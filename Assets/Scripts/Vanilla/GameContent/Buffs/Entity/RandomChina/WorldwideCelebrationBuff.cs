@@ -5,13 +5,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.worldwideCelebration)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.worldwideCelebration)]
     public class WorldwideCelebrationBuff : BuffDefinition
     {
         public WorldwideCelebrationBuff(string nsp, string name) : base(nsp, name)

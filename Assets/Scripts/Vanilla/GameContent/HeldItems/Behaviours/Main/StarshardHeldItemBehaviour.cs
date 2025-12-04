@@ -16,7 +16,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.starshard)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.starshard)]
     public class StarshardHeldItemBehaviour : ToEntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         public StarshardHeldItemBehaviour(string nsp, string name) : base(nsp, name)

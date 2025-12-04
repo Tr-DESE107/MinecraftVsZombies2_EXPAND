@@ -14,13 +14,13 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.randomChina)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.randomChina)]
     public class RandomChina : ContraptionBehaviour
     {
         public RandomChina(string nsp, string name) : base(nsp, name)

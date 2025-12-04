@@ -8,7 +8,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.izeSpikes)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.izeSpikes)]
     public class IZESpikesLayout : IZELayout
     {
         public IZESpikesLayout(string nsp, string name) : base(nsp, name)

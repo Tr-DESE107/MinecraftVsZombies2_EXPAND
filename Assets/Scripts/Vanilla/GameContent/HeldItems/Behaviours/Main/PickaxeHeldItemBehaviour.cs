@@ -14,7 +14,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.pickaxe)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.pickaxe)]
     public class PickaxeHeldItemBehaviour : ToEntityHeldItemBehaviour
     {
         public PickaxeHeldItemBehaviour(string nsp, string name) : base(nsp, name)

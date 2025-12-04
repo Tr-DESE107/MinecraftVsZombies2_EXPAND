@@ -4,14 +4,14 @@ using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.fireworkBlast)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.fireworkBlast)]
     public class FireworkBlast : EffectBehaviour
     {
         public FireworkBlast(string nsp, string name) : base(nsp, name)

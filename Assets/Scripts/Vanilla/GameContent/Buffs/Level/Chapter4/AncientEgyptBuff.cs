@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.ancientEgypt)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.ancientEgypt)]
     public class AncientEgyptBuff : BuffDefinition
     {
         public AncientEgyptBuff(string nsp, string name) : base(nsp, name)

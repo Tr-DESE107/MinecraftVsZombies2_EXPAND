@@ -3,14 +3,14 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.hellPlanet)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.hellPlanet)]
     public class HellPlanet : ProjectileBehaviour
     {
         public HellPlanet(string nsp, string name) : base(nsp, name)

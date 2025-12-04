@@ -6,7 +6,7 @@ using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.energy)]
+    [AutoCommandDefinition(VanillaCommandNames.energy)]
     public class Energy : CommandDefinition
     {
         public Energy(string nsp, string name) : base(nsp, name)

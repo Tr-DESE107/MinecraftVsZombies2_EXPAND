@@ -10,7 +10,7 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleCanYouPassIt)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleCanYouPassIt)]
     public class PuzzleCanYouPassItLayout : IZombieLayoutDefinition
     {
         public PuzzleCanYouPassItLayout(string nsp, string name) : base(nsp, name, 4)

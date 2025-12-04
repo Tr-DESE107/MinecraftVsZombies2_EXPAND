@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools.Mathematics;

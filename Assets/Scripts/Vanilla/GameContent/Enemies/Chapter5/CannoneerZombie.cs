@@ -10,13 +10,13 @@ using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.cannoneerZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.cannoneerZombie)]
     public class CannoneerZombie : AIEntityBehaviour
     {
         public CannoneerZombie(string nsp, string name) : base(nsp, name)

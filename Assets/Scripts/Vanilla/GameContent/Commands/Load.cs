@@ -7,7 +7,7 @@ using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.load)]
+    [AutoCommandDefinition(VanillaCommandNames.load)]
     public class Load : CommandDefinition
     {
         public Load(string nsp, string name) : base(nsp, name)

@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.thunderBolt)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.thunderBolt)]
     public class ThunderBolt : EffectBehaviour
     {
 

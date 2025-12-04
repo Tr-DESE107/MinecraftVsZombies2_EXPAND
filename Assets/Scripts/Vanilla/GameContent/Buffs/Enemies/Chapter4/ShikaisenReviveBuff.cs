@@ -9,14 +9,14 @@ using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.shikaisenRevive)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.shikaisenRevive)]
     public class ShikaisenReviveBuff : BuffDefinition
     {
         public ShikaisenReviveBuff(string nsp, string name) : base(nsp, name)

@@ -5,15 +5,15 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.stolenByUFO)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.stolenByUFO)]
     public class StolenByUFOBuff : BuffDefinition
     {
         public StolenByUFOBuff(string nsp, string name) : base(nsp, name)

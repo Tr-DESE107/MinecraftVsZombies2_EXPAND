@@ -9,13 +9,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.skeletonMage)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.skeletonMage)]
     public class SkeletonMage : AIEntityBehaviour
     {
         public SkeletonMage(string nsp, string name) : base(nsp, name)

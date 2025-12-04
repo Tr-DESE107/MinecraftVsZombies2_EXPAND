@@ -2,14 +2,14 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Entities
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.fadeoutByMaxTimeout)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.fadeoutByMaxTimeout)]
     public class FadeoutByMaxTimeoutBehaviour : EntityBehaviourDefinition
     {
         public FadeoutByMaxTimeoutBehaviour(string nsp, string name) : base(nsp, name)

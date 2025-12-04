@@ -162,7 +162,7 @@ namespace MVZ2.GameContent.HeldItems
             result.SetFinalValue(seedDef.GetModelID());
         }
     }
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.classicBlueprint)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.classicBlueprint)]
     public class ClassicBlueprintHeldItemBehaviour : BlueprintHeldItemBehaviour
     {
         public ClassicBlueprintHeldItemBehaviour(string nsp, string name) : base(nsp, name)
@@ -184,7 +184,7 @@ namespace MVZ2.GameContent.HeldItems
             return level.GetSeedPackAt(data.GetSeedPackIndex());
         }
     }
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.conveyorBlueprint)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.conveyorBlueprint)]
     public class ConveyorBlueprintHeldItemBehaviour : BlueprintHeldItemBehaviour
     {
         public ConveyorBlueprintHeldItemBehaviour(string nsp, string name) : base(nsp, name)

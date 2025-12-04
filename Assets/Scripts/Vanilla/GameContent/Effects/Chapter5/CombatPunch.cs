@@ -7,13 +7,13 @@ using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.combatPunch)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.combatPunch)]
     public class CombatPunch : EffectBehaviour
     {
         public CombatPunch(string nsp, string name) : base(nsp, name)

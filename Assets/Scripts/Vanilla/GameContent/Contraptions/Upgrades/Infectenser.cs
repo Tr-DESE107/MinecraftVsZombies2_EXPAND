@@ -6,13 +6,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.infectenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.infectenser)]
     public class Infectenser : DispenserFamily
     {
         public Infectenser(string nsp, string name) : base(nsp, name)

@@ -9,7 +9,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.triggerCart)]
+    [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.triggerCart)]
     public class TriggerCartHeldItemBehaviour : HeldItemBehaviourDefinition
     {
         public TriggerCartHeldItemBehaviour(string nsp, string name) : base(nsp, name)

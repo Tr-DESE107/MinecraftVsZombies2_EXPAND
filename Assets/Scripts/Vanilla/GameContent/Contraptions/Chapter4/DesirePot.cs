@@ -19,6 +19,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -27,7 +28,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.desirePot)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.desirePot)]
     public class DesirePot : ContraptionBehaviour
     {
         public DesirePot(string nsp, string name) : base(nsp, name)

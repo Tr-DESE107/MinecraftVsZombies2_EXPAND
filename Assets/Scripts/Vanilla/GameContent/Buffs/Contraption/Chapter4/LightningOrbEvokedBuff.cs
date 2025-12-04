@@ -13,15 +13,15 @@ using MVZ2Logic.Entities;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.lightningOrbEvoked)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.lightningOrbEvoked)]
     public class LightningOrbEvokedBuff : BuffDefinition
     {
         public LightningOrbEvokedBuff(string nsp, string name) : base(nsp, name)

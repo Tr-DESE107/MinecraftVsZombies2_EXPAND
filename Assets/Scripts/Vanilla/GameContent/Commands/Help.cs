@@ -10,7 +10,7 @@ using MVZ2Logic.Localization;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.help)]
+    [AutoCommandDefinition(VanillaCommandNames.help)]
     public class Help : CommandDefinition
     {
         public Help(string nsp, string name) : base(nsp, name)

@@ -4,12 +4,12 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.cannonballZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.cannonballZombie)]
     public class CannonballZombie : AIEntityBehaviour
     {
         public CannonballZombie(string nsp, string name) : base(nsp, name)

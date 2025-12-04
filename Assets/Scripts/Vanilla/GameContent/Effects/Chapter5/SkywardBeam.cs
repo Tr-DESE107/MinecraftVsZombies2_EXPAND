@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.skywardBeam)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.skywardBeam)]
     public class SkywardBeam : EffectBehaviour
     {
         public SkywardBeam(string nsp, string name) : base(nsp, name)

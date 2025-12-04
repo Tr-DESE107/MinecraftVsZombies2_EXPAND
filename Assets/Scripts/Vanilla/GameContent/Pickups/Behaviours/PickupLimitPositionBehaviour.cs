@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupLimitPosition)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupLimitPosition)]
     public class PickupLimitPositionBehaviour : EntityBehaviourDefinition
     {
         public PickupLimitPositionBehaviour(string nsp, string name) : base(nsp, name)

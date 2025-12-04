@@ -7,7 +7,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.halloween11)]
+    [AutoStageDefinition(VanillaStageNames.halloween11)]
     public partial class Halloween11 : StageDefinition
     {
         public Halloween11(string nsp, string name) : base(nsp, name)

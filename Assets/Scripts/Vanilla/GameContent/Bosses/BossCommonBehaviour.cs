@@ -4,12 +4,12 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.bossCommon)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.bossCommon)]
     public class BossCommonBehaviour : EntityBehaviourDefinition
     {
         public BossCommonBehaviour(string nsp, string name) : base(nsp, name)

@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 using PVZEngine.Callbacks;
-using PVZEngine.Level.Collisions;
+using PVZEngine.Collisions;
 
 namespace PVZEngine.Entities
 {

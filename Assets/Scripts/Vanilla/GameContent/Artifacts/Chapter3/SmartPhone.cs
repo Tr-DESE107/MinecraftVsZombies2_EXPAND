@@ -9,7 +9,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.smartPhone)]
+    [AutoArtifactDefinition(VanillaArtifactNames.smartPhone)]
     public class SmartPhone : ArtifactDefinition
     {
         public SmartPhone(string nsp, string name) : base(nsp, name)

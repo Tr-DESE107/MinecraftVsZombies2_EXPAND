@@ -6,15 +6,16 @@ using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Callbacks;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.note)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.note)]
     public class Note : ProjectileBehaviour
     {
         public Note(string nsp, string name) : base(nsp, name)

@@ -5,7 +5,7 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemDefinition(LogicHeldItemNames.pickaxe)]
+    [AutoHeldItemDefinition(LogicHeldItemNames.pickaxe)]
     public class PickaxeHeldItemDefinition : HeldItemDefinition
     {
         public PickaxeHeldItemDefinition(string nsp, string name) : base(nsp, name)

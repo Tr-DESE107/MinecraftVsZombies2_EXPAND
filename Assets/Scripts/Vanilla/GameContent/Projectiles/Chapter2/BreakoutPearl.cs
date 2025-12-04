@@ -6,12 +6,12 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.breakoutPearl)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.breakoutPearl)]
     public class BreakoutPearl : ProjectileBehaviour
     {
         public BreakoutPearl(string nsp, string name) : base(nsp, name)

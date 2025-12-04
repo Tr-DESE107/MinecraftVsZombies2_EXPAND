@@ -13,12 +13,12 @@ using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.terrorParasitized)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.terrorParasitized)]
     public class TerrorParasitizedBuff : BuffDefinition
     {
         public TerrorParasitizedBuff(string nsp, string name) : base(nsp, name)

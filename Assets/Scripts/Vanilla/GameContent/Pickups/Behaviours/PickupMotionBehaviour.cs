@@ -6,14 +6,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupMotion)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupMotion)]
     public class PickupMotionBehaviour : EntityBehaviourDefinition
     {
         public PickupMotionBehaviour(string nsp, string name) : base(nsp, name)

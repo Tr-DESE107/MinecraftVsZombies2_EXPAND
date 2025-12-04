@@ -3,14 +3,14 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Bosses
 {
-    [BuffDefinition(VanillaBuffNames.Boss.theGiantInactive)]
+    [AutoBuffDefinition(VanillaBuffNames.Boss.theGiantInactive)]
     public class TheGiantInactiveBuff : BuffDefinition
     {
         public TheGiantInactiveBuff(string nsp, string name) : base(nsp, name)

@@ -18,13 +18,13 @@ using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.parabot)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.parabot)]
     public class ParabotBuff : BuffDefinition
     {
         public ParabotBuff(string nsp, string name) : base(nsp, name)
