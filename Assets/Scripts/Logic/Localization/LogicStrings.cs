@@ -252,6 +252,7 @@ namespace MVZ2Logic.Localization
         #region 选项
         public const string CONTEXT_COMMAND_BLOCK_MODE = "option.command_block_mode";
         public const string CONTEXT_FPS_MODE = "option.fps_mode";
+        public const string CONTEXT_HP_BARS_AMOUNT_MODE = "options.hp_bars_amount_mode";
         #endregion
     }
 }

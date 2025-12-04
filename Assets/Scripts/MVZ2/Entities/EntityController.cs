@@ -592,6 +592,35 @@ namespace MVZ2.Entities
         }
         #endregion
 
+        #region 血条
+        public bool ShouldShowHPBar()
+        {
+            var hoverDisplayRange = Main.OptionsManager.GetHPBarHoverDisplayRange();
+            if (hoverDisplayRange > 0)
+            {
+                var pointerScreenPos = InputHelper.GetPointerPosition();
+                var pointerPos = Level.ScreenToLawnPositionByY(pointerScreenPos, Entity.Position.y);
+                if ((pointerPos - Entity.Position).sqrMagnitude <= hoverDisplayRange * hoverDisplayRange)
+                {
+                    return true;
+                }
+            }
+            if (Main.OptionsManager.IsHPBarAutoHide())
+            {
+                if (Mathf.Abs(Entity.GetMaxHealth() - Entity.Health) <= 0.01f)
+                {
+                    // 满血
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        #endregion
+
         #region View
         public void TriggerView(string name)
         {

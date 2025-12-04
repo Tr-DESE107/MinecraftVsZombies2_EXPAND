@@ -11,6 +11,7 @@ namespace MVZ2.Options
         public Options()
         {
             keyBindings = new KeyBindingOptions();
+            hpBar = new HPBarOptions();
         }
         public SerializableOptions ToSerializable()
         {
@@ -25,6 +26,7 @@ namespace MVZ2.Options
                 showHotkeyIndicators = showHotkeyIndicators,
                 hdrLightingDisabled = hdrLightingDisabled,
                 heightIndicatorEnabled = heightIndicatorEnabled,
+                hpBar = hpBar.ToSerializable(),
             };
         }
         public void LoadFromSerializable(SerializableOptions options)
@@ -33,6 +35,8 @@ namespace MVZ2.Options
                 return;
             if (options.keyBindings != null)
                 keyBindings.LoadFromSerializable(options.keyBindings);
+            if (options.hpBar != null)
+                hpBar.LoadFromSerializable(options.hpBar);
             skipAllTalks = options.skipAllTalks;
             showSponsorNames = options.showSponsorNames;
             blueprintWarningsDisabled = options.blueprintWarningsDisabled;
@@ -66,6 +70,8 @@ namespace MVZ2.Options
         public bool hdrLightingDisabled;
         public float minAnimationFrequency;
         public bool heightIndicatorEnabled;
+
+        public HPBarOptions hpBar;
     }
     [Serializable]
     [BsonIgnoreExtraElements]
@@ -80,5 +86,6 @@ namespace MVZ2.Options
         public bool showHotkeyIndicators;
         public bool hdrLightingDisabled;
         public bool heightIndicatorEnabled;
+        public SerializableHPBarOptions? hpBar;
     }
 }

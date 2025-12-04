@@ -375,6 +375,64 @@ namespace MVZ2.Options
         }
         #endregion
 
+        #region 血条
+        public bool IsHPBarEnabled()
+        {
+            return options.hpBar.enabled;
+        }
+        public void SetHPBarEnabled(bool value)
+        {
+            options.hpBar.enabled = value;
+            SaveOptionsToFile();
+        }
+        public void SwitchHPBarEnabled()
+        {
+            SetHPBarEnabled(!IsHPBarEnabled());
+        }
+
+
+        public bool IsHPBarAutoHide()
+        {
+            return options.hpBar.autoHide;
+        }
+        public void SetHPBarAutoHide(bool value)
+        {
+            options.hpBar.autoHide = value;
+            SaveOptionsToFile();
+        }
+        public void SwitchHPBarAutoHide()
+        {
+            SetHPBarAutoHide(!IsHPBarAutoHide());
+        }
+
+
+        public float GetHPBarHoverDisplayRange()
+        {
+            return options.hpBar.hoverDisplayRange;
+        }
+        public void SetHPBarHoverDisplayRange(float value)
+        {
+            options.hpBar.hoverDisplayRange = value;
+            SaveOptionsToFile();
+        }
+
+        public int GetHPBarAmountMode()
+        {
+            return options.hpBar.amountMode;
+        }
+        public void SetHPBarAmountMode(int value)
+        {
+            options.hpBar.amountMode = value;
+            SaveOptionsToFile();
+        }
+        public void CycleHPBarAmountMode()
+        {
+            var mode = GetHPBarAmountMode();
+            mode = (mode + 1) % HPBarAmountMode.COUNT;
+            SetHPBarAmountMode(mode);
+        }
+        #endregion
+
         #region 音乐音量
         public float GetMusicVolume()
         {

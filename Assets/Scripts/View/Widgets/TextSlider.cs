@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
-    public class TextSlider : MonoBehaviour
+    public class TextSlider : MonoBehaviour, IOptionsDialogElement
     {
         public TextMeshProUGUI Text => text;
         public Slider Slider => slider;

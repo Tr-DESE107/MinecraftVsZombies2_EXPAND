@@ -12,6 +12,7 @@ using MVZ2.Scenes;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Serialization;
 using PVZEngine;
 using PVZEngine.Level;
@@ -236,6 +237,19 @@ namespace MVZ2.Level
                 Main.SaveManager.SetCurrentEndlessFlag(stageID, flags);
             }
         }
+
+
+
+        public bool IsHPBarsUnlocked()
+        {
+            return Main.SaveManager.IsHPBarUnlocked() || Application.isEditor || Main.SaveManager.IsDebugUser();
+        }
+        public bool ShouldShowHPBars()
+        {
+            return Main.OptionsManager.IsHPBarEnabled() && IsHPBarsUnlocked();
+        }
+
+
         public const int CURRENT_DATA_VERSION = 3;
         public float LawnToTransScale => 1 / transToLawnScale;
         public float TransToLawnScale => transToLawnScale;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
-    public class TextButton : MonoBehaviour
+    public class TextButton : MonoBehaviour, IOptionsDialogElement
     {
         public TextMeshProUGUI Text => text;
         public Button Button => button;

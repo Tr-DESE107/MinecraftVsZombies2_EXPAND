@@ -158,6 +158,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5615701102408291709, guid: af4145d02f458a942bbb481bfdcf237f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5445292326907282526}
+    - targetCorrespondingSourceObject: {fileID: 5615701102408291709, guid: af4145d02f458a942bbb481bfdcf237f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3112479366118802844}
     - targetCorrespondingSourceObject: {fileID: 4090467360833867698, guid: af4145d02f458a942bbb481bfdcf237f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2623112883699467552}
@@ -183,6 +186,18 @@ MonoBehaviour:
   context: option.tootip
   comment: "\u9009\u9879\u8BF4\u660E"
   text: 
+--- !u!114 &3112479366118802844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996523474429087592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6d0f29e34f8bb4291dbcd5ec8330fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4589253841606255455 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4983290742194731338, guid: af4145d02f458a942bbb481bfdcf237f, type: 3}

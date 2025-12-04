@@ -82,6 +82,14 @@ namespace MVZ2.UI
                 UpdateMoreElementsLines();
             }
         }
+        public void SetSliderActive(SliderType type, bool value)
+        {
+            if (sliderDict.TryGetValue(type, out var slider))
+            {
+                slider.gameObject.SetActive(value);
+                UpdateMoreElementsLines();
+            }
+        }
         public void SetToggleActive(ToggleType type, bool value)
         {
             if (toggleDict.TryGetValue(type, out var toggle))
@@ -112,6 +120,7 @@ namespace MVZ2.UI
             sliderDict.Add(SliderType.FastForward, fastForwardSlider);
             sliderDict.Add(SliderType.Shake, shakeSlider);
             sliderDict.Add(SliderType.AnimationFrequency, animationFrequencySlider);
+            sliderDict.Add(SliderType.HPBarsHoverDisplayRange, hpBarsHoverDisplayRange);
 
             dropdownDict.Add(DropdownType.Language, languageDropdown);
             dropdownDict.Add(DropdownType.Resolution, resolutionDropdown);
@@ -125,6 +134,7 @@ namespace MVZ2.UI
             textButtonDict.Add(TextButtonType.ShowFPS, showFPSButton);
             textButtonDict.Add(TextButtonType.Credits, creditsButton);
             textButtonDict.Add(TextButtonType.Keybinding, keybindingButton);
+            textButtonDict.Add(TextButtonType.HPBarsAmountMode, hpBarsAmountMode);
 
             // 右上
             buttonDict.Add(ButtonType.Difficulty, diffcultyButton.Button);
@@ -143,6 +153,7 @@ namespace MVZ2.UI
             buttonDict.Add(ButtonType.Keybinding, keybindingButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
             buttonDict.Add(ButtonType.ExportLogFiles, exportLogFilesButton);
+            buttonDict.Add(ButtonType.HPBarsAmountMode, hpBarsAmountMode.Button);
 
 
             toggleDict.Add(ToggleType.SwapTrigger, swapTriggerToggle);
@@ -156,6 +167,8 @@ namespace MVZ2.UI
             toggleDict.Add(ToggleType.HeightIndicator, heightIndicatorToggle);
             toggleDict.Add(ToggleType.HDRLighting, hdrToggle);
             toggleDict.Add(ToggleType.ShowHotkeys, showHotkeysToggle);
+            toggleDict.Add(ToggleType.HPBarsEnabled, hpBarsEnabled);
+            toggleDict.Add(ToggleType.HPBarsAutoHide, hpBarsAutoHide);
 
 
             foreach (var pair in sliderDict)
@@ -208,18 +221,27 @@ namespace MVZ2.UI
         {
             foreach (var line in moreElementLines)
             {
-                bool hasActiveChild = false;
-                for (int i = 0; i < line.childCount; i++)
-                {
-                    var child = line.GetChild(i);
-                    if (child && child.gameObject.activeSelf)
-                    {
-                        hasActiveChild = true;
-                        break;
-                    }
-                }
+                bool hasActiveChild = HasAnyChildrenElement(line);
                 line.gameObject.SetActive(hasActiveChild);
             }
+        }
+        private bool HasAnyChildrenElement(Transform parent)
+        {
+            for (int i = 0; i < parent.childCount; i++)
+            {
+                var child = parent.GetChild(i);
+                if (!child || !child.gameObject.activeSelf)
+                    continue;
+                if (child.GetComponent<IOptionsDialogElement>() != null)
+                {
+                    return true;
+                }
+                if (HasAnyChildrenElement(child))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
@@ -319,6 +341,16 @@ namespace MVZ2.UI
         [SerializeField]
         private TextButton keybindingButton = null!;
 
+        [Header("HP Bars")]
+        [SerializeField]
+        private LabeledToggle hpBarsEnabled = null!;
+        [SerializeField]
+        private LabeledToggle hpBarsAutoHide = null!;
+        [SerializeField]
+        private TextSlider hpBarsHoverDisplayRange = null!;
+        [SerializeField]
+        private TextButton hpBarsAmountMode = null!;
+
         [Header("Misc")]
         [SerializeField]
         private LabeledToggle showSponsorNamesToggle = null!;
@@ -339,6 +371,7 @@ namespace MVZ2.UI
             Particles,
             Shake,
             AnimationFrequency,
+            HPBarsHoverDisplayRange,
         }
         public enum DropdownType
         {
@@ -353,6 +386,8 @@ namespace MVZ2.UI
             ShowFPS,
             Credits,
             Keybinding,
+
+            HPBarsAmountMode
         }
         public enum ButtonType
         {
@@ -372,6 +407,8 @@ namespace MVZ2.UI
             Credits,
             Keybinding,
             ExportLogFiles,
+
+            HPBarsAmountMode
         }
         public enum ToggleType
         {
@@ -389,7 +426,9 @@ namespace MVZ2.UI
             HeightIndicator,
             ShowHotkeys,
             HDRLighting,
+
+            HPBarsEnabled,
+            HPBarsAutoHide
         }
     }
-
 }

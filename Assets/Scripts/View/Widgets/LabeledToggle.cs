@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
-    public class LabeledToggle : MonoBehaviour
+    public class LabeledToggle : MonoBehaviour, IOptionsDialogElement
     {
         public TextMeshProUGUI Text => text;
         public Toggle Toggle => toggle;

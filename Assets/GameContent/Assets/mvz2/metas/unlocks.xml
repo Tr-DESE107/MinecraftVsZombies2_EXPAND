@@ -49,6 +49,11 @@
             <condition required="mvz2:level.mausoleum_6" />
         </conditions>
     </group>
+    <group id="hp_bar">
+        <conditions>
+            <condition required="mvz2:satori_detector" />
+        </conditions>
+    </group>
     <group id="game_completed">
         <conditions>
             <condition required="mvz2:level.ship_11" />

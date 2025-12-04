@@ -19,6 +19,8 @@ namespace MVZ2Logic.Unlocks
 
         public static readonly NamespaceID arcade = Get("arcade");
         public static readonly NamespaceID commandBlock = Get("command_block");
+
+        public static readonly NamespaceID hpBar = Get("hp_bar");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(Global.BuiltinNamespace, name);

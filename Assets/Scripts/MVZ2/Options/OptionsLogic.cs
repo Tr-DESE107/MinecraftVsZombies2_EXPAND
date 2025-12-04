@@ -10,6 +10,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Options;
 using MVZ2Logic.Saves;
+using Newtonsoft.Json.Linq;
 using PVZEngine;
 using UnityEngine;
 
@@ -69,6 +70,12 @@ namespace MVZ2.Options
             // Controls
             UpdateShowHotkeysToggle();
 
+            // HPBars
+            UpdateHPBarsEnabledToggle();
+            UpdateHPBarsAutoHideToggle();
+            UpdateHPBarsHoverDisplayRangeSlider();
+            UpdateHPBarsAmountModeButton();
+
             // Misc
             UpdateShowSponsorNamesToggle();
 
@@ -82,6 +89,12 @@ namespace MVZ2.Options
 
             dialog.SetButtonActive(ButtonType.Keybinding, !mobile);
             dialog.SetDropdownActive(DropdownType.Resolution, !mobile);
+
+            var hpBars = Main.LevelManager.IsHPBarsUnlocked();
+            dialog.SetToggleActive(ToggleType.HPBarsEnabled, hpBars);
+            dialog.SetToggleActive(ToggleType.HPBarsAutoHide, hpBars);
+            dialog.SetButtonActive(ButtonType.HPBarsAmountMode, hpBars);
+            dialog.SetSliderActive(SliderType.HPBarsHoverDisplayRange, hpBars);
 
             dialog.SetPage(Page.Main);
         }
@@ -140,6 +153,14 @@ namespace MVZ2.Options
                 case ButtonType.Keybinding:
                     {
                         Main.Scene.ShowKeybinding();
+                    }
+                    break;
+
+                // HPBars.
+                case ButtonType.HPBarsAmountMode:
+                    {
+                        Main.OptionsManager.CycleHPBarAmountMode();
+                        UpdateHPBarsAmountModeButton();
                     }
                     break;
 
@@ -230,6 +251,20 @@ namespace MVZ2.Options
                     }
                     break;
 
+                // HPBars.
+                case ToggleType.HPBarsEnabled:
+                    {
+                        Main.OptionsManager.SwitchHPBarEnabled();
+                        UpdateHPBarsEnabledToggle();
+                    }
+                    break;
+                case ToggleType.HPBarsAutoHide:
+                    {
+                        Main.OptionsManager.SwitchHPBarAutoHide();
+                        UpdateHPBarsAutoHideToggle();
+                    }
+                    break;
+
                 // Misc.
                 case ToggleType.ShowSponsorNames:
                     {
@@ -279,6 +314,12 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.SetShakeAmount(value);
                         UpdateShakeSlider();
+                    }
+                    break;
+                case SliderType.HPBarsHoverDisplayRange:
+                    {
+                        Main.OptionsManager.SetHPBarHoverDisplayRange(value);
+                        UpdateHPBarsHoverDisplayRangeSlider();
                     }
                     break;
             }
@@ -372,6 +413,20 @@ namespace MVZ2.Options
         protected string GetDifficultyText(NamespaceID id)
         {
             return Main.Game.GetDifficultyName(id);
+        }
+        protected string GetHPBarsAmountModeText(int mode)
+        {
+            var key = HP_BARS_AMOUNT_MODE_HIDDEN;
+            switch (mode)
+            {
+                case HPBarAmountMode.CURRENT_ONLY:
+                    key = HP_BARS_AMOUNT_MODE_CURRENT_ONLY;
+                    break;
+                case HPBarAmountMode.CURRENT_AND_MAX:
+                    key = HP_BARS_AMOUNT_MODE_CURRENT_AND_MAX;
+                    break;
+            }
+            return Main.LanguageManager._p(LogicStrings.CONTEXT_HP_BARS_AMOUNT_MODE, key);
         }
         protected void UpdateSliderValue(float value, string optionKey, SliderType sliderType)
         {
@@ -578,6 +633,33 @@ namespace MVZ2.Options
         }
         #endregion
 
+        #region 血条
+        protected void UpdateHPBarsEnabledToggle()
+        {
+            var value = Main.OptionsManager.IsHPBarEnabled();
+            UpdateToggle(value, OPTION_HP_BARS_ENABLED, ToggleType.HPBarsEnabled);
+        }
+        protected void UpdateHPBarsAutoHideToggle()
+        {
+            var value = Main.OptionsManager.IsHPBarAutoHide();
+            UpdateToggle(value, OPTION_HP_BARS_AUTO_HIDE, ToggleType.HPBarsAutoHide);
+        }
+        private void UpdateHPBarsHoverDisplayRangeSlider()
+        {
+            var value = Main.OptionsManager.GetHPBarHoverDisplayRange();
+            var text = Main.LanguageManager._(OPTION_HP_BARS_HOVER_DISPLAY_RANGE, value);
+            dialog.SetSliderValue(SliderType.HPBarsHoverDisplayRange, value);
+            dialog.SetSliderText(SliderType.HPBarsHoverDisplayRange, text);
+        }
+        protected void UpdateHPBarsAmountModeButton()
+        {
+            var value = Main.OptionsManager.GetHPBarAmountMode();
+            var valueText = GetHPBarsAmountModeText(value);
+            var text = Main.LanguageManager._(OPTION_HP_BARS_AMOUNT_MODE, valueText);
+            dialog.SetButtonText(TextButtonType.HPBarsAmountMode, text);
+        }
+        #endregion
+
         #region 杂项
         protected void UpdateShowSponsorNamesToggle()
         {
@@ -665,6 +747,22 @@ namespace MVZ2.Options
         public const string OPTION_PARTICLE_AMOUNT = "粒子数量：{0}";
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_SHAKE_AMOUNT = "屏幕震动：{0}";
+
+        [TranslateMsg("血条选项")]
+        public const string OPTION_HP_BARS_ENABLED = "启用血条";
+        [TranslateMsg("血条选项")]
+        public const string OPTION_HP_BARS_AUTO_HIDE = "自动隐藏";
+        [TranslateMsg("血条选项，{0}为量")]
+        public const string OPTION_HP_BARS_HOVER_DISPLAY_RANGE = "悬停显示范围：{0:F0}";
+        [TranslateMsg("血条选项，{0}为模式")]
+        public const string OPTION_HP_BARS_AMOUNT_MODE = "数值模式：{0}";
+
+        [TranslateMsg("血条数值模式", LogicStrings.CONTEXT_HP_BARS_AMOUNT_MODE)]
+        public const string HP_BARS_AMOUNT_MODE_HIDDEN = "隐藏";
+        [TranslateMsg("血条数值模式", LogicStrings.CONTEXT_HP_BARS_AMOUNT_MODE)]
+        public const string HP_BARS_AMOUNT_MODE_CURRENT_ONLY = "当前血量";
+        [TranslateMsg("血条数值模式", LogicStrings.CONTEXT_HP_BARS_AMOUNT_MODE)]
+        public const string HP_BARS_AMOUNT_MODE_CURRENT_AND_MAX = "全部";
         protected MainManager Main => MainManager.Instance;
         public bool NeedsReload { get; private set; }
         public bool BloodAndGore { get; private set; }
