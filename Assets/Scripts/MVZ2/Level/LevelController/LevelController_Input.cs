@@ -90,6 +90,10 @@ namespace MVZ2.Level
             {
                 OnFastForwardKey();
             }
+            if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.hpBars)))
+            {
+                OnHPBarsKey();
+            }
 
 
             if (IsGameRunning())
@@ -159,6 +163,18 @@ namespace MVZ2.Level
             if (isGameOver || optionsLogic != null)
                 return;
             SwitchSpeedUp();
+        }
+        private void OnHPBarsKey()
+        {
+            if (isGameOver || optionsLogic != null)
+                return;
+            if (!IsHPBarsUnlocked())
+            {
+                level.PlaySound(LogicSoundID.buzzer);
+                return;
+            }
+            Main.OptionsManager.SwitchHPBarEnabled();
+            level.PlaySound(Main.OptionsManager.IsHPBarEnabled() ? LogicSoundID.dialogItemShow : LogicSoundID.dialogItemHide);
         }
         private void OnBlueprintKey(int i, bool conveyor, int key)
         {
