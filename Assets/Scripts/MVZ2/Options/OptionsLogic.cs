@@ -90,7 +90,7 @@ namespace MVZ2.Options
             dialog.SetButtonActive(ButtonType.Keybinding, !mobile);
             dialog.SetDropdownActive(DropdownType.Resolution, !mobile);
 
-            var hpBars = Main.SaveManager.IsHPBarUnlocked() || Application.isEditor || Main.SaveManager.IsDebugUser();
+            var hpBars = Main.LevelManager.GetHPBarUnlocked();
             dialog.SetToggleActive(ToggleType.HPBarsEnabled, hpBars);
             dialog.SetToggleActive(ToggleType.HPBarsAutoHide, hpBars);
             dialog.SetButtonActive(ButtonType.HPBarsAmountMode, hpBars);

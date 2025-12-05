@@ -64,7 +64,7 @@ namespace MVZ2.Level
             InitLevelEngine_Talk(level);
 
             level.IsRerun = Saves.IsLevelCleared(stageID);
-            isHPBarUnlocked = Main.SaveManager.IsHPBarUnlocked() || Application.isEditor || Main.SaveManager.IsDebugUser();
+            isHPBarUnlocked = Main.LevelManager.GetHPBarUnlocked();
         }
         private void ApplyComponents(LevelEngine level)
         {

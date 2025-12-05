@@ -239,7 +239,10 @@ namespace MVZ2.Level
         }
 
 
-
+        public bool GetHPBarUnlocked()
+        {
+            return Main.SaveManager.IsHPBarUnlocked() || Application.isEditor || Main.SaveManager.IsDebugUser();
+        }
 
 
         public const int CURRENT_DATA_VERSION = 3;
