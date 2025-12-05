@@ -41,6 +41,7 @@ namespace MVZ2.Level
                         continue;
                     initDatas[lane][column] = new GridInitData()
                     {
+                        levelController = this,
                         grid = lawnGrid,
                         modelBuilder = modelBuilder
                     };
@@ -203,8 +204,6 @@ namespace MVZ2.Level
             foreach (var grid in grids)
             {
                 grid.UpdateFrame(deltaTime);
-
-                UpdateGridHPBars(grid);
             }
         }
         private void HighlightAxisGrids(int lane, int column)
@@ -235,75 +234,9 @@ namespace MVZ2.Level
             }
         }
 
-        #region 血条
-        private void UpdateGridHPBars(GridController gridController)
-        {
-            if (Main.LevelManager.ShouldShowHPBars())
-            {
-                var grid = gridController.GetLawnGrid();
-                if (grid != null)
-                {
-                    UpdateGridHPBarsValid(gridController, grid);
-                    return;
-                }
-            }
-            gridController.SetHPBarCount(0);
-        }
-        private void UpdateGridHPBarsValid(GridController gridController, LawnGrid grid)
-        {
-            var amountMode = Main.OptionsManager.GetHPBarAmountMode();
-            gridHPBarBuffer.Clear();
-            var layers = grid.GetLayers();
-            foreach (var layer in layers)
-            {
-                var layerDefinition = Game.GetGridLayerDefinition(layer);
-                var entities = grid.GetLayerEntities(layer);
-                foreach (var entity in entities)
-                {
-                    if (!entity.Exists())
-                        continue;
-                    var entityCtrl = GetEntityController(entity);
-                    if (!entityCtrl.ShouldShowHPBar())
-                        continue;
-                    var barColor = layerDefinition?.HPBarColor ?? Color.red;
-                    var health = entity.Health;
-                    var maxHealth = entity.GetMaxHealth();
-                    var amount = health / maxHealth;
-                    var text = string.Empty;
-                    switch (amountMode)
-                    {
-                        case HPBarAmountMode.CURRENT_ONLY:
-                            text = Main.LanguageManager._(HP_BAR_TEXT_TEMPLATE, health);
-                            break;
-                        case HPBarAmountMode.CURRENT_AND_MAX:
-                            text = Main.LanguageManager._(HP_BAR_TEXT_TEMPLATE_WITH_MAX, health, maxHealth);
-                            break;
-                    }
-                    Sprite? icon = Main.GetFinalSprite(layerDefinition?.HPBarIcon);
-                    gridHPBarBuffer.Add(new HPBarViewData()
-                    {
-                        barColor = barColor,
-                        barAmount = amount,
-                        text = text,
-                        icon = icon
-                    });
-                }
-            }
-            gridController.SetHPBarCount(gridHPBarBuffer.Count);
-            for (int i = 0; i < gridHPBarBuffer.Count; i++)
-            {
-                gridController.UpdateHPBar(i, gridHPBarBuffer[i]);
-            }
-        }
-        #endregion
-
         #region 属性字段
-        [TranslateMsg("血条的文字模板")]
-        public const string HP_BAR_TEXT_TEMPLATE = "{0:F0}";
-        public const string HP_BAR_TEXT_TEMPLATE_WITH_MAX = "{0:F0}/{1:F0}";
         private int pointingGridPointerId = -1;
         private int pointingGrid = -1;
-        private List<HPBarViewData> gridHPBarBuffer = new List<HPBarViewData>(); 
 
         [Header("Grids")]
         [SerializeField]

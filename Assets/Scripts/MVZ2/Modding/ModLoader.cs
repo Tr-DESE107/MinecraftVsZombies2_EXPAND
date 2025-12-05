@@ -234,6 +234,8 @@ namespace MVZ2.Modding
                     continue;
                 var name = meta.Name;
                 var def = new ArmorSlotDefinition(nsp, name, meta.Anchor);
+                def.HPBarColor = meta.HPBarColor;
+                def.HPBarIcon = meta.HPBarIcon;
                 mod.AddDefinition(def);
             }
         }

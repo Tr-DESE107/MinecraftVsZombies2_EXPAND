@@ -103,6 +103,14 @@ namespace MVZ2.Level
         {
             gameObject.SetActive(active);
         }
+        public bool IsHPBarsUnlocked()
+        {
+            return isHPBarUnlocked;
+        }
+        public bool ShouldShowHPBars()
+        {
+            return Main.OptionsManager.IsHPBarEnabled() && IsHPBarsUnlocked();
+        }
 
         #region 属性字段
         public GlobalGame Game => Main.Game;
@@ -120,6 +128,7 @@ namespace MVZ2.Level
         private RandomGenerator rng = null!;
 
         private ILevelControllerPart[] parts = null!;
+        private bool isHPBarUnlocked;
         #endregion
     }
 }

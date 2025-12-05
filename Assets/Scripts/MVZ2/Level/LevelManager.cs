@@ -240,14 +240,6 @@ namespace MVZ2.Level
 
 
 
-        public bool IsHPBarsUnlocked()
-        {
-            return Main.SaveManager.IsHPBarUnlocked() || Application.isEditor || Main.SaveManager.IsDebugUser();
-        }
-        public bool ShouldShowHPBars()
-        {
-            return Main.OptionsManager.IsHPBarEnabled() && IsHPBarsUnlocked();
-        }
 
 
         public const int CURRENT_DATA_VERSION = 3;

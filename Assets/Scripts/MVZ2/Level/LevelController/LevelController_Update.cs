@@ -69,7 +69,7 @@ namespace MVZ2.Level
                 {
                     passenger.Position = pos + killerEnt.GetPassengerOffset();
                     var passengerCtrl = GetEntityController(passenger);
-                    if (passengerCtrl)
+                    if (passengerCtrl.Exists())
                     {
                         passengerCtrl.UpdateFixed();
                     }

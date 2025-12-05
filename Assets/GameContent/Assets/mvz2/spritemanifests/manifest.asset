@@ -1389,6 +1389,10 @@ MonoBehaviour:
     - {fileID: -412867899, guid: 453d4fef4f85ab847b33d20eb562157d, type: 3}
     - {fileID: 1297496717, guid: 453d4fef4f85ab847b33d20eb562157d, type: 3}
     - {fileID: 735032779, guid: 453d4fef4f85ab847b33d20eb562157d, type: 3}
+  - name: level/hp_bar_icons_armor
+    spritesheet:
+    - {fileID: 2017895326, guid: c9420b8f2b2ab334a92664dc5717e0fa, type: 3}
+    - {fileID: -1203295022, guid: c9420b8f2b2ab334a92664dc5717e0fa, type: 3}
   - name: mainmenu/achievement
     spritesheet:
     - {fileID: 8313590956605005368, guid: d5a796bc539a0c245afcb4ad033aef4f, type: 3}

@@ -1,7 +1,11 @@
 <armors>
     <slots>
-        <slot name="main" anchor="armor" />
-        <slot name="shield" anchor="shield" />
+        <slot name="main" anchor="armor">
+            <hpBar color="#00FFFF" icon="mvz2:level/hp_bar_icons_armor[0]"/>
+        </slot>
+        <slot name="shield" anchor="shield">
+            <hpBar color="#00FF00" icon="mvz2:level/hp_bar_icons_armor[1]"/>
+        </slot>
     </slots>
     <entries>
         <entry id="leather_cap" type="mvz2:helmet">

@@ -2,6 +2,8 @@
 
 using System.Xml;
 using MVZ2.IO;
+using MVZ2Logic.Resources;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
@@ -15,11 +17,25 @@ namespace MVZ2.Metas
 
         public string Name { get; private set; }
         public string Anchor { get; private set; }
+        public Color HPBarColor { get; private set; }
+        public SpriteReference? HPBarIcon { get; private set; }
         public static ArmorSlotMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var name = node.GetAttribute("name") ?? string.Empty;
             var anchor = node.GetAttribute("anchor") ?? string.Empty;
-            return new ArmorSlotMeta(name, anchor);
+            var hpBarColor = Color.red;
+            SpriteReference? hpBarIcon = null;
+            var hpBarNode = node["hpBar"];
+            if (hpBarNode != null)
+            {
+                hpBarColor = hpBarNode.GetAttributeColor("color") ?? hpBarColor;
+                hpBarIcon = hpBarNode.GetAttributeSpriteReference("icon", defaultNsp);
+            }
+            return new ArmorSlotMeta(name, anchor)
+            {
+                HPBarColor = hpBarColor,
+                HPBarIcon = hpBarIcon,
+            };
         }
     }
 }

@@ -290,5 +290,11 @@ namespace MVZ2Logic.Entities
             entity.SetProperty(SORTING_ORDER, layer);
         }
         #endregion
+
+        #region 血条
+        public static readonly PropertyMeta<bool> HIDE_HP_BAR = Get<bool>("hide_hp_bar");
+        public static bool IsHPBarHidden(this Entity entity) => entity.GetProperty<bool>(HIDE_HP_BAR);
+        public static void SetHPBarHidden(this Entity entity, bool value) => entity.SetProperty(HIDE_HP_BAR, value);
+        #endregion
     }
 }

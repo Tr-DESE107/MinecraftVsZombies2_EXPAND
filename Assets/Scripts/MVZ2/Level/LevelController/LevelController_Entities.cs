@@ -127,7 +127,7 @@ namespace MVZ2.Level
         private bool RemoveControllerFromEntity(Entity entity)
         {
             var entityController = GetEntityController(entity);
-            if (entityController)
+            if (entityController.Exists())
             {
                 entityController.OnPointerInteraction -= UI_OnEntityPointerInteractionCallback;
                 entityController.RemoveEntity();
@@ -136,7 +136,7 @@ namespace MVZ2.Level
             }
             return false;
         }
-        public EntityController GetEntityController(Entity entity)
+        public EntityController? GetEntityController(Entity entity)
         {
             return entities.FirstOrDefault(e => e.Entity == entity);
         }

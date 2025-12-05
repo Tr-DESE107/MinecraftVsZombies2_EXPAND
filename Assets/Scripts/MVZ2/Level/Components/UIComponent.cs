@@ -82,7 +82,8 @@ namespace MVZ2.Level.Components
         {
             var levelUI = Controller.GetUIPreset();
             var entityCtrl = Controller.GetEntityController(entity);
-            levelUI.SetHintArrowPointToEntity(entityCtrl.transform, entity.GetScaledSize().y);
+            if (entityCtrl.Exists())
+                levelUI.SetHintArrowPointToEntity(entityCtrl.transform, entity.GetScaledSize().y);
             TargetType = HintArrowTargetType.Entity;
             TargetID = entity.ID;
         }
