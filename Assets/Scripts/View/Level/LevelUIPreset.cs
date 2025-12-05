@@ -217,6 +217,10 @@ namespace MVZ2.UI.Level
         {
             bossProgressBar.SetProgress(progress);
         }
+        public void SetBossProgressText(string text)
+        {
+            bossProgressBar.SetProgressText(text);
+        }
         #endregion
 
         #endregion

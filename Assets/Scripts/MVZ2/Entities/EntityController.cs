@@ -697,17 +697,17 @@ namespace MVZ2.Entities
             switch (amountMode)
             {
                 case HPBarAmountMode.CURRENT_ONLY:
-                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE, Mathf.CeilToInt(health));
+                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE, Mathf.CeilToInt(Mathf.Max(0, health)));
                     break;
                 case HPBarAmountMode.CURRENT_AND_MAX:
-                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE_WITH_MAX, Mathf.CeilToInt(health), Mathf.CeilToInt(maxHealth));
+                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE_WITH_MAX, Mathf.CeilToInt(Mathf.Max(0, health)), Mathf.CeilToInt(maxHealth));
                     break;
             }
             return text;
         }
         private void UpdateHPBar()
         {
-            if (Level.ShouldShowHPBars() && !Entity.IsHPBarHidden())
+            if (Level.ShouldShowHPBars() && !Entity.IsHPBarHidden() && !Entity.IsPreviewEnemy())
             {
                 if (ShouldShowHPBarOnEntity())
                 {

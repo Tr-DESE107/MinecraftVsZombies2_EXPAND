@@ -19,7 +19,8 @@ namespace MVZ2.Level
 
         public float levelProgress;
         public float[]? bannerProgresses;
-        public float bossProgress;
+        public float bossHealth;
+        public float bossMaxHealth;
         public NamespaceID? bossProgressBarStyle;
         public bool progressBarMode;
 

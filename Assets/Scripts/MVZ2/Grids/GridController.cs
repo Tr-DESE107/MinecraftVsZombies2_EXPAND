@@ -15,6 +15,7 @@ using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using PVZEngine.Buffs;
+using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
@@ -199,6 +200,7 @@ namespace MVZ2.Grids
         {
             hpBarView.SetActive(true);
             var amountMode = Main.OptionsManager.GetHPBarAmountMode();
+            gridHPBarEntityBuffer.Clear();
             gridHPBarBuffer.Clear();
             var layers = grid.GetLayers();
             foreach (var layer in layers)
@@ -210,6 +212,8 @@ namespace MVZ2.Grids
                     if (!entity.Exists())
                         continue;
                     if (entity.IsHPBarHidden())
+                        continue;
+                    if (gridHPBarEntityBuffer.Contains(entity))
                         continue;
                     var entityCtrl = Level?.GetEntityController(entity);
                     if (!entityCtrl.Exists() || !entityCtrl.ShouldShowMainHPBar() || entityCtrl.ShouldShowHPBarOnEntity())
@@ -225,6 +229,7 @@ namespace MVZ2.Grids
                         text = text,
                         icon = icon
                     });
+                    gridHPBarEntityBuffer.Add(entity);
                 }
             }
             SetHPBarCount(gridHPBarBuffer.Count);
@@ -244,6 +249,7 @@ namespace MVZ2.Grids
         public int Column { get; set; }
         public float BevelHeight { get; private set; }
         private LawnGrid? grid;
+        private HashSet<Entity> gridHPBarEntityBuffer = new HashSet<Entity>();
         private List<HPBarViewData> gridHPBarBuffer = new List<HPBarViewData>();
         [SerializeField]
         private GridView view = null!;

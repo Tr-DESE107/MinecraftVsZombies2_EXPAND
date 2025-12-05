@@ -28,6 +28,8 @@ namespace MVZ2.Metas
         public Vector4 Padding { get; private set; }
 
         public SpriteReference? IconSprite { get; private set; }
+
+        public Vector2 TextOffset { get; private set; }
         public static ProgressBarMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -81,6 +83,14 @@ namespace MVZ2.Metas
             {
                 iconSprite = iconNode.GetAttributeSpriteReference("sprite", defaultNsp);
             }
+
+            var textNode = node["text"];
+            Vector2 textOffset = Vector2.zero;
+            if (textNode != null)
+            {
+                textOffset.x = textNode.GetAttributeFloat("xOffset") ?? textOffset.x;
+                textOffset.y = textNode.GetAttributeFloat("yOffset") ?? textOffset.y;
+            }
             return new ProgressBarMeta(id)
             {
                 Type = type,
@@ -96,6 +106,8 @@ namespace MVZ2.Metas
                 Padding = padding,
 
                 IconSprite = iconSprite,
+
+                TextOffset = textOffset,
             };
         }
         public static ProgressBarMode ParseBarMode(string str)

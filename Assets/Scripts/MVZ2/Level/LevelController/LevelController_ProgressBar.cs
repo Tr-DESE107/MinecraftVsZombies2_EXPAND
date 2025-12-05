@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using MVZ2.Entities;
 using MVZ2.UI.Level;
 using MVZ2Logic.Entities;
 using PVZEngine;
@@ -28,7 +29,8 @@ namespace MVZ2.Level
         {
             seri.bannerProgresses = bannerProgresses.ToArray();
             seri.levelProgress = levelProgress;
-            seri.bossProgress = bossProgress;
+            seri.bossHealth = bossHealth;
+            seri.bossMaxHealth = bossMaxHealth;
             seri.progressBarMode = progressBarMode;
             seri.bossProgressBarStyle = bossProgressBarStyle;
         }
@@ -36,7 +38,8 @@ namespace MVZ2.Level
         {
             bannerProgresses = seri.bannerProgresses.ToArray();
             levelProgress = seri.levelProgress;
-            bossProgress = seri.bossProgress;
+            bossHealth = seri.bossHealth;
+            bossMaxHealth = seri.bossMaxHealth;
             progressBarMode = seri.progressBarMode;
             bossProgressBarStyle = seri.bossProgressBarStyle;
         }
@@ -65,6 +68,7 @@ namespace MVZ2.Level
                 iconSprite = icon,
                 padding = meta.Padding,
                 size = meta.Size,
+                textOffset = meta.TextOffset
             };
             ui.SetBossProgressTemplate(viewData);
         }
@@ -80,14 +84,16 @@ namespace MVZ2.Level
             if (progressBarMode)
             {
                 // BOSS血条
-                var bosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity());
+                var bosses = level.FindEntities(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.DontCountBossHP());
                 if (bosses.Count() <= 0)
                 {
-                    bossProgress = 0;
+                    bossHealth = 0;
+                    bossMaxHealth = 0;
                 }
                 else
                 {
-                    bossProgress = bosses.Sum(b => b.Health) / bosses.Sum(b => b.GetMaxHealth());
+                    bossHealth = bosses.Sum(b => b.Health);
+                    bossMaxHealth = bosses.Sum(b => b.GetMaxHealth());
                 }
             }
             else
@@ -129,7 +135,19 @@ namespace MVZ2.Level
             ui.SetLevelProgress(levelProgress);
             if (bannerProgresses != null)
                 ui.SetBannerProgresses(bannerProgresses);
+
+            float bossProgress = 0;
+            string bossProgressText = string.Empty;
+            if (bossMaxHealth != 0)
+            {
+                bossProgress = bossHealth / bossMaxHealth;
+            }
+            if (IsHPBarsUnlocked())
+            {
+                bossProgressText = EntityController.GetHPBarText(bossHealth, bossMaxHealth, Main.OptionsManager.GetHPBarAmountMode());
+            }
             ui.SetBossProgress(bossProgress);
+            ui.SetBossProgressText(bossProgressText);
         }
         private void RefreshProgressBar()
         {
@@ -147,7 +165,8 @@ namespace MVZ2.Level
         #region 属性字段
         private float levelProgress;
         private float[]? bannerProgresses;
-        private float bossProgress;
+        private float bossHealth;
+        private float bossMaxHealth;
         private bool progressBarMode;
         private NamespaceID? bossProgressBarStyle;
         #endregion
