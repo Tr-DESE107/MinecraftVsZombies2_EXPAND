@@ -1449,8 +1449,7 @@
     <!-- Chapter 5 -->
     <stage id="ship_1" name="圣辇船" dayNumber="1">
         <unlock>
-            <!--<condition required="mvz2:entered_ship" />-->
-            <condition required="mvz2:level.mausoleum_11" />
+			<condition required="mvz2:entered_ship" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_1" />
@@ -1466,7 +1465,7 @@
     </stage>
     <stage id="ship_2" name="圣辇船" dayNumber="2">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_1" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_2" />
@@ -1483,7 +1482,7 @@
     </stage>
     <stage id="ship_3" name="圣辇船" dayNumber="3">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_2" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_3" />
@@ -1501,7 +1500,7 @@
     </stage>
     <stage id="ship_4" name="圣辇船" dayNumber="4">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_3" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_4" />
@@ -1519,7 +1518,7 @@
     </stage>
     <stage id="ship_5" name="圣辇船" dayNumber="5">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_4" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_5" />
@@ -1540,7 +1539,7 @@
     </stage>
     <stage id="ship_6" name="圣辇船" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_5" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_6" />
@@ -1570,7 +1569,7 @@
     </stage>
     <stage id="ship_7" name="圣辇船" dayNumber="7">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_6" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_7" />
@@ -1591,7 +1590,7 @@
     </stage>
     <stage id="ship_8" name="圣辇船" dayNumber="8">
         <unlock>
-            <condition required="mvz2:level.mausoleum_11" />
+            <condition required="mvz2:level.ship_7" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_8" />

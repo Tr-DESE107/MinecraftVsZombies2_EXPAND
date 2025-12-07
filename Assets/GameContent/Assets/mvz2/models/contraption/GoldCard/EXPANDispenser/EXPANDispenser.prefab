@@ -783,7 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 3205762923444654856}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
-      value: high_frequency_pulse_dispenser
+      value: EXPANDispenser
       objectReference: {fileID: 0}
     - target: {fileID: 6999929167464410214, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_LocalPosition.x
