@@ -11,7 +11,7 @@
     <minigame id="red_dragons_revenge" stage="mvz2:red_dragons_revenge" area="mvz2:ship" icon="mvz2:arcade/red_dragons_revenge" hiddenUntil="mvz2:level.ship_11"/>
 
     
-    
+    <!--EXPAND Minigame-->
     <minigame id="a_tooth_for_a_tooth" stage="mvz2:a_tooth_for_a_tooth" area="mvz2:halloween" icon="mvz2:arcade/a_tooth_for_a_tooth" />
     <minigame id="Do_Magic_Tricks" stage="mvz2:Do_Magic_Tricks" area="mvz2:day" icon="mvz2:arcade/Do_Magic_Tricks" />
     <minigame id="MutantCrisis" stage="mvz2:MutantCrisis" area="mvz2:day" icon="mvz2:arcade/MutantCrisis" />

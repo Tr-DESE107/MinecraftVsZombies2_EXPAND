@@ -119,6 +119,7 @@
         </unlock>
     </artifact>
 
+	<!--EXPAND-->
 	<artifact id="ShrunkenHead" name="萎缩头颅" tooltip="周期性为场上我方怪物赋予骨质头盔" sprite="mvz2:artifacts/ShrunkenHead">
 		<unlock>
 			<condition required="mvz2:level.halloween_14" />

@@ -1449,7 +1449,7 @@
     <!-- Chapter 5 -->
     <stage id="ship_1" name="圣辇船" dayNumber="1">
         <unlock>
-			<condition required="mvz2:entered_ship" />
+            <condition required="mvz2:entered_ship" />
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_1" />
@@ -1764,116 +1764,117 @@
         </properties>
     </stage>
 
-	<stage id="ufo_blitz" name="飞碟闪电战" needBlueprints="false" type="minigame" music="mvz2:minigame">
-		<unlock>
-			<condition required="mvz2:level.ship_9" />
-		</unlock>
-		<conveyor>
-			<entry id="mvz2:tnt" count="1" minCount="0" />
-			<entry id="mvz2:black_hole_bomb" count="1" />
-			<entry id="mvz2:lightning_orb" count="5" />
-			<entry id="mvz2:magichest" count="1" minCount="0" />
-		</conveyor>
-		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
-		<spawns flags="4" pointsMultiplier="0.5" pointsAddition="2">
-			<spawn id="mvz2:undead_flying_object_blitz" />
-			<spawn id="mvz2:undead_flying_object" />
-		</spawns>
-		<time firstWave="1" waveMax="2" waveAdvance="2" />
-		<properties>
-			<bool name="noEnergy" value="true" />
-		</properties>
-	</stage>
+    <stage id="ufo_blitz" name="飞碟闪电战" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.ship_9" />
+        </unlock>
+        <conveyor>
+            <entry id="mvz2:tnt" count="1" minCount="0" />
+            <entry id="mvz2:black_hole_bomb" count="1" />
+            <entry id="mvz2:lightning_orb" count="5" />
+            <entry id="mvz2:magichest" count="1" minCount="0" />
+        </conveyor>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="4" pointsMultiplier="0.5" pointsAddition="2">
+            <spawn id="mvz2:undead_flying_object_blitz" />
+            <spawn id="mvz2:undead_flying_object" />
+        </spawns>
+        <time firstWave="1" waveMax="2" waveAdvance="2" />
+        <properties>
+            <bool name="noEnergy" value="true" />
+        </properties>
+    </stage>
 
-	<!-- Bosses' Revenge -->
-	<stage id="frankensteins_revenge" name="科学怪人的复仇" type="minigame" music="mvz2:ultimate_battle" >
-		<model preset="cloudy" />
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:skeleton"/>
-			<spawn id="mvz2:ghost"/>
-			<spawn id="mvz2:mummy"/>
-			<spawn id="mvz2:necromancer"/>
-		</spawns>
-		<properties>
-			<integer name="statueCount" value="10" />
-			<bool name="mvz2:boss_revenge" value="true"/>
-		</properties>
-	</stage>
-	<stage id="nightmares_revenge" name="梦魇的复仇" type="minigame" music="mvz2:nightmare_final" >
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:spider"/>
-			<spawn id="mvz2:cave_spider"/>
-			<spawn id="mvz2:ghast"/>
-			<spawn id="mvz2:mother_terror"/>
-		</spawns>
-		<properties>
-			<bool name="mvz2:boss_revenge" value="true"/>
-		</properties>
-	</stage>
-	<stage id="withers_revenge" name="凋灵的复仇" type="minigame" music="mvz2:castle_final" >
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:hell_chariot"/>
-		</spawns>
-		<properties>
-			<bool name="mvz2:boss_revenge" value="true"/>
-		</properties>
-	</stage>
-	<stage id="the_giants_revenge" name="巨人的复仇" type="minigame" music="mvz2:mausoleum_final" >
-		<unlock>
-			<condition required="mvz2:level.mausoleum_11"/>
-		</unlock>
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:shikaisen_zombie"/>
-			<spawn id="mvz2:emperor_zombie"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="8" />
-			<bool name="mvz2:boss_revenge" value="true"/>
-		</properties>
-	</stage>
-	<stage id="red_dragons_revenge" name="红龙的复仇" type="minigame" music="mvz2:ship_final" >
-		<unlock>
-			<condition required="mvz2:level.ship_11"/>
-		</unlock>
-		<model preset="cloudy" />
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:undead_flying_object" />
-			<spawn id="mvz2:zombie_cloud" />
-			<spawn id="mvz2:cannoneer_zombie" />
-			<spawn id="mvz2:pop_captain" />
-		</spawns>
-		<properties>
-			<bool name="mvz2:boss_revenge" value="true"/>
-		</properties>
-	</stage>
+    <!-- Bosses' Revenge -->
+    <stage id="frankensteins_revenge" name="科学怪人的复仇" type="minigame" music="mvz2:ultimate_battle" >
+        <model preset="cloudy" />
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:skeleton"/>
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:necromancer"/>
+        </spawns>
+        <properties>
+            <integer name="statueCount" value="10" />
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    <stage id="nightmares_revenge" name="梦魇的复仇" type="minigame" music="mvz2:nightmare_final" >
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:spider"/>
+            <spawn id="mvz2:cave_spider"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:mother_terror"/>
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    <stage id="withers_revenge" name="凋灵的复仇" type="minigame" music="mvz2:castle_final" >
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:hell_chariot"/>
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    <stage id="the_giants_revenge" name="巨人的复仇" type="minigame" music="mvz2:mausoleum_final" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_11"/>
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:emperor_zombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="8" />
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    <stage id="red_dragons_revenge" name="红龙的复仇" type="minigame" music="mvz2:ship_final" >
+        <unlock>
+            <condition required="mvz2:level.ship_11"/>
+        </unlock>
+        <model preset="cloudy" />
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:undead_flying_object" />
+            <spawn id="mvz2:zombie_cloud" />
+            <spawn id="mvz2:cannoneer_zombie" />
+            <spawn id="mvz2:pop_captain" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
 
+	<!-- EXPAND Minigames1 -->
 
-	<stage id="a_tooth_for_a_tooth" name="以牙还牙" needBlueprints="false" type="minigame" music="mvz2:minigame">
+    <stage id="a_tooth_for_a_tooth" name="以牙还牙" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <conveyor>
             <entry id="mvz2:golden_apple" count="4" />
             <entry id="mvz2:magichest" count="1" />
@@ -2257,6 +2258,8 @@
             <bool name="autoCollectMoney" value="true" />
         </properties>
     </stage>
+
+    <!-- EXPAND Puzzle -->
     <stage id="puzzleRandomCvsRandomE" name="随机器械vs随机怪物" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <camera position="lawn" transition="instant" />
