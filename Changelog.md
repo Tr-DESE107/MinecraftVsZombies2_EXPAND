@@ -39,6 +39,7 @@
 - Night-time contraptions during the day can no longer use the instant evoke function.
 - All darkness effects are now canceled after a level is completed.
 - Levels that have already been completed can no longer result in a game over due to certain monsters.
+- Updated the place sound of Silvenser, Gravity Pad, Spike Block, Golden Apple, Force Pad and Golden Dropper.
 
 ## Fixes
 - Fixed an issue where the "Earned!" text for achievements sometimes would not be translated according to the game language.

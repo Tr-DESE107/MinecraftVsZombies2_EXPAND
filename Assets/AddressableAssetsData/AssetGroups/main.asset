@@ -129,6 +129,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03854ed081ab0414cacd0db8519683b9
+    m_Address: mvz2:random/iron/break3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03a01e1df2865d441a9fa227eab6a1f6
     m_Address: mvz2:mobile_blueprint/golden_apple
     m_ReadOnly: 0
@@ -159,6 +166,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04449195224ad4244a17407dc21b85f1
     m_Address: mvz2:damage/bone/bone_hit1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0449ec7d38a9ed4438f8b84954867102
+    m_Address: mvz2:random/iron/break7
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1067,6 +1081,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 160f9fc9ad1c8524f8dc892654dc1557
+    m_Address: mvz2:characters/shou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16156bb7e931e954da8a64716c94c87a
     m_Address: mvz2:punch1
     m_ReadOnly: 0
@@ -1927,6 +1948,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2aa715acb7550d144a75195561bebed1
+    m_Address: mvz2:random/iron/break8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ab4a75a9055bfe45b77160fc117ae13
     m_Address: mvz2:characters/dim_vision
@@ -2955,6 +2983,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e864d13c78ee3f4e99e3f4f8f898634
+    m_Address: mvz2:random/iron/break4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3eeaaee3b5925f349bc67370a4813884
     m_Address: mvz2:mobile_blueprint/mine_tnt
     m_ReadOnly: 0
@@ -3171,6 +3206,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4494512fbdc4ae74493dde69625e10d7
+    m_Address: mvz2:random/iron/break1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44bd337d7a161b2498137668fbec6e35
     m_Address: mvz2:entity/contraptions/spike_block
@@ -6512,6 +6554,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e9c31adececf9d4ba3918d8941732d7
     m_Address: mvz2:random/stone1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ebf38a36ba314645bf42267e5100639
+    m_Address: mvz2:random/iron/break6
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10619,6 +10668,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebf357529a529ce4fa69845cde0e74d7
+    m_Address: mvz2:random/iron/break2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec212abe3448fae468e8a869c194bb7c
     m_Address: mvz2:entity/contraption/totenser
     m_ReadOnly: 0
@@ -11513,6 +11569,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff543336a67a8ce4cb4544936e45a5cc
+    m_Address: mvz2:random/iron/break5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff57a0ead1bc10f4fb8737e77bd61164
     m_Address: mvz2:chime

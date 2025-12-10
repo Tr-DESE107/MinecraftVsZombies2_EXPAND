@@ -465,6 +465,16 @@
     <sound name="mechanism">
         <sample path="mvz2:mechanism" weight="1" />
     </sound>
+    <sound name="metal_break">
+        <sample path="mvz2:random/iron/break1" weight="1" />
+        <sample path="mvz2:random/iron/break2" weight="1" />
+        <sample path="mvz2:random/iron/break3" weight="1" />
+        <sample path="mvz2:random/iron/break4" weight="1" />
+        <sample path="mvz2:random/iron/break5" weight="1" />
+        <sample path="mvz2:random/iron/break6" weight="1" />
+        <sample path="mvz2:random/iron/break7" weight="1" />
+        <sample path="mvz2:random/iron/break8" weight="1" />
+    </sound>
     <sound name="metal_saw" loopPitchStart="0" loopPitchEnd="1" loopFadeInSpeed="2" loopFadeOutSpeed="1">
         <sample path="mvz2:metal_saw" weight="1" />
     </sound>
