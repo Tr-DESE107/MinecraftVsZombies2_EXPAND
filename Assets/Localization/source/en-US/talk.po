@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-12-10 12:34+0800\n"
-"PO-Revision-Date: 2025-12-10 12:38+0800\n"
+"POT-Creation-Date: 2025-12-10 12:51+0800\n"
+"PO-Revision-Date: 2025-12-10 12:53+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -177,8 +177,8 @@ msgstr "You folks look way too relaxed to belong here. Who are you?"
 #. Description for talk sentence 11 in talk group castle_1_map's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（正邪出现）"
-msgstr "(Seija appears)"
+msgid "（正邪出场）"
+msgstr "(Seija enters)"
 
 #. Text for talk sentence 12 in talk group castle_1_map's section 0
 #: Talk meta file
@@ -1232,8 +1232,8 @@ msgstr "*Ringtone*"
 #. Description for talk sentence 13 in talk group kourindou_visit_castle's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（朱鹭子离开）"
-msgstr "(Tokiko left)"
+msgid "（朱鹭子离场）"
+msgstr "(Tokiko leaves)"
 
 #. Speaker Name for talk sentence 13 in talk group kourindou_visit_castle's section 0
 #: Talk meta file
@@ -1531,8 +1531,8 @@ msgstr "Wait! Seija!"
 #. Description for talk sentence 5 in talk group castle_7_map's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（正邪离开）"
-msgstr "(Seija left)"
+msgid "（正邪离场）"
+msgstr "(Seija leaves)"
 
 #. Text for talk sentence 6 in talk group castle_7_map's section 0
 #: Talk meta file
@@ -1930,8 +1930,8 @@ msgstr "Where are you going?! Shinmyoumaru!"
 #. Description for talk sentence 24 in talk group castle_8_map's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（针妙丸离开）"
-msgstr "(Shinmyoumaru left)"
+msgid "（针妙丸离场）"
+msgstr "(Shinmyoumaru leaves)"
 
 #. Text for talk sentence 25 in talk group castle_8_map's section 0
 #: Talk meta file
@@ -2627,8 +2627,8 @@ msgstr "Humans from the outside world, let me see what dreams you have…"
 #. Description for talk sentence 4 in talk group dream_1_over's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（哆来咪出现）"
-msgstr "(Doremy appears)"
+msgid "（哆来咪出场）"
+msgstr "(Doremy enters)"
 
 #. Text for talk sentence 5 in talk group dream_1_over's section 0
 #: Talk meta file
@@ -4883,8 +4883,8 @@ msgstr "!!!"
 #. Description for talk sentence 2 in talk group kourindou_first_visit's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（村民出现）"
-msgstr "(Villager appears)"
+msgid "（村民出场）"
+msgstr "(Villager enters)"
 
 #. Text for talk sentence 3 in talk group kourindou_first_visit's section 0
 #: Talk meta file
@@ -5418,8 +5418,8 @@ msgstr "...Who are you?"
 #. Description for talk sentence 4 in talk group halloween_1_over's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（欧兰特出现）"
-msgstr "(Orant appears)"
+msgid "（欧兰特出场）"
+msgstr "(Orant enters)"
 
 #. Archive name for talk group halloween_1_map
 #: Talk meta file
@@ -6975,8 +6975,8 @@ msgstr "Haven't seen you 'round here before. Who are you?"
 #. Description for talk sentence 6 in talk group exited_kourindou_mausoleum's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（魔理沙出现）"
-msgstr "(Marisa appears)"
+msgid "（魔理沙出场）"
+msgstr "(Marisa enters)"
 
 #. Text for talk sentence 7 in talk group exited_kourindou_mausoleum's section 0
 #: Talk meta file
@@ -8975,7 +8975,7 @@ msgstr "H-hang on!"
 #. Description for talk sentence 39 in talk group mausoleum_8_map's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（史蒂夫离开）"
+msgid "（史蒂夫离场）"
 msgstr "(Steve leaves)"
 
 #. Text for talk sentence 41 in talk group mausoleum_8_map's section 0
@@ -10108,8 +10108,8 @@ msgstr "Wh-who are you?!"
 #. Description for talk sentence 48 in talk group mausoleum_11_map's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（神秘影像出现）"
-msgstr "(The hologram appears)"
+msgid "（神秘影像出场）"
+msgstr "(The hologram enters)"
 
 #. Text for talk sentence 49 in talk group mausoleum_11_map's section 0
 #: Talk meta file
@@ -10159,7 +10159,7 @@ msgstr "..."
 #. Description for talk sentence 55 in talk group mausoleum_11_map's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（神秘影像离开）"
+msgid "（神秘影像离场）"
 msgstr "(The hologram leaves)"
 
 #. Text for talk sentence 56 in talk group mausoleum_11_map's section 0
@@ -10341,12 +10341,6 @@ msgstr ""
 msgctxt "talk-mvz2:kourindou_visit_ship_1"
 msgid "搞定了，现在那些器械已经能正常工作了。"
 msgstr ""
-
-#. Description for talk sentence 5 in talk group kourindou_visit_ship_1's section 0
-#: Talk meta file
-msgctxt "archive"
-msgid "（村民入场）"
-msgstr "(Villager enters)"
 
 #. Text for talk sentence 6 in talk group kourindou_visit_ship_1's section 0
 #: Talk meta file
@@ -11289,7 +11283,7 @@ msgstr ""
 #. Description for talk sentence 29 in talk group ship_3_map's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（鵺离开）"
+msgid "（鵺离场）"
 msgstr "(Nue leaves)"
 
 #. Archive name for talk group ship_4
@@ -11772,8 +11766,8 @@ msgstr "Ah, a customer!"
 #. Description for talk sentence 3 in talk group kourindou_visit_ship_2's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（魔理沙和朱鹭子入场）"
-msgstr "(Marisa and Tokiko appears)"
+msgid "（魔理沙和朱鹭子出场）"
+msgstr "(Marisa and Tokiko enters)"
 
 #. Text for talk sentence 4 in talk group kourindou_visit_ship_2's section 0
 #: Talk meta file
@@ -11805,7 +11799,7 @@ msgstr "Ah, you're back!"
 #. Description for talk sentence 7 in talk group kourindou_visit_ship_2's section 0
 #: Talk meta file
 msgctxt "archive"
-msgid "（魔理沙离开）"
+msgid "（魔理沙离场）"
 msgstr "(Marisa leaves)"
 
 #. Text for talk sentence 8 in talk group kourindou_visit_ship_2's section 0
@@ -12300,12 +12294,6 @@ msgctxt "talk-mvz2:ship_7_map"
 msgid "是我，小鬼！"
 msgstr ""
 
-#. Description for talk sentence 6 in talk group ship_7_map's section 1
-#: Talk meta file
-msgctxt "archive"
-msgid "（正邪出场）"
-msgstr "(Seija enters)"
-
 #. Text for talk sentence 7 in talk group ship_7_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:ship_7_map"
@@ -12384,12 +12372,6 @@ msgstr ""
 msgctxt "talk-mvz2:ship_7_map"
 msgid "喂，你等等——"
 msgstr "Wait—"
-
-#. Description for talk sentence 18 in talk group ship_7_map's section 1
-#: Talk meta file
-msgctxt "archive"
-msgid "（正邪离场）"
-msgstr "(Seija leaves)"
 
 #. Text for talk sentence 19 in talk group ship_7_map's section 1
 #: Talk meta file
@@ -12493,7 +12475,7 @@ msgstr ""
 #. Description for talk sentence 6 in talk group ship_7_map's section 2
 #: Talk meta file
 msgctxt "archive"
-msgid "（赤蛮奇入场）"
+msgid "（赤蛮奇出场）"
 msgstr "(Sekibanki enters)"
 
 #. Text for talk sentence 7 in talk group ship_7_map's section 2
@@ -12562,7 +12544,7 @@ msgstr "Oh, you're—"
 #. Description for talk sentence 15 in talk group ship_7_map's section 2
 #: Talk meta file
 msgctxt "archive"
-msgid "（星和村民入场）"
+msgid "（星和村民出场）"
 msgstr "(Shou and Villager enters)"
 
 #. Text for talk sentence 16 in talk group ship_7_map's section 2
@@ -13891,6 +13873,22 @@ msgstr ""
 msgctxt "talk-mvz2:ship_11_map"
 msgid "告辞了，祝您一路顺风。"
 msgstr ""
+
+#~ msgctxt "archive"
+#~ msgid "（正邪出现）"
+#~ msgstr "(Seija appears)"
+
+#~ msgctxt "archive"
+#~ msgid "（正邪离开）"
+#~ msgstr "(Seija left)"
+
+#~ msgctxt "archive"
+#~ msgid "（村民入场）"
+#~ msgstr "(Villager enters)"
+
+#~ msgctxt "archive"
+#~ msgid "（鵺离开）"
+#~ msgstr "(Nue leaves)"
 
 #~ msgctxt "talk-mvz2:mausoleum_6_map"
 #~ msgid "…………唉。"

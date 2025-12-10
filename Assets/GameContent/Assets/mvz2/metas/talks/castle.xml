@@ -102,7 +102,7 @@
           </click>
           <text>哇啊！搞、搞什么啊！</text>
         </sentence>
-        <sentence speaker="mvz2:seija" speakerName="？？？" description="（正邪出现）" sounds="mvz2:talk">你们这群看起来很闲的家伙是谁啊？</sentence>
+        <sentence speaker="mvz2:seija" speakerName="？？？" description="（正邪出场）" sounds="mvz2:talk">你们这群看起来很闲的家伙是谁啊？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">你、你是——</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（……戴夫完全被这家伙踩在脚下了。）</color>]]></sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">你是——鬼人正邪吧？</sentence>
@@ -534,7 +534,7 @@
           </click>
           <text>是吗？我试试……</text>
         </sentence>
-        <sentence speaker="mvz2:none" speakerName="手机" description="（朱鹭子离开）" onStart="music volume 1;music play mvz2:phone_ring">叮铃铃铃……</sentence>
+        <sentence speaker="mvz2:none" speakerName="手机" description="（朱鹭子离场）" onStart="music volume 1;music play mvz2:phone_ring">叮铃铃铃……</sentence>
         <sentence speaker="mvz2:none" speakerName="手机" sounds="mvz2:tap" onStart="music stop">哔。</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">是史蒂夫吗？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
@@ -662,7 +662,7 @@
           </click>
           <text>！是你们！</text>
         </sentence>
-        <sentence speaker="mvz2:shinmyoumaru" description="（正邪离开）" sounds="mvz2:dialog_beat">
+        <sentence speaker="mvz2:shinmyoumaru" description="（正邪离场）" sounds="mvz2:dialog_beat">
           <start>
             <script>shake</script>
           </start>
@@ -701,7 +701,7 @@
           </click>
           <text>好了，赶我走是吧！求之不得！</text>
         </sentence>
-        <sentence speaker="mvz2:shinmyoumaru" description="（正邪离开）" sounds="mvz2:talk" variant="mvz2:worried">
+        <sentence speaker="mvz2:shinmyoumaru" description="（正邪离场）" sounds="mvz2:talk" variant="mvz2:worried">
           <start>
             <script>item show mvz2:artifacts/miracle_mallet_replica</script>
           </start>
@@ -824,7 +824,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake"><![CDATA[<color=blue>（怎、怎么回事！怎么会变成这样！）</color>]]></sentence>
         <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:hide_eyes">……</sentence>
         <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onClick="bubble hide;character leave mvz2:shinmyoumaru;delay 0.5;next">对不起。我……</sentence>
-        <sentence speaker="mvz2:steve" description="（针妙丸离开）" sounds="mvz2:talk" onStart="shake">
+        <sentence speaker="mvz2:steve" description="（针妙丸离场）" sounds="mvz2:talk" onStart="shake">
           <click>
             <script>bubble hide</script>
             <script>forecolor fade #0000 #000F 1</script>

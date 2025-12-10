@@ -38,7 +38,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">和我们的小伙伴打个招呼吧！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">小型发射器不需要能量就能放置，能够喷射短距离的雪球，是夜晚的一大利器！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;character create mvz2:orant right;delay 0.5;next">好好利用吧！</sentence>
-        <sentence speaker="mvz2:orant" description="（欧兰特出现）" sounds="mvz2:talk" onClick="end">……你们是？</sentence>
+        <sentence speaker="mvz2:orant" description="（欧兰特出场）" sounds="mvz2:talk" onClick="end">……你们是？</sentence>
       </sentences>
     </section>
   </group>

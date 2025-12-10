@@ -85,7 +85,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">嗯？那边好像有人？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">那个人是——魔理沙？她在这里干什么？</sentence>
         <sentence speaker="mvz2:marisa" speakerName="？？？" sounds="mvz2:talk;mvz2:dialog_surprised" onClick="character create mvz2:marisa right;bubble hide;delay 1;next">嗯？</sentence>
-        <sentence speaker="mvz2:marisa" sounds="mvz2:talk" description="（魔理沙出现）">生面孔呢，你们是？</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk" description="（魔理沙出场）">生面孔呢，你们是？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">你好，我们是前来帮助你们清除僵尸的人，这位——大鼻子也是。</sentence>
         <sentence speaker="mvz2:marisa" sounds="mvz2:talk">原来是你们啊，我听说过你们的事迹。是把针妙丸从亡灵的手中救出来了吧？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的。</sentence>
@@ -883,7 +883,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake;music fade 0">！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake">对、对不起！我冒犯您了！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake">我、我、我、我不该问的！抱歉！</sentence>
-        <sentence speaker="mvz2:miko" description="（史蒂夫离开）" sounds="mvz2:dialog_flashback;mvz2:talk" variant="mvz2:surprised">等、等等！</sentence>
+        <sentence speaker="mvz2:miko" description="（史蒂夫离场）" sounds="mvz2:dialog_flashback;mvz2:talk" variant="mvz2:surprised">等、等等！</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:worried">……</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:worried" onClick="music fade 1;end">别走啊……</sentence>
       </sentences>
@@ -1342,7 +1342,7 @@
             <script>next</script>
           </click>
         </sentence>
-        <sentence speaker="mvz2:steve" description="（神秘影像出现）" sounds="mvz2:dialog_beat" onStart="shake">你、你是什么人！</sentence>
+        <sentence speaker="mvz2:steve" description="（神秘影像出场）" sounds="mvz2:dialog_beat" onStart="shake">你、你是什么人！</sentence>
         <sentence speaker="mvz2:hologram" sounds="mvz2:talk">呵，你居然也到了这里，真的是命运的捉弄啊。</sentence>
         <sentence speaker="mvz2:hologram" sounds="mvz2:dialog_weird">史蒂夫。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake">你——为什么知道我的名字？</sentence>
@@ -1369,7 +1369,7 @@
             <script>next</script>
           </click>
         </sentence>
-        <sentence speaker="mvz2:steve" description="（神秘影像离开）" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" description="（神秘影像离场）" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">该死，这家伙，到底是谁？</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" onStart="shake">
           <text>呜呜呜……呜呜呜……</text>
