@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-03 07:50+0800\n"
+"POT-Creation-Date: 2025-12-10 12:33+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -830,7 +830,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
+msgid "银制发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr ""
 
 #. Properties for contraptions mvz2:silvenser
@@ -4369,7 +4369,7 @@ msgstr ""
 #. Name for entity mvz2:silvenser
 #: Entity meta file
 msgctxt "entity.name"
-msgid "银质发射器"
+msgid "银制发射器"
 msgstr ""
 
 #. Tooltip for entity mvz2:silvenser

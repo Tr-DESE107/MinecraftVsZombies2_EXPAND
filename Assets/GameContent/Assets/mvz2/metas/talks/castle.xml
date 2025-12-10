@@ -137,7 +137,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……嗯？这个凋灵骷髅是？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">头上戴着个金质头冠，手里拿着法杖。是干什么的呢？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">头上戴着个金制头冠，手里拿着法杖。是干什么的呢？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">我也不知道啊，不过我有一种预感！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">你会用到荧石的，邻居！</sentence>
       </sentences>

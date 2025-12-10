@@ -444,7 +444,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="silvenser" name="银质发射器" tooltip="射出穿透肉体的飞刀">
+        <dispenser id="silvenser" name="银制发射器" tooltip="射出穿透肉体的飞刀">
             <unlock>
                 <condition required="mvz2:level.halloween_8" />
             </unlock>

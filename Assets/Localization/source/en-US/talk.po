@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-24 08:12+0800\n"
-"PO-Revision-Date: 2025-09-24 20:23+0800\n"
+"POT-Creation-Date: 2025-12-10 12:34+0800\n"
+"PO-Revision-Date: 2025-12-10 12:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -293,7 +293,7 @@ msgstr "...Huh? What's that wither skeleton's deal?"
 #. Text for talk sentence 1 in talk group castle_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_2"
-msgid "头上戴着个金质头冠，手里拿着法杖。是干什么的呢？"
+msgid "头上戴着个金制头冠，手里拿着法杖。是干什么的呢？"
 msgstr "It's wearing a golden crown and holding a wand. What does it do?"
 
 #. Text for talk sentence 2 in talk group castle_2's section 0
@@ -6363,7 +6363,7 @@ msgstr "The Perfect and Elegant Dispenser is here!"
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_8_over"
 msgid ""
-"这是银质发射器！它的利刃可以刺穿肉体，造成更高的伤害！还可以穿透任何不是很硬"
+"这是银制发射器！它的利刃可以刺穿肉体，造成更高的伤害！还可以穿透任何不是很硬"
 "的物体！"
 msgstr ""
 "Here comes Silvenser! Its knives can slice flesh and deal great damage! And "
@@ -10303,6 +10303,3594 @@ msgctxt "talk-mvz2:prologue_note"
 msgid "很疯狂吧？？？那我们就去找——这道看起来特别可疑的传送门吧！"
 msgstr ""
 "CRAAZZYY, RIGHT??? We’re coming for ya, very-suspicious-looking portal!"
+
+#. Archive name for talk group kourindou_visit_ship_1
+#: Talk meta file
+msgctxt "archive"
+msgid "第五章-访问香霖堂"
+msgstr "Chapter 5-Visit to Kourindou"
+
+#. Text for talk sentence 0 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 2 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "<color=blue>（戴夫在外面检查防御系统，还没有回来。）</color>"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "<color=blue>（上次香霖堂遭到了僵尸们的袭击，朱鹭子差点就……）</color>"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid ""
+"<color=blue>（在那之后，我们开始在外围建设一些器械作为防御装置，防止类似的情"
+"况发生。）</color>"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "搞定了，现在那些器械已经能正常工作了。"
+msgstr ""
+
+#. Description for talk sentence 5 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（村民入场）"
+msgstr "(Villager enters)"
+
+#. Text for talk sentence 6 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "希望如此吧。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "<color=blue>（……）</color>"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "<color=blue>（气氛还是好凝重……）</color>"
+msgstr "<color=blue>(...)</color>"
+
+#. Text for talk sentence 10 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_note"
+#| msgid "那算了。"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "那个。"
+msgstr "Never mind, then."
+
+#. Text for talk sentence 11 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_4"
+#| msgid "哆来咪小姐，您怎么了？"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "啊，朱鹭子，怎么了？"
+msgstr "Miss Doremy, are you okay?"
+
+#. Text for talk sentence 12 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "就是上次，那个袭击我的奇怪的影像。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "那个家伙，好像认识史蒂夫先生。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "史蒂夫先生，你认识他吗？"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_5_map"
+#| msgid "怎么了？"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "怎么了？"
+msgstr "What?"
+
+#. Text for talk sentence 17 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "我——说不太清楚。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_11_map"
+#| msgid "诶？"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "诶？"
+msgstr "Huh?"
+
+#. Text for talk sentence 19 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "之前我有和你在闲聊的时候说过，关于我的手臂的事情。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid ""
+"我记得是——你陷入了很长时间的昏迷，等你醒来之后，你的手臂就已经变成假手了。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "嗯，对的，那之后我就失去了很多记忆。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "在我昏迷之前的很多事情……我怎么想也想不起来。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "不过，其实我莫名有一点小小的印象。"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "在我昏迷之前，我似乎曾经认识过一个人。"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "但是，我已经怎么样也想不起来那个人到底是谁了。"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "他是谁？他和我是什么关系？我已经彻底失去这方面的印象了。"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "那个影像，应该就是他吧。"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "这样吗……"
+msgstr ""
+
+#. Text for talk sentence 30 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "可能，我对那个家伙做了什么不可饶恕的事情，他是来找我寻仇的也说不定。"
+msgstr ""
+
+#. Text for talk sentence 31 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "怎、怎么可能！史蒂夫先生这么善良，怎么会做那种事情呢？"
+msgstr ""
+
+#. Text for talk sentence 33 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+#| msgid "打扰了，史蒂夫在这吗？"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "请问，史蒂夫在这里吗？"
+msgstr "Forgive my intrusion. Is Steve here?"
+
+#. Text for talk sentence 34 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+#| msgid "啊，我在，您是？"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "啊，我在，你是？"
+msgstr "Ah, that's me. And you are?"
+
+#. Text for talk sentence 35 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "我是来自命莲寺的僧侣——寅丸 星，我此次前来是有事求于史蒂夫先生。"
+msgstr ""
+
+#. Description for talk sentence 35 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（星出场）"
+msgstr "(Shou enters)"
+
+#. Text for talk sentence 36 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_3_map"
+#| msgid "什么事？"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "什么事？"
+msgstr "What is it?"
+
+#. Text for talk sentence 37 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "在前不久，幻想乡内出现了一条红色的恶龙，它四处破坏，为祸人间。"
+msgstr ""
+
+#. Text for talk sentence 38 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "我们命莲寺的住持——圣 白莲大人，因此独自离开了寺庙前去降伏这头恶龙。"
+msgstr ""
+
+#. Text for talk sentence 39 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid ""
+"但是，她已经好几天没有回来了，我们也没有她的任何消息，因此我们决定要乘坐圣辇"
+"船前去寻找她的下落。"
+msgstr ""
+
+#. Text for talk sentence 40 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "圣辇船是……？"
+msgstr ""
+
+#. Text for talk sentence 41 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "圣辇船是我们的一艘可以在空中飞行的船，创造它的也是圣。"
+msgstr ""
+
+#. Text for talk sentence 42 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "<color=blue>（……）</color>"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "<color=blue>（又、又是空中吗……）</color>"
+msgstr "<color=blue>(...)</color>"
+
+#. Text for talk sentence 43 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "那么，为什么需要我帮忙呢？"
+msgstr ""
+
+#. Text for talk sentence 44 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "因为，在天空上我们总是会遭到另一艘敌对船只的袭击。"
+msgstr ""
+
+#. Text for talk sentence 45 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "那艘船会靠近我们，建起桥梁，然后放出僵尸登船攻击。"
+msgstr ""
+
+#. Text for talk sentence 46 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "我们没有足够的力量对抗它们，因此需要您的帮助。"
+msgstr ""
+
+#. Text for talk sentence 47 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_4"
+#| msgid "<color=blue>（……不过。）</color>"
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "<color=blue>（哈……又是僵尸啊。）</color>"
+msgstr "<color=blue>(...Though)</color>"
+
+#. Text for talk sentence 48 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "对了，我这次，是受神子的引荐而来，她也希望您能随我们一起去。"
+msgstr ""
+
+#. Text for talk sentence 49 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "神子吗……"
+msgstr ""
+
+#. Text for talk sentence 50 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "<color=blue>（说起来，神子大人确实曾经说过。）</color>"
+msgstr ""
+
+#. Text for talk sentence 51 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid ""
+"<color=blue>（她会把我介绍给一位高僧，说是也许这能帮我解决我一直以来的疑"
+"问。）</color>"
+msgstr ""
+
+#. Text for talk sentence 52 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "<color=blue>（说的应该就是星口中的那位白莲大人吧。）</color>"
+msgstr ""
+
+#. Text for talk sentence 54 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "好，我随你们一起去吧。"
+msgstr ""
+
+#. Text for talk sentence 55 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "我也有些事情想从你们那里了解。"
+msgstr ""
+
+#. Text for talk sentence 56 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "朱鹭子，你自己一个人在这里应该没问题吧？"
+msgstr ""
+
+#. Text for talk sentence 57 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "嗯，有防御器械在这边，应该是没有大问题的。"
+msgstr ""
+
+#. Text for talk sentence 58 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "史蒂夫先生就放心吧。"
+msgstr ""
+
+#. Text for talk sentence 59 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "好，那我们走吧。"
+msgstr ""
+
+#. Text for talk sentence 60 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "请随我们来吧。"
+msgstr ""
+
+#. Text for talk sentence 61 in talk group kourindou_visit_ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_1"
+msgid "呦呵呵——登船啦！"
+msgstr ""
+
+#. Archive name for talk group ship_1
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第1天入场"
+msgstr "Ship Day 1 Intro"
+
+#. Text for talk sentence 0 in talk group ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1"
+msgid "它们来了！那艘船出现了！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_6_map"
+#| msgid "怎么回事？"
+msgctxt "talk-mvz2:ship_1"
+msgid "怎么回事？对方是——"
+msgstr "What's up?"
+
+#. Text for talk sentence 2 in talk group ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1"
+msgid "……末地船？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1"
+msgid "您原来认识它吗？它就是我们之前和你说过的那艘袭击我们的船！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1"
+msgid "我知道了，那就让我来吧！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1"
+msgid "<color=blue>（虽然现在是白天，但是我们的矿场无法带到船上。）</color>"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_1's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "<color=blue>（最后，所有的小人族都得到了解救。）</color>"
+msgctxt "talk-mvz2:ship_1"
+msgid "<color=blue>（因此，战斗所需要的能量可能会比较吃紧了。）</color>"
+msgstr "<color=blue>(Ultimately, every inchling was saved.)</color>"
+
+#. Archive name for talk group ship_1_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第1天结束"
+msgstr "Ship Day 1 Outro"
+
+#. Text for talk sentence 0 in talk group ship_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_over"
+msgid "爆炸性的新货！火药桶！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_over"
+msgid "它能够生产火药，一次能给予大量的能量！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_over"
+msgid "但是，大量的回报也伴随着风险！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_over"
+msgid "如果火药没能及时被捡起，它就会爆炸！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_over"
+msgid "同时，如果火药桶被摧毁或者被挖掘，它也会产生爆炸！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_over"
+msgid "没时间介绍了！快捡走！"
+msgstr ""
+
+#. Archive name for talk group ship_1_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第1天地图"
+msgstr "Ship Day 1 Map"
+
+#. Text for talk sentence 0 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid "那艘船我认得，它是和那些僵尸一样，是来自我们世界的东西。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid "没想到它居然会出现在这里。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_1_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_first_visit"
+#| msgid "在异变开始的时候，他就已经不在这里了。"
+msgctxt "talk-mvz2:ship_1_map"
+msgid "其实，早在三年前异变开始的时候，这艘船就已经出现了。"
+msgstr "He was already gone by the time this incident started."
+
+#. Text for talk sentence 3 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid "它飞在空中，载着各式各样的怪物，尝试袭击在空中路过的所有目标。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid "妖怪们深受它所扰，因此我们也尝试过针对它进行剿灭。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid ""
+"但是，这艘船内部载着一种水晶。即使这艘船有一部分被摧毁，水晶也会以极快的速度"
+"修复船身。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid "因此要完全摧毁它，就要先摧毁水晶，然而这需要相当多的战斗力。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid ""
+"并且这艘船一旦败下阵来就会以近乎传送般的速度逃跑，根本没多少人能追得上它。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid "因此这件事也不了了之了。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_1_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "<color=blue>（……）</color>"
+msgctxt "talk-mvz2:ship_1_map"
+msgid "<color=blue>（原来是末影水晶吗……）</color>"
+msgstr "<color=blue>(...)</color>"
+
+#. Text for talk sentence 10 in talk group ship_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_1_map"
+msgid "我们这次航行的目的主要是为了找到圣，因此只需要您帮忙赶走它们就好了。"
+msgstr ""
+
+#. Archive name for talk group ship_2
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第2天入场"
+msgstr "Ship Day 2 Intro"
+
+#. Text for talk sentence 0 in talk group ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2"
+msgid "前方出现了大量的飞碟！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2"
+msgid "飞、飞碟？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2"
+msgid "幻想乡之前确实有过与飞碟有关的异变，但现在的飞碟和之前的那种不一样。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2"
+msgid "这些飞碟，纯粹是僵尸那一方的怪物。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2"
+msgid "小心它们！它们可能会对战斗进行各种各样的干扰！"
+msgstr ""
+
+#. Archive name for talk group ship_2_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第2天结束"
+msgstr "Ship Day 2 Outro"
+
+#. Text for talk sentence 0 in talk group ship_2_over's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_7_over"
+#| msgid "这是图腾发射器！"
+msgctxt "talk-mvz2:ship_2_over"
+msgid "这是三头发射器！"
+msgstr "This is Totenser!"
+
+#. Text for talk sentence 1 in talk group ship_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_over"
+msgid "它可以向它所在的行，以及相邻的两行发射箭矢！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_over"
+msgid "同时，如果它位于最边缘位置，那么它会改为向自身所在行发射两支箭矢！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_over"
+msgid "把你的火力扩散到全战场吧！"
+msgstr ""
+
+#. Archive name for talk group ship_2_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第2天地图"
+msgstr "Ship Day 2 Map"
+
+#. Text for talk sentence 0 in talk group ship_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_map"
+msgid "星，那位圣 白莲大人，是个怎么样的人？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_map"
+msgid ""
+"她是一位法力高强，而又心地善良的高僧。她帮助过非常多的妖怪，这艘船的船长村纱"
+"就是被她所拯救。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_map"
+msgid ""
+"不过，由于她和妖怪走的太近，她曾经被封印在魔界之中，后来我们这些妖怪又借助着"
+"圣辇船把她救了出来。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_map"
+msgid "那关于这艘——圣辇船呢？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_map"
+msgid ""
+"圣辇船也是圣当时为了拯救村纱而使用法力创造的。不过现在的这艘船和之前的那一艘"
+"船并非同一艘。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_map"
+msgid ""
+"第一艘变成了现在的命莲寺。虽然寺庙仍然可以再变回船的样子，但仍有些不便。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_map"
+msgid ""
+"因此圣又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工"
+"具。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_2_map"
+msgid ""
+"<color=blue>（随随便便就能创造一艘在空中飞行的船吗……确实法力高强啊。）</"
+"color>"
+msgstr ""
+
+#. Archive name for talk group ship_3
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第3天入场"
+msgstr "Ship Day 3 Intro"
+
+#. Text for talk sentence 0 in talk group ship_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3"
+msgid "今天出现的敌人有——蜘蛛吗？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3"
+msgid "是的，在那之前我们已经见过这些虫子了。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3"
+msgid "佛教曾有与蜘蛛有关的故事。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3"
+msgid ""
+"传说佛世尊曾想使用蜘蛛丝救一恶人脱离地狱，然而恶人最终又因自己导致蛛丝断裂，"
+"重新坠入深渊。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3"
+msgid "还有这样的故事啊。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3"
+msgid "不过，你我皆非恶人，这蜘蛛也非比寻常。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3"
+msgid "不要因它致使自己坠入地狱就好。"
+msgstr ""
+
+#. Archive name for talk group ship_3_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第3天结束"
+msgstr "Ship Day 3 Outro"
+
+#. Text for talk sentence 0 in talk group ship_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_over"
+msgid "开始庆祝吧！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_over"
+msgid ""
+"这是烟花发射器，在它上方一定范围内存在飞行敌人时，它会自动使用烟花轰炸它们！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_over"
+msgid "不过，它也只能攻击到高空中的敌人！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_over"
+msgid "庆祝的时候到了！"
+msgstr ""
+
+#. Archive name for talk group ship_3_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第3天地图"
+msgstr "Ship Day 3 Map"
+
+#. Text for talk sentence 0 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "嗯……？船头好像站着一个人？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "诶，是……"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "哦，原来是她。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "那家伙是封兽 鵺（yè），和我一样同是命莲寺势力的妖怪。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_3_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_4_map"
+#| msgid "啊？"
+msgctxt "talk-mvz2:ship_3_map"
+msgid "哦？"
+msgstr "Huh?"
+
+#. Text for talk sentence 5 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "是你啊，说要解决幻想乡异变的，那个外界来的孩子。"
+msgstr ""
+
+#. Description for talk sentence 5 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（鵺出场）"
+msgstr "(Nue enters)"
+
+#. Text for talk sentence 6 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "最近妖怪之间也开始有关于你的传闻了。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_3_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_11_map"
+#| msgid "要走了吗，史蒂夫？"
+msgctxt "talk-mvz2:ship_3_map"
+msgid "我记得你好像叫，史蒂夫？"
+msgstr "Departing so soon, Steve?"
+
+#. Text for talk sentence 8 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "嗯，是的。你在这里是为了？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "……没什么，只是看到这船又飞上天空，来看看罢了。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "你要帮我们寻找圣吗？"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group ship_3_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:halloween_2_map"
+#| msgid "……抱歉，我不能说。"
+msgctxt "talk-mvz2:ship_3_map"
+msgid "……圣吗？抱歉，我做不到。"
+msgstr "...Sorry, I can't say."
+
+#. Text for talk sentence 12 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "我当初就已经和她们说过了，我拒绝帮忙。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "所以，你这家伙，到底为什么？你不也是圣的弟子吗？"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "现在她需要我们出手相助，你却要在这个节骨眼上拒绝帮忙？！"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group ship_3_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_1"
+#| msgid "……"
+msgctxt "talk-mvz2:ship_3_map"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 16 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "史蒂夫是吧，你年纪轻轻来到这里，着实勇气可嘉。"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "不过，非常可惜，虽然我不知道这里真正发生了什么，但是——"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "你们目前所做的一切，都没有任何意义。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "你这是什么意思？凭什么否定我们目前做的一切？！"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "总有一天，你们会明白的。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "好了，史蒂夫，我送你一件东西。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "这是人类村庄那边比较流行的一款小玩具，不过你不要小看它。"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "我给这个玩具加了点小小的魔力，如果运用得当，可以创造出财富。"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group ship_3_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_10_map"
+#| msgid "明白。"
+msgctxt "talk-mvz2:ship_3_map"
+msgid "给。"
+msgstr "Understood."
+
+#. Text for talk sentence 26 in talk group ship_3_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_11_over"
+#| msgid "……谢谢你们。"
+msgctxt "talk-mvz2:ship_3_map"
+msgid "……谢谢？"
+msgstr "...Thank you."
+
+#. Text for talk sentence 27 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid ""
+"好了，恕我真的没办法打起精神帮你们的忙，这是我能提供的最大限度的帮助了。"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "再见。"
+msgstr ""
+
+#. Text for talk sentence 29 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_3_map"
+msgid "这家伙，还是和以前一样让人恼火……！"
+msgstr ""
+
+#. Description for talk sentence 29 in talk group ship_3_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（鵺离开）"
+msgstr "(Nue leaves)"
+
+#. Archive name for talk group ship_4
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第4天入场"
+msgstr "Ship Day 4 Intro"
+
+#. Text for talk sentence 0 in talk group ship_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4"
+msgid "啊，看那里！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4"
+msgid "那里有一朵看上去很像僵尸的粉色云！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_4's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_3_map"
+#| msgid "这么好用的东西？"
+msgctxt "talk-mvz2:ship_4"
+msgid "……？这么奇怪的东西？"
+msgstr "Sounds too good to be true."
+
+#. Text for talk sentence 3 in talk group ship_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4"
+msgid "它应该也是我们的敌人，要小心了！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4"
+msgid "记得带上防空手段！"
+msgstr ""
+
+#. Archive name for talk group ship_4_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第4天结束"
+msgstr "Ship Day 4 Outro"
+
+#. Text for talk sentence 0 in talk group ship_4_over's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_6_over"
+#| msgid "活塞发射器！会伸缩的发射器！"
+msgctxt "talk-mvz2:ship_4_over"
+msgid "连射发射器！连射发射器！"
+msgstr "Pistenser! A retractable Dispenser!"
+
+#. Text for talk sentence 1 in talk group ship_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_over"
+msgid "它一次会发射两支箭矢！它一次会发射两支箭矢！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_over"
+msgid "尽情重复吧！尽情重复吧！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_4_over's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_first_visit"
+#| msgid "……？"
+msgctxt "talk-mvz2:ship_4_over"
+msgid "……？"
+msgstr "…?"
+
+#. Archive name for talk group ship_4_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第4天地图"
+msgstr "Ship Day 4 Map"
+
+#. Text for talk sentence 0 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "话说，昨天那位——奇怪的女士是谁？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "你是说鵺吗？她啊，也是我们命莲寺的一员，是位大妖怪。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "但是她和我们这些僧侣之间的关系并不好，是个很讨人厌的家伙。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "说起来，这艘船上也有其他命莲寺的成员来着？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "对的，村纱也随我们一起来了，她负责开船，所以没有时间来参与战斗。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "除了她之外就没有其他人了，其余的人都留在寺里看守。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "嗯……话说——"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "我还不知道你之前说的那条红龙到底是什么呢。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "那条龙吗？那我来说明一下情况吧。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "这条龙，其实是第二条龙。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "诶？第二条？"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "是的，第一条龙其实是在三年前，异变刚发生时出现的。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "那条龙是和一只巨大的僵尸一起出现的，它们一起对幻想乡造成了很多破坏。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid ""
+"鉴于事情的严重性，我们也和梦殿大祀庙那边的人达成了合作，一起解决它们两个。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "梦殿大祀庙那边把巨人封印在了地下，而圣则亲手杀死了那条恶龙。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group ship_4_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_11_map"
+#| msgid "真的吗……？"
+msgctxt "talk-mvz2:ship_4_map"
+msgid "直接杀死吗……？"
+msgstr "Is that true...?"
+
+#. Text for talk sentence 16 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "虽然她杀生这件事曾经也产生过一些争议，不过大家还是把她奉为了屠龙英雄。"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "但是，她在那之后，似乎变得有些奇怪。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "奇怪？"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group ship_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_4_map"
+msgid "总感觉，圣一直有什么事情说不出口。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group ship_4_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_1"
+#| msgid "……"
+msgctxt "talk-mvz2:ship_4_map"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 21 in talk group ship_4_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_4_map"
+#| msgid "<color=blue>（会和这场异变有关系吗？）</color>"
+msgctxt "talk-mvz2:ship_4_map"
+msgid "<color=blue>（这件事，背后还有什么隐情吗？）</color>"
+msgstr "<color=blue>(Could it be related to this incident?)</color>"
+
+#. Archive name for talk group ship_5_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第5天结束"
+msgstr "Ship Day 5 Outro"
+
+#. Text for talk sentence 0 in talk group ship_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_over"
+msgid "高频脉冲发射器！高频脉冲发射器！高频脉冲发射器！高频脉冲发射器！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_over"
+msgid ""
+"一次发射四支箭矢！一次发射四支箭矢！一次发射四支箭矢！一次发射四支箭矢！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_over"
+msgid "需要从连射发射器升级！需要——"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_over"
+msgid "好了！够了！"
+msgstr ""
+
+#. Archive name for talk group ship_5_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第5天地图"
+msgstr "Ship Day 5 Map"
+
+#. Text for talk sentence 0 in talk group ship_5_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_5_map"
+#| msgid "对了，哆来咪，我有个问题想问问你。"
+msgctxt "talk-mvz2:ship_5_map"
+msgid "对了，我有个问题一直想问。"
+msgstr "Hey, Doremy, there's something I wanna ask."
+
+#. Text for talk sentence 1 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid ""
+"你们和白莲大人同是命莲寺的人，为什么却没有她去哪里了的线索，只能漫无目的地寻"
+"找呢？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid "这个……我来说说吧。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid "那时，红龙再次出现，圣当时正在寺里看着那条龙四处毁坏。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid ""
+"我们赶到了她的身旁，正惊讶于眼前的发生的事情。那之后，她忽然动身，准备离开寺"
+"庙。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid "我连忙上去问她怎么回事，但她只留下了一句话。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid "她说：“我去了结此番因果。”"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid "那之后，她便离开了我们，什么也没有说。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid "原来她是独自一人离开的吗？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid "是的，已经好几天了，直到今天都没有她的任何线索。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group ship_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_5_map"
+msgid "我们坐立不安，因此才决定使用圣辇船来寻找她。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group ship_5_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_3"
+#| msgid "这就是我们要去找你的原因。"
+msgctxt "talk-mvz2:ship_5_map"
+msgid "这就是我们启程的原因了。"
+msgstr "This is why we had to ask for your help, Steve."
+
+#. Archive name for talk group ship_6
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第6天入场"
+msgstr "Ship Day 6 Intro"
+
+#. Text for talk sentence 0 in talk group ship_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6"
+msgid "嘿！看远处的天上！有一大堆飞碟！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6"
+msgid "怎么回事？怎么会有这么多！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6"
+msgid "不好！那些飞碟飞过来了！"
+msgstr ""
+
+#. Archive name for talk group ship_6_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第6天结束"
+msgstr "Ship Day 6 Outro"
+
+#. Text for talk sentence 0 in talk group ship_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6_over"
+msgid "啊哈！信标！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6_over"
+msgid "不过这个不是真的信标，只是一个会发光的手里剑发射器！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6_over"
+msgid "它会向五个不同的方向发射手里剑！非常适合跨行攻击！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_6_over's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_2_over"
+#| msgid "让战场上洒满钉子吧！"
+msgctxt "talk-mvz2:ship_6_over"
+msgid "让战场上布满星星吧！"
+msgstr "Cover the battlefield in nails!"
+
+#. Archive name for talk group ship_6_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第6天地图"
+msgstr "Ship Day 6 Map"
+
+#. Text for talk sentence 0 in talk group ship_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6_map"
+msgid "现在还是没有找到白莲吗？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_6_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_1_map"
+#| msgid "嗯，是的。"
+msgctxt "talk-mvz2:ship_6_map"
+msgid "嗯，是的。"
+msgstr "...Yeah. It is."
+
+#. Text for talk sentence 2 in talk group ship_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6_map"
+msgid "不过最后还有一处地方没有搜索，那就是妖怪之山附近。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6_map"
+msgid "我们先回命莲寺整顿一番吧。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6_map"
+msgid "正好！不如我们也先回香霖堂吧！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6_map"
+msgid "我也有一批货物想卖给你了！"
+msgstr ""
+
+#. Archive name for talk group kourindou_visit_ship_2
+#: Talk meta file
+msgctxt "archive"
+msgid "访问香霖堂-圣辇船"
+msgstr "Visit to Kourindou-Ship"
+
+#. Text for talk sentence 0 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "你这家伙少给我得意了！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "什么啊！不都是你来惹事吗！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "……？好像在吵架？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_first_visit"
+#| msgid "啊！有人来了！"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "哦？有人来了啊。"
+msgstr "Ah, a customer!"
+
+#. Description for talk sentence 3 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（魔理沙和朱鹭子入场）"
+msgstr "(Marisa and Tokiko appears)"
+
+#. Text for talk sentence 4 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "喂！给我好好道歉啊！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "切，懒得说废话了，我这次就先走了。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "你给我等着！"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_visit_castle"
+#| msgid "诶，你们回来了啊！"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "你们回来了啊。"
+msgstr "Ah, you're back!"
+
+#. Description for talk sentence 7 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（魔理沙离开）"
+msgstr "(Marisa leaves)"
+
+#. Text for talk sentence 8 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+#| msgid "发生什么了？"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "发生什么了？"
+msgstr "Something the matter?"
+
+#. Text for talk sentence 9 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "抱歉，刚才有些失礼。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "没事。刚才那是魔理沙吧？你们两个怎么了？"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid ""
+"她呀，我和那家伙之前关系就不好。在这场异变发生后，她对我的态度就更加恶劣了。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid ""
+"因为她之前是霖之助最亲密的朋友之一，在我接下这家店之后，她就觉得我是在霸占霖"
+"之助的店。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "所以她每次来到店里的时候，我就知道准没好事发生。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "这样啊。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_1"
+#| msgid "……"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 16 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_5_map"
+#| msgid "对了，哆来咪，我有个问题想问问你。"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "不过，我倒是一直有个问题想问你。"
+msgstr "Hey, Doremy, there's something I wanna ask."
+
+#. Text for talk sentence 17 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_2_map"
+#| msgid "巨人是什么来头？当年发生了什么？"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "你当时，为什么要接下这家店呢？当时发生了什么？"
+msgstr "So what's this about a giant? What exactly happened those years ago?"
+
+#. Text for talk sentence 18 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "这件事啊……"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "我还是跟你们说了吧。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "在三年前的某一天，我照常来到这家店看书。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "在我临走之前，霖之助突然把我叫住了。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "他说，他之后可能会离开很长一段时间，问我愿不愿意帮忙暂时接手这家店。"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "当时我只是个到处闲逛的妖怪，只是喜欢看看书之类的，没多想就答应了。"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "那之后才发现看店原来是这么困难的事情，不过我还是撑到现在了。"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "就这样。"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "……原来是霖之助主动委托你来接手的啊。"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "魔理沙她不知道吗？"
+msgstr ""
+
+#. Text for talk sentence 29 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "她应该不知道，不然她也不会对我态度这么差。"
+msgstr ""
+
+#. Text for talk sentence 30 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:halloween_1_map"
+#| msgid "……这样啊，我明白了。"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "这样啊，我明白了。"
+msgstr "...Hm, I see."
+
+#. Text for talk sentence 31 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_4"
+#| msgid "<color=blue>（……不过。）</color>"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "<color=blue>（……不过，我倒是获得了两个新的情报。）</color>"
+msgstr "<color=blue>(...Though)</color>"
+
+#. Text for talk sentence 32 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "<color=blue>（第一，霖之助是知道自己要“失踪”长达三年的。）</color>"
+msgstr ""
+
+#. Text for talk sentence 33 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid ""
+"<color=blue>（第二，霖之助没有把自己要“失踪”的事情告诉他最亲密的朋友。）</"
+"color>"
+msgstr ""
+
+#. Text for talk sentence 34 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_4"
+#| msgid "<color=blue>（虚弱？）</color>"
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "<color=blue>（这是为什么？）</color>"
+msgstr "<color=blue>(Weak?)</color>"
+
+#. Text for talk sentence 35 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "对了，我们要新上架一批货物了！"
+msgstr ""
+
+#. Text for talk sentence 36 in talk group kourindou_visit_ship_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_ship_2"
+msgid "来看看吧！不买不给送！"
+msgstr ""
+
+#. Archive name for talk group ship_7
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第7天入场"
+msgstr "Ship Day 7 Intro"
+
+#. Text for talk sentence 0 in talk group ship_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7"
+msgid "出现了一种手持铁炮的僵尸！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7"
+msgid "小心应对它们！他们的铁炮能帮它们抵挡来自前方的攻击！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7"
+msgid "并且也要小心它们的炮弹！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_7's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_11"
+#| msgid "好，明白了！"
+msgctxt "talk-mvz2:ship_7"
+msgid "明白了！"
+msgstr "Okay, got it!"
+
+#. Archive name for talk group ship_7_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第7天结束"
+msgstr "Ship Day 7 Outro"
+
+#. Text for talk sentence 0 in talk group ship_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_over"
+msgid "吹吹风吧！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_over"
+msgid "这是木风扇，它在被触发后会立即吹动一整行的怪物！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_over"
+msgid "如果怪物特别轻或者在空中，它们会立即被吹飞！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_over"
+msgid ""
+"反之，如果怪物比较重并且在地面上，它们就只是会被击退，或者不会受到影响！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_over"
+msgid "它就是那即将到来的风暴！"
+msgstr ""
+
+#. Archive name for talk group ship_7_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第7天地图"
+msgstr "Ship Day 7 Map"
+
+#. Text for talk sentence 0 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_2_map"
+#| msgid "<color=blue>（谁是哑巴啊！）</color>"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "<color=blue>（今天还是和往常一样啊。）</color>"
+msgstr "<color=blue>(Who's a mute!)</color>"
+
+#. Text for talk sentence 1 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "<color=blue>（……）</color>"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "<color=blue>（不知道什么时候才是个头呢……）</color>"
+msgstr "<color=blue>(...)</color>"
+
+#. Text for talk sentence 2 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_8_map"
+#| msgid "史蒂夫！"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "史蒂夫！你快过来！"
+msgstr "Steve!"
+
+#. Text for talk sentence 3 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_5_map"
+#| msgid "怎么了？"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "怎么了？"
+msgstr "What?"
+
+#. Text for talk sentence 4 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "找到圣了！快看那边！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "她正在和红龙战斗！"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_11_map"
+#| msgid "什、什么？！"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "什么？！"
+msgstr "Wh-what?!"
+
+#. Text for talk sentence 7 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_5_map"
+#| msgid "<color=blue>（灵符——自己飞走了！）</color>"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "<color=blue>（红、红龙被白莲击倒了！）</color>"
+msgstr "<color=blue>(The talismans... flew away on their own!)</color>"
+
+#. Description for talk sentence 7 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（远处的白莲击倒了红龙，她降落在了红龙面前）"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "圣！看这里！"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "好！这下就能把那条恶龙控制住了！"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "只要把它封印起来，一切就都结束了！"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "那条龙看起来暂时是晕过去了，我这就去帮您！"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_7_over"
+#| msgid "正、正邪！你没事吧！"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "圣、圣！您没事吧！"
+msgstr "S-Seija! Are you okay?!"
+
+#. Description for talk sentence 12 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（红龙突然睁开眼睛，抓住机会向白莲喷了一口火）"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_6_map"
+#| msgid "怎么回事？"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "怎么回事！"
+msgstr "What's up?"
+
+#. Text for talk sentence 14 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "红、红龙，飞过来了！"
+msgstr ""
+
+#. Description for talk sentence 14 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（红龙飞了过来）"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_first_visit"
+#| msgid "呀啊啊啊啊啊啊啊！"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "哇啊啊啊啊啊啊啊啊啊啊！"
+msgstr "Eeeeeeeeek!"
+
+#. Description for talk sentence 15 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（红龙撞击了圣辇船）"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "史蒂夫————！"
+msgstr ""
+
+#. Description for talk sentence 16 in talk group ship_7_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（史蒂夫掉下了船）"
+msgstr "(Steve falls off the ship)"
+
+#. Text for talk sentence 17 in talk group ship_7_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_8_map"
+#| msgid "史蒂夫！"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "史蒂夫！！！！"
+msgstr "Steve!"
+
+#. Archive text for talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "archive"
+msgid "史蒂夫在一间屋子里醒来。"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group ship_7_map's section 1
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_1"
+#| msgid "……"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 1 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "……我还活着？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "这里是哪儿啊？好像从来都没见过。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_7_map's section 1
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_9_map"
+#| msgid "你一定在想我为什么会在这里，对吧？"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "奇怪，我为什么会在这？"
+msgstr "You must be wondering what I'm doing here, right?"
+
+#. Text for talk sentence 4 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "哎呦，你终于醒啦？"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "哇啊！你——"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "是我，小鬼！"
+msgstr ""
+
+#. Description for talk sentence 6 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "archive"
+msgid "（正邪出场）"
+msgstr "(Seija enters)"
+
+#. Text for talk sentence 7 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "之前被你打醒的鬼人正邪。看到手下败将的滋味很爽吧？"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "所、所以你想干嘛啊！"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "都是你这个家伙，害得针妙丸在她的族人面前都抬不起头！"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid ""
+"上次我还因为被你打败而感到生气呢，居然会被人类打成这样！一个人类居然有如此强"
+"大的力量。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid ""
+"自从那之后，我就一直在观察。我发现你拿那些破烂战斗的时候，居然能使用万宝槌这"
+"种东西！"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "现在，我终于知道原因了！"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "我搜遍了你的身，发现了那些星星！这就是你力量的来源！"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "！那是星之碎片？你要用它干什么？"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "是吗？看来真的是好东西呢，哼哼。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "你就等着吧，我马上就可以利用这些星星，来帮助针妙丸解困！"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "然后，再逆转整个幻想乡的！"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group ship_7_map's section 1
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_5_map"
+#| msgid "等等——"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "喂，你等等——"
+msgstr "Wait—"
+
+#. Description for talk sentence 18 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "archive"
+msgid "（正邪离场）"
+msgstr "(Seija leaves)"
+
+#. Text for talk sentence 19 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "……跑了。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "虽然很不甘心，但是，这东西对器械之外的东西是没有用的吧。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "真是个笨蛋。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "说起来这里是哪里啊？好破旧的地方，似乎是间被遗弃的屋子。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "我记得，我是从圣辇船上掉下来了。那么高的地方，我应该早就摔死了才对啊。"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "难不成，是那个天邪鬼救了我？"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "没想到她还会救人啊。"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group ship_7_map's section 1
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "算了，总之先出去吧。"
+msgstr ""
+
+#. Archive text for talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "archive"
+msgid "史蒂夫走出了屋子。"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "这里是人类村庄啊。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "幻想乡中人类居住的地方，我还是第一次看到。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "<color=blue>（和想象中的不太一样，这里人影相当稀薄。）</color>"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_7_map's section 2
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_4_map"
+#| msgid "<color=blue>（爆炸，是吗？）</color>"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "<color=blue>（是异变的原因吗？）</color>"
+msgstr "<color=blue>(An explosion, huh?)</color>"
+
+#. Text for talk sentence 4 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "喂，那边的那个。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "嗯？你是？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "你……刚才从那间屋子里出来了？"
+msgstr ""
+
+#. Description for talk sentence 6 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "archive"
+msgid "（赤蛮奇入场）"
+msgstr "(Sekibanki enters)"
+
+#. Text for talk sentence 7 in talk group ship_7_map's section 2
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_5_map"
+#| msgid "怎么了？"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "啊，是啊，怎么了？"
+msgstr "What?"
+
+#. Text for talk sentence 8 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "你为什么会去那间屋子？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "？那间屋子怎么了吗？"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "没什么，不好意思。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "刚才那位女士，我听戴夫说过，她叫赤蛮奇？"
+msgstr ""
+
+#. Description for talk sentence 12 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "archive"
+msgid "（赤蛮奇离场）"
+msgstr "(Sekibanki leaves)"
+
+#. Text for talk sentence 13 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "这间屋子怎么了吗？"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group ship_7_map's section 2
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "好，族人们被关在这里！"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "啊，你在这里！"
+msgstr "Okay, this is where my people are trapped!"
+
+#. Text for talk sentence 15 in talk group ship_7_map's section 2
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+#| msgid "啊，你们——"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "啊，你们来了。"
+msgstr "Oh, you're—"
+
+#. Description for talk sentence 15 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "archive"
+msgid "（星和村民入场）"
+msgstr "(Shou and Villager enters)"
+
+#. Text for talk sentence 16 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "史蒂夫先生没事吧？"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "没事，我好像是被人救下来了。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group ship_7_map's section 2
+#: Talk meta file
+msgctxt "talk-mvz2:ship_7_map"
+msgid "呼，没事就好。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group ship_7_map's section 2
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_1"
+#| msgid "那么，祝你好运吧，我的邻居！"
+msgctxt "talk-mvz2:ship_7_map"
+msgid "那么，该和我们回船上了！我的邻居！"
+msgstr "Well, good luck, my neighbor!"
+
+#. Archive name for talk group ship_8
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第8天入场"
+msgstr "Ship Day 8 Intro"
+
+#. Text for talk sentence 0 in talk group ship_8's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_3_map"
+#| msgid "<color=blue>（谁问你了……）</color>"
+msgctxt "talk-mvz2:ship_8"
+msgid "<color=blue>（总算是回到船上了……）</color>"
+msgstr "<color=blue>(Who asked you...?)</color>"
+
+#. Text for talk sentence 1 in talk group ship_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8"
+msgid "啊，您就是——白莲大人吗？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8"
+msgid "正是。您可是星口中的史蒂夫？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_8's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+#| msgid "是的。"
+msgctxt "talk-mvz2:ship_8"
+msgid "是的。"
+msgstr "We did."
+
+#. Text for talk sentence 4 in talk group ship_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8"
+msgid "不过，那艘末地船又出现了，等我把它们击退再说！"
+msgstr ""
+
+#. Archive name for talk group ship_8_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第8天结束"
+msgstr "Ship Day 8 Outro"
+
+#. Text for talk sentence 0 in talk group ship_8_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_over"
+msgid "弹弹弹！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_8_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_over"
+msgid "这是弹性云！能够起到防御作用！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_8_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_over"
+msgid "和之前的防御器械不同的是，它不会被僵尸攻击，而是会将僵尸弹走！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_8_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_over"
+msgid "不过，弹走僵尸也是会消耗它的耐久的，这点要注意！"
+msgstr ""
+
+#. Archive name for talk group ship_8_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第8天地图"
+msgstr "Ship Day 8 Map"
+
+#. Text for talk sentence 0 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "战斗结束了，白莲大人有什么事？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我先介绍一下自己吧。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "正如您所知道的那样，我是命莲寺的住持，圣 白莲。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我此次出行是为了制伏那条红龙，结果却一时疏忽，让它逃走了。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我酿成如此大错，实属不该。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "圣，我一直都有问题想问您。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "您在命莲寺的时候，看到红龙之后，头也不回地就离开了我们。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "并且，您在三年前消灭第一头红龙之后，一直都非常奇怪。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_8_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_4"
+#| msgid "哆来咪小姐，您怎么了？"
+msgctxt "talk-mvz2:ship_8_map"
+msgid "这些年来，您到底怎么了？"
+msgstr "Miss Doremy, are you okay?"
+
+#. Text for talk sentence 9 in talk group ship_8_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_1"
+#| msgid "……"
+msgctxt "talk-mvz2:ship_8_map"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 10 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "也许是时候该告诉你们了，星。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "在三年前的时候，那头红龙伴随着巨人一同出现。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"巨人造成了很多破坏，甚至夺走了许多的生命，而红龙则不停在幻想乡上空飞行。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"人与妖怪们对它们深感恐惧，并且提出要消灭他们，让它们为这些破坏付出代价。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "巨人交给了梦殿大祀庙一方，而我则负责制伏那头红龙。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我一生中拯救人与妖怪无数，然而对于这次的目标，我没有任何办法。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "对方是外界来的生物，我对它知之甚少，因此唯一的方法只有将其消灭。"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"那一天，妖怪们找到了红龙的巢穴，我走进了洞穴中，其余的妖怪则留在了洞口外面。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "就在巢穴的深处，我见到了那条红龙。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "然而，意想不到的事情发生了。那条红龙，开口说了话。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我知道你是来做什么的。你是来除我的。"
+msgstr ""
+
+#. Description for talk sentence 20 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（白莲回忆和红龙的谈话）"
+msgstr ""
+
+#. Speaker Name for talk sentence 20 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "character.name"
+msgid "红龙"
+msgstr "Red Dragon"
+
+#. Text for talk sentence 21 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "可是，你是否清楚，我并未危害任何人？"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我来此处并非本意，在这里做过的唯一之事便是于天空之上飞翔。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我不想与你们为敌，可你们却恐惧我们，要消灭我们。"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "人类从来都是这样。他们宁愿消灭我们，也不愿相信我们有任何清白。"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "你身为高洁之人，也要狩猎我们这些无辜者吗？"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "那时的红龙对我说了这些话。"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"事实上，当时的幻想乡确实没有任何红龙袭击的报告，也没有任何受到红龙火焰破坏的"
+"迹象。"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"它在幻想乡从未消灭或摧毁哪怕一人一物，然而幻想乡的居民在巨人的恐惧下，却还是"
+"要消灭它。"
+msgstr ""
+
+#. Text for talk sentence 29 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "没有人愿意相信红龙是无辜的。哪怕它现在真的什么也没做，人们也不愿留它。"
+msgstr ""
+
+#. Text for talk sentence 30 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "当时的我陷入了两难。"
+msgstr ""
+
+#. Text for talk sentence 31 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"若放过红龙，仇恨红龙者大有人在，它迟早也会被其他妖怪杀死，而我也会失去人们的"
+"信任。"
+msgstr ""
+
+#. Text for talk sentence 32 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "若将其制伏，则是伤害无辜，绝非正义。"
+msgstr ""
+
+#. Text for talk sentence 33 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "时间，对当时的我来说实在是太少了。"
+msgstr ""
+
+#. Text for talk sentence 34 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "你犹豫了。"
+msgstr ""
+
+#. Text for talk sentence 35 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "那我来帮你做决定吧。"
+msgstr ""
+
+#. Text for talk sentence 36 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我有我要保护的东西，你也不能就这样空手而归。"
+msgstr ""
+
+#. Text for talk sentence 37 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "开打吧，这样对我们两者都好。"
+msgstr ""
+
+#. Text for talk sentence 38 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "那之后，红龙和我进行了战斗。最后，红龙体力不支，我也收了手。"
+msgstr ""
+
+#. Text for talk sentence 39 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"我本想饶它一命。哪知，那条红龙最终却拼尽全力站了起来，撞向了洞穴的墙壁。"
+msgstr ""
+
+#. Text for talk sentence 40 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"等我从那些烟尘中看清发生了什么时，它已经死去，用它巨大的身躯堵住了通往巢穴深"
+"处的道路。"
+msgstr ""
+
+#. Text for talk sentence 41 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "那时的我最后什么都做不了。只能拿着战斗中掉落的一颗龙牙，离开了巢穴。"
+msgstr ""
+
+#. Text for talk sentence 42 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "居然是，这个样子的吗……"
+msgstr ""
+
+#. Text for talk sentence 43 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "人和妖怪们把我奉为屠龙英雄，就这样过了三年，谁也不知道背后真正的故事。"
+msgstr ""
+
+#. Text for talk sentence 44 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "世人皆知我屠恶龙，可谁知我未曾屠，龙未曾恶？"
+msgstr ""
+
+#. Text for talk sentence 45 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "此番纠缠，反倒入了因果。"
+msgstr ""
+
+#. Text for talk sentence 46 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "今日的红龙，便是之前的业，造就的孽。"
+msgstr ""
+
+#. Text for talk sentence 47 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "那，现在的那条红龙是……？"
+msgstr ""
+
+#. Text for talk sentence 48 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "现在的红龙，就是三年前的母亲拼死保护的孩子。"
+msgstr ""
+
+#. Text for talk sentence 49 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "它为了为母报仇，三年后便开始在幻想乡大肆破坏。"
+msgstr ""
+
+#. Text for talk sentence 50 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "我为了履行责任，才独自来到这里和红龙搏斗。"
+msgstr ""
+
+#. Text for talk sentence 51 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "星，我离开命莲寺时，什么都没有对你们说，实在是抱歉。"
+msgstr ""
+
+#. Text for talk sentence 52 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid ""
+"我曾想过告诉你们这一切的真相，但又怕这真相在公之于众后，人们不相信我所说的"
+"话，命莲寺以及你们的声誉会受到影响。"
+msgstr ""
+
+#. Text for talk sentence 53 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "所以，那时的我才决定，我必须要亲手了结这件事情。"
+msgstr ""
+
+#. Text for talk sentence 54 in talk group ship_8_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_1"
+#| msgid "……"
+msgctxt "talk-mvz2:ship_8_map"
+msgid "圣……"
+msgstr "…"
+
+#. Text for talk sentence 55 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "这件事成为了我自己的心魔，纠缠了我整整三年。"
+msgstr ""
+
+#. Text for talk sentence 56 in talk group ship_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_8_map"
+msgid "事到如今，已经不能再继续这样下去了。"
+msgstr ""
+
+#. Archive name for talk group ship_9
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第9天入场"
+msgstr "Ship Day 9 Intro"
+
+#. Text for talk sentence 0 in talk group ship_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9"
+msgid "实在是没想到，圣竟然经历过那样的事情……"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9"
+msgid "先不管那些了，该战斗了。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9"
+msgid "前面好像出现了一种很壮的僵尸，还拿着锈蚀船锚。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9"
+msgid "他不会用那个玩意砸我的器械吧？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9"
+msgid "……那应该就是了。"
+msgstr ""
+
+#. Archive name for talk group ship_9_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第9天结束"
+msgstr "Ship Day 9 Outro"
+
+#. Text for talk sentence 0 in talk group ship_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_over"
+msgid "闪亮亮！这是珠光宝塔！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_over"
+msgid "这东西怎么长得好像……我师傅的宝塔？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_over"
+msgid "当然，这是个仿制品！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_over"
+msgid "它能把一整行的空地禁用并变为黄金，暂时无法在上面放置器械！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_over"
+msgid "但是，每禁用一定数量的空地，它就会生成一个星之碎片！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_over"
+msgid "把一切都点成黄金吧！"
+msgstr ""
+
+#. Archive name for talk group ship_9_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第9天地图"
+msgstr "Ship Day 9 Map"
+
+#. Text for talk sentence 0 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "圣，我有些事情要说。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_9_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_4_map"
+#| msgid "什么事情？"
+msgctxt "talk-mvz2:ship_9_map"
+msgid "什么事情？"
+msgstr "What is it?"
+
+#. Text for talk sentence 2 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "之前我们在圣辇船遇到了鵺，我们向她寻求帮助，但她却十分冷漠。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "甚至说我们做的这一切都没有任何意义！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "她怎么能这么说呢！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "鵺吗？她的态度我也知情。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "自从异变发生之后，她变得非常的恍惚与消极。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "不过，她会这样，其实我觉得她反而是有一些她自己的理由的。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "也许，她是看到了我们看不到的什么东西吧。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_9_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_11_map"
+#| msgid "真的吗……？"
+msgctxt "talk-mvz2:ship_9_map"
+msgid "是这样的吗……？"
+msgstr "Is that true...?"
+
+#. Text for talk sentence 10 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "毕竟，她是一位和<color=red>认知</color>有关的妖怪。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "……认知？"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid ""
+"没错，鵺能影响某物在别人眼中的外观与形象，也就是改变别人对事物的<color=red>认"
+"知</color>。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "认知……"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group ship_9_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "……！"
+msgctxt "talk-mvz2:ship_9_map"
+msgid "……！"
+msgstr "…!"
+
+#. Text for talk sentence 15 in talk group ship_9_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "<color=blue>（……）</color>"
+msgctxt "talk-mvz2:ship_9_map"
+msgid "<color=blue>（等等，认知……！）</color>"
+msgstr "<color=blue>(...)</color>"
+
+#. Text for talk sentence 16 in talk group ship_9_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_4_map"
+#| msgid "<color=blue>（会和这场异变有关系吗？）</color>"
+msgctxt "talk-mvz2:ship_9_map"
+msgid "<color=blue>（难道这场异变产生的原因，是那个东西！）</color>"
+msgstr "<color=blue>(Could it be related to this incident?)</color>"
+
+#. Text for talk sentence 17 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid ""
+"<color=blue>（不对，怎么可能呢！幻想乡里怎么可能有那种东西呢！）</color>"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group ship_9_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_4"
+#| msgid "哆来咪小姐，您怎么了？"
+msgctxt "talk-mvz2:ship_9_map"
+msgid "史蒂夫，您怎么了？"
+msgstr "Miss Doremy, are you okay?"
+
+#. Text for talk sentence 19 in talk group ship_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_9_map"
+msgid "没、没什么。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group ship_9_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_1"
+#| msgid "……"
+msgctxt "talk-mvz2:ship_9_map"
+msgid "……"
+msgstr "…"
+
+#. Archive name for talk group ship_10
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第10天入场"
+msgstr "Ship Day 10 Intro"
+
+#. Text for talk sentence 0 in talk group ship_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10"
+msgid "经过数天与红龙的战斗，我的法力已经耗尽了。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10"
+msgid "接下来我就无法继续战斗了。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_10's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_3_map"
+#| msgid "<color=blue>（谁问你了……）</color>"
+msgctxt "talk-mvz2:ship_10"
+msgid "<color=blue>（连续战斗好几天吗，真的是超人……）</color>"
+msgstr "<color=blue>(Who asked you...?)</color>"
+
+#. Text for talk sentence 3 in talk group ship_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10"
+msgid "那条红龙，虽说我有愧于它，但它确确实实为这里带来了破坏和死亡。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10"
+msgid ""
+"情况不像它的母亲那样，因此我希望它能为这些破坏，以及他人的性命付出真正的代"
+"价。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10"
+msgid "我见识到了您强大的力量，希望您能够同意。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10"
+msgid "要对付红龙吗……好吧，那就交给我了。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_10's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_11_map"
+#| msgid "感激不尽！"
+msgctxt "talk-mvz2:ship_10"
+msgid "感激不尽。"
+msgstr "Thou hast my gratitude!"
+
+#. Archive name for talk group ship_note
+#: Talk meta file
+msgctxt "archive"
+msgid "僵尸海盗地图"
+msgstr "Zombie Pirate Map"
+
+#. Text for talk sentence 0 in talk group ship_note's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_note"
+#| msgid "这是什么？"
+msgctxt "talk-mvz2:ship_note"
+msgid "这是什么？海盗地图？"
+msgstr "What is this?"
+
+#. Text for talk sentence 1 in talk group ship_note's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_note"
+msgid "是那些僵尸画的吧。目标地点好像就是红龙的巢穴。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_note's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_note"
+msgid "不过如今那条红龙已经出山，这张地图也已经不需要了。"
+msgstr ""
+
+#. Archive name for talk group ship_10_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第10天地图"
+msgstr "Ship Day 10 Map"
+
+#. Text for talk sentence 0 in talk group ship_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10_map"
+msgid "对了，白莲大人，我这次前来，其实有求于您。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10_map"
+msgid ""
+"我帮神子大人解决了巨人的问题，她向我推荐了您，说您可以帮我解决我的问题。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_10_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_5_map"
+#| msgid "是什么问题呢？"
+msgctxt "talk-mvz2:ship_10_map"
+msgid "是什么问题呢？"
+msgstr "What is it?"
+
+#. Text for talk sentence 3 in talk group ship_10_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_1"
+#| msgid "……"
+msgctxt "talk-mvz2:ship_10_map"
+msgid "……"
+msgstr "…"
+
+#. Text for talk sentence 4 in talk group ship_10_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_11_map"
+#| msgid "这些年来，我一直都很想知道自己的亲生父母到底是谁。"
+msgctxt "talk-mvz2:ship_10_map"
+msgid "我想知道我的父母到底是谁。"
+msgstr ""
+"All these years, I've always wondered who my biological parents really are."
+
+#. Text for talk sentence 5 in talk group ship_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10_map"
+msgid "原来是身世之谜吗。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10_map"
+msgid "容我猜想一下，随你而来的这位村民，应该是您的养父？"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_10_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+#| msgid "是的。"
+msgctxt "talk-mvz2:ship_10_map"
+msgid "是的。"
+msgstr "We did."
+
+#. Text for talk sentence 8 in talk group ship_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10_map"
+msgid "……有意思。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10_map"
+msgid "我明白了，等到红龙的事情得到解决，我会为您解惑。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group ship_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_10_map"
+msgid "感、感谢白莲大人！"
+msgstr ""
+
+#. Archive name for talk group ship_11
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第11天入场"
+msgstr "Ship Day 11 Intro"
+
+#. Text for talk sentence 0 in talk group ship_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11"
+msgid "那条龙马上就要来了。史蒂夫先生，做好准备。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11"
+msgid "嗯。那条龙都会些什么？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11"
+msgid "显而易见的——它会喷火，同时它巨大的翅膀也可以创造旋风。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11"
+msgid "那么你可要注意灭火了，邻居！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11"
+msgid "呃，怎么灭？"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11"
+msgid "和以前一样，<color=red>用你的拳头捶它们</color>！"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_11's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_4_map"
+#| msgid "啊？"
+msgctxt "talk-mvz2:ship_11"
+msgid "啊？"
+msgstr "Huh?"
+
+#. Text for talk sentence 7 in talk group ship_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11"
+msgid ""
+"还有，在这场战斗中好好利用风吧！以及，信标可能也会在某些情况下发挥作用！"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_11's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_7_map"
+#| msgid "我明白了。"
+msgctxt "talk-mvz2:ship_11"
+msgid "……我明白了。"
+msgstr "Understood."
+
+#. Text for talk sentence 9 in talk group ship_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11"
+msgid "<color=blue>（天空中乌云密布，而我们的船上却阳光直射。）</color>"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group ship_11's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_11"
+#| msgid "<color=blue>（是时候该让它们散去了。）</color>"
+msgctxt "talk-mvz2:ship_11"
+msgid "<color=blue>（那条孤龙的愤怒，也该在今天平息了。）</color>"
+msgstr "<color=blue>(Time to dispel them.)</color>"
+
+#. Archive name for talk group ship_11_over
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第11天结束"
+msgstr "Ship Day 11 Outro"
+
+#. Text for talk sentence 0 in talk group ship_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_over"
+msgid "小心！那条龙把那艘船也砸下去了！抓稳！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_over"
+msgid "好、好险！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_over"
+msgid "所有人都没事吧？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group ship_11_over's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_7_map"
+#| msgid "看起来她没有大碍，太好了！"
+msgctxt "talk-mvz2:ship_11_over"
+msgid "看起来都没事。太好了！"
+msgstr "Great, it doesn't seem like she sustained any serious injuries!"
+
+#. Text for talk sentence 4 in talk group ship_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_over"
+msgid "那艘船也顺便被解决了，简直是一石二鸟！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_over"
+msgid "非常感谢您的帮助，史蒂夫。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_over"
+msgid "这红龙之灾终于结束了。"
+msgstr ""
+
+#. Archive name for talk group ship_11_map
+#: Talk meta file
+msgctxt "archive"
+msgid "圣辇船第11天地图"
+msgstr "Ship Day 11 Map"
+
+#. Text for talk sentence 0 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "星，让船落地吧。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "我去超度那条龙。史蒂夫，也请您随我而来。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_10_map"
+#| msgid "明白。"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "明白。"
+msgstr "Understood."
+
+#. Text for talk sentence 3 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid ""
+"<color=blue>（我们来到了红龙坠落的地方，这里就在人类村落的不远处。）</color>"
+msgstr ""
+
+#. Description for talk sentence 3 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（白莲和史蒂夫来到了红龙坠落的地方）"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid ""
+"<color=blue>（天上下起了雨，周围的人越来越多，它们看着这头恶龙，和它保持着距"
+"离。）</color>"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "<color=blue>（它死不瞑目，身下是早已被从内到外压碎的末地船。）</color>"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "阿弥陀佛。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "因与果，仇与怨，如今在此了结。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "且让这场雨洗净轮回，往生去罢。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "我此番便渡你上路。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_8_map"
+#| msgid "<color=blue>（算了，还是别想这么多了。）</color>"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "<color=blue>（白莲大人上前，让巨龙合上了眼睛。）</color>"
+msgstr ""
+"<color=blue>(Whatever. I'm better off not thinking too much about it.)</"
+"color>"
+
+#. Text for talk sentence 11 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "<color=blue>（那之后，红龙的身体慢慢地变成了尘土，消散而去。）</color>"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_8_map"
+#| msgid "<color=blue>（……）</color>"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "<color=blue>（……）</color>"
+msgstr "<color=blue>(...)</color>"
+
+#. Text for talk sentence 13 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_3_map"
+#| msgid "<color=blue>（谁问你了……）</color>"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "<color=blue>（白莲大人转过了身来——）</color>"
+msgstr "<color=blue>(Who asked you...?)</color>"
+
+#. Text for talk sentence 14 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "史蒂夫，您帮我解决了这件事情，不胜感激。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "这件物品，请您收下。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid ""
+"这是我仿照我的魔人经卷制作的仿制品，虽然魔力不及原型，然而仍可助您一臂之力。"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "感谢。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "这三年内，我实在无法开口向大众解释发生了什么。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "如今，是时候该让真相公之于众了。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "我愧对红龙母子，但这也许会是目前最好的结果了。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "好了。接下来，请让我就您身世的问题，帮您解惑吧。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "其实，我有一事相告。四年前，曾有一位访客曾来到命莲寺。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "那位访客自称灯兰 樱，到访命莲寺有求于我。"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "而那位访客此行的目的，正是解开一切的钥匙。"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "……难道？"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "为了寻找自己失散多年的孩子。"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_11_map"
+#| msgid "什、什么？！"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "什、什么！"
+msgstr "Wh-what?!"
+
+#. Text for talk sentence 28 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:mausoleum_6_map"
+#| msgid "<color=blue>（开玩笑的吧！）</color>"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "<color=blue>（寻、寻找失散多年的孩子……！）</color>"
+msgstr "<color=blue>(You're kidding!)</color>"
+
+#. Text for talk sentence 29 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:castle_3_map"
+#| msgid "<color=blue>（谁问你了……）</color>"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "<color=blue>（难、难道那个人就是我的……！）</color>"
+msgstr "<color=blue>(Who asked you...?)</color>"
+
+#. Text for talk sentence 30 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "那、那个人，如今还能再找到吗？"
+msgstr ""
+
+#. Text for talk sentence 31 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "茫茫人海中寻找一人，可非易事。"
+msgstr ""
+
+#. Text for talk sentence 32 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "并且，在寻子无果后，那位访客再未出现过。"
+msgstr ""
+
+#. Text for talk sentence 33 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+#| msgid "怎、怎么会发生这种事……"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "怎、怎么这样……"
+msgstr "What? There's no way..."
+
+#. Text for talk sentence 34 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "每次都……只差一点！"
+msgstr ""
+
+#. Text for talk sentence 35 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "只差一点吗？我看可未必。"
+msgstr ""
+
+#. Text for talk sentence 36 in talk group ship_11_map's section 0
+#: Talk meta file
+#, fuzzy
+#| msgctxt "talk-mvz2:dream_11_map"
+#| msgid "诶？"
+msgctxt "talk-mvz2:ship_11_map"
+msgid "诶？"
+msgstr "Huh?"
+
+#. Text for talk sentence 37 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "这些年来的事情，我其实也有所耳闻。"
+msgstr ""
+
+#. Text for talk sentence 38 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "您的身世定与这场异变的发生息息相关，那人兴许也能与您再见上一面。"
+msgstr ""
+
+#. Text for talk sentence 39 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "因此我确信，您找回自己身世的那一天，终究会在这幻想乡内到来的。"
+msgstr ""
+
+#. Text for talk sentence 40 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "真、真的吗！"
+msgstr ""
+
+#. Text for talk sentence 41 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "接下来，请您放下自己的执念，用自己的双眼见证吧。"
+msgstr ""
+
+#. Text for talk sentence 42 in talk group ship_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_11_map"
+msgid "告辞了，祝您一路顺风。"
+msgstr ""
 
 #~ msgctxt "talk-mvz2:mausoleum_6_map"
 #~ msgid "…………唉。"

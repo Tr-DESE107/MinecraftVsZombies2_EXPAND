@@ -505,7 +505,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">完美而潇洒的发射器参上！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这是银质发射器！它的利刃可以刺穿肉体，造成更高的伤害！还可以穿透任何不是很硬的物体！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这是银制发射器！它的利刃可以刺穿肉体，造成更高的伤害！还可以穿透任何不是很硬的物体！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">试一试时停的正确用法吧！</sentence>
       </sentences>
     </section>

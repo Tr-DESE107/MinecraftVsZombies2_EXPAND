@@ -340,7 +340,7 @@
         </entry>
         <entry id="mvz2:silvenser">
             <header>
-                <p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
+                <p>银制发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>15，30（对肉体）</color>]]></p>

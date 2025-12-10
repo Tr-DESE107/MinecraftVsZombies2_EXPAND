@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-12-03 07:50+0800\n"
-"PO-Revision-Date: 2025-12-03 19:50+0800\n"
+"POT-Creation-Date: 2025-12-10 12:33+0800\n"
+"PO-Revision-Date: 2025-12-10 12:33+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -912,7 +912,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
+msgid "银制发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr "Silvensers shoot piercing knives which can slice <tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>the flesh."
 
 #. Properties for contraptions mvz2:silvenser
@@ -5273,7 +5273,7 @@ msgstr "Shoot strong soulfires, but burn the contraption in front as its fuel"
 #. Name for entity mvz2:silvenser
 #: Entity meta file
 msgctxt "entity.name"
-msgid "银质发射器"
+msgid "银制发射器"
 msgstr "Silvenser"
 
 #. Tooltip for entity mvz2:silvenser
@@ -6933,6 +6933,10 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "entity.name"
+#~ msgid "银质发射器"
+#~ msgstr "Silvenser"
 
 #~ msgctxt "misc.description"
 #~ msgid ""
