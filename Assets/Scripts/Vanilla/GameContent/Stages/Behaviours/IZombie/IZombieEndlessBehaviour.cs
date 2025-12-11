@@ -10,6 +10,20 @@ using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Entities;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using System.Linq;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Grids;
+using MVZ2Logic;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -63,20 +77,91 @@ namespace MVZ2.GameContent.Stages
         }
         protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
         {
-            level.FillSeedPacks(new NamespaceID[]
+            // 获取所有已解锁的敌人    
+            var unlockedEnemies = Global.Saves.GetUnlockedEnemies();
+
+            // 过滤出有效的僵尸    
+            var validEnemies = unlockedEnemies.Where(id =>
             {
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+                // 检查是否在图鉴中    
+                if (!Global.Almanac.IsEnemyInAlmanac(id))
+                    return false;
+
+                // 检查是否为敌人类型（排除其他实体）    
+                var entityDef = Global.Game.GetEntityDefinition(id);
+                if (entityDef == null)
+                    return false;
+
+                // 使用Type属性检查是否为敌人  
+                return entityDef.Type == EntityTypes.ENEMY;
             });
+
+            if (validEnemies.Count() <= 0)
+            {
+                // 如果没有有效敌人，使用默认列表（不能调用抽象基类方法）  
+                level.FillSeedPacks(new NamespaceID[]
+                {
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+                });
+                return;
+            }
+
+            // 随机选择10个敌人（或根据种子槽数量调整）    
+            var selectedEnemies = validEnemies
+                .RandomTake(10, level.GetRoundRNG())
+                .Select(id => VanillaBlueprintID.FromEntity(id))
+                .ToArray();
+
+            level.FillSeedPacks(selectedEnemies);
         }
+
+        //protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
+        //{
+        //    level.FillSeedPacks(new NamespaceID[]
+        //    {
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.SkeletonHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ZombieHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.RedEyeZombieHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.FlagSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.KingSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.MeleeSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.MegaZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.SuperMegaZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.EvilMage),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.WitherBoneWall),
+
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.WitherBoneWall),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.MegaZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.SuperMegaZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.KingSkeleton),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.RandomZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.ZombieHead),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.BloodlustHostZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.KingofReverser),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.Mannequin),
+        //    });
+        //}
         public const int ROUNDS_PER_PICKAXE = 2;
         public const int MAX_PICKAXE_COUNT = 3;
         public const int START_PICKAXE_COUNT = 1;

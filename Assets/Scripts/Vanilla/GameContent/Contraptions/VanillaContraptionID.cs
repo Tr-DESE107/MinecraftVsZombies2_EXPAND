@@ -22,8 +22,6 @@ namespace MVZ2.GameContent.Contraptions
         public const string silvenser = "silvenser";
         public const string magichest = "magichest";
 
-        public const string Poisonser = "Poisonser";
-
         public const string lilyPad = "lily_pad";
         public const string drivenser = "drivenser";
         public const string gravityPad = "gravity_pad";
@@ -77,6 +75,7 @@ namespace MVZ2.GameContent.Contraptions
 
 
         //EXPAND
+        public const string Poisonser = "Poisonser";
         public const string GlowingObsidian = "GlowingObsidian";
         public const string RedStoneOre = "RedStoneOre";
         public const string DispenShield = "DispenShield";

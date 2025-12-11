@@ -11,6 +11,14 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using System.Linq;
+using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Grids;
+using MVZ2Logic;
+using MVZ2Logic.Level;
+using PVZEngine;
+using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -59,36 +67,36 @@ namespace MVZ2.GameContent.Enemies
 
 
 
-            //var game = Global.Game;
-            //var level = entity.Level;
-            //var rng = entity.RNG;
+            var game = Global.Game;
+            var level = entity.Level;
+            var rng = entity.RNG;
 
-            //// 获取所有已解锁的敌人  
-            //var unlockedEnemies = game.GetUnlockedEnemies();
+            // 获取所有已解锁的敌人  
+            var unlockedEnemies = Global.Saves.GetUnlockedEnemies();
 
-            //// 过滤出有效的僵尸  
-            //var validEnemies = unlockedEnemies.Where(id =>
-            //{
-            //    // 如果提供了白名单,只选择白名单中的僵尸  
-            //    //if (whitelist != null && !whitelist.Contains(id))
-            //    //    return false;
+            // 过滤出有效的僵尸  
+            var validEnemies = unlockedEnemies.Where(id =>
+            {
+                // 如果提供了白名单,只选择白名单中的僵尸  
+                //if (whitelist != null && !whitelist.Contains(id))
+                //    return false;
 
-            //    // 检查是否在图鉴中  
-            //    if (!game.IsEnemyInAlmanac(id))
-            //        return false;
+                // 检查是否在图鉴中  
+                if (!Global.Almanac.IsEnemyInAlmanac(id))
+                    return false;
 
-            //    // 检查当前格子是否可以生成该敌人  
-            //    return true;
-            //});
+                // 检查当前格子是否可以生成该敌人  
+                return true;
+            });
 
-            //if (validEnemies.Count() <= 0)
-            //    return;
+            if (validEnemies.Count() <= 0)
+                return;
 
-            //// 随机选择一个僵尸  
-            //var enemyID = validEnemies.Random(rng);
+            // 随机选择一个僵尸  
+            var enemyID = validEnemies.Random(rng);
 
-            //// 在原位置生成僵尸  
-            //var spawned = entity.SpawnWithParams(enemyID, entity.Position);
+            // 在原位置生成僵尸  
+            var spawned = entity.SpawnWithParams(enemyID, entity.Position);
 
 
         }
