@@ -123,6 +123,7 @@ namespace MVZ2.GameContent.Stages
         public const string ContraptionDevourer_2 = "ContraptionDevourer_2";
         public const string RandomChinaDevourer = "RandomChinaDevourer";
         public const string vsRandomZombie = "vsRandomZombie";
+        public const string MortalZombat = "MortalZombat";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

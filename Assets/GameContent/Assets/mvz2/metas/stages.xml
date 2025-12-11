@@ -2149,6 +2149,39 @@
             <bool name="ignoreHugeWaveEvent" value="true" />
         </properties>
     </stage>
+	
+	<stage id="MortalZombat" name="真尸快打" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="1.1">
+
+			<spawn id="mvz2:NetherTroopCarrier" />
+			<spawn id="mvz2:berserker" />
+			<spawn id="mvz2:dullahan" />
+			<spawn id="mvz2:hell_chariot" />
+			<spawn id="mvz2:NetherWarrior" />
+			<spawn id="mvz2:NetherArcher" />
+			<spawn id="mvz2:NetherVanguard" />
+			<spawn id="mvz2:AngryReverser" />
+			<spawn id="mvz2:RaiderSkull" />
+			<spawn id="mvz2:Anubiskull" />
+			<spawn id="mvz2:WitherSkeletonHorse" />
+			<spawn id="mvz2:AssaultDullahan" />
+			<spawn id="mvz2:KingofReverser" />
+			<spawn id="mvz2:WintherMage" />
+			
+			<spawn id="mvz2:RandomZombie" />
+			<spawn id="mvz2:RandomMutant" />
+			<spawn id="mvz2:RandomImp" />
+
+			<spawn id="mvz2:ImpMannequin" />
+			<spawn id="mvz2:MegaImpMannequin" />
+			<spawn id="mvz2:MutantMannequin" />
+			<spawn id="mvz2:Mannequin" />
+			<spawn id="mvz2:VillagerGhast" />
+
+		</spawns>
+		
+	</stage>
 
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
