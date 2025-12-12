@@ -19,7 +19,12 @@ namespace MVZ2.GameContent.IZombie
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.gargoyle,
                 VanillaEnemyID.dullahan,
-                VanillaEnemyID.hellChariot
+                VanillaEnemyID.hellChariot,
+                VanillaEnemyID.NetherWarrior,
+                VanillaEnemyID.NetherVanguard,
+                VanillaEnemyID.NetherTroopCarrier,
+                VanillaEnemyID.AssaultDullahan,
+                VanillaEnemyID.RaiderSkull,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
