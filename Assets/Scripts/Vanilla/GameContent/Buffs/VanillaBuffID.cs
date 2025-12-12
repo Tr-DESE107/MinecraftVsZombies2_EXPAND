@@ -179,6 +179,7 @@ namespace MVZ2.GameContent.Buffs
             public const string levelHard = "level_hard";
             public const string iZombieEasy = "i_zombie_easy";
             public const string iZombieHard = "i_zombie_hard";
+            public const string iZombieLunatic = "iZombieLunatic";
 
             // 制品
             public const string pagodaBranchLevel = "pagoda_branch_level";

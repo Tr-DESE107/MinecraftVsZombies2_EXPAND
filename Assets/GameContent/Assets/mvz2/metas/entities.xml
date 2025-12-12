@@ -1143,7 +1143,7 @@
                 <id name="mvz2:crySound" value="mvz2:skeleton_cry" />
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="100" />
             </properties>
         </humanoid>
         <enemy id="FlagSkeleton" name="旗帜骷髅" deathMessage="不要停下来啊">
@@ -1186,7 +1186,7 @@
 		</enemy>
         <enemy id="MeleeSkeleton" name="骷髅仆从" deathMessage="起来!饥寒交迫的人民!" unlock="mvz2:level.halloween_8" >
             <properties>
-                <int name="mvz2:cost" value="300" />
+                <int name="mvz2:cost" value="50" />
                 <int name="mvz2:waterInteraction" value="2"/>
                 <float name="mvz2:damage" value="100"/>
                 <float name="mvz2:speed" value="1.75"/>
@@ -1437,7 +1437,7 @@
 				<float name="mvz2:mass" value="-1" />
                 <float name="mvz2:fallResistance" value="18"/>
                 <float name="mvz2:cryPitch" value="2"/>
-                <int name="mvz2:cost" value="50" />
+                <int name="mvz2:cost" value="100" />
                 <int name="mvz2:waterInteraction" value="2"/>
                 <float name="mvz2:maxHealth" value="240"/>
                 <float name="mvz2:speed" value="2.4"/>
@@ -1587,7 +1587,7 @@
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
-				<int name="mvz2:cost" value="150" />
+				<int name="mvz2:cost" value="200" />
 				<int name="mvz2:waterInteraction" value="2" />
 			</properties>
 		</enemy>
@@ -1687,7 +1687,7 @@
                 <int name="mvz2:waterInteraction" value="2" />
                 <int name="mvz2:airInteraction" value="2" />
 
-                <int name="mvz2:cost" value="400" />
+                <int name="mvz2:cost" value="600" />
             </properties>
         </enemy>
         <enemy id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！" unlock="mvz2:level.castle_9">
@@ -1750,7 +1750,7 @@
 				<float name="mvz2:maxHealth" value="1200" />
 				<float name="mvz2:speed" value="0.8" />
 
-				<int name="mvz2:cost" value="150" />
+				<int name="mvz2:cost" value="225" />
 			</properties>
 		</humanoid>
 
@@ -2032,7 +2032,7 @@
 				<float name="mvz2:fallResistance" value="18"/>
 				<id name="mvz2:deathSound" value="mvz2:Player_death" />
 				
-				<int name="mvz2:cost" value="125" />
+				<int name="mvz2:cost" value="250" />
 				<int name="mvz2:waterInteraction" value="2"/>
 				<float name="mvz2:maxHealth" value="300"/>
 				<float name="mvz2:speed" value="2.4"/>
@@ -2047,7 +2047,7 @@
 				<float name="mvz2:fallResistance" value="18"/>
 				<id name="mvz2:deathSound" value="mvz2:Player_death_Old" />
 				<float name="mvz2:cryPitch" value="1"/>
-				<int name="mvz2:cost" value="175" />
+				<int name="mvz2:cost" value="300" />
 				<int name="mvz2:waterInteraction" value="2"/>
 				<float name="mvz2:maxHealth" value="450"/>
 				<float name="mvz2:speed" value="2.4"/>
@@ -2115,7 +2115,7 @@
 				<float name="mvz2:mass" value="-1" />
 				<float name="mvz2:maxHealth" value="600" />
 
-				<int name="mvz2:cost" value="150" />
+				<int name="mvz2:cost" value="200" />
 				
 			</properties>
 		</enemy>
@@ -2311,7 +2311,7 @@
                 <id name="mvz2:crySound" value="mvz2:zombie_cry"/>
                 <id name="mvz2:deathSound" value="mvz2:zombie_death"/>
                 <vector3 name="mvz2:size" x="32" y="22" z="32"/>
-                <int name="mvz2:cost" value="50" />
+                <int name="mvz2:cost" value="200" />
                 <int name="mvz2:waterInteraction" value="2"/>
 				<bool name="mvz2:low_enemy" value="true" />
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
@@ -2327,7 +2327,7 @@
                 <id name="mvz2:crySound" value="mvz2:zombie_cry"/>
                 <id name="mvz2:deathSound" value="mvz2:zombie_death"/>
                 <vector3 name="mvz2:size" x="32" y="22" z="32"/>
-                <int name="mvz2:cost" value="50" />
+                <int name="mvz2:cost" value="175" />
                 <int name="mvz2:waterInteraction" value="2"/>
 				<bool name="mvz2:low_enemy" value="true" />
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />

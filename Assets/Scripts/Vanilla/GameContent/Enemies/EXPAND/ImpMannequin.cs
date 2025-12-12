@@ -19,7 +19,7 @@ using MVZ2.GameContent.Damages;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.ImpMannequin)]
-    public class ImpMannequin : MeleeEnemy
+    public class ImpMannequin : Imp
     {
         public ImpMannequin(string nsp, string name) : base(nsp, name)
         {

@@ -11,7 +11,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.HostIMP)]
-    public class HostIMP : MeleeEnemy
+    public class HostIMP : Imp
     {
         public HostIMP(string nsp, string name) : base(nsp, name)
         {
