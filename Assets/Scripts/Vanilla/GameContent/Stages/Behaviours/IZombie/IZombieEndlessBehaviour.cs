@@ -164,7 +164,7 @@ namespace MVZ2.GameContent.Stages
         //    });
         //}
         public const int ROUNDS_PER_PICKAXE = 2;
-        public const int MAX_PICKAXE_COUNT = 3;
+        public const int MAX_PICKAXE_COUNT = 99;
         public const int START_PICKAXE_COUNT = 1;
         public override bool AllowPickaxe => true;
         private List<IZELayoutItem> normalLayouts = new List<IZELayoutItem>();

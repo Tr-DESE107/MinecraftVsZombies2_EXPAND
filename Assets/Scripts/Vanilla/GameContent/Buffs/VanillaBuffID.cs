@@ -107,6 +107,8 @@ namespace MVZ2.GameContent.Buffs
         public const string shikaisenRevive = "shikaisen_revive";
         public const string SixQiResistanceBuff = "SixQiResistanceBuff";
 
+        public const string Shock = "Shock";
+
         public const string paratroop = "paratroop";
 
         public const string beingRiden = "being_riden";
