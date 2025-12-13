@@ -2430,6 +2430,10 @@
 			<unlock>
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_horse/state" />
+				<behaviour operator="replace" source="mvz2:enemy_melee" id="mvz2:skeleton_horse/melee" />
+			</behaviours>
 			<properties>
 				<float name="mvz2:maxHealth" value="800" />
 				<float name="mvz2:fallResistance" value="15" />
@@ -2470,7 +2474,7 @@
 				<float name="mvz2:maxHealth" value="300" />
 				<float name="mvz2:mass" value="-1" />
 				<float name="mvz2:speed" value="2" />
-				<float name="mvz2:range" value="80" />
+				<float name="mvz2:range" value="40" />
 				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
 				<id name="mvz2:hitSound" value="mvz2:bone_hit" />

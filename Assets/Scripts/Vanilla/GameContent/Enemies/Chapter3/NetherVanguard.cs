@@ -14,7 +14,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.NetherVanguard)]
-    public class NetherVanguard : MeleeEnemy
+    public class NetherVanguard : AIEntityBehaviour
     {
         public NetherVanguard(string nsp, string name) : base(nsp, name)
         {

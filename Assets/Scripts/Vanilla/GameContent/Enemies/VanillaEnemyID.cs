@@ -97,11 +97,11 @@ namespace MVZ2.GameContent.Enemies
         public const string AngryReverser = "AngryReverser";
         public const string RaiderSkull = "RaiderSkull";
         public const string Anubiskull = "Anubiskull";
-        public const string WitherSkeletonHorse = "WitherSkeletonHorse";//
-        public const string AssaultDullahan = "AssaultDullahan";//
+        public const string WitherSkeletonHorse = "WitherSkeletonHorse";//tofix
+        public const string AssaultDullahan = "AssaultDullahan";//tofix
         public const string BerserkerHead = "BerserkerHead";
-        public const string WintherMage = "WintherMage";//
-        public const string KingofReverser = "KingofReverser";//
+        public const string WintherMage = "WintherMage";//tofix
+        public const string KingofReverser = "KingofReverser";//tofix
         public const string NetherTroopCarrier = "NetherTroopCarrier";
 
         //EXPAND_C4

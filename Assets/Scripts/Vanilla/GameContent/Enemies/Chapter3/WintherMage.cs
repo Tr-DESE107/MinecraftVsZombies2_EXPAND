@@ -17,7 +17,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.WintherMage)]
-    public class WintherMage : AIEntityBehaviour
+    public class WintherMage : SkeletonMage
     {
         public WintherMage(string nsp, string name) : base(nsp, name)
         {

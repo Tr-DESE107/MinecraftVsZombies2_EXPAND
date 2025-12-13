@@ -27,6 +27,7 @@ namespace MVZ2.GameContent.IZombie
                 VanillaEnemyID.NetherTroopCarrier,
                 VanillaEnemyID.AssaultDullahan,
                 VanillaEnemyID.RaiderSkull,
+                VanillaEnemyID.WitherSkeletonHorse,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
