@@ -10,7 +10,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.HostHead)]
-    public class HostHead : MeleeEnemy
+    public class HostHead : AIEntityBehaviour
     {
         public HostHead(string nsp, string name) : base(nsp, name)
         {

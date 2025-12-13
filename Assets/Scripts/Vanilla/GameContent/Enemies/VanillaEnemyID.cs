@@ -65,7 +65,6 @@ namespace MVZ2.GameContent.Enemies
         public const string SkeletonHead = "SkeletonHead";
         public const string ZombieHead = "ZombieHead";
         public const string RedEyeZombieHead = "RedEyeZombieHead";
-        public const string FlagSkeleton = "FlagSkeleton";////
         public const string KingSkeleton = "KingSkeleton";
         public const string MeleeSkeleton = "MeleeSkeleton";
 
@@ -74,14 +73,17 @@ namespace MVZ2.GameContent.Enemies
         public const string EvilMage = "EvilMage";
         public const string WitherBoneWall = "WitherBoneWall";
 
+        public const string FlagSkeleton = "FlagSkeleton"; //todo
+
         //EXPAND_C2
         public const string HostZombie = "HostZombie";
         public const string BloodlustHostZombie = "BloodlustHostZombie";
         public const string HostHead = "HostHead";
-        public const string SpiderQueen = "SpiderQueen";
         public const string HostMutant = "HostMutant";
         public const string HostIMP = "HostIMP";
         public const string EnragedHostZombie = "EnragedHostZombie";
+
+        public const string SpiderQueen = "SpiderQueen"; //todo
 
         //EXPAND_C3
         public const string WitherSkeleton = "WitherSkeleton";
