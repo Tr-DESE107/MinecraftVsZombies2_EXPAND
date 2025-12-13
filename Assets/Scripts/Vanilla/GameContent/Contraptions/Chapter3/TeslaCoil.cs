@@ -136,6 +136,11 @@ namespace MVZ2.GameContent.Contraptions
                     //entity.ShortCircuit(150);
                     entity.ShortCircuit(150, new EntitySourceReference(entity));
                 }
+                if (entity.Type == EntityTypes.ENEMY)
+                {
+                    //entity.ShortCircuit(150);
+                    entity.InflictShock(30, new EntitySourceReference(entity));
+                }
             }
         }
         public static void CreateArc(Entity source, Vector3 sourcePosition, Vector3 targetPosition)

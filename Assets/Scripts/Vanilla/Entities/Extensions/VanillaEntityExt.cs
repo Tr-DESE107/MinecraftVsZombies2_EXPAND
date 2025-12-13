@@ -1105,6 +1105,21 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(CorropoisonBuff.PROP_DAMAGE_AMOUNT, damage);
             buff.SetProperty(CorropoisonBuff.PROP_TIMEOUT, time);
         }
+
+        public static void InflictShock(this Entity entity, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.Shock);
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            var buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                entity.PlaySound(VanillaSoundID.zap);
+                buff = entity.AddBuff(buffDefinition);
+            }
+            ShockBuff.SetTimeout(buff, time);
+            PostApplyStatusEffect(entity, buff, source);
+        }
         #region 魅惑
         public static void CharmPermanent(this Entity entity, int faction, ILevelSourceReference? source)
         {
