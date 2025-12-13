@@ -2833,6 +2833,10 @@
             <unlock>
                 <condition required="mvz2:level.TrueAndFalseSteve" />
             </unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented" />
+				<behaviour operator="add" id="mvz2:timeout_death" />
+			</behaviours>
             <properties>
                 
                 <float name="mvz2:damage" value="1000" />

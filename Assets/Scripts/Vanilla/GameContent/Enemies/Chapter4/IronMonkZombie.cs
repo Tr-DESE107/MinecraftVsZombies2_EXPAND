@@ -6,7 +6,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.IronMonkZombie)]
-    public class IronMonkZombie : Zombie
+    public class IronMonkZombie : MonkZombie
     {
         public IronMonkZombie(string nsp, string name) : base(nsp, name)
         {
