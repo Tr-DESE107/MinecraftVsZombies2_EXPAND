@@ -5,11 +5,12 @@ using MVZ2.Vanilla.Enemies;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.Vanilla.Entities;
 
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.RedEyeZombieHead)]
-    public class RedEyeZombieHead : MeleeEnemy
+    public class RedEyeZombieHead : AIEntityBehaviour
     {
         public RedEyeZombieHead(string nsp, string name) : base(nsp, name)
         {

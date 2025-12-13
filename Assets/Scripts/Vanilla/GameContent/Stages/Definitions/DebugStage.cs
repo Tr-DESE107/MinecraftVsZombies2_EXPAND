@@ -49,13 +49,13 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.teslaCoil,
                 //VanillaContraptionID.lightningOrb,
                 //VanillaContraptionID.fireworkDispenser,
-                VanillaEnemyID.WintherMage,
-                VanillaEnemyID.NetherArcher,
-                VanillaEnemyID.MegaMutantVillager,
-                VanillaEnemyID.MutantVillager,
-                VanillaEnemyID.MutantMannequin,
-                VanillaEnemyID.RandomMutant,
-                VanillaEnemyID.HostMutant,
+                VanillaEnemyID.SkeletonHead,
+                VanillaEnemyID.ZombieHead,
+                VanillaEnemyID.RedEyeZombieHead,
+                VanillaEnemyID.FlagSkeleton,
+                VanillaEnemyID.KingSkeleton,
+                VanillaEnemyID.MeleeSkeleton,
+                
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
