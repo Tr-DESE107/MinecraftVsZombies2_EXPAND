@@ -47,14 +47,15 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.magichest,
                 VanillaContraptionID.elasticCloud,
                 VanillaContraptionID.teslaCoil,
-                //VanillaContraptionID.lightningOrb,
+                VanillaContraptionID.lightningOrb,
                 //VanillaContraptionID.fireworkDispenser,
-                VanillaEnemyID.SkeletonHead,
-                VanillaEnemyID.ZombieHead,
+                VanillaEnemyID.WitherBoneWall,
+                VanillaEnemyID.boneWall,
                 VanillaEnemyID.RedEyeZombieHead,
+
+                VanillaEnemyID.EvilMage,
                 VanillaEnemyID.FlagSkeleton,
                 VanillaEnemyID.KingSkeleton,
-                VanillaEnemyID.MeleeSkeleton,
                 
             });
             level.SetArtifactSlotCount(3);
@@ -64,6 +65,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaArtifactID.almanac,
                 VanillaArtifactID.theCreaturesHeart,
             });
+            level.SetRechargeSpeed(9999999);
         }
         private void ConveyorStart(LevelEngine level)
         {

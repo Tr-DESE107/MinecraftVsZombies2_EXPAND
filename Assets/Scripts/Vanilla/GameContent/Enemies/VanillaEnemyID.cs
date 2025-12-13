@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Enemies
         public const string SkeletonHead = "SkeletonHead";
         public const string ZombieHead = "ZombieHead";
         public const string RedEyeZombieHead = "RedEyeZombieHead";
-        public const string FlagSkeleton = "FlagSkeleton";
+        public const string FlagSkeleton = "FlagSkeleton";////
         public const string KingSkeleton = "KingSkeleton";
         public const string MeleeSkeleton = "MeleeSkeleton";
 

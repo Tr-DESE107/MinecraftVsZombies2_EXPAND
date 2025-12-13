@@ -18,7 +18,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.MeleeSkeleton)]
-    public class MeleeSkeleton : MeleeEnemy
+    public class MeleeSkeleton : AIEntityBehaviour
     {
         public MeleeSkeleton(string nsp, string name) : base(nsp, name)
         {
@@ -53,13 +53,6 @@ namespace MVZ2.GameContent.Enemies
                     effect.ChangeModel(VanillaModelID.boatItem);
                     effect.SetDisplayScale(entity.GetDisplayScale());
                 });
-            }
-            else
-            {
-                if (info.Effects.HasEffect(VanillaDamageEffects.DROWN))
-                {
-                    Global.Saves.Unlock(VanillaUnlockID.rickrollDrown);
-                }
             }
         }
     }

@@ -15,7 +15,7 @@ using Tools;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.WitherBoneWall)]
-    public class WitherBoneWall : StateEnemy
+    public class WitherBoneWall : AIEntityBehaviour
     {
         public WitherBoneWall(string nsp, string name) : base(nsp, name)
         {
