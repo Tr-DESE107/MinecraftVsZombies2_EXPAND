@@ -16,7 +16,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.Anubiskull)]
-    public class Anubiskull : StateEnemy
+    public class Anubiskull : AIEntityBehaviour
     {
         public Anubiskull(string nsp, string name) : base(nsp, name)
         {

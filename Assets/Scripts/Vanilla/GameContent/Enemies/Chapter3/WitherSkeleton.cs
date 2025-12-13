@@ -18,7 +18,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.WitherSkeleton)]
-    public class WitherSkeleton : MeleeEnemy
+    public class WitherSkeleton : AIEntityBehaviour
     {
         public WitherSkeleton(string nsp, string name) : base(nsp, name)
         {
@@ -46,18 +46,13 @@ namespace MVZ2.GameContent.Enemies
             if (entity.HasBuff<BoatBuff>())
             {
                 entity.RemoveBuffs<BoatBuff>();
-                // �����鴬������
-                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity);
-                effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
-                effect.ChangeModel(VanillaModelID.boatItem);
-                effect.SetDisplayScale(entity.GetDisplayScale());
-            }
-            else
-            {
-                if (info.Effects.HasEffect(VanillaDamageEffects.DROWN))
+                // 掉落碎船掉落物
+                entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity)?.Let(effect =>
                 {
-                    Global.Saves.Unlock(VanillaUnlockID.rickrollDrown);
-                }
+                    effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
+                    effect.ChangeModel(VanillaModelID.boatItem);
+                    effect.SetDisplayScale(entity.GetDisplayScale());
+                });
             }
         }
     }

@@ -342,9 +342,9 @@
     <model name="NetherVanguard" type="entity" path="mvz2:enemy/castle/NetherVanguard" width="64" height="96" xOffset="16" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="NetherArcher" type="entity" path="mvz2:enemy/castle/NetherArcher" width="64" height="96" xOffset="10" yOffset="-64">
-        <armorconfig>mvz2:humanoid</armorconfig>
-    </model>
+	<model name="NetherArcher" type="entity" path="mvz2:enemy/castle/NetherArcher" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
     <model name="RaiderSkull" type="entity" path="mvz2:enemy/castle/RaiderSkull" width="38" height="26" xOffset="0" yOffset="-11" />
     <model name="Anubiskull" type="entity" path="mvz2:enemy/castle/Anubiskull" width="52" height="88" xOffset="12" yOffset="-41" />
 

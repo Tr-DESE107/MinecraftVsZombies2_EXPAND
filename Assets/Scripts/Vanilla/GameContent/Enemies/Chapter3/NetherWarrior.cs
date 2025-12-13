@@ -12,7 +12,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.NetherWarrior)]
-    public class NetherWarrior : MeleeEnemy
+    public class NetherWarrior : AIEntityBehaviour
     {
         public NetherWarrior(string nsp, string name) : base(nsp, name)
         {

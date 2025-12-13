@@ -2949,6 +2949,10 @@ MonoBehaviour:
     - {fileID: 1095864368, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
     - {fileID: 1109530632, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
     - {fileID: 754787779, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}
+  - name: entity/enemy/RandomZombieWall
+    spritesheet:
+    - {fileID: -1921457546, guid: e318019ce39b4634c928b30fcef9d747, type: 3}
+    - {fileID: -247396512, guid: e318019ce39b4634c928b30fcef9d747, type: 3}
   - name: entity/enemy/Red_MonkZombie
     spritesheet:
     - {fileID: 195686219, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
@@ -3165,6 +3169,10 @@ MonoBehaviour:
     - {fileID: 21300004, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     - {fileID: 21300006, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     - {fileID: 21300008, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
+  - name: entity/enemy/ZombieWall
+    spritesheet:
+    - {fileID: 311569605, guid: 6587478fb055bac4caf21c5e49a37f8c, type: 3}
+    - {fileID: -2094969051, guid: 6587478fb055bac4caf21c5e49a37f8c, type: 3}
   - name: entity/enemy/zombie_cloud
     spritesheet:
     - {fileID: -721226712, guid: daa11bf204159aa4ba9261b3b3bb7063, type: 3}

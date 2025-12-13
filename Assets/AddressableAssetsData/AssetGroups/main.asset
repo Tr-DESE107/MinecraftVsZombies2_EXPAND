@@ -1025,6 +1025,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 128dabcc1765afd49ac35f3594655cce
+    m_Address: mvz2:enemy/mausoleum/RandomZombieWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 12b1361c4c73e1d4d94e9ca6d4618d2c
     m_Address: mvz2:effect/vortex
     m_ReadOnly: 0
@@ -3655,13 +3662,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4005d2d1b48255743a72fa819ab6074a
-    m_Address: mvz2:enemy/castle/BerserkerHead
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 401ca0bfd92ce274a9ca8b1c10c04cf0
     m_Address: mvz2:enemy/halloween/FlagSkeleton
     m_ReadOnly: 0
@@ -5776,6 +5776,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6587478fb055bac4caf21c5e49a37f8c
+    m_Address: mvz2:entity/enemy/ZombieWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6597f6cec408d594588c484f332ed431
     m_Address: mvz2:enemy/halloween/bone_wall
     m_ReadOnly: 0
@@ -6705,6 +6712,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78accb138e9d95046b53bd49d5332c0a
+    m_Address: mvz2:enemy/mausoleum/ZombieWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 78ada02b958a3804fac1e795d393ee64
     m_Address: mvz2:products/cake
@@ -12040,6 +12054,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd588f16019b5904f8199508cffff977
+    m_Address: mvz2:enemy/castle/BerserkerHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd81e2f5e01461d4c9186fe9648f2c1f
     m_Address: mvz2:entity/effects/zombie_block
     m_ReadOnly: 0
@@ -12319,6 +12340,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e318019ce39b4634c928b30fcef9d747
+    m_Address: mvz2:entity/enemy/RandomZombieWall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e331ed1f540bbb04db318b073f0720ac
     m_Address: mvz2:talk/dialog_faint

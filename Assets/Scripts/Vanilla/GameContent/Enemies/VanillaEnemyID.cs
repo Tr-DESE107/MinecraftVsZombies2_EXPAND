@@ -89,7 +89,7 @@ namespace MVZ2.GameContent.Enemies
         public const string WitherSkeleton = "WitherSkeleton";
         public const string LeatherWitherSkeleton = "LeatherWitherSkeleton";
         public const string IronWitherSkeleton = "IronWitherSkeleton";
-        public const string FlagWitherSkeleton = "FlagWitherSkeleton";
+        public const string FlagWitherSkeleton = "FlagWitherSkeleton"; //todo
 
         public const string NetherWarrior = "NetherWarrior";
         public const string NetherArcher = "NetherArcher";

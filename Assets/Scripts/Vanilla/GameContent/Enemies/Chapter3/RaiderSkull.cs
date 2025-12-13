@@ -5,11 +5,12 @@ using MVZ2.Vanilla.Enemies;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.Vanilla.Entities;
 
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.RaiderSkull)]
-    public class RaiderSkull : MeleeEnemy
+    public class RaiderSkull : AIEntityBehaviour
     {
         public RaiderSkull(string nsp, string name) : base(nsp, name)
         {

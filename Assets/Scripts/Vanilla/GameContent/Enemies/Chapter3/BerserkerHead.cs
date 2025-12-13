@@ -20,7 +20,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.BerserkerHead)]
-    public class BerserkerHead : MeleeEnemy
+    public class BerserkerHead : AIEntityBehaviour
     {
         public BerserkerHead(string nsp, string name) : base(nsp, name)
         {

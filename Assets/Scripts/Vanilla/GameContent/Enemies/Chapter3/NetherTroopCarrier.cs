@@ -17,13 +17,13 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.NetherTroopCarrier)]
-    public class NetherTroopCarrier : StateEnemy
+    public class NetherTroopCarrier : AIEntityBehaviour
     {
         public NetherTroopCarrier(string nsp, string name) : base(nsp, name)
         {
         }
 
-        #region �ص�
+        #region 回调
         public override void Init(Entity entity)
         {
             base.Init(entity);
@@ -222,7 +222,7 @@ namespace MVZ2.GameContent.Enemies
             timer?.Reset();
         }
 
-        #region �ֶ�
+        #region 字段
         public static bool IsPunctured(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_PUNCTURED);
         public static void SetPunctured(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_PUNCTURED, value);
 
