@@ -8,6 +8,9 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Models;
+using MVZ2Logic.Models;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -17,6 +20,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public ShockBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new ColorModifier(EngineEntityProps.TINT, new Color(0.5f, 0.5f, 0.5f, 1f)));
+            AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.staticParticles, VanillaModelID.staticParticles);
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 0.2f));
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.Multiply, 0.2f));
         }

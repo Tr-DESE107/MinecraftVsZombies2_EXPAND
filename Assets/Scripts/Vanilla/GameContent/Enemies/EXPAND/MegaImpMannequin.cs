@@ -21,7 +21,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.MegaImpMannequin)]
-    public class MegaImpMannequin : AIEntityBehaviour
+    public class MegaImpMannequin : Imp
     {
         public MegaImpMannequin(string nsp, string name) : base(nsp, name)
         {
@@ -29,11 +29,6 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            if (entity.Level.IsIZombie())
-            {
-                entity.AddBuff<IZombieImpBuff>();
-            }
-            // ��ʼ����¼Ѫ�������ڵ�Ѫ��⣩
             SetLastTriggerHealth(entity, entity.Health);
         }
         protected override void UpdateLogic(Entity entity)

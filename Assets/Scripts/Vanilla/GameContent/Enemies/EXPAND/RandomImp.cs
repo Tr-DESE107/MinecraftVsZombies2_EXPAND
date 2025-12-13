@@ -13,10 +13,14 @@ using Tools;
 namespace MVZ2.Vanilla.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.RandomImp)]
-    public class RandomImp : EntityBehaviourDefinition
+    public class RandomImp : Imp
     {
         public RandomImp(string nsp, string name) : base(nsp, name)
         {
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

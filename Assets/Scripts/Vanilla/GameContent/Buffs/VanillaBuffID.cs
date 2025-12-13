@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Buffs
             public const string levellunatic = "level_lunatic";
             public const string iZombieEasy = "i_zombie_easy";
             public const string iZombieHard = "i_zombie_hard";
+            public const string iZombieLunatic = "iZombieLunatic";
 
             // Debug
             public const string debugGodmode = "debug_godmode";
@@ -362,6 +363,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID levellunatic = Get(VanillaBuffNames.Level.levellunatic);
             public static readonly NamespaceID iZombieEasy = Get(VanillaBuffNames.Level.iZombieEasy);
             public static readonly NamespaceID iZombieHard = Get(VanillaBuffNames.Level.iZombieHard);
+            public static readonly NamespaceID iZombieLunatic = Get(VanillaBuffNames.Level.iZombieLunatic);
 
             // Debug
             public static readonly NamespaceID debugGodmode = Get(VanillaBuffNames.Level.debugGodmode);

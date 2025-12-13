@@ -15,7 +15,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.HostIMP)]
-    public class HostIMP : AIEntityBehaviour
+    public class HostIMP : Imp
     {
         public HostIMP(string nsp, string name) : base(nsp, name)
         {
@@ -23,10 +23,6 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            if (entity.Level.IsIZombie())
-            {
-                entity.AddBuff<IZombieImpBuff>();
-            }
             entity.InflictRegenerationBuff(4f, 60000, new EntitySourceReference(entity));
         }
         protected override void UpdateLogic(Entity entity)
