@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Contraptions
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            // ��ʼ��Ѫ����¼�������ж��Ƿ���Ҫ�����ϼ�
+            // 初始化血量记录，用于判断是否需要发射紫箭
             //SetLastShootHealth(entity, entity.Health);
         }
 
@@ -32,16 +32,16 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.UpdateLogic(contraption);
 
-            //// ���Ѫ���½��Ƿ񳬹�100���������ϼ�
+            //// 检测血量下降是否超过100，并发射紫箭
             //CheckPurpleArrowShoot(contraption);
 
-            // ����״̬���������߼�
+            // 生命状态动画控制逻辑
             var maxHP = contraption.GetMaxHealth();
             bool netherite = contraption.HasBuff<GlowingObsidianArmorBuff>();
             if (netherite)
             {
 
-                // �������Ѫ�����40%���Ƴ�Buff
+                // 如果护甲血量掉到40%，移除Buff
                 if (contraption.Health <= maxHP * 0.4f)
                 {
                     var hp = contraption.Health;
@@ -67,36 +67,36 @@ namespace MVZ2.GameContent.Contraptions
         }
 
         /// <summary>
-        /// ÿ��Ѫ�����ͳ���200��������ɫ��ʸ����������Ч��
+        /// 每当血量降低超过200，发射紫色箭矢，并播放音效。
         /// </summary>
         //private void CheckPurpleArrowShoot(Entity entity)
         //{
         //    float lastHP = GetLastShootHealth(entity);
         //    float currHP = entity.Health;
 
-        //    // �Ƚ������½�ֵ�Ƿ񳬹�100
+        //    // 比较生命下降值是否超过100
         //    int arrowsToShoot = (int)((lastHP - currHP) / 200f);
         //    arrowsToShoot = Mathf.Min(arrowsToShoot, 2);
         //    if (arrowsToShoot > 0)
         //    {
         //        for (int i = 0; i < arrowsToShoot; i++)
         //        {
-        //            // ������ɫ���Ĳ���
+        //            // 构造紫色箭的参数
         //            var param = entity.GetShootParams();
         //            param.projectileID = VanillaProjectileID.purpleArrow;
 
 
-        //            // �����ϼ�
+        //            // 发射紫箭
         //            var proj = entity.ShootProjectile(param);
 
-        //            // ���÷����ٶȣ��ҷ���
+        //            // 设置飞行速度（右方向）
         //            proj.Velocity = new UnityEngine.Vector2(2.5f, 0f);
 
-        //            // ������Ч
+        //            // 播放音效
         //            entity.Level.PlaySound(VanillaSoundID.bonk);
         //        }
 
-        //        // ���¼�¼������ֵ
+        //        // 更新记录的生命值
         //        SetLastShootHealth(entity, currHP);
         //    }
         //}
@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public override bool CanEvoke(Entity entity)
         {
-            // �л��׾Ͳ��ܱ�����ǿ��
+            // 有护甲就不能被大招强化
             if (entity.HasBuff<GlowingObsidianArmorBuff>())
                 return false;
 
@@ -115,20 +115,20 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(contraption);
 
-            // ��ӻ���buff
+            // 添加护甲buff
             contraption.AddBuff<GlowingObsidianArmorBuff>();
 
-            // Ѫ������
+            // 血量重置
             contraption.Health = contraption.GetMaxHealth();
 
-            // ���Ż�����Ч
+            // 播放护甲音效
             contraption.Level.PlaySound(VanillaSoundID.armorUp);
 
-            //// ����Ѫ����¼
+            //// 重置血量记录
             //SetLastShootHealth(contraption, contraption.Health);
         }
         /// <summary>
-        /// ��ȡ����״̬�µĶ���״ֵ̬
+        /// 获取护甲状态下的动画状态值
         /// </summary>
         private float GetArmoredDamagePercent(Entity contraption, float maxHP)
         {
@@ -137,7 +137,7 @@ namespace MVZ2.GameContent.Contraptions
             return 1 - armorPercent;
         }
 
-        // �����ֶμ�¼����ֵ�������ж��Ƿ񴥷�������
+        // 新增字段记录生命值（用于判断是否触发攻击）
         //private static readonly VanillaEntityPropertyMeta<float> PROP_LAST_SHOOT_HEALTH =
         //    new VanillaEntityPropertyMeta<float>("LastShootHealth");
 

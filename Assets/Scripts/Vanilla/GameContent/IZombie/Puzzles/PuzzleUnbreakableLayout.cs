@@ -26,8 +26,9 @@ namespace MVZ2.GameContent.IZombie
                 VanillaEnemyID.NetherVanguard,
                 VanillaEnemyID.NetherTroopCarrier,
                 VanillaEnemyID.AssaultDullahan,
-                VanillaEnemyID.RaiderSkull,
+                //VanillaEnemyID.RaiderSkull,
                 VanillaEnemyID.WitherSkeletonHorse,
+                VanillaEnemyID.SixQiZombie,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
@@ -50,7 +51,7 @@ namespace MVZ2.GameContent.IZombie
                     }
                     else
                     {
-                        id = column >= 3 ? VanillaContraptionID.furnace : VanillaContraptionID.stoneShield;
+                        id = column >= 3 ? VanillaContraptionID.Bedrock : VanillaContraptionID.stoneShield;
                     }
                     Insert(map, column, lane, id);
                 }

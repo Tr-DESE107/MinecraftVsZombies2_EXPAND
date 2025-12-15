@@ -343,4 +343,10 @@
 			<key hex="#43B3AE" time="1" />
 		</colorKeys>
 	</fragment>
+	<fragment name="Bedrock">
+		<colorKeys>
+			<key hex="#4F4F4F" time="0.5" />
+			<key hex="#101010" time="1" />
+		</colorKeys>
+	</fragment>
 </fragments>

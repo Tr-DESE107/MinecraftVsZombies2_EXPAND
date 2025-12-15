@@ -1470,6 +1470,21 @@
 			</properties>
 		</dispenser>
 
+		<contraption id="Bedrock" name="基岩" tooltip="无法摧毁的屏障">
+			<unlock>
+				<condition required="mvz2:UCANNOTUSEIT!" />
+			</unlock>
+			<properties>
+				<bool name="mvz2:canDeactive" value="false" />
+				<bool name="mvz2:defensive" value="true" />
+				<float name="mvz2:maxHealth" value="2147483647" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+				<int name="mvz2:cost" value="99999" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</contraption>
+
         <!-- Enemies -->
         <zombie id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <properties>

@@ -4397,6 +4397,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c6d3c800778b28489a87251ba3eb5c4
+    m_Address: mvz2:entity/contraption/Bedrock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
     m_Address: mvz2:ui/map/map_drag_mark
     m_ReadOnly: 0
@@ -10079,6 +10086,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6410e42ec35e19419d4916dbb9cc3fd
+    m_Address: mvz2:contraption/EXPAND/Bedrock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6787cff33fe5384d8592394db3eac63
     m_Address: mvz2:projectile/charged_bolt
