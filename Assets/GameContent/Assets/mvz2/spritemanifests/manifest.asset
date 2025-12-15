@@ -1784,6 +1784,9 @@ MonoBehaviour:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 413586417, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 1656711901, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
+  - name: entity/contraption/Bedrock
+    spritesheet:
+    - {fileID: 21300000, guid: 4c6d3c800778b28489a87251ba3eb5c4, type: 3}
   - name: entity/contraption/command_block
     spritesheet:
     - {fileID: -1167386140, guid: 8efa2e79b292918498e73ab732763604, type: 3}

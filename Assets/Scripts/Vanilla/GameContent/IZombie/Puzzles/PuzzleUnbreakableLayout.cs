@@ -47,7 +47,7 @@ namespace MVZ2.GameContent.IZombie
                     }
                     else
                     {
-                        id = column >= 3 ? VanillaContraptionID.furnace : VanillaContraptionID.stoneShield;
+                        id = column >= 3 ? VanillaContraptionID.Bedrock : VanillaContraptionID.stoneShield;
                     }
                     Insert(map, column, lane, id);
                 }

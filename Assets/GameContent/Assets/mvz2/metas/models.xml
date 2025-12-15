@@ -4,6 +4,7 @@
     <model name="dispenser" type="entity" path="mvz2:contraption/prologue/dispenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="furnace" type="entity" path="mvz2:contraption/prologue/furnace" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="obsidian" type="entity" path="mvz2:contraption/prologue/obsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="Bedrock" type="entity" path="mvz2:contraption/EXPAND/Bedrock" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="mine_tnt" type="entity" path="mvz2:contraption/prologue/mine_tnt" width="64" height="64" xOffset="0" yOffset="-28"/>
 
 	<model name="GlowingObsidian" type="entity" path="mvz2:contraption/EXPAND/GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
