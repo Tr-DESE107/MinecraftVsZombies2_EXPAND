@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Commands
                     z = CommandUtility.ParseOptionalFloat(parameters[4], z);
                 }
             }
-            else if (parameters[0] == "grid")
+            else if (parameters[0] == "tile")
             {
                 var column = Mathf.Floor(level.GetMaxColumnCount() * 0.5f);
                 var lane = Mathf.Floor(level.GetMaxLaneCount() * 0.5f);
