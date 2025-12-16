@@ -17,6 +17,7 @@
 - Silvenser's energy cost reduced from 175 to 150.
 - Dream Crystal healing amount increased from 40/sec to 60/sec.
 - Bottle Blackhole damage bonus reduced from 15% to 10%.
+- Desire Pot's energy cost reduced from 200 to 125, recharge time reduced from Very Long to Long.
 - Talisman Zombie toughness increased from 200 to 350.
 - Zombies whose Divine Shield is broken can no longer be re-shielded by Emperor Zombie for 5 seconds.
 - Gargoyle Statue and Spawner now prioritize spawning in locations without contraptions.
