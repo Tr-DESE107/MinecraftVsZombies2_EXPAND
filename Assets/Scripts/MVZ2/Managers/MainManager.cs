@@ -61,6 +61,10 @@ namespace MVZ2.Managers
             return false;
 #endif
         }
+        public bool UseMobileLayout()
+        {
+            return IsMobile();
+        }
         public TaskPipeline? GetLoadPipeline()
         {
             return loadPipeline;

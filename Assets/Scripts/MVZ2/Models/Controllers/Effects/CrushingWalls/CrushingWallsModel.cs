@@ -10,14 +10,14 @@ namespace MVZ2.Models
         public override void Init()
         {
             base.Init();
-            bool isMobile = MainManager.Instance.IsMobile();
+            bool isMobile = MainManager.Instance.UseMobileLayout();
             standalone.gameObject.SetActive(!isMobile);
             mobile.gameObject.SetActive(isMobile);
         }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
-            bool isMobile = MainManager.Instance.IsMobile();
+            bool isMobile = MainManager.Instance.UseMobileLayout();
             var platform = isMobile ? mobile : standalone;
             var camera = Model.GetCamera();
             if (!camera)

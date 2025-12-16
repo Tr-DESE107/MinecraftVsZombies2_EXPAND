@@ -181,7 +181,7 @@ namespace MVZ2.Managers
         }
         public Sprite? GetBlueprintIcon(SeedDefinition seedDef)
         {
-            return Main.IsMobile() ? GetBlueprintIconMobile(seedDef) : GetBlueprintIconStandalone(seedDef);
+            return Main.UseMobileLayout() ? GetBlueprintIconMobile(seedDef) : GetBlueprintIconStandalone(seedDef);
         }
         private NamespaceID GetBlueprintStyleID(SeedDefinition seedDef, bool isCommandBlock)
         {

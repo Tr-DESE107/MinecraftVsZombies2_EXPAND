@@ -9,6 +9,7 @@ namespace MVZ2Logic.Games
     public interface IGlobalGame : IGameContent, IGameTriggerSystem
     {
         bool IsMobile();
+        bool UseMobileLayout();
         Coroutine StartCoroutine(IEnumerator coroutine);
         string DefaultNamespace { get; }
     }

@@ -118,7 +118,7 @@ namespace MVZ2.Almanacs
         }
         public int GetBlueprintCountPerRow()
         {
-            return Main.IsMobile() ? blueprintCountPerRowMobile : blueprintCountPerRowStandalone;
+            return Main.UseMobileLayout() ? blueprintCountPerRowMobile : blueprintCountPerRowStandalone;
         }
         public int GetEnemyCountPerRow()
         {

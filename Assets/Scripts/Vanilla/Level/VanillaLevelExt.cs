@@ -486,7 +486,7 @@ namespace MVZ2.Vanilla.Level
 
         public static float GetLeftUIBorderX(this LevelEngine level)
         {
-            if (Global.Game.IsMobile())
+            if (Global.Game.UseMobileLayout())
             {
                 return 160;
             }

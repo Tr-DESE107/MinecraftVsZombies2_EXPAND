@@ -26,7 +26,7 @@ namespace MVZ2.Level.UI
         {
             if (!_camera)
                 return;
-            bool isMobile = MainManager.Instance.IsMobile();
+            bool isMobile = MainManager.Instance.UseMobileLayout();
             var min = isMobile ? safeAspectMinMobile : safeAspectMin;
             var max = isMobile ? safeAspectMaxMobile : safeAspectMax;
             var currentAspect = width / (float)height;

@@ -62,7 +62,7 @@ namespace MVZ2.Almanacs
                 icon = icon,
                 blueprint = blueprint,
                 isBlueprint = isBlueprint,
-                isBlueprintMobile = Main.IsMobile(),
+                isBlueprintMobile = Main.UseMobileLayout(),
 
                 interactable = interactable,
                 price = price,

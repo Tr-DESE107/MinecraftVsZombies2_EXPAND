@@ -21,6 +21,10 @@ namespace MVZ2.GlobalGames
         {
             return main.IsMobile();
         }
+        public bool UseMobileLayout()
+        {
+            return main.UseMobileLayout();
+        }
         public Coroutine StartCoroutine(IEnumerator enumerator)
         {
             return main.CoroutineManager.StartCoroutine(enumerator);

@@ -44,7 +44,7 @@ namespace MVZ2.Level
                 targetRotation = 0;
             }
             var rotation = levelCamera.GetRotation();
-            levelCamera.SetSpace(Main.IsMobile() ? cameraLeftSpaceMobile : cameraLeftSpaceStandalone);
+            levelCamera.SetSpace(Main.UseMobileLayout() ? cameraLeftSpaceMobile : cameraLeftSpaceStandalone);
             levelCamera.SetRotation(rotation * 0.8f + targetRotation * 0.2f);
             downgradeScript.enabled = level.AreGraphicsDowngrade();
         }
