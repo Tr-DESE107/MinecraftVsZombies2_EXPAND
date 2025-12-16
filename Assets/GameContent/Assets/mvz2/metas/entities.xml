@@ -201,6 +201,9 @@
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
                 <behaviour operator="remove" id="mvz2:enemy_walk" />
             </behaviours>
+			<properties>
+				<id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
+			</properties>
         </specialEnemy>
         <humanoid id="2" parent="enemy">
             <properties>
@@ -209,10 +212,16 @@
                 <int name="mvz2:airInteraction" value="2" />
             </properties>
         </humanoid>
-        <zombie id="2" parent="humanoid" />
+        <zombie id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Zombie_Exp" />
+			</properties>
+		</zombie>
         <witherSkeleton id="2" parent="humanoid">
             <properties>
                 <id name="mvz2:shape" value="mvz2:wither_skeleton" />
+
+				<id name="mvz2:Category" value="mvz2:WitherSkeleton_Exp" />
             </properties>
         </witherSkeleton>
         <spider id="2" parent="enemy">
@@ -220,11 +229,17 @@
                 <id name="mvz2:shape" value="mvz2:spider" />
                 <int name="mvz2:waterInteraction" value="2" />
                 <int name="mvz2:airInteraction" value="2" />
+
+				<id name="mvz2:Category" value="mvz2:Spider_Exp" />
+				<bool name="mvz2:undead" value="false" />
             </properties>
         </spider>
         <smallSpider id="2" parent="spider">
             <properties>
                 <id name="mvz2:shape" value="mvz2:small_spider" />
+
+				<id name="mvz2:Category" value="mvz2:Spider_Exp" />
+				<bool name="mvz2:undead" value="false" />
             </properties>
         </smallSpider>
         <mutantZombie id="2" parent="enemy">
@@ -251,6 +266,8 @@
 
                 <int name="mvz2:cost" value="300" />
                 <int name="mvz2:waterInteraction" value="3" />
+				
+				<id name="mvz2:Category" value="mvz2:Mutant_Exp" />
             </properties>
         </mutantZombie>
         <energyPickup id="6" parent="pickup">
@@ -286,15 +303,42 @@
                 <vector3 name="mvz2:size" x="16" y="16" z="16" />
             </properties>
         </gem>
-		
+
+		<Imp_Exp id="2" parent="enemy">
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18" />
+				<float name="mvz2:cryPitch" value="2" />
+				<float name="mvz2:speed" value="2" />
+
+				<id name="mvz2:shape" value="mvz2:imp" />
+				<vector3 name="mvz2:size" x="16" y="54" z="16" />
+				<id name="mvz2:Category" value="mvz2:Imp_Exp" />
+			</properties>
+		</Imp_Exp>
+
+		<Husk_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Husk_Exp" />
+			</properties>
+		</Husk_Exp>
+
+		<Drowned_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Drowned_Exp" />
+			</properties>
+		</Drowned_Exp>
+
 		<Skeleton_Exp id="2" parent="humanoid">
 			<properties>
 				<id name="mvz2:shell" value="mvz2:bone" />
 				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
+
+				<id name="mvz2:Category" value="mvz2:Skeleton_Exp" />
 			</properties>
 		</Skeleton_Exp>
-		
+
 		<WitherSkeleton_Exp id="2" parent="humanoid">
 			<properties>
 				<id name="mvz2:shell" value="mvz2:nether" />
@@ -313,36 +357,142 @@
 				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 				<vector3 name="mvz2:size" x="77" y="100" z="40" />
+
+				<id name="mvz2:Category" value="mvz2:WINtherSkeleton_Exp" />
 			</properties>
 		</WINtherSkeleton_Exp>
-		
+
+		<Ghost_Exp id="2" parent="enemy">
+			<properties>
+				<float name="mvz2:friction" value="0.05" />
+				<float name="mvz2:mass" value="-2" />
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:crySound" value="mvz2:ghost_cry" />
+				<id name="mvz2:deathSound" value="mvz2:ghost_death" />
+				<int name="mvz2:waterInteraction" value="3" />
+				<int name="mvz2:airInteraction" value="3" />
+
+				<id name="mvz2:Category" value="mvz2:Ghost_Exp" />
+			</properties>
+		</Ghost_Exp>
+
+		<Mechanical_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Mechanical_Exp" />
+			</properties>
+		</Mechanical_Exp>
+
 		<Head_Exp id="2" parent="enemy">
 			<properties>
 				<vector3 name="mvz2:mass" value="-1" />
 				<vector3 name="mvz2:size" x="32" y="22" z="32" />
+
+				<id name="mvz2:Category" value="mvz2:Head_Exp" />
 			</properties>
 		</Head_Exp>
 
-		<Imp_Exp id="2" parent="enemy">
+		<Spider_Exp id="2" parent="humanoid">
 			<properties>
-				<float name="mvz2:mass" value="-1" />
-				<float name="mvz2:fallResistance" value="18" />
-				<float name="mvz2:cryPitch" value="2" />
-				<float name="mvz2:speed" value="2" />
-
-				<id name="mvz2:shape" value="mvz2:imp" />
-				<vector3 name="mvz2:size" x="16" y="54" z="16" />
+				<id name="mvz2:Category" value="mvz2:Spider_Exp" />
 			</properties>
-		</Imp_Exp>
+		</Spider_Exp>
+
+		<Creeper_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Creeper_Exp" />
+				<bool name="mvz2:undead" value="false" />
+			</properties>
+		</Creeper_Exp>
+
+		<Vehicle_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Vehicle_Exp" />
+				<bool name="mvz2:undead" value="false" />
+			</properties>
+		</Vehicle_Exp>
+
+		<Illager_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Illager_Exp" />
+				<bool name="mvz2:undead" value="false" />
+			</properties>
+		</Illager_Exp>
+
+		<Villager_Exp id="2" parent="enemy">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Villager_Exp" />
+				<bool name="mvz2:undead" value="false" />
+			</properties>
+		</Villager_Exp>
 
 		<Mannequin_Exp id="2" parent="enemy">
 			<properties>
 				<bool name="mvz2:undead" value="false" />
 				<id name="mvz2:deathSound" value="mvz2:Player_death" />
 				<id name="mvz2:shell" value="mvz2:flesh" />
+
+				<id name="mvz2:Category" value="mvz2:Mannequin_Exp" />
 			</properties>
 		</Mannequin_Exp>
-    
+
+		<humanoid_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:humanoid_Exp" />
+			</properties>
+		</humanoid_Exp>
+
+		<RandomEnemy_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+			</properties>
+		</RandomEnemy_Exp>
+
+		<SpecialEnemy_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
+			</properties>
+		</SpecialEnemy_Exp>
+
+		<Ghast_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Ghast_Exp" />
+			</properties>
+		</Ghast_Exp>
+
+		<Slime_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Slime_Exp" />
+				<bool name="mvz2:undead" value="false" />
+			</properties>
+		</Slime_Exp>
+
+		<Touhou_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Touhou_Exp" />
+			</properties>
+		</Touhou_Exp>
+
+		<Blaze_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Blaze_Exp" />
+				<bool name="mvz2:undead" value="false" />
+			</properties>
+		</Blaze_Exp>
+
+		<Piglin_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Piglin_Exp" />
+				<bool name="mvz2:undead" value="false" />
+			</properties>
+		</Piglin_Exp>
+
+		<Guardian_Exp id="2" parent="humanoid">
+			<properties>
+				<id name="mvz2:Category" value="mvz2:Guardian_Exp" />
+				<bool name="mvz2:undead" value="false" />
+			</properties>
+		</Guardian_Exp>
+		
 </templates>
     <entries>
         <!-- Contraptions -->
@@ -1546,7 +1696,6 @@
         <zombie id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <properties>
                 <int name="mvz2:cost" value="50" />
-				<id name="mvz2:Category" value="mvz2:WitherSkeleton_Exp" />
             </properties>
         </zombie>
         <zombie id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有">
@@ -1570,7 +1719,7 @@
         </zombie>
 
         <!-- Halloween Enemies -->
-        <humanoid id="skeleton" name="骷髅" deathMessage="被射成刺猬了！">
+		<Skeleton_Exp id="skeleton" name="骷髅" deathMessage="被射成刺猬了！">
             <unlock>
                 <condition required="mvz2:level.halloween_1" />
             </unlock>
@@ -1589,7 +1738,7 @@
 
                 <int name="mvz2:cost" value="75" />
             </properties>
-        </humanoid>
+        </Skeleton_Exp>
         <humanoid id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
@@ -1604,9 +1753,11 @@
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
 
                 <int name="mvz2:cost" value="100" />
+
+				<id name="mvz2:Category" value="mvz2:humanoid_Exp" />
             </properties>
         </humanoid>
-        <humanoid id="ghost" name="幽灵" deathMessage="现在有伴了。">
+		<Ghost_Exp id="ghost" name="幽灵" deathMessage="现在有伴了。">
             <unlock>
                 <condition required="mvz2:level.halloween_3" />
             </unlock>
@@ -1623,8 +1774,8 @@
                 <int name="mvz2:waterInteraction" value="3" />
                 <int name="mvz2:airInteraction" value="3" />
             </properties>
-        </humanoid>
-        <humanoid id="mummy" name="木乃伊" deathMessage="裹成个粽子。">
+        </Ghost_Exp>
+		<Husk_Exp id="mummy" name="木乃伊" deathMessage="裹成个粽子。">
             <unlock>
                 <condition required="mvz2:level.halloween_6" />
             </unlock>
@@ -1640,8 +1791,8 @@
 
                 <int name="mvz2:cost" value="75" />
             </properties>
-        </humanoid>
-        <humanoid id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值">
+        </Husk_Exp>
+		<Skeleton_Exp id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值">
             <unlock>
                 <condition required="mvz2:level.halloween_8" />
             </unlock>
@@ -1653,7 +1804,7 @@
                 <int name="mvz2:cost" value="350" />
                 <id name="mvz2:starting_armor" value="mvz2:necromancer_helmet" />
             </properties>
-        </humanoid>
+        </Skeleton_Exp>
 
         <!-- Dream Enemies -->
         <spider id="spider" name="蜘蛛" deathMessage="我的蜘蛛感应又有反应了。">
@@ -1737,6 +1888,8 @@
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="3" />
                 <int name="mvz2:airInteraction" value="3" />
+
+				<id name="mvz2:Category" value="mvz2:Ghast_Exp" />
             </properties>
         </enemy>
         <spider id="mother_terror" name="恐怖之母" deathMessage="生异形啊">
@@ -1875,6 +2028,8 @@
                 <int name="mvz2:airInteraction" value="2" />
 
                 <int name="mvz2:cost" value="300" />
+
+				<id name="mvz2:Category" value="mvz2:Vehicle_Exp" />
             </properties>
         </enemy>
         <enemy id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！">
@@ -1895,6 +2050,8 @@
                 <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
 
                 <int name="mvz2:cost" value="100" />
+
+				<id name="mvz2:Category" value="mvz2:WitherSkeleton_Exp" />
             </properties>
         </enemy>
 
@@ -1909,7 +2066,7 @@
                 <int name="mvz2:cost" value="100" />
             </properties>
         </zombie>
-        <humanoid id="talisman_zombie" name="灵符僵尸" deathMessage="好吃">
+		<zombie id="talisman_zombie" name="灵符僵尸" deathMessage="好吃">
             <unlock>
                 <condition required="mvz2:level.mausoleum_3" />
             </unlock>
@@ -1917,32 +2074,32 @@
                 <behaviour operator="remove" id="mvz2:enemy_walk" />
             </behaviours>
             <properties>
-                <float name="mvz2:maxHealth" value="300" />
+                <float name="mvz2:maxHealth" value="400" />
                 <int name="mvz2:cost" value="75" />
             </properties>
-        </humanoid>
-        <humanoid id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。">
-            <unlock>
-                <condition required="mvz2:level.mausoleum_3" />
-            </unlock>
-            <behaviours>
-                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:wicked_hermit_zombie/state" />
-            </behaviours>
-            <properties>
-                <float name="mvz2:mass" value="-1" />
-                <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
-                <int name="mvz2:cost" value="150" />
-            </properties>
-        </humanoid>
-        <humanoid id="shikaisen_zombie" name="尸解仙僵尸" deathMessage="那我怎么没复活？">
+        </zombie>
+		<zombie id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_3" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:wicked_hermit_zombie/state" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
+				<int name="mvz2:cost" value="150" />
+			</properties>
+		</zombie>
+		<zombie id="shikaisen_zombie" name="尸解仙僵尸" deathMessage="那我怎么没复活？">
             <unlock>
                 <condition required="mvz2:level.mausoleum_6" />
             </unlock>
             <properties>
                 <int name="mvz2:cost" value="125" />
             </properties>
-        </humanoid>
-        <humanoid id="emperor_zombie" name="皇帝僵尸" deathMessage="中道崩殂">
+        </zombie>
+		<zombie id="emperor_zombie" name="皇帝僵尸" deathMessage="中道崩殂">
             <unlock>
                 <condition required="mvz2:level.mausoleum_8" />
             </unlock>
@@ -1950,7 +2107,7 @@
                 <id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
                 <int name="mvz2:cost" value="100" />
             </properties>
-        </humanoid>
+        </zombie>
 
         <!-- Chapter 5 -->
         <enemy id="undead_flying_object" name="不死飞行物" deathMessage="被抓走了！">
@@ -2056,7 +2213,8 @@
                 <vector3 name="mvz2:shadowScale" x="1.25" y="1.25" z="1.25" />
 
                 <int name="mvz2:cost" value="200" />
-            </properties>
+				<id name="mvz2:Category" value="mvz2:Bulky_Exp" />
+			</properties>
         </enemy>
 
         <mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
@@ -2073,7 +2231,7 @@
                 <int name="mvz2:cost" value="500" />
             </properties>
         </mutantZombie>
-        <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
+        <Imp_Exp id="imp" name="小鬼僵尸" deathMessage="被偷家了">
             <unlock>
                 <condition required="mvz2:level.prologue" />
             </unlock>
@@ -2089,7 +2247,7 @@
                 <float name="mvz2:maxHealth" value="160" />
                 <float name="mvz2:speed" value="2" />
             </properties>
-        </enemy>
+        </Imp_Exp>
 
 		<!-- EXPAND Enemies C1 -->
 		<zombie id="MegaZombie" name="红眼僵尸" deathMessage="脑子是好的，但不是每个人都有">
@@ -2515,6 +2673,8 @@
 				<vector3 name="mvz2:passengerOffset" x="10" y="20" z="-1" />
 
 				<int name="mvz2:cost" value="125" />
+
+				<id name="mvz2:Category" value="mvz2:WitherSkeleton_Exp" />
 			</properties>
 		</enemy>
 
@@ -2589,6 +2749,8 @@
 				<float name="mvz2:speed" value="0.25" />
 
 				<int name="mvz2:cost" value="100" />
+
+				<id name="mvz2:Category" value="mvz2:WitherSkeleton_Exp" />
 			</properties>
 		</enemy>
 
@@ -2643,6 +2805,8 @@
 				<float name="mvz2:speed" value="1.8" />
 
 				<int name="mvz2:cost" value="300" />
+
+				<id name="mvz2:Category" value="mvz2:Vehicle_Exp" />
 			</properties>
 		</enemy>
 		
@@ -2727,7 +2891,7 @@
 		</mutantZombie>
 
         <!-- EXPAND Enemies Villager -->
-        <enemy id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！">
+		<Villager_Exp id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！">
             <unlock>
                 <condition required="mvz2:level.VillagerNews" />
             </unlock>
@@ -2758,7 +2922,7 @@
                 <int name="mvz2:waterInteraction" value="3" />
                 <int name="mvz2:airInteraction" value="3" />
             </properties>
-        </enemy>
+        </Villager_Exp>
 
         <mutantZombie id="MutantVillager" name="突变村民" deathMessage="我也是一个广东人，所以我们可能是老乡">
             <unlock>
@@ -2782,6 +2946,8 @@
 
                 <int name="mvz2:cost" value="300" />
                 <int name="mvz2:waterInteraction" value="3" />
+
+				<id name="mvz2:Category" value="mvz2:Villager_Exp" />
             </properties>
         </mutantZombie>
         <mutantZombie id="MegaMutantVillager" name="超级突变村民" deathMessage="FA♂Q">
@@ -2807,6 +2973,8 @@
 
                 <int name="mvz2:cost" value="500" />
                 <int name="mvz2:waterInteraction" value="3" />
+
+				<id name="mvz2:Category" value="mvz2:Villager_Exp" />
             </properties>
         </mutantZombie>
 		
@@ -2897,6 +3065,8 @@
 
                 <int name="mvz2:cost" value="500" />
                 <int name="mvz2:waterInteraction" value="3" />
+
+				<id name="mvz2:Category" value="mvz2:Mannequin_Exp" />
             </properties>
         </mutantZombie>
 
@@ -2958,6 +3128,8 @@
 
                 <int name="mvz2:cost" value="600" />
                 <int name="mvz2:waterInteraction" value="3" />
+
+				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
             </properties>
         </mutantZombie>
 
@@ -2967,8 +3139,8 @@
             </unlock>
             <properties>
                 <int name="mvz2:cost" value="150" />
-                
                 <float name="mvz2:maxHealth" value="450" />
+				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
             </properties>
         </zombie>
 
@@ -2986,6 +3158,8 @@
                 <float name="mvz2:maxHealth" value="300" />
                 <float name="mvz2:speed" value="2.4" />
                 <float name="mvz2:damage" value="100" />
+
+				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
             </properties>
         </Imp_Exp>
 
@@ -3080,9 +3254,11 @@
                 <vector3 name="mvz2:passengerOffset" x="10" y="20" z="-1" />
 
                 <int name="mvz2:cost" value="75" />
+
+				<id name="mvz2:Category" value="mvz2:Skeleton_Exp" />
             </properties>
         </enemy>
-        <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！">
+		<Head_Exp id="dullahan_head" name="凋零骷髅头" deathMessage="吾头在否？！">
             <unlock>
                 <condition required="mvz2:level.castle_6" />
             </unlock>
@@ -3097,11 +3273,11 @@
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
                 <id name="mvz2:shape" value="mvz2:dullahan_head" />
-                
+
 
                 <int name="mvz2:cost" value="50" />
             </properties>
-        </enemy>
+        </Head_Exp>
         
         <specialEnemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？">
             <unlock>
@@ -3170,9 +3346,11 @@
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 
                 <int name="mvz2:cost" value="1000" />
+
+				<id name="mvz2:Category" value="mvz2:WINtherSkeleton_Exp" />
             </properties>
         </witherSkeleton>
-        <humanoid id="skeleton_warrior" name="骷髅战士" deathMessage="骸死我了">
+		<Skeleton_Exp id="skeleton_warrior" name="骷髅战士" deathMessage="骸死我了">
             <unlock>
                 <condition required="mvz2:level.mausoleum_7" />
             </unlock>
@@ -3185,8 +3363,8 @@
 
                 <int name="mvz2:cost" value="175" />
             </properties>
-        </humanoid>
-        <humanoid id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了">
+        </Skeleton_Exp>
+		<Skeleton_Exp id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了">
             <unlock>
                 <condition required="mvz2:level.mausoleum_7" />
             </unlock>
@@ -3205,7 +3383,7 @@
 
                 <int name="mvz2:cost" value="75" />
             </properties>
-        </humanoid>
+        </Skeleton_Exp>
         <specialEnemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？">
             <unlock>
                 <condition required="mvz2:level.mausoleum_6" />
