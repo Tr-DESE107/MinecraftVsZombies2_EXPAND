@@ -30,6 +30,9 @@ namespace MVZ2.Vanilla.Almanacs
         public static readonly NamespaceID shellArmor = Get("shell_armor");
         public static readonly NamespaceID mass = Get("mass");
 
+        //EXPAND
+        public static readonly NamespaceID Category = Get("Category");
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

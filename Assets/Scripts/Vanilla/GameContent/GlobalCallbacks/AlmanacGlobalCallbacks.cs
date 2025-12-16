@@ -154,6 +154,15 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.drownproof));
             }
         }
+        //种族
+        private void GetCategoryAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
+        {
+            var category = entityDef.GetCategory();
+            if (NamespaceID.IsValid(category))
+            {
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.Category, category.ToString()));
+            }
+        }
         private void GetContraptionEntryTags(NamespaceID id, List<AlmanacEntryTagInfo> tags)
         {
             var game = Global.Game;
@@ -210,6 +219,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             GetShellAttributeTags(def, tags);
             GetEnemyShellAttributeTags(def, tags);
             GetMassAttributeTags(def, tags);
+            GetCategoryAttributeTags(def, tags);
         }
     }
 }

@@ -301,6 +301,8 @@
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
 				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+
+				<id name="mvz2:Category" value="mvz2:WitherSkeleton_Exp" />
 			</properties>
 		</WitherSkeleton_Exp>
 
@@ -1544,6 +1546,7 @@
         <zombie id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <properties>
                 <int name="mvz2:cost" value="50" />
+				<id name="mvz2:Category" value="mvz2:WitherSkeleton_Exp" />
             </properties>
         </zombie>
         <zombie id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有">

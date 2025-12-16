@@ -586,6 +586,13 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<float>(TAKEN_CRUSH_DAMAGE);
         }
+        #region 分类  
+        public static readonly PropertyMeta<NamespaceID> CATEGORY = Get<NamespaceID>("Category");
+        public static NamespaceID GetCategory(this EntityDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(CATEGORY);
+        }
+        #endregion
     }
 }
 
