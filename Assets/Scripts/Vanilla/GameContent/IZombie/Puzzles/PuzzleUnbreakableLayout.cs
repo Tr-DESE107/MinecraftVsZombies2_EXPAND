@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.IZombie
                 VanillaEnemyID.AssaultDullahan,
                 //VanillaEnemyID.RaiderSkull,
                 VanillaEnemyID.WitherSkeletonHorse,
-                VanillaEnemyID.SixQiZombie,
+                VanillaEnemyID.skeletonWarrior,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)

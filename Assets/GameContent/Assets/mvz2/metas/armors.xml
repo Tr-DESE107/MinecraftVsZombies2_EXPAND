@@ -210,11 +210,11 @@
             </props>
         </entry>
 		<!--EXPAND shield-->
-		<entry id="nether_vanguard_shield">
+		<entry id="nether_vanguard_shield" type="mvz2:small_shield">
 			<colliders>
 				<collider name="main">
 					<offset x="0" y="0" z="0" />
-					<size x="10" y="40" z="40" />
+					<size x="10" y="40" z="20" />
 					<pivot x="0.5" y="0.5" z="0.5" />
 				</collider>
 			</colliders>

@@ -20,14 +20,6 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            if (entity.Level.IsIZombie())
-            {
-                //entity.AddBuff<IZombieSkeletonWarriorBuff>();
-                var helmet = entity.GetMainArmor();
-                var shield = entity.GetArmorAtSlot(VanillaArmorSlots.shield);
-                //helmet?.AddBuff<IZombieSkeletonWarriorArmorBuff>();
-                //shield?.AddBuff<IZombieSkeletonWarriorArmorBuff>();
-            }
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -50,7 +42,7 @@ namespace MVZ2.GameContent.Enemies
                 range,
                 faction,
                 damage,
-                new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.WITHER)
+                new DamageEffectList(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE, VanillaDamageEffects.WITHER)
             );
 
 

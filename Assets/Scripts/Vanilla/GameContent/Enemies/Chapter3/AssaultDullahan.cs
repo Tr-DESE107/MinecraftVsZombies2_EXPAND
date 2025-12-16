@@ -143,7 +143,7 @@ namespace MVZ2.GameContent.Enemies
                 range,
                 faction,
                 damage,
-                new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.WITHER)
+                new DamageEffectList(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE, VanillaDamageEffects.WITHER)
             );
 
 
