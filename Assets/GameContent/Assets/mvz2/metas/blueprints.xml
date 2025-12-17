@@ -34,6 +34,13 @@
                 frameBottom="mvz2:ui/level/GoldCardMobile[1]"
                 frameTop="mvz2:ui/level/GoldCardMobile[2]" />
         </style>
+		<style id="BlackCard">
+			<standalone background="mvz2:ui/level/BlackCard" />
+			<mobile
+                background="mvz2:ui/level/BlackCardMobile[0]"
+                frameBottom="mvz2:ui/level/BlackCardMobile[1]"
+                frameTop="mvz2:ui/level/BlackCardMobile[2]" />
+		</style>
     </styles>
     <options>
         <option id="return_pearl" cost="25" name="返回弹珠">

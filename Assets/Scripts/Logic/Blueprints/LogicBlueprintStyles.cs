@@ -10,6 +10,7 @@ namespace MVZ2Logic.Blueprints
         public static readonly NamespaceID commandBlock = Get("command_block");
         public static readonly NamespaceID upgrade = Get("upgrade");
         public static readonly NamespaceID GoldCard = Get("GoldCard");
+        public static readonly NamespaceID BlackCard = Get("BlackCard");
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(Global.BuiltinNamespace, name);

@@ -146,20 +146,20 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
         </tag>
 
-		<!--EXPAND tag -->
-		<tag id="placement_stone_dropper" name="升级器械：石制投掷器" description="必须放置在石制投掷器上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Expand_attribute[3]" />
-			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
-		</tag>
-		<tag id="placement_necrotombstone" name="升级器械：死灵墓碑" description="必须放置在死灵墓碑上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Expand_attribute[0]" />
-			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
-		</tag>
-		<tag id="placement_force_pad" name="升级器械：反重力板" description="必须放置在反重力板上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Expand_attribute[4]" />
-			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
-		</tag>
-		
+        <!--EXPAND tag -->
+        <tag id="placement_stone_dropper" name="升级器械：石制投掷器" description="必须放置在石制投掷器上" priority="0">
+            <icon sprite="mvz2:ui/almanac/Expand_attribute[3]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+        <tag id="placement_necrotombstone" name="升级器械：死灵墓碑" description="必须放置在死灵墓碑上" priority="0">
+            <icon sprite="mvz2:ui/almanac/Expand_attribute[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+        <tag id="placement_force_pad" name="升级器械：反重力板" description="必须放置在反重力板上" priority="0">
+            <icon sprite="mvz2:ui/almanac/Expand_attribute[4]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
+        </tag>
+        
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
             <icon sprite="mvz2:ui/almanac/Expand_attribute[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
@@ -169,43 +169,43 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
         </tag>
 
-		<tag id="Category" name="分类" enum="mvz2:Category" priority="3000" >
-			<background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
-		</tag>
-		<enum id="Category" type="id">
-			<value value="mvz2:Imp_Exp" name="小鬼类" description="该怪物属于小鬼类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[0]" backgroundColor="#8a2be2"/>
-			<value value="mvz2:Zombie_Exp" name="僵尸类" description="该怪物属于僵尸类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[1]" backgroundColor="#228b22"/>
-			<value value="mvz2:Bulky_Exp" name="壮汉类" description="该怪物属于壮汉类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[2]" backgroundColor="#b8860b"/>
-			<value value="mvz2:Mutant_Exp" name="突变类" description="该怪物属于突变类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[3]" backgroundColor="#8b0000"/>
-			<value value="mvz2:Husk_Exp" name="尸壳类" description="该怪物属于尸壳类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[4]" backgroundColor="#8b7355"/>
-			<value value="mvz2:Drowned_Exp" name="溺尸类" description="该怪物属于溺尸类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[5]" backgroundColor="#1e90ff"/>
+        <tag id="Category" name="分类" enum="mvz2:Category" priority="3000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+        </tag>
+        <enum id="Category" type="id">
+            <value value="mvz2:Imp_Exp" name="小鬼类" description="该怪物属于小鬼类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[0]" backgroundColor="#8a2be2"/>
+            <value value="mvz2:Zombie_Exp" name="僵尸类" description="该怪物属于僵尸类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[1]" backgroundColor="#228b22"/>
+            <value value="mvz2:Bulky_Exp" name="壮汉类" description="该怪物属于壮汉类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[2]" backgroundColor="#b8860b"/>
+            <value value="mvz2:Mutant_Exp" name="突变类" description="该怪物属于突变类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[3]" backgroundColor="#8b0000"/>
+            <value value="mvz2:Husk_Exp" name="尸壳类" description="该怪物属于尸壳类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[4]" backgroundColor="#8b7355"/>
+            <value value="mvz2:Drowned_Exp" name="溺尸类" description="该怪物属于溺尸类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[5]" backgroundColor="#1e90ff"/>
 
-			<value value="mvz2:Skeleton_Exp" name="骷髅类" description="该怪物属于骷髅类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[6]" backgroundColor="#d3d3d3"/>
-			<value value="mvz2:WitherSkeleton_Exp" name="凋零骷髅类" description="该怪物属于凋零骷髅类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[7]" backgroundColor="#4a4a4a"/>
-			<value value="mvz2:WINtherSkeleton_Exp" name="凋灵骷髅类" description="该怪物属于凋灵骷髅类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[8]" backgroundColor="#696969"/>
-			<value value="mvz2:Ghost_Exp" name="幽灵类" description="该怪物属于幽灵类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[9]" backgroundColor="#f0f8ff"/>
-			<value value="mvz2:Mechanical_Exp" name="器械怪物类" description="该怪物属于器械怪物类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[10]" backgroundColor="#a9a9a9"/>
-			<value value="mvz2:Head_Exp" name="头颅类" description="该怪物属于头颅类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[11]" backgroundColor="#8b4513"/>
+            <value value="mvz2:Skeleton_Exp" name="骷髅类" description="该怪物属于骷髅类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[6]" backgroundColor="#d3d3d3"/>
+            <value value="mvz2:WitherSkeleton_Exp" name="凋零骷髅类" description="该怪物属于凋零骷髅类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[7]" backgroundColor="#4a4a4a"/>
+            <value value="mvz2:WINtherSkeleton_Exp" name="凋灵骷髅类" description="该怪物属于凋灵骷髅类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[8]" backgroundColor="#696969"/>
+            <value value="mvz2:Ghost_Exp" name="幽灵类" description="该怪物属于幽灵类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[9]" backgroundColor="#f0f8ff"/>
+            <value value="mvz2:Mechanical_Exp" name="器械怪物类" description="该怪物属于器械怪物类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[10]" backgroundColor="#a9a9a9"/>
+            <value value="mvz2:Head_Exp" name="头颅类" description="该怪物属于头颅类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[11]" backgroundColor="#8b4513"/>
 
-			<value value="mvz2:Spider_Exp" name="蜘蛛类" description="该怪物属于蜘蛛类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[12]" backgroundColor="#dc143c"/>
-			<value value="mvz2:Creeper_Exp" name="苦力怕类" description="该怪物属于苦力怕类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[13]" backgroundColor="#32cd32"/>
-			<value value="mvz2:Vehicle_Exp" name="载具类" description="该怪物属于载具类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[14]" backgroundColor="#daa520"/>
-			<value value="mvz2:Illager_Exp" name="灾厄村民类" description="该怪物属于灾厄村民类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[15]" backgroundColor="#800080"/>
-			<value value="mvz2:Villager_Exp" name="村民类" description="该怪物属于村民类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[16]" backgroundColor="#ff8c00"/>
-			<value value="mvz2:Mannequin_Exp" name="玩家模型类" description="该怪物属于玩家模型类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[17]" backgroundColor="#00ced1"/>
+            <value value="mvz2:Spider_Exp" name="蜘蛛类" description="该怪物属于蜘蛛类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[12]" backgroundColor="#dc143c"/>
+            <value value="mvz2:Creeper_Exp" name="苦力怕类" description="该怪物属于苦力怕类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[13]" backgroundColor="#32cd32"/>
+            <value value="mvz2:Vehicle_Exp" name="载具类" description="该怪物属于载具类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[14]" backgroundColor="#daa520"/>
+            <value value="mvz2:Illager_Exp" name="灾厄村民类" description="该怪物属于灾厄村民类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[15]" backgroundColor="#800080"/>
+            <value value="mvz2:Villager_Exp" name="村民类" description="该怪物属于村民类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[16]" backgroundColor="#ff8c00"/>
+            <value value="mvz2:Mannequin_Exp" name="玩家模型类" description="该怪物属于玩家模型类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[17]" backgroundColor="#00ced1"/>
 
-			<value value="mvz2:humanoid_Exp" name="人形怪物类" description="该怪物属于人形怪物类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[18]" backgroundColor="#ff69b4"/>
-			<value value="mvz2:RandomEnemy_Exp" name="随机怪物类" description="该怪物属于随机怪物类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[19]" backgroundColor="#9370db"/>
-			<value value="mvz2:SpecialEnemy_Exp" name="特殊类" description="该怪物属于特殊类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[20]" backgroundColor="#ff6347"/>
-			<value value="mvz2:Ghast_Exp" name="恶魂类" description="该怪物属于恶魂类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[21]" backgroundColor="#f0e68c"/>
-			<value value="mvz2:Slime_Exp" name="史莱姆类" description="该怪物属于史莱姆类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[22]" backgroundColor="#00ff7f"/>
-			<value value="mvz2:Touhou_Exp" name="东方角色类" description="该怪物属于东方角色类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[23]" backgroundColor="#ff1493"/>
+            <value value="mvz2:humanoid_Exp" name="人形怪物类" description="该怪物属于人形怪物类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[18]" backgroundColor="#ff69b4"/>
+            <value value="mvz2:RandomEnemy_Exp" name="随机怪物类" description="该怪物属于随机怪物类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[19]" backgroundColor="#9370db"/>
+            <value value="mvz2:SpecialEnemy_Exp" name="特殊类" description="该怪物属于特殊类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[20]" backgroundColor="#ff6347"/>
+            <value value="mvz2:Ghast_Exp" name="恶魂类" description="该怪物属于恶魂类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[21]" backgroundColor="#f0e68c"/>
+            <value value="mvz2:Slime_Exp" name="史莱姆类" description="该怪物属于史莱姆类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[22]" backgroundColor="#00ff7f"/>
+            <value value="mvz2:Touhou_Exp" name="东方角色类" description="该怪物属于东方角色类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[23]" backgroundColor="#ff1493"/>
 
-			<value value="mvz2:Blaze_Exp" name="烈焰人类" description="该怪物属于烈焰人类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[24]" backgroundColor="#ff4500"/>
-			<value value="mvz2:Piglin_Exp" name="猪灵类" description="该怪物属于猪灵类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[25]" backgroundColor="#ffc0cb"/>
-			<value value="mvz2:Guardian_Exp" name="守护者类" description="该怪物属于守护者类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[26]" backgroundColor="#4169e1"/>
-		</enum>
-		
+            <value value="mvz2:Blaze_Exp" name="烈焰人类" description="该怪物属于烈焰人类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[24]" backgroundColor="#ff4500"/>
+            <value value="mvz2:Piglin_Exp" name="猪灵类" description="该怪物属于猪灵类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[25]" backgroundColor="#ffc0cb"/>
+            <value value="mvz2:Guardian_Exp" name="守护者类" description="该怪物属于守护者类" sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[26]" backgroundColor="#4169e1"/>
+        </enum>
+        
 
         <enum id="mass" type="int">
             <value value="-2" name="很轻" description="受到的击退极大" sprite="mvz2:ui/almanac/mass_tags[0]" backgroundColor="#696a7f" />
@@ -1257,27 +1257,43 @@
                 </flavor>
         </entry>
 
-		
-		<entry id="mvz2:EXPANDispenser">
-			<tags>
-				<tag id="mvz2:placement_repeatenser" />
-			</tags>
-			<header>
-				<p>万象天枢能与其他发射器融合并获取无与伦比的能力。</p>
-			</header>
-			<properties>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>1-6535</color>]]></p>
-				<p>技能：<![CDATA[<color=red>视情况而定</color>]]></p>
-			</properties>
-			<flavor>
-				<p>有不少人可能好奇他的简称E.X.P.A.N.D.都代表了什么？嗯，E代表Expand，D代表Dispenser，剩下来的四个字母都代表了什么？其实他本人也没想好。</p>
-				<p>一个D开头的机器智者建议他叫Expand Xenogenesis Power Amplifier Nexus Dispenser，另一个C开头的机器智者建议他叫Expand Xenosynthesis Polyfusion Augment Nexus Dispenser，这两个他都感觉不错，都是他看不懂但觉得高级的英文单词。</p>
-				<p>让他本人多思考会吧，等他想出来了希望不会要求其他器械把他的名字念6遍</p>
-				<p/>
-				<p>嗯，顺带一提这个大概算帅气的中文名字是■■■给他取的。真是中二少女啊。</p>
-			</flavor>
-		</entry>
+        
+        <entry id="mvz2:EXPANDispenser">
+            <tags>
+                <tag id="mvz2:placement_repeatenser" />
+            </tags>
+            <header>
+                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>1-6535</color>]]></p>
+                <p>技能：<![CDATA[<color=red>视情况而定</color>]]></p>
+            </properties>
+            <flavor>
+                <p>有不少人可能好奇他的简称E.X.P.A.N.D.都代表了什么？嗯，E代表Expand，D代表Dispenser，剩下来的四个字母都代表了什么？其实他本人也没想好。</p>
+                <p>一个D开头的机器智者建议他叫Expand Xenogenesis Power Amplifier Nexus Dispenser，另一个C开头的机器智者建议他叫Expand Xenosynthesis Polyfusion Augment Nexus Dispenser，这两个他都感觉不错，都是他看不懂但觉得高级的英文单词。</p>
+                <p>让他本人多思考会吧，等他想出来了希望不会要求其他器械把他的名字念6遍</p>
+                <p/>
+                <p>嗯，顺带一提这个大概算帅气的中文名字是■■■给他取的。真是中二少女啊。</p>
+            </flavor>
+        </entry>
+
+        <entry id="mvz2:Bedrock">
+            <header>
+                <p>基岩是常规手段下无法破坏的屏障。</p>
+            </header>
+            <properties>
+                <p>耐久：<![CDATA[<color=red>2147483647，并拥有99%的减伤。</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>被摧毁时发生范围为600、65535的中立伤害爆炸。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>回复所有血量</color>]]></p>
+            </properties>
+            <flavor>
+                <p>基岩是一种常见的在生存模式里无法以正常途径破坏的方块。</p>
+				<p>基岩处在主世界的底部，下界的顶部和底部。它加入于Minecraft开发进程的第十天——2009年5月20日——就在游戏第一次向公众发布的三天后。基岩比水、熔岩、矿石和原木都要古老。但泥土、草和石头还要更古老一点。</p>
+				<p>基岩是返回传送门结构的一部分，也是黑曜石柱结构的一部分，更是末地折跃门结构的一部分。</p>
+            </flavor>
+        </entry>
        
         <entry id="mvz2:command_block" hidden="true">
             <header>
