@@ -12,12 +12,13 @@ namespace MVZ2.GameContent.IZombie
     [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleUnbreakable)]
     public class PuzzleUnbreakableLayout : IZombieLayoutDefinition
     {
-        public PuzzleUnbreakableLayout(string nsp, string name) : base(nsp, name, 5)
+        public PuzzleUnbreakableLayout(string nsp, string name) : base(nsp, name, 8)
         {
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.gargoyle,
+                VanillaEnemyID.skeletonHorse,
+                VanillaEnemyID.WitherSkeletonHorse,
                 VanillaEnemyID.dullahan,
                 VanillaEnemyID.hellChariot,
                 VanillaEnemyID.NetherWarrior,
@@ -44,12 +45,16 @@ namespace MVZ2.GameContent.IZombie
                     if (odd)
                     {
                         id = column <= 1 ? VanillaContraptionID.furnace : VanillaContraptionID.stoneShield;
+                        Insert(map, column, lane, id);
                     }
                     else
                     {
-                        id = column >= 3 ? VanillaContraptionID.Bedrock : VanillaContraptionID.stoneShield;
+                        if (column >= 6)
+                        {
+                            Insert(map, column, lane, VanillaContraptionID.Bedrock);
+                        }
                     }
-                    Insert(map, column, lane, id);
+                    
                 }
                 if (odd)
                 {
@@ -57,21 +62,30 @@ namespace MVZ2.GameContent.IZombie
                     switch (contraptionLane)
                     {
                         case LANE_TOTENSERS:
-                            RandomFillAtLane(map, lane, VanillaContraptionID.totenser, 3, rng);
+                            Insert(map, 7, lane, VanillaContraptionID.RedStoneOre);
+                            RandomFillAtLane(map, lane, VanillaContraptionID.totenser, 5, rng);
                             break;
                         case LANE_SILVENSERS:
-                            RandomFillAtLane(map, lane, VanillaContraptionID.silvenser, 3, rng);
+                            Insert(map, 7, lane, VanillaContraptionID.RedStoneOre);
+                            RandomFillAtLane(map, lane, VanillaContraptionID.silvenser, 5, rng);
                             break;
                         case LANE_DRIVENSERS:
-                            RandomFillAtLane(map, lane, VanillaContraptionID.drivenser, 3, rng);
+                            Insert(map, 7, lane, VanillaContraptionID.RedStoneOre);
+                            RandomFillAtLane(map, lane, VanillaContraptionID.drivenser, 5, rng);
                             break;
                     }
                 }
                 else
                 {
+                    Insert(map, 5, lane, VanillaContraptionID.necrotombstone);
                     RandomFillAtLane(map, lane, VanillaContraptionID.punchton, 1, rng);
                     RandomFillAtLane(map, lane, VanillaContraptionID.spikeBlock, 1, rng);
                     RandomFillAtLane(map, lane, VanillaContraptionID.mineTNT, 1, rng);
+                    RandomFillAtLane(map, lane, VanillaContraptionID.furnace, 1, rng);
+                    RandomFillAtLane(map, lane, VanillaContraptionID.forcePad, 1, rng);
+                    RandomFillAtLane(map, lane, VanillaContraptionID.RedStoneOre, 1, rng);
+                    
+                    RandomFillAtLane(map, lane, VanillaContraptionID.stoneShield, 3, rng);
                 }
             }
         }

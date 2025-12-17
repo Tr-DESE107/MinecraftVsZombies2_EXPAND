@@ -11,22 +11,27 @@ namespace MVZ2.GameContent.IZombie
     [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleDeadBalloon)]
     public class PuzzleDeadBalloonLayout : IZombieLayoutDefinition
     {
-        public PuzzleDeadBalloonLayout(string nsp, string name) : base(nsp, name, 4)
+        public PuzzleDeadBalloonLayout(string nsp, string name) : base(nsp, name, 6)
         {
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.gargoyle,
-                VanillaEnemyID.ghast
+                VanillaEnemyID.ghast,
+                VanillaEnemyID.anubisand,
+                VanillaEnemyID.Anubiskull,
+                VanillaEnemyID.RaiderSkull,
+                VanillaEnemyID.VillagerGhast,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            RandomFill(map, VanillaContraptionID.pistenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.pistenser, 6, rng);
             RandomFill(map, VanillaContraptionID.punchton, 5, rng);
             RandomFill(map, VanillaContraptionID.silvenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.teslaCoil, 2, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 8, rng);
+            RandomFill(map, VanillaContraptionID.teslaCoil, 3, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 9, rng);
+            RandomFill(map, VanillaContraptionID.spikeBlock, 4, rng);
         }
     }
 }

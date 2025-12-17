@@ -11,23 +11,33 @@ namespace MVZ2.GameContent.IZombie
     [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleCanYouPassIt)]
     public class PuzzleCanYouPassItLayout : IZombieLayoutDefinition
     {
-        public PuzzleCanYouPassItLayout(string nsp, string name) : base(nsp, name, 4)
+        public PuzzleCanYouPassItLayout(string nsp, string name) : base(nsp, name, 6)
         {
             Blueprints = new NamespaceID[]
             {
-                VanillaEnemyID.zombie,
-                VanillaEnemyID.leatherCappedZombie,
                 VanillaEnemyID.ironHelmettedZombie,
-                VanillaEnemyID.caveSpider
+                VanillaEnemyID.motherTerror,
+                VanillaEnemyID.caveSpider,
+                VanillaEnemyID.RaiderSkull,
+                VanillaEnemyID.dullahanHead,
+                VanillaEnemyID.SkeletonHead,
+                VanillaEnemyID.ZombieHead,
+                VanillaEnemyID.RedEyeZombieHead,
+                VanillaEnemyID.HostHead,
+                VanillaEnemyID.BerserkerHead,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            RandomFill(map, VanillaContraptionID.drivenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.silvenser, 4, rng);
+            RandomFill(map, VanillaContraptionID.drivenser, 6, rng);
+            RandomFill(map, VanillaContraptionID.silvenser, 3, rng);
             RandomFill(map, VanillaContraptionID.mineTNT, 3, rng);
             RandomFill(map, VanillaContraptionID.furnace, 8, rng);
             RandomFill(map, VanillaContraptionID.smallDispenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.spikeBlock, 3, rng);
+            RandomFill(map, VanillaContraptionID.obsidian, 3, rng);
+            RandomFill(map, VanillaContraptionID.gravityPad, 3, rng);
+            RandomFill(map, VanillaContraptionID.diamondSpikes, 2, rng);
         }
     }
 }
