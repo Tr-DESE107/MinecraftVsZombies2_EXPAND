@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-10 12:51+0800\n"
+"POT-Creation-Date: 2025-12-17 06:52+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2372,7 +2372,7 @@ msgstr ""
 #. Text for talk sentence 3 in talk group dream_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_1"
-msgid "比如说小型发射器、月光传感器，甚至是灵魂熔炉！"
+msgid "比如说你的小型发射器，还有月光传感器！"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group dream_1's section 0

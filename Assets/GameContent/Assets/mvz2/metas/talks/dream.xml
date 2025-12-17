@@ -14,7 +14,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">欢迎来到梦境世界！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">这里是哆来咪的领地，小心不要遇到野生的貘哦！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">对了，因为这里是白天，所以你的一些器械没办法用了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">比如说小型发射器、月光传感器，甚至是灵魂熔炉！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">比如说你的小型发射器，还有月光传感器！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">此外，这里有一个泳池！不要以为你可以在这里游泳了！你没办法直接在泳池上面放器械！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">那么，祝你好运吧，我的邻居！</sentence>
       </sentences>

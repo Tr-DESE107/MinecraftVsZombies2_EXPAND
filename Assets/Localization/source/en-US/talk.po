@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-12-10 12:51+0800\n"
-"PO-Revision-Date: 2025-12-10 12:53+0800\n"
+"POT-Creation-Date: 2025-12-17 06:52+0800\n"
+"PO-Revision-Date: 2025-12-17 18:52+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2568,9 +2568,8 @@ msgstr "Anyway, it's daytime here, so some of your contraptions can't be used!"
 #. Text for talk sentence 3 in talk group dream_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_1"
-msgid "比如说小型发射器、月光传感器，甚至是灵魂熔炉！"
-msgstr ""
-"For example, Small Dispensers, Moonlight Sensors, and even Soul Furnaces!"
+msgid "比如说你的小型发射器，还有月光传感器！"
+msgstr "For example, your Small Dispensers, and Moonlight Sensors!"
 
 #. Text for talk sentence 4 in talk group dream_1's section 0
 #: Talk meta file
