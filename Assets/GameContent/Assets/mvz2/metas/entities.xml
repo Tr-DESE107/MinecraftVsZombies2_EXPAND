@@ -251,14 +251,20 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-		<contraption id="Bedrock" name="基岩" tooltip="阻碍敌人的前进，并保护背后的其他器械">
+		<contraption id="Bedrock" name="基岩" tooltip="无法摧毁的屏障">
+			<unlock>
+				<condition required="mvz2:level.UCANNOTUSEIT" />
+				<!--<condition required="mvz2:UCANNOTUSEIT!" />-->
+			</unlock>
 			<properties>
 				<bool name="mvz2:canDeactive" value="false" />
 				<bool name="mvz2:defensive" value="true" />
 				<float name="mvz2:maxHealth" value="2147483647" />
 				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+				<bool name="mvz2:loyal" value="true" />
+				<idArray name="mvz2:gridLayers" value="mvz2:carrier mvz2:main mvz2:protector mvz2:tool" />
 
-				<int name="mvz2:cost" value="99999" />
+				<int name="mvz2:cost" value="0" />
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</contraption>
@@ -2306,7 +2312,7 @@
                 <id name="mvz2:crySound" value="mvz2:zombie_cry"/>
                 <id name="mvz2:deathSound" value="mvz2:zombie_death"/>
                 <vector3 name="mvz2:size" x="32" y="22" z="32"/>
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="100" />
                 <int name="mvz2:waterInteraction" value="2"/>
 				<float name="mvz2:maxAttackHeight" value="30" />
 				<bool name="mvz2:low_enemy" value="true" />

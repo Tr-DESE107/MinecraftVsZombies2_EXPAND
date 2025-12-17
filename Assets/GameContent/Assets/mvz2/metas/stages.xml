@@ -1873,7 +1873,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_unbreakable" name="牢不可破" needBlueprints="false" type="puzzle" startEnergy="4000" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon" >
+    <stage id="puzzle_unbreakable" name="牢不可破" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
