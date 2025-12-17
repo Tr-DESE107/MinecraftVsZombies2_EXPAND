@@ -13,14 +13,20 @@ namespace MVZ2.GameContent.IZombie
     [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleFireInTheHole)]
     public class PuzzleFireInTheHoleLayout : IZombieLayoutDefinition
     {
-        public PuzzleFireInTheHoleLayout(string nsp, string name) : base(nsp, name, 5)
+        public PuzzleFireInTheHoleLayout(string nsp, string name) : base(nsp, name, 7)
         {
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.imp,
                 VanillaEnemyID.leatherCappedZombie,
                 VanillaEnemyID.reflectiveBarrierZombie,
-                VanillaEnemyID.wickedHermitZombie
+                VanillaEnemyID.wickedHermitZombie,
+                VanillaEnemyID.MannequinTNT,
+                VanillaEnemyID.NetherArcher,
+                VanillaEnemyID.WintherMage,
+                VanillaEnemyID.AngryReverser,
+                VanillaEnemyID.WitherSkeletonHorse,
+                VanillaEnemyID.SixQiZombie,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
@@ -28,10 +34,13 @@ namespace MVZ2.GameContent.IZombie
             RandomFillAtColumn(map, 4, VanillaContraptionID.hellfire, 3, rng);
 
             RandomFill(map, VanillaContraptionID.magichest, 3, rng);
-            RandomFill(map, VanillaContraptionID.splitenser, 2, rng);
-            RandomFill(map, VanillaContraptionID.drivenser, 4, rng);
-            RandomFill(map, VanillaContraptionID.dispenser, 4, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 9, rng);
+            RandomFill(map, VanillaContraptionID.splitenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.drivenser, 5, rng);
+            RandomFill(map, VanillaContraptionID.dispenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 10, rng);
+            RandomFill(map, VanillaContraptionID.GlowingObsidian, 3, rng);
+            RandomFill(map, VanillaContraptionID.hellfire, 2, rng);
+            RandomFill(map, VanillaContraptionID.lightningOrb, 3, rng);
         }
     }
 }
