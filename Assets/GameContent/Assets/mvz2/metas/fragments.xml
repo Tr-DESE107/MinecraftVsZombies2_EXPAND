@@ -18,7 +18,7 @@
             <key hex="#101010" time="1"/>
         </colorKeys>
     </fragment>
-    <fragment name="obsidian_armor" blend="true">
+	<fragment name="obsidian_armor" blend="true">
         <colorKeys>
             <key hex="#5A555A" time="0"/>
             <key hex="#312829" time="1"/>
@@ -302,4 +302,17 @@
             <key alpha="0.5" time="1"/>
         </alphaKeys>
     </fragment>
+	<fragment name="Bedrock">
+		<colorKeys>
+			<key hex="#4F4F4F" time="0.5" />
+			<key hex="#101010" time="1" />
+		</colorKeys>
+	</fragment>
+	<fragment name="Barrier">
+		<colorKeys>
+			<key hex="#e30000" time="0.35"/>
+			<key hex="#be0101" time="0.7"/>
+			<key hex="#b10000" time="0.3"/>
+		</colorKeys>
+	</fragment>
 </fragments>
