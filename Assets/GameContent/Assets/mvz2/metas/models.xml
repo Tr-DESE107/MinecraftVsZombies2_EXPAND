@@ -108,6 +108,7 @@
     <model name="EXPANDispenser" type="entity" path="mvz2:contraption/upgrade/EXPANDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
 	
 	<model name="Bedrock" type="entity" path="mvz2:contraption/EXPAND/Bedrock" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="Barrier" type="entity" path="mvz2:contraption/EXPAND/Barrier" width="64" height="64" xOffset="0" yOffset="-28" />
     
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/prologue/zombie" width="64" height="96" xOffset="10" yOffset="-44">

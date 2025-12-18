@@ -349,4 +349,11 @@
 			<key hex="#101010" time="1" />
 		</colorKeys>
 	</fragment>
+	<fragment name="Barrier">
+		<colorKeys>
+			<key hex="#e30000" time="0.35"/>
+			<key hex="#be0101" time="0.7"/>
+			<key hex="#b10000" time="0.3"/>
+		</colorKeys>
+	</fragment>
 </fragments>
