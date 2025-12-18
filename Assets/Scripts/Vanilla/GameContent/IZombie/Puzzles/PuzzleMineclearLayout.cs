@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.IZombie
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.imp,
-                VanillaEnemyID.Mannequin,
+                VanillaEnemyID.anubisand,
                 VanillaEnemyID.necromancer,
                 VanillaEnemyID.KingSkeleton,
                 VanillaEnemyID.EvilMage,

@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.IZombie
             {
                 VanillaEnemyID.ironHelmettedZombie,
                 VanillaEnemyID.motherTerror,
-                VanillaEnemyID.caveSpider,
+                VanillaEnemyID.wickedHermitZombie,
                 VanillaEnemyID.RaiderSkull,
                 VanillaEnemyID.dullahanHead,
                 VanillaEnemyID.SkeletonHead,

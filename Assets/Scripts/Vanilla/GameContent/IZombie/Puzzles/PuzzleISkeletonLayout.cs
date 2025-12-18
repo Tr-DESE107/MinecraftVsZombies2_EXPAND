@@ -29,15 +29,14 @@ namespace MVZ2.GameContent.IZombie
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            Insert(map, 2, 3, VanillaContraptionID.smallDispenser);
             RandomFill(map, VanillaContraptionID.punchton, 4, rng);
             RandomFill(map, VanillaContraptionID.silvenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.dispenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.dispenser, 4, rng);
             RandomFill(map, VanillaContraptionID.furnace, 9, rng);
             RandomFill(map, VanillaContraptionID.hellfire, 3, rng);
             RandomFill(map, VanillaContraptionID.totenser, 4, rng);
             RandomFill(map, VanillaContraptionID.DispenShield, 2, rng);
-            RandomFill(map, VanillaContraptionID.smallDispenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.smallDispenser, 3, rng);
         }
     }
 }
