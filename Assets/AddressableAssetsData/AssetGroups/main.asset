@@ -1067,6 +1067,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 160f9fc9ad1c8524f8dc892654dc1557
+    m_Address: mvz2:characters/shou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16156bb7e931e954da8a64716c94c87a
     m_Address: mvz2:punch1
     m_ReadOnly: 0
