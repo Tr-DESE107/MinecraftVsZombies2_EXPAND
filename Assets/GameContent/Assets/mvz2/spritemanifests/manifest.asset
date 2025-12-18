@@ -277,8 +277,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 07fea5983538e114e87a25057c32b6c2, type: 3}
   - name: mobile_blueprint/AssaultDullahan
     sprite: {fileID: 21300000, guid: ee5bd16036d662849b423ed4c594401d, type: 3}
+  - name: mobile_blueprint/Barrier
+    sprite: {fileID: 21300000, guid: 8962300e559ee02418a68ff464fabfbc, type: 3}
   - name: mobile_blueprint/beacon
     sprite: {fileID: 21300000, guid: af016291e3e050b418ac40e349963a65, type: 3}
+  - name: mobile_blueprint/Bedrock
+    sprite: {fileID: 21300000, guid: 9764b891ab8483a4ba7e830211f1cda8, type: 3}
   - name: mobile_blueprint/bedserker
     sprite: {fileID: 21300000, guid: 10f0a75a79063264f8e9d4e7413c683f, type: 3}
   - name: mobile_blueprint/berserker
@@ -1287,6 +1291,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6a18698f112f8244db4b1e5de5873248, type: 3}
   - name: ui/effect/crushing_wall_right_censored
     sprite: {fileID: 21300000, guid: 26dc0bfdc50bd814f9f2c3f60f62e366, type: 3}
+  - name: ui/level/BlackCard
+    sprite: {fileID: 21300000, guid: d2b5a411549ab9a488df034391f9f927, type: 3}
   - name: ui/level/card
     sprite: {fileID: 21300000, guid: 23576b1f7e3a27e45af33cb0ad4f201b, type: 3}
   - name: ui/level/card_command_block
@@ -1991,6 +1997,9 @@ MonoBehaviour:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 413586417, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 1656711901, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
+  - name: entity/contraption/Barrier
+    spritesheet:
+    - {fileID: 21300000, guid: c4ba5f46ec72d0744ac9b11699e609f7, type: 3}
   - name: entity/contraption/beacon
     spritesheet:
     - {fileID: 616420050, guid: 19334bb02ae9acb499abf76dbcaa51f9, type: 3}
@@ -3363,30 +3372,33 @@ MonoBehaviour:
     - {fileID: 826371942, guid: 79bc90921fac92a4bad7be69e64ed94c, type: 3}
   - name: ui/almanac/EXPAND_EnemyCategory
     spritesheet:
-    - {fileID: -1856297382, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 835594114, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -1360795252, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 430786344, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -238938272, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -1085360653, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -800444581, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 1982421251, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 353226520, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -295397042, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -518348772, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 1596443505, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -1924353111, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 1457824713, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 1064927941, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -185026927, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 518770433, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 331003317, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -1260967316, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 285874240, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -1209680113, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 1776438321, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -459864235, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 1159955616, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 951720567, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 140333674, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 732631556, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 937608018, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -262512754, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -341469310, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -2039965595, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 92844305, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1678455889, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -808664062, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1643308909, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1689334551, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1793584827, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 901518134, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -242808451, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1437138742, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1001697683, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 144849532, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 353161072, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -1039045889, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -1824997066, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 223466718, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1270012905, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1242328957, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1981853549, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -671385011, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1385895229, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
   - name: ui/almanac/grid_layer_tags
     spritesheet:
     - {fileID: 1321867714, guid: f4743b7a556142b4db02b61d15e9da06, type: 3}
@@ -3467,6 +3479,11 @@ MonoBehaviour:
   - name: ui/arcade/clear_trophyL
     spritesheet:
     - {fileID: 21300000, guid: 73a66db6856396443a0b351974b0cf69, type: 3}
+  - name: ui/level/BlackCardMobile
+    spritesheet:
+    - {fileID: 1694229602, guid: c81630e048e9a8c419d79ed139ca0fe3, type: 3}
+    - {fileID: -35303173, guid: c81630e048e9a8c419d79ed139ca0fe3, type: 3}
+    - {fileID: -1587316793, guid: c81630e048e9a8c419d79ed139ca0fe3, type: 3}
   - name: ui/level/card_command_block_mobile
     spritesheet:
     - {fileID: -1177441340, guid: f45a057d7f3b72d4883d7d18d28ea03a, type: 3}
@@ -3630,3 +3647,7 @@ MonoBehaviour:
     - {fileID: 1408435328, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
     - {fileID: 2028673835, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
     - {fileID: 1547866108, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+  - name: entity/contraption/EXPAND_Skin/G.I.
+    spritesheet:
+    - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
+    - {fileID: 59550891, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}

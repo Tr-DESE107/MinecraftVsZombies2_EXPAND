@@ -7308,6 +7308,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 807a521e14704594d9ee147ad6bf80a0
+    m_Address: mvz2:contraption/EXPAND/Barrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 809e4de12be7bbe449af3c985df50630
     m_Address: mvz2:gravitation
     m_ReadOnly: 0
@@ -10738,6 +10745,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4ba5f46ec72d0744ac9b11699e609f7
+    m_Address: mvz2:entity/contraption/Barrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4bdf350a8df52941b184c7cd8e2f543
     m_Address: mvz2:effect/cursed_fire_particles
     m_ReadOnly: 0
@@ -10905,6 +10919,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c81630e048e9a8c419d79ed139ca0fe3
+    m_Address: mvz2:ui/level/BlackCardMobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c82886228e56ce84d8d101bb2e34ab8d
     m_Address: mvz2:armor/reflective_barrier
@@ -11605,6 +11626,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2b5a411549ab9a488df034391f9f927
+    m_Address: mvz2:ui/level/BlackCard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d2e26713f91070d419b5930613a248fb
     m_Address: mvz2:effect/floating_text

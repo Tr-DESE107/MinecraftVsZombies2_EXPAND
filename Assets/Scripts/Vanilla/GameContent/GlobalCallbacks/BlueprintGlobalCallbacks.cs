@@ -63,7 +63,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 result.SetValue(LogicBlueprintStyles.GoldCard);
             }
-            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.Bedrock) || seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.errorBlock) )
+            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.Bedrock) || seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.errorBlock) || seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.Barrier))
             {
                 result.SetValue(LogicBlueprintStyles.BlackCard);
             }
