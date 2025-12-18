@@ -25,6 +25,9 @@ namespace MVZ2.GameContent.IZombie
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.RaiderSkull),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.necromancer),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
@@ -50,6 +53,8 @@ namespace MVZ2.GameContent.IZombie
 
 
             RandomFill(map, VanillaContraptionID.furnace, 9, rng);
+            RandomFill(map, VanillaContraptionID.errorBlock, 1, rng);
+            RandomFill(map, VanillaContraptionID.forcePad, 1, rng);
         }
     }
 }
