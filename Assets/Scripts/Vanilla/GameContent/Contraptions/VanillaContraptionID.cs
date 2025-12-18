@@ -87,6 +87,7 @@ namespace MVZ2.GameContent.Contraptions
 
         //EXPAND BlackCard
         public const string Bedrock = "Bedrock";
+        public const string Barrier = "Barrier";
 
     }
     public static class VanillaContraptionID
@@ -170,6 +171,7 @@ namespace MVZ2.GameContent.Contraptions
 
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);
+        public static readonly NamespaceID Barrier = Get(VanillaContraptionNames.Barrier);
 
         private static NamespaceID Get(string name)
         {
