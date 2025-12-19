@@ -321,6 +321,7 @@
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>
 	<model name="purpleArrow" type="entity" path="mvz2:projectile/purpleArrow" width="32" height="10" xOffset="0" yOffset="0"/>
+	<model name="ObsidianShard" type="entity" path="mvz2:projectile/ObsidianShard" width="24" height="10" xOffset="0" yOffset="0"/>
     <model name="mine_tnt_seed" type="entity" path="mvz2:projectile/mine_tnt_seed" width="64" height="64" xOffset="0" yOffset="0"/>
     <model name="snowball" type="entity" path="mvz2:projectile/snowball" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="large_snowball" type="entity" path="mvz2:projectile/large_snowball" width="32" height="32" xOffset="0" yOffset="-12"/>

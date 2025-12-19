@@ -198,7 +198,7 @@
                 <p>耐久：<![CDATA[<color=red>300</color>]]></p>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
                 <p>特点：<![CDATA[<color=red>1/7概率发射紫箭</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>普通箭矢20，紫箭80</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>普通箭矢20，紫箭70+10(穿甲伤害)</color>]]></p>
                 <p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
             </properties>
             <flavor>
@@ -224,11 +224,11 @@
         </entry>
         <entry id="mvz2:obsidian">
             <header>
-                <p>黑曜石的强力装甲能够抵御敌人的攻击，受损时发射弹幕</p>
+                <p>黑曜石的强力装甲能够抵御敌人的攻击，受损时发射黑曜石碎片</p>
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>每受到100伤害发射一枚50伤害的弹幕</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>每受到100伤害发射一枚49+1(穿甲)伤害的黑曜石碎片</color>]]></p>
                 <p>技能：<![CDATA[<color=red>获得下界合金装甲，耐久提高至10000</color>]]></p>
             </properties>
             <flavors>
@@ -295,7 +295,7 @@
                 <p>技能：<![CDATA[<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>]]></p>
             </properties>
             <flavor>
-                <p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老子在睡觉！”</p>
+                <p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老娘在睡觉！”</p>
             </flavor>
         </entry>
         <entry />

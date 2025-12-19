@@ -5,10 +5,10 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.purpleArrow)]
-    public class purpleArrow : ProjectileBehaviour
+    [EntityBehaviourDefinition(VanillaProjectileNames.ObsidianShard)]
+    public class ObsidianShard : ProjectileBehaviour
     {
-        public purpleArrow(string nsp, string name) : base(nsp, name)
+        public ObsidianShard(string nsp, string name) : base(nsp, name)
         {
         }
 
@@ -19,11 +19,11 @@ namespace MVZ2.GameContent.Projectiles
             var target = hitResult.Other;
             var projectile = hitResult.Projectile;
 
-            // 造成10点穿甲伤害    
+            // 造成1点穿甲伤害    
             if (target != null && target.Exists() && !target.IsDead)
             {
                 var armorPiercingDamage = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR);
-                target.TakeDamage(10, armorPiercingDamage, projectile);
+                target.TakeDamage(1, armorPiercingDamage, projectile);
             }
         }
     }
