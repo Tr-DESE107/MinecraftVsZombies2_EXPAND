@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 var param = entity.GetShootParams();
                 param.projectileID = VanillaProjectileID.purpleArrow;
-                param.damage *= 4;
+                param.damage *= 3.5f;
                 entity.TriggerAnimation("Shoot");
                 return entity.ShootProjectile(param);
             }

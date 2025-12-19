@@ -1053,6 +1053,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a5c1e4e7edb774e48a12ea382df65f15, type: 3}
   - name: entity/projectiles/note
     sprite: {fileID: 21300000, guid: f0868a1c34ff49d46967deee9863b838, type: 3}
+  - name: entity/projectiles/ObsidianShard
+    sprite: {fileID: 21300000, guid: 4b4d201db18ec25468ea644aeeecdbf5, type: 3}
   - name: entity/projectiles/parabot
     sprite: {fileID: 21300000, guid: d270746c6b1f84442af0d2614257f2e6, type: 3}
   - name: entity/projectiles/Poisonball
