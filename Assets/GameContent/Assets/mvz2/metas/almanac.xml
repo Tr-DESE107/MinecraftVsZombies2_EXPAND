@@ -230,658 +230,738 @@
             <value value="mvz2:lightning" name="闪电" description="吸收闪电伤害" sprite="mvz2:ui/almanac/shell_tags[12]" backgroundColor="#b38f47" />
         </enum>
     </tags>
-    <contraptions>
-        <entry id="mvz2:dispenser">
-            <header>
-                <p>发射器是你的第一道防线，它们发射箭来保卫你的房子。</p>
-            </header>
-            <properties>
-                <p>耐久：<![CDATA[<color=red>300</color>]]></p>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>特点：<![CDATA[<color=red>1/7概率发射紫箭</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>普通箭矢20，紫箭70+10(穿甲伤害)</color>]]></p>
-                <p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
-            </properties>
-            <flavor>
-                <p>“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓附有耐久450和无限I。啥？你问我为啥会说话？”</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:furnace">
-            <header>
-                <p>熔炉能为你提供额外的红石。</p>
-            </header>
-            <properties>
-                <p>耐久：<![CDATA[<color=red>300</color>]]></p>
-                <p>生产时间：<![CDATA[<color=red>24秒</color>]]></p>
-                <p>提供能量：<![CDATA[<color=red>红石50</color>]]></p>
-                <p>技能：<![CDATA[<color=red>瞬间生成6枚红石</color>]]></p>
-            </properties>
-            <flavor>
-                <p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
-                <p><![CDATA[<color=grey>精准采集是这样用的？</color>]]></p>
-                <p>呃...别问为什么在水上或者甲板上也能有源源不断的红石供应了，你就当做是伟大的红石神赐给了熔炉一块永远烧不完的红石原矿、伟大的煤炭神赐给了熔炉一块永远烧不完的煤炭吧。</p>
-                <p><![CDATA[<color=grey>精准采集是你这样用的？？？</color>]]></p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:obsidian">
-            <header>
-                <p>黑曜石的强力装甲能够抵御敌人的攻击，受损时发射黑曜石碎片</p>
-            </header>
-            <properties>
-                <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>每受到100伤害发射一枚49+1(穿甲)伤害的黑曜石碎片</color>]]></p>
-                <p>技能：<![CDATA[<color=red>获得下界合金装甲，耐久提高至10000</color>]]></p>
-            </properties>
-            <flavors>
-                <flavor>
-                <p>听说把黑曜石摆成地狱门的形状再放一个灵魂熔炉有惊喜。不如试试看？</p>
-                <p>不知道灵魂熔炉是什么？接着推关吧！</p>
-                <p />
-                <p />
-                <p />
-                <p />
-                <p />
-                <p />
-                <p />
-                </flavor>
-                <flavor>
-                        <conditions>
-                            <condition required="mvz2:level.halloween_7"/>
-                        </conditions>
-                        <p>没成功的话可以试一下用不同框架的黑曜石，比方说发光的黑曜石，哭泣的黑曜石。</p>
-                        <p>没有这些黑曜石？那就去推关收集啊！</p>
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                </flavor>
-                <flavor>
-                        <conditions>
-                            <condition required="mvz2:level.halloween_13"/>
-                        </conditions>
-                        <p>还没成功的？那就尝试使用地狱火！</p>
-                        <p>不知道地狱火是什么？接着推关！</p>
-                </flavor>
-                <flavor>
-                        <conditions>
-                            <condition required="mvz2:level.mausoleum_6"/>
-                        </conditions>
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p />
-                        <p>恭喜你被耍了</p>
-                </flavor>
-            </flavors>
-        </entry>
-        <entry id="mvz2:mine_tnt">
-            <header>
-                <p>地雷TNT在一定时间的准备后能够炸飞接近的敌人。</p>
-            </header>
-            <properties>
-                <p>耐久：<![CDATA[<color=red>300</color>]]></p>
-                <p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
-                <p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>]]></p>
-            </properties>
-            <flavor>
-                <p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老娘在睡觉！”</p>
-            </flavor>
-        </entry>
-        <entry />
-        <entry />
-        <entry />
-        <entry />
+	<contraptions>
+		<entry id="mvz2:dispenser">
+			<header>
+				<p>发射器是你的第一道防线，它们发射箭来保卫你的房子。</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>300</color>]]></p>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>特点：<![CDATA[<color=red>1/7概率发射紫箭</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>普通箭矢20，紫箭70+10(穿甲伤害)</color>]]></p>
+				<p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
+			</properties>
+			<flavor>
+				<p>“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓附有耐久450和无限I。啥？你问我为啥会说话？”</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:furnace">
+			<header>
+				<p>熔炉能为你提供额外的红石。</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>300</color>]]></p>
+				<p>生产时间：<![CDATA[<color=red>24秒</color>]]></p>
+				<p>提供能量：<![CDATA[<color=red>红石50</color>]]></p>
+				<p>技能：<![CDATA[<color=red>瞬间生成6枚红石</color>]]></p>
+			</properties>
+			<flavor>
+				<p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
+				<p><![CDATA[<color=grey>精准采集是这样用的？</color>]]></p>
+				<p>呃...别问为什么在水上或者甲板上也能有源源不断的红石供应了，你就当做是伟大的红石神赐给了熔炉一块永远烧不完的红石原矿、伟大的煤炭神赐给了熔炉一块永远烧不完的煤炭吧。</p>
+				<p><![CDATA[<color=grey>精准采集是你这样用的？？？</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:obsidian">
+			<header>
+				<p>黑曜石的强力装甲能够抵御敌人的攻击，受损时发射黑曜石碎片</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>每受到100伤害发射一枚49+1(穿甲)伤害的黑曜石碎片</color>]]></p>
+				<p>技能：<![CDATA[<color=red>获得下界合金装甲，耐久提高至10000</color>]]></p>
+			</properties>
+			<flavors>
+				<flavor>
+					<p>听说把黑曜石摆成地狱门的形状再放一个灵魂熔炉有惊喜。不如试试看？</p>
+					<p>不知道灵魂熔炉是什么？接着推关吧！</p>
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.halloween_7"/>
+					</conditions>
+					<p>没成功的话可以试一下用不同框架的黑曜石，比方说发光的黑曜石，哭泣的黑曜石。</p>
+					<p>没有这些黑曜石？那就去推关收集啊！</p>
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.halloween_13"/>
+					</conditions>
+					<p>还没成功的？那就尝试使用地狱火！</p>
+					<p>不知道地狱火是什么？接着推关！</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.mausoleum_6"/>
+					</conditions>
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p />
+					<p>恭喜你被耍了</p>
+				</flavor>
+			</flavors>
+		</entry>
+		<entry id="mvz2:mine_tnt">
+			<header>
+				<p>地雷TNT在一定时间的准备后能够炸飞接近的敌人。</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>300</color>]]></p>
+				<p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>1800</color>]]></p>
+				<p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>技能：<![CDATA[<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>]]></p>
+			</properties>
+			<flavor>
+				<p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老娘在睡觉！”</p>
+			</flavor>
+		</entry>
+		<entry />
+		<entry />
+		<entry />
+		<entry />
 
-        
-        
-        <entry id="mvz2:Poisonser">
-            <tags>
-                <tag id="mvz2:Buff" />
-            </tags>
-            <header>
-                <p>蚀毒发射器能发射短距离的毒球。</p>
-            </header>
-            <properties>
-                <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>射出一个越滚越大的毒球</color>]]></p>
-            </properties>
-            <flavor>
-                <p>染了毒，别问了。</p>
-                <p>你知道的，亡灵生物不受中毒效果伤害，所以这不是普通的毒。</p>
-                <p><![CDATA[<color=green>这是蚀毒</color>]]></p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:moonlight_sensor">
-            <header>
-                <p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>
-            </header>
-            <properties>
-                <p>提供能量：<![CDATA[<color=red>2点/1.6秒，而后2点/1秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>]]></p>
-            </properties>
-            <flavor>
-                <p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
-                <p>他本想放置后立刻倒贴给你们25机械能的，但一个声音拦住了他：</p>
-                <p />
-                <p />
-                <p />
-                <p />
-                <p />
-                <p />
-                <p>你并未氪金，所以并不强大，等未来你氪金买了秘籍再说罢</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:glowstone">
-            <header>
-                <p>荧石发出的光芒能驱散迷雾，并发现周围的幽灵。</p>
-            </header>
-            <properties>
-                <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：<![CDATA[<color=red>眩晕所有敌人5秒，清除器械的精神控制状态</color>]]></p>
-            </properties>
-            <flavor>
-                <p>上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去了。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:punchton">
-            <header>
-                <p>冲击活塞能够击退前方的敌人并击碎<![CDATA[<tag id="mvz2:shell" enum="mvz2:stone" />]]>石制品，但之后需要一定时间来修复自身。</p>
-            </header>
-            <properties>
-                <p>伤害：<![CDATA[<color=red>100（无视护甲）</color>]]></p>
-                <p>修复时间：<![CDATA[<color=red>20秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>对前方的所有敌人造成500点伤害，并将其击退至最右侧</color>]]></p>
-            </properties>
-            <flavors>
-                    <flavor>
-                        <conditions>
-                            <condition requiredNot="mvz2:level.mausoleum_11" />
-                        </conditions>
-                        <p>这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。</p>
-                        <p>推过足够多关卡以修复！</p>
-                    </flavor>
-                    <flavor>
-                        <conditions>
-                            <condition required="mvz2:level.mausoleum_11" />
-                        </conditions>
-                        <p>冲击活塞不爱与其他人打交道，因为他总是喜欢将别人从自己身边弹开。他不喜欢朋友，真的，他自己也不需要。因为在他的心中，只有依靠自己才能完全将自己的力量完全爆发出来。</p>
-                    </flavor>
-            </flavors>
-        </entry>
-        <entry id="mvz2:tnt">
-            <header>
-                <p>TNT在触发后能炸飞周围的敌人。</p>
-            </header>
-            <properties>
-                <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
-                <p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：<![CDATA[<color=red>炸出4个TNT分身</color>]]></p>
-            </properties>
-            <flavor>
-                <p>注意：并不能用于治疗设备尔的核心病，以及在一百年后因为能够治疗核心病而获得设备尔奖。</p>
-                <p>TNT需要火药来合成，但是现实中TNT和火药没有半毛钱关系。为什么呢？</p>
-                <p>那要谈到当年纳赤创造世界......简单来讲notch以为炸药中黄色的粉末是沙子，其他的部分是火药，于是mc的tnt合成表就这样了。</p>
-                <p/>
-                <p>相当有迈恩克拉夫特特色</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:soul_furnace">
-            <header>
-                <p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要提供燃料。]]></p>
-            </header>
-            <properties>
-                <p>伤害：<![CDATA[<color=red>80</color>]]></p>
-                <p>溅射伤害：<![CDATA[<color=red>20（不伤害直接目标）</color>]]></p>
-                <p>特点：<![CDATA[<color=red>需要烧毁本格的器械补充燃料</color>]]></p>
-                <p>燃料上限：<![CDATA[<color=red>120</color>]]></p>
-                <p>技能：<![CDATA[<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球，单次技能时间过长会导致不分敌我的自爆</color>]]></p>
-            </properties>
-            <flavor>
-                <p>灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。</p>
-                <p/>
-                <p><![CDATA[<color=grey>据野史记载：灵魂熔炉曾经也是个异性恋，她的女朋友是熔炉，但自从她跟了发射器以后就开始FFF了。</color>]]></p>
-                <p><![CDATA[<color=grey>我没用错性别代词....呃，大概吧。</color>]]></p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:silvenser">
-            <header>
-                <p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
-            </header>
-            <properties>
-                <p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>1/7概率发射红色飞刀，蓝色飞刀可以穿透多个敌人，但无法穿透硬物</color>]]></p>
-                <p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
-            </properties>
-            <flavor>
-                <p>银质发射器其实是个JOJO迷，飞刀则是他最擅长的把戏。他喜欢JOJO里面的各种台词、各种替身。有时候他也会模仿里面的姿势——尽管他没有手。</p>
-                <p>以下是他表演的舞台剧片段：</p>
-                <p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
-                <p/>
-                <p>有趣的是，虽然他是JOJO厨，但他的这套衣服参考了红警里的G.I.</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:magichest">
-            <header>
-                <p>魔术箱在吞掉前面的僵尸后会变成一个星之碎片。</p>
-            </header>
-            <properties>
-                <p>技能：<![CDATA[<color=red>召唤一个恶魂，用以纪念@厨师海绵宝宝 之前做过的一个游戏</color>]]></p>
-            </properties>
-            <flavor>
-                <p>它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。</p>
-                <p>魔术箱曾经在戏班子里学过一点魔术。后来它入了东方，便开始以克劳恩皮斯为本命。他穿上了克劳恩皮斯的衣服，自己也变得像个小丑一样。当然他最近准备想向幽幽子学习，于是变成了这副样子。</p>
-                <p>学就学吧，但我说箱子你别特么再吃骨墙了，突变僵尸地狱战车一样能吃饱！</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:lily_pad">
-            <header>
-                <p>睡莲允许你在水上放置器械。</p>
-            </header>
-            <properties>
-                <p>技能：<![CDATA[<color=red>在3x3范围内的水中召唤分身</color>]]></p>
-            </properties>
-            <flavor>
-                <p>“不要叫我‘莉莉胸垫’！”</p>
-                <p/>
-                <p>以及睡莲和睡觉前面的睡真的不是动词。</p>
-                <p/>
-                <p>嗯，继古明地 觉被不断迫害后，我们又迎来了宇佐见 莲子。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:drivenser">
-            <header>
-                <p>在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>升级上限：<![CDATA[<color=red>5</color>]]></p>
-                <p>技能：<![CDATA[<color=red>发射五支大箭矢</color>]]></p>
-            </properties>
-            <flavor>
-                <p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
-                <p>于是他打算做个扩充这场战争细节的模组，也被人抢先了。</p>
-                <p>他现在打算做随机模组去。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:gravity_pad">
-            <header>
-                <p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
-            </header>
-            <properties>
-                <p>特点：<![CDATA[<color=red>能够减速在它上方的怪物并加大他们受到的重力、能够降低上方子弹的高度。</color>]]></p>
-                <p>技能：<![CDATA[<color=red>移除场上所有飞行怪物的飞行能力，召唤从天而降的铁砧，砸伤敌人并阻挡怪物们前进</color>]]></p>
-            </properties>
-            <flavors>
-                <flavor>
-                    <p>重力板喜欢坐在苹果树下并分析为什么这个世界完全不尊重重力。</p>
-                </flavor>
-                <flavor>
-                        <conditions>
-                            <condition required="mvz2:contraption.AntiGravityPad" />
-                        </conditions>
-                        <p>有时反重力板会坐在他的脸上，让他释然这个世界为什么不尊重重力。</p>
-                        <p>Bgm：关羽之歌</p>
-                </flavor>
-                <flavor>
-                        <conditions>
-                            <condition required="mvz2:contraption.force_pad" />
-                        </conditions>
-                        <p>传动力板有时会坐在反重力板的脸上，让承受了两份力的他不想要重力了。</p>
-                        <p>Bgm：大石碎胸口</p>
-                </flavor>
-                    <flavor>
-                        <conditions>
-                            <condition requiredNot="mvz2:level.castle_6" />
-                        </conditions>
-                        <p/>
-                        <p>目前还没有掉落的苹果的样子。</p>
-                    </flavor>
-                    <flavor>
-                        <conditions>
-                            <condition required="mvz2:level.castle_6" />
-                        </conditions>
-                        <p/>
-                        <p>突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
-                    </flavor>
-            </flavors>
-        </entry>
-        <entry id="mvz2:vortex_hopper">
-            <header>
-                <p>漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。</p>
-            </header>
-            <properties>
-                <p>技能：<![CDATA[<color=red>将更大范围的敌人拉入水底</color>]]></p>
-            </properties>
-            <flavor>
-                <p>他无聊的时候经常把自己当陀螺抽。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:pistenser">
-            <tags>
-                <tag id="mvz2:antifly" />
-            </tags>
-            <header>
-                <p>活塞发射器能够伸长自己来攻击高处的敌人。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>特点：<![CDATA[<color=red>能够攻击高处的敌人，尖刺能够穿透3个敌人</color>]]></p>
-                <p>技能：<![CDATA[<color=red>向至多10个敌人发射穿甲的巨型尖刺</color>]]></p>
-            </properties>
-            <flavor>
-                <p>活塞发射器其实可以伸的非常长，甚至能达到直升机飞行的高度。</p>
-                <p>……你问我怎么知道是直升机飞行的高度？</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:totenser">
-            <tags>
-                <tag id="mvz2:Buff" />
-            </tags>
-            <header>
-                <p><![CDATA[图腾发射器在发射飞镖的同时还会<tag id="mvz2:fire" />喷火烧伤近处的敌人。]]></p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>15（飞镖），20/秒（火焰），45（毒液球），30/秒（中毒效果）</color>]]></p>
-                <p>特点：<![CDATA[<color=red>1/5概率发射毒液球，飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</color>]]></p>
-                <p>技能：<![CDATA[<color=red>投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹</color>]]></p>
-            </properties>
-            <flavor>
-                <p>图腾发射器信仰什么？依据器械智能的历史，它可能信仰的是各种机械神灵。也有人说它信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。人们的讨论已经有百年之久，但实际上，它只信仰自己的纸片人老婆。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:dream_crystal">
-            <header>
-                <p>梦境结晶会慢慢地恢复自己的生命。</p>
-            </header>
-            <properties>
-                <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
-                <p>恢复速度：<![CDATA[<color=red>40/秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复耐久</color>]]></p>
-            </properties>
-            <flavor>
-                <p>化学课就像是：</p>
-                <p>“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提炼二氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:dream_silk">
-            <header>
-                <p>美梦丝能够让一个器械陷入沉睡，醒来后出现一个星之碎片。</p>
-            </header>
-            <properties>
-                <p>特点：<![CDATA[<color=red>一次性使用</color>]]></p>
-                <p>技能：<![CDATA[<color=red>无</color>]]></p>
-            </properties>
-            <flavor>
-                <p>美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。</p>
-            </flavor>
-        </entry>
 
-        <!-- Chapter 3 -->
-        <entry id="mvz2:wooden_dropper">
-            <header>
-                <p>木制投掷器向敌人发射滚动的木球。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20，金球40</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即喷射30颗大型木球，每颗造成80点伤害</color>]]></p>
-            </properties>
-            <flavor>
-                <p>使用技能前：木制投掷器</p>
-                <p>使用技能后：森森森森森森森森森森制投掷器</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:spike_block">
-            <header>
-                <p>尖刺方块会对走在上面的敌人造成伤害。</p>
-            </header>
-            <properties>
 
-                <p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>]]></p>
-            </properties>
-            <flavor>
-                <p>我是文字，我现在非常疼</p>
-                <p>WWWWWWWWWWWWWWWWWWWW</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:stone_dropper">
-            <header>
-                <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
-            </header>
-            <properties>
+		<entry id="mvz2:Poisonser">
+			<tags>
+				<tag id="mvz2:Buff" />
+			</tags>
+			<header>
+				<p>蚀毒发射器能发射短距离的毒球。</p>
+			</header>
+			<properties>
+				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>技能：<![CDATA[<color=red>射出一个越滚越大的毒球</color>]]></p>
+			</properties>
+			<flavor>
+				<p>染了毒，别问了。</p>
+				<p>你知道的，亡灵生物不受中毒效果伤害，所以这不是普通的毒。</p>
+				<p><![CDATA[<color=green>这是蚀毒</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:moonlight_sensor">
+			<header>
+				<p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>
+			</header>
+			<properties>
+				<p>提供能量：<![CDATA[<color=red>2点/1.6秒，而后2点/1秒</color>]]></p>
+				<p>技能：<![CDATA[<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>]]></p>
+			</properties>
+			<flavor>
+				<p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
+				<p>他本想放置后立刻倒贴给你们25机械能的，但一个声音拦住了他：</p>
+				<p />
+				<p />
+				<p />
+				<p />
+				<p />
+				<p />
+				<p>你并未氪金，所以并不强大，等未来你氪金买了秘籍再说罢</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:glowstone">
+			<header>
+				<p>荧石发出的光芒能驱散迷雾，并发现周围的幽灵。</p>
+			</header>
+			<properties>
+				<p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>技能：<![CDATA[<color=red>眩晕所有敌人5秒，清除器械的精神控制状态</color>]]></p>
+			</properties>
+			<flavor>
+				<p>上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去了。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:punchton">
+			<header>
+				<p>冲击活塞能够击退前方的敌人并击碎<![CDATA[<tag id="mvz2:shell" enum="mvz2:stone" />]]>石制品，但之后需要一定时间来修复自身。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>100（无视护甲）</color>]]></p>
+				<p>修复时间：<![CDATA[<color=red>20秒</color>]]></p>
+				<p>技能：<![CDATA[<color=red>对前方的所有敌人造成500点伤害，并将其击退至最右侧</color>]]></p>
+			</properties>
+			<flavors>
+				<flavor>
+					<conditions>
+						<condition requiredNot="mvz2:level.mausoleum_11" />
+					</conditions>
+					<p>这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。</p>
+					<p>推过足够多关卡以修复！</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.mausoleum_11" />
+					</conditions>
+					<p>冲击活塞不爱与其他人打交道，因为他总是喜欢将别人从自己身边弹开。他不喜欢朋友，真的，他自己也不需要。因为在他的心中，只有依靠自己才能完全将自己的力量完全爆发出来。</p>
+				</flavor>
+			</flavors>
+		</entry>
+		<entry id="mvz2:tnt">
+			<header>
+				<p>TNT在触发后能炸飞周围的敌人。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>1800</color>]]></p>
+				<p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>技能：<![CDATA[<color=red>炸出4个TNT分身</color>]]></p>
+			</properties>
+			<flavor>
+				<p>注意：并不能用于治疗设备尔的核心病，以及在一百年后因为能够治疗核心病而获得设备尔奖。</p>
+				<p/>
+				<p><![CDATA[<color=grey>TNT需要火药来合成，但是现实中TNT和火药没有半毛钱关系。为什么呢？</color>]]></p>
+				<p><![CDATA[<color=grey>那要谈到当年纳赤创造世界......简单来讲notch以为炸药中黄色的粉末是沙子，其他的部分是火药，于是mc的tnt合成表就这样了。</color>]]></p>
+				<p/>
+				<p><![CDATA[<color=grey>相当有迈恩克拉夫特特色</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:soul_furnace">
+			<header>
+				<p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要提供燃料。]]></p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>80</color>]]></p>
+				<p>溅射伤害：<![CDATA[<color=red>20（不伤害直接目标）</color>]]></p>
+				<p>特点：<![CDATA[<color=red>需要烧毁本格的器械补充燃料</color>]]></p>
+				<p>燃料上限：<![CDATA[<color=red>120</color>]]></p>
+				<p>技能：<![CDATA[<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球，单次技能时间过长会导致不分敌我的自爆</color>]]></p>
+			</properties>
+			<flavor>
+				<p>灵魂熔炉里面到底烧的什么？是罪人的灵魂吗？还是地狱的矿渣？别想太多，它只是个南瓜灯。</p>
+				<p/>
+				<p><![CDATA[<color=grey>据野史记载：灵魂熔炉曾经也是个异性恋，她的女朋友是熔炉，但自从她跟了发射器以后就开始FFF了。</color>]]></p>
+				<p><![CDATA[<color=grey>我没用错性别代词....呃，大概吧。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:silvenser">
+			<header>
+				<p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
+				<p>特点：<![CDATA[<color=red>1/7概率发射红色飞刀，蓝色飞刀可以穿透多个敌人，但无法穿透硬物</color>]]></p>
+				<p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
+			</properties>
+			<flavor>
+				<p>银质发射器其实是个JOJO迷，飞刀则是他最擅长的把戏。他喜欢JOJO里面的各种台词、各种替身。有时候他也会模仿里面的姿势——尽管他没有手。</p>
+				<p>以下是他表演的舞台剧片段：</p>
+				<p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
+				<p/>
+				<p>有趣的是，虽然他是JOJO厨，但他的这套衣服参考了红警里的G.I.</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:magichest">
+			<header>
+				<p>魔术箱在吞掉前面的僵尸后会变成一个星之碎片。</p>
+			</header>
+			<properties>
+				<p>技能：<![CDATA[<color=red>召唤一个恶魂，用以纪念@厨师海绵宝宝 之前做过的一个游戏</color>]]></p>
+			</properties>
+			<flavor>
+				<p>它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。</p>
+				<p>魔术箱曾经在戏班子里学过一点魔术。后来它入了东方，便开始以克劳恩皮斯为本命。他穿上了克劳恩皮斯的衣服，自己也变得像个小丑一样。当然他最近准备想向幽幽子学习，于是变成了这副样子。</p>
+				<p>学就学吧，但我说箱子你别特么再吃骨墙了，突变僵尸地狱战车一样能吃饱！</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:lily_pad">
+			<header>
+				<p>睡莲允许你在水上放置器械。</p>
+			</header>
+			<properties>
+				<p>技能：<![CDATA[<color=red>在3x3范围内的水中召唤分身</color>]]></p>
+			</properties>
+			<flavor>
+				<p>“不要叫我‘莉莉胸垫’！”</p>
+				<p/>
+				<p>以及睡莲和睡觉前面的睡真的不是动词。</p>
+				<p/>
+				<p>嗯，继古明地 觉被不断迫害后，我们又迎来了宇佐见 莲子。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:drivenser">
+			<header>
+				<p>在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>升级上限：<![CDATA[<color=red>5</color>]]></p>
+				<p>技能：<![CDATA[<color=red>发射五支大箭矢</color>]]></p>
+			</properties>
+			<flavor>
+				<p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
+				<p>于是他打算做个扩充这场战争细节的模组，也被人抢先了。</p>
+				<p>他现在打算做随机模组去。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:gravity_pad">
+			<header>
+				<p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
+			</header>
+			<properties>
+				<p>特点：<![CDATA[<color=red>能够减速在它上方的怪物并加大他们受到的重力、能够降低上方子弹的高度。</color>]]></p>
+				<p>技能：<![CDATA[<color=red>移除场上所有飞行怪物的飞行能力，召唤从天而降的铁砧，砸伤敌人并阻挡怪物们前进</color>]]></p>
+			</properties>
+			<flavors>
+				<flavor>
+					<p>重力板喜欢坐在苹果树下并分析为什么这个世界完全不尊重重力。</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:contraption.AntiGravityPad" />
+					</conditions>
+					<p>有时反重力板会坐在他的脸上，让他释然这个世界为什么不尊重重力。</p>
+					<p>Bgm：关羽之歌</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:contraption.force_pad" />
+					</conditions>
+					<p>传动力板有时会坐在反重力板的脸上，让承受了两份力的他不想要重力了。</p>
+					<p>Bgm：大石碎胸口</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition requiredNot="mvz2:level.castle_6" />
+					</conditions>
+					<p/>
+					<p>目前还没有掉落的苹果的样子。</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.castle_6" />
+					</conditions>
+					<p/>
+					<p>突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
+				</flavor>
+			</flavors>
+		</entry>
+		<entry id="mvz2:vortex_hopper">
+			<header>
+				<p>漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。</p>
+			</header>
+			<properties>
+				<p>技能：<![CDATA[<color=red>将更大范围的敌人拉入水底</color>]]></p>
+			</properties>
+			<flavor>
+				<p>漩涡漏斗是键山雏的大Fans，因此它常常喜欢学着像她一样旋转。它最喜欢的一首歌是《旋转吧，雪月花》。他无聊的时候经常把自己当陀螺抽。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:pistenser">
+			<tags>
+				<tag id="mvz2:antifly"/>
+			</tags>
+			<header>
+				<p>活塞发射器能够伸长自己来攻击高处的敌人。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>特点：<![CDATA[<color=red>能够攻击高处的敌人，尖刺能够穿透3个敌人</color>]]></p>
+				<p>技能：<![CDATA[<color=red>向至多10个敌人发射穿甲的巨型尖刺</color>]]></p>
+			</properties>
+			<flavors>
+				<flavor>
+					<p>活塞发射器曾经有一段不光彩的历史，那时候他的头顶有个绿色的斑，于是他的朋友就嘲笑他是绿帽子。现在他把那一块换成了针刺球的发射口，顺便开了一下脑洞。他一直很满意这个头型，直到他有一天被水淹没……</p>
+					<p>此外，他的头其实可以伸的非常长，甚至能达到直升机飞行的高度。</p>
+					<p>……你问我怎么知道是直升机飞行的高度？</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:contraption.AntiGravityPad" />
+					</conditions>
+					<p>问反重力板，他能给出实证。</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.castle_6" />
+					</conditions>
+					<p>现在，活塞遇到了他的一生之敌：奇袭者头颅。</p>
+					<p>这家伙飞的还比直升机高！</p>
+				</flavor>
+			</flavors>
+		</entry>
+		<entry id="mvz2:totenser">
+			<tags>
+				<tag id="mvz2:Buff"/>
+			</tags>
+			<header>
+				<p>图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>15（飞镖），20/秒（火焰），45（毒液球），30/秒（中毒效果）</color>]]></p>
+				<p>特点：<![CDATA[<color=red>1/5概率发射毒液球，飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</color>]]></p>
+				<p>技能：<![CDATA[<color=red>投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹</color>]]></p>
+			</properties>
+			<flavor>
+				<p>图腾发射器兄弟俩来自于印第安部落，它们兄弟两个目前在一个马戏团进行杂耍，上面的那个射出的飞镖能准确的命中495米以外女仆头上的苹果树上的猴子，下面的那位经常把对面的火圈里的狮子烤熟……最近它们又在开始庆祝什么“窝舞安曲安布回印第安宇”节日……</p>
+				<p>图腾发射器信仰什么？依据器械智能的历史，它们可能信仰的是各种机械神灵。也有人说它们信仰造出机械的人类发明家，甚至也有说法称其信仰机械古神。人们的讨论已经有百年之久，但实际上，它们只信仰自己的纸片人老婆。</p>
+				<p/>
+				<p><![CDATA[<color=grey>这对兄弟，真是一对笑面虎，两头乌角鲨。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:dream_crystal">
+			<header>
+				<p>梦境结晶会慢慢地恢复自己的生命。</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+				<p>恢复速度：<![CDATA[<color=red>80/秒</color>]]></p>
+				<p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复耐久</color>]]></p>
+			</properties>
+			<flavor>
+				<p>化学课就像是：</p>
+				<p>“梦境结晶（Dream Crystal）是一种粉色，半透明并具有再生功效的水晶，主要组成成分为二氧化梦（化学式为DrO2），可用于与硫酸鑩（NmSO4）提炼二氧化鑩（NmO2），是制作噩梦醇（Marenol）的重覀原木才米……~~——~zzzzZZZZ”</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:dream_silk">
+			<header>
+				<p>美梦丝能够让一个器械陷入沉睡，醒来后出现一个星之碎片。</p>
+			</header>
+			<properties>
+				<p>特点：<![CDATA[<color=red>一次性使用</color>]]></p>
+				<p>技能：<![CDATA[<color=red>无</color>]]></p>
+			</properties>
+			<flavor>
+				<p>美梦丝是个睡货，她每天睁开眼睛做的第一件事就是睡觉。瞧瞧她睡的，把自己的冷却时间也给睡短了。</p>
+			</flavor>
+		</entry>
 
-                <p>发射速度：<![CDATA[<color=red>1秒</color>]]></p>
-                <p>巨石概率：<![CDATA[<color=red>25%</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>10（卵石），40（巨石）</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即喷射30发巨石</color>]]></p>
-            </properties>
-            <flavor>
-                <p>它本来想学木制投掷器玩一个磊磊磊磊磊磊磊磊磊磊制投掷器的笑话的，但是不幸的是木制投掷器为这个笑话申请了专利。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:stone_shield">
-            <header>
-                <p>石护罩可以和其他器械放在一起，并保护其内部的器械。</p>
-            </header>
-            <properties>
-                <p>耐久：<![CDATA[<color=red>6000</color>]]></p>
-                <p>技能：<![CDATA[<color=red>3x3范围内的器械无敌10秒</color>]]></p>
-            </properties>
-            <flavor>
-                <p>无法访问该页面：</p>
-                <p>458 Protected</p>
-                <p>页面受到保护，请先挖掉石护罩再继续。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:golden_apple">
-            <header>
-                <p>金苹果可以魅惑一个近战攻击它的敌怪，使其为你而战。</p>
-            </header>
-            <properties>
-                <p>特点：<![CDATA[<color=red>吃掉他的敌人能够获得60/s的生命恢复</color>]]></p>
-                <p>技能：<![CDATA[<color=red>发出彩色炫光，被魅惑的敌怪变为突变僵尸</color>]]></p>
-            </properties>
-            <flavor>
-                <p>金苹果对于砸伤重力方块这件事情感到很抱歉，所以它赔了重力方块自己的一块金皮。</p>
-                <p>这就是为什么重力板是紫色的。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:thunder_drum">
-            <header>
-                <p>雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。</p>
-            </header>
-            <properties>
-                <p>修复时间：<![CDATA[<color=red>60秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>]]></p>
-            </properties>
-            <flavor>
-                <p><![CDATA[<rotate="-20">别乱震啊卧槽！</rotate>]]></p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:tesla_coil">
-            <header>
-                <p>磁暴线圈会电击周围大范围内的敌人。</p>
-            </header>
-            <properties>
-                <p>攻击速度：<![CDATA[<color=red>2秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>80</color>]]></p>
-                <p>特殊：<![CDATA[<color=red>不可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>]]></p>
-                <p>技能：<![CDATA[<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>]]></p>
-            </properties>
-            <flavor>
-                <p>我在玩什么游戏？</p>
-                <p />
-                <p>等一下，你为什么不能对空？？？？？</p>
-                <p />
-                <p><![CDATA[<color=white>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</color>]]></p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:giant_bowl">
-            <header>
-                <p>巨碗能够缓慢生产并存储星之碎片，这些星之碎片只能通过摧毁巨碗取出。</p>
-            </header>
-            <properties>
-                <p>生产时间：<![CDATA[<color=red>60秒</color>]]></p>
-                <p>存储上限：<![CDATA[<color=red>5</color>]]></p>
-                <p>技能：<![CDATA[<color=red>向内部存储一颗星之碎片</color>]]></p>
-            </properties>
-            <flavor>
-                <p>话说这该叫盆了吧？</p>
-            </flavor>
-        </entry>
+		<!-- Chapter 3 -->
+		<entry id="mvz2:wooden_dropper">
+			<header>
+				<p>木制投掷器向敌人发射滚动的木球。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20，金球40</color>]]></p>
+				<p>技能：<![CDATA[<color=red>立即喷射30颗大型木球，每颗造成80点伤害</color>]]></p>
+			</properties>
+			<flavor>
+				<p>使用技能前：木制投掷器</p>
+				<p>使用技能后：森森森森森森森森森森制投掷器</p>
+				<p/>
+				<p>木质投掷器喜爱足球，他曾多次在足球场上当发球器。虽然不少次他都被当成球踢进球门。</p>
+				<p>大抵运动员没发现自己踢的是方块，顺脚的事。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:spike_block">
+			<header>
+				<p>尖刺方块会对走在上面的敌人造成伤害。</p>
+			</header>
+			<properties>
 
-        <!-- Chapter 4 -->
-        <entry id="mvz2:note_block">
-            <header>
-                <p>音符盒发射在自身和敌人间不停反弹的音符，持续造成伤害。</p>
-            </header>
-            <properties>
-                <p>伤害：<![CDATA[<color=red>5</color>]]></p>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>音符上限：<![CDATA[<color=red>10</color>]]></p>
-                <p>技能：<![CDATA[<color=red>发生一次1200的爆炸，在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>]]></p>
-            </properties>
-            <flavor>
-                <p>永远不要试图做音符盒的邻居，别问为什么。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:lightning_orb">
-            <header>
-                <p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹来治疗自己。</p>
-            </header>
-            <properties>
-                <p>耐久：<![CDATA[<color=red>5000</color>]]></p>
-                <p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
-                <p>技能：<![CDATA[<color=red>在5秒内吸收所有远程射弹伤害并治疗自己，之后将这些伤害返还给所有敌人（最高900）</color>]]></p>
-            </properties>
-            <flavor>
-                <p>它就是音符盒的邻居。</p>
-                <p>天哪！还好它能吸收掉那些噪音……</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:splitenser">
-            <header>
-                <p>双向发射器在向前发射箭矢的同时，也会向后方发射两次箭矢或飞镖。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>1发/1.5秒（前方），2发/1.5秒（后方）</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>箭和飞镖20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>快速向前后分别发射60支箭矢，最后向后发射一支大箭矢</color>]]></p>
-            </properties>
-            <flavor>
-                <p>“别射了，你把我晃得头晕！”后面的发射器很不爽。</p>
-                <p>“可是你每次都发射两次，论头晕，我比你还要严重哩！”前面的发射器反驳。</p>
-                <p>自从双向发射器被发明以来，它和自己的争吵就从来没停过。</p>
-                <p>“你这么和你哥哥说的话吗？放尊重点！”</p>
-                <p>“谁是你弟弟？我们都不知道是谁先被造出来的！”</p>
-                <p>“我发射更快，理应当哥哥！”</p>
-                <p>“那大部分时候还是我把前面的敌人干掉的嘞！”</p>
-                <p>……</p>
-                <p>幸好他邻居是闪电之珠，不然就又有人要来投诉了。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:devourer">
-            <header>
-                <p>吞噬者可以用于消除刷怪笼，或者用于将器械变回一张蓝图掉落物。</p>
-            </header>
-            <properties>
-                <p>技能：<![CDATA[<color=red>变成吃豆人中的小幽灵！</color>]]></p>
-            </properties>
-            <flavor>
-                <p>“我受不了了！！！！！！！！！！！！”</p>
-                <p>“吵死了！！！！！！！！！！！！”</p>
-                <p>“我要搬家！！！！！！！！！！！！”</p>
-                <p />
-                <p>……至少上一个这栋楼的住户是这么说的。</p>
-            </flavor>
-        </entry>
-        <entry id="hellfire">
-            <header>
-                <p>地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。</p>
-            </header>
-            <properties>
-                <p>血量：<![CDATA[<color=red>1500</color>]]></p>
-                <p>伤害增幅：<![CDATA[<color=red>+100%火焰伤害，+66%溅射伤害</color>]]></p>
-                <p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>]]></p>
-            </properties>
-            <flavor>
-                <p>烧吧！我内心中的熊熊烈火，点燃我的<![CDATA[<color=red>愤怒</color>]]>！</p>
-                <p>烧吧！将我眼前的所有不公，全部烧成灰烬！</p>
-                <p>烧吧！我所憎恨的邪恶之物，尽数应受惩罚！</p>
-                <p>烧吧！在他们惊恐的眼神中，向其降下毁灭！</p>
-                <p />
-                <p>火焰啊！把我内心中的黑暗，沮丧，还有憎恨，统统烧个干净！</p>
-                <p><![CDATA[<b>让这明亮的火光，照亮整个世界！！！</b>]]></p>
-            </flavor>
-        </entry>
-        <entry id="necrotombstone">
-            <header>
-                <p>死灵墓碑会不断召唤友方的骷髅战士，让它们为你而战。</p>
-            </header>
-            <properties>
-                <p>召唤时间：<![CDATA[<color=red>15秒</color>]]></p>
-                <p>骷髅战士生命：<![CDATA[<color=red>200+300（头盔）+300（盾）</color>]]></p>
-                <p>骷髅战士速度：<![CDATA[<color=red>1</color>]]></p>
-                <p>技能：<![CDATA[<color=red>召唤3个同种的火焰、冰霜或闪电骷髅法师</color>]]></p>
-                <p>特点：<![CDATA[<color=red>被摧毁时立刻召唤骷髅战士</color>]]></p>
-            </properties>
-            <flavor>
-                <p>看着这座墓碑，恍惚中，你的脑海中似乎浮现出了一句熟悉的话：</p>
-                <p>“比起死亡，我更害怕的是被遗忘。”</p>
-                <p />
-                <p>这是谁说的呢？</p>
-            </flavor>
-        </entry>
-        <entry id="black_hole_bomb">
-            <header>
-                <p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。</p>
-            </header>
-            <properties>
-                <p>持续时间：<![CDATA[<color=red>8秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>30/秒</color>]]></p>
-                <p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：<![CDATA[<color=red>产生湮灭领域，直接消灭范围内的所有敌人和敌弹</color>]]></p>
-            </properties>
-            <flavor>
-                <p>你知道的，真空不能传声，所以他其实听不到他邻居产生的噪音。</p>
-                <p />
-                <p>天哪！别再讲你这笑话了！烂死了！！！</p>
-            </flavor>
-        </entry>
-        <entry id="desire_pot">
-            <header>
-                <p>欲望壶会从敌人身上复制其携带的星之碎片，每个欲望壶最多复制三个。</p>
-            </header>
-            <properties>
-                <p>技能：<![CDATA[<color=red>将最后方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>]]></p>
-                <p>特点：<![CDATA[<color=red>被摧毁时会变成随机器械。</color>]]></p>
-            </properties>
-            <flavor>
-                <p>我是壶中的神灵，我能实现你的愿望，让我听听你内心中的欲望吧……</p>
-                <p />
-                <p>让壶解禁？</p>
-                <p />
-                <p>嗯……我刚才好像什么都没有听到。</p>
-            </flavor>
-        </entry>
+				<p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>]]></p>
+			</properties>
+			<flavor>
+				<p>我是文字，我现在非常疼</p>
+				<p>WWWWWWWWWWWWWWWWWWWW</p>
+				<p/>
+				<p>尖刺方块并非来源于村民的那个世界，它曾经被排斥到了另一个世界。在那里，它结识了一位叫做      的朋友，它们便共同逃回了原本的世界。</p>
+				<p>尸界大战爆发后，原本想要过平静生活的它，却因为一些特殊的原因，加入了史蒂夫的军队。</p>
+				<p>“我在他的身上看到了那个人的影子。”</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:stone_dropper">
+			<header>
+				<p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
+			</header>
+			<properties>
+
+				<p>发射速度：<![CDATA[<color=red>1秒</color>]]></p>
+				<p>巨石概率：<![CDATA[<color=red>25%</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>10（卵石），40（巨石）</color>]]></p>
+				<p>技能：<![CDATA[<color=red>立即喷射30发巨石</color>]]></p>
+			</properties>
+			<flavor>
+				<p>石制投掷器是个泰拉瑞亚的粉丝，每次下矿它都能准确而快速地找出滚石陷阱的位置，但总是找不出滚木陷阱的位置。</p>
+				<p>哦，顺带一提，他用滚石打死过肉山。</p>
+				<p/>
+				<p>它本来想学木制投掷器玩一个磊磊磊磊磊磊磊磊磊磊制投掷器的笑话的，但是不幸的是木制投掷器为这个笑话申请了专利。</p>
+				<p><![CDATA[<color=white>附录：它跟恋真的没啥关系。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:stone_shield">
+			<header>
+				<p>石护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>6000</color>]]></p>
+				<p>技能：<![CDATA[<color=red>3x3范围内的器械无敌10秒</color>]]></p>
+			</properties>
+			<flavors>
+				<flavor>
+					<p>注意：当你使用铁镐时，瞄准它的下方是挖掉石护罩，瞄准它的上方是挖掉里面的器械。星之碎片同理。</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition requiredNot="mvz2:level.puzzle_unbreakable" />
+					</conditions>
+					<p>无法访问该页面：</p>
+					<p>458 Protected</p>
+					<p>页面受到保护，请先挖掉石护罩再继续。</p>
+					<p>或许你要在某些关卡绕过石护罩才能看到完整的页面？</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.puzzle_unbreakable" />
+					</conditions>
+					<p>黑曜石是比石头硬的，不过石护罩的生命值却比黑曜石还要高一点。这没什么奇怪的，现实中的黑曜石还和玻璃一样脆呢。</p>
+					<p>你可能想责怪石护罩为什么不能保护里面的器械不受凋零范围伤害，还是别提了吧，小心他生气了连防爆都不给了。</p>
+				</flavor>
+			</flavors>
+		</entry>
+		<entry id="mvz2:golden_apple">
+			<header>
+				<p>金苹果可以魅惑一个近战攻击它的敌怪，使其为你而战。</p>
+			</header>
+			<properties>
+				<p>特点：<![CDATA[<color=red>吃掉他的敌人能够获得60/s的生命恢复</color>]]></p>
+				<p>技能：<![CDATA[<color=red>发出彩色炫光，被魅惑的敌怪变为突变僵尸</color>]]></p>
+			</properties>
+			<flavors>
+				<flavor>
+					<p>金苹果对于砸伤重力方块这件事情感到很抱歉，所以它赔了重力方块自己的一块金皮。</p>
+					<p>这就是为什么重力板是紫色的。</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.a_tooth_for_a_tooth" />
+					</conditions>
+					<p>“嗯？以牙还牙里魔术箱是不是抢了我的风头？”</p>
+				</flavor>
+			</flavors>
+
+		</entry>
+		<entry id="mvz2:thunder_drum">
+			<header>
+				<p>雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。</p>
+			</header>
+			<properties>
+				<p>修复时间：<![CDATA[<color=red>60秒</color>]]></p>
+				<p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>]]></p>
+			</properties>
+			<flavor>
+				<p><![CDATA[<rotate="-20">别乱震啊卧槽！</rotate>]]></p>
+				<p><![CDATA[<rotate="-100">雷鼓很羡慕堀川雷鼓，希望能像她一样成为一个付丧神，开始自己的生活。但是它不知道现在已经建国后了。</rotate>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:tesla_coil">
+			<header>
+				<p>磁暴线圈会电击周围大范围内的敌人。</p>
+			</header>
+			<properties>
+				<p>攻击速度：<![CDATA[<color=red>2秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>80</color>]]></p>
+				<p>特殊：<![CDATA[<color=red>不可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>]]></p>
+				<p>技能：<![CDATA[<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>]]></p>
+			</properties>
+			<flavor>
+				<p>我在玩什么游戏？</p>
+				<p/>
+				<p>等一下，你为什么不能对空？？？？？</p>
+				<p/>
+				<p><![CDATA[<color=white>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</color>]]></p>
+				<p><![CDATA[<color=grey>哦，对了，他电击器械时可以使得器械短路。</color>]]></p>
+				<p><![CDATA[<color=grey>你觉得这个特性没用？那希望用不上这个特性吧。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:giant_bowl">
+			<header>
+				<p>巨碗能够缓慢生产并存储星之碎片，这些星之碎片只能通过摧毁巨碗取出。</p>
+			</header>
+			<properties>
+				<p>生产时间：<![CDATA[<color=red>60秒</color>]]></p>
+				<p>存储上限：<![CDATA[<color=red>5</color>]]></p>
+				<p>技能：<![CDATA[<color=red>向内部存储一颗星之碎片</color>]]></p>
+			</properties>
+			<flavor>
+				<p>谁把小碗的碗抢过来了？</p>
+				<p>为了防止失主来找，我们叫他盆吧。</p>
+			</flavor>
+		</entry>
+
+		<!-- Chapter 4 -->
+		<entry id="mvz2:note_block">
+			<header>
+				<p>音符盒发射在自身和敌人间不停反弹的音符，持续造成伤害。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>5</color>]]></p>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>音符上限：<![CDATA[<color=red>10</color>]]></p>
+				<p>技能：<![CDATA[<color=red>发生一次1200的爆炸，在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>]]></p>
+			</properties>
+			<flavor>
+				<p>永远不要试图做音符盒的邻居，别问为什么。</p>
+				<p/>
+				<p><![CDATA[<color=grey>音符盒是个很喜欢音乐的家伙，你可以从各种地方找到证据：各种演唱会——包括μ's的都能看到它的身影、卢西奥是他的主玩英雄……等等等等。最近，据说他只花了一秒就买下了东方交响乐的门票……</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:lightning_orb">
+			<header>
+				<p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹和爆炸来治疗自己。</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>5000</color>]]></p>
+				<p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
+				<p>技能：<![CDATA[<color=red>在5秒内吸收所有远程射弹和爆炸伤害并治疗自己，之后将这些伤害返还给所有敌人（最高900）</color>]]></p>
+			</properties>
+			<flavor>
+				<p>他就是音符盒的邻居。</p>
+				<p>天哪！还好他能吸收掉那些噪音……</p>
+				<p/>
+				<p>有人希望他能吸收近战伤害，但他说他干不了，交给别人吧。</p>
+				<p/>
+				<p><![CDATA[<color=grey>在遥远的鲁·高因，有一位法师钻研出了这种法术。这种法术能够抵消一部分的伤害，将生命的损失转化成法力的消耗。他给这个法术起了个名字：能量护盾——俗称：“顶个球”。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:splitenser">
+			<header>
+				<p>双向发射器在向前发射箭矢的同时，也会向后方发射两次箭矢或飞镖。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1发/1.5秒（前方），2发/1.5秒（后方）</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>箭和飞镖20</color>]]></p>
+				<p>技能：<![CDATA[<color=red>快速向前后分别发射60支箭矢，最后向后发射一支大箭矢</color>]]></p>
+			</properties>
+			<flavor>
+				<p>“别射了，你把我晃得头晕！”后面的发射器很不爽。</p>
+				<p>“可是你每次都发射两次，论头晕，我比你还要严重哩！”前面的发射器反驳。</p>
+				<p>自从双向发射器被发明以来，它和自己的争吵就从来没停过。</p>
+				<p>“你这么和你哥哥说的话吗？放尊重点！”</p>
+				<p>“谁是你弟弟？我们都不知道是谁先被造出来的！”</p>
+				<p>“我发射更快，理应当哥哥！”</p>
+				<p>“那大部分时候还是我把前面的敌人干掉的嘞！”</p>
+				<p>……</p>
+				<p>幸好他邻居是闪电之珠，不然就又有人要来投诉了。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:devourer">
+			<header>
+				<p>吞噬者可以用于消除刷怪笼，或者用于将器械变回一张蓝图掉落物。</p>
+			</header>
+			<properties>
+				<p>技能：<![CDATA[<color=red>变成吃豆人中的小幽灵！</color>]]></p>
+			</properties>
+			<flavors>
+				<flavor>
+					<p>“我受不了了！！！！！！！！！！！！”</p>
+					<p>“吵死了！！！！！！！！！！！！”</p>
+					<p>“我要搬家！！！！！！！！！！！！”</p>
+					<p/>
+					<p>……至少上一个这栋楼的住户是这么说的。</p>
+					<p/>
+					<p>伙计，她以前头上有个不明意义的网，至于为什么会有这个东西，制作它的人表示也不知道。</p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:contraption.ContraptionDevourer_2" />
+					</conditions>
+					<p>她因自己拥有3个专属的小游戏而引来了不少器械的嫉妒，但没器械敢正面提出意见。</p>
+				</flavor>
+			</flavors>
+		</entry>
+		<entry id="hellfire">
+			<header>
+				<p>地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。</p>
+			</header>
+			<properties>
+				<p>血量：<![CDATA[<color=red>1500</color>]]></p>
+				<p>伤害增幅：<![CDATA[<color=red>+100%火焰伤害，+66%溅射伤害</color>]]></p>
+				<p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>]]></p>
+			</properties>
+			<flavor>
+				<p>烧吧！我内心中的熊熊烈火，点燃我的<![CDATA[<color=red>愤怒</color>]]>！</p>
+				<p>烧吧！将我眼前的所有不公，全部烧成灰烬！</p>
+				<p>烧吧！我所憎恨的邪恶之物，尽数应受惩罚！</p>
+				<p>烧吧！在他们惊恐的眼神中，向其降下毁灭！</p>
+				<p/>
+				<p>火焰啊！把我内心中的黑暗，沮丧，还有憎恨，统统烧个干净！</p>
+				<p><![CDATA[<b>让这明亮的火光，照亮整个世界！！！</b>]]></p>
+			</flavor>
+		</entry>
+		<entry id="necrotombstone">
+			<header>
+				<p>死灵墓碑会不断召唤友方的骷髅战士，让它们为你而战。</p>
+			</header>
+			<properties>
+				<p>召唤时间：<![CDATA[<color=red>15秒</color>]]></p>
+				<p>骷髅战士生命：<![CDATA[<color=red>200+300（头盔）+300（盾）</color>]]></p>
+				<p>骷髅战士速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>技能：<![CDATA[<color=red>召唤3个同种的火焰、冰霜或闪电骷髅法师</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁时立刻召唤骷髅战士</color>]]></p>
+			</properties>
+			<flavor>
+				<p>听说古代的死灵墓碑有3种形态，而非现在的一种。</p>
+				<p/>
+				<p>看着这座墓碑，恍惚中，你的脑海中似乎浮现出了一句熟悉的话：</p>
+				<p>“比起死亡，我更害怕的是被遗忘。”</p>
+				<p/>
+				<p>这是谁说的呢？</p>
+			</flavor>
+		</entry>
+		<entry id="black_hole_bomb">
+			<header>
+				<p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。</p>
+			</header>
+			<properties>
+				<p>持续时间：<![CDATA[<color=red>8秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>30/秒</color>]]></p>
+				<p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>技能：<![CDATA[<color=red>产生湮灭领域，直接消灭范围内的所有敌人和敌弹</color>]]></p>
+			</properties>
+			<flavor>
+				<p>你知道的，真空不能传声，所以他其实听不到他邻居产生的噪音。</p>
+				<p/>
+				<p>天哪！别再讲你这笑话了！烂死了！！！</p>
+				<p/>
+				<p>该器械和掌握皮毛虚空能量的伪行者相性极其不佳。</p>
+			</flavor>
+		</entry>
+		<entry id="desire_pot">
+			<header>
+				<p>欲望壶会从敌人身上复制其携带的星之碎片，每个欲望壶最多复制三个。</p>
+			</header>
+			<properties>
+				<p>技能：<![CDATA[<color=red>将最后方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁时会变成随机器械。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>我是壶中的神灵，我能实现你的愿望，让我听听你内心中的欲望吧……</p>
+				<p/>
+				<p>让壶解禁？</p>
+				<p/>
+				<p>嗯……我刚才好像什么都没有听到。</p>
+			</flavor>
+		</entry>
         
         <!-- Chapter 5 -->
         <entry id="mvz2:gunpowder_barrel">

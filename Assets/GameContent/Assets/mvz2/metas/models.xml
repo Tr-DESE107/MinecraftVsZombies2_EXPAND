@@ -620,6 +620,7 @@
 
 	<!--EXPAND Projectiles -->
 	<model name="purpleArrow" type="entity" path="mvz2:projectile/purpleArrow" width="32" height="10" xOffset="0" yOffset="0" />
+	<model name="ObsidianShard" type="entity" path="mvz2:projectile/ObsidianShard" width="24" height="10" xOffset="0" yOffset="0" />
 	<model name="Poisonball" type="entity" path="mvz2:projectile/Poisonball" width="32" height="32" xOffset="0" yOffset="0" />
 	<model name="largePoisonball" type="entity" path="mvz2:projectile/largePoisonball" width="32" height="32" xOffset="0" yOffset="-12" />
 	<model name="CopperOreBall" type="entity" path="mvz2:projectile/CopperOreBall" width="48" height="48" xOffset="0" yOffset="-24" />

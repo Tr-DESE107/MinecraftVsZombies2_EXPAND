@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Projectiles
             var target = hitResult.Other;
             var projectile = hitResult.Projectile;
 
-            // Ôì³É10µã´©¼×ÉËº¦    
+            // é€ æˆ10ç‚¹ç©¿ç”²ä¼¤å®³  
             if (target != null && target.Exists() && !target.IsDead)
             {
                 var armorPiercingDamage = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR);

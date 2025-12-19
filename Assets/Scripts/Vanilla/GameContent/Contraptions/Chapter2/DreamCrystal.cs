@@ -38,6 +38,6 @@ namespace MVZ2.GameContent.Contraptions
             contraption.AddBuff<DreamCrystalEvocationBuff>();
             contraption.PlaySound(VanillaSoundID.sparkle);
         }
-        public const float HEAL_PER_FRAME = 2;
+        public const float HEAL_PER_FRAME = 2.66666667f;
     }
 }

@@ -82,7 +82,7 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     // 构造紫色箭的参数
                     var param = entity.GetShootParams();
-                    param.projectileID = VanillaProjectileID.purpleArrow;
+                    param.projectileID = VanillaProjectileID.ObsidianShard;
                     param.velocity = new Vector2(2.5f, 0f);
 
 
