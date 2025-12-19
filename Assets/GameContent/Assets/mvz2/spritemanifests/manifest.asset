@@ -1784,6 +1784,9 @@ MonoBehaviour:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 413586417, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 1656711901, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
+  - name: entity/contraption/Barrier
+    spritesheet:
+    - {fileID: 21300000, guid: c4ba5f46ec72d0744ac9b11699e609f7, type: 3}
   - name: entity/contraption/Bedrock
     spritesheet:
     - {fileID: 21300000, guid: 4c6d3c800778b28489a87251ba3eb5c4, type: 3}
@@ -1924,6 +1927,10 @@ MonoBehaviour:
     - {fileID: -1758956819, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
     - {fileID: -2083500495, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
     - {fileID: 552944845, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
+  - name: entity/contraption/G.I.
+    spritesheet:
+    - {fileID: -2093569492, guid: a0454c11f25578e4dbc44e2e9395038a, type: 3}
+    - {fileID: -709107591, guid: a0454c11f25578e4dbc44e2e9395038a, type: 3}
   - name: entity/contraption/GlowingObsidian
     spritesheet:
     - {fileID: 1326628483, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
