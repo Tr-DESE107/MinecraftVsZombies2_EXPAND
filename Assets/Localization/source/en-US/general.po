@@ -1778,8 +1778,9 @@ msgstr "Target stage {0} does not exist."
 
 # 日志导出失败的警告
 #: Scripts\MVZ2\Managers\DebugManager.cs:45
-msgid "导出日志失败。"
-msgstr "Failed to export logs."
+msgid "导出日志失败，请在文件资源管理器中手动处理此问题。"
+msgstr "Failed to export logs, Please handle this manually in File "
+"Explorer."
 
 # 语言包导出成功的提示，{0}为路径
 #: Scripts\MVZ2\Managers\DebugManager.cs:47

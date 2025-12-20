@@ -43,7 +43,7 @@ namespace MVZ2.Managers
         public MainManager Main => MainManager.Instance;
         public MVZ2Logger Logger => MVZ2Logger.Instance;
         [TranslateMsg("日志导出失败的警告")]
-        public const string ERROR_NOT_EXPORTED = "导出日志失败。";
+        public const string ERROR_NOT_EXPORTED = "导出日志失败，请在文件资源管理器中手动处理此问题。";
         [TranslateMsg("日志导出成功的提示，{0}为路径")]
         public const string HINT_EXPORTED = "日志已导出至{0}。";
     }

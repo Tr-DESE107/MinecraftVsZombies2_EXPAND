@@ -77,8 +77,8 @@ namespace MVZ2.Addons
             buttonDict.Add(Buttons.Enable, enableButton);
             buttonDict.Add(Buttons.MoveUp, moveUpButton);
             buttonDict.Add(Buttons.MoveDown, moveDownButton);
-            buttonDict.Add(Buttons.Import, importButton);
-            buttonDict.Add(Buttons.Export, exportButton);
+            // buttonDict.Add(Buttons.Import, importButton);
+            // buttonDict.Add(Buttons.Export, exportButton);
             buttonDict.Add(Buttons.Delete, deleteButton);
             buttonDict.Add(Buttons.Return, returnButton);
 
@@ -111,10 +111,10 @@ namespace MVZ2.Addons
         private Button moveUpButton = null!;
         [SerializeField]
         private Button moveDownButton = null!;
-        [SerializeField]
-        private Button importButton = null!;
-        [SerializeField]
-        private Button exportButton = null!;
+        // [SerializeField]
+        // private Button importButton = null!;
+        // [SerializeField]
+        // private Button exportButton = null!;
         [SerializeField]
         private Button deleteButton = null!;
         [SerializeField]
