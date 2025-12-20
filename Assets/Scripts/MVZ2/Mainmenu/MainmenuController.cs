@@ -632,8 +632,8 @@ namespace MVZ2.Mainmenu
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Rename, selected);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Delete, selected && managingUserIndexes != null && managingUserIndexes.Length >= 2);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Switch, selected && GetSelectedUserIndex() != main.SaveManager.GetCurrentUserIndex());
-            ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Import, hasEmptySlot);
-            ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Export, selected);
+            // ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Import, hasEmptySlot);
+            // ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Export, selected);
         }
         private bool IsUserFull()
         {

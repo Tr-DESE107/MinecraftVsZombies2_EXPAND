@@ -1833,7 +1833,7 @@ msgstr ""
 
 # 日志导出失败的警告
 #: Scripts\MVZ2\Managers\DebugManager.cs:45
-msgid "导出日志失败。"
+msgid "导出日志失败，请在文件资源管理器中手动处理此问题。"
 msgstr ""
 
 # 日志导出成功的提示，{0}为路径
