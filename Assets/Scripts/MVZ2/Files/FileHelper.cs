@@ -36,17 +36,6 @@ namespace MVZ2.IO
             var importPath = selectedPathes[0];
             importAction?.Invoke(importPath);
             return Task.FromResult<string?>(importPath);
-#elif UNITY_IOS || UNITY_ANDROID
-            var t = new TaskCompletionSource<string?>();
-            var fileTypes = extensions.Select(e => NativeFilePicker.ConvertExtensionToFileType(e)).ToArray();
-            NativeFilePicker.PickFile(path => {
-                if (!string.IsNullOrEmpty(path))
-                {
-                    importAction?.Invoke(path);
-                }
-                t.SetResult(path);
-            }, fileTypes);
-            return t.Task;
 #else
             return Task.FromResult<string?>(null);
 #endif
@@ -59,26 +48,6 @@ namespace MVZ2.IO
                 return null;
             saveAction?.Invoke(exportPath);
             await Task.CompletedTask;
-            return exportPath;
-#elif UNITY_IOS || UNITY_ANDROID
-            // 这个插件是先写出再复制到目标目录的
-            var fileName = defaultName;
-            if (extensions.Length > 0)
-            {
-                fileName = $"{fileName}.{extensions[0]}";
-            }
-            var tempPath = Path.Combine(Application.temporaryCachePath, fileName);
-            saveAction?.Invoke(tempPath);
-
-            if (!File.Exists(tempPath))
-            {
-                return null;
-            }
-
-            var t = new TaskCompletionSource<string?>();
-            NativeFilePicker.ExportFile(tempPath, success => t.SetResult(success ? fileName : null));
-            var exportPath = await t.Task;
-            File.Delete(tempPath); // 清理临时文件
             return exportPath;
 #else
             await Task.CompletedTask;
