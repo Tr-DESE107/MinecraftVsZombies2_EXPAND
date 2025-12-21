@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-03 08:30+0800\n"
+"POT-Creation-Date: 2025-12-21 05:43+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1536,144 +1536,144 @@ msgid "确认要重置所有按键绑定吗？"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:606
+#: Scripts\MVZ2\Options\OptionsLogic.cs:607
 msgid "交换触发"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:608
+#: Scripts\MVZ2\Options\OptionsLogic.cs:609
 msgid "全屏"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:610
+#: Scripts\MVZ2\Options\OptionsLogic.cs:611
 msgid "设备震动"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:612
+#: Scripts\MVZ2\Options\OptionsLogic.cs:613
 msgid "后台暂停"
 msgstr ""
 
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\OptionsLogic.cs:614
+#: Scripts\MVZ2\Options\OptionsLogic.cs:615
 msgid "难度：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:618
+#: Scripts\MVZ2\Options\OptionsLogic.cs:619
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:620
+#: Scripts\MVZ2\Options\OptionsLogic.cs:621
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:622
+#: Scripts\MVZ2\Options\OptionsLogic.cs:623
 msgid "加速倍率：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:624
+#: Scripts\MVZ2\Options\OptionsLogic.cs:625
 msgid "动画频率：{0}"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:626
+#: Scripts\MVZ2\Options\OptionsLogic.cs:627
 msgid "HDR光照"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:629
+#: Scripts\MVZ2\Options\OptionsLogic.cs:630
 msgid "血与碎块"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:632
+#: Scripts\MVZ2\Options\OptionsLogic.cs:633
 msgid "跳过对话"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:634
+#: Scripts\MVZ2\Options\OptionsLogic.cs:635
 msgid "赞助者名称"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:636
+#: Scripts\MVZ2\Options\OptionsLogic.cs:637
 msgid "选卡警告"
 msgstr ""
 
 # 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:638
+#: Scripts\MVZ2\Options\OptionsLogic.cs:639
 msgid "命令方块：{0}"
 msgstr ""
 
 # 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:640
+#: Scripts\MVZ2\Options\OptionsLogic.cs:641
 msgid "显示帧率：{0}"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:642
+#: Scripts\MVZ2\Options\OptionsLogic.cs:643
 msgid "高度指示器"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:644
+#: Scripts\MVZ2\Options\OptionsLogic.cs:645
 msgid "显示快捷键"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:647
+#: Scripts\MVZ2\Options\OptionsLogic.cs:648
 msgctxt "option.command_block_mode"
 msgid "手选"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:649
+#: Scripts\MVZ2\Options\OptionsLogic.cs:650
 msgctxt "option.command_block_mode"
 msgid "前位"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:652
+#: Scripts\MVZ2\Options\OptionsLogic.cs:653
 msgctxt "option.fps_mode"
 msgid "关闭"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:654
+#: Scripts\MVZ2\Options\OptionsLogic.cs:655
 msgctxt "option.fps_mode"
 msgid "左上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:656
+#: Scripts\MVZ2\Options\OptionsLogic.cs:657
 msgctxt "option.fps_mode"
 msgid "右上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:658
+#: Scripts\MVZ2\Options\OptionsLogic.cs:659
 msgctxt "option.fps_mode"
 msgid "左下"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:660
+#: Scripts\MVZ2\Options\OptionsLogic.cs:661
 msgctxt "option.fps_mode"
 msgid "右下"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:663
+#: Scripts\MVZ2\Options\OptionsLogic.cs:664
 msgid "粒子数量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:665
+#: Scripts\MVZ2\Options\OptionsLogic.cs:666
 msgid "屏幕震动：{0}"
 msgstr ""
 
@@ -2664,12 +2664,12 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:317
+#: Scripts\MVZ2\Managers\MainManager.cs:321
 msgid "获取赞助者列表……"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:319
+#: Scripts\MVZ2\Managers\MainManager.cs:323
 msgid "{0}%"
 msgstr ""
 
@@ -4693,6 +4693,18 @@ msgstr ""
 #: Credits meta file
 msgctxt "staff_name"
 msgid "Charlie Calvin"
+msgstr ""
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Victor"
+msgstr ""
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Boshyko"
 msgstr ""
 
 #. Name for credits category 特别感谢
