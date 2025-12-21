@@ -15,6 +15,7 @@ namespace MVZ2.Almanacs
             viewEnemyButton.onClick.AddListener(() => OnButtonClick?.Invoke(ButtonType.ViewEnemy));
             viewArtifactButton.onClick.AddListener(() => OnButtonClick?.Invoke(ButtonType.ViewArtifact));
             viewMiscButton.onClick.AddListener(() => OnButtonClick?.Invoke(ButtonType.ViewMisc));
+            viewWikiButton.onClick.AddListener(() => OnButtonClick?.Invoke(ButtonType.ViewWiki));
         }
         public void SetArtifactVisible(bool visible)
         {
@@ -31,12 +32,15 @@ namespace MVZ2.Almanacs
         private Button viewArtifactButton = null!;
         [SerializeField]
         private Button viewMiscButton = null!;
+        [SerializeField]
+        private Button viewWikiButton = null!;
         public enum ButtonType
         {
             ViewContraption,
             ViewEnemy,
             ViewArtifact,
-            ViewMisc
+            ViewMisc,
+            ViewWiki,
         }
     }
 }
