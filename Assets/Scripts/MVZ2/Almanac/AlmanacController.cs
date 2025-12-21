@@ -105,6 +105,9 @@ namespace MVZ2.Almanacs
                 case IndexAlmanacPage.ButtonType.ViewMisc:
                     ViewMisc();
                     break;
+                case IndexAlmanacPage.ButtonType.ViewWiki:
+                    ViewWiki();
+                    break;
             }
         }
         private void OnCommandBlockClickCallback(PointerEventData eventData)
@@ -281,6 +284,11 @@ namespace MVZ2.Almanacs
         {
             ui.DisplayPage(AlmanacPageType.Miscs);
             SetActiveMiscEntry(miscGroups.FirstOrDefault()?.entries?.FirstOrDefault(e => e != null));
+        }
+        private void ViewWiki()
+        {
+            Application.OpenURL("https://mvz2expand.wiki.gg/zh/");
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         private void SetActiveContraptionEntry(NamespaceID contraptionID)
         {
