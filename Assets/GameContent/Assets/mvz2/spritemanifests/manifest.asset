@@ -2988,13 +2988,6 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -1921457546, guid: e318019ce39b4634c928b30fcef9d747, type: 3}
     - {fileID: -247396512, guid: e318019ce39b4634c928b30fcef9d747, type: 3}
-  - name: entity/enemy/Red_MonkZombie
-    spritesheet:
-    - {fileID: 195686219, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
-    - {fileID: -925382698, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
-    - {fileID: -1265149394, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
-    - {fileID: -1935018447, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
-    - {fileID: -2092059575, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
   - name: entity/enemy/Reverser
     spritesheet:
     - {fileID: 1691163263, guid: 4402b5e26c8f49d48b2b77d6938f95bb, type: 3}
@@ -3674,3 +3667,19 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
     - {fileID: 59550891, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
+  - name: entity/enemy/EXPAND/Red_MonkZombie
+    spritesheet:
+    - {fileID: 195686219, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - {fileID: -925382698, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - {fileID: -1265149394, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - {fileID: -1935018447, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - {fileID: -2092059575, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+  - name: entity/enemy/EXPAND/TorchKongfuZombie
+    spritesheet:
+    - {fileID: -651146863, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+    - {fileID: -2053833057, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+    - {fileID: 1378123998, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+    - {fileID: -2058827774, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+    - {fileID: 1815249819, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+    - {fileID: 1480556233, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+    - {fileID: -131879777, guid: 165a945045c255843b5681f8fa31c975, type: 3}

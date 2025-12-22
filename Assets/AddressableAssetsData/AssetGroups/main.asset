@@ -598,6 +598,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a88aa8631c2f8e48b93a210bbd1b600
+    m_Address: mvz2:enemy/dream/AngryGhast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ae5af202f9ad9c4cb362f05a0290a3b
     m_Address: mvz2:units/colliders/humanoid
     m_ReadOnly: 0
@@ -1314,6 +1321,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 164c517f4b3a40f49a48c0f998d7fd7e
     m_Address: mvz2:ready_set_build
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 165a945045c255843b5681f8fa31c975
+    m_Address: mvz2:entity/enemy/EXPAND/TorchKongfuZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3908,7 +3922,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4440268da916c7441be04ae4200cb5e4
-    m_Address: mvz2:entity/enemy/Red_MonkZombie
+    m_Address: mvz2:entity/enemy/EXPAND/Red_MonkZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11391,6 +11405,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cddac52a1a0cac942b3be561994d0041
     m_Address: mvz2:grid/placeholder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cde59f5b484aa704980d95eb5a4624fc
+    m_Address: mvz2:enemy/mausoleum/TorchKongfuZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

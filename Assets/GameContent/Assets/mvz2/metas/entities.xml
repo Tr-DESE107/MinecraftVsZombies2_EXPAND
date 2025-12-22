@@ -2887,6 +2887,19 @@
 				<float name="mvz2:speed" value="0.75" />
 			</properties>
 		</zombie>
+
+		<zombie id="TorchKongfuZombie" name="功夫火把僵尸" deathMessage="以游无穷者，彼且恶乎待哉？">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_8" />
+			</unlock>
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<int name="mvz2:cost" value="500" />
+				<float name="mvz2:maxHealth" value="1236" />
+				<float name="mvz2:damage" value="100" />
+				<float name="mvz2:speed" value="0.75" />
+			</properties>
+		</zombie>
 		
 		<!-- EXPAND Enemies C5 -->
 		<enemy id="Endermite" name="末影螨" deathMessage="吾头在否？！">
