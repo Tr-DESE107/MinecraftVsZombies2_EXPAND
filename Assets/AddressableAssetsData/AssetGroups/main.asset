@@ -24,6 +24,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00364f015c75b6c4c9448a6b4017a8ea
+    m_Address: mvz2:armor/SantaHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 003fea51ebc7be1498297e7b66cc61d1
     m_Address: mvz2:ui/level/final_wave
     m_ReadOnly: 0
@@ -2278,6 +2285,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2810a44838bc11e43bd8fdc1d8b4afc2
+    m_Address: mvz2:entity/armor/SantaHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2815df395a9eef547b9b5664b558bab2
     m_Address: mvz2:enemy/ship/HeavyGutant
     m_ReadOnly: 0
@@ -3648,6 +3662,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f82b868542814842b195075a69a5f60
+    m_Address: mvz2:entity/boss/SteveGiantPacman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fb9e3cc152d92149914e1b4e20ea5f1
     m_Address: mvz2:entity/enemy/zombie_cloud_particle
     m_ReadOnly: 0
@@ -4334,6 +4355,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b4d201db18ec25468ea644aeeecdbf5
+    m_Address: mvz2:entity/projectiles/ObsidianShard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b51cc39a60d7e948b8c2211fa2ff426
     m_Address: mvz2:paper
     m_ReadOnly: 0
@@ -4424,6 +4452,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d3b078d3785ad0439caa0b9bf730b89
+    m_Address: mvz2:boss/SteveGiant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d44ee70be474aa42a441d61c0ad08f7
     m_Address: mvz2:entity/enemy/SpiderQueen
@@ -7721,6 +7756,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8962300e559ee02418a68ff464fabfbc
+    m_Address: mvz2:mobile_blueprint/Barrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a0fa8e6a83d14c4581f8cee8ce07eed
     m_Address: mvz2:mobile_blueprint/necromancer
     m_ReadOnly: 0
@@ -8470,6 +8512,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9764b891ab8483a4ba7e830211f1cda8
+    m_Address: mvz2:mobile_blueprint/Bedrock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 979b0f01b79ee2e44b3c30b91c0df16e
     m_Address: mvz2:talks/prologue
     m_ReadOnly: 0
@@ -8826,6 +8875,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e40ab53b358b324292c9b883ebd6f69
+    m_Address: mvz2:boss/SteveGiantSnakeTail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e43064c78598fd4493a1d5c14308edb
     m_Address: mvz2:mobile_blueprint/vortex_hopper
@@ -10212,6 +10268,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8e833e5cd72fc645b28a38f977c20a4
+    m_Address: mvz2:entity/boss/SteveGiant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8edef59b9ae0284082846af29941760
     m_Address: mvz2:entity/projectiles/ignited_wooden_ball_cursed
@@ -12866,6 +12929,13 @@ MonoBehaviour:
     - AreaModel
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ece7ca8dda1ba59428522f6a1fb6bd3f
+    m_Address: mvz2:projectile/ObsidianShard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecf0ee3020934614c9673de172a435cd
     m_Address: mvz2:characters/futo
     m_ReadOnly: 0
@@ -13348,6 +13418,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4fbabfb2f9642d4ab30e7d1ccabb6c9
+    m_Address: mvz2:entity/contraption/EXPAND_Skin/G.I
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5346a49dd46a2a4194dcbca45d9a022
     m_Address: mvz2:map/dream/sleepenser

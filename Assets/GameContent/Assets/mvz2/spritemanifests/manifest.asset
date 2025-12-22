@@ -1835,6 +1835,11 @@ MonoBehaviour:
     - {fileID: -936124431, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
     - {fileID: -901474504, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
     - {fileID: -1909635451, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
+  - name: entity/armor/SantaHat
+    spritesheet:
+    - {fileID: 712364755, guid: 2810a44838bc11e43bd8fdc1d8b4afc2, type: 3}
+    - {fileID: 554612572, guid: 2810a44838bc11e43bd8fdc1d8b4afc2, type: 3}
+    - {fileID: -1404112824, guid: 2810a44838bc11e43bd8fdc1d8b4afc2, type: 3}
   - name: entity/armor/skeleton_warrior_helmet
     spritesheet:
     - {fileID: -1055558042, guid: 8f4a25505be15d244b85ae394574d811, type: 3}
@@ -1924,6 +1929,22 @@ MonoBehaviour:
     - {fileID: 6494446197138225416, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
     - {fileID: 5653982790268467409, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
     - {fileID: 5039749940984752654, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
+  - name: entity/boss/SteveGiant
+    spritesheet:
+    - {fileID: -2009554726, guid: b8e833e5cd72fc645b28a38f977c20a4, type: 3}
+    - {fileID: -137154401, guid: b8e833e5cd72fc645b28a38f977c20a4, type: 3}
+    - {fileID: -1519190032, guid: b8e833e5cd72fc645b28a38f977c20a4, type: 3}
+    - {fileID: -1550290311, guid: b8e833e5cd72fc645b28a38f977c20a4, type: 3}
+    - {fileID: 488885710, guid: b8e833e5cd72fc645b28a38f977c20a4, type: 3}
+    - {fileID: -2009110011, guid: b8e833e5cd72fc645b28a38f977c20a4, type: 3}
+  - name: entity/boss/SteveGiantPacman
+    spritesheet:
+    - {fileID: 315982790, guid: 3f82b868542814842b195075a69a5f60, type: 3}
+    - {fileID: 413100434, guid: 3f82b868542814842b195075a69a5f60, type: 3}
+    - {fileID: -728223939, guid: 3f82b868542814842b195075a69a5f60, type: 3}
+    - {fileID: 1300947269, guid: 3f82b868542814842b195075a69a5f60, type: 3}
+    - {fileID: -1731632242, guid: 3f82b868542814842b195075a69a5f60, type: 3}
+    - {fileID: -1021656877, guid: 3f82b868542814842b195075a69a5f60, type: 3}
   - name: entity/boss/the_giant
     spritesheet:
     - {fileID: 2106222037, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
