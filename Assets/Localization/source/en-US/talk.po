@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-12-22 03:12+0800\n"
-"PO-Revision-Date: 2025-12-22 18:45+0800\n"
+"PO-Revision-Date: 2025-12-23 22:24+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -11585,7 +11585,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:ship_5_over"
 msgid "需要从连射发射器升级！需要——"
-msgstr "It needs to be upgraded from Repeatenser！It needs—"
+msgstr "It needs to be upgraded from Repeatenser! It needs—"
 
 #. Text for talk sentence 3 in talk group ship_5_over's section 0
 #: Talk meta file
