@@ -355,9 +355,14 @@
         <weight base="1250" />
     </entry>
     <entry id="TorchKongfuZombie" entity="mvz2:TorchKongfuZombie">
-        <spawn level="1" />
-        <weight base="5000" />
+        <spawn level="2" />
+        <weight base="4000" />
     </entry>
+	<entry id="Hemperor">
+		<entity id="mvz2:Hemperor" />
+		<spawn level="3" minWave="5" />
+		<weight base="2000" />
+	</entry>
 	
     <!--EXPAND C5-->
     <entry id="Endermite" entity="mvz2:Endermite">

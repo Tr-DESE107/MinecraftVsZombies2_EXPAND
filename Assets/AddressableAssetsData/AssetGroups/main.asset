@@ -8323,6 +8323,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 933250d176c80344e81129e139acc3cd
+    m_Address: mvz2:entity/enemy/EXPAND/DrunkardMonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 935d59a183cb6744bad7da9acdb61c17
     m_Address: mvz2:contraption/upgrade/infectenser
     m_ReadOnly: 0
@@ -12123,6 +12130,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db9cf4c75a62b294d9c18a0a6360accc
+    m_Address: mvz2:enemy/mausoleum/DrunkardMonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc158f8a14c1b36448838afc1a3bfa51
     m_Address: mvz2:entity/zombie/zombie_cry2

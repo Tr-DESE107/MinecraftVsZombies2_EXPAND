@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.lightningOrb,
                 //VanillaContraptionID.fireworkDispenser,
-                VanillaEnemyID.skeletonHorse,
+                VanillaEnemyID.DrunkardMonkZombie,
                 VanillaEnemyID.WitherSkeletonHorse,
                 VanillaEnemyID.AssaultDullahan,
                 VanillaEnemyID.BerserkerHead,

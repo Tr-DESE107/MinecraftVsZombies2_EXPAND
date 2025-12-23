@@ -380,6 +380,12 @@
     <model name="TorchKongfuZombie" type="entity" path="mvz2:enemy/mausoleum/TorchKongfuZombie" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+    <model name="DrunkardMonkZombie" type="entity" path="mvz2:enemy/mausoleum/DrunkardMonkZombie" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+	<model name="Hemperor" type="entity" path="mvz2:enemy/mausoleum/Hemperor" width="70" height="104" xOffset="1" yOffset="-47">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
 
     <!--EXPAND Enemies C5-->
     <model name="HeavyGutant" type="entity" path="mvz2:enemy/ship/HeavyGutant" width="200" height="180" xOffset="0" yOffset="-90" />

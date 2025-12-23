@@ -3667,6 +3667,17 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
     - {fileID: 59550891, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
+  - name: entity/enemy/EXPAND/DrunkardMonkZombie
+    spritesheet:
+    - {fileID: -1000115360, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+    - {fileID: -2062917739, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+    - {fileID: -1545978876, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+    - {fileID: -963583016, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+    - {fileID: -1230088440, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+    - {fileID: -346521355, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+    - {fileID: 622527520, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+    - {fileID: -264404787, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+    - {fileID: -1340100964, guid: 933250d176c80344e81129e139acc3cd, type: 3}
   - name: entity/enemy/EXPAND/Red_MonkZombie
     spritesheet:
     - {fileID: 195686219, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}

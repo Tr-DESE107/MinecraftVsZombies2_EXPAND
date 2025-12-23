@@ -2893,11 +2893,31 @@
 				<condition required="mvz2:level.mausoleum_8" />
 			</unlock>
 			<properties>
-				<float name="mvz2:mass" value="-1" />
 				<int name="mvz2:cost" value="500" />
-				<float name="mvz2:maxHealth" value="1236" />
+				<float name="mvz2:maxHealth" value="400" />
 				<float name="mvz2:damage" value="100" />
 				<float name="mvz2:speed" value="0.75" />
+			</properties>
+		</zombie>
+		<zombie id="DrunkardMonkZombie" name="武僧喝酒僵尸" deathMessage="以游无穷者，彼且恶乎待哉？">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_8" />
+			</unlock>
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<int name="mvz2:cost" value="500" />
+				<float name="mvz2:maxHealth" value="400" />
+				<float name="mvz2:damage" value="100" />
+				<float name="mvz2:speed" value="0.75" />
+			</properties>
+		</zombie>
+		<zombie id="Hemperor" name="皇帝僵尸" deathMessage="中道崩殂">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_8" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
+				<int name="mvz2:cost" value="100" />
 			</properties>
 		</zombie>
 		
@@ -2910,6 +2930,7 @@
 				<float name="mvz2:speed" value="1.25" />
 				<float name="mvz2:maxHealth" value="100" />
 				<id name="mvz2:shell" value="mvz2:flesh" />
+				<float name="mvz2:mass" value="-2" />
 
 				<vector3 name="mvz2:size" x="25" y="10" z="25" />
 				<int name="mvz2:cost" value="50" />
