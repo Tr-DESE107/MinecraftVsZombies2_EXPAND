@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-12-22 03:12+0800\n"
-"PO-Revision-Date: 2025-12-22 15:12+0800\n"
+"PO-Revision-Date: 2025-12-24 12:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4208,7 +4208,7 @@ msgstr ""
 #: Music meta file
 msgctxt "music.name"
 msgid "美猴王-头目"
-msgstr "Monkey King Map"
+msgstr "Monkey King Boss"
 
 #. Description for music mvz2:ship_boss
 #: Music meta file
