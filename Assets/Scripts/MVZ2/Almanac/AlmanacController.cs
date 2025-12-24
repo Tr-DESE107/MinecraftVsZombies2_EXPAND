@@ -329,7 +329,7 @@ namespace MVZ2.Almanacs
         }
         private void ViewContraptions()
         {
-            var page = Main.IsMobile() ? AlmanacPageType.ContraptionsMobile : AlmanacPageType.ContraptionsStandalone;
+            var page = Main.UseMobileLayout() ? AlmanacPageType.ContraptionsMobile : AlmanacPageType.ContraptionsStandalone;
             ui.DisplayPage(page);
             SetActiveContraptionEntry(contraptionEntries.FirstOrDefault(e => e != null));
         }
@@ -387,7 +387,7 @@ namespace MVZ2.Almanacs
             var costText = GetTranslatedString(VanillaStrings.CONTEXT_ALMANAC, COST_LABEL, cost);
             var rechargeText = GetTranslatedString(VanillaStrings.CONTEXT_ALMANAC, RECHARGE_LABEL, recharge);
 
-            var page = Global.Game.IsMobile() ? AlmanacPageType.ContraptionsMobile : AlmanacPageType.ContraptionsStandalone;
+            var page = Main.UseMobileLayout() ? AlmanacPageType.ContraptionsMobile : AlmanacPageType.ContraptionsStandalone;
             UpdateEntryTags(page, type, contraptionID);
 
             var iconInfos = GetDescriptionTagIconInfos(description);

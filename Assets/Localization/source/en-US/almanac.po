@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-27 11:58+0800\n"
-"PO-Revision-Date: 2025-11-27 11:59+0800\n"
+"POT-Creation-Date: 2025-12-22 03:12+0800\n"
+"PO-Revision-Date: 2025-12-24 09:36+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -578,8 +578,8 @@ msgstr "Cloud"
 #. Description for almanac tag enum value mvz2:cloud of enum shell
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
-msgid "受到0.5x冲击伤害"
-msgstr "Takes 0.5x impact damage"
+msgid "受到0.5x冲击或火焰伤害"
+msgstr "Takes 0.5x impact or fire damage"
 
 #. Name for almanac tag enum value mvz2:lightning of enum shell
 #: Almanac meta file
@@ -912,7 +912,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
+msgid "银制发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr "Silvensers shoot piercing knives which can slice <tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>the flesh."
 
 #. Properties for contraptions mvz2:silvenser
@@ -2800,9 +2800,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "曾经开发过一款手机游戏，不过可惜的是，那款游戏很快就停服了。"
-msgstr ""
-"Once developed a 2D platformer back when he put his cannon on his head. He was laid off, and the higher-ups told him to take the "
-"bullet. He's now back for revenge after joining the rival company."
+msgstr "Had once developed a mobile game, but unfortunately, that game was shut down rather quickly."
 
 #. Header for enemies mvz2:cannonball_zombie
 #: Almanac meta file
@@ -3668,18 +3666,18 @@ msgid ""
 "龙巢的火熄灭了。同伴们将龙的尸体分解，把它的牙、眼、爪、骨、鳞、和心脏作为战利品收集了起来。\n"
 "骑士默默看着他们兴奋的样子，最后却什么也没要。"
 msgstr ""
-"The Knight and his group ventured into a giant cave, advancing deeper step by step with torches in their hands.\n"
-"The cave was filled with countless skeletal remains of sheeps, cows, and other monsters. They were scattered everywhere, yet there "
-"doesn't seem to be any human skulls.\n"
-"The Knight listened to the sounds from the depths and eventually lead his team to their target—a red dragon.\n"
-"The Red Dragon was very surprised to see them. It opened its mouth and spoke in the human's language:\n"
+"The Knight and his group ventured into a giant cave, slowly advancing deeper with torches in their hands.\n"
+"The cave was filled with countless skeletal remains of sheep, cows, and other monsters. They were scattered throughout the ground, yet "
+"there did not seem to be any human skulls.\n"
+"The Knight listened to the movements of the depths and eventually led his team to their target—a red dragon.\n"
+"The Red Dragon was very surprised to see them. It opened its mouth and spoke in the tongue of humans:\n"
 "\"You humans, what do you think you're doing here? This is no place for your kind!\"\n"
 "A companion rushed to answer:\n"
 "\"The King's dream foretells the kingdom's imminent destruction by monsters. Thus, in the name of the King, we have come for your head!"
 "\"\n"
-"The Red Dragon's eyes widened, then suddenly sharpened. Those eyes were filled with sorrow and... rage.\n"
-"\"I witnessed my mother's death by the hands of you humans. She killed many of your kind, which led to them rising up against her. "
-"From that point on, I have developed a fear of you humans.\"\n"
+"The Red Dragon's eyes widened, then suddenly sharpened. Those eyes were filled with sorrow—and rage.\n"
+"\"I witnessed my mother's death at the hands of you humans. She killed many of your kind, which led to them rising against her. From "
+"that point on, I have developed a fear of you humans.\"\n"
 "\"For a hundred years, I have avoided provoking you so that no harm would come to me. Yet today, you come for my life because of some "
 "stupid dream?\"\n"
 "\"Is this what I deserve?! Just because you humans deem yourselves to be superior beings?!\"\n"
@@ -3687,10 +3685,10 @@ msgstr ""
 "In that fierce battle where fire and steel clashed, the Red Dragon slowly fell into a disadvantage. In the end, with a final stab to "
 "the throat by the Knight, the Red Dragon collapsed to the ground.\n"
 "\"Greed... will become you humans' grave...\"\n"
-"\"Curse... you all...\"\n"
+"\"This is my... curse... to you all...\"\n"
 "With that, the Red Dragon's eyes fell shut.\n"
 "The fire in the dragon's lair died out. The Knight's companions dismembered the Dragon's corpse, collecting its teeth, eyes, claws, "
-"bones, scales, and heart as war trophies.\n"
+"bones, scales, and heart as their trophies.\n"
 "The Knight watched their exhilaration in silence. In the end, he claimed nothing for himself."
 
 #. Name for almanac group mvz2:misc_entities
@@ -4015,7 +4013,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "危险动作，小鬼僵尸请勿轻易尝试。"
-msgstr "Dangerous action. Imp Zombies should not attempt this."
+msgstr "Dangerous action. Imps should not attempt this."
 
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
@@ -4162,7 +4160,7 @@ msgid ""
 "她这样想着。"
 msgstr ""
 "After Steve fell from the Palanquin Ship, it seemed that she was the one who saved him.\n"
-"However, this wasn't an act out of kindness, but rather because she had set her sights on the Starshards that Steve carries.\n"
+"However, this wasn't an act out of kindness, but rather because she had her eyes on the Starshards that Steve carries.\n"
 "\"As long as I have these Starshards, I might be able to restore Shinmyoumaru's status and overturn the entire Gensokyo.\" This was "
 "what she thought."
 
@@ -4365,14 +4363,15 @@ msgid ""
 "红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白"
 "莲的旅途。"
 msgstr ""
-"She was originally an ordinary tiger youkai, but was then taken in by Byakuren Hijiri and became an avatar of Bishamonten.\n"
+"She was originally an ordinary tiger youkai, but was then taken in by Byakuren Hijiri and became a disciple and the avatar of "
+"Bishamonten.\n"
 "Her relationship with Byakuren is rather complicated. Byakuren worships Bishamonten, and Shou is her disciple, as well as being the "
 "avatar of Bishamonten. Thus, Byakuren is essentially worshipping her own disciple.\n"
 "Shou performs excellently in her duties. She may look very calm and dignified on the surface, but she is actually a very emotional "
 "person.\n"
 "\n"
-"With the appearance of the Red Dragon and the news of Byakuren being lost, Shou discussed with the monks of Myouren Temple and found "
-"the End Ship that Steve is dealing with in the sky. After that, she, Captain Murasa and Steve set out on a journey to find Byakuren."
+"With the appearance of the Red Dragon and the disappearance of Byakuren, Shou discussed with the monks of Myouren Temple and found "
+"Steve to deal with the End Ship in the sky. After that, she, Captain Murasa and Steve set out on a journey to find Byakuren."
 
 #. Name for misc mvz2:nue
 #: Almanac meta file
@@ -4400,7 +4399,7 @@ msgstr ""
 "Nue is a mysterious great youkai who joined the Myouren Temple later on, so she doesn't fit in well with the others there.\n"
 "She enjoys causing mischief and getting in others' way, often using her abilities to interfere with what people are doing.\n"
 "Objects affected by her ability lose their original identifiable characteristics, and are perceived by others as whatever they "
-"consider most plausible—for example, a strange object flying in the sky would be seen as a UFO.\n"
+"consider most plausible—for example, a strange object flying in the sky would be seen as a flying saucer.\n"
 "\n"
 "However, after the incident began, her personality changed drastically. She became deeply pessimistic and dazed, believing that "
 "nothing mattered anymore.\n"
@@ -4445,7 +4444,7 @@ msgstr "Byakuren Hijiri"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "命莲寺的住持，法力无边的高僧。"
-msgstr "The abbot of Myouren Temple, as well as a high monk with boundless magical power."
+msgstr "The head priest of Myouren Temple, as well as a high monk with limitless magical power."
 
 #. Flavor for misc mvz2:byakuren
 #: Almanac meta file
@@ -4459,13 +4458,13 @@ msgid ""
 msgstr ""
 "Byakuren's younger brother, Myouren, was also a monk with immense magical power, but he eventually reached the end of his life and "
 "passed away.\n"
-"Byakuren therefore began to fear death, and as a monk who had studied Buddhism, she ultimately relied on the power of youkai to "
-"achieve immortality, becoming a \"youkai monk\".\n"
-"Thus, Byakuren became a contradictory existence. However, even after humans discovered her secret ties with youkai, and even after "
-"being sealed away, she still continues to revere Buddhism and save all living beings.\n"
+"Byakuren therefore began to fear death, and as a monk who studies Buddhism, she ultimately relied on the power of youkai to achieve "
+"immortality, becoming a \"youkai monk\".\n"
+"Thus, Byakuren became a character with irreconcilable opposites. However, after humans have discovered her secret ties with youkai, "
+"and even after being sealed away, she continues to revere Buddhism, to liberate all beings.\n"
 "\n"
 "Three years ago, the Giant and the Red Dragon appeared at the same time, and she was summoned to eliminate the Red Dragon. However, "
-"this led her to a karmic entanglement, keeping her bound for the past three years."
+"this kept her bound in the chains of causality for the following three years."
 
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
@@ -4663,7 +4662,7 @@ msgstr ""
 "What's strange is that there are no Endermen on board, just regular, pirate-like zombies.\n"
 "What's even stranger is that the ship holds an End Crystal inside it that rapidly repairs the ship's hull.\n"
 "This means that anyone who dares to take down this ship must first destroy the End Crystal inside it. However, when at a disadvantage, "
-"it will choose to flee at lightning speed.\n"
+"the ship will choose to flee at lightning speed.\n"
 "Ultimately, everything about this ship, is a mystery."
 
 #. Name for misc mvz2:palanquin_ship
@@ -4856,7 +4855,7 @@ msgstr ""
 "I have no other choices but to continue fighting it.\n"
 "I feel cracks forming in my sanity.\n"
 "I saw things I shouldn't have seen, then the hallucinations vanished immediately.\n"
-"Those UFOs are still flying in the sky.\n"
+"Those saucers are still flying in the sky.\n"
 "How much longer can I hold on...?"
 
 #. Name for almanac group mvz2:important
@@ -5109,21 +5108,21 @@ msgid ""
 "这间屋子发生过什么事情吗？"
 msgstr ""
 "When Steve fell from the Palanquin Ship, he was rescued by Seija Kijin and brought to this house.\n"
-"After he came out, he was questioned by Sekibanki, who asked him why he had come out from this house.\n"
+"After he came out, he was questioned by Sekibanki, who asked him why he had come out of this house.\n"
 "However, Steve had no idea what actually happened.\n"
-"Did something happened in this house?"
+"Did something happen in this house?"
 
 #. Name for misc mvz2:visitor_which_finding_child
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "寻找孩子的访客"
-msgstr "Visitor in Search of Their Child"
+msgstr "A Visitor Looking for the Visitor's Child"
 
 #. Header for misc mvz2:visitor_which_finding_child
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。"
-msgstr "Byakuren revealed that four years ago, a visitor came to look for their child."
+msgstr "Byakuren revealed that four years ago, a visitor had come looking for the visitor's child."
 
 #. Flavor for misc mvz2:visitor_which_finding_child
 #: Almanac meta file
@@ -5133,10 +5132,10 @@ msgid ""
 "那位访客自称灯兰 樱，为了寻找自己的孩子而来。\n"
 "在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。"
 msgstr ""
-"After Steve resolved the Red Dragon problem, Byakuren told him that four years ago, a visitor came to the Myouren Temple.\n"
-"The visitor called themselves Sakura Touran and came to find their child.\n"
-"After failing to search for their child, the visitor never appeared again. However, Byakuren remained optimistic about the presence of "
-"this visitor."
+"After the resolution with the Red Dragon, Byakuren told Steve that four years ago, a visitor had come to Myouren Temple.\n"
+"The visitor claimed to be Sakura Touran and had come in search of the visitor's child.\n"
+"After failing to find the child, the visitor never appeared again. However, Byakuren remained optimistic about the presence of this "
+"visitor."
 
 #. Name for entity counter mvz2:low_enemy
 #: Entity meta file
@@ -5273,7 +5272,7 @@ msgstr "Shoot strong soulfires, but burn the contraption in front as its fuel"
 #. Name for entity mvz2:silvenser
 #: Entity meta file
 msgctxt "entity.name"
-msgid "银质发射器"
+msgid "银制发射器"
 msgstr "Silvenser"
 
 #. Tooltip for entity mvz2:silvenser
@@ -6933,6 +6932,10 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "entity.name"
+#~ msgid "银质发射器"
+#~ msgstr "Silvenser"
 
 #~ msgctxt "misc.description"
 #~ msgid ""

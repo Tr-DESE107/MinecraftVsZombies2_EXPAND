@@ -72,15 +72,16 @@ namespace MVZ2.Options
             // Misc
             UpdateShowSponsorNamesToggle();
 
+            bool mobile = Main.IsMobile();
             dialog.SetToggleActive(ToggleType.SwapTrigger, Main.SaveManager.IsTriggerUnlocked());
-            dialog.SetToggleActive(ToggleType.Vibration, Main.IsMobile());
-            dialog.SetToggleActive(ToggleType.Fullscreen, !Main.IsMobile());
-            dialog.SetToggleActive(ToggleType.ShowHotkeys, !Main.IsMobile());
+            dialog.SetToggleActive(ToggleType.Vibration, mobile);
+            dialog.SetToggleActive(ToggleType.Fullscreen, !mobile);
+            dialog.SetToggleActive(ToggleType.ShowHotkeys, !mobile);
 
             dialog.SetButtonActive(ButtonType.CommandBlockMode, Main.SaveManager.IsCommandBlockUnlocked());
 
-            dialog.SetButtonActive(ButtonType.Keybinding, !Main.IsMobile());
-            dialog.SetDropdownActive(DropdownType.Resolution, !Main.IsMobile());
+            dialog.SetButtonActive(ButtonType.Keybinding, !mobile);
+            dialog.SetDropdownActive(DropdownType.Resolution, !mobile);
 
             dialog.SetPage(Page.Main);
         }

@@ -558,6 +558,10 @@ namespace MVZ2.GameContent.Bosses
         private class PunchState : EntityStateMachineState
         {
             public PunchState() : base(STATE_PUNCH, ANIMATION_STATE_PUNCH) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                return substate;
+            }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);

@@ -23,7 +23,7 @@ namespace MVZ2.Models
         {
             var main = MainManager.Instance;
             var resourceManager = main.ResourceManager;
-            bool isMobile = main.IsMobile();
+            bool isMobile = main.UseMobileLayout();
             var blueprintID = Model.GetProperty<NamespaceID>("ContentID");
             var commandBlock = Model.GetProperty<bool>("CommandBlock");
             if (lastID != blueprintID || lastCommandBlock != commandBlock)

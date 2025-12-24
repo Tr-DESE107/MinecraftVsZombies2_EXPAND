@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-26 09:39+0800\n"
+"POT-Creation-Date: 2025-12-22 03:12+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -575,7 +575,7 @@ msgid "红桃A"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:24
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:20
 msgctxt "random_china.event_name"
 msgid "黑桃A"
 msgstr ""
@@ -599,19 +599,19 @@ msgid "超级充能"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:46
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:43
 msgctxt "random_china.event_name"
 msgid "VIII-力量"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:29
 msgctxt "random_china.event_name"
 msgid "IV-皇帝"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:30
 msgctxt "random_china.event_name"
 msgid "0-愚者"
 msgstr ""
@@ -623,7 +623,7 @@ msgid "XII-倒吊人"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:34
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:30
 msgctxt "random_china.event_name"
 msgid "XVII-星星"
 msgstr ""
@@ -1433,41 +1433,41 @@ msgid "点击以开始！"
 msgstr ""
 
 # 前景图生效时的对话模板，{0}为讨论者，{1}为文本
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:874
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:936
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 msgstr ""
 
 # 跳过对话时的提示，{0}为对话名称
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:876
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:938
 msgid "已跳过对话\"{0}\""
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:275
+#: Scripts\MVZ2\Store\StoreController.cs:289
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:277
+#: Scripts\MVZ2\Store\StoreController.cs:291
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] ""
 msgstr[1] ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:279
+#: Scripts\MVZ2\Store\StoreController.cs:293
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:281
+#: Scripts\MVZ2\Store\StoreController.cs:295
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:283
+#: Scripts\MVZ2\Store\StoreController.cs:297
 msgid "{0}/{1}"
 msgstr ""
 
@@ -1536,144 +1536,144 @@ msgid "确认要重置所有按键绑定吗？"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:606
+#: Scripts\MVZ2\Options\OptionsLogic.cs:607
 msgid "交换触发"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:608
+#: Scripts\MVZ2\Options\OptionsLogic.cs:609
 msgid "全屏"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:610
+#: Scripts\MVZ2\Options\OptionsLogic.cs:611
 msgid "设备震动"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:612
+#: Scripts\MVZ2\Options\OptionsLogic.cs:613
 msgid "后台暂停"
 msgstr ""
 
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\OptionsLogic.cs:614
+#: Scripts\MVZ2\Options\OptionsLogic.cs:615
 msgid "难度：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:618
+#: Scripts\MVZ2\Options\OptionsLogic.cs:619
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:620
+#: Scripts\MVZ2\Options\OptionsLogic.cs:621
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:622
+#: Scripts\MVZ2\Options\OptionsLogic.cs:623
 msgid "加速倍率：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:624
+#: Scripts\MVZ2\Options\OptionsLogic.cs:625
 msgid "动画频率：{0}"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:626
+#: Scripts\MVZ2\Options\OptionsLogic.cs:627
 msgid "HDR光照"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:629
+#: Scripts\MVZ2\Options\OptionsLogic.cs:630
 msgid "血与碎块"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:632
+#: Scripts\MVZ2\Options\OptionsLogic.cs:633
 msgid "跳过对话"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:634
+#: Scripts\MVZ2\Options\OptionsLogic.cs:635
 msgid "赞助者名称"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:636
+#: Scripts\MVZ2\Options\OptionsLogic.cs:637
 msgid "选卡警告"
 msgstr ""
 
 # 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:638
+#: Scripts\MVZ2\Options\OptionsLogic.cs:639
 msgid "命令方块：{0}"
 msgstr ""
 
 # 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:640
+#: Scripts\MVZ2\Options\OptionsLogic.cs:641
 msgid "显示帧率：{0}"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:642
+#: Scripts\MVZ2\Options\OptionsLogic.cs:643
 msgid "高度指示器"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:644
+#: Scripts\MVZ2\Options\OptionsLogic.cs:645
 msgid "显示快捷键"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:647
+#: Scripts\MVZ2\Options\OptionsLogic.cs:648
 msgctxt "option.command_block_mode"
 msgid "手选"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:649
+#: Scripts\MVZ2\Options\OptionsLogic.cs:650
 msgctxt "option.command_block_mode"
 msgid "前位"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:652
+#: Scripts\MVZ2\Options\OptionsLogic.cs:653
 msgctxt "option.fps_mode"
 msgid "关闭"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:654
+#: Scripts\MVZ2\Options\OptionsLogic.cs:655
 msgctxt "option.fps_mode"
 msgid "左上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:656
+#: Scripts\MVZ2\Options\OptionsLogic.cs:657
 msgctxt "option.fps_mode"
 msgid "右上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:658
+#: Scripts\MVZ2\Options\OptionsLogic.cs:659
 msgctxt "option.fps_mode"
 msgid "左下"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:660
+#: Scripts\MVZ2\Options\OptionsLogic.cs:661
 msgctxt "option.fps_mode"
 msgid "右下"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:663
+#: Scripts\MVZ2\Options\OptionsLogic.cs:664
 msgid "粒子数量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:665
+#: Scripts\MVZ2\Options\OptionsLogic.cs:666
 msgid "屏幕震动：{0}"
 msgstr ""
 
@@ -1796,38 +1796,38 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:728
+#: Scripts\MVZ2\Map\MapController.cs:732
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:730
+#: Scripts\MVZ2\Map\MapController.cs:734
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:732
+#: Scripts\MVZ2\Map\MapController.cs:736
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:734
+#: Scripts\MVZ2\Map\MapController.cs:738
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:736
+#: Scripts\MVZ2\Map\MapController.cs:740
 msgid "目标地点{0}不存在。"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:738
+#: Scripts\MVZ2\Map\MapController.cs:742
 msgid "目标关卡{0}不存在。"
 msgstr ""
 
@@ -2664,12 +2664,12 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:317
+#: Scripts\MVZ2\Managers\MainManager.cs:321
 msgid "获取赞助者列表……"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:319
+#: Scripts\MVZ2\Managers\MainManager.cs:323
 msgid "{0}%"
 msgstr ""
 
@@ -2821,12 +2821,12 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:254
+#: Scripts\MVZ2\Archive\ArchiveController.cs:258
 msgid "<b>[{0}]</b> {1}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:256
+#: Scripts\MVZ2\Archive\ArchiveController.cs:260
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -3465,7 +3465,7 @@ msgstr ""
 #. Name for music mvz2:halloween_boss
 #: Music meta file
 msgctxt "music.name"
-msgid "莱克死灵之书-首领"
+msgid "莱克死灵之书-头目"
 msgstr ""
 
 #. Description for music mvz2:halloween_boss
@@ -3815,7 +3815,7 @@ msgstr ""
 #. Name for music mvz2:wither_boss
 #: Music meta file
 msgctxt "music.name"
-msgid "惊疑星球-首领"
+msgid "惊疑星球-头目"
 msgstr ""
 
 #. Description for music mvz2:wither_boss
@@ -4077,6 +4077,12 @@ msgstr ""
 #: Archive meta file
 msgctxt "archive.tagname"
 msgid "梦殿大祀庙"
+msgstr ""
+
+#. Name for archive tag mvz2:ship
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "圣辇船"
 msgstr ""
 
 #. Name for archive tag mvz2:tutorial
@@ -4687,6 +4693,18 @@ msgstr ""
 #: Credits meta file
 msgctxt "staff_name"
 msgid "Charlie Calvin"
+msgstr ""
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Victor"
+msgstr ""
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Boshyko"
 msgstr ""
 
 #. Name for credits category 特别感谢

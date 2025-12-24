@@ -25,7 +25,7 @@ namespace MVZ2.Level
         {
             ui.OnExitLevelToNoteCalled += OnUIExitLevelToNoteCalledCallback;
             ui.OnStartGameCalled += StartGame;
-            ui.SetMobile(Main.IsMobile());
+            ui.SetMobile(Main.UseMobileLayout());
 
             var uiPreset = GetUIPreset();
             uiPreset.OnRaycastReceiverPointerInteraction += UI_OnRaycastReceiverPointerInteractionCallback;

@@ -1,3 +1,5 @@
+# 0.5.0
+
 ## Added
 - Added chapter 5 - Palanquin Ship.
 - Added "HDR Lighting" option.
@@ -17,6 +19,7 @@
 - Silvenser's energy cost reduced from 175 to 150.
 - Dream Crystal healing amount increased from 40/sec to 60/sec.
 - Bottle Blackhole damage bonus reduced from 15% to 10%.
+- Desire Pot's energy cost reduced from 200 to 125, recharge time reduced from Very Long to Long.
 - Talisman Zombie toughness increased from 200 to 350.
 - Zombies whose Divine Shield is broken can no longer be re-shielded by Emperor Zombie for 5 seconds.
 - Gargoyle Statue and Spawner now prioritize spawning in locations without contraptions.
@@ -39,6 +42,7 @@
 - Night-time contraptions during the day can no longer use the instant evoke function.
 - All darkness effects are now canceled after a level is completed.
 - Levels that have already been completed can no longer result in a game over due to certain monsters.
+- Updated the place sound of Silvenser, Gravity Pad, Spike Block, Golden Apple, Force Pad and Golden Dropper.
 
 ## Fixes
 - Fixed an issue where the "Earned!" text for achievements sometimes would not be translated according to the game language.
