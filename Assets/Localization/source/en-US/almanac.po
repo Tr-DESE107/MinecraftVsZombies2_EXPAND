@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-12-22 03:12+0800\n"
-"PO-Revision-Date: 2025-12-22 15:19+0800\n"
+"PO-Revision-Date: 2025-12-24 09:36+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2800,9 +2800,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "曾经开发过一款手机游戏，不过可惜的是，那款游戏很快就停服了。"
-msgstr ""
-"Once developed a 2D platformer back when he put his cannon on his head. He was laid off, and the higher-ups told him to take the "
-"bullet. He's now back for revenge after joining the rival company."
+msgstr "Had once developed a mobile game, but unfortunately, that game was shut down rather quickly."
 
 #. Header for enemies mvz2:cannonball_zombie
 #: Almanac meta file
