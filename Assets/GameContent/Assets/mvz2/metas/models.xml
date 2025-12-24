@@ -367,6 +367,7 @@
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>
+    <model name="SantaHat" type="armor" path="mvz2:armor/SantaHat" width="33" height="14" xOffset="0" yOffset="0"/>
     <model name="iron_helmet" type="armor" path="mvz2:armor/iron_helmet" width="33" height="14" xOffset="0" yOffset="0"/>
 	<model name="SandstoneHelmet" type="armor" path="mvz2:armor/SandstoneHelmet" width="33" height="14" xOffset="0" yOffset="0"/>
 	<model name="necromancer_helmet" type="armor" path="mvz2:armor/necromancer_helmet" width="32" height="14" xOffset="0" yOffset="-9"/>

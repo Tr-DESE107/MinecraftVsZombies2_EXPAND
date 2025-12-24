@@ -127,6 +127,15 @@
                 <float name="mvz2:maxHealth" value="50" />
             </props>
         </entry>
+		<entry id="SantaHat">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3"/>
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:grass" />
+				<float name="mvz2:maxHealth" value="1" />
+			</props>
+		</entry>
 
         <!-- Shields -->
         <entry id="reflective_barrier">

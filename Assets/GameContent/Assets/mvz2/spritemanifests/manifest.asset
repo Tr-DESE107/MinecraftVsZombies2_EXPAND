@@ -1626,6 +1626,11 @@ MonoBehaviour:
     - {fileID: -936124431, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
     - {fileID: -901474504, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
     - {fileID: -1909635451, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
+  - name: entity/armor/SantaHat
+    spritesheet:
+    - {fileID: 1080064558, guid: 2810a44838bc11e43bd8fdc1d8b4afc2, type: 3}
+    - {fileID: 719503541, guid: 2810a44838bc11e43bd8fdc1d8b4afc2, type: 3}
+    - {fileID: -1739647881, guid: 2810a44838bc11e43bd8fdc1d8b4afc2, type: 3}
   - name: entity/armor/skeleton_warrior_helmet
     spritesheet:
     - {fileID: -1055558042, guid: 8f4a25505be15d244b85ae394574d811, type: 3}

@@ -1298,6 +1298,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19307f5f371004649a3c9c1ff523ea22
+    m_Address: mvz2:armor/SantaHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19367036b5ca6424f82e919a1c6d205d
     m_Address: mvz2:entity/enemy/ReverserArm
     m_ReadOnly: 0
@@ -2067,6 +2074,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2810a44838bc11e43bd8fdc1d8b4afc2
+    m_Address: mvz2:entity/armor/SantaHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2815df395a9eef547b9b5664b558bab2
     m_Address: mvz2:enemy/ship/HeavyGutant
@@ -3948,6 +3962,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b4d201db18ec25468ea644aeeecdbf5
+    m_Address: mvz2:entity/projectiles/ObsidianShard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b51cc39a60d7e948b8c2211fa2ff426
     m_Address: mvz2:paper
@@ -6587,6 +6608,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 807a521e14704594d9ee147ad6bf80a0
+    m_Address: mvz2:contraption/EXPAND/Barrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 809e4de12be7bbe449af3c985df50630
     m_Address: mvz2:gravitation
     m_ReadOnly: 0
@@ -6649,6 +6677,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81e0ae829ed870a4ea32710fd94a5f1b
+    m_Address: mvz2:enemy/EXPAND/RandomSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8232e349821c7af46bf3bb99ffabf9d9
     m_Address: mvz2:pop
@@ -7812,6 +7847,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b6dab228eaeddf4f910056ea4e4b8e9
+    m_Address: mvz2:mobile_blueprint/RandomSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b8f9b60cb93b264999ef94bc554c64b
     m_Address: mvz2:achievements
     m_ReadOnly: 0
@@ -8045,6 +8087,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a02daf75bb803ad4a9a1307f593ad6a1
     m_Address: mvz2:mainmenu/addons
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0454c11f25578e4dbc44e2e9395038a
+    m_Address: mvz2:entity/contraption/G.I
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8791,6 +8840,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b13c3fbc306a24341911cb0231949ec1
+    m_Address: mvz2:entity/enemy/RandomKingSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b183abb28c7b13c4995d0fc7bfaa8299
     m_Address: mvz2:mainmenu/more_menus
@@ -9695,6 +9751,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4ba5f46ec72d0744ac9b11699e609f7
+    m_Address: mvz2:entity/contraption/Barrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4bdf350a8df52941b184c7cd8e2f543
     m_Address: mvz2:effect/cursed_fire_particles
     m_ReadOnly: 0
@@ -10192,6 +10255,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdf7b39039af96945b294231cc85b615
+    m_Address: mvz2:mobile_blueprint/RandomKingSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce109489a825acd458d21b37f6b8e3ab
     m_Address: mvz2:nightmare_portal
     m_ReadOnly: 0
@@ -10681,6 +10751,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8452731205578b4e9b7c59890255ce2
+    m_Address: mvz2:entity/enemy/RandomSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d89d131147847e74f971f991d5baa0ab
     m_Address: mvz2:enemy/castle/reverse_satellite
@@ -11543,6 +11620,13 @@ MonoBehaviour:
     - AreaModel
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ece7ca8dda1ba59428522f6a1fb6bd3f
+    m_Address: mvz2:projectile/ObsidianShard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecf0ee3020934614c9673de172a435cd
     m_Address: mvz2:characters/futo
     m_ReadOnly: 0
@@ -12207,6 +12291,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f91aa05739c7db1439b005f2b5a4f981
+    m_Address: mvz2:enemy/EXPAND/RandomKingSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f93254b2bdb08be49a7e75dd050b27ed
     m_Address: mvz2:entity/enemy/ReverserBody1
