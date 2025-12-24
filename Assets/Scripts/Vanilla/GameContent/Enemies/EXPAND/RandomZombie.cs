@@ -12,7 +12,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 using System.Linq;
-using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
@@ -98,7 +97,7 @@ namespace MVZ2.GameContent.Enemies
             // 在原位置生成僵尸  
             var spawned = entity.SpawnWithParams(enemyID, entity.Position);
 
-
+            entity.Remove();
         }
     }
 }

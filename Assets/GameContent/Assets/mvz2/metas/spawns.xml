@@ -426,5 +426,14 @@
         <spawn level="1" />
         <weight base="1500" />
     </entry>
+	<entry id="RandomKingSkeleton" entity="mvz2:RandomKingSkeleton">
+		<spawn level="3" minWave="5" />
+		<weight base="1500" />
+	</entry>
+	<entry id="RandomSkeleton">
+		<entity id="mvz2:RandomSkeleton" />
+		<spawn level="2" />
+		<weight base="5000" />
+	</entry>
 
 </spawns>

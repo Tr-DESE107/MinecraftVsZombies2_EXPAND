@@ -2788,6 +2788,7 @@
                 <p><![CDATA[<color=grey>这是否说明玩家模型TNT和玩家模型是同种■■？</color>]]></p>
             </flavor>
         </entry>
+		<!--EXPAND Random-->
         <entry id="mvz2:RandomZombie">
             <header>
                 <p>随机僵尸血量归零后会变成其他怪物。</p>
@@ -2828,6 +2829,32 @@
                 <p>这看上去就是这家伙死后原地召唤其他突变怪物。</p>
             </flavor>
         </entry>
+		<entry id="mvz2:RandomSkeleton">
+			<header>
+				<p>随机骷髅血量归零后会变成其他骷髅。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>比起僵尸们喜欢过万圣节，骷髅们更喜欢过圣诞节（大抵是因为圣诞节服装防寒）。他们为圣诞节准备了精心的服装，这份服装的价格一般能买下几只无弓的骷髅。</p>
+				<p>所以当你打破他们的衣服时，他们真的会很生气，以至于变成其他骷髅。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:RandomKingSkeleton">
+			<header>
+				<p>随机国王骷髅血量归零后会变成其他强大的骷髅。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>500</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.75</color>]]></p>
+			</properties>
+			<flavor>
+				<p>不同于其他穷鬼骷髅国王，随机国王骷髅真的很有钱，他能给自己整一套金衣服，不是镀金，而是纯金！</p>
+				<p>这让你打破他的衣服时，他会变得更加愤怒，以至于骷髅种类都有可能改变</p>
+			</flavor>
+		</entry>
         
         
     </enemies>

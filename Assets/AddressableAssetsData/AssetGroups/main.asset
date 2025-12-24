@@ -8729,6 +8729,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b6dab228eaeddf4f910056ea4e4b8e9
+    m_Address: mvz2:mobile_blueprint/RandomSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b8f9b60cb93b264999ef94bc554c64b
     m_Address: mvz2:achievements
     m_ReadOnly: 0
@@ -9841,6 +9848,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b13c3fbc306a24341911cb0231949ec1
+    m_Address: mvz2:entity/enemy/RandomKingSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b183abb28c7b13c4995d0fc7bfaa8299
     m_Address: mvz2:mainmenu/more_menus
@@ -11438,6 +11452,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdf7b39039af96945b294231cc85b615
+    m_Address: mvz2:mobile_blueprint/RandomKingSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce109489a825acd458d21b37f6b8e3ab
     m_Address: mvz2:nightmare_portal
     m_ReadOnly: 0
@@ -11976,6 +11997,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8452731205578b4e9b7c59890255ce2
+    m_Address: mvz2:entity/enemy/RandomSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d89d131147847e74f971f991d5baa0ab
     m_Address: mvz2:enemy/castle/reverse_satellite
@@ -13733,6 +13761,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f91aa05739c7db1439b005f2b5a4f981
+    m_Address: mvz2:enemy/EXPAND/RandomKingSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f93254b2bdb08be49a7e75dd050b27ed
     m_Address: mvz2:entity/enemy/ReverserBody1

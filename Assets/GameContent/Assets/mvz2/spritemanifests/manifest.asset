@@ -495,8 +495,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 679ba871c15282d4d995e64c33711c8b, type: 3}
   - name: mobile_blueprint/RandomImp
     sprite: {fileID: 21300000, guid: d32ee8354a9a0ab49ba5cd903b5a0495, type: 3}
+  - name: mobile_blueprint/RandomKingSkeleton
+    sprite: {fileID: 21300000, guid: cdf7b39039af96945b294231cc85b615, type: 3}
   - name: mobile_blueprint/RandomMutant
     sprite: {fileID: 21300000, guid: 09bafedd0d8184c498cefddd99edf39d, type: 3}
+  - name: mobile_blueprint/RandomSkeleton
+    sprite: {fileID: 21300000, guid: 9b6dab228eaeddf4f910056ea4e4b8e9, type: 3}
   - name: mobile_blueprint/RandomZombie
     sprite: {fileID: 21300000, guid: 3d6bf327ed09d9f4fbcc43fd19b35758, type: 3}
   - name: mobile_blueprint/random_china
@@ -2957,6 +2961,14 @@ MonoBehaviour:
     - {fileID: -497240914, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
     - {fileID: -662110431, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
     - {fileID: -1722542415, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+  - name: entity/enemy/RandomKingSkeleton
+    spritesheet:
+    - {fileID: -799078810, guid: b13c3fbc306a24341911cb0231949ec1, type: 3}
+    - {fileID: -2001294688, guid: b13c3fbc306a24341911cb0231949ec1, type: 3}
+    - {fileID: 1469487010, guid: b13c3fbc306a24341911cb0231949ec1, type: 3}
+    - {fileID: 2086491129, guid: b13c3fbc306a24341911cb0231949ec1, type: 3}
+    - {fileID: 421935428, guid: b13c3fbc306a24341911cb0231949ec1, type: 3}
+    - {fileID: 1665180377, guid: b13c3fbc306a24341911cb0231949ec1, type: 3}
   - name: entity/enemy/RandomMutant
     spritesheet:
     - {fileID: 902493777, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
@@ -2976,6 +2988,13 @@ MonoBehaviour:
     - {fileID: 900264884, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
     - {fileID: -668233637, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
     - {fileID: 2013098618, guid: 2857c107e1a215140972a6e8ef1341e6, type: 3}
+  - name: entity/enemy/RandomSkeleton
+    spritesheet:
+    - {fileID: 1872116702, guid: d8452731205578b4e9b7c59890255ce2, type: 3}
+    - {fileID: -78282287, guid: d8452731205578b4e9b7c59890255ce2, type: 3}
+    - {fileID: -1692796025, guid: d8452731205578b4e9b7c59890255ce2, type: 3}
+    - {fileID: -1229316516, guid: d8452731205578b4e9b7c59890255ce2, type: 3}
+    - {fileID: 92772649, guid: d8452731205578b4e9b7c59890255ce2, type: 3}
   - name: entity/enemy/RandomZombie
     spritesheet:
     - {fileID: 2048448230, guid: e5a2b51b04d7cb341aca110547a3ec0b, type: 3}

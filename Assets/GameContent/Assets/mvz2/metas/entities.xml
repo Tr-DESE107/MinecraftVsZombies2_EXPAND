@@ -3204,6 +3204,9 @@
             <unlock>
                 <condition required="mvz2:level.vsRandomZombie" />
             </unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented" />
+			</behaviours>
             <properties>
                 <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="1800" />
@@ -3223,6 +3226,7 @@
                 <int name="mvz2:waterInteraction" value="3" />
 
 				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+				<id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
             </properties>
         </mutantZombie>
 
@@ -3230,10 +3234,14 @@
             <unlock>
                 <condition required="mvz2:level.vsRandomZombie" />
             </unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented" />
+			</behaviours>
             <properties>
                 <int name="mvz2:cost" value="225" />
                 <float name="mvz2:maxHealth" value="450" />
 				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+				<id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
             </properties>
         </zombie>
 
@@ -3241,6 +3249,9 @@
             <unlock>
                 <condition required="mvz2:level.vsRandomZombie" />
             </unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented" />
+			</behaviours>
             <properties>
                 <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:fallResistance" value="18" />
@@ -3253,8 +3264,54 @@
                 <float name="mvz2:damage" value="100" />
 
 				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+				<id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
             </properties>
         </Imp_Exp>
+
+		<Skeleton_Exp id="RandomSkeleton" name="随机骷髅" deathMessage="被射成刺猬了！">
+			<unlock>
+				<condition required="mvz2:level.vsRandomZombie" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
+				<behaviour operator="remove" id="mvz2:enemy_melee" />
+				<behaviour operator="add" id="mvz2:fragmented" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
+				<float name="mvz2:maxHealth" value="300" />
+
+				<int name="mvz2:cost" value="150" />
+
+				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+				<id name="mvz2:fragmentId" value="mvz2:Santa" />
+			</properties>
+		</Skeleton_Exp>
+		<Skeleton_Exp id="RandomKingSkeleton" name="随机国王骷髅" deathMessage="你挂了\n死亡带走了12450金币和经验值">
+			<unlock>
+				<condition required="mvz2:level.vsRandomZombie" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented" />
+			</behaviours>
+			<properties>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
+				<float name="mvz2:maxHealth" value="500" />
+				<float name="mvz2:speed" value="0.75" />
+				<int name="mvz2:cost" value="500" />
+
+				<id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+				<id name="mvz2:fragmentId" value="mvz2:GoldenSanta" />
+			</properties>
+		</Skeleton_Exp>
 
         <!-- Token Enemies-->
         <specialEnemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？">

@@ -420,6 +420,12 @@
     <model name="RandomImp" type="entity" path="mvz2:enemy/EXPAND/RandomImp" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+	<model name="RandomSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
+	<model name="RandomKingSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomKingSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="-44" />

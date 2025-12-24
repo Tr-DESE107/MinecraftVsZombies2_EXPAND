@@ -356,4 +356,16 @@
 			<key hex="#b10000" time="0.3"/>
 		</colorKeys>
 	</fragment>
+	<fragment name="Santa">
+		<colorKeys>
+			<key hex="#FF0000" time="0.75"/>
+			<key hex="#FFFFFF" time="1"/>
+		</colorKeys>
+	</fragment>
+	<fragment name="GoldenSanta">
+		<colorKeys>
+			<key hex="#FFD700" time="0.75"/>
+			<key hex="#FFFFFF" time="1"/>
+		</colorKeys>
+	</fragment>
 </fragments>
