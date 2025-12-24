@@ -89,7 +89,7 @@ namespace MVZ2.GameContent.Enemies
 
             // 在原位置生成僵尸  
             var spawned = entity.SpawnWithParams(enemyID, entity.Position);
-
+            entity.Remove();
 
         }
     }

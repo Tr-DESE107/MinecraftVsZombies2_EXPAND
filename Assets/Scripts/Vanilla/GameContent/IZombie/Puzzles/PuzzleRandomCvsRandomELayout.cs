@@ -18,6 +18,8 @@ namespace MVZ2.GameContent.IZombie
                 VanillaEnemyID.RandomZombie,
                 VanillaEnemyID.RandomMutant,
                 VanillaEnemyID.RandomImp,
+                VanillaEnemyID.RandomSkeleton,
+                VanillaEnemyID.RandomKingSkeleton,
                 
             };
         }

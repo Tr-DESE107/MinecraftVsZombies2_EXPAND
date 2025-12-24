@@ -79,6 +79,8 @@
     <model name="flag_zombie" type="entity" path="mvz2:enemy/prologue/flag_zombie" width="64" height="96" xOffset="10" yOffset="-44"/>
 
     <model name="skeleton" type="entity" path="mvz2:enemy/halloween/skeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
+    <model name="RandomSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="RandomKingSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomKingSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
 
 
 	

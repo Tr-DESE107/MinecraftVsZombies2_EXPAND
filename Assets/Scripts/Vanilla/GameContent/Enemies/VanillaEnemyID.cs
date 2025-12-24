@@ -131,6 +131,8 @@ namespace MVZ2.GameContent.Enemies
         public const string RandomZombie = "RandomZombie";
         public const string RandomMutant = "RandomMutant";
         public const string RandomImp = "RandomImp";
+        public const string RandomSkeleton = "RandomSkeleton";
+        public const string RandomKingSkeleton = "RandomKingSkeleton";
 
 
     }
@@ -258,6 +260,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID RandomZombie = Get(VanillaEnemyNames.RandomZombie);
         public static readonly NamespaceID RandomMutant = Get(VanillaEnemyNames.RandomMutant);
         public static readonly NamespaceID RandomImp = Get(VanillaEnemyNames.RandomImp);
+        public static readonly NamespaceID RandomSkeleton = Get(VanillaEnemyNames.RandomSkeleton);
+        public static readonly NamespaceID RandomKingSkeleton = Get(VanillaEnemyNames.RandomKingSkeleton);
 
         private static NamespaceID Get(string name)
         {

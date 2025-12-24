@@ -1699,6 +1699,8 @@
 			<spawn id="mvz2:berserker"/>
 			<spawn id="mvz2:NetherWarrior"/>
 			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:RandomSkeleton"/>
+			<spawn id="mvz2:RandomKingSkeleton"/>
 		</spawns>
 		<properties>
 			
@@ -1825,6 +1827,8 @@
 			<spawn id="mvz2:RandomZombie"/>
 			<spawn id="mvz2:RandomMutant"/>
 			<spawn id="mvz2:RandomImp"/>
+			<spawn id="mvz2:RandomKingSkeleton"/>
+			<spawn id="mvz2:RandomSkeleton"/>
 
 		</spawns>
 		<properties>

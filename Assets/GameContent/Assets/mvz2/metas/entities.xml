@@ -1298,7 +1298,7 @@
 				<int name="mvz2:cost" value="300" />
 			</properties>
 		</humanoid>
-		
+
 		<humanoid id="EvilMage" name="邪灵法师" deathMessage="你挂了\n死亡带走了10710765535金币和经验值"
             unlock="mvz2:level.halloween_14">
 			<properties>
@@ -2157,6 +2157,9 @@
 		
 		<!-- RANDOM ENEMY -->
 		<enemy id="RandomMutant" name="突变随机僵尸" deathMessage="是哪种突变怪物打死了你啊？" unlock="mvz2:level.vsRandomZombie">
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented"/>
+			</behaviours>
 			<properties>
 				<float name="mvz2:mass" value="2" />
 				<float name="mvz2:maxHealth" value="1800" />
@@ -2172,20 +2175,28 @@
 				<int name="mvz2:vehicleInteraction" value="2" />
 				<vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
 
+				<id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
+
 				<int name="mvz2:cost" value="500" />
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
 		</enemy>
 
 		<zombie id="RandomZombie" name="随机僵尸" deathMessage="是哪种僵尸打死了你啊？" unlock="mvz2:level.vsRandomZombie">
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented"/>
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="225" />
-				
+				<id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
 				<float name="mvz2:maxHealth" value="450" />
 			</properties>
 		</zombie>
 
 		<enemy id="RandomImp" name="随机小鬼僵尸" deathMessage="是哪种小鬼打死了你啊？" unlock="mvz2:level.vsRandomZombie" >
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented"/>
+			</behaviours>
 			<properties>
 				<bool name="mvz2:undead" value="false" />
 				<float name="mvz2:mass" value="-1" />
@@ -2197,8 +2208,43 @@
 				<float name="mvz2:maxHealth" value="300"/>
 				<float name="mvz2:speed" value="2.4"/>
 				<float name="mvz2:damage" value="100"/>
+				<id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
 			</properties>
 		</enemy>
+
+		<humanoid id="RandomKingSkeleton" name="随机国王骷髅" deathMessage="你挂了\n死亡带走了12450金币和经验值"
+            unlock="mvz2:level.vsRandomZombie">
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented"/>
+			</behaviours>
+			<properties>
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
+				<float name="mvz2:maxHealth" value="350"/>
+				<float name="mvz2:speed" value="0.75" />
+				<int name="mvz2:cost" value="500" />
+				<id name="mvz2:fragmentId" value="mvz2:GoldenSanta" />
+			</properties>
+		</humanoid>
+
+		<humanoid id="RandomSkeleton" name="随机骷髅" deathMessage="被射成刺猬了！" unlock="mvz2:level.vsRandomZombie">
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented"/>
+			</behaviours>
+			<properties>
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
+				<id name="mvz2:fragmentId" value="mvz2:Santa" />
+
+				<int name="mvz2:cost" value="175" />
+			</properties>
+		</humanoid>
 
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
