@@ -317,6 +317,8 @@
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 
+	<model name="AngryGhast" type="entity" path="mvz2:enemy/dream/AngryGhast" width="64" height="64" xOffset="0" yOffset="-28" />
+
     <model name="SpiderQueen" type="entity" path="mvz2:enemy/dream/SpiderQueen" width="108" height="108" xOffset="0" yOffset="-48" />
 
     <!--EXPAND Enemies C3-->

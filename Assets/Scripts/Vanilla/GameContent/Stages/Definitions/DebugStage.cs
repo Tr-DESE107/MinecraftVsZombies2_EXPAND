@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.DrunkardMonkZombie,
                 VanillaEnemyID.WitherSkeletonHorse,
                 VanillaEnemyID.AssaultDullahan,
-                VanillaEnemyID.BerserkerHead,
+                VanillaEnemyID.AngryGhast,
                 VanillaEnemyID.WintherMage,
                 VanillaEnemyID.KingofReverser,
             });

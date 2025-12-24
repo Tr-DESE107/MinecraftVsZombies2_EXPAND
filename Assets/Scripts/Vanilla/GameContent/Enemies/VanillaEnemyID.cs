@@ -81,7 +81,9 @@ namespace MVZ2.GameContent.Enemies
         public const string HostHead = "HostHead";
         public const string HostMutant = "HostMutant";
         public const string HostIMP = "HostIMP";
+
         public const string EnragedHostZombie = "EnragedHostZombie";
+        public const string AngryGhast = "AngryGhast";
 
         public const string SpiderQueen = "SpiderQueen"; //todo
 
@@ -213,7 +215,9 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID SpiderQueen = Get(VanillaEnemyNames.SpiderQueen);
         public static readonly NamespaceID HostMutant = Get(VanillaEnemyNames.HostMutant);
         public static readonly NamespaceID HostIMP = Get(VanillaEnemyNames.HostIMP);
+
         public static readonly NamespaceID EnragedHostZombie = Get(VanillaEnemyNames.EnragedHostZombie);
+        public static readonly NamespaceID AngryGhast = Get(VanillaEnemyNames.AngryGhast);
 
         //EXPAND_C3
         public static readonly NamespaceID WitherSkeleton = Get(VanillaEnemyNames.WitherSkeleton);
