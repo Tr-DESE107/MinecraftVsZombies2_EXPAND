@@ -1,3 +1,5 @@
+# 0.5.0
+
 ## Added
 - Added chapter 5 - Palanquin Ship.
 - Added "HDR Lighting" option.
