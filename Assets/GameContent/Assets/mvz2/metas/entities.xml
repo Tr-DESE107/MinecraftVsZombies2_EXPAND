@@ -1725,6 +1725,8 @@
                 <int name="mvz2:airInteraction" value="2" />
 
                 <int name="mvz2:cost" value="600" />
+
+				<id name="mvz2:starting_armor" value="" />
             </properties>
         </enemy>
         <enemy id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！" unlock="mvz2:level.castle_9">
@@ -1815,6 +1817,8 @@
 				<float name="mvz2:speed" value="1.8" />
 
 				<int name="mvz2:cost" value="800" />
+
+				<id name="mvz2:starting_armor" value="" />
 			</properties>
 		</enemy>
 
@@ -2153,6 +2157,7 @@
 				<float name="mvz2:maxHealth" value="600" />
 
 				<int name="mvz2:cost" value="200" />
+				<id name="mvz2:starting_armor" value="" />
 				
 			</properties>
 		</enemy>
@@ -2220,10 +2225,10 @@
 				<behaviour operator="add" id="mvz2:fragmented"/>
 			</behaviours>
 			<properties>
-				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:shell" value="mvz2:metal" />
 				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
-				<float name="mvz2:maxHealth" value="350"/>
+				<float name="mvz2:maxHealth" value="500"/>
 				<float name="mvz2:speed" value="0.75" />
 				<int name="mvz2:cost" value="500" />
 				<id name="mvz2:fragmentId" value="mvz2:GoldenSanta" />
@@ -2243,6 +2248,7 @@
 				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
 				<id name="mvz2:fragmentId" value="mvz2:Santa" />
+				<float name="mvz2:maxHealth" value="300"/>
 
 				<int name="mvz2:cost" value="175" />
 			</properties>
