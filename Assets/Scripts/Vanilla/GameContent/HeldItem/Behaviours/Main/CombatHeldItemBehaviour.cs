@@ -31,21 +31,15 @@ namespace MVZ2.GameContent.HeldItems
         {
             return target is HeldItemTargetGrid || IsDragging(data);
         }
+        public override void OnBegin(LevelEngine level, IHeldItemData data)
+        {
+            base.OnBegin(level, data);
+            UpdateModel(level, data);
+        }
         public override void OnUpdate(LevelEngine level, IHeldItemData data)
         {
             base.OnUpdate(level, data);
-            var modelInterface = level.GetHeldItemModelInterface();
-            if (modelInterface != null)
-            {
-                var dragging = IsDragging(data);
-                modelInterface.SetModelProperty("ShowLine", dragging);
-                if (dragging)
-                {
-                    var startPosition = GetDragStartPosition(data);
-                    var startLawnPos = level.ScreenToLawnPositionByY(startPosition, 0);
-                    modelInterface.SetModelProperty("Dest", startLawnPos);
-                }
-            }
+            UpdateModel(level, data);
             if (!IsValid(level, data))
             {
                 level.ResetHeldItem();
@@ -190,6 +184,20 @@ namespace MVZ2.GameContent.HeldItems
             else
             {
                 return CombatType.Punch;
+            }
+        }
+        private void UpdateModel(LevelEngine level, IHeldItemData data)
+        {
+            var modelInterface = level.GetHeldItemModelInterface();
+            if (modelInterface == null)
+                return;
+            var dragging = IsDragging(data);
+            modelInterface.SetModelProperty("ShowLine", dragging);
+            if (dragging)
+            {
+                var startPosition = GetDragStartPosition(data);
+                var startLawnPos = level.ScreenToLawnPositionByY(startPosition, 0);
+                modelInterface.SetModelProperty("Dest", startLawnPos);
             }
         }
         private void CastCombat(LevelEngine level, IHeldItemData data)
