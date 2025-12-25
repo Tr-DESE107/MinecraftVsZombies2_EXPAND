@@ -390,6 +390,22 @@
 	</model>
 
     <!--EXPAND Enemies C5-->
+	<model name="PirateZombie" type="entity" path="mvz2:enemy/ship/PirateZombie" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
+	<model name="LetherPirateZombie" type="entity" path="mvz2:enemy/ship/LetherPirateZombie" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
+	<model name="PirateSkeleton" type="entity" path="mvz2:enemy/ship/PirateSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
+	<model name="IronPirateSkeleton" type="entity" path="mvz2:enemy/ship/IronPirateSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
+	<model name="FlagPirateSkeleton" type="entity" path="mvz2:enemy/ship/FlagPirateSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
+	
     <model name="HeavyGutant" type="entity" path="mvz2:enemy/ship/HeavyGutant" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="Endermite" type="entity" path="mvz2:enemy/ship/Endermite" width="25" height="10" xOffset="0" yOffset="-21" />
 

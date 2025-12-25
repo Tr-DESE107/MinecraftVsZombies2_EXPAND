@@ -117,6 +117,12 @@ namespace MVZ2.GameContent.Enemies
         public const string Hemperor = "Hemperor";
 
         //EXPAND_C5
+        public const string PirateZombie = "PirateZombie";
+        public const string LetherPirateZombie = "LetherPirateZombie";
+        public const string PirateSkeleton = "PirateSkeleton";
+        public const string IronPirateSkeleton = "IronPirateSkeleton";
+        public const string FlagPirateSkeleton = "FlagPirateSkeleton";
+
         public const string HeavyGutant = "HeavyGutant";
         public const string Endermite = "Endermite";//todo
 
@@ -251,8 +257,14 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID Hemperor = Get(VanillaEnemyNames.Hemperor);
 
         //EXPAND_C5
-        public static readonly NamespaceID Endermite = Get(VanillaEnemyNames.Endermite);
+        public static readonly NamespaceID PirateZombie = Get(VanillaEnemyNames.PirateZombie);
+        public static readonly NamespaceID LetherPirateZombie = Get(VanillaEnemyNames.LetherPirateZombie);
+        public static readonly NamespaceID PirateSkeleton = Get(VanillaEnemyNames.PirateSkeleton);
+        public static readonly NamespaceID IronPirateSkeleton = Get(VanillaEnemyNames.IronPirateSkeleton);
+        public static readonly NamespaceID FlagPirateSkeleton = Get(VanillaEnemyNames.FlagPirateSkeleton);
+
         public static readonly NamespaceID HeavyGutant = Get(VanillaEnemyNames.HeavyGutant);
+        public static readonly NamespaceID Endermite = Get(VanillaEnemyNames.Endermite);
         
         //EXPAND_Villager
         public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);

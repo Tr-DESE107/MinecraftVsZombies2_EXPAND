@@ -2579,6 +2579,7 @@
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
 			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:leather_cap" />
 				<int name="mvz2:cost" value="75" />
 				<int name="mvz2:waterInteraction" value="2" />
 				<id name="mvz2:shell" value="mvz2:nether" />
@@ -2592,6 +2593,7 @@
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
 			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
 				<int name="mvz2:cost" value="125" />
 				<int name="mvz2:waterInteraction" value="2" />
 				<id name="mvz2:shell" value="mvz2:nether" />
@@ -2963,6 +2965,54 @@
 		</zombie>
 		
 		<!-- EXPAND Enemies C5 -->
+		<zombie id="PirateZombie" name="海盗僵尸" deathMessage="洒家今日便要开荤了！">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_11" />
+			</unlock>
+			<properties>
+				<int name="mvz2:cost" value="50" />
+				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:maxHealth" value="250" />
+				<float name="mvz2:speed" value="0.9" />
+				<int name="mvz2:waterInteraction" value="2" />
+			</properties>
+		</zombie>
+		<zombie id="LetherPirateZombie" name="海盗皮帽僵尸" deathMessage="洒家今日便要开荤了！">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_11" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:leather_cap" />
+				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:maxHealth" value="250" />
+				<float name="mvz2:speed" value="0.9" />
+				<int name="mvz2:cost" value="75" />
+			</properties>
+		</zombie>
+		<Skeleton_Exp id="PirateSkeleton" name="海盗骷髅" deathMessage="起来!饥寒交迫的人民!">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_11" />
+			</unlock>
+			<properties>
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2" />
+				<float name="mvz2:damage" value="125" />
+				<float name="mvz2:speed" value="1.25" />
+			</properties>
+		</Skeleton_Exp>
+		<Skeleton_Exp id="IronPirateSkeleton" name="海盗铁盔骷髅" deathMessage="起来!饥寒交迫的人民!">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_11" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2" />
+				<float name="mvz2:damage" value="125" />
+				<float name="mvz2:speed" value="1.25" />
+			</properties>
+		</Skeleton_Exp>
+		
 		<enemy id="Endermite" name="末影螨" deathMessage="吾头在否？！">
 			<unlock>
 				<condition required="mvz2:level.ship_6" />

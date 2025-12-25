@@ -115,6 +115,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01e8bddd67726284785d3d4b6bb1247e
+    m_Address: mvz2:enemy/EXPAND/RandomSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01ea06eaff14a0746a137123701e46b3
     m_Address: mvz2:entity/projectiles/arrow
     m_ReadOnly: 0
@@ -192,6 +199,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03854ed081ab0414cacd0db8519683b9
+    m_Address: mvz2:random/iron/break3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03a01e1df2865d441a9fa227eab6a1f6
     m_Address: mvz2:mobile_blueprint/golden_apple
     m_ReadOnly: 0
@@ -222,6 +236,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04449195224ad4244a17407dc21b85f1
     m_Address: mvz2:damage/bone/bone_hit1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0449ec7d38a9ed4438f8b84954867102
+    m_Address: mvz2:random/iron/break7
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1802,6 +1823,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f962bc3215f7e844ba8e93afb3398ec
+    m_Address: mvz2:entity/enemy/EXPAND/PirateZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fa7f21a7f8675f47a19b64ae5086153
     m_Address: mvz2:mainmenu/mainmenu
     m_ReadOnly: 0
@@ -2438,6 +2466,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2aa715acb7550d144a75195561bebed1
+    m_Address: mvz2:random/iron/break8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ab4a75a9055bfe45b77160fc117ae13
     m_Address: mvz2:characters/dim_vision
@@ -3641,6 +3676,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e864d13c78ee3f4e99e3f4f8f898634
+    m_Address: mvz2:random/iron/break4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ea58cbabf6d5524da89e4fa305806a0
     m_Address: mvz2:enemy/halloween/MeleeSkeleton
     m_ReadOnly: 0
@@ -3927,6 +3969,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4494512fbdc4ae74493dde69625e10d7
+    m_Address: mvz2:random/iron/break1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44bd337d7a161b2498137668fbec6e35
     m_Address: mvz2:entity/contraptions/spike_block
@@ -4280,6 +4329,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49a3c1b719b913d41b4ec56db85ac78f
     m_Address: mvz2:projectile/mine_tnt_seed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49ab7e2d00020c142a62a11363f1bac2
+    m_Address: mvz2:enemy/ship/PirateZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7434,6 +7490,20 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81f5367057a43354f816899e8eedd10d
+    m_Address: mvz2:enemy/ship/PirateSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 820a7750be8b8464da332e609acb1646
+    m_Address: mvz2:entity/enemy/EXPAND/PirateSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8232e349821c7af46bf3bb99ffabf9d9
     m_Address: mvz2:pop
     m_ReadOnly: 0
@@ -7989,6 +8059,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e9c31adececf9d4ba3918d8941732d7
     m_Address: mvz2:random/stone1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ebf38a36ba314645bf42267e5100639
+    m_Address: mvz2:random/iron/break6
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9708,6 +9785,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae1e2db8aa13ecf4a9b0cda23c626481
+    m_Address: mvz2:enemy/ship/IronPirateSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae3a378ae7198e040a9465375ddd594d
     m_Address: mvz2:bones/spike_particles
@@ -12957,6 +13041,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebf357529a529ce4fa69845cde0e74d7
+    m_Address: mvz2:random/iron/break2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec212abe3448fae468e8a869c194bb7c
     m_Address: mvz2:entity/contraption/totenser
     m_ReadOnly: 0
@@ -13762,6 +13853,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f90cbeaf8d6c01143bfc1b6ab09c39d9
+    m_Address: mvz2:enemy/ship/LetherPirateZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f91aa05739c7db1439b005f2b5a4f981
     m_Address: mvz2:enemy/EXPAND/RandomKingSkeleton
     m_ReadOnly: 0
@@ -14068,6 +14166,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff543336a67a8ce4cb4544936e45a5cc
+    m_Address: mvz2:random/iron/break5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff57a0ead1bc10f4fb8737e77bd61164
     m_Address: mvz2:chime

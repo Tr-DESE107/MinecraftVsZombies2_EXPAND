@@ -365,6 +365,29 @@
 	</entry>
 	
     <!--EXPAND C5-->
+	<entry id="PirateZombie" entity="mvz2:PirateZombie">
+		<spawn level="1" />
+		<preview count="3" />
+		<terrain water="true" air="true" />
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+	</entry>
+	<entry id="PirateSkeleton" entity="mvz2:PirateSkeleton">
+		<spawn level="1" />
+		<preview count="3" />
+		<terrain water="true" air="true" />
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+	</entry>
+	<entry id="LetherPirateZombie" entity="mvz2:LetherPirateZombie">
+		<spawn level="2" />
+		<preview count="2" />
+		<terrain water="true" air="true" />
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="150" />
+	</entry>
+	<entry id="IronPirateSkeleton" entity="mvz2:IronPirateSkeleton">
+		<spawn level="4" />
+		<terrain water="true" air="true" />
+		<weight base="3000" />
+	</entry>
     <entry id="Endermite" entity="mvz2:Endermite">
         <spawn level="3" />
         <weight base="1500" />
