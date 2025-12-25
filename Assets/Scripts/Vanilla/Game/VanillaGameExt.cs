@@ -37,6 +37,7 @@ namespace MVZ2.Vanilla.Game
         public static readonly string[] debugUserNames = new string[]
         {
             "debug",
+            "DESE107",
         };
     }
 }
