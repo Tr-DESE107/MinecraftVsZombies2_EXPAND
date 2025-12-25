@@ -44,6 +44,10 @@ namespace MVZ2.Scenes
         {
             ui.ShowDialog(title, desc, options, onSelect);
         }
+        public void ShowDialogTask(string title, string desc, string[] options, Func<int, Task>? onSelect = null)
+        {
+            ui.ShowDialogTask(title, desc, options, onSelect);
+        }
         public void ShowDialogMessage(string title, string desc, Action? onSelect = null)
         {
             ShowDialog(title, desc, new string[]
@@ -64,6 +68,20 @@ namespace MVZ2.Scenes
                 main.LanguageManager._(VanillaStrings.YES),
                 main.LanguageManager._(VanillaStrings.NO),
             }, (index) => onSelect?.Invoke(index == 0));
+        }
+        public void ShowDialogSelectTask(string title, string desc, Func<bool, Task>? onSelect = null)
+        {
+            var options = new string[]
+            {
+                main.LanguageManager._(VanillaStrings.YES),
+                main.LanguageManager._(VanillaStrings.NO),
+            };
+            Func<int, Task>? intSelect = null;
+            if (onSelect != null)
+            {
+                intSelect = (index) => onSelect.Invoke(index == 0);
+            }
+            ShowDialogTask(title, desc, options, intSelect);
         }
         public Task<bool> ShowDialogSelectAsync(string title, string desc)
         {

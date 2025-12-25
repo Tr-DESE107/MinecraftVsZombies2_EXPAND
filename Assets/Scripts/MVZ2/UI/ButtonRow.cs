@@ -7,6 +7,16 @@ namespace MVZ2.UI
 {
     public class ButtonRow : MonoBehaviour
     {
+        public void SetInteractable(bool interactable)
+        {
+            for (int i = 0; i < buttonList.Count; i++)
+            {
+                var button = buttonList.getElement<TextButton>(i);
+                if (!button.Exists())
+                    continue;
+                button.Button.interactable = interactable;
+            }
+        }
         public void UpdateButtons(string[] buttonTexts)
         {
             buttonList.updateList(buttonTexts.Length, (i, obj) =>

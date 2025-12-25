@@ -9,6 +9,16 @@ namespace MVZ2.UI
 {
     public class CustomDialog : Dialog
     {
+        public void SetInteractable(bool interactable)
+        {
+            for (int i = 0; i < buttonRowList.count; i++)
+            {
+                var row = buttonRowList.getElement<ButtonRow>(i);
+                if (!row.Exists())
+                    continue;
+                row.SetInteractable(interactable);
+            }
+        }
         public void SetDialog(string titleText, string descText, string[] options, Action<int> onSelect)
         {
             title.text = titleText;
