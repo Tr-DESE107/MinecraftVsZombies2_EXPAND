@@ -1,6 +1,7 @@
 ## Fixes
 - Fixed the issue where Cannoneer Zombie still launches Cannonballs when stunned.
 - Fixed the issue where Undead Flying Object's explosion radius on death is too small.
+- Fixed the issue where monsters killed by Vortex Hopper will still spin after revival.
 
 ---
 
