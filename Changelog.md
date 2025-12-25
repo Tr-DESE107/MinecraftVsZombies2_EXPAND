@@ -1,3 +1,8 @@
+## Fixes
+- Fixed the issue where Undead Flying Object's explosion radius on death is too small.
+
+---
+
 # 0.5.0
 
 ## Added
