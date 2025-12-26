@@ -2204,19 +2204,45 @@
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
 		<spawns flags="2" firstWaveTime="30" pointsMultiplier="1.1">
 
-			<spawn id="mvz2:NetherTroopCarrier" />
 			<spawn id="mvz2:berserker" />
 			<spawn id="mvz2:dullahan" />
-			<spawn id="mvz2:hell_chariot" />
 			<spawn id="mvz2:NetherWarrior" />
 			<spawn id="mvz2:NetherArcher" />
 			<spawn id="mvz2:NetherVanguard" />
-			<spawn id="mvz2:AngryReverser" />
 			<spawn id="mvz2:RaiderSkull" />
 			<spawn id="mvz2:Anubiskull" />
 			<spawn id="mvz2:WitherSkeletonHorse" />
 			<spawn id="mvz2:AssaultDullahan" />
 			<spawn id="mvz2:KingofReverser" />
+
+			<spawn id="mvz2:RandomImp" />
+			<spawn id="mvz2:RandomKingSkeleton" />
+			<spawn id="mvz2:ImpMannequin" />
+			<spawn id="mvz2:MegaImpMannequin" />
+			<spawn id="mvz2:Mannequin" />
+			<spawn id="mvz2:VillagerGhast" />
+			
+			<spawn id="mvz2:zombie" />
+			<spawn id="mvz2:MeleeSkeleton" />
+			<spawn id="mvz2:WitherSkeleton" />
+			<spawn id="mvz2:MonkZombie" />
+			<spawn id="mvz2:PirateZombie" />
+			<spawn id="mvz2:PirateSkeleton" />
+
+		</spawns>
+		
+	</stage>
+	<stage id="LigneMaginot" name="马奇诺防线" needBlueprints="true" type="minigame" music="mvz2:Lava_Chicken">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="8">
+
+			<spawn id="mvz2:NetherTroopCarrier" />
+			<spawn id="mvz2:dullahan" />
+			<spawn id="mvz2:hell_chariot" />
+			<spawn id="mvz2:RaiderSkull" />
+			<spawn id="mvz2:Anubiskull" />
+			<spawn id="mvz2:WitherSkeletonHorse" />
+			<spawn id="mvz2:AssaultDullahan" />
 			<spawn id="mvz2:WintherMage" />
 			
 			<spawn id="mvz2:RandomZombie" />
@@ -2228,9 +2254,18 @@
 			<spawn id="mvz2:MutantMannequin" />
 			<spawn id="mvz2:Mannequin" />
 			<spawn id="mvz2:VillagerGhast" />
+			<spawn id="mvz2:ghast" />
+			<spawn id="mvz2:anubisand" />
+			
+			<spawn id="mvz2:EvilMage" />
+			<spawn id="mvz2:necromancer" />
+			<spawn id="mvz2:KingSkeleton" />
+			<spawn id="mvz2:KingofReverser" />
+			
+			
 
 		</spawns>
-		
+
 	</stage>
 
     <!-- Puzzles -->

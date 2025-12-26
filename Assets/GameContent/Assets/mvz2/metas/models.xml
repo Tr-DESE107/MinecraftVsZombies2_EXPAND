@@ -216,7 +216,7 @@
             <int name="Variant" value="2" />
         </properties>
     </model>
-    <model name="cannoneer_zombie" type="entity" path="mvz2:enemy/ship/CannoneerManeequin" width="85" height="92" xOffset="22" yOffset="-41">
+    <model name="cannoneer_zombie" type="entity" path="mvz2:enemy/ship/cannoneer_zombie" width="85" height="92" xOffset="22" yOffset="-41">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="cannonball_zombie" type="entity" path="mvz2:enemy/ship/cannonball_zombie" width="36" height="32" xOffset="0" yOffset="-16" />

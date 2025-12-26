@@ -109,6 +109,7 @@ namespace MVZ2.GameContent.Stages
         public const string theGiantsRevenge = "the_giants_revenge";
         public const string redDragonsRevenge = "red_dragons_revenge";
 
+        //EXPAND Minigames
         public const string a_tooth_for_a_tooth = "a_tooth_for_a_tooth";
         public const string Do_Magic_Tricks = "Do_Magic_Tricks";
         public const string MutantCrisis = "MutantCrisis";
@@ -124,6 +125,7 @@ namespace MVZ2.GameContent.Stages
         public const string RandomChinaDevourer = "RandomChinaDevourer";
         public const string vsRandomZombie = "vsRandomZombie";
         public const string MortalZombat = "MortalZombat";
+        public const string LigneMaginot = "LigneMaginot";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
