@@ -598,13 +598,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0a88aa8631c2f8e48b93a210bbd1b600
-    m_Address: mvz2:enemy/dream/AngryGhast
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ae5af202f9ad9c4cb362f05a0290a3b
     m_Address: mvz2:units/colliders/humanoid
     m_ReadOnly: 0

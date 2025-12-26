@@ -329,6 +329,13 @@ namespace MVZ2.GameContent.Bosses
                 subStateTimer?.ResetTime(30);
                 entity.SetAnimationBool("FlapWing", false);
                 entity.PlaySound(VanillaSoundID.wheelOfDeathStart);
+                var rng = GetStateRNG(entity);
+                isChargeMode = rng != null && rng.NextFloat() < 0.5f;
+                if (isChargeMode)
+                {
+                    chargeCount = rng.Next(4, 7);
+                    currentChargeCount = 0;
+                }
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -339,33 +346,110 @@ namespace MVZ2.GameContent.Bosses
                 substateTimer.Run(stateMachine.GetSpeed(entity));
 
                 var substate = stateMachine.GetSubState(entity);
-                switch (substate)
+                if (isChargeMode)
                 {
-                    case SUBSTATE_START:
-                        StartOrEndUpdate(entity);
-                        if (substateTimer.Expired)
-                        {
-                            stateMachine.StartSubState(entity, SUBSTATE_LOOP);
-                            substateTimer.ResetTime(210);
-                        }
-                        break;
+                    switch (substate)
+                    {
+                        case SUBSTATE_START:
+                            StartOrEndUpdate(entity);
+                            if (substateTimer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_CHARGE_START);
+                                substateTimer.ResetTime(10);
+                            }
+                            break;
 
-                    case SUBSTATE_LOOP:
-                        LoopUpdate(entity);
-                        if (substateTimer.Expired && GetOutbound(entity) < 0)
-                        {
-                            stateMachine.StartSubState(entity, SUBSTATE_END);
-                            substateTimer.ResetTime(30);
-                        }
-                        break;
+                        case SUBSTATE_CHARGE_START:
+                            {
+                                var rng = GetStateRNG(entity);
+                                var target = FindChargeTarget(entity);
+                                if (target != null)
+                                {
+                                    Vector3 targetPos = target.GetCenter();
+                                    targetPos.y = entity.Position.y;
+                                    chargeDirection = (targetPos - entity.Position).normalized;
+                                }
+                                else
+                                {
+                                    float randomAngle = rng != null ? rng.Next(0, 360) : UnityEngine.Random.Range(0, 360);
+                                    chargeDirection = Quaternion.Euler(0, randomAngle, 0) * Vector3.forward;
+                                }
+                                entity.Velocity = chargeDirection * 30f;
+                                stateMachine.StartSubState(entity, SUBSTATE_CHARGE_DASH);
+                                substateTimer.ResetTime(200);
+                            }
+                            break;
 
-                    case SUBSTATE_END:
-                        StartOrEndUpdate(entity);
-                        if (substateTimer.Expired)
-                        {
-                            stateMachine.StartState(entity, STATE_IDLE);
-                        }
-                        break;
+                        case SUBSTATE_CHARGE_DASH:
+                            entity.Position += entity.Velocity * stateMachine.GetSpeed(entity) * 0.02f;
+                            if (entity.IsTimeInterval(SPIN_DAMAGE_INTERVAL))
+                            {
+                                ChargeDamage(entity);
+                            }
+                            if (IsOutOfBounds(entity))
+                            {
+                                entity.Velocity = Vector3.zero;
+                                stateMachine.StartSubState(entity, SUBSTATE_CHARGE_PAUSE);
+                                substateTimer.ResetTime(15);
+                            }
+                            break;
+
+                        case SUBSTATE_CHARGE_PAUSE:
+                            if (substateTimer.Expired)
+                            {
+                                currentChargeCount++;
+                                if (currentChargeCount >= chargeCount)
+                                {
+                                    stateMachine.StartSubState(entity, SUBSTATE_END);
+                                    substateTimer.ResetTime(30);
+                                }
+                                else
+                                {
+                                    stateMachine.StartSubState(entity, SUBSTATE_CHARGE_START);
+                                    substateTimer.ResetTime(10);
+                                }
+                            }
+                            break;
+
+                        case SUBSTATE_END:
+                            StartOrEndUpdate(entity);
+                            if (substateTimer.Expired)
+                            {
+                                stateMachine.StartState(entity, STATE_IDLE);
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (substate)
+                    {
+                        case SUBSTATE_START:
+                            StartOrEndUpdate(entity);
+                            if (substateTimer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_LOOP);
+                                substateTimer.ResetTime(210);
+                            }
+                            break;
+
+                        case SUBSTATE_LOOP:
+                            LoopUpdate(entity);
+                            if (substateTimer.Expired && GetOutbound(entity) < 0)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_END);
+                                substateTimer.ResetTime(30);
+                            }
+                            break;
+
+                        case SUBSTATE_END:
+                            StartOrEndUpdate(entity);
+                            if (substateTimer.Expired)
+                            {
+                                stateMachine.StartState(entity, STATE_IDLE);
+                            }
+                            break;
+                    }
                 }
             }
             public override void OnExit(EntityStateMachine stateMachine, Entity entity)
@@ -435,6 +519,40 @@ namespace MVZ2.GameContent.Bosses
                     level.AddLoopSoundEntity(VanillaSoundID.wheelOfDeathLoop, entity.ID);
                 }
             }
+            private void ChargeDamage(Entity entity)
+            {
+                var level = entity.Level;
+                detectBuffer.Clear();
+
+                var point0 = entity.GetCenter() + Vector3.up * SPIN_HEIGHT * 0.5f;
+                var point1 = entity.GetCenter() + Vector3.down * SPIN_HEIGHT * 0.5f;
+                level.OverlapCapsuleNonAlloc(point0, point1, SPIN_RADIUS * 0.8f, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0, detectBuffer);
+                foreach (IEntityCollider collider in detectBuffer)
+                {
+                    var damage = level.GetNightmareaperSpinDamage();
+                    var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
+                    PostSpinDamage(entity, damageOutput);
+                }
+            }
+            private Entity? FindChargeTarget(Entity entity)
+            {
+                targetBuffer.Clear();
+                entity.Level.FindEntitiesNonAlloc(c => c.IsVulnerableEntity() && entity.IsHostile(c), targetBuffer);
+                if (targetBuffer.Count > 0)
+                {
+                    var rng = GetStateRNG(entity);
+                    return rng != null ? targetBuffer.Random(rng) : targetBuffer.FirstOrDefault();
+                }
+                return null;
+            }
+            private bool IsOutOfBounds(Entity entity)
+            {
+                float leftX = VanillaLevelExt.LEFT_BORDER + 20;
+                float rightX = VanillaLevelExt.RIGHT_BORDER - 20;
+                float topZ = entity.Level.GetGridTopZ() - 20;
+                float bottomZ = entity.Level.GetGridBottomZ() + 20;
+                return entity.Position.x <= leftX || entity.Position.x >= rightX || entity.Position.z <= bottomZ || entity.Position.z >= topZ;
+            }
             private void PostSpinDamage(Entity entity, DamageOutput damage)
             {
                 if (damage == null)
@@ -457,18 +575,15 @@ namespace MVZ2.GameContent.Bosses
                 var targetShell = result.ShellDefinition;
                 if (targetShell == null || !targetShell.BlocksSlice())
                     return;
-                // Create Particle.
                 Vector3 relativePos = result.GetPosition() - entity.Position;
                 Vector3 particlePos = entity.Position + relativePos.normalized * SPIN_RADIUS;
                 entity.Spawn(VanillaEffectID.sliceSpark, particlePos)?.Let(e =>
                 {
-                    // Set Particle Angles.
                     float angle = Vector2.SignedAngle(Vector2.left, new Vector2(relativePos.x, relativePos.z));
                     Vector3 euler = new Vector3(0, 0, angle);
                     e.RenderRotation = euler;
                 });
 
-                // Create Sound.
                 var rng = GetSparkRNG(entity);
                 entity.PlaySound(VanillaSoundID.anvil, rng?.Next(1.5f, 2.5f) ?? 2);
             }
@@ -476,7 +591,16 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_LOOP = 1;
             public const int SUBSTATE_END = 2;
+            public const int SUBSTATE_CHARGE_START = 3;
+            public const int SUBSTATE_CHARGE_LOOP = 4;
+            public const int SUBSTATE_CHARGE_DASH = 5;
+            public const int SUBSTATE_CHARGE_PAUSE = 6;
             private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
+            private static List<Entity> targetBuffer = new List<Entity>();
+            private bool isChargeMode;
+            private int chargeCount;
+            private int currentChargeCount;
+            private Vector3 chargeDirection;
         }
         #endregion
 
