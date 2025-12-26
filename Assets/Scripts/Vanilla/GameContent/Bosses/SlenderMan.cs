@@ -8,6 +8,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
@@ -293,20 +294,23 @@ namespace MVZ2.GameContent.Bosses
         {
             switch (option)
             {
+                case FATE_DISABLE:
+                    Disable(boss);
+                    break;
+                case FATE_COME_TRUE:
+                    ComeTrue(boss);
+                    break;
                 case FATE_PANDORAS_BOX:
                     PandorasBox(boss);
-                    break;
-                case FATE_BIOHAZARD:
-                    Biohazard(boss);
-                    break;
-                case FATE_DECREPIFY:
-                    Decrepify(boss);
                     break;
                 case FATE_INSANITY:
                     Insanity(boss);
                     break;
-                case FATE_COME_TRUE:
-                    ComeTrue(boss);
+                case FATE_DECREPIFY:
+                    Decrepify(boss);
+                    break;
+                case FATE_BIOHAZARD:
+                    Biohazard(boss);
                     break;
                 case FATE_THE_LURKER:
                     TheLurker(boss);
@@ -314,11 +318,58 @@ namespace MVZ2.GameContent.Bosses
                 case FATE_BLACK_SUN:
                     BlackSun(boss);
                     break;
+                case FATE_HOST_ARRIVAL:
+                    HostArrival(boss);
+                    break;
+                case FATE_BIGBANG:
+                    BigBang(boss);
+                    break;
+                case FATE_AMPUTATION:
+                    Amputation(boss);
+                    break;
+                case FATE_BONE_PILE:
+                    BonePile(boss);
+                    break;
+                case FATE_REBIRTH:
+                    Rebirth(boss);
+                    break;
+            }
+        }
+
+        private void Disable(Entity boss)
+        {
+            //失能：全体器械失灵一段时间，并暂时无法使用卡片
+            boss.PlaySound(VanillaSoundID.powerOff);
+
+            var level = boss.Level;
+            var contraptions = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && e.CanDeactive());
+            foreach (var contraption in contraptions)
+            {
+                contraption.ShortCircuit(10, new EntitySourceReference(boss));
+            }
+            //level.AddBuff<SlendermanDisableBuff>();
+        }
+
+        private void ComeTrue(Entity boss)
+        {
+            //成真：全体怪物变为恶魂
+            boss.PlaySound(VanillaSoundID.nyaightmareScream);
+
+            var level = boss.Level;
+            var targets = level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsFriendly(boss) && !e.IsEntityOf(VanillaEnemyID.ghast));
+            foreach (var enemy in targets)
+            {
+                boss.SpawnWithParams(VanillaEnemyID.ghast, enemy.Position)?.Let(e =>
+                {
+                    e.AddBuff<NightmareComeTrueBuff>();
+                });
+                enemy.Remove();
             }
         }
 
         private void PandorasBox(Entity boss)
         {
+            //潘多拉的魔盒：仍是原效果
             boss.PlaySound(VanillaSoundID.odd);
 
             var level = boss.Level;
@@ -348,96 +399,285 @@ namespace MVZ2.GameContent.Bosses
                 contraption.UpdateTakenGrids();
             }
         }
-        private void Biohazard(Entity boss)
+
+        private void Insanity(Entity boss)
         {
-            boss.PlaySound(VanillaSoundID.biohazard);
-            boss.PlaySound(VanillaSoundID.nightmarePortal);
+            //疯狂：部分器械被魅惑，怪物攻击力提升
+            boss.PlaySound(VanillaSoundID.confuse);
+
             var level = boss.Level;
-            for (int column = 0; column < 2; column++)
+            var rng = GetEventRNG(boss);
+            var contraptions = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && !e.IsLoyal());
+            var charmTargets = rng != null ? contraptions.RandomTake(Mathf.Max(1, contraptions.Length / 3), rng) : contraptions.Take(Mathf.Max(1, contraptions.Length / 3));
+            foreach (var target in charmTargets)
             {
-                float x = level.GetEntityColumnX(level.GetMaxColumnCount() - 1 - column);
-                for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
-                {
-                    var z = level.GetEntityLaneZ(lane);
-                    var y = level.GetGroundY(x, z);
-                    Vector3 pos = new Vector3(x, y, z);
-                    SpawnPortal(boss, pos, VanillaEnemyID.ironHelmettedZombie);
-                }
+                target.CharmPermanent(boss.GetFaction(), new EntitySourceReference(boss));
+            }
+            var enemies = level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsFriendly(boss));
+            foreach (var enemy in enemies)
+            {
+                var attackBuff = enemy.AddBuff<AttackSpeedBuff>();
+                attackBuff?.SetProperty(AttackSpeedBuff.PROP_ATTACK_SPEED_MULTIPLIER, 2f);
             }
         }
 
         private void Decrepify(Entity boss)
         {
+            //衰老：无法使用器械、碎片和驱动
             boss.PlaySound(VanillaSoundID.decrepify);
             boss.Level.AddBuff<NightmareDecrepifyBuff>();
         }
 
-        private void Insanity(Entity boss)
+        private void Biohazard(Entity boss)
         {
-            boss.PlaySound(VanillaSoundID.confuse);
+            //尸潮：额外加入其他类僵尸
+            boss.PlaySound(VanillaSoundID.biohazard);
+            boss.PlaySound(VanillaSoundID.nightmarePortal);
 
             var level = boss.Level;
             var rng = GetEventRNG(boss);
-            var possible = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && !e.IsLoyal());
-            var targets = rng != null ? possible.RandomTake(5, rng) : possible.Take(5);
-            foreach (var target in targets)
+            var enemyTypes = new NamespaceID[]
             {
-                target.CharmPermanent(boss.GetFaction(), new EntitySourceReference(boss));
-            }
-        }
+                VanillaEnemyID.mummy,
+                VanillaEnemyID.ironHelmettedZombie,
+                VanillaEnemyID.gargoyle
+            };
 
-
-        private void ComeTrue(Entity boss)
-        {
-            boss.PlaySound(VanillaSoundID.nyaightmareScream);
-
-            var level = boss.Level;
-            var targets = level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsFriendly(boss) && !e.IsEntityOf(VanillaEnemyID.ghast));
-            foreach (var enemy in targets)
+            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
             {
-                boss.SpawnWithParams(VanillaEnemyID.ghast, enemy.Position)?.Let(e =>
+                for (int column = 0; column < level.GetMaxColumnCount(); column++)
                 {
-                    e.AddBuff<NightmareComeTrueBuff>();
-                });
-                enemy.Remove();
+                    float x = level.GetEntityColumnX(column);
+                    float z = level.GetEntityLaneZ(lane);
+                    float y = level.GetGroundY(x, z);
+                    Vector3 pos = new Vector3(x, y, z);
+
+                    var enemyID = enemyTypes[column % 3];
+                    SpawnEntityWithBoat(boss, pos, lane, enemyID)?.Let(e =>
+                    {
+                        if (column % 3 == 0)
+                        {
+                            e.AddBuff<AttackSpeedBuff>();
+                        }
+                    });
+                }
             }
         }
 
         private void TheLurker(Entity boss)
         {
+            //深潜者：破坏阵容的同时额外加入溺尸突袭
             boss.PlaySound(VanillaSoundID.splashBig);
             boss.PlaySound(VanillaSoundID.lurker);
 
             var rng = GetEventRNG(boss);
             var level = boss.Level;
             level.ShakeScreen(50, 0, 30);
-            var targets = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsOnWater());
-            var count = Mathf.CeilToInt(targets.Length * 0.5f);
-            var randomTargets = rng != null ? targets.RandomTake(count, rng) : targets.Take(count);
-            foreach (var target in randomTargets)
+
+            var waterContraptions = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && e.IsOnWater());
+            var destroyCount = Mathf.CeilToInt(waterContraptions.Length * 0.5f);
+            var destroyTargets = rng != null ? waterContraptions.RandomTake(destroyCount, rng) : waterContraptions.Take(destroyCount);
+            foreach (var target in destroyTargets)
             {
                 target.Die(boss);
+            }
+
+            int spawnCount = rng != null ? rng.Next(3, 8) : UnityEngine.Random.Range(3, 8);
+            var boatZombies = new NamespaceID[]
+            {
+                VanillaEnemyID.zombie,
+                VanillaEnemyID.leatherCappedZombie,
+                VanillaEnemyID.ironHelmettedZombie
+            };
+
+            for (int i = 0; i < spawnCount; i++)
+            {
+                int lane = rng != null ? rng.Next(0, level.GetMaxLaneCount()) : UnityEngine.Random.Range(0, level.GetMaxLaneCount());
+                var grid = level.GetGrid(lane);
+                if (grid == null || !grid.IsWater()) continue;
+
+                float x = level.GetEntityColumnX(level.GetMaxColumnCount() - 1);
+                float z = level.GetEntityLaneZ(lane);
+                float y = level.GetGroundY(x, z);
+                Vector3 pos = new Vector3(x, y, z);
+
+                var boatZombieID = boatZombies[rng != null ? rng.Next(0, boatZombies.Length) : UnityEngine.Random.Range(0, boatZombies.Length)];
+                boss.Spawn(boatZombieID, pos)?.Let(e =>
+                {
+                    e.AddBuff<BoatBuff>();
+                });
             }
         }
 
         private void BlackSun(Entity boss)
         {
-            boss.PlaySound(VanillaSoundID.powerOff);
+            //黑太阳：更长时间的致盲效果
             boss.PlaySound(VanillaSoundID.reverseVampire);
             boss.PlaySound(VanillaSoundID.confuse);
 
             var level = boss.Level;
-            var targets = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.CanDeactive());
-            foreach (var contraption in targets)
+            level.AddBuff<SlendermanBlackSunBuff>();
+        }
+
+        private void HostArrival(Entity boss)
+        {
+            //宿主降临：随机在场上召唤几只拥有寄生buff的渴血宿主僵尸
+            boss.PlaySound(VanillaSoundID.scream);
+            boss.PlaySound(VanillaSoundID.biohazard);
+
+            var level = boss.Level;
+            var rng = GetEventRNG(boss);
+            int lastColumn = level.GetMaxColumnCount() - 1;
+
+            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
             {
-                contraption.ShortCircuit(300, new EntitySourceReference(boss));
+                float x = level.GetEntityColumnX(lastColumn);
+                float z = level.GetEntityLaneZ(lane);
+                float y = level.GetGroundY(x, z);
+                Vector3 pos = new Vector3(x, y, z);
+
+                SpawnEntityWithBoat(boss, pos, lane, VanillaEnemyID.HostIMP)?.Let(e =>
+                {
+                    e.AddBuff<TerrorParasitizedBuff>();
+                });
             }
         }
+
+        private Entity? SpawnEntityWithBoat(Entity boss, Vector3 pos, int lane, NamespaceID enemyID)
+        {
+            var grid = boss.Level.GetGrid(lane);
+            if (grid != null && grid.IsWater())
+            {
+                return boss.Spawn(enemyID, pos)?.Let(e =>
+                {
+                    e.AddBuff<BoatBuff>();
+                });
+            }
+            return boss.Spawn(enemyID, pos);
+        }
+
+        private void BigBang(Entity boss)
+        {
+            //bigbang：随机器械发生爆炸，仅伤害同阵营器械
+            boss.PlaySound(VanillaSoundID.smash);
+
+            var level = boss.Level;
+            var rng = GetEventRNG(boss);
+            var contraptions = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss)).ToArray();
+            int explosionCount = Mathf.Min(rng != null ? rng.Next(2, 5) : UnityEngine.Random.Range(2, 5), contraptions.Length);
+
+            for (int i = 0; i < explosionCount; i++)
+            {
+                if (contraptions.Length == 0) break;
+                var targetIndex = rng != null ? rng.Next(0, contraptions.Length) : UnityEngine.Random.Range(0, contraptions.Length);
+                var target = contraptions[targetIndex];
+                var remainingContraptions = contraptions.ToList();
+                remainingContraptions.RemoveAt(targetIndex);
+                contraptions = remainingContraptions.ToArray();
+
+                float range = 80f;
+                var damageEffects = new DamageEffectList(
+                    VanillaDamageEffects.MUTE,
+                    VanillaDamageEffects.IGNORE_ARMOR,
+                    VanillaDamageEffects.EXPLOSION
+                );
+
+                var damageOutputs = boss.Explode(
+                    target.Position,
+                    range,
+                    boss.GetFaction(),
+                    200,
+                    damageEffects
+                );
+
+                foreach (var output in damageOutputs)
+                {
+                    if (output == null) continue;
+                    var result = output.BodyResult;
+                    if (result != null && result.Fatal)
+                    {
+                        var targetEntity = output.Entity;
+                        var distance = (targetEntity.Position - target.Position).magnitude;
+                        var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
+                        targetEntity.Velocity = targetEntity.Velocity + Vector3.up * speed;
+                    }
+                }
+
+                Explosion.Spawn(boss, target.GetCenter(), range);
+                boss.Level.Spawn(VanillaEffectID.mineDebris, target.Position, boss);
+                boss.PlaySound(VanillaSoundID.explosion);
+                boss.Level.ShakeScreen(10, 0, 15);
+            }
+        }
+
+        private void Amputation(Entity boss)
+        {
+            //截肢：场上召唤大量的低矮蜘蛛
+            boss.PlaySound(VanillaSoundID.boneWallBuild);
+            boss.PlaySound(VanillaSoundID.nightmarePortal);
+
+            var level = boss.Level;
+            var rng = GetEventRNG(boss);
+            int[] columns = { 8, 7, 6 };
+
+            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    float x = level.GetEntityColumnX(columns[i]);
+                    float z = level.GetEntityLaneZ(lane);
+                    float y = level.GetGroundY(x, z);
+                    Vector3 pos = new Vector3(x, y, z);
+
+                    SpawnPortal(boss, pos, VanillaEnemyID.caveSpider);
+                }
+            }
+        }
+
+        private void BonePile(Entity boss)
+        {
+            //骨堆：场上召唤大量骨墙，倒计时结束后随机变为骷髅类敌怪
+            boss.PlaySound(VanillaSoundID.boneWallBuild);
+            boss.PlaySound(VanillaSoundID.nightmarePortal);
+
+            var level = boss.Level;
+            var rng = GetEventRNG(boss);
+            int[] columns = { 8, 7, 6 };
+
+            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    float x = level.GetEntityColumnX(columns[i]);
+                    float z = level.GetEntityLaneZ(lane);
+                    float y = level.GetGroundY(x, z);
+                    Vector3 pos = new Vector3(x, y, z);
+
+                    SpawnPortal(boss, pos, VanillaEnemyID.boneWall);
+                }
+            }
+        }
+
+        private void Rebirth(Entity boss)
+        {
+            //新生：为场上所有怪物施加60/s的再生
+            boss.PlaySound(VanillaSoundID.revived);
+
+            var level = boss.Level;
+            var enemies = level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsFriendly(boss));
+            foreach (var enemy in enemies)
+            {
+                var regenBuff = enemy.AddBuff<RegenerationBuff>();
+                regenBuff?.SetProperty(RegenerationBuff.PROP_HEAL_AMOUNT, 1f);
+                regenBuff?.SetProperty(RegenerationBuff.PROP_TIMEOUT, 600);
+            }
+        }
+
         private static string GetFateOptionText(RandomGenerator rng, int option)
         {
             var index = Array.IndexOf(fateOptions, option);
-            int randomInt = rng.Next(0, 7);
-            string text = randomInt < 6 ? fateTexts[index] : "???";
+            int randomInt = rng.Next(0, 13);
+            string text = randomInt < 12 ? fateTexts[index] : "???";
             return Global.Localization.GetText(text);
         }
         #endregion
@@ -495,19 +735,31 @@ namespace MVZ2.GameContent.Bosses
         [TranslateMsg("梦魇对话框文本")]
         public const string CHOOSE_FATE_DESCRIPTION = "选吧。";
         [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_DISABLE = "失能";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_COME_TRUE = "成真";
+        [TranslateMsg("梦魇选项")]
         public const string FATE_TEXT_PANDORAS_BOX = "潘多拉的魔盒";
-        [TranslateMsg("梦魇选项")]
-        public const string FATE_TEXT_BIOHAZARD = "尸潮";
-        [TranslateMsg("梦魇选项")]
-        public const string FATE_TEXT_DECREPIFY = "衰老";
         [TranslateMsg("梦魇选项")]
         public const string FATE_TEXT_INSANITY = "疯狂";
         [TranslateMsg("梦魇选项")]
-        public const string FATE_TEXT_COME_TRUE = "成真";
+        public const string FATE_TEXT_DECREPIFY = "衰老";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_BIOHAZARD = "尸潮";
         [TranslateMsg("梦魇选项")]
         public const string FATE_TEXT_THE_LURKER = "深潜者";
         [TranslateMsg("梦魇选项")]
         public const string FATE_TEXT_BLACK_SUN = "黑太阳";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_HOST_ARRIVAL = "宿主降临";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_BIGBANG = "BIGBANG";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_AMPUTATION = "截肢";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_BONE_PILE = "骨堆";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_REBIRTH = "新生";
 
         public const int MAX_MOVE_TIMEOUT = 30;
 
@@ -528,13 +780,52 @@ namespace MVZ2.GameContent.Bosses
         public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_FATE_OPTION_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("FateOptionRNG");
         public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_EVENT_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("EventRNG");
 
-        public const int FATE_PANDORAS_BOX = 0;
-        public const int FATE_BIOHAZARD = 1;
-        public const int FATE_DECREPIFY = 2;
+        public const int FATE_DISABLE = 0;
+        public const int FATE_COME_TRUE = 1;
+        public const int FATE_PANDORAS_BOX = 2;
         public const int FATE_INSANITY = 3;
-        public const int FATE_COME_TRUE = 4;
-        public const int FATE_THE_LURKER = 5;
-        public const int FATE_BLACK_SUN = 6;
+        public const int FATE_DECREPIFY = 4;
+        public const int FATE_BIOHAZARD = 5;
+        public const int FATE_THE_LURKER = 6;
+        public const int FATE_BLACK_SUN = 7;
+        public const int FATE_HOST_ARRIVAL = 8;
+        public const int FATE_BIGBANG = 9;
+        public const int FATE_AMPUTATION = 10;
+        public const int FATE_BONE_PILE = 11;
+        public const int FATE_REBIRTH = 12;
+
+        private static int[] fateOptions = new int[]
+        {
+            FATE_DISABLE,
+            FATE_COME_TRUE,
+            FATE_PANDORAS_BOX,
+            FATE_INSANITY,
+            FATE_DECREPIFY,
+            FATE_BIOHAZARD,
+            FATE_THE_LURKER,
+            FATE_BLACK_SUN,
+            FATE_HOST_ARRIVAL,
+            FATE_BIGBANG,
+            FATE_AMPUTATION,
+            FATE_BONE_PILE,
+            FATE_REBIRTH,
+        };
+        private static string[] fateTexts = new string[]
+        {
+            FATE_TEXT_DISABLE,
+            FATE_TEXT_COME_TRUE,
+            FATE_TEXT_PANDORAS_BOX,
+            FATE_TEXT_INSANITY,
+            FATE_TEXT_DECREPIFY,
+            FATE_TEXT_BIOHAZARD,
+            FATE_TEXT_THE_LURKER,
+            FATE_TEXT_BLACK_SUN,
+            FATE_TEXT_HOST_ARRIVAL,
+            FATE_TEXT_BIGBANG,
+            FATE_TEXT_AMPUTATION,
+            FATE_TEXT_BONE_PILE,
+            FATE_TEXT_REBIRTH,
+        };
 
         private static NamespaceID[] portalPool = new NamespaceID[]
         {
@@ -581,26 +872,6 @@ namespace MVZ2.GameContent.Bosses
             VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
             VanillaBlueprintID.FromEntity(VanillaEnemyID.ghast)
 
-        };
-        private static int[] fateOptions = new int[]
-        {
-            FATE_PANDORAS_BOX,
-            FATE_BIOHAZARD,
-            FATE_DECREPIFY,
-            FATE_INSANITY,
-            FATE_COME_TRUE,
-            FATE_THE_LURKER,
-            FATE_BLACK_SUN,
-        };
-        private static string[] fateTexts = new string[]
-        {
-            FATE_TEXT_PANDORAS_BOX,
-            FATE_TEXT_BIOHAZARD,
-            FATE_TEXT_DECREPIFY,
-            FATE_TEXT_INSANITY,
-            FATE_TEXT_COME_TRUE,
-            FATE_TEXT_THE_LURKER,
-            FATE_TEXT_BLACK_SUN,
         };
         #endregion 常量
     }
