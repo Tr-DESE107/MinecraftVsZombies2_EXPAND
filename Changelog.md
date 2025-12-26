@@ -1,6 +1,9 @@
 ## Added
 - Added the almanac entry for Boat Zombies and Kourindou.
 
+## Modified
+- Increased the spawn frequency of Spiders, Ghasts, Zombie Clouds, Cannoneer Zombies and Pop Captains.
+
 ## Fixes
 - Fixed the issue where Cannoneer Zombie still launches Cannonballs when stunned.
 - Fixed the issue where Undead Flying Object's explosion radius on death is too small.

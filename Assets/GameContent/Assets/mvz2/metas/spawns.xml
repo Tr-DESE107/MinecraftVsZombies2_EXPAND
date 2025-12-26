@@ -52,8 +52,8 @@
     <!-- Dream -->
     <entry id="spider">
         <entity id="mvz2:spider" />
-        <spawn level="2" />
-        <weight base="2000" />
+        <spawn level="1" minWave="5"/>
+        <weight base="3000" />
     </entry>
     <entry id="cave_spider">
         <entity id="mvz2:cave_spider" />
@@ -63,7 +63,7 @@
     </entry>
     <entry id="ghast">
         <entity id="mvz2:ghast" />
-        <spawn level="3" minWave="10" />
+        <spawn level="3" minWave="5" />
         <terrain water="true" air="true" />
         <weight base="2000" />
     </entry>
@@ -140,22 +140,22 @@
         <spawn level="1" />
         <preview count="5" />
     </entry>
+    <entry id="zombie_cloud">
+        <entity id="mvz2:zombie_cloud" />
+        <spawn level="2" minWave="5" />
+        <terrain water="true" air="true" />
+        <weight base="3000" />
+    </entry>
     <entry id="cannoneer_zombie">
         <entity id="mvz2:cannoneer_zombie" />
         <spawn level="4" minWave="10" />
         <terrain water="true" air="true" />
-        <weight base="1500" />
-    </entry>
-    <entry id="zombie_cloud">
-        <entity id="mvz2:zombie_cloud" />
-        <spawn level="3" minWave="10" />
-        <terrain water="true" air="true" />
-        <weight base="2000" />
+        <weight base="2500" />
     </entry>
     <entry id="pop_captain">
         <entity id="mvz2:pop_captain" />
         <spawn level="5" minWave="10" />
-        <weight base="1000" />
+        <weight base="2000" />
     </entry>
     
     <entry id="mutant_zombie">
