@@ -377,7 +377,7 @@
 		<terrain water="true" air="true" />
 		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
 	</entry>
-	<entry id="LetherPirateZombie" entity="mvz2:LetherPirateZombie">
+	<entry id="LeatherPirateZombie" entity="mvz2:LeatherPirateZombie">
 		<spawn level="2" />
 		<preview count="2" />
 		<terrain water="true" air="true" />

@@ -118,7 +118,7 @@ namespace MVZ2.GameContent.Enemies
 
         //EXPAND_C5
         public const string PirateZombie = "PirateZombie";
-        public const string LetherPirateZombie = "LetherPirateZombie";
+        public const string LeatherPirateZombie = "LeatherPirateZombie";
         public const string PirateSkeleton = "PirateSkeleton";
         public const string IronPirateSkeleton = "IronPirateSkeleton";
         public const string FlagPirateSkeleton = "FlagPirateSkeleton";
@@ -258,7 +258,7 @@ namespace MVZ2.GameContent.Enemies
 
         //EXPAND_C5
         public static readonly NamespaceID PirateZombie = Get(VanillaEnemyNames.PirateZombie);
-        public static readonly NamespaceID LetherPirateZombie = Get(VanillaEnemyNames.LetherPirateZombie);
+        public static readonly NamespaceID LeatherPirateZombie = Get(VanillaEnemyNames.LeatherPirateZombie);
         public static readonly NamespaceID PirateSkeleton = Get(VanillaEnemyNames.PirateSkeleton);
         public static readonly NamespaceID IronPirateSkeleton = Get(VanillaEnemyNames.IronPirateSkeleton);
         public static readonly NamespaceID FlagPirateSkeleton = Get(VanillaEnemyNames.FlagPirateSkeleton);

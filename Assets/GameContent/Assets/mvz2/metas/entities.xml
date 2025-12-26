@@ -2977,7 +2977,7 @@
 				<int name="mvz2:waterInteraction" value="2" />
 			</properties>
 		</zombie>
-		<zombie id="LetherPirateZombie" name="海盗皮帽僵尸" deathMessage="洒家今日便要开荤了！">
+		<zombie id="LeatherPirateZombie" name="海盗皮帽僵尸" deathMessage="洒家今日便要开荤了！">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>

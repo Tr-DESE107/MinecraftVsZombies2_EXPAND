@@ -393,7 +393,7 @@
 	<model name="PirateZombie" type="entity" path="mvz2:enemy/ship/PirateZombie" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
-	<model name="LetherPirateZombie" type="entity" path="mvz2:enemy/ship/LetherPirateZombie" width="64" height="96" xOffset="10" yOffset="-44">
+	<model name="LeatherPirateZombie" type="entity" path="mvz2:enemy/ship/LeatherPirateZombie" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
 	<model name="PirateSkeleton" type="entity" path="mvz2:enemy/ship/PirateSkeleton" width="64" height="96" xOffset="10" yOffset="-44">

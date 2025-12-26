@@ -1471,7 +1471,7 @@
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gunpowder_barrel" />
 		<spawns flags="1">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 		</spawns>
 		<time firstWave="60" />
@@ -1489,7 +1489,7 @@
 		<spawns flags="2">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:PirateSkeleton" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 		</spawns>
@@ -1506,7 +1506,7 @@
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:firework_dispenser" />
 		<spawns flags="2">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:spider" />
@@ -1525,7 +1525,7 @@
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:repeatenser" />
 		<spawns flags="2">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
@@ -1543,7 +1543,7 @@
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:high_frequency_pulse_dispenser" />
 		<spawns flags="3">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
@@ -1595,7 +1595,7 @@
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:wooden_fan" />
 		<spawns flags="2">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
@@ -1615,7 +1615,7 @@
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:elastic_cloud" />
 		<spawns flags="3">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
@@ -1636,7 +1636,7 @@
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:jeweled_pagoda" />
 		<spawns flags="3">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
@@ -1658,7 +1658,7 @@
 		<clear pickupModel="mvz2:entity.map_pickup" note="mvz2:ship" />
 		<spawns flags="3">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
@@ -1689,7 +1689,7 @@
 		<clear pickupModel="mvz2:entity.money_chest" />
 		<spawns flags="2" pointsMultiplier="3">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
@@ -1712,7 +1712,7 @@
 		<clear pickupModel="mvz2:entity.money_chest" />
 		<spawns flags="2">
 			<spawn id="mvz2:PirateZombie" />
-			<spawn id="mvz2:LetherPirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
 		</spawns>
 	</stage>
 
