@@ -74,11 +74,11 @@ namespace MVZ2.GameContent.Difficulties
         public static int GetRedDragonTornadoCount(this LevelEngine level) => level.GetProperty<int>(RED_DRAGON_TORNADO_COUNT);
 
         // Level
-        public static readonly VanillaDifficultyPropertyMeta<float> STARSHARD_CARRIER_COUNTER_INCREAMENT = Get<float>("starshardCarrierCounterIncreament", 1f);
-        public static readonly VanillaDifficultyPropertyMeta<float> REDSTONE_CARRIER_COUNTER_INCREAMENT = Get<float>("redstoneCarrierCounterIncreament", 10f);
+        public static readonly VanillaDifficultyPropertyMeta<float> STARSHARD_CARRIER_CHANCE_INCREAMENT = Get<float>("starshardCarrierChanceIncreament", 10f);
+        public static readonly VanillaDifficultyPropertyMeta<float> REDSTONE_CARRIER_CHANCE_INCREAMENT = Get<float>("redstoneCarrierChanceIncreament", 10f);
         public static readonly VanillaDifficultyPropertyMeta<int> IZ_FURNACE_REDSTONE_COUNT = Get<int>("izFurnaceRedstoneCount", 7);
-        public static float GetStarshardCarrierCounterIncreament(this LevelEngine level) => level.GetProperty<float>(STARSHARD_CARRIER_COUNTER_INCREAMENT);
-        public static float GetRedstoneCarrierCounterIncreament(this LevelEngine level) => level.GetProperty<float>(REDSTONE_CARRIER_COUNTER_INCREAMENT);
+        public static float GetStarshardCarrierChanceIncreament(this LevelEngine level) => level.GetProperty<float>(STARSHARD_CARRIER_CHANCE_INCREAMENT);
+        public static float GetRedstoneCarrierChanceIncreament(this LevelEngine level) => level.GetProperty<float>(REDSTONE_CARRIER_CHANCE_INCREAMENT);
         public static int GetIZFurnaceRedstoneCount(this LevelEngine level) => level.GetProperty<int>(IZ_FURNACE_REDSTONE_COUNT);
     }
 }

@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Stages
         public override void PostWave(LevelEngine level, int wave)
         {
             base.PostWave(level, wave);
-            var increament = level.GetRedstoneCarrierCounterIncreament();
+            var increament = level.GetRedstoneCarrierChanceIncreament();
             AddRedstoneChance(level, increament);
         }
         public override void PostEnemySpawned(Entity entity)
