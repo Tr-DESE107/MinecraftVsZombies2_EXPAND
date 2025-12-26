@@ -1412,7 +1412,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>100</color>]]></p>
-                <p>速度：<![CDATA[<color=red>2</color>]]></p>
+                <p>速度：<![CDATA[<color=red>4</color>]]></p>
             </properties>
             <flavor>
                 <p>没错，炮弹也是一只僵尸！</p>
@@ -1426,6 +1426,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>1100</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>100（冲击）</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1.5</color>]]></p>
                 <p>特殊：<![CDATA[<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁。</color>]]></p>
             </properties>
             <flavor>
