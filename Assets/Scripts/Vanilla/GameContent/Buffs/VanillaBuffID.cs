@@ -43,6 +43,10 @@ namespace MVZ2.GameContent.Buffs
             public const string slendermanTransition = "slenderman_transition";
             public const string nightmareaperTransition = "nightmareaper_transition";
             public const string nightmareCleared = "nightmare_cleared";
+            public const string slendermanDisable = "slenderman_disable";
+            public const string slendermanAging = "slenderman_aging";
+            public const string slendermanDecrepify = "slenderman_decrepify";
+            public const string slendermanBlackSun = "slenderman_black_sun";
 
             // Chapter 3
             public const string reverseSatellite = "reverse_satellite";
@@ -263,6 +267,10 @@ namespace MVZ2.GameContent.Buffs
             //EXPAND
             public const string AntiGravityPadGravity = "AntiGravityPadGravity";
             public const string Shock = "Shock";
+            public const string AttackSpeed = "AttackSpeed";
+            public const string Parasitic = "Parasitic";
+            public const string Aggressive = "Aggressive";
+            public const string BoneWall = "BoneWall";
 
         }
         public static class Obstacle
@@ -390,6 +398,10 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID slendermanTransition = Get(VanillaBuffNames.Level.slendermanTransition);
             public static readonly NamespaceID nightmareaperTransition = Get(VanillaBuffNames.Level.nightmareaperTransition);
             public static readonly NamespaceID nightmareCleared = Get(VanillaBuffNames.Level.nightmareCleared);
+            public static readonly NamespaceID slendermanDisable = Get(VanillaBuffNames.Level.slendermanDisable);
+            public static readonly NamespaceID slendermanAging = Get(VanillaBuffNames.Level.slendermanAging);
+            public static readonly NamespaceID slendermanDecrepify = Get(VanillaBuffNames.Level.slendermanDecrepify);
+            public static readonly NamespaceID slendermanBlackSun = Get(VanillaBuffNames.Level.slendermanBlackSun);
 
             // Chapter 3
             public static readonly NamespaceID reverseSatellite = Get(VanillaBuffNames.Level.reverseSatellite);
@@ -598,6 +610,10 @@ namespace MVZ2.GameContent.Buffs
             //EXPAND
             public static readonly NamespaceID AntiGravityPadGravity = Get(VanillaBuffNames.Enemy.AntiGravityPadGravity);
             public static readonly NamespaceID Shock = Get(VanillaBuffNames.Enemy.Shock);
+            public static readonly NamespaceID AttackSpeed = Get(VanillaBuffNames.Enemy.AttackSpeed);
+            public static readonly NamespaceID Parasitic = Get(VanillaBuffNames.Enemy.Parasitic);
+            public static readonly NamespaceID Aggressive = Get(VanillaBuffNames.Enemy.Aggressive);
+            public static readonly NamespaceID BoneWall = Get(VanillaBuffNames.Enemy.BoneWall);
 
 
         }
