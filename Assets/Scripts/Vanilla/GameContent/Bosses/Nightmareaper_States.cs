@@ -374,44 +374,84 @@ namespace MVZ2.GameContent.Bosses
                                     float randomAngle = rng != null ? rng.Next(0, 360) : UnityEngine.Random.Range(0, 360);
                                     chargeDirection = Quaternion.Euler(0, randomAngle, 0) * Vector3.forward;
                                 }
-                                entity.Velocity = chargeDirection * 30f;
+                                entity.Velocity = chargeDirection * 45f;
                                 stateMachine.StartSubState(entity, SUBSTATE_CHARGE_DASH);
                                 substateTimer.ResetTime(200);
                             }
                             break;
 
                         case SUBSTATE_CHARGE_DASH:
-                            entity.Position += entity.Velocity * stateMachine.GetSpeed(entity) * 0.02f;
-                            if (entity.IsTimeInterval(SPIN_DAMAGE_INTERVAL))
                             {
-                                ChargeDamage(entity);
-                            }
-                            if (IsOutOfBounds(entity))
-                            {
-                                entity.Velocity = Vector3.zero;
-                                stateMachine.StartSubState(entity, SUBSTATE_CHARGE_PAUSE);
-                                substateTimer.ResetTime(15);
+                                entity.Position += entity.Velocity * stateMachine.GetSpeed(entity) * 0.02f;
+                                if (entity.IsTimeInterval(SPIN_DAMAGE_INTERVAL))
+                                {
+                                    ChargeDamage(entity);
+                                }
+                                float leftX = VanillaLevelExt.LEFT_BORDER;
+                                float rightX = VanillaLevelExt.RIGHT_BORDER;
+                                float topZ = entity.Level.GetGridTopZ();
+                                float bottomZ = entity.Level.GetGridBottomZ();
+                                bool hitEdge = false;
+                                if (chargeDirection.x > 0.5f && entity.Position.x >= rightX - 30)
+                                    hitEdge = true;
+                                else if (chargeDirection.x < -0.5f && entity.Position.x <= leftX + 30)
+                                    hitEdge = true;
+                                else if (chargeDirection.z > 0.5f && entity.Position.z >= topZ - 30)
+                                    hitEdge = true;
+                                else if (chargeDirection.z < -0.5f && entity.Position.z <= bottomZ + 30)
+                                    hitEdge = true;
+
+                                if (hitEdge)
+                                {
+                                    entity.Velocity = Vector3.zero;
+                                    currentChargeCount++;
+                                    if (currentChargeCount >= chargeCount)
+                                    {
+                                        stateMachine.StartSubState(entity, SUBSTATE_CHARGE_RETURN);
+                                        substateTimer.ResetTime(30);
+                                    }
+                                    else
+                                    {
+                                        stateMachine.StartSubState(entity, SUBSTATE_CHARGE_PAUSE);
+                                        substateTimer.ResetTime(10);
+                                    }
+                                }
                             }
                             break;
 
                         case SUBSTATE_CHARGE_PAUSE:
                             if (substateTimer.Expired)
                             {
-                                currentChargeCount++;
-                                if (currentChargeCount >= chargeCount)
+                                stateMachine.StartSubState(entity, SUBSTATE_CHARGE_START);
+                                substateTimer.ResetTime(10);
+                            }
+                            break;
+
+                        case SUBSTATE_CHARGE_RETURN:
+                            {
+                                int outbound = GetOutbound(entity);
+                                if (outbound < 0)
                                 {
-                                    stateMachine.StartSubState(entity, SUBSTATE_END);
+                                    stateMachine.StartSubState(entity, SUBSTATE_CHARGE_END);
                                     substateTimer.ResetTime(30);
                                 }
                                 else
                                 {
-                                    stateMachine.StartSubState(entity, SUBSTATE_CHARGE_START);
-                                    substateTimer.ResetTime(10);
+                                    Vector3 centerDir = (CENTER_POSITION - entity.Position).normalized;
+                                    entity.Position += centerDir * 15f * stateMachine.GetSpeed(entity) * 0.02f;
+                                    if (substateTimer.Expired)
+                                    {
+                                        entity.Position = new Vector3(Mathf.Clamp(entity.Position.x, VanillaLevelExt.LEFT_BORDER + 50, VanillaLevelExt.RIGHT_BORDER - 50),
+                                            entity.Position.y,
+                                            Mathf.Clamp(entity.Position.z, entity.Level.GetGridBottomZ() + 50, entity.Level.GetGridTopZ() - 50));
+                                        stateMachine.StartSubState(entity, SUBSTATE_CHARGE_END);
+                                        substateTimer.ResetTime(30);
+                                    }
                                 }
                             }
                             break;
 
-                        case SUBSTATE_END:
+                        case SUBSTATE_CHARGE_END:
                             StartOrEndUpdate(entity);
                             if (substateTimer.Expired)
                             {
@@ -545,14 +585,6 @@ namespace MVZ2.GameContent.Bosses
                 }
                 return null;
             }
-            private bool IsOutOfBounds(Entity entity)
-            {
-                float leftX = VanillaLevelExt.LEFT_BORDER + 20;
-                float rightX = VanillaLevelExt.RIGHT_BORDER - 20;
-                float topZ = entity.Level.GetGridTopZ() - 20;
-                float bottomZ = entity.Level.GetGridBottomZ() + 20;
-                return entity.Position.x <= leftX || entity.Position.x >= rightX || entity.Position.z <= bottomZ || entity.Position.z >= topZ;
-            }
             private void PostSpinDamage(Entity entity, DamageOutput damage)
             {
                 if (damage == null)
@@ -595,6 +627,8 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_CHARGE_LOOP = 4;
             public const int SUBSTATE_CHARGE_DASH = 5;
             public const int SUBSTATE_CHARGE_PAUSE = 6;
+            public const int SUBSTATE_CHARGE_RETURN = 7;
+            public const int SUBSTATE_CHARGE_END = 8;
             private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
             private static List<Entity> targetBuffer = new List<Entity>();
             private bool isChargeMode;

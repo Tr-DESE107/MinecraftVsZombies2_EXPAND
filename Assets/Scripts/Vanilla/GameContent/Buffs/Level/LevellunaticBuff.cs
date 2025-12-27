@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Buffs.Level
 
             AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.SLENDERMAN_MIND_SWAP_ZOMBIES, true));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.SLENDERMAN_FATE_CHOICE_COUNT, IntegerOperator.Add, -1));
-            AddModifier(new IntModifier(VanillaDifficultyLevelProps.SLENDERMAN_MAX_FATE_TIMES, IntegerOperator.Add, 1));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.SLENDERMAN_MAX_FATE_TIMES, IntegerOperator.Add, 2));
 
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.CRUSHING_WALLS_SPEED, NumberOperator.Add, 2f));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.NIGHTMAREAPER_SPIN_DAMAGE, NumberOperator.Add, 10));

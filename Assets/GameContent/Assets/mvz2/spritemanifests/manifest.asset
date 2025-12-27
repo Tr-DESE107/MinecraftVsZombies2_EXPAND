@@ -3690,6 +3690,13 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
     - {fileID: 59550891, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
+  - name: entity/enemy/EXPAND/Akuah
+    spritesheet:
+    - {fileID: -745785601, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
+    - {fileID: -545038285, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
+    - {fileID: 1222793119, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
+    - {fileID: 1193855152, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
+    - {fileID: -1212583474, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
   - name: entity/enemy/EXPAND/AngryGhast
     spritesheet:
     - {fileID: 64811970, guid: e155d02fcd88b6d47b6c40b7c64e9aae, type: 3}

@@ -2215,8 +2215,6 @@
 			<spawn id="mvz2:AssaultDullahan" />
 			<spawn id="mvz2:KingofReverser" />
 
-			<spawn id="mvz2:RandomImp" />
-			<spawn id="mvz2:RandomKingSkeleton" />
 			<spawn id="mvz2:ImpMannequin" />
 			<spawn id="mvz2:MegaImpMannequin" />
 			<spawn id="mvz2:Mannequin" />

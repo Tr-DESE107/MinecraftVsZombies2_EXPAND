@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly VanillaDifficultyPropertyMeta<float> FRANKENSTEIN_SPEED = Get<float>("frankensteinSpeed", 1f);
         public static readonly VanillaDifficultyPropertyMeta<bool> SLENDERMAN_MIND_SWAP_ZOMBIES = Get<bool>("slendermanMindSwapZombies");
         public static readonly VanillaDifficultyPropertyMeta<int> SLENDERMAN_FATE_CHOICE_COUNT = Get<int>("slendermanFateChoiceCount", 3);
-        public static readonly VanillaDifficultyPropertyMeta<int> SLENDERMAN_MAX_FATE_TIMES = Get<int>("slendermanMaxFateTimes", 4);
+        public static readonly VanillaDifficultyPropertyMeta<int> SLENDERMAN_MAX_FATE_TIMES = Get<int>("slendermanMaxFateTimes", 6);
         public static readonly VanillaDifficultyPropertyMeta<float> CRUSHING_WALLS_SPEED = Get<float>("crushingWallsSpeed", 4f);
         public static readonly VanillaDifficultyPropertyMeta<float> NIGHTMAREAPER_SPIN_DAMAGE = Get<float>("nightmareaperSpinDamage", 15f);
         public static readonly VanillaDifficultyPropertyMeta<int> NIGHTMAREAPER_TIMEOUT = Get<int>("nightmareaperTimeout", 2700);

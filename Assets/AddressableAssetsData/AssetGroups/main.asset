@@ -1403,6 +1403,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1726e22d886c3544785500d1d6ed7026
+    m_Address: mvz2:arcade/LigneMaginot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 173171cbb92903f4abbd185ff17f0e74
     m_Address: mvz2:level/grids/bevel
     m_ReadOnly: 0
@@ -5617,6 +5624,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fa19dba806dc524ab66eb46c5979d40
     m_Address: mvz2:effect/fragment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fb13e85c6dadb1439d91ada7c9d577c
+    m_Address: mvz2:enemy/EXPAND/Akuah
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -12355,6 +12369,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de2fbe9526d795e44bf696299627c57d
+    m_Address: mvz2:entity/enemy/EXPAND/Akuah
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de6983021191a2540a472d662b0fffde
     m_Address: mvz2:entity/enemy/MindAdept
     m_ReadOnly: 0
@@ -12837,6 +12858,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e89b34d7270513641b43b9731c21544e
+    m_Address: mvz2:arcade/MortalZombat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e89effdbf1bdd9747bf63aff60c3370d
     m_Address: mvz2:zap2
@@ -13854,7 +13882,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f90cbeaf8d6c01143bfc1b6ab09c39d9
-    m_Address: mvz2:enemy/ship/LetherPirateZombie
+    m_Address: mvz2:enemy/ship/LeatherPirateZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
