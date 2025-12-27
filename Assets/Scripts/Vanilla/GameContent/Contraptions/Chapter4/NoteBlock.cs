@@ -62,6 +62,7 @@ namespace MVZ2.GameContent.Contraptions
                 var h = projectile.RNG.NextFloat();
                 var color = Color.HSVToRGB(h, 1, 1);
                 projectile.SetTint(color);
+                ResetNoteTimeout(entity, projectile);
                 PlayHarpSound(entity);
 
                 AddNoteChild(entity, projectile);
@@ -80,7 +81,7 @@ namespace MVZ2.GameContent.Contraptions
                 entity.Level.ShakeScreen(15, 0, 90);
                 foreach (var target in entity.Level.FindEntities(e => e.IsHostile(entity) && e.IsVulnerableEntity()))
                 {
-                    target.TakeDamage(12 * entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.MUTE), entity);
+                    target.TakeDamage(EVOCATION_CHARGED_DAMAGE, new DamageEffectList(VanillaDamageEffects.MUTE), entity);
                     if (target.IsEntityOf(VanillaBossID.theGiant))
                     {
                         TheGiant.Stun(target, 150);
@@ -127,6 +128,11 @@ namespace MVZ2.GameContent.Contraptions
             }
             children.Add(new EntityID(child));
         }
+        public static void ResetNoteTimeout(Entity noteblock, Entity note)
+        {
+            note.Timeout = Mathf.FloorToInt(noteblock.GetRange() / noteblock.GetShotVelocity().magnitude);
+        }
+        public const float EVOCATION_CHARGED_DAMAGE = 600;
         public const int FIRE_INTERVAL = 45;
         public const int MAX_NOTE_COUNT = 10;
         private static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_NOTE_CHILDREN = new VanillaEntityPropertyMeta<List<EntityID>>("NoteChildren");

@@ -89,6 +89,10 @@ namespace MVZ2.Vanilla.Entities
         public static readonly PropertyMeta<float> DAMAGE = Get<float>("damage");
         public static readonly PropertyMeta<float> ATTACK_SPEED = Get<float>("attackSpeed");
 
+        public static float GetDamage(this EntityDefinition entity)
+        {
+            return entity.GetProperty<float>(DAMAGE);
+        }
         public static float GetDamage(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<float>(DAMAGE, ignoreBuffs: ignoreBuffs);

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-22 03:12+0800\n"
+"POT-Creation-Date: 2025-12-28 02:07+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6638,7 +6638,7 @@ msgstr ""
 #. Text for talk sentence 1 in talk group mausoleum_1_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_1_over"
-msgid "它能发射音符，音符会在音符盒和敌人之间来回反弹！"
+msgid "它能发射近程的音符，音符会在音符盒和敌人之间来回反弹！"
 msgstr ""
 
 #. Text for talk sentence 2 in talk group mausoleum_1_over's section 0

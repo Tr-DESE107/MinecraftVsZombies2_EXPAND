@@ -153,7 +153,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是音符盒！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能发射音符，音符会在音符盒和敌人之间来回反弹！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能发射近程的音符，音符会在音符盒和敌人之间来回反弹！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">也就是说，它与敌人的距离越近，造成的伤害就越高！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">让怪物们听听这美妙的音乐吧！</sentence>
       </sentences>
