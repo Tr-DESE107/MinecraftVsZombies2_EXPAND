@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Projectiles
             var damageOutputs = entity.Explode(position, range, entity.GetFaction(), entity.GetDamage(), effects);
             foreach (var output in damageOutputs)
             {
-                if (output == null || !output.IsValid())
+                if (output == null || !output.HasDamageAmount())
                     continue;
                 var target = output.Entity;
                 if (target.IsEntityOf(VanillaBossID.redDragon))

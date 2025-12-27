@@ -17,13 +17,13 @@ namespace PVZEngine.Damages
         public ArmorDamageResult? ArmorResult { get; set; }
         public ArmorDamageResult? ShieldResult { get; set; }
         public NamespaceID? ShieldTarget { get; set; }
-        public bool IsValid()
+        public bool HasDamageAmount()
         {
-            if (ArmorResult != null && ArmorResult.IsValid())
+            if (ArmorResult != null && ArmorResult.HasDamageAmount())
                 return true;
-            if (BodyResult != null && BodyResult.IsValid())
+            if (BodyResult != null && BodyResult.HasDamageAmount())
                 return true;
-            if (ShieldResult != null && ShieldResult.IsValid())
+            if (ShieldResult != null && ShieldResult.HasDamageAmount())
                 return true;
             return false;
         }

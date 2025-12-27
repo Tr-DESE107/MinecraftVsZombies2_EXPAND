@@ -93,7 +93,7 @@ namespace MVZ2.Vanilla.Entities
                 result.SpendAmount = amount;
             }
 
-            if (result.IsValid())
+            if (result.HasDamageAmount())
             {
                 PostArmorTakeDamage(armor, result);
             }

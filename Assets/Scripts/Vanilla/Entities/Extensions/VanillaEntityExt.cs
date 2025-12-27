@@ -86,23 +86,23 @@ namespace MVZ2.Vanilla.Entities
         }
         public static DamageOutput TakeDamage(DamageInput input)
         {
-            var result = new DamageOutput(input.Entity);
+            var output = new DamageOutput(input.Entity);
             if (input == null)
-                return result;
+                return output;
             if (input.Entity.IsInvincible() || input.Entity.IsDead)
-                return result;
-            if (!PreTakeDamage(input, result))
-                return result;
+                return output;
+            if (!PreTakeDamage(input, output))
+                return output;
             if (!NamespaceID.IsValid(input.ShieldTarget))
             {
                 var armor = input.Entity.GetMainArmor();
                 if (Armor.Exists(armor) && !armor.IsIgnored() && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
                 {
-                    ArmoredTakeDamage(armor, input, result);
+                    ArmoredTakeDamage(armor, input, output);
                 }
                 else
                 {
-                    result.BodyResult = BodyTakeDamage(input);
+                    output.BodyResult = BodyTakeDamage(input);
                 }
             }
             else
@@ -110,16 +110,16 @@ namespace MVZ2.Vanilla.Entities
                 var armor = input.Entity.GetArmorAtSlot(input.ShieldTarget);
                 if (Armor.Exists(armor) && !armor.IsIgnored())
                 {
-                    result.ShieldResult = armor.TakeDamage(input);
-                    result.ShieldTarget = input.ShieldTarget;
+                    output.ShieldResult = armor.TakeDamage(input);
+                    output.ShieldTarget = input.ShieldTarget;
                 }
             }
-            ApplyDamageSpecialEffects(result);
-            if (result.IsValid())
+            ApplyDamageSpecialEffects(output);
+            if (output.HasDamageAmount())
             {
-                PostTakeDamage(result);
+                PostTakeDamage(output);
             }
-            return result;
+            return output;
         }
 
 
@@ -235,7 +235,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 entity.Die(info.Effects, info.Source, result);
             }
-            if (result.IsValid())
+            if (result.HasDamageAmount())
             {
                 PostBodyTakeDamage(entity, result);
             }

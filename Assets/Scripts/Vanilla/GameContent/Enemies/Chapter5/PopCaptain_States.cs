@@ -120,7 +120,7 @@ namespace MVZ2.Vanilla.Enemies
             var outOfBoundDamageEffects = new DamageEffectList(VanillaDamageEffects.OUT_OF_BOUND);
             var damageOutput = targetCollider.TakeDamage(damage, damageEffects, entity);
             // 如果伤害有效：
-            if (!damageOutput.IsValid())
+            if (!damageOutput.HasDamageAmount())
                 return;
             var target = targetCollider.Entity;
             foreach (var result in damageOutput.GetAllResults())
