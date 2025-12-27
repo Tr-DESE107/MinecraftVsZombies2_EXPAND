@@ -19,6 +19,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
+using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -35,6 +36,8 @@ namespace MVZ2.GameContent.Contraptions
 
             var productionTimer = new FrameTimer(entity.RNG.Next(PRODUCTION_TIME_START_MIN, PRODUCTION_TIME_START_MAX));
             SetProductionTimer(entity, productionTimer);
+            var buff = entity.AddBuff<ExplosionProtection>();
+            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -57,7 +60,8 @@ namespace MVZ2.GameContent.Contraptions
             var damage = entity.GetDamage() * entity.Level.GetGunpowderDamageMultiplier();
             var range = entity.GetRange();
             var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
-            entity.ExplodeAgainstFriendly(entity.GetCenter(), range, entity.GetFaction(), damage, effects);
+            entity.Explode(entity.GetCenter(), range, VanillaFactions.NEUTRAL, damage, effects);
+            //entity.ExplodeAgainstFriendly(entity.GetCenter(), range, entity.GetFaction(), damage, effects);
 
             Explosion.Spawn(entity, entity.GetCenter(), range);
 

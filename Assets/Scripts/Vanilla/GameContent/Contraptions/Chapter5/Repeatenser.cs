@@ -49,6 +49,18 @@ namespace MVZ2.GameContent.Contraptions
                 EvokedUpdate(entity);
             }
         }
+        public override Entity? Shoot(Entity entity)
+        {
+            if (entity.RNG.Next(5) == 0)
+            {
+                var param = entity.GetShootParams();
+                param.projectileID = VanillaProjectileID.PulseArrow;
+                param.damage *= 2f;
+                entity.TriggerAnimation("Shoot");
+                return entity.ShootProjectile(param);
+            }
+            return base.Shoot(entity);
+        }
         public override void OnShootTick(Entity entity)
         {
             int count = REPEAT_COUNT;

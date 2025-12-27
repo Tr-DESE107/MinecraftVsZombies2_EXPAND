@@ -1383,6 +1383,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ddecb2750e06a86449911b2ad608969f, type: 3}
   - name: ui/store/product_frame
     sprite: {fileID: 21300000, guid: 32bf431d8ac58764cb0070360418c14d, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/PulseArrow
+    sprite: {fileID: 21300000, guid: 8d8e8f205d5efe14e8e22b9fc70301a0, type: 3}
   - name: map/gensokyo/pins/castle
     sprite: {fileID: 21300000, guid: 9696331d07114754fbccc29acd1b4846, type: 3}
   - name: map/gensokyo/pins/dream

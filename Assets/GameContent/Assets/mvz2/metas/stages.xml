@@ -1473,6 +1473,7 @@
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:Endermite" />
 		</spawns>
 		<time firstWave="60" />
 	</stage>
@@ -1491,7 +1492,9 @@
 			<spawn id="mvz2:PirateSkeleton" />
 			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:skeleton" />
 			<spawn id="mvz2:undead_flying_object" />
+			<spawn id="mvz2:Endermite" />
 		</spawns>
 	</stage>
 	<stage id="ship_3" name="圣辇船" dayNumber="3">
