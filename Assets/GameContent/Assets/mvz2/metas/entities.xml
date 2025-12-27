@@ -1008,7 +1008,7 @@
                 <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
                 <color name="mvz2:lightColor" value="#FFFFFF" />
 
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="150" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
@@ -1126,7 +1126,7 @@
                 <idArray name="mvz2:gridLayers" value="mvz2:carrier" />
                 <string name="mvz2:sortingLayer" value="Carriers" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
@@ -1175,7 +1175,7 @@
                 <color name="mvz2:lightColor" value="#FFFFFF" />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
 
-                <int name="mvz2:cost" value="275" />
+                <int name="mvz2:cost" value="225" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
