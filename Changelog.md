@@ -8,6 +8,7 @@
 - Increased the spawn frequency of Spiders, Ghasts, Zombie Clouds, Cannoneer Zombies and Pop Captains.
 - Increased the speed of Cannonball Zombie to 4 from 2.
 - Increased the speed of Pop Captain to 1.5 from 1.
+- Increased the duration of water stains created by Zombie Clouds to 40 seconds from 20 seconds.
 
 ## Fixes
 - Fixed the issue where Cannoneer Zombie still launches Cannonballs when stunned.
