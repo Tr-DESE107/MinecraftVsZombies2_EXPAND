@@ -125,6 +125,12 @@
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 
+    <model name="boat_zombie" type="entity" path="mvz2:enemy/prologue/zombie" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+        <properties>
+            <bool name="HasBoat" value="true" />
+        </properties>
+    </model>
     <model name="spider" type="entity" path="mvz2:enemy/dream/spider" width="108" height="108" xOffset="0" yOffset="-48" />
     <model name="cave_spider" type="entity" path="mvz2:enemy/dream/cave_spider" width="54" height="54" xOffset="0" yOffset="-24" />
     <model name="ghast" type="entity" path="mvz2:enemy/dream/ghast" width="64" height="64" xOffset="0" yOffset="-28" />

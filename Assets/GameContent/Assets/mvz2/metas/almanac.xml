@@ -1962,6 +1962,27 @@
                     <p>NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:boat_zombie" name="船僵尸">
+                <unlock>
+                    <condition required="mvz2:level.dream_1" />
+                </unlock>
+                <thumbnail sprite="mvz2:misc/boat_zombie"/>
+                <picture model="mvz2:entity.boat_zombie" />
+                <header>
+                    <p>船僵尸能够浮在水上——甚至是云上作战。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>直接把自己身子穿在船上真的不会漏水么？当然不会咕噜咕噜咕噜</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.ship_1"/>
+                        </conditions>
+                        <p>它是怎么浮在空中的？我的朋友，你都已经在天上乘船了，船僵尸能浮在空中又怎么样呢？</p>
+                    </flavor>
+                </flavors>
+            </entry>
             <entry id="mvz2:nyaightmare" name="噩梦猫">
                 <unlock>
                     <condition required="mvz2:level.dream_7" />
@@ -2401,6 +2422,23 @@
                 </header>
                 <flavor>
                     <p>哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:kourindou" name="香霖堂">
+                <unlock>
+                    <condition required="mvz2:kourindou_visited" />
+                </unlock>
+                <picture sprite="mvz2:store/background_kourindou" />
+                <header>
+                    <p>香霖堂是幻想乡中的一处商店，专门售卖一些外界来的稀奇物品。</p>
+                </header>
+                <flavor>
+                    <p>香霖堂的原主人名为森近 霖之助，现主人为一位无名的读书妖怪，也称朱鹭子。</p>
+                    <p>这里常卖一些幻想乡里少见的，被遗忘的外界物品，比如手机、平板电脑、游戏机什么的。</p>
+                    <p>霖之助本人是知道这些东西能产生什么作用的，但是他个人并不知道如何正确使用它们，这些东西多半也只能用来当切菜板什么的来使用。</p>
+                    <p>如今这家店被朱鹭子接替，这些东西的用途估计已经没人知道了。</p>
+                    <p />
+                    <p>史蒂夫和村民来到了这里，并把这里改造成了他们的作战基地。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:shining_needle_castle" name="辉针城">

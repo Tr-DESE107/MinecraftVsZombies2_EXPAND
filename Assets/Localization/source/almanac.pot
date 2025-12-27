@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-22 03:12+0800\n"
+"POT-Creation-Date: 2025-12-27 03:55+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3175,6 +3175,30 @@ msgctxt "misc.description"
 msgid "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
 msgstr ""
 
+#. Name for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "船僵尸"
+msgstr ""
+
+#. Header for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "船僵尸能够浮在水上——甚至是云上作战。"
+msgstr ""
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "直接把自己身子穿在船上真的不会漏水么？当然不会咕噜咕噜咕噜"
+msgstr ""
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "它是怎么浮在空中的？我的朋友，你都已经在天上乘船了，船僵尸能浮在空中又怎么样呢？"
+msgstr ""
+
 #. Name for misc mvz2:nyaightmare
 #: Almanac meta file
 msgctxt "misc.name"
@@ -3775,6 +3799,30 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。"
+msgstr ""
+
+#. Name for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "香霖堂"
+msgstr ""
+
+#. Header for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "香霖堂是幻想乡中的一处商店，专门售卖一些外界来的稀奇物品。"
+msgstr ""
+
+#. Flavor for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"香霖堂的原主人名为森近 霖之助，现主人为一位无名的读书妖怪，也称朱鹭子。\n"
+"这里常卖一些幻想乡里少见的，被遗忘的外界物品，比如手机、平板电脑、游戏机什么的。\n"
+"霖之助本人是知道这些东西能产生什么作用的，但是他个人并不知道如何正确使用它们，这些东西多半也只能用来当切菜板什么的来使用。\n"
+"如今这家店被朱鹭子接替，这些东西的用途估计已经没人知道了。\n"
+"\n"
+"史蒂夫和村民来到了这里，并把这里改造成了他们的作战基地。"
 msgstr ""
 
 #. Name for misc mvz2:shining_needle_castle

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-12-22 03:12+0800\n"
-"PO-Revision-Date: 2025-12-24 09:36+0800\n"
+"POT-Creation-Date: 2025-12-27 03:55+0800\n"
+"PO-Revision-Date: 2025-12-28 14:23+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3840,6 +3840,30 @@ msgctxt "misc.description"
 msgid "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
 msgstr "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
 
+#. Name for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "船僵尸"
+msgstr "Boat Zombie"
+
+#. Header for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "船僵尸能够浮在水上——甚至是云上作战。"
+msgstr "Boat Zombies can float on water—and even atop clouds."
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "直接把自己身子穿在船上真的不会漏水么？当然不会咕噜咕噜咕噜"
+msgstr "Wouldn't there be leaks if they put their bodies directly onto the boats? Of course not—glug glug glug"
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "它是怎么浮在空中的？我的朋友，你都已经在天上乘船了，船僵尸能浮在空中又怎么样呢？"
+msgstr "How do they float in the air? My friend, you're already on a ship in the sky, so what if they float in the air too?"
+
 #. Name for misc mvz2:nyaightmare
 #: Almanac meta file
 msgctxt "misc.name"
@@ -4568,6 +4592,38 @@ msgstr ""
 "Doremy had seen a black horse in the Dream World a few months ago, which was Nightmare in disguise. Nightmare then began its "
 "corruption, and deceived everyone in the Dream World until it cursed Doremy.\n"
 "What you now see is the true appearance of the Dream World."
+
+#. Name for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "香霖堂"
+msgstr "Kourindou"
+
+#. Header for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "香霖堂是幻想乡中的一处商店，专门售卖一些外界来的稀奇物品。"
+msgstr "Kourindou is a shop in Gensokyo that specializes in selling peculiar items from the Outside World."
+
+#. Flavor for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"香霖堂的原主人名为森近 霖之助，现主人为一位无名的读书妖怪，也称朱鹭子。\n"
+"这里常卖一些幻想乡里少见的，被遗忘的外界物品，比如手机、平板电脑、游戏机什么的。\n"
+"霖之助本人是知道这些东西能产生什么作用的，但是他个人并不知道如何正确使用它们，这些东西多半也只能用来当切菜板什么的来使用。\n"
+"如今这家店被朱鹭子接替，这些东西的用途估计已经没人知道了。\n"
+"\n"
+"史蒂夫和村民来到了这里，并把这里改造成了他们的作战基地。"
+msgstr ""
+"The original owner of Kourindou was Rinnosuke Morichika. The current owner is an unnamed book-reading youkai, also known as Tokiko.\n"
+"The place often sells forgotten items from the Outside World that are rarely seen in Gensokyo, such as mobile phones, tablet "
+"computers, game consoles, etc.\n"
+"Rinnosuke is capable of knowing what the purpose of these things are, but he doesn't know how to use them correctly by himself. In "
+"most cases, these things can only be used as cutting boards or something similar.\n"
+"Now that the shop has been taken over by Tokiko, it's likely that no one knows what these things are really for anymore.\n"
+"\n"
+"Steve and Villager arrived here and converted the place into their base of operations."
 
 #. Name for misc mvz2:shining_needle_castle
 #: Almanac meta file
