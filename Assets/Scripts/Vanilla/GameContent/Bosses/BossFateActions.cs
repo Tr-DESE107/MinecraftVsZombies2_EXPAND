@@ -33,9 +33,116 @@ namespace MVZ2.GameContent.Bosses
 {
     public static class BossFateActions
     {
-        // 添加属性定义  
+        // 添加属性定义    
         private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_EVENT_RNG =
             new VanillaEntityPropertyMeta<RandomGenerator>("EventRNG");
+
+        // 命运选择相关常量  
+        [TranslateMsg("梦魇对话框标题")]
+        public const string CHOOSE_FATE_TITLE = "选择你的命运";
+        [TranslateMsg("梦魇对话框文本")]
+        public const string CHOOSE_FATE_DESCRIPTION = "选吧。";
+
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_DISABLE = "失能";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_COME_TRUE = "成真";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_PANDORAS_BOX = "潘多拉的魔盒";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_INSANITY = "疯狂";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_DECREPIFY = "衰老";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_BIOHAZARD = "尸潮";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_THE_LURKER = "深潜者";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_BLACK_SUN = "黑太阳";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_HOST_ARRIVAL = "宿主降临";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_BIGBANG = "BIGBANG";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_AMPUTATION = "截肢";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_BONE_PILE = "骨堆";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_REBIRTH = "新生";
+
+        // 命运选项数组  
+        private static readonly int[] fateOptions = new int[]
+        {
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+        };
+
+        private static readonly string[] fateTexts = new string[]
+        {
+            FATE_TEXT_DISABLE, FATE_TEXT_COME_TRUE, FATE_TEXT_PANDORAS_BOX,
+            FATE_TEXT_INSANITY, FATE_TEXT_DECREPIFY, FATE_TEXT_BIOHAZARD,
+            FATE_TEXT_THE_LURKER, FATE_TEXT_BLACK_SUN, FATE_TEXT_HOST_ARRIVAL,
+            FATE_TEXT_BIGBANG, FATE_TEXT_AMPUTATION, FATE_TEXT_BONE_PILE, FATE_TEXT_REBIRTH
+        };
+
+        /// <summary>  
+        /// 显示命运选择对话框  
+        /// </summary>  
+        public static void ShowFateChoice(Entity boss, int optionCount = 3)
+        {
+            var level = boss.Level;
+            level.PauseGame(100);
+
+            var title = Global.Localization.GetText(CHOOSE_FATE_TITLE);
+            var desc = Global.Localization.GetText(CHOOSE_FATE_DESCRIPTION);
+
+            var rng = GetEventRNG(boss);
+            var selected = rng != null ?
+                fateOptions.RandomTake(optionCount, rng).ToArray() :
+                fateOptions.Take(optionCount).ToArray();
+
+            var options = selected.Select(i => GetFateOptionText(boss.RNG, i)).ToArray();
+
+            level.ShowDialog(title, desc, options, (i) =>
+            {
+                var option = selected[i];
+                ExecuteFate(boss, option);
+                level.ResumeGameDelayed(100);
+            });
+        }
+
+        /// <summary>  
+        /// 执行指定的命运  
+        /// </summary>  
+        public static void ExecuteFate(Entity boss, int option)
+        {
+            switch (option)
+            {
+                case 0: Disable(boss); break;
+                case 1: ComeTrue(boss); break;
+                case 2: PandorasBox(boss); break;
+                case 3: Insanity(boss); break;
+                case 4: Decrepify(boss); break;
+                case 5: Biohazard(boss); break;
+                case 6: TheLurker(boss); break;
+                case 7: BlackSun(boss); break;
+                case 8: HostArrival(boss); break;
+                case 9: BigBang(boss); break;
+                case 10: Amputation(boss); break;
+                case 11: BonePile(boss); break;
+                case 12: Rebirth(boss); break;
+            }
+        }
+
+        /// <summary>  
+        /// 获取命运选项文本  
+        /// </summary>  
+        private static string GetFateOptionText(RandomGenerator rng, int option)
+        {
+            var index = Array.IndexOf(fateOptions, option);
+            int randomInt = rng.Next(0, 13);
+            string text = randomInt < 12 ? fateTexts[index] : "???";
+            return Global.Localization.GetText(text);
+        }
 
         public static void Disable(Entity boss)
         {

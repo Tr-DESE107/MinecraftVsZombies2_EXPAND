@@ -48,73 +48,10 @@ namespace MVZ2.GameContent.Bosses
 
         private void TriggerRandomFate(Entity entity)
         {
-            var rng = BossFateActions.GetEventRNG(entity);
-            if (rng == null)
-            {
-                Debug.Log("EventRNG is null!");
-                return;
-            }
+            BossFateActions.ShowFateChoice(entity, 3);
 
-            var fateOptions = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-            var selectedFate = fateOptions.Random(rng);
-
-            Debug.Log($"Triggering fate: {selectedFate}");
-
-            switch (selectedFate)
-            {
-                case 0:
-                    BossFateActions.Disable(entity);
-                    Debug.Log("Disable executed");
-                    break;
-                case 1:
-                    BossFateActions.ComeTrue(entity);
-                    Debug.Log("ComeTrue executed");
-                    break;
-                case 2:
-                    BossFateActions.PandorasBox(entity);
-                    Debug.Log("PandorasBox executed");
-                    break;
-                case 3:
-                    BossFateActions.Insanity(entity);
-                    Debug.Log("Insanity executed");
-                    break;
-                case 4:
-                    BossFateActions.Decrepify(entity);
-                    Debug.Log("Decrepify executed");
-                    break;
-                case 5:
-                    BossFateActions.Biohazard(entity);
-                    Debug.Log("Biohazard executed");
-                    break;
-                case 6:
-                    BossFateActions.TheLurker(entity);
-                    Debug.Log("TheLurker executed");
-                    break;
-                case 7:
-                    BossFateActions.BlackSun(entity);
-                    Debug.Log("BlackSun executed");
-                    break;
-                case 8:
-                    BossFateActions.HostArrival(entity);
-                    Debug.Log("HostArrival executed");
-                    break;
-                case 9:
-                    BossFateActions.BigBang(entity);
-                    Debug.Log("BigBang executed");
-                    break;
-                case 10:
-                    BossFateActions.Amputation(entity);
-                    Debug.Log("Amputation executed");
-                    break;
-                case 11:
-                    BossFateActions.BonePile(entity);
-                    Debug.Log("BonePile executed");
-                    break;
-                case 12:
-                    BossFateActions.Rebirth(entity);
-                    Debug.Log("Rebirth executed");
-                    break;
-            }
+            // 直接执行命运而不显示选择  
+            //BossFateActions.ExecuteFate(entity, 0); //例:执行 Disable  
         }
 
 
@@ -127,7 +64,7 @@ namespace MVZ2.GameContent.Bosses
             float currHP = entity.Health;
 
             // 每掉落一定血量（例如 800 点）触发一次事件
-            int triggerCount = (int)((lastHP - currHP) / 800f);
+            int triggerCount = (int)((lastHP - currHP) / 600f);
             triggerCount = Mathf.Min(triggerCount, 2);
             if (triggerCount > 0)
             {
