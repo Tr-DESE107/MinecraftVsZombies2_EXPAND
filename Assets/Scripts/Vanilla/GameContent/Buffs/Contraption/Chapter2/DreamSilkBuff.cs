@@ -29,9 +29,9 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_DISPLAY_SCALE));
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback, filter: EntityTypes.PLANT);
         }
-        public override void PostAdd(Buff buff)
+        public override void OnCreate(Buff buff)
         {
-            base.PostAdd(buff);
+            base.OnCreate(buff);
             buff.SetProperty(PROP_TIMER, new FrameTimer(MAX_TIMEOUT));
             buff.SetProperty(PROP_DISPLAY_SCALE, Vector3.one);
         }
@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         }
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("Timer");
         public static readonly VanillaBuffPropertyMeta<Vector3> PROP_DISPLAY_SCALE = new VanillaBuffPropertyMeta<Vector3>("DisplayScale");
-        public const int MAX_TIMEOUT = 900;
+        public const int MAX_TIMEOUT = 1500;
         private const int RING_DURATION = 36;
     }
 }

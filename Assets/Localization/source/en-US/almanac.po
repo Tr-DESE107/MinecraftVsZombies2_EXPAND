@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-12-28 01:29+0800\n"
+"POT-Creation-Date: 2025-12-28 01:39+0800\n"
 "PO-Revision-Date: 2025-12-28 15:11+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
@@ -1145,10 +1145,12 @@ msgstr "Dream Silk makes a contraption fall asleep. After it wakes up, a Starsha
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>一次性使用</color>\n"
-"技能：<color=red>无</color>"
+"技能：<color=red>无</color>\n"
+"睡眠时间：<color=red>50秒</color>"
 msgstr ""
 "Special: <color=red>Single use</color>\n"
-"Evocation: <color=red>None</color>"
+"Evocation: <color=red>None</color>\n"
+"Sleep duration: <color=red>50 seconds</color>"
 
 #. Flavor for contraptions mvz2:dream_silk
 #: Almanac meta file

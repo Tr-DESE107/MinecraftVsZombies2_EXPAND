@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-28 01:29+0800\n"
+"POT-Creation-Date: 2025-12-28 01:39+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1024,7 +1024,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>一次性使用</color>\n"
-"技能：<color=red>无</color>"
+"技能：<color=red>无</color>\n"
+"睡眠时间：<color=red>50秒</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:dream_silk
