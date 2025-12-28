@@ -38,7 +38,7 @@ namespace MVZ2.Editor
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
 
-            var spaceName = Global.BuiltinNamespace;
+            var spaceName = VanillaMod.spaceName;
 
             var almanacDocument = LoadMetaXmlDocument(spaceName, "almanac.xml");
             var entitiesDocument = LoadMetaXmlDocument(spaceName, "entities.xml");
@@ -160,7 +160,7 @@ namespace MVZ2.Editor
             TranslateMsgAttributeFinder.FindAll(potGenerator);
 
             // 统计
-            var spaceName = Global.BuiltinNamespace;
+            var spaceName = VanillaMod.spaceName;
             // 关卡
             var stageDocument = LoadMetaXmlDocument(spaceName, "stages.xml");
             var stageList = StageMetaList.FromXmlNode(stageDocument["stages"], spaceName);
@@ -303,7 +303,7 @@ namespace MVZ2.Editor
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
 
-            var spaceName = Global.BuiltinNamespace;
+            var spaceName = VanillaMod.spaceName;
 
             var talkDir = Path.Combine(GetMetaDirectory(spaceName), "talks");
             foreach (var filePath in Directory.GetFiles(talkDir, "*.xml", SearchOption.TopDirectoryOnly))
