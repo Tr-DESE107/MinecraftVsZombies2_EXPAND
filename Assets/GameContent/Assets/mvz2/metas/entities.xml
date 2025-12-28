@@ -3668,7 +3668,7 @@
         <boss id="slenderman" name="瘦长鬼影">
             <properties>
                 <int name="mvz2:waterInteraction" value="0" />
-                <float name="mvz2:maxHealth" value="2500" />
+                <float name="mvz2:maxHealth" value="3000" />
                 <vector3 name="mvz2:size" x="50" y="120" z="50" />
                 <color name="mvz2:bloodColor" value="#7F0000FF" />
                 <color name="mvz2:bloodColorCensored" value="#00007FFF" />
@@ -3678,7 +3678,7 @@
             <properties>
                 <bool name="mvz2:undead" value="true" />
                 <int name="mvz2:waterInteraction" value="0" />
-                <float name="mvz2:maxHealth" value="4000" />
+                <float name="mvz2:maxHealth" value="6000" />
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <vector3 name="mvz2:size" x="48" y="52" z="48" />
                 <color name="mvz2:bloodColor" value="#000000FF" />
@@ -3699,6 +3699,9 @@
             </properties>
         </boss>
         <boss id="wither" name="凋灵">
+			<behaviours>
+				<behaviour operator="remove" id="mvz2:boss_resistance" />
+			</behaviours>
             <properties>
                 <bool name="mvz2:undead" value="true" />
                 <int name="mvz2:waterInteraction" value="1" />
@@ -4059,7 +4062,6 @@
             </properties>
         </projectile>
         <projectile id="spike">
-            <behaviours includeSelf="false" />
             <properties>
                 <bool name="mvz2:pointToDirection" value="true" />
                 <vector3 name="mvz2:size" x="20" y="11" z="11" />

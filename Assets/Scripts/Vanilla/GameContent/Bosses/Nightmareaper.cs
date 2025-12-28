@@ -64,7 +64,7 @@ namespace MVZ2.GameContent.Bosses
             float currHP = entity.Health;
 
             // 每掉落一定血量（例如 800 点）触发一次事件
-            int triggerCount = (int)((lastHP - currHP) / 600f);
+            int triggerCount = (int)((lastHP - currHP) / 800f);
             triggerCount = Mathf.Min(triggerCount, 2);
             if (triggerCount > 0)
             {

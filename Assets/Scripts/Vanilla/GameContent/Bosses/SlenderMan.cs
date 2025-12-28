@@ -57,6 +57,8 @@ namespace MVZ2.GameContent.Bosses
             flyBuff.SetProperty(FlyBuff.PROP_FLY_SPEED, 0.2f);
             flyBuff.SetProperty(FlyBuff.PROP_FLY_SPEED_FACTOR, 0.5f);
             flyBuff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
+
+            SetCrushingWallsTriggered(entity, false);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -106,6 +108,11 @@ namespace MVZ2.GameContent.Bosses
                 var readyTimes = GetReadyFateTimes(boss);
                 SetReadyFateTimes(boss, readyTimes + newStage - selectedFateTimes);
             }
+            if (!GetCrushingWallsTriggered(boss) && boss.Health <= boss.GetMaxHealth() * 0.5f)
+            {
+                SetCrushingWallsTriggered(boss, true);
+                TriggerCrushingWalls(boss);
+            }
         }
         public override void PostDeath(Entity entity, DeathInfo deathInfo)
         {
@@ -119,6 +126,33 @@ namespace MVZ2.GameContent.Bosses
 
             entity.SetAnimationBool("IsDead", true);
             entity.Timeout = 180;
+
+            var hasAliveBoss = entity.Level.EntityExists(e => e != entity && e.IsEntityOf(VanillaBossID.slenderman) && !e.IsDead);
+            if (!hasAliveBoss)
+            {
+                foreach (var wall in entity.Level.FindEntities(VanillaEffectID.crushingWalls))
+                {
+                    wall.Remove();
+                }
+            }
+        }
+        private void TriggerCrushingWalls(Entity boss)
+        {
+            boss.Level.PauseGame(100);
+            var level = boss.Level;
+            level.ShowDialog(CRUSHING_WALLS_WARNING, "", new string[] { BUTTON_CONFIRM, BUTTON_CANCEL }, (index) =>
+            {
+                if (index == 0)
+                {
+                    level.ResumeGameDelayed(100);
+                    boss.Spawn(VanillaEffectID.crushingWalls, boss.Position);
+                }
+                else
+                {
+                    level.ResumeGame();
+                    Application.Quit();
+                }
+            });
         }
         #endregion
 
@@ -453,7 +487,8 @@ namespace MVZ2.GameContent.Bosses
                     var y = level.GetGroundY(x, z);
                     Vector3 pos = new Vector3(x, y, z);
                     var randomEnemy = enemyPool.Random(rng);
-                    SpawnPortal(boss, pos, randomEnemy);
+                    var Enemy0 = SpawnPortal(boss, pos, randomEnemy);
+                    Enemy0.AddBuff<AttackSpeedBuff>();
 
                 }
             }
@@ -719,6 +754,8 @@ namespace MVZ2.GameContent.Bosses
         public static void SetFateOptionRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourField(ID, PROP_FATE_OPTION_RNG, value);
         public static RandomGenerator? GetEventRNG(Entity boss) => boss.GetBehaviourField<RandomGenerator>(ID, PROP_EVENT_RNG);
         public static void SetEventRNG(Entity boss, RandomGenerator value) => boss.SetBehaviourField(ID, PROP_EVENT_RNG, value);
+        public static bool GetCrushingWallsTriggered(Entity boss) => boss.GetBehaviourField<bool>(ID, PROP_CRUSHING_WALLS_TRIGGERED);
+        public static void SetCrushingWallsTriggered(Entity boss, bool value) => boss.SetBehaviourField(ID, PROP_CRUSHING_WALLS_TRIGGERED, value);
         #endregion
 
         #endregion 属性
@@ -756,6 +793,12 @@ namespace MVZ2.GameContent.Bosses
         public const string FATE_TEXT_BONE_PILE = "骨堆";
         [TranslateMsg("梦魇选项")]
         public const string FATE_TEXT_REBIRTH = "新生";
+        [TranslateMsg("警告")]
+        public const string CRUSHING_WALLS_WARNING = "<color=red>你当真打算与我为敌？</color>";
+        [TranslateMsg("确定")]
+        public const string BUTTON_CONFIRM = "确定";
+        [TranslateMsg("取消")]
+        public const string BUTTON_CANCEL = "取消";
 
         public const int MAX_MOVE_TIMEOUT = 30;
 
@@ -775,6 +818,7 @@ namespace MVZ2.GameContent.Bosses
         public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_MIND_SWAP_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("MindSwapRNG");
         public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_FATE_OPTION_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("FateOptionRNG");
         public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_EVENT_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("EventRNG");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_CRUSHING_WALLS_TRIGGERED = new VanillaEntityPropertyMeta<bool>("CrushingWallsTriggered");
 
         public const int FATE_DISABLE = 0;
         public const int FATE_COME_TRUE = 1;
