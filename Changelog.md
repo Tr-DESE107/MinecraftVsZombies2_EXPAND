@@ -3,6 +3,7 @@
 - Fixed the issue where Undead Flying Object's explosion radius on death is too small.
 - Fixed the issue where monsters killed by Vortex Hopper will still spin after revival.
 - Fixed the issue where friendly monsters can only melee-attack the giant while they are in the same lane.
+- Fixed the issue where Skyward Beacon does not count as a contraption that counters short enemy or flying enemy.
 
 ---
 
