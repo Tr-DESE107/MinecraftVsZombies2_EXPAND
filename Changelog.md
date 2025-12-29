@@ -6,7 +6,9 @@
 - Increased the energy cost of Beacon to 150 from 125.
 - Decreased the energy cost of Skyward Beacon to 225 from 275.
 - Increased the energy cost of Force Pad to 125 from 75.
+- Decreased the energy cost of Dream Silk to 75 from 100.
 - Increased the contraption sleep duration of Dream Silk to 50 seconds from 30 seconds.
+- Increased the recharge time of Dream Silk to Very Long from Long.
 - Decreased the range of Note Block to 4 tiles from a whole lane, but +10 tiles during evocation.
 - Increased the spawn frequency of Spiders, Ghasts, Zombie Clouds, Cannoneer Zombies and Pop Captains.
 - Decreased the spawn frequency of Skeletons.
