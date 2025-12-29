@@ -5,18 +5,45 @@
 ## Modified
 
 ### Balance
-- Increased the energy cost of Beacon to 150 from 125.
-- Decreased the energy cost of Skyward Beacon to 225 from 275.
-- Increased the energy cost of Force Pad to 125 from 75.
-- Decreased the energy cost of Dream Silk to 75 from 100.
-- Increased the contraption sleep duration of Dream Silk to 50 seconds from 30 seconds.
-- Increased the recharge time of Dream Silk to Very Long from Long.
-- Decreased the range of Note Block to 4 tiles from a whole lane, but +10 tiles during evocation.
-- Increased the spawn frequency of Spiders, Ghasts, Zombie Clouds, Cannoneer Zombies and Pop Captains.
-- Decreased the spawn frequency of Skeletons.
-- Increased the speed of Cannonball Zombie to 4 from 2.
-- Increased the speed of Pop Captain to 1.5 from 1.
-- Increased the duration of water stains created by Zombie Clouds to 40 seconds from 20 seconds.
+- Beacon
+  - Cost：125 -> 150
+- Skyward Beacon
+  - Cost: 275 -> 225
+- Force Pad
+  - Cost: 75 -> 125
+- Dream Silk
+  - Cost: 100 -> 75
+  - Contraption sleep duration: 30 seconds -> 50 seconds
+  - Recharge time: Long -> Very Long
+- Note Block
+  - Range: A whole lane -> 4 tiles
+  - +10 tiles range during evocation.
+- Cannonball Zombie
+  - Speed: 2 -> 4
+- Pop Captain
+  - Speed: 1 -> 1.5
+- Zombie Cloud
+  - Duration of water stains: 20 seconds -> 40 seconds
+
+### Monster Spawning
+- Skeleton
+  - Earliest spawn wave: 0 -> 5
+  - Weight: 3500 -> 3000
+- Spider
+  - Cost: 2 -> 1
+  - Earliest spawn wave: 0 -> 5
+  - Weight: 2000 -> 3000
+- Ghast
+  - Earliest spawn wave: 10 -> 5
+- Zombie Cloud
+  - Cost: 3 -> 2
+  - Earliest spawn wave: 10 -> 5
+  - Weight: 2000 -> 3000
+- Cannoneer Zombie
+  - Weight: 1500 -> 2500
+- Pop Captain
+  - Weight: 1000 -> 2000
+- Monsters carrying Starshards will now appear 3 waves earlier.
 
 ### I, Zombie
 - In Easy difficulty, the amount of redstone given by a furnace decreases from 10 to 9 (225 energy).

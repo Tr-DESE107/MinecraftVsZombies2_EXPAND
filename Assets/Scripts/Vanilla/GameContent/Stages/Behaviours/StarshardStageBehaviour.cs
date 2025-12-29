@@ -58,7 +58,8 @@ namespace MVZ2.GameContent.Stages
 
         private const string PROP_REGION = "starshard_drop_stage";
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta<float> PROP_STARSHARD_COUNTER = new VanillaLevelPropertyMeta<float>("starshard_counter");
+        public static readonly VanillaLevelPropertyMeta<float> PROP_STARSHARD_COUNTER = new VanillaLevelPropertyMeta<float>("starshard_counter", DEFAULT_STARSHARD_COUNTER);
         public const int COUNTER_PER_STARSHARD = 6;
+        public const int DEFAULT_STARSHARD_COUNTER = 3;
     }
 }
