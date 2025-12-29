@@ -29,8 +29,8 @@
     <!-- Halloween -->
     <entry id="skeleton">
         <entity id="mvz2:skeleton" />
-        <spawn level="2" />
-        <weight base="3500" />
+        <spawn level="2" minWave="5" />
+        <weight base="3000" />
     </entry>
     <entry id="ghost">
         <entity id="mvz2:ghost" />

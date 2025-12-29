@@ -8,6 +8,7 @@
 - Increased the contraption sleep duration of Dream Silk to 50 seconds from 30 seconds.
 - Decreased the range of Note Block to 4 tiles from a whole lane, but +10 tiles during evocation.
 - Increased the spawn frequency of Spiders, Ghasts, Zombie Clouds, Cannoneer Zombies and Pop Captains.
+- Decreased the spawn frequency of Skeletons.
 - Increased the speed of Cannonball Zombie to 4 from 2.
 - Increased the speed of Pop Captain to 1.5 from 1.
 - Increased the duration of water stains created by Zombie Clouds to 40 seconds from 20 seconds.
