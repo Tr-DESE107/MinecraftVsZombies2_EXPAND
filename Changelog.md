@@ -3,6 +3,8 @@
 - When flames appear for the first time in Palanquin Ship Day 11, there will now be an advice to extinguish the flames.
 
 ## Modified
+
+### Balance
 - Increased the energy cost of Beacon to 150 from 125.
 - Decreased the energy cost of Skyward Beacon to 225 from 275.
 - Increased the energy cost of Force Pad to 125 from 75.
@@ -15,6 +17,11 @@
 - Increased the speed of Cannonball Zombie to 4 from 2.
 - Increased the speed of Pop Captain to 1.5 from 1.
 - Increased the duration of water stains created by Zombie Clouds to 40 seconds from 20 seconds.
+
+### I, Zombie
+- In Easy difficulty, the amount of redstone given by a furnace decreases from 10 to 9 (225 energy).
+- In Hard difficulty, the amount of redstone given by a furnace increases from 6 to 7 (175 energy).
+- The number of additional furnaces in the reward rounds has been reduced from 5 to 2.
 
 ## Fixes
 - Fixed the issue where Cannoneer Zombie still launches Cannonballs when stunned.
