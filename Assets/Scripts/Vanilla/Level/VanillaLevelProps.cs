@@ -304,5 +304,17 @@ namespace MVZ2.Vanilla.Level
             return game.GetProperty<int>(DAY_NIGHT_CYCLE_OVERRIDE);
         }
         #endregion
+
+        #region 上帝模式
+        public static readonly PropertyMeta<bool> GRID_FIRE_ADVICED = Get<bool>("grid_fire_adviced");
+        public static bool IsGridFireAdviced(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(GRID_FIRE_ADVICED);
+        }
+        public static void SetGridFireAdviced(this LevelEngine level, bool value)
+        {
+            level.SetProperty(GRID_FIRE_ADVICED, value);
+        }
+        #endregion
     }
 }

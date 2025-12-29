@@ -19,6 +19,8 @@ namespace MVZ2.Vanilla
 
         [TranslateMsg("梦魇战斗提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS = "点击屏幕阻止碾压墙！";
+        [TranslateMsg("红龙战斗提示", CONTEXT_ADVICE)]
+        public const string ADVICE_CLICK_TO_EXTINGUISH_FIRE = "点击火焰来灭火！";
         [TranslateMsg("获得新制品提示", CONTEXT_ADVICE)]
         public const string ADVICE_YOU_FOUND_A_NEW_ARTIFACT = "你找到了新制品！";
         [TranslateMsg("剩余内容正在开发提示", CONTEXT_ADVICE)]

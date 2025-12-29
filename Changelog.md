@@ -1,5 +1,6 @@
 ## Added
 - Added the almanac entry for Boat Zombies and Kourindou.
+- When flames appear for the first time in Palanquin Ship Day 11, there will now be an advice to extinguish the flames.
 
 ## Modified
 - Increased the energy cost of Beacon to 150 from 125.

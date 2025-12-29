@@ -3,9 +3,13 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Stages;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -23,6 +27,16 @@ namespace MVZ2.GameContent.Contraptions
                 factionTarget = FactionTarget.Any,
                 mask = EntityCollisionHelper.MASK_PROJECTILE,
             };
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            var level = entity.Level;
+            if (level.StageID == VanillaStageID.ship11 && !level.IsRerun && !level.IsGridFireAdviced())
+            {
+                level.SetGridFireAdviced(true);
+                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_EXTINGUISH_FIRE, 100, 120);
+            }
         }
         public override void Update(Entity entity)
         {

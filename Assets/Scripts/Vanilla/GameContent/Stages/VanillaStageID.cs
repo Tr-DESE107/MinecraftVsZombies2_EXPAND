@@ -125,6 +125,7 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID castle10 = Get(VanillaStageNames.castle10);
         public static readonly NamespaceID mausoleum1 = Get(VanillaStageNames.mausoleum1);
         public static readonly NamespaceID ship1 = Get(VanillaStageNames.ship1);
+        public static readonly NamespaceID ship11 = Get(VanillaStageNames.ship11);
 
         public static readonly NamespaceID iZombieDebug = Get(VanillaStageNames.iZombieDebug);
         private static NamespaceID Get(string name)
