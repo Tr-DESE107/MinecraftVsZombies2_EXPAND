@@ -5,6 +5,8 @@
 ## Modified
 
 ### Balance
+- Magichest
+  - Cost: 200 -> 175
 - Beacon
   - Cost：125 -> 150
 - Skyward Beacon
