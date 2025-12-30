@@ -19,7 +19,8 @@ namespace MVZ2.Level
         }
         private void EnginePostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
-            var entity = param.entity;
+            var output = param.placeOutput;
+            var entity = output.entity;
             if (entity == null)
                 return;
             var seed = param.blueprint;

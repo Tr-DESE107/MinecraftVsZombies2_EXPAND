@@ -2,12 +2,34 @@
 
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using UnityEngine.Playables;
 
 namespace PVZEngine.Placements
 {
     public abstract class PlaceMethod
     {
         public abstract NamespaceID? GetPlaceError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef);
-        public abstract Entity? PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param);
+        public abstract PlaceOutput PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param);
+    }
+    public class PlaceOutput
+    {
+        public Entity? entity;
+        public bool increaseTakenConveyorSeed;
+        public bool isCommandBlock;
+        private bool invalid;
+
+        public PlaceOutput(Entity? entity)
+        {
+            this.entity = entity;
+        }
+        public bool IsInvalid()
+        {
+            return invalid;
+        }
+
+        public static readonly PlaceOutput InvalidOutput = new PlaceOutput(null)
+        {
+            invalid = true
+        };
     }
 }

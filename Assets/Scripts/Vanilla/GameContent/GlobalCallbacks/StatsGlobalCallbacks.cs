@@ -26,7 +26,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
         }
         private void PostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
-            var entity = param.entity;
+            var output = param.placeOutput;
+            var entity = output.entity;
             if (entity == null)
                 return;
             var seed = param.blueprint;
