@@ -20,13 +20,9 @@ namespace MVZ2.UI
         }
         public void ShowDialog(string title, string desc, string[] options, Action<int>? onSelect = null)
         {
-            ShowDialogTask(title, desc, options, (i) => 
-            {
-                onSelect?.Invoke(i);
-                return Task.CompletedTask;
-            });
+            ShowDialogTask(title, desc, options, postSelect: onSelect);
         }
-        public void ShowDialogTask(string title, string desc, string[] options, Func<int, Task>? onSelect = null, bool destroysWhenSelect = true)
+        public void ShowDialogTask(string title, string desc, string[] options, Func<int, Task>? onSelect = null, Action<int>? postSelect = null)
         {
             dialog.gameObject.SetActive(true);
             dialog.SetDialog(title, desc, options, async (i) =>
@@ -38,9 +34,10 @@ namespace MVZ2.UI
                     await task;
                     dialog.SetInteractable(true);
                 }
-                if (destroysWhenSelect)
+                dialog.gameObject.SetActive(false);
+                if (postSelect != null)
                 {
-                    dialog.gameObject.SetActive(false);
+                    postSelect.Invoke(i);
                 }
             });
             dialog.ResetPosition();
