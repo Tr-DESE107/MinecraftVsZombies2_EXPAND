@@ -140,12 +140,15 @@ namespace MVZ2.Vanilla.Enemies
             if (target.Type == EntityTypes.ENEMY)
             {
                 // 如果目标地格存在，直接使其换行。
-                var lane = target.GetLane();
-                var column = target.GetColumn();
-                var grid = entity.Level.GetGrid(column, lane + rowOffset);
-                if (grid != null)
+                if (target.GetMass() <= VanillaMass.VERY_HEAVY)
                 {
-                    target.StartChangingLane(lane + rowOffset);
+                    var lane = target.GetLane();
+                    var column = target.GetColumn();
+                    var grid = entity.Level.GetGrid(column, lane + rowOffset);
+                    if (grid != null)
+                    {
+                        target.StartChangingLane(lane + rowOffset);
+                    }
                 }
             }
             else if (target.Type == EntityTypes.PLANT)
