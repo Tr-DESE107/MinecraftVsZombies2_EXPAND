@@ -12,6 +12,7 @@ namespace PVZEngine.Entities
         NamespaceID? ArmorSlot { get; }
         EntityColliderReference ToReference();
         bool CheckSphere(Vector3 center, float radius);
+        bool CheckCapsule(Vector3 pos1, Vector3 pos2, float radius);
         Bounds GetBoundingBox();
         void SetEnabled(bool enabled);
     }

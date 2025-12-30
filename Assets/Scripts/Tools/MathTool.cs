@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Tools.Mathematics
 {
@@ -554,57 +555,99 @@ namespace Tools.Mathematics
         }
         public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Bounds cube)
         {
-            return CollideBetweenCubeAndCapsule(capsule, cube.center, cube.size);
+            var sqrRadius = capsule.radius * capsule.radius;
+            return GetLineToAABBSqrDistance(capsule.point0, capsule.point1, cube) <= sqrRadius;
         }
-        public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Vector3 cubeCenter, Vector3 cubeSize)
+        public static bool CollideBetweenCubeAndLine(Vector3 a, Vector3 b, Bounds cube)
         {
-            // 扩展立方体
-            var expandedSize = cubeSize + Vector3.one * capsule.radius * 2;
-            var capsuleStart = capsule.point0;
-            var capsuleEnd = capsule.point1;
-
-            // 检测线段与扩展后的AABB是否相交
-            return CollideBetweenCubeAndLine(capsuleStart, capsuleEnd, cubeCenter, expandedSize);
+            return CollideBetweenCubeAndLine(a, b, cube.center, cube.size);
         }
-        public static bool CollideBetweenCubeAndLine(Vector3 lineStart, Vector3 lineEnd, Vector3 cubeCenter, Vector3 cubeSize)
+        public static bool CollideBetweenCubeAndLine(Vector3 a, Vector3 b, Vector3 cubeCenter, Vector3 cubeSize)
         {
-            var t_min = 0f;
-            var t_max = 1f;
-            var cubeMin = cubeCenter - cubeSize * 0.5f;
-            var cubeMax = cubeCenter + cubeSize * 0.5f;
+            Vector3 dir = b - a;
+            Vector3 invDir = new Vector3(
+                dir.x != 0 ? 1f / dir.x : float.PositiveInfinity,
+                dir.y != 0 ? 1f / dir.y : float.PositiveInfinity,
+                dir.z != 0 ? 1f / dir.z : float.PositiveInfinity
+            );
 
-            for (int axis = 0; axis < 3; axis++)
+            Vector3 min = cubeCenter - cubeSize * 0.5f;
+            Vector3 max = cubeCenter + cubeSize * 0.5f;
+
+            float tMin = 0f;
+            float tMax = 1f;
+
+            for (int i = 0; i < 3; i++)
             {
-                var a = lineStart[axis];
-                var b = lineEnd[axis];
-                var minAxis = cubeMin[axis];
-                var maxAxis = cubeMax[axis];
+                float t1 = (min[i] - a[i]) * invDir[i];
+                float t2 = (max[i] - a[i]) * invDir[i];
 
-                if (Mathf.Abs(b - a) < 1e-6)  // 线段平行于当前轴
-                {
-                    if (a < minAxis || a > maxAxis)
-                        return false;
-                }
-                else
-                {
-                    var inverseDistance = 1f / (b - a);
-                    var t1 = (minAxis - a) * inverseDistance;
-                    var t2 = (maxAxis - a) * inverseDistance;
-                    if (t1 > t2)
-                    {
-                        var swap = t1;
-                        t1 = t2;
-                        t2 = swap;
-                    }
-                    t_min = Mathf.Max(t_min, t1);
-                    t_max = Mathf.Min(t_max, t2);
-                    if (t_min > t_max)
-                        return false;
-                }
+                if (t1 > t2)
+                    (t1, t2) = (t2, t1);
+
+                tMin = Mathf.Max(tMin, t1);
+                tMax = Mathf.Min(tMax, t2);
+
+                if (tMin > tMax)
+                    return false;
             }
 
-            return (t_min <= 1) && (t_max >= 0);
+            return true;
         }
+        /// <summary>
+        /// 获取线段 AB 到 AABB 的最短平方距离
+        /// </summary>
+        public static float GetLineToAABBSqrDistance(Vector3 a, Vector3 b, Bounds aabb)
+        {
+            // 若线段与 AABB 相交，距离为 0
+            if (CollideBetweenCubeAndLine(a, b, aabb))
+                return 0f;
+
+            // 计算两个端点到 AABB 的距离
+            float distA = GetPointToAABBSqrDistance(a, aabb);
+            float distB = GetPointToAABBSqrDistance(b, aabb);
+
+            return Mathf.Min(distA, distB);
+        }
+        /// <summary>
+        /// 获取线段 AB 到 AABB 的最短距离
+        /// </summary>
+        public static float GetLineToAABBDistance(Vector3 a, Vector3 b, Bounds aabb)
+        {
+            // 若线段与 AABB 相交，距离为 0
+            if (CollideBetweenCubeAndLine(a, b, aabb))
+                return 0f;
+
+            // 计算两个端点到 AABB 的距离
+            float distA = GetPointToAABBDistance(a, aabb);
+            float distB = GetPointToAABBDistance(b, aabb);
+
+            return Mathf.Min(distA, distB);
+        }
+
+        /// <summary>
+        /// 点到 AABB 的最短平方距离
+        /// </summary>
+        public static float GetPointToAABBSqrDistance(Vector3 p, Bounds box)
+        {
+            var min = box.min;
+            var max = box.max;
+
+            float dx = Mathf.Max(min.x - p.x, 0f, p.x - max.x);
+            float dy = Mathf.Max(min.y - p.y, 0f, p.y - max.y);
+            float dz = Mathf.Max(min.z - p.z, 0f, p.z - max.z);
+
+            return dx * dx + dy * dy + dz * dz;
+        }
+        /// <summary>
+        /// 点到 AABB 的最短距离
+        /// </summary>
+        public static float GetPointToAABBDistance(Vector3 p, Bounds box)
+        {
+            return Mathf.Sqrt(GetPointToAABBSqrDistance(p, box));
+        }
+
+
         public static bool RayIntersectsBox(Vector3 rayOrigin, Vector3 rayDirection, Bounds box, out float hitDistance, out Vector3 hitPoint)
         {
             return RayIntersectsBox(rayOrigin, rayDirection, box.min, box.max, out hitDistance, out hitPoint);
