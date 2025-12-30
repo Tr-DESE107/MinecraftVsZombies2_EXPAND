@@ -2720,7 +2720,7 @@
             </properties>
         </projectile>
         <projectile id="beacon_meteor">
-            <behaviours includeSelf="false">
+            <behaviours>
                 <behaviour operator="add" id="mvz2:projectile_explode_meteor" />
             </behaviours>
             <properties>

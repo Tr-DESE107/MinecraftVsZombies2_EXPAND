@@ -8694,6 +8694,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf74c11d6e254354486cefc7df391641
+    m_Address: mvz2:misc/boat_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf91b1cffcf2bb948bcdb815c1916e71
     m_Address: mvz2:mobile_blueprint/shikaisen_zombie
     m_ReadOnly: 0

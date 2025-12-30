@@ -106,6 +106,7 @@ namespace MVZ2.GameContent.Contraptions
                 BeaconMeteorBuff.SetFaction(enemyBuff, faction);
                 BeaconMeteorBuff.SetDamage(enemyBuff, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
                 BeaconMeteorBuff.SetHSVOffset(enemyBuff, Vector3.zero);
+                BeaconMeteorBuff.SetVariant(enemyBuff, BeaconMeteorBuff.VARIANT_DEFAULT);
             }
 
             // ÃÌº”‘… ØBUFF°£

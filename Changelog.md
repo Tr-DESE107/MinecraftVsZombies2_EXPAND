@@ -6,6 +6,7 @@
 
 - Adjusted the hitboxes of most projectiles to better match the visual effect.
 - Adjusted the monster types to spawn in some levels.
+- Red Dragon's meteors now have a new sprite.
 
 ### Balance
 - Magichest
