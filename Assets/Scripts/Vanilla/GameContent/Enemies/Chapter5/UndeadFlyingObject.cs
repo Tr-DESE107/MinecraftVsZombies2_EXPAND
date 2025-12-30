@@ -168,11 +168,11 @@ namespace MVZ2.GameContent.Enemies
         {
             return entity.IsEntityOf(VanillaEnemyID.ufo);
         }
-        public static void FillUFOVariantRandomPool(LevelEngine level, List<int> results)
+        public static void FillUFOVariantRandomPool(LevelEngine level, int faction, List<int> results)
         {
             foreach (var pair in behaviours)
             {
-                if (pair.Value.CanSpawn(level))
+                if (pair.Value.CanSpawn(level, faction))
                 {
                     results.Add(pair.Key);
                 }

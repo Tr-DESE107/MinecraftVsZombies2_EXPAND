@@ -21,9 +21,9 @@ namespace MVZ2.GameContent.Enemies
         public UFOBehaviourGreen() : base(UndeadFlyingObject.VARIANT_GREEN)
         {
         }
-        public override bool CanSpawn(LevelEngine level)
+        public override bool CanSpawn(LevelEngine level, int faction)
         {
-            return level.GetEntityCount(e => CanStartSteal(level.Option.RightFaction, e)) > 3;
+            return level.GetEntityCount(e => CanStartSteal(faction, e)) > 3;
         }
         public override void GetPossibleSpawnGrids(LevelEngine level, int faction, HashSet<LawnGrid> results)
         {

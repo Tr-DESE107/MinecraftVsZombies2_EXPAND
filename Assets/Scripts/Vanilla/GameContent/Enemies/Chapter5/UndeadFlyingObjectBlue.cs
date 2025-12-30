@@ -2,6 +2,8 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -16,14 +18,18 @@ namespace MVZ2.GameContent.Enemies
         public UFOBehaviourBlue() : base(UndeadFlyingObject.VARIANT_BLUE)
         {
         }
-        public override bool CanSpawn(LevelEngine level)
+        public override bool CanSpawn(LevelEngine level, int faction)
         {
             return true;
         }
         public override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            if (entity.State == STATE_ACT)
+            bool isHostile = entity.IsHostileEntity();
+            bool isFriendly = entity.IsFriendlyEntity();
+            bool shouldAbsorb = entity.State == STATE_ACT && isHostile;
+            bool shouldProduce = entity.State == STATE_ACT && isFriendly;
+            if (shouldAbsorb)
             {
                 if (!entity.HasBuff<UFOBlueAbsorbBuff>())
                 {
@@ -37,21 +43,23 @@ namespace MVZ2.GameContent.Enemies
                     entity.RemoveBuffs<UFOBlueAbsorbBuff>();
                 }
             }
+
+            if (isFriendly)
+            {
+                DropAllAbsorbedEntities(entity);
+            }
+            if (shouldProduce)
+            {
+                if (entity.IsSecondsInterval(FRIENDLY_PRODUCE_INTERVAL_SECONDS))
+                {
+                    entity.Produce(VanillaPickupID.redstone);
+                }
+            }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            var absorbedEntities = GetAbsorbedEntityID(entity);
-            if (absorbedEntities != null)
-            {
-                foreach (var stolen in absorbedEntities)
-                {
-                    if (NamespaceID.IsValid(stolen))
-                    {
-                        entity.Spawn(stolen, entity.GetCenter());
-                    }
-                }
-            }
+            DropAllAbsorbedEntities(entity);
         }
         public override void UpdateActionState(Entity entity, int state)
         {
@@ -94,6 +102,21 @@ namespace MVZ2.GameContent.Enemies
         {
             LeaveUpdate(entity);
         }
+        public static void DropAllAbsorbedEntities(Entity entity)
+        {
+            var absorbedEntities = GetAbsorbedEntityID(entity);
+            if (absorbedEntities != null)
+            {
+                foreach (var stolen in absorbedEntities)
+                {
+                    if (NamespaceID.IsValid(stolen))
+                    {
+                        entity.Spawn(stolen, entity.GetCenter());
+                    }
+                }
+                absorbedEntities.Clear();
+            }
+        }
         public static List<NamespaceID>? GetAbsorbedEntityID(Entity entity) => entity.GetBehaviourField<List<NamespaceID>>(PROP_ABSORBED_ENTITY_ID);
         public static void SetAbsorbedEntityID(Entity entity, List<NamespaceID> value) => entity.SetBehaviourField(PROP_ABSORBED_ENTITY_ID, value);
         public static void AddAbsorbedEntityID(Entity entity, NamespaceID value)
@@ -118,6 +141,7 @@ namespace MVZ2.GameContent.Enemies
 
         public const int STAY_TIME = 30;
         public const int ACT_TIME = 300;
+        public const float FRIENDLY_PRODUCE_INTERVAL_SECONDS = 1f;
         public const string PROP_REGION = VanillaEnemyNames.ufo;
         [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<List<NamespaceID>> PROP_ABSORBED_ENTITY_ID = new VanillaEntityPropertyMeta<List<NamespaceID>>("absorbed_entity_id");

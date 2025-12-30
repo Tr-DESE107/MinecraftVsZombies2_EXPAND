@@ -5,6 +5,7 @@
 ## Modified
 
 - Adjusted the hitboxes of most projectiles to better match the visual effect.
+- Friendly Blue Undead Flying Objects no longer steal pickups, they provide redstones instead.
 
 ### Balance
 - Magichest
