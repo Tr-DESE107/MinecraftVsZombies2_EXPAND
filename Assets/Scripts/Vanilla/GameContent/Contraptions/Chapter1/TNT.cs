@@ -165,6 +165,7 @@ namespace MVZ2.GameContent.Contraptions
                         var shootParams = entity.GetShootParams();
                         shootParams.projectileID = VanillaProjectileID.flyingTNT;
                         shootParams.velocity = velocity;
+                        shootParams.pivot = VanillaEntityProps.SHOT_PIVOT_BOTTOM;
                         entity.ShootProjectile(shootParams)?.Let(projectile =>
                         {
                             projectile.SetDamage(damage);
