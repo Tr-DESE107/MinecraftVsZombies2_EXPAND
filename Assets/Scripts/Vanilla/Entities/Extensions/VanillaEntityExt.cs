@@ -1056,6 +1056,8 @@ namespace MVZ2.Vanilla.Entities
 
         public static void InflictSlow(this Entity entity, int time, ILevelSourceReference? source)
         {
+            if (entity.ImmuneSlowing())
+                return;
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
             if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
                 return;

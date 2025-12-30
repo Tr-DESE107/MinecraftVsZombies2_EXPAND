@@ -5,8 +5,6 @@
 ## Modified
 
 - Adjusted the hitboxes of most projectiles to better match the visual effect.
-- Friendly Blue Undead Flying Objects no longer steal pickups, they provide redstones instead.
-- Pop Captains can no longer change the lane of very heavy monsters.
 
 ### Balance
 - Magichest
@@ -24,10 +22,15 @@
 - Note Block
   - Range: A whole lane -> 4 tiles
   - +10 tiles range during evocation.
+- Hell Chariot
+  - Now immunes to cold slowing.
+- Undead Flying Object
+  - Friendly Blue Undead Flying Objects no longer steal pickups, they provide redstones instead.
 - Cannonball Zombie
   - Speed: 2 -> 4
 - Pop Captain
   - Speed: 1 -> 1.5
+  - Can no longer change the lane of very heavy monsters.
 - Zombie Cloud
   - Duration of water stains: 20 seconds -> 40 seconds
 
