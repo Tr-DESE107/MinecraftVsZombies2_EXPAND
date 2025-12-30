@@ -646,6 +646,7 @@
                 <id name="mvz2:placeSound" value="mvz2:wood" />
                 <id name="mvz2:deathSound" value="mvz2:wood" />
                 <vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
+                <vector3 name="mvz2:shot_pivot" x="0.5" y="0" z="0.5" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
 
@@ -684,6 +685,7 @@
                 <id name="mvz2:shootSound" value="mvz2:click" />
                 <float name="mvz2:damage" value="10" />
                 <vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
+                <vector3 name="mvz2:shot_pivot" x="0.5" y="0" z="0.5" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
 
@@ -1147,6 +1149,7 @@
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
 
                 <vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
+                <vector3 name="mvz2:shot_pivot" x="0.5" y="0" z="0.5" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
 
                 <int name="mvz2:cost" value="275" />
@@ -2632,6 +2635,7 @@
             <properties>
                 <float name="mvz2:damage" value="5" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
+                <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />
                 <bool name="mvz2:piercing" value="true" />
                 <vector3 name="mvz2:shadowScale" x="0.25" y="0.25" z="0.25" />
             </properties>

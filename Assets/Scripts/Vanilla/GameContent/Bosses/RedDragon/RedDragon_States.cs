@@ -957,7 +957,7 @@ namespace MVZ2.GameContent.Bosses
                 var param = entity.GetShootParams();
                 param.projectileID = VanillaProjectileID.fireCharge;
                 param.velocity = GetNeckDirection(entity) * 20;
-                param.position = GetSpitSourcePosition(entity) + Vector3.down * 12; // 火焰弹高度的一半
+                param.position = GetSpitSourcePosition(entity);
                 param.soundID = VanillaSoundID.fireCharge;
                 param.damage = entity.GetDamage() * 1;
                 entity.ShootProjectile(param);
@@ -1565,6 +1565,7 @@ namespace MVZ2.GameContent.Bosses
                 param.projectileID = VanillaProjectileID.explosiveLargeFireball;
                 param.velocity = GetNeckDirection(entity) * speed;
                 param.position = GetSpitSourcePosition(entity) + Vector3.down * 20; // 离地有一定距离
+                param.pivot = VanillaEntityProps.SHOT_PIVOT_BOTTOM;
                 param.soundID = VanillaSoundID.dragonBreath;
                 param.damage = entity.GetDamage() * 18;
                 entity.ShootProjectile(param)?.Let(p =>

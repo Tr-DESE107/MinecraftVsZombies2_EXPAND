@@ -6,6 +6,7 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -62,9 +63,10 @@ namespace MVZ2.GameContent.Armors
                 return;
 
             var owner = shield.Owner;
+
             var shootParams = owner.GetShootParams();
             shootParams.projectileID = VanillaProjectileID.reflectionBullet;
-            shootParams.position = hit.Projectile.Position;
+            shootParams.position = hit.Projectile.GetCenter();
             shootParams.damage = shieldResult.Amount;
             shootParams.soundID = VanillaSoundID.reflection;
             shootParams.velocity = owner.GetFacingDirection() * 10;

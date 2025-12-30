@@ -33,6 +33,7 @@ namespace MVZ2.GameContent.Contraptions
                 var speed = 3 + layer * 2;
                 var velocity2D = Vector2.right.RotateClockwise(angle) * speed;
                 param.position = entity.Position + Vector3.up * 16;
+                param.pivot = VanillaEntityProps.SHOT_PIVOT_BOTTOM;
                 param.projectileID = VanillaProjectileID.diamondCaltrop;
                 param.velocity = new Vector3(velocity2D.x, ySpeed, velocity2D.y);
                 param.damage = entity.GetDamage() * 5;

@@ -4,6 +4,8 @@
 
 ## Modified
 
+- Adjusted the hitboxes of most projectiles to better match the visual effect.
+
 ### Balance
 - Magichest
   - Cost: 200 -> 175

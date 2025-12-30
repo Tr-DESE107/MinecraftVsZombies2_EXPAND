@@ -169,7 +169,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             bool soundPlayed = false;
             var extend = GetExtend(entity);
-            Vector3 spikeBallPos = entity.Position + (extend + 44) * Vector3.up;
+            Vector3 spikeBallPos = entity.Position + (extend + 54) * Vector3.up;
 
             var projectileID = VanillaProjectileID.spikeBall;
             var projectileDefinition = entity.Level.Content.GetEntityDefinition(projectileID);
