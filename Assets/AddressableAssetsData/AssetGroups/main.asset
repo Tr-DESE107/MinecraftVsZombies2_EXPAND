@@ -3837,6 +3837,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51e325cd593ea764aa13e806bdfdeac1
+    m_Address: mvz2:entity/projectiles/boulder_fire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52224e26acb83e248a1a595c220c3f0d
     m_Address: mvz2:entity/boss/wither
     m_ReadOnly: 0
