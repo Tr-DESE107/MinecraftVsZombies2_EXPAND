@@ -744,11 +744,11 @@
             <entry id="mvz2:glowstone" count="4" minCount="0" />
             <entry id="mvz2:wooden_dropper" count="5" />
             <entry id="mvz2:spike_block" count="5" />
-            <entry id="mvz2:stone_dropper" count="8" />
+            <entry id="mvz2:stone_dropper" count="5" />
             <entry id="mvz2:stone_shield" count="15" />
             <entry id="mvz2:golden_apple" count="3" />
             <entry id="mvz2:thunder_drum" count="3" />
-            <entry id="mvz2:tesla_coil" count="8" />
+            <entry id="mvz2:tesla_coil" count="12" />
             <entry id="mvz2:giant_bowl" count="1" />
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest" />

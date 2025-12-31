@@ -7,10 +7,15 @@
 - Adjusted the hitboxes of most projectiles to better match the visual effect.
 - Adjusted the monster types to spawn in some levels.
 - Red Dragon's meteors now have a new sprite.
+- Reduced the appear chance for Stone Droppers, increased the appear chance for Tesla Coils in level 3-11.
 
 ### Balance
 - Magichest
   - Cost: 200 -> 175
+- Tesla Coil
+  - Damage: 80 -> 60
+  - Cost: 250 -> 200
+  - Recharge Time: Long -> Short
 - Beacon
   - Cost：125 -> 150
 - Skyward Beacon
@@ -35,6 +40,10 @@
   - Can no longer change the lane of very heavy monsters.
 - Zombie Cloud
   - Duration of water stains: 20 seconds -> 40 seconds
+- Wither
+  - Regeneration: 30/s -> 15/s
+  - The damage of Bedserker's explosion and eating Golden Apple will not bypasses Wither's damage resistance.
+  - Increased the damage of eating Golden Apple from 600 to 900.
 
 ### Monster Spawning
 - Skeleton

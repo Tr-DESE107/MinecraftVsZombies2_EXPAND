@@ -108,7 +108,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static void Shock(Entity source, float damage, int faction, float shockRadius, Vector3 targetPosition, DamageEffectList? damageEffects = null)
         {
-            damageEffects = damageEffects ?? new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.MUTE);
+            damageEffects = damageEffects ?? new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
             var level = source.Level;
             detectBuffer.Clear();
             gridDetectBuffer.Clear();

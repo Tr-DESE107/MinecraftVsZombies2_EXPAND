@@ -40,9 +40,7 @@ namespace MVZ2.GameContent.Bosses
 
             boss.CollisionMaskHostile |=
                 EntityCollisionHelper.MASK_PLANT |
-                EntityCollisionHelper.MASK_ENEMY |
-                EntityCollisionHelper.MASK_OBSTACLE |
-                EntityCollisionHelper.MASK_BOSS;
+                EntityCollisionHelper.MASK_OBSTACLE;
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -85,6 +83,8 @@ namespace MVZ2.GameContent.Bosses
             var self = collision.Entity;
             if (!other.IsHostile(self))
                 return;
+            if (other.Type != EntityTypes.PLANT && other.Type != EntityTypes.OBSTACLE)
+                return;
             var otherCollider = collision.OtherCollider;
             var crushDamage = VanillaMod.INSTA_DAMAGE_AMOUNT;
             var substate = stateMachine.GetSubState(self);
@@ -106,7 +106,7 @@ namespace MVZ2.GameContent.Bosses
                         if (other.IsEntityOf(VanillaContraptionID.goldenApple))
                         {
                             Stun(self);
-                            self.TakeDamage(GOLDEN_APPLE_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR), other);
+                            self.TakeDamage(GOLDEN_APPLE_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.BYPASS_BOSS_ARMOR), other);
                         }
                         else
                         {
@@ -368,7 +368,7 @@ namespace MVZ2.GameContent.Bosses
         public const float HEAD_ROTATE_SPEED = 10;
         public const float FLY_HEIGHT = 80;
         public const float EAT_HEALING = 300;
-        public const float GOLDEN_APPLE_DAMAGE = 600;
+        public const float GOLDEN_APPLE_DAMAGE = 900;
         public const float BOSS_REVENGE_PROJECTILE_DAMAGE_MULTIPLIER = 0.05f;
         #endregion 常量
 

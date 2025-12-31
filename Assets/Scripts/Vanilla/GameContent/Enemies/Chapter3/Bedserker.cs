@@ -68,7 +68,8 @@ namespace MVZ2.GameContent.Enemies
             base.PostDeath(entity, info);
             if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
                 return;
-            Berserker.Explode(entity, entity.GetDamage() * 18, VanillaFactions.NEUTRAL);
+            var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.BYPASS_BOSS_ARMOR);
+            Berserker.Explode(entity, entity.GetDamage() * 18, effects, VanillaFactions.NEUTRAL);
             entity.Level.ShakeScreen(20, 0, 30);
             entity.Remove();
         }
