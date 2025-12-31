@@ -6700,6 +6700,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74c9e214b0751ab4f8816ddfb4e09745
+    m_Address: mvz2:mobile_blueprint/TorchKongfuZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74d20e5d00a671e4c8fc95b83b0e9703
     m_Address: mvz2:entity/contraption/EXPANDispenser_Drivenser
     m_ReadOnly: 0
@@ -7646,6 +7653,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 839decadd93608a458dfa0676ac6ce7f
     m_Address: mvz2:artifacts/ufo_toy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83e1ae8913a9ec8419039be064f49ee1
+    m_Address: mvz2:entity/enemies/imperial_sword
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11242,6 +11256,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8f1fa08173678e4592663889b58ac6f
+    m_Address: mvz2:mobile_blueprint/IronPirateSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8fd47e22cd27394895621742e549446
     m_Address: mvz2:entity/projectiles/fireball
     m_ReadOnly: 0
@@ -11843,6 +11864,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1a7c525972e9d64b98d6d1779d84282
+    m_Address: mvz2:entity/armor/EXPAND_armor/HemperorCrown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1bf852fe2722b54e9735417e907a23c
     m_Address: mvz2:mobile_blueprint/necrotombstone
@@ -12872,6 +12900,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7ba9ab9c0be50b47bf333c1753c06f9
+    m_Address: mvz2:armor/HemperorCrown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e80ea5436acf0b544906c4d53a5919e4
     m_Address: mvz2:level/ship/deck

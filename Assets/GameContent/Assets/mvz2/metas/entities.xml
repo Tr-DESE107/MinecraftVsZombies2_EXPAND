@@ -2959,7 +2959,7 @@
 				<condition required="mvz2:level.mausoleum_9" />
 			</unlock>
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
+				<id name="mvz2:starting_armor" value="mvz2:HemperorCrown" />
 				<int name="mvz2:cost" value="100" />
 			</properties>
 		</zombie>

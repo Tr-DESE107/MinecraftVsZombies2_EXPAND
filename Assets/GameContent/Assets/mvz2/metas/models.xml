@@ -689,6 +689,7 @@
 	<model name="SantaHat" type="armor" path="mvz2:armor/SantaHat" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="PirateBucket" type="armor" path="mvz2:armor/PirateBucket" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="PirateLeatherCap" type="armor" path="mvz2:armor/PirateLeatherCap" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="HemperorCrown" type="armor" path="mvz2:armor/HemperorCrown" width="70" height="72" xOffset="1" yOffset="18" />
 
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28" />

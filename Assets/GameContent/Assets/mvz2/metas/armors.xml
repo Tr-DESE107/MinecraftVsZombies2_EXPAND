@@ -138,6 +138,12 @@
 				<float name="mvz2:maxHealth" value="600" />
 			</props>
 		</entry>
+		<entry id="HemperorCrown" type="mvz2:helmet">
+			<props>
+				<id name="mvz2:shell" value="mvz2:wood" />
+				<float name="mvz2:maxHealth" value="100" />
+			</props>
+		</entry>
 		<entry id="SantaHat" type="mvz2:helmet" ignored="true">
 			<behaviours>
 				<behaviour id="mvz2:destroy_after_half_hp" />

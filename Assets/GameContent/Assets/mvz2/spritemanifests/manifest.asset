@@ -1051,6 +1051,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1774c2ed9635c694080b89ce4c6e09bf, type: 3}
   - name: entity/enemies/HostHead
     sprite: {fileID: 21300000, guid: 3cb2218300b7b934ba70ba48ef892efc, type: 3}
+  - name: entity/enemies/imperial_sword
+    sprite: {fileID: 21300000, guid: 83e1ae8913a9ec8419039be064f49ee1, type: 3}
   - name: entity/enemies/iron_shovel
     sprite: {fileID: 21300000, guid: 414519a6962fb994b855ea73bd0d44e9, type: 3}
   - name: entity/enemies/mesmerizer_head
@@ -1395,6 +1397,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ddecb2750e06a86449911b2ad608969f, type: 3}
   - name: ui/store/product_frame
     sprite: {fileID: 21300000, guid: 32bf431d8ac58764cb0070360418c14d, type: 3}
+  - name: entity/armor/EXPAND_armor/HemperorCrown
+    sprite: {fileID: -923770071, guid: d1a7c525972e9d64b98d6d1779d84282, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/PulseArrow
     sprite: {fileID: 21300000, guid: 8d8e8f205d5efe14e8e22b9fc70301a0, type: 3}
   - name: map/gensokyo/pins/castle
