@@ -45,7 +45,7 @@
   - Duration of water stains: 20 seconds -> 40 seconds
 - Wither
   - Regeneration: 30/s -> 15/s
-  - The damage of Bedserker's explosion and eating Golden Apple will not bypasses Wither's damage resistance.
+  - The damage of Bedserker's explosion and eating Golden Apple will now bypasses Wither's damage resistance.
   - Increased the damage of eating Golden Apple from 600 to 900.
 
 ### Monster Spawning
