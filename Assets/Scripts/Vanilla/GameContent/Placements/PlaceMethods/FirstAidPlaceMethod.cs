@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Placements
                 if (entity.ExistsAndAlive())
                 {
                     entity.FirstAid();
-                    return new PlaceOutput(entity)
+                    return new PlaceOutput(entity, entityDef)
                     {
                         increaseTakenConveyorSeed = false
                     };

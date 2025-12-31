@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Placements
             if (drivenser == null)
                 return PlaceOutput.InvalidOutput;
             Drivenser.Upgrade(drivenser);
-            return new PlaceOutput(drivenser)
+            return new PlaceOutput(drivenser, entity)
             {
                 increaseTakenConveyorSeed = true,
             };

@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Placements
                 spawnParam.SetProperty(VanillaEntityProps.VARIANT, param.GetVariant());
                 ent = grid.SpawnPlacedEntity(entity.GetID(), spawnParam);
             }
-            return new PlaceOutput(ent)
+            return new PlaceOutput(ent, entity)
             {
                 isCommandBlock = commandBlock,
                 increaseTakenConveyorSeed = true,

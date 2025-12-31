@@ -13,20 +13,22 @@ namespace PVZEngine.Placements
     public class PlaceOutput
     {
         public Entity? entity;
+        public EntityDefinition? placeDefinition;
         public bool increaseTakenConveyorSeed;
         public bool isCommandBlock;
         private bool invalid;
 
-        public PlaceOutput(Entity? entity)
+        public PlaceOutput(Entity? entity, EntityDefinition? placeDefinition)
         {
             this.entity = entity;
+            this.placeDefinition = placeDefinition;
         }
         public bool IsInvalid()
         {
             return invalid;
         }
 
-        public static readonly PlaceOutput InvalidOutput = new PlaceOutput(null)
+        public static readonly PlaceOutput InvalidOutput = new PlaceOutput(null, null)
         {
             invalid = true
         };

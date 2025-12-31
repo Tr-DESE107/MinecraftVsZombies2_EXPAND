@@ -19,24 +19,24 @@ namespace MVZ2.Level
         }
         private void EnginePostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
+            if (!Main.OptionsManager.ShowSponsorNames())
+                return;
             var output = param.placeOutput;
             var entity = output.entity;
             if (entity == null)
                 return;
-            var seed = param.blueprint;
-            var definition = param.definition;
-            var heldData = param.heldData;
-            if (!Main.OptionsManager.ShowSponsorNames())
+            if (output.placeDefinition == null)
                 return;
-            if (entity.IsEntityOf(VanillaContraptionID.furnace))
+            var entityID = output.placeDefinition.GetID();
+            if (entityID == VanillaContraptionID.furnace)
             {
                 ShowFurnaceSponsorName(entity);
             }
-            else if (entity.IsEntityOf(VanillaContraptionID.moonlightSensor))
+            else if (entityID == VanillaContraptionID.moonlightSensor)
             {
                 ShowMoonlightSensorSponsorName(entity);
             }
-            else if (entity.IsEntityOf(VanillaContraptionID.gunpowderBarrel))
+            else if (entityID == VanillaContraptionID.gunpowderBarrel)
             {
                 ShowGunpowderBarrelSensorSponsorName(entity);
             }

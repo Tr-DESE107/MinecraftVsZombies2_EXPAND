@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Placements
                     }
                     ent.SetVariant(param.GetVariant());
                 }
-                return new PlaceOutput(ent)
+                return new PlaceOutput(ent, entityDef)
                 {
                     isCommandBlock = isCommandBlock,
                     increaseTakenConveyorSeed = true,
