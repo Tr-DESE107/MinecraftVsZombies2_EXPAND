@@ -40,12 +40,4 @@ namespace MVZ2.Options
         public float hoverDisplayRange;
         public int amountMode;
     }
-    public static class HPBarAmountMode
-    {
-        public const int HIDDEN = 0;
-        public const int CURRENT_ONLY = 1;
-        public const int CURRENT_AND_MAX = 2;
-
-        public const int COUNT = 3;
-    }
 }

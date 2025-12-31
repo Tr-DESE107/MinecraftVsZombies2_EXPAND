@@ -5,6 +5,7 @@ using System.Linq;
 using MVZ2.Entities;
 using MVZ2.UI.Level;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Options;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;

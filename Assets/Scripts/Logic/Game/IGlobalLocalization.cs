@@ -4,6 +4,8 @@ namespace MVZ2Logic.Games
 {
     public interface IGlobalLocalization
     {
+        string[] GetAllLanguageCodes();
+        string GetLanguageName(string code);
         string GetText(string textKey, params object[] args);
         string GetTextParticular(string textKey, string context, params object[] args);
         string GetTextPlural(string textKey, string textPlural, long n, params object[] args);

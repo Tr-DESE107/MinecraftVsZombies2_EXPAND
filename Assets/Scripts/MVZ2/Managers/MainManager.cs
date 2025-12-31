@@ -27,6 +27,7 @@ using MVZ2.Store;
 using MVZ2.Supporters;
 using MVZ2Logic;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Options;
 using MVZ2Logic.Resources;
 using MVZ2Logic.Serialization;
 using PVZEngine;
@@ -290,7 +291,6 @@ namespace MVZ2.Managers
             FontManager.Init();
             InputManager.InitKeys();
             OptionsManager.InitOptions();
-            OptionsManager.LoadOptions();
 
             await ModManager.LoadModInfos(Game);
 
@@ -302,6 +302,7 @@ namespace MVZ2.Managers
             ModManager.InitModLogics(Game);
             ModManager.LoadModLogics(Game);
             ModManager.PostReloadMods(Game);
+            OptionsManager.LoadOptions();
 
             // 在MOD逻辑加载之后
             SaveManager.Load();

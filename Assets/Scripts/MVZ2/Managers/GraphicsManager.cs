@@ -4,6 +4,9 @@ using System;
 using System.Reflection;
 using System.Text;
 using MVZ2.Managers;
+using MVZ2.Options;
+using MVZ2Logic.Options;
+using PVZEngine;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
@@ -259,6 +262,17 @@ namespace MVZ2.Models
                 }
             }
             return false;
+        }
+        private void Awake()
+        {
+            OptionsManager.OnOptionChangedBool += OnOptionChangedBoolCallback;
+        }
+        private void OnOptionChangedBoolCallback(NamespaceID id, bool value)
+        {
+            if (id == LogicOptionItemID.hdrLighting)
+            {
+                Shader.SetGlobalInt("_HDRDisabled", value ? 0 : 1);
+            }
         }
         public MainManager Main => main;
         private bool confirmedColorFormat = false;

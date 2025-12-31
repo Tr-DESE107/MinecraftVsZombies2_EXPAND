@@ -105,8 +105,8 @@ namespace MVZ2.Metas
             }
             var headerNode = node["header"];
             var propertiesNode = node["properties"];
-            var header = headerNode != null ? ConcatNodeParagraphs(headerNode) : string.Empty;
-            var properties = propertiesNode != null ? ConcatNodeParagraphs(propertiesNode) : string.Empty;
+            var header = headerNode != null ? headerNode.ConcatNodeParagraphs() : string.Empty;
+            var properties = propertiesNode != null ? propertiesNode.ConcatNodeParagraphs() : string.Empty;
 
             AlmanacMetaFlavor[] flavors;
             var flavorsNode = node["flavors"];
@@ -169,26 +169,6 @@ namespace MVZ2.Metas
         {
             return flavors.Select(f => f.text).ToArray();
         }
-        public static string ConcatNodeParagraphs(XmlNode node)
-        {
-            var lineNodes = node.ChildNodes;
-            var sb = new StringBuilder();
-            bool first = true;
-            for (int i = 0; i < lineNodes.Count; i++)
-            {
-                var lineNode = lineNodes[i];
-                if (lineNode.Name == "p")
-                {
-                    if (!first)
-                    {
-                        sb.Append("\n");
-                    }
-                    first = false;
-                    sb.Append(lineNodes[i].InnerText);
-                }
-            }
-            return sb.ToString();
-        }
     }
 
     public class AlmanacPicture
@@ -223,7 +203,7 @@ namespace MVZ2.Metas
             {
                 conditions = XMLConditionList.FromXmlNode(conditionsNode, defaultNsp);
             }
-            var flavor = AlmanacMetaEntry.ConcatNodeParagraphs(node);
+            var flavor = node.ConcatNodeParagraphs();
             return new AlmanacMetaFlavor()
             {
                 conditions = conditions,

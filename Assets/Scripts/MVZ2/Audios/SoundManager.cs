@@ -3,6 +3,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
+using MVZ2.Options;
+using MVZ2Logic.Options;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -136,6 +138,10 @@ namespace MVZ2.Audios
             UpdateLoopSound(id, source, intensity);
         }
         #endregion
+        private void Awake()
+        {
+            OptionsManager.OnOptionChangedFloat += OnOptionChangedFloatCallback;
+        }
         private void Update()
         {
             foreach (var source in soundSources.ToArray())
@@ -144,6 +150,13 @@ namespace MVZ2.Audios
                 {
                     RemoveSoundSource(source);
                 }
+            }
+        }
+        private void OnOptionChangedFloatCallback(NamespaceID id, float value)
+        {
+            if (id == LogicOptionItemID.soundVolume)
+            {
+                SetGlobalVolume(value);
             }
         }
         private void UpdateLoopSound(NamespaceID id, SoundSource source, float intensity)

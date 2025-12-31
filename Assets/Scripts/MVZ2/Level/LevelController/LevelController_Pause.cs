@@ -2,6 +2,7 @@
 
 using System.Collections;
 using MVZ2Logic.Level;
+using MVZ2Logic.Options;
 
 namespace MVZ2.Level
 {

@@ -3,6 +3,10 @@
 using System;
 using MukioI18n;
 using MVZ2.Managers;
+using MVZ2.Options;
+using MVZ2Logic.Options;
+using Newtonsoft.Json.Linq;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Cameras
@@ -38,6 +42,10 @@ namespace MVZ2.Cameras
         {
             return GetResolutionName(resolution.width, resolution.height);
         }
+        private void Awake()
+        {
+            OptionsManager.OnOptionChangedBool += OnOptionChangedBoolCallback;
+        }
         private void OnEnable()
         {
             Check();
@@ -50,6 +58,13 @@ namespace MVZ2.Cameras
         private void Update()
         {
             Check();
+        }
+        private void OnOptionChangedBoolCallback(NamespaceID id, bool value)
+        {
+            if (id == LogicOptionItemID.fullscreen)
+            {
+                Screen.fullScreen = value;
+            }
         }
         private void Check()
         {

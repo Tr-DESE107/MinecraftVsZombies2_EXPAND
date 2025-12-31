@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml;
 using MVZ2.Metas;
 using MVZ2Logic;
@@ -499,6 +500,28 @@ namespace MVZ2.IO
             }
             propValue = null;
             return false;
+        }
+
+
+        public static string ConcatNodeParagraphs(this XmlNode node)
+        {
+            var lineNodes = node.ChildNodes;
+            var sb = new StringBuilder();
+            bool first = true;
+            for (int i = 0; i < lineNodes.Count; i++)
+            {
+                var lineNode = lineNodes[i];
+                if (lineNode.Name == "p")
+                {
+                    if (!first)
+                    {
+                        sb.Append("\n");
+                    }
+                    first = false;
+                    sb.Append(lineNodes[i].InnerText);
+                }
+            }
+            return sb.ToString();
         }
     }
 }

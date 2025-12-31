@@ -5,6 +5,7 @@ using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Scenes;
 using MVZ2.UI.Titlescreen;
+using MVZ2Logic.Options;
 using UnityEngine;
 
 namespace MVZ2.Titlescreen
@@ -55,7 +56,7 @@ namespace MVZ2.Titlescreen
         {
             if (!main.OptionsManager.IsLanguageInitialized())
             {
-                var languages = main.LanguageManager.GetAllLanguages();
+                var languages = main.LanguageManager.GetAllLanguageCodes();
                 ui.ShowLanguageDialog(languages.Select(l => main.LanguageManager.GetLanguageName(l)).ToArray());
             }
             else
@@ -66,7 +67,7 @@ namespace MVZ2.Titlescreen
         private void OnLanguageDialogConfirmedCallback(int index)
         {
             ui.HideLanguageDialog();
-            var languages = main.LanguageManager.GetAllLanguages();
+            var languages = main.LanguageManager.GetAllLanguageCodes();
             main.OptionsManager.SetLanguage(languages[index]);
             main.Scene.DisplayMainmenu();
         }

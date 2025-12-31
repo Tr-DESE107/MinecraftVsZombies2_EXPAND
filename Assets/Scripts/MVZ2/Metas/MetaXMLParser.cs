@@ -104,6 +104,9 @@ namespace MVZ2.Metas
                 case "unlocks":
                     resource.UnlockMetaList = UnlockMetaList.FromXmlNode(document["unlocks"], defaultNsp);
                     break;
+                case "options":
+                    resource.OptionMetaList = OptionMetaList.FromXmlNode(document["options"], defaultNsp);
+                    break;
             }
         }
         public static ColliderConstructor LoadColliderConstructor(this XmlNode node)

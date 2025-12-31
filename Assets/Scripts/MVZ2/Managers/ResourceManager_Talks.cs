@@ -7,6 +7,7 @@ using MVZ2.Metas;
 using MVZ2.Modding;
 using MVZ2.TalkData;
 using MVZ2Logic.Localization;
+using MVZ2Logic.Options;
 using PVZEngine;
 using UnityEngine;
 

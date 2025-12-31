@@ -1,0 +1,123 @@
+<options>
+    <categories>
+        <category id="general" label="常规" />
+        <category id="graphics" label="图像" />
+        <category id="gameplay" label="游戏" />
+        <category id="control" label="控制" />
+        <category id="about" label="关于" />
+    </categories>
+    <items>
+        <string id="language" defaultValue=""/>
+        <id id="difficulty" defaultValue="mvz2:normal" />
+
+        <bool id="swap_trigger" defaultValue="false" />
+        <bool id="vibration" defaultValue="true" />
+        <bool id="fullscreen" defaultValue="true" />
+        <bool id="blood_and_gore" defaultValue="true" />
+        <bool id="pause_on_focus_lost" defaultValue="true" />
+        <bool id="skip_talks" defaultValue="false" />
+        <bool id="show_sponsor_names" defaultValue="false" />
+        <bool id="blueprint_warnings" defaultValue="true" />
+        <bool id="show_hotkeys" defaultValue="false" />
+        <bool id="hdr_lighting" defaultValue="true" />
+        <bool id="height_indicator" defaultValue="false" />
+
+        <int id="commandBlockMode" defaultValue="0" />
+        <int id="fpsMode" defaultValue="0" />
+
+        <float id="music_volume" defaultValue="1" />
+        <float id="sound_volume" defaultValue="1" />
+        <float id="fast_forward_multiplier" defaultValue="2" />
+        <float id="particle_amount" defaultValue="1"/>
+        <float id="shake_amount" defaultValue="1"/>
+        <float id="animation_frequency"  defaultValue="1"/>
+        
+        <bool id="hpbar_enabled" defaultValue="true" />
+        <bool id="hpbar_auto_hide" defaultValue="true" />
+        <int id="hpbar_amount_mode" defaultValue="0" />
+        <float id="hpbar_hover_display_range" defaultValue="0" />
+    </items>
+    <widgets>
+        <dropdown id="language" category="mvz2:general" label="语言" />
+        <toggle id="vibration" category="mvz2:general" label="震动">
+            <tooltip>
+                <p>（仅限移动端）是否在屏幕震动时震动设备。</p>
+            </tooltip>
+        </toggle>
+        <toggle id="skip_talks" category="mvz2:general" label="跳过对话">
+            <tooltip>
+                <p>是否自动跳过所有剧情对话。</p>
+            </tooltip>
+        </toggle>
+        <toggle id="blueprint_warnings" category="mvz2:general" label="选卡警告">
+            <tooltip>
+                <p>是否在蓝图选择完毕后，根据当前情况提出警告。</p>
+            </tooltip>
+        </toggle>
+        <dropdown id="command_block_mode" category="mvz2:general" label="命令方块">
+            <tooltip>
+                <p>选择命令方块蓝图的模式。</p>
+                <p>手动：手动选择模仿的器械。</p>
+                <p>前位：自动模仿上一个选择的器械。</p>
+            </tooltip>
+        </dropdown>
+        <dropdown id="show_fps" category="mvz2:general" label="显示帧率">
+            <tooltip>
+                <p>是否显示游戏帧率。</p>
+            </tooltip>
+        </dropdown>
+        <toggle id="show_sponsor_names" category="mvz2:general" label="赞助者名称">
+            <tooltip>
+                <p>在关卡中放置特定器械时，是否随机显示赞助了对应方案的赞助者的名称。</p>
+            </tooltip>
+        </toggle>
+
+        <slider id="particle_count" category="mvz2:graphics" label="粒子数量">
+            <tooltip>
+                <p>粒子效果数量。</p>
+            </tooltip>
+        </slider>
+        <slider id="screen_shake" category="mvz2:graphics" label="屏幕震动">
+            <tooltip>
+                <p>屏幕震动幅度。</p>
+            </tooltip>
+        </slider>
+        <slider id="animation_frequency" category="mvz2:graphics" label="动画频率">
+            <tooltip>
+                <p>关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。</p>
+            </tooltip>
+        </slider>
+        <dropdown id="resolution" category="mvz2:graphics" label="分辨率" />
+        <toggle id="fullscreen" category="mvz2:graphics" label="全屏">
+            <tooltip>
+                <p>是否全屏。</p>
+            </tooltip>
+        </toggle>
+        <toggle id="hdr_lighting" category="mvz2:graphics" label="HDR光照">
+            <tooltip>
+                <p>是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。</p>
+            </tooltip>
+        </toggle>
+        
+        <toggle id="blood_and_gore" category="mvz2:gameplay" label="血与碎块">
+            <tooltip>
+                <p>是否启用游戏中的血腥表现。</p>
+            </tooltip>
+        </toggle>
+        <toggle id="height_indicator" category="mvz2:gameplay" label="高度指示器">
+            <tooltip>
+                <p>是否在关卡中的实体位置较高时，显示实体距离地面的高度。</p>
+            </tooltip>
+        </toggle>
+        
+        <toggle id="show_hotkeys" category="mvz2:control" label="显示快捷键">
+            <tooltip>
+                <p>是否在关卡中显示界面对应的快捷键。</p>
+            </tooltip>
+        </toggle>
+        <button id="hotkeys" category="mvz2:control" label="快捷键设置" />
+
+        <button id="credits" category="mvz2:about" label="制作人员名单" />
+        <button id="export_log_files" category="mvz2:general" label="导出日志文件" />
+    </widgets>
+</options>

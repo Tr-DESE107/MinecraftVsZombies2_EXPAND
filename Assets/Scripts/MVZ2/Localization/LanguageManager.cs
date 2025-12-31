@@ -7,8 +7,11 @@ using System.Globalization;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
+using MVZ2.Options;
+using MVZ2Logic;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
+using MVZ2Logic.Options;
 using MVZ2Logic.Resources;
 using PVZEngine;
 using UnityEngine;
@@ -199,22 +202,13 @@ namespace MVZ2.Localization
         }
         public string GetCurrentLanguage()
         {
-#if UNITY_EDITOR
-            switch (debugLanguage)
-            {
-                case DebugLanguage.Chinese:
-                    return CN;
-                case DebugLanguage.English:
-                    return EN;
-            }
-#endif
-            return Main.OptionsManager.GetLanguage();
+            return currentLanguage;
         }
         public void CallLanguageChanged(string lang)
         {
             OnLanguageChanged?.Invoke(lang);
         }
-        public string[] GetAllLanguages()
+        public string[] GetAllLanguageCodes()
         {
             return allLanguages.ToArray();
         }
@@ -223,6 +217,36 @@ namespace MVZ2.Localization
             if (allLanguages.Contains(GetCurrentLanguage()))
                 return;
             Main.OptionsManager.SetLanguage(allLanguages.FirstOrDefault());
+        }
+        private void Awake()
+        {
+            OptionsManager.OnOptionChangedString += OnOptionChangedStringCallback;
+        }
+        private void OnOptionChangedStringCallback(NamespaceID id, string value)
+        {
+            if (id == LogicOptionItemID.language)
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    value = GetEnvironmentLanguage();
+                }
+                currentLanguage = value;
+                Main.LanguageManager.CallLanguageChanged(value);
+            }
+        }
+        private static string GetEnvironmentLanguage()
+        {
+            var culture = CultureInfo.CurrentCulture;
+            var allLanguages = Global.Localization.GetAllLanguageCodes();
+            foreach (var language in allLanguages)
+            {
+                if (culture.Name == language)
+                    return language;
+                var langCulture = new CultureInfo(language);
+                if (culture.Parent == langCulture.Parent)
+                    return language;
+            }
+            return CN;
         }
         string IGlobalLocalization.GetText(string textKey, params object[] args)
         {
@@ -250,15 +274,8 @@ namespace MVZ2.Localization
         public const string CURRENT_LANGUAGE_NAME = "中文";
 
         private List<string> allLanguages = new List<string>() { SOURCE_LANGUAGE };
+        private string currentLanguage = CN;
         [SerializeField]
         private MainManager main = null!;
-        [SerializeField]
-        private DebugLanguage debugLanguage;
-    }
-    public enum DebugLanguage
-    {
-        Default,
-        Chinese,
-        English
     }
 }

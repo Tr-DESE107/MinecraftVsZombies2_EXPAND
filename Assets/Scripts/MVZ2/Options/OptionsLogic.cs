@@ -33,7 +33,7 @@ namespace MVZ2.Options
             dialog.OnTooltipShow += OnTooltipShowCallback;
             dialog.OnTooltipHide += OnTooltipHideCallback;
 
-            Language = Main.OptionsManager.GetLanguage();
+            Language = Main.LanguageManager.GetCurrentLanguage();
             BloodAndGore = Main.OptionsManager.HasBloodAndGore();
         }
         public virtual void InitDialog()
@@ -184,13 +184,13 @@ namespace MVZ2.Options
             {
                 case ToggleType.SwapTrigger:
                     {
-                        Main.OptionsManager.SwitchSwapTrigger();
+                        Main.OptionsManager.SetSwapTrigger(value);
                         UpdateSwapTriggerToggle();
                     }
                     break;
                 case ToggleType.PauseOnFocusLost:
                     {
-                        Main.OptionsManager.SwitchPauseOnFocusLost();
+                        Main.OptionsManager.SetPauseOnFocusLost(value);
                         UpdatePauseOnFocusLostToggle();
                     }
                     break;
@@ -198,19 +198,19 @@ namespace MVZ2.Options
                 // General.
                 case ToggleType.Vibration:
                     {
-                        Main.OptionsManager.SwitchVibration();
+                        Main.OptionsManager.SetVibration(value);
                         UpdateVibrationToggle();
                     }
                     break;
                 case ToggleType.SkipAllTalks:
                     {
-                        Main.OptionsManager.SwitchSkipAllTalks();
+                        Main.OptionsManager.SetSkipAllTalks(value);
                         UpdateSkipAllTalksToggle();
                     }
                     break;
                 case ToggleType.ChooseWarnings:
                     {
-                        Main.OptionsManager.SwitchBlueprintChooseWarningsDisabled();
+                        Main.OptionsManager.SetBlueprintChooseWarningsDisabled(!value);
                         UpdateChooseWarningsToggle();
                     }
                     break;
@@ -218,9 +218,8 @@ namespace MVZ2.Options
                 // Display.
                 case ToggleType.Fullscreen:
                     {
-                        bool fullscreen = Main.OptionsManager.IsFullscreen();
-                        Main.OptionsManager.SetFullscreen(!fullscreen);
-                        UpdateFullscreenToggle(!fullscreen);
+                        Main.OptionsManager.SetFullscreen(value);
+                        UpdateFullscreenToggle(value);
                     }
                     break;
                 case ToggleType.BloodAndGore:
@@ -232,13 +231,13 @@ namespace MVZ2.Options
                     break;
                 case ToggleType.HeightIndicator:
                     {
-                        Main.OptionsManager.SwitchHeightIndicatorEnabled();
+                        Main.OptionsManager.SetHeightIndicatorEnabled(value);
                         UpdateHeightIndicatorToggle();
                     }
                     break;
                 case ToggleType.HDRLighting:
                     {
-                        Main.OptionsManager.SwitchHDRLightingDisabled();
+                        Main.OptionsManager.SetHDRLightingDisabled(!value);
                         UpdateHDRLightingToggle();
                     }
                     break;
@@ -246,7 +245,7 @@ namespace MVZ2.Options
                 // Controls.
                 case ToggleType.ShowHotkeys:
                     {
-                        Main.OptionsManager.SwitchShowHotkeyIndicators();
+                        Main.OptionsManager.SetShowHotkeyIndicators(value);
                         UpdateShowHotkeysToggle();
                     }
                     break;
@@ -254,13 +253,13 @@ namespace MVZ2.Options
                 // HPBars.
                 case ToggleType.HPBarsEnabled:
                     {
-                        Main.OptionsManager.SwitchHPBarEnabled();
+                        Main.OptionsManager.SetHPBarEnabled(value);
                         UpdateHPBarsEnabledToggle();
                     }
                     break;
                 case ToggleType.HPBarsAutoHide:
                     {
-                        Main.OptionsManager.SwitchHPBarAutoHide();
+                        Main.OptionsManager.SetHPBarAutoHide(value);
                         UpdateHPBarsAutoHideToggle();
                     }
                     break;
@@ -268,7 +267,7 @@ namespace MVZ2.Options
                 // Misc.
                 case ToggleType.ShowSponsorNames:
                     {
-                        Main.OptionsManager.SwitchShowSponsorNames();
+                        Main.OptionsManager.SetShowSponsorNames(value);
                         UpdateShowSponsorNamesToggle();
                     }
                     break;
@@ -519,7 +518,7 @@ namespace MVZ2.Options
         #region 常规设置
         private void InitLanguageDropdown()
         {
-            var values = Main.LanguageManager.GetAllLanguages();
+            var values = Main.LanguageManager.GetAllLanguageCodes();
             languageValues = values;
             dialog.SetDropdownValues(DropdownType.Language, values.Select(v => Main.LanguageManager.GetLanguageName(v)).ToArray());
         }
