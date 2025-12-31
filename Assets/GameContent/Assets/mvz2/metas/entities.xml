@@ -2716,7 +2716,7 @@
         <projectile id="shuriken">
             <properties>
                 <float name="mvz2:damage" value="20" />
-                <vector3 name="mvz2:size" x="52" y="2" z="52" />
+                <vector3 name="mvz2:size" x="48" y="2" z="48" />
             </properties>
         </projectile>
         <projectile id="beacon_meteor">
