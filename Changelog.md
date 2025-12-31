@@ -15,7 +15,7 @@
 - Tesla Coil
   - Damage: 80 -> 60
   - Cost: 250 -> 200
-  - Recharge Time: Long -> Short
+  - Recharge time: Long -> Short
 - Beacon
   - Cost：125 -> 150
 - Skyward Beacon
@@ -28,6 +28,7 @@
   - Recharge time: Long -> Very Long
 - Note Block
   - Range: A whole lane -> 4 tiles
+  - Recharge time: Long -> Short
   - +10 tiles range during evocation.
 - Hell Chariot
   - Now immunes to cold slowing.

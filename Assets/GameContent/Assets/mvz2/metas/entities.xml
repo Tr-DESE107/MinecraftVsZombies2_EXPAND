@@ -793,7 +793,7 @@
                 <id name="mvz2:projectileId" value="mvz2:note" />
                 <id name="mvz2:shootSound" null="true" />
                 <float name="mvz2:damage" value="5" />
-                <float name="mvz2:range" value="335" />
+                <float name="mvz2:range" value="255" />
                 <vector3 name="mvz2:shotOffset" x="25" y="30" z="0" />
                 <vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
@@ -803,7 +803,7 @@
                 <id name="mvz2:deathSound" value="mvz2:wood" />
 
                 <int name="mvz2:cost" value="150" />
-                <id name="mvz2:rechargeId" value="mvz2:long" />
+                <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
         <contraption id="lightning_orb" name="闪电之珠" tooltip="阻碍怪物前进，并吸收子弹来治疗自己">

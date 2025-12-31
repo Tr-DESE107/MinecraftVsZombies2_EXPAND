@@ -586,7 +586,7 @@
                 <p>伤害：<![CDATA[<color=red>5</color>]]></p>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
                 <p>音符上限：<![CDATA[<color=red>10</color>]]></p>
-                <p>射程：<![CDATA[<color=red>4格</color>]]></p>
+                <p>射程：<![CDATA[<color=red>3格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度，+10格射程</color>]]></p>
             </properties>
             <flavor>
