@@ -79,6 +79,8 @@
 - Fixed the issue where Skyward Beacon does not count as a contraption that counters short enemy or flying enemy.
 - Fixed the issue where Wooden Fan will blow away just spawned monsters in Shinning Needle Castle.
 - Fixed the issue where carts can crush entities that are not contraption, not enemy and not obstacle.
+- Fixed the issue where using the fighting techniques of Sorcerer's Scroll in multi finger touch would result in incorrect positioning.
+- Fixed the issue where the icon does not twinkle when selecting fighting techniques of Sorcerer's Scroll on mobile devices.
 
 ---
 
