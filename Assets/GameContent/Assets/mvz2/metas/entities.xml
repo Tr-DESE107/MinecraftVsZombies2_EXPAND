@@ -795,7 +795,7 @@
                 <float name="mvz2:damage" value="3" />
                 <float name="mvz2:range" value="335" />
                 <vector3 name="mvz2:shotOffset" x="25" y="30" z="0" />
-                <vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+                <vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <id name="mvz2:shell" value="mvz2:wood" />
                 <id name="mvz2:hitSound" value="mvz2:wood" />
