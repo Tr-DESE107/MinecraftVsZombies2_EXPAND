@@ -147,6 +147,24 @@
 				<float name="mvz2:maxHealth" value="1" />
 			</props>
 		</entry>
+		<entry id="PirateBucket" type="mvz2:PirateBucket">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:wood" />
+				<float name="mvz2:maxHealth" value="1110" />
+			</props>
+		</entry>
+		<entry id="PirateLeatherCap" type="mvz2:PirateLeatherCap">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:leather" />
+				<float name="mvz2:maxHealth" value="370" />
+			</props>
+		</entry>
 
         <!-- Shields -->
         <entry id="reflective_barrier" type="mvz2:large_shield">

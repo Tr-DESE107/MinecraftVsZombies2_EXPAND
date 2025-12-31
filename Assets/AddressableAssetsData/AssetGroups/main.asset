@@ -1788,6 +1788,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e6ac9de6082efc49a6ff7d3aac92548
+    m_Address: mvz2:mobile_blueprint/Hemperor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e784c0427ce232488fd2f10b6bee02f
     m_Address: mvz2:ui/level/speed_up_active
     m_ReadOnly: 0
@@ -1815,6 +1822,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f456ecab6ef05444af29c8f421a7e78
+    m_Address: mvz2:entity/armor/EXPAND_armor/PirateBucket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f71764d951b29f4b92dd2f546c131d2
     m_Address: mvz2:mobile_blueprint/Eradicator
@@ -3465,6 +3479,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bdb573813cd1d040af044de95c31862
+    m_Address: mvz2:mobile_blueprint/PirateZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bfdafbf2871bcc44a724cd0e1fd3a8d
     m_Address: mvz2:effect/nightmare_darkness
@@ -5342,6 +5363,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c01b3988a2271f4b996fbe39ed51ecb
+    m_Address: mvz2:mobile_blueprint/LeatherPirateZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c1cc51dfd8ba43408f51c1fd8e15fd5
     m_Address: mvz2:pickup/ruby
     m_ReadOnly: 0
@@ -6315,6 +6343,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d7b5d821d532134eb2216dceceb2669
+    m_Address: mvz2:mobile_blueprint/PirateSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d95ea7001ed94144aa167e3460991f5
     m_Address: mvz2:arcane_intellect
     m_ReadOnly: 0
@@ -6775,6 +6810,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7765c95f3433c1842afae76ee2e1b7ee
+    m_Address: mvz2:entity/armor/EXPAND_armor/PirateLeatherCap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 778627e9e9910c4459fb857ded496da7
     m_Address: mvz2:entity/enemies/SkeletonHead
@@ -8015,6 +8057,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d8e8f205d5efe14e8e22b9fc70301a0
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/PulseArrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8db4c51b1c46e4643b5b47a25c4378ef
     m_Address: mvz2:notes
     m_ReadOnly: 0
@@ -8743,6 +8792,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99fdd39dc1d8b954894741af1e69910c
+    m_Address: mvz2:armor/PirateBucket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99fdfba4aeff67c43b3124c97a3a0dd7
     m_Address: mvz2:entity/pickups/redstone
     m_ReadOnly: 0
@@ -9267,6 +9323,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a461bc5fcabbccd4f9c5ee8c2e85957e
+    m_Address: mvz2:projectile/EXPAND_projectile/PulseArrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a4fb4d341a16ba64cbad7dd992c94206
     m_Address: mvz2:products/blueprint_slot
@@ -11703,6 +11766,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d01de9681d160e54d936453e5f9f9ac8
+    m_Address: mvz2:armor/PirateLeatherCap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d02401159b16dc843bcfb357a5e99732
     m_Address: mvz2:entity/wither/cry1

@@ -138,9 +138,21 @@ PrefabInstance:
       value: bone
       objectReference: {fileID: 0}
     - target: {fileID: 6095790770378518465, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
+      propertyPath: m_Size.x
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095790770378518465, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
+      propertyPath: m_Size.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095790770378518465, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+      objectReference: {fileID: -2111104782, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    - target: {fileID: 6095790770378518465, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6453406061027855204, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.16

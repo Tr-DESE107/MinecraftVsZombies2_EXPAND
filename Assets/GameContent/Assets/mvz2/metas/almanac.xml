@@ -2409,6 +2409,19 @@
                 <p>这种僵尸带的铁桶其实是个反着的矿车，他负责拿这个矿车给庙里烧水用。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:TorchKongfuZombie">
+            <header>
+                <p>功夫火把僵尸的火把能够快速烧毁易燃器械。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>400</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1.1</color>]]></p>
+            </properties>
+            <flavor>
+				<p>和大部分僵尸不一样，功夫火把僵尸有智力控制自己的胳膊放下，虽然没有血液循环，但他觉得这样对自己的胳膊好。</p>
+                <p>听说功夫火把僵尸算是探险家僵尸的远亲...但是探险家僵尸是什么僵尸啊？</p>
+            </flavor>
+        </entry>
         
         <entry id="mvz2:reflective_barrier_zombie">
             <header>
@@ -2507,7 +2520,20 @@
                 
             </flavor>
         </entry>
-        
+		<entry id="mvz2:SixQiZombie">
+			<header>
+				<p>六气僵尸的境界可以让他们刀枪不入。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>1236</color>]]></p>
+				<p>特点：<![CDATA[<color=red>拥有99%的伤害抗性。</color>]]></p>
+				<p>弱点：<![CDATA[<color=red>黑洞炸弹可以秒杀。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>夫列子御风而行，泠然善也，旬有五日而后反。彼于致福者，未数数然也。此虽免乎行，犹有所待者也。若夫乘天地之正，而御六气之辩，以游无穷者，彼且恶乎待哉？</p>
+				<p>故曰：至人无己，神人无功，圣人无名。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:emperor_zombie">
             <header>
                 <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。</p>
@@ -2522,23 +2548,77 @@
                 <p><![CDATA[<color=red>【图鉴 已被禁言，有效期是永久】</color>]]></p>
             </flavor>
         </entry>
-        <entry id="mvz2:SixQiZombie">
+        <entry id="mvz2:Hemperor">
             <header>
-                <p>六气僵尸的境界可以让他们刀枪不入。</p>
+                <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>1236</color>]]></p>
-                <p>特点：<![CDATA[<color=red>拥有99%的伤害抗性。</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>黑洞炸弹可以秒杀。</color>]]></p>
+                <p>生命：<![CDATA[<color=red>200+50</color>]]></p>
+                <p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
+                <p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方60/s的再生效果。</color>]]></p>
             </properties>
             <flavor>
-                <p>夫列子御风而行，泠然善也，旬有五日而后反。彼于致福者，未数数然也。此虽免乎行，犹有所待者也。若夫乘天地之正，而御六气之辩，以游无穷者，彼且恶乎待哉？</p>
-                <p>故曰：至人无己，神人无功，圣人无名。</p>
+                <p>他同样不是什么大国的皇帝，只是个有点闲钱的僵尸演员，这身衣服看着很霸气，实际上造价不出50个绿宝石，而他掏了8000个钻石买了这件衣服。</p>
             </flavor>
         </entry>
-        
-
-
+		
+		<entry id="mvz2:PirateZombie">
+			<header>
+				<p>醉醺醺的海盗僵尸会扑向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>250</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.9</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>150</color>]]></p>
+			</properties>
+			<flavor>
+				<p>浑身朗姆酒气的海盗僵尸走过来说了这么一段话：</p>
+				<p>“想紧跟海盗时尚风潮可不那么简单，不过请记住，只要你站在潮湿的甲板上那就已经很‘潮’了。”</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:LeatherPirateZombie">
+			<header>
+				<p>醉醺醺的海盗皮帽僵尸会扑向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>250+370</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.9</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>150</color>]]></p>
+			</properties>
+			<flavor>
+				<p>海盗皮帽僵尸长着一张大众脸。当问及他最喜欢吃什么，他认真思索片刻，紧了紧皮帽，说“啦嗷需脑子撕。。”</p>
+				<p>作为邻居，也许可以让他来借个杯子？</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:PirateSkeleton">
+			<header>
+				<p>不那么醉醺醺的海盗骷髅会扑向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>125</color>]]></p>
+			</properties>
+			<flavor>
+				<p>纵观一圈看下来：艾弗瑞领导的海盗无一不是醉醺醺的，即使是骷髅也散发着一身酒气...</p>
+				<p>骷髅明明没有胃，他们喝酒是图什么呢？</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:IronPirateSkeleton">
+			<header>
+				<p>不那么醉醺醺的海盗铁盔骷髅会扑向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200+1110</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>125</color>]]></p>
+			</properties>
+			<flavor>
+				<p>我怀疑这家伙是按桶喝的酒，你看犯罪证据还带在他的头上呢。</p>
+				<p><![CDATA[<color=grey>呃，如果这骷髅是泡酒物呢？</color>]]></p>
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:undead_flying_object" name="不死飞行物">
             <header>
                 <p>不死飞行物从空中来袭并对你进行干扰。在那之后它们就会离开。</p>
@@ -2605,21 +2685,20 @@
             </flavor>
         </entry>
 
-        <!--
-<entry id="mvz2:Endermite">
-    <header>
-        <p>末影螨能够躲过大部分子弹。</p>
-    </header>
-    <properties>
-        <p>生命：<![CDATA[<color=red>100</color>]]></p>
-        <p>速度：<![CDATA[<color=red>1.25</color>]]></p>
-    </properties>
-    <flavor>
-        <p>你可能觉得这个螨虫实在太小了，我也这么觉得，他甚至没有怪物头颅大。</p>
-        <p>这家伙绝对是个擦弹好手。</p>
-    </flavor>
-</entry
--->
+
+		<entry id="mvz2:Endermite">
+			<header>
+				<p>末影螨能够躲过大部分子弹。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+			</properties>
+			<flavor>
+				<p>你可能觉得这个螨虫实在太小了，我也这么觉得，他甚至没有怪物头颅大。</p>
+				<p>这家伙绝对是个擦弹好手。</p>
+			</flavor>
+		</entry>
 
         <entry id="mvz2:mega_mutant_zombie">
             <header>

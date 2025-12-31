@@ -2325,7 +2325,7 @@
 				<float name="mvz2:speed" value="1.75" />
 			</properties>
 		</Skeleton_Exp>
-		<Skeleton_Exp id="KingSkeleton" name="国王骷髅" deathMessage="你挂了\n死亡带走了12450金币和经验值">
+		<Skeleton_Exp id="KingSkeleton" name="国王骷髅" deathMessage="现在我就是这个家的王了!">
 			<unlock>
 				<condition required="mvz2:level.halloween_8" />
 			</unlock>
@@ -2376,7 +2376,7 @@
 				<int name="mvz2:cost" value="100" />
 			</properties>
 		</specialEnemy>
-		<Head_Exp id="SkeletonHead" name="骷髅头" deathMessage="吾头在否？！">
+		<Head_Exp id="SkeletonHead" name="骷髅头" deathMessage="300颗够吗？">
 			<unlock>
 				<condition required="mvz2:level.prologue" />
 			</unlock>
@@ -2394,7 +2394,7 @@
 			</properties>
 		</Head_Exp>
 
-		<Head_Exp id="ZombieHead" name="僵尸头" deathMessage="吾头在否？！">
+		<Head_Exp id="ZombieHead" name="僵尸头" deathMessage="其实我也在飞">
 			<unlock>
 				<condition required="mvz2:level.halloween_1" />
 			</unlock>
@@ -2414,7 +2414,7 @@
 			</properties>
 		</Head_Exp>
 
-		<Head_Exp id="RedEyeZombieHead" name="红眼僵尸头" deathMessage="吾头在否？！">
+		<Head_Exp id="RedEyeZombieHead" name="红眼僵尸头" deathMessage="什么叫近地悬浮还血厚？">
 			<unlock>
 				<condition required="mvz2:level.halloween_12" />
 			</unlock>
@@ -2445,7 +2445,7 @@
 				<float name="mvz2:speed" value="0.85" />
 			</properties>
 		</zombie>
-		<zombie id="BloodlustHostZombie" name="渴血宿主僵尸" deathMessage="生化危机">
+		<zombie id="BloodlustHostZombie" name="渴血宿主僵尸" deathMessage="超级生化危机">
 			<unlock>
 				<condition required="mvz2:level.dream_9" />
 			</unlock>
@@ -2457,7 +2457,7 @@
 				<float name="mvz2:speed" value="0.6" />
 			</properties>
 		</zombie>
-		<Head_Exp id="HostHead" name="宿主僵尸头" deathMessage="吾头在否？！">
+		<Head_Exp id="HostHead" name="宿主僵尸头" deathMessage="拍恐怖片呢？">
 			<unlock>
 				<condition required="mvz2:level.dream_7" />
 			</unlock>
@@ -2475,7 +2475,7 @@
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
 			</properties>
 		</Head_Exp>
-		<mutantZombie id="HostMutant" name="宿主突变僵尸" deathMessage="你怎么进门的？">
+		<mutantZombie id="HostMutant" name="宿主突变僵尸" deathMessage="房子被挤满了">
 			<unlock>
 				<condition required="mvz2:level.dream_10" />
 			</unlock>
@@ -2498,7 +2498,7 @@
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
 		</mutantZombie>
-		<Imp_Exp id="HostIMP" name="宿主小鬼僵尸" deathMessage="被偷家了">
+		<Imp_Exp id="HostIMP" name="宿主小鬼僵尸" deathMessage="每秒120回复？">
 			<unlock>
 				<condition required="mvz2:level.dream_10" />
 			</unlock>
@@ -2513,7 +2513,7 @@
 				<float name="mvz2:damage" value="150" />
 			</properties>
 		</Imp_Exp>
-		<zombie id="EnragedHostZombie" name="狂暴宿主僵尸" deathMessage="生化危机">
+		<zombie id="EnragedHostZombie" name="狂暴宿主僵尸" deathMessage="二 人 幸 终">
 			<unlock>
 				<condition required="mvz2:level.dream_12" />
 			</unlock>
@@ -2526,7 +2526,7 @@
 			</properties>
 		</zombie>
 
-		<enemy id="AngryGhast" name="愤怒恶魂" deathMessage="快拿棒球棒！">
+		<enemy id="AngryGhast" name="愤怒恶魂" deathMessage="这是真恶魂！">
 			<unlock>
 				<condition required="mvz2:level.dream_6" />
 			</unlock>
@@ -2659,7 +2659,7 @@
 			</properties>
 		</WitherSkeleton_Exp>
 
-		<WitherSkeleton_Exp id="NetherWarrior" name="下界战士" deathMessage="骸死我了">
+		<WitherSkeleton_Exp id="NetherWarrior" name="下界战士" deathMessage="他敲门的时候范围伤害把你杀死了">
 			<unlock>
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
@@ -2677,7 +2677,7 @@
 			</properties>
 		</WitherSkeleton_Exp>
 
-		<WitherSkeleton_Exp id="NetherVanguard" name="下界冲锋者" deathMessage="骸死我了">
+		<WitherSkeleton_Exp id="NetherVanguard" name="下界冲锋者" deathMessage="攻击形态下的它没有减伤，趁这个机会输出！\n呃....\n嗯，不该对你的攻击力有期望的。">
 			<unlock>
 				<condition required="mvz2:level.castle_6" />
 			</unlock>
@@ -2695,7 +2695,7 @@
 			</properties>
 		</WitherSkeleton_Exp>
 
-		<WitherSkeleton_Exp id="NetherArcher" name="下界弓箭手" deathMessage="被射成刺猬了！">
+		<WitherSkeleton_Exp id="NetherArcher" name="下界弓箭手" deathMessage="火箭这招太狠了！">
 			<unlock>
 				<condition required="mvz2:level.castle_2" />
 			</unlock>
@@ -2718,7 +2718,7 @@
 				<int name="mvz2:waterInteraction" value="2" />
 			</properties>
 		</WitherSkeleton_Exp>
-		<enemy id="WitherSkeletonHorse" name="凋零骷髅马" deathMessage="死因：死马">
+		<enemy id="WitherSkeletonHorse" name="凋零骷髅马" deathMessage="死因：死马的领域伤害">
 			<unlock>
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
@@ -2760,7 +2760,7 @@
 			</properties>
 		</WitherSkeleton_Exp>
 
-		<Head_Exp id="BerserkerHead" name="爆裂头颅" deathMessage="吾头在否？！">
+		<Head_Exp id="BerserkerHead" name="爆裂头颅" deathMessage="炸死你！">
 			<unlock>
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
@@ -2779,7 +2779,7 @@
 				<int name="mvz2:cost" value="100" />
 			</properties>
 		</Head_Exp>
-		<Head_Exp id="RaiderSkull" name="奇袭者头颅" deathMessage="吾头在否？！">
+		<Head_Exp id="RaiderSkull" name="奇袭者头颅" deathMessage="啊呀，飞头蛮！">
 			<unlock>
 				<condition required="mvz2:level.castle_6" />
 			</unlock>
@@ -2819,7 +2819,7 @@
 			</properties>
 		</enemy>
 
-		<WINtherSkeleton_Exp id="WintherMage" name="凋灵巫师" deathMessage="骸死我了">
+		<WINtherSkeleton_Exp id="WintherMage" name="凋灵巫师" deathMessage="凋零正在传播...">
 			<unlock>
 				<condition required="mvz2:level.castle_12" />
 			</unlock>
@@ -2931,18 +2931,18 @@
 			</properties>
 		</zombie>
 
-		<zombie id="TorchKongfuZombie" name="功夫火把僵尸" deathMessage="以游无穷者，彼且恶乎待哉？">
+		<zombie id="TorchKongfuZombie" name="功夫火把僵尸" deathMessage="天干物燥,小心火烛!">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_8" />
 			</unlock>
 			<properties>
-				<int name="mvz2:cost" value="500" />
+				<int name="mvz2:cost" value="125" />
 				<float name="mvz2:maxHealth" value="400" />
 				<float name="mvz2:damage" value="100" />
-				<float name="mvz2:speed" value="0.75" />
+				<float name="mvz2:speed" value="1.1" />
 			</properties>
 		</zombie>
-		<zombie id="DrunkardMonkZombie" name="武僧喝酒僵尸" deathMessage="以游无穷者，彼且恶乎待哉？">
+		<zombie id="DrunkardMonkZombie" name="武僧喝酒僵尸" deathMessage="鲁智深和我学的！">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_8" />
 			</unlock>
@@ -2954,9 +2954,9 @@
 				<float name="mvz2:speed" value="0.75" />
 			</properties>
 		</zombie>
-		<zombie id="Hemperor" name="皇帝僵尸" deathMessage="中道崩殂">
+		<zombie id="Hemperor" name="天子僵尸" deathMessage="死是凉爽的夏夜，可供人无忧的安眠">
 			<unlock>
-				<condition required="mvz2:level.mausoleum_8" />
+				<condition required="mvz2:level.mausoleum_9" />
 			</unlock>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
@@ -2965,7 +2965,7 @@
 		</zombie>
 		
 		<!-- EXPAND Enemies C5 -->
-		<zombie id="PirateZombie" name="海盗僵尸" deathMessage="洒家今日便要开荤了！">
+		<zombie id="PirateZombie" name="海盗僵尸" deathMessage="我们发现了埋藏在颅骨下的宝藏!">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>
@@ -2977,19 +2977,19 @@
 				<int name="mvz2:waterInteraction" value="2" />
 			</properties>
 		</zombie>
-		<zombie id="LeatherPirateZombie" name="海盗皮帽僵尸" deathMessage="洒家今日便要开荤了！">
+		<zombie id="LeatherPirateZombie" name="海盗皮帽僵尸" deathMessage="我们发现了埋藏在颅骨下的宝藏!">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:leather_cap" />
+				<id name="mvz2:starting_armor" value="mvz2:PirateLeatherCap" />
 				<float name="mvz2:damage" value="150" />
 				<float name="mvz2:maxHealth" value="250" />
 				<float name="mvz2:speed" value="0.9" />
 				<int name="mvz2:cost" value="75" />
 			</properties>
 		</zombie>
-		<Skeleton_Exp id="PirateSkeleton" name="海盗骷髅" deathMessage="起来!饥寒交迫的人民!">
+		<Skeleton_Exp id="PirateSkeleton" name="海盗骷髅" deathMessage="你怎么能有脑子呢?">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>
@@ -3000,12 +3000,12 @@
 				<float name="mvz2:speed" value="1.25" />
 			</properties>
 		</Skeleton_Exp>
-		<Skeleton_Exp id="IronPirateSkeleton" name="海盗铁盔骷髅" deathMessage="起来!饥寒交迫的人民!">
+		<Skeleton_Exp id="IronPirateSkeleton" name="海盗铁盔骷髅" deathMessage="你怎么能有脑子呢?">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
+				<id name="mvz2:starting_armor" value="mvz2:PirateBucket" />
 				<int name="mvz2:cost" value="50" />
 				<int name="mvz2:waterInteraction" value="2" />
 				<float name="mvz2:damage" value="125" />
@@ -3013,13 +3013,13 @@
 			</properties>
 		</Skeleton_Exp>
 		
-		<enemy id="Endermite" name="末影螨" deathMessage="吾头在否？！">
+		<enemy id="Endermite" name="末影螨" deathMessage="怎么被个土豆大小的螨虫害死了?">
 			<unlock>
 				<condition required="mvz2:level.ship_6" />
 			</unlock>
 			<properties>
 				<float name="mvz2:speed" value="1.25" />
-				<float name="mvz2:maxHealth" value="100" />
+				<float name="mvz2:maxHealth" value="300" />
 				<id name="mvz2:shell" value="mvz2:flesh" />
 				<float name="mvz2:mass" value="-2" />
 
@@ -3032,7 +3032,7 @@
 			</properties>
 		</enemy>
 
-		<mutantZombie id="HeavyGutant" name="突变重炮手" deathMessage="你怎么进门的？">
+		<mutantZombie id="HeavyGutant" name="突变重炮手" deathMessage="你不要过来啊!">
 			<unlock>
 				<condition required="mvz2:level.MutantCrisis" />
 			</unlock>

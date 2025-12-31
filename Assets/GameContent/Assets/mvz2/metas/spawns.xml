@@ -374,7 +374,6 @@
 	<entry id="PirateSkeleton" entity="mvz2:PirateSkeleton">
 		<spawn level="1" />
 		<preview count="3" />
-		<terrain water="true" air="true" />
 		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
 	</entry>
 	<entry id="LeatherPirateZombie" entity="mvz2:LeatherPirateZombie">
@@ -385,7 +384,6 @@
 	</entry>
 	<entry id="IronPirateSkeleton" entity="mvz2:IronPirateSkeleton">
 		<spawn level="4" />
-		<terrain water="true" air="true" />
 		<weight base="3000" />
 	</entry>
     <entry id="Endermite" entity="mvz2:Endermite">

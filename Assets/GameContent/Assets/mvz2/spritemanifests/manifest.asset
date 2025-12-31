@@ -377,6 +377,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 358463c4a1670b441b15bd6423009e35, type: 3}
   - name: mobile_blueprint/hell_chariot
     sprite: {fileID: 21300000, guid: b9be44ffa4015754eaf65066f0522ab8, type: 3}
+  - name: mobile_blueprint/Hemperor
+    sprite: {fileID: 21300000, guid: 1e6ac9de6082efc49a6ff7d3aac92548, type: 3}
   - name: mobile_blueprint/HerobrineMannequin
     sprite: {fileID: 21300000, guid: dfc2d4eeb6be3c140955183ec4328b59, type: 3}
   - name: mobile_blueprint/high_frequency_pulse_dispenser
@@ -397,6 +399,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7ad59fee145905345a3241aca0804d48, type: 3}
   - name: mobile_blueprint/IronMonkZombie
     sprite: {fileID: 21300000, guid: e90a610262d11394bac4d441f4aa728d, type: 3}
+  - name: mobile_blueprint/IronPirateSkeleton
+    sprite: {fileID: 21300000, guid: c8f1fa08173678e4592663889b58ac6f, type: 3}
   - name: mobile_blueprint/IronWitherSkeleton
     sprite: {fileID: 21300000, guid: dffcc3fc6bd2e83478dd86ec84ef8eb0, type: 3}
   - name: mobile_blueprint/iron_helmetted_zombie
@@ -411,6 +415,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c739a0e8065c7794eab33b1e0e3f511f, type: 3}
   - name: mobile_blueprint/LeatherMonkZombie
     sprite: {fileID: 21300000, guid: 279e0ff132f5f6048b4a21aec96b5b54, type: 3}
+  - name: mobile_blueprint/LeatherPirateZombie
+    sprite: {fileID: 21300000, guid: 5c01b3988a2271f4b996fbe39ed51ecb, type: 3}
   - name: mobile_blueprint/LeatherWitherSkeleton
     sprite: {fileID: 21300000, guid: 36148c7f8f9a53c4d8535a0e7bea00d7, type: 3}
   - name: mobile_blueprint/leather_capped_zombie
@@ -487,6 +493,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4d49d253e83fc104d9eb629a8a238ee3, type: 3}
   - name: mobile_blueprint/parasite_terror
     sprite: {fileID: 21300000, guid: 333296bf7a142dd43a413222f3881bcb, type: 3}
+  - name: mobile_blueprint/PirateSkeleton
+    sprite: {fileID: 21300000, guid: 6d7b5d821d532134eb2216dceceb2669, type: 3}
+  - name: mobile_blueprint/PirateZombie
+    sprite: {fileID: 21300000, guid: 3bdb573813cd1d040af044de95c31862, type: 3}
   - name: mobile_blueprint/pistenser
     sprite: {fileID: 21300000, guid: cdec7faf255eabe4195b58d4652126e3, type: 3}
   - name: mobile_blueprint/Poisonser
@@ -585,6 +595,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 904706dca625dc84db7ba9432de30ec2, type: 3}
   - name: mobile_blueprint/tnt
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
+  - name: mobile_blueprint/TorchKongfuZombie
+    sprite: {fileID: 21300000, guid: 74c9e214b0751ab4f8816ddfb4e09745, type: 3}
   - name: mobile_blueprint/totenser
     sprite: {fileID: 21300000, guid: ed576f37fbc44b44d9396b8ea59f7911, type: 3}
   - name: mobile_blueprint/triplenser
@@ -2550,7 +2562,12 @@ MonoBehaviour:
     - {fileID: -1727391113, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
   - name: entity/enemy/endermite
     spritesheet:
-    - {fileID: 21300000, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    - {fileID: -1671935934, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    - {fileID: -1040180927, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    - {fileID: -263609429, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    - {fileID: 928952648, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    - {fileID: -2111104782, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    - {fileID: -1719395835, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
   - name: entity/enemy/EnragedHostZombie
     spritesheet:
     - {fileID: 303600107, guid: 75610e8daf86e8c41ad89c76cd4e7e17, type: 3}
@@ -3593,6 +3610,16 @@ MonoBehaviour:
     - {fileID: -904862214, guid: 439af6a040ba009429682529df6aaa94, type: 3}
     - {fileID: -1494774868, guid: 439af6a040ba009429682529df6aaa94, type: 3}
     - {fileID: 946859832, guid: 439af6a040ba009429682529df6aaa94, type: 3}
+  - name: entity/armor/EXPAND_armor/PirateBucket
+    spritesheet:
+    - {fileID: 1394525559, guid: 1f456ecab6ef05444af29c8f421a7e78, type: 3}
+    - {fileID: -860568602, guid: 1f456ecab6ef05444af29c8f421a7e78, type: 3}
+    - {fileID: -2139689680, guid: 1f456ecab6ef05444af29c8f421a7e78, type: 3}
+  - name: entity/armor/EXPAND_armor/PirateLeatherCap
+    spritesheet:
+    - {fileID: 1605061925, guid: 7765c95f3433c1842afae76ee2e1b7ee, type: 3}
+    - {fileID: 1001632428, guid: 7765c95f3433c1842afae76ee2e1b7ee, type: 3}
+    - {fileID: -92718316, guid: 7765c95f3433c1842afae76ee2e1b7ee, type: 3}
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Dispenser
     spritesheet:
     - {fileID: -239834745, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
