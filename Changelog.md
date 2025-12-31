@@ -27,6 +27,7 @@
   - Contraption sleep duration: 30 seconds -> 50 seconds
   - Recharge time: Long -> Very Long
 - Note Block
+  - Damage: 5 -> 3
   - Range: A whole lane -> 4 tiles
   - Recharge time: Long -> Short
   - +10 tiles range during evocation.
