@@ -140,7 +140,7 @@ namespace MVZ2.Vanilla.Enemies
             if (target.Type == EntityTypes.ENEMY)
             {
                 // 如果目标地格存在，直接使其换行。
-                if (target.GetMass() <= VanillaMass.VERY_HEAVY)
+                if (target.GetMass() <= VanillaMass.HEAVY)
                 {
                     var lane = target.GetLane();
                     var column = target.GetColumn();
