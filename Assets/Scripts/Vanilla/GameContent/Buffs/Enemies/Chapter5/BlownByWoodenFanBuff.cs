@@ -52,16 +52,16 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
             else if (mass <= VanillaMass.MEDIUM)
             {
-                var pos = entity.Position;
+                var velocity = entity.Velocity;
                 if (toLeft)
                 {
-                    pos.x -= KNOCKBACK_SPEED;
+                    velocity.x = Mathf.Min(velocity.x, -KNOCKBACK_SPEED);
                 }
                 else
                 {
-                    pos.x += KNOCKBACK_SPEED;
+                    velocity.x = Mathf.Max(velocity.x, KNOCKBACK_SPEED);
                 }
-                entity.Position = pos;
+                entity.Velocity = velocity;
             }
         }
         public static float GetBlowMass(Entity entity)
