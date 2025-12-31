@@ -19,16 +19,20 @@ namespace MVZ2.GameContent.IZombie
             {
                 VanillaEnemyID.skeleton,
                 VanillaEnemyID.ghost,
-                VanillaEnemyID.necromancer
+                VanillaEnemyID.necromancer,
+                VanillaEnemyID.dullahan
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            Insert(map, 2, 2, VanillaContraptionID.glowstone);
-            RandomFill(map, VanillaContraptionID.punchton, 5, rng);
-            RandomFill(map, VanillaContraptionID.silvenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.dispenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 8, rng);
+            Insert(map, 3, 2, VanillaContraptionID.glowstone);
+            RandomFillAtLane(map, 2, VanillaContraptionID.teslaCoil, 1, rng);
+            RandomFillAtLane(map, 2, VanillaContraptionID.furnace, 2, rng);
+
+            RandomFill(map, VanillaContraptionID.soulFurnace, 2, rng);
+            RandomFill(map, VanillaContraptionID.mineTNT, 4, rng);
+            RandomFill(map, VanillaContraptionID.dispenser, 4, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 6, rng);
         }
     }
 }

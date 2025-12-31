@@ -18,8 +18,9 @@ namespace MVZ2.GameContent.IZombie
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.zombie,
+                VanillaEnemyID.mummy,
                 VanillaEnemyID.ironHelmettedZombie,
-                VanillaEnemyID.skeletonHorse
+                VanillaEnemyID.caveSpider
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
@@ -28,25 +29,15 @@ namespace MVZ2.GameContent.IZombie
             {
                 Insert(map, 3, lane, VanillaContraptionID.obsidian);
             }
-            Insert(map, 0, 0, VanillaContraptionID.woodenDropper);
-            Insert(map, 1, 0, VanillaContraptionID.furnace);
-            Insert(map, 2, 0, VanillaContraptionID.furnace);
+            Insert(map, 0, 2, VanillaContraptionID.drivenser);
+            Insert(map, 1, 2, VanillaContraptionID.drivenser);
+            Insert(map, 2, 2, VanillaContraptionID.drivenser);
+            Insert(map, 3, 2, VanillaContraptionID.gravityPad);
 
-            Insert(map, 0, 1, VanillaContraptionID.furnace);
-            Insert(map, 1, 1, VanillaContraptionID.woodenDropper);
-            Insert(map, 2, 1, VanillaContraptionID.stoneDropper);
-
-            Insert(map, 0, 2, VanillaContraptionID.totenser);
-            Insert(map, 1, 2, VanillaContraptionID.totenser);
-            Insert(map, 2, 2, VanillaContraptionID.furnace);
-
-            Insert(map, 0, 3, VanillaContraptionID.furnace);
-            Insert(map, 1, 3, VanillaContraptionID.woodenDropper);
-            Insert(map, 2, 3, VanillaContraptionID.stoneDropper);
-
-            Insert(map, 0, 4, VanillaContraptionID.woodenDropper);
-            Insert(map, 1, 4, VanillaContraptionID.furnace);
-            Insert(map, 2, 4, VanillaContraptionID.furnace);
+            RandomFillAtColumn(map, 0, VanillaContraptionID.totenser, 1, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 6, rng);
+            RandomFill(map, VanillaContraptionID.dispenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.silvenser, 2, rng);
         }
     }
 }

@@ -18,18 +18,23 @@ namespace MVZ2.GameContent.IZombie
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.leatherCappedZombie,
                 VanillaEnemyID.ironHelmettedZombie,
-                VanillaEnemyID.caveSpider
+                VanillaEnemyID.wickedHermitZombie
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            RandomFill(map, VanillaContraptionID.drivenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.silvenser, 4, rng);
-            RandomFill(map, VanillaContraptionID.mineTNT, 3, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 8, rng);
-            RandomFill(map, VanillaContraptionID.smallDispenser, 2, rng);
+            RandomFillAtColumn(map, 0, VanillaContraptionID.splitenser, 1, rng);
+            RandomFillAtColumn(map, 0, VanillaContraptionID.magichest, 1, rng);
+            RandomFillAtColumn(map, 0, VanillaContraptionID.punchton, 1, rng);
+            RandomFillAtColumn(map, 0, VanillaContraptionID.totenser, 1, rng);
+            RandomFillAtColumn(map, 0, VanillaContraptionID.furnace, 1, rng);
+
+            RandomFill(map, VanillaContraptionID.splitenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.magichest, 2, rng);
+            RandomFill(map, VanillaContraptionID.punchton, 2, rng);
+            RandomFill(map, VanillaContraptionID.totenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 6, rng);
         }
     }
 }

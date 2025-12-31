@@ -8,6 +8,7 @@
 - Adjusted the monster types to spawn in some levels.
 - Red Dragon's meteors now have a new sprite.
 - Reduced the appear chance for Stone Droppers, increased the appear chance for Tesla Coils in level 3-11.
+- Adjusted the layout of some I, Zombie levels.
 
 ### Balance
 - Magichest

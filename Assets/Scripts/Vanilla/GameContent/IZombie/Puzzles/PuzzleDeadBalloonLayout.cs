@@ -18,17 +18,33 @@ namespace MVZ2.GameContent.IZombie
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.gargoyle,
+                VanillaEnemyID.leatherCappedZombie,
                 VanillaEnemyID.ghast
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            RandomFill(map, VanillaContraptionID.pistenser, 2, rng);
-            RandomFill(map, VanillaContraptionID.punchton, 5, rng);
-            RandomFill(map, VanillaContraptionID.silvenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.teslaCoil, 2, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 8, rng);
+            Insert(map, 0, 2, VanillaContraptionID.totenser);
+            Insert(map, 1, 2, VanillaContraptionID.furnace);
+            Insert(map, 2, 2, VanillaContraptionID.furnace);
+            Insert(map, 3, 2, VanillaContraptionID.teslaCoil);
+
+            int lane1 = 0, lane2 = 0;
+            while (lane1 == lane2 || lane1 == 2 || lane2 == 2)
+            {
+                lane1 = rng.Next(0, 5);
+                lane2 = rng.Next(0, 5);
+            }
+            int column1 = rng.Next(0, 2), column2 = rng.Next(0, 2);
+            Insert(map, column1, lane1, VanillaContraptionID.soulFurnace);
+            Insert(map, column2, lane2, VanillaContraptionID.soulFurnace);
+            Insert(map, column1 + 1, lane1, VanillaContraptionID.pistenser);
+            Insert(map, column2 + 1, lane2, VanillaContraptionID.pistenser);
+
+            RandomFillAtColumn(map, 3, VanillaContraptionID.pistenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.magichest, 2, rng);
+            RandomFill(map, VanillaContraptionID.soulFurnace, 2, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 6, rng);
         }
     }
 }
