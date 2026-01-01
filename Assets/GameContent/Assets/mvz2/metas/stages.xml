@@ -683,6 +683,7 @@
             <entry id="mvz2:dream_crystal" count="6" />
             <entry id="mvz2:dream_silk" count="1" />
             <entry id="mvz2:glowstone" count="4" />
+            <entry id="mvz2:punchton" count="6" />
             
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest" />

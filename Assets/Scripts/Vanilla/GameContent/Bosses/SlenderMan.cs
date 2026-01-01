@@ -29,6 +29,8 @@ using PVZEngine.Level;
 using Tools;
 using Tools.Mathematics;
 using UnityEngine;
+using MVZ2.GameContent.Buffs;
+using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -145,7 +147,40 @@ namespace MVZ2.GameContent.Bosses
                 if (index == 0)
                 {
                     level.ResumeGameDelayed(100);
-                    boss.Spawn(VanillaEffectID.crushingWalls, boss.Position);
+                    boss.PlaySound(VanillaSoundID.scream);
+                    if (boss.Level.IsBossRevenge())
+                    {
+                        boss.Spawn(VanillaEffectID.crushingWalls, boss.Position);
+
+                        var level = boss.Level;
+                        int lastColumn = level.GetMaxColumnCount() - 1;
+
+                        for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+                        {
+                            float x = level.GetEntityColumnX(lastColumn);
+                            float z = level.GetEntityLaneZ(lane);
+                            float y = level.GetGroundY(x, z);
+                            Vector3 pos = new Vector3(x, y, z);
+
+                            SpawnPortal(boss, pos, VanillaEnemyID.HostMutant);
+                        }
+                    }
+                    else
+                    {
+                        var level = boss.Level;
+                        int lastColumn = level.GetMaxColumnCount() - 1;
+
+                        for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+                        {
+                            float x = level.GetEntityColumnX(lastColumn);
+                            float z = level.GetEntityLaneZ(lane);
+                            float y = level.GetGroundY(x, z);
+                            Vector3 pos = new Vector3(x, y, z);
+
+                            SpawnPortal(boss, pos, VanillaEnemyID.HostIMP);
+                        }
+                    }
+
                 }
                 else
                 {
