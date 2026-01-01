@@ -140,6 +140,9 @@ namespace MVZ2.GameContent.Enemies
         public const string MutantMannequin = "MutantMannequin";
         public const string MannequinTNT = "MannequinTNT";
 
+        //EXPAND_X
+        public const string XCarrierMutant = "XCarrierMutant";
+
         //EXPAND RANDOM
         public const string RandomZombie = "RandomZombie";
         public const string RandomMutant = "RandomMutant";
@@ -279,6 +282,9 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ImpHerobrineMannequin = Get(VanillaEnemyNames.ImpHerobrineMannequin);
         public static readonly NamespaceID MutantMannequin = Get(VanillaEnemyNames.MutantMannequin);
         public static readonly NamespaceID MannequinTNT = Get(VanillaEnemyNames.MannequinTNT);
+
+        //EXPAND_X
+        public static readonly NamespaceID XCarrierMutant = Get(VanillaEnemyNames.XCarrierMutant);
 
         //EXPAND RANDOM
         public static readonly NamespaceID RandomZombie = Get(VanillaEnemyNames.RandomZombie);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1387511546173815097}
   - component: {fileID: 7745345497507916718}
+  - component: {fileID: 8892880009576430160}
   m_Layer: 0
   m_Name: SamuraiZombieArmor_1
   m_TagString: Untagged
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8892880009576430160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3013943147644143439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &4666822726222607945
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1119255810197142232}
   - component: {fileID: 7791158753869424623}
+  - component: {fileID: 2286610009998513512}
   m_Layer: 0
   m_Name: SamuraiZombieArmor_0
   m_TagString: Untagged
@@ -168,6 +183,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2286610009998513512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666822726222607945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &8016776709290124417
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1461628655862180030}
   - component: {fileID: 6911203326670838110}
+  - component: {fileID: 2211758412219089394}
   m_Layer: 0
   m_Name: SamuraiZombieArmor_1
   m_TagString: Untagged
@@ -252,6 +281,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2211758412219089394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016776709290124417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1001 &5012135931681110279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -348,6 +390,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SamuraiZombie
       objectReference: {fileID: 0}
+    - target: {fileID: 7649913625654966470, guid: 5019659344816ff4786bca441bcaca8d, type: 3}
+      propertyPath: renderers.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649913625654966470, guid: 5019659344816ff4786bca441bcaca8d, type: 3}
+      propertyPath: renderers.Array.data[11]
+      value: 
+      objectReference: {fileID: 2286610009998513512}
+    - target: {fileID: 7649913625654966470, guid: 5019659344816ff4786bca441bcaca8d, type: 3}
+      propertyPath: renderers.Array.data[12]
+      value: 
+      objectReference: {fileID: 2211758412219089394}
+    - target: {fileID: 7649913625654966470, guid: 5019659344816ff4786bca441bcaca8d, type: 3}
+      propertyPath: renderers.Array.data[13]
+      value: 
+      objectReference: {fileID: 8892880009576430160}
     - target: {fileID: 8265239979901557535, guid: 5019659344816ff4786bca441bcaca8d, type: 3}
       propertyPath: m_Sprite
       value: 

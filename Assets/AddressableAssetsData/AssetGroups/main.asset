@@ -45,6 +45,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0092d96c8f3c343468247995cf274e1d
+    m_Address: mvz2:entity/enemy/EXPAND/SamuraiZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00ad714282dc4364fa67260f36745fae
     m_Address: mvz2:random/netherrack/break3
     m_ReadOnly: 0
@@ -1053,6 +1060,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12086666cd792fe46b418bbd1c7340b8
+    m_Address: mvz2:entity/enemy/EXPAND/KogasaZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 123080f471c7a22479f120e85b388165
     m_Address: mvz2:bones/spider
     m_ReadOnly: 0
@@ -1780,6 +1794,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e2798ceb21005d4f84623abc92a2d73
+    m_Address: mvz2:armor/DiamondWarriorHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e506edb309b8d746a23a81efefd33c2
     m_Address: mvz2:entity/effects/skyward_beam
@@ -8575,6 +8596,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 949f5e18e23b1d8468676fa458b953d1
+    m_Address: mvz2:enemy/ship/KogasaZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94d9e3c30c3043e4089c03229e2d326d
     m_Address: mvz2:enemy/EXPAND/Mannequin
     m_ReadOnly: 0
@@ -10885,6 +10913,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1fd6c94cbdffb44ba30a9c528e94c4d
+    m_Address: mvz2:enemy/EXPAND/SamuraiZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c220236ea4022ae4fac6743e5c4821cc
     m_Address: mvz2:bones/horse
     m_ReadOnly: 0
@@ -12425,6 +12460,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dce8c78b648570445a527e76fd595339
+    m_Address: mvz2:entity/armor/EXPAND_armor/DiamondWarriorHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd4675e804edf8a46bd5d3334beaff65
     m_Address: mvz2:effect/combat_punch
     m_ReadOnly: 0
@@ -12711,6 +12753,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2a7fe0a9f0069c43b073078ab01aeb4
+    m_Address: mvz2:entity/armor/EXPAND_armor/SamuraiZombieArmor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2c01cfcbdb1f214ea2ff2abc56cae75
     m_Address: mvz2:effect/redline

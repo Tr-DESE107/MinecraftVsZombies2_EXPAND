@@ -428,6 +428,9 @@
     <model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantMannequin" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="MannequinTNT" type="entity" path="mvz2:enemy/EXPAND/MannequinTNT" width="64" height="64" xOffset="0" yOffset="-28" />
 
+	<!--EXPAND Enemies X-->
+	<model name="XCarrierMutant" type="entity" path="mvz2:enemy/EXPAND/XCarrierMutant" width="200" height="180" xOffset="0" yOffset="-90" />
+
     <!--EXPAND RANDOM-->
     <model name="RandomMutant" type="entity" path="mvz2:enemy/EXPAND/RandomMutant" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="RandomZombie" type="entity" path="mvz2:enemy/EXPAND/RandomZombie" width="64" height="96" xOffset="10" yOffset="-44">
