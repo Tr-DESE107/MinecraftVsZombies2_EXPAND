@@ -302,16 +302,41 @@ namespace MVZ2.GameContent.Bosses
         {
             boss.PlaySound(VanillaSoundID.scream);
             boss.PlaySound(VanillaSoundID.biohazard);
+
             var level = boss.Level;
             var rng = GetEventRNG(boss);
-            int lastColumn = level.GetMaxColumnCount() - 1;
-            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+            int spawnCount = rng != null ? rng.Next(4, 8) : UnityEngine.Random.Range(4, 8);
+
+            List<Vector2Int> validPositions = new List<Vector2Int>();
+            int maxColumnCount = level.GetMaxColumnCount();
+            int maxLaneCount = level.GetMaxLaneCount();
+
+            for (int column = 1; column < maxColumnCount; column++)
             {
-                float x = level.GetEntityColumnX(lastColumn);
-                float z = level.GetEntityLaneZ(lane);
-                float y = level.GetGroundY(x, z);
-                Vector3 pos = new Vector3(x, y, z);
-                SpawnEntityWithBoat(boss, pos, lane, VanillaEnemyID.HostIMP)?.Let(e =>
+                for (int lane = 0; lane < maxLaneCount; lane++)
+                {
+                    var grid = level.GetGrid(lane);
+                    if (grid != null && !grid.IsWater())
+                    {
+                        validPositions.Add(new Vector2Int(column, lane));
+                    }
+                }
+            }
+
+            for (int i = 0; i < spawnCount; i++)
+            {
+                if (validPositions.Count <= 4) break;
+
+                int index = rng != null ? rng.Next(0, validPositions.Count) : UnityEngine.Random.Range(0, validPositions.Count);
+                var posInfo = validPositions[index];
+                validPositions.RemoveAt(index);
+
+                float x = level.GetEntityColumnX(posInfo.x);
+                float z = level.GetEntityLaneZ(posInfo.y);
+                float y = level.GetGroundY(x, z) + 300f;
+                Vector3 spawnPos = new Vector3(x, y, z);
+
+                boss.Spawn(VanillaEnemyID.BloodlustHostZombie, spawnPos)?.Let(e =>
                 {
                     e.AddBuff<TerrorParasitizedBuff>();
                 });

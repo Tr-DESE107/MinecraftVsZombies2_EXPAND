@@ -192,6 +192,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03795254d93bb494ab75f39799726b7b
+    m_Address: mvz2:entity/enemy/EXPAND/TorchKongfuZombie_qianxu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03832b8b573fa884993ba7232246622f
     m_Address: mvz2:entity/armor/leather_cap
     m_ReadOnly: 0
@@ -7800,6 +7807,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86b752a5e2100d84ab9e7af262138b91
     m_Address: mvz2:ui/level/target
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86b906a5d9eeb834da2b6795ecd433ee
+    m_Address: mvz2:mobile_blueprint/Endermite
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
