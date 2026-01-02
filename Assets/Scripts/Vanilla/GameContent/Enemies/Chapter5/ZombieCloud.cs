@@ -30,6 +30,7 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             var buff = entity.AddBuff<FlyBuff>();
             buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
+            buff.SetProperty(FlyBuff.PROP_WORKS_ON_FROZEN, true);
         }
         protected override void UpdateAI(Entity entity)
         {
