@@ -607,15 +607,15 @@ namespace Tools.Mathematics
                 float min = box.min[i];
                 float max = box.max[i];
 
+                if (Mathf.Abs(axisDirection) < Mathf.Epsilon)
+                    continue;
                 if (axisStart < min)
                 {
-                    if (Mathf.Abs(axisDirection) > 1e-8f)
-                        t = Mathf.Max(t, (min - axisStart) / axisDirection);
+                    t = Mathf.Max(t, (min - axisStart) / axisDirection);
                 }
                 else if (axisStart > max)
                 {
-                    if (Mathf.Abs(axisDirection) > 1e-8f)
-                        t = Mathf.Max(t, (max - axisStart) / axisDirection);
+                    t = Mathf.Max(t, (max - axisStart) / axisDirection);
                 }
             }
 

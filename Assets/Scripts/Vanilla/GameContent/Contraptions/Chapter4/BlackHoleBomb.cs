@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Contraptions
                 !info.HasEffect(VanillaDamageEffects.EXPLOSION))
                 return;
             var range = entity.GetRange();
-            var damage = entity.GetDamage();
+            var damage = entity.GetDamage() * DAMAGE_MULTIPLIER;
             Explode(entity, range, damage);
             entity.Remove();
         }
