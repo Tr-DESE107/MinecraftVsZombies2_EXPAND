@@ -285,10 +285,23 @@ namespace PVZEngine.Buffs
         {
             if (buff == null)
                 return false;
+
+            var lastInsertions = GetModelInsertions();
+
             buffs.Add(buff);
             AddModifierCaches(buff);
             OnBuffAdded?.Invoke(buff);
             buff.OnPropertyChanged += OnPropertyChangedCallback;
+
+            var insertions = buff.GetModelInsertions();
+            foreach (var insertion in insertions)
+            {
+                var key = insertion.key;
+                var lastInsertion = lastInsertions.FirstOrDefault(i => i.key == key);
+                if (lastInsertion != null)
+                    continue;
+                OnModelInsertionAdded?.Invoke(insertion);
+            }
             return true;
         }
         private bool RemoveBuffImplement(Buff buff)
@@ -301,6 +314,17 @@ namespace PVZEngine.Buffs
                 RemoveModifierCaches(buff);
                 OnBuffRemoved?.Invoke(buff);
                 buff.OnPropertyChanged -= OnPropertyChangedCallback;
+
+                var insertions = buff.GetModelInsertions();
+                var currentInsertions = GetModelInsertions();
+                foreach (var insertion in insertions)
+                {
+                    var key = insertion.key;
+                    var currentInsertion = currentInsertions.FirstOrDefault(i => i.key == key);
+                    if (currentInsertion != null)
+                        continue;
+                    OnModelInsertionRemoved?.Invoke(insertion);
+                }
                 return true;
             }
             return false;
@@ -438,6 +462,8 @@ namespace PVZEngine.Buffs
 
         public event Action<Buff>? OnBuffAdded;
         public event Action<Buff>? OnBuffRemoved;
+        public event Action<ModelInsertion>? OnModelInsertionAdded;
+        public event Action<ModelInsertion>? OnModelInsertionRemoved;
         public event Action<IPropertyKey>? OnPropertyChanged;
 
         private long currentBuffID = 1;
