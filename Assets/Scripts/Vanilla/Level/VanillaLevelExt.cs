@@ -696,36 +696,6 @@ namespace MVZ2.Vanilla.Level
             return oldSeedPacks.FirstOrDefault(s => s != null && s.GetDefinitionID() == blueprintID && s.IsCommandBlock() == commandBlock);
         }
         #endregion
-        public static SeedPack? ConveyRandomSeedPack(this LevelEngine level)
-        {
-            if (level.CanConveySeedPack())
-            {
-                var id = level.DrawConveyorSeed();
-                if (id == null)
-                    return null;
-                var seedPack = level.AddConveyorSeedPack(id);
-                if (seedPack != null)
-                {
-                    seedPack.SetDrawnConveyorSeed(seedPack.GetDefinitionID());
-                    return seedPack;
-                }
-                else
-                {
-                    level.PutSeedToConveyorPool(id);
-                }
-            }
-            return null;
-        }
-        public static NamespaceID? DrawConveyorSeed(this LevelEngine level)
-        {
-            var entries = level.GetConveyorPool();
-            if (entries == null || entries.Count() <= 0)
-                return null;
-            var index = level.GetConveyorRNG().WeightedRandom(entries.Select(e => Mathf.Max(e.MinCount, e.Count - level.GetSpentSeedFromConveyorPool(e.ID))).ToArray());
-            var entry = entries[index];
-            level.SpendSeedFromConveyorPool(entry.ID);
-            return entry.ID;
-        }
         public static void Thunder(this LevelEngine level)
         {
             level.AddBuff<ThunderBuff>();
@@ -949,6 +919,16 @@ namespace MVZ2.Vanilla.Level
         public static bool IsPreferredGridForObstacleSpawn(this LawnGrid grid, NamespaceID[] layersToTake)
         {
             return !layersToTake.Any(l => grid.GetLayerEntity(l) is Entity ent);
+        }
+        #endregion
+
+        #region 传送带
+        public static SeedPack? ConveyRandomSeedPack(this LevelEngine level)
+        {
+            var pool = level.GetConveyorPool();
+            if (pool == null)
+                return null;
+            return level.ConveyRandomSeedPack(pool);
         }
         #endregion
     }

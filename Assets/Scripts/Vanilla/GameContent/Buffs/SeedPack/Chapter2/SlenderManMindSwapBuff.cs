@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
             var drawn = seedPack.GetDrawnConveyorSeed();
             if (NamespaceID.IsValid(drawn))
             {
-                buff.Level.PutSeedToConveyorPool(drawn);
+                buff.Level.PutSeedToConveyorDiscardPile(drawn);
                 seedPack.SetDrawnConveyorSeed(null);
             }
             if (buff.Level.IsHoldingBlueprint(seedPack))

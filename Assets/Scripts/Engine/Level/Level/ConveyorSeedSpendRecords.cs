@@ -21,10 +21,6 @@ namespace PVZEngine.Level
             else
             {
                 entry.spend = value;
-                if (entry.spend == 0)
-                {
-                    entries.Remove(entry);
-                }
             }
         }
         public void AddSpendValue(NamespaceID id, int value)
@@ -35,6 +31,31 @@ namespace PVZEngine.Level
         {
             var entry = entries.Find(e => e.id == id);
             return entry?.spend ?? 0;
+        }
+        public void SetSeedCountInDiscardPile(NamespaceID id, int value)
+        {
+            var entry = entries.Find(e => e.id == id);
+            if (entry == null)
+            {
+                entry = new ConveyorSeedSendRecordEntry(id)
+                {
+                    discardCount = value
+                };
+                entries.Add(entry);
+            }
+            else
+            {
+                entry.discardCount = value;
+            }
+        }
+        public void AddToDiscardPile(NamespaceID id, int value)
+        {
+            SetSeedCountInDiscardPile(id, GetSeedCountInDiscardPile(id) + value);
+        }
+        public int GetSeedCountInDiscardPile(NamespaceID id)
+        {
+            var entry = entries.Find(e => e.id == id);
+            return entry?.discardCount ?? 0;
         }
         public SerializableConveyorSeedSpendRecords ToSerializable()
         {
@@ -76,7 +97,8 @@ namespace PVZEngine.Level
             return new SerializableConveyorSeedSendRecordEntry()
             {
                 id = id,
-                spend = spend
+                spend = spend,
+                discardCount = discardCount
             };
         }
         public static ConveyorSeedSendRecordEntry? ToDeserialized(SerializableConveyorSeedSendRecordEntry? seri)
@@ -85,10 +107,12 @@ namespace PVZEngine.Level
                 return null;
             return new ConveyorSeedSendRecordEntry(seri.id)
             {
-                spend = seri.spend
+                spend = seri.spend,
+                discardCount = seri.discardCount
             };
         }
         public NamespaceID id;
         public int spend;
+        public int discardCount;
     }
 }

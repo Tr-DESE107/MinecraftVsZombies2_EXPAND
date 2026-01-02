@@ -221,7 +221,7 @@ namespace PVZEngine.Entities
         {
             foreach (var pair in takenConveyorSeeds)
             {
-                Level.PutSeedToConveyorPool(pair.Key, pair.Value);
+                Level.PutSeedToConveyorDiscardPile(pair.Key, pair.Value);
             }
             takenConveyorSeeds.Clear();
         }

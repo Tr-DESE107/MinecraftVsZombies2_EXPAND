@@ -13,10 +13,4 @@ namespace MVZ2Logic.Level
         bool CanStartTalk(IGlobalSaveData save);
         bool ShouldRepeat(IGlobalSaveData save);
     }
-    public interface IConveyorPoolEntry
-    {
-        NamespaceID ID { get; }
-        int Count { get; }
-        int MinCount { get; }
-    }
 }
