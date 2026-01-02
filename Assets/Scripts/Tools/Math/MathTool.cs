@@ -3,7 +3,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Tools.Mathematics
 {
@@ -553,101 +552,80 @@ namespace Tools.Mathematics
         {
             return (cube.ClosestPoint(sphereCenter) - sphereCenter).sqrMagnitude <= sphereRadius * sphereRadius;
         }
-        public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Bounds cube)
+        public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Bounds aabb)
         {
-            var sqrRadius = capsule.radius * capsule.radius;
-            return GetLineToAABBSqrDistance(capsule.point0, capsule.point1, cube) <= sqrRadius;
+            return GetSegmentAABBSqrDistance(capsule.point0, capsule.point1, aabb) <= capsule.radius * capsule.radius;
         }
         public static bool CollideBetweenCubeAndLine(Vector3 a, Vector3 b, Bounds cube)
         {
-            return CollideBetweenCubeAndLine(a, b, cube.center, cube.size);
+            return CollideBetweenCubeAndLine(a, b, cube, out float _, out float _);
         }
-        public static bool CollideBetweenCubeAndLine(Vector3 a, Vector3 b, Vector3 cubeCenter, Vector3 cubeSize)
+        public static bool CollideBetweenCubeAndLine(Vector3 start, Vector3 end, Bounds cube, out float tMin, out float tMax)
         {
-            Vector3 dir = b - a;
-            Vector3 invDir = new Vector3(
-                dir.x != 0 ? 1f / dir.x : float.PositiveInfinity,
-                dir.y != 0 ? 1f / dir.y : float.PositiveInfinity,
-                dir.z != 0 ? 1f / dir.z : float.PositiveInfinity
-            );
+            Vector3 dir = end - start;
 
-            Vector3 min = cubeCenter - cubeSize * 0.5f;
-            Vector3 max = cubeCenter + cubeSize * 0.5f;
+            Vector3 min = cube.min;
+            Vector3 max = cube.max;
 
-            float tMin = 0f;
-            float tMax = 1f;
+            tMin = 0f;
+            tMax = 1f;
 
             for (int i = 0; i < 3; i++)
             {
-                float t1 = (min[i] - a[i]) * invDir[i];
-                float t2 = (max[i] - a[i]) * invDir[i];
+                var axisDirection = dir[i];
+                var axisStart = start[i];
+                if (axisDirection == 0)
+                {
+                    if (axisStart < min[i] || axisStart > max[i])
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    float t1 = (min[i] - axisStart) / axisDirection;
+                    float t2 = (max[i] - axisStart) / axisDirection;
+                    if (t1 > t2)
+                        (t1, t2) = (t2, t1);
 
-                if (t1 > t2)
-                    (t1, t2) = (t2, t1);
+                    tMin = Mathf.Max(tMin, t1);
+                    tMax = Mathf.Min(tMax, t2);
+                }
+            }
+            return tMin <= tMax;
+        }
+        public static float GetSegmentAABBSqrDistance(Vector3 start, Vector3 end, Bounds box)
+        {
+            Vector3 direction = end - start;
+            float t = 0f;
 
-                tMin = Mathf.Max(tMin, t1);
-                tMax = Mathf.Min(tMax, t2);
+            // 先找到线段上最接近 AABB 的 t
+            for (int i = 0; i < 3; i++)
+            {
+                float axisStart = start[i];
+                float axisDirection = direction[i];
+                float min = box.min[i];
+                float max = box.max[i];
 
-                if (tMin > tMax)
-                    return false;
+                if (axisStart < min)
+                {
+                    if (Mathf.Abs(axisDirection) > 1e-8f)
+                        t = Mathf.Max(t, (min - axisStart) / axisDirection);
+                }
+                else if (axisStart > max)
+                {
+                    if (Mathf.Abs(axisDirection) > 1e-8f)
+                        t = Mathf.Max(t, (max - axisStart) / axisDirection);
+                }
             }
 
-            return true;
+            t = Mathf.Clamp01(t);
+
+            Vector3 closestOnSegment = start + direction * t;
+            Vector3 closestOnBox = box.ClosestPoint(closestOnSegment);
+
+            return (closestOnSegment - closestOnBox).sqrMagnitude;
         }
-        /// <summary>
-        /// 获取线段 AB 到 AABB 的最短平方距离
-        /// </summary>
-        public static float GetLineToAABBSqrDistance(Vector3 a, Vector3 b, Bounds aabb)
-        {
-            // 若线段与 AABB 相交，距离为 0
-            if (CollideBetweenCubeAndLine(a, b, aabb))
-                return 0f;
-
-            // 计算两个端点到 AABB 的距离
-            float distA = GetPointToAABBSqrDistance(a, aabb);
-            float distB = GetPointToAABBSqrDistance(b, aabb);
-
-            return Mathf.Min(distA, distB);
-        }
-        /// <summary>
-        /// 获取线段 AB 到 AABB 的最短距离
-        /// </summary>
-        public static float GetLineToAABBDistance(Vector3 a, Vector3 b, Bounds aabb)
-        {
-            // 若线段与 AABB 相交，距离为 0
-            if (CollideBetweenCubeAndLine(a, b, aabb))
-                return 0f;
-
-            // 计算两个端点到 AABB 的距离
-            float distA = GetPointToAABBDistance(a, aabb);
-            float distB = GetPointToAABBDistance(b, aabb);
-
-            return Mathf.Min(distA, distB);
-        }
-
-        /// <summary>
-        /// 点到 AABB 的最短平方距离
-        /// </summary>
-        public static float GetPointToAABBSqrDistance(Vector3 p, Bounds box)
-        {
-            var min = box.min;
-            var max = box.max;
-
-            float dx = Mathf.Max(min.x - p.x, 0f, p.x - max.x);
-            float dy = Mathf.Max(min.y - p.y, 0f, p.y - max.y);
-            float dz = Mathf.Max(min.z - p.z, 0f, p.z - max.z);
-
-            return dx * dx + dy * dy + dz * dz;
-        }
-        /// <summary>
-        /// 点到 AABB 的最短距离
-        /// </summary>
-        public static float GetPointToAABBDistance(Vector3 p, Bounds box)
-        {
-            return Mathf.Sqrt(GetPointToAABBSqrDistance(p, box));
-        }
-
-
         public static bool RayIntersectsBox(Vector3 rayOrigin, Vector3 rayDirection, Bounds box, out float hitDistance, out Vector3 hitPoint)
         {
             return RayIntersectsBox(rayOrigin, rayDirection, box.min, box.max, out hitDistance, out hitPoint);
@@ -664,41 +642,33 @@ namespace Tools.Mathematics
             // 检查每个坐标轴（X, Y, Z）
             for (int axis = 0; axis < 3; axis++)
             {
-                var directionValue = rayDirection[axis];
-                var originValue = rayOrigin[axis];
-                var boxMinValue = boxMin[axis];
-                var boxMaxValue = boxMax[axis];
+                var axisDirection = rayDirection[axis];
+                var axisStart = rayOrigin[axis];
+                var axisBoxMin = boxMin[axis];
+                var axisBoxMax = boxMax[axis];
                 // 处理方向接近0的情况（避免除零）
-                if (Math.Abs(directionValue) < float.Epsilon)
+                if (Math.Abs(axisDirection) < float.Epsilon)
                 {
                     // 如果射线起点不在当前轴的边界内，则不相交
-                    if (originValue < boxMinValue || originValue > boxMaxValue)
+                    if (axisStart < axisBoxMin || axisStart > axisBoxMax)
                         return false;
+                    continue;
                 }
-                else
-                {
-                    // 计算当前轴的两个交点t值
-                    float t1 = (boxMinValue - originValue) / directionValue;
-                    float t2 = (boxMaxValue - originValue) / directionValue;
+                // 计算当前轴的两个交点t值
+                float t1 = (axisBoxMin - axisStart) / axisDirection;
+                float t2 = (axisBoxMax - axisStart) / axisDirection;
 
-                    // 确保t1是较小值，t2是较大值
-                    if (t1 > t2)
-                    {
-                        float temp = t1;
-                        t1 = t2;
-                        t2 = temp;
-                    }
+                // 确保t1是较小值，t2是较大值
+                if (t1 > t2)
+                    (t1, t2) = (t2, t1);
 
-                    // 更新最小和最大t值
-                    if (t1 > tMin)
-                        tMin = t1;
-                    if (t2 < tMax)
-                        tMax = t2;
+                // 更新最小和最大t值
+                tMin = Mathf.Max(tMin, t1);
+                tMax = Mathf.Min(tMax, t2);
 
-                    // 检查是否无交集
-                    if (tMin > tMax || tMax < 0)
-                        return false;
-                }
+                // 检查是否无交集
+                if (tMin > tMax || tMax < 0)
+                    return false;
             }
 
             // 处理射线起点在盒子内部的情况
@@ -858,6 +828,7 @@ namespace Tools.Mathematics
         }
         #endregion
 
+        #region 数值比较
         public static void GetLessOne<TObj, TKey>(this IComparer comparer, TObj obj, ref TObj currentObj, TKey key, ref TKey currentKey)
         {
             if (key == null)
@@ -878,61 +849,6 @@ namespace Tools.Mathematics
                 currentKey = key;
             }
         }
-    }
-    public enum Axis
-    {
-        X,
-        Y,
-        Z
-    }
-    public struct Cylinder
-    {
-        public Cylinder(Axis axis, Vector3 center, float length, float radius)
-        {
-            this.axis = axis;
-            this.center = center;
-            this.length = length;
-            this.radius = radius;
-        }
-        public Axis axis;
-        public Vector3 center;
-        public float length;
-        public float radius;
-    }
-    public struct Capsule
-    {
-        public Capsule(Vector3 point0, Vector3 point1, float radius)
-        {
-            this.point0 = point0;
-            this.point1 = point1;
-            this.radius = radius;
-        }
-        public Vector3 point0;
-        public Vector3 point1;
-        public float radius;
-    }
-    public struct RoundRect
-    {
-        public RoundRect(Vector2 center, Vector2 size, float radius)
-        {
-            this.center = center;
-            this.size = size;
-            this.radius = radius;
-        }
-        public Vector2 center;
-        public Vector2 size;
-        public float radius;
-    }
-    public struct RoundCube
-    {
-        public RoundCube(Vector3 center, Vector3 size, float radius)
-        {
-            this.center = center;
-            this.size = size;
-            this.radius = radius;
-        }
-        public Vector3 center;
-        public Vector3 size;
-        public float radius;
+        #endregion
     }
 }

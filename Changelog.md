@@ -1,3 +1,8 @@
+## Fixed
+- Fixed the issue where Beacon's attack detection is broken.
+
+---
+
 # 0.5.1
 
 ## Added
