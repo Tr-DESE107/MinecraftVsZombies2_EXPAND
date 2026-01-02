@@ -4,6 +4,7 @@
 ## Fixed
 - Fixed the issue where Beacon's attack detection is broken.
 - Fixed the issue where zombie clouds maintain their previous inertia after being stunned, resulting in incorrect positioning.
+- Fixed the issue where stunned Ghasts won't fall on cloud tiles.
 
 ---
 
