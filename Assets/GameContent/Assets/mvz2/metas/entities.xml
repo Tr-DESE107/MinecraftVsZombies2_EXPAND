@@ -2055,6 +2055,7 @@
                 <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
                 <int name="mvz2:waterInteraction" value="2" />
                 <int name="mvz2:airInteraction" value="2" />
+				<bool name="mvz2:immune_slowing" value="true" />
 
                 <int name="mvz2:cost" value="600" />
 
@@ -2491,6 +2492,7 @@
 				<float name="mvz2:takenCrushDamage" value="900" />
 				<bool name="mvz2:immuneVortex" value="true" />
 				<int name="mvz2:vehicleInteraction" value="2" />
+				<bool name="mvz2:immune_slowing" value="true" />
 
 				<vector3 name="shadowScale" x="2" y="2" z="1" />
 
@@ -2868,6 +2870,7 @@
 				<int name="mvz2:waterInteraction" value="2" />
 				<int name="mvz2:airInteraction" value="2" />
 				<float name="mvz2:speed" value="1.8" />
+				<bool name="mvz2:immune_slowing" value="true" />
 
 				<int name="mvz2:cost" value="800" />
 

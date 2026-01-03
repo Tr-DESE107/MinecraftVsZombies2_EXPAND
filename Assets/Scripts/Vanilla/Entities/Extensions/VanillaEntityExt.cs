@@ -1110,6 +1110,8 @@ namespace MVZ2.Vanilla.Entities
 
         public static void InflictShock(this Entity entity, int time, ILevelSourceReference? source)
         {
+            if (entity.ImmuneSlowing())
+                return;
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.Shock);
             if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
