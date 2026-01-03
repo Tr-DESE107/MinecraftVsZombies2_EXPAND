@@ -386,8 +386,12 @@
 		<spawn level="4" />
 		<weight base="3000" />
 	</entry>
+	<entry id="cannonball_zombie" entity="mvz2:cannonball_zombie">
+		<spawn level="1.5" />
+		<weight base="3000" />
+	</entry>
     <entry id="Endermite" entity="mvz2:Endermite">
-        <spawn level="3" />
+        <spawn level="2" />
         <weight base="1500" />
     </entry>
     <entry id="HeavyGutant" entity="mvz2:HeavyGutant">

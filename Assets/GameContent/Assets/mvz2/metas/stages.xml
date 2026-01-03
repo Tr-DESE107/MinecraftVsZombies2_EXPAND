@@ -683,7 +683,7 @@
             <entry id="mvz2:dream_crystal" count="6" />
             <entry id="mvz2:dream_silk" count="1" />
             <entry id="mvz2:glowstone" count="4" />
-            <entry id="mvz2:punchton" count="6" />
+            <entry id="mvz2:punchton" count="5" />
             
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest" />
@@ -1553,6 +1553,7 @@
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:dullahan" />
 			<spawn id="mvz2:Endermite" />
+			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
 	</stage>
 	<stage id="ship_6" name="圣辇船" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
@@ -1581,6 +1582,7 @@
 			<spawn id="mvz2:RaiderSkull" />
 			<spawn id="mvz2:HeavyGutant" />
 			<spawn id="mvz2:Endermite" />
+			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
 		<time firstWave="1" waveMax="15" waveAdvance="5" />
 		<properties>
@@ -1626,6 +1628,7 @@
 			<spawn id="mvz2:cannoneer_zombie" />
 			<spawn id="mvz2:ghast" />
 			<spawn id="mvz2:HeavyGutant" />
+			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
 	</stage>
 	<stage id="ship_9" name="圣辇船" dayNumber="9">
@@ -1688,6 +1691,7 @@
 			<entry id="mvz2:beacon" count="10" />
 			<entry id="mvz2:wooden_fan" count="4" />
 			<entry id="mvz2:elastic_cloud" count="5" />
+			<entry id="mvz2:tesla_coil" count="5" />
 			<entry id="mvz2:jeweled_pagoda" count="1" minCount="0" />
 		</conveyor>
 		<clear pickupModel="mvz2:entity.money_chest" />
@@ -1701,6 +1705,7 @@
 			<spawn id="mvz2:pop_captain" />
 			<spawn id="mvz2:HeavyGutant" />
 			<spawn id="mvz2:Endermite" />
+			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
 		<time firstWave="1" />
 		<properties>
