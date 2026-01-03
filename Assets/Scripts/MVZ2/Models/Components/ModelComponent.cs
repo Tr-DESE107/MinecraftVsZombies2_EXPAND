@@ -12,6 +12,8 @@ namespace MVZ2.Models
         public virtual void UpdateFrame(float deltaTime) { }
         public virtual void OnPropertySet(string name, object? value) { }
         public virtual void OnTrigger(string name) { }
+        public virtual void SaveToSerializable(SerializableModelData serializable) { }
+        public virtual void LoadFromSerializable(SerializableModelData serializable) { }
         protected Vector3 Lawn2TransPosition(Vector3 pos)
         {
             return Main.LevelManager.LawnToTrans(pos);

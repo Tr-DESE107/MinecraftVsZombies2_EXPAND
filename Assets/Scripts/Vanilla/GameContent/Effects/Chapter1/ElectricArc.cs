@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.Init(entity);
             entity.SetModelProperty("Source", entity.Position);
-            entity.SetModelProperty("PointCount", 50);
+            SetPointCount(entity, 50);
         }
         public override void Update(Entity entity)
         {
@@ -29,6 +29,9 @@ namespace MVZ2.GameContent.Effects
         {
             arc.SetModelProperty("Source", arc.Position);
             arc.SetModelProperty("Dest", position);
+            var t = (position - arc.Position).magnitude / 500;
+            var count = Mathf.Lerp(3, 50, t);
+            SetPointCount(arc, Mathf.FloorToInt(count));
         }
         public static void SetPointCount(Entity arc, int count)
         {
