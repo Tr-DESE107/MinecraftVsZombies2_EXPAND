@@ -185,7 +185,7 @@ namespace MVZ2.Vanilla.Entities
             if (!projectile.Rolls())
                 return;
             var gravity = projectile.GetGravity();
-            if (gravity > 0 && projectile.GetRelativeY() <= 0)
+            if (gravity > 0 && projectile.IsOnGround)
             {
                 var level = projectile.Level;
                 var x = projectile.Position.x;

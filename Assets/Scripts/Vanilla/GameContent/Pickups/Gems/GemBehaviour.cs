@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Pickups
         public override void Update(Entity pickup)
         {
             base.Update(pickup);
-            pickup.SetAnimationBool("Rotating", !pickup.IsCollected() && pickup.GetRelativeY() <= 0);
+            pickup.SetAnimationBool("Rotating", !pickup.IsCollected() && pickup.IsOnGround);
         }
     }
 }
