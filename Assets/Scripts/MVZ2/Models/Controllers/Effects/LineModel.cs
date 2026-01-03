@@ -6,12 +6,18 @@ namespace MVZ2.Models
 {
     public class LineModel : ModelComponent
     {
+        public override void OnPropertySet(string name, object? value)
+        {
+            base.OnPropertySet(name, value);
+            if (name == "ShowLine" && value is bool boolValue)
+            {
+                sourceTransform.gameObject.SetActive(boolValue);
+            }
+        }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
-            var showLine = Model.GetProperty<bool>("ShowLine");
-            sourceTransform.gameObject.SetActive(showLine);
-            if (!showLine)
+            if (!sourceTransform.gameObject.activeInHierarchy)
                 return;
             var source = sourceTransform.position;
             var dest = Lawn2TransPosition(Model.GetProperty<Vector3>("Dest"));

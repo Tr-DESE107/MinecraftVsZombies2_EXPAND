@@ -62,9 +62,10 @@ namespace MVZ2.GameContent.Armors
                 return;
 
             var owner = shield.Owner;
+
             var shootParams = owner.GetShootParams();
             shootParams.projectileID = VanillaProjectileID.reflectionBullet;
-            shootParams.position = hit.Projectile.Position;
+            shootParams.position = hit.Projectile.GetCenter();
             shootParams.damage = shieldResult.Amount;
             shootParams.soundID = VanillaSoundID.reflection;
             shootParams.velocity = owner.GetFacingDirection() * 10;

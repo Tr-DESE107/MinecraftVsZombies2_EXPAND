@@ -17,10 +17,11 @@ namespace MVZ2.GameContent.Placements
         {
             return placement.GetSpawnError(grid, entity);
         }
-        public override Entity? PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity, PlaceParams param)
+        public override PlaceOutput PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity, PlaceParams param)
         {
+            bool commandBlock = param.IsCommandBlock();
             Entity? ent;
-            if (param.IsCommandBlock())
+            if (commandBlock)
             {
                 var spawnParam = CommandBlock.GetImitateSpawnParams(entity.GetID());
                 spawnParam.SetProperty(VanillaEntityProps.VARIANT, param.GetVariant());
@@ -32,7 +33,11 @@ namespace MVZ2.GameContent.Placements
                 spawnParam.SetProperty(VanillaEntityProps.VARIANT, param.GetVariant());
                 ent = grid.SpawnPlacedEntity(entity.GetID(), spawnParam);
             }
-            return ent;
+            return new PlaceOutput(ent, entity)
+            {
+                isCommandBlock = commandBlock,
+                increaseTakenConveyorSeed = true,
+            };
         }
     }
 }

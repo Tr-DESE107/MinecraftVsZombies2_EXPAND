@@ -8,6 +8,29 @@ namespace PVZEngine.Placements
     public abstract class PlaceMethod
     {
         public abstract NamespaceID? GetPlaceError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef);
-        public abstract Entity? PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param);
+        public abstract PlaceOutput PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param);
+    }
+    public class PlaceOutput
+    {
+        public Entity? entity;
+        public EntityDefinition? placeDefinition;
+        public bool increaseTakenConveyorSeed;
+        public bool isCommandBlock;
+        private bool invalid;
+
+        public PlaceOutput(Entity? entity, EntityDefinition? placeDefinition)
+        {
+            this.entity = entity;
+            this.placeDefinition = placeDefinition;
+        }
+        public bool IsInvalid()
+        {
+            return invalid;
+        }
+
+        public static readonly PlaceOutput InvalidOutput = new PlaceOutput(null, null)
+        {
+            invalid = true
+        };
     }
 }

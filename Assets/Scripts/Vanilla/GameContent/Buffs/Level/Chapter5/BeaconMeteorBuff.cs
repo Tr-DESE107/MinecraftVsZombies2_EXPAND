@@ -53,7 +53,7 @@ namespace MVZ2.GameContent.Buffs.Level
                             var rng = GetRNG(buff);
                             if (rng != null)
                             {
-                                SpawnMeteor(buff.Level, rng, GetFaction(buff), GetDamage(buff), GetHSVOffset(buff));
+                                SpawnMeteor(buff.Level, rng, GetFaction(buff), GetDamage(buff), GetHSVOffset(buff), GetVariant(buff));
                             }
 
                             var count = GetCount(buff);
@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Buffs.Level
                     break;
             }
         }
-        public static Entity? SpawnMeteor(LevelEngine level, RandomGenerator rng, int faction, float damage, Vector3 hsvOffset)
+        public static Entity? SpawnMeteor(LevelEngine level, RandomGenerator rng, int faction, float damage, Vector3 hsvOffset, int variant)
         {
             var column = rng.Next(0, level.GetMaxColumnCount());
             var lane = rng.Next(0, level.GetMaxLaneCount());
@@ -86,6 +86,7 @@ namespace MVZ2.GameContent.Buffs.Level
             param.SetProperty(EngineEntityProps.FACTION, faction);
             param.SetProperty(VanillaEntityProps.DAMAGE, damage);
             param.SetProperty(VanillaEntityProps.HSV, hsvOffset);
+            param.SetProperty(VanillaEntityProps.VARIANT, variant);
             var meteor = level.Spawn(VanillaProjectileID.beaconMeteor, pos, null, param)?.Let(e =>
             {
                 e.Velocity = velocity;
@@ -104,6 +105,8 @@ namespace MVZ2.GameContent.Buffs.Level
         public static int GetState(Buff buff) => buff.GetProperty<int>(PROP_STATE);
         public static void SetHSVOffset(Buff buff, Vector3 value) => buff.SetProperty(HSV_OFFSET, value);
         public static Vector3 GetHSVOffset(Buff buff) => buff.GetProperty<Vector3>(HSV_OFFSET);
+        public static void SetVariant(Buff buff, int value) => buff.SetProperty(PROP_VARIANT, value);
+        public static int GetVariant(Buff buff) => buff.GetProperty<int>(PROP_VARIANT);
         public static void SetTimer(Buff buff, FrameTimer value) => buff.SetProperty(PROP_TIMER, value);
         public static FrameTimer? GetTimer(Buff buff) => buff.GetProperty<FrameTimer>(PROP_TIMER);
         public static void SetRNG(Buff buff, RandomGenerator value) => buff.SetProperty(PROP_RNG, value);
@@ -116,10 +119,13 @@ namespace MVZ2.GameContent.Buffs.Level
         public const int STATE_WAIT = 0;
         public const int STATE_FALL = 1;
         public const int FALL_INTERVAL = 6;
+        public const int VARIANT_DEFAULT = 0;
+        public const int VARIANT_BOULDER = 1;
         public static readonly VanillaBuffPropertyMeta<float> PROP_DAMAGE = new VanillaBuffPropertyMeta<float>("damage");
         public static readonly VanillaBuffPropertyMeta<int> PROP_FACTION = new VanillaBuffPropertyMeta<int>("faction");
         public static readonly VanillaBuffPropertyMeta<int> PROP_COUNT = new VanillaBuffPropertyMeta<int>("count");
         public static readonly VanillaBuffPropertyMeta<Vector3> HSV_OFFSET = new VanillaBuffPropertyMeta<Vector3>("hsv_offset");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_VARIANT = new VanillaBuffPropertyMeta<int>("variant");
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
         public static readonly VanillaBuffPropertyMeta<RandomGenerator> PROP_RNG = new VanillaBuffPropertyMeta<RandomGenerator>("rng");
         public static readonly VanillaBuffPropertyMeta<int> PROP_STATE = new VanillaBuffPropertyMeta<int>("state");

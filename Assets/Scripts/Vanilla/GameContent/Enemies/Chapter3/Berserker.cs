@@ -28,10 +28,15 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void Explode(Entity entity, float damage, int faction)
         {
+            var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
+            Explode(entity, damage, effects, faction);
+        }
+        public static void Explode(Entity entity, float damage, DamageEffectList effects, int faction)
+        {
             var scale = entity.GetFinalScale();
             var scaleX = Mathf.Abs(scale.x);
             var range = entity.GetRange() * scaleX;
-            entity.Explode(entity.GetCenter(), range, faction, damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE));
+            entity.Explode(entity.GetCenter(), range, faction, damage, effects);
 
             Explosion.Spawn(entity, entity.GetCenter(), range);
 

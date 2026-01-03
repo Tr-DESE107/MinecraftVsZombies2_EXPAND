@@ -71,7 +71,6 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             var otherworldParam = entity.GetShootParams();
-            otherworldParam.position += Vector3.down * 28;
             otherworldParam.damage = entity.GetDamage() * 50;
             otherworldParam.projectileID = VanillaProjectileID.hellPlanetOtherworld;
             otherworldParam.velocity = otherworldParam.velocity.normalized;

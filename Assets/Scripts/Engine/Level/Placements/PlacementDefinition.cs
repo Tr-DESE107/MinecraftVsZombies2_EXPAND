@@ -48,7 +48,7 @@ namespace PVZEngine.Placements
             }
             return error;
         }
-        public Entity? PlaceEntity(LawnGrid grid, EntityDefinition entity, PlaceParams param)
+        public PlaceOutput PlaceEntity(LawnGrid grid, EntityDefinition entity, PlaceParams param)
         {
             foreach (var method in methods)
             {
@@ -58,7 +58,7 @@ namespace PVZEngine.Placements
                     return method.PlaceEntity(this, grid, entity, param);
                 }
             }
-            return null;
+            return PlaceOutput.InvalidOutput;
         }
         public sealed override string GetDefinitionType() => EngineDefinitionTypes.PLACEMENT;
         private SpawnCondition spawnCondition;

@@ -156,14 +156,13 @@ namespace MVZ2.Vanilla.Contraptions
             }
             return upgraded;
         }
-        public static Entity FirstAid(this Entity contraption)
+        public static void FirstAid(this Entity contraption)
         {
             contraption.HealEffects(contraption.GetMaxHealth(), contraption);
             var soundID = contraption.GetGrid()?.GetPlaceSound(contraption);
             if (soundID != null)
                 contraption.PlaySound(soundID);
             contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, new EntityCallbackParams(contraption), contraption.GetDefinitionID());
-            return contraption;
         }
 
     }

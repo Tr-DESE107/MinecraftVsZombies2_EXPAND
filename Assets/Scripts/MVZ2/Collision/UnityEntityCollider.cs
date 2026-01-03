@@ -9,6 +9,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
 using Tools;
+using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.Collisions
@@ -175,6 +176,12 @@ namespace MVZ2.Collisions
         {
             var closest = boxCollider.ClosestPoint(center);
             return (closest - (transform.position + boxCollider.center)).sqrMagnitude < radius * radius;
+        }
+        public bool CheckCapsule(Vector3 pos1, Vector3 pos2, float radius)
+        {
+            var capsule = new Capsule(pos1, pos2, radius);
+            var box = boxCollider.bounds;
+            return MathTool.CollideBetweenCubeAndCapsule(capsule, box);
         }
         #endregion
 

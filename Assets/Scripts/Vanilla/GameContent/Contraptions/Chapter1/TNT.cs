@@ -171,8 +171,11 @@ namespace MVZ2.GameContent.Contraptions
                         var direction = Quaternion.Euler(0, i * 90, 0) * Vector3.right * 10;
                         var velocity = direction;
                         velocity.y = 10;
-                        var projectile = entity.ShootProjectile(VanillaProjectileID.flyingTNT, velocity);
-                        if (projectile != null)
+                        var shootParams = entity.GetShootParams();
+                        shootParams.projectileID = VanillaProjectileID.flyingTNT;
+                        shootParams.velocity = velocity;
+                        shootParams.pivot = VanillaEntityProps.SHOT_PIVOT_BOTTOM;
+                        entity.ShootProjectile(shootParams)?.Let(projectile =>
                         {
                             projectile.SetDamage(damage);
                             projectile.SetRange(range);
@@ -180,7 +183,7 @@ namespace MVZ2.GameContent.Contraptions
                             {
                                 Charge(projectile);
                             }
-                        }
+                        });
                     }
                 }
                 entity.Remove();

@@ -223,7 +223,7 @@ namespace PVZEngine.Level.Collisions
             var min = center - Vector3.one * radius;
             var filterRect = new Rect(min.x, min.z, radius * 2, radius * 2);
             var capsule = new Capsule(point0, point1, radius);
-            return Overlap(filterRect, faction, hostileMask, friendlyMask, h => MathTool.CollideBetweenCubeAndCapsule(capsule, h.GetBoundsCenter(), h.GetBoundsSize()));
+            return Overlap(filterRect, faction, hostileMask, friendlyMask, h => MathTool.CollideBetweenCubeAndCapsule(capsule, h.GetBounds()));
         }
         public void OverlapCapsuleNonAlloc(Vector3 point0, Vector3 point1, float radius, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
         {
@@ -231,7 +231,7 @@ namespace PVZEngine.Level.Collisions
             var min = center - Vector3.one * radius;
             var filterRect = new Rect(min.x, min.z, radius * 2, radius * 2);
             var capsule = new Capsule(point0, point1, radius);
-            OverlapNonAlloc(filterRect, faction, hostileMask, friendlyMask, h => MathTool.CollideBetweenCubeAndCapsule(capsule, h.GetBoundsCenter(), h.GetBoundsSize()), results);
+            OverlapNonAlloc(filterRect, faction, hostileMask, friendlyMask, h => MathTool.CollideBetweenCubeAndCapsule(capsule, h.GetBounds()), results);
         }
         public IEntityCollider[] Overlap(Rect filterRect, int faction, int hostileMask, int friendlyMask, Predicate<Hitbox> predicate)
         {

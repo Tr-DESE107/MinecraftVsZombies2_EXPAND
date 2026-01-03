@@ -50,6 +50,10 @@ namespace PVZEngine.Entities
         {
             return entity.Level.Spawn(id, position, entity, seed, param);
         }
+        public static Entity? Spawn(this Entity entity, EntityDefinition definition, Vector3 position, SpawnParams param)
+        {
+            return entity.Level.Spawn(definition, position, entity, param);
+        }
         public static bool IsHostile(int faction1, int faction2)
         {
             return faction1 != faction2;

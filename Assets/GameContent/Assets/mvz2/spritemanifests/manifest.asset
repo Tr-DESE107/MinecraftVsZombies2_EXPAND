@@ -211,6 +211,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0bad8dd7ca96eb047840a09bdbdcc162, type: 3}
   - name: misc/abandoned_house
     sprite: {fileID: 21300000, guid: 50bf732bad4c58e4594fe0d57da0eeff, type: 3}
+  - name: misc/boat_zombie
+    sprite: {fileID: 21300000, guid: bf74c11d6e254354486cefc7df391641, type: 3}
   - name: misc/castle
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
   - name: misc/dead_red_dragon
@@ -1103,6 +1105,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 01ea06eaff14a0746a137123701e46b3, type: 3}
   - name: entity/projectiles/boulder
     sprite: {fileID: 21300000, guid: 844a4d9460ff7f340960531d826fa7f0, type: 3}
+  - name: entity/projectiles/boulder_fire
+    sprite: {fileID: 21300000, guid: 51e325cd593ea764aa13e806bdfdeac1, type: 3}
   - name: entity/projectiles/breakout_pearl
     sprite: {fileID: 21300000, guid: 1180289811b708d4781f5bd9065fb543, type: 3}
   - name: entity/projectiles/bullet

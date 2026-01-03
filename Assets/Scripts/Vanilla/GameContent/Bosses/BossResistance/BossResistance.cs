@@ -28,12 +28,16 @@ namespace MVZ2.GameContent.Bosses
         public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
             base.PreTakeDamage(damageInfo, result);
+            bool bypassBossArmor = damageInfo.HasEffect(VanillaDamageEffects.BYPASS_BOSS_ARMOR);
+            if (bypassBossArmor)
+                return;
+
             var entity = damageInfo.Entity;
 
             var max = GetMaxDamageAmount(entity);
             var current = GetCurrentDamageAmount(entity);
             var currentDamageLimit = Mathf.Max(0, max - current);
-            if (damageInfo.Amount > currentDamageLimit && !damageInfo.HasEffect(VanillaDamageEffects.BYPASS_BOSS_ARMOR))
+            if (damageInfo.Amount > currentDamageLimit)
             {
                 damageInfo.SetAmount(currentDamageLimit);
             }

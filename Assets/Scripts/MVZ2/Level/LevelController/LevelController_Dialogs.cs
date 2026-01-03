@@ -36,7 +36,7 @@ namespace MVZ2.Level
         {
             var title = Localization._(VanillaStrings.RESTART);
             var desc = Localization._(DIALOG_DESC_RESTART);
-            Scene.ShowDialogSelect(title, desc, async (confirm) =>
+            Scene.ShowDialogSelectTask(title, desc, async (confirm) =>
             {
                 if (confirm)
                 {

@@ -22,14 +22,17 @@ namespace MVZ2.GameContent.Placements
             return null;
         }
 
-        public override Entity? PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity, PlaceParams param)
+        public override PlaceOutput PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity, PlaceParams param)
         {
             var entities = grid.GetEntities();
             var drivenser = entities.FirstOrDefault(e => Drivenser.CanUpgrade(e));
             if (drivenser == null)
-                return null;
+                return PlaceOutput.InvalidOutput;
             Drivenser.Upgrade(drivenser);
-            return drivenser;
+            return new PlaceOutput(drivenser, entity)
+            {
+                increaseTakenConveyorSeed = true,
+            };
         }
     }
 }

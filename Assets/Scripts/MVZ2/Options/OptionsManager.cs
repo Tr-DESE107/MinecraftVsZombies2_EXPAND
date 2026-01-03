@@ -63,19 +63,33 @@ namespace MVZ2.Options
             var path = GetOptionsFilePath();
             if (!File.Exists(path))
                 return;
-            var json = Main.FileManager.ReadStringFile(path);
-            var seri = SerializeHelper.FromBson<SerializableOptions>(json);
-            options.LoadFromSerializable(seri);
+            try
+            {
+                var json = Main.FileManager.ReadStringFile(path);
+                var seri = SerializeHelper.FromBson<SerializableOptions>(json);
+                options.LoadFromSerializable(seri);
+            }
+            catch (Exception e)
+            {
+                Log.LogError($"读取设置文件失败：{e}");
+            }
         }
         public void SaveOptionsToFile()
         {
             if (options == null)
                 return;
             var path = GetOptionsFilePath();
-            FileHelper.ValidateDirectory(path);
-            var seri = options.ToSerializable();
-            var json = SerializeHelper.ToBson(seri);
-            Main.FileManager.WriteStringFile(path, json);
+            try
+            {
+                FileHelper.ValidateDirectory(path);
+                var seri = options.ToSerializable();
+                var json = SerializeHelper.ToBson(seri);
+                Main.FileManager.WriteStringFile(path, json);
+            }
+            catch (Exception e)
+            {
+                Log.LogError($"保存设置文件失败：{e}");
+            }
         }
         public string GetOptionsFilePath()
         {

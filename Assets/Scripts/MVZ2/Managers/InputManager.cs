@@ -90,11 +90,7 @@ namespace MVZ2.Managers
         #region 指针数据
         public static PointerData GetPointerDataFromEventData(PointerEventData eventData)
         {
-            return new PointerData()
-            {
-                button = (int)eventData.button,
-                type = GetPointerType(eventData.pointerId)
-            };
+            return GetPointerDataFromPointerId(eventData.pointerId);
         }
         public static PointerData GetPointerDataFromPointerId(int pointerId)
         {
@@ -315,6 +311,18 @@ namespace MVZ2.Managers
         Vector2 IGlobalInput.GetPointerScreenPosition()
         {
             return GetPointerPosition();
+        }
+        Vector2 IGlobalInput.GetPointerScreenPosition(int type, int button)
+        {
+            if (type == PointerTypes.TOUCH)
+            {
+                if (Input.touchCount > button)
+                {
+                    return Input.GetTouch(button).position;
+                }
+                return Vector2.zero;
+            }
+            return Input.mousePosition;
         }
         bool IGlobalInput.IsPointerDown(int type, int button)
         {

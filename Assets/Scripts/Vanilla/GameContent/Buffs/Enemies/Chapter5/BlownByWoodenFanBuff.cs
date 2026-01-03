@@ -52,22 +52,25 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
             else if (mass <= VanillaMass.MEDIUM)
             {
-                var pos = entity.Position;
+                var velocity = entity.Velocity;
                 if (toLeft)
                 {
-                    pos.x -= KNOCKBACK_SPEED;
+                    velocity.x = Mathf.Min(velocity.x, -KNOCKBACK_SPEED);
                 }
                 else
                 {
-                    pos.x += KNOCKBACK_SPEED;
+                    velocity.x = Mathf.Max(velocity.x, KNOCKBACK_SPEED);
                 }
-                entity.Position = pos;
+                entity.Velocity = velocity;
             }
         }
         public static float GetBlowMass(Entity entity)
         {
             var mass = entity.GetMass() + entity.GetBlowMassOffset();
-            if (!entity.IsOnGround || entity.IsInCloud())
+            // 有重力，并且离地过近，不被判定为滞空
+            // 防止辉针城最右侧的怪物下坡时被直接吹飞
+            bool onGround = entity.IsOnGround || (entity.GetGravity() >= 0.001f && entity.GetRelativeY() <= 3);
+            if (!onGround || entity.IsInCloud())
             {
                 mass -= 2;
             }

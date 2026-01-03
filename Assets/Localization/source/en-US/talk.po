@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-12-22 03:12+0800\n"
-"PO-Revision-Date: 2025-12-23 22:24+0800\n"
+"POT-Creation-Date: 2025-12-28 02:07+0800\n"
+"PO-Revision-Date: 2025-12-28 14:07+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -7136,10 +7136,10 @@ msgstr "This is the Note Block!"
 #. Text for talk sentence 1 in talk group mausoleum_1_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_1_over"
-msgid "它能发射音符，音符会在音符盒和敌人之间来回反弹！"
+msgid "它能发射近程的音符，音符会在音符盒和敌人之间来回反弹！"
 msgstr ""
-"It shoots musical notes which bounce back and forth between itself and the "
-"enemy!"
+"It shoots short-ranged musical notes which bounce back and forth between "
+"itself and the enemy!"
 
 #. Text for talk sentence 2 in talk group mausoleum_1_over's section 0
 #: Talk meta file

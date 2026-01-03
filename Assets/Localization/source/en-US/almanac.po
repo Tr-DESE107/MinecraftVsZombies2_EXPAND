@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-12-22 03:12+0800\n"
-"PO-Revision-Date: 2025-12-24 09:36+0800\n"
+"POT-Creation-Date: 2025-12-31 03:52+0800\n"
+"PO-Revision-Date: 2025-12-31 15:52+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1145,10 +1145,12 @@ msgstr "Dream Silk makes a contraption fall asleep. After it wakes up, a Starsha
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>一次性使用</color>\n"
-"技能：<color=red>无</color>"
+"技能：<color=red>无</color>\n"
+"睡眠时间：<color=red>50秒</color>"
 msgstr ""
 "Special: <color=red>Single use</color>\n"
-"Evocation: <color=red>None</color>"
+"Evocation: <color=red>None</color>\n"
+"Sleep duration: <color=red>50 seconds</color>"
 
 #. Flavor for contraptions mvz2:dream_silk
 #: Almanac meta file
@@ -1328,12 +1330,14 @@ msgstr "Tesla Coil shocks enemies in a large area."
 msgctxt "contraptions.description"
 msgid ""
 "攻击速度：<color=red>3秒</color>\n"
-"伤害：<color=red>80</color>\n"
+"伤害：<color=red>60</color>\n"
+"半径：<color=red>2.5格</color>\n"
 "特殊：<color=red>可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>\n"
 "技能：<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>"
 msgstr ""
 "Fire rate: <color=red>3 seconds</color>\n"
-"Damage: <color=red>80</color>\n"
+"Damage: <color=red>60</color>\n"
+"Radius: <color=red>2.5 tiles</color>\n"
 "Special: <color=red>Can attack enemies on air; Electric current diffuses in water</color>\n"
 "Evocation: <color=red>Creates a thunderstorms, strikes random positions in a radius</color>"
 
@@ -1377,15 +1381,17 @@ msgstr "Note Block shoots notes that bounces between itself and enemies, dealing
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>5</color>\n"
+"伤害：<color=red>3</color>\n"
 "发射速度：<color=red>1.5秒</color>\n"
 "音符上限：<color=red>10</color>\n"
-"技能：<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>"
+"射程：<color=red>4格</color>\n"
+"技能：<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度，+10格射程</color>"
 msgstr ""
-"Damage: <color=red>5</color>\n"
+"Damage: <color=red>3</color>\n"
 "Fire rate: <color=red>1.5 seconds</color>\n"
 "Notes limit: <color=red>10</color>\n"
-"Evocation: <color=red>In 30 seconds, deal x500% damage, x500% fire rate and x200% note flying speed</color>"
+"Range: <color=red>4 tiles</color>\n"
+"Evocation: <color=red>In 30 seconds, deal x500% damage, x500% fire rate, x200% note flying speed and +10 tiles range</color>"
 
 #. Flavor for contraptions mvz2:note_block
 #: Almanac meta file
@@ -2653,7 +2659,7 @@ msgid ""
 msgstr ""
 "Toughness: <color=red>350</color>\n"
 "Speed: <color=red>1</color>\n"
-"Special: <color=red>Restore equal toughness during attack</color>"
+"Special: <color=red>Restore toughness equal to damage dealt</color>"
 
 #. Flavor for enemies mvz2:talisman_zombie
 #: Almanac meta file
@@ -2814,10 +2820,10 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
-"速度：<color=red>2</color>"
+"速度：<color=red>4</color>"
 msgstr ""
-"Toughness: <color=red>200</color>\n"
-"Speed: <color=red>2</color>"
+"Toughness: <color=red>100</color>\n"
+"Speed: <color=red>4</color>"
 
 #. Flavor for enemies mvz2:cannonball_zombie
 #: Almanac meta file
@@ -2841,10 +2847,12 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>1100</color>\n"
 "伤害：<color=red>100（冲击）</color>\n"
+"速度：<color=red>1.5</color>\n"
 "特殊：<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁。</color>"
 msgstr ""
 "Toughness: <color=red>1100</color>\n"
 "Damage: <color=red>100 (Impact)</color>\n"
+"Speed: <color=red>1.5</color>\n"
 "Special: <color=red>Knocking a contraption onto the targeted tile will destroy existing contraptions on that tile</color>"
 
 #. Flavor for enemies mvz2:pop_captain
@@ -3526,11 +3534,11 @@ msgstr "Wither represents death and withering. It will erase all signs of life."
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"生命：<color=red>12000，每秒恢复30</color>\n"
+"生命：<color=red>12000，每秒恢复15</color>\n"
 "阶段1：<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>\n"
 "阶段2：<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤“床战士”</color>"
 msgstr ""
-"Toughness: <color=red>12000, restores 30 per second</color>\n"
+"Toughness: <color=red>12000, restores 15 per second</color>\n"
 "Phase 1: <color=red>Fly, fire wither skulls, dash, eat your contraptions</color>\n"
 "Phase 2: <color=red>Land, Immune to bullets, fire wither skulls, dash, eat your contraptions, summon \"bedserkers\"</color>"
 
@@ -3839,6 +3847,30 @@ msgstr "Nyan Cats are soooo cute that they make any enemy touching it die."
 msgctxt "misc.description"
 msgid "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
 msgstr "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
+
+#. Name for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "船僵尸"
+msgstr "Boat Zombie"
+
+#. Header for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "船僵尸能够浮在水上——甚至是云上作战。"
+msgstr "Boat Zombies can float on water—and even atop clouds."
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "直接把自己身子穿在船上真的不会漏水么？当然不会咕噜咕噜咕噜"
+msgstr "Wouldn't there be leaks if they put their bodies directly onto the boats? Of course not—glug glug glug"
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "它是怎么浮在空中的？我的朋友，你都已经在天上乘船了，船僵尸能浮在空中又怎么样呢？"
+msgstr "How do they float in the air? My friend, you're already on a ship in the sky, so what if they float in the air too?"
 
 #. Name for misc mvz2:nyaightmare
 #: Almanac meta file
@@ -4568,6 +4600,38 @@ msgstr ""
 "Doremy had seen a black horse in the Dream World a few months ago, which was Nightmare in disguise. Nightmare then began its "
 "corruption, and deceived everyone in the Dream World until it cursed Doremy.\n"
 "What you now see is the true appearance of the Dream World."
+
+#. Name for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "香霖堂"
+msgstr "Kourindou"
+
+#. Header for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "香霖堂是幻想乡中的一处商店，专门售卖一些外界来的稀奇物品。"
+msgstr "Kourindou is a shop in Gensokyo that specializes in selling peculiar items from the Outside World."
+
+#. Flavor for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"香霖堂的原主人名为森近 霖之助，现主人为一位无名的读书妖怪，也称朱鹭子。\n"
+"这里常卖一些幻想乡里少见的，被遗忘的外界物品，比如手机、平板电脑、游戏机什么的。\n"
+"霖之助本人是知道这些东西能产生什么作用的，但是他个人并不知道如何正确使用它们，这些东西多半也只能用来当切菜板什么的来使用。\n"
+"如今这家店被朱鹭子接替，这些东西的用途估计已经没人知道了。\n"
+"\n"
+"史蒂夫和村民来到了这里，并把这里改造成了他们的作战基地。"
+msgstr ""
+"The original owner of Kourindou was Rinnosuke Morichika. The current owner is an unnamed book-reading youkai, also known as Tokiko.\n"
+"The place often sells forgotten items from the Outside World that are rarely seen in Gensokyo, such as mobile phones, tablet "
+"computers, game consoles, etc.\n"
+"Rinnosuke is capable of knowing what the purpose of these things are, but he doesn't know how to use them correctly by himself. In "
+"most cases, these things can only be used as cutting boards or something similar.\n"
+"Now that the shop has been taken over by Tokiko, it's likely that no one knows what these things are really for anymore.\n"
+"\n"
+"Steve and Villager arrived here and converted the place into their base of operations."
 
 #. Name for misc mvz2:shining_needle_castle
 #: Almanac meta file
@@ -6932,6 +6996,14 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>100</color>\n"
+#~ "速度：<color=red>2</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>200</color>\n"
+#~ "Speed: <color=red>2</color>"
 
 #~ msgctxt "entity.name"
 #~ msgid "银质发射器"

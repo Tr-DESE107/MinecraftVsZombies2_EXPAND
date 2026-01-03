@@ -88,7 +88,7 @@ namespace PVZEngine.Entities
                 Level.RemoveEntity(this);
 
                 // 将取用的传送带种子放回传送带池中。
-                PutBackConveyorSeeds();
+                ClearTakenConveyorSeeds();
 
                 // 触发实体移除回调。
                 Definition.PostRemove(this);
@@ -217,7 +217,7 @@ namespace PVZEngine.Entities
             }
             return true;
         }
-        private void PutBackConveyorSeeds()
+        public void ClearTakenConveyorSeeds()
         {
             foreach (var pair in takenConveyorSeeds)
             {

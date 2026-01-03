@@ -1,3 +1,95 @@
+# 0.5.1
+
+## Added
+- Added the almanac entry for Boat Zombies and Kourindou.
+- When flames appear for the first time in Palanquin Ship Day 11, there will now be an advice to extinguish the flames.
+
+## Modified
+
+- Adjusted the hitboxes of most projectiles to better match the visual effect.
+- Adjusted the monster types to spawn in some levels.
+- Red Dragon's meteors now have a new sprite.
+- Reduced the appear chance for Stone Droppers, increased the appear chance for Tesla Coils in level 3-11.
+- Adjusted the layout of some I, Zombie levels.
+
+### Balance
+- Magichest
+  - Cost: 200 -> 175
+- Tesla Coil
+  - Damage: 80 -> 60
+  - Cost: 250 -> 200
+  - Recharge time: Long -> Short
+- Beacon
+  - Cost：125 -> 150
+- Skyward Beacon
+  - Cost: 275 -> 225
+- Force Pad
+  - Cost: 75 -> 125
+- Dream Silk
+  - Cost: 100 -> 75
+  - Contraption sleep duration: 30 seconds -> 50 seconds
+  - Recharge time: Long -> Very Long
+- Note Block
+  - Damage: 5 -> 3
+  - Range: A whole lane -> 4 tiles
+  - Recharge time: Long -> Short
+  - +10 tiles range during evocation.
+- Hell Chariot
+  - Now immunes to cold slowing.
+- Undead Flying Object
+  - Friendly Blue Undead Flying Objects no longer steal pickups, they provide redstones instead.
+- Cannonball Zombie
+  - Speed: 2 -> 4
+- Pop Captain
+  - Speed: 1 -> 1.5
+  - Can no longer change the lane of very heavy monsters.
+- Zombie Cloud
+  - Duration of water stains: 20 seconds -> 40 seconds
+- Wither
+  - Regeneration: 30/s -> 15/s
+  - The damage of Bedserker's explosion and eating Golden Apple will now bypasses Wither's damage resistance.
+  - Increased the damage of eating Golden Apple from 600 to 900.
+
+### Monster Spawning
+- Skeleton
+  - Earliest spawn wave: 0 -> 5
+  - Weight: 3500 -> 3000
+- Spider
+  - Cost: 2 -> 1
+  - Earliest spawn wave: 0 -> 5
+  - Weight: 2000 -> 3000
+- Ghast
+  - Earliest spawn wave: 10 -> 5
+- Zombie Cloud
+  - Cost: 3 -> 2
+  - Earliest spawn wave: 10 -> 5
+  - Weight: 2000 -> 3000
+- Cannoneer Zombie
+  - Weight: 1500 -> 2500
+- Pop Captain
+  - Weight: 1000 -> 2000
+- Monsters carrying Starshards will now appear 3 waves earlier.
+
+### I, Zombie
+- In Easy difficulty, the amount of redstone given by a furnace decreases from 10 to 9 (225 energy).
+- In Hard difficulty, the amount of redstone given by a furnace increases from 6 to 7 (175 energy).
+- The number of additional furnaces in the reward rounds has been reduced from 5 to 2.
+
+## Fixes
+- Fixed the issue where Cannoneer Zombie still launches Cannonballs when stunned.
+- Fixed the issue where Undead Flying Object's explosion radius on death is too small.
+- Fixed the issue where monsters killed by Vortex Hopper will still spin after revival.
+- Fixed the issue where friendly monsters can only melee-attack the giant while they are in the same lane.
+- Fixed the issue where Skyward Beacon does not count as a contraption that counters short enemy or flying enemy.
+- Fixed the issue where Wooden Fan will blow away just spawned monsters in Shinning Needle Castle.
+- Fixed the issue where carts can crush entities that are not contraption, not enemy and not obstacle.
+- Fixed the issue where using the fighting techniques of Sorcerer's Scroll in multi finger touch would result in incorrect positioning.
+- Fixed the issue where the icon does not twinkle when selecting fighting techniques of Sorcerer's Scroll on mobile devices.
+- Fixed the issue where gunpowder will deal 22500 damage when exploded.
+- Fixed the issue where phase 1 red dragon will release 3 tornados at any difficulty.
+
+---
+
 # 0.5.0
 
 ## Added

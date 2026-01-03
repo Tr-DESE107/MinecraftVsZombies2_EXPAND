@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Armors
         {
             base.PostUpdate(armor);
             var owner = armor.Owner;
-            if (!owner.ExistsAndAlive())
+            if (!owner.ExistsAndAlive() || owner.IsAIFrozen())
                 return;
             if (owner.State == STATE_IDLE || owner.State == STATE_MELEE_ATTACK)
             {

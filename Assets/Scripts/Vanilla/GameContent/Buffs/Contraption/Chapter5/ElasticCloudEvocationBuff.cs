@@ -53,6 +53,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 }
                 Explosion.Spawn(entity, center, radius);
                 entity.PlaySound(VanillaSoundID.explosion);
+                entity.DestroyConflictGridEntities();
                 buff.Remove();
             }
         }
