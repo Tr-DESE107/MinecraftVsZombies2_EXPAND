@@ -105,7 +105,7 @@
     <model name="Eviltombstone" type="entity" path="mvz2:contraption/upgrade/Eviltombstone" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="CopperDropper" type="entity" path="mvz2:contraption/upgrade/CopperDropper" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="AntiGravityPad" type="entity" path="mvz2:contraption/EXPAND/AntiGravityPad" width="64" height="64" xOffset="0" yOffset="-28" />
-    <model name="EXPANDispenser" type="entity" path="mvz2:contraption/upgrade/EXPANDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="EXPANDispenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
 	
 	<model name="Bedrock" type="entity" path="mvz2:contraption/EXPAND/Bedrock" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="Barrier" type="entity" path="mvz2:contraption/EXPAND/Barrier" width="64" height="64" xOffset="0" yOffset="-28" />

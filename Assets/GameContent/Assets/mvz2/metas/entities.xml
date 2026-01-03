@@ -1675,7 +1675,7 @@
 			</unlock>
 			<properties>
 
-				<id name="mvz2:upgradeFrom" value="mvz2:repeatenser" />
+				<id name="mvz2:upgradeFrom" value="mvz2:high_frequency_pulse_dispenser" />
 				<id name="mvz2:placement" value="mvz2:upgrade" />
 				<color name="mvz2:lightColor" value="#FFAA00" />
 
