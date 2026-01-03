@@ -753,7 +753,7 @@
             </unlock>
             <properties>
                 <float name="mvz2:range" value="200" />
-                <float name="mvz2:damage" value="80" />
+                <float name="mvz2:damage" value="60" />
                 <bool name="mvz2:blocksJump" value="true" />
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <id name="mvz2:placeSound" value="mvz2:tesla_construction" />

@@ -7,6 +7,7 @@
 - Fixed the issue where stunned Ghasts won't fall on cloud tiles.
 - Fixed the issue where the black holes created by destroying Black Hole Bomb using fire, explosion or sacrificing deals huge damage.
 - Fixed the issue where The Creature's missile arm points towards incorrect position.
+- Fixed the issue where Tesla Coil's damage is still 80.
 
 ---
 
