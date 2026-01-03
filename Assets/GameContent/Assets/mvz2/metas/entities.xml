@@ -977,7 +977,7 @@
                 <vector3 name="mvz2:lightRange" x="80" y="120" z="80" />
                 <color name="mvz2:lightColor" value="#7F7FFF" />
 
-                <int name="mvz2:cost" value="250" />
+                <int name="mvz2:cost" value="325" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
@@ -1678,6 +1678,7 @@
 				<id name="mvz2:upgradeFrom" value="mvz2:high_frequency_pulse_dispenser" />
 				<id name="mvz2:placement" value="mvz2:upgrade" />
 				<color name="mvz2:lightColor" value="#FFAA00" />
+				<float name="mvz2:maxHealth" value="600" />
 
 				<int name="mvz2:cost" value="250" />
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
@@ -2210,10 +2211,11 @@
             <properties>
                 <float name="mvz2:maxHealth" value="100" />
                 <float name="mvz2:mass" value="-1" />
-                <float name="mvz2:speed" value="2" />
+                <float name="mvz2:speed" value="4" />
                 <bool name="mvz2:noReward" value="true" />
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <id name="mvz2:shape" value="mvz2:cannonball" />
+				<float name="mvz2:range" value="40" />
                 <vector3 name="mvz2:size" x="38" y="26" z="38" />
 
                 <int name="mvz2:cost" value="150" />
