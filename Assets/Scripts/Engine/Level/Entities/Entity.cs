@@ -52,6 +52,8 @@ namespace PVZEngine.Entities
         public void Init()
         {
             PreviousPosition = Position;
+            IsOnGround = GetRelativeY() <= Mathf.Epsilon;
+
             Health = this.GetMaxHealth();
             UpdateAllModifiedProperties(true);
             Definition.Init(this);
