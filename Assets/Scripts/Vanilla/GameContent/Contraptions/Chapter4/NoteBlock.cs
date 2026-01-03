@@ -8,7 +8,6 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
@@ -95,10 +94,6 @@ namespace MVZ2.GameContent.Contraptions
                 entity.RemoveBuffs<NoteBlockChargedBuff>();
                 entity.PlaySound(VanillaSoundID.giantRoar, 2);
             }
-
-
-            Explode(entity, 100, 1200);
-            entity.Level.ShakeScreen(10, 0, 15);
         }
         public override bool CanEvoke(Entity entity)
         {
@@ -132,32 +127,6 @@ namespace MVZ2.GameContent.Contraptions
             }
             children.Add(new EntityID(child));
         }
-
-        public static DamageOutput[] Explode(Entity entity, float range, float damage)
-        {
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
-            var damageOutputs = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, entity);
-            foreach (var output in damageOutputs)
-            {
-                if (output == null)
-                    continue;
-                var result = output.BodyResult;
-                if (result != null && result.Fatal)
-                {
-                    var target = output.Entity;
-                    var distance = (target.Position - entity.Position).magnitude;
-                    var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
-                    target.Velocity = target.Velocity + Vector3.up * speed;
-                }
-            }
-            Explosion.Spawn(entity, entity.GetCenter(), range);
-            entity.PlaySound(VanillaSoundID.explosion);
-            entity.Level.ShakeScreen(10, 0, 15);
-
-
-            return damageOutputs;
-        }
-
         public const int FIRE_INTERVAL = 45;
         public const int MAX_NOTE_COUNT = 10;
         private static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_NOTE_CHILDREN = new VanillaEntityPropertyMeta<List<EntityID>>("NoteChildren");

@@ -614,51 +614,51 @@
     <model name="fallen_end_ship" type="entity" path="mvz2:effect/fallen_end_ship" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
-    <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />
-    <model name="mine_tnt_seed" type="entity" path="mvz2:projectile/mine_tnt_seed" width="64" height="64" xOffset="0" yOffset="-24" />
-    <model name="snowball" type="entity" path="mvz2:projectile/snowball" width="32" height="32" xOffset="0" yOffset="-12" />
-    <model name="large_snowball" type="entity" path="mvz2:projectile/large_snowball" width="32" height="32" xOffset="0" yOffset="-12" />
-    <model name="soulfire_ball" type="entity" path="mvz2:projectile/soulfire_ball" width="32" height="32" xOffset="0" yOffset="-12" />
-    <model name="knife" type="entity" path="mvz2:projectile/knife" width="32" height="10" xOffset="0" yOffset="-5" />
-    <model name="fire_charge" type="entity" path="mvz2:projectile/fire_charge" width="32" height="32" xOffset="0" yOffset="0" />
-    <model name="bullet" type="entity" path="mvz2:projectile/bullet" width="32" height="2" xOffset="0" yOffset="-1" />
-    <model name="missile" type="entity" path="mvz2:projectile/missile" width="64" height="20" xOffset="0" yOffset="-10" />
+	<model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />
+	<model name="mine_tnt_seed" type="entity" path="mvz2:projectile/mine_tnt_seed" width="64" height="64" xOffset="0" yOffset="-24" />
+	<model name="snowball" type="entity" path="mvz2:projectile/snowball" width="32" height="32" xOffset="0" yOffset="-12" />
+	<model name="large_snowball" type="entity" path="mvz2:projectile/large_snowball" width="32" height="32" xOffset="0" yOffset="-12" />
+	<model name="soulfire_ball" type="entity" path="mvz2:projectile/soulfire_ball" width="32" height="32" xOffset="0" yOffset="-12" />
+	<model name="knife" type="entity" path="mvz2:projectile/knife" width="32" height="10" xOffset="0" yOffset="-5" />
+	<model name="fire_charge" type="entity" path="mvz2:projectile/fire_charge" width="32" height="32" xOffset="0" yOffset="-12" />
+	<model name="bullet" type="entity" path="mvz2:projectile/bullet" width="32" height="2" xOffset="0" yOffset="-1" />
+	<model name="missile" type="entity" path="mvz2:projectile/missile" width="64" height="20" xOffset="0" yOffset="-10" />
 
-    <model name="large_arrow" type="entity" path="mvz2:projectile/large_arrow" width="64" height="20" xOffset="0" yOffset="-2" />
-    <model name="spike" type="entity" path="mvz2:projectile/spike" width="20" height="11" xOffset="0" yOffset="-6" />
-    <model name="spike_ball" type="entity" path="mvz2:projectile/spike_ball" width="20" height="20" xOffset="0" yOffset="-10" />
-    <model name="dart" type="entity" path="mvz2:projectile/dart" width="32" height="10" xOffset="0" yOffset="-5" />
-    <model name="poison_javelin" type="entity" path="mvz2:projectile/poison_javelin" width="96" height="10" xOffset="0" yOffset="-5" />
-    <model name="parabot" type="entity" path="mvz2:projectile/parabot" width="32" height="16" xOffset="0" yOffset="-8" />
-    <model name="breakout_pearl" type="entity" path="mvz2:projectile/breakout_pearl" width="32" height="32" xOffset="0" yOffset="-16" />
+	<model name="large_arrow" type="entity" path="mvz2:projectile/large_arrow" width="64" height="20" xOffset="0" yOffset="-2" />
+	<model name="spike" type="entity" path="mvz2:projectile/spike" width="20" height="11" xOffset="0" yOffset="-6" />
+	<model name="spike_ball" type="entity" path="mvz2:projectile/spike_ball" width="20" height="20" xOffset="0" yOffset="-10" />
+	<model name="dart" type="entity" path="mvz2:projectile/dart" width="32" height="10" xOffset="0" yOffset="-5" />
+	<model name="poison_javelin" type="entity" path="mvz2:projectile/poison_javelin" width="96" height="10" xOffset="0" yOffset="-5" />
+	<model name="parabot" type="entity" path="mvz2:projectile/parabot" width="32" height="16" xOffset="0" yOffset="-8" />
+	<model name="breakout_pearl" type="entity" path="mvz2:projectile/breakout_pearl" width="32" height="32" xOffset="0" yOffset="-16" />
 
-    <model name="wooden_ball" type="entity" path="mvz2:projectile/wooden_ball" width="24" height="24" xOffset="0" yOffset="-12" />
-    <model name="cobble" type="entity" path="mvz2:projectile/cobble" width="12" height="12" xOffset="0" yOffset="-6" />
-    <model name="boulder" type="entity" path="mvz2:projectile/boulder" width="48" height="48" xOffset="0" yOffset="-24" />
-    <model name="golden_ball" type="entity" path="mvz2:projectile/golden_ball" width="24" height="24" xOffset="0" yOffset="-12" />
-    
-    <model name="diamond_caltrop" type="entity" path="mvz2:projectile/diamond_caltrop" width="16" height="16" xOffset="0" yOffset="-6" />
-    <model name="compelling_orb" type="entity" path="mvz2:projectile/compelling_orb" width="32" height="32" xOffset="0" yOffset="-12" />
-    <model name="seija_magic_bomb" type="entity" path="mvz2:projectile/seija_magic_bomb" width="24" height="24" xOffset="0" yOffset="-12" />
-    <model name="seija_bullet" type="entity" path="mvz2:projectile/seija_bullet" width="32" height="16" xOffset="0" yOffset="-8" />
-    <model name="wither_skull" type="entity" path="mvz2:projectile/wither_skull" width="32" height="32" xOffset="0" yOffset="-12" />
-    
-    <model name="crossbow_bolt" type="entity" path="mvz2:projectile/crossbow_bolt" width="32" height="5" xOffset="0" yOffset="-2.5" />
-    <model name="reflection_bullet" type="entity" path="mvz2:projectile/reflection_bullet" width="32" height="32" xOffset="0" yOffset="-14" />
-    <model name="note" type="entity" path="mvz2:projectile/note" width="32" height="32" xOffset="0" yOffset="0" />
-    <model name="fireball" type="entity" path="mvz2:projectile/fireball" width="32" height="32" xOffset="0" yOffset="-12" />
-    <model name="ice_bolt" type="entity" path="mvz2:projectile/ice_bolt" width="64" height="20" xOffset="6" yOffset="-10" />
-    <model name="charged_bolt" type="entity" path="mvz2:projectile/charged_bolt" width="64" height="64" xOffset="0" yOffset="-32" />
+	<model name="wooden_ball" type="entity" path="mvz2:projectile/wooden_ball" width="24" height="24" xOffset="0" yOffset="-12" />
+	<model name="cobble" type="entity" path="mvz2:projectile/cobble" width="12" height="12" xOffset="0" yOffset="-6" />
+	<model name="boulder" type="entity" path="mvz2:projectile/boulder" width="48" height="48" xOffset="0" yOffset="-24" />
+	<model name="golden_ball" type="entity" path="mvz2:projectile/golden_ball" width="24" height="24" xOffset="0" yOffset="-12" />
+	
+	<model name="diamond_caltrop" type="entity" path="mvz2:projectile/diamond_caltrop" width="16" height="16" xOffset="0" yOffset="-6" />
+	<model name="compelling_orb" type="entity" path="mvz2:projectile/compelling_orb" width="32" height="32" xOffset="0" yOffset="-12" />
+	<model name="seija_magic_bomb" type="entity" path="mvz2:projectile/seija_magic_bomb" width="24" height="24" xOffset="0" yOffset="-12" />
+	<model name="seija_bullet" type="entity" path="mvz2:projectile/seija_bullet" width="32" height="16" xOffset="0" yOffset="-8" />
+	<model name="wither_skull" type="entity" path="mvz2:projectile/wither_skull" width="32" height="32" xOffset="0" yOffset="-12" />
 
-    <model name="hell_planet_otherworld" type="entity" path="mvz2:projectile/hell_planet_otherworld" width="56" height="56" xOffset="0" yOffset="-26" />
-    <model name="hell_planet_earth" type="entity" path="mvz2:projectile/hell_planet_earth" width="46" height="46" xOffset="0" yOffset="-21" />
-    <model name="hell_planet_moon" type="entity" path="mvz2:projectile/hell_planet_moon" width="26" height="26" xOffset="0" yOffset="-11" />
-    <model name="shuriken" type="entity" path="mvz2:projectile/shuriken" width="26" height="26" xOffset="0" yOffset="0" />
-    <model name="beacon_meteor" type="entity" path="mvz2:projectile/beacon_meteor" width="64" height="64" xOffset="0" yOffset="-25" />
-    <model name="firework" type="entity" path="mvz2:projectile/firework" width="38" height="12" xOffset="0" yOffset="-6" />
-    <model name="firework_big" type="entity" path="mvz2:projectile/firework_big" width="38" height="30" xOffset="0" yOffset="-15" />
-    <model name="falling_star" type="entity" path="mvz2:projectile/falling_star" width="64" height="16" xOffset="24" yOffset="-8" />
-    <model name="explosive_large_fireball" type="entity" path="mvz2:projectile/explosive_large_fireball" width="130" height="256" xOffset="0" yOffset="-128" />
+	<model name="crossbow_bolt" type="entity" path="mvz2:projectile/crossbow_bolt" width="32" height="5" xOffset="0" yOffset="-2.5" />
+	<model name="reflection_bullet" type="entity" path="mvz2:projectile/reflection_bullet" width="32" height="32" xOffset="0" yOffset="-14" />
+	<model name="note" type="entity" path="mvz2:projectile/note" width="32" height="32" xOffset="0" yOffset="0" />
+	<model name="fireball" type="entity" path="mvz2:projectile/fireball" width="32" height="32" xOffset="0" yOffset="-12" />
+	<model name="ice_bolt" type="entity" path="mvz2:projectile/ice_bolt" width="64" height="20" xOffset="6" yOffset="-10" />
+	<model name="charged_bolt" type="entity" path="mvz2:projectile/charged_bolt" width="64" height="64" xOffset="0" yOffset="-32" />
+
+	<model name="hell_planet_otherworld" type="entity" path="mvz2:projectile/hell_planet_otherworld" width="56" height="56" xOffset="0" yOffset="-26" />
+	<model name="hell_planet_earth" type="entity" path="mvz2:projectile/hell_planet_earth" width="46" height="46" xOffset="0" yOffset="-21" />
+	<model name="hell_planet_moon" type="entity" path="mvz2:projectile/hell_planet_moon" width="26" height="26" xOffset="0" yOffset="-11" />
+	<model name="shuriken" type="entity" path="mvz2:projectile/shuriken" width="26" height="26" xOffset="0" yOffset="0" />
+	<model name="beacon_meteor" type="entity" path="mvz2:projectile/beacon_meteor" width="64" height="64" xOffset="0" yOffset="-25" />
+	<model name="firework" type="entity" path="mvz2:projectile/firework" width="38" height="12" xOffset="0" yOffset="-6" />
+	<model name="firework_big" type="entity" path="mvz2:projectile/firework_big" width="38" height="30" xOffset="0" yOffset="-15" />
+	<model name="falling_star" type="entity" path="mvz2:projectile/falling_star" width="64" height="16" xOffset="24" yOffset="-8" />
+	<model name="explosive_large_fireball" type="entity" path="mvz2:projectile/explosive_large_fireball" width="130" height="256" xOffset="0" yOffset="-128" />
 
 	<!--EXPAND Projectiles -->
 	<model name="purpleArrow" type="entity" path="mvz2:projectile/purpleArrow" width="32" height="10" xOffset="0" yOffset="0" />

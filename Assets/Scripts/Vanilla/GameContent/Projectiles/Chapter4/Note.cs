@@ -31,8 +31,7 @@ namespace MVZ2.GameContent.Projectiles
         {
             base.Update(projectile);
             var dmg = projectile.GetDamage();
-            var definitionDamage = projectile.Definition.GetDamage();
-            projectile.SetProperty(PROP_DISPLAY_SCALE_MULTIPLIER, Vector3.one * Mathf.Min(5, Mathf.Pow(dmg / definitionDamage / 2f, 0.5f)));
+            projectile.SetProperty(PROP_DISPLAY_SCALE_MULTIPLIER, Vector3.one * Mathf.Min(5, Mathf.Pow(dmg / 10f, 0.5f)));
             SetHitProtected(projectile, false);
 
             var growth = GetDamageGrowth(projectile);
@@ -63,8 +62,6 @@ namespace MVZ2.GameContent.Projectiles
             {
                 note.Remove();
             }
-
-            note.Timeout = 900;
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
@@ -87,9 +84,6 @@ namespace MVZ2.GameContent.Projectiles
             SetNoteCharged(note, true);
             SetHitProtected(note, false);
             note.ClearIgnoredProjectileColliders();
-
-            NoteBlock.ResetNoteTimeout(noteBlock, note);
-
             noteBlock.TriggerAnimation("Shoot");
             NoteBlock.PlayHarpSound(noteBlock);
         }

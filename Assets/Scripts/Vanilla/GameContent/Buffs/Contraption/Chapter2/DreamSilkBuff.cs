@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         }
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("Timer");
         public static readonly VanillaBuffPropertyMeta<Vector3> PROP_DISPLAY_SCALE = new VanillaBuffPropertyMeta<Vector3>("DisplayScale");
-        public const int MAX_TIMEOUT = 1500;
+        public const int MAX_TIMEOUT = 900;
         private const int RING_DURATION = 36;
     }
 }
