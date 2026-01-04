@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Bosses
             BossFateActions.ShowFateChoice(entity, 3);
 
             // 直接执行命运而不显示选择  
-            //BossFateActions.ExecuteFate(entity, 0); //例:执行 Disable  
+            //BossFateActions.ExecuteFate(entity, 13); //例:执行 Disable  
         }
 
 

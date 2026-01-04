@@ -61,6 +61,9 @@ namespace MVZ2.GameContent.Bosses
             flyBuff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
 
             SetCrushingWallsTriggered(entity, false);
+            SetLastTriggerHealth(entity, entity.Health);
+
+            SpawnNightmareDisciple(entity);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -74,6 +77,7 @@ namespace MVZ2.GameContent.Bosses
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
+            CheckHealthLossTrigger(entity);
             if (entity.IsDead)
             {
                 entity.Timeout--;
@@ -164,6 +168,7 @@ namespace MVZ2.GameContent.Bosses
                             Vector3 pos = new Vector3(x, y, z);
 
                             SpawnPortal(boss, pos, VanillaEnemyID.HostMutant);
+                            SpawnPortal(boss, pos, VanillaEnemyID.NightmareDisciple);
                         }
                     }
                     else
@@ -178,7 +183,8 @@ namespace MVZ2.GameContent.Bosses
                             float y = level.GetGroundY(x, z);
                             Vector3 pos = new Vector3(x, y, z);
 
-                            SpawnPortal(boss, pos, VanillaEnemyID.HostIMP);
+                            SpawnPortal(boss, pos, VanillaEnemyID.BloodlustHostZombie);
+                            SpawnPortal(boss, pos, VanillaEnemyID.NightmareDisciple);
                         }
                     }
 
@@ -191,6 +197,46 @@ namespace MVZ2.GameContent.Bosses
             });
         }
         #endregion
+
+        private void CheckHealthLossTrigger(Entity entity)
+        {
+            float lastHP = GetLastTriggerHealth(entity);
+            float currHP = entity.Health;
+
+            // 每掉落一定血量（例如 800 点）触发一次事件
+            int triggerCount = (int)((lastHP - currHP) / 600f);
+            triggerCount = Mathf.Min(triggerCount, 2);
+            if (triggerCount > 0)
+            {
+                SpawnNightmareDisciple(entity);
+
+                SetLastTriggerHealth(entity, currHP);
+            }
+        }
+        private void SpawnNightmareDisciple(Entity entity)
+        {
+            var level = entity.Level;
+            var rng = GetEventRNG(entity);
+
+            // 随机选择一个通道  
+            int lane = rng != null ? rng.Next(0, level.GetMaxLaneCount()) : UnityEngine.Random.Range(0, level.GetMaxLaneCount());
+
+            float x = level.GetEntityColumnX(8);  // 第8列  
+            float z = level.GetEntityLaneZ(lane);
+            float y = level.GetGroundY(x, z);
+            Vector3 pos = new Vector3(x, y, z);
+
+            SpawnPortal(entity, pos, VanillaEnemyID.NightmareDisciple);
+        }
+
+        // 存储“上次触发时的血量”的字段名
+        private static readonly VanillaEntityPropertyMeta<float> PROP_LAST_TRIGGER_HEALTH = new VanillaEntityPropertyMeta<float>("LastTriggerHealth");
+
+        private static float GetLastTriggerHealth(Entity entity) =>
+            entity.GetBehaviourField<float>(ID, PROP_LAST_TRIGGER_HEALTH);
+
+        private static void SetLastTriggerHealth(Entity entity, float hp) =>
+            entity.SetBehaviourField(ID, PROP_LAST_TRIGGER_HEALTH, hp);
 
         #region Move
         private void MoveUpdate(Entity entity)
@@ -402,6 +448,9 @@ namespace MVZ2.GameContent.Bosses
                     break;
                 case FATE_REBIRTH:
                     Rebirth(boss);
+                    break;
+                case FATE_SHADOW_CHASING:
+                    ShadowChasing(boss);
                     break;
             }
         }
@@ -762,6 +811,23 @@ namespace MVZ2.GameContent.Bosses
             }
         }
 
+        private void ShadowChasing(Entity boss)
+        {
+            //逐影：在第8列召唤梦魇追随者
+            boss.PlaySound(VanillaSoundID.nightmarePortal);
+            var level = boss.Level;
+
+            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+            {
+                float x = level.GetEntityColumnX(8); 
+                float z = level.GetEntityLaneZ(lane);
+                float y = level.GetGroundY(x, z);
+                Vector3 pos = new Vector3(x, y, z);
+
+                SpawnPortal(boss, pos, VanillaEnemyID.NightmareDisciple);
+            }
+        }
+
         private static string GetFateOptionText(RandomGenerator rng, int option)
         {
             var index = Array.IndexOf(fateOptions, option);
@@ -851,6 +917,8 @@ namespace MVZ2.GameContent.Bosses
         public const string FATE_TEXT_BONE_PILE = "骨堆";
         [TranslateMsg("梦魇选项")]
         public const string FATE_TEXT_REBIRTH = "新生";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_SHADOW_CHASING = "逐影";
         [TranslateMsg("警告")]
         public const string CRUSHING_WALLS_WARNING = "<color=red>你当真打算与我为敌？</color>";
         [TranslateMsg("确定")]
@@ -891,6 +959,7 @@ namespace MVZ2.GameContent.Bosses
         public const int FATE_AMPUTATION = 10;
         public const int FATE_BONE_PILE = 11;
         public const int FATE_REBIRTH = 12;
+        public const int FATE_SHADOW_CHASING = 13;
 
         private static int[] fateOptions = new int[]
         {
@@ -907,6 +976,7 @@ namespace MVZ2.GameContent.Bosses
             FATE_AMPUTATION,
             FATE_BONE_PILE,
             FATE_REBIRTH,
+            FATE_SHADOW_CHASING,
         };
         private static string[] fateTexts = new string[]
         {
@@ -923,6 +993,7 @@ namespace MVZ2.GameContent.Bosses
             FATE_TEXT_AMPUTATION,
             FATE_TEXT_BONE_PILE,
             FATE_TEXT_REBIRTH,
+            FATE_TEXT_SHADOW_CHASING,
         };
 
         private static NamespaceID[] portalPool = new NamespaceID[]

@@ -69,11 +69,13 @@ namespace MVZ2.GameContent.Bosses
         public const string FATE_TEXT_BONE_PILE = "骨堆";
         [TranslateMsg("梦魇选项")]
         public const string FATE_TEXT_REBIRTH = "新生";
+        [TranslateMsg("梦魇选项")]
+        public const string FATE_TEXT_SHADOW_CHASING = "逐影";
 
         // 命运选项数组  
         private static readonly int[] fateOptions = new int[]
         {
-            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
         };
 
         private static readonly string[] fateTexts = new string[]
@@ -81,7 +83,8 @@ namespace MVZ2.GameContent.Bosses
             FATE_TEXT_DISABLE, FATE_TEXT_COME_TRUE, FATE_TEXT_PANDORAS_BOX,
             FATE_TEXT_INSANITY, FATE_TEXT_DECREPIFY, FATE_TEXT_BIOHAZARD,
             FATE_TEXT_THE_LURKER, FATE_TEXT_BLACK_SUN, FATE_TEXT_HOST_ARRIVAL,
-            FATE_TEXT_BIGBANG, FATE_TEXT_AMPUTATION, FATE_TEXT_BONE_PILE, FATE_TEXT_REBIRTH
+            FATE_TEXT_BIGBANG, FATE_TEXT_AMPUTATION, FATE_TEXT_BONE_PILE, FATE_TEXT_REBIRTH,
+            FATE_TEXT_SHADOW_CHASING
         };
 
         /// <summary>  
@@ -130,6 +133,7 @@ namespace MVZ2.GameContent.Bosses
                 case 10: Amputation(boss); break;
                 case 11: BonePile(boss); break;
                 case 12: Rebirth(boss); break;
+                case 13: ShadowChasing(boss); break;
             }
         }
 
@@ -440,6 +444,41 @@ namespace MVZ2.GameContent.Bosses
                 var regenBuff = enemy.AddBuff<RegenerationBuff>();
                 regenBuff?.SetProperty(RegenerationBuff.PROP_HEAL_AMOUNT, 1f);
                 regenBuff?.SetProperty(RegenerationBuff.PROP_TIMEOUT, 600);
+            }
+        }
+
+        public static void ShadowChasing(Entity boss)
+        {
+            //逐影：在第8列随机召唤x个梦魇弟子  
+            boss.PlaySound(VanillaSoundID.nightmarePortal);
+            var level = boss.Level;
+            var rng = GetEventRNG(boss);
+
+            // 设置召唤数量，可以随机或固定  
+            int spawnCount = rng != null ? rng.Next(1, 3) : UnityEngine.Random.Range(1, 3);
+
+            // 收集第8列的所有有效位置  
+            List<Vector2Int> validPositions = new List<Vector2Int>();
+            int column = 8; // 第8列  
+
+            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+            {
+                validPositions.Add(new Vector2Int(column, lane));
+            }
+
+            // 随机选择位置进行召唤  
+            for (int i = 0; i < spawnCount && validPositions.Count > 0; i++)
+            {
+                int index = rng != null ? rng.Next(0, validPositions.Count) : UnityEngine.Random.Range(0, validPositions.Count);
+                var posInfo = validPositions[index];
+                validPositions.RemoveAt(index);
+
+                float x = level.GetEntityColumnX(posInfo.x);
+                float z = level.GetEntityLaneZ(posInfo.y);
+                float y = level.GetGroundY(x, z);
+                Vector3 spawnPos = new Vector3(x, y, z);
+
+                SpawnPortal(boss, spawnPos, VanillaEnemyID.NightmareDisciple);
             }
         }
 

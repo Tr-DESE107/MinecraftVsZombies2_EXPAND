@@ -10,37 +10,16 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using MukioI18n;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Buffs.Level;
-using MVZ2.GameContent.Buffs.SeedPacks;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
-using MVZ2.Vanilla.Properties;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Buffs;
-using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using Tools;
-using Tools.Mathematics;
 using UnityEngine;
-using MVZ2.GameContent.Buffs;
-using MVZ2.Vanilla.Level;
+using MVZ2.GameContent.Bosses;
+
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -65,6 +44,19 @@ namespace MVZ2.GameContent.Enemies
             }
             entity.SetAnimationInt("Variant", entity.GetVariant());
             entity.SetBehaviourField(ID, PROP_PORTAL_TIMER, new FrameTimer(PORTAL_COOLDOWN));
+
+            var level = entity.Level;
+            var hasAliveBoss = entity.Level.EntityExists(e => e != entity && (e.IsEntityOf(VanillaBossID.slenderman) || e.IsEntityOf(VanillaBossID.nightmareaper)) && !e.IsDead);
+
+            if (hasAliveBoss)
+            {
+                if (!entity.HasBuff<SixQiResistanceBuff>())
+                {
+                    entity.AddBuff<SixQiResistanceBuff>();
+                }
+            }
+
+
         }
         protected override void UpdateAI(Entity entity)
         {
