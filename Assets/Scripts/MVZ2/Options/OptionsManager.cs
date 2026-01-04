@@ -26,6 +26,10 @@ namespace MVZ2.Options
             LoadOptionsFromFile();
             UpdateOptions();
         }
+        public void SaveOptions()
+        {
+            SaveOptionsToFile();
+        }
 
         private void LoadOptionsFromFile()
         {
@@ -60,7 +64,7 @@ namespace MVZ2.Options
                 Log.LogError($"读取设置文件失败：{e}");
             }
         }
-        public void SaveOptionsToFile()
+        private void SaveOptionsToFile()
         {
             if (options == null)
                 return;
@@ -94,31 +98,26 @@ namespace MVZ2.Options
         {
             options.SetOptionBool(id, value);
             CallOptionChangedBool(id, value);
-            SaveOptionsToFile();
         }
         public void SetOptionInt(NamespaceID id, int value)
         {
             options.SetOptionInt(id, value);
             CallOptionChangedInt(id, value);
-            SaveOptionsToFile();
         }
         public void SetOptionFloat(NamespaceID id, float value)
         {
             options.SetOptionFloat(id, value);
             CallOptionChangedFloat(id, value);
-            SaveOptionsToFile();
         }
         public void SetOptionString(NamespaceID id, string value)
         {
             options.SetOptionString(id, value);
             CallOptionChangedString(id, value);
-            SaveOptionsToFile();
         }
         public void SetOptionID(NamespaceID id, NamespaceID? value)
         {
             options.SetOptionID(id, value);
             CallOptionChangedID(id, value);
-            SaveOptionsToFile();
         }
 
         public bool TryGetOptionBool(NamespaceID id, out bool value) => options.TryGetOptionBool(id, out value);

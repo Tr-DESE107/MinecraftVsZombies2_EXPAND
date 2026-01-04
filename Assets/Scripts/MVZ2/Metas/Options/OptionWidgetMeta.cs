@@ -12,9 +12,13 @@ namespace MVZ2.Metas
     {
         public OptionWidgetType Type { get; private set; }
         public string ID { get; private set; }
+        public int Order { get; private set; }
         public NamespaceID Category { get; private set; }
         public string Label { get; private set; } = string.Empty;
         public string Tooltip { get; private set; } = string.Empty;
+        public float SliderMinValue { get; private set; }
+        public float SliderMaxValue { get; private set; }
+        public bool SliderWholeNumber { get; private set; }
 
         public OptionWidgetMeta(OptionWidgetType type, string iD, NamespaceID category)
         {
@@ -22,7 +26,7 @@ namespace MVZ2.Metas
             ID = iD;
             Category = category;
         }
-        public static OptionWidgetMeta? FromXmlNode(XmlNode node, string defaultNsp)
+        public static OptionWidgetMeta? FromXmlNode(XmlNode node, string defaultNsp, int order)
         {
             var id = node.GetAttribute("id");
             if (string.IsNullOrEmpty(id))
@@ -43,6 +47,11 @@ namespace MVZ2.Metas
             {
                 tooltip = tooltipNode.ConcatNodeParagraphs();
             }
+
+            float minValue = node.GetAttributeFloat("minValue") ?? 0f;
+            float maxValue = node.GetAttributeFloat("maxValue") ?? 1f;
+            bool wholeNumber = node.GetAttributeBool("wholeNumber") ?? false;
+
             OptionWidgetType type = OptionWidgetType.Button;
             if (typeDict.TryGetValue(node.Name, out var t))
             {
@@ -52,6 +61,10 @@ namespace MVZ2.Metas
             {
                 Label = label,
                 Tooltip = tooltip,
+                SliderMinValue = minValue,
+                SliderMaxValue = maxValue,
+                SliderWholeNumber = wholeNumber,
+                Order = order
             };
         }
         private static readonly Dictionary<string, OptionWidgetType> typeDict = new Dictionary<string, OptionWidgetType>()

@@ -169,12 +169,6 @@ namespace MVZ2.Managers
         }
         #endregion
 
-        #region 文本
-        public string GetFloatPercentageText(float value)
-        {
-            return LanguageManager._(VALUE_PERCENT, Mathf.RoundToInt(value * 100));
-        }
-        #endregion
 
         private void Awake()
         {
@@ -335,8 +329,6 @@ namespace MVZ2.Managers
         public const string TASK_LOAD_RESOURCES = "加载中……";
         [TranslateMsg("初始化任务名称")]
         public const string TASK_LOAD_SPONSORS = "获取赞助者列表……";
-        [TranslateMsg("值，{0}为百分数")]
-        public const string VALUE_PERCENT = "{0}%";
         public static MainManager Instance { get; private set; } = null!;
         public GlobalGame Game { get; private set; } = null!;
         public string BuiltinNamespace => builtinNamespace;

@@ -120,6 +120,8 @@ namespace MVZ2.Mainmenu
 
             ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
             ui.OnAchievementsReturnButtonClick += OnAchievementsReturnClickCallback;
+
+            optionsDialogController.OnClose += OnOptionsCloseClickCallback;
         }
         private void Update()
         {
@@ -190,9 +192,8 @@ namespace MVZ2.Mainmenu
         private void OnOptionsButtonClickCallback()
         {
             ui.SetOptionsDialogVisible(true);
-            optionsLogic = new OptionsLogicMainmenu(ui.OptionsDialog, this);
-            optionsLogic.InitDialog();
-            optionsLogic.OnClose += OnOptionsCloseClickCallback;
+            var context = new OptionContextMainmenu();
+            optionsDialogController.Open(context);
         }
         private void OnHelpButtonClickCallback()
         {
@@ -261,15 +262,9 @@ namespace MVZ2.Mainmenu
             main.Scene.DisplayArcade(() => main.Scene.DisplayMainmenu());
         }
 
-        private void OnOptionsCloseClickCallback()
+        private void OnOptionsCloseClickCallback(bool needsReload)
         {
             ui.SetOptionsDialogVisible(false);
-            if (optionsLogic == null)
-                return;
-            bool needsReload = optionsLogic.NeedsReload;
-            optionsLogic.OnClose -= OnOptionsCloseClickCallback;
-            optionsLogic.Dispose();
-            optionsLogic = null;
             if (needsReload)
             {
                 Reload();
@@ -876,8 +871,8 @@ namespace MVZ2.Mainmenu
         private Vector2 statsBlend = new Vector2(-1, -1);
         [SerializeField]
         private Vector2 achievementsBlend = new Vector2(1, -1);
-
-        private OptionsLogicMainmenu? optionsLogic;
+        [SerializeField]
+        private OptionsDialogController optionsDialogController = null!;
         private int[]? managingUserIndexes;
         private int selectedUserArrayIndex = -1;
         private bool isDark;

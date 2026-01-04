@@ -34,14 +34,6 @@ namespace MVZ2.Cameras
                 height = Screen.height
             };
         }
-        public string GetResolutionName(int width, int height)
-        {
-            return MainManager.Instance.LanguageManager._(RESOLUTION_NAME, width, height);
-        }
-        public string GetResolutionName(Resolution resolution)
-        {
-            return GetResolutionName(resolution.width, resolution.height);
-        }
         private void Awake()
         {
             OptionsManager.OnOptionChangedBool += OnOptionChangedBoolCallback;
@@ -77,8 +69,6 @@ namespace MVZ2.Cameras
         }
         public static event Action<int, int>? OnResolutionChanged;
 
-        [TranslateMsg("分辨率名，{0}为宽，{1}为高")]
-        public const string RESOLUTION_NAME = "{0}x{1}";
         private int lastWidth;
         private int lastHeight;
     }

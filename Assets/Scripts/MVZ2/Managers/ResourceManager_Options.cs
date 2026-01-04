@@ -37,5 +37,23 @@ namespace MVZ2.Managers
             }
             return idList.ToArray();
         }
+        public OptionCategoryMeta? GetOptionCategoryMeta(NamespaceID? id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return null;
+            var modResource = GetModResource(id.SpaceName);
+            if (modResource == null || modResource.OptionMetaList == null)
+                return null;
+            return modResource.OptionMetaList.categories.FirstOrDefault(i => i.ID == id.Path);
+        }
+        public OptionWidgetMeta? GetOptionWidgetMeta(NamespaceID? id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return null;
+            var modResource = GetModResource(id.SpaceName);
+            if (modResource == null || modResource.OptionMetaList == null)
+                return null;
+            return modResource.OptionMetaList.widgets.FirstOrDefault(i => i.ID == id.Path);
+        }
     }
 }

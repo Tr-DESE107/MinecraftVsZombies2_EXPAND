@@ -18,5 +18,6 @@ namespace MVZ2Logic.Definitions
         public const string ARMOR_SLOT = "armor_slot";
         public const string ENTITY_COUNTER = "entity_counter";
         public const string SHAPE = "shape";
+        public const string OPTION_WIDGET = "option_widget";
     }
 }

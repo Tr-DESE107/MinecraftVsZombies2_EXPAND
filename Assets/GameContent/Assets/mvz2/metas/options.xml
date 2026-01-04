@@ -3,6 +3,7 @@
         <category id="general" label="常规" />
         <category id="graphics" label="图像" />
         <category id="gameplay" label="游戏" />
+        <category id="hp_bar" label="血条" />
         <category id="control" label="控制" />
         <category id="about" label="关于" />
     </categories>
@@ -54,6 +55,11 @@
                 <p>是否在蓝图选择完毕后，根据当前情况提出警告。</p>
             </tooltip>
         </toggle>
+        <toggle id="show_sponsor_names" category="mvz2:general" label="赞助者名称">
+            <tooltip>
+                <p>在关卡中放置特定器械时，是否随机显示赞助了对应方案的赞助者的名称。</p>
+            </tooltip>
+        </toggle>
         <dropdown id="command_block_mode" category="mvz2:general" label="命令方块">
             <tooltip>
                 <p>选择命令方块蓝图的模式。</p>
@@ -66,23 +72,19 @@
                 <p>是否显示游戏帧率。</p>
             </tooltip>
         </dropdown>
-        <toggle id="show_sponsor_names" category="mvz2:general" label="赞助者名称">
-            <tooltip>
-                <p>在关卡中放置特定器械时，是否随机显示赞助了对应方案的赞助者的名称。</p>
-            </tooltip>
-        </toggle>
 
-        <slider id="particle_count" category="mvz2:graphics" label="粒子数量">
+        <!-- Graphics -->
+        <slider id="particle_amount" category="mvz2:graphics" label="粒子数量：{0}">
             <tooltip>
                 <p>粒子效果数量。</p>
             </tooltip>
         </slider>
-        <slider id="screen_shake" category="mvz2:graphics" label="屏幕震动">
+        <slider id="screen_shake" category="mvz2:graphics" label="屏幕震动：{0}">
             <tooltip>
                 <p>屏幕震动幅度。</p>
             </tooltip>
         </slider>
-        <slider id="animation_frequency" category="mvz2:graphics" label="动画频率">
+        <slider id="animation_frequency" category="mvz2:graphics" label="动画频率：{0}" minValue="0.3">
             <tooltip>
                 <p>关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。</p>
             </tooltip>
@@ -98,7 +100,8 @@
                 <p>是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。</p>
             </tooltip>
         </toggle>
-        
+
+        <!-- Gameplay -->
         <toggle id="blood_and_gore" category="mvz2:gameplay" label="血与碎块">
             <tooltip>
                 <p>是否启用游戏中的血腥表现。</p>
@@ -109,15 +112,42 @@
                 <p>是否在关卡中的实体位置较高时，显示实体距离地面的高度。</p>
             </tooltip>
         </toggle>
-        
+
+        <!-- HPBar -->
+        <toggle id="hp_bars_enabled" category="mvz2:hp_bar" label="启用血条">
+            <tooltip>
+                <p>是否在关卡中启用血条显示。</p>
+            </tooltip>
+        </toggle>
+        <toggle id="hp_bars_auto_hide" category="mvz2:hp_bar" label="自动隐藏">
+            <tooltip>
+                <p>是否隐藏满血实体的血条。</p>
+            </tooltip>
+        </toggle>
+        <dropdown id="hp_bars_amount_mode" category="mvz2:hp_bar" label="数值模式">
+            <tooltip>
+                <p>选择血条数值的显示模式。</p>
+                <p>隐藏：不显示血条数值。</p>
+                <p>当前血量：只显示当前血量。</p>
+                <p>全部：显示当前血量和最大血量。</p>
+            </tooltip>
+        </dropdown>
+        <slider id="hp_bars_hover_display_range" category="mvz2:hp_bar" label="悬停显示范围：{0}" maxValue="200">
+            <tooltip>
+                <p>鼠标或者触摸指针位于实体一定范围内时，会强制显示血条。</p>
+            </tooltip>
+        </slider>
+
+        <!-- Control -->
         <toggle id="show_hotkeys" category="mvz2:control" label="显示快捷键">
             <tooltip>
                 <p>是否在关卡中显示界面对应的快捷键。</p>
             </tooltip>
         </toggle>
-        <button id="hotkeys" category="mvz2:control" label="快捷键设置" />
+        <button id="keybinding" category="mvz2:control" label="快捷键设置" />
 
+        <!-- About -->
         <button id="credits" category="mvz2:about" label="制作人员名单" />
-        <button id="export_log_files" category="mvz2:general" label="导出日志文件" />
+        <button id="export_log_files" category="mvz2:about" label="导出日志文件" />
     </widgets>
 </options>

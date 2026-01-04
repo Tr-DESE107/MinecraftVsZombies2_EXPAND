@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-29 03:09+0800\n"
+"POT-Creation-Date: 2026-01-04 10:06+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -134,139 +134,9 @@ msgctxt "option.tooltip"
 msgid "是否在游戏失去焦点后暂停游戏。"
 msgstr ""
 
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea1/MoreOptions/Text
-msgid "更多选项"
-msgstr ""
-
-#. 关卡内菜单选项
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea2/RestartButton/Text
-msgid "重新开始"
-msgstr ""
-
 #. 选项分类
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Title/Text
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/CategoryTemplate/Title/Text
 msgid "常规"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Options/Buttons/Vibration
-msgctxt "option.tooltip"
-msgid "（仅限移动端）是否在屏幕震动时震动设备。"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Options/Buttons/SkipAllDialogues
-msgctxt "option.tooltip"
-msgid "是否自动跳过所有剧情对话。"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Options/Buttons/ChooseWarnings
-msgctxt "option.tooltip"
-msgid "是否在蓝图选择完毕后，根据当前情况提出警告。"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Options/Buttons/CommandBlockMode
-msgctxt "option.tooltip"
-msgid ""
-"选择命令方块蓝图的模式。\n"
-"手动：手动选择模仿的器械。\n"
-"前位：自动模仿上一个选择的器械。"
-msgstr ""
-
-#. 选项分类
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Title/Text
-msgid "显示"
-msgstr ""
-
-#. 选项提示
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Sliders1/Particles
-msgctxt "option.tooltip"
-msgid "粒子效果数量。"
-msgstr ""
-
-#. 选项提示
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Sliders2/Shake
-msgctxt "option.tooltip"
-msgid "屏幕震动幅度。"
-msgstr ""
-
-#. 选项提示
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Sliders3/AnimationFrequency
-msgctxt "option.tooltip"
-msgid "关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。"
-msgstr ""
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/ResolutionDropdown/Label
-msgid "分辨率"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/Fullscreen
-msgctxt "option.tooltip"
-msgid "是否全屏。"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/BloodAndGore
-msgctxt "option.tooltip"
-msgid "是否启用游戏中的血腥表现。"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/HeightIndicator
-msgctxt "option.tooltip"
-msgid "是否在关卡中的实体位置较高时，显示实体距离地面的高度。"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/HDRLighting
-msgctxt "option.tooltip"
-msgid "是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/ShowFPS
-msgctxt "option.tooltip"
-msgid "是否显示游戏帧率。"
-msgstr ""
-
-#. 选项分类
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Controls/Title/Text
-msgid "控制"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Controls/Options/Buttons/ShowHotkeys
-msgctxt "option.tooltip"
-msgid "是否在关卡中显示界面对应的快捷键。"
-msgstr ""
-
-#. 按钮文本
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Controls/Options/Buttons/Keybindings/Text
-msgid "快捷键设置"
-msgstr ""
-
-#. 选项分类
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Title/Text
-msgid "杂项"
-msgstr ""
-
-#. 选项说明
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Options/Buttons/SponsorName
-msgctxt "option.tooltip"
-msgid "在关卡中放置特定器械时，是否随机显示赞助了对应方案的赞助者的名称。"
-msgstr ""
-
-#. 按钮文本
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Options/Buttons/Credits/Text
-msgid "制作人员名单"
-msgstr ""
-
-#. 按钮文本
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Options/Buttons/ExportLogFiles/Text
-msgid "导出游戏日志"
 msgstr ""
 
 #. 对话跳过按钮
@@ -438,6 +308,11 @@ msgstr ""
 msgid "重置"
 msgstr ""
 
+#. 标题
+#: /MainGame/MainScene/GlobalUICanvas/Credits/Title
+msgid "制作人员名单"
+msgstr ""
+
 #. 成就完成提示
 #: /MainGame/MainScene/GlobalUICanvas/AchievementHint/Root/Region/Texts/Earned
 msgid "完成成就！"
@@ -505,6 +380,11 @@ msgstr ""
 msgid "游戏结束"
 msgstr ""
 
+#. 暂停游戏对话框的按钮
+#: /Level/UI/DialogCanvas/GameOverDialog/Dialog/Content/Bottom/RetryButton/Text
+msgid "重新开始"
+msgstr ""
+
 #. 读取游戏对话框的标题
 #: /Level/UI/DialogCanvas/LevelLoadedDialog/Dialog/Content/Top/Title
 msgid "继续"
@@ -521,127 +401,127 @@ msgid "错误"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:35
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:37
 msgctxt "random_china.event_name"
 msgid "神秘埃及"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AnvilShowerEvent.cs:34
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AnvilShowerEvent.cs:36
 msgctxt "random_china.event_name"
 msgid "铁砧雨"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\ChinaTownEvent.cs:35
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\ChinaTownEvent.cs:37
 msgctxt "random_china.event_name"
 msgid "陶瓷镇"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\HellMetalEvent.cs:28
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\HellMetalEvent.cs:31
 msgctxt "random_china.event_name"
 msgid "地狱金属"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\IndependenceDayEvent.cs:37
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\IndependenceDayEvent.cs:39
 msgctxt "random_china.event_name"
 msgid "独立日"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\ObsidianPrisonEvent.cs:56
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\ObsidianPrisonEvent.cs:58
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfClubsEvent.cs:29
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfClubsEvent.cs:31
 msgctxt "random_china.event_name"
 msgid "梅花A"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfDiamondsEvent.cs:24
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfDiamondsEvent.cs:25
 msgctxt "random_china.event_name"
 msgid "方片A"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfHeartsEvent.cs:24
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfHeartsEvent.cs:25
 msgctxt "random_china.event_name"
 msgid "红桃A"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:20
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:21
 msgctxt "random_china.event_name"
 msgid "黑桃A"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\RaceCarsEvent.cs:34
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\RaceCarsEvent.cs:36
 msgctxt "random_china.event_name"
 msgid "赛车"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\RedstoneReadyEvent.cs:39
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\RedstoneReadyEvent.cs:41
 msgctxt "random_china.event_name"
 msgid "红石俱备"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\SuperRechargeEvent.cs:26
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\SuperRechargeEvent.cs:28
 msgctxt "random_china.event_name"
 msgid "超级充能"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:43
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:45
 msgctxt "random_china.event_name"
 msgid "VIII-力量"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:29
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:31
 msgctxt "random_china.event_name"
 msgid "IV-皇帝"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:30
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:32
 msgctxt "random_china.event_name"
 msgid "0-愚者"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHangedManEvent.cs:31
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHangedManEvent.cs:33
 msgctxt "random_china.event_name"
 msgid "XII-倒吊人"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:30
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:32
 msgctxt "random_china.event_name"
 msgid "XVII-星星"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheTowerEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheTowerEvent.cs:34
 msgctxt "random_china.event_name"
 msgid "XVI-塔"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\WorldwideCelebrationEvent.cs:30
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\WorldwideCelebrationEvent.cs:32
 msgctxt "random_china.event_name"
 msgid "普天同庆"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\WrathOfTheSmallEvent.cs:35
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\WrathOfTheSmallEvent.cs:37
 msgctxt "random_china.event_name"
 msgid "小型之怒"
 msgstr ""
@@ -857,33 +737,33 @@ msgid "试着挖掉所有器械！"
 msgstr ""
 
 # 选卡警告，{0}为原器械，{1}为升级器械
-#: Scripts\Vanilla\GameContent\GlobalCallbacks\BlueprintRecommendGlobalCallbacks.cs:175
+#: Scripts\Vanilla\GameContent\GlobalCallbacks\BlueprintRecommendGlobalCallbacks.cs:176
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr ""
 
 # 选卡警告，{0}为目标敌人
-#: Scripts\Vanilla\GameContent\GlobalCallbacks\BlueprintRecommendGlobalCallbacks.cs:177
+#: Scripts\Vanilla\GameContent\GlobalCallbacks\BlueprintRecommendGlobalCallbacks.cs:178
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\GlobalCallbacks\BlueprintRecommendGlobalCallbacks.cs:179
+#: Scripts\Vanilla\GameContent\GlobalCallbacks\BlueprintRecommendGlobalCallbacks.cs:180
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\GlobalCallbacks\BlueprintRecommendGlobalCallbacks.cs:181
+#: Scripts\Vanilla\GameContent\GlobalCallbacks\BlueprintRecommendGlobalCallbacks.cs:182
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\GlobalCallbacks\GemStageGlobalCallbacks.cs:95
+#: Scripts\Vanilla\GameContent\GlobalCallbacks\GemStageGlobalCallbacks.cs:96
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\GlobalCallbacks\GemStageGlobalCallbacks.cs:97
+#: Scripts\Vanilla\GameContent\GlobalCallbacks\GemStageGlobalCallbacks.cs:98
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
@@ -934,69 +814,53 @@ msgid "黑太阳"
 msgstr ""
 
 # 教程无法使用提示
-#: Scripts\Vanilla\VanillaStrings.cs:11
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:10
 msgid "无法使用"
 msgstr ""
 
 # 教程无法使用提示
-#: Scripts\Vanilla\VanillaStrings.cs:13
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:12
 msgid "受到衰老诅咒！"
 msgstr ""
 
-# 无法携带提示
-#: Scripts\Vanilla\VanillaStrings.cs:15
-msgid "无法模仿此器械"
-msgstr ""
-
-# 命令方块蓝图名，{0}为原名称
-#: Scripts\Vanilla\VanillaStrings.cs:17
-msgid "[命令方块]{0}"
-msgstr ""
-
 # 梦魇战斗提示
-#: Scripts\Vanilla\VanillaStrings.cs:20
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:15
 msgctxt "advice"
 msgid "点击屏幕阻止碾压墙！"
 msgstr ""
 
 # 红龙战斗提示
-#: Scripts\Vanilla\VanillaStrings.cs:22
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:17
 msgctxt "advice"
 msgid "点击火焰来灭火！"
 msgstr ""
 
 # 获得新制品提示
-#: Scripts\Vanilla\VanillaStrings.cs:24
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:19
 msgctxt "advice"
 msgid "你找到了新制品！"
 msgstr ""
 
 # 剩余内容正在开发提示
-#: Scripts\Vanilla\VanillaStrings.cs:26
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:21
 msgctxt "advice"
 msgid "剩余内容正在开发中，敬请期待！"
 msgstr ""
 
 # 无尽模式的提示
-#: Scripts\Vanilla\VanillaStrings.cs:29
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:23
 msgctxt "advice"
 msgid "你能存活多少轮？"
 msgstr ""
 
 # 无尽模式的提示
-#: Scripts\Vanilla\VanillaStrings.cs:31
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:25
 msgctxt "advice"
 msgid "更多的怪物要来了！"
 msgstr ""
 
-# 预览战场的提示
-#: Scripts\Vanilla\VanillaStrings.cs:33
-msgctxt "advice"
-msgid "点击以继续"
-msgstr ""
-
 # 欲望壶技能的提示，{0}为受到的总伤害
-#: Scripts\Vanilla\VanillaStrings.cs:35
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:27
 msgctxt "advice"
 msgid "没有抽到牌！受到{0}点疲劳伤害！"
 msgid_plural "没有抽到牌！受到{0}点疲劳伤害！"
@@ -1004,13 +868,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 欲望壶技能的提示
-#: Scripts\Vanilla\VanillaStrings.cs:37
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:29
 msgctxt "advice"
 msgid "没有抽到牌！但那又怎样呢？"
 msgstr ""
 
 # 我是僵尸模式的提示，{0}为剩余轮数
-#: Scripts\Vanilla\VanillaStrings.cs:39
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:31
 msgctxt "advice"
 msgid "干得好！还剩{0}轮！"
 msgid_plural "干得好！还剩{0}轮！"
@@ -1018,463 +882,229 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 我是僵尸模式的提示，{0}为目前连胜
-#: Scripts\Vanilla\VanillaStrings.cs:41
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:33
 msgctxt "advice"
 msgid "干得好！目前连胜：{0}！"
 msgid_plural "干得好！目前连胜：{0}！"
 msgstr[0] ""
 msgstr[1] ""
 
-# 固有蓝图的提示
-#: Scripts\Vanilla\VanillaStrings.cs:44
-msgid "固有"
-msgstr ""
-
-# 不推荐使用的提示
-#: Scripts\Vanilla\VanillaStrings.cs:46
-msgid "不推荐在这关使用"
-msgstr ""
-
-#: Scripts\Vanilla\VanillaStrings.cs:49
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:37
 msgid "购买"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:51
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:39
 msgid "购买第七个器械槽位？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:53
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:41
 msgid "是否进行新手教程？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:55
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:43
 msgid "新手教程"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:45
 msgid "通关"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:47
 msgid ""
 "恭喜通关！\n"
 "接下来的内容还在开发中，敬请期待！"
 msgstr ""
 
-# 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:62
-msgid "用户名不能为空"
-msgstr ""
-
-# 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:64
-msgid "已经存在该用户名"
-msgstr ""
-
-# 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:66
-msgid "无法重命名为该用户名"
-msgstr ""
-
-# 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:68
-msgid "第一次游戏必须输入用户名"
-msgstr ""
-
-# 删除用户时的警告，{0}为名称
-#: Scripts\Vanilla\VanillaStrings.cs:70
-msgid ""
-"确认删除用户{0}吗？\n"
-"该用户所有的数据都将被删除！"
-msgstr ""
-
-# 重命名特殊用户时的警告
-#: Scripts\Vanilla\VanillaStrings.cs:72
-msgid "你无法重命名该用户"
-msgstr ""
-
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:76
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:52
 msgctxt "recharge_time"
 msgid "无"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:78
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:54
 msgctxt "recharge_time"
 msgid "短"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:80
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:56
 msgctxt "recharge_time"
 msgid "长"
 msgstr ""
 
 # 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:82
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:58
 msgctxt "recharge_time"
 msgid "很长"
 msgstr ""
 
-# 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:86
-msgctxt "archive"
-msgid "剧情分支"
-msgstr ""
-
 # 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:88
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:62
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr ""
 
-# 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:90
-msgctxt "archive"
-msgid "对话结束"
-msgstr ""
-
-# 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:92
-msgctxt "archive"
-msgid "是否重新播放？"
-msgstr ""
-
-# 通用的是
-#: Scripts\Vanilla\VanillaStrings.cs:96
-msgid "是"
-msgstr ""
-
-# 通用的否
-#: Scripts\Vanilla\VanillaStrings.cs:98
-msgid "否"
-msgstr ""
-
-# 通用的开
-#: Scripts\Vanilla\VanillaStrings.cs:100
-msgid "开"
-msgstr ""
-
-# 通用的关
-#: Scripts\Vanilla\VanillaStrings.cs:102
-msgid "关"
-msgstr ""
-
-# 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:108
-msgid "返回地图"
-msgstr ""
-
-# 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:110
-msgid "返回主菜单"
-msgstr ""
-
-# 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:114
-msgid "警告"
-msgstr ""
-
-# 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:116
-msgid "提示"
-msgstr ""
-
-# 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:118
-msgid "退出"
-msgstr ""
-
-# 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:125
-msgid "挖掉器械"
-msgstr ""
-
-# 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:127
-msgid "触发器械"
-msgstr ""
-
-# 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:132
-msgctxt "levelname"
-msgid "未知关卡"
-msgstr ""
-
-# 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Vanilla\VanillaStrings.cs:134
-msgctxt "levelname"
-msgid "{0} - 第{1}天"
-msgid_plural "{0} - 第{1}天"
-msgstr[0] ""
-msgstr[1] ""
-
-# 关卡名称，{0}为关卡名，{1}为无尽模式轮数
-#: Scripts\Vanilla\VanillaStrings.cs:136
-msgctxt "levelname"
-msgid "{0} - 第{1}轮"
-msgid_plural "{0} - 第{1}轮"
-msgstr[0] ""
-msgstr[1] ""
-
 # 死亡信息-梦魇碾压墙
-#: Scripts\Vanilla\VanillaStrings.cs:139
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:69
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr ""
 
 # 死亡信息-我是僵尸
-#: Scripts\Vanilla\VanillaStrings.cs:141
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:71
 msgctxt "death_message"
 msgid "你失去了所有能量！"
 msgstr ""
 
-# 怪物说明-还没有遇到
-#: Scripts\Vanilla\VanillaStrings.cs:145
-msgctxt "almanac"
-msgid "（还没有遇到）"
-msgstr ""
-
-# 图鉴说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:147
-msgctxt "almanac"
-msgid "？？？"
-msgstr ""
-
-# 音乐名-无
-#: Scripts\Vanilla\VanillaStrings.cs:151
-msgctxt "music.name"
-msgid "无"
-msgstr ""
-
-# 命令输出，{0}为命令名
-#: Scripts\Vanilla\VanillaStrings.cs:154
-msgctxt "command.output"
-msgid "未找到命令{0}！"
-msgstr ""
-
 # 命令输出-help，{0}为命令名，{1}为命令描述
-#: Scripts\Vanilla\VanillaStrings.cs:156
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:74
 msgctxt "command.output"
 msgid "/{0} - {1}"
 msgstr ""
 
 # 命令输出-help
-#: Scripts\Vanilla\VanillaStrings.cs:158
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:76
 msgctxt "command.output"
 msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
 msgstr ""
 
 # 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
-#: Scripts\Vanilla\VanillaStrings.cs:160
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:78
 msgctxt "command.output"
 msgid "{0}: [{1}] {2}"
 msgstr ""
 
 # 命令输出-blueprint，{0}为参数
-#: Scripts\Vanilla\VanillaStrings.cs:162
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:80
 msgctxt "command.output"
 msgid "蓝图槽位参数{0}超出范围"
 msgstr ""
 
 # 命令输出-cheat，{0}为参数
-#: Scripts\Vanilla\VanillaStrings.cs:164
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
 msgctxt "command.output"
 msgid "未找到作弊命令{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\VanillaStrings.cs:166
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
 msgctxt "command.output"
 msgid "已启用{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\VanillaStrings.cs:168
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
 msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr ""
 
 # 命令输出-save
-#: Scripts\Vanilla\VanillaStrings.cs:170
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
 msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:172
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:90
 msgctxt "command.output"
 msgid "已解锁游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:174
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:92
 msgctxt "command.output"
 msgid "无法解锁游戏状态{0}：该状态已被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:176
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:94
 msgctxt "command.output"
 msgid "已重新锁定游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:178
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:96
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr ""
 
-# 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:180
-msgctxt "command.output"
-msgid "命令格式错误"
-msgstr ""
-
-# 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:182
-msgctxt "command.output"
-msgid "该命令只能在关卡中被调用"
-msgstr ""
-
-# 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:184
-msgctxt "command.output"
-msgid "参数{0}格式错误"
-msgstr ""
-
-# 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:186
-msgctxt "command.output"
-msgid "参数数量错误"
-msgstr ""
-
-# 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:188
-msgctxt "command.output"
-msgid "参数{0}丢失"
-msgstr ""
-
-# 命令输出，{0}为有效参数列表
-#: Scripts\Vanilla\VanillaStrings.cs:190
-msgctxt "command.output"
-msgid "参数错误，有效值为{0}"
-msgstr ""
-
-# 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:192
-msgctxt "command.output"
-msgid "参数丢失，有效值为{0}"
-msgstr ""
-
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:195
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:99
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:197
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:101
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:199
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:103
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:201
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:105
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
 
-# 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:204
-msgctxt "command_parameter.type"
-msgid "真值"
-msgstr ""
-
-# 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:206
-msgctxt "command_parameter.type"
-msgid "整数"
-msgstr ""
-
-# 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:208
-msgctxt "command_parameter.type"
-msgid "实数"
-msgstr ""
-
-# 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:210
-msgctxt "command_parameter.type"
-msgid "ID"
-msgstr ""
-
-# 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:212
-msgctxt "command_parameter.type"
-msgid "命令"
-msgstr ""
-
-# 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:214
-msgctxt "command_parameter.type"
-msgid "未知"
-msgstr ""
-
 # 标题页面的版本号文本，{0}为版本号
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:80
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:82
 msgid "版本{0}"
 msgstr ""
 
 # 标题界面按钮文本
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:82
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:84
 msgid "点击以开始！"
 msgstr ""
 
 # 前景图生效时的对话模板，{0}为讨论者，{1}为文本
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:936
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:938
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 msgstr ""
 
 # 跳过对话时的提示，{0}为对话名称
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:938
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:940
 msgid "已跳过对话\"{0}\""
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:289
+#: Scripts\MVZ2\Store\StoreController.cs:290
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:291
+#: Scripts\MVZ2\Store\StoreController.cs:292
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] ""
 msgstr[1] ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:293
+#: Scripts\MVZ2\Store\StoreController.cs:294
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:295
+#: Scripts\MVZ2\Store\StoreController.cs:296
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:297
+#: Scripts\MVZ2\Store\StoreController.cs:298
 msgid "{0}/{1}"
+msgstr ""
+
+# 商店文本
+#: Scripts\MVZ2\Store\StoreManager.cs:115
+msgid "<color=red>售罄</color>"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的描述，{0}为错误信息
@@ -1542,321 +1172,208 @@ msgid "确认要重置所有按键绑定吗？"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:607
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:575
 msgid "交换触发"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:609
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:577
 msgid "全屏"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:611
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:579
 msgid "设备震动"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:613
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:581
 msgid "后台暂停"
 msgstr ""
 
+# 选项
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:583
+msgid "更多选项"
+msgstr ""
+
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\OptionsLogic.cs:615
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:585
 msgid "难度：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:619
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:593
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:621
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:595
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:623
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:597
 msgid "加速倍率：{0}"
 msgstr ""
 
-# 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:625
-msgid "动画频率：{0}"
-msgstr ""
-
-# 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:627
-msgid "HDR光照"
-msgstr ""
-
-# 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:630
-msgid "血与碎块"
-msgstr ""
-
-# 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:633
-msgid "跳过对话"
-msgstr ""
-
-# 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:635
-msgid "赞助者名称"
-msgstr ""
-
-# 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:637
-msgid "选卡警告"
-msgstr ""
-
-# 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:639
-msgid "命令方块：{0}"
-msgstr ""
-
-# 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:641
-msgid "显示帧率：{0}"
-msgstr ""
-
-# 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:643
-msgid "高度指示器"
-msgstr ""
-
-# 选项
-#: Scripts\MVZ2\Options\OptionsLogic.cs:645
-msgid "显示快捷键"
-msgstr ""
-
-# 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:648
-msgctxt "option.command_block_mode"
-msgid "手选"
-msgstr ""
-
-# 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:650
-msgctxt "option.command_block_mode"
-msgid "前位"
-msgstr ""
-
-# FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:653
-msgctxt "option.fps_mode"
-msgid "关闭"
-msgstr ""
-
-# FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:655
-msgctxt "option.fps_mode"
-msgid "左上"
-msgstr ""
-
-# FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:657
-msgctxt "option.fps_mode"
-msgid "右上"
-msgstr ""
-
-# FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:659
-msgctxt "option.fps_mode"
-msgid "左下"
-msgstr ""
-
-# FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:661
-msgctxt "option.fps_mode"
-msgid "右下"
-msgstr ""
-
-# 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:664
-msgid "粒子数量：{0}"
-msgstr ""
-
-# 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:666
-msgid "屏幕震动：{0}"
-msgstr ""
-
 # 对话框内容
-#: Scripts\MVZ2\Options\OptionsLogicLevel.cs:96
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:599
 msgid ""
 "确认要返回吗？\n"
 "你的进度会被保存。"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:88
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:102
 msgctxt "hotkey.name"
 msgid "？？？"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:90
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:104
 msgctxt "hotkey.name"
 msgid "铁镐"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:92
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:106
 msgctxt "hotkey.name"
 msgid "星之碎片"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:94
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:108
 msgctxt "hotkey.name"
 msgid "触发器"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:96
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:110
 msgctxt "hotkey.name"
 msgid "快进"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:98
-msgctxt "hotkey.name"
-msgid "控制台"
-msgstr ""
-
-# 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:100
-msgctxt "hotkey.name"
-msgid "蓝图1"
-msgstr ""
-
-# 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:102
-msgctxt "hotkey.name"
-msgid "蓝图2"
-msgstr ""
-
-# 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:104
-msgctxt "hotkey.name"
-msgid "蓝图3"
-msgstr ""
-
-# 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:106
-msgctxt "hotkey.name"
-msgid "蓝图4"
-msgstr ""
-
-# 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:108
-msgctxt "hotkey.name"
-msgid "蓝图5"
-msgstr ""
-
-# 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:110
-msgctxt "hotkey.name"
-msgid "蓝图6"
-msgstr ""
-
-# 按键名
 #: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:112
 msgctxt "hotkey.name"
-msgid "蓝图7"
+msgid "血条"
 msgstr ""
 
 # 按键名
 #: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:114
 msgctxt "hotkey.name"
-msgid "蓝图8"
+msgid "控制台"
 msgstr ""
 
 # 按键名
 #: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:116
 msgctxt "hotkey.name"
-msgid "蓝图9"
+msgid "蓝图1"
 msgstr ""
 
 # 按键名
 #: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:118
 msgctxt "hotkey.name"
+msgid "蓝图2"
+msgstr ""
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:120
+msgctxt "hotkey.name"
+msgid "蓝图3"
+msgstr ""
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:122
+msgctxt "hotkey.name"
+msgid "蓝图4"
+msgstr ""
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:124
+msgctxt "hotkey.name"
+msgid "蓝图5"
+msgstr ""
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:126
+msgctxt "hotkey.name"
+msgid "蓝图6"
+msgstr ""
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:128
+msgctxt "hotkey.name"
+msgid "蓝图7"
+msgstr ""
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:130
+msgctxt "hotkey.name"
+msgid "蓝图8"
+msgstr ""
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:132
+msgctxt "hotkey.name"
+msgid "蓝图9"
+msgstr ""
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:134
+msgctxt "hotkey.name"
 msgid "蓝图10"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐来源
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:211
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:212
 msgid "来源：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐原曲
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:213
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:214
 msgid "原曲：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐作者
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:215
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:216
 msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:732
+#: Scripts\MVZ2\Map\MapController.cs:721
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:734
+#: Scripts\MVZ2\Map\MapController.cs:723
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:736
+#: Scripts\MVZ2\Map\MapController.cs:725
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:738
+#: Scripts\MVZ2\Map\MapController.cs:727
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:740
+#: Scripts\MVZ2\Map\MapController.cs:729
 msgid "目标地点{0}不存在。"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:742
+#: Scripts\MVZ2\Map\MapController.cs:731
 msgid "目标关卡{0}不存在。"
-msgstr ""
-
-# 日志导出失败的警告
-#: Scripts\MVZ2\Managers\DebugManager.cs:45
-msgid "导出日志失败。"
-msgstr ""
-
-# 日志导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Managers\DebugManager.cs:47
-msgid "日志已导出至{0}。"
-msgstr ""
-
-# 命令输出，{0}为命令名
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:564
-msgctxt "command.output"
-msgid "<color=red>命令不存在：{0}</color>"
-msgstr ""
-
-# 命令输出，{0}为错误
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:566
-msgctxt "command.output"
-msgid "<color=red>错误：{0}</color>"
 msgstr ""
 
 # 按键名
@@ -2670,151 +2187,178 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:321
+#: Scripts\MVZ2\Managers\MainManager.cs:330
 msgid "获取赞助者列表……"
 msgstr ""
 
-# 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:323
-msgid "{0}%"
-msgstr ""
-
 # 帧率显示
-#: Scripts\MVZ2\Managers\PerformanceManager.cs:48
+#: Scripts\MVZ2\Managers\PerformanceManager.cs:81
 msgid "FPS: {0}"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:828
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:838
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:830
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:840
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:832
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:834
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
 msgid "确认要退出吗？"
 msgstr ""
 
 # 存档导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:836
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:846
 msgid "导出存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:838
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:848
 msgid "导入存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:840
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:850
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:852
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
 # 存档导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:854
 msgid "存档已导出至{0}。"
 msgstr ""
 
 # 当前语言名称
-#: Scripts\MVZ2\Localization\LanguageManager.cs:249
+#: Scripts\MVZ2\Localization\LanguageManager.cs:273
 msgctxt "language_name"
 msgid "中文"
 msgstr ""
 
-# 分辨率名，{0}为宽，{1}为高
-#: Scripts\MVZ2\Managers\ResolutionManager.cs:65
-msgid "{0}x{1}"
+# 血条的文字
+#: Scripts\MVZ2\Entities\EntityController.cs:796
+msgid "死亡"
+msgstr ""
+
+# 血条的文字
+#: Scripts\MVZ2\Entities\EntityController.cs:798
+msgid "摧毁"
+msgstr ""
+
+# 血条的文字模板
+#: Scripts\MVZ2\Entities\EntityController.cs:800
+msgid "{0}"
+msgstr ""
+
+# 日志导出失败的警告
+#: Scripts\MVZ2\Managers\DebugManager.cs:45
+msgid "导出日志失败。"
+msgstr ""
+
+# 日志导出成功的提示，{0}为路径
+#: Scripts\MVZ2\Managers\DebugManager.cs:47
+msgid "日志已导出至{0}。"
+msgstr ""
+
+# 命令输出，{0}为命令名
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:563
+msgctxt "command.output"
+msgid "<color=red>命令不存在：{0}</color>"
+msgstr ""
+
+# 命令输出，{0}为错误
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:565
+msgctxt "command.output"
+msgid "<color=red>错误：{0}</color>"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1287
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1309
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1291
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1313
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1293
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1315
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1295
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1317
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1297
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1319
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:184
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:183
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:186
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:185
 msgid "读取关卡失败，文件可能已损坏。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:188
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:187
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:190
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:189
 msgid ""
 "加载关卡失败，存档状态和当前游戏状态不匹配：\n"
 "{0}"
 msgstr ""
 
 # 关卡标识符名称，{0}为命名空间名，{1}为数据版本号
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:192
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:191
 msgid "{0}（版本{1}）"
 msgstr ""
 
 # 关卡标识符名称，{0}为命名空间名，{1}为数据版本号，{2}为当前数据版本号
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:194
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:193
 msgid "{0}（版本{1}，当前状态为{2}）"
 msgstr ""
 
 # 对话框内容，{0}为不匹配的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:196
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:195
 msgid ""
 "版本号不匹配：\n"
 "{0}"
 msgstr ""
 
 # 对话框内容，{0}为丢失的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:198
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:197
 msgid ""
 "丢失的模组：\n"
 "{0}"
 msgstr ""
 
 # 对话框内容，{0}为多出的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:200
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:199
 msgid ""
 "多出的模组：\n"
 "{0}"
@@ -2827,141 +2371,461 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:258
+#: Scripts\MVZ2\Archive\ArchiveController.cs:260
 msgid "<b>[{0}]</b> {1}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:260
+#: Scripts\MVZ2\Archive\ArchiveController.cs:262
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
 msgstr ""
 
 # 未解锁的小游戏关卡名
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:212
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:211
 msgid "未解锁"
 msgstr ""
 
 # 无尽模式的小游戏的连胜显示，{0}为最高连胜
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:214
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:213
 msgid ""
 "最高连胜：\n"
 "{0}"
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:843
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:844
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:846
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:848
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr ""
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:850
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:852
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:854
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr ""
 
-# 商店文本
-#: Scripts\MVZ2\Store\StoreManager.cs:115
-msgid "<color=red>售罄</color>"
-msgstr ""
-
 # 覆盖语言包的警告，{0}为语言包名称
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:322
+#: Scripts\MVZ2\Addons\LanguagePacksController.cs:323
 msgid "已经存在同名语言包“{0}”，是否覆盖？"
 msgstr ""
 
 # 删除语言包的警告，{0}为语言包名称
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:324
+#: Scripts\MVZ2\Addons\LanguagePacksController.cs:325
 msgid "是否删除语言包“{0}”？"
 msgstr ""
 
 # 语言包导出失败的警告
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:326
+#: Scripts\MVZ2\Addons\LanguagePacksController.cs:327
 msgid "导出语言包失败。"
 msgstr ""
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:328
+#: Scripts\MVZ2\Addons\LanguagePacksController.cs:329
 msgid "导入语言包失败。"
 msgstr ""
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:330
+#: Scripts\MVZ2\Addons\LanguagePacksController.cs:331
 msgid "语言包已导出至{0}。"
 msgstr ""
 
+# 命令方块模式
+#: Scripts\Logic\Options\Definitions\CommandBlockModeOptionDropdown.cs:38
+msgctxt "option.command_block_mode"
+msgid "手选"
+msgstr ""
+
+# 命令方块模式
+#: Scripts\Logic\Options\Definitions\CommandBlockModeOptionDropdown.cs:40
+msgctxt "option.command_block_mode"
+msgid "前位"
+msgstr ""
+
+# 血条数值模式
+#: Scripts\Logic\Options\Definitions\HPBarsAmountModeOptionDropdown.cs:39
+msgctxt "options.hp_bars_amount_mode"
+msgid "隐藏"
+msgstr ""
+
+# 血条数值模式
+#: Scripts\Logic\Options\Definitions\HPBarsAmountModeOptionDropdown.cs:41
+msgctxt "options.hp_bars_amount_mode"
+msgid "当前血量"
+msgstr ""
+
+# 血条数值模式
+#: Scripts\Logic\Options\Definitions\HPBarsAmountModeOptionDropdown.cs:43
+msgctxt "options.hp_bars_amount_mode"
+msgid "全部"
+msgstr ""
+
+# 分辨率名，{0}为宽，{1}为高,{2}为刷新率
+#: Scripts\Logic\Options\Definitions\ResolutionOptionDropdown.cs:89
+msgid "{0}x{1} @{2}Hz"
+msgstr ""
+
+# FPS模式
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:37
+msgctxt "option.fps_mode"
+msgid "关闭"
+msgstr ""
+
+# FPS模式
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:39
+msgctxt "option.fps_mode"
+msgid "左上"
+msgstr ""
+
+# FPS模式
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:41
+msgctxt "option.fps_mode"
+msgid "右上"
+msgstr ""
+
+# FPS模式
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:43
+msgctxt "option.fps_mode"
+msgid "左下"
+msgstr ""
+
+# FPS模式
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:45
+msgctxt "option.fps_mode"
+msgid "右下"
+msgstr ""
+
+# 值，{0}为百分数
+#: Scripts\Logic\LogicMain.cs:14
+msgid "{0}%"
+msgstr ""
+
+# 通用的是
+#: Scripts\Logic\Localization\LogicStrings.cs:10
+msgid "是"
+msgstr ""
+
+# 通用的否
+#: Scripts\Logic\Localization\LogicStrings.cs:12
+msgid "否"
+msgstr ""
+
+# 通用的开
+#: Scripts\Logic\Localization\LogicStrings.cs:14
+msgid "开"
+msgstr ""
+
+# 通用的关
+#: Scripts\Logic\Localization\LogicStrings.cs:16
+msgid "关"
+msgstr ""
+
+# 通用文本
+#: Scripts\Logic\Localization\LogicStrings.cs:22
+msgid "返回地图"
+msgstr ""
+
+# 通用文本
+#: Scripts\Logic\Localization\LogicStrings.cs:24
+msgid "返回主菜单"
+msgstr ""
+
+# 通用文本
+#: Scripts\Logic\Localization\LogicStrings.cs:28
+msgid "警告"
+msgstr ""
+
+# 通用文本
+#: Scripts\Logic\Localization\LogicStrings.cs:30
+msgid "提示"
+msgstr ""
+
+# 通用文本
+#: Scripts\Logic\Localization\LogicStrings.cs:32
+msgid "退出"
+msgstr ""
+
 # 实体名称-未知
-#: Scripts\Logic\LogicStrings.cs:9
+#: Scripts\Logic\Localization\LogicStrings.cs:39
 msgctxt "entity.name"
 msgid "？？？"
 msgstr ""
 
 # 实体对策名称-未知
-#: Scripts\Logic\LogicStrings.cs:12
+#: Scripts\Logic\Localization\LogicStrings.cs:42
 msgctxt "entity_counter.name"
 msgid "？？？"
 msgstr ""
 
 # 实体说明-未知
-#: Scripts\Logic\LogicStrings.cs:15
+#: Scripts\Logic\Localization\LogicStrings.cs:45
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 制品名称-未知
-#: Scripts\Logic\LogicStrings.cs:18
+#: Scripts\Logic\Localization\LogicStrings.cs:48
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr ""
 
 # 制品说明-未知
-#: Scripts\Logic\LogicStrings.cs:21
+#: Scripts\Logic\Localization\LogicStrings.cs:51
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 蓝图选项名称-未知
-#: Scripts\Logic\LogicStrings.cs:24
+#: Scripts\Logic\Localization\LogicStrings.cs:54
 msgctxt "option.name"
 msgid "？？？"
 msgstr ""
 
 # 死亡信息-未知
-#: Scripts\Logic\LogicStrings.cs:27
+#: Scripts\Logic\Localization\LogicStrings.cs:57
 msgctxt "death_message"
 msgid "你死了！"
 msgstr ""
 
 # 关卡难度
-#: Scripts\Logic\LogicStrings.cs:30
+#: Scripts\Logic\Localization\LogicStrings.cs:60
 msgctxt "difficulty"
 msgid "未知难度"
+msgstr ""
+
+# 怪物说明-还没有遇到
+#: Scripts\Logic\Localization\LogicStrings.cs:76
+msgctxt "almanac"
+msgid "（还没有遇到）"
+msgstr ""
+
+# 图鉴说明-未知
+#: Scripts\Logic\Localization\LogicStrings.cs:78
+msgctxt "almanac"
+msgid "？？？"
+msgstr ""
+
+# 对话档案对话框标题
+#: Scripts\Logic\Localization\LogicStrings.cs:101
+msgctxt "archive"
+msgid "剧情分支"
+msgstr ""
+
+# 对话档案对话框标题
+#: Scripts\Logic\Localization\LogicStrings.cs:103
+msgctxt "archive"
+msgid "对话结束"
+msgstr ""
+
+# 对话档案对话框内容
+#: Scripts\Logic\Localization\LogicStrings.cs:105
+msgctxt "archive"
+msgid "是否重新播放？"
+msgstr ""
+
+# 关卡名称
+#: Scripts\Logic\Localization\LogicStrings.cs:113
+msgctxt "levelname"
+msgid "未知关卡"
+msgstr ""
+
+# 关卡名称，{0}为关卡名，{1}为冒险模式天数
+#: Scripts\Logic\Localization\LogicStrings.cs:115
+msgctxt "levelname"
+msgid "{0} - 第{1}天"
+msgid_plural "{0} - 第{1}天"
+msgstr[0] ""
+msgstr[1] ""
+
+# 关卡名称，{0}为关卡名，{1}为无尽模式轮数
+#: Scripts\Logic\Localization\LogicStrings.cs:117
+msgctxt "levelname"
+msgid "{0} - 第{1}轮"
+msgid_plural "{0} - 第{1}轮"
+msgstr[0] ""
+msgstr[1] ""
+
+# 命令输出
+#: Scripts\Logic\Localization\LogicStrings.cs:132
+msgctxt "command.output"
+msgid "命令格式错误"
+msgstr ""
+
+# 命令输出
+#: Scripts\Logic\Localization\LogicStrings.cs:134
+msgctxt "command.output"
+msgid "该命令只能在关卡中被调用"
+msgstr ""
+
+# 命令输出，{0}为参数名
+#: Scripts\Logic\Localization\LogicStrings.cs:136
+msgctxt "command.output"
+msgid "参数{0}格式错误"
+msgstr ""
+
+# 命令输出
+#: Scripts\Logic\Localization\LogicStrings.cs:138
+msgctxt "command.output"
+msgid "参数数量错误"
+msgstr ""
+
+# 命令输出，{0}为参数名
+#: Scripts\Logic\Localization\LogicStrings.cs:140
+msgctxt "command.output"
+msgid "参数{0}丢失"
+msgstr ""
+
+# 命令输出，{0}为有效参数列表
+#: Scripts\Logic\Localization\LogicStrings.cs:142
+msgctxt "command.output"
+msgid "参数错误，有效值为{0}"
+msgstr ""
+
+# 命令输出，{0}为参数名
+#: Scripts\Logic\Localization\LogicStrings.cs:144
+msgctxt "command.output"
+msgid "参数丢失，有效值为{0}"
+msgstr ""
+
+# 命令输出，{0}为命令名
+#: Scripts\Logic\Localization\LogicStrings.cs:146
+msgctxt "command.output"
+msgid "未找到命令{0}！"
+msgstr ""
+
+# 命令参数类型
+#: Scripts\Logic\Localization\LogicStrings.cs:149
+msgctxt "command_parameter.type"
+msgid "真值"
+msgstr ""
+
+# 命令参数类型
+#: Scripts\Logic\Localization\LogicStrings.cs:151
+msgctxt "command_parameter.type"
+msgid "整数"
+msgstr ""
+
+# 命令参数类型
+#: Scripts\Logic\Localization\LogicStrings.cs:153
+msgctxt "command_parameter.type"
+msgid "实数"
+msgstr ""
+
+# 命令参数类型
+#: Scripts\Logic\Localization\LogicStrings.cs:155
+msgctxt "command_parameter.type"
+msgid "ID"
+msgstr ""
+
+# 命令参数类型
+#: Scripts\Logic\Localization\LogicStrings.cs:157
+msgctxt "command_parameter.type"
+msgid "命令"
+msgstr ""
+
+# 命令参数类型
+#: Scripts\Logic\Localization\LogicStrings.cs:159
+msgctxt "command_parameter.type"
+msgid "未知"
+msgstr ""
+
+# 音乐名-无
+#: Scripts\Logic\Localization\LogicStrings.cs:174
+msgctxt "music.name"
+msgid "无"
+msgstr ""
+
+# 游戏内文本提示
+#: Scripts\Logic\Localization\LogicStrings.cs:198
+msgid "挖掉器械"
+msgstr ""
+
+# 游戏内文本提示
+#: Scripts\Logic\Localization\LogicStrings.cs:200
+msgid "触发器械"
+msgstr ""
+
+# 固有蓝图的提示
+#: Scripts\Logic\Localization\LogicStrings.cs:202
+msgid "固有"
+msgstr ""
+
+# 不推荐使用的提示
+#: Scripts\Logic\Localization\LogicStrings.cs:204
+msgid "不推荐在这关使用"
+msgstr ""
+
+# 无法携带提示
+#: Scripts\Logic\Localization\LogicStrings.cs:206
+msgid "无法模仿此器械"
+msgstr ""
+
+# 命令方块蓝图名，{0}为原名称
+#: Scripts\Logic\Localization\LogicStrings.cs:208
+msgid "[命令方块]{0}"
+msgstr ""
+
+# 输入名称对话框的错误信息
+#: Scripts\Logic\Localization\LogicStrings.cs:213
+msgid "用户名不能为空"
+msgstr ""
+
+# 输入名称对话框的错误信息
+#: Scripts\Logic\Localization\LogicStrings.cs:215
+msgid "已经存在该用户名"
+msgstr ""
+
+# 输入名称对话框的错误信息
+#: Scripts\Logic\Localization\LogicStrings.cs:217
+msgid "无法重命名为该用户名"
+msgstr ""
+
+# 输入名称对话框的错误信息
+#: Scripts\Logic\Localization\LogicStrings.cs:219
+msgid "第一次游戏必须输入用户名"
+msgstr ""
+
+# 删除用户时的警告，{0}为名称
+#: Scripts\Logic\Localization\LogicStrings.cs:221
+msgid ""
+"确认删除用户{0}吗？\n"
+"该用户所有的数据都将被删除！"
+msgstr ""
+
+# 重命名特殊用户时的警告
+#: Scripts\Logic\Localization\LogicStrings.cs:223
+msgid "你无法重命名该用户"
+msgstr ""
+
+# 预览战场的提示
+#: Scripts\Logic\Localization\LogicStrings.cs:244
+msgctxt "advice"
+msgid "点击以继续"
 msgstr ""
 
 #. Name for stage mvz2:i_zombie_debug
@@ -5191,5 +5055,299 @@ msgstr ""
 #: Difficulty meta file
 msgctxt "difficulty"
 msgid "困难"
+msgstr ""
+
+#. Label for option category 常规
+#: Option meta file
+msgctxt "option.category"
+msgid "常规"
+msgstr ""
+
+#. Label for option category 图像
+#: Option meta file
+msgctxt "option.category"
+msgid "图像"
+msgstr ""
+
+#. Label for option category 游戏
+#: Option meta file
+msgctxt "option.category"
+msgid "游戏"
+msgstr ""
+
+#. Label for option category 血条
+#: Option meta file
+msgctxt "option.category"
+msgid "血条"
+msgstr ""
+
+#. Label for option category 控制
+#: Option meta file
+msgctxt "option.category"
+msgid "控制"
+msgstr ""
+
+#. Label for option category 关于
+#: Option meta file
+msgctxt "option.category"
+msgid "关于"
+msgstr ""
+
+#. Label for option widget 语言
+#: Option meta file
+msgctxt "option.name"
+msgid "语言"
+msgstr ""
+
+#. Label for option widget 震动
+#: Option meta file
+msgctxt "option.name"
+msgid "震动"
+msgstr ""
+
+#. Tooltip for option widget （仅限移动端）是否在屏幕震动时震动设备。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "（仅限移动端）是否在屏幕震动时震动设备。"
+msgstr ""
+
+#. Label for option widget 跳过对话
+#: Option meta file
+msgctxt "option.name"
+msgid "跳过对话"
+msgstr ""
+
+#. Tooltip for option widget 是否自动跳过所有剧情对话。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否自动跳过所有剧情对话。"
+msgstr ""
+
+#. Label for option widget 选卡警告
+#: Option meta file
+msgctxt "option.name"
+msgid "选卡警告"
+msgstr ""
+
+#. Tooltip for option widget 是否在蓝图选择完毕后，根据当前情况提出警告。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否在蓝图选择完毕后，根据当前情况提出警告。"
+msgstr ""
+
+#. Label for option widget 赞助者名称
+#: Option meta file
+msgctxt "option.name"
+msgid "赞助者名称"
+msgstr ""
+
+#. Tooltip for option widget 在关卡中放置特定器械时，是否随机显示赞助了对应方案的赞助者的名称。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "在关卡中放置特定器械时，是否随机显示赞助了对应方案的赞助者的名称。"
+msgstr ""
+
+#. Label for option widget 命令方块
+#: Option meta file
+msgctxt "option.name"
+msgid "命令方块"
+msgstr ""
+
+#. Tooltip for option widget 选择命令方块蓝图的模式。
+#. 手动：手动选择模仿的器械。
+#. 前位：自动模仿上一个选择的器械。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid ""
+"选择命令方块蓝图的模式。\n"
+"手动：手动选择模仿的器械。\n"
+"前位：自动模仿上一个选择的器械。"
+msgstr ""
+
+#. Label for option widget 显示帧率
+#: Option meta file
+msgctxt "option.name"
+msgid "显示帧率"
+msgstr ""
+
+#. Tooltip for option widget 是否显示游戏帧率。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否显示游戏帧率。"
+msgstr ""
+
+#. Label for option widget 粒子数量：{0}
+#: Option meta file
+msgctxt "option.name"
+msgid "粒子数量：{0}"
+msgstr ""
+
+#. Tooltip for option widget 粒子效果数量。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "粒子效果数量。"
+msgstr ""
+
+#. Label for option widget 屏幕震动：{0}
+#: Option meta file
+msgctxt "option.name"
+msgid "屏幕震动：{0}"
+msgstr ""
+
+#. Tooltip for option widget 屏幕震动幅度。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "屏幕震动幅度。"
+msgstr ""
+
+#. Label for option widget 动画频率：{0}
+#: Option meta file
+msgctxt "option.name"
+msgid "动画频率：{0}"
+msgstr ""
+
+#. Tooltip for option widget 关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。"
+msgstr ""
+
+#. Label for option widget 分辨率
+#: Option meta file
+msgctxt "option.name"
+msgid "分辨率"
+msgstr ""
+
+#. Label for option widget 全屏
+#: Option meta file
+msgctxt "option.name"
+msgid "全屏"
+msgstr ""
+
+#. Tooltip for option widget 是否全屏。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否全屏。"
+msgstr ""
+
+#. Label for option widget HDR光照
+#: Option meta file
+msgctxt "option.name"
+msgid "HDR光照"
+msgstr ""
+
+#. Tooltip for option widget 是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。"
+msgstr ""
+
+#. Label for option widget 血与碎块
+#: Option meta file
+msgctxt "option.name"
+msgid "血与碎块"
+msgstr ""
+
+#. Tooltip for option widget 是否启用游戏中的血腥表现。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否启用游戏中的血腥表现。"
+msgstr ""
+
+#. Label for option widget 高度指示器
+#: Option meta file
+msgctxt "option.name"
+msgid "高度指示器"
+msgstr ""
+
+#. Tooltip for option widget 是否在关卡中的实体位置较高时，显示实体距离地面的高度。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否在关卡中的实体位置较高时，显示实体距离地面的高度。"
+msgstr ""
+
+#. Label for option widget 启用血条
+#: Option meta file
+msgctxt "option.name"
+msgid "启用血条"
+msgstr ""
+
+#. Tooltip for option widget 是否在关卡中启用血条显示。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否在关卡中启用血条显示。"
+msgstr ""
+
+#. Label for option widget 自动隐藏
+#: Option meta file
+msgctxt "option.name"
+msgid "自动隐藏"
+msgstr ""
+
+#. Tooltip for option widget 是否隐藏满血实体的血条。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否隐藏满血实体的血条。"
+msgstr ""
+
+#. Label for option widget 数值模式
+#: Option meta file
+msgctxt "option.name"
+msgid "数值模式"
+msgstr ""
+
+#. Tooltip for option widget 选择血条数值的显示模式。
+#. 隐藏：不显示血条数值。
+#. 当前血量：只显示当前血量。
+#. 全部：显示当前血量和最大血量。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid ""
+"选择血条数值的显示模式。\n"
+"隐藏：不显示血条数值。\n"
+"当前血量：只显示当前血量。\n"
+"全部：显示当前血量和最大血量。"
+msgstr ""
+
+#. Label for option widget 悬停显示范围：{0}
+#: Option meta file
+msgctxt "option.name"
+msgid "悬停显示范围：{0}"
+msgstr ""
+
+#. Tooltip for option widget 鼠标或者触摸指针位于实体一定范围内时，会强制显示血条。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "鼠标或者触摸指针位于实体一定范围内时，会强制显示血条。"
+msgstr ""
+
+#. Label for option widget 显示快捷键
+#: Option meta file
+msgctxt "option.name"
+msgid "显示快捷键"
+msgstr ""
+
+#. Tooltip for option widget 是否在关卡中显示界面对应的快捷键。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否在关卡中显示界面对应的快捷键。"
+msgstr ""
+
+#. Label for option widget 快捷键设置
+#: Option meta file
+msgctxt "option.name"
+msgid "快捷键设置"
+msgstr ""
+
+#. Label for option widget 制作人员名单
+#: Option meta file
+msgctxt "option.name"
+msgid "制作人员名单"
+msgstr ""
+
+#. Label for option widget 导出日志文件
+#: Option meta file
+msgctxt "option.name"
+msgid "导出日志文件"
 msgstr ""
 

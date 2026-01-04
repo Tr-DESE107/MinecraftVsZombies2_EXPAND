@@ -294,6 +294,21 @@ namespace MVZ2.Editor
                     AddTranslation(potGenerator, meta.Name, reference, $"Name for difficulty {meta.Name}", LogicStrings.CONTEXT_DIFFICULTY);
                 }
             }
+            // 选项
+            {
+                var document = LoadMetaXmlDocument(spaceName, "options.xml");
+                var list = OptionMetaList.FromXmlNode(document["options"], spaceName);
+                var reference = "Option meta file";
+                foreach (var meta in list.categories)
+                {
+                    AddTranslation(potGenerator, meta.Label, reference, $"Label for option category {meta.Label}", LogicStrings.CONTEXT_OPTION_CATEGORY);
+                }
+                foreach (var meta in list.widgets)
+                {
+                    AddTranslation(potGenerator, meta.Label, reference, $"Label for option widget {meta.Label}", LogicStrings.CONTEXT_OPTION_NAME);
+                    AddTranslation(potGenerator, meta.Tooltip, reference, $"Tooltip for option widget {meta.Tooltip}", LogicStrings.CONTEXT_OPTION_TOOLTIP);
+                }
+            }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));
             Debug.Log("Script Translations Updated.");

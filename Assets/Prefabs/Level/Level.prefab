@@ -178,6 +178,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7f17579a8f0c42344b02ba3589ca2d6e, type: 3}
   - {fileID: 21300000, guid: 16ff246ec2a095242a62262d2ac32272, type: 3}
   - {fileID: 21300000, guid: 53000fe10b2b2114a9d2a2a204f7c143, type: 3}
+  optionsDialogController: {fileID: 1750471424063941642}
   entityTemplate: {fileID: -1708814885022385043, guid: 033dd59ce2dc153448fa75a2e0c608b3, type: 3}
   entitiesRoot: {fileID: 1458902122031359015}
   gridColorTransparent: {r: 1, g: 1, b: 1, a: 0.5}
@@ -492,7 +493,7 @@ MonoBehaviour:
   gameOverDialogObj: {fileID: 5636438442813735551}
   gameOverDialog: {fileID: 5495637294750403309}
   optionsDialogObj: {fileID: 3872147029820553653}
-  optionsDialog: {fileID: 1070259927618140358}
+  optionsDialog: {fileID: 2391294306261922874}
   levelLoadedDialogObj: {fileID: 147447719509574970}
   levelLoadedDialog: {fileID: 8552010764987959972}
   levelErrorLoadingDialogObj: {fileID: 4663263060818085004}
@@ -4172,9 +4173,20 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
---- !u!114 &1070259927618140358 stripped
+--- !u!114 &1750471424063941642 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 613601716812992831, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2167159705535464947, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+  m_PrefabInstance: {fileID: 457573005962701305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872147029820553653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccb23b4c3c9b5c47bf851c6b2427692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2391294306261922874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2843519283434167747, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
   m_PrefabInstance: {fileID: 457573005962701305}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3872147029820553653}

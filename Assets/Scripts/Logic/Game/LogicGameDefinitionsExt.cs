@@ -11,6 +11,7 @@ using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Notes;
+using MVZ2Logic.Options;
 using MVZ2Logic.Shapes;
 using PVZEngine;
 
@@ -93,6 +94,14 @@ namespace MVZ2Logic.Games
         public static ShapeDefinition[] GetAllShapeDefinitions(this IGameContent provider)
         {
             return provider.GetDefinitions<ShapeDefinition>(LogicDefinitionTypes.SHAPE);
+        }
+        public static OptionWidgetDefinition? GetOptionWidgetDefinition(this IGameContent provider, NamespaceID? id)
+        {
+            return provider.GetDefinition<OptionWidgetDefinition>(LogicDefinitionTypes.OPTION_WIDGET, id);
+        }
+        public static OptionWidgetDefinition[] GetAllOptionWidgetDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<OptionWidgetDefinition>(LogicDefinitionTypes.OPTION_WIDGET);
         }
     }
 }

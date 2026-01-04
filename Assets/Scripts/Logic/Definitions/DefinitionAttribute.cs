@@ -46,4 +46,10 @@ namespace MVZ2Logic.Definitions
         {
         }
     }
+    public class AutoOptionWidgetDefinitionAttribute : DefinitionAttribute
+    {
+        public AutoOptionWidgetDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.OPTION_WIDGET)
+        {
+        }
+    }
 }

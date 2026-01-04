@@ -14,6 +14,7 @@ using MVZ2.Scenes;
 using MVZ2Logic.Level;
 using MVZ2Logic.Options;
 using MVZ2Logic.Saves;
+using PVZEngine;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
@@ -47,6 +48,10 @@ namespace MVZ2.Level
             {
                 controller.Init(this);
             }
+
+            OptionsManager.OnOptionChangedBool += OnOptionChangedBoolCallback;
+            OptionsManager.OnKeybindingChanged += OnKeybindingChangedCallback;
+            OptionsManager.OnKeybindingsReset += OnKeybindingsResetCallback;
         }
         private void ReadFromSerializable_Parts(SerializableLevelController seri)
         {
@@ -63,11 +68,6 @@ namespace MVZ2.Level
         }
         public void Dispose()
         {
-            if (optionsLogic != null)
-            {
-                optionsLogic.Dispose();
-                optionsLogic = null;
-            }
             Music.SetVolume(1);
             Music.SetTrackWeight(0);
             if (level != null)
@@ -83,6 +83,10 @@ namespace MVZ2.Level
                 level.Dispose();
             }
             LevelManager.SetLevelController(null);
+
+            OptionsManager.OnOptionChangedBool -= OnOptionChangedBoolCallback;
+            OptionsManager.OnKeybindingChanged -= OnKeybindingChangedCallback;
+            OptionsManager.OnKeybindingsReset -= OnKeybindingsResetCallback;
         }
         public void UpdateDifficulty()
         {
@@ -111,6 +115,22 @@ namespace MVZ2.Level
         public bool ShouldShowHPBars()
         {
             return Main.OptionsManager.IsHPBarEnabled() && IsHPBarsUnlocked();
+        }
+
+        private void OnOptionChangedBoolCallback(NamespaceID id, bool value)
+        {
+            if (id == LogicOptionItemID.showHotkeys)
+            {
+                UpdateHotkeyTexts();
+            }
+        }
+        private void OnKeybindingChangedCallback(NamespaceID id, KeyCode code)
+        {
+            UpdateHotkeyTexts();
+        }
+        private void OnKeybindingsResetCallback()
+        {
+            UpdateHotkeyTexts();
         }
 
         #region 属性字段

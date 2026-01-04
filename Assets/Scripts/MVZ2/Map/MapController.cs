@@ -173,6 +173,7 @@ namespace MVZ2.Map
         {
             ui.OnButtonClick += OnButtonClickCallback;
             talkController.OnTalkAction += OnTalkActionCallback;
+            optionDialogController.OnClose += OnOptionsDialogCloseCallback;
 
             talkSystem = new MapTalkSystem(this, talkController);
         }
@@ -230,9 +231,8 @@ namespace MVZ2.Map
                 case MapUI.ButtonType.Setting:
                     ui.SetOptionsDialogActive(true);
                     ui.OptionsDialog.ResetPosition();
-                    optionsLogic = new OptionsLogicMap(this, ui.OptionsDialog);
-                    optionsLogic.InitDialog();
-                    optionsLogic.OnClose += OnOptionsDialogCloseCallback;
+                    var context = new OptionContextMap();
+                    optionDialogController.Open(context);
                     break;
             }
         }
@@ -240,14 +240,8 @@ namespace MVZ2.Map
         {
             Global.Game.RunCallbackFiltered(LogicCallbacks.TALK_ACTION, new LogicCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
-        private void OnOptionsDialogCloseCallback()
+        private void OnOptionsDialogCloseCallback(bool needsReload)
         {
-            if (optionsLogic == null)
-                return;
-            bool needsReload = optionsLogic.NeedsReload;
-            optionsLogic.OnClose -= OnOptionsDialogCloseCallback;
-            optionsLogic.Dispose();
-            optionsLogic = null;
             ui.SetOptionsDialogActive(false);
             if (needsReload)
             {
@@ -750,7 +744,6 @@ namespace MVZ2.Map
         private bool draggingView;
         private Vector2 mapDragStartPos;
         private float cameraScaleSpeed;
-        private OptionsLogicMap? optionsLogic;
         private List<RaycastResult> raycastResultCache = new List<RaycastResult>();
         private List<TouchData> touchDatas = new List<TouchData>();
         private ITalkSystem talkSystem = null!;
@@ -769,6 +762,8 @@ namespace MVZ2.Map
         private Camera mapCamera = null!;
         [SerializeField]
         private float minCameraSize = 2;
+        [SerializeField]
+        private OptionsDialogController optionDialogController = null!;
 
         [Header("Button Colors")]
         [SerializeField]

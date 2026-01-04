@@ -68,6 +68,8 @@ namespace MVZ2Logic.Localization
         public const string CONTEXT_ARTIFACT_TOOLTIP = "artifact.tooltip";
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
         public const string CONTEXT_OPTION_NAME = "option.name";
+        public const string CONTEXT_OPTION_CATEGORY = "option.category";
+        public const string CONTEXT_OPTION_TOOLTIP = "option.tooltip";
 
 
         #region 图鉴

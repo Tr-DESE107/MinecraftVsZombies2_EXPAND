@@ -24,5 +24,7 @@ namespace MVZ2Logic.Games
         void SetOptionString(NamespaceID id, string value);
         void SetOptionID(NamespaceID id, NamespaceID? value);
 
+        void SaveOptions();
+
     }
 }

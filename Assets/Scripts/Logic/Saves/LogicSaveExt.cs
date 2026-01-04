@@ -7,6 +7,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.Unlocks;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using UnityEngine;
 
 namespace MVZ2Logic.Saves
 {
@@ -148,6 +149,10 @@ namespace MVZ2Logic.Saves
         public static bool IsHPBarUnlocked(this IGlobalSaveData save)
         {
             return save.IsGroupUnlocked(LogicUnlockGroupID.hpBar);
+        }
+        public static bool IsHPBarUnlockedOrDebug(this IGlobalSaveData save)
+        {
+            return save.IsGroupUnlocked(LogicUnlockGroupID.hpBar) || Application.isEditor || save.IsDebugUser();
         }
         /// <summary>
         /// 梦境世界是否是梦魇状态。

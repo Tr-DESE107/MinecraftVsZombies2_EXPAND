@@ -10,9 +10,12 @@ namespace MVZ2.UI
     {
         public TextMeshProUGUI Text => text;
         public Slider Slider => slider;
+        public SliderEndHandler? EndHandler => endHandler;
         [SerializeField]
         private TextMeshProUGUI text = null!;
         [SerializeField]
         private Slider slider = null!;
+        [SerializeField]
+        private SliderEndHandler? endHandler;
     }
 }

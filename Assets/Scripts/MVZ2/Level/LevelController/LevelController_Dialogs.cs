@@ -28,6 +28,7 @@ namespace MVZ2.Level
             ui.SetGameOverDialogActive(false);
             ui.SetLevelLoadedDialogVisible(false);
             ui.SetLevelErrorLoadingDialogVisible(false);
+            optionsDialogController.OnClose += UI_OnOptionsMenuCloseCallback;
         }
 
         #region 重新开始确认
@@ -133,9 +134,8 @@ namespace MVZ2.Level
         {
             ui.SetOptionsDialogActive(true);
 
-            optionsLogic = new OptionsLogicLevel(ui.OptionsDialog, this);
-            optionsLogic.InitDialog();
-            optionsLogic.OnClose += UI_OnOptionsMenuCloseCallback;
+            var context = new OptionContextLevel(level);
+            optionsDialogController.Open(context);
         }
         #endregion
 
@@ -199,11 +199,12 @@ namespace MVZ2.Level
         [TranslateMsg("对话框内容，{0}为多出的关卡标识符列表")]
         public const string ERROR_LOAD_LEVEL_IDENTIFIER_ADDITIONAL_IDENTIFIER = "多出的模组：\n{0}";
 
-        private OptionsLogicLevel? optionsLogic;
 
         [Header("Dialogs")]
         [SerializeField]
         private List<Sprite> pauseImages = new List<Sprite>();
+        [SerializeField]
+        private OptionsDialogController optionsDialogController = null!;
         #endregion
     }
 }

@@ -14,6 +14,8 @@ namespace MVZ2Logic.Games
         Coroutine GotoChapterTransitionCoroutine(NamespaceID chapterID, bool end);
         void HideChapterTransition();
         void HidePages();
+        void OpenCreditsPanel();
+        void OpenKeybindingPanel();
 
         void FadeScreenCoverColor(Color target, float duration);
         void SetScreenCoverColor(Color value);

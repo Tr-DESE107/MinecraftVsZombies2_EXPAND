@@ -161,13 +161,13 @@ namespace MVZ2.Level
         }
         private void OnFastForwardKey()
         {
-            if (isGameOver || optionsLogic != null)
+            if (isGameOver || optionsDialogController.IsOpen())
                 return;
             SwitchSpeedUp();
         }
         private void OnHPBarsKey()
         {
-            if (isGameOver || optionsLogic != null)
+            if (isGameOver || optionsDialogController.IsOpen())
                 return;
             if (!IsHPBarsUnlocked())
             {

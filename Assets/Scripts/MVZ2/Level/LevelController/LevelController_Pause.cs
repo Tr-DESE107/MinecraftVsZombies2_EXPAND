@@ -53,10 +53,9 @@ namespace MVZ2.Level
             isPaused = false;
             Music.Resume();
 
-            if (optionsLogic != null)
+            if (optionsDialogController.IsOpen())
             {
-                optionsLogic.Dispose();
-                optionsLogic = null;
+                optionsDialogController.Close();
             }
             ui.SetPauseDialogActive(false);
             ui.SetOptionsDialogActive(false);

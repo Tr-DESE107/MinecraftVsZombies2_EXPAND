@@ -428,6 +428,14 @@ namespace MVZ2.Scenes
         {
             return main.CoroutineManager.ToCoroutine(DisplayChapterTransitionAsync(chapterID, end));
         }
+        void IGlobalScene.OpenCreditsPanel()
+        {
+            ShowCredits();
+        }
+        void IGlobalScene.OpenKeybindingPanel()
+        {
+            ShowKeybinding();
+        }
 
         #region 生命周期
         private void Awake()

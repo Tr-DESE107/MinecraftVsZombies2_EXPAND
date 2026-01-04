@@ -8,5 +8,6 @@ namespace MVZ2Logic
         public const string note = "note";
         public const string command = "command";
         public const string heldItem = "held_item";
+        public const string optionWidget = "option_widget";
     }
 }

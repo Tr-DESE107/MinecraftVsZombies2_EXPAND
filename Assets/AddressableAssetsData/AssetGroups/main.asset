@@ -9149,6 +9149,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9420b8f2b2ab334a92664dc5717e0fa
+    m_Address: mvz2:level/hp_bar_icons_armor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c97af9f0f5b17654188e82b19cc1350a
     m_Address: mvz2:gravitation_surge
     m_ReadOnly: 0
@@ -10534,6 +10541,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9540d23ffe50f94184d2e95f5bd7f6d
+    m_Address: mvz2:options
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e97a6bc479938c34ea159014b414b6af
     m_Address: mvz2:boss/the_giant

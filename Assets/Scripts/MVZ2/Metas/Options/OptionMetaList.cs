@@ -56,7 +56,7 @@ namespace MVZ2.Metas
                 for (int i = 0; i < widgetsNode.ChildNodes.Count; i++)
                 {
                     var childNode = widgetsNode.ChildNodes[i];
-                    var widget = OptionWidgetMeta.FromXmlNode(childNode, defaultNsp);
+                    var widget = OptionWidgetMeta.FromXmlNode(childNode, defaultNsp, i);
                     if (widget != null)
                         widgets.Add(widget);
                 }

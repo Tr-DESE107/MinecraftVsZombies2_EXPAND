@@ -9,6 +9,7 @@ namespace MVZ2Logic.Audios
         public readonly static NamespaceID achievement = Get("achievement");
         public readonly static NamespaceID buzzer = Get("buzzer");
         public readonly static NamespaceID cashRegister = Get("cash_register");
+        public readonly static NamespaceID click = Get("click");
         public readonly static NamespaceID dialogItemShow = Get("dialog_item_show");
         public readonly static NamespaceID dialogItemHide = Get("dialog_item_hide");
         public readonly static NamespaceID fastForward = Get("fast_forward");

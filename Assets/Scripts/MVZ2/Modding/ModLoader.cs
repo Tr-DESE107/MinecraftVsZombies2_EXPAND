@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Xml.Linq;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
@@ -21,6 +22,7 @@ using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Notes;
+using MVZ2Logic.Options;
 using MVZ2Logic.Resources;
 using MVZ2Logic.Seeds;
 using MVZ2Logic.Shapes;
@@ -28,11 +30,11 @@ using MVZ2Logic.Spawns;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
+using PVZEngine.Difficulties;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using UnityEngine;
 using PVZEngine.Spawns;
-using PVZEngine.Difficulties;
+using UnityEngine;
 
 namespace MVZ2.Modding
 {
@@ -437,6 +439,7 @@ namespace MVZ2.Modding
             LoadNoteProperties(mod);
             // 加载所有地格属性。
             LoadGridProperties(mod);
+            LoadOptionWidgetProperties(mod);
         }
         private void LoadAreaProperties(Mod mod)
         {
@@ -577,7 +580,6 @@ namespace MVZ2.Modding
                 def.SetProperty(LogicCommandProps.DESCRIPTION, meta.Description);
                 def.SetProperty(LogicCommandProps.MUST_IN_LEVEL, meta.InLevel);
                 def.SetProperty<ICommandVariantMeta[]>(LogicCommandProps.VARIANTS, meta.Variants);
-                mod.AddDefinition(def);
             }
         }
         private void LoadSpawnProperties(Mod mod)
@@ -644,7 +646,29 @@ namespace MVZ2.Modding
                     continue;
                 def.SetProperty(LogicGridProps.OVERLAY_SPRITE, meta.OverlaySprite);
                 def.SetProperty(LogicGridProps.SLOPE, meta.Slope);
-                mod.AddDefinition(def);
+            }
+        }
+        private void LoadOptionWidgetProperties(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (OptionWidgetDefinition def in mod.GetAllOptionWidgetDefinitions())
+            {
+                if (def == null)
+                    continue;
+                var id = def.GetID();
+                var meta = res.GetOptionWidgetMeta(id);
+                if (meta == null)
+                {
+                    Log.LogWarning($"Could not find option widget meta for OptionWidgetDefinition {def}.");
+                    continue;
+                }
+                def.SetProperty(LogicOptionWidgetProps.CATEGORY_ID, meta.Category);
+                def.SetProperty(LogicOptionWidgetProps.TOOLTIP, meta.Tooltip);
+                def.SetProperty(LogicOptionWidgetProps.LABEL, meta.Label);
+                def.SetProperty(LogicOptionWidgetProps.ORDER, meta.Order);
+                def.SetProperty(LogicOptionWidgetProps.SLIDER_MIN_VALUE, meta.SliderMinValue);
+                def.SetProperty(LogicOptionWidgetProps.SLIDER_MAX_VALUE, meta.SliderMaxValue);
+                def.SetProperty(LogicOptionWidgetProps.SLIDER_WHOLE_NUMBERS, meta.SliderWholeNumber);
             }
         }
         #endregion
