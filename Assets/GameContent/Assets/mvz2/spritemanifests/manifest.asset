@@ -785,24 +785,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0c4364390af09764bb2a42d59f0deee7, type: 3}
   - name: arcade/iz/puzzle_unbreakable
     sprite: {fileID: 21300000, guid: 113f8d660acfe7748849e3d20cb3575e, type: 3}
-  - name: entity/armor/AngryReverserCrown
-    sprite: {fileID: 21300000, guid: 13fdf8cd7b2072849ae490ee21624f1f, type: 3}
-  - name: entity/armor/AngryReverserCrown1
-    sprite: {fileID: 21300000, guid: 928b53fcdda64324b94b714d74e61e1b, type: 3}
   - name: entity/armor/bedserker_helmet
     sprite: {fileID: 21300000, guid: e44b0e9757080bf4dbf0ae5b2420e15c, type: 3}
   - name: entity/armor/berserker_helmet
     sprite: {fileID: 21300000, guid: 7b5b04fa7d4703a48867a2ec9b7c31f6, type: 3}
   - name: entity/armor/emperor_crown
     sprite: {fileID: 21300000, guid: 58755531f1cc59b4ab7563c5bedf58b2, type: 3}
-  - name: entity/armor/KingofReverserCrown
-    sprite: {fileID: 21300000, guid: 16c3700de5b354d449d9c740a94c829f, type: 3}
-  - name: entity/armor/KingofReverserCrown1
-    sprite: {fileID: 21300000, guid: bba68c57ca664564887be8c1ec4b37d7, type: 3}
   - name: entity/armor/mesmerizer_crown
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
-  - name: entity/armor/mesmerizer_crown1
-    sprite: {fileID: 21300000, guid: 629fe0f23b035054aabed926b94d2021, type: 3}
   - name: entity/armor/pop_captain_cap
     sprite: {fileID: 21300000, guid: 33c49e1a293e6d94f8836070fff9c226, type: 3}
   - name: entity/armor/wicked_hermit_hat
@@ -1403,8 +1393,18 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ddecb2750e06a86449911b2ad608969f, type: 3}
   - name: ui/store/product_frame
     sprite: {fileID: 21300000, guid: 32bf431d8ac58764cb0070360418c14d, type: 3}
+  - name: entity/armor/EXPAND_armor/AngryReverserCrown
+    sprite: {fileID: 21300000, guid: 13fdf8cd7b2072849ae490ee21624f1f, type: 3}
+  - name: entity/armor/EXPAND_armor/AngryReverserCrown1
+    sprite: {fileID: 21300000, guid: 928b53fcdda64324b94b714d74e61e1b, type: 3}
   - name: entity/armor/EXPAND_armor/HemperorCrown
     sprite: {fileID: -923770071, guid: d1a7c525972e9d64b98d6d1779d84282, type: 3}
+  - name: entity/armor/EXPAND_armor/KingofReverserCrown
+    sprite: {fileID: 21300000, guid: 16c3700de5b354d449d9c740a94c829f, type: 3}
+  - name: entity/armor/EXPAND_armor/KingofReverserCrown1
+    sprite: {fileID: 21300000, guid: bba68c57ca664564887be8c1ec4b37d7, type: 3}
+  - name: entity/armor/EXPAND_armor/mesmerizer_crown1
+    sprite: {fileID: 21300000, guid: 629fe0f23b035054aabed926b94d2021, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/PulseArrow
     sprite: {fileID: 21300000, guid: 8d8e8f205d5efe14e8e22b9fc70301a0, type: 3}
   - name: map/gensokyo/pins/castle
@@ -3769,6 +3769,14 @@ MonoBehaviour:
     - {fileID: -585815378, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
     - {fileID: 1470687961, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
     - {fileID: -1157297119, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
+  - name: entity/enemy/EXPAND/NightmareDisciple
+    spritesheet:
+    - {fileID: -1059939155, guid: c2aa38fe12afc8b408156c23b53f38b4, type: 3}
+    - {fileID: -2074614293, guid: c2aa38fe12afc8b408156c23b53f38b4, type: 3}
+    - {fileID: 1422328863, guid: c2aa38fe12afc8b408156c23b53f38b4, type: 3}
+    - {fileID: 1287447575, guid: c2aa38fe12afc8b408156c23b53f38b4, type: 3}
+    - {fileID: 1599127427, guid: c2aa38fe12afc8b408156c23b53f38b4, type: 3}
+    - {fileID: -462450946, guid: c2aa38fe12afc8b408156c23b53f38b4, type: 3}
   - name: entity/enemy/EXPAND/PirateSkeleton
     spritesheet:
     - {fileID: -1469949163, guid: 820a7750be8b8464da332e609acb1646, type: 3}

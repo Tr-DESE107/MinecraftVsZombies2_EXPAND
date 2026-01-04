@@ -322,6 +322,9 @@
     <model name="HostIMP" type="entity" path="mvz2:enemy/dream/HostIMP" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+	<model name="NightmareDisciple" type="entity" path="mvz2:enemy/dream/NightmareDisciple" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
 
 	<model name="AngryGhast" type="entity" path="mvz2:enemy/dream/AngryGhast" width="64" height="64" xOffset="0" yOffset="-28" />
 

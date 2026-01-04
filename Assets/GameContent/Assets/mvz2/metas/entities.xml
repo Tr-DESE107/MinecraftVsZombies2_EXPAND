@@ -1669,7 +1669,7 @@
 			</properties>
 		</contraption>
 		
-		<dispenser id="EXPANDispenser" name="万象天枢" tooltip="（需要连射发射器）\n一次射出四支箭矢">
+		<dispenser id="EXPANDispenser" name="万象天枢" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_9" />
 			</unlock>
@@ -1688,7 +1688,7 @@
 		<!--EXPAND Black Contraption-->
 		<contraption id="Bedrock" name="基岩" tooltip="无法摧毁的屏障">
 			<unlock>
-				<condition required="mvz2:level.mausoleum_9" />
+				<condition required="mvz2:UCANNOTUSEIT" />
 				<!--<condition required="mvz2:UCANNOTUSEIT!" />-->
 			</unlock>
 			<properties>
@@ -1706,7 +1706,7 @@
 
 		<contraption id="Barrier" name="屏障" tooltip="">
 			<unlock>
-				<condition required="mvz2:level.mausoleum_9" />
+				<condition required="mvz2:UCANNOTUSEIT" />
 				<!--<condition required="mvz2:UCANNOTUSEIT!" />-->
 			</unlock>
 			<properties>
@@ -2517,6 +2517,28 @@
 				<float name="mvz2:damage" value="150" />
 			</properties>
 		</Imp_Exp>
+
+		<Skeleton_Exp id="NightmareDisciple" name="梦魇追随者" deathMessage="来到我们之中吧">
+			<unlock>
+				<condition required="mvz2:level.dream_11" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state" />
+				<behaviour operator="remove" id="mvz2:enemy_melee" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
+
+				<int name="mvz2:cost" value="75" />
+			</properties>
+		</Skeleton_Exp>
+		
 		<zombie id="EnragedHostZombie" name="狂暴宿主僵尸" deathMessage="二 人 幸 终">
 			<unlock>
 				<condition required="mvz2:level.dream_12" />

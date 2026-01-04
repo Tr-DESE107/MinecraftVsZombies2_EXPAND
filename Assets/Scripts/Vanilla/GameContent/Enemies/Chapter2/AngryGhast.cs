@@ -81,11 +81,11 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            for (var i = 0; i < 11; i++)
-            {
-                entity.Spawn(VanillaPickupID.emerald, entity.Position);
-                entity.Spawn(VanillaPickupID.ruby, entity.Position);
-            }
+            //for (var i = 0; i < 11; i++)
+            //{
+            //    entity.Spawn(VanillaPickupID.emerald, entity.Position);
+            //    entity.Spawn(VanillaPickupID.ruby, entity.Position);
+            //}
         }
         public static FrameTimer? GetStateTimer(Entity enemy)
         {

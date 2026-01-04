@@ -140,6 +140,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private void TriggerCrushingWalls(Entity boss)
         {
+            //半血后的命运选择
             boss.Level.PauseGame(100);
             var level = boss.Level;
             level.ShowDialog(CRUSHING_WALLS_WARNING, "", new string[] { BUTTON_CONFIRM, BUTTON_CANCEL }, (index) =>
