@@ -50,9 +50,9 @@ namespace MVZ2.GameContent.Enemies
 
             if (hasAliveBoss)
             {
-                if (!entity.HasBuff<SixQiResistanceBuff>())
+                if (!entity.HasBuff<VanguardResistanceBuff>())
                 {
-                    entity.AddBuff<SixQiResistanceBuff>();
+                    entity.AddBuff<VanguardResistanceBuff>();
                 }
             }
 
@@ -113,7 +113,7 @@ namespace MVZ2.GameContent.Enemies
                 if (attackState == ATTACK_STATE_FIRE)
                 {
                     SetAttackState(enemy, ATTACK_STATE_RESTORE);
-                    timer.ResetTime(ATTACK_RESTORE_TIME);
+                    timer.ResetTime(ATTACK_RESTORE_TIME_OWN);
                     Shoot(enemy);
                 }
                 else if (attackState == ATTACK_STATE_RESTORE)
@@ -139,7 +139,7 @@ namespace MVZ2.GameContent.Enemies
                 enemy.Target = null;
             }
         }
-        private void Shoot(Entity enemy)
+        protected override void Shoot(Entity enemy)
         {
             var enemyClass = enemy.GetVariant();
             switch (enemyClass)
@@ -288,7 +288,7 @@ namespace MVZ2.GameContent.Enemies
 
         public const int ATTACK_CAST_TIME = 5;
         public const int ATTACK_FIRE_TIME = 5;
-        public const int ATTACK_RESTORE_TIME = 20;
+        public const int ATTACK_RESTORE_TIME_OWN = 600;
 
         public const int VARIANT_RANDOM = 0;
         public const int VARIANT_FIRE = 1;
@@ -300,7 +300,7 @@ namespace MVZ2.GameContent.Enemies
         private static readonly NamespaceID ID = VanillaEnemyID.NightmareDisciple;
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PORTAL_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("PortalTimer");
 
-        public const int PORTAL_COOLDOWN = 300;
+        public const int PORTAL_COOLDOWN = 180;
         public static int[] mageVariants = new int[]
         {
             NightmareDisciple.VARIANT_FIRE,

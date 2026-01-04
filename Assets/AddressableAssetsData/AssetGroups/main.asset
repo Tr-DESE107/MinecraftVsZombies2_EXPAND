@@ -1173,7 +1173,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13fdf8cd7b2072849ae490ee21624f1f
-    m_Address: mvz2:entity/armor/AngryReverserCrown
+    m_Address: mvz2:entity/armor/EXPAND_armor/AngryReverserCrown
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1390,7 +1390,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16c3700de5b354d449d9c740a94c829f
-    m_Address: mvz2:entity/armor/KingofReverserCrown
+    m_Address: mvz2:entity/armor/EXPAND_armor/KingofReverserCrown
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5594,6 +5594,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e2dd695b8768804db72060b05bec052
+    m_Address: mvz2:enemy/dream/NightmareDisciple
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e32a349439a62d4d8f1d83d8dc3140c
     m_Address: mvz2:mobile_blueprint/MutantVillager
     m_ReadOnly: 0
@@ -5847,7 +5854,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 629fe0f23b035054aabed926b94d2021
-    m_Address: mvz2:entity/armor/mesmerizer_crown1
+    m_Address: mvz2:entity/armor/EXPAND_armor/mesmerizer_crown1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8457,7 +8464,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 928b53fcdda64324b94b714d74e61e1b
-    m_Address: mvz2:entity/armor/AngryReverserCrown1
+    m_Address: mvz2:entity/armor/EXPAND_armor/AngryReverserCrown1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10704,7 +10711,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bba68c57ca664564887be8c1ec4b37d7
-    m_Address: mvz2:entity/armor/KingofReverserCrown1
+    m_Address: mvz2:entity/armor/EXPAND_armor/KingofReverserCrown1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10975,6 +10982,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2aa38fe12afc8b408156c23b53f38b4
+    m_Address: mvz2:entity/enemy/EXPAND/NightmareDisciple
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2aeb2a3155f07e428c69e806e0e4b32
     m_Address: mvz2:talk/dialog_bang

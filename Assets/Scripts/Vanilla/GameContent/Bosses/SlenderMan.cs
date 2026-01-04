@@ -184,7 +184,8 @@ namespace MVZ2.GameContent.Bosses
                             Vector3 pos = new Vector3(x, y, z);
 
                             SpawnPortal(boss, pos, VanillaEnemyID.BloodlustHostZombie);
-                            SpawnPortal(boss, pos, VanillaEnemyID.NightmareDisciple);
+                            SpawnNightmareDisciple(boss);
+                            SpawnNightmareDisciple(boss);
                         }
                     }
 
@@ -813,18 +814,36 @@ namespace MVZ2.GameContent.Bosses
 
         private void ShadowChasing(Entity boss)
         {
-            //逐影：在第8列召唤梦魇追随者
+            //逐影：在第8列召唤梦魇追随者 
             boss.PlaySound(VanillaSoundID.nightmarePortal);
             var level = boss.Level;
+            var rng = GetEventRNG(boss);
+
+            // 设置召唤数量，可以随机或固定  
+            int spawnCount = rng != null ? rng.Next(1, 3) : UnityEngine.Random.Range(1, 3);
+
+            // 收集第8列的所有有效位置  
+            List<Vector2Int> validPositions = new List<Vector2Int>();
+            int column = 8; // 第8列  
 
             for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
             {
-                float x = level.GetEntityColumnX(8); 
-                float z = level.GetEntityLaneZ(lane);
-                float y = level.GetGroundY(x, z);
-                Vector3 pos = new Vector3(x, y, z);
+                validPositions.Add(new Vector2Int(column, lane));
+            }
 
-                SpawnPortal(boss, pos, VanillaEnemyID.NightmareDisciple);
+            // 随机选择位置进行召唤  
+            for (int i = 0; i < spawnCount && validPositions.Count > 0; i++)
+            {
+                int index = rng != null ? rng.Next(0, validPositions.Count) : UnityEngine.Random.Range(0, validPositions.Count);
+                var posInfo = validPositions[index];
+                validPositions.RemoveAt(index);
+
+                float x = level.GetEntityColumnX(posInfo.x);
+                float z = level.GetEntityLaneZ(posInfo.y);
+                float y = level.GetGroundY(x, z);
+                Vector3 spawnPos = new Vector3(x, y, z);
+
+                SpawnPortal(boss, spawnPos, VanillaEnemyID.NightmareDisciple);
             }
         }
 

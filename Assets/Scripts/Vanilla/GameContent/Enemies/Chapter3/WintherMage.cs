@@ -117,7 +117,7 @@ namespace MVZ2.GameContent.Enemies
                 enemy.Target = null;
             }
         }
-        private void Shoot(Entity enemy)
+        protected override void Shoot(Entity enemy)
         {
             if (shoot_times != 4)
             {
