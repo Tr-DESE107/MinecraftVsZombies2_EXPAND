@@ -22,9 +22,11 @@
         <bool id="show_hotkeys" defaultValue="false" />
         <bool id="hdr_lighting" defaultValue="true" />
         <bool id="height_indicator" defaultValue="false" />
+        <bool id="v_sync" defaultValue="true" />
 
         <int id="commandBlockMode" defaultValue="0" />
         <int id="fpsMode" defaultValue="0" />
+        <int id="target_framerate" defaultValue="-1" />
 
         <float id="music_volume" defaultValue="1" />
         <float id="sound_volume" defaultValue="1" />
@@ -67,13 +69,36 @@
                 <p>前位：自动模仿上一个选择的器械。</p>
             </tooltip>
         </dropdown>
-        <dropdown id="show_fps" category="mvz2:general" label="显示帧率">
+
+        <!-- Graphics -->
+        <dropdown id="resolution" category="mvz2:graphics" label="分辨率" />
+        <toggle id="fullscreen" category="mvz2:graphics" label="全屏">
+            <tooltip>
+                <p>是否全屏。</p>
+            </tooltip>
+        </toggle>
+        <toggle id="v_sync" category="mvz2:graphics" label="垂直同步">
+            <tooltip>
+                <p>是否开启垂直同步。垂直同步可以防止画面撕裂，但会使目标帧率设置无效化。</p>
+            </tooltip>
+        </toggle>
+        <dropdown id="target_framerate" category="mvz2:graphics" label="目标帧率">
+            <tooltip>
+                <p>游戏的目标帧率。</p>
+                <p>桌面平台下，默认不限制目标频率。</p>
+                <p>移动平台下，默认目标帧率固定为30。</p>
+            </tooltip>
+        </dropdown>
+        <dropdown id="show_fps" category="mvz2:graphics" label="显示帧率">
             <tooltip>
                 <p>是否显示游戏帧率。</p>
             </tooltip>
         </dropdown>
-
-        <!-- Graphics -->
+        <toggle id="hdr_lighting" category="mvz2:graphics" label="HDR光照">
+            <tooltip>
+                <p>是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。</p>
+            </tooltip>
+        </toggle>
         <slider id="particle_amount" category="mvz2:graphics" label="粒子数量：{0}">
             <tooltip>
                 <p>粒子效果数量。</p>
@@ -89,17 +114,6 @@
                 <p>关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。</p>
             </tooltip>
         </slider>
-        <dropdown id="resolution" category="mvz2:graphics" label="分辨率" />
-        <toggle id="fullscreen" category="mvz2:graphics" label="全屏">
-            <tooltip>
-                <p>是否全屏。</p>
-            </tooltip>
-        </toggle>
-        <toggle id="hdr_lighting" category="mvz2:graphics" label="HDR光照">
-            <tooltip>
-                <p>是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。</p>
-            </tooltip>
-        </toggle>
 
         <!-- Gameplay -->
         <toggle id="blood_and_gore" category="mvz2:gameplay" label="血与碎块">

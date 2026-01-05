@@ -25,6 +25,8 @@ namespace MVZ2Logic.Options
         public const string skipTalks = "skip_talks";
         public const string vibration = "vibration";
         public const string fullscreen = "fullscreen";
+        public const string vSync = "v_sync";
+        public const string targetFramerate = "target_framerate";
         public const string resolution = "resolution";
         public const string showFPS = "show_fps";
         public const string credits = "credits";

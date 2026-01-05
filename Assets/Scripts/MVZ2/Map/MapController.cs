@@ -541,7 +541,7 @@ namespace MVZ2.Map
             var cameraPos = mapCamera.transform.position;
             var targetWorldPos = (Vector2)mapCamera.ScreenToWorldPoint(position);
             var fromWorldPos = (Vector2)mapCamera.ScreenToWorldPoint(mapDragStartPos);
-            cameraPos += (Vector3)((targetWorldPos - fromWorldPos) * 0.1f);
+            cameraPos += (Vector3)((targetWorldPos - fromWorldPos) * (6 * Time.deltaTime));
             mapCamera.transform.position = cameraPos;
         }
         private void OnRightMouseUp()

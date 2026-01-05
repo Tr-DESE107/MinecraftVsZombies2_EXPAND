@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-04 10:06+0800\n"
-"PO-Revision-Date: 2026-01-04 22:13+0800\n"
+"POT-Creation-Date: 2026-01-05 03:45+0800\n"
+"PO-Revision-Date: 2026-01-05 15:47+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -143,12 +143,6 @@ msgstr ""
 msgctxt "option.tooltip"
 msgid "是否在游戏失去焦点后暂停游戏。"
 msgstr "Option to pause the game when it loses focus."
-
-#. 选项分类
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
-#: View/Viewport/Content/CategoryTemplate/Title/Text
-msgid "常规"
-msgstr "General"
 
 #. 对话跳过按钮
 #: /MainGame/MainScene/Note/Talk/SkipButton/Text
@@ -1124,43 +1118,43 @@ msgstr "Press a key"
 msgid "确认要重置所有按键绑定吗？"
 msgstr "Are you sure to reset all key bindings?"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:575
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:579
 msgid "交换触发"
 msgstr "Swap Trigger"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:577
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:581
 msgid "全屏"
 msgstr "Full Screen"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:579
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:583
 msgid "设备震动"
 msgstr "Vibration"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:581
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:585
 msgid "后台暂停"
 msgstr "Pause on Focus Lost"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:583
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:587
 msgid "更多选项"
 msgstr "More Options"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:585
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:589
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:593
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:597
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:595
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:599
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:597
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:601
 msgid "加速倍率：{0}"
 msgstr "Fast-forward: {0}"
 
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:599
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:603
 msgid ""
 "确认要返回吗？\n"
 "你的进度会被保存。"
@@ -2124,7 +2118,7 @@ msgctxt "key.name"
 msgid "Menu"
 msgstr "Menu"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:330
+#: Scripts\MVZ2\Managers\MainManager.cs:329
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
@@ -2183,16 +2177,16 @@ msgid "中文"
 msgstr "English (United States)"
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:796
+#: Scripts\MVZ2\Entities\EntityController.cs:795
 msgid "死亡"
 msgstr "Dead"
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:798
+#: Scripts\MVZ2\Entities\EntityController.cs:797
 msgid "摧毁"
 msgstr "Destroyed"
 
-#: Scripts\MVZ2\Entities\EntityController.cs:800
+#: Scripts\MVZ2\Entities\EntityController.cs:799
 msgid "{0}"
 msgstr "{0}"
 
@@ -2427,34 +2421,40 @@ msgstr "All"
 msgid "{0}x{1} @{2}Hz"
 msgstr "{0}x{1} @{2}Hz"
 
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:37
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:36
 msgctxt "option.fps_mode"
 msgid "关闭"
 msgstr "Disabled"
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:39
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:38
 msgctxt "option.fps_mode"
 msgid "左上"
 msgstr "Top Left"
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:41
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:40
 msgctxt "option.fps_mode"
 msgid "右上"
 msgstr "Top Right"
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:43
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:42
 msgctxt "option.fps_mode"
 msgid "左下"
 msgstr "Bottom Left"
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:45
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:44
 msgctxt "option.fps_mode"
 msgid "右下"
 msgstr "Bottom Right"
+
+# FPS模式
+#: Scripts\Logic\Options\Definitions\TargetFramerateOptionDropdown.cs:50
+msgctxt "option.target_framerate"
+msgid "默认"
+msgstr "Default"
 
 #: Scripts\Logic\LogicMain.cs:14
 msgid "{0}%"
@@ -5432,6 +5432,58 @@ msgstr ""
 "Manual: Manually select the blueprint to imitate.\n"
 "Previous: Automatically imitate the last selected blueprint."
 
+#. Label for option widget 分辨率
+#: Option meta file
+msgctxt "option.name"
+msgid "分辨率"
+msgstr "Resolution"
+
+#. Label for option widget 全屏
+#: Option meta file
+msgctxt "option.name"
+msgid "全屏"
+msgstr "Full Screen"
+
+#. Tooltip for option widget 是否全屏。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否全屏。"
+msgstr "Option to enable fullscreen mode."
+
+#. Label for option widget 垂直同步
+#: Option meta file
+msgctxt "option.name"
+msgid "垂直同步"
+msgstr "V-Sync"
+
+#. Tooltip for option widget 是否开启垂直同步。垂直同步可以防止画面撕裂，但会使目标帧率设置无效化。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否开启垂直同步。垂直同步可以防止画面撕裂，但会使目标帧率设置无效化。"
+msgstr ""
+"Option to enable v-sync. V-sync can prevent screen tearing, but it will "
+"override the target frame rate setting."
+
+#. Label for option widget 目标帧率
+#: Option meta file
+msgctxt "option.name"
+msgid "目标帧率"
+msgstr "Target Frame Rate"
+
+#. Tooltip for option widget 游戏的目标帧率。
+#. 桌面平台下，默认不限制目标频率。
+#. 移动平台下，默认目标帧率固定为30。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid ""
+"游戏的目标帧率。\n"
+"桌面平台下，默认不限制目标频率。\n"
+"移动平台下，默认目标帧率固定为30。"
+msgstr ""
+"The target frame rate of the game.\n"
+"On desktop platforms, the default target frame rate is unrestricted.\n"
+"On mobile platforms, the default target frame rate is fixed at 30."
+
 # 选项，{0}为是否开启
 #. Label for option widget 显示帧率
 #: Option meta file
@@ -5444,6 +5496,22 @@ msgstr "Show FPS"
 msgctxt "option.tooltip"
 msgid "是否显示游戏帧率。"
 msgstr "Option to display FPS."
+
+#. Label for option widget HDR光照
+#: Option meta file
+msgctxt "option.name"
+msgid "HDR光照"
+msgstr "HDR Lighting"
+
+#. Tooltip for option widget 是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid ""
+"是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得"
+"较为刺眼。"
+msgstr ""
+"Option to enable HDR lighting. This allows lights in levels to brighten "
+"scene textures but may make them appear overly bright."
 
 #. Label for option widget 粒子数量：{0}
 #: Option meta file
@@ -5483,40 +5551,6 @@ msgid ""
 msgstr ""
 "Update rate of entity animations in levels. Lowering this may improve "
 "performance but will reduce entity animation quality."
-
-#. Label for option widget 分辨率
-#: Option meta file
-msgctxt "option.name"
-msgid "分辨率"
-msgstr "Resolution"
-
-#. Label for option widget 全屏
-#: Option meta file
-msgctxt "option.name"
-msgid "全屏"
-msgstr "Full Screen"
-
-#. Tooltip for option widget 是否全屏。
-#: Option meta file
-msgctxt "option.tooltip"
-msgid "是否全屏。"
-msgstr "Option to enable fullscreen mode."
-
-#. Label for option widget HDR光照
-#: Option meta file
-msgctxt "option.name"
-msgid "HDR光照"
-msgstr "HDR Lighting"
-
-#. Tooltip for option widget 是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。
-#: Option meta file
-msgctxt "option.tooltip"
-msgid ""
-"是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得"
-"较为刺眼。"
-msgstr ""
-"Option to enable HDR lighting. This allows lights in levels to brighten "
-"scene textures but may make them appear overly bright."
 
 #. Label for option widget 血与碎块
 #: Option meta file
@@ -5637,6 +5671,18 @@ msgstr "Credits"
 msgctxt "option.name"
 msgid "导出日志文件"
 msgstr "Export Log Files"
+
+# FPS模式
+#~ msgctxt "option.target_framerate"
+#~ msgid "无限制"
+#~ msgstr "Unlimited"
+
+#~ msgctxt "option.tooltip"
+#~ msgid "游戏的目标帧率。"
+#~ msgstr "The target game frame rate."
+
+#~ msgid "常规"
+#~ msgstr "General"
 
 # 通用文本
 #~ msgid "显示"

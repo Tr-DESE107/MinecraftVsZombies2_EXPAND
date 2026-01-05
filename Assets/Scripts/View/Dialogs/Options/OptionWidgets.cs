@@ -131,13 +131,13 @@ namespace MVZ2.UI
         private NamespaceID? optionID;
 
         [SerializeField]
-        private LabeledToggle toggle;
+        private LabeledToggle toggle = null!;
         [SerializeField]
-        private TextSlider slider;
+        private TextSlider slider = null!;
         [SerializeField]
-        private LabeledDropdown dropdown;
+        private LabeledDropdown dropdown = null!;
         [SerializeField]
-        private TextButton button;
+        private TextButton button = null!;
     }
     public struct OptionWidgetsViewData
     {

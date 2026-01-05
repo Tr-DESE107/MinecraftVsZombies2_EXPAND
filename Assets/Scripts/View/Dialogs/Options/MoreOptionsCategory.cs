@@ -96,9 +96,9 @@ namespace MVZ2.UI
         public event Action<TooltipHandler>? OnTooltipHide;
 
         [SerializeField]
-        private TextMeshProUGUI label;
+        private TextMeshProUGUI label = null!;
         [SerializeField]
-        private ElementList list;
+        private ElementList list = null!;
     }
     public struct MoreOptionsCategoryViewData
     {

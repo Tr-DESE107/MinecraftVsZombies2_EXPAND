@@ -162,5 +162,15 @@ namespace MVZ2Logic.Options
         public static float GetAnimationFrequency(this IGlobalOptions options) => options.GetOptionFloat(LogicOptionItemID.animationFrequency);
         public static void SetAnimationFrequency(this IGlobalOptions options, float value) => options.SetOptionFloat(LogicOptionItemID.animationFrequency, value);
         #endregion
+
+        #region 垂直同步
+        public static bool GetVSync(this IGlobalOptions options) => options.GetOptionBool(LogicOptionItemID.vSync);
+        public static void SetVSync(this IGlobalOptions options, bool value) => options.SetOptionBool(LogicOptionItemID.vSync, value);
+        #endregion
+
+        #region 目标帧率
+        public static int GetTargetFramerate(this IGlobalOptions options) => options.GetOptionInt(LogicOptionItemID.targetFramerate);
+        public static void SetTargetFramerate(this IGlobalOptions options, int value) => options.SetOptionInt(LogicOptionItemID.targetFramerate, value);
+        #endregion
     }
 }

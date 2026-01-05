@@ -12,6 +12,8 @@ namespace MVZ2Logic.Options
         public const string swapTrigger = "swap_trigger";
         public const string vibration = "vibration";
         public const string fullscreen = "fullscreen";
+        public const string vSync = "v_sync";
+        public const string targetFramerate = "target_framerate";
         public const string bloodAndGore = "blood_and_gore";
         public const string pauseOnFocusLost = "pause_on_focus_lost";
         public const string skipTalks = "skip_talks";
@@ -44,6 +46,8 @@ namespace MVZ2Logic.Options
         public static readonly NamespaceID swapTrigger = Get(LogicOptionItemNames.swapTrigger);
         public static readonly NamespaceID vibration = Get(LogicOptionItemNames.vibration);
         public static readonly NamespaceID fullscreen = Get(LogicOptionItemNames.fullscreen);
+        public static readonly NamespaceID vSync = Get(LogicOptionItemNames.vSync);
+        public static readonly NamespaceID targetFramerate = Get(LogicOptionItemNames.targetFramerate);
         public static readonly NamespaceID bloodAndGore = Get(LogicOptionItemNames.bloodAndGore);
         public static readonly NamespaceID pauseOnFocusLost = Get(LogicOptionItemNames.pauseOnFocusLost);
         public static readonly NamespaceID skipTalks = Get(LogicOptionItemNames.skipTalks);

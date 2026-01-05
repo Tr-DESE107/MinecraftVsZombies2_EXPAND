@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-04 10:06+0800\n"
+"POT-Creation-Date: 2026-01-05 03:45+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,11 +132,6 @@ msgstr ""
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Top/OptionToggle
 msgctxt "option.tooltip"
 msgid "是否在游戏失去焦点后暂停游戏。"
-msgstr ""
-
-#. 选项分类
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/CategoryTemplate/Title/Text
-msgid "常规"
 msgstr ""
 
 #. 对话跳过按钮
@@ -1172,52 +1167,52 @@ msgid "确认要重置所有按键绑定吗？"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:575
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:579
 msgid "交换触发"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:577
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:581
 msgid "全屏"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:579
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:583
 msgid "设备震动"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:581
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:585
 msgid "后台暂停"
 msgstr ""
 
 # 选项
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:583
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:587
 msgid "更多选项"
 msgstr ""
 
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:585
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:589
 msgid "难度：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:593
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:597
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:595
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:599
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:597
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:601
 msgid "加速倍率：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:599
+#: Scripts\MVZ2\Options\Dialog\OptionsDialogController.cs:603
 msgid ""
 "确认要返回吗？\n"
 "你的进度会被保存。"
@@ -2187,7 +2182,7 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:330
+#: Scripts\MVZ2\Managers\MainManager.cs:329
 msgid "获取赞助者列表……"
 msgstr ""
 
@@ -2248,17 +2243,17 @@ msgid "中文"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:796
+#: Scripts\MVZ2\Entities\EntityController.cs:795
 msgid "死亡"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:798
+#: Scripts\MVZ2\Entities\EntityController.cs:797
 msgid "摧毁"
 msgstr ""
 
 # 血条的文字模板
-#: Scripts\MVZ2\Entities\EntityController.cs:800
+#: Scripts\MVZ2\Entities\EntityController.cs:799
 msgid "{0}"
 msgstr ""
 
@@ -2491,33 +2486,39 @@ msgid "{0}x{1} @{2}Hz"
 msgstr ""
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:37
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:36
 msgctxt "option.fps_mode"
 msgid "关闭"
 msgstr ""
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:39
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:38
 msgctxt "option.fps_mode"
 msgid "左上"
 msgstr ""
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:41
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:40
 msgctxt "option.fps_mode"
 msgid "右上"
 msgstr ""
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:43
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:42
 msgctxt "option.fps_mode"
 msgid "左下"
 msgstr ""
 
 # FPS模式
-#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:45
+#: Scripts\Logic\Options\Definitions\ShowFPSOptionDropdown.cs:44
 msgctxt "option.fps_mode"
 msgid "右下"
+msgstr ""
+
+# FPS模式
+#: Scripts\Logic\Options\Definitions\TargetFramerateOptionDropdown.cs:50
+msgctxt "option.target_framerate"
+msgid "默认"
 msgstr ""
 
 # 值，{0}为百分数
@@ -5164,6 +5165,53 @@ msgid ""
 "前位：自动模仿上一个选择的器械。"
 msgstr ""
 
+#. Label for option widget 分辨率
+#: Option meta file
+msgctxt "option.name"
+msgid "分辨率"
+msgstr ""
+
+#. Label for option widget 全屏
+#: Option meta file
+msgctxt "option.name"
+msgid "全屏"
+msgstr ""
+
+#. Tooltip for option widget 是否全屏。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否全屏。"
+msgstr ""
+
+#. Label for option widget 垂直同步
+#: Option meta file
+msgctxt "option.name"
+msgid "垂直同步"
+msgstr ""
+
+#. Tooltip for option widget 是否开启垂直同步。垂直同步可以防止画面撕裂，但会使目标帧率设置无效化。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否开启垂直同步。垂直同步可以防止画面撕裂，但会使目标帧率设置无效化。"
+msgstr ""
+
+#. Label for option widget 目标帧率
+#: Option meta file
+msgctxt "option.name"
+msgid "目标帧率"
+msgstr ""
+
+#. Tooltip for option widget 游戏的目标帧率。
+#. 桌面平台下，默认不限制目标频率。
+#. 移动平台下，默认目标帧率固定为30。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid ""
+"游戏的目标帧率。\n"
+"桌面平台下，默认不限制目标频率。\n"
+"移动平台下，默认目标帧率固定为30。"
+msgstr ""
+
 #. Label for option widget 显示帧率
 #: Option meta file
 msgctxt "option.name"
@@ -5174,6 +5222,18 @@ msgstr ""
 #: Option meta file
 msgctxt "option.tooltip"
 msgid "是否显示游戏帧率。"
+msgstr ""
+
+#. Label for option widget HDR光照
+#: Option meta file
+msgctxt "option.name"
+msgid "HDR光照"
+msgstr ""
+
+#. Tooltip for option widget 是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid "是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。"
 msgstr ""
 
 #. Label for option widget 粒子数量：{0}
@@ -5210,36 +5270,6 @@ msgstr ""
 #: Option meta file
 msgctxt "option.tooltip"
 msgid "关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。"
-msgstr ""
-
-#. Label for option widget 分辨率
-#: Option meta file
-msgctxt "option.name"
-msgid "分辨率"
-msgstr ""
-
-#. Label for option widget 全屏
-#: Option meta file
-msgctxt "option.name"
-msgid "全屏"
-msgstr ""
-
-#. Tooltip for option widget 是否全屏。
-#: Option meta file
-msgctxt "option.tooltip"
-msgid "是否全屏。"
-msgstr ""
-
-#. Label for option widget HDR光照
-#: Option meta file
-msgctxt "option.name"
-msgid "HDR光照"
-msgstr ""
-
-#. Tooltip for option widget 是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。
-#: Option meta file
-msgctxt "option.tooltip"
-msgid "是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。"
 msgstr ""
 
 #. Label for option widget 血与碎块
