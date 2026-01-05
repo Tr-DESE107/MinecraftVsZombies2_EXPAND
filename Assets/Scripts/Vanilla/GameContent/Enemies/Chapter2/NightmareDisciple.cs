@@ -171,7 +171,7 @@ namespace MVZ2.GameContent.Enemies
                     {
                         var param = enemy.GetShootParams();
                         param.damage = enemy.GetDamage() * 0.4f;
-                        param.projectileID = VanillaProjectileID.fireball;
+                        param.projectileID = VanillaProjectileID.NightmareBall;
                         param.soundID = VanillaSoundID.fire;
                         enemy.ShootProjectile(param);
                     }
