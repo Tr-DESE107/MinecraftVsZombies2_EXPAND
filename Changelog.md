@@ -1,3 +1,5 @@
+# 0.5.2
+
 ## Modified
 - Adjusted the algorithm for the frequency of each blueprint appearing in conveyor belt levels.
 
