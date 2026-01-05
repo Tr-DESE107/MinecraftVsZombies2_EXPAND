@@ -1577,6 +1577,19 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
+        <dispenser id="Freezenser" name="寒冰发射器" tooltip="射出能够减速和冻结敌人的冰锥">
+            <unlock>
+                <condition required="mvz2:level.halloween_1" />
+            </unlock>
+            <properties>
+                <float name="mvz2:damage" value="15" />
+                <id name="mvz2:projectileId" value="mvz2:ice_bolt" />
+                <id name="mvz2:shell" value="mvz2:ice" />
+
+                <int name="mvz2:cost" value="175" />
+                <id name="mvz2:rechargeId" value="mvz2:short" />
+            </properties>
+        </dispenser>
 
         <contraption id="AntiGravityPad" name="反重力板" tooltip="反转上方物体的重力">
             <unlock>
@@ -2534,6 +2547,7 @@
 				<id name="mvz2:shell" value="mvz2:bone" />
 				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
+				<bool name="mvz2:immune_slowing" value="true" />
 				<float name="mvz2:maxHealth" value="800" />
 
 				<int name="mvz2:cost" value="75" />
@@ -4482,6 +4496,14 @@
 				<color name="mvz2:lightColor" value="#000000" />
 			</properties>
 		</projectile>
+		<projectile id="IcedBolt">
+			<properties>
+				<bool name="mvz2:pointToDirection" value="true" />
+				<bool name="mvz2:is_frost" value="true" />
+				<vector3 name="mvz2:size" x="52" y="16" z="16" />
+				<idArray name="mvz2:damageEffects" value="mvz2:ice mvz2:slow" />
+			</properties>
+		</projectile>
 
         <!-- Effects -->
         <effect id="miner">
@@ -5243,5 +5265,11 @@
                 <int name="mvz2:maxTimeout" value="90" />
             </properties>
         </effect>
+
+		<effect id="SoulFreeze">
+			<properties>
+				<int name="mvz2:maxTimeout" value="-1" />
+			</properties>
+		</effect>
     </entries>
 </entities>

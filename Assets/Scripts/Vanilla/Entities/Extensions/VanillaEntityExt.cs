@@ -550,6 +550,17 @@ namespace MVZ2.Vanilla.Entities
             }
             StunBuff.SetStunTime(buff, timeout);
         }
+        public static void SoulFreeze(this Entity entity, int timeout)
+        {
+            if (entity == null)
+                return;
+            var buff = entity.GetFirstBuff<SoulFreezeBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<SoulFreezeBuff>();
+            }
+            SoulFreezeBuff.SetFreezeTime(buff, timeout);
+        }
 
         #region 阻挡火焰
         public static bool WillDamageBlockFire(this DamageOutput damage)
@@ -1078,9 +1089,11 @@ namespace MVZ2.Vanilla.Entities
         public static void Unfreeze(this Entity entity, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
-            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+            var SoulFreeze = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.SoulFreeze);
+            if (buffDefinition == null || SoulFreeze == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
                 return;
             entity.RemoveBuffs(buffDefinition);
+            entity.RemoveBuffs(SoulFreeze);
             PostRemoveStatusEffect(entity, buffDefinition, source);
         }
 

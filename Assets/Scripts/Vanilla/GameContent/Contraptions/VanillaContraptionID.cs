@@ -84,6 +84,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string CopperDropper = "CopperDropper";
         public const string AntiGravityPad = "AntiGravityPad";
         public const string EXPANDispenser = "EXPANDispenser";
+        public const string Freezenser = "Freezenser";
 
         //EXPAND BlackCard
         public const string Bedrock = "Bedrock";
@@ -168,6 +169,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID Eradicator = Get(VanillaContraptionNames.Eradicator);
         public static readonly NamespaceID AntiGravityPad = Get(VanillaContraptionNames.AntiGravityPad);
         public static readonly NamespaceID EXPANDispenser = Get(VanillaContraptionNames.EXPANDispenser);
+        public static readonly NamespaceID Freezenser = Get(VanillaContraptionNames.Freezenser);
 
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);
