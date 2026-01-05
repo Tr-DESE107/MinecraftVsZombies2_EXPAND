@@ -171,5 +171,10 @@ namespace MVZ2Logic.Options
         public static int GetTargetFramerate(this IGlobalOptions options) => options.GetOptionInt(LogicOptionItemID.targetFramerate);
         public static void SetTargetFramerate(this IGlobalOptions options, int value) => options.SetOptionInt(LogicOptionItemID.targetFramerate, value);
         #endregion
+
+        #region ÆÁÄ»²¼¾Ö
+        public static int GetScreenLayout(this IGlobalOptions options) => options.GetOptionInt(LogicOptionItemID.screenLayout);
+        public static void SetScreenLayout(this IGlobalOptions options, int value) => options.SetOptionInt(LogicOptionItemID.screenLayout, value);
+        #endregion
     }
 }

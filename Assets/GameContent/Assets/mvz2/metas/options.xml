@@ -27,6 +27,7 @@
         <int id="commandBlockMode" defaultValue="0" />
         <int id="fpsMode" defaultValue="0" />
         <int id="target_framerate" defaultValue="-1" />
+        <int id="screen_layout" defaultValue="0" />
 
         <float id="music_volume" defaultValue="1" />
         <float id="sound_volume" defaultValue="1" />
@@ -67,6 +68,11 @@
                 <p>选择命令方块蓝图的模式。</p>
                 <p>手动：手动选择模仿的器械。</p>
                 <p>前位：自动模仿上一个选择的器械。</p>
+            </tooltip>
+        </dropdown>
+        <dropdown id="screen_layout" category="mvz2:general" label="屏幕布局">
+            <tooltip>
+                <p>切换游戏的屏幕显示布局，这会影响屏幕显示比例，以及关卡中的界面布局。</p>
             </tooltip>
         </dropdown>
 

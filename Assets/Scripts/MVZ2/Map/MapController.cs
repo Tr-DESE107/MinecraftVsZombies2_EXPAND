@@ -721,6 +721,7 @@ namespace MVZ2.Map
         }
         private void ReloadMap()
         {
+            Main.Scene.HidePages();
             Main.Scene.DisplayMap(MapID);
         }
 

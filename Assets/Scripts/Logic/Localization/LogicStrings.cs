@@ -256,6 +256,7 @@ namespace MVZ2Logic.Localization
         public const string CONTEXT_FPS_MODE = "option.fps_mode";
         public const string CONTEXT_HP_BARS_AMOUNT_MODE = "options.hp_bars_amount_mode";
         public const string CONTEXT_TARGET_FRAMERATE = "option.target_framerate";
+        public const string CONTEXT_SCREEN_LAYOUT = "option.screen_layout";
         #endregion
     }
 }

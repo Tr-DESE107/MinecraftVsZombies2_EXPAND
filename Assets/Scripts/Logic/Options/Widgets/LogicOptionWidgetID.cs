@@ -13,6 +13,7 @@ namespace MVZ2Logic.Options
         public const string blueprintWarnings = "blueprint_warnings";
         public const string bloodAndGore = "blood_and_gore";
         public const string showHotkeys = "show_hotkeys";
+        public const string screenLayout = "screen_layout";
         public const string keybinding = "keybinding";
         public const string heightIndicator = "height_indicator";
         public const string hdrLighting = "hdr_lighting";

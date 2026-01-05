@@ -47,6 +47,7 @@ namespace MVZ2.Managers
             await LoadManagersInit();
             Scene.Init();
             ModManager.PostGameInit();
+            initialized = true;
         }
         public void UpdateManagerFixed()
         {
@@ -71,6 +72,14 @@ namespace MVZ2.Managers
         }
         public bool UseMobileLayout()
         {
+            if (initialized)
+            {
+                var screenLayout = OptionsManager.GetScreenLayout();
+                if (screenLayout != ScreenLayouts.AUTO)
+                {
+                    return screenLayout == ScreenLayouts.MOBILE;
+                }
+            }
             return IsMobile();
         }
         public TaskPipeline? GetLoadPipeline()
@@ -358,6 +367,7 @@ namespace MVZ2.Managers
 
         private Task? initTask;
         private TaskPipeline? loadPipeline;
+        private bool initialized = false;
 
         [SerializeField]
         private string builtinNamespace = "mvz2";

@@ -47,7 +47,7 @@ namespace MVZ2.GameContent.Options
             Global.Options.SetTargetFramerate(framerate);
             Global.Options.SaveOptions();
         }
-        [TranslateMsg("FPS模式", LogicStrings.CONTEXT_TARGET_FRAMERATE)]
+        [TranslateMsg("目标帧率", LogicStrings.CONTEXT_TARGET_FRAMERATE)]
         public const string FRAMERATE_DEFAULT = "默认";
 
         public static readonly int[] targetFramerates = new int[]

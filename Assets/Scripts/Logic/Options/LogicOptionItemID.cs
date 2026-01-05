@@ -25,6 +25,7 @@ namespace MVZ2Logic.Options
 
         public const string commandBlockMode = "commandBlockMode";
         public const string fpsMode = "fpsMode";
+        public const string screenLayout = "screen_layout";
 
         public const string hpBarEnabled = "hpbar_enabled";
         public const string hpBarAutoHide = "hpbar_auto_hide";
@@ -59,6 +60,7 @@ namespace MVZ2Logic.Options
 
         public static readonly NamespaceID commandBlockMode = Get(LogicOptionItemNames.commandBlockMode);
         public static readonly NamespaceID fpsMode = Get(LogicOptionItemNames.fpsMode);
+        public static readonly NamespaceID screenLayout = Get(LogicOptionItemNames.screenLayout);
 
         public static readonly NamespaceID hpBarEnabled = Get(LogicOptionItemNames.hpBarEnabled);
         public static readonly NamespaceID hpBarAutoHide = Get(LogicOptionItemNames.hpBarAutoHide);
