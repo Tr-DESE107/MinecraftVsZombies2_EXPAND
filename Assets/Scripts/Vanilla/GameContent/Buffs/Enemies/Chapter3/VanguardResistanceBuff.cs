@@ -6,6 +6,9 @@ using MVZ2.Vanilla.Enemies;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Models;
+using MVZ2Logic.Models;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -21,6 +24,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             // ע��ʵ������ǰ�Ļص�������ʵ�ּ��˻���
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
+            AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.ShockStaticParticles, VanillaModelID.ShockStaticParticles);
 
         }
 

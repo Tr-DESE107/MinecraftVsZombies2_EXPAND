@@ -145,31 +145,32 @@ namespace MVZ2.GameContent.Enemies
             switch (enemyClass)
             {
                 case VARIANT_FROST:
+                case VARIANT_LIGHTNING:
                     {
                         var param = enemy.GetShootParams();
-                        param.damage = enemy.GetDamage() * 0.2f;
+                        param.damage = enemy.GetDamage() * 0.1f;
                         param.projectileID = VanillaProjectileID.iceBolt;
                         param.soundID = VanillaSoundID.snow;
                         enemy.ShootProjectile(param);
                     }
                     break;
-                case VARIANT_LIGHTNING:
-                    {
-                        var param = enemy.GetShootParams();
-                        param.damage = enemy.GetDamage() * 0.2f;
-                        param.projectileID = VanillaProjectileID.chargedBolt;
-                        param.soundID = null;
-                        param.velocity *= 0.4f;
-                        for (int i = 0; i < 3; i++)
-                        {
-                            enemy.ShootProjectile(param);
-                        }
-                    }
-                    break;
+                //case VARIANT_LIGHTNING:
+                //    {
+                //        var param = enemy.GetShootParams();
+                //        param.damage = enemy.GetDamage() * 0.2f;
+                //        param.projectileID = VanillaProjectileID.chargedBolt;
+                //        param.soundID = null;
+                //        param.velocity *= 0.4f;
+                //        for (int i = 0; i < 3; i++)
+                //        {
+                //            enemy.ShootProjectile(param);
+                //        }
+                //    }
+                //    break;
                 default:
                     {
                         var param = enemy.GetShootParams();
-                        param.damage = enemy.GetDamage() * 0.8f;
+                        param.damage = enemy.GetDamage() * 0.4f;
                         param.projectileID = VanillaProjectileID.fireball;
                         param.soundID = VanillaSoundID.fire;
                         enemy.ShootProjectile(param);

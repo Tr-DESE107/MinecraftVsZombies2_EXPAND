@@ -184,8 +184,6 @@ namespace MVZ2.GameContent.Bosses
                             Vector3 pos = new Vector3(x, y, z);
 
                             SpawnPortal(boss, pos, VanillaEnemyID.BloodlustHostZombie);
-                            SpawnNightmareDisciple(boss);
-                            SpawnNightmareDisciple(boss);
                         }
                     }
 
@@ -205,7 +203,7 @@ namespace MVZ2.GameContent.Bosses
             float currHP = entity.Health;
 
             // 每掉落一定血量（例如 800 点）触发一次事件
-            int triggerCount = (int)((lastHP - currHP) / 600f);
+            int triggerCount = (int)((lastHP - currHP) / 800f);
             triggerCount = Mathf.Min(triggerCount, 2);
             if (triggerCount > 0)
             {
@@ -842,6 +840,14 @@ namespace MVZ2.GameContent.Bosses
                 float z = level.GetEntityLaneZ(posInfo.y);
                 float y = level.GetGroundY(x, z);
                 Vector3 spawnPos = new Vector3(x, y, z);
+
+                foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.IsEntityOf(VanillaEnemyID.NightmareDisciple)))
+                {
+                    if (e.HasBuff<VanguardResistanceBuff>())
+                    {
+                        e.RemoveBuffs<VanguardResistanceBuff>();
+                    }
+                }
 
                 SpawnPortal(boss, spawnPos, VanillaEnemyID.NightmareDisciple);
             }
