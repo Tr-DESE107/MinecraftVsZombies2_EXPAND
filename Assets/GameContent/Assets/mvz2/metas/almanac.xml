@@ -952,7 +952,7 @@
                 <tag id="mvz2:placement_beacon" />
             </tags>
             <header>
-                <p>御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。</p>
+                <p>御天信标会发射光柱持续打击一处定点内的所有敌人。点击它可以修改打击的定点位置。</p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1发/3秒</color>]]></p>

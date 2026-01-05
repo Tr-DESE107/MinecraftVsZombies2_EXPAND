@@ -133,6 +133,21 @@ namespace MVZ2.Vanilla.Contraptions
             }
             contraption.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER, new EntityCallbackParams(contraption));
         }
+        public static bool CanEmptyHandClick(this Entity contraption)
+        {
+            var behaviour = contraption.Definition.GetBehaviour<IEmptyHandClickEntity>();
+            if (behaviour == null)
+                return false;
+            return behaviour.CanEmptyHandClick(contraption);
+        }
+        public static void EmptyHandClick(this Entity contraption)
+        {
+            foreach (var behaviour in contraption.Definition.GetBehaviours<IEmptyHandClickEntity>())
+            {
+                behaviour.EmptyHandClick(contraption);
+            }
+            contraption.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_CONTRAPTION_EMPTY_HAND_CLICK, new EntityCallbackParams(contraption));
+        }
         public static bool CanUpgradeToContraption(this Entity contraption, EntityDefinition target)
         {
             var id = target.GetUpgradeFromEntity();

@@ -15,6 +15,7 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
@@ -1154,6 +1155,32 @@ namespace MVZ2.Vanilla.Entities
         {
             var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
             entity.Die(effects, source);
+        }
+        #endregion
+
+        #region 获取指针目标
+        public static Entity FindPointerTargetEntity(this Entity entity, float pointerPosition, Predicate<Entity> predicate)
+        {
+            var protector = entity;
+            var protectTargets = entity.GetProtectingTargets();
+            if (protectTargets != null && protectTargets.Length > 0)
+            {
+                // 存在保护中的目标。
+                var canUseOnProtector = predicate(protector);
+                var firstValidMainTarget = protectTargets.FirstOrDefault(t => predicate(t));
+
+                // 主要层器械可以使用。
+                // 保护层器械不能使用，或者指向保护层器械上方。
+                if (firstValidMainTarget != null && (!canUseOnProtector || pointerPosition >= 0.5f))
+                {
+                    return firstValidMainTarget;
+                }
+                // 内部器械不能使用，或者可以给保护层器械使用并且光标位置位于下方。
+            }
+            // 没有保护中的目标：
+            // 可能是没有保护的器械，也可能是不能保护器械。
+            // 直接选中当前器械。
+            return entity;
         }
         #endregion
         public static float GetRealGroundLimitY(this Entity entity)

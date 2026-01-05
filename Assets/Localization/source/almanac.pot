@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-03 05:53+0800\n"
+"POT-Creation-Date: 2026-01-05 10:20+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1659,7 +1659,7 @@ msgstr ""
 #. Header for contraptions mvz2:skyward_beacon
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。"
+msgid "御天信标会发射光柱持续打击一处定点内的所有敌人。点击它可以修改打击的定点位置。"
 msgstr ""
 
 #. Properties for contraptions mvz2:skyward_beacon

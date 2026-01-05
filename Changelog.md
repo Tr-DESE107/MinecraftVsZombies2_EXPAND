@@ -1,3 +1,8 @@
+## Modified
+- Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
+
+---
+
 # 0.5.2
 
 ## Modified
