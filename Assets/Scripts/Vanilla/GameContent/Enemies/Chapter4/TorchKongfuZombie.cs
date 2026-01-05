@@ -11,6 +11,8 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Callbacks;
 using MVZ2.Vanilla.Properties;
+using MVZ2.GameContent.Effects;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -67,13 +69,25 @@ namespace MVZ2.GameContent.Enemies
         {
             var range = 40;
 
-            entity.Explode(
+            var damageOutputs = entity.Explode(
                 entity.GetCenter(),
                 range,
                 faction,
                 damage,
                 new DamageEffectList(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE, VanillaDamageEffects.FIRE)
             );
+
+            foreach (var output in damageOutputs)
+            {
+                if (output?.Entity != null)
+                {
+                    float offsetX = UnityEngine.Random.Range(-20f, 20f);
+                    float offsetY = UnityEngine.Random.Range(-20f, 20f);
+                    Vector3 spawnPos = output.Entity.Position + new Vector3(offsetX, offsetY, 0);
+
+                    entity.Spawn(VanillaEffectID.fireburn, spawnPos);
+                }
+            }
         }
 
         // 可选：提供一个方法供外部检查火把状态  

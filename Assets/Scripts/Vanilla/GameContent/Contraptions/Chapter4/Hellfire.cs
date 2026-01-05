@@ -95,7 +95,14 @@ namespace MVZ2.GameContent.Contraptions
                 new DamageEffectList(VanillaDamageEffects.FIRE, VanillaDamageEffects.MUTE)
             );
 
+            for (int i = 0; i < 5; i++)
+            {
+                float offsetX = UnityEngine.Random.Range(-20f, 20f);
+                float offsetY = UnityEngine.Random.Range(-20f, 20f);
+                Vector3 spawnPos = entity.Position + new Vector3(offsetX, offsetY, 0);
 
+                entity.Spawn(VanillaEffectID.fireburn, spawnPos);
+            }
         }
 
         public override bool CanEvoke(Entity entity)

@@ -2647,6 +2647,21 @@
                 <p>至少这朵云没有对你竖中指。</p>
             </flavor>
         </entry>
+		<entry id="mvz2:HeavyGutant">
+			<header>
+				<p>突变重炮手可以粉碎你的器械，并在血量低至一半时投掷炸弹。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>3000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>他在海盗选美大赛上获得了第二名，输给了火枪手僵尸，原因是因为他脸上有疤（恼）</p>
+				<p />
+				<p>大概是因为他长得太丑了所以没有小鬼愿意爬他身上，他于是选择拿炮弹的弹药当投掷的小鬼。</p>
+				<p>还好他们没有意识到炮管里该装正经TNT。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:cannoneer_zombie">
             <header>
                 <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。</p>
@@ -2720,21 +2735,7 @@
                 <p><![CDATA[<color=white>红瞳真可爱。</color>]]></p>
             </flavor>
         </entry>
-        <entry id="mvz2:HeavyGutant">
-            <header>
-                <p>突变重炮手可以粉碎你的器械，并在血量低至一半时投掷炸弹。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red>3000</color>]]></p>
-                <p>速度：<![CDATA[<color=red>1</color>]]></p>
-            </properties>
-            <flavor>
-                <p>他在海盗选美大赛上获得了第二名，输给了火枪手僵尸，原因是因为他脸上有疤（恼）</p>
-                <p />
-                <p>大概是因为他长得太丑了所以没有小鬼愿意爬他身上，他于是选择拿炮弹的弹药当投掷的小鬼。</p>
-                <p>还好他们没有意识到炮管里该装正经TNT。</p>
-            </flavor>
-        </entry>
+        
 
         <!--Villager EXPAND -->
         <entry id="mvz2:MutantVillager">
