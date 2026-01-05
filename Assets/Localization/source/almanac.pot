@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-31 03:52+0800\n"
+"POT-Creation-Date: 2026-01-03 05:53+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -733,7 +733,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "提供能量：<color=red>1点/1.6秒，而后1点/1秒</color>\n"
-"技能：<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>"
+"技能：<color=red>立即升级，<tag id=\"mvz2:light_source\" />发出蓝光，并使生产量变为2倍</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:moonlight_sensor

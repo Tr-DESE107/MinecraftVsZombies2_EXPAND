@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.SeedPacks;
+using Tools;
+using UnityEngine;
 
 namespace PVZEngine.Level
 {
@@ -49,6 +51,18 @@ namespace PVZEngine.Level
             for (int i = conveyorSeedPacks.Count - 1; i >= 0; i--)
             {
                 RemoveConveyorSeedPackAt(i);
+            }
+        }
+        #endregion
+
+        #region 更新种子包
+        public void UpdateConveyorSeedPacks(float rechargeSpeed)
+        {
+            foreach (var seedPack in conveyorSeedPacks)
+            {
+                if (seedPack == null)
+                    continue;
+                seedPack.Update(rechargeSpeed);
             }
         }
         #endregion
@@ -105,26 +119,87 @@ namespace PVZEngine.Level
         #endregion
 
         #region 占用情况
-        public void PutSeedToConveyorPool(NamespaceID seedID, int value = 1)
+        public SeedPack? ConveyRandomSeedPack(IConveyorPoolEntry[] entries)
+        {
+            if (CanConveySeedPack())
+            {
+                var id = DrawConveyorSeed(entries);
+                if (id == null)
+                    return null;
+                var seedPack = AddConveyorSeedPack(id);
+                if (seedPack != null)
+                {
+                    seedPack.SetDrawnConveyorSeed(seedPack.GetDefinitionID());
+                    return seedPack;
+                }
+                else
+                {
+                    PutSeedToConveyorDrawPile(id);
+                }
+            }
+            return null;
+        }
+        public NamespaceID? DrawConveyorSeed(IConveyorPoolEntry[] entries)
+        {
+            if (entries.Length <= 0)
+                return null;
+            var rng = GetConveyorRNG();
+            if (IsConveyorPoolEmpty(entries))
+            {
+                RefillConveyorPool(entries);
+            }
+            if (IsConveyorPoolEmpty(entries))
+            {
+                return null;
+            }
+            var weights = entries.Select(e => GetSeedCountFromConveyorDrawPile(e.ID, e.Count));
+            var index = rng.WeightedRandom(weights.ToArray());
+            var entry = entries[index];
+            TakeSeedFromConveyorDrawPile(entry.ID);
+            return entry.ID;
+        }
+        public bool IsConveyorPoolEmpty(IConveyorPoolEntry[] entries)
+        {
+            return entries.All(e => GetSeedCountFromConveyorDrawPile(e.ID, e.Count) <= 0);
+        }
+        public void RefillConveyorPool(IConveyorPoolEntry[] entries)
+        {
+            foreach (var entry in entries)
+            {
+                var id = entry.ID;
+                var drawCount = GetSeedCountFromConveyorDrawPile(id, entry.Count);
+                var discardCount = GetSeedCountInConveyorDiscardPile(id);
+                int fillCount = Mathf.Max(entry.MinCount, discardCount);
+                if (fillCount > 0)
+                {
+                    TakeSeedFromConveyorDiscardPile(id, fillCount);
+                    PutSeedToConveyorDrawPile(id, fillCount);
+                }
+            }
+        }
+        public void PutSeedToConveyorDiscardPile(NamespaceID seedID, int value = 1)
+        {
+            conveyorSeedSpendRecord.AddToDiscardPile(seedID, value);
+        }
+        public void TakeSeedFromConveyorDiscardPile(NamespaceID seedID, int value = 1)
+        {
+            conveyorSeedSpendRecord.AddToDiscardPile(seedID, -value);
+        }
+        public int GetSeedCountInConveyorDiscardPile(NamespaceID seedID)
+        {
+            return conveyorSeedSpendRecord.GetSeedCountInDiscardPile(seedID);
+        }
+        public void PutSeedToConveyorDrawPile(NamespaceID seedID, int value = 1)
         {
             conveyorSeedSpendRecord.AddSpendValue(seedID, -value);
         }
-        public void SpendSeedFromConveyorPool(NamespaceID seedID, int value = 1)
+        public void TakeSeedFromConveyorDrawPile(NamespaceID seedID, int value = 1)
         {
             conveyorSeedSpendRecord.AddSpendValue(seedID, value);
         }
-        public int GetSpentSeedFromConveyorPool(NamespaceID seedID)
+        public int GetSeedCountFromConveyorDrawPile(NamespaceID seedID, int entryCount)
         {
-            return conveyorSeedSpendRecord.GetSpendValue(seedID);
-        }
-        public void UpdateConveyorSeedPacks(float rechargeSpeed)
-        {
-            foreach (var seedPack in conveyorSeedPacks)
-            {
-                if (seedPack == null)
-                    continue;
-                seedPack.Update(rechargeSpeed);
-            }
+            return entryCount - conveyorSeedSpendRecord.GetSpendValue(seedID);
         }
         #endregion
 

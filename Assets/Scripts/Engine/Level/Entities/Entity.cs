@@ -52,6 +52,8 @@ namespace PVZEngine.Entities
         public void Init()
         {
             PreviousPosition = Position;
+            IsOnGround = GetRelativeY() <= Mathf.Epsilon;
+
             Health = this.GetMaxHealth();
             UpdateAllModifiedProperties(true);
             Definition.Init(this);
@@ -221,7 +223,7 @@ namespace PVZEngine.Entities
         {
             foreach (var pair in takenConveyorSeeds)
             {
-                Level.PutSeedToConveyorPool(pair.Key, pair.Value);
+                Level.PutSeedToConveyorDiscardPile(pair.Key, pair.Value);
             }
             takenConveyorSeeds.Clear();
         }

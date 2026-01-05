@@ -34,7 +34,7 @@ namespace PVZEngine.Entities
             seri.collisionMaskHostile = CollisionMaskHostile;
             seri.collisionMaskFriendly = CollisionMaskFriendly;
             seri.renderRotation = RenderRotation;
-            seri.takenConveyorSeeds = takenConveyorSeeds.ToDictionary(p => p.ToString(), p => p.Value);
+            seri.takenConveyorSeeds = takenConveyorSeeds.ToDictionary(p => p.Key.ToString(), p => p.Value);
             seri.timeout = Timeout;
 
             // 护盾

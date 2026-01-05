@@ -90,6 +90,7 @@ namespace MVZ2.GameContent.Buffs
             public const string changeGrid = "change_grid";
             public const string damageColor = "damage_color";
             public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
+            public const string destroyConflictGridEntitiesOnLand = "destroy_conflict_grid_entities_on_land";
 
             // Chapter 1
             public const string lightFadeout = "light_fadeout";
@@ -437,6 +438,8 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID changeLane = Get(VanillaBuffNames.Entity.changeLane);
             public static readonly NamespaceID damageColor = Get(VanillaBuffNames.Entity.damageColor);
             public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.Entity.temporaryUpdateBeforeGame);
+            public static readonly NamespaceID destroyConflictGridEntitiesOnLand = Get(VanillaBuffNames.Entity.destroyConflictGridEntitiesOnLand);
+            
             public static readonly NamespaceID Regeneration = Get(VanillaBuffNames.Entity.Regeneration);
             public static readonly NamespaceID Corropoison = Get(VanillaBuffNames.Entity.Corropoison);
 

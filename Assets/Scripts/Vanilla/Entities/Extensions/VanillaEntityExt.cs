@@ -582,6 +582,10 @@ namespace MVZ2.Vanilla.Entities
             GetCurrentGridLayersToTakeNonAlloc(entity, takenGridLayerDataBuffer);
             entityGridUpdater.Update(targetGridLayerDataBuffer, takenGridLayerDataBuffer, g => entity.TakeGrid(g.Item1, g.Item2), g => entity.ReleaseGrid(g.Item1, g.Item2));
         }
+        public static void DestroyConflictGridEntitiesOnLand(this Entity entity)
+        {
+            entity.AddBuff(VanillaBuffID.Entity.destroyConflictGridEntitiesOnLand);
+        }
         public static void DestroyConflictGridEntities(this Entity entity)
         {
             entity.UpdateTakenGrids();

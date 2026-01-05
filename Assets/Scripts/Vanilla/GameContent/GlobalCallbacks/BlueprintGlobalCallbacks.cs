@@ -13,6 +13,7 @@ using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.GlobalCallbacks
 {
@@ -54,7 +55,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                     }
                     else
                     {
-                        entity.Level.PutSeedToConveyorPool(drawnFromPool);
+                        entity.Level.PutSeedToConveyorDiscardPile(drawnFromPool);
                     }
                 }
                 seed.SetDrawnConveyorSeed(null);

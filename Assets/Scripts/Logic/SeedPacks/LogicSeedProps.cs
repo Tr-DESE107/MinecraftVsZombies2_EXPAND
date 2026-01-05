@@ -77,7 +77,6 @@ namespace MVZ2Logic.SeedPacks
         public static readonly PropertyMeta<bool> TRIGGER_ACTIVE = Get<bool>("triggerActive");
         public static readonly PropertyMeta<bool> CAN_INSTANT_EVOKE = Get<bool>("canInstantEvoke");
         public static readonly PropertyMeta<bool> CAN_INSTANT_TRIGGER = Get<bool>("canInstantTrigger");
-        public static readonly PropertyMeta<NamespaceID> DRAWN_CONVEYOR_SEED = Get<NamespaceID>("drawnConveyorSeed");
         public static readonly PropertyMeta<bool> UPGRADE_BLUEPRINT = Get<bool>("upgradeBlueprint");
         public static bool IsUpgradeBlueprint(this SeedPack seed)
         {
@@ -122,14 +121,6 @@ namespace MVZ2Logic.SeedPacks
         public static void SetTwinkling(this SeedPack seed, bool value)
         {
             seed.SetProperty(TWINKLING, value);
-        }
-        public static NamespaceID? GetDrawnConveyorSeed(this SeedPack seed)
-        {
-            return seed.GetProperty<NamespaceID>(DRAWN_CONVEYOR_SEED);
-        }
-        public static void SetDrawnConveyorSeed(this SeedPack seed, NamespaceID? value)
-        {
-            seed.SetProperty(DRAWN_CONVEYOR_SEED, value);
         }
     }
 }

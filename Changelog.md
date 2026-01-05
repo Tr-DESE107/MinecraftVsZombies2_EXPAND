@@ -1,3 +1,19 @@
+# 0.5.2
+
+## Modified
+- Adjusted the algorithm for the frequency of each blueprint appearing in conveyor belt levels.
+
+## Fixed
+- Fixed the issue where Beacon's attack detection is broken.
+- Fixed the issue where zombie clouds maintain their previous inertia after being stunned, resulting in incorrect positioning.
+- Fixed the issue where stunned Ghasts won't fall on cloud tiles.
+- Fixed the issue where the black holes created by destroying Black Hole Bomb using fire, explosion or sacrificing deals huge damage.
+- Fixed the issue where The Creature's missile arm points towards incorrect position.
+- Fixed the issue where Tesla Coil's damage is still 80.
+- Fixed the issue where Moonlight Sensor's almanac description has no "glowing" tag.
+
+---
+
 # 0.5.1
 
 ## Added

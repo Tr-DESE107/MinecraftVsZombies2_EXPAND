@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            if (entity.IsAIFrozen())
+            if (entity.IsAIFrozen() && !buff.GetProperty<bool>(PROP_WORKS_ON_FROZEN))
             {
                 buff.SetProperty(PROP_GRAVITY_MULTIPLIER, 1f);
                 return;
@@ -59,5 +59,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public static readonly VanillaBuffPropertyMeta<float> PROP_MAX_FLY_SPEED = new VanillaBuffPropertyMeta<float>("MaxFlySpeed");
         public static readonly VanillaBuffPropertyMeta<float> PROP_FLY_SPEED = new VanillaBuffPropertyMeta<float>("FlySpeed");
         public static readonly VanillaBuffPropertyMeta<float> PROP_FLY_SPEED_FACTOR = new VanillaBuffPropertyMeta<float>("FlySpeedFactor");
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_WORKS_ON_FROZEN = new VanillaBuffPropertyMeta<bool>("works_on_frozen");
     }
 }

@@ -461,7 +461,7 @@ namespace MVZ2.GameContent.Bosses
                             spawnParam.SetProperty(EngineEntityProps.SCALE, entity.GetScale());
                             spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, entity.GetDisplayScale());
                             entity.Level.Spawn(VanillaEffectID.frankensteinJumpTrail, entity.GetCenter(), entity, spawnParam);
-                            if (entity.GetRelativeY() <= 0)
+                            if (entity.IsOnGround)
                             {
                                 Land(stateMachine, entity);
                             }
