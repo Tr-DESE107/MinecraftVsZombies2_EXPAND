@@ -2,7 +2,6 @@
 
 using MVZ2Logic.Games;
 using MVZ2Logic.Modding;
-using MVZ2Logic.Unlocks;
 
 namespace MVZ2Logic
 {

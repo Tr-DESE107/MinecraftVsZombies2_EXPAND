@@ -6,7 +6,6 @@ using MVZ2Logic;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Options;
-using MVZ2Logic.Saves;
 
 namespace MVZ2.GameContent.Options
 {

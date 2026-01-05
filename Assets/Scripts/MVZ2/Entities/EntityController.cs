@@ -7,7 +7,6 @@ using MVZ2.Level;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
-using MVZ2.Options;
 using MVZ2.UI;
 using MVZ2.UI.Level;
 using MVZ2.View.Level;

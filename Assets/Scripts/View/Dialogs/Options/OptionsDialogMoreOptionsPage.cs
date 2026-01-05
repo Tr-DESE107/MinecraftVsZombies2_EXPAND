@@ -3,7 +3,6 @@
 using System;
 using PVZEngine;
 using UnityEngine;
-using static MVZ2.UI.OptionsDialogMainPage;
 
 namespace MVZ2.UI
 {

@@ -2,7 +2,6 @@
 
 using System;
 using MVZ2.Models;
-using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

@@ -3,7 +3,7 @@
 using MVZ2Logic.Games;
 using PVZEngine;
 
-namespace MVZ2Logic.Modding 
+namespace MVZ2Logic.Modding
 {
     public interface IVanillaInterface
     {

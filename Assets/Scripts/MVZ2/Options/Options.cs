@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.UI.Level;
 using MVZ2Logic.Options;
 using PVZEngine;
 

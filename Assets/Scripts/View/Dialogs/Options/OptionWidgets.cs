@@ -4,10 +4,7 @@ using System;
 using System.Collections.Generic;
 using MVZ2Logic.Options;
 using PVZEngine;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 namespace MVZ2.UI
 {

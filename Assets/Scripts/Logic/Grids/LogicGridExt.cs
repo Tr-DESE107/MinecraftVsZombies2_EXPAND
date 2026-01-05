@@ -155,7 +155,7 @@ namespace MVZ2Logic.Grids
         public static PlaceOutput PlaceEntityBlueprint(this LawnGrid grid, SeedDefinition seedDef, PlaceParams param)
         {
             var id = seedDef.GetSeedEntityID();
-            if (id != null) 
+            if (id != null)
                 return grid.PlaceEntity(id, param);
             return PlaceOutput.InvalidOutput;
         }

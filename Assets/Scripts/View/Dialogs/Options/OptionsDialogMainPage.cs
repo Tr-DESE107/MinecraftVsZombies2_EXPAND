@@ -2,8 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -104,7 +102,7 @@ namespace MVZ2.UI
             // 2-1
             textButtonDict.Add(TextButtonType.MoreOptions, moreOptionsButton);
             buttonDict.Add(ButtonType.MoreOptions, moreOptionsButton.Button);
-            
+
             // 2-2
             textButtonDict.Add(TextButtonType.Difficulty, diffcultyButton);
             textButtonDict.Add(TextButtonType.Restart, restartButton);

@@ -1,7 +1,6 @@
 #nullable enable
 
 using System;
-using System.Collections.Generic;
 
 namespace MVZ2Logic.Cursor
 {

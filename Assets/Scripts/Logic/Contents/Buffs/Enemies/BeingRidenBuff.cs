@@ -3,9 +3,8 @@
 using MVZ2Logic.Contents.Enemies;
 using PVZEngine;
 using PVZEngine.Buffs;
-using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 
 namespace MVZ2Logic.Contents.Buffs.Enemies
 {

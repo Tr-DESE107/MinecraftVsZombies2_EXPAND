@@ -7,7 +7,6 @@ using MVZ2.Cameras;
 using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Commands;
