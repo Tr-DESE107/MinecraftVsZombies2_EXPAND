@@ -482,6 +482,7 @@
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:lily_pad_carrier" />
+                <behaviour operator="add" id="mvz2:destroy_outside_water" />
             </behaviours>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -540,7 +541,9 @@
             <unlock>
                 <condition required="mvz2:level.dream_4" />
             </unlock>
-
+            <behaviours>
+                <behaviour operator="add" id="mvz2:destroy_outside_water" />
+            </behaviours>
             <properties>
                 <bool name="mvz2:isFloor" value="true" />
                 <bool name="mvz2:loyal" value="true" />

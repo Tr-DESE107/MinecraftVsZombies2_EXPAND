@@ -13,6 +13,7 @@ namespace MVZ2.Vanilla.Entities
         public const string modelDamagePercent = "model_damage_percent";
         public const string fadeoutByTimeout = "fadeout_by_timeout";
         public const string fadeoutByMaxTimeout = "fadeout_by_max_timeout";
+        public const string destroyOutsideWater = "destroy_outside_water";
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";

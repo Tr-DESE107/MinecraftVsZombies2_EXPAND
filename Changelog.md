@@ -3,6 +3,7 @@
 
 ## Fixed
 - Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.
+- Fixed the issue where Pop Captain can knock a lily pad onto land.
 
 ---
 
