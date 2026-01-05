@@ -552,6 +552,8 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void SoulFreeze(this Entity entity, int timeout)
         {
+            if (entity.ImmuneSlowing())
+                return;
             if (entity == null)
                 return;
             var buff = entity.GetFirstBuff<SoulFreezeBuff>();

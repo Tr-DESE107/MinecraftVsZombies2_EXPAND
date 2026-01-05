@@ -1590,6 +1590,26 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
+		<contraption id="PermanentIce" name="永冻冰" tooltip="触发后冰冻全场敌人">
+			<unlock>
+				<condition required="mvz2:level.halloween_1" />
+			</unlock>
+			<properties>
+				<bool name="mvz2:canDeactive" value="false" />
+				<bool name="mvz2:dynamite" value="true" />
+				<float name="mvz2:damage" value="20" />
+				<float name="mvz2:range" value="65535" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+				<id name="mvz2:placeSound" value="mvz2:ice" />
+				<id name="mvz2:shell" value="mvz2:ice" />
+				<id name="mvz2:deathSound" value="mvz2:ice" />
+				<bool name="mvz2:triggerActive" value="true" />
+				<bool name="mvz2:instantTrigger" value="true" />
+
+				<int name="mvz2:cost" value="200" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</contraption>
 
         <contraption id="AntiGravityPad" name="反重力板" tooltip="反转上方物体的重力">
             <unlock>
