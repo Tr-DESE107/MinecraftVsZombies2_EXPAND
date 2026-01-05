@@ -4,4 +4,9 @@
             <condition required="mvz2:level.ship_11" />
         </conditions>
     </group>
+	<group id="EXPAND_TEST">
+		<conditions>
+			<condition required="mvz2:level.dream_11" />
+		</conditions>
+	</group>
 </unlocks>

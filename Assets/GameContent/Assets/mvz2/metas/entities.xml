@@ -1579,11 +1579,12 @@
         </dispenser>
         <dispenser id="Freezenser" name="寒冰发射器" tooltip="射出能够减速和冻结敌人的冰锥">
             <unlock>
-                <condition required="mvz2:level.halloween_1" />
+                <condition requiredGroups="mvz2:EXPAND_TEST" />
             </unlock>
             <properties>
                 <float name="mvz2:damage" value="15" />
                 <id name="mvz2:projectileId" value="mvz2:ice_bolt" />
+				<id name="mvz2:fragmentId" value="mvz2:PermanentIce" />
                 <id name="mvz2:shell" value="mvz2:ice" />
 
                 <int name="mvz2:cost" value="175" />
@@ -1592,8 +1593,8 @@
         </dispenser>
 		<contraption id="PermanentIce" name="永冻冰" tooltip="触发后冰冻全场敌人">
 			<unlock>
-				<condition required="mvz2:level.halloween_1" />
-			</unlock>
+                <condition requiredGroups="mvz2:EXPAND_TEST" />
+            </unlock>
 			<properties>
 				<bool name="mvz2:canDeactive" value="false" />
 				<bool name="mvz2:dynamite" value="true" />
@@ -1606,7 +1607,7 @@
 				<bool name="mvz2:triggerActive" value="true" />
 				<bool name="mvz2:instantTrigger" value="true" />
 
-				<int name="mvz2:cost" value="200" />
+				<int name="mvz2:cost" value="150" />
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</contraption>

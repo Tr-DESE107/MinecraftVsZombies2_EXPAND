@@ -368,4 +368,12 @@
 			<key hex="#FFFFFF" time="1"/>
 		</colorKeys>
 	</fragment>
+	<fragment name="PermanentIce">
+		<colorKeys>
+			<key hex="#A9D6F8" time="0.0" />
+			<key hex="#74A9E0" time="0.3" />
+			<key hex="#3D7BC2" time="0.6" />
+			<key hex="#1E4FA0" time="1.0" />
+		</colorKeys>
+	</fragment>
 </fragments>
