@@ -1537,7 +1537,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18e442e79747eb44a8b49ed5ec2c41dd
-    m_Address: mvz2:entity/effects/SprFreeze
+    m_Address: mvz2:entity/effects/SoulFreeze
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10570,6 +10570,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b83263321d793e947aadb66d18dfe341
+    m_Address: mvz2:contraption/EXPAND/PermanentIce
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8b94582569820d4ea902e962c410bd0
     m_Address: mvz2:archive/halloween_note
     m_ReadOnly: 0
@@ -12963,6 +12970,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5993582e307a4140a997bc005e9f852
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/PermanentIce
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e5a2b51b04d7cb341aca110547a3ec0b
     m_Address: mvz2:entity/enemy/RandomZombie
