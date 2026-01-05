@@ -2993,21 +2993,7 @@
                 <p>……爱……？</p>
             </flavor>
         </entry>
-        
-        <entry id="mvz2:ShrunkenHead">
-            <header>
-                <p>萎缩头颅。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>周期性为场上我方怪物赋予骨质头盔</color>]]></p>
-            </properties>
-            <flavor>
-                <p>死灵法师整的都是什么玩意...不能来点阳间的吗</p>
-            </flavor>
-        </entry>
-
-        
-        
+		<entry/>
         <entry id="mvz2:sweet_sleep_pillow">
             <header>
                 <p>哆来咪赠予的奇妙枕头，拥有让人安眠的效果。</p>
@@ -3070,17 +3056,6 @@
                 <p>瓶中的闪电，精炼你的技能；</p>
                 <p>瓶中的旋风，释放你的能力；</p>
                 <p>瓶中的黑洞……绑定你的诅咒？</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:AngelsFeather">
-            <header>
-                <p>天使的羽毛。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>周期性为场上我方实体赋予圣盾</color>]]></p>
-            </properties>
-            <flavor>
-                <p>愿我不在你身边的时候它能好好保护你</p>
             </flavor>
         </entry>
         <entry id="mvz2:smart_phone">
@@ -3150,19 +3125,7 @@
                 <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
             </flavor>
         </entry>
-        
-        <entry id="mvz2:wither_skeleton_skull">
-            <header>
-                <p>凋灵骷髅的头颅。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>]]></p>
-            </properties>
-            <flavor>
-                <p>多么惊悚恐怖的骷髅头！</p>
-            </flavor>
-        </entry>
-        
+
         
         <entry id="mvz2:manipulative_talismans">
             <header>
@@ -3292,8 +3255,44 @@
                 <p>此仇，永世无法平息。</p>
             </flavor>
         </entry>
+		
+		<entry/>
 
-
+        <!--EXPAND artifacts-->
+		<entry id="mvz2:ShrunkenHead">
+			<header>
+				<p>萎缩头颅。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>周期性为场上我方怪物赋予骨质头盔</color>]]></p>
+			</properties>
+			<flavor>
+				<p>死灵法师整的都是什么玩意...不能来点阳间的吗</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:AngelsFeather">
+			<header>
+				<p>天使的羽毛。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>周期性为场上我方实体赋予圣盾</color>]]></p>
+			</properties>
+			<flavor>
+				<p>愿我不在你身边的时候它能好好保护你</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:wither_skeleton_skull">
+            <header>
+                <p>凋灵骷髅的头颅。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>]]></p>
+            </properties>
+            <flavor>
+                <p>多么惊悚恐怖的骷髅头！</p>
+            </flavor>
+        </entry>
+		
         <entry id="mvz2:FrankensteinBrain">
             <header>
                 <p>科学怪人的大脑。</p>
