@@ -100,12 +100,13 @@ namespace MVZ2.GameContent.HeldItems
 
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
+                var type = data.Type;
                 CostBlueprint(grid, data);
                 if (seed != null)
                 {
                     grid.UseEntityBlueprint(seed, data);
                 }
-                level.ResetHeldItem();
+                ResetHeldItemIfType(level, type);
             }
         }
         private void OnPointerEventLawn(HeldItemTargetLawn lawnTarget, IHeldItemData data, PointerInteractionData pointerParams)
