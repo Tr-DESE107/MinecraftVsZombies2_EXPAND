@@ -577,6 +577,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c0f98f27759223459980f9a2226fe56
+    m_Address: mvz2:level/palace/palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c507ce6e43ea514f9baa9832c0d3d4d
     m_Address: mvz2:contraption/dream/totenser
     m_ReadOnly: 0
@@ -1312,6 +1319,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b6c05457bbc2e14580f37e573f5c432
+    m_Address: mvz2:held/starshards/palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b77173cc372d294799227cf43061173
     m_Address: mvz2:water
     m_ReadOnly: 0
@@ -1570,6 +1584,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21ed16a8b3b89414b857ea8a81b8d80a
+    m_Address: mvz2:starshard_rings/palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 220c4b1a3cc7a5c4cafc5d5ee284095d
     m_Address: mvz2:effect/fireburn
@@ -5286,6 +5307,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7209a46c5a99e914c842dcd3fb8ce137
+    m_Address: mvz2:level/palace/palace_gate
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7255b794a3fcb9145becfcafa89b5c99
     m_Address: mvz2:talk/dialog_item_hide
     m_ReadOnly: 0
@@ -7588,6 +7616,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a35b470e229e27a4cb5fd8344594e38a
+    m_Address: mvz2:palace_level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a375b3420dd9da54b8197294f005405b
     m_Address: mvz2:huge_wave
     m_ReadOnly: 0
@@ -8757,6 +8792,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfd970740f2f4184383282cdcc7fd725
+    m_Address: mvz2:pickup/starshards/palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0143cb0af20efc499da5943439d6197
     m_Address: mvz2:grind1
     m_ReadOnly: 0
@@ -9099,6 +9141,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c84189a7e82909d42ac73e1210b21918
+    m_Address: mvz2:starshards/palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c853afac5f602874e877872193826015
     m_Address: mvz2:ui/debug_console_icon
@@ -10346,6 +10395,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e389951b2df785f46951fabd974882c3
+    m_Address: mvz2:palace_level_sub
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3db0a973aafd3c49b0bcb73e3353e59
     m_Address: mvz2:random/stone4
     m_ReadOnly: 0
@@ -11590,6 +11646,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe118539380a40f47957b0e638f3ef16
+    m_Address: mvz2:palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
+    - Main
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe5c3b6b658b05c478ffb6c1397dcd0f
     m_Address: mvz2:effect/breakout_board

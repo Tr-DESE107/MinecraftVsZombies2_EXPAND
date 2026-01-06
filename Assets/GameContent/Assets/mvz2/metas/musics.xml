@@ -414,4 +414,20 @@
             <p>最终，Lex离开了这本书，再次回到了图书馆。</p>
         </description>
     </music>
+
+    
+    <music id="palace_level" name="猎手之眼">
+        <unlock>
+            <condition required="mvz2:level.palace_1" />
+        </unlock>
+        <track main="mvz2:palace_level" sub="mvz2:palace_level_sub" />
+        <source>东方地灵殿</source>
+        <origin>少女觉 ～ 3rd eye</origin>
+        <author>Dr.糕萌酸钾-Studio</author>
+        <description>
+            <p>地灵殿关卡的音乐。</p>
+            <p>原曲是《东方地灵殿》中古明地 觉的音乐《少女觉 ～ 3rd eye》。</p>
+            <p>======乐评施工中======</p>
+        </description>
+    </music>
 </musics>
