@@ -33,6 +33,7 @@
                 <behaviour operator="add" id="mvz2:contraption_common" />
             </behaviours>
             <properties>
+                <bool name="mvz2:show_height_indicator" value="true" />
                 <int name="mvz2:waterInteraction" value="1" />
                 <int name="mvz2:airInteraction" value="2" />
 
@@ -64,6 +65,7 @@
                 <behaviour operator="add" id="mvz2:model_damage_percent" />
             </behaviours>
             <properties>
+                <bool name="mvz2:show_height_indicator" value="true" />
                 <float name="mvz2:maxHealth" value="200" />
                 <float name="mvz2:friction" value="0.15" />
                 <float name="mvz2:gravity" value="1" />
@@ -94,6 +96,7 @@
                 <behaviour operator="add" id="mvz2:obstacle_common" />
             </behaviours>
             <properties>
+                <bool name="mvz2:show_height_indicator" value="true" />
                 <float name="mvz2:maxHealth" value="200" />
                 <float name="mvz2:friction" value="0.2" />
                 <float name="mvz2:gravity" value="1" />
@@ -115,6 +118,7 @@
                 <behaviour operator="add" id="mvz2:boss_resistance" />
             </behaviours>
             <properties>
+                <bool name="mvz2:show_height_indicator" value="true" />
                 <bool name="mvz2:receivesLight" value="true" />
                 <float name="mvz2:fallResistance" value="10000" />
                 <float name="mvz2:maxHealth" value="1000" />

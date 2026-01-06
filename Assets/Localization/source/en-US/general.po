@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-05 04:17+0800\n"
-"PO-Revision-Date: 2026-01-05 16:18+0800\n"
+"POT-Creation-Date: 2026-01-06 06:37+0800\n"
+"PO-Revision-Date: 2026-01-06 18:40+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1272,7 +1272,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:722
+#: Scripts\MVZ2\Map\MapController.cs:730
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1280,7 +1280,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:724
+#: Scripts\MVZ2\Map\MapController.cs:732
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1288,11 +1288,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:726
+#: Scripts\MVZ2\Map\MapController.cs:734
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:728
+#: Scripts\MVZ2\Map\MapController.cs:736
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1301,12 +1301,12 @@ msgstr ""
 "{0}/{1}"
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:730
+#: Scripts\MVZ2\Map\MapController.cs:738
 msgid "目标地点{0}不存在。"
 msgstr "Target area {0} does not exist."
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:732
+#: Scripts\MVZ2\Map\MapController.cs:740
 msgid "目标关卡{0}不存在。"
 msgstr "Target stage {0} does not exist."
 
@@ -4565,18 +4565,18 @@ msgstr ""
 #. Store item description of mvz2:dark_matter by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
-msgid "从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！"
+msgid "从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是怪物会隐形！"
 msgstr ""
 "Dark matter extracted from the Nightmare itself! Contraptions produce at "
-"twice the speed, but the stage will become dark!"
+"twice the speed, but the monsters will become invisible!"
 
 #. Store item description of mvz2:dark_matter by character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
-msgid "一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！"
+msgid "一种很黑的东西，它能让器械生产效率翻倍，但是你会看不见那些怪物！"
 msgstr ""
-"Some dark thing that makes contraptions produce at twice the speed, but the "
-"stage will become dark!"
+"Some dark thing that makes contraptions produce at twice the speed, but also "
+"makes you unable to see the monsters!"
 
 #. Store item description of mvz2:inverted_mirror by character mvz2:crazy_villager
 #: Store meta file

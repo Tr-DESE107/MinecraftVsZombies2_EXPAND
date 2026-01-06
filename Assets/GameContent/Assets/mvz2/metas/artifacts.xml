@@ -35,7 +35,7 @@
             <condition required="mvz2:level.dream_11" />
         </unlock>
     </artifact>
-    <artifact id="dark_matter" name="暗物质" tooltip="器械生产效率×200%，但场景变得黑暗" sprite="mvz2:artifacts/dark_matter">
+    <artifact id="dark_matter" name="暗物质" tooltip="器械生产效率×200%，但怪物隐形" sprite="mvz2:artifacts/dark_matter">
         <unlock>
             <condition required="mvz2:artifact.dark_matter" />
         </unlock>

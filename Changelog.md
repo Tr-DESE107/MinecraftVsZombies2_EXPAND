@@ -1,4 +1,5 @@
 ## Modified
+- Dark Matter now make monsters invisible instead of making the battlefield dark.
 - Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
 
 ## Fixed

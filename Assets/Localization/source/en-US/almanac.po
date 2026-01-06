@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-05 10:20+0800\n"
-"PO-Revision-Date: 2026-01-05 22:20+0800\n"
+"POT-Creation-Date: 2026-01-06 06:37+0800\n"
+"PO-Revision-Date: 2026-01-06 18:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3031,8 +3031,8 @@ msgstr "Dark Matter is an invisible substance that exists in large quantities in
 #. Properties for artifacts mvz2:dark_matter
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械生产效率×200%，但场景变得黑暗</color>"
-msgstr "Effect: <color=red>x200% contraption produce speed, but the battlefield is pitch black</color>"
+msgid "效果：<color=red>器械生产效率×200%，但怪物隐形</color>"
+msgstr "Effect: <color=red>x200% contraption produce speed, but the monsters are invisible</color>"
 
 #. Flavor for artifacts mvz2:dark_matter
 #: Almanac meta file
@@ -6718,8 +6718,8 @@ msgstr "Dark Matter"
 #. Tooltip for artifact mvz2:dark_matter
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械生产效率×200%，但场景变得黑暗"
-msgstr "x200% contraption produce speed, but the battlefield is pitch black"
+msgid "器械生产效率×200%，但怪物隐形"
+msgstr "x200% contraption produce speed, but the monsters are invisible"
 
 #. Name for artifact mvz2:bottled_blackhole
 #: Artifact meta file

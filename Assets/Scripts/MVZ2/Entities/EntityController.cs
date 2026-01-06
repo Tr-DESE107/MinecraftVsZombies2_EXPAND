@@ -367,7 +367,7 @@ namespace MVZ2.Entities
         private void UpdateHeightIndicator()
         {
             var relativeY = Entity.GetRelativeY();
-            bool active = Main.OptionsManager.IsHeightIndicatorEnabled() && Entity.IsVulnerableEntity() && relativeY >= HEIGHT_INDICATOR_MIN_HEIGHT;
+            bool active = Main.OptionsManager.IsHeightIndicatorEnabled() && Entity.ShowHeightIndicator() && relativeY >= HEIGHT_INDICATOR_MIN_HEIGHT;
             if (heightIndicator.gameObject.activeSelf != active)
             {
                 heightIndicator.gameObject.SetActive(active);

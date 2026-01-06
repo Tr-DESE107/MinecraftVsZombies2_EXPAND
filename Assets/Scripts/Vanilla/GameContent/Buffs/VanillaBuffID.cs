@@ -33,7 +33,6 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 2
             public const string pagodaBranchLevel = "pagoda_branch_level";
-            public const string darkMatterDark = "dark_matter_dark";
             public const string taintedSun = "tainted_sun";
             public const string nightmareLevel = "nightmare_level";
             public const string nightmareDecrepify = "nightmare_decrepify";
@@ -117,6 +116,9 @@ namespace MVZ2.GameContent.Buffs
 
             // Core
             public const string armorDamageColor = "armor_damage_color";
+
+            // Chapter 2
+            public const string darkMatterArmorInvisible = "dark_matter_armor_invisible";
 
             // Chapter 3
             public const string littleZombieArmor = "little_zombie_armor";
@@ -216,6 +218,7 @@ namespace MVZ2.GameContent.Buffs
             public const string enemyWeakness = "enemy_weakness";
             public const string forcePadDrag = "force_pad_drag";
             public const string nightmareComeTrue = "nightmare_come_true";
+            public const string darkMatterInvisible = "dark_matter_invisible";
 
             // Chapter 3
             public const string littleZombie = "little_zombie";
@@ -355,7 +358,6 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 2
             public static readonly NamespaceID pagodaBranchLevel = Get(VanillaBuffNames.Level.pagodaBranchLevel);
-            public static readonly NamespaceID darkMatterDark = Get(VanillaBuffNames.Level.darkMatterDark);
             public static readonly NamespaceID taintedSun = Get(VanillaBuffNames.Level.taintedSun);
             public static readonly NamespaceID nightmareLevel = Get(VanillaBuffNames.Level.nightmareLevel);
             public static readonly NamespaceID nightmareDecrepify = Get(VanillaBuffNames.Level.nightmareDecrepify);
@@ -431,6 +433,9 @@ namespace MVZ2.GameContent.Buffs
 
             // Core
             public static readonly NamespaceID armorDamageColor = Get(VanillaBuffNames.Armor.armorDamageColor);
+
+            // Chapter 2
+            public static readonly NamespaceID darkMatterArmorInvisible = Get(VanillaBuffNames.Armor.darkMatterArmorInvisible);
 
             // Chapter 3
             public static readonly NamespaceID littleZombieArmor = Get(VanillaBuffNames.Armor.littleZombieArmor);
@@ -530,6 +535,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID enemyWeakness = Get(VanillaBuffNames.Enemy.enemyWeakness);
             public static readonly NamespaceID forcePadDrag = Get(VanillaBuffNames.Enemy.forcePadDrag);
             public static readonly NamespaceID nightmareComeTrue = Get(VanillaBuffNames.Enemy.nightmareComeTrue);
+            public static readonly NamespaceID darkMatterInvisible = Get(VanillaBuffNames.Enemy.darkMatterInvisible);
 
             // Chapter 3
             public static readonly NamespaceID littleZombie = Get(VanillaBuffNames.Enemy.littleZombie);

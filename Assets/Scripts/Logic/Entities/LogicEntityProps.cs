@@ -296,5 +296,12 @@ namespace MVZ2Logic.Entities
         public static bool IsHPBarHidden(this Entity entity) => entity.GetProperty<bool>(HIDE_HP_BAR);
         public static void SetHPBarHidden(this Entity entity, bool value) => entity.SetProperty(HIDE_HP_BAR, value);
         #endregion
+
+        #region 血条
+        public static readonly PropertyMeta<bool> SHOW_HEIGHT_INDICATOR = Get<bool>("show_height_indicator");
+        public static bool ShowHeightIndicator(this Entity entity) => entity.GetProperty<bool>(SHOW_HEIGHT_INDICATOR);
+        public static void SetShowHeightIndicator(this Entity entity, bool value) => entity.SetProperty(SHOW_HEIGHT_INDICATOR, value);
+        #endregion
+        
     }
 }

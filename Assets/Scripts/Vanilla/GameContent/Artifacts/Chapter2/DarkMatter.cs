@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Definitions;
-using PVZEngine;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
@@ -17,14 +19,22 @@ namespace MVZ2.GameContent.Artifacts
         public DarkMatter(string nsp, string name) : base(nsp, name)
         {
             AddAura(new ProductionAura());
-            AddAura(new DarkAura());
+            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
         }
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        public static readonly NamespaceID ID = VanillaArtifactID.darkMatter;
+        private void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
+        {
+            var entity = param.entity;
+            if (!entity.Level.HasArtifact(GetID()))
+                return;
+            if (entity.IsPreviewEnemy())
+                return;
+            entity.AddBuff(VanillaBuffID.Enemy.darkMatterInvisible);
+        }
         public class ProductionAura : AuraEffectDefinition
         {
             public ProductionAura() : base(VanillaBuffID.Contraption.darkMatterProduction)
@@ -35,17 +45,6 @@ namespace MVZ2.GameContent.Artifacts
             {
                 var level = auraEffect.Source.GetLevel();
                 results.AddRange(level.GetEntities(EntityTypes.PLANT));
-            }
-        }
-        public class DarkAura : AuraEffectDefinition
-        {
-            public DarkAura() : base(VanillaBuffID.Level.darkMatterDark)
-            {
-            }
-
-            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
-            {
-                results.Add(auraEffect.Source.GetLevel());
             }
         }
     }

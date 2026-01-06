@@ -206,8 +206,8 @@
                 <condition required="mvz2:level.dream_11" />
             </unlock>
             <talks>
-                <talk character="mvz2:crazy_villager">从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！</talk>
-                <talk character="mvz2:tokiko">一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！</talk>
+                <talk character="mvz2:crazy_villager">从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是怪物会隐形！</talk>
+                <talk character="mvz2:tokiko">一种很黑的东西，它能让器械生产效率翻倍，但是你会看不见那些怪物！</talk>
             </talks>
             <stages>
                 <stage price="15000" unlocks="mvz2:artifact.dark_matter" />

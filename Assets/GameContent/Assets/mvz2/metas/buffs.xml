@@ -86,7 +86,8 @@
     <buff id="breakout_board_upgrade" polarity="positive" level="3000" target="effect" />
     <buff id="pagoda_branch_level" polarity="negative" level="2000" target="level" />
     <buff id="dark_matter_production" polarity="positive" level="2000" target="contraption" />
-    <buff id="dark_matter_dark" polarity="negative" level="1000" target="level" />
+    <buff id="dark_matter_invisible" polarity="positive" level="1000" target="enemy" />
+    <buff id="dark_matter_armor_invisible" polarity="positive" level="1000" target="armor" />
     <buff id="dream_butterfly_shield" polarity="positive" level="0" target="contraption" />
     <buff id="bottled_blackhole_damage" polarity="positive" level="2000" target="contraption" />
     <buff id="in_water" polarity="none" level="5000" target="entity" />

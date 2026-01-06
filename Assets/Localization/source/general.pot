@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-05 04:17+0800\n"
+"POT-Creation-Date: 2026-01-06 06:37+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1336,38 +1336,38 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:722
+#: Scripts\MVZ2\Map\MapController.cs:730
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:724
+#: Scripts\MVZ2\Map\MapController.cs:732
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:726
+#: Scripts\MVZ2\Map\MapController.cs:734
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:728
+#: Scripts\MVZ2\Map\MapController.cs:736
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:730
+#: Scripts\MVZ2\Map\MapController.cs:738
 msgid "目标地点{0}不存在。"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:732
+#: Scripts\MVZ2\Map\MapController.cs:740
 msgid "目标关卡{0}不存在。"
 msgstr ""
 
@@ -4353,13 +4353,13 @@ msgstr ""
 #. Store item description of mvz2:dark_matter by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
-msgid "从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！"
+msgid "从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是怪物会隐形！"
 msgstr ""
 
 #. Store item description of mvz2:dark_matter by character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
-msgid "一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！"
+msgid "一种很黑的东西，它能让器械生产效率翻倍，但是你会看不见那些怪物！"
 msgstr ""
 
 #. Store item description of mvz2:inverted_mirror by character mvz2:crazy_villager
