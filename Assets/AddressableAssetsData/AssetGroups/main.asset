@@ -10311,6 +10311,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b46994409ab2cee45b41269de891afbd
+    m_Address: mvz2:entity/contraption/EXPAND_Skin/YorigamiJyoon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b47d03bd743710345b665a5cac672aee
     m_Address: mvz2:ui/map/map_back_button
     m_ReadOnly: 0

@@ -1476,6 +1476,22 @@
 				<p><![CDATA[<color=white>永冻冰后面去问寒冰发射器，为什么自己突然就被牢论记起来，并加进游戏里了？寒冰发射器讲：顺手的事。</color>]]></p>
 			</flavor>
 		</entry>
+		<entry id="mvz2:Randombstone">
+			<header>
+				<p>随机墓碑能够召唤随机系列怪物。</p>
+			</header>
+			<properties>
+				<p>召唤时间：<![CDATA[<color=red>20秒</color>]]></p>
+				<p>技能：<![CDATA[<color=red>召唤下界冲锋者、狂战士、下界弓箭手</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁后出现反逆者。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>永恒冰觉得自己简直是被遗忘了，在expg里很长的一段时间内，他都没有图鉴文本，然而没有人在乎这一点，过了有一年乃至几个月制作者才发现他没有正规的图鉴，匆匆给他补上。然后似乎也没有人发现这一点，编辑Expwiki的逃兵们忘了更新它的条目，以至于又是一年乃至几个月，牢论把它制作到u时才发现他Expwiki的条目还是只有寥寥几句话。</p>
+				<p>"嗯，往好处想，至少我比牢狙早打赢复活赛。"他是这么想的</p>
+				<p/>
+				<p><![CDATA[<color=white>永冻冰后面去问寒冰发射器，为什么自己突然就被牢论记起来，并加进游戏里了？寒冰发射器讲：顺手的事。</color>]]></p>
+			</flavor>
+		</entry>
 
 		<!--EXPAND BlackCard-->
         <entry id="mvz2:Bedrock">

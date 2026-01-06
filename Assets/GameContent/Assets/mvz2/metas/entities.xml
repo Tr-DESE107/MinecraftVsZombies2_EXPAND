@@ -1579,7 +1579,7 @@
         </dispenser>
         <dispenser id="Freezenser" name="寒冰发射器" tooltip="射出能够减速和冻结敌人的冰锥">
             <unlock>
-                <condition requiredGroups="mvz2:EXPAND_TEST" />
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
                 <float name="mvz2:damage" value="15" />
@@ -1593,7 +1593,7 @@
         </dispenser>
 		<contraption id="PermanentIce" name="永冻冰" tooltip="触发后冰冻全场敌人">
 			<unlock>
-                <condition requiredGroups="mvz2:EXPAND_TEST" />
+                <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
 			<properties>
 				<bool name="mvz2:canDeactive" value="false" />
@@ -1703,9 +1703,29 @@
 			</properties>
 		</contraption>
 		
+		<contraption id="Randombstone" name="随机墓碑" tooltip="召唤友方下界战士">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<bool name="mvz2:nocturnal" value="true" />
+				<id name="mvz2:fragmentId" value="mvz2:furnace" />
+
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+				<idArray name="mvz2:gridLayers" value="mvz2:main mvz2:carrier" />
+
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:Eviltombstone" />
+				<id name="mvz2:placement" value="mvz2:upgrade" />
+
+				<int name="mvz2:cost" value="225" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</contraption>
+		
 		<dispenser id="EXPANDispenser" name="万象天枢" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
-				<condition required="mvz2:level.mausoleum_9" />
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
 			<properties>
 
@@ -1733,7 +1753,7 @@
 				<bool name="mvz2:loyal" value="true" />
 				<idArray name="mvz2:gridLayers" value="mvz2:carrier mvz2:main mvz2:protector mvz2:tool" />
 
-				<int name="mvz2:cost" value="0" />
+				<int name="mvz2:cost" value="99999" />
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</contraption>
@@ -1751,7 +1771,7 @@
 				<bool name="mvz2:loyal" value="true" />
 				<idArray name="mvz2:gridLayers" value="mvz2:carrier mvz2:main mvz2:protector mvz2:tool" />
 
-				<int name="mvz2:cost" value="0" />
+				<int name="mvz2:cost" value="99999" />
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</contraption>
@@ -5289,7 +5309,7 @@
 
 		<effect id="SoulFreeze">
 			<properties>
-				<int name="mvz2:maxTimeout" value="-1" />
+				<int name="mvz2:maxTimeout" value="300" />
 			</properties>
 		</effect>
     </entries>

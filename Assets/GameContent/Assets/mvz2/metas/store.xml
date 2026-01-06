@@ -328,5 +328,17 @@
                 </stage>
             </stages>
         </product>
+        <product id="EXPANDGiftPack" sprite="mvz2:products/cake">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！</talk>
+                <talk character="mvz2:tokiko">EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！</talk>
+            </talks>
+            <stages>
+					<stage price="107107" unlocks="mvz2:goods.EXPAND_Completed" />
+            </stages>
+        </product>
     </products>
 </store>

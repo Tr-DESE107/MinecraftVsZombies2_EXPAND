@@ -889,6 +889,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7cd67e193c23b1f46ae2e123c4a0bd3a, type: 3}
   - name: entity/contraptions/punchton_arm
     sprite: {fileID: 21300000, guid: d00aabb5514ee4743a361ad46e38de95, type: 3}
+  - name: entity/contraptions/Randombstone
+    sprite: {fileID: 21300000, guid: 41a760a36af78b04bbd4a92e834375b7, type: 3}
   - name: entity/contraptions/soul_furnace
     sprite: {fileID: 21300000, guid: 24543ba35a4b2b248b19964dc8587095, type: 3}
   - name: entity/contraptions/soul_furnace_light
@@ -3751,6 +3753,9 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
     - {fileID: 59550891, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
+  - name: entity/contraption/EXPAND_Skin/YorigamiJyoon
+    spritesheet:
+    - {fileID: 37738219, guid: b46994409ab2cee45b41269de891afbd, type: 3}
   - name: entity/enemy/EXPAND/Akuah
     spritesheet:
     - {fileID: -745785601, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
