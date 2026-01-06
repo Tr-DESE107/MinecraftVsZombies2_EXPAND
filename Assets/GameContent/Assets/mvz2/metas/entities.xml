@@ -2263,6 +2263,10 @@
                 <int name="mvz2:airInteraction" value="0" />
             </properties>
         </cart>
+        <cart id="corpse_cart" name="尸体推车">
+            <properties>
+            </properties>
+        </cart>
 
         <!-- Pickups -->
         <energyPickup id="redstone" name="红石">

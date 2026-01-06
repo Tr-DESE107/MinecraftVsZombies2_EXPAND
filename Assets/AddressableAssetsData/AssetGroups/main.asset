@@ -598,6 +598,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d22b25f0f1398d4bb06d82e81299708
+    m_Address: mvz2:entity/carts/corpse_cart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d2aba7e3e7fc2b44a60708edca144b6
     m_Address: mvz2:archive/dream_note
     m_ReadOnly: 0
@@ -9505,6 +9512,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf6a97ee53da2884fbd9af4fe15d1488
+    m_Address: mvz2:cart/corpse_cart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf961fc014fefe94aa951bc654dff1ee
     m_Address: mvz2:cart/unzan_fist
