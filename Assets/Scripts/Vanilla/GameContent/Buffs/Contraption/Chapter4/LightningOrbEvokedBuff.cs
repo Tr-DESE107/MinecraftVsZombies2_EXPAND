@@ -26,7 +26,10 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public LightningOrbEvokedBuff(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
-            thunderDetector = new LawnDetector();
+            thunderDetector = new LawnDetector()
+            {
+                canDetectInvisible = true
+            };
         }
         public override void PostAdd(Buff buff)
         {

@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Detections
     {
         public GemMergeDetector()
         {
+            canDetectInvisible = true;
             mask = EntityCollisionHelper.MASK_PICKUP;
             factionTarget = FactionTarget.Any;
         }

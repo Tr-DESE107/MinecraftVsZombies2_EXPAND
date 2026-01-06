@@ -425,9 +425,9 @@ namespace MVZ2.GameContent.Bosses
             var detector = outerEye ? outerEyeBulletDetector : innerEyeBulletDetector;
             return detector.DetectEntityWithTheLeast(entity, e => e.Position.x - entity.Position.x);
         }
-        public static void Smash(Entity entity, bool outerEye)
+        public static void Smash(Entity entity, bool outer)
         {
-            var detector = outerEye ? outerArmDetector : innerArmDetector;
+            var detector = outer ? outerArmDamageDetector : innerArmDamageDetector;
             smashDetectBuffer.Clear();
             detector.DetectMultiple(entity, smashDetectBuffer);
             bool damaged = false;
@@ -632,6 +632,8 @@ namespace MVZ2.GameContent.Bosses
         public static Detector innerEyeBulletDetector = new TheGiantEyeDetector(false);
         public static Detector outerArmDetector = new TheGiantArmDetector(true);
         public static Detector innerArmDetector = new TheGiantArmDetector(false);
+        public static Detector outerArmDamageDetector = new TheGiantArmDetector(true) { canDetectInvisible = true };
+        public static Detector innerArmDamageDetector = new TheGiantArmDetector(false) { canDetectInvisible = true };
         public static Detector pacmanDetector = new DevourerEvokedDetector();
         private static ArrayBuffer<IEntityCollider> smashDetectBuffer = new ArrayBuffer<IEntityCollider>(8);
 

@@ -21,7 +21,10 @@ namespace MVZ2.GameContent.Contraptions
         public SpikesBehaviour(string nsp, string name) : base(nsp, name)
         {
             detector = new SpikeBlockDetector();
-            detectorEvoked = new SpikeBlockDetector(true);
+            detectorEvoked = new SpikeBlockDetector(true)
+            {
+                canDetectInvisible = true
+            };
         }
         public override void Init(Entity entity)
         {

@@ -19,6 +19,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             healDetector = new SphereDetector(100)
             {
+                canDetectInvisible = true,
                 factionTarget = FactionTarget.Friendly
             };
             AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));

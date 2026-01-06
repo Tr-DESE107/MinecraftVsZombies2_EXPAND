@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Detections
     {
         public GravityPadDetector(bool forEnemy, float affectHeight)
         {
+            canDetectInvisible = true;
             if (forEnemy)
             {
                 mask = EntityCollisionHelper.MASK_ENEMY;
