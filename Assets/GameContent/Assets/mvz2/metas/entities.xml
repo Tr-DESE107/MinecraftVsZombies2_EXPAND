@@ -384,7 +384,7 @@
                 <id name="mvz2:deathSound" value="mvz2:glass_break" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
+                <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
                 <color name="mvz2:lightColor" value="#FFFF7F" />
 
                 <int name="mvz2:cost" value="25" />
@@ -1014,7 +1014,7 @@
                 <id name="mvz2:projectileId" value="mvz2:shuriken" />
 
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
+                <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
                 <color name="mvz2:lightColor" value="#FFFFFF" />
 
                 <int name="mvz2:cost" value="150" />
@@ -1086,7 +1086,7 @@
                 <id name="mvz2:placement" value="mvz2:any" />
                 <idArray name="mvz2:gridLayers" value="" />
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
+                <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
                 <color name="mvz2:lightColor" value="#FFFF7F" />
 
                 <int name="mvz2:cost" value="200" />
@@ -1180,7 +1180,7 @@
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
 
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
+                <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
                 <color name="mvz2:lightColor" value="#FFFFFF" />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
 
@@ -2227,7 +2227,7 @@
                 <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
                 <id name="mvz2:cartTriggerSound" value="mvz2:horse_angry" />
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
+                <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
                 <color name="mvz2:lightColor" value="#00FF00" />
             </properties>
         </cart>
@@ -2740,7 +2740,7 @@
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
 
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="120" y="120" z="120" />
+                <vector3 name="mvz2:lightRange" x="128" y="128" z="128" />
                 <color name="mvz2:lightColor" value="#FF7F00" />
             </properties>
         </projectile>
@@ -2794,7 +2794,7 @@
             <behaviours />
             <properties>
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="200" y="200" z="200" />
+                <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
                 <color name="mvz2:lightColor" value="#FF0000" />
                 <bool name="mvz2:noHitEntities" value="true" />
                 <bool name="mvz2:isFire" value="true" />
@@ -3381,7 +3381,7 @@
                 <vector3 name="mvz2:size" x="240" y="240" z="240" />
                 <bool name="mvz2:decorative" value="false" />
                 <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
+                <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
                 <color name="mvz2:lightColor" value="#FFFFFF" />
             </properties>
         </effect>
