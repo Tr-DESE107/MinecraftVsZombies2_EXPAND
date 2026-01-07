@@ -15,33 +15,44 @@ namespace PVZEngine
             spacename = nsp;
             path = name;
             valid = CheckValidation();
+            _hash = HashCode.Combine(nsp, path);
         }
-        public override int GetHashCode()
+        public override int GetHashCode() => _hash;
+        public bool Equals(NamespaceID? other)
         {
-            return SpaceName.GetHashCode() * 31 + Path.GetHashCode();
+            if (ReferenceEquals(this, other))
+                return true;
+            if (other is null)
+                return false;
+            if (_hash != other._hash)
+                return false;
+
+            return SpaceName == other.SpaceName && Path == other.Path;
         }
-        public override bool Equals(object? obj)
-        {
-            if (obj is NamespaceID otherRef)
-            {
-                return SpaceName == otherRef.SpaceName && Path == otherRef.Path;
-            }
-            return base.Equals(obj);
-        }
+
+        public override bool Equals(object? obj) => Equals(obj as NamespaceID);
         public static string ConvertName(string text)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder(text.Length + 4);
+            bool lastWasUnderscore = false;
+
             for (int i = 0; i < text.Length; i++)
             {
                 char chr = text[i];
-                if (!char.IsDigit(chr) && !char.IsLetter(chr))
-                    sb.Append('_');
-                else
+
+                if (!char.IsLetterOrDigit(chr))
                 {
-                    if (char.IsUpper(chr) && i > 0)
+                    if (!lastWasUnderscore)
                         sb.Append('_');
-                    sb.Append(char.ToLower(chr));
+                    lastWasUnderscore = true;
+                    continue;
                 }
+
+                if (char.IsUpper(chr) && i > 0 && !lastWasUnderscore)
+                    sb.Append('_');
+
+                sb.Append(char.ToLowerInvariant(chr));
+                lastWasUnderscore = false;
             }
             return sb.ToString();
         }
@@ -122,11 +133,27 @@ namespace PVZEngine
         }
         public static bool ValidateNamespace(string nsp)
         {
-            return !nsp.Contains(':') && !nsp.Contains('/');
+            if (string.IsNullOrEmpty(nsp))
+                return false;
+            foreach (var character in nsp)
+            {
+                if (char.IsLetterOrDigit(character) || character == '_' || character == '-' || character == '.')
+                    continue;
+                return false;
+            }
+            return true;
         }
         public static bool ValidatePath(string path)
         {
-            return !path.Contains(':');
+            if (string.IsNullOrEmpty(path))
+                return false;
+            foreach (var character in path)
+            {
+                if (char.IsLetterOrDigit(character) || character == '_' || character == '-' || character == '.' || character == '/')
+                    continue;
+                return false;
+            }
+            return true;
         }
         public static bool IsValid([NotNullWhen(true)] NamespaceID? id)
         {
@@ -146,24 +173,11 @@ namespace PVZEngine
         }
         public override string ToString()
         {
-            if (concatCache == null)
-            {
-                concatCache = string.Intern($"{SpaceName}:{Path}");
-            }
+            concatCache ??= $"{SpaceName}:{Path}";
             return concatCache;
         }
-        public static bool operator ==(NamespaceID? lhs, NamespaceID? rhs)
-        {
-            if (lhs is null)
-                return rhs is null;
-            if (rhs is null)
-                return false;
-            return lhs.SpaceName == rhs.SpaceName && lhs.Path == rhs.Path;
-        }
-        public static bool operator !=(NamespaceID? lhs, NamespaceID? rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator ==(NamespaceID? lhs, NamespaceID? rhs) => Equals(lhs, rhs);
+        public static bool operator !=(NamespaceID? lhs, NamespaceID? rhs) => !Equals(lhs, rhs);
         public string SpaceName
         {
             get => spacename;
@@ -172,12 +186,10 @@ namespace PVZEngine
         {
             get => path;
         }
-        [SerializeField]
-        private string spacename;
-        [SerializeField]
-        private string path;
-        [NonSerialized]
-        private bool valid;
+        private readonly string spacename;
+        private readonly string path;
+        private readonly bool valid;
+        private readonly int _hash;
         private string? concatCache;
     }
 }
