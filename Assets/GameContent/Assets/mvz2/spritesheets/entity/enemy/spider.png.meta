@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 36
         width: 65
         height: 35
       alignment: 9
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 0
+        y: 36
         width: 65
         height: 35
       alignment: 9
@@ -168,7 +168,7 @@ TextureImporter:
       name: spider_2
       rect:
         serializedVersion: 2
-        x: 132
+        x: 0
         y: 8
         width: 42
         height: 27
@@ -189,7 +189,7 @@ TextureImporter:
       name: spider_3
       rect:
         serializedVersion: 2
-        x: 132
+        x: 0
         y: 0
         width: 44
         height: 7
@@ -202,6 +202,27 @@ TextureImporter:
       bones: []
       spriteID: 88adde4151f2d86459740751c4ee4b55
       internalID: 2118705680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 23
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 536c26963a96b0b48b860e053f96cf96
+      internalID: -1838608039
       vertices: []
       indices: 
       edges: []
@@ -221,6 +242,7 @@ TextureImporter:
       spider_1: -719498444
       spider_2: 793676620
       spider_3: 2118705680
+      spider_4: -1838608039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

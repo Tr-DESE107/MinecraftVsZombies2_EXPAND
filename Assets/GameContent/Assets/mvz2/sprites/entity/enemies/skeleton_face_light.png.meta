@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 20cb1b235fabd9f49b957a6cb970904b
+guid: 940eb15b5d256ad4fb1eb9e59a010c53
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -43,9 +43,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -121,112 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: cave_spider_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 36
-        width: 65
-        height: 35
-      alignment: 9
-      pivot: {x: 0.03076923, y: 0.51428574}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb7bafef8e357e342900264bcbfff485
-      internalID: -448787342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cave_spider_1
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 36
-        width: 65
-        height: 35
-      alignment: 9
-      pivot: {x: 0.03076923, y: 0.51428574}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2125ef7ed8e9fcc47967be882b1465c6
-      internalID: 1916710286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cave_spider_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 8
-        width: 42
-        height: 27
-      alignment: 9
-      pivot: {x: 1, y: 0.4814815}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cac88b461d363c4fab36d1743a64d15
-      internalID: -918893853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cave_spider_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 44
-        height: 7
-      alignment: 9
-      pivot: {x: 0.9545455, y: 0.42857146}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9f48d1ec8a6cd940a2607a0c29582a3
-      internalID: -1336028926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cave_spider_4
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 23
-        width: 21
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4b34af9b55db034cbbde17e82f027d2
-      internalID: 1222761229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -237,12 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      cave_spider_0: -448787342
-      cave_spider_1: 1916710286
-      cave_spider_2: -918893853
-      cave_spider_3: -1336028926
-      cave_spider_4: 1222761229
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

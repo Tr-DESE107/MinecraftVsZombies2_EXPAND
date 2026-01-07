@@ -39,6 +39,8 @@ namespace MVZ2.GameContent.Enemies
             SetStateTimer(entity, new FrameTimer(SHOOT_COOLDOWN));
             var buff = entity.AddBuff<FlyBuff>();
             buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
+
+            entity.PlaySound(VanillaSoundID.ghastCry);
         }
         protected override void UpdateAI(Entity enemy)
         {

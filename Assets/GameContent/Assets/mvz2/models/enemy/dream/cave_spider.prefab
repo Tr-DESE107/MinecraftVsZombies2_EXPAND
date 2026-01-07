@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bone
       objectReference: {fileID: 0}
+    - target: {fileID: 7051842063324448402, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1222761229, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
     - target: {fileID: 7371681484115409076, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

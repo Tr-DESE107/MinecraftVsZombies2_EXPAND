@@ -3074,6 +3074,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 404f2482a784dcc4ebb7ce8ff27780f8
+    m_Address: mvz2:entity/enemies/bedserker_face_light
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4074c24824910164aa409abafc84e583
     m_Address: mvz2:floop
     m_ReadOnly: 0
@@ -6083,6 +6090,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80dad12e964267147b224eb50706b70d
+    m_Address: mvz2:chains_break
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80dd7dcc96e791f4fa2769903da9fb52
     m_Address: mvz2:mobile_blueprint/undead_flying_object_green
     m_ReadOnly: 0
@@ -6957,6 +6971,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 940eb15b5d256ad4fb1eb9e59a010c53
+    m_Address: mvz2:entity/enemies/skeleton_face_light
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 944683e1f0da086409759e5b63d9d066
     m_Address: mvz2:misc/murder

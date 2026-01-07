@@ -2,10 +2,12 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.StateMachine;
+using MVZ2Logic.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -24,6 +26,7 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             stateMachine.Init(entity);
             stateMachine.StartState(entity, STATE_IDLE);
+            entity.PlaySound(VanillaSoundID.chainsBreak);
         }
         protected override void UpdateAI(Entity entity)
         {

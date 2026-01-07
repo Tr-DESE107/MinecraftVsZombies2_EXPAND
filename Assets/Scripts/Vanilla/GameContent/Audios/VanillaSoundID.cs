@@ -45,6 +45,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID boon = Get("boon");
         public readonly static NamespaceID bow = Get("bow");
         public readonly static NamespaceID cave = Get("cave");
+        public readonly static NamespaceID chainsBreak = Get("chains_break");
         public readonly static NamespaceID charmed = Get("charmed");
         public readonly static NamespaceID chargedBolt = Get("charged_bolt");
         public readonly static NamespaceID chestOpen = Get("chest_open");
@@ -103,6 +104,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID fuse = Get("fuse");
         public readonly static NamespaceID gem = Get("gem");
         public readonly static NamespaceID giantSpike = Get("giant_spike");
+        public readonly static NamespaceID ghastCry = Get("ghast_cry");
         public readonly static NamespaceID ghastFire = Get("ghast_fire");
         public readonly static NamespaceID glowstone = Get("glowstone");
         public readonly static NamespaceID glassBreak = Get("glass_break");
