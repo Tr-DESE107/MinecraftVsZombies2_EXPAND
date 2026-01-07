@@ -259,18 +259,6 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.Level.IsIlluminated(entity);
         }
-        public static Entity? GetIlluminationLightSource(this Entity entity)
-        {
-            var level = entity.Level;
-            var entityID = level.GetIlluminationLightSourceID(entity);
-            return level.FindEntityByID(entityID);
-        }
-        public static Entity[] GetIlluminationLightSources(this Entity entity)
-        {
-            var level = entity.Level;
-            var entitiesID = level.GetIlluminationLightSources(entity);
-            return entitiesID.Select(e => level.FindEntityByID(e)).OfType<Entity>().ToArray();
-        }
         #endregion
 
         #region 特效

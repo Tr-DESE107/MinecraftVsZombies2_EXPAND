@@ -3,11 +3,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools.Mathematics;
+using UnityEngine;
 
 namespace MVZ2.Level.Components
 {
@@ -15,26 +20,34 @@ namespace MVZ2.Level.Components
     {
         public LightComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
-            lightSources = new LightSourceUpdateList(level);
+            level.PostEntityEnabled += PostEntityEnabledCallback;
+            level.PostEntityDisabled += PostEntityDisabledCallback;
         }
         public override void Update()
         {
             base.Update();
-            if (Level.IsTimeInterval(4))
+            if (Level.IsTimeInterval(4) || lightDirty)
             {
                 UpdateLighting();
             }
         }
+
         #region 序列化
         public override ISerializableLevelComponent ToSerializable()
         {
-            return new SerializableLightComponent()
+            List<SerializableLightSourceInfo> seriLightSources = new List<SerializableLightSourceInfo>();
+            foreach (var pair in lightToEntities)
             {
-                lightSources = lightSources.Select(pair => new SerializableLightSourceInfo()
+                var info = new SerializableLightSourceInfo()
                 {
                     id = pair.Key,
-                    illuminatingEntities = pair.Value.illuminatingEntities.ToArray()
-                }).ToArray()
+                    illuminatingEntities = pair.Value.ToArray()
+                };
+                seriLightSources.Add(info);
+            }
+            return new SerializableLightComponent()
+            {
+                lightSources = seriLightSources.ToArray()
             };
         }
         public override void InitFromSerializable(ISerializableLevelComponent seri)
@@ -46,9 +59,27 @@ namespace MVZ2.Level.Components
                 return;
             foreach (var info in serializable.lightSources)
             {
-                if (info == null)
+                if (info == null || info.illuminatingEntities == null)
                     continue;
-                lightSources.Add(info.id, LightSourceInfo.Deserialize(info));
+                var lightSourceID = info.id;
+                if (!lightToEntities.TryGetValue(lightSourceID, out var lightSourceSet))
+                {
+                    lightSourceSet = new HashSet<long>();
+                    lightToEntities.Add(lightSourceID, lightSourceSet);
+                }
+                foreach (var belitID in info.illuminatingEntities)
+                {
+                    lightSourceSet.Add(belitID);
+
+                    if (!entityToLights.TryGetValue(belitID, out var belitSet))
+                    {
+                        belitSet = new HashSet<long>();
+                        entityToLights.Add(belitID, belitSet);
+                    }
+                    belitSet.Add(lightSourceID);
+                }
+
+
             }
         }
         #endregion
@@ -56,51 +87,190 @@ namespace MVZ2.Level.Components
         #region 获取信息
         public bool IsIlluminated(Entity entity)
         {
-            foreach (var pair in lightSources)
-            {
-                if (pair.Value.illuminatingEntities.Contains(entity.ID))
-                    return true;
-            }
-            return false;
+            return entityToLights.TryGetValue(entity.ID, out var set)
+                   && set.Count > 0;
         }
-        public long GetIlluminationLightSourceID(Entity entity)
+
+        public bool IsIlluminatedBy(Entity entity, long lightSourceID)
         {
-            foreach (var pair in lightSources)
-            {
-                if (pair.Value.illuminatingEntities.Contains(entity.ID))
-                    return pair.Key;
-            }
-            return -1;
+            return entityToLights.TryGetValue(entity.ID, out var set)
+                   && set.Contains(lightSourceID);
         }
-        public IEnumerable<long> GetAllIlluminationLightSources(Entity entity)
+
+        public IEnumerable<long> GetIlluminationLightSources(Entity entity)
         {
-            foreach (var pair in lightSources)
+            if (entityToLights.TryGetValue(entity.ID, out var set))
             {
-                if (pair.Value.illuminatingEntities.Contains(entity.ID))
-                    yield return pair.Key;
+                foreach (var id in set)
+                    yield return id;
             }
         }
-        public void GetIlluminatingEntities(Entity entity, HashSet<long> results)
+
+        public IEnumerable<long> GetIlluminatingEntities(long lightSourceID)
         {
-            if (lightSources.TryGetValue(entity.ID, out var info))
+            if (lightToEntities.TryGetValue(lightSourceID, out var set))
             {
-                foreach (var ent in info.illuminatingEntities)
-                {
-                    results.Add(ent);
-                }
+                foreach (var id in set)
+                    yield return id;
             }
+        }
+        public void GetIlluminatingEntitiesNonAlloc(long lightSourceID, HashSet<long> results)
+        {
+            if (lightToEntities.TryGetValue(lightSourceID, out var set))
+            {
+                foreach (var id in set)
+                    results.Add(id);
+            }
+        }
+
+        public int GetIlluminationCount(long targetID)
+        {
+            return entityToLights.TryGetValue(targetID, out var set) ? set.Count : 0;
+        }
+        #endregion
+
+        #region 事件回调
+        private void PostEntityEnabledCallback(Entity entity)
+        {
+            if (entity.IsLightSource() || entity.ReceivesLight())
+            {
+                lightDirty = true;
+            }
+        }
+        private void PostEntityDisabledCallback(Entity entity)
+        {
+            RemoveIlluminationForEntity(entity);
         }
         #endregion
 
         #region 更新光照
+        public void RemoveIlluminationForEntity(Entity entity)
+        {
+            var id = entity.ID;
+
+            // 如果是光源：移除它照亮的实体
+            if (lightToEntities.TryGetValue(id, out var litSet))
+            {
+                foreach (var targetID in litSet)
+                {
+                    if (entityToLights.TryGetValue(targetID, out var targetSet))
+                        targetSet.Remove(id);
+                }
+                lightToEntities.Remove(id);
+            }
+
+            // 如果是被照亮实体：移除照亮它的光源
+            if (entityToLights.TryGetValue(id, out var lightSet))
+            {
+                foreach (var lightID in lightSet)
+                {
+                    if (lightToEntities.TryGetValue(lightID, out var targetSet))
+                        targetSet.Remove(id);
+                }
+                entityToLights.Remove(id);
+            }
+        }
         private void UpdateLighting()
         {
-            lightSources.Update();
+            lightDirty = false;
+            CollectEntities();
+            UpdateIllumination();
+        }
+        private void CollectEntities()
+        {
+            lightSources.Clear();
+            Level.FindEntitiesNonAlloc(e => e.IsLightSource(), lightSources);
+        }
+        private void UpdateIllumination()
+        {
+            // 清空索引
+            foreach (var set in entityToLights.Values)
+            {
+                set.Clear();
+            }
+            foreach (var set in lightToEntities.Values)
+            {
+                set.Clear();
+            }
+
+            foreach (var entity in lightSources)
+            {
+                UpdateIlluminationForLightSource(entity);
+            }
+        }
+        public void UpdateIlluminationForLightSource(Entity lightSource)
+        {
+            var lightSourceID = lightSource.ID;
+
+            // 1. 先从 entityToLights 中移除该光源的旧影响
+            if (!lightToEntities.TryGetValue(lightSourceID, out var lightSourceSet))
+            {
+                lightSourceSet = new HashSet<long>();
+                lightToEntities.Add(lightSourceID, lightSourceSet);
+            }
+
+            // 2. 重新计算
+            ComputeLight(lightSource, lightSourceSet);
+
+            // 3. 写回反向索引
+            foreach (var targetID in lightSourceSet)
+            {
+                if (!entityToLights.TryGetValue(targetID, out var targetSet))
+                {
+                    targetSet = new HashSet<long>();
+                    entityToLights.Add(targetID, targetSet);
+                }
+                targetSet.Add(lightSourceID);
+            }
+        }
+        private void ComputeLight(Entity light, HashSet<long> results)
+        {
+            var center = light.GetCenter();
+            var range = light.GetLightRange();
+
+            float minRange = Mathf.Min(range.x, range.y, range.z);
+            float radius = minRange * 0.5f;
+
+            Vector3 coreSize = range - Vector3.one * minRange;
+            coreSize = Vector3.Max(coreSize, Vector3.zero);
+
+            var overlapSize = coreSize + Vector3.one * minRange;
+
+            var roundCube = new RoundCube(center, coreSize, radius);
+            var mask = EntityCollisionHelper.MASK_ALL;
+
+            overlapResults.Clear();
+
+            Level.OverlapBoxNonAlloc(center, overlapSize, 0, mask, mask, overlapResults);
+
+            foreach (var collider in overlapResults)
+            {
+                if (!collider.IsForMain())
+                    continue;
+                var targetEntity = collider.Entity;
+                if (targetEntity == null || !targetEntity.ReceivesLight())
+                    continue;
+
+                if (!MathTool.CollideBetweenCubeAndRoundCube(roundCube, collider.GetBoundingBox()))
+                    continue;
+
+                results.Add(targetEntity.ID);
+            }
         }
         #endregion
 
         #region 属性字段
-        private LightSourceUpdateList lightSources;
+        // 光源 -> 被照亮实体
+        private readonly Dictionary<long, HashSet<long>> lightToEntities = new Dictionary<long, HashSet<long>>();
+
+        // 实体 -> 光源
+        private readonly Dictionary<long, HashSet<long>> entityToLights = new Dictionary<long, HashSet<long>>();
+
+        // 缓冲区（避免 GC）
+        private readonly List<Entity> lightSources = new(32);
+        private readonly List<IEntityCollider> overlapResults = new List<IEntityCollider>(32);
+        private bool lightDirty = false;
+
         public static readonly NamespaceID componentID = new NamespaceID(Global.BuiltinNamespace, "lighting");
         #endregion
     }

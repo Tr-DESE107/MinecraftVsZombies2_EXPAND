@@ -373,61 +373,6 @@ namespace Tools.Mathematics
             // 距离大于半径则不相交
             return distance <= circleRadius;
         }
-        public static bool CollideBetweenRectangleAndRoundRectangle(RoundRect roundRect, Rect rectangle)
-        {
-            var roundRectCenter = new Rect(roundRect.center - roundRect.size * 0.5f, roundRect.size);
-            if (roundRect.radius <= 0)
-                return roundRectCenter.Overlaps(rectangle);
-
-            // 水平相交
-            var roundSizeHori = roundRect.size + Vector2.right * roundRect.radius;
-            var roundRectHori = new Rect(roundRect.center - roundSizeHori * 0.5f, roundSizeHori);
-            if (rectangle.Overlaps(roundRectHori))
-                return true;
-
-            // 垂直相交
-            var roundSizeVert = roundRect.size + Vector2.up * roundRect.radius;
-            var roundRectVert = new Rect(roundRect.center - roundSizeVert * 0.5f, roundSizeVert);
-            if (rectangle.Overlaps(roundRectVert))
-                return true;
-
-            // 圆角相交
-            for (int i = 0; i < 4; i++)
-            {
-                var x = (i & 1) == 1 ? roundRectCenter.xMax : roundRectCenter.xMin;
-                var y = (i & 2) == 2 ? roundRectCenter.yMax : roundRectCenter.yMin;
-                var corner = new Vector2(x, y);
-                if (CollideBetweenRectangleAndCircle(corner, roundRect.radius, rectangle.center, rectangle.size))
-                    return true;
-            }
-            return false;
-        }
-        public static bool CollideBetweenRectangleAndRoundRectangle(Vector2 roundRectCenter, Vector2 roundRectSize, float roundRectRadius, Vector2 rectangleCenter, Vector2 rectangleSize)
-        {
-            if (roundRectRadius <= 0)
-                return DoRectsOverlap(roundRectCenter, roundRectSize, rectangleCenter, rectangleSize);
-
-            // 水平相交
-            var roundSizeHori = roundRectSize + Vector2.right * roundRectRadius * 2;
-            if (DoRectsOverlap(roundRectCenter, roundSizeHori, rectangleCenter, rectangleSize))
-                return true;
-
-            // 垂直相交
-            var roundSizeVert = roundRectSize + Vector2.up * roundRectRadius * 2;
-            if (DoRectsOverlap(roundRectCenter, roundSizeVert, rectangleCenter, rectangleSize))
-                return true;
-
-            // 圆角相交
-            for (int i = 0; i < 4; i++)
-            {
-                var x = roundRectCenter.x + roundRectSize.x * ((i & 1) == 1 ? -0.5f : 0.5f);
-                var y = roundRectCenter.y + roundRectSize.y * ((i & 2) == 2 ? -0.5f : 0.5f);
-                var corner = new Vector2(x, y);
-                if (CollideBetweenRectangleAndCircle(corner, roundRectRadius, rectangleCenter, rectangleSize))
-                    return true;
-            }
-            return false;
-        }
         #endregion
 
         #region 3D物体
@@ -472,6 +417,16 @@ namespace Tools.Mathematics
             if (maxA < minB) return false;
 
             return true;
+        }
+        public static Vector3 ClosestPointAABBToAABB(Bounds a, Bounds b)
+        {
+            Vector3 p;
+
+            p.x = Mathf.Clamp(b.center.x, a.min.x, a.max.x);
+            p.y = Mathf.Clamp(b.center.y, a.min.y, a.max.y);
+            p.z = Mathf.Clamp(b.center.z, a.min.z, a.max.z);
+
+            return p;
         }
         public static bool CollideBetweenCubeAndCylinder(Cylinder cylinder, Bounds cube)
         {
@@ -520,28 +475,20 @@ namespace Tools.Mathematics
         }
         public static bool CollideBetweenCubeAndRoundCube(RoundCube roundCube, Bounds cube)
         {
-            return CollideBetweenCubeAndRoundCube(roundCube.center, roundCube.size, roundCube.radius, cube.center, cube.size);
-        }
-        public static bool CollideBetweenCubeAndRoundCube(Vector3 roundCubeCenter, Vector3 roundCubeSize, float roundCubeRadius, Vector3 cubeCenter, Vector3 cubeSize)
-        {
-            // 检测x-y平面和x-z平面的投影相交。
-            for (int i = 0; i < 2; i++)
-            {
-                var comp1 = 0;
-                var comp2 = 1;
-                if (i == 1)
-                {
-                    comp2 = 2;
-                }
-                var roundCenter = new Vector2(roundCubeCenter[comp1], roundCubeCenter[comp2]);
-                var roundSize = new Vector2(roundCubeSize[comp1], roundCubeSize[comp2]);
+            var radius = roundCube.radius;
+            Vector3 coreSize = roundCube.size;
 
-                var rectCenter = new Vector2(cubeCenter[comp1], cubeCenter[comp2]);
-                var rectSize = new Vector2(cubeSize[comp1], cubeSize[comp2]);
-                if (CollideBetweenRectangleAndRoundRectangle(roundCenter, roundSize, roundCubeRadius, rectCenter, rectSize))
-                    return true;
+            // 如果圆角半径过大，退化成球
+            if (coreSize.x <= 0 && coreSize.y <= 0 && coreSize.z <= 0)
+            {
+                // 退化为：球 vs AABB
+                Vector3 closest = cube.ClosestPoint(roundCube.center);
+                return (closest - roundCube.center).sqrMagnitude <= radius * radius;
             }
-            return false;
+            Bounds coreBox = new Bounds(roundCube.center, coreSize);
+            Vector3 closestPoint = ClosestPointAABBToAABB(coreBox, cube);
+            Vector3 closestOnOther = cube.ClosestPoint(closestPoint);
+            return (closestOnOther - closestPoint).sqrMagnitude <= radius * radius;
         }
         public static bool CollideBetweenCubeAndSphere(Vector3 sphereCenter, float sphereRadius, Vector3 cubeCenter, Vector3 cubeSize)
         {

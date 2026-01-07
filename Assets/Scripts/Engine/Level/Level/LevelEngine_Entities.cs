@@ -113,6 +113,7 @@ namespace PVZEngine.Level
             OnEntitySpawn?.Invoke(spawned);
             spawned.Init();
             IncreaseLevelObjectReference(spawned);
+            PostEntityEnabled?.Invoke(spawned);
             return spawned;
         }
         public Entity? SpawnSourced(EntityDefinition entityDef, Vector3 pos, ILevelSourceReference? source, SpawnParams? param = null) => SpawnSourced(entityDef, pos, source, NewEntitySeed(), param);
@@ -165,6 +166,7 @@ namespace PVZEngine.Level
             RemoveEntityCollision(entity);
             DecreaseLevelObjectReference(entity);
             OnEntityRemove?.Invoke(entity);
+            PostEntityDisabled?.Invoke(entity);
         }
         #endregion
 
@@ -372,6 +374,8 @@ namespace PVZEngine.Level
         #region 事件
         public event Action<Entity>? OnEntitySpawn;
         public event Action<Entity>? OnEntityRemove;
+        public event Action<Entity>? PostEntityEnabled;
+        public event Action<Entity>? PostEntityDisabled;
         #endregion
 
         private long currentEntityID = 1;

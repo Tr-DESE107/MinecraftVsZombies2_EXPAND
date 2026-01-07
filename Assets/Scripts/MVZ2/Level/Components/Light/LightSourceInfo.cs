@@ -5,18 +5,6 @@ using PVZEngine.Base;
 
 namespace MVZ2.Level.Components
 {
-    public class LightSourceInfo
-    {
-        public static LightSourceInfo Deserialize(SerializableLightSourceInfo seri)
-        {
-            var entities = seri.illuminatingEntities != null ? new UpdateList<long>(seri.illuminatingEntities) : new UpdateList<long>();
-            return new LightSourceInfo()
-            {
-                illuminatingEntities = entities
-            };
-        }
-        public UpdateList<long> illuminatingEntities = new UpdateList<long>();
-    }
     [Serializable]
     public class SerializableLightSourceInfo
     {
