@@ -7217,6 +7217,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b1e8f9e4a726fb4bb190e3b0b8511d2
+    m_Address: mvz2:map/palace/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b2a319d45e9e2b42afaad1aeef23d16
     m_Address: mvz2:contraption/dream/lily_pad
     m_ReadOnly: 0
@@ -7300,6 +7307,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c2a11f870f75a04c85b933d52c9090a
+    m_Address: mvz2:palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c2ffe9b1f0c11c4e8e821a591f6f10a
     m_Address: mvz2:map/gensokyo/pins/mausoleum
@@ -8021,6 +8035,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad196ef70ec0a8f488139a50a28c7577
+    m_Address: mvz2:palace_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad459762f7203424488a8ef163260d48
     m_Address: mvz2:sand_dig5
@@ -9221,6 +9242,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c91919e3f10e9004f85638cba2384e3e
     m_Address: mvz2:entity/contraptions/force_wave
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c92acfbe0681ef246991163cfbf4eb72
+    m_Address: mvz2:map/gensokyo/pins/palace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

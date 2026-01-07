@@ -13,6 +13,7 @@ namespace MVZ2.Map
         public static readonly NamespaceID castle = Get("castle");
         public static readonly NamespaceID mausoleum = Get("mausoleum");
         public static readonly NamespaceID ship = Get("ship");
+        public static readonly NamespaceID palace = Get("palace");
         public static NamespaceID Get(string path)
         {
             return new NamespaceID(Global.BuiltinNamespace, path);

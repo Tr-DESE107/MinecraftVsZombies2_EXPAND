@@ -416,6 +416,17 @@
     </music>
 
     
+    <music id="palace_map" name="惊疑星球-地图">
+        <unlock>
+            <condition required="mvz2:level.palace_1" />
+        </unlock>
+        <track main="mvz2:palace_map" />
+        <source>书虫大冒险 Vol.2</source>
+        <description>
+            <p>地灵殿地图的音乐。</p>
+            <p>======乐评施工中======</p>
+        </description>
+    </music>
     <music id="palace_level" name="猎手之眼">
         <unlock>
             <condition required="mvz2:level.palace_1" />

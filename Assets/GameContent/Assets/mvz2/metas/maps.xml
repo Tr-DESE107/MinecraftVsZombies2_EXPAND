@@ -120,4 +120,22 @@
             <stage id="mvz2:ship_11" />
         </stages>
     </map>
+    <map id="palace" area="mvz2:palace" width="3200" height="2400">
+        <presets>
+            <preset id="mvz2:palace" model="mvz2:palace" backgroundColor="#000000" music="mvz2:palace_map" />
+        </presets>
+        <stages endless="mvz2:palace_endless">
+            <stage id="mvz2:palace_1" />
+            <stage id="mvz2:palace_2" />
+            <stage id="mvz2:palace_3" />
+            <stage id="mvz2:palace_4" />
+            <stage id="mvz2:palace_5" />
+            <stage id="mvz2:palace_6" />
+            <stage id="mvz2:palace_7" />
+            <stage id="mvz2:palace_8" />
+            <stage id="mvz2:palace_9" />
+            <stage id="mvz2:palace_10" />
+            <stage id="mvz2:palace_11" />
+        </stages>
+    </map>
 </maps>

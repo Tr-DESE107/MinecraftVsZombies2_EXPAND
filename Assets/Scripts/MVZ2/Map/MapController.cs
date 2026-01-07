@@ -308,6 +308,10 @@ namespace MVZ2.Map
             {
                 Main.Scene.DisplayMap(VanillaMapID.ship);
             }
+            else if (id == MapPinID.palace)
+            {
+                Main.Scene.DisplayMap(VanillaMapID.palace);
+            }
             else if (id == MapPinID.kourindou)
             {
                 Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID), true);
