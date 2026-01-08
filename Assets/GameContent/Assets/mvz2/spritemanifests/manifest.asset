@@ -135,6 +135,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6b2ac3f4f375c3e4c9ae0837f95feb18, type: 3}
   - name: characters/armor_stand
     sprite: {fileID: 21300000, guid: 79a357758cd7dff4d83ebc2928ce0812, type: 3}
+  - name: characters/crazy_villager
+    sprite: {fileID: 21300000, guid: c321612661c274844b82586aba232f9f, type: 3}
+  - name: characters/dim_vision
+    sprite: {fileID: 21300000, guid: 2ab4a75a9055bfe45b77160fc117ae13, type: 3}
+  - name: characters/doremy_suffering
+    sprite: {fileID: 21300000, guid: 7bf781a25449e494cb164af741da24e7, type: 3}
   - name: characters/hologram
     sprite: {fileID: 21300000, guid: 39cde1f66d40cb14d8f732d41ea867f2, type: 3}
   - name: entity/height_indicator
@@ -1269,12 +1275,6 @@ MonoBehaviour:
     - {fileID: 1138428065, guid: 4dce52e9fb4e43b4a9bf9a9af890bcf9, type: 3}
     - {fileID: -731492466, guid: 4dce52e9fb4e43b4a9bf9a9af890bcf9, type: 3}
     - {fileID: 1416557461, guid: 4dce52e9fb4e43b4a9bf9a9af890bcf9, type: 3}
-  - name: characters/crazy_villager
-    spritesheet:
-    - {fileID: 21300000, guid: c321612661c274844b82586aba232f9f, type: 3}
-  - name: characters/dim_vision
-    spritesheet:
-    - {fileID: 21300000, guid: 2ab4a75a9055bfe45b77160fc117ae13, type: 3}
   - name: characters/doremy
     spritesheet:
     - {fileID: 1032467398, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
@@ -1291,9 +1291,6 @@ MonoBehaviour:
     - {fileID: 601784348, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
     - {fileID: -1003292378, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
     - {fileID: -603209068, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
-  - name: characters/doremy_suffering
-    spritesheet:
-    - {fileID: 21300000, guid: 7bf781a25449e494cb164af741da24e7, type: 3}
   - name: characters/futo
     spritesheet:
     - {fileID: 329402412, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
@@ -1394,6 +1391,10 @@ MonoBehaviour:
     - {fileID: -79018707, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -2106919776, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -900475582, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
+  - name: icons/parasitized_icon
+    spritesheet:
+    - {fileID: -1697089634, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}
+    - {fileID: -1292817976, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}
   - name: level/hp_bar_icons
     spritesheet:
     - {fileID: -412867899, guid: 453d4fef4f85ab847b33d20eb562157d, type: 3}
@@ -2570,6 +2571,10 @@ MonoBehaviour:
     - {fileID: 5404499671542490641, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
     - {fileID: 2914410065991313758, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
     - {fileID: 6656791130363650158, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
+  - name: ui/level/imbued_icon
+    spritesheet:
+    - {fileID: -1336416021, guid: e4338c72026e47949a5e8edc50e80692, type: 3}
+    - {fileID: 834281337, guid: e4338c72026e47949a5e8edc50e80692, type: 3}
   - name: ui/level/nightmare_broken_glasses
     spritesheet:
     - {fileID: -496670632954994581, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
