@@ -1571,9 +1571,11 @@
 			<entry id="mvz2:magichest" count="3" minCount="0" />
 			<entry id="mvz2:firework_dispenser" count="7" />
 			<entry id="mvz2:wooden_fan" count="10" />
+			<entry id="mvz2:stone_shield" count="10" />
+			<entry id="mvz2:punchton" count="10" />
 		</conveyor>
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:beacon" />
-		<spawns flags="3" pointsMultiplier="2" pointsAddition="1">
+		<spawns flags="3" pointsMultiplier="1.8" pointsAddition="1">
 			<spawn id="mvz2:undead_flying_object_blitz" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:ghast" />
@@ -1692,6 +1694,7 @@
 			<entry id="mvz2:wooden_fan" count="4" />
 			<entry id="mvz2:elastic_cloud" count="5" />
 			<entry id="mvz2:tesla_coil" count="5" />
+			<entry id="mvz2:stone_shield" count="8" />
 			<entry id="mvz2:jeweled_pagoda" count="1" minCount="0" />
 		</conveyor>
 		<clear pickupModel="mvz2:entity.money_chest" />

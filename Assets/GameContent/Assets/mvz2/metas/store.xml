@@ -344,7 +344,7 @@
                 </stage>
             </stages>
         </product>
-        <product id="EXPANDGiftPack" sprite="mvz2:products/cake">
+        <product id="EXPANDGiftPack" sprite="mvz2:products/EXPANDGiftPack">
             <unlock>
                 <condition requiredGroups="mvz2:EXPAND_Completed" />
             </unlock>

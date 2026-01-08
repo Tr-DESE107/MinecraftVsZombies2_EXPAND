@@ -317,6 +317,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2bc07992dc30ad441aa98588cf8d0e90, type: 3}
   - name: mobile_blueprint/devourer
     sprite: {fileID: 21300000, guid: f9f35a26c043a7b4fa4d6f5836941b01, type: 3}
+  - name: mobile_blueprint/DiamondOre
+    sprite: {fileID: 21300000, guid: a9a378c3bd3d42342a0690c1c14f56b3, type: 3}
   - name: mobile_blueprint/diamond_spikes
     sprite: {fileID: 21300000, guid: a91f725ba10a5c545a6a951003948a10, type: 3}
   - name: mobile_blueprint/dispenser
@@ -347,12 +349,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 59b32a49b17a365419ee9603447b56df, type: 3}
   - name: mobile_blueprint/Eviltombstone
     sprite: {fileID: 21300000, guid: 28d615d4432f6624aaa56f1d26ba8883, type: 3}
+  - name: mobile_blueprint/EXPANDispenser
+    sprite: {fileID: 21300000, guid: 28a1b23d69f2f284695b159c4c295d6f, type: 3}
   - name: mobile_blueprint/firework_dispenser
     sprite: {fileID: 21300000, guid: ced04377ba2ef5c4997601c45b6ca7e7, type: 3}
   - name: mobile_blueprint/flag_zombie
     sprite: {fileID: 21300000, guid: 4756509eba10d744bb3323a794303f92, type: 3}
   - name: mobile_blueprint/force_pad
     sprite: {fileID: 21300000, guid: f25d2b94a621a1e4d8cd823493b4a29f, type: 3}
+  - name: mobile_blueprint/Freezenser
+    sprite: {fileID: 21300000, guid: 42d77d4710767184290064dc2ab163ab, type: 3}
   - name: mobile_blueprint/furnace
     sprite: {fileID: 21300000, guid: acc2e6159831cab4bb25141293768c3c, type: 3}
   - name: mobile_blueprint/gargoyle
@@ -497,6 +503,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4d49d253e83fc104d9eb629a8a238ee3, type: 3}
   - name: mobile_blueprint/parasite_terror
     sprite: {fileID: 21300000, guid: 333296bf7a142dd43a413222f3881bcb, type: 3}
+  - name: mobile_blueprint/PermanentIce
+    sprite: {fileID: 21300000, guid: 2bb72792699c5fa4eb479776078c6604, type: 3}
   - name: mobile_blueprint/PirateSkeleton
     sprite: {fileID: 21300000, guid: 6d7b5d821d532134eb2216dceceb2669, type: 3}
   - name: mobile_blueprint/PirateZombie
@@ -511,6 +519,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1d8a7cdd4327da14ea5a749df090984d, type: 3}
   - name: mobile_blueprint/RaiderSkull
     sprite: {fileID: 21300000, guid: 679ba871c15282d4d995e64c33711c8b, type: 3}
+  - name: mobile_blueprint/Randombstone
+    sprite: {fileID: 21300000, guid: 2219642330b788f41959a1b4bdca1506, type: 3}
   - name: mobile_blueprint/RandomImp
     sprite: {fileID: 21300000, guid: d32ee8354a9a0ab49ba5cd903b5a0495, type: 3}
   - name: mobile_blueprint/RandomKingSkeleton
@@ -691,6 +701,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a4fb4d341a16ba64cbad7dd992c94206, type: 3}
   - name: products/cake
     sprite: {fileID: 21300000, guid: 78ada02b958a3804fac1e795d393ee64, type: 3}
+  - name: products/EXPANDGiftPack
+    sprite: {fileID: 21300000, guid: e9a93317158617c46a1be0f06c198735, type: 3}
   - name: products/obsidian_first_aid
     sprite: {fileID: 21300000, guid: beb139d5d07db39408272c27eaea0034, type: 3}
   - name: products/starshard_slot
