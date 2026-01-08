@@ -813,6 +813,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: dd81e2f5e01461d4c9186fe9648f2c1f, type: 3}
   - name: entity/enemies/bedserker_bed
     sprite: {fileID: 21300000, guid: 4ac894cccf343c44e81c86c063ac4d75, type: 3}
+  - name: entity/enemies/bedserker_face_light
+    sprite: {fileID: 21300000, guid: 404f2482a784dcc4ebb7ce8ff27780f8, type: 3}
   - name: entity/enemies/bedserker_head
     sprite: {fileID: 21300000, guid: 41e9ae37d1663c94ba25b6f38590132b, type: 3}
   - name: entity/enemies/bedserker_rope
@@ -841,6 +843,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 580a757d547930b41a026df31631b7c9, type: 3}
   - name: entity/enemies/mesmerizer_rod
     sprite: {fileID: 21300000, guid: c722a1dec874bb34e9a87bb1dd009e63, type: 3}
+  - name: entity/enemies/skeleton_face_light
+    sprite: {fileID: 21300000, guid: 940eb15b5d256ad4fb1eb9e59a010c53, type: 3}
   - name: entity/enemies/stone_sword
     sprite: {fileID: 21300000, guid: 53ae426afe3ebb8438ab6c1165ed0448, type: 3}
   - name: entity/enemies/ufo_spotlight
@@ -1053,6 +1057,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 18170164ed705914ebb03c0ee8ca6ef9, type: 3}
   - name: map/mausoleum/map
     sprite: {fileID: 21300000, guid: faa2211777e02a84b8a7e50170afab89, type: 3}
+  - name: map/palace/map
+    sprite: {fileID: 21300000, guid: 9b1e8f9e4a726fb4bb190e3b0b8511d2, type: 3}
   - name: map/ship/end_ship
     sprite: {fileID: 21300000, guid: 46fd845ce654ebb43bd75d875facaea1, type: 3}
   - name: map/ship/ship
@@ -1167,6 +1173,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 982248cc3f9823f4a9f759db1e00184f, type: 3}
   - name: map/gensokyo/pins/mausoleum
     sprite: {fileID: 21300000, guid: 9c2ffe9b1f0c11c4e8e821a591f6f10a, type: 3}
+  - name: map/gensokyo/pins/palace
+    sprite: {fileID: 21300000, guid: c92acfbe0681ef246991163cfbf4eb72, type: 3}
   - name: map/gensokyo/pins/ship
     sprite: {fileID: 21300000, guid: a530bd663cca7d34aa3b3fd92ffddc00, type: 3}
   - name: ui/level/mobile/card_curtain
@@ -2115,6 +2123,7 @@ MonoBehaviour:
     - {fileID: 1916710286, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
     - {fileID: -918893853, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
     - {fileID: -1336028926, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
+    - {fileID: 1222761229, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
   - name: entity/enemy/cave_spider_death
     spritesheet:
     - {fileID: -1253464880, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
@@ -2308,6 +2317,7 @@ MonoBehaviour:
     - {fileID: -719498444, guid: b05d578e666fa614c871c4984041189f, type: 3}
     - {fileID: 793676620, guid: b05d578e666fa614c871c4984041189f, type: 3}
     - {fileID: 2118705680, guid: b05d578e666fa614c871c4984041189f, type: 3}
+    - {fileID: -1838608039, guid: b05d578e666fa614c871c4984041189f, type: 3}
   - name: entity/enemy/spider_death
     spritesheet:
     - {fileID: -41998495, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
@@ -2457,6 +2467,10 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -6034685484396218449, guid: 8a2e7dea253a9e84c910acffe8c3e79e, type: 3}
     - {fileID: 7749991839993489328, guid: 8a2e7dea253a9e84c910acffe8c3e79e, type: 3}
+  - name: mainmenu/view/palace
+    spritesheet:
+    - {fileID: -751478636, guid: 4a54974cb99c15d4da1dce7d5d408a9e, type: 3}
+    - {fileID: -1263366755, guid: 4a54974cb99c15d4da1dce7d5d408a9e, type: 3}
   - name: mainmenu/view/ship
     spritesheet:
     - {fileID: 1340712246, guid: efe7279b9efd4e149afa436e1e203195, type: 3}

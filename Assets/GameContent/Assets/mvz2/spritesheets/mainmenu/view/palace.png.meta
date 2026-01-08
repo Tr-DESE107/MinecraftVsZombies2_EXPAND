@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: efe7279b9efd4e149afa436e1e203195
+guid: 4a54974cb99c15d4da1dce7d5d408a9e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ship_0
+      name: palace_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bef34c4b0ca1604f9a8c18f165bc316
-      internalID: 1340712246
+      spriteID: d2235bfe76f7a94428a0d8a60d5d2347
+      internalID: -751478636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ship_1
+      name: palace_1
       rect:
         serializedVersion: 2
         x: 0
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78dfeca0c9f6ea249a6f233c3c74f603
-      internalID: -977079479
+      spriteID: 6b00f2a202f4eae43972f693c0593cc1
+      internalID: -1263366755
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ship_0: 1340712246
-      ship_1: -977079479
+      palace_0: -751478636
+      palace_1: -1263366755
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

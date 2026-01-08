@@ -30,4 +30,9 @@
             <condition required="mvz2:entered_ship" />
         </conditions>
     </view>
+    <view id="palace" priority="600" spritesheet="mvz2:mainmenu/view/palace">
+        <conditions>
+            <condition required="mvz2:entered_palace" />
+        </conditions>
+    </view>
 </views>

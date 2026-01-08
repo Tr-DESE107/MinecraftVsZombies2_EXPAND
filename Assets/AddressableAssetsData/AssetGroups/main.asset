@@ -1989,7 +1989,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Spritesheet
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2af1142db136d094e82dc92ab10358f3
     m_Address: mvz2:nightmare_map
@@ -3598,6 +3598,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a54974cb99c15d4da1dce7d5d408a9e
+    m_Address: mvz2:mainmenu/view/palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a7b351dedef3c548b696052b9d7a1ea
     m_Address: mvz2:minecart
@@ -5780,7 +5787,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Spritesheet
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7bf9c6f0c642bdd42af1ea3a5cb5bdbc
     m_Address: mvz2:level/ship/ship_depth
@@ -8944,7 +8951,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Spritesheet
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3354af0ce02a784fb4f5f4c5262d43c
     m_Address: mvz2:random/explosion3
@@ -10463,7 +10470,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e44b0e9757080bf4dbf0ae5b2420e15c
     m_Address: mvz2:entity/armor/bedserker_helmet
