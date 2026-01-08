@@ -745,6 +745,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c949278e3709854e91962440deadb7c
+    m_Address: mvz2:projectile/EXPAND_projectile/BloodBolt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0cade63bc89a82a4d93d39c7f711ba98
     m_Address: mvz2:icon/short_circuit
     m_ReadOnly: 0
@@ -6035,6 +6042,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 659d228714ec1f44796fd138287b70ec
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/BloodBolt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65b141497a801624881cf387625a6801
     m_Address: mvz2:entity/carts/pumpkin_carriage
     m_ReadOnly: 0
@@ -9639,6 +9653,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a802c0de78cdcc445b13468effcbd1f2
+    m_Address: mvz2:icon/DeathMarkParticles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a80762fb1b45fea47bdec836cc514d2a
     m_Address: mvz2:mobile_blueprint/MegaMutantVillager
     m_ReadOnly: 0
@@ -11984,6 +12005,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d07cb1ec86b337c4d9152ba9b30e14a4
+    m_Address: mvz2:contraption/EXPAND/DiamondOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d088b4d6b29224e428f22c0184a33dc4
     m_Address: mvz2:nightmare_boss
     m_ReadOnly: 0
@@ -13901,6 +13929,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4c0bfb75f72dd04691ce970467c4c37
+    m_Address: mvz2:entity/contraption/DiamondOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4f8e61b7c7d50243bb37fafee955fca
     m_Address: mvz2:projectile/wither_skull

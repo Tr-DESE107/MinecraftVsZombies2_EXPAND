@@ -132,15 +132,15 @@ namespace MVZ2.GameContent.Contraptions
             10,
             1,
             10,
-            7,
-            3,
+            8,
+            1,
         };
 
 
 
         private bool SkeletonOutOfLimit(Entity entity)
         {
-            return entity.Level.GetEntityCount(VanillaEnemyID.skeletonWarrior) >= SKELETON_LIMIT;
+            return entity.Level.GetEntityCount(VanillaEnemyID.RandomSkeleton) >= SKELETON_LIMIT;
         }
         public const int SKELETON_LIMIT = 30;
         public const int SPAWN_INTERVAL = 600;

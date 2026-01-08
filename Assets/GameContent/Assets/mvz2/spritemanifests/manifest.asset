@@ -1409,6 +1409,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: bba68c57ca664564887be8c1ec4b37d7, type: 3}
   - name: entity/armor/EXPAND_armor/mesmerizer_crown1
     sprite: {fileID: 21300000, guid: 629fe0f23b035054aabed926b94d2021, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/BloodBolt
+    sprite: {fileID: 21300000, guid: 659d228714ec1f44796fd138287b70ec, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/IcedBolt
     sprite: {fileID: 21300000, guid: 4251b85827d1fbe449d687c174d0265a, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/NightmareBall

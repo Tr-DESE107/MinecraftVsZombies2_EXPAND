@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Projectiles
             var enemy = hitResult.Other;
             if (enemy.Type != EntityTypes.ENEMY)
                 return;
-            enemy.InflictCorropoisonBuff(1f, 150, new EntitySourceReference(hitResult.Projectile));
+            enemy.InflictDeathMarkBuff(5f, 180, new EntitySourceReference(hitResult.Projectile));
         }
     }
 }

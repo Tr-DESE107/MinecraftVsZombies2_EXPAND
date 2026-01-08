@@ -116,10 +116,12 @@ namespace MVZ2.GameContent.Buffs
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
 
+            //EXPAND
             public const string Regeneration = "Regeneration";
             public const string Corropoison = "Corropoison";
             public const string Resistance = "Resistance";
             public const string ExplosionProtection = "ExplosionProtection";
+            public const string DeathMark = "DeathMark";
         }
         public static class Armor
         {
@@ -443,6 +445,7 @@ namespace MVZ2.GameContent.Buffs
             
             public static readonly NamespaceID Regeneration = Get(VanillaBuffNames.Entity.Regeneration);
             public static readonly NamespaceID Corropoison = Get(VanillaBuffNames.Entity.Corropoison);
+            public static readonly NamespaceID DeathMark = Get(VanillaBuffNames.Entity.DeathMark);
 
             // Chapter 2
             public static readonly NamespaceID inWater = Get(VanillaBuffNames.Entity.inWater);

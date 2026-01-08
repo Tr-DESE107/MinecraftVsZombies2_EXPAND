@@ -1127,6 +1127,20 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(CorropoisonBuff.PROP_TIMEOUT, time);
         }
 
+        public static void InflictDeathMarkBuff(this Entity entity, float damage, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.DeathMark);
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            buff.SetProperty(DeathMarkBuff.PROP_DAMAGE_AMOUNT, damage);
+            buff.SetProperty(DeathMarkBuff.PROP_TIMEOUT, time);
+        }
+
         public static void InflictShock(this Entity entity, int time, ILevelSourceReference? source)
         {
             if (entity.ImmuneSlowing())

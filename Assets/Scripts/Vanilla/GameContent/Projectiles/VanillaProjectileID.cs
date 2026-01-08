@@ -66,6 +66,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string PulseArrow = "PulseArrow";
         public const string NightmareBall = "NightmareBall";
         public const string IcedBolt = "IcedBolt";
+        public const string BloodBolt = "BloodBolt";
     }
     public static class VanillaProjectileID
     {
@@ -129,6 +130,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID PulseArrow = Get(VanillaProjectileNames.PulseArrow);
         public static readonly NamespaceID NightmareBall = Get(VanillaProjectileNames.NightmareBall);
         public static readonly NamespaceID IcedBolt = Get(VanillaProjectileNames.IcedBolt);
+        public static readonly NamespaceID BloodBolt = Get(VanillaProjectileNames.BloodBolt);
 
         private static NamespaceID Get(string name)
         {
