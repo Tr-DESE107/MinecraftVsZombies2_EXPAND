@@ -1330,6 +1330,7 @@
                 <id name="mvz2:upgradeFrom" value="mvz2:AntiGravityPad" />
                 <bool name="mvz2:loyal" value="true" />
 
+				<bool name="mvz2:upgradeBlueprint" value="true" />
                 <bool name="mvz2:triggerActive" value="true" />
                 <bool name="mvz2:shadowHidden" value="true" />
                 <bool name="mvz2:isFloor" value="true" />
@@ -1540,7 +1541,7 @@
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</contraption>
-
+		
 		<contraption id="GlowingObsidian" name="发光的黑曜石" tooltip="阻碍敌人的前进，在被摧毁时爆炸">
 			<unlock>
 				<condition required="mvz2:level.halloween_13" />
@@ -1722,13 +1723,36 @@
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</contraption>
+
+		<contraption id="DiamondOre" name="钻石矿" tooltip="打碎后产出钻石">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:contraption.DiamondOre"/>
+			</unlock>
+			<properties>
+				<id name="mvz2:fragmentId" value="mvz2:furnace" />
+				<bool name="mvz2:canDeactive" value="false" />
+				<bool name="mvz2:defensive" value="true" />
+				<float name="mvz2:maxHealth" value="1200" />
+				<float name="mvz2:damage" value="50" />
+				<vector3 name="shotVelocity" x="10" y="0" z="0" />
+				<vector3 name="shotOffset" x="15" y="30" z="0" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:RedStoneOre" />
+				<id name="mvz2:placement" value="mvz2:upgrade" />
+
+				<int name="mvz2:cost" value="100" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</contraption>
 		
 		<dispenser id="EXPANDispenser" name="万象天枢" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
 			<properties>
-
+				<bool name="mvz2:upgradeBlueprint" value="true" />
 				<id name="mvz2:upgradeFrom" value="mvz2:high_frequency_pulse_dispenser" />
 				<id name="mvz2:placement" value="mvz2:upgrade" />
 				<color name="mvz2:lightColor" value="#FFAA00" />

@@ -166,6 +166,15 @@
                 <stage price="10000" unlocks="mvz2:contraption.golden_dropper" />
             </stages>
         </product>
+		<product id="Eviltombstone" blueprintId="mvz2:Eviltombstone" required="mvz2:level.mausoleum_6">
+            <talks>
+                <talk character="mvz2:crazy_villager">把邪灵墓碑放在死灵墓碑上！他就可以召唤下界军团征服世界！</talk>
+                <talk character="mvz2:tokiko">好邪恶的墓碑！这位是邪灵墓碑！把他放在死灵墓碑先生上面，然后他就可以产出可怕的下界军队啦！</talk>
+            </talks>
+            <stages>
+                <stage price="50000" unlocks="mvz2:contraption.Eviltombstone" />
+            </stages>
+        </product>        
          <product id="skyward_beacon" blueprintId="mvz2:skyward_beacon">
             <unlock>
                 <condition required="mvz2:level.ship_6" />
@@ -178,17 +187,24 @@
                 <stage price="14370" unlocks="mvz2:contraption.skyward_beacon" />
             </stages>
         </product>
-        <product id="Eviltombstone" blueprintId="mvz2:Eviltombstone" required="mvz2:level.mausoleum_6">
-            <talks>
-                <talk character="mvz2:crazy_villager">把邪灵墓碑放在死灵墓碑上！他就可以召唤下界军团征服世界！</talk>
-                <talk character="mvz2:tokiko">好邪恶的墓碑！这位是邪灵墓碑！把他放在死灵墓碑先生上面，然后他就可以产出可怕的下界军队啦！</talk>
-            </talks>
-            <stages>
-                <stage price="50000" unlocks="mvz2:contraption.Eviltombstone" />
-            </stages>
-        </product>        
-        <product />
-        <product />
+		<product id="DiamondOre" blueprintId="mvz2:DiamondOre">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" />
+			</unlock>
+			<talks>
+				<talk character="mvz2:crazy_villager">我们老旧的钻石矿在赚钱性能上已经完全超越了金制投掷器，将他放在红石矿上，挖掉并把掉落物带回给我！</talk>
+				<talk character="mvz2:tokiko">戴夫先生说这个器械他一般不卖的，现在赔本大甩卖，将钻石矿放在红石矿上，挖掉就能获得钻石！</talk>
+			</talks>
+			<stages>
+				<stage price="500000" unlocks="mvz2:contraption.DiamondOre" />
+			</stages>
+		</product>
+		
+		<product />
+		<product />
+		<product />
+		<product />
+		<product />
         
 
         <product id="hoe" sprite="mvz2:artifacts/hoe">
@@ -337,7 +353,7 @@
                 <talk character="mvz2:tokiko">EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！</talk>
             </talks>
             <stages>
-					<stage price="107107" unlocks="mvz2:goods.EXPAND_Completed" />
+					<stage price="1071070" unlocks="mvz2:goods.EXPAND_Completed" />
             </stages>
         </product>
     </products>

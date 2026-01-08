@@ -99,6 +99,7 @@
     <model name="Poisonser" type="entity" path="mvz2:contraption/halloween/Poisonser" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="GlowingObsidian" type="entity" path="mvz2:contraption/EXPAND/GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="RedStoneOre" type="entity" path="mvz2:contraption/EXPAND/RedStoneOre" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="DiamondOre" type="entity" path="mvz2:contraption/EXPAND/DiamondOre" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="DispenShield" type="entity" path="mvz2:contraption/EXPAND/DispenShield" width="80" height="64" xOffset="0" yOffset="-28" />
     <model name="Eradicator" type="entity" path="mvz2:contraption/EXPAND/Eradicator" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="Freezenser" type="entity" path="mvz2:contraption/EXPAND/Freezenser" width="64" height="64" xOffset="0" yOffset="-28" />

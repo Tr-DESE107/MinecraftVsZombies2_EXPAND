@@ -78,6 +78,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string Poisonser = "Poisonser";
         public const string GlowingObsidian = "GlowingObsidian";
         public const string RedStoneOre = "RedStoneOre";
+        public const string DiamondOre = "DiamondOre";
         public const string DispenShield = "DispenShield";
         public const string Eradicator = "Eradicator";
         public const string Eviltombstone = "Eviltombstone";
@@ -165,6 +166,7 @@ namespace MVZ2.GameContent.Contraptions
         //EXPAND
         public static readonly NamespaceID GlowingObsidian = Get(VanillaContraptionNames.GlowingObsidian);
         public static readonly NamespaceID RedStoneOre = Get(VanillaContraptionNames.RedStoneOre);
+        public static readonly NamespaceID DiamondOre = Get(VanillaContraptionNames.DiamondOre);
         public static readonly NamespaceID DispenShield = Get(VanillaContraptionNames.DispenShield);
         public static readonly NamespaceID Eviltombstone = Get(VanillaContraptionNames.Eviltombstone);
         public static readonly NamespaceID CopperDropper = Get(VanillaContraptionNames.CopperDropper);

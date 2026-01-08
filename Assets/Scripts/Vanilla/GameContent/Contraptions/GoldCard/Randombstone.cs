@@ -103,7 +103,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             var pos = entity.Position;
             pos.y = entity.GetGroundY() - 100;
-            entity.SpawnWithParams(VanillaEnemyID.mesmerizer, pos)?.Let(warrior =>
+            entity.SpawnWithParams(VanillaEnemyID.RandomKingSkeleton, pos)?.Let(warrior =>
             {
                 warrior.AddBuff<NecrotombstoneRisingBuff>();
                 warrior.UpdateModel();

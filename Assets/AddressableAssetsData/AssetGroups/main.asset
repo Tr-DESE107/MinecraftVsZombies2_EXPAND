@@ -3921,6 +3921,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41a760a36af78b04bbd4a92e834375b7
+    m_Address: mvz2:entity/contraptions/Randombstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41dcf35c43418054cb6d7b6eb542f543
     m_Address: mvz2:maps
     m_ReadOnly: 0
@@ -7888,6 +7895,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86f4400257f2e9b4095d0d3521086455
+    m_Address: mvz2:contraption/GoldCard/Randombstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8704afd3cd249c24cbccf308e1212371
     m_Address: mvz2:entity/contraption/Poisonser
