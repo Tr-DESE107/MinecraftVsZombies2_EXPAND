@@ -300,7 +300,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Never Gonna Let You Drown"
+  m_text: Never Gonna Let You Drown
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3271dde185726664f9327d84700c9c21, type: 2}
   m_sharedMaterial: {fileID: -4514157592466863636, guid: 3271dde185726664f9327d84700c9c21, type: 2}
@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286f4c647a87e9d4f9b73f3077d89e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rootObj: {fileID: 4520754481142708606}
   animator: {fileID: 4180647422055924600}
   iconImage: {fileID: 5837810354131256232}
   button: {fileID: 8552143785645780398}

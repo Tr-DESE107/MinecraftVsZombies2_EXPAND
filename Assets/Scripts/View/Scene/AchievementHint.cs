@@ -9,6 +9,11 @@ namespace MVZ2.UI.Scene
 {
     public class AchievementHint : MonoBehaviour
     {
+        public void SetVisible(bool value)
+        {
+            if (rootObj.activeSelf != value)
+                rootObj.SetActive(value);
+        }
         public void UpdateAchievement(Sprite? icon, string name)
         {
             iconImage.sprite = icon;
@@ -23,6 +28,8 @@ namespace MVZ2.UI.Scene
             button.onClick.AddListener(() => OnClick?.Invoke());
         }
         public event Action? OnClick;
+        [SerializeField]
+        private GameObject rootObj = null!;
         [SerializeField]
         private Animator animator = null!;
         [SerializeField]

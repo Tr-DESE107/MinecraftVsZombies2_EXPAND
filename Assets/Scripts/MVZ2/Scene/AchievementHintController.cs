@@ -50,7 +50,10 @@ namespace MVZ2.Scenes
                 showBlend = showBlend * (1 - showSpeed);
             }
             if (ui.Exists())
+            {
                 ui.SetShowValue(showBlend);
+                ui.SetVisible(showBlend > 0.01f);
+            }
         }
         private MainManager main => MainManager.Instance;
         [SerializeField]

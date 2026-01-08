@@ -115,6 +115,7 @@ half4 EntityFrag(v2f_entity i) : SV_Target
 #endif
     
     clip(col.a - 0.01);
+    col.rgb *= col.a;
     
     return col;
 }

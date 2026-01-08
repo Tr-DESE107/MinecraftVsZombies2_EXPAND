@@ -72,7 +72,7 @@
             "PreviewType" = "Plane"
         }
 
-        Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
+        Blend One OneMinusSrcAlpha
         Cull Off
         ZWrite Off
         ZTest LEqual

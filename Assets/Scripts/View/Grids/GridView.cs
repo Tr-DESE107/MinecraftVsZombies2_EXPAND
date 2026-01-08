@@ -79,10 +79,12 @@ namespace MVZ2.Grids
         public void SetSprite(Sprite? sprite)
         {
             spriteRenderer.sprite = sprite;
+            UpdateSpriteEnabled();
         }
         public void SetColor(Color color)
         {
             spriteRenderer.color = color;
+            UpdateSpriteEnabled();
         }
         public void SetDisplaySection(float start, float end, Vector2 size, float bevelHeight)
         {
@@ -93,6 +95,7 @@ namespace MVZ2.Grids
             var pos = rendererTransform.localPosition;
             pos.y = (end - 1) * size.y;
             rendererTransform.localPosition = pos;
+            UpdateSpriteEnabled();
         }
         public void SetColliderBevel(Vector2 size, float height)
         {
@@ -103,6 +106,10 @@ namespace MVZ2.Grids
                 points[3].y = size.y * 0.5f - height;
                 polygonCollider.points = points;
             }
+        }
+        private void UpdateSpriteEnabled()
+        {
+            spriteRenderer.enabled = spriteRenderer.sprite && spriteRenderer.color.a > 0 && spriteRenderer.size.sqrMagnitude > 0;
         }
         #endregion
 

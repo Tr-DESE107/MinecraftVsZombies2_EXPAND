@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listRoot: {fileID: 3640329370888690126}
   _template: {fileID: 5509294073462067144}
+  pooled: 0
   itemList: []
 --- !u!1 &2544416567447099013
 GameObject:
@@ -317,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listRoot: {fileID: 1263960807004624346}
   _template: {fileID: 452028358702309345}
+  pooled: 0
   itemList: []
 --- !u!1 &8231154137695847487
 GameObject:
@@ -398,7 +400,7 @@ MonoBehaviour:
   horizontal: 1
   slots: {fileID: 6835760221131997746}
   offset: {x: 0, y: 0}
-  cellSize: {x: 48, y: 72}
+  cellSize: {x: 48.01, y: 72}
   alignSpeed: 0.5
   blueprints: {fileID: 3537295090804901547}
 --- !u!1001 &1104364833011803818

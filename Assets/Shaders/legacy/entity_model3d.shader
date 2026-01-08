@@ -81,7 +81,7 @@ Shader "MinecraftVSZombies2/Legacy/Model"
             ZWrite Off
             ZTest LEqual
             Cull Off
-            Blend SrcAlpha OneMinusSrcAlpha
+            Blend One OneMinusSrcAlpha
             Tags
             { 
                 "RenderType"="Transparent" 
