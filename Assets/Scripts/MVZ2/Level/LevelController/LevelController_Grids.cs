@@ -70,7 +70,8 @@ namespace MVZ2.Level
                 var yOffset = gridMeta?.YOffset ?? 0;
                 var y = 0 + yOffset;
                 var pos = new Vector3(x, y, z);
-                var worldPos = LawnToTrans(pos);
+                pos *= LawnToTransScale;
+                Vector3 gridPos = new Vector3(pos.x, pos.z + pos.y, pos.z);
 
 
                 Sprite? sprite;
@@ -88,7 +89,7 @@ namespace MVZ2.Level
 
                 var viewData = new GridControllerData()
                 {
-                    position = worldPos,
+                    position = gridPos,
                     sprite = sprite,
                     slope = slope,
                 };
