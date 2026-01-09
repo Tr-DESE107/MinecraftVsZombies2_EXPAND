@@ -7,7 +7,6 @@ using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -15,6 +14,7 @@ namespace MVZ2.GameContent.Stages
     {
         public ConveyorStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
+            stageDef.SetProperty(LogicStageProps.CONVEY_SPEED, 1f);
         }
         public override void Start(LevelEngine level)
         {
@@ -27,26 +27,11 @@ namespace MVZ2.GameContent.Stages
             if (level.IsCleared)
                 return;
             var conveyorTimer = GetConveyorTimer(level);
-            var speed = GetConveyorSpeed(level);
-            if (conveyorTimer != null && conveyorTimer.RunToExpired(speed))
+            if (conveyorTimer != null && conveyorTimer.RunToExpired(level.GetConveySpeed()))
             {
                 level.ConveyRandomSeedPack();
                 conveyorTimer.Reset();
             }
-        }
-
-        public static float GetConveyorSpeed(LevelEngine level)
-        {
-            var speed = level.GetConveySpeed();
-            // 当前蓝图越多越慢。
-            var seedCount = level.GetConveyorSeedPackCount();
-            if (seedCount > SLOW_BLUEPRINT_COUNT_START)
-            {
-                var multiplier = 1 - Mathf.Pow(seedCount - SLOW_BLUEPRINT_COUNT_START, 2) / Mathf.Pow(SLOW_BLUEPRINT_COUNT_END - SLOW_BLUEPRINT_COUNT_START, 2);
-                multiplier = Mathf.Max(multiplier, MIN_CONVEYOR_SPEED_MULTIPLIER);
-                speed *= multiplier;
-            }
-            return speed;
         }
 
         #region 关卡属性
@@ -55,9 +40,6 @@ namespace MVZ2.GameContent.Stages
         #endregion
 
         #region 属性字段
-        public const int SLOW_BLUEPRINT_COUNT_START = 4;
-        public const int SLOW_BLUEPRINT_COUNT_END = 10;
-        public const float MIN_CONVEYOR_SPEED_MULTIPLIER = 0.4f;
         public const string PROP_REGION = "conveyor";
         [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_CONVEYOR_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("ConveyorTimer");
