@@ -1181,7 +1181,6 @@
                 <condition required="mvz2:level.ship_3" />
             </unlock>
             <behaviours>
-                <behaviour id="mvz2:contraption_shooter_firework_dispenser" />
                 <behaviour id="mvz2:contraption_evoke_firework_dispenser" />
             </behaviours>
             <properties>
@@ -1190,12 +1189,13 @@
                 <vector3 name="mvz2:shotVelocity" x="0" y="5" z="0" />
                 <vector3 name="mvz2:shotOffset" x="0" y="48" z="0" />
                 <id name="mvz2:shootSound" value="mvz2:firework_launch" />
-                <id name="mvz2:projectileId" value="mvz2:firework" />
+                <id name="mvz2:projectileId" value="mvz2:fire_charge" />
                 <idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
+				<float name="mvz2:attackSpeed" value="0.5" />
 
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
-                <int name="mvz2:cost" value="100" />
-                <id name="mvz2:rechargeId" value="mvz2:short" />
+                <int name="mvz2:cost" value="275" />
+                <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
         <dispenser id="repeatenser" name="连射发射器" tooltip="一次射出两支箭矢">
@@ -1752,7 +1752,6 @@
 				<condition required="mvz2:level.ship_3" />
 			</unlock>
 			<behaviours>
-				<behaviour id="mvz2:contraption_shooter_firework_dispenser" />
 				<behaviour id="mvz2:contraption_evoke_firework_dispenser" />
 			</behaviours>
 			<properties>
@@ -1766,9 +1765,10 @@
 				<id name="mvz2:shootSound" value="mvz2:firework_launch" />
 				<id name="mvz2:projectileId" value="mvz2:firework" />
 				<idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
+				<float name="mvz2:attackSpeed" value="0.5" />
 
 				<vector3 name="mvz2:size" x="48" y="48" z="48" />
-				<int name="mvz2:cost" value="100" />
+				<int name="mvz2:cost" value="400" />
 				<id name="mvz2:rechargeId" value="mvz2:short" />
 			</properties>
 		</contraption>

@@ -136,6 +136,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01fd9d559ff84124393ac5de475e4acd
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/SuperFireworkDispenser_update
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 025d4118f149db24688665104d945d37
     m_Address: mvz2:arcade/VillagerNews
     m_ReadOnly: 0
@@ -6882,6 +6889,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 757a941dcf97b5e46bf3e3464222843a
+    m_Address: mvz2:contraption/EXPAND/SuperFireworkDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75b4581f503b8f14fba304ffe0860311
     m_Address: mvz2:firework_large_blast
     m_ReadOnly: 0
@@ -10870,6 +10884,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc7f633f0f53dd349827ea61dbdfad23
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/SuperFireworkDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc88affd29ca4074f864f38ac1e90b33
     m_Address: mvz2:dream_map

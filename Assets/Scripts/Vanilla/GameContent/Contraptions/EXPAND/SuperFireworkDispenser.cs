@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public SuperFireworkDispenser(string nsp, string name) : base(nsp, name)
         {
-            detector = new TeslaCoilDetector(ATTACK_HEIGHT);
+            detector = new FireworkDispenserDetector();
         }
         public override void Init(Entity entity)
         {
@@ -51,6 +51,12 @@ namespace MVZ2.GameContent.Contraptions
                     var target = detector.DetectEntityWithTheMost(entity, t => GetTargetPriority(entity, t));
                     if (target != null)
                     {
+                        var groundY = entity.Level.GetGroundY(target.Position.x, target.Position.z);
+                        if (target.Position.y <= groundY + 10)
+                        {
+                            shootTimer.Reset();
+                            return;
+                        }
                         int frames = Ticks.FromSeconds(1);
                         var velocity = VanillaProjectileExt.GetLobVelocityByTime(entity.GetShootPoint(), target.GetCenter() + frames * target.Velocity, frames, GRAVITY);
                         Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.fireCharge, entity.GetDamage(), velocity);
@@ -77,9 +83,15 @@ namespace MVZ2.GameContent.Contraptions
         public static void Shoot(Entity entity, NamespaceID projectileID, float damage, Vector3 velocity)
         {
             entity.TriggerAnimation("Shoot");
+            var proID = projectileID;
+            if (entity.HasBuff(VanillaBuffID.Contraption.fireworkDispenserEvoked) && entity.RNG.Next(6) == 0)
+            {
+                proID = VanillaProjectileID.fireworkBig;
+            }
+
             var projectile = entity.ShootProjectile(new ShootParams()
             {
-                projectileID = projectileID,
+                projectileID = proID,
                 position = entity.GetShootPoint(),
                 faction = entity.GetFaction(),
                 damage = damage,
@@ -111,11 +123,6 @@ namespace MVZ2.GameContent.Contraptions
                 if (evokeTimer.PassedInterval(3))
                 {
                     Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.fireCharge, entity.GetDamage(), velocity);
-                }
-
-                if (evokeTimer.PassedInterval(9))
-                {
-                    Shoot(entity, VanillaProjectileID.missile, entity.GetDamage() * 3, velocity);
                 }
 
 
