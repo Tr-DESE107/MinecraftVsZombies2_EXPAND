@@ -1746,6 +1746,32 @@
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</contraption>
+
+		<contraption id="SuperFireworkDispenser" name="超级烟花发射器" tooltip="发射烟花轰击周围高空的敌人">
+			<unlock>
+				<condition required="mvz2:level.ship_3" />
+			</unlock>
+			<behaviours>
+				<behaviour id="mvz2:contraption_shooter_firework_dispenser" />
+				<behaviour id="mvz2:contraption_evoke_firework_dispenser" />
+			</behaviours>
+			<properties>
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:firework_dispenser" />
+				<id name="mvz2:placement" value="mvz2:upgrade" />
+				<float name="mvz2:damage" value="200" />
+				<float name="mvz2:range" value="120" />
+				<vector3 name="mvz2:shotVelocity" x="0" y="5" z="0" />
+				<vector3 name="mvz2:shotOffset" x="0" y="48" z="0" />
+				<id name="mvz2:shootSound" value="mvz2:firework_launch" />
+				<id name="mvz2:projectileId" value="mvz2:firework" />
+				<idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
+
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+				<int name="mvz2:cost" value="100" />
+				<id name="mvz2:rechargeId" value="mvz2:short" />
+			</properties>
+		</contraption>
 		
 		<dispenser id="EXPANDispenser" name="万象天枢" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>

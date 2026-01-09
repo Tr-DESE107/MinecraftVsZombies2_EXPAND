@@ -1998,6 +1998,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2219642330b788f41959a1b4bdca1506
+    m_Address: mvz2:mobile_blueprint/Randombstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 221ecc0d54c14864d870eadda055f6f4
     m_Address: mvz2:random/explosion1
     m_ReadOnly: 0
@@ -2425,6 +2432,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28a1b23d69f2f284695b159c4c295d6f
+    m_Address: mvz2:mobile_blueprint/EXPANDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28a1bd2b08b2bc14a82c730358b3d338
     m_Address: mvz2:entity/wither_skeleton/wither_skeleton_death
     m_ReadOnly: 0
@@ -2578,6 +2592,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bb72792699c5fa4eb479776078c6604
+    m_Address: mvz2:mobile_blueprint/PermanentIce
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bc07992dc30ad441aa98588cf8d0e90
     m_Address: mvz2:mobile_blueprint/desire_pot
@@ -3983,6 +4004,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42d77d4710767184290064dc2ab163ab
+    m_Address: mvz2:mobile_blueprint/Freezenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42f0b00584f2dae44b83bd13bce9cecc
     m_Address: mvz2:enemy/EXPAND/MegaMutantVillager
@@ -9772,6 +9800,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9a378c3bd3d42342a0690c1c14f56b3
+    m_Address: mvz2:mobile_blueprint/DiamondOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9d9e0468df93c84ea575c28aa3d81ac
     m_Address: mvz2:random/wood4
     m_ReadOnly: 0
@@ -13229,6 +13264,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9a93317158617c46a1be0f06c198735
+    m_Address: mvz2:products/EXPANDGiftPack
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9ab803f0d271bd48b365bc8766feb6b
     m_Address: mvz2:map/gensokyo/map

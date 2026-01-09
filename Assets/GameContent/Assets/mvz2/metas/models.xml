@@ -106,6 +106,7 @@
 	<model name="PermanentIce" type="entity" path="mvz2:contraption/EXPAND/PermanentIce" width="64" height="64" xOffset="0" yOffset="-28" />
 
 	<model name="Randombstone" type="entity" path="mvz2:contraption/GoldCard/Randombstone" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="SuperFireworkDispenser" type="entity" path="mvz2:contraption/EXPAND/SuperFireworkDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
     
     <model name="Eviltombstone" type="entity" path="mvz2:contraption/upgrade/Eviltombstone" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="CopperDropper" type="entity" path="mvz2:contraption/upgrade/CopperDropper" width="64" height="64" xOffset="0" yOffset="-28" />

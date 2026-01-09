@@ -3766,6 +3766,12 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/PermanentIce
     spritesheet:
     - {fileID: 21300000, guid: e5993582e307a4140a997bc005e9f852, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/SuperFireworkDispenser
+    spritesheet:
+    - {fileID: 21300000, guid: bc7f633f0f53dd349827ea61dbdfad23, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/SuperFireworkDispenser_update
+    spritesheet:
+    - {fileID: 21300000, guid: 01fd9d559ff84124393ac5de475e4acd, type: 3}
   - name: entity/contraption/EXPAND_Skin/G.I.
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
