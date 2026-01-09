@@ -1749,7 +1749,7 @@
 
 		<contraption id="SuperFireworkDispenser" name="超级烟花发射器" tooltip="发射烟花轰击周围高空的敌人">
 			<unlock>
-				<condition required="mvz2:level.ship_3" />
+				<condition required="mvz2:contraption.SuperFireworkDispenser" />
 			</unlock>
 			<behaviours>
 				<behaviour id="mvz2:contraption_evoke_firework_dispenser" />
@@ -1765,7 +1765,8 @@
 				<id name="mvz2:shootSound" value="mvz2:firework_launch" />
 				<id name="mvz2:projectileId" value="mvz2:firework" />
 				<idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
-				<float name="mvz2:attackSpeed" value="0.5" />
+				<float name="mvz2:attackSpeed" value="0.25" />
+				<id name="mvz2:fragmentId" value="mvz2:firework_dispenser" />
 
 				<vector3 name="mvz2:size" x="48" y="48" z="48" />
 				<int name="mvz2:cost" value="400" />

@@ -187,6 +187,18 @@
                 <stage price="14370" unlocks="mvz2:contraption.skyward_beacon" />
             </stages>
         </product>
+		<product id="SuperFireworkDispenser" blueprintId="mvz2:SuperFireworkDispenser">
+			<unlock>
+				<condition required="mvz2:level.ship_6" />
+			</unlock>
+			<talks>
+				<talk character="mvz2:crazy_villager">我们老旧的钻石矿在赚钱性能上已经完全超越了金制投掷器，将他放在红石矿上，挖掉并把掉落物带回给我！</talk>
+				<talk character="mvz2:tokiko">戴夫先生说这个器械他一般不卖的，现在赔本大甩卖，将钻石矿放在红石矿上，挖掉就能获得钻石！</talk>
+			</talks>
+			<stages>
+				<stage price="50000" unlocks="mvz2:contraption.SuperFireworkDispenser" />
+			</stages>
+		</product>
 		<product id="DiamondOre" blueprintId="mvz2:DiamondOre">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" />
@@ -200,7 +212,6 @@
 			</stages>
 		</product>
 		
-		<product />
 		<product />
 		<product />
 		<product />

@@ -34,11 +34,11 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
-            var evokeTimer = GetEvocationTimer(entity);
-            evokeTimer?.Reset();
+            //var evokeTimer = GetEvocationTimer(entity);
+            //evokeTimer?.Reset();
             entity.SetEvoked(true);
-            entity.PlaySound(VanillaSoundID.gunReload);
-            entity.PlaySound(VanillaSoundID.fuse);
+            //entity.PlaySound(VanillaSoundID.gunReload);
+            //entity.PlaySound(VanillaSoundID.fuse);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -70,7 +70,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
             entity.SetModelProperty("Evoked", entity.HasBuff(VanillaBuffID.Contraption.fireworkDispenserEvoked));
-            EvokedUpdate(entity);
+            //EvokedUpdate(entity);
         }
         private float GetTargetPriority(Entity self, Entity target)
         {
@@ -79,14 +79,13 @@ namespace MVZ2.GameContent.Contraptions
             var distance = target2Self.magnitude;
             var priority = -distance;
 
-            // 只攻击飞行敌人：使用 IsFlyingEnemy 检查  
             if (target.Position.y > self.Position.y + 40)
             {
                 priority += 300;
             }
             else
             {
-                priority -= 1000; // 非飞行敌人优先级极低  
+                priority -= 1000;
             }
             return priority;
         }
@@ -108,40 +107,34 @@ namespace MVZ2.GameContent.Contraptions
                 velocity = velocity,
             })?.Let(e => e.SetGravity(0)); // 移除重力，使用直线飞行  
         }
-        private void EvokedUpdate(Entity entity)
-        {
-            var evokeTimer = GetEvocationTimer(entity);
-            var level = entity.Level;
-            var grid = level.GetAllGrids().Random(entity.RNG);
-            var targets = entity.Level.FindEntities(e => IsEvocationTarget(entity, e)).RandomTake(1, entity.RNG);
-            var targetPos = grid.GetEntityPosition();
-            int frames = Ticks.FromSeconds(1);
-            foreach (var target in targets)
-            {
-                targetPos = target.GetCenter() + frames * target.Velocity;
-            }
-            var velocity = VanillaProjectileExt.GetLobVelocityByTime(entity.GetShootPoint(), targetPos, frames, GRAVITY);
+        //private void EvokedUpdate(Entity entity)
+        //{
+        //    var evokeTimer = GetEvocationTimer(entity);
+        //    var level = entity.Level;
+        //    var grid = level.GetAllGrids().Random(entity.RNG);
+        //    var targets = entity.Level.FindEntities(e => IsEvocationTarget(entity, e)).RandomTake(1, entity.RNG);
+        //    var targetPos = grid.GetEntityPosition();
+        //    int frames = Ticks.FromSeconds(1);
+        //    foreach (var target in targets)
+        //    {
+        //        targetPos = target.GetCenter() + frames * target.Velocity;
+        //    }
+        //    var velocity = VanillaProjectileExt.GetLobVelocityByTime(entity.GetShootPoint(), targetPos, frames, GRAVITY);
 
-            if (evokeTimer == null || evokeTimer.Expired)
-            {
-                entity.SetEvoked(false);
-            }
-            else
-            {
-                evokeTimer.Run();
-                if (evokeTimer.PassedInterval(3))
-                {
-                    Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.fireCharge, entity.GetDamage(), velocity);
-                }
-
-                if (evokeTimer.PassedInterval(9))
-                {
-                    Shoot(entity, VanillaProjectileID.missile, entity.GetDamage() * 3, velocity);
-                }
-
+        //    if (evokeTimer == null || evokeTimer.Expired)
+        //    {
+        //        entity.SetEvoked(false);
+        //    }
+        //    else
+        //    {
+        //        evokeTimer.Run();
+        //        if (evokeTimer.PassedInterval(3))
+        //        {
+        //            Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.fireCharge, entity.GetDamage(), velocity);
+        //        }
                 
-            }
-        }
+        //    }
+        //}
         private static bool IsEvocationTarget(Entity self, Entity target)
         {
             if (target == null)

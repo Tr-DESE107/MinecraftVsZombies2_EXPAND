@@ -4684,6 +4684,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d8952eef7a6e0541970cb1fffbdb1a4
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/BigFireCharge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d92b5d7677db944c9d67a9d6df8a26a
     m_Address: mvz2:entity/armor/nether_helmet
     m_ReadOnly: 0
@@ -12319,6 +12326,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d57fa88d4fa9b344582b880b90eb1687
+    m_Address: mvz2:projectile/EXPAND_projectile/BigFireCharge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d59a40ebc8e2cc64392de05f2870d045
     m_Address: mvz2:entity/enemy/cave_spider_death
