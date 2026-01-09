@@ -94,10 +94,10 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.TriggerAnimation("Shoot");
             var proID = projectileID;
-            //if (entity.HasBuff(VanillaBuffID.Contraption.fireworkDispenserEvoked) && entity.RNG.Next(2) == 0)
-            //{
-            //    proID = VanillaProjectileID.fireworkBig;
-            //}
+            if (entity.HasBuff(VanillaBuffID.Contraption.fireworkDispenserEvoked) && entity.RNG.Next(2) == 0)
+            {
+                proID = VanillaProjectileID.BigFireCharge;
+            }
             var projectile = entity.ShootProjectile(new ShootParams()
             {
                 projectileID = proID,

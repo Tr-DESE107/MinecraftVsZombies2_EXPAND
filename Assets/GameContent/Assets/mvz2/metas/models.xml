@@ -684,6 +684,7 @@
 	<model name="NightmareBall" type="entity" path="mvz2:projectile/EXPAND_projectile/NightmareBall" width="32" height="32" xOffset="0" yOffset="-12" />
 	<model name="IcedBolt" type="entity" path="mvz2:projectile/EXPAND_projectile/IcedBolt" width="64" height="20" xOffset="6" yOffset="-10" />
 	<model name="BloodBolt" type="entity" path="mvz2:projectile/EXPAND_projectile/BloodBolt" width="64" height="20" xOffset="6" yOffset="-10" />
+	<model name="BigFireCharge" type="entity" path="mvz2:projectile/EXPAND_projectile/BigFireCharge" width="48" height="48" xOffset="0" yOffset="-12" />
 
 	<!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0" />
