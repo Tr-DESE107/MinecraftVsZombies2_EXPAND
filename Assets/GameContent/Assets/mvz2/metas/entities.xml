@@ -1323,21 +1323,33 @@
                 <int name="mvz2:cost" value="50" />
             </properties>
         </zombie>
+        <zombie id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
+            <properties>
+                <int name="mvz2:cost" value="300" />
+            </properties>
+        </zombie>
         <zombie id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有">
+            <behaviours includeSelf="false"/>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:leather_cap" />
                 <int name="mvz2:cost" value="75" />
             </properties>
         </zombie>
         <zombie id="iron_helmetted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
+            <behaviours includeSelf="false"/>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
                 <int name="mvz2:cost" value="125" />
             </properties>
         </zombie>
-        <zombie id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
+        <zombie id="diamond_helmetted_zombie" name="钻石盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
+            <unlock>
+                <condition required="mvz2:level.palace_1" />
+            </unlock>
+            <behaviours includeSelf="false"/>
             <properties>
-                <int name="mvz2:cost" value="300" />
+                <id name="mvz2:starting_armor" value="mvz2:diamond_helmet" />
+                <int name="mvz2:cost" value="200" />
             </properties>
         </zombie>
 

@@ -13,9 +13,10 @@ namespace MVZ2.GameContent.Enemies
     public static class VanillaSpawnID
     {
         public static readonly NamespaceID zombie = GetFromEntity(VanillaEnemyID.zombie);
+        public static readonly NamespaceID flagZombie = GetFromEntity(VanillaEnemyID.flagZombie);
         public static readonly NamespaceID leatherCappedZombie = GetFromEntity(VanillaEnemyID.leatherCappedZombie);
         public static readonly NamespaceID ironHelmettedZombie = GetFromEntity(VanillaEnemyID.ironHelmettedZombie);
-        public static readonly NamespaceID flagZombie = GetFromEntity(VanillaEnemyID.flagZombie);
+        public static readonly NamespaceID diamondHelmettedZombie = GetFromEntity(VanillaEnemyID.diamondHelmettedZombie);
 
         public static readonly NamespaceID skeleton = GetFromEntity(VanillaEnemyID.skeleton);
         public static readonly NamespaceID gargoyle = GetFromEntity(VanillaEnemyID.gargoyle);

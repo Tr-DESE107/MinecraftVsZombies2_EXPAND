@@ -1087,14 +1087,25 @@
                 <p>铁盔僵尸的铁盔给他提供了极高的防护。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
+                <p>生命：<![CDATA[<color=red>200+1110</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
             </properties>
             <flavor>
-                <p>戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。</p>
+                <p>戴着铁盔的僵尸好像是生前是个战士一样，其实不是，他只是比较有智商而已。</p>
             </flavor>
         </entry>
-        <entry />
+        <entry id="mvz2:diamond_helmetted_zombie">
+            <header>
+                <p>钻石盔僵尸的钻石盔给他提供了最高的防护。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+2220</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+            </properties>
+            <flavor>
+                <p>不好意思，因为他之前在挖钻石，所以迟到了！</p>
+            </flavor>
+        </entry>
         <entry id="mvz2:skeleton">
             <header>
                 <p>骷髅能够在前线朝你的器械射击。</p>

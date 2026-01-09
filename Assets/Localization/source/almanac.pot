@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-09 08:35+0800\n"
+"POT-Creation-Date: 2026-01-09 09:20+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1846,14 +1846,34 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"生命：<color=red>200+1100</color>\n"
+"生命：<color=red>200+1110</color>\n"
 "速度：<color=red>1</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:iron_helmetted_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。"
+msgid "戴着铁盔的僵尸好像是生前是个战士一样，其实不是，他只是比较有智商而已。"
+msgstr ""
+
+#. Header for enemies mvz2:diamond_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "钻石盔僵尸的钻石盔给他提供了最高的防护。"
+msgstr ""
+
+#. Properties for enemies mvz2:diamond_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+2220</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:diamond_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "不好意思，因为他之前在挖钻石，所以迟到了！"
 msgstr ""
 
 #. Header for enemies mvz2:skeleton
@@ -5007,6 +5027,12 @@ msgctxt "death_message"
 msgid "脑子是好的，但不是每个人都有"
 msgstr ""
 
+#. Name for entity mvz2:flag_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "旗帜僵尸"
+msgstr ""
+
 #. Name for entity mvz2:leather_capped_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -5019,10 +5045,10 @@ msgctxt "entity.name"
 msgid "铁盔僵尸"
 msgstr ""
 
-#. Name for entity mvz2:flag_zombie
+#. Name for entity mvz2:diamond_helmetted_zombie
 #: Entity meta file
 msgctxt "entity.name"
-msgid "旗帜僵尸"
+msgid "钻石盔僵尸"
 msgstr ""
 
 #. Name for entity mvz2:skeleton

@@ -2130,6 +2130,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d24d148ecd328f40a51e2f15aa84b3d
+    m_Address: mvz2:enemy/prologue/diamond_helmetted_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d37eb66e5d769343ab9e6ee42496b68
     m_Address: mvz2:mobile_blueprint/anubisand
     m_ReadOnly: 0
@@ -6601,6 +6608,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c33626bd6dc68e43a68a3b6d0b5f0aa
+    m_Address: mvz2:entity/armor/diamond_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c835075b9c05e84dac89a36e61236bb
     m_Address: mvz2:entity/effects/boom
     m_ReadOnly: 0
@@ -7251,6 +7265,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 990ee6d966f81344789c4d2d475b17ef
+    m_Address: mvz2:armor/diamond_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 994dcad1586f82f45bf48985a9e06321
     m_Address: mvz2:ui/banished_mark
@@ -10548,6 +10569,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e434ee7060be04d429244b2b884afb04
+    m_Address: mvz2:mobile_blueprint/diamond_helmetted_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e44b0e9757080bf4dbf0ae5b2420e15c
     m_Address: mvz2:entity/armor/bedserker_helmet

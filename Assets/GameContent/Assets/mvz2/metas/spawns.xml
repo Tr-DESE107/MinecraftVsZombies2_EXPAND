@@ -6,6 +6,12 @@
         <terrain water="true" air="true" />
         <weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
     </entry>
+    <entry id="flag_zombie" noEndless="true">
+        <entity id="mvz2:flag_zombie" />
+        <spawn level="0" />
+        <terrain water="true" air="true" />
+        <weight base="0" />
+    </entry>
     <entry id="leather_capped_zombie">
         <entity id="mvz2:leather_capped_zombie" />
         <spawn level="2" />
@@ -19,11 +25,11 @@
         <terrain water="true" air="true" />
         <weight base="3000" />
     </entry>
-    <entry id="flag_zombie" noEndless="true">
-        <entity id="mvz2:flag_zombie" />
-        <spawn level="0" />
+    <entry id="diamond_helmetted_zombie">
+        <entity id="mvz2:diamond_helmetted_zombie" />
+        <spawn level="6" />
         <terrain water="true" air="true" />
-        <weight base="0" />
+        <weight base="2000" />
     </entry>
 
     <!-- Halloween -->

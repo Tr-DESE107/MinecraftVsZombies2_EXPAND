@@ -263,6 +263,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2bc07992dc30ad441aa98588cf8d0e90, type: 3}
   - name: mobile_blueprint/devourer
     sprite: {fileID: 21300000, guid: f9f35a26c043a7b4fa4d6f5836941b01, type: 3}
+  - name: mobile_blueprint/diamond_helmetted_zombie
+    sprite: {fileID: 21300000, guid: e434ee7060be04d429244b2b884afb04, type: 3}
   - name: mobile_blueprint/diamond_spikes
     sprite: {fileID: 21300000, guid: a91f725ba10a5c545a6a951003948a10, type: 3}
   - name: mobile_blueprint/dispenser
@@ -747,6 +749,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e5e566d19ad3e024c8c3e91f928d8be1, type: 3}
   - name: entity/effects/magic_star
     sprite: {fileID: 21300000, guid: 6a6baf812492dec40ba2154d360755bb, type: 3}
+  - name: entity/effects/mega_glowing_laser
+    sprite: {fileID: 21300000, guid: 3b43d3948455b4a4a9461c41899ae6bf, type: 3}
   - name: entity/effects/mind_control_line
     sprite: {fileID: 21300000, guid: 5d8ca2a31157783449fded634ef57f1f, type: 3}
   - name: entity/effects/mine_debris
@@ -1576,6 +1580,11 @@ MonoBehaviour:
     - {fileID: 726932048, guid: fef5240ef6b58184c95282c0fa82357c, type: 3}
     - {fileID: -662199030, guid: fef5240ef6b58184c95282c0fa82357c, type: 3}
     - {fileID: -286163847, guid: fef5240ef6b58184c95282c0fa82357c, type: 3}
+  - name: entity/armor/diamond_helmet
+    spritesheet:
+    - {fileID: -1492098989, guid: 8c33626bd6dc68e43a68a3b6d0b5f0aa, type: 3}
+    - {fileID: 95844531, guid: 8c33626bd6dc68e43a68a3b6d0b5f0aa, type: 3}
+    - {fileID: -508530684, guid: 8c33626bd6dc68e43a68a3b6d0b5f0aa, type: 3}
   - name: entity/armor/flag
     spritesheet:
     - {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}

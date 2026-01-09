@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-09 08:35+0800\n"
-"PO-Revision-Date: 2026-01-09 20:36+0800\n"
+"POT-Creation-Date: 2026-01-09 09:20+0800\n"
+"PO-Revision-Date: 2026-01-09 21:20+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2201,17 +2201,39 @@ msgstr "The iron helmet of the Iron Helmet Zombie provides him with extremely hi
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"生命：<color=red>200+1100</color>\n"
+"生命：<color=red>200+1110</color>\n"
 "速度：<color=red>1</color>"
 msgstr ""
-"Toughness: <color=red>200+1100</color>\n"
+"Toughness: <color=red>200+1110</color>\n"
 "Speed: <color=red>1</color>"
 
 #. Flavor for enemies mvz2:iron_helmetted_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "戴着铁盔的僵尸好像是生前是个战士一样，其实不是，它只是比较有智商而已。"
+msgid "戴着铁盔的僵尸好像是生前是个战士一样，其实不是，他只是比较有智商而已。"
 msgstr "From that helmet, one may assume he used to be a warrior in his lifetime, but it's not like that. He just has a higher IQ."
+
+#. Header for enemies mvz2:diamond_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "钻石盔僵尸的钻石盔给他提供了最高的防护。"
+msgstr "The diamond helmet of the Diamond Helmet Zombie provides him with the highest protection."
+
+#. Properties for enemies mvz2:diamond_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+2220</color>\n"
+"速度：<color=red>1</color>"
+msgstr ""
+"Toughness: <color=red>200+2220</color>\n"
+"Speed: <color=red>1</color>"
+
+#. Flavor for enemies mvz2:diamond_helmetted_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "不好意思，因为他之前在挖钻石，所以迟到了！"
+msgstr "Sorry, he was late because he was digging for diamonds before!"
 
 #. Header for enemies mvz2:skeleton
 #: Almanac meta file
@@ -5946,6 +5968,12 @@ msgctxt "death_message"
 msgid "脑子是好的，但不是每个人都有"
 msgstr "I'm gonna eat your brains. We're the undead!"
 
+#. Name for entity mvz2:flag_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "旗帜僵尸"
+msgstr "Flag Zombie"
+
 #. Name for entity mvz2:leather_capped_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -5958,11 +5986,11 @@ msgctxt "entity.name"
 msgid "铁盔僵尸"
 msgstr "Iron Helmet Zombie"
 
-#. Name for entity mvz2:flag_zombie
+#. Name for entity mvz2:diamond_helmetted_zombie
 #: Entity meta file
 msgctxt "entity.name"
-msgid "旗帜僵尸"
-msgstr "Flag Zombie"
+msgid "钻石盔僵尸"
+msgstr "Diamond Helmet Zombie"
 
 #. Name for entity mvz2:skeleton
 #: Entity meta file
