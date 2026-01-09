@@ -64,8 +64,9 @@ namespace MVZ2.GameContent.Buffs.Grids
                 var timeoutTimer = buff.GetProperty<FrameTimer>(PROP_TIMEOUT_TIMER);
 
                 model.SetModelProperty("GridType", GetGridType(grid));
-                model.SetShaderFloat("_BurnValue", buff.GetProperty<float>(PROP_DISAPPEAR_VALUE));
-                model.SetColorOffset(colorOffset);
+                model.SetShaderFloat(ShaderProperties.BURN_VALUE, buff.GetProperty<float>(PROP_DISAPPEAR_VALUE));
+                model.SetShaderColor(ShaderProperties.COLOR_OFFSET, colorOffset);
+                model.ApplyShaderProperties();
             }
         }
         public int GetGridType(LawnGrid grid)

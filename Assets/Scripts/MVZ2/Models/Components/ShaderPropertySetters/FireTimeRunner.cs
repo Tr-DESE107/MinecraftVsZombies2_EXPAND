@@ -12,6 +12,7 @@ namespace MVZ2.Models
         public override void SetProperty(float value)
         {
             Element.SetFloat("_FireTime", value);
+            Element.ApplyShaderProperties();
         }
         public override float GetDefaultValue() => 0;
         public override float GetCurrentValue() => fireTime;

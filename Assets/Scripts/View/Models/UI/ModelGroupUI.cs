@@ -24,6 +24,9 @@ namespace MVZ2.Models
         public override void SetShaderVector(string name, Vector4 color)
         {
         }
+        public override void ApplyShaderProperties()
+        {
+        }
         #endregion
 
         #region 元素管理

@@ -13,6 +13,7 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
+using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -201,7 +202,8 @@ namespace MVZ2.GameContent.HeldItems
                 return;
             if (IsCommandBlock(entity))
             {
-                model.SetShaderInt("_Grayscale", 1);
+                model.SetShaderInt(ShaderProperties.GRAYSCALE, 1);
+                model.ApplyShaderProperties();
             }
         }
         public override void OnUpdate(LevelEngine level, IHeldItemData data)

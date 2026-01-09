@@ -98,18 +98,7 @@ namespace MVZ2.Models
         public abstract void SetShaderFloat(string name, float alpha);
         public abstract void SetShaderColor(string name, Color color);
         public abstract void SetShaderVector(string name, Vector4 vector);
-        public void SetTint(Color color)
-        {
-            SetShaderColor("_Color", color);
-        }
-        public void SetColorOffset(Color color)
-        {
-            SetShaderColor("_ColorOffset", color);
-        }
-        public void SetHSV(Vector3 hsv)
-        {
-            SetShaderVector("_HSVOffset", hsv);
-        }
+        public abstract void ApplyShaderProperties();
         #endregion
 
         #region 锚点

@@ -14,6 +14,7 @@ namespace MVZ2.Models
             if (string.IsNullOrEmpty(propertyName))
                 return;
             Element.SetVector(propertyName, value);
+            Element.ApplyShaderProperties();
         }
         public string? propertyName;
         public Vector4 value;

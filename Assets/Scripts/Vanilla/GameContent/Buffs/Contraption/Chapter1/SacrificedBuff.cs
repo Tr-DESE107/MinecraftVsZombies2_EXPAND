@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -35,7 +36,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             if (entity == null)
                 return;
             entity.RenderRotation += Vector3.forward * time;
-            entity.SetShaderFloat("_BurnValue", percentage);
+            entity.SetShaderFloat(ShaderProperties.BURN_VALUE, percentage);
+            entity.ApplyShaderProperties();
 
             if (time >= MAX_TIME)
             {

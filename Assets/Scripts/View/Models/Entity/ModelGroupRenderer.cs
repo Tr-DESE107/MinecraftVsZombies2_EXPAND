@@ -138,6 +138,15 @@ namespace MVZ2.Models
                 element.SetVector(name, vector);
             }
         }
+        public override void ApplyShaderProperties()
+        {
+            foreach (var element in renderers)
+            {
+                if (!element || element.ExcludedInGroup)
+                    continue;
+                element.ApplyShaderProperties();
+            }
+        }
         #endregion
 
         #region 属性字段

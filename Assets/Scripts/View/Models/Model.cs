@@ -348,13 +348,13 @@ namespace MVZ2.Models
         #endregion
 
         #region 着色器属性
-        public void SetShaderFloat(string name, float value)
-        {
-            GraphicGroup.SetShaderFloat(name, value);
-        }
         public void SetShaderInt(string name, int value)
         {
             GraphicGroup.SetShaderInt(name, value);
+        }
+        public void SetShaderFloat(string name, float value)
+        {
+            GraphicGroup.SetShaderFloat(name, value);
         }
         public void SetShaderColor(string name, Color value)
         {
@@ -363,6 +363,10 @@ namespace MVZ2.Models
         public void SetShaderVector(string name, Vector4 value)
         {
             GraphicGroup.SetShaderVector(name, value);
+        }
+        public void ApplyShaderProperties()
+        {
+            GraphicGroup.ApplyShaderProperties();
         }
         public void SetShaderIntRecursive(string name, int value)
         {
@@ -395,6 +399,14 @@ namespace MVZ2.Models
             foreach (var child in childModels)
             {
                 child.SetShaderVectorRecursive(name, value);
+            }
+        }
+        public void ApplyShaderPropertiesRecursive()
+        {
+            ApplyShaderProperties();
+            foreach (var child in childModels)
+            {
+                child.ApplyShaderProperties();
             }
         }
         #endregion

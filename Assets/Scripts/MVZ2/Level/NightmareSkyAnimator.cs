@@ -14,6 +14,7 @@ namespace MVZ2.Level
             if (!sky)
                 return;
             sky.SetFloat("_WarpTime", warpTime);
+            sky.ApplyShaderProperties();
         }
         [SerializeField]
         private RendererElement sky = null!;

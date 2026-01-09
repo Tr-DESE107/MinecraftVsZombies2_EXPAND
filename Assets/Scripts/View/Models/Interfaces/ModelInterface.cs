@@ -65,19 +65,19 @@ namespace MVZ2.Models
                 return;
             model.TriggerModel(name);
         }
-        public void SetShaderFloat(string name, float value)
-        {
-            var model = GetModel();
-            if (!model.Exists())
-                return;
-            model.SetShaderFloat(name, value);
-        }
         public void SetShaderInt(string name, int value)
         {
             var model = GetModel();
             if (!model.Exists())
                 return;
             model.SetShaderInt(name, value);
+        }
+        public void SetShaderFloat(string name, float value)
+        {
+            var model = GetModel();
+            if (!model.Exists())
+                return;
+            model.SetShaderFloat(name, value);
         }
         public void SetShaderColor(string name, Color value)
         {
@@ -92,6 +92,13 @@ namespace MVZ2.Models
             if (!model.Exists())
                 return;
             model.SetShaderVector(name, value);
+        }
+        public void ApplyShaderProperties()
+        {
+            var model = GetModel();
+            if (!model.Exists())
+                return;
+            model.ApplyShaderProperties();
         }
         public IModelInterface? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
         {

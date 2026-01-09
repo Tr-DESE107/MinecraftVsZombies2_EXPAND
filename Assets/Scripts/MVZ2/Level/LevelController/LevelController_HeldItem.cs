@@ -13,6 +13,7 @@ using MVZ2Logic.Cursor;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
@@ -81,7 +82,8 @@ namespace MVZ2.Level
             var model = GetHeldItemModel();
             if (model != null)
             {
-                model.SetShaderInt("_LightDisabled", 1);
+                model.SetShaderInt(ShaderProperties.LIGHT_DISABLED, 1);
+                model.ApplyShaderProperties();
                 definition?.PostSetModel(level, data, heldItemModelInterface);
             }
         }

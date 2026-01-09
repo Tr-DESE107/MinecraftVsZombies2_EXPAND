@@ -18,6 +18,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using MVZ2Logic.Options;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -482,8 +483,9 @@ namespace MVZ2.Entities
                 tint *= Entity.GetHelmetTint();
                 colorOffset += Entity.GetHelmetColorOffset();
             }
-            armorModel.GraphicGroup.SetTint(tint);
-            armorModel.GraphicGroup.SetColorOffset(colorOffset);
+            armorModel.SetShaderColor(ShaderProperties.TINT, tint);
+            armorModel.SetShaderColor(ShaderProperties.COLOR_OFFSET, colorOffset);
+            armorModel.ApplyShaderProperties();
         }
         private void UpdateArmorModels()
         {
@@ -855,12 +857,12 @@ namespace MVZ2.Entities
                 var model = entityCtrl.Model;
                 if (model != null)
                 {
-                    var rendererGroup = model.RendererGroup;
-                    rendererGroup.SetTint(entityCtrl.GetTint());
-                    rendererGroup.SetHSV(entity.GetHSV());
-                    rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
-                    rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
-                    rendererGroup.SetShaderInt("_DepthTest", entity.IsDepthTest() ? 1 : 0);
+                    model.SetShaderColor(ShaderProperties.TINT, entityCtrl.GetTint());
+                    model.SetShaderVector(ShaderProperties.HSV_OFFSET, entity.GetHSV());
+                    model.SetShaderColor(ShaderProperties.COLOR_OFFSET, entityCtrl.GetColorOffset());
+                    model.SetShaderInt(ShaderProperties.GRAYSCALE, entity.IsGrayscale() ? 1 : 0);
+                    model.SetShaderInt(ShaderProperties.DEPTH_TEST, entity.IsDepthTest() ? 1 : 0);
+                    model.ApplyShaderProperties();
 
                     model.transform.localScale = entity.GetFinalDisplayScale();
                     model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
@@ -891,31 +893,36 @@ namespace MVZ2.Entities
                         case PropertyName.Tint:
                             if (model.Exists())
                             {
-                                model.RendererGroup.SetTint(entityCtrl.GetTint());
+                                model.SetShaderColor(ShaderProperties.TINT, entityCtrl.GetTint());
+                                model.ApplyShaderProperties();
                             }
                             break;
                         case PropertyName.ColorOffset:
                             if (model.Exists())
                             {
-                                model.RendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                                model.SetShaderColor(ShaderProperties.COLOR_OFFSET, entityCtrl.GetColorOffset());
+                                model.ApplyShaderProperties();
                             }
                             break;
                         case PropertyName.HSV:
                             if (model.Exists())
                             {
-                                model.RendererGroup.SetHSV(entity.GetHSV());
+                                model.SetShaderVector(ShaderProperties.HSV_OFFSET, entity.GetHSV());
+                                model.ApplyShaderProperties();
                             }
                             break;
                         case PropertyName.Grayscale:
                             if (model.Exists())
                             {
-                                model.RendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+                                model.SetShaderInt(ShaderProperties.GRAYSCALE, entity.IsGrayscale() ? 1 : 0);
+                                model.ApplyShaderProperties();
                             }
                             break;
                         case PropertyName.DepthTest:
                             if (model.Exists())
                             {
-                                model.SetShaderIntRecursive("_DepthTest", entity.IsDepthTest() ? 1 : 0);
+                                model.SetShaderIntRecursive(ShaderProperties.DEPTH_TEST, entity.IsDepthTest() ? 1 : 0);
+                                model.ApplyShaderPropertiesRecursive();
                             }
                             break;
                         case PropertyName.FlipX:

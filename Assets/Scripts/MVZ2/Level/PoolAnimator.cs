@@ -15,6 +15,7 @@ namespace MVZ2.Level
                 return;
             poolElement.SetFloat("_WarpTime", warpTime);
             poolElement.SetFloat("_CausticTime", causticTime);
+            poolElement.ApplyShaderProperties();
             if (animator)
             {
                 animator.SetFloat("WarpSpeed", warpSpeed);
