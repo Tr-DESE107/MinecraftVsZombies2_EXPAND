@@ -133,6 +133,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID lurker = Get("lurker");
         public readonly static NamespaceID magical = Get("magical");
         public readonly static NamespaceID magnetic = Get("magnetic");
+        public readonly static NamespaceID mechSetup = Get("mech_setup");
         public readonly static NamespaceID mechanism = Get("mechanism");
         public readonly static NamespaceID meow = Get("meow");
         public readonly static NamespaceID metalSaw = Get("metal_saw");
@@ -179,6 +180,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID revived = Get("revived");
         public readonly static NamespaceID reverseVampire = Get("reverse_vampire");
         public readonly static NamespaceID sand = Get("sand");
+        public readonly static NamespaceID scifiLaser = Get("scifi_laser");
         public readonly static NamespaceID screw = Get("screw");
         public readonly static NamespaceID shock = Get("shock");
         public readonly static NamespaceID shot = Get("shot");

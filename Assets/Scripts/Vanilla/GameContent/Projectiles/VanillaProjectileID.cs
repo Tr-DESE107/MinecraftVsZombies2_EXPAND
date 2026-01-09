@@ -54,6 +54,8 @@ namespace MVZ2.GameContent.Projectiles
         public const string fireworkBig = "firework_big";
         public const string fallingStar = "falling_star";
         public const string explosiveLargeFireball = "explosive_large_fireball";
+
+        public const string spectralArrow = "spectral_arrow";
     }
     public static class VanillaProjectileID
     {

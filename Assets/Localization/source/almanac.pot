@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-06 06:37+0800\n"
+"POT-Creation-Date: 2026-01-09 08:35+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1590,6 +1590,31 @@ msgid ""
 "毗沙门天的宝塔的仿制品，同样拥有带来财富的能力，可以将物体变成黄金以及各色的美丽珠宝。\n"
 "不过不要把这种珠宝三个摆放在一条线上，不然它们会消失。\n"
 "更不要把这种珠宝四个、五个放在一条线上，或者交叉摆放，除非你真的想缺胳膊少腿。"
+msgstr ""
+
+#. Header for contraptions mvz2:transfenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为瞄准模式，用激光持续让前方的第一个敌人发光。"
+msgstr ""
+
+#. Properties for contraptions mvz2:transfenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>20</color>\n"
+"发射间隔：<color=red>3秒</color>\n"
+"发光时长：<color=red>5秒（光灵箭），瞬间（瞄准光线）</color>\n"
+"特点：<color=red>发光的敌人额外受到50%伤害</color>\n"
+"技能：<color=red>在射击模式下射出30支光灵箭；或在瞄准模式下使前方的所有敌人发光30秒</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:transfenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"相比其他器械，变形发射器算是比较富裕的了。其实只要去它家看看就明白，这些钱都是它自己日积月累省出来的。它家连一盏灯都没有——毕竟它自己就是一个超大瓦的灯泡。\n"
+"不过它也有它自己的烦恼，那就是上街的时候太引人注目，经常成为别人的电灯泡。另外，它喜欢用激光逗自己家的小猫。"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -4826,6 +4851,18 @@ msgctxt "entity.tooltip"
 msgid "禁用一整行地格并生成星之碎片"
 msgstr ""
 
+#. Name for entity mvz2:transfenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "变形发射器"
+msgstr ""
+
+#. Tooltip for entity mvz2:transfenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "发射光灵箭，或者瞄准最前方的敌人"
+msgstr ""
+
 #. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -5528,6 +5565,12 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "云山之拳"
+msgstr ""
+
+#. Name for entity mvz2:corpse_cart
+#: Entity meta file
+msgctxt "entity.name"
+msgid "尸体推车"
 msgstr ""
 
 #. Name for entity mvz2:redstone

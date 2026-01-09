@@ -828,7 +828,22 @@
         </entry>
 
         <!-- Chapter 6 -->
-        <entry />
+        <entry id="mvz2:transfenser">
+            <header>
+                <p>变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为瞄准模式，用激光持续让前方的第一个敌人发光。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>发射间隔：<![CDATA[<color=red>3秒</color>]]></p>
+                <p>发光时长：<![CDATA[<color=red>5秒（光灵箭），瞬间（瞄准光线）</color>]]></p>
+                <p>特点：<![CDATA[<color=red>发光的敌人额外受到50%伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>在射击模式下射出30支光灵箭；或在瞄准模式下使前方的所有敌人发光30秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>相比其他器械，变形发射器算是比较富裕的了。其实只要去它家看看就明白，这些钱都是它自己日积月累省出来的。它家连一盏灯都没有——毕竟它自己就是一个超大瓦的灯泡。</p>
+                <p>不过它也有它自己的烦恼，那就是上街的时候太引人注目，经常成为别人的电灯泡。另外，它喜欢用激光逗自己家的小猫。</p>
+            </flavor>
+        </entry>
         <entry />
         <entry />
         <entry />

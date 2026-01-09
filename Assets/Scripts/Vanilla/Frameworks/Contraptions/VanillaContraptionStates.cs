@@ -30,6 +30,11 @@ namespace MVZ2.Vanilla.Contraptions
 
         public const int COMMAND_BLOCK_WORKING = PRIVATE_NUMBER + 0;
 
+        public const int TRANSFENSER_SHOOTER = IDLE;
+        public const int TRANSFENSER_TO_AIMER = PRIVATE_NUMBER + 0;
+        public const int TRANSFENSER_AIMER = PRIVATE_NUMBER + 1;
+        public const int TRANSFENSER_TO_SHOOTER = PRIVATE_NUMBER + 2;
+
         private const int PRIVATE_NUMBER = 10000;
     }
 }

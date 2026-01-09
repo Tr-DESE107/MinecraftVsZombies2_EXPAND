@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-06 06:37+0800\n"
-"PO-Revision-Date: 2026-01-06 18:38+0800\n"
+"POT-Creation-Date: 2026-01-09 08:35+0800\n"
+"PO-Revision-Date: 2026-01-09 20:36+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1864,6 +1864,45 @@ msgstr ""
 "to turn objects into gold as well as beautiful jewels of all colors.\n"
 "But be careful, don't place three of these jewels in a line, or else they will vanish.\n"
 "And NEVER place four or five in a line or a cross formation... unless you truly want to BE JEWELED."
+
+#. Header for contraptions mvz2:transfenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为瞄准模式，用激光持续让前方的第一个敌人发光。"
+msgstr ""
+"Transfensers fire spectral arrows that inflict glowing to enemies. After being triggered, it switches to aiming mode, using a laser to "
+"continuously make the foremost enemy glow."
+
+#. Properties for contraptions mvz2:transfenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>20</color>\n"
+"发射间隔：<color=red>3秒</color>\n"
+"发光时长：<color=red>5秒（光灵箭），瞬间（瞄准光线）</color>\n"
+"特点：<color=red>发光的敌人额外受到50%伤害</color>\n"
+"技能：<color=red>在射击模式下射出30支光灵箭；或在瞄准模式下使前方的所有敌人发光30秒</color>"
+msgstr ""
+"Damage: <color=red>20</color>\n"
+"Fire Interval: <color=red>3 seconds</color>\n"
+"Glow Duration: <color=red>5 seconds (Spectral Arrow), Instantaneous (Aiming Laser)</color>\n"
+"Special: <color=red>Glowing enemies take 50% extra damage</color>\n"
+"Evocation: <color=red>Shoots 30 spectral arrows in shooting mode; or inflicts glowing to all enemies ahead for 30 seconds in aiming "
+"mode</color>"
+
+#. Flavor for contraptions mvz2:transfenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"相比其他器械，变形发射器算是比较富裕的了。其实只要去它家看看就明白，这些钱都是它自己日积月累省出来的。它家连一盏灯都没有——毕竟它自己就"
+"是一个超大瓦的灯泡。\n"
+"不过它也有它自己的烦恼，那就是上街的时候太引人注目，经常成为别人的电灯泡。另外，它喜欢用激光逗自己家的小猫。"
+msgstr ""
+"Among other contraptions, the Transfenser is considered relatively well-off. In fact, just take a look at its home and you'll "
+"understand—all that money was saved up by itself, penny by penny over time. There isn't even a single lamp in its house—after all, it "
+"itself is a super high-wattage light bulb.\n"
+"However, it has its own troubles: it's too eye-catching when out on the streets, often ending up as an unwitting third wheel. Also, it "
+"enjoys using its laser to play with its little cat at home."
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -5741,6 +5780,18 @@ msgctxt "entity.tooltip"
 msgid "禁用一整行地格并生成星之碎片"
 msgstr "Disable an entire lane for starshards"
 
+#. Name for entity mvz2:transfenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "变形发射器"
+msgstr "Transfenser"
+
+#. Tooltip for entity mvz2:transfenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "发射光灵箭，或者瞄准最前方的敌人"
+msgstr "Shoot spectral arrows or aim at the foremost enemy"
+
 #. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -6456,6 +6507,12 @@ msgstr "Mini Ballista"
 msgctxt "entity.name"
 msgid "云山之拳"
 msgstr "Unzan's Fist"
+
+#. Name for entity mvz2:corpse_cart
+#: Entity meta file
+msgctxt "entity.name"
+msgid "尸体推车"
+msgstr "Corpse Cart"
 
 #. Name for entity mvz2:redstone
 #: Entity meta file

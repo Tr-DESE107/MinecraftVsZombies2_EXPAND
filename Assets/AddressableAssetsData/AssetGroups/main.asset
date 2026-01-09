@@ -220,6 +220,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05319a9c945f1744b991d1e95cf4dd75
+    m_Address: mvz2:entity/contraption/transfenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0560677ce3ebb444a8893193b27d43fc
     m_Address: mvz2:mainmenu/stats
     m_ReadOnly: 0
@@ -1122,6 +1129,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 164a656dd01ee934a8a29ffee0680f97
+    m_Address: mvz2:contraption/palace/transfenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 164c517f4b3a40f49a48c0f998d7fd7e
     m_Address: mvz2:ready_set_build
@@ -2787,6 +2801,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b43d3948455b4a4a9461c41899ae6bf
+    m_Address: mvz2:entity/effects/mega_glowing_laser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b69e29138f5dca40863736310abcdc4
     m_Address: mvz2:boss/wither
     m_ReadOnly: 0
@@ -3116,6 +3137,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40ef9faf2771cbd4289618f7a542fba3
+    m_Address: mvz2:projectile/spectral_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 410c602e03a209e49a68674fd0551a89
     m_Address: mvz2:difficulties
     m_ReadOnly: 0
@@ -3396,6 +3424,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46b81ca814bbeea46b60ea83192a8c5b
+    m_Address: mvz2:scifi_laser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46e4738e7670514408193864ddcf6e34
     m_Address: mvz2:lightning_attack
     m_ReadOnly: 0
@@ -3535,6 +3570,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49110ee4fabb8fd458c2eb4d52328244
+    m_Address: mvz2:mech_setup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4928638317c505a4e86671ea24a68c7f
     m_Address: mvz2:entity/contraption/anvil
@@ -4852,6 +4894,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65e19b84021afdd41b3219d341be4586
+    m_Address: mvz2:icon/glowing_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65f5a79b8f9519a4280b272150a69514
     m_Address: mvz2:fizz
     m_ReadOnly: 0
@@ -5117,6 +5166,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c55a0a7f003a194a8b3d1f6f0aa81f4
+    m_Address: mvz2:effect/mega_glowing_laser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c6db3ffabf127f4b93c7b5144b83395
     m_Address: mvz2:projectile/dart
@@ -5522,6 +5578,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 768d5bd8b12081f43af6e415553299a5
+    m_Address: mvz2:entity/projectiles/spectral_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 772451afbb93e0949906b761c0971acc
     m_Address: mvz2:random/crystal/crystal1
@@ -8064,6 +8127,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad5ce8632a283454da6a8493ff25a8d5
+    m_Address: mvz2:mobile_blueprint/transfenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad7423e6dcaf9324384fd5caf5ec4d66
     m_Address: mvz2:projectile/poison_javelin
     m_ReadOnly: 0
@@ -9169,6 +9239,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7fa1769461cf9846acddffa3a044fd7
+    m_Address: mvz2:bones/arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c82886228e56ce84d8d101bb2e34ab8d
     m_Address: mvz2:armor/reflective_barrier

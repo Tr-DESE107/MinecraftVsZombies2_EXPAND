@@ -57,6 +57,8 @@ namespace MVZ2.GameContent.Contraptions
         public const string elasticCloud = "elastic_cloud";
         public const string jeweledPagoda = "jeweled_pagoda";
 
+        public const string transfenser = "transfenser";
+
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
         public const string goldenDropper = "golden_dropper";

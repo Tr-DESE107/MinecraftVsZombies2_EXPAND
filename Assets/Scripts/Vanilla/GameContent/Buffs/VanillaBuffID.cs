@@ -106,6 +106,9 @@ namespace MVZ2.GameContent.Buffs
             public const string dragonTooth = "dragon_tooth";
             public const string clearGridOnLand = "clear_grid_on_land";
 
+            // Chapter 6
+            public const string transfenserGlowing = "transfenser_glowing";
+
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
         }
@@ -422,6 +425,9 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 5
             public static readonly NamespaceID aboveCloud = Get(VanillaBuffNames.Entity.aboveCloud);
             public static readonly NamespaceID dragonTooth = Get(VanillaBuffNames.Entity.dragonTooth);
+
+            // Chapter 5
+            public static readonly NamespaceID transfenserGlowing = Get(VanillaBuffNames.Entity.transfenserGlowing);
 
             // Random China
             public static readonly NamespaceID worldwideCelebration = Get(VanillaBuffNames.Entity.worldwideCelebration);

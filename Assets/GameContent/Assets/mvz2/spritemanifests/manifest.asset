@@ -435,6 +435,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
   - name: mobile_blueprint/totenser
     sprite: {fileID: 21300000, guid: ed576f37fbc44b44d9396b8ea59f7911, type: 3}
+  - name: mobile_blueprint/transfenser
+    sprite: {fileID: 21300000, guid: ad5ce8632a283454da6a8493ff25a8d5, type: 3}
   - name: mobile_blueprint/triplenser
     sprite: {fileID: 21300000, guid: 9cea67f824319f140bbd61d186dca978, type: 3}
   - name: mobile_blueprint/undead_flying_object
@@ -943,6 +945,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a84ced210884b2b4cac4a4b7d7f4f6a6, type: 3}
   - name: entity/projectiles/soulfire_ball_trail
     sprite: {fileID: 21300000, guid: 3e623a643b588284a9d22ed7fc755230, type: 3}
+  - name: entity/projectiles/spectral_arrow
+    sprite: {fileID: 21300000, guid: 768d5bd8b12081f43af6e415553299a5, type: 3}
   - name: entity/projectiles/spike
     sprite: {fileID: 21300000, guid: 62ae9a026747aea4f83506787af8d75a, type: 3}
   - name: entity/projectiles/spike_ball
@@ -1962,6 +1966,20 @@ MonoBehaviour:
     - {fileID: 1639352578, guid: ec212abe3448fae468e8a869c194bb7c, type: 3}
     - {fileID: -403573287, guid: ec212abe3448fae468e8a869c194bb7c, type: 3}
     - {fileID: 174411105, guid: ec212abe3448fae468e8a869c194bb7c, type: 3}
+  - name: entity/contraption/transfenser
+    spritesheet:
+    - {fileID: 772826459, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: -281981894, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: 1638328975, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: 100085002, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: 2113584186, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: -905812396, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: -1391890377, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: 12408495, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: -2063261478, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: -1896236973, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: 1925587270, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
+    - {fileID: 7223400, guid: 05319a9c945f1744b991d1e95cf4dd75, type: 3}
   - name: entity/contraption/triplenser
     spritesheet:
     - {fileID: 2131060664, guid: 1ce6dc58e8464274cb75bcc29d1ce3f8, type: 3}

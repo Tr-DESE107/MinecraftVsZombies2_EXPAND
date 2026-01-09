@@ -37,6 +37,10 @@ namespace PVZEngine.Auras
             ClearBuffs();
             Definition.PostRemove(this);
         }
+        public IBuffTarget? GetFirstTarget()
+        {
+            return buffCaches.FirstOrDefault().Key;
+        }
         public int GetTargetCount()
         {
             return buffCaches.Count;

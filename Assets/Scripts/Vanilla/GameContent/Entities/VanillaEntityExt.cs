@@ -986,6 +986,20 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(EnemyWeaknessBuff.PROP_TIMEOUT, time);
             PostApplyStatusEffect(entity, buff, source);
         }
+        public static void InflictGlowing(this Entity entity, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.transfenserGlowing);
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetBuffs(buffDefinition).FirstOrDefault(e => !e.IsFromAura);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            TransfenserGlowingBuff.MaxTime(buff, time);
+            PostApplyStatusEffect(entity, buff, source);
+        }
+
 
         public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference? source)
         {
