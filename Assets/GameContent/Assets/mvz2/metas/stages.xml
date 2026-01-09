@@ -1581,7 +1581,6 @@
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:ghast" />
 			<spawn id="mvz2:anubisand" />
-			<spawn id="mvz2:Anubiskull" />
 			<spawn id="mvz2:RaiderSkull" />
 			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
@@ -1805,10 +1804,15 @@
             <entry id="mvz2:magichest" count="1" minCount="0" />
         </conveyor>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="4" pointsMultiplier="0.5" pointsAddition="2">
-            <spawn id="mvz2:undead_flying_object_blitz" />
-            <spawn id="mvz2:undead_flying_object" />
-        </spawns>
+		<spawns flags="3" pointsMultiplier="2" pointsAddition="1">
+			<spawn id="mvz2:undead_flying_object_blitz" />
+			<spawn id="mvz2:undead_flying_object" />
+			<spawn id="mvz2:ghast" />
+			<spawn id="mvz2:anubisand" />
+			<spawn id="mvz2:Anubiskull" />
+			<spawn id="mvz2:RaiderSkull" />
+			<spawn id="mvz2:cannonball_zombie" />
+		</spawns>
         <time firstWave="1" waveMax="2" waveAdvance="2" />
         <properties>
             <bool name="noEnergy" value="true" />

@@ -37,6 +37,10 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+        <tag id="placement_beacon" name="升级器械：信标" description="必须放置在信标上" priority="0">
+            <icon sprite="mvz2:ui/almanac/Contraption(icon)[48]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
 
         <tag id="grid_layer_main" name="主要位" description="占据格子的主要位" priority="1000">
             <icon sprite="mvz2:ui/almanac/grid_layer_tags[0]" />
@@ -159,6 +163,22 @@
             <icon sprite="mvz2:ui/almanac/Expand_attribute[4]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
         </tag>
+		<tag id="placement_FireworkDispenser" name="升级器械：烟花发射器" description="必须放置在烟花发射器上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[49]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+		</tag>
+		<tag id="placement_RedstoneOre" name="升级器械：红石矿" description="必须放置在红石矿上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[17]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+		</tag>
+		<tag id="placement_hfpd" name="升级器械：高频脉冲发射器" description="必须放置在高频脉冲发射器上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[57]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
+		</tag>
+		<tag id="placement_Eviltombstone" name="升级器械：邪灵墓碑" description="必须放置在邪灵墓碑上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[56]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
+		</tag>
         
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
             <icon sprite="mvz2:ui/almanac/Expand_attribute[2]" />
@@ -228,6 +248,7 @@
             <value value="mvz2:netherrack" name="下界岩" description="免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[10]" backgroundColor="#36131d" />
             <value value="mvz2:cloud" name="云" description="受到0.5x冲击或火焰伤害" sprite="mvz2:ui/almanac/shell_tags[11]" backgroundColor="#b67ba6" />
             <value value="mvz2:lightning" name="闪电" description="吸收闪电伤害" sprite="mvz2:ui/almanac/shell_tags[12]" backgroundColor="#b38f47" />
+            <value value="mvz2:ice" name="冰" description="暂无特殊效果" sprite="mvz2:ui/almanac/shell_tags[15]" backgroundColor="##8CBDE6" />
         </enum>
     </tags>
 	<contraptions>
@@ -1366,6 +1387,9 @@
         </entry>
 
 		<entry id="mvz2:SuperFireworkDispenser">
+			<tags>
+				<tag id="mvz2:placement_FireworkDispenser" />
+			</tags>
 			<header>
 				<p>超级烟花发射器会发射烟花轰击上方高空中的敌人。</p>
 			</header>
@@ -1433,6 +1457,9 @@
 
 
 		<entry id="mvz2:DiamondOre">
+			<tags>
+				<tag id="mvz2:placement_RedstoneOre" />
+			</tags>
 			<header>
 				<p>钻石矿打碎后可以获得钻石矿</p>
 			</header>
@@ -1448,10 +1475,10 @@
 		</entry>
         <entry id="mvz2:EXPANDispenser">
             <tags>
-                <tag id="mvz2:placement_repeatenser" />
+                <tag id="mvz2:placement_hfpd" />
             </tags>
             <header>
-                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。</p>
+                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。\n嗯，说是这么说，但还没做好</p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
@@ -1491,13 +1518,16 @@
 				<p>技能：<![CDATA[<color=red>先对全场被冰冻的敌人造成1000点伤害，后冰冻全场敌人。</color>]]></p>
 			</properties>
 			<flavor>
-				<p>永恒冰觉得自己简直是被遗忘了，在expg里很长的一段时间内，他都没有图鉴文本，然而没有人在乎这一点，过了有一年乃至几个月制作者才发现他没有正规的图鉴，匆匆给他补上。然后似乎也没有人发现这一点，编辑Expwiki的逃兵们忘了更新它的条目，以至于又是一年乃至几个月，牢论把它制作到u时才发现他Expwiki的条目还是只有寥寥几句话。</p>
+				<p>永冻冰觉得自己简直是被遗忘了，在expg里很长的一段时间内，他都没有图鉴文本，然而没有人在乎这一点，过了有一年乃至几个月制作者才发现他没有正规的图鉴，匆匆给他补上。然后似乎也没有人发现这一点，编辑Expwiki的逃兵们忘了更新它的条目，以至于又是一年乃至几个月，牢论把它制作到u时才发现他Expwiki的条目还是只有寥寥几句话。</p>
 				<p>"嗯，往好处想，至少我比牢狙早打赢复活赛。"他是这么想的</p>
 				<p/>
 				<p><![CDATA[<color=white>永冻冰后面去问寒冰发射器，为什么自己突然就被牢论记起来，并加进游戏里了？寒冰发射器讲：顺手的事。</color>]]></p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:Randombstone">
+			<tags>
+				<tag id="mvz2:placement_Eviltombstone" />
+			</tags>
 			<header>
 				<p>随机墓碑能够召唤随机系列怪物。</p>
 			</header>
@@ -2073,8 +2103,22 @@
                 <p>好在宿主突变僵尸一般情况下会把他丢到水池里，但要他单独出现呢？</p>
             </flavor>
         </entry>
-        
-        
+
+		<entry id="mvz2:NightmareDisciple">
+			<header>
+				<p>梦魇追随者能够在发射子弹攻击你的同时打开死亡的传送门。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>800</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>血冰锥10，会造成120帧，每帧损失3滴血的死亡标记。梦魇球40，会造成180帧、每帧损伤5滴血的死亡标记</color>]]></p>
+				<p>弱点：<![CDATA[<color=red>射弹无法赋予器械死亡标记。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>梦魇的存在本身是一个大大的谜团，梦魇的这些追随者是如何诞生的也是一个大大的谜团。这些骷髅虽然拥有和梦魇相近的力量，但经法术学分析，我们基本可以排除其为梦魇实际创造物的可能性。</p>
+				<p>梦魇追随者会被梦魇所召唤，被召唤的追随者们带有一种强烈的狂热性，这份狂热使得他们刀枪不入。追随者们还可以使用暗魔法凝聚的射弹，被击中的生物会在痛苦下迅速逝去。</p>
+			</flavor>
+		</entry>
         
         
         <entry id="mvz2:WitherSkeleton">

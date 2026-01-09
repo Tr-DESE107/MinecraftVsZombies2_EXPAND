@@ -14,7 +14,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
     {
         public TNTIgnitedBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR));
         }
         public override void PostAdd(Buff buff)

@@ -4894,6 +4894,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 510b25312b0e5d14bae7d4f0ec7f96d2
+    m_Address: mvz2:mobile_blueprint/NightmareDisciple
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 510e419d98670f449b06d2dd4bab9b7c
     m_Address: mvz2:random/glass2
     m_ReadOnly: 0
