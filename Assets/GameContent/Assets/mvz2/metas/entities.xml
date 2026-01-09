@@ -1211,7 +1211,7 @@
                 <condition required="mvz2:level.ship_6" />
             </unlock>
             <properties>
-                <float name="mvz2:damage" value="20" />
+                <float name="mvz2:damage" value="30" />
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
                 <vector3 name="mvz2:shotOffset" x="0" y="30" z="0" />
