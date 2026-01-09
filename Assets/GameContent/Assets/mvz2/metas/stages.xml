@@ -1566,24 +1566,23 @@
 			<talk type="map" value="mvz2:ship_6_map" />
 		</talks>
 		<conveyor>
-			<entry id="mvz2:beacon" count="20" />
+			<entry id="mvz2:beacon" count="3" />
 			<entry id="mvz2:lightning_orb" count="5" />
-			<entry id="mvz2:magichest" count="3" minCount="0" />
-			<entry id="mvz2:firework_dispenser" count="7" />
+			<entry id="mvz2:magichest" count="5"/>
+			<entry id="mvz2:firework_dispenser" count="10" />
+			<entry id="mvz2:SuperFireworkDispenser" count="2" />
 			<entry id="mvz2:wooden_fan" count="10" />
 			<entry id="mvz2:stone_shield" count="10" />
-			<entry id="mvz2:punchton" count="10" />
+			<entry id="mvz2:punchton" count="20" />
 		</conveyor>
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:beacon" />
-		<spawns flags="3" pointsMultiplier="1.8" pointsAddition="1">
+		<spawns flags="3" pointsMultiplier="1.5" pointsAddition="1">
 			<spawn id="mvz2:undead_flying_object_blitz" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:ghast" />
 			<spawn id="mvz2:anubisand" />
 			<spawn id="mvz2:Anubiskull" />
 			<spawn id="mvz2:RaiderSkull" />
-			<spawn id="mvz2:HeavyGutant" />
-			<spawn id="mvz2:Endermite" />
 			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
 		<time firstWave="1" waveMax="15" waveAdvance="5" />

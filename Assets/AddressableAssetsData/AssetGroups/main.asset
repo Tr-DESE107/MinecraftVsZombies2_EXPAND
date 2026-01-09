@@ -3578,6 +3578,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c59bd362faf03c4b80f3be3c03de00c
+    m_Address: mvz2:entity/contraption/EXPAND_Skin/FirechargeDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c7a2dce92dbdfb49b1162d3a0a8e913
     m_Address: mvz2:entity/enemies/ZombieHead
     m_ReadOnly: 0
@@ -4067,6 +4074,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43a9c443271cd3a40a1febd49589c280
+    m_Address: mvz2:mobile_blueprint/SuperFireworkDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43d0c46d78f545946b9f8472fc64be72
     m_Address: mvz2:ui/level/progress_bar/level_progress_banner

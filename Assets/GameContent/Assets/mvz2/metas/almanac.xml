@@ -1004,7 +1004,7 @@
                 <p>烟花发射器会发射火焰弹攻击上方高空中的敌人。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
+                <p>发射速度：<![CDATA[<color=red>1发/2秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>200，只攻击空中敌人</color>]]></p>
                 <p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>射程永久+1格</color>]]></p>

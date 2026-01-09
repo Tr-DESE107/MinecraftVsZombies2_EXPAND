@@ -192,8 +192,8 @@
 				<condition required="mvz2:level.ship_6" />
 			</unlock>
 			<talks>
-				<talk character="mvz2:crazy_villager">我们老旧的钻石矿在赚钱性能上已经完全超越了金制投掷器，将他放在红石矿上，挖掉并把掉落物带回给我！</talk>
-				<talk character="mvz2:tokiko">戴夫先生说这个器械他一般不卖的，现在赔本大甩卖，将钻石矿放在红石矿上，挖掉就能获得钻石！</talk>
+				<talk character="mvz2:crazy_villager">把超级烟花发射器放在烟花发射器上，和我一起欣赏美丽的烟火大会！</talk>
+				<talk character="mvz2:tokiko">超级烟花发射器先生可以放在烟花发射器先生身上，并对来袭的空中敌人发射烟花！</talk>
 			</talks>
 			<stages>
 				<stage price="50000" unlocks="mvz2:contraption.SuperFireworkDispenser" />
