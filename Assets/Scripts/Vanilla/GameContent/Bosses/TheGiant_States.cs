@@ -503,10 +503,9 @@ namespace MVZ2.GameContent.Bosses
                 param.damage = entity.GetDamage() * EYE_BULLET_DAMAGE_MULTIPLIER;
                 param.projectileID = VanillaProjectileID.reflectionBullet;
                 param.velocity = (target.GetCenter() - param.position).normalized * EYE_BULLET_SPEED;
-                var spawnParam = entity.GetSpawnParams();
+                var spawnParam = param.spawnParam;
                 spawnParam.SetProperty(EngineEntityProps.SCALE, Vector3.one * 2);
                 spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
-                param.spawnParam = spawnParam;
                 var bullet = entity.ShootProjectile(param);
                 if (bullet != null)
                 {
@@ -615,10 +614,9 @@ namespace MVZ2.GameContent.Bosses
                 param.damage = entity.GetDamage() * EYE_BULLET_DAMAGE_MULTIPLIER;
                 param.projectileID = VanillaProjectileID.reflectionBullet;
                 param.velocity = (target.GetCenter() - param.position).normalized * EYE_BULLET_SPEED;
-                var spawnParam = entity.GetSpawnParams();
+                var spawnParam = param.spawnParam;
                 spawnParam.SetProperty(EngineEntityProps.SCALE, Vector3.one * 2);
                 spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
-                param.spawnParam = spawnParam;
                 var bullet = entity.ShootProjectile(param);
                 if (bullet != null)
                 {

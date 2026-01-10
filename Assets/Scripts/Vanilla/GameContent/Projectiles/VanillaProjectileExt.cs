@@ -51,7 +51,7 @@ namespace MVZ2.Vanilla.Projectiles
             var projectileSize = projectileDefinition.GetSize();
             position += Vector3.Scale(projectileDefinition.GetBoundsPivot() - pivot, projectileSize);
 
-            var param = parameters.spawnParam ?? entity.GetSpawnParams();
+            var param = parameters.spawnParam;
             param.SetProperty(VanillaEntityProps.DAMAGE, parameters.damage);
             param.SetProperty(EngineEntityProps.FACTION, parameters.faction);
             return entity.Spawn(projectileDefinition, position, param)?.Let(e =>
@@ -77,7 +77,8 @@ namespace MVZ2.Vanilla.Projectiles
                 faction = entity.GetFaction(),
                 damage = entity.GetDamage(),
                 soundID = entity.GetShootSound(),
-                velocity = velocity
+                velocity = velocity,
+                spawnParam = entity.GetSpawnParams(),
             };
         }
         public static Vector3 ModifyShotOffset(this Entity entity, Vector3 offset)
@@ -230,6 +231,6 @@ namespace MVZ2.Vanilla.Projectiles
         public NamespaceID? soundID;
         public float damage;
         public int faction;
-        public SpawnParams? spawnParam;
+        public SpawnParams spawnParam;
     }
 }

@@ -108,6 +108,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 035fd7be2d506814eaccf4d36a11be06
+    m_Address: mvz2:random/gravel/break4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03686950f619ced4a8354b626d1c347e
     m_Address: mvz2:entity/effects/redline
     m_ReadOnly: 0
@@ -514,6 +521,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b3738f6a14a79140bd9b6d8f2033e7a
+    m_Address: mvz2:random/gravel/break3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b687cc971691aa4786964a361a0d14c
     m_Address: mvz2:artifacts/greedy_vacuum
     m_ReadOnly: 0
@@ -796,6 +810,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 10b37d050648cf446b27f08918ea2a16
     m_Address: mvz2:effect/nightmare_portal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10c853bdd952d5b4d948ac3c067e45e0
+    m_Address: mvz2:units/head_anchor
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1613,6 +1634,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22131f94e1378c045bcd62078c3639f8
+    m_Address: mvz2:units/anchor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 221ecc0d54c14864d870eadda055f6f4
     m_Address: mvz2:random/explosion1
     m_ReadOnly: 0
@@ -1962,6 +1990,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a25b92d67b70df4aa790f76869c60e1
+    m_Address: mvz2:random/gravel/hit2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a4746211870c7249adf3104c2ebdac4
     m_Address: mvz2:talk/speech_bubble_no_arrow
@@ -3251,6 +3286,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 434824b4c6871cb40b7121122b27dfd9
     m_Address: mvz2:charged_bolt2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4359fd72ffe895945b3430fc4bc10821
+    m_Address: mvz2:random/gravel/hit1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4957,6 +4999,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66e4a79edf2ff7a48883eeec0da4f528
+    m_Address: mvz2:entity/projectiles/flint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66fb8eb08bbc74b40895bb373bead3ee
     m_Address: mvz2:entity/cart/bowl_chariot
     m_ReadOnly: 0
@@ -5012,6 +5061,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68a485f25ba85d145b16d0d125b5eb2f
+    m_Address: mvz2:projectile/gravel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68ec678f2e1fdfc4eab7a8de70fdf77c
     m_Address: mvz2:entity/effects/sonic_wave
@@ -5292,6 +5348,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6edd9e40e4ec07849b044419d54304d8
+    m_Address: mvz2:mobile_blueprint/gravelpult
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f1b81e56e9c00041a34f173eb75c0ff
     m_Address: mvz2:bones/contraption_with_collider
@@ -5922,6 +5985,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ca7f79ea30a24e4098324d3a45b29c7
+    m_Address: mvz2:projectile/flint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cd67e193c23b1f46ae2e123c4a0bd3a
     m_Address: mvz2:entity/contraptions/pressure_plate
     m_ReadOnly: 0
@@ -6008,6 +6078,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e530d21185c00548b56d2627d93d61f
     m_Address: mvz2:iron_curtain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e73cf1a06ad5984e9a81c7f75d990a3
+    m_Address: mvz2:random/gravel/hit3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6512,6 +6589,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88d242bbad7e8d543a90ae63fb6aeeb5
     m_Address: mvz2:map/dream/bubble
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89ffd072a000e754d8587bd2c89267c1
+    m_Address: mvz2:entity/projectiles/gravel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7490,6 +7574,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d729579a470f8d4ba84575d9b913427
+    m_Address: mvz2:icon/gravel_on_face
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d730e080bace4646938c15cdabc88d0
     m_Address: mvz2:entity/effects/water_splash
     m_ReadOnly: 0
@@ -7762,6 +7853,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4dea0edb3164a64a84a57821e191087
+    m_Address: mvz2:random/gravel/hit4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a4fb4d341a16ba64cbad7dd992c94206
     m_Address: mvz2:products/blueprint_slot
@@ -8113,6 +8211,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acbc926636ad9f540bf02a831004740e
+    m_Address: mvz2:butter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: acc2e6159831cab4bb25141293768c3c
     m_Address: mvz2:mobile_blueprint/furnace
     m_ReadOnly: 0
@@ -8189,6 +8294,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae5f9adef00e6ed4080566370ac227cc
+    m_Address: mvz2:random/gravel/break2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae760a3d6ee757e4e90c0f9da62cee9a
     m_Address: mvz2:giant_spike
@@ -9331,6 +9443,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8ecc68819900c34cac1ab4ec7620a53
+    m_Address: mvz2:random/gravel/gravel1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8fd47e22cd27394895621742e549446
     m_Address: mvz2:entity/projectiles/fireball
     m_ReadOnly: 0
@@ -9680,6 +9799,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ced76b57ae0468641b35fc8ea48e8bfb
+    m_Address: mvz2:entity/contraption/catapult_pole
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ced932759e970e74891ad58675bf4e53
     m_Address: mvz2:level/dream/dream_sky
@@ -10367,6 +10493,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ded039facb990a54d88486dbf2a2595c
+    m_Address: mvz2:contraption/palace/gravelpult
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ded137b9dc7a3e54fae7243bc2863c71
     m_Address: mvz2:entity/contraption/drivenser
     m_ReadOnly: 0
@@ -10765,6 +10898,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e944251ff7facca478d5b942a1d1ea40
+    m_Address: mvz2:entity/contraption/gravelpult
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e94aed10d8dd86742a549eb789938806
     m_Address: mvz2:entity/effects/speed_line

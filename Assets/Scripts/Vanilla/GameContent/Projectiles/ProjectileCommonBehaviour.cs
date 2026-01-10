@@ -120,6 +120,10 @@ namespace MVZ2.GameContent.Projectiles
             if (!projectile.IsHostile(other))
                 return;
 
+            // 无视护盾
+            if (projectile.IgnoreShields() && !otherCollider.IsForMain() && !otherCollider.IsForHelmet())
+                return;
+
 
             // 击中敌人前
             var hitInput = new ProjectileHitInput(projectile, other, projectile.IsPiercing());

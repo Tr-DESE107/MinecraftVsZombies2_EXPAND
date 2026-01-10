@@ -80,7 +80,8 @@ namespace MVZ2.GameContent.Buffs.Entities
                     position = centerPos,
                     projectileID = VanillaProjectileID.parabot,
                     soundID = VanillaSoundID.bow,
-                    velocity = (otherCenter - centerPos).normalized * 10
+                    velocity = (otherCenter - centerPos).normalized * 10,
+                    spawnParam = entity.GetSpawnParams(),
                 };
                 var projectile = entity.ShootProjectile(shootParams);
                 if (projectile != null)

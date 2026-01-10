@@ -58,6 +58,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string jeweledPagoda = "jeweled_pagoda";
 
         public const string transfenser = "transfenser";
+        public const string gravelpult = "gravelpult";
 
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
@@ -124,6 +125,9 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID woodenFan = Get(VanillaContraptionNames.woodenFan);
         public static readonly NamespaceID elasticCloud = Get(VanillaContraptionNames.elasticCloud);
         public static readonly NamespaceID jeweledPagoda = Get(VanillaContraptionNames.jeweledPagoda);
+
+        public static readonly NamespaceID transfenser = Get(VanillaContraptionNames.transfenser);
+        public static readonly NamespaceID gravelpult = Get(VanillaContraptionNames.gravelpult);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);

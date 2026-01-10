@@ -34,6 +34,17 @@ namespace MVZ2.Vanilla.Projectiles
         {
             projectile.SetProperty(PIERCING, value);
         }
+        #region Œﬁ ”ª§∂‹
+        public static readonly PropertyMeta<bool> IGNORE_SHIELDS = new PropertyMeta<bool>("ignore_shields");
+        public static bool IgnoreShields(this Entity projectile)
+        {
+            return projectile.GetProperty<bool>(IGNORE_SHIELDS);
+        }
+        public static void SetIgnoreShields(this Entity projectile, bool value)
+        {
+            projectile.SetProperty(IGNORE_SHIELDS, value);
+        }
+        #endregion
         public static readonly PropertyMeta<NamespaceID[]> DAMAGE_EFFECTS = new PropertyMeta<NamespaceID[]>("damageEffects");
         public static NamespaceID[]? GetDamageEffects(this Entity projectile)
         {

@@ -1000,6 +1000,20 @@ namespace MVZ2.Vanilla.Entities
             PostApplyStatusEffect(entity, buff, source);
         }
 
+        public static void InflictGravel(this Entity entity, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.gravelOnFace);
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetBuffs(buffDefinition).FirstOrDefault(e => !e.IsFromAura);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            GravelOnFaceBuff.MaxTime(buff, time);
+            PostApplyStatusEffect(entity, buff, source);
+        }
+
 
         public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference? source)
         {

@@ -21,9 +21,6 @@ namespace MVZ2.GameContent.Projectiles
         public override void Update(Entity projectile)
         {
             base.Update(projectile);
-            float angleSpeed = -projectile.Velocity.x * 2.5f;
-            projectile.RenderRotation += Vector3.forward * angleSpeed;
-
             UpdateIgnited(projectile);
         }
         public void Ignite(Entity entity, Entity hellfire, bool cursed)

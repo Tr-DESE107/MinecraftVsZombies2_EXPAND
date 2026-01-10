@@ -40,15 +40,14 @@ namespace MVZ2.GameContent.Contraptions
                 var xspeed = entity.GetFacingX() * rng.Next(10f, 18f);
                 var yspeed = rng.Next(30f);
                 var zspeed = rng.Next(-1.5f, 1.5f);
-                var spawnParam = entity.GetSpawnParams();
-                spawnParam.SetProperty(EngineEntityProps.SCALE, Vector3.one * 2);
-                spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
-                spawnParam.SetProperty(LogicEntityProps.SHADOW_SCALE, Vector3.one * 2);
 
                 var param = entity.GetShootParams();
                 param.damage *= 4;
                 param.velocity = new Vector3(xspeed, yspeed, zspeed);
-                param.spawnParam = spawnParam;
+                var spawnParam = param.spawnParam;
+                spawnParam.SetProperty(EngineEntityProps.SCALE, Vector3.one * 2);
+                spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
+                spawnParam.SetProperty(LogicEntityProps.SHADOW_SCALE, Vector3.one * 2);
                 var ball = entity.ShootProjectile(param);
             }
             entity.PlaySound(VanillaSoundID.launch);

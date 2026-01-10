@@ -199,6 +199,7 @@
 
     <!-- Chapter 5 -->
     <buff id="transfenser_glowing" polarity="negative" level="0" target="entity" />
+    <buff id="gravel_on_face" polarity="negative" level="0" target="enemy" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />

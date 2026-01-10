@@ -344,10 +344,12 @@ namespace MVZ2.Entities
             var shadowPos = pos;
             shadowPos.y = groundY;
 
+            var shadowOffset = modelPropertyCache.ShadowOffset;
+            shadowOffset.x *= Entity.GetFinalDisplayScale().x;
             var worldPosition = Level.LawnToTrans(shadowPos);
             worldPosition.x = transform.position.x;
             worldPosition.z = transform.position.z;
-            worldPosition += Level.LawnToTransDistance(modelPropertyCache.ShadowOffset);
+            worldPosition += Level.LawnToTransDistance(shadowOffset);
             return transform.InverseTransformPoint(worldPosition);
         }
         protected void UpdateShadow()

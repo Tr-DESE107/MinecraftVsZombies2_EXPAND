@@ -218,6 +218,14 @@
             <key hex="#FFFFFF" time="1" />
         </colorKeys>
     </fragment>
+    <fragment name="gravelpult">
+        <colorKeys>
+            <key hex="#817f7f" time="0.25" />
+            <key hex="#979797" time="0.5" />
+            <key hex="#726b69" time="0.75" />
+            <key hex="#645b5b" time="1" />
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2" />

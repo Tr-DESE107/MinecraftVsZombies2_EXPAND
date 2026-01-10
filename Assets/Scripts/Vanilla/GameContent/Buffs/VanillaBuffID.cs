@@ -244,6 +244,9 @@ namespace MVZ2.GameContent.Buffs
             public const string heavyCannon = "heavy_cannon";
             public const string waterStainSlide = "water_stain_slide";
             public const string blownByWoodenFan = "blown_by_wooden_fan";
+
+            // Chapter 6
+            public const string gravelOnFace = "gravel_on_face";
         }
         public static class Obstacle
         {
@@ -422,7 +425,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID aboveCloud = Get(VanillaBuffNames.Entity.aboveCloud);
             public static readonly NamespaceID dragonTooth = Get(VanillaBuffNames.Entity.dragonTooth);
 
-            // Chapter 5
+            // Chapter 6
             public static readonly NamespaceID transfenserGlowing = Get(VanillaBuffNames.Entity.transfenserGlowing);
 
             // Random China
@@ -562,6 +565,9 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID heavyCannon = Get(VanillaBuffNames.Enemy.heavyCannon);
             public static readonly NamespaceID waterStainSlide = Get(VanillaBuffNames.Enemy.waterStainSlide);
             public static readonly NamespaceID blownByWoodenFan = Get(VanillaBuffNames.Enemy.blownByWoodenFan);
+
+            // Chapter 6
+            public static readonly NamespaceID gravelOnFace = Get(VanillaBuffNames.Enemy.gravelOnFace);
         }
         public static class Obstacle
         {

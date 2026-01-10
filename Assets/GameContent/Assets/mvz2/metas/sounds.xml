@@ -64,6 +64,9 @@
     <sound name="bow">
         <sample path="mvz2:bow" weight="1" />
     </sound>
+    <sound name="butter">
+        <sample path="mvz2:butter" weight="1" />
+    </sound>
     <sound name="buzzer" maxCount="4" priority="64">
         <sample path="mvz2:buzzer" weight="1" />
     </sound>
@@ -379,6 +382,18 @@
         <sample path="mvz2:random/grass1" weight="1" />
         <sample path="mvz2:random/grass2" weight="1" />
         <sample path="mvz2:random/grass3" weight="1" />
+    </sound>
+    <sound name="gravel_break">
+        <sample path="mvz2:random/gravel/break1" weight="1" />
+        <sample path="mvz2:random/gravel/break2" weight="1" />
+        <sample path="mvz2:random/gravel/break3" weight="1" />
+        <sample path="mvz2:random/gravel/break4" weight="1" />
+    </sound>
+    <sound name="gravel_hit">
+        <sample path="mvz2:random/gravel/hit1" weight="1" />
+        <sample path="mvz2:random/gravel/hit2" weight="1" />
+        <sample path="mvz2:random/gravel/hit3" weight="1" />
+        <sample path="mvz2:random/gravel/hit4" weight="1" />
     </sound>
     <sound name="gravitation">
         <sample path="mvz2:gravitation" weight="1" />
