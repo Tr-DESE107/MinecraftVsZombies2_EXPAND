@@ -844,7 +844,36 @@
                 <p>不过它也有它自己的烦恼，那就是上街的时候太引人注目，经常成为别人的电灯泡。另外，它喜欢用激光逗自己家的小猫。</p>
             </flavor>
         </entry>
-        <entry />
+        <entry id="mvz2:gravelpult">
+            <header>
+                <p>沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身的沙砾。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red>20（燧石），40（沙砾）</color>]]></p>
+                <p>投掷间隔：<![CDATA[<color=red>3秒</color>]]></p>
+                <p>定身时长：<![CDATA[<color=red>5秒</color>]]></p>
+                <p>沙砾概率：<![CDATA[<color=red>25%</color>]]></p>
+                <p>技能：<![CDATA[<color=red>向每个敌人投出一块沙砾</color>]]></p>
+            </properties>
+            <flavor>
+                <p>不要问它为什么他投出的燧石比沙砾更多，因为</p>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p>它自己</p>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p>乐意。还有你</p>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p>能不能别砸我了！</p>
+            </flavor>
+        </entry>
         <entry />
         <entry />
         <entry />

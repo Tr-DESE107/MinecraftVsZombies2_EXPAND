@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-10 07:31+0800\n"
+"POT-Creation-Date: 2026-01-10 08:41+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1615,6 +1615,45 @@ msgctxt "contraptions.description"
 msgid ""
 "相比其他器械，变形发射器算是比较富裕的了。其实只要去它家看看就明白，这些钱都是它自己日积月累省出来的。它家连一盏灯都没有——毕竟它自己就是一个超大瓦的灯泡。\n"
 "不过它也有它自己的烦恼，那就是上街的时候太引人注目，经常成为别人的电灯泡。另外，它喜欢用激光逗自己家的小猫。"
+msgstr ""
+
+#. Header for contraptions mvz2:gravelpult
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身的沙砾。"
+msgstr ""
+
+#. Properties for contraptions mvz2:gravelpult
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>20（燧石），40（沙砾）</color>\n"
+"投掷间隔：<color=red>3秒</color>\n"
+"定身时长：<color=red>5秒</color>\n"
+"沙砾概率：<color=red>25%</color>\n"
+"技能：<color=red>向每个敌人投出一块沙砾</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:gravelpult
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"不要问它为什么他投出的燧石比沙砾更多，因为\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"它自己\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"乐意。还有你\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"能不能别砸我了！"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -4881,6 +4920,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射光灵箭，或者瞄准最前方的敌人"
+msgstr ""
+
+#. Name for entity mvz2:gravelpult
+#: Entity meta file
+msgctxt "entity.name"
+msgid "沙砾投手"
+msgstr ""
+
+#. Tooltip for entity mvz2:gravelpult
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "投出燧石或沙砾"
 msgstr ""
 
 #. Name for entity mvz2:infectenser
