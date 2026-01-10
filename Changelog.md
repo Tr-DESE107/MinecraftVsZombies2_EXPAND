@@ -3,9 +3,13 @@
 - Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
 
 ### Balance
+- Moonlight Sensor
+  - Material: Stone -> Wood
 - Jeweled Pagoda
   - Recharge time: Very Long -> Short
   - Tile disabling duration: 4 minutes -> 2 minutes
+- Command Block
+  - Material: Stone -> Metal
 - Dark Matter now make monsters invisible instead of making the battlefield dark.
 
 ## Fixed
