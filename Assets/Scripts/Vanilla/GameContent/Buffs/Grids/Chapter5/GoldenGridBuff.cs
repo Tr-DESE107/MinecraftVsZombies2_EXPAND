@@ -24,11 +24,15 @@ namespace MVZ2.GameContent.Buffs.Grids
             AddModifier(new BooleanModifier(LogicGridProps.DISABLED, true));
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, MODEL_KEY, VanillaModelID.goldenGrid);
         }
+        public override void OnCreate(Buff buff)
+        {
+            base.OnCreate(buff);
+            buff.SetProperty(PROP_FLASH_TIMER, TimerHelper.NewSecondTimer(FLASH_SECONDS));
+            buff.SetProperty(PROP_TIMEOUT_TIMER, TimerHelper.NewSecondTimer(MAX_TIMEOUT_SECONDS));
+        }
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
-            buff.SetProperty(PROP_FLASH_TIMER, TimerHelper.NewSecondTimer(FLASH_SECONDS));
-            buff.SetProperty(PROP_TIMEOUT_TIMER, TimerHelper.NewSecondTimer(MAX_TIMEOUT_SECONDS));
             UpdateModel(buff);
         }
         public override void PostUpdate(Buff buff)
@@ -90,7 +94,7 @@ namespace MVZ2.GameContent.Buffs.Grids
         public const int TYPE_CLOUD = 2;
         public const int TYPE_SLOPE = 3;
         public const float FLASH_SECONDS = 1;
-        public const float MAX_TIMEOUT_SECONDS = 240;
+        public const float MAX_TIMEOUT_SECONDS = 120;
         public static readonly NamespaceID MODEL_KEY = VanillaModelKeys.goldenGrid;
         public static readonly VanillaBuffPropertyMeta<float> PROP_DISAPPEAR_VALUE = new VanillaBuffPropertyMeta<float>("disappear_value");
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_FLASH_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("flash_timer");

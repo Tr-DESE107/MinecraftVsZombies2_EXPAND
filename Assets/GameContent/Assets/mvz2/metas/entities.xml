@@ -1095,7 +1095,7 @@
                 <color name="mvz2:lightColor" value="#FFFF7F" />
 
                 <int name="mvz2:cost" value="200" />
-                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+                <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
 

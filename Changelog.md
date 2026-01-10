@@ -1,6 +1,12 @@
 ## Modified
-- Dark Matter now make monsters invisible instead of making the battlefield dark.
+
 - Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
+
+### Balance
+- Jeweled Pagoda
+  - Recharge time: Very Long -> Short
+  - Tile disabling duration: 4 minutes -> 2 minutes
+- Dark Matter now make monsters invisible instead of making the battlefield dark.
 
 ## Fixed
 - Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.
