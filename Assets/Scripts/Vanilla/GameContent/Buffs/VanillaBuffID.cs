@@ -78,8 +78,6 @@ namespace MVZ2.GameContent.Buffs
         public static class Entity
         {
             // Core
-            public const string entityPhysics = "entity_physics";
-            public const string faction = "faction";
             public const string changeLane = "change_lane";
             public const string changeGrid = "change_grid";
             public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
@@ -403,8 +401,6 @@ namespace MVZ2.GameContent.Buffs
         public static class Entity
         {
             // Core
-            public static readonly NamespaceID entityPhysics = Get(VanillaBuffNames.Entity.entityPhysics);
-            public static readonly NamespaceID faction = Get(VanillaBuffNames.Entity.faction);
             public static readonly NamespaceID changeLane = Get(VanillaBuffNames.Entity.changeLane);
             public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.Entity.temporaryUpdateBeforeGame);
             public static readonly NamespaceID destroyConflictGridEntitiesOnLand = Get(VanillaBuffNames.Entity.destroyConflictGridEntitiesOnLand);

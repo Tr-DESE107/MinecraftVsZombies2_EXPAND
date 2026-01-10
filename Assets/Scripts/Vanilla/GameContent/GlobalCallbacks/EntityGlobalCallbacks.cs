@@ -25,22 +25,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
     {
         public override void Apply(Mod mod)
         {
-            mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PostDamageCallback);
             mod.AddTrigger(VanillaLevelCallbacks.APPLY_DAMAGE_SPECIAL_EFFECTS, ApplyDamageEffectsCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, HealParticlesUpdateCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
             mod.AddTrigger(LevelCallbacks.POST_DESTROY_ARMOR, PostArmorDestroyCallback);
-        }
-        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResult result)
-        {
-            var entity = param.entity;
-            entity.AddBuff<EntityPhysicsBuff>();
-            if (entity.IsVulnerableEntity())
-            {
-                entity.AddBuff<FactionBuff>();
-            }
         }
         private void PostContactGroundCallback(LevelCallbacks.PostEntityContactGroundParams param, CallbackResult result)
         {

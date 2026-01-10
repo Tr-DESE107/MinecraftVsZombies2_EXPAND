@@ -4,6 +4,8 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaEntityBehaviourNames
     {
+        public const string faction = "faction";
+        public const string entityPhysics = "entity_physics";
         public const string timeoutDeath = "timeout_death";
         public const string timeoutRemove = "timeout_remove";
         public const string timeoutRemoveWithoutParent = "timeout_remove_without_parent";

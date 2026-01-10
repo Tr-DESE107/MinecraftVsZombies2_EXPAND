@@ -7,6 +7,7 @@
         <entity>
             <behaviours>
                 <behaviour operator="add" id="mvz2:armor_entity" />
+                <behaviour operator="add" id="mvz2:entity_physics" />
             </behaviours>
             <properties>
                 <float name="mvz2:changeLaneSpeed" value="2.5" />
@@ -28,6 +29,7 @@
         </entity>
         <contraption id="1" parent="entity">
             <behaviours>
+                <behaviour operator="add" id="mvz2:faction" />
                 <behaviour operator="add" id="mvz2:take_grid" />
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:contraption_common" />
@@ -57,6 +59,7 @@
         </contraption>
         <enemy id="2" parent="entity">
             <behaviours>
+                <behaviour operator="add" id="mvz2:faction" />
                 <behaviour operator="add" id="mvz2:enemy_common" />
                 <behaviour operator="add" id="mvz2:enemy_state" />
                 <behaviour operator="add" id="mvz2:enemy_melee" />
@@ -93,6 +96,7 @@
         </enemy>
         <obstacle id="3" parent="entity">
             <behaviours>
+                <behaviour operator="add" id="mvz2:faction" />
                 <behaviour operator="add" id="mvz2:obstacle_common" />
             </behaviours>
             <properties>
@@ -114,6 +118,7 @@
         </obstacle>
         <boss id="4" parent="entity">
             <behaviours>
+                <behaviour operator="add" id="mvz2:faction" />
                 <behaviour operator="add" id="mvz2:boss_common" />
                 <behaviour operator="add" id="mvz2:boss_resistance" />
             </behaviours>
