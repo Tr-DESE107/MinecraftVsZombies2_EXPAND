@@ -427,7 +427,7 @@
             <p>======乐评施工中======</p>
         </description>
     </music>
-    <music id="palace_level" name="猎手之眼">
+    <music id="palace_level" name="异常之眼">
         <unlock>
             <condition required="mvz2:level.palace_1" />
         </unlock>
