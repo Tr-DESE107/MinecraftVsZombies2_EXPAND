@@ -26,6 +26,7 @@ namespace MVZ2.Vanilla.Entities
         public const string skywardBeacon_Trigger = "skyward_beacon/trigger";
         public const string skywardBeacon_Evoke = "skyward_beacon/evoke";
         public const string transfenser_Trigger = "transfenser/trigger";
+        public const string gravelpult_Evoke = "gravelpult/evoke";
         #endregion
 
         #region Enemies

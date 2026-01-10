@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
@@ -122,6 +123,11 @@ namespace MVZ2.GameContent.Projectiles
 
             // 无视护盾
             if (projectile.IgnoreShields() && !otherCollider.IsForMain() && !otherCollider.IsForHelmet())
+                return;
+
+            // 锁定的目标
+            var lockedTargetID = projectile.GetLockedTargetID();
+            if (lockedTargetID != null && lockedTargetID.ID != other.ID)
                 return;
 
 

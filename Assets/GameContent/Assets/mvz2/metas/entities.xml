@@ -1122,6 +1122,9 @@
             <unlock>
                 <condition required="mvz2:level.palace_2" />
             </unlock>
+            <behaviours>
+                <behaviour id="mvz2:gravelpult/evoke" />
+            </behaviours>
             <properties>
                 <float name="mvz2:damage" value="20" />
                 <float name="mvz2:range" value="800" />

@@ -13,6 +13,7 @@ namespace MVZ2.GameContent.Fragments
         public const string divineShield = "divine_shield";
         public const string cannon = "cannon";
         public const string skywardBeaconNight = "skyward_beacon_night";
+        public const string gravelpult = "gravelpult";
     }
     public static class VanillaFragmentID
     {
@@ -22,6 +23,7 @@ namespace MVZ2.GameContent.Fragments
         public static readonly NamespaceID divineShield = Get(VanillaFragmentNames.divineShield);
         public static readonly NamespaceID cannon = Get(VanillaFragmentNames.cannon);
         public static readonly NamespaceID skywardBeaconNight = Get(VanillaFragmentNames.skywardBeaconNight);
+        public static readonly NamespaceID gravelpult = Get(VanillaFragmentNames.gravelpult);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
