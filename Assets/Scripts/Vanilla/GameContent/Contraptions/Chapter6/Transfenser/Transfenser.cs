@@ -61,7 +61,9 @@ namespace MVZ2.GameContent.Contraptions
             {
                 UpdateAimerAnimation(entity);
             }
+            entity.SetAnimationBool("LaserActive", IsAimerMode(entity) && !entity.IsAIFrozen());
             entity.SetAnimationInt("TransformState", GetAnimationTransformState(entity));
+            entity.SetAnimationFloat("TransformSpeed", entity.IsAIFrozen() ? 0 : 1);
         }
         protected override int GetTimerTime(Entity entity)
         {
@@ -278,7 +280,7 @@ namespace MVZ2.GameContent.Contraptions
                 var entity = auraEffect.Source.GetEntity();
                 if (entity == null)
                     return;
-                if (!Transfenser.IsAimerMode(entity))
+                if (entity.IsAIFrozen() || !Transfenser.IsAimerMode(entity))
                     return;
                 var facingX = entity.GetFacingX();
                 var target = laserDetector.DetectEntityWithTheLeast(entity, (target) => (target.Position - entity.Position).x * facingX);
