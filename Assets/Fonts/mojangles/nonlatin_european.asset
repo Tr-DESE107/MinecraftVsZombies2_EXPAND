@@ -81,7 +81,7 @@ MonoBehaviour:
     m_MeanLine: 20
     m_Baseline: 0
     m_DescentLine: -4
-    m_SuperscriptOffset: 8
+    m_SuperscriptOffset: 24
     m_SuperscriptSize: 0.5
     m_SubscriptOffset: 0
     m_SubscriptSize: 0.5

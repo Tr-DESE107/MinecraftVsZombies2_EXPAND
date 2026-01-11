@@ -172,6 +172,7 @@
             <value value="mvz2:netherrack" name="下界岩" description="免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[10]" backgroundColor="#36131d" />
             <value value="mvz2:cloud" name="云" description="受到0.5x冲击或火焰伤害" sprite="mvz2:ui/almanac/shell_tags[11]" backgroundColor="#b67ba6" />
             <value value="mvz2:lightning" name="闪电" description="吸收闪电伤害" sprite="mvz2:ui/almanac/shell_tags[12]" backgroundColor="#b38f47" />
+            <value value="mvz2:shadow" name="暗影" description="受到1.5x火焰、闪电和光明伤害" sprite="mvz2:ui/almanac/shell_tags[13]" backgroundColor="#3f3f3f" />
         </enum>
     </tags>
     <contraptions>
@@ -1489,6 +1490,25 @@
             </properties>
             <flavor>
                 <p>他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:shadow_cell">
+            <header>
+                <p>暗影细胞漂浮在低空中，在被击杀后会向上下两行分裂出两个小型的暗影细胞。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>600（本体），300（小型）</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>在地面上每秒受到100点伤害</color>]]></p>
+            </properties>
+            <flavor>
+                <p><![CDATA[<align="center"><b>《暗影细胞的研究报告》</b></align>]]></p>
+                <p>    暗影细胞是暗影生物的组成单位。暗影生物即一种寄生于尸体之上，操控尸体进行活动的生物<![CDATA[<sup>[1]</sup>]]>。而这些尸体和暗影生物的组合体被称为亡灵生物。</p>
+                <p>    暗影生物通过蚕食尸体的肉，并袭击人类来获取养分，通过养分来加深对宿主的寄生，并产生类似生物一般的结构以及器官，甚至有些暗影生物还通过此方法产生了智慧。</p>
+                <p>    暗影生物可以通过剧毒来治疗自己，但会被具有治疗效果的化学成分所伤。同时，暗影生物惧怕阳光，它们在阳光下会开始自燃<![CDATA[<sup>[2]</sup>]]>。</p>
+                <p>    在下界，存在着暗影生物的亚种，这种亚种具有抗火能力，但是也牺牲了自己从尸体处获取养分的能力，只能通过摄取真菌来获取成长所需的养分。</p>
+                <p/>
+                <p>1. 有报告称，出现了一种不依赖于寄生便可存活的巨型暗影细胞，目前这种生物的存在仍需进一步确认。</p>
+                <p>2. 如今世界各地的阳光底下却存在亡灵生物不燃烧的现象，此事相当异常，需要进一步调查。</p>
             </flavor>
         </entry>
     </enemies>

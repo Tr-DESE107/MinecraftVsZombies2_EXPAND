@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Buffs.Entities
 
             if (!passed)
             {
-                float warpSpeed = entity.GetChangeLaneSpeed();
+                float warpSpeed = GetSpeed(buff);
 
                 // Warp upwards.
                 if (sourceLane > targetLane)
@@ -62,20 +62,24 @@ namespace MVZ2.GameContent.Buffs.Entities
             entity.Position = pos;
             entity.Velocity = velocity;
         }
-        public static void Start(Buff buff, int target, int source)
+        public static void Start(Buff buff, int target, int source, float speed)
         {
             var level = buff.Level;
             SetTarget(buff, target);
             SetSource(buff, source);
+            SetSpeed(buff, speed);
         }
         public static void Stop(Buff buff)
         {
             buff.Remove();
         }
+        public static float GetSpeed(Buff entity) => entity.GetProperty<float>(PROP_SPEED);
+        public static void SetSpeed(Buff entity, float value) => entity.SetProperty(PROP_SPEED, value);
         public static int GetTarget(Buff entity) => entity.GetProperty<int>(PROP_TARGET);
         public static void SetTarget(Buff entity, int value) => entity.SetProperty(PROP_TARGET, value);
         public static int GetSource(Buff entity) => entity.GetProperty<int>(PROP_SOURCE);
         public static void SetSource(Buff entity, int value) => entity.SetProperty(PROP_SOURCE, value);
+        public static readonly VanillaBuffPropertyMeta<float> PROP_SPEED = new VanillaBuffPropertyMeta<float>("speed");
         public static readonly VanillaBuffPropertyMeta<int> PROP_TARGET = new VanillaBuffPropertyMeta<int>("target");
         public static readonly VanillaBuffPropertyMeta<int> PROP_SOURCE = new VanillaBuffPropertyMeta<int>("source");
     }

@@ -221,6 +221,8 @@
         <animator updateOnShot="true" />  
     </model>
 
+    <model name="shadow_cell" type="entity" path="mvz2:enemy/palace/shadow_cell" width="64" height="64" xOffset="0" yOffset="-28" />
+
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/shrine/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/shrine/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="imp" type="entity" path="mvz2:enemy/shrine/imp" width="48" height="56" xOffset="0" yOffset="-28">

@@ -3004,6 +3004,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d560017e6a573940986abece24f9d92
+    m_Address: mvz2:juicy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d9178829e9e3e340b9f8df54bfcbbb5
     m_Address: mvz2:entity/carts/minecart
     m_ReadOnly: 0
@@ -5439,6 +5446,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7130e864fc6235745a57dda6d3a1e8ad
+    m_Address: mvz2:bones/block_enemy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 713bbd59011cf674f8c72f330883df2f
     m_Address: mvz2:lightbeam1
@@ -8393,6 +8407,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0c6ae85b0b767a4f95ea74b25aee1ba
+    m_Address: mvz2:enemy/palace/shadow_cell
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0dadde6313f7754d883172449da1188
     m_Address: mvz2:mainmenuviews
     m_ReadOnly: 0
@@ -9435,6 +9456,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8cf80ec0c6f32249bbd035547173f6d
+    m_Address: mvz2:entity/enemy/shadow_cell
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8de6d57c5e5dfb45b69e31604cfe2ab
     m_Address: mvz2:sand_dig4
@@ -10908,6 +10936,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e94aed10d8dd86742a549eb789938806
     m_Address: mvz2:entity/effects/speed_line
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e94d62cb3c30c4c4c85137b88b64587a
+    m_Address: mvz2:mobile_blueprint/shadow_cell
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -468,13 +468,14 @@ namespace MVZ2Logic.Level
         }
         public static Entity? SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane, float x)
         {
+            var spawnEntityID = spawnDef.GetSpawnEntity();
+            var entityDef = level.Content.GetEntityDefinition(spawnEntityID);
+            if (entityDef == null)
+                return null;
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z);
-            var pos = new Vector3(x, y, z);
-            var spawnEntityID = spawnDef.GetSpawnEntity();
-            if (!NamespaceID.IsValid(spawnEntityID))
-                return null;
-            return level.Spawn(spawnEntityID, pos, null)?.Let(e =>
+            var pos = new Vector3(x, y, z) + entityDef.GetStartingPositionOffset();
+            return level.Spawn(entityDef, pos, null)?.Let(e =>
             {
                 level.TriggerEnemySpawned(spawnDef.GetID(), e);
             });

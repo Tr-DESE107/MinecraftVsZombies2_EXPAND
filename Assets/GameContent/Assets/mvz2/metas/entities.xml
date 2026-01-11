@@ -1869,6 +1869,29 @@
             </properties>
         </enemy>
 
+        <!-- Palace Enemies -->
+        <enemy id="shadow_cell" name="暗影细胞" deathMessage="僵尸就是这么来的。">
+            <unlock>
+                <condition required="mvz2:level.palace_1" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:burn_at_day" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:maxHealth" value="600" />
+                <float name="mvz2:speed" value="1" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:crySound" null="true" />
+                <id name="mvz2:deathSound" value="mvz2:juicy" />
+                <id name="mvz2:shape" value="mvz2:block" />
+                <id name="mvz2:shell" value="mvz2:shadow" />
+                <int name="mvz2:waterInteraction" value="3" />
+                <vector3 name="mvz2:starting_position_offset" x="0" y="20" z="0" />
+
+                <int name="mvz2:cost" value="100" />
+            </properties>
+        </enemy>
+
         <mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
             <unlock>
                 <condition required="mvz2:level.shrine_8" />
@@ -2886,6 +2909,7 @@
             <properties>
                 <bool name="mvz2:pointToDirection" value="true" />
                 <vector3 name="mvz2:size" x="32" y="2" z="2" />
+                <idArray name="mvz2:damageEffects" value="mvz2:light" />
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="40" y="40" z="40" />
                 <color name="mvz2:lightColor" value="#FFFF00" />
@@ -3056,6 +3080,7 @@
             <properties>
                 <int name="mvz2:maxTimeout" value="30" />
             </properties>
+            <behaviours includeSelf="false"/>
         </effect>
         <effect id="smoke_cluster">
             <properties>

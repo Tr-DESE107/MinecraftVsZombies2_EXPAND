@@ -430,6 +430,10 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void StartChangingLane(this Entity entity, int target)
         {
+            entity.StartChangingLane(target, entity.GetChangeLaneSpeed());
+        }
+        public static void StartChangingLane(this Entity entity, int target, float speed)
+        {
             var level = entity.Level;
             target = Math.Clamp(target, 0, level.GetMaxLaneCount() - 1);
             var source = entity.GetLane();
@@ -438,7 +442,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 buff = entity.AddBuff<ChangeLaneBuff>();
             }
-            ChangeLaneBuff.Start(buff, target, source);
+            ChangeLaneBuff.Start(buff, target, source, speed);
         }
         public static void StopChangingLane(this Entity entity)
         {

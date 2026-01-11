@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-10 08:41+0800\n"
+"POT-Creation-Date: 2026-01-11 07:26+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -585,6 +585,18 @@ msgstr ""
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "吸收闪电伤害"
+msgstr ""
+
+#. Name for almanac tag enum value mvz2:shadow of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "暗影"
+msgstr ""
+
+#. Description for almanac tag enum value mvz2:shadow of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "受到1.5x火焰、闪电和光明伤害"
 msgstr ""
 
 #. Header for contraptions mvz2:dispenser
@@ -2469,6 +2481,34 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。"
+msgstr ""
+
+#. Header for enemies mvz2:shadow_cell
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "暗影细胞漂浮在低空中，在被击杀后会向上下两行分裂出两个小型的暗影细胞。"
+msgstr ""
+
+#. Properties for enemies mvz2:shadow_cell
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>600（本体），300（小型）</color>\n"
+"特殊：<color=red>在地面上每秒受到100点伤害</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:shadow_cell
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"<align=\"center\"><b>《暗影细胞的研究报告》</b></align>\n"
+"    暗影细胞是暗影生物的组成单位。暗影生物即一种寄生于尸体之上，操控尸体进行活动的生物<sup>[1]</sup>。而这些尸体和暗影生物的组合体被称为亡灵生物。\n"
+"    暗影生物通过蚕食尸体的肉，并袭击人类来获取养分，通过养分来加深对宿主的寄生，并产生类似生物一般的结构以及器官，甚至有些暗影生物还通过此方法产生了智慧。\n"
+"    暗影生物可以通过剧毒来治疗自己，但会被具有治疗效果的化学成分所伤。同时，暗影生物惧怕阳光，它们在阳光下会开始自燃<sup>[2]</sup>。\n"
+"    在下界，存在着暗影生物的亚种，这种亚种具有抗火能力，但是也牺牲了自己从尸体处获取养分的能力，只能通过摄取真菌来获取成长所需的养分。\n"
+"\n"
+"1. 有报告称，出现了一种不依赖于寄生便可存活的巨型暗影细胞，目前这种生物的存在仍需进一步确认。\n"
+"2. 如今世界各地的阳光底下却存在亡灵生物不燃烧的现象，此事相当异常，需要进一步调查。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -5402,6 +5442,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "永久停泊"
+msgstr ""
+
+#. Name for entity mvz2:shadow_cell
+#: Entity meta file
+msgctxt "entity.name"
+msgid "暗影细胞"
+msgstr ""
+
+#. Death message for entity mvz2:shadow_cell
+#: Entity meta file
+msgctxt "death_message"
+msgid "僵尸就是这么来的。"
 msgstr ""
 
 #. Name for entity mvz2:mutant_zombie

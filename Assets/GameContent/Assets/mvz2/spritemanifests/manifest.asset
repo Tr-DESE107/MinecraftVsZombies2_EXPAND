@@ -387,6 +387,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9390c4e06c35d1849b57a496ba6b0339, type: 3}
   - name: mobile_blueprint/seija_cursed_doll
     sprite: {fileID: 21300000, guid: f178164255d2e4740ba2c8e66ba459e5, type: 3}
+  - name: mobile_blueprint/shadow_cell
+    sprite: {fileID: 21300000, guid: e94d62cb3c30c4c4c85137b88b64587a, type: 3}
   - name: mobile_blueprint/shikaisen_staff
     sprite: {fileID: 21300000, guid: 6990d1364b53e3b40b784f6e3b7754e5, type: 3}
   - name: mobile_blueprint/shikaisen_zombie
@@ -2309,6 +2311,10 @@ MonoBehaviour:
     - {fileID: 93071313, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
     - {fileID: -1939588279, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
     - {fileID: 1767264598, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+  - name: entity/enemy/shadow_cell
+    spritesheet:
+    - {fileID: 15913975, guid: c8cf80ec0c6f32249bbd035547173f6d, type: 3}
+    - {fileID: 206226922, guid: c8cf80ec0c6f32249bbd035547173f6d, type: 3}
   - name: entity/enemy/shikaisen_staff
     spritesheet:
     - {fileID: -927248566, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
