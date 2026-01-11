@@ -7,6 +7,7 @@ namespace MVZ2Logic.Games
     public interface IGlobalInput
     {
         Vector2 GetPointerScreenPosition();
+        Vector2 GetPointerScreenPosition(int type, int button);
         bool IsPointerDown(int type, int button);
         bool IsPointerHolding(int type, int button);
         bool IsPointerUp(int type, int button);

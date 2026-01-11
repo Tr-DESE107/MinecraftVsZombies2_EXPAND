@@ -25,7 +25,7 @@
             <script>next</script>
           </click>
         </sentence>
-        <sentence speaker="mvz2:crazy_villager" description="（村民入场）" sounds="mvz2:villager_long2">搞定了，现在那些器械已经能正常工作了。</sentence>
+        <sentence speaker="mvz2:crazy_villager" description="（村民出场）" sounds="mvz2:villager_long2">搞定了，现在那些器械已经能正常工作了。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">希望如此吧。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">……</sentence>
@@ -390,7 +390,7 @@
             <script>next</script>
           </click>
         </sentence>
-        <sentence speaker="mvz2:shou" description="（鵺离开）" sounds="mvz2:talk" onClick="end">这家伙，还是和以前一样让人恼火……！</sentence>
+        <sentence speaker="mvz2:shou" description="（鵺离场）" sounds="mvz2:talk" onClick="end">这家伙，还是和以前一样让人恼火……！</sentence>
       </sentences>
     </section>
   </group>
@@ -612,7 +612,7 @@
           </click>
         </sentence>
 
-        <sentence speaker="mvz2:marisa" description="（魔理沙和朱鹭子入场）" sounds="mvz2:talk">哦？有人来了啊。</sentence>
+        <sentence speaker="mvz2:marisa" description="（魔理沙和朱鹭子出场）" sounds="mvz2:talk">哦？有人来了啊。</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_explosive" onStart="shake">喂！给我好好道歉啊！</sentence>
         <sentence speaker="mvz2:marisa" sounds="mvz2:talk" variant="mvz2:angry">切，懒得说废话了，我这次就先走了。</sentence>
         <sentence speaker="mvz2:marisa" sounds="mvz2:talk">
@@ -626,7 +626,7 @@
           </click>
         </sentence>
 
-        <sentence speaker="mvz2:tokiko" description="（魔理沙离开）" sounds="mvz2:talk" variant="mvz2:worried">你们回来了啊。</sentence>
+        <sentence speaker="mvz2:tokiko" description="（魔理沙离场）" sounds="mvz2:talk" variant="mvz2:worried">你们回来了啊。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">发生什么了？</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">抱歉，刚才有些失礼。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">没事。刚才那是魔理沙吧？你们两个怎么了？</sentence>
@@ -984,7 +984,7 @@
           </click>
         </sentence>
 
-        <sentence speaker="mvz2:sekibanki" description="（赤蛮奇入场）" sounds="mvz2:talk">你……刚才从那间屋子里出来了？</sentence>
+        <sentence speaker="mvz2:sekibanki" description="（赤蛮奇出场）" sounds="mvz2:talk">你……刚才从那间屋子里出来了？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">啊，是啊，怎么了？</sentence>
         <sentence speaker="mvz2:sekibanki" sounds="mvz2:talk">你为什么会去那间屋子？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">？那间屋子怎么了吗？</sentence>
@@ -1016,7 +1016,7 @@
           </click>
         </sentence>
 
-        <sentence speaker="mvz2:steve" description="（星和村民入场）" sounds="mvz2:talk">啊，你们来了。</sentence>
+        <sentence speaker="mvz2:steve" description="（星和村民出场）" sounds="mvz2:talk">啊，你们来了。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">史蒂夫先生没事吧？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">没事，我好像是被人救下来了。</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:talk">呼，没事就好。</sentence>

@@ -205,7 +205,7 @@ namespace MVZ2.GameContent.Bosses
 
         public const float METEOR_DAMAGE_MULTIPLIER = 3f;
         public const int METEOR_COUNT = 3;
-        public static readonly Vector3 METEOR_HSV_OFFSET = new Vector3(-30f, 0, 0);
+        public static readonly Vector3 METEOR_HSV_OFFSET = new Vector3(-20f, 0, 0);
 
         public const float FLY_SPEED = 50f;
         public const float FIRE_EXPLOSION_DAMAGE_MULTIPLIER = 3;

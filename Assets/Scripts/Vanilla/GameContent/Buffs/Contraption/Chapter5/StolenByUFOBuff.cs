@@ -42,6 +42,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 var ufo = ufoID?.GetEntity(buff.Level);
                 if (!ufo.ExistsAndAlive())
                 {
+                    entity.DestroyConflictGridEntitiesOnLand();
                     buff.Remove();
                     return;
                 }

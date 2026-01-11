@@ -91,8 +91,6 @@ namespace MVZ2.Vanilla.Enemies
                 return false;
             if (!enemy.IsHostile(target))
                 return false;
-            if (!Detection.IsInSameRow(enemy, target))
-                return false;
             if (!Detection.CanDetect(target))
                 return false;
             if (target.Position.y > enemy.Position.y + enemy.GetMaxAttackHeight())

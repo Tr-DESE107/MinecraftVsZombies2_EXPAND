@@ -78,12 +78,17 @@ namespace MVZ2.GameContent.Contraptions
         public const string Poisonser = "Poisonser";
         public const string GlowingObsidian = "GlowingObsidian";
         public const string RedStoneOre = "RedStoneOre";
+        public const string DiamondOre = "DiamondOre";
         public const string DispenShield = "DispenShield";
         public const string Eradicator = "Eradicator";
         public const string Eviltombstone = "Eviltombstone";
         public const string CopperDropper = "CopperDropper";
         public const string AntiGravityPad = "AntiGravityPad";
         public const string EXPANDispenser = "EXPANDispenser";
+        public const string Freezenser = "Freezenser";
+        public const string PermanentIce = "PermanentIce";
+        public const string Randombstone = "Randombstone";
+        public const string SuperFireworkDispenser = "SuperFireworkDispenser";
 
         //EXPAND BlackCard
         public const string Bedrock = "Bedrock";
@@ -162,12 +167,17 @@ namespace MVZ2.GameContent.Contraptions
         //EXPAND
         public static readonly NamespaceID GlowingObsidian = Get(VanillaContraptionNames.GlowingObsidian);
         public static readonly NamespaceID RedStoneOre = Get(VanillaContraptionNames.RedStoneOre);
+        public static readonly NamespaceID DiamondOre = Get(VanillaContraptionNames.DiamondOre);
         public static readonly NamespaceID DispenShield = Get(VanillaContraptionNames.DispenShield);
         public static readonly NamespaceID Eviltombstone = Get(VanillaContraptionNames.Eviltombstone);
         public static readonly NamespaceID CopperDropper = Get(VanillaContraptionNames.CopperDropper);
         public static readonly NamespaceID Eradicator = Get(VanillaContraptionNames.Eradicator);
         public static readonly NamespaceID AntiGravityPad = Get(VanillaContraptionNames.AntiGravityPad);
         public static readonly NamespaceID EXPANDispenser = Get(VanillaContraptionNames.EXPANDispenser);
+        public static readonly NamespaceID Freezenser = Get(VanillaContraptionNames.Freezenser);
+        public static readonly NamespaceID PermanentIce = Get(VanillaContraptionNames.PermanentIce);
+        public static readonly NamespaceID Randombstone = Get(VanillaContraptionNames.Randombstone);
+        public static readonly NamespaceID SuperFireworkDispenser = Get(VanillaContraptionNames.SuperFireworkDispenser);
 
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);

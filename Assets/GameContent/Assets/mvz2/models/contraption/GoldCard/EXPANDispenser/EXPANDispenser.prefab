@@ -154,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -474296180, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+  m_Sprite: {fileID: 2133884004, guid: c48390d6002ea294c877b56330723002, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -474296180, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
-  - {fileID: -22312393, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+  - {fileID: 2133884004, guid: c48390d6002ea294c877b56330723002, type: 3}
+  - {fileID: -431199492, guid: c48390d6002ea294c877b56330723002, type: 3}
   propertyName: Upgraded
 --- !u!1 &1360983792181271836
 GameObject:
@@ -302,7 +302,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1374259480, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+  m_Sprite: {fileID: -1519621500, guid: c48390d6002ea294c877b56330723002, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -673,7 +673,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1527027455, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+  m_Sprite: {fileID: 2089544874, guid: c48390d6002ea294c877b56330723002, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -710,8 +710,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 1527027455, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
-  - {fileID: -2143279266, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+  - {fileID: 2089544874, guid: c48390d6002ea294c877b56330723002, type: 3}
+  - {fileID: 1918541947, guid: c48390d6002ea294c877b56330723002, type: 3}
   propertyName: GatlinAlt
 --- !u!1001 &2020772650740867635
 PrefabInstance:
@@ -787,11 +787,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6999929167464410214, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.662664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6999929167464410214, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1893443
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6999929167464410214, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_LocalPosition.z

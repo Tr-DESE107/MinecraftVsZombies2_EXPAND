@@ -50,6 +50,8 @@ namespace MVZ2.Vanilla.Entities
 
         public const string undeadFlyingObject_State = "undead_flying_object/state";
         #endregion
+        //EXPAND
+        public const string NightmareDisciple_State = "NightmareDisciple_State";
 
         #region Obstacles
         public const string obstacleCommon = "obstacle_common";

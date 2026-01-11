@@ -28,17 +28,22 @@ namespace MVZ2.GameContent.Placements
             }
             return null;
         }
-        public override Entity? PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
+        public override PlaceOutput PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
-            if (!entityDef.IsDefensive())
-                return null;
-            var entities = grid.GetEntities();
-            var entity = entities.FirstOrDefault(e => CanFirstAid(entityDef, e));
-            if (entity.ExistsAndAlive())
+            if (entityDef.IsDefensive())
             {
-                return entity.FirstAid();
+                var entities = grid.GetEntities();
+                var entity = entities.FirstOrDefault(e => CanFirstAid(entityDef, e));
+                if (entity.ExistsAndAlive())
+                {
+                    entity.FirstAid();
+                    return new PlaceOutput(entity, entityDef)
+                    {
+                        increaseTakenConveyorSeed = false
+                    };
+                }
             }
-            return null;
+            return PlaceOutput.InvalidOutput;
         }
         private bool CanFirstAid(EntityDefinition entityDef, Entity entity)
         {

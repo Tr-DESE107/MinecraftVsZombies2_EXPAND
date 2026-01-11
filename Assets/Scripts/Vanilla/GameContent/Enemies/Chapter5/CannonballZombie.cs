@@ -5,6 +5,18 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
+using PVZEngine.Callbacks;
+using PVZEngine.Damages;
+using UnityEngine;
+using MVZ2.GameContent.Buffs.Contraptions;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -24,6 +36,51 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateLogic(entity);
             entity.SetShadowHidden(entity.IsDead);
+        }
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+                return;
+            Explode(entity, entity.GetDamage(), entity.GetFaction());
+            entity.Remove();
+        }
+        public static void Explode(Entity entity, float damage, int faction)
+        {
+            var scale = entity.GetFinalScale();
+            var scaleX = Mathf.Abs(scale.x);
+            var range = entity.GetRange() * scaleX;
+            if (IsCharged(entity))
+            {
+                range = range * 2f;
+            }
+
+            entity.Explode(entity.GetCenter(), range, faction, damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE));
+
+            Explosion.Spawn(entity, entity.GetCenter(), range);
+            entity.PlaySound(VanillaSoundID.explosion, scaleX == 0 ? 1000 : 1 / (scaleX));
+        }
+        public override void PostTakeDamage(DamageOutput result)
+        {
+            base.PostTakeDamage(result);
+            if (result.BodyResult == null)
+                return;
+            if (result.BodyResult.Effects.HasEffect(VanillaDamageEffects.LIGHTNING))
+            {
+                Charge(result.Entity);
+            }
+        }
+
+
+        public static void Charge(Entity tnt)
+        {
+            if (tnt.HasBuff<TNTChargedBuff>())
+                return;
+            tnt.AddBuff<TNTChargedBuff>();
+        }
+        public static bool IsCharged(Entity tnt)
+        {
+            return tnt.HasBuff<TNTChargedBuff>();
         }
     }
 }

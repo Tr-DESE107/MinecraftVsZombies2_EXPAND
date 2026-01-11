@@ -78,5 +78,16 @@ namespace PVZEngine.Level
         {
             return seed.IsStartRecharge() ? seed.GetStartMaxRecharge() : seed.GetUsedMaxRecharge();
         }
+        #region 传送带
+        public static readonly PropertyMeta<NamespaceID> DRAWN_CONVEYOR_SEED = Get<NamespaceID>("drawnConveyorSeed");
+        public static NamespaceID? GetDrawnConveyorSeed(this SeedPack seed)
+        {
+            return seed.GetProperty<NamespaceID>(DRAWN_CONVEYOR_SEED);
+        }
+        public static void SetDrawnConveyorSeed(this SeedPack seed, NamespaceID? value)
+        {
+            seed.SetProperty(DRAWN_CONVEYOR_SEED, value);
+        }
+        #endregion
     }
 }

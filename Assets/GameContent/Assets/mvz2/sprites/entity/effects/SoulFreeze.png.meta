@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4440268da916c7441be04ae4200cb5e4
+guid: 18e442e79747eb44a8b49ed5ec2c41dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,6 +82,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -108,112 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Red_MonkZombie_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 40
-        width: 32
-        height: 22
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c09af8a42ec5c064f9a3f260e6538e05
-      internalID: 195686219
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Red_MonkZombie_1
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 45
-        width: 42
-        height: 14
-      alignment: 9
-      pivot: {x: 0.8571429, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5595f9eac94fa2d4fbbc047e8047b89b
-      internalID: -925382698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Red_MonkZombie_2
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 0
-        width: 16
-        height: 39
-      alignment: 9
-      pivot: {x: 0.5, y: 0.8717949}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad36cb6f2e3017d41b6176d9322427c7
-      internalID: -1265149394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Red_MonkZombie_3
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 3
-        width: 19
-        height: 36
-      alignment: 9
-      pivot: {x: 0.4736842, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1107c98a2508cd34aa46e66a46476b0a
-      internalID: -1935018447
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Red_MonkZombie_4
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 3
-        width: 19
-        height: 36
-      alignment: 9
-      pivot: {x: 0.4736842, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6581adc3a19263f4581d1ba54f5388c6
-      internalID: -2092059575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -224,12 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Red_MonkZombie_0: 195686219
-      Red_MonkZombie_1: -925382698
-      Red_MonkZombie_2: -1265149394
-      Red_MonkZombie_3: -1935018447
-      Red_MonkZombie_4: -2092059575
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

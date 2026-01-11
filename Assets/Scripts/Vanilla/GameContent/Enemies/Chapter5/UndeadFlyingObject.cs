@@ -78,7 +78,7 @@ namespace MVZ2.GameContent.Enemies
             if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) && !info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
             {
                 float damageMutliplier = entity.Level.GetReverseSatelliteDamageMultiplier();
-                float radius = entity.GetRange();
+                float radius = EXPLOSION_RADIUS;
                 var damage = entity.GetDamage() * damageMutliplier;
                 if (damage >= 0)
                 {
@@ -168,11 +168,11 @@ namespace MVZ2.GameContent.Enemies
         {
             return entity.IsEntityOf(VanillaEnemyID.ufo);
         }
-        public static void FillUFOVariantRandomPool(LevelEngine level, List<int> results)
+        public static void FillUFOVariantRandomPool(LevelEngine level, int faction, List<int> results)
         {
             foreach (var pair in behaviours)
             {
-                if (pair.Value.CanSpawn(level))
+                if (pair.Value.CanSpawn(level, faction))
                 {
                     results.Add(pair.Key);
                 }
@@ -216,6 +216,7 @@ namespace MVZ2.GameContent.Enemies
         public const int VARIANT_BLUE = 2;
         public const int VARIANT_RAINBOW = 3;
 
+        public const float EXPLOSION_RADIUS = 24;
         public const float FLY_HEIGHT = 80;
         public const float FLY_SPEED_ENTER = 0.3f;
         public const float FLY_SPEED_LEAVE = 0.1f;

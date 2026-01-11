@@ -54,11 +54,23 @@ namespace MVZ2.GameContent.Contraptions
                 }
             }
         }
+        // 核心修改：添加随机发射逻辑
+        public override Entity? Shoot(Entity entity)
+        {
+            if (entity.RNG.Next(6) == 0)
+            {
+                var param = entity.GetShootParams();
+                param.projectileID = VanillaProjectileID.purpleArrow;
+                param.damage *= 3.5f;
+                entity.TriggerAnimation("Shoot");
+                return entity.ShootProjectile(param);
+            }
+            return base.Shoot(entity);
+        }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
             var otherworldParam = entity.GetShootParams();
-            otherworldParam.position += Vector3.down * 28;
             otherworldParam.damage = entity.GetDamage() * 50;
             otherworldParam.projectileID = VanillaProjectileID.hellPlanetOtherworld;
             otherworldParam.velocity = otherworldParam.velocity.normalized;

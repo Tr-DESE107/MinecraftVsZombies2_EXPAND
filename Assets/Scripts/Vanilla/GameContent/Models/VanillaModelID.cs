@@ -44,9 +44,6 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID weaknessParticles = Get("weakness_particles", TYPE_ICON);
         public static readonly NamespaceID witherParticles = Get("wither_particles", TYPE_ICON);
 
-        public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles", TYPE_ICON);
-        public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles", TYPE_ICON);
-
         public static readonly NamespaceID dreamAlarm = Get("dream_alarm", TYPE_ICON);
         public static readonly NamespaceID parabotInsected = Get("parabot_insected", TYPE_ICON);
         public static readonly NamespaceID knockbackWave = Get("knockback_wave", TYPE_ICON);
@@ -54,6 +51,13 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID vulnerable = Get("vulnerable", TYPE_ICON);
 
         public static readonly NamespaceID mindSwap = Get("mind_swap", TYPE_UI);
+
+        //EXPAND
+        public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles", TYPE_ICON);
+        public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles", TYPE_ICON);
+        public static readonly NamespaceID ShockStaticParticles = Get("ShockStaticParticles", TYPE_ICON);
+        public static readonly NamespaceID DeathMarkParticles = Get("DeathMarkParticles", TYPE_ICON);
+
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
         {
             return new NamespaceID(areaID.SpaceName, $"starshard.{areaID.Path}").ToModelID(TYPE_HELD_ITEM);

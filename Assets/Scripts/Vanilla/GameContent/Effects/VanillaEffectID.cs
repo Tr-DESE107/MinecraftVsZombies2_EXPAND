@@ -106,6 +106,9 @@ namespace MVZ2.GameContent.Effects
         public const string dragonFireBreath = "dragon_fire_breath";
         public const string gridFire = "grid_fire";
         public const string fallenEndShip = "fallen_end_ship";
+
+        //EXPAND
+        public const string SoulFreeze = "SoulFreeze";
     }
     public static class VanillaEffectID
     {
@@ -208,6 +211,9 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID dragonFireBreath = Get(VanillaEffectNames.dragonFireBreath);
         public static readonly NamespaceID gridFire = Get(VanillaEffectNames.gridFire);
         public static readonly NamespaceID fallenEndShip = Get(VanillaEffectNames.fallenEndShip);
+
+        //EXPAND
+        public static readonly NamespaceID SoulFreeze = Get(VanillaEffectNames.SoulFreeze);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

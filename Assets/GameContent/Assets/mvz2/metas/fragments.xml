@@ -356,4 +356,24 @@
 			<key hex="#b10000" time="0.3"/>
 		</colorKeys>
 	</fragment>
+	<fragment name="Santa">
+		<colorKeys>
+			<key hex="#FF0000" time="0.75"/>
+			<key hex="#FFFFFF" time="1"/>
+		</colorKeys>
+	</fragment>
+	<fragment name="GoldenSanta">
+		<colorKeys>
+			<key hex="#FFD700" time="0.75"/>
+			<key hex="#FFFFFF" time="1"/>
+		</colorKeys>
+	</fragment>
+	<fragment name="PermanentIce">
+		<colorKeys>
+			<key hex="#A9D6F8" time="0.0" />
+			<key hex="#74A9E0" time="0.3" />
+			<key hex="#3D7BC2" time="0.6" />
+			<key hex="#1E4FA0" time="1.0" />
+		</colorKeys>
+	</fragment>
 </fragments>

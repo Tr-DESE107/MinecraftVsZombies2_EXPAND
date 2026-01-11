@@ -13,6 +13,7 @@ using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.GlobalCallbacks
 {
@@ -26,7 +27,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
         }
         private void PostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
-            var entity = param.entity;
+            var output = param.placeOutput;
+            var entity = output.entity;
             var seed = param.blueprint;
             var definition = param.definition;
             var heldData = param.heldData;
@@ -47,8 +49,16 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 var drawnFromPool = seed.GetDrawnConveyorSeed();
                 if (NamespaceID.IsValid(drawnFromPool))
                 {
-                    entity.AddTakenConveyorSeed(drawnFromPool);
+                    if (output.increaseTakenConveyorSeed)
+                    {
+                        entity.AddTakenConveyorSeed(drawnFromPool);
+                    }
+                    else
+                    {
+                        entity.Level.PutSeedToConveyorDiscardPile(drawnFromPool);
+                    }
                 }
+                seed.SetDrawnConveyorSeed(null);
             }
         }
         private void GetBlueprintStyleCallback(LogicCallbacks.GetBlueprintStyleParams param, CallbackResult result)
@@ -59,7 +69,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 result.SetValue(LogicBlueprintStyles.commandBlock);
             }
-            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.forcePad)|| seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.EXPANDispenser))
+            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.forcePad)|| seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.EXPANDispenser) || seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.Randombstone))
             {
                 result.SetValue(LogicBlueprintStyles.GoldCard);
             }

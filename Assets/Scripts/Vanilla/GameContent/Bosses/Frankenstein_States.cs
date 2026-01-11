@@ -326,15 +326,13 @@ namespace MVZ2.GameContent.Bosses
 
                 Vector3 gunPosition = armRootPosition + gunDirection * upperArmLength;
 
-                var bullet = boss.ShootProjectile(new ShootParams()
-                {
-                    projectileID = VanillaProjectileID.bullet,
-                    position = gunPosition,
-                    velocity = gunDirection * boss.GetShotVelocity().magnitude,
-                    damage = boss.GetDamage() * 0.1f,
-                    faction = boss.GetFaction(),
-                    soundID = VanillaSoundID.gunShot,
-                });
+                var param = boss.GetShootParams();
+                param.projectileID = VanillaProjectileID.bullet;
+                param.position = gunPosition;
+                param.velocity = gunDirection * boss.GetShotVelocity().magnitude;
+                param.damage = boss.GetDamage() * 0.1f;
+                param.soundID = VanillaSoundID.gunShot;
+                var bullet = boss.ShootProjectile(param);
                 boss.TriggerAnimation("GunFire");
                 boss.TriggerModel("GunFire");
             }
@@ -419,15 +417,13 @@ namespace MVZ2.GameContent.Bosses
                 Vector3 missilePosition = armRootPosition + missileDirection * 80f;
                 float missileSpeed = boss.GetShotVelocity().magnitude * 0.8f;
 
-                var missile = boss.ShootProjectile(new ShootParams()
-                {
-                    projectileID = VanillaProjectileID.missile,
-                    position = missilePosition,
-                    velocity = missileDirection * missileSpeed,
-                    damage = boss.GetDamage() * 2,
-                    faction = boss.GetFaction(),
-                    soundID = VanillaSoundID.missile
-                });
+                var param = boss.GetShootParams();
+                param.projectileID = VanillaProjectileID.missile;
+                param.position = missilePosition;
+                param.velocity = missileDirection * missileSpeed;
+                param.damage = boss.GetDamage() * 2;
+                param.soundID = VanillaSoundID.missile;
+                var missile = boss.ShootProjectile(param);
             }
         }
         private class JumpState : EntityStateMachineState
@@ -465,7 +461,7 @@ namespace MVZ2.GameContent.Bosses
                             spawnParam.SetProperty(EngineEntityProps.SCALE, entity.GetScale());
                             spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, entity.GetDisplayScale());
                             entity.Level.Spawn(VanillaEffectID.frankensteinJumpTrail, entity.GetCenter(), entity, spawnParam);
-                            if (entity.GetRelativeY() <= 0)
+                            if (entity.IsOnGround)
                             {
                                 Land(stateMachine, entity);
                             }
@@ -558,6 +554,10 @@ namespace MVZ2.GameContent.Bosses
         private class PunchState : EntityStateMachineState
         {
             public PunchState() : base(STATE_PUNCH, ANIMATION_STATE_PUNCH) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                return substate;
+            }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);

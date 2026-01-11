@@ -38,13 +38,21 @@ namespace MVZ2.Vanilla.Entities
             var projectileID = parameters.projectileID;
             if (projectileID == null)
                 return null;
+            var projectileDefinition = entity.Level.Content.GetEntityDefinition(projectileID);
+            if (projectileDefinition == null)
+                return null;
 
             var velocity = entity.ModifyProjectileVelocity(parameters.velocity);
+            var position = parameters.position;
+
+            var pivot = parameters.pivot;
+            var projectileSize = projectileDefinition.GetSize();
+            position += Vector3.Scale(projectileDefinition.GetBoundsPivot() - pivot, projectileSize);
 
             var param = parameters.spawnParam ?? entity.GetSpawnParams();
             param.SetProperty(VanillaEntityProps.DAMAGE, parameters.damage);
             param.SetProperty(EngineEntityProps.FACTION, parameters.faction);
-            return entity.Spawn(projectileID, parameters.position, param)?.Let(e =>
+            return entity.Spawn(projectileDefinition, position, param)?.Let(e =>
             {
                 e.Velocity = velocity;
                 e.UpdatePointTowardsDirection();
@@ -63,6 +71,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 projectileID = entity.GetProjectileID(),
                 position = entity.GetShootPoint(),
+                pivot = entity.GetShotPivot(),
                 faction = entity.GetFaction(),
                 damage = entity.GetDamage(),
                 soundID = entity.GetShootSound(),
@@ -214,6 +223,7 @@ namespace MVZ2.Vanilla.Entities
     {
         public NamespaceID? projectileID;
         public Vector3 position;
+        public Vector3 pivot;
         public Vector3 velocity;
         public NamespaceID? soundID;
         public float damage;

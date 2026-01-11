@@ -298,9 +298,9 @@
         <weight base="2000" />
     </entry>
     <entry id="Anubiskull" entity="mvz2:Anubiskull">
-        <spawn level="3" minWave="5" />
+        <spawn level="4.5" minWave="5" />
         <terrain water="true" air="true" />
-        <weight base="1350" />
+        <weight base="1250" />
     </entry>
     <entry id="WitherSkeletonHorse" entity="mvz2:WitherSkeletonHorse">
         <spawn level="2" minWave="5" />
@@ -354,10 +354,44 @@
         <spawn level="4" />
         <weight base="1250" />
     </entry>
+    <entry id="TorchKongfuZombie" entity="mvz2:TorchKongfuZombie">
+        <spawn level="2" />
+        <weight base="4000" />
+    </entry>
+	<entry id="Hemperor">
+		<entity id="mvz2:Hemperor" />
+		<spawn level="3" minWave="5" />
+		<weight base="2000" />
+	</entry>
 	
     <!--EXPAND C5-->
+	<entry id="PirateZombie" entity="mvz2:PirateZombie">
+		<spawn level="1" />
+		<preview count="3" />
+		<terrain water="true" air="true" />
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+	</entry>
+	<entry id="PirateSkeleton" entity="mvz2:PirateSkeleton">
+		<spawn level="1" />
+		<preview count="3" />
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+	</entry>
+	<entry id="LeatherPirateZombie" entity="mvz2:LeatherPirateZombie">
+		<spawn level="2" />
+		<preview count="2" />
+		<terrain water="true" air="true" />
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="150" />
+	</entry>
+	<entry id="IronPirateSkeleton" entity="mvz2:IronPirateSkeleton">
+		<spawn level="4" />
+		<weight base="3000" />
+	</entry>
+	<entry id="cannonball_zombie" entity="mvz2:cannonball_zombie">
+		<spawn level="1.5" />
+		<weight base="3000" />
+	</entry>
     <entry id="Endermite" entity="mvz2:Endermite">
-        <spawn level="3" />
+        <spawn level="2" />
         <weight base="1500" />
     </entry>
     <entry id="HeavyGutant" entity="mvz2:HeavyGutant">
@@ -417,5 +451,14 @@
         <spawn level="1" />
         <weight base="1500" />
     </entry>
+	<entry id="RandomKingSkeleton" entity="mvz2:RandomKingSkeleton">
+		<spawn level="3" minWave="5" />
+		<weight base="1500" />
+	</entry>
+	<entry id="RandomSkeleton">
+		<entity id="mvz2:RandomSkeleton" />
+		<spawn level="2" />
+		<weight base="5000" />
+	</entry>
 
 </spawns>

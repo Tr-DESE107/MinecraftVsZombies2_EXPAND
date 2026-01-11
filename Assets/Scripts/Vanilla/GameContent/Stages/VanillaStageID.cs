@@ -109,6 +109,7 @@ namespace MVZ2.GameContent.Stages
         public const string theGiantsRevenge = "the_giants_revenge";
         public const string redDragonsRevenge = "red_dragons_revenge";
 
+        //EXPAND Minigames
         public const string a_tooth_for_a_tooth = "a_tooth_for_a_tooth";
         public const string Do_Magic_Tricks = "Do_Magic_Tricks";
         public const string MutantCrisis = "MutantCrisis";
@@ -124,6 +125,7 @@ namespace MVZ2.GameContent.Stages
         public const string RandomChinaDevourer = "RandomChinaDevourer";
         public const string vsRandomZombie = "vsRandomZombie";
         public const string MortalZombat = "MortalZombat";
+        public const string LigneMaginot = "LigneMaginot";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
@@ -162,6 +164,7 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID castle10 = Get(VanillaStageNames.castle10);
         public static readonly NamespaceID mausoleum1 = Get(VanillaStageNames.mausoleum1);
         public static readonly NamespaceID ship1 = Get(VanillaStageNames.ship1);
+        public static readonly NamespaceID ship11 = Get(VanillaStageNames.ship11);
 
         public static readonly NamespaceID iZombieDebug = Get(VanillaStageNames.iZombieDebug);
         private static NamespaceID Get(string name)

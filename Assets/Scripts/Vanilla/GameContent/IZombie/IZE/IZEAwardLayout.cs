@@ -17,9 +17,9 @@ namespace MVZ2.GameContent.IZombie
         protected override void FillEndlessContraptions(IIZombieMap map, RandomGenerator rng)
         {
             RandomFill(map, VanillaContraptionID.mineTNT, 4, rng);
-            RandomFill(map, VanillaContraptionID.smallDispenser, 4, rng);
+            RandomFill(map, VanillaContraptionID.smallDispenser, 7, rng);
             RandomFill(map, VanillaContraptionID.spikeBlock, 4, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 5, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 2, rng);
         }
     }
 }

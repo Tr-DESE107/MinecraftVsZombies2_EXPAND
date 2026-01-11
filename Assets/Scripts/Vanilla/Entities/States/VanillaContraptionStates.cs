@@ -14,8 +14,6 @@ namespace MVZ2.Vanilla.Contraptions
         public const int MAGICHEST_LOMS = PRIVATE_NUMBER + 2;
         public const int MAGICHEST_CLOSE = PRIVATE_NUMBER + 3;
 
-        public const int VORTEX_HOPPER_SPIN = PRIVATE_NUMBER + 0;
-
         public const int PISTENSER_SEED = PRIVATE_NUMBER + 0;
 
         public const int TOTENSER_FIRE_BREATH = PRIVATE_NUMBER + 0;

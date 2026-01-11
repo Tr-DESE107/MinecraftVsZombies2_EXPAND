@@ -22,11 +22,13 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             {
                 mask = EntityCollisionHelper.MASK_ALL,
                 factionTarget = FactionTarget.Any,
+                canDetectInvisible = true,
             };
             evokedDetector = new WoodenFanDetector(true)
             {
                 mask = EntityCollisionHelper.MASK_ALL,
                 factionTarget = FactionTarget.Any,
+                canDetectInvisible = true,
             };
             AddAura(new Aura());
             AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));

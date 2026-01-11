@@ -41,7 +41,51 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.Init(entity);
 
             CheckTimerAndWallsCreation(entity);
+
+            BossFateActions.SetEventRNG(entity, new RandomGenerator(entity.RNG.Next()));
+            SetLastTriggerHealth(entity, entity.Health);
         }
+
+        private void TriggerRandomFate(Entity entity)
+        {
+            BossFateActions.ShowFateChoice(entity, 3);
+
+            // 直接执行命运而不显示选择  
+            //BossFateActions.ExecuteFate(entity, 13); //例:执行 Disable  
+        }
+
+
+        /// <summary>
+        /// 每当血量下降超过设定阈值，触发一次事件
+        /// </summary>
+        private void CheckHealthLossTrigger(Entity entity)
+        {
+            float lastHP = GetLastTriggerHealth(entity);
+            float currHP = entity.Health;
+
+            // 每掉落一定血量（例如 800 点）触发一次事件
+            int triggerCount = (int)((lastHP - currHP) / 800f);
+            triggerCount = Mathf.Min(triggerCount, 2);
+            if (triggerCount > 0)
+            {
+                entity.PlaySound(VanillaSoundID.anvil);
+                TriggerRandomFate(entity);
+                // 更新记录的血量
+                SetLastTriggerHealth(entity, currHP);
+            }
+        }
+
+        // 存储“上次触发时的血量”的字段名
+        private static readonly VanillaEntityPropertyMeta<float> PROP_LAST_TRIGGER_HEALTH = new VanillaEntityPropertyMeta<float>("LastTriggerHealth");
+
+        private static float GetLastTriggerHealth(Entity entity) =>
+            entity.GetBehaviourField<float>(ID, PROP_LAST_TRIGGER_HEALTH);
+
+        private static void SetLastTriggerHealth(Entity entity, float hp) =>
+            entity.SetBehaviourField(ID, PROP_LAST_TRIGGER_HEALTH, hp);
+
+        private static readonly NamespaceID ID = VanillaBossID.nightmareaper;
+
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
@@ -53,6 +97,8 @@ namespace MVZ2.GameContent.Bosses
         {
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
+
+            CheckHealthLossTrigger(entity);
         }
         public override void PostDeath(Entity entity, DeathInfo deathInfo)
         {

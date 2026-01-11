@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Enemies
         public UFOBehaviourRed() : base(UndeadFlyingObject.VARIANT_RED)
         {
         }
-        public override bool CanSpawn(LevelEngine level)
+        public override bool CanSpawn(LevelEngine level, int faction)
         {
             return true;
         }

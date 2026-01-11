@@ -24,23 +24,28 @@ namespace MVZ2.GameContent.Placements
             }
             return null;
         }
-        public override Entity? PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
+        public override PlaceOutput PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
             var entity = grid.GetEntities().FirstOrDefault(e => e.CanUpgradeToContraption(entityDef));
             if (entity != null && entity.Exists())
             {
+                bool isCommandBlock = param.IsCommandBlock();
                 var ent = entity.UpgradeToContraption(entityDef.GetID());
                 if (ent != null)
                 {
-                    if (param.IsCommandBlock())
+                    if (isCommandBlock)
                     {
                         ent.AddBuff<ImitatedBuff>();
                     }
                     ent.SetVariant(param.GetVariant());
                 }
-                return ent;
+                return new PlaceOutput(ent, entityDef)
+                {
+                    isCommandBlock = isCommandBlock,
+                    increaseTakenConveyorSeed = true,
+                };
             }
-            return null;
+            return PlaceOutput.InvalidOutput;
         }
     }
 }

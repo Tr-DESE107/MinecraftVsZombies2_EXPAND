@@ -41,7 +41,7 @@ namespace MVZ2.Map
             ui.SetButtonActive(MapUI.ButtonType.Almanac, Main.SaveManager.IsAlmanacUnlocked());
             ui.SetButtonActive(MapUI.ButtonType.Store, Main.SaveManager.IsStoreUnlocked());
             ui.SetButtonActive(MapUI.ButtonType.Map, Main.SaveManager.IsGensokyoUnlocked());
-            ui.SetHintText(Main.LanguageManager._(Main.IsMobile() ? HINT_TEXT_MOBILE : HINT_TEXT));
+            ui.SetHintText(Main.LanguageManager._(Main.InputManager.GetActivePointerType() == PointerTypes.TOUCH ? HINT_TEXT_MOBILE : HINT_TEXT));
             ui.SetDragRootVisible(false);
             ui.SetOptionsDialogActive(false);
             ui.SetRaycastBlockerActive(false);

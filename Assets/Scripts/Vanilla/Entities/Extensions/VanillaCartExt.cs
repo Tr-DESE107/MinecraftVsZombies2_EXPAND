@@ -13,7 +13,7 @@ namespace MVZ2.Vanilla.Entities
             if (cart == null)
                 return false;
             var bounds = cart.GetBounds();
-            return target.Type != EntityTypes.BOSS &&
+            return target.Type != EntityTypes.BOSS && target.IsVulnerableEntity() &&
                 cart.IsHostile(target) &&
                 target.ExistsAndAlive() &&
                 cart.GetLane() == target.GetLane() &&

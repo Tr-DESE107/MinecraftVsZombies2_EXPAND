@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-11-27 11:58+0800\n"
-"PO-Revision-Date: 2025-11-27 11:59+0800\n"
+"POT-Creation-Date: 2026-01-03 05:53+0800\n"
+"PO-Revision-Date: 2026-01-03 17:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -578,8 +578,8 @@ msgstr "Cloud"
 #. Description for almanac tag enum value mvz2:cloud of enum shell
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
-msgid "受到0.5x冲击伤害"
-msgstr "Takes 0.5x impact damage"
+msgid "受到0.5x冲击或火焰伤害"
+msgstr "Takes 0.5x impact or fire damage"
 
 #. Name for almanac tag enum value mvz2:lightning of enum shell
 #: Almanac meta file
@@ -790,10 +790,10 @@ msgstr "Moonlight Sensors provide energy at night, and increase the yield after 
 msgctxt "contraptions.description"
 msgid ""
 "提供能量：<color=red>1点/1.6秒，而后1点/1秒</color>\n"
-"技能：<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>"
+"技能：<color=red>立即升级，<tag id=\"mvz2:light_source\" />发出蓝光，并使生产量变为2倍</color>"
 msgstr ""
 "Energy production: <color=red>1/1.6 secs, then 1/1 sec</color>\n"
-"Evocation: <color=red>Instantly upgrade, glow with blue light and increase its yield by 2 times</color>"
+"Evocation: <color=red>Instantly upgrade, <tag id=\"mvz2:light_source\" />glow with blue light and increase its yield by 2 times</color>"
 
 #. Flavor for contraptions mvz2:moonlight_sensor
 #: Almanac meta file
@@ -912,7 +912,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
+msgid "银制发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr "Silvensers shoot piercing knives which can slice <tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>the flesh."
 
 #. Properties for contraptions mvz2:silvenser
@@ -1145,10 +1145,12 @@ msgstr "Dream Silk makes a contraption fall asleep. After it wakes up, a Starsha
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>一次性使用</color>\n"
-"技能：<color=red>无</color>"
+"技能：<color=red>无</color>\n"
+"睡眠时间：<color=red>50秒</color>"
 msgstr ""
 "Special: <color=red>Single use</color>\n"
-"Evocation: <color=red>None</color>"
+"Evocation: <color=red>None</color>\n"
+"Sleep duration: <color=red>50 seconds</color>"
 
 #. Flavor for contraptions mvz2:dream_silk
 #: Almanac meta file
@@ -1328,12 +1330,14 @@ msgstr "Tesla Coil shocks enemies in a large area."
 msgctxt "contraptions.description"
 msgid ""
 "攻击速度：<color=red>3秒</color>\n"
-"伤害：<color=red>80</color>\n"
+"伤害：<color=red>60</color>\n"
+"半径：<color=red>2.5格</color>\n"
 "特殊：<color=red>可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>\n"
 "技能：<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>"
 msgstr ""
 "Fire rate: <color=red>3 seconds</color>\n"
-"Damage: <color=red>80</color>\n"
+"Damage: <color=red>60</color>\n"
+"Radius: <color=red>2.5 tiles</color>\n"
 "Special: <color=red>Can attack enemies on air; Electric current diffuses in water</color>\n"
 "Evocation: <color=red>Creates a thunderstorms, strikes random positions in a radius</color>"
 
@@ -1377,15 +1381,17 @@ msgstr "Note Block shoots notes that bounces between itself and enemies, dealing
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>5</color>\n"
+"伤害：<color=red>3</color>\n"
 "发射速度：<color=red>1.5秒</color>\n"
 "音符上限：<color=red>10</color>\n"
-"技能：<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>"
+"射程：<color=red>4格</color>\n"
+"技能：<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度，+10格射程</color>"
 msgstr ""
-"Damage: <color=red>5</color>\n"
+"Damage: <color=red>3</color>\n"
 "Fire rate: <color=red>1.5 seconds</color>\n"
 "Notes limit: <color=red>10</color>\n"
-"Evocation: <color=red>In 30 seconds, deal x500% damage, x500% fire rate and x200% note flying speed</color>"
+"Range: <color=red>4 tiles</color>\n"
+"Evocation: <color=red>In 30 seconds, deal x500% damage, x500% fire rate, x200% note flying speed and +10 tiles range</color>"
 
 #. Flavor for contraptions mvz2:note_block
 #: Almanac meta file
@@ -2653,7 +2659,7 @@ msgid ""
 msgstr ""
 "Toughness: <color=red>350</color>\n"
 "Speed: <color=red>1</color>\n"
-"Special: <color=red>Restore equal toughness during attack</color>"
+"Special: <color=red>Restore toughness equal to damage dealt</color>"
 
 #. Flavor for enemies mvz2:talisman_zombie
 #: Almanac meta file
@@ -2800,9 +2806,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "曾经开发过一款手机游戏，不过可惜的是，那款游戏很快就停服了。"
-msgstr ""
-"Once developed a 2D platformer back when he put his cannon on his head. He was laid off, and the higher-ups told him to take the "
-"bullet. He's now back for revenge after joining the rival company."
+msgstr "Had once developed a mobile game, but unfortunately, that game was shut down rather quickly."
 
 #. Header for enemies mvz2:cannonball_zombie
 #: Almanac meta file
@@ -2816,10 +2820,10 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
-"速度：<color=red>2</color>"
+"速度：<color=red>4</color>"
 msgstr ""
-"Toughness: <color=red>200</color>\n"
-"Speed: <color=red>2</color>"
+"Toughness: <color=red>100</color>\n"
+"Speed: <color=red>4</color>"
 
 #. Flavor for enemies mvz2:cannonball_zombie
 #: Almanac meta file
@@ -2843,10 +2847,12 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>1100</color>\n"
 "伤害：<color=red>100（冲击）</color>\n"
+"速度：<color=red>1.5</color>\n"
 "特殊：<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁。</color>"
 msgstr ""
 "Toughness: <color=red>1100</color>\n"
 "Damage: <color=red>100 (Impact)</color>\n"
+"Speed: <color=red>1.5</color>\n"
 "Special: <color=red>Knocking a contraption onto the targeted tile will destroy existing contraptions on that tile</color>"
 
 #. Flavor for enemies mvz2:pop_captain
@@ -3528,11 +3534,11 @@ msgstr "Wither represents death and withering. It will erase all signs of life."
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"生命：<color=red>12000，每秒恢复30</color>\n"
+"生命：<color=red>12000，每秒恢复15</color>\n"
 "阶段1：<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>\n"
 "阶段2：<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤“床战士”</color>"
 msgstr ""
-"Toughness: <color=red>12000, restores 30 per second</color>\n"
+"Toughness: <color=red>12000, restores 15 per second</color>\n"
 "Phase 1: <color=red>Fly, fire wither skulls, dash, eat your contraptions</color>\n"
 "Phase 2: <color=red>Land, Immune to bullets, fire wither skulls, dash, eat your contraptions, summon \"bedserkers\"</color>"
 
@@ -3668,18 +3674,18 @@ msgid ""
 "龙巢的火熄灭了。同伴们将龙的尸体分解，把它的牙、眼、爪、骨、鳞、和心脏作为战利品收集了起来。\n"
 "骑士默默看着他们兴奋的样子，最后却什么也没要。"
 msgstr ""
-"The Knight and his group ventured into a giant cave, advancing deeper step by step with torches in their hands.\n"
-"The cave was filled with countless skeletal remains of sheeps, cows, and other monsters. They were scattered everywhere, yet there "
-"doesn't seem to be any human skulls.\n"
-"The Knight listened to the sounds from the depths and eventually lead his team to their target—a red dragon.\n"
-"The Red Dragon was very surprised to see them. It opened its mouth and spoke in the human's language:\n"
+"The Knight and his group ventured into a giant cave, slowly advancing deeper with torches in their hands.\n"
+"The cave was filled with countless skeletal remains of sheep, cows, and other monsters. They were scattered throughout the ground, yet "
+"there did not seem to be any human skulls.\n"
+"The Knight listened to the movements of the depths and eventually led his team to their target—a red dragon.\n"
+"The Red Dragon was very surprised to see them. It opened its mouth and spoke in the tongue of humans:\n"
 "\"You humans, what do you think you're doing here? This is no place for your kind!\"\n"
 "A companion rushed to answer:\n"
 "\"The King's dream foretells the kingdom's imminent destruction by monsters. Thus, in the name of the King, we have come for your head!"
 "\"\n"
-"The Red Dragon's eyes widened, then suddenly sharpened. Those eyes were filled with sorrow and... rage.\n"
-"\"I witnessed my mother's death by the hands of you humans. She killed many of your kind, which led to them rising up against her. "
-"From that point on, I have developed a fear of you humans.\"\n"
+"The Red Dragon's eyes widened, then suddenly sharpened. Those eyes were filled with sorrow—and rage.\n"
+"\"I witnessed my mother's death at the hands of you humans. She killed many of your kind, which led to them rising against her. From "
+"that point on, I have developed a fear of you humans.\"\n"
 "\"For a hundred years, I have avoided provoking you so that no harm would come to me. Yet today, you come for my life because of some "
 "stupid dream?\"\n"
 "\"Is this what I deserve?! Just because you humans deem yourselves to be superior beings?!\"\n"
@@ -3687,10 +3693,10 @@ msgstr ""
 "In that fierce battle where fire and steel clashed, the Red Dragon slowly fell into a disadvantage. In the end, with a final stab to "
 "the throat by the Knight, the Red Dragon collapsed to the ground.\n"
 "\"Greed... will become you humans' grave...\"\n"
-"\"Curse... you all...\"\n"
+"\"This is my... curse... to you all...\"\n"
 "With that, the Red Dragon's eyes fell shut.\n"
 "The fire in the dragon's lair died out. The Knight's companions dismembered the Dragon's corpse, collecting its teeth, eyes, claws, "
-"bones, scales, and heart as war trophies.\n"
+"bones, scales, and heart as their trophies.\n"
 "The Knight watched their exhilaration in silence. In the end, he claimed nothing for himself."
 
 #. Name for almanac group mvz2:misc_entities
@@ -3841,6 +3847,30 @@ msgstr "Nyan Cats are soooo cute that they make any enemy touching it die."
 msgctxt "misc.description"
 msgid "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
 msgstr "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
+
+#. Name for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "船僵尸"
+msgstr "Boat Zombie"
+
+#. Header for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "船僵尸能够浮在水上——甚至是云上作战。"
+msgstr "Boat Zombies can float on water—and even atop clouds."
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "直接把自己身子穿在船上真的不会漏水么？当然不会咕噜咕噜咕噜"
+msgstr "Wouldn't there be leaks if they put their bodies directly onto the boats? Of course not—glug glug glug"
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "它是怎么浮在空中的？我的朋友，你都已经在天上乘船了，船僵尸能浮在空中又怎么样呢？"
+msgstr "How do they float in the air? My friend, you're already on a ship in the sky, so what if they float in the air too?"
 
 #. Name for misc mvz2:nyaightmare
 #: Almanac meta file
@@ -4015,7 +4045,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "危险动作，小鬼僵尸请勿轻易尝试。"
-msgstr "Dangerous action. Imp Zombies should not attempt this."
+msgstr "Dangerous action. Imps should not attempt this."
 
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
@@ -4162,7 +4192,7 @@ msgid ""
 "她这样想着。"
 msgstr ""
 "After Steve fell from the Palanquin Ship, it seemed that she was the one who saved him.\n"
-"However, this wasn't an act out of kindness, but rather because she had set her sights on the Starshards that Steve carries.\n"
+"However, this wasn't an act out of kindness, but rather because she had her eyes on the Starshards that Steve carries.\n"
 "\"As long as I have these Starshards, I might be able to restore Shinmyoumaru's status and overturn the entire Gensokyo.\" This was "
 "what she thought."
 
@@ -4365,14 +4395,15 @@ msgid ""
 "红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白"
 "莲的旅途。"
 msgstr ""
-"She was originally an ordinary tiger youkai, but was then taken in by Byakuren Hijiri and became an avatar of Bishamonten.\n"
+"She was originally an ordinary tiger youkai, but was then taken in by Byakuren Hijiri and became a disciple and the avatar of "
+"Bishamonten.\n"
 "Her relationship with Byakuren is rather complicated. Byakuren worships Bishamonten, and Shou is her disciple, as well as being the "
 "avatar of Bishamonten. Thus, Byakuren is essentially worshipping her own disciple.\n"
 "Shou performs excellently in her duties. She may look very calm and dignified on the surface, but she is actually a very emotional "
 "person.\n"
 "\n"
-"With the appearance of the Red Dragon and the news of Byakuren being lost, Shou discussed with the monks of Myouren Temple and found "
-"the End Ship that Steve is dealing with in the sky. After that, she, Captain Murasa and Steve set out on a journey to find Byakuren."
+"With the appearance of the Red Dragon and the disappearance of Byakuren, Shou discussed with the monks of Myouren Temple and found "
+"Steve to deal with the End Ship in the sky. After that, she, Captain Murasa and Steve set out on a journey to find Byakuren."
 
 #. Name for misc mvz2:nue
 #: Almanac meta file
@@ -4400,7 +4431,7 @@ msgstr ""
 "Nue is a mysterious great youkai who joined the Myouren Temple later on, so she doesn't fit in well with the others there.\n"
 "She enjoys causing mischief and getting in others' way, often using her abilities to interfere with what people are doing.\n"
 "Objects affected by her ability lose their original identifiable characteristics, and are perceived by others as whatever they "
-"consider most plausible—for example, a strange object flying in the sky would be seen as a UFO.\n"
+"consider most plausible—for example, a strange object flying in the sky would be seen as a flying saucer.\n"
 "\n"
 "However, after the incident began, her personality changed drastically. She became deeply pessimistic and dazed, believing that "
 "nothing mattered anymore.\n"
@@ -4445,7 +4476,7 @@ msgstr "Byakuren Hijiri"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "命莲寺的住持，法力无边的高僧。"
-msgstr "The abbot of Myouren Temple, as well as a high monk with boundless magical power."
+msgstr "The head priest of Myouren Temple, as well as a high monk with limitless magical power."
 
 #. Flavor for misc mvz2:byakuren
 #: Almanac meta file
@@ -4459,13 +4490,13 @@ msgid ""
 msgstr ""
 "Byakuren's younger brother, Myouren, was also a monk with immense magical power, but he eventually reached the end of his life and "
 "passed away.\n"
-"Byakuren therefore began to fear death, and as a monk who had studied Buddhism, she ultimately relied on the power of youkai to "
-"achieve immortality, becoming a \"youkai monk\".\n"
-"Thus, Byakuren became a contradictory existence. However, even after humans discovered her secret ties with youkai, and even after "
-"being sealed away, she still continues to revere Buddhism and save all living beings.\n"
+"Byakuren therefore began to fear death, and as a monk who studies Buddhism, she ultimately relied on the power of youkai to achieve "
+"immortality, becoming a \"youkai monk\".\n"
+"Thus, Byakuren became a character with irreconcilable opposites. However, after humans have discovered her secret ties with youkai, "
+"and even after being sealed away, she continues to revere Buddhism, to liberate all beings.\n"
 "\n"
 "Three years ago, the Giant and the Red Dragon appeared at the same time, and she was summoned to eliminate the Red Dragon. However, "
-"this led her to a karmic entanglement, keeping her bound for the past three years."
+"this kept her bound in the chains of causality for the following three years."
 
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
@@ -4570,6 +4601,38 @@ msgstr ""
 "corruption, and deceived everyone in the Dream World until it cursed Doremy.\n"
 "What you now see is the true appearance of the Dream World."
 
+#. Name for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "香霖堂"
+msgstr "Kourindou"
+
+#. Header for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "香霖堂是幻想乡中的一处商店，专门售卖一些外界来的稀奇物品。"
+msgstr "Kourindou is a shop in Gensokyo that specializes in selling peculiar items from the Outside World."
+
+#. Flavor for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"香霖堂的原主人名为森近 霖之助，现主人为一位无名的读书妖怪，也称朱鹭子。\n"
+"这里常卖一些幻想乡里少见的，被遗忘的外界物品，比如手机、平板电脑、游戏机什么的。\n"
+"霖之助本人是知道这些东西能产生什么作用的，但是他个人并不知道如何正确使用它们，这些东西多半也只能用来当切菜板什么的来使用。\n"
+"如今这家店被朱鹭子接替，这些东西的用途估计已经没人知道了。\n"
+"\n"
+"史蒂夫和村民来到了这里，并把这里改造成了他们的作战基地。"
+msgstr ""
+"The original owner of Kourindou was Rinnosuke Morichika. The current owner is an unnamed book-reading youkai, also known as Tokiko.\n"
+"The place often sells forgotten items from the Outside World that are rarely seen in Gensokyo, such as mobile phones, tablet "
+"computers, game consoles, etc.\n"
+"Rinnosuke is capable of knowing what the purpose of these things are, but he doesn't know how to use them correctly by himself. In "
+"most cases, these things can only be used as cutting boards or something similar.\n"
+"Now that the shop has been taken over by Tokiko, it's likely that no one knows what these things are really for anymore.\n"
+"\n"
+"Steve and Villager arrived here and converted the place into their base of operations."
+
 #. Name for misc mvz2:shining_needle_castle
 #: Almanac meta file
 msgctxt "misc.name"
@@ -4663,7 +4726,7 @@ msgstr ""
 "What's strange is that there are no Endermen on board, just regular, pirate-like zombies.\n"
 "What's even stranger is that the ship holds an End Crystal inside it that rapidly repairs the ship's hull.\n"
 "This means that anyone who dares to take down this ship must first destroy the End Crystal inside it. However, when at a disadvantage, "
-"it will choose to flee at lightning speed.\n"
+"the ship will choose to flee at lightning speed.\n"
 "Ultimately, everything about this ship, is a mystery."
 
 #. Name for misc mvz2:palanquin_ship
@@ -4856,7 +4919,7 @@ msgstr ""
 "I have no other choices but to continue fighting it.\n"
 "I feel cracks forming in my sanity.\n"
 "I saw things I shouldn't have seen, then the hallucinations vanished immediately.\n"
-"Those UFOs are still flying in the sky.\n"
+"Those saucers are still flying in the sky.\n"
 "How much longer can I hold on...?"
 
 #. Name for almanac group mvz2:important
@@ -5109,21 +5172,21 @@ msgid ""
 "这间屋子发生过什么事情吗？"
 msgstr ""
 "When Steve fell from the Palanquin Ship, he was rescued by Seija Kijin and brought to this house.\n"
-"After he came out, he was questioned by Sekibanki, who asked him why he had come out from this house.\n"
+"After he came out, he was questioned by Sekibanki, who asked him why he had come out of this house.\n"
 "However, Steve had no idea what actually happened.\n"
-"Did something happened in this house?"
+"Did something happen in this house?"
 
 #. Name for misc mvz2:visitor_which_finding_child
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "寻找孩子的访客"
-msgstr "Visitor in Search of Their Child"
+msgstr "A Visitor Looking for the Visitor's Child"
 
 #. Header for misc mvz2:visitor_which_finding_child
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。"
-msgstr "Byakuren revealed that four years ago, a visitor came to look for their child."
+msgstr "Byakuren revealed that four years ago, a visitor had come looking for the visitor's child."
 
 #. Flavor for misc mvz2:visitor_which_finding_child
 #: Almanac meta file
@@ -5133,10 +5196,10 @@ msgid ""
 "那位访客自称灯兰 樱，为了寻找自己的孩子而来。\n"
 "在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。"
 msgstr ""
-"After Steve resolved the Red Dragon problem, Byakuren told him that four years ago, a visitor came to the Myouren Temple.\n"
-"The visitor called themselves Sakura Touran and came to find their child.\n"
-"After failing to search for their child, the visitor never appeared again. However, Byakuren remained optimistic about the presence of "
-"this visitor."
+"After the resolution with the Red Dragon, Byakuren told Steve that four years ago, a visitor had come to Myouren Temple.\n"
+"The visitor claimed to be Sakura Touran and had come in search of the visitor's child.\n"
+"After failing to find the child, the visitor never appeared again. However, Byakuren remained optimistic about the presence of this "
+"visitor."
 
 #. Name for entity counter mvz2:low_enemy
 #: Entity meta file
@@ -5273,7 +5336,7 @@ msgstr "Shoot strong soulfires, but burn the contraption in front as its fuel"
 #. Name for entity mvz2:silvenser
 #: Entity meta file
 msgctxt "entity.name"
-msgid "银质发射器"
+msgid "银制发射器"
 msgstr "Silvenser"
 
 #. Tooltip for entity mvz2:silvenser
@@ -6933,6 +6996,18 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>100</color>\n"
+#~ "速度：<color=red>2</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>200</color>\n"
+#~ "Speed: <color=red>2</color>"
+
+#~ msgctxt "entity.name"
+#~ msgid "银质发射器"
+#~ msgstr "Silvenser"
 
 #~ msgctxt "misc.description"
 #~ msgid ""

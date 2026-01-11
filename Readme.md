@@ -224,7 +224,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **Misc**
 
 - Paralysis time for the sword in Whack-A-Ghost level is 0.75 seconds.
-- Every furnace drops 10 redstones as total in I Zombie mode.
+- Every furnace drops 9 redstones as total in I Zombie mode.
 
 
 ## Hard
@@ -265,4 +265,4 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **Misc**
 
 - Paralysis time for the sword in Whack-A-Ghost level is 3 seconds.
-- Every furnace drops 6 redstones as total in I Zombie mode.
+- Every furnace drops 7 redstones as total in I Zombie mode.

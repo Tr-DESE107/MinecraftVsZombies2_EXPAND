@@ -15,8 +15,8 @@ namespace MVZ2.Models
         }
         private void UpdateRage(Camera camera)
         {
-            Vector2 leftDir = Main.IsMobile() ? mobileRageLeftArmDir.normalized : rageLeftArmDir.normalized;
-            Vector2 rightDir = Main.IsMobile() ? mobileRageRightArmDir.normalized : rageRightArmDir.normalized;
+            Vector2 leftDir = Main.UseMobileLayout() ? mobileRageLeftArmDir.normalized : rageLeftArmDir.normalized;
+            Vector2 rightDir = Main.UseMobileLayout() ? mobileRageRightArmDir.normalized : rageRightArmDir.normalized;
 
             var rageState = Model.GetProperty<int>("RageState");
             var rageProgress = Model.GetProperty<float>("RageProgress");

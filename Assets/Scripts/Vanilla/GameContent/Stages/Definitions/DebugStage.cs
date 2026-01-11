@@ -49,11 +49,11 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.lightningOrb,
                 //VanillaContraptionID.fireworkDispenser,
-                VanillaEnemyID.skeletonHorse,
+                VanillaEnemyID.NightmareDisciple,
                 VanillaEnemyID.WitherSkeletonHorse,
                 VanillaEnemyID.AssaultDullahan,
-                VanillaEnemyID.BerserkerHead,
-                VanillaEnemyID.WintherMage,
+                VanillaEnemyID.AngryGhast,
+                VanillaEnemyID.AngryReverser,
                 VanillaEnemyID.KingofReverser,
             });
             level.SetArtifactSlotCount(3);

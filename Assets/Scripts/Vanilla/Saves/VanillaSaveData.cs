@@ -44,7 +44,7 @@ namespace MVZ2.Vanilla.Saves
         }
         public void SetMoney(int value)
         {
-            money = Math.Clamp(value, 0, 999990);
+            money = Math.Clamp(value, 0, 1071070);
         }
         public int GetBlueprintSlots()
         {

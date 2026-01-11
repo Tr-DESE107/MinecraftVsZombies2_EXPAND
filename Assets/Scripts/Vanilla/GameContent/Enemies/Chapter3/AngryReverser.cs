@@ -106,7 +106,7 @@ namespace MVZ2.GameContent.Enemies
         public static FrameTimer? GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
 
         #region ³£Á¿
-        private const int CAST_COOLDOWN = 300;
+        private const int CAST_COOLDOWN = 150;
         private const int CONTROL_DETECT_TIME = 30;
 
         public const int STATE_WALK = VanillaEnemyStates.WALK;

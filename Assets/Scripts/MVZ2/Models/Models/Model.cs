@@ -173,6 +173,12 @@ namespace MVZ2.Models
             serializable.destroyTimeout = destroyTimeout;
             serializable.graphicGroup = GraphicGroup.ToSerializable();
             serializable.insertions = insertions.ToArray();
+            foreach (var comp in modelComponents)
+            {
+                if (!comp.Exists())
+                    continue;
+                comp.SaveToSerializable(serializable);
+            }
             return serializable;
         }
         public void LoadFromSerializable(SerializableModelData serializable)
@@ -215,6 +221,12 @@ namespace MVZ2.Models
                         continue;
                     insertions.Add(key);
                 }
+            }
+            foreach (var comp in modelComponents)
+            {
+                if (!comp.Exists())
+                    continue;
+                comp.LoadFromSerializable(serializable);
             }
         }
         protected abstract SerializableModelData CreateSerializable();

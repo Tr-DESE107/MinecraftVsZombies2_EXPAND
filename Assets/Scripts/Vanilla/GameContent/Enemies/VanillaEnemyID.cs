@@ -81,7 +81,10 @@ namespace MVZ2.GameContent.Enemies
         public const string HostHead = "HostHead";
         public const string HostMutant = "HostMutant";
         public const string HostIMP = "HostIMP";
+        public const string NightmareDisciple = "NightmareDisciple";
+
         public const string EnragedHostZombie = "EnragedHostZombie";
+        public const string AngryGhast = "AngryGhast";
 
         public const string SpiderQueen = "SpiderQueen"; //todo
 
@@ -110,8 +113,17 @@ namespace MVZ2.GameContent.Enemies
         public const string IronMonkZombie = "IronMonkZombie";
         public const string FlagMonkZombie = "FlagMonkZombie";//todo
         public const string SixQiZombie = "SixQiZombie";
+        public const string TorchKongfuZombie = "TorchKongfuZombie";
+        public const string DrunkardMonkZombie = "DrunkardMonkZombie";
+        public const string Hemperor = "Hemperor";
 
         //EXPAND_C5
+        public const string PirateZombie = "PirateZombie";
+        public const string LeatherPirateZombie = "LeatherPirateZombie";
+        public const string PirateSkeleton = "PirateSkeleton";
+        public const string IronPirateSkeleton = "IronPirateSkeleton";
+        public const string FlagPirateSkeleton = "FlagPirateSkeleton";
+
         public const string HeavyGutant = "HeavyGutant";
         public const string Endermite = "Endermite";//todo
 
@@ -129,10 +141,15 @@ namespace MVZ2.GameContent.Enemies
         public const string MutantMannequin = "MutantMannequin";
         public const string MannequinTNT = "MannequinTNT";
 
+        //EXPAND_X
+        public const string XCarrierMutant = "XCarrierMutant";
+
         //EXPAND RANDOM
         public const string RandomZombie = "RandomZombie";
         public const string RandomMutant = "RandomMutant";
         public const string RandomImp = "RandomImp";
+        public const string RandomSkeleton = "RandomSkeleton";
+        public const string RandomKingSkeleton = "RandomKingSkeleton";
 
 
     }
@@ -210,7 +227,10 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID SpiderQueen = Get(VanillaEnemyNames.SpiderQueen);
         public static readonly NamespaceID HostMutant = Get(VanillaEnemyNames.HostMutant);
         public static readonly NamespaceID HostIMP = Get(VanillaEnemyNames.HostIMP);
+        public static readonly NamespaceID NightmareDisciple = Get(VanillaEnemyNames.NightmareDisciple);
+
         public static readonly NamespaceID EnragedHostZombie = Get(VanillaEnemyNames.EnragedHostZombie);
+        public static readonly NamespaceID AngryGhast = Get(VanillaEnemyNames.AngryGhast);
 
         //EXPAND_C3
         public static readonly NamespaceID WitherSkeleton = Get(VanillaEnemyNames.WitherSkeleton);
@@ -237,10 +257,19 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID IronMonkZombie = Get(VanillaEnemyNames.IronMonkZombie);
         public static readonly NamespaceID FlagMonkZombie = Get(VanillaEnemyNames.FlagMonkZombie);
         public static readonly NamespaceID SixQiZombie = Get(VanillaEnemyNames.SixQiZombie);
+        public static readonly NamespaceID TorchKongfuZombie = Get(VanillaEnemyNames.TorchKongfuZombie);
+        public static readonly NamespaceID DrunkardMonkZombie = Get(VanillaEnemyNames.DrunkardMonkZombie);
+        public static readonly NamespaceID Hemperor = Get(VanillaEnemyNames.Hemperor);
 
         //EXPAND_C5
-        public static readonly NamespaceID Endermite = Get(VanillaEnemyNames.Endermite);
+        public static readonly NamespaceID PirateZombie = Get(VanillaEnemyNames.PirateZombie);
+        public static readonly NamespaceID LeatherPirateZombie = Get(VanillaEnemyNames.LeatherPirateZombie);
+        public static readonly NamespaceID PirateSkeleton = Get(VanillaEnemyNames.PirateSkeleton);
+        public static readonly NamespaceID IronPirateSkeleton = Get(VanillaEnemyNames.IronPirateSkeleton);
+        public static readonly NamespaceID FlagPirateSkeleton = Get(VanillaEnemyNames.FlagPirateSkeleton);
+
         public static readonly NamespaceID HeavyGutant = Get(VanillaEnemyNames.HeavyGutant);
+        public static readonly NamespaceID Endermite = Get(VanillaEnemyNames.Endermite);
         
         //EXPAND_Villager
         public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);
@@ -256,10 +285,15 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID MutantMannequin = Get(VanillaEnemyNames.MutantMannequin);
         public static readonly NamespaceID MannequinTNT = Get(VanillaEnemyNames.MannequinTNT);
 
+        //EXPAND_X
+        public static readonly NamespaceID XCarrierMutant = Get(VanillaEnemyNames.XCarrierMutant);
+
         //EXPAND RANDOM
         public static readonly NamespaceID RandomZombie = Get(VanillaEnemyNames.RandomZombie);
         public static readonly NamespaceID RandomMutant = Get(VanillaEnemyNames.RandomMutant);
         public static readonly NamespaceID RandomImp = Get(VanillaEnemyNames.RandomImp);
+        public static readonly NamespaceID RandomSkeleton = Get(VanillaEnemyNames.RandomSkeleton);
+        public static readonly NamespaceID RandomKingSkeleton = Get(VanillaEnemyNames.RandomKingSkeleton);
 
         private static NamespaceID Get(string name)
         {

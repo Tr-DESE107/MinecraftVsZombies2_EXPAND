@@ -188,6 +188,18 @@ namespace MVZ2.Vanilla.Entities
         {
             return enemy.GetProperty<bool>(IMMUNE_VORTEX);
         }
+
+        #region 免疫减速
+        public static readonly VanillaEntityPropertyMeta<bool> IMMUNE_SLOWING = new VanillaEntityPropertyMeta<bool>("immune_slowing");
+        public static bool ImmuneSlowing(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(IMMUNE_SLOWING);
+        }
+        public static void SetImmuneSlowing(this Entity enemy, bool value)
+        {
+            enemy.SetProperty<bool>(IMMUNE_SLOWING, value);
+        }
+        #endregion
     }
 }
 

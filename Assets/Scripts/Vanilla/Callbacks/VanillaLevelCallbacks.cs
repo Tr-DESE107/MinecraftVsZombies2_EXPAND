@@ -11,6 +11,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Placements;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.Callbacks
@@ -125,14 +126,14 @@ namespace MVZ2.Vanilla.Callbacks
         }
         public struct PostUseEntityBlueprintParams
         {
-            public Entity? entity;
+            public PlaceOutput placeOutput;
             public SeedDefinition definition;
             public SeedPack? blueprint;
             public IHeldItemData heldData;
 
-            public PostUseEntityBlueprintParams(Entity? entity, SeedDefinition definition, SeedPack? blueprint, IHeldItemData heldData)
+            public PostUseEntityBlueprintParams(PlaceOutput output, SeedDefinition definition, SeedPack? blueprint, IHeldItemData heldData)
             {
-                this.entity = entity;
+                this.placeOutput = output;
                 this.definition = definition;
                 this.blueprint = blueprint;
                 this.heldData = heldData;

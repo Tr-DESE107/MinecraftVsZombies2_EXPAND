@@ -10,8 +10,8 @@ namespace PVZEngine.SeedPacks
         private void InitBuffs()
         {
             buffs.OnPropertyChanged += UpdateBuffedProperty;
-            buffs.OnBuffAdded += OnBuffAddedCallback;
-            buffs.OnBuffRemoved += OnBuffRemovedCallback;
+            buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
+            buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
         }
         private void UpdateBuffs()
         {
@@ -19,19 +19,13 @@ namespace PVZEngine.SeedPacks
         }
 
         #region 事件回调
-        private void OnBuffAddedCallback(Buff buff)
+        private void OnModelInsertionAddedCallback(ModelInsertion insertion)
         {
-            foreach (var insertion in buff.GetModelInsertions())
-            {
-                OnModelInsertionAdded?.Invoke(insertion);
-            }
+            OnModelInsertionAdded?.Invoke(insertion);
         }
-        private void OnBuffRemovedCallback(Buff buff)
+        private void OnModelInsertionRemovedCallback(ModelInsertion insertion)
         {
-            foreach (var insertion in buff.GetModelInsertions())
-            {
-                OnModelInsertionRemoved?.Invoke(insertion);
-            }
+            OnModelInsertionRemoved?.Invoke(insertion);
         }
         #endregion
 

@@ -82,6 +82,10 @@ namespace PVZEngine.Entities
         {
             return hitbox.IsInSphere(center, radius);
         }
+        public bool CheckCapsule(Vector3 pos1, Vector3 pos2, float radius)
+        {
+            return hitbox.IsInCapsule(pos1, pos2, radius);
+        }
         #endregion
 
         #region 碰撞箱

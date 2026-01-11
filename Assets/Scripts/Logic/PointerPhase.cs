@@ -31,6 +31,10 @@ namespace MVZ2Logic
             return button == other.button &&
                    type == other.type;
         }
+        public int GetPointerIndex()
+        {
+            return type == PointerTypes.MOUSE ? -button - 1 : button;
+        }
 
         public override int GetHashCode()
         {

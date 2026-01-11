@@ -70,6 +70,9 @@ namespace MVZ2.GameContent.Buffs
             public const string greedyVacuum = "greedy_vacuum";
             public const string superRecharge = "super_recharge";
             public const string ancientEgypt = "ancient_egypt";
+
+            //EXPAND
+            public const string slendermanBlackSun = "slendermanBlackSun";
         }
         public static class Grid
         {
@@ -87,6 +90,7 @@ namespace MVZ2.GameContent.Buffs
             public const string changeGrid = "change_grid";
             public const string damageColor = "damage_color";
             public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
+            public const string destroyConflictGridEntitiesOnLand = "destroy_conflict_grid_entities_on_land";
 
             // Chapter 1
             public const string lightFadeout = "light_fadeout";
@@ -112,10 +116,12 @@ namespace MVZ2.GameContent.Buffs
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
 
+            //EXPAND
             public const string Regeneration = "Regeneration";
             public const string Corropoison = "Corropoison";
             public const string Resistance = "Resistance";
             public const string ExplosionProtection = "ExplosionProtection";
+            public const string DeathMark = "DeathMark";
         }
         public static class Armor
         {
@@ -263,6 +269,8 @@ namespace MVZ2.GameContent.Buffs
             //EXPAND
             public const string AntiGravityPadGravity = "AntiGravityPadGravity";
             public const string Shock = "Shock";
+            public const string AttackSpeed = "AttackSpeed";
+            public const string SoulFreeze = "SoulFreeze";
 
         }
         public static class Obstacle
@@ -414,6 +422,9 @@ namespace MVZ2.GameContent.Buffs
             // Random China
             public static readonly NamespaceID superRecharge = Get(VanillaBuffNames.Level.superRecharge);
             public static readonly NamespaceID ancientEgypt = Get(VanillaBuffNames.Level.ancientEgypt);
+
+            //EXPAND
+            public static readonly NamespaceID slendermanBlackSun = Get(VanillaBuffNames.Level.slendermanBlackSun);
         }
         public static class Grid
         {
@@ -430,8 +441,11 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID changeLane = Get(VanillaBuffNames.Entity.changeLane);
             public static readonly NamespaceID damageColor = Get(VanillaBuffNames.Entity.damageColor);
             public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.Entity.temporaryUpdateBeforeGame);
+            public static readonly NamespaceID destroyConflictGridEntitiesOnLand = Get(VanillaBuffNames.Entity.destroyConflictGridEntitiesOnLand);
+            
             public static readonly NamespaceID Regeneration = Get(VanillaBuffNames.Entity.Regeneration);
             public static readonly NamespaceID Corropoison = Get(VanillaBuffNames.Entity.Corropoison);
+            public static readonly NamespaceID DeathMark = Get(VanillaBuffNames.Entity.DeathMark);
 
             // Chapter 2
             public static readonly NamespaceID inWater = Get(VanillaBuffNames.Entity.inWater);
@@ -598,6 +612,8 @@ namespace MVZ2.GameContent.Buffs
             //EXPAND
             public static readonly NamespaceID AntiGravityPadGravity = Get(VanillaBuffNames.Enemy.AntiGravityPadGravity);
             public static readonly NamespaceID Shock = Get(VanillaBuffNames.Enemy.Shock);
+            public static readonly NamespaceID AttackSpeed = Get(VanillaBuffNames.Enemy.AttackSpeed);
+            public static readonly NamespaceID SoulFreeze = Get(VanillaBuffNames.Enemy.SoulFreeze);
 
 
         }

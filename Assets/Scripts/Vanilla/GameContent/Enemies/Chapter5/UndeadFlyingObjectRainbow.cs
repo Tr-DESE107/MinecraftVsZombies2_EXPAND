@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Enemies
 
             // 获取可以随机生成的UFO类型。
             List<int> typePool = new List<int>();
-            UndeadFlyingObject.FillUFOVariantRandomPool(level, typePool);
+            UndeadFlyingObject.FillUFOVariantRandomPool(level, rainbow.GetFaction(), typePool);
 
             for (int i = 0; i < count; i++)
             {

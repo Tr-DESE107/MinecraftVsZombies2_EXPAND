@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-11-27 11:58+0800\n"
+"POT-Creation-Date: 2026-01-03 05:53+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -572,7 +572,7 @@ msgstr ""
 #. Description for almanac tag enum value mvz2:cloud of enum shell
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
-msgid "受到0.5x冲击伤害"
+msgid "受到0.5x冲击或火焰伤害"
 msgstr ""
 
 #. Name for almanac tag enum value mvz2:lightning of enum shell
@@ -733,7 +733,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "提供能量：<color=red>1点/1.6秒，而后1点/1秒</color>\n"
-"技能：<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>"
+"技能：<color=red>立即升级，<tag id=\"mvz2:light_source\" />发出蓝光，并使生产量变为2倍</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:moonlight_sensor
@@ -830,7 +830,7 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
+msgid "银制发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />血肉之躯的飞刀。"
 msgstr ""
 
 #. Properties for contraptions mvz2:silvenser
@@ -1024,7 +1024,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>一次性使用</color>\n"
-"技能：<color=red>无</color>"
+"技能：<color=red>无</color>\n"
+"睡眠时间：<color=red>50秒</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:dream_silk
@@ -1175,7 +1176,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "攻击速度：<color=red>3秒</color>\n"
-"伤害：<color=red>80</color>\n"
+"伤害：<color=red>60</color>\n"
+"半径：<color=red>2.5格</color>\n"
 "特殊：<color=red>可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>\n"
 "技能：<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>"
 msgstr ""
@@ -1217,10 +1219,11 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>5</color>\n"
+"伤害：<color=red>3</color>\n"
 "发射速度：<color=red>1.5秒</color>\n"
 "音符上限：<color=red>10</color>\n"
-"技能：<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>"
+"射程：<color=red>4格</color>\n"
+"技能：<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度，+10格射程</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:note_block
@@ -2351,7 +2354,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
-"速度：<color=red>2</color>"
+"速度：<color=red>4</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:cannonball_zombie
@@ -2374,6 +2377,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>1100</color>\n"
 "伤害：<color=red>100（冲击）</color>\n"
+"速度：<color=red>1.5</color>\n"
 "特殊：<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁。</color>"
 msgstr ""
 
@@ -2939,7 +2943,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"生命：<color=red>12000，每秒恢复30</color>\n"
+"生命：<color=red>12000，每秒恢复15</color>\n"
 "阶段1：<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>\n"
 "阶段2：<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤“床战士”</color>"
 msgstr ""
@@ -3173,6 +3177,30 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan"
+msgstr ""
+
+#. Name for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "船僵尸"
+msgstr ""
+
+#. Header for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "船僵尸能够浮在水上——甚至是云上作战。"
+msgstr ""
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "直接把自己身子穿在船上真的不会漏水么？当然不会咕噜咕噜咕噜"
+msgstr ""
+
+#. Flavor for misc mvz2:boat_zombie
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "它是怎么浮在空中的？我的朋友，你都已经在天上乘船了，船僵尸能浮在空中又怎么样呢？"
 msgstr ""
 
 #. Name for misc mvz2:nyaightmare
@@ -3777,6 +3805,30 @@ msgctxt "misc.description"
 msgid "哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。"
 msgstr ""
 
+#. Name for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "香霖堂"
+msgstr ""
+
+#. Header for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "香霖堂是幻想乡中的一处商店，专门售卖一些外界来的稀奇物品。"
+msgstr ""
+
+#. Flavor for misc mvz2:kourindou
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"香霖堂的原主人名为森近 霖之助，现主人为一位无名的读书妖怪，也称朱鹭子。\n"
+"这里常卖一些幻想乡里少见的，被遗忘的外界物品，比如手机、平板电脑、游戏机什么的。\n"
+"霖之助本人是知道这些东西能产生什么作用的，但是他个人并不知道如何正确使用它们，这些东西多半也只能用来当切菜板什么的来使用。\n"
+"如今这家店被朱鹭子接替，这些东西的用途估计已经没人知道了。\n"
+"\n"
+"史蒂夫和村民来到了这里，并把这里改造成了他们的作战基地。"
+msgstr ""
+
 #. Name for misc mvz2:shining_needle_castle
 #: Almanac meta file
 msgctxt "misc.name"
@@ -4369,7 +4421,7 @@ msgstr ""
 #. Name for entity mvz2:silvenser
 #: Entity meta file
 msgctxt "entity.name"
-msgid "银质发射器"
+msgid "银制发射器"
 msgstr ""
 
 #. Tooltip for entity mvz2:silvenser

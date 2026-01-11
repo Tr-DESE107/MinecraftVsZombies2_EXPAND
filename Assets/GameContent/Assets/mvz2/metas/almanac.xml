@@ -37,6 +37,10 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+        <tag id="placement_beacon" name="升级器械：信标" description="必须放置在信标上" priority="0">
+            <icon sprite="mvz2:ui/almanac/Contraption(icon)[48]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
 
         <tag id="grid_layer_main" name="主要位" description="占据格子的主要位" priority="1000">
             <icon sprite="mvz2:ui/almanac/grid_layer_tags[0]" />
@@ -159,6 +163,22 @@
             <icon sprite="mvz2:ui/almanac/Expand_attribute[4]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
         </tag>
+		<tag id="placement_FireworkDispenser" name="升级器械：烟花发射器" description="必须放置在烟花发射器上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[49]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+		</tag>
+		<tag id="placement_RedstoneOre" name="升级器械：红石矿" description="必须放置在红石矿上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[17]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+		</tag>
+		<tag id="placement_hfpd" name="升级器械：高频脉冲发射器" description="必须放置在高频脉冲发射器上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[57]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
+		</tag>
+		<tag id="placement_Eviltombstone" name="升级器械：邪灵墓碑" description="必须放置在邪灵墓碑上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[56]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
+		</tag>
         
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
             <icon sprite="mvz2:ui/almanac/Expand_attribute[2]" />
@@ -226,8 +246,9 @@
             <value value="mvz2:diamond" name="钻石" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[8]" backgroundColor="#417368" />
             <value value="mvz2:sand" name="沙子" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[9]" backgroundColor="#b4b590" />
             <value value="mvz2:netherrack" name="下界岩" description="免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[10]" backgroundColor="#36131d" />
-            <value value="mvz2:cloud" name="云" description="受到0.5x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[11]" backgroundColor="#b67ba6" />
+            <value value="mvz2:cloud" name="云" description="受到0.5x冲击或火焰伤害" sprite="mvz2:ui/almanac/shell_tags[11]" backgroundColor="#b67ba6" />
             <value value="mvz2:lightning" name="闪电" description="吸收闪电伤害" sprite="mvz2:ui/almanac/shell_tags[12]" backgroundColor="#b38f47" />
+            <value value="mvz2:ice" name="冰" description="阻挡锐利物体，但受到2x冲击或火焰伤害" sprite="mvz2:ui/almanac/shell_tags[15]" backgroundColor="##8CBDE6" />
         </enum>
     </tags>
 	<contraptions>
@@ -354,7 +375,7 @@
 				<p>蚀毒发射器能发射短距离的毒球。</p>
 			</header>
 			<properties>
-				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+				<p>射程：<![CDATA[<color=red>5格</color>]]></p>
 				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
 				<p>技能：<![CDATA[<color=red>射出一个越滚越大的毒球</color>]]></p>
 			</properties>
@@ -370,7 +391,7 @@
 			</header>
 			<properties>
 				<p>提供能量：<![CDATA[<color=red>2点/1.6秒，而后2点/1秒</color>]]></p>
-				<p>技能：<![CDATA[<color=red>立即升级，发出蓝光，并使生产量变为2倍</color>]]></p>
+                <p>技能：<![CDATA[<color=red>立即升级，<tag id="mvz2:light_source" />发出蓝光，并使生产量变为2倍</color>]]></p>
 			</properties>
 			<flavor>
 				<p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
@@ -447,7 +468,7 @@
 				<p>伤害：<![CDATA[<color=red>80</color>]]></p>
 				<p>溅射伤害：<![CDATA[<color=red>20（不伤害直接目标）</color>]]></p>
 				<p>特点：<![CDATA[<color=red>需要烧毁本格的器械补充燃料</color>]]></p>
-				<p>燃料上限：<![CDATA[<color=red>120</color>]]></p>
+				<p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
 				<p>技能：<![CDATA[<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球，单次技能时间过长会导致不分敌我的自爆</color>]]></p>
 			</properties>
 			<flavor>
@@ -646,6 +667,7 @@
 			<properties>
 				<p>特点：<![CDATA[<color=red>一次性使用</color>]]></p>
 				<p>技能：<![CDATA[<color=red>无</color>]]></p>
+                <p>睡眠时间：<![CDATA[<color=red>50秒</color>]]></p>
 			</properties>
 			<flavor>
 				<p>美梦丝是个睡货，她每天睁开眼睛做的第一件事就是睡觉。瞧瞧她睡的，把自己的冷却时间也给睡短了。</p>
@@ -999,16 +1021,17 @@
         </entry>
         <entry id="mvz2:firework_dispenser">
             <header>
-                <p>烟花发射器会自动轰击上方高空中的敌人。</p>
+                <p>烟花发射器会发射火焰弹攻击上方高空中的敌人。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>200，只能伤害高空中的敌人</color>]]></p>
-                <p>爆炸半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：<![CDATA[<color=red>爆炸半径永久+1格</color>]]></p>
+                <p>发射速度：<![CDATA[<color=red>1发/2秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>200，只攻击空中敌人</color>]]></p>
+                <p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
+                <p>技能：<![CDATA[<color=red>射程永久+1格</color>]]></p>
             </properties>
             <flavor>
-                <p>烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。</p>
+                <p>器械们很好奇为什么他发射的明明是火焰弹，名字却叫烟花发射器。其实他是能发射烟花的，只不过烟花太贵了，他平时不舍得射，必须得满足一定条件后才能发射。</p>
+				<p>这个条件在当前版本尚不满足，等之后的版本吧。</p>
             </flavor>
         </entry>
         <entry id="mvz2:repeatenser">
@@ -1027,11 +1050,11 @@
         </entry>
         <entry id="mvz2:beacon">
             <header>
-                <p>信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。</p>
+                <p>信标能向前方、后方、后上方、后下方、前上方、前下方六个方向同时发射星星手里剑。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>5发/1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>发射速度：<![CDATA[<color=red>6发/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>30</color>]]></p>
                 <p>技能：<![CDATA[<color=red>召唤10颗陨石，打击场上随机位置</color>]]></p>
             </properties>
             <flavor>
@@ -1195,7 +1218,7 @@
                 <p>有说法认为他们能够像普通的器械黑曜石那样发射弹幕反击敌人，不知道是不是真的。</p>
             </flavor>
         </entry>
-
+       <!--
         <entry id="mvz2:Eradicator">
             <header>
                 <p>根除者能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
@@ -1209,8 +1232,7 @@
                 <p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
             </flavor>
         </entry>
-        
-
+        -->
         <entry id="mvz2:DispenShield">
             <header>
                 <p>发射器护罩在保护其内部的器械的同时可以发射箭矢</p>
@@ -1228,34 +1250,30 @@
             </flavor>
         </entry>
 
-        
-        
-        
-        
 
         <entry />
         <entry />
         <entry />
         <entry />
-        <entry id="mvz2:AntiGravityPad">
-            <tags>
-                <tag id="mvz2:placement_AntiGravityPad" />
-            </tags>
-            <header>
-                <p>反重力板能够吹飞上方怪物，驱动时可使受它影响的怪物的装备极大受损。</p>
-            </header>
-            <properties>
-                <p>特点：<![CDATA[<color=red>不会被僵尸攻击到，能够吹飞上方怪物，驱动时可使受它影响的怪物的装备极大受损。死亡后移除全场飞行怪物飞行能力。</color>]]></p>
-                <p>技能：<![CDATA[<color=red>移除全场飞行怪物飞行能力、召唤从天而降的铁砧、使全场敌人换行并后退、装备极大受损。</color>]]></p>
-            </properties>
-            <flavor>
-                <p>反重力板从来不在雨天出门，因为它出门就要挨雷劈。听说它曾经有个朋友，是个雨伞，不过现在貌似被一个叫做SCP的组织收养了。</p>
-                <p />
-                <p><![CDATA[<color=green>哈哈哈我反重力板通过小小的假死就骗过了牢狙，打赢复活赛了！</color>]]></p>
-            </flavor>
-        </entry>
-        
+
         <!-- Upgrades 1 -->
+		<entry id="mvz2:AntiGravityPad">
+			<tags>
+				<tag id="mvz2:placement_AntiGravityPad" />
+			</tags>
+			<header>
+				<p>反重力板能够吹飞上方怪物，驱动时可使受它影响的怪物的装备极大受损。</p>
+			</header>
+			<properties>
+				<p>特点：<![CDATA[<color=red>不会被僵尸攻击到，能够吹飞上方怪物，驱动时可使受它影响的怪物的装备极大受损。死亡后移除全场飞行怪物飞行能力。</color>]]></p>
+				<p>技能：<![CDATA[<color=red>移除全场飞行怪物飞行能力、召唤从天而降的铁砧、使全场敌人换行并后退、装备极大受损。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>反重力板从来不在雨天出门，因为它出门就要挨雷劈。听说它曾经有个朋友，是个雨伞，不过现在貌似被一个叫做SCP的组织收养了。</p>
+				<p />
+				<p><![CDATA[<color=green>哈哈哈我反重力板通过小小的假死就骗过了牢狙，打赢复活赛了！</color>]]></p>
+			</flavor>
+		</entry>
         <entry id="mvz2:infectenser">
             <tags>
                 <tag id="mvz2:placement_infectenser" />
@@ -1305,7 +1323,25 @@
                 <p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
             </flavor>
         </entry>
-        
+		<entry id="mvz2:CopperDropper">
+			<tags>
+				<tag id="mvz2:placement_stone_dropper" />
+			</tags>
+			<header>
+				<p>铜制投掷器向敌人发射概率眩晕的铜球和击退敌人的铜矿球，铜球在击中敌人后有概率产生铜锭，并在敌人间反弹。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>铜球40，每次反弹后减半，铜矿球80</color>]]></p>
+				<p>概率：<![CDATA[<color=red>铜球25%赋予眩晕，5%掉落铜锭</color>]]></p>
+				<p>技能：<![CDATA[<color=red>立即喷射20发铜球和15发铜矿球</color>]]></p>
+			</properties>
+			<flavor>
+				<p>她没有钱买木制投掷器的笑话专利，它也没法玩三个铜的汉字笑话。</p>
+				<p/>
+				<p>她还常因分不清制和质的区别而惹人笑话，但其他投掷器不在乎这些。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:Eviltombstone">
             <tags>
                 <tag id="mvz2:placement_necrotombstone" />
@@ -1349,9 +1385,28 @@
             </flavor>
         </entry>
 
-        <entry />
-        <entry />
-        <entry />
+		<entry id="mvz2:SuperFireworkDispenser">
+			<tags>
+				<tag id="mvz2:placement_FireworkDispenser" />
+			</tags>
+			<header>
+				<p>超级烟花发射器会发射烟花轰击上方高空中的敌人。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1发/6秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>200，只伤害空中敌人</color>]]></p>
+				<p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>技能：<![CDATA[<color=red>开展烟火大会，射程永久+1格</color>]]></p>
+			</properties>
+			<flavor>
+				<p>超级烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。</p>
+				<p>其实烟花并没有那么贵，只要你不往烟火之星里放钻石，造起来还是挺廉价的，超级烟花发射器放的就是普通的烟花。但他的弟弟坚持要放有珍贵的、有仪式感的烟花。</p>
+				<p/>
+				<p><![CDATA[<color=white>在之后的版本里，我将直接听从你的命令</color>]]></p>
+			</flavor>
+		</entry>
+		
+
 
         <!-- Upgrades 2 -->
         <entry id="mvz2:high_frequency_pulse_dispenser">
@@ -1398,38 +1453,31 @@
         </entry>
         <entry />
 
-        <entry />
-        <entry />
-        <entry />
-        <entry />
 
-        <entry id="mvz2:CopperDropper">
-                <tags>
-                    <tag id="mvz2:placement_stone_dropper" />
-                </tags>
-                <header>
-                    <p>铜制投掷器向敌人发射概率眩晕的铜球和击退敌人的铜矿球，铜球在击中敌人后有概率产生铜锭，并在敌人间反弹。</p>
-                </header>
-                <properties>
-                    <p>发射速度：<![CDATA[<color=red>1秒</color>]]></p>
-                    <p>伤害：<![CDATA[<color=red>铜球40，每次反弹后减半，铜矿球80</color>]]></p>
-                    <p>概率：<![CDATA[<color=red>铜球25%赋予眩晕，5%掉落铜锭</color>]]></p>
-                    <p>技能：<![CDATA[<color=red>立即喷射20发铜球和15发铜矿球</color>]]></p>
-                </properties>
-                <flavor>
-                    <p>她没有钱买木制投掷器的笑话专利，它也没法玩三个铜的汉字笑话。</p>
-					<p/>
-					<p>她还常因分不清制和质的区别而惹人笑话，但其他投掷器不在乎这些。</p>
-                </flavor>
-        </entry>
 
-        
+		<entry id="mvz2:DiamondOre">
+			<tags>
+				<tag id="mvz2:placement_RedstoneOre" />
+			</tags>
+			<header>
+				<p>钻石矿打碎后可以获得钻石</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>1200</color>]]></p>
+				<p>特点：<![CDATA[<color=red>打碎后可以获得3个钻石</color>]]></p>
+				<p>技能：<![CDATA[<color=red>造成1200敌我不分的3*3爆炸伤害，产生获得3个钻石，并掉落一张钻石矿卡片。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>我发现使用镐子敲掉钻石矿会让人很开心。</p>
+
+			</flavor>
+		</entry>
         <entry id="mvz2:EXPANDispenser">
             <tags>
-                <tag id="mvz2:placement_repeatenser" />
+                <tag id="mvz2:placement_hfpd" />
             </tags>
             <header>
-                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。</p>
+                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。\n嗯，说是这么说，但还没做好</p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
@@ -1445,6 +1493,58 @@
             </flavor>
         </entry>
 
+		<entry id="mvz2:Freezenser">
+			<header>
+				<p>寒冰发射器能发射减速敌人的冰锥。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>普通冰锥15，冻结冰锥30</color>]]></p>
+				<p>特点：<![CDATA[<color=red>1/4概率发射能够冻结敌人150帧的冰锥。</color>]]></p>
+				<p>技能：<![CDATA[<color=red>快速发射60支冰锥</color>]]></p>
+			</properties>
+			<flavor>
+				<p>听起来可能有点凡尔赛，但是寒冰发射器其实并不想这么早的打赢复活赛，这么冷的天他想窝在expg的温暖老家里，那里有红温的狙击发射器和狼人，以及各色各样牢论画饼说要带到expu的其他器械和怪物，有他们在整个冬天都暖洋洋的。</p>
+				<p>好吧，不能和他们久待，不然自己就要化掉了。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:PermanentIce">
+			<header>
+				<p>永冻冰驱动后能够冰冻全场敌人。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>特点：<![CDATA[<color=red>驱动后能够冰冻全场敌人</color>]]></p>
+				<p>技能：<![CDATA[<color=red>先对全场被冰冻的敌人造成1000点伤害，后冰冻全场敌人。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>永冻冰觉得自己简直是被遗忘了，在expg里很长的一段时间内，他都没有图鉴文本，然而没有人在乎这一点，过了有一年乃至几个月制作者才发现他没有正规的图鉴，匆匆给他补上。然后似乎也没有人发现这一点，编辑Expwiki的逃兵们忘了更新它的条目，以至于又是一年乃至几个月，牢论把它制作到u时才发现他Expwiki的条目还是只有寥寥几句话。</p>
+				<p>"嗯，往好处想，至少我比牢狙早打赢复活赛。"他是这么想的</p>
+				<p/>
+				<p><![CDATA[<color=white>永冻冰后面去问寒冰发射器，为什么自己突然就被牢论记起来，并加进游戏里了？寒冰发射器讲：顺手的事。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:Randombstone">
+			<tags>
+				<tag id="mvz2:placement_Eviltombstone" />
+			</tags>
+			<header>
+				<p>随机墓碑能够召唤随机系列怪物。</p>
+			</header>
+			<properties>
+				<p>召唤时间：<![CDATA[<color=red>20秒</color>]]></p>
+				<p>技能：<![CDATA[<color=red>召唤随机僵尸、随机小鬼僵尸、突变随机僵尸</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁后出现随机骷髅国王。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这是一段具有随机性的文本，在你未达成条件前，你只有1/65535107107的可能在打开该条目时看见真正的文本。</p>
+				<p/>
+				<p>你抽到了假文本。</p>
+				<!--  真正的文本：wandom的手艺  -->
+			</flavor>
+		</entry>
+		
+
+		<!--EXPAND BlackCard-->
         <entry id="mvz2:Bedrock">
             <header>
                 <p>基岩是常规手段下无法破坏的屏障。</p>
@@ -2002,8 +2102,22 @@
                 <p>好在宿主突变僵尸一般情况下会把他丢到水池里，但要他单独出现呢？</p>
             </flavor>
         </entry>
-        
-        
+
+		<entry id="mvz2:NightmareDisciple">
+			<header>
+				<p>梦魇追随者能够在发射子弹攻击你的同时打开死亡的传送门。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>800</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>血冰锥10，会造成120帧，每帧损失3滴血的死亡标记。梦魇球40，会造成180帧、每帧损伤5滴血的死亡标记</color>]]></p>
+				<p>弱点：<![CDATA[<color=red>射弹无法赋予器械死亡标记。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>梦魇的存在本身是一个大大的谜团，梦魇的这些追随者是如何诞生的也是一个大大的谜团。这些骷髅虽然拥有和梦魇相近的力量，但经法术学分析，我们基本可以排除其为梦魇实际创造物的可能性。</p>
+				<p>梦魇追随者会被梦魇所召唤，被召唤的追随者们带有一种强烈的狂热性，这份狂热使得他们刀枪不入。追随者们还可以使用暗魔法凝聚的射弹，被击中的生物会在痛苦下迅速逝去。</p>
+			</flavor>
+		</entry>
         
         
         <entry id="mvz2:WitherSkeleton">
@@ -2409,6 +2523,19 @@
                 <p>这种僵尸带的铁桶其实是个反着的矿车，他负责拿这个矿车给庙里烧水用。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:TorchKongfuZombie">
+            <header>
+                <p>功夫火把僵尸的火把能够快速烧毁易燃器械。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>400</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1.1</color>]]></p>
+            </properties>
+            <flavor>
+				<p>和大部分僵尸不一样，功夫火把僵尸有智力控制自己的胳膊放下，虽然没有血液循环，但他觉得这样对自己的胳膊好。</p>
+                <p>听说功夫火把僵尸算是探险家僵尸的远亲...但是探险家僵尸是什么僵尸啊？</p>
+            </flavor>
+        </entry>
         
         <entry id="mvz2:reflective_barrier_zombie">
             <header>
@@ -2507,7 +2634,20 @@
                 
             </flavor>
         </entry>
-        
+		<entry id="mvz2:SixQiZombie">
+			<header>
+				<p>六气僵尸的境界可以让他们刀枪不入。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>1236</color>]]></p>
+				<p>特点：<![CDATA[<color=red>拥有99%的伤害抗性。</color>]]></p>
+				<p>弱点：<![CDATA[<color=red>黑洞炸弹可以秒杀。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>夫列子御风而行，泠然善也，旬有五日而后反。彼于致福者，未数数然也。此虽免乎行，犹有所待者也。若夫乘天地之正，而御六气之辩，以游无穷者，彼且恶乎待哉？</p>
+				<p>故曰：至人无己，神人无功，圣人无名。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:emperor_zombie">
             <header>
                 <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。</p>
@@ -2522,23 +2662,77 @@
                 <p><![CDATA[<color=red>【图鉴 已被禁言，有效期是永久】</color>]]></p>
             </flavor>
         </entry>
-        <entry id="mvz2:SixQiZombie">
+        <entry id="mvz2:Hemperor">
             <header>
-                <p>六气僵尸的境界可以让他们刀枪不入。</p>
+                <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>1236</color>]]></p>
-                <p>特点：<![CDATA[<color=red>拥有99%的伤害抗性。</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>黑洞炸弹可以秒杀。</color>]]></p>
+                <p>生命：<![CDATA[<color=red>200+50</color>]]></p>
+                <p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
+                <p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方60/s的再生效果。</color>]]></p>
             </properties>
             <flavor>
-                <p>夫列子御风而行，泠然善也，旬有五日而后反。彼于致福者，未数数然也。此虽免乎行，犹有所待者也。若夫乘天地之正，而御六气之辩，以游无穷者，彼且恶乎待哉？</p>
-                <p>故曰：至人无己，神人无功，圣人无名。</p>
+                <p>他同样不是什么大国的皇帝，只是个有点闲钱的僵尸演员，这身衣服看着很霸气，实际上造价不出50个绿宝石，而他掏了8000个钻石买了这件衣服。</p>
             </flavor>
         </entry>
-        
-
-
+		
+		<entry id="mvz2:PirateZombie">
+			<header>
+				<p>醉醺醺的海盗僵尸会扑向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>250</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.9</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>150</color>]]></p>
+			</properties>
+			<flavor>
+				<p>浑身朗姆酒气的海盗僵尸走过来说了这么一段话：</p>
+				<p>“想紧跟海盗时尚风潮可不那么简单，不过请记住，只要你站在潮湿的甲板上那就已经很‘潮’了。”</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:LeatherPirateZombie">
+			<header>
+				<p>醉醺醺的海盗皮帽僵尸会扑向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>250+370</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.9</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>150</color>]]></p>
+			</properties>
+			<flavor>
+				<p>海盗皮帽僵尸长着一张大众脸。当问及他最喜欢吃什么，他认真思索片刻，紧了紧皮帽，说“啦嗷需脑子撕。。”</p>
+				<p>作为邻居，也许可以让他来借个杯子？</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:PirateSkeleton">
+			<header>
+				<p>不那么醉醺醺的海盗骷髅会扑向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>125</color>]]></p>
+			</properties>
+			<flavor>
+				<p>纵观一圈看下来：艾弗瑞领导的海盗无一不是醉醺醺的，即使是骷髅也散发着一身酒气...</p>
+				<p>骷髅明明没有胃，他们喝酒是图什么呢？</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:IronPirateSkeleton">
+			<header>
+				<p>不那么醉醺醺的海盗铁盔骷髅会扑向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200+1110</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>125</color>]]></p>
+			</properties>
+			<flavor>
+				<p>我怀疑这家伙是按桶喝的酒，你看犯罪证据还带在他的头上呢。</p>
+				<p><![CDATA[<color=grey>呃，如果这骷髅是泡酒物呢？</color>]]></p>
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:undead_flying_object" name="不死飞行物">
             <header>
                 <p>不死飞行物从空中来袭并对你进行干扰。在那之后它们就会离开。</p>
@@ -2565,6 +2759,21 @@
                 <p>至少这朵云没有对你竖中指。</p>
             </flavor>
         </entry>
+		<entry id="mvz2:HeavyGutant">
+			<header>
+				<p>突变重炮手可以粉碎你的器械，并在血量低至一半时投掷炸弹。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>3000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>他在海盗选美大赛上获得了第二名，输给了火枪手僵尸，原因是因为他脸上有疤（恼）</p>
+				<p />
+				<p>大概是因为他长得太丑了所以没有小鬼愿意爬他身上，他于是选择拿炮弹的弹药当投掷的小鬼。</p>
+				<p>还好他们没有意识到炮管里该装正经TNT。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:cannoneer_zombie">
             <header>
                 <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。</p>
@@ -2584,7 +2793,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>100</color>]]></p>
-                <p>速度：<![CDATA[<color=red>2</color>]]></p>
+                <p>速度：<![CDATA[<color=red>4</color>]]></p>
             </properties>
             <flavor>
                 <p>没错，炮弹也是一只僵尸！</p>
@@ -2598,6 +2807,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>1100</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>100（冲击）</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1.5</color>]]></p>
                 <p>特殊：<![CDATA[<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁。</color>]]></p>
             </properties>
             <flavor>
@@ -2605,21 +2815,20 @@
             </flavor>
         </entry>
 
-        <!--
-<entry id="mvz2:Endermite">
-    <header>
-        <p>末影螨能够躲过大部分子弹。</p>
-    </header>
-    <properties>
-        <p>生命：<![CDATA[<color=red>100</color>]]></p>
-        <p>速度：<![CDATA[<color=red>1.25</color>]]></p>
-    </properties>
-    <flavor>
-        <p>你可能觉得这个螨虫实在太小了，我也这么觉得，他甚至没有怪物头颅大。</p>
-        <p>这家伙绝对是个擦弹好手。</p>
-    </flavor>
-</entry
--->
+
+		<entry id="mvz2:Endermite">
+			<header>
+				<p>末影螨能够躲过大部分子弹。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+			</properties>
+			<flavor>
+				<p>你可能觉得这个螨虫实在太小了，我也这么觉得，他甚至没有怪物头颅大。</p>
+				<p>这家伙绝对是个擦弹好手。</p>
+			</flavor>
+		</entry>
 
         <entry id="mvz2:mega_mutant_zombie">
             <header>
@@ -2638,21 +2847,7 @@
                 <p><![CDATA[<color=white>红瞳真可爱。</color>]]></p>
             </flavor>
         </entry>
-        <entry id="mvz2:HeavyGutant">
-            <header>
-                <p>突变重炮手可以粉碎你的器械，并在血量低至一半时投掷炸弹。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red>3000</color>]]></p>
-                <p>速度：<![CDATA[<color=red>1</color>]]></p>
-            </properties>
-            <flavor>
-                <p>他在海盗选美大赛上获得了第二名，输给了火枪手僵尸，原因是因为他脸上有疤（恼）</p>
-                <p />
-                <p>大概是因为他长得太丑了所以没有小鬼愿意爬他身上，他于是选择拿炮弹的弹药当投掷的小鬼。</p>
-                <p>还好他们没有意识到炮管里该装正经TNT。</p>
-            </flavor>
-        </entry>
+        
 
         <!--Villager EXPAND -->
         <entry id="mvz2:MutantVillager">
@@ -2788,6 +2983,7 @@
                 <p><![CDATA[<color=grey>这是否说明玩家模型TNT和玩家模型是同种■■？</color>]]></p>
             </flavor>
         </entry>
+		<!--EXPAND Random-->
         <entry id="mvz2:RandomZombie">
             <header>
                 <p>随机僵尸血量归零后会变成其他怪物。</p>
@@ -2828,6 +3024,32 @@
                 <p>这看上去就是这家伙死后原地召唤其他突变怪物。</p>
             </flavor>
         </entry>
+		<entry id="mvz2:RandomSkeleton">
+			<header>
+				<p>随机骷髅血量归零后会变成其他骷髅。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>比起僵尸们喜欢过万圣节，骷髅们更喜欢过圣诞节（大抵是因为圣诞节服装防寒）。他们为圣诞节准备了精心的服装，这份服装的价格一般能买下几只无弓的骷髅。</p>
+				<p>所以当你打破他们的衣服时，他们真的会很生气，以至于变成其他骷髅。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:RandomKingSkeleton">
+			<header>
+				<p>随机国王骷髅血量归零后会变成其他强大的骷髅。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>500</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.75</color>]]></p>
+			</properties>
+			<flavor>
+				<p>不同于其他穷鬼骷髅国王，随机国王骷髅真的很有钱，他能给自己整一套金衣服，不是镀金，而是纯金！</p>
+				<p>这让你打破他的衣服时，他会变得更加愤怒，以至于骷髅种类都有可能改变</p>
+			</flavor>
+		</entry>
         
         
     </enemies>
@@ -2884,21 +3106,7 @@
                 <p>……爱……？</p>
             </flavor>
         </entry>
-        
-        <entry id="mvz2:ShrunkenHead">
-            <header>
-                <p>萎缩头颅。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>周期性为场上我方怪物赋予骨质头盔</color>]]></p>
-            </properties>
-            <flavor>
-                <p>死灵法师整的都是什么玩意...不能来点阳间的吗</p>
-            </flavor>
-        </entry>
-
-        
-        
+		<entry/>
         <entry id="mvz2:sweet_sleep_pillow">
             <header>
                 <p>哆来咪赠予的奇妙枕头，拥有让人安眠的效果。</p>
@@ -2961,17 +3169,6 @@
                 <p>瓶中的闪电，精炼你的技能；</p>
                 <p>瓶中的旋风，释放你的能力；</p>
                 <p>瓶中的黑洞……绑定你的诅咒？</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:AngelsFeather">
-            <header>
-                <p>天使的羽毛。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>周期性为场上我方实体赋予圣盾</color>]]></p>
-            </properties>
-            <flavor>
-                <p>愿我不在你身边的时候它能好好保护你</p>
             </flavor>
         </entry>
         <entry id="mvz2:smart_phone">
@@ -3041,19 +3238,7 @@
                 <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
             </flavor>
         </entry>
-        
-        <entry id="mvz2:wither_skeleton_skull">
-            <header>
-                <p>凋灵骷髅的头颅。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>]]></p>
-            </properties>
-            <flavor>
-                <p>多么惊悚恐怖的骷髅头！</p>
-            </flavor>
-        </entry>
-        
+
         
         <entry id="mvz2:manipulative_talismans">
             <header>
@@ -3183,8 +3368,44 @@
                 <p>此仇，永世无法平息。</p>
             </flavor>
         </entry>
+		
+		<entry/>
 
-
+        <!--EXPAND artifacts-->
+		<entry id="mvz2:ShrunkenHead">
+			<header>
+				<p>萎缩头颅。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>周期性为场上我方怪物赋予骨质头盔</color>]]></p>
+			</properties>
+			<flavor>
+				<p>死灵法师整的都是什么玩意...不能来点阳间的吗</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:AngelsFeather">
+			<header>
+				<p>天使的羽毛。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>周期性为场上我方实体赋予圣盾</color>]]></p>
+			</properties>
+			<flavor>
+				<p>愿我不在你身边的时候它能好好保护你</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:wither_skeleton_skull">
+            <header>
+                <p>凋灵骷髅的头颅。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>]]></p>
+            </properties>
+            <flavor>
+                <p>多么惊悚恐怖的骷髅头！</p>
+            </flavor>
+        </entry>
+		
         <entry id="mvz2:FrankensteinBrain">
             <header>
                 <p>科学怪人的大脑。</p>
@@ -3282,7 +3503,7 @@
                     <p>凋灵代表着死亡和枯萎，它会抹除一切生命的迹象。</p>
                 </header>
                 <properties>
-                    <p>生命：<![CDATA[<color=red>12000，每秒恢复30</color>]]></p>
+                    <p>生命：<![CDATA[<color=red>12000，每秒恢复15</color>]]></p>
                     <p>阶段1：<![CDATA[<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>]]></p>
                     <p>阶段2：<![CDATA[<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤“床战士”</color>]]></p>
                 </properties>
@@ -3436,6 +3657,27 @@
                 <flavor>
                     <p>NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan</p>
                 </flavor>
+            </entry>
+            <entry id="mvz2:boat_zombie" name="船僵尸">
+                <unlock>
+                    <condition required="mvz2:level.dream_1" />
+                </unlock>
+                <thumbnail sprite="mvz2:misc/boat_zombie"/>
+                <picture model="mvz2:entity.boat_zombie" />
+                <header>
+                    <p>船僵尸能够浮在水上——甚至是云上作战。</p>
+                </header>
+                <flavors>
+                    <flavor>
+                        <p>直接把自己身子穿在船上真的不会漏水么？当然不会咕噜咕噜咕噜</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.ship_1"/>
+                        </conditions>
+                        <p>它是怎么浮在空中的？我的朋友，你都已经在天上乘船了，船僵尸能浮在空中又怎么样呢？</p>
+                    </flavor>
+                </flavors>
             </entry>
             <entry id="mvz2:nyaightmare" name="噩梦猫">
                 <unlock>
@@ -3876,6 +4118,23 @@
                 </header>
                 <flavor>
                     <p>哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:kourindou" name="香霖堂">
+                <unlock>
+                    <condition required="mvz2:kourindou_visited" />
+                </unlock>
+                <picture sprite="mvz2:store/background_kourindou" />
+                <header>
+                    <p>香霖堂是幻想乡中的一处商店，专门售卖一些外界来的稀奇物品。</p>
+                </header>
+                <flavor>
+                    <p>香霖堂的原主人名为森近 霖之助，现主人为一位无名的读书妖怪，也称朱鹭子。</p>
+                    <p>这里常卖一些幻想乡里少见的，被遗忘的外界物品，比如手机、平板电脑、游戏机什么的。</p>
+                    <p>霖之助本人是知道这些东西能产生什么作用的，但是他个人并不知道如何正确使用它们，这些东西多半也只能用来当切菜板什么的来使用。</p>
+                    <p>如今这家店被朱鹭子接替，这些东西的用途估计已经没人知道了。</p>
+                    <p />
+                    <p>史蒂夫和村民来到了这里，并把这里改造成了他们的作战基地。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:shining_needle_castle" name="辉针城">

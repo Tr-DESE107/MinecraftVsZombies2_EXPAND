@@ -35,6 +35,12 @@ namespace PVZEngine.Entities
             var bounds = GetBounds();
             return MathTool.CollideBetweenCubeAndSphere(bounds, center, radius);
         }
+        public bool IsInCapsule(Vector3 pos1, Vector3 pos2, float radius)
+        {
+            var bounds = GetBounds();
+            var capsule = new Capsule(pos1, pos2, radius);
+            return MathTool.CollideBetweenCubeAndCapsule(capsule, bounds);
+        }
         public Vector3 GetBoundsCenter()
         {
             return GetLocalCenter() + Entity.Position;

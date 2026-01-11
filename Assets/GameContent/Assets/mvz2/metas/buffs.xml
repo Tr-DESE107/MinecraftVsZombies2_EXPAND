@@ -41,6 +41,7 @@
     <buff id="temporary_update_before_game" polarity="none" level="5000" target="entity" />
     <buff id="armor_damage_color" polarity="none" level="5000" target="armor" />
     <buff id="random_enemy_speed" polarity="none" level="2000" target="enemy" />
+    <buff id="destroy_conflict_grid_entities_on_land" polarity="none" level="5000" target="entity" />
 
     <!-- Prologue -->
     <buff id="mine_tnt_invincible" polarity="positive" level="4000" target="contraption" />

@@ -14,7 +14,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">欢迎来到梦境世界！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">这里是哆来咪的领地，小心不要遇到野生的貘哦！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">对了，因为这里是白天，所以你的一些器械没办法用了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">比如说小型发射器、月光传感器，甚至是灵魂熔炉！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">比如说你的小型发射器，还有月光传感器！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">此外，这里有一个泳池！不要以为你可以在这里游泳了！你没办法直接在泳池上面放器械！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">那么，祝你好运吧，我的邻居！</sentence>
       </sentences>
@@ -35,7 +35,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">你可以把非水生器械放在它的上面！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">也就是说，你现在可以在水上布置战线了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;character create mvz2:doremy right;delay 0.5;next">可惜它不能像它的祖先一样把船撞碎！</sentence>
-        <sentence speaker="mvz2:doremy" description="（哆来咪出现）" sounds="mvz2:talk">外界的人类啊，让我看看你做了什么梦……</sentence>
+        <sentence speaker="mvz2:doremy" description="（哆来咪出场）" sounds="mvz2:talk">外界的人类啊，让我看看你做了什么梦……</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk;mvz2:dialog_cut" variant="mvz2:open_mouth" onStart="shake 0.1 0.5" onClick="end">等、等等！你是真身？</sentence>
       </sentences>
     </section>
@@ -702,7 +702,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">Ohhhhhhhhh！真没想到你做到了！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">梦魇他——死了吗？！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake" onClick="bubble hide;character create mvz2:doremy right mvz2:cured;delay 0.5;next">那，哆来咪小姐她现在怎么样？！</sentence>
-        <sentence speaker="mvz2:doremy" description="（哆来咪出现）" sounds="mvz2:talk">我、我能看见了？</sentence>
+        <sentence speaker="mvz2:doremy" description="（哆来咪出场）" sounds="mvz2:talk">我、我能看见了？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">而且——我的生命力回来了！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">哆来咪小姐！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……您没事实在是太好了！</sentence>
@@ -813,7 +813,7 @@
       <sentences>
         <sentence speaker="mvz2:tokiko" speakerName="店主" sounds="mvz2:talk">啊！有人来了！</sentence>
         <sentence speaker="mvz2:tokiko" speakerName="店主" sounds="mvz2:talk" onClick="bubble hide;character create mvz2:crazy_villager left;delay 0.5;playsound mvz2:dialog_weird;music stop;delay 1;next">欢迎来到——</sentence>
-        <sentence speaker="mvz2:tokiko" speakerName="店主" description="（村民出现）" variant="mvz2:surprised" sounds="mvz2:dialog_surprised" onStart="forecolor fade white #FFF0 0.01">！！！</sentence>
+        <sentence speaker="mvz2:tokiko" speakerName="店主" description="（村民出场）" variant="mvz2:surprised" sounds="mvz2:dialog_surprised" onStart="forecolor fade white #FFF0 0.01">！！！</sentence>
         <sentence speaker="mvz2:tokiko" speakerName="店主" variant="mvz2:afraid" sounds="mvz2:dialog_explosive" onStart="forecolor fade white #FFF0 0.01;shake" onClick="bubble hide;playsound mvz2:dialog_flashback;character leave mvz2:tokiko;delay 2;next">呀啊啊啊啊啊啊啊！</sentence>
         <sentence speaker="mvz2:tokiko" speakerName="店主" description="（店主躲起来了）" sounds="mvz2:dialog_beat" onStart="shake">方块怪物！不要吃我！！我不好吃！！！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……？</sentence>

@@ -71,11 +71,11 @@ namespace MVZ2.Vanilla.Grids
             var param = new PlaceParams();
             param.SetCommandBlock(seed.IsCommandBlock());
             param.SetVariant(seed.GetVariant());
-            var entity = grid.PlaceEntityBlueprint(seedDef, param);
-            if (entity == null)
+            var output = grid.PlaceEntityBlueprint(seedDef, param);
+            if (output.IsInvalid())
                 return;
             var level = grid.Level;
-            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(entity, seedDef, seed, heldItemData));
+            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(output, seedDef, seed, heldItemData));
         }
         #endregion
 
@@ -94,9 +94,11 @@ namespace MVZ2.Vanilla.Grids
             var param = new PlaceParams();
             param.SetCommandBlock(isCommandBlock);
             param.SetVariant(seedDef.GetVariant());
-            var entity = grid.PlaceEntityBlueprint(seedDef, param);
+            var output = grid.PlaceEntityBlueprint(seedDef, param);
+            if (output.IsInvalid())
+                return;
             var level = grid.Level;
-            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(entity, seedDef, null, heldItemData));
+            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(output, seedDef, null, heldItemData));
         }
         #endregion
 
@@ -171,32 +173,36 @@ namespace MVZ2.Vanilla.Grids
                 return null;
             return placementDef.GetPlaceError(grid, entityDef);
         }
-        public static Entity? PlaceEntityBlueprint(this LawnGrid grid, SeedDefinition seedDef, PlaceParams param)
+        public static PlaceOutput PlaceEntityBlueprint(this LawnGrid grid, SeedDefinition seedDef, PlaceParams param)
         {
             var id = seedDef.GetSeedEntityID();
-            if (id == null) return null;
-            return PlaceEntity(grid, id, param);
+            if (id != null)
+                return PlaceEntity(grid, id, param);
+            return PlaceOutput.InvalidOutput;
         }
-        public static Entity? PlaceEntity(this LawnGrid grid, NamespaceID entityID, PlaceParams param)
+        public static PlaceOutput PlaceEntity(this LawnGrid grid, NamespaceID entityID, PlaceParams param)
         {
             var level = grid.Level;
             var entityDef = level.Content.GetEntityDefinition(entityID);
-            if (entityDef == null)
-                return null;
-            return grid.PlaceEntity(entityDef, param);
+            if (entityDef != null)
+                return grid.PlaceEntity(entityDef, param);
+            return PlaceOutput.InvalidOutput;
         }
-        public static Entity? PlaceEntity(this LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
+        public static PlaceOutput PlaceEntity(this LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
             var level = grid.Level;
             var placementID = entityDef.GetPlacementID();
-            if (placementID == null)
-                return null;
-            var placement = level.Content.GetPlacementDefinition(placementID);
-            if (placement == null)
-                return null;
-            return grid.PlaceEntity(entityDef, placement, param);
+            if (placementID != null)
+            {
+                var placement = level.Content.GetPlacementDefinition(placementID);
+                if (placement != null)
+                {
+                    return grid.PlaceEntity(entityDef, placement, param);
+                }
+            }
+            return PlaceOutput.InvalidOutput;
         }
-        public static Entity? PlaceEntity(this LawnGrid grid, EntityDefinition entityDef, PlacementDefinition placement, PlaceParams param)
+        public static PlaceOutput PlaceEntity(this LawnGrid grid, EntityDefinition entityDef, PlacementDefinition placement, PlaceParams param)
         {
             return placement.PlaceEntity(grid, entityDef, param);
         }

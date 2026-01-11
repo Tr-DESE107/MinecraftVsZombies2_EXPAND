@@ -52,6 +52,8 @@ namespace PVZEngine.Entities
         public void Init()
         {
             PreviousPosition = Position;
+            IsOnGround = GetRelativeY() <= Mathf.Epsilon;
+
             Health = this.GetMaxHealth();
             UpdateAllModifiedProperties(true);
             Definition.Init(this);
@@ -88,7 +90,7 @@ namespace PVZEngine.Entities
                 Level.RemoveEntity(this);
 
                 // 将取用的传送带种子放回传送带池中。
-                PutBackConveyorSeeds();
+                ClearTakenConveyorSeeds();
 
                 // 触发实体移除回调。
                 Definition.PostRemove(this);
@@ -217,11 +219,11 @@ namespace PVZEngine.Entities
             }
             return true;
         }
-        private void PutBackConveyorSeeds()
+        public void ClearTakenConveyorSeeds()
         {
             foreach (var pair in takenConveyorSeeds)
             {
-                Level.PutSeedToConveyorPool(pair.Key, pair.Value);
+                Level.PutSeedToConveyorDiscardPile(pair.Key, pair.Value);
             }
             takenConveyorSeeds.Clear();
         }

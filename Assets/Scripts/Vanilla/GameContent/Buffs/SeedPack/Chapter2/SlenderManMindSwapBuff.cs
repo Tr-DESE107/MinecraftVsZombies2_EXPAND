@@ -6,7 +6,6 @@ using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
@@ -56,7 +55,7 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
             var drawn = seedPack.GetDrawnConveyorSeed();
             if (NamespaceID.IsValid(drawn))
             {
-                buff.Level.PutSeedToConveyorPool(drawn);
+                buff.Level.PutSeedToConveyorDiscardPile(drawn);
                 seedPack.SetDrawnConveyorSeed(null);
             }
             if (buff.Level.IsHoldingBlueprint(seedPack))

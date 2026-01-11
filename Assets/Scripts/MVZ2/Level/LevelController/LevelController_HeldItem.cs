@@ -173,7 +173,7 @@ namespace MVZ2.Level
             bool pickaxeDisabled = !level.CanUsePickaxe();
             bool starshardDisabled = level.IsStarshardDisabled();
             var uiPreset = GetUIPreset();
-            uiPreset.SetStarshardSelected(level.IsHoldingStarshard());
+            uiPreset.SetStarshardSelected(level.GetHeldItemType() == level.GetStarshardHeldType());
             uiPreset.SetStarshardDisabled(starshardDisabled && level.ShouldShowStarshardDisableIcon());
 
             var limit = level.GetPickaxeCountLimit();

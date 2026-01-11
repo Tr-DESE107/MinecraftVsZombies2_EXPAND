@@ -6,6 +6,7 @@ using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Metas

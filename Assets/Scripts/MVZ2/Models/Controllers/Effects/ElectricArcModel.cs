@@ -6,29 +6,16 @@ namespace MVZ2.Models
 {
     public class ElectricArcModel : ModelComponent
     {
+        public override void LoadFromSerializable(SerializableModelData serializable)
+        {
+            base.LoadFromSerializable(serializable);
+            UpdateLine();
+        }
         public override void UpdateLogic()
         {
             base.UpdateLogic();
-            var rng = Model.GetRNG();
-
-            foreach (LightningGenerator lightning in lightnings)
-            {
-                LineRenderer renderer = lightning.LineRenderer;
-                int count = renderer.positionCount;
-                var parent = renderer.transform.parent;
-                for (int i = 1; i < count - 1; i++)
-                {
-                    float percent = (float)i / count;
-                    float modifier = -4 * Mathf.Pow(percent - 0.5f, 2) + 1;
-                    Vector3 localPosition = renderer.GetPosition(i);
-                    var worldPosition = parent.TransformPoint(localPosition);
-                    worldPosition.x += rng.Next(-arcShiver, arcShiver) * modifier;
-                    worldPosition.y += (rng.Next(-arcShiver, arcShiver) + arcLevitation) * modifier;
-                    worldPosition.z += rng.Next(-arcShiver, arcShiver) * modifier;
-                    localPosition = parent.InverseTransformPoint(worldPosition);
-                    renderer.SetPosition(i, localPosition);
-                }
-            }
+            UpdateLevitation();
+            UpdateLine();
         }
         public override void UpdateFrame(float deltaTime)
         {
@@ -40,8 +27,40 @@ namespace MVZ2.Models
             base.OnTrigger(name);
             if (name == "Update")
             {
-                UpdateLines();
+                UpdateLinePoints();
                 UpdateDirection();
+                UpdateLine();
+            }
+        }
+        private void UpdateLevitation()
+        {
+            Vector3[][]? points = Model.GetProperty<Vector3[][]>("points");
+
+            if (points == null)
+                return;
+            var rng = Model.GetRNG();
+
+            for (int p = 0; p < points.Length; p++)
+            {
+                var linePoints = points[p];
+                if (linePoints == null)
+                    continue;
+                var lightning = lightnings[p];
+                int count = linePoints.Length;
+                var parent = lightning.transform.parent;
+                for (int i = 1; i < count - 1; i++)
+                {
+                    float percent = (float)i / count;
+                    float modifier = -4 * Mathf.Pow(percent - 0.5f, 2) + 1;
+
+                    Vector3 localPosition = linePoints[i];
+                    var worldPosition = parent.TransformPoint(localPosition);
+                    worldPosition.x += rng.Next(-arcShiver, arcShiver) * modifier;
+                    worldPosition.y += (rng.Next(-arcShiver, arcShiver) + arcLevitation) * modifier;
+                    worldPosition.z += rng.Next(-arcShiver, arcShiver) * modifier;
+                    localPosition = parent.InverseTransformPoint(worldPosition);
+                    linePoints[i] = localPosition;
+                }
             }
         }
         private void UpdateDirection()
@@ -52,12 +71,40 @@ namespace MVZ2.Models
             sourceTransform.rotation = Quaternion.FromToRotation(Vector3.right, distance);
             sourceTransform.localScale = new Vector3(distance.magnitude, 1, 1);
         }
-        private void UpdateLines()
+        private void UpdateLine()
+        {
+            Vector3[][]? points = Model.GetProperty<Vector3[][]>("points");
+
+            if (points == null)
+                return;
+            for (int i = 0; i < points.Length; i++)
+            {
+                var lightning = lightnings[i];
+                var renderer = lightning.LineRenderer;
+                var linePoints = points[i];
+                if (linePoints == null)
+                    continue;
+                lightning.LineRenderer.positionCount = linePoints.Length;
+                renderer.SetPositions(linePoints);
+            }
+        }
+        private void UpdateLinePoints()
         {
             var pointCount = Model.GetProperty<int>("PointCount");
-            foreach (LightningGenerator lightning in lightnings)
+            Vector3[][]? points = Model.GetProperty<Vector3[][]>("points");
+            if (points == null)
             {
-                lightning.GenerateLightning(pointCount, sourceTransform.localPosition, destTransform.localPosition, Model.GetRNG());
+                points = new Vector3[lightnings.Length][];
+                Model.SetProperty("points", points);
+            }
+            for (int i = 0; i < points.Length; i++)
+            {
+                var lightning = lightnings[i];
+                var generated = LightningGenerator.GenerateLightning(pointCount, sourceTransform.localPosition, destTransform.localPosition, lightning.amplitude, Model.GetRNG());
+                if (generated != null)
+                {
+                    points[i] = generated;
+                }
             }
         }
         [SerializeField]

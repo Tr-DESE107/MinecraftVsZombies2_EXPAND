@@ -63,6 +63,11 @@ namespace MVZ2.GameContent.Projectiles
         public const string RedKnife = "RedKnife";
         public const string CopperBall = "CopperBall";
         public const string CopperOreBall = "CopperOreBall";
+        public const string PulseArrow = "PulseArrow";
+        public const string NightmareBall = "NightmareBall";
+        public const string IcedBolt = "IcedBolt";
+        public const string BloodBolt = "BloodBolt";
+        public const string BigFireCharge = "BigFireCharge";
     }
     public static class VanillaProjectileID
     {
@@ -123,6 +128,11 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID largePoisonball = Get(VanillaProjectileNames.largePoisonball);
         public static readonly NamespaceID CopperBall = Get(VanillaProjectileNames.CopperBall);
         public static readonly NamespaceID CopperOreBall = Get(VanillaProjectileNames.CopperOreBall);
+        public static readonly NamespaceID PulseArrow = Get(VanillaProjectileNames.PulseArrow);
+        public static readonly NamespaceID NightmareBall = Get(VanillaProjectileNames.NightmareBall);
+        public static readonly NamespaceID IcedBolt = Get(VanillaProjectileNames.IcedBolt);
+        public static readonly NamespaceID BloodBolt = Get(VanillaProjectileNames.BloodBolt);
+        public static readonly NamespaceID BigFireCharge = Get(VanillaProjectileNames.BigFireCharge);
 
         private static NamespaceID Get(string name)
         {

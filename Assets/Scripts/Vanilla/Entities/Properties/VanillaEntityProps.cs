@@ -12,9 +12,9 @@ namespace MVZ2.Vanilla.Entities
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaEntityProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T? defaultValue = default)
         {
-            return new PropertyMeta<T>(name);
+            return new PropertyMeta<T>(name, defaultValue);
         }
         public static readonly PropertyMeta<float> MASS = Get<float>("mass");
         public static void SetMass(this Entity entity, float value)
@@ -54,9 +54,12 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 射击
+        public static readonly Vector3 SHOT_PIVOT_DEFAULT = new Vector3(0.5f, 0.5f, 0.5f);
+        public static readonly Vector3 SHOT_PIVOT_BOTTOM = new Vector3(0.5f, 0, 0.5f);
         public static readonly PropertyMeta<float> RANGE = Get<float>("range");
         public static readonly PropertyMeta<Vector3> SHOT_VELOCITY = Get<Vector3>("shotVelocity");
         public static readonly PropertyMeta<Vector3> SHOT_OFFSET = Get<Vector3>("shotOffset");
+        public static readonly PropertyMeta<Vector3> SHOT_PIVOT = Get<Vector3>("shot_pivot", SHOT_PIVOT_DEFAULT);
         public static readonly PropertyMeta<NamespaceID> SHOOT_SOUND = Get<NamespaceID>("shootSound");
         public static readonly PropertyMeta<NamespaceID> PROJECTILE_ID = Get<NamespaceID>("projectileId");
         public static void SetRange(this Entity entity, float value)
@@ -75,6 +78,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<Vector3>(SHOT_OFFSET, ignoreBuffs: ignoreBuffs);
         }
+        public static Vector3 GetShotPivot(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<Vector3>(SHOT_PIVOT, ignoreBuffs: ignoreBuffs);
+        }
         public static NamespaceID? GetShootSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(SHOOT_SOUND);
@@ -89,6 +96,10 @@ namespace MVZ2.Vanilla.Entities
         public static readonly PropertyMeta<float> DAMAGE = Get<float>("damage");
         public static readonly PropertyMeta<float> ATTACK_SPEED = Get<float>("attackSpeed");
 
+        public static float GetDamage(this EntityDefinition entity)
+        {
+            return entity.GetProperty<float>(DAMAGE);
+        }
         public static float GetDamage(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<float>(DAMAGE, ignoreBuffs: ignoreBuffs);

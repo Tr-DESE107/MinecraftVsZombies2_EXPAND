@@ -22,6 +22,10 @@ namespace MVZ2.GameContent.Shells
             {
                 damageInfo.Multiply(0.5f);
             }
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.FIRE))
+            {
+                damageInfo.Multiply(0.5f);
+            }
         }
     }
 }

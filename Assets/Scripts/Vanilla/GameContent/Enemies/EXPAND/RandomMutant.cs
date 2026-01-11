@@ -29,6 +29,7 @@ namespace MVZ2.Vanilla.Enemies
 
             // ���������ʬ  
             SpawnRandomEnemy(entity);
+            entity.Remove();
         }
 
         /// <summary>  
