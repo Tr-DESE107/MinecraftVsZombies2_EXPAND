@@ -1206,7 +1206,7 @@
                 <int name="mvz2:cost" value="200" />
             </properties>
         </dispenser>
-        <dispenser id="beacon" name="信标" tooltip="向五个方向发射手里剑">
+        <dispenser id="beacon" name="信标" tooltip="向六个方向发射手里剑">
             <unlock>
                 <condition required="mvz2:level.ship_6" />
             </unlock>
@@ -1770,7 +1770,7 @@
 
 				<vector3 name="mvz2:size" x="48" y="48" z="48" />
 				<int name="mvz2:cost" value="400" />
-				<id name="mvz2:rechargeId" value="mvz2:short" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</contraption>
 		

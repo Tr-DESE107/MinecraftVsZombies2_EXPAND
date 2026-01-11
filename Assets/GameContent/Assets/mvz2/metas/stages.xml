@@ -1811,7 +1811,6 @@
 			<spawn id="mvz2:anubisand" />
 			<spawn id="mvz2:Anubiskull" />
 			<spawn id="mvz2:RaiderSkull" />
-			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
         <time firstWave="1" waveMax="2" waveAdvance="2" />
         <properties>
