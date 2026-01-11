@@ -689,7 +689,7 @@ namespace MVZ2.GameContent.Bosses
                     {
                         entity.Die(new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), dragon);
                     }
-                    else if (entity.IsEntityOf(VanillaEffectID.gridFire))
+                    else if (entity.IsEntityOf(VanillaEffectID.gridFire) || entity.IsEntityOf(VanillaEffectID.waterStain))
                     {
                         entity.Remove();
                     }
