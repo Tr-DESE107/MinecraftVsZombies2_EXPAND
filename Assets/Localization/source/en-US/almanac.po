@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-11 07:26+0800\n"
-"PO-Revision-Date: 2026-01-11 19:29+0800\n"
+"POT-Creation-Date: 2026-01-12 08:56+0800\n"
+"PO-Revision-Date: 2026-01-12 22:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1975,6 +1975,58 @@ msgstr ""
 "\n"
 "\n"
 "could you please stop throwing at me!"
+
+#. Header for contraptions mvz2:cursed_candle
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。"
+msgstr "Monsters that destroy Cursed Candles will be cursed, continuously taking fire damage, and will explode upon death."
+
+#. Properties for contraptions mvz2:cursed_candle
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"火焰伤害：<color=red>20/秒</color>\n"
+"爆炸伤害：<color=red>900</color>\n"
+"爆炸半径：<color=red>1.5格</color>\n"
+"特点：<color=red>不会触发死亡效果</color>\n"
+"技能：<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍，并且被炸死的其他怪物也不会触发死亡效果。</color>"
+msgstr ""
+"Fire damage: <color=red>20/s</color>\n"
+"Explosion damage: <color=red>900</color>\n"
+"Explosion radius: <color=red>1.5 tiles</color>\n"
+"Special: <color=red>Does not trigger the monster's death effects</color>\n"
+"Evocation: <color=red>Being placed on a cake, the explosion radius and damage of the monsters' self-destruction are doubled. Other "
+"monsters killed by the explosion will not trigger their death effects.</color>"
+
+#. Flavor for contraptions mvz2:cursed_candle
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"<b>项目编号：</b>MCP-310\n"
+"<b>项目等级：</b>Safe\n"
+"<b>特殊收容措施：</b>项目MCP-310应放置在一个由阻燃材料制成的容器内，并存放于一间未经授权不得进入的房间中，附近的研究室不得有任何可燃"
+"物。\n"
+"<b>描述：</b>MCP-310是一支白色偏绿的蜡烛，由未知生物的脂肪制成。无论何时，其总是处于点燃状态，蜡烛火焰呈绿色，且不可通过大部分方式熄"
+"灭。\n"
+"若有生物试图对蜡烛本体造成物理损害，则蜡烛会在极短的时间内燃尽，同时使用绿色火焰点燃该生物。若生物在此状态下死亡，则该生物的尸体会发生"
+"爆炸，爆炸当量相当于约0.5立方米的TNT炸药。蜡烛在燃尽的30秒之后会快速再生，并恢复成最初的结构。\n"
+"若MCP-310被插入到一块蛋糕之上，该蛋糕会立即被转换为绿色。若此时有生物对蜡烛或蛋糕产生物理损害，则蜡烛和蛋糕会同时燃尽并点燃该生物，之后"
+"若该生物死亡，则[数据删除]（在■■■■-■■-■■这一天造成了事件[已编辑]）。"
+msgstr ""
+"<b>Item #: </b>MCP-310\n"
+"<b>Object Class: </b>Safe\n"
+"<b>Special Containment Procedures: </b>MCP-310 is to be placed inside a container constructed of fire-resistant materials and stored "
+"within a restricted-access room. No flammable materials are permitted in nearby laboratories.\n"
+"<b>Description: </b>MCP-310 is a white candle with a greenish tint, composed of the fat of an unknown organism. It is perpetually lit, "
+"with a flame of green color, and cannot be extinguished by most methods.\n"
+"Any attempt by a living organism to cause physical damage to the candle results in the candle combusting within a brief period, and "
+"igniting the organism with green flames. Death of the organism in this state causes its body to explode, with a yield equivalent to "
+"approximately 0.5 cubic meters of TNT. Thirty seconds after being fully consumed, the candle will rapidly regenerate and return to its "
+"original structure.\n"
+"If MCP-310 is inserted into a cake, the cake will immediately turn green. At this stage, if any organism physically damages either the "
+"candle or the cake, both will burn down simultaneously and ignite the organism. If the organism subsequently dies, [REDACTED] (this "
+"caused the [DATA EXPUNGED] incident on ██-██-████)."
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -5946,6 +5998,18 @@ msgstr "Gravel-pult"
 msgctxt "entity.tooltip"
 msgid "投出燧石或沙砾"
 msgstr "Throw flints or gravels"
+
+#. Name for entity mvz2:cursed_candle
+#: Entity meta file
+msgctxt "entity.name"
+msgid "诅咒蜡烛"
+msgstr "Cursed Candle"
+
+#. Tooltip for entity mvz2:cursed_candle
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "诅咒并焚烧怪物，使其自爆"
+msgstr "Curse an enemy, make it burn and explode"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file

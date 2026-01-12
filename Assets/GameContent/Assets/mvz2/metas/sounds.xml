@@ -70,6 +70,13 @@
     <sound name="buzzer" maxCount="4" priority="64">
         <sample path="mvz2:buzzer" weight="1" />
     </sound>
+    <sound name="candle_break">
+        <sample path="mvz2:random/candle/break1" weight="1" />
+        <sample path="mvz2:random/candle/break2" weight="1" />
+        <sample path="mvz2:random/candle/break3" weight="1" />
+        <sample path="mvz2:random/candle/break4" weight="1" />
+        <sample path="mvz2:random/candle/break5" weight="1" />
+    </sound>
     <sound name="cash_register">
         <sample path="mvz2:cash_register" weight="1" />
     </sound>
@@ -417,6 +424,9 @@
     <sound name="gulp">
         <sample path="mvz2:gulp" weight="1" />
     </sound>
+    <sound name="happy_birthday">
+        <sample path="mvz2:happy_birthday" weight="1" />
+    </sound>
     <sound name="harp">
         <sample path="mvz2:harp" weight="1" />
     </sound>
@@ -558,6 +568,9 @@
     </sound>
     <sound name="nimble_fabric">
         <sample path="mvz2:nimble_fabric" weight="1" />
+    </sound>
+    <sound name="nukeblast">
+        <sample path="mvz2:nukeblast" weight="1" />
     </sound>
     <sound name="nyaightmare_scream">
         <sample path="mvz2:nyaightmare_scream" weight="1" />

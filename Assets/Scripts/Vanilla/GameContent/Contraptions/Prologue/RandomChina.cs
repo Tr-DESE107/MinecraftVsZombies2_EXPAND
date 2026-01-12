@@ -2,7 +2,6 @@
 
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Localization;
@@ -21,18 +20,14 @@ using Tools;
 namespace MVZ2.GameContent.Contraptions
 {
     [AutoEntityBehaviourDefinition(VanillaContraptionNames.randomChina)]
-    public class RandomChina : ContraptionBehaviour
+    public class RandomChina : ContraptionBehaviour, IDeathEffectsBehaviour
     {
         public RandomChina(string nsp, string name) : base(nsp, name)
         {
         }
 
-        public override void PostDeath(Entity entity, DeathInfo damageInfo)
+        public void DeathEffects(Entity entity, DeathInfo damageInfo)
         {
-            base.PostDeath(entity, damageInfo);
-            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
-
             var grid = entity.GetGrid();
             if (grid == null)
                 return;

@@ -18,7 +18,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
-    public class HellChariot : AIEntityBehaviour, IDestroyBySpikesEntityBehaviour
+    public class HellChariot : AIEntityBehaviour, IDestroyBySpikesEntityBehaviour, IDeathEffectsBehaviour
     {
         public HellChariot(string nsp, string name) : base(nsp, name)
         {
@@ -130,14 +130,13 @@ namespace MVZ2.GameContent.Enemies
             {
                 Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
             }
-
-            if (!info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-            {
-                var anubisandOffset = ANUBISAND_OFFSET;
-                anubisandOffset.x *= entity.GetFacingX();
-                var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
-                entity.Remove();
-            }
+        }
+        public void DeathEffects(Entity entity, DeathInfo info)
+        {;
+            var anubisandOffset = ANUBISAND_OFFSET;
+            anubisandOffset.x *= entity.GetFacingX();
+            var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
+            entity.Remove();
         }
         #endregion
 

@@ -1214,7 +1214,7 @@ namespace MVZ2.GameContent.Bosses
                         {
                             target.PlayDeathSound();
                         }
-                        target.Die(new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER), entity);
+                        target.Die(new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS), entity);
                         EatEntity(entity, target);
                     }
                     else

@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.HeldItems
                     {
                         if (IsParalyzed(entity.Level))
                             break;
-                        var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
+                        var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS);
                         entity.TakeDamageNoSource(750, effects);
                         if (entity.IsDead)
                         {

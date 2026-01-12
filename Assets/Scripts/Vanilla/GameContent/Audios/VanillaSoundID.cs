@@ -119,6 +119,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID gulp = Get("gulp");
         public readonly static NamespaceID gunReload = Get("gun_reload");
         public readonly static NamespaceID gunShot = Get("gun_shot");
+        public readonly static NamespaceID happyBirthday = Get("happy_birthday");
         public readonly static NamespaceID harp = Get("harp");
         public readonly static NamespaceID horseAngry = Get("horse_angry");
         public readonly static NamespaceID horseGallop = Get("horse_gallop");
@@ -153,6 +154,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID nightmareaperDeath = Get("nightmareaper_death");
         public readonly static NamespaceID nightmarePortal = Get("nightmare_portal");
         public readonly static NamespaceID nimbleFabric = Get("nimble_fabric");
+        public readonly static NamespaceID nukeblast = Get("nukeblast");
         public readonly static NamespaceID nyaightmareScream = Get("nyaightmare_scream");
         public readonly static NamespaceID odd = Get("odd");
         public readonly static NamespaceID pacmanStart = Get("pacman_start");

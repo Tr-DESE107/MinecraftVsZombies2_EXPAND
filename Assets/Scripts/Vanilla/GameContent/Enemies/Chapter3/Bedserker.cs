@@ -17,7 +17,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.bedserker)]
-    public class Bedserker : AIEntityBehaviour
+    public class Bedserker : AIEntityBehaviour, IDeathEffectsBehaviour
     {
         public Bedserker(string nsp, string name) : base(nsp, name)
         {
@@ -65,11 +65,8 @@ namespace MVZ2.GameContent.Enemies
                 entity.SetProperty(PROP_COLOR_OFFSET, color);
             }
         }
-        public override void PostDeath(Entity entity, DeathInfo info)
+        public void DeathEffects(Entity entity, DeathInfo info)
         {
-            base.PostDeath(entity, info);
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.BYPASS_BOSS_ARMOR);
             Berserker.Explode(entity, entity.GetDamage() * 18, effects, VanillaFactions.NEUTRAL);
             entity.Level.ShakeScreen(20, 0, 30);

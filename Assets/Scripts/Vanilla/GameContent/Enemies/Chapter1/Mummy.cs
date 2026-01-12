@@ -13,16 +13,13 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.mummy)]
-    public class Mummy : AIEntityBehaviour
+    public class Mummy : AIEntityBehaviour, IDeathEffectsBehaviour
     {
         public Mummy(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void PostDeath(Entity entity, DeathInfo info)
+        public void DeathEffects(Entity entity, DeathInfo info)
         {
-            base.PostDeath(entity, info);
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             var param = entity.GetSpawnParams();
             param.SetProperty(EngineEntityProps.SCALE, entity.GetScale());
             var gas = entity.Spawn(VanillaEffectID.mummyGas, entity.Position, param);

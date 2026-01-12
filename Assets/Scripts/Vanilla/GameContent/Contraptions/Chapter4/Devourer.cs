@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Contraptions
             if (!devourer.IsHostile(other))
                 return;
             var level = devourer.Level;
-            var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER), devourer);
+            var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS), devourer);
             if (output != null)
             {
                 if (output.HasAnyFatal())
@@ -198,7 +198,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             else
             {
-                var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
+                var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS);
                 target.Die(effects, devourer);
                 var spawnParams = devourer.GetSpawnParams();
                 var entityID = target.GetDefinitionID();

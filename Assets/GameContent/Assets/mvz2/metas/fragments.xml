@@ -226,6 +226,12 @@
             <key hex="#645b5b" time="1" />
         </colorKeys>
     </fragment>
+    <fragment name="cursed_candle">
+        <colorKeys>
+            <key hex="#a3b6a1" time="0.75" />
+            <key hex="#95a693" time="1" />
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2" />

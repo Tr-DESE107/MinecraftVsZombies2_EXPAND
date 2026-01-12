@@ -138,8 +138,8 @@ namespace PVZEngine.Entities
                 return;
             IsDead = true;
             info = info ?? new DeathInfo(this, new DamageEffectList(), null, null);
-            Definition.PostDeath(this, info);
             var param = new LevelCallbacks.PostEntityDeathParams(this, info);
+            Definition.PostDeath(this, info);
             Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, param, Type);
         }
         public void Revive()

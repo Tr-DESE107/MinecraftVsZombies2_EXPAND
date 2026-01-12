@@ -84,6 +84,7 @@
 
     <model name="transfenser" type="entity" path="mvz2:contraption/palace/transfenser" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="gravelpult" type="entity" path="mvz2:contraption/palace/gravelpult" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="cursed_candle" type="entity" path="mvz2:contraption/palace/cursed_candle" width="64" height="64" xOffset="0" yOffset="-28" />
 
     <model name="infectenser" type="entity" path="mvz2:contraption/upgrade/infectenser" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="force_pad" type="entity" path="mvz2:contraption/upgrade/force_pad" width="64" height="64" xOffset="0" yOffset="-28" />
@@ -431,6 +432,8 @@
     <model name="dragon_fire_breath" type="entity" path="mvz2:effect/dragon_fire_breath" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="grid_fire" type="entity" path="mvz2:effect/grid_fire" width="80" height="80" xOffset="0" yOffset="-24"/>
     <model name="fallen_end_ship" type="entity" path="mvz2:effect/fallen_end_ship" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="nuke_smoke" type="entity" path="mvz2:effect/nuke_smoke" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="nuke_flash" type="entity" path="mvz2:effect/nuke_flash" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <model name="mega_glowing_laser" type="entity" path="mvz2:effect/mega_glowing_laser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
@@ -531,6 +534,7 @@
     <model name="vulnerable" type="icon" path="mvz2:icon/vulnerable" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="glowing_particles" type="icon" path="mvz2:icon/glowing_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="gravel_on_face" type="icon" path="mvz2:icon/gravel_on_face" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+    <model name="candle_cursed" type="icon" path="mvz2:icon/candle_cursed" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 </models>

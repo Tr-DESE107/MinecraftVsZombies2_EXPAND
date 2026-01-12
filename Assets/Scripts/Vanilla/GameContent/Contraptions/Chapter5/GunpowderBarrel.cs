@@ -25,7 +25,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [AutoEntityBehaviourDefinition(VanillaContraptionNames.gunpowderBarrel)]
-    public class GunpowderBarrel : ContraptionBehaviour
+    public class GunpowderBarrel : ContraptionBehaviour, IDeathEffectsBehaviour
     {
         public GunpowderBarrel(string nsp, string name) : base(nsp, name)
         {
@@ -51,11 +51,8 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateLogic(entity);
             entity.SetModelProperty("Furious", IsFurious(entity));
         }
-        public override void PostDeath(Entity entity, DeathInfo deathInfo)
+        public void DeathEffects(Entity entity, DeathInfo deathInfo)
         {
-            base.PostDeath(entity, deathInfo);
-            if (deathInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             var damage = entity.GetDamage() * entity.Level.GetGunpowderDamageMultiplier();
             var range = entity.GetRange();
             var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);

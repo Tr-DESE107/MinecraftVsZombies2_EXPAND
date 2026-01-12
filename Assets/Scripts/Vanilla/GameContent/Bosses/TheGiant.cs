@@ -106,7 +106,7 @@ namespace MVZ2.GameContent.Bosses
                 }
                 if (!other.IsInvincible() && !IsPacmanPanic(self))
                 {
-                    var damageEffects = new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER, VanillaDamageEffects.MUTE);
+                    var damageEffects = new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.MUTE);
                     var result = collision.OtherCollider.TakeDamage(self.GetDamage() * PACMAN_DAMAGE_MULTIPLIER, damageEffects, self);
                     if (result != null)
                     {

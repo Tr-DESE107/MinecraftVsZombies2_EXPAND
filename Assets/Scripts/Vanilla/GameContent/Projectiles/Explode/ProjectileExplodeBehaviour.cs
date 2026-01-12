@@ -17,7 +17,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileExplode)]
-    public class ProjectileExplodeBehaviour : EntityBehaviourDefinition
+    public class ProjectileExplodeBehaviour : EntityBehaviourDefinition, IDeathEffectsBehaviour
     {
         public ProjectileExplodeBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -31,11 +31,8 @@ namespace MVZ2.GameContent.Projectiles
                 return;
             param.damage.SetAmount(0);
         }
-        public override void PostDeath(Entity entity, DeathInfo damageInfo)
+        public void DeathEffects(Entity entity, DeathInfo damageInfo)
         {
-            base.PostDeath(entity, damageInfo);
-            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             Explode(entity);
         }
         public virtual void Explode(Entity entity)

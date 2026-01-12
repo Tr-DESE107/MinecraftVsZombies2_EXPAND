@@ -106,6 +106,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 6
             public const string transfenserGlowing = "transfenser_glowing";
+            public const string cursedCandle = "cursed_candle";
 
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";

@@ -99,8 +99,6 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             var points = GetPointCount(entity);
             for (int i = 0; i < points; i++)
             {

@@ -22,7 +22,7 @@ using PVZEngine.Grids;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.dullahan)]
-    public class Dullahan : AIEntityBehaviour
+    public class Dullahan : AIEntityBehaviour, IDeathEffectsBehaviour
     {
         public Dullahan(string nsp, string name) : base(nsp, name)
         {
@@ -80,13 +80,13 @@ namespace MVZ2.GameContent.Enemies
             entity.SetAnimationBool("Sitting", hasHorse);
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
         }
+        public void DeathEffects(Entity entity, DeathInfo info)
+        {
+            DropHead(entity);
+        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-            {
-                DropHead(entity);
-            }
             if (info.Source is GridSourceReference gridSource && !info.HasEffect(VanillaDamageEffects.FALL_DAMAGE))
             {
                 Global.Saves.Unlock(VanillaUnlockID.midasTouchdown);

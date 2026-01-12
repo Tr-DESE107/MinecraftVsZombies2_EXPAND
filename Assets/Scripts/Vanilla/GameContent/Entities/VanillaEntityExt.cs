@@ -1128,7 +1128,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void RemoveDie(this Entity entity, ILevelSourceReference? source)
         {
-            var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
+            var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS);
             entity.Die(effects, source);
         }
         #endregion
@@ -1179,6 +1179,14 @@ namespace MVZ2.Vanilla.Entities
             return destroyed;
         }
         #endregion
+        
+        #region 是否触发死亡效果
+        public static bool ShouldTriggerDeathEffects(this Entity entity, DeathInfo deathInfo)
+        {
+            return !deathInfo.HasEffect(VanillaDamageEffects.NO_DEATH_EFFECTS) && !entity.HasNoDeathEffects();
+        }
+        #endregion
+        
         public static float GetRealGroundLimitY(this Entity entity)
         {
             return entity.GetGroundLimitOffset() + entity.GetGroundY();

@@ -15,16 +15,13 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.berserker)]
-    public class Berserker : AIEntityBehaviour
+    public class Berserker : AIEntityBehaviour, IDeathEffectsBehaviour
     {
         public Berserker(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void PostDeath(Entity entity, DeathInfo info)
+        public void DeathEffects(Entity entity, DeathInfo info)
         {
-            base.PostDeath(entity, info);
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             Explode(entity, entity.GetDamage() * 3, entity.GetFaction());
             entity.Remove();
         }

@@ -829,6 +829,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10d45819ef5cd7845886a56d5ccfaa51
+    m_Address: mvz2:contraption/palace/cursed_candle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 10da8cfdbbbeb534289c57027874f461
     m_Address: mvz2:nightmare_final
     m_ReadOnly: 0
@@ -1396,6 +1403,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c2391ce9dd341b408db7b8b1af68796
+    m_Address: mvz2:random/candle/break3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c63d6c9c1c1b2346847a4534bad10bd
     m_Address: mvz2:random/crystal/crystal_place2
     m_ReadOnly: 0
@@ -1535,6 +1549,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f9731aef56f8a9449a39ea9108c2254
+    m_Address: mvz2:random/candle/break5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fa7f21a7f8675f47a19b64ae5086153
     m_Address: mvz2:mainmenu/mainmenu
@@ -2312,6 +2333,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3031cb0aa1ebb244e81b6d1159ecab97
+    m_Address: mvz2:bones/burst_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30972c61ea296a2468f76e78a6efa1f3
     m_Address: mvz2:note/halloween
     m_ReadOnly: 0
@@ -2752,6 +2780,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38fa7031475902948931383bca8bcb6e
+    m_Address: mvz2:effect/nuke_flash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 392d5a1a4322ba24193d5f42088e6c59
     m_Address: mvz2:ui/musicroom/bar_handler
     m_ReadOnly: 0
@@ -3094,6 +3129,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f15e8f8823ec6c45a5a2f8a59887be0
+    m_Address: mvz2:nukeblast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f506694625dacb4c929261f901c2f2b
     m_Address: mvz2:entity/wither_skeleton/wither_skeleton1
@@ -4670,6 +4712,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e80c4b0252f73b46ad933e98ae3b234
+    m_Address: mvz2:random/candle/break1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ec207595d8c8c7468bb08c2fe7381b7
     m_Address: mvz2:seija
     m_ReadOnly: 0
@@ -5103,6 +5152,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69dff67c4f56aa1499976c6384bf4759
+    m_Address: mvz2:random/candle/break4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a138a85fdcc6c147a57a18eb4bb10f5
     m_Address: mvz2:effect/combat_uppercut
@@ -5823,6 +5879,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a0cd4afb32350244b65a02292e94dfa
+    m_Address: mvz2:entity/effect/ember_cursed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3b8d97209e0b4429c62e23f1046a6c
     m_Address: mvz2:arcade
@@ -7784,6 +7847,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a17a216e852e4774d97c8c38418cadd8
+    m_Address: mvz2:random/candle/break2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a24f2a1292d3c6949ae1ebf80560127c
     m_Address: mvz2:mausoleum_level
     m_ReadOnly: 0
@@ -8182,6 +8252,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab574b9febe539e4890052bff2d1d491
+    m_Address: mvz2:effect/nuke_smoke
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aba492ffb3d38f745a0619b198a8ff73
     m_Address: mvz2:level/castle/castle
@@ -8659,6 +8736,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b54f9a09698355544b98c17330b09ff7
+    m_Address: mvz2:happy_birthday
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b54fb45c2064c9149942a6ea99c593f3
     m_Address: mvz2:entity/contraptions/stone_dropper
     m_ReadOnly: 0
@@ -8714,6 +8798,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b64d127ba254f6f4b9e04521dd13e6fd
+    m_Address: mvz2:entity/contraption/cursed_candle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6787cff33fe5384d8592394db3eac63
     m_Address: mvz2:projectile/charged_bolt
@@ -9582,6 +9673,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca9c1b4e6437f494c925cd74e28e6346
+    m_Address: mvz2:mobile_blueprint/cursed_candle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: caaaec08becb2de4b986b99ffb91cf42
     m_Address: mvz2:armor/berserker_helmet
@@ -10849,6 +10947,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e72a8259d18676c429d722b1ae177448
+    m_Address: mvz2:icon/candle_cursed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e732382db38cd764888b963c49cc59c5
     m_Address: mvz2:note/dream

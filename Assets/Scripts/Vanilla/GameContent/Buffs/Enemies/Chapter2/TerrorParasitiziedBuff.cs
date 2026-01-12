@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
@@ -24,7 +25,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public TerrorParasitizedBuff(string nsp, string name) : base(nsp, name)
         {
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.terrorParasitized, VanillaModelID.terrorParasitized);
-            AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback);
+            AddTrigger(LogicLevelCallbacks.ENTITY_DEATH_EFFECTS, EntityDeathEffectsCallback);
         }
         public override void PostAdd(Buff buff)
         {
@@ -67,12 +68,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             host.PlaySound(VanillaSoundID.bloody);
             host.EmitBlood();
         }
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void EntityDeathEffectsCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             foreach (var buff in entity.GetBuffs<TerrorParasitizedBuff>())
             {
                 var health = buff.GetProperty<float>(PROP_PARASITE_HEALTH);

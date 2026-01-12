@@ -5,7 +5,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Level;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -16,7 +16,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.shadowCell)]
-    public class ShadowCell : AIEntityBehaviour
+    public class ShadowCell : AIEntityBehaviour, IDeathEffectsBehaviour
     {
         public ShadowCell(string nsp, string name) : base(nsp, name)
         {
@@ -38,24 +38,27 @@ namespace MVZ2.GameContent.Enemies
             }
             entity.SetAnimationFloat("AnimationSpeed", entity.IsAIFrozen() ? 0 : 1);
         }
+
+        public void DeathEffects(Entity entity, DeathInfo info)
+        {
+            if (entity.HasBuff<SmallShadowCellBuff>())
+                return;
+            var lane = entity.GetLane();
+            var spawnParam = entity.GetSpawnParams();
+            for (int i = 0; i < 2; i++)
+            {
+                var laneOffset = i * 2 - 1;
+                var l = Mathf.Clamp(lane + laneOffset, 0, entity.Level.GetMaxLaneCount() - 1);
+                entity.Spawn(VanillaEnemyID.shadowCell, entity.Position, spawnParam)?.Let(e =>
+                {
+                    e.StartChangingLane(l, CHANGE_LANE_SPEED);
+                    e.AddBuff<SmallShadowCellBuff>();
+                });
+            }
+        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER) && !entity.HasBuff<SmallShadowCellBuff>())
-            {
-                var lane = entity.GetLane();
-                var spawnParam = entity.GetSpawnParams();
-                for (int i = 0; i < 2; i++)
-                {
-                    var laneOffset = i * 2 - 1;
-                    var l = Mathf.Clamp(lane + laneOffset, 0, entity.Level.GetMaxLaneCount() - 1);
-                    entity.Spawn(VanillaEnemyID.shadowCell, entity.Position, spawnParam)?.Let(e =>
-                    {
-                        e.StartChangingLane(l, CHANGE_LANE_SPEED);
-                        e.AddBuff<SmallShadowCellBuff>();
-                    });
-                }
-            }
             if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
             {
                 var param = entity.GetSpawnParams();

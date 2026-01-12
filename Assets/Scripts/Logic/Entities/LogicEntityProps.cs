@@ -302,6 +302,11 @@ namespace MVZ2Logic.Entities
         public static bool ShowHeightIndicator(this Entity entity) => entity.GetProperty<bool>(SHOW_HEIGHT_INDICATOR);
         public static void SetShowHeightIndicator(this Entity entity, bool value) => entity.SetProperty(SHOW_HEIGHT_INDICATOR, value);
         #endregion
-        
+
+        #region 死亡效果
+        public static readonly PropertyMeta<bool> NO_DEATH_EFFECTS = Get<bool>("no_death_effects");
+        public static bool HasNoDeathEffects(this Entity entity) => entity.GetProperty<bool>(NO_DEATH_EFFECTS);
+        public static void SetNoDeathEffects(this Entity entity, bool value) => entity.SetProperty(NO_DEATH_EFFECTS, value);
+        #endregion
     }
 }

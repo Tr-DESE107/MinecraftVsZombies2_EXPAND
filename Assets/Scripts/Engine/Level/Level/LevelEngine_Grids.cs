@@ -123,6 +123,13 @@ namespace PVZEngine.Level
         {
             return (GetGridBottomZ() + GetGridTopZ()) * 0.5f;
         }
+        public Vector3 GetLawnCenter()
+        {
+            var x = GetLawnCenterX();
+            var z = GetLawnCenterZ();
+            var y = GetGroundY(x, z);
+            return new Vector3(x, y, z);
+        }
         public int GetLane(float z)
         {
             return Mathf.FloorToInt((GetGridTopZ() - z) / GetGridHeight());

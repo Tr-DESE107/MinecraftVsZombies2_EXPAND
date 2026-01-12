@@ -107,6 +107,8 @@ namespace MVZ2.GameContent.Effects
         public const string fallenEndShip = "fallen_end_ship";
 
         public const string megaGlowingLaser = "mega_glowing_laser";
+        public const string nukeSmoke = "nuke_smoke";
+        public const string nukeFlash = "nuke_flash";
     }
     public static class VanillaEffectID
     {
@@ -210,6 +212,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID fallenEndShip = Get(VanillaEffectNames.fallenEndShip);
 
         public static readonly NamespaceID megaGlowingLaser = Get(VanillaEffectNames.megaGlowingLaser);
+        public static readonly NamespaceID nukeSmoke = Get(VanillaEffectNames.nukeSmoke);
+        public static readonly NamespaceID nukeFlash = Get(VanillaEffectNames.nukeFlash);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -201,6 +201,7 @@
     <buff id="transfenser_glowing" polarity="negative" level="0" target="entity" />
     <buff id="gravel_on_face" polarity="negative" level="0" target="enemy" />
     <buff id="small_shadow_cell" polarity="mixed" level="1000" target="enemy" />
+    <buff id="cursed_candle" polarity="negative" level="0" target="entity" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />

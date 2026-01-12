@@ -25,7 +25,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
-    public class UndeadFlyingObject : AIEntityBehaviour
+    public class UndeadFlyingObject : AIEntityBehaviour, IDeathEffectsBehaviour
     {
         public UndeadFlyingObject(string nsp, string name) : base(nsp, name)
         {
@@ -75,21 +75,22 @@ namespace MVZ2.GameContent.Enemies
                 behaviour.UpdateLogic(entity);
             }
         }
+
+        public void DeathEffects(Entity entity, DeathInfo info)
+        {
+            float damageMutliplier = entity.Level.GetReverseSatelliteDamageMultiplier();
+            float radius = EXPLOSION_RADIUS;
+            var damage = entity.GetDamage() * damageMutliplier;
+            if (damage >= 0)
+            {
+                entity.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION));
+            }
+            Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
+            entity.PlaySound(VanillaSoundID.explosion);
+        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) && !info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-            {
-                float damageMutliplier = entity.Level.GetReverseSatelliteDamageMultiplier();
-                float radius = EXPLOSION_RADIUS;
-                var damage = entity.GetDamage() * damageMutliplier;
-                if (damage >= 0)
-                {
-                    entity.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION));
-                }
-                Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
-                entity.PlaySound(VanillaSoundID.explosion);
-            }
             var variant = entity.GetVariant();
             if (behaviours.TryGetValue(variant, out var behaviour))
             {
