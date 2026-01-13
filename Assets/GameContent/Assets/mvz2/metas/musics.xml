@@ -447,4 +447,14 @@
             
         </description>
     </music>
+        <music id="DoubleTime(Tumble)" name="倍速翻滚">
+        <track main="mvz2:DoubleTime(Tumble)" />
+        <source>Minecraft: Battle/Tumble (Original Soundtrack)</source>
+        <description>
+            <p>小游戏的音乐。</p>
+            <p>我很喜欢的一首曲子</p>
+            <p />
+            <p></p>
+        </description>
+    </music>
 </musics>
