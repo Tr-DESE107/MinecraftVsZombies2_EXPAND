@@ -7707,6 +7707,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81446ae11c111504e930738934dcb5d6
+    m_Address: mvz2:DoubleTime(Tumble)
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 814e7d18a782a814082fba56dfa17f38
     m_Address: mvz2:entity/enemy/WintherHeadwear
     m_ReadOnly: 0

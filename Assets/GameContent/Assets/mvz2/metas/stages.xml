@@ -1126,7 +1126,7 @@
             <entry id="mvz2:CopperDropper" count="1" />
         </conveyor>
         <clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:WitherHeartShield" />
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3">
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2.5">
             <spawn id="mvz2:WitherSkeleton" />
             <spawn id="mvz2:LeatherWitherSkeleton" />
             <spawn id="mvz2:IronWitherSkeleton" />
@@ -1149,6 +1149,7 @@
         </spawns>
         <properties>
             <bool name="noEnergy" value="true" />
+			<float name="conveySpeed" value="1.25"/>
         </properties>
     </stage>
 
@@ -1798,24 +1799,28 @@
             <condition required="mvz2:level.ship_9" />
         </unlock>
         <conveyor>
-            <entry id="mvz2:tnt" count="1" minCount="0" />
+            <entry id="mvz2:tnt" count="10"/>
             <entry id="mvz2:black_hole_bomb" count="1" />
-            <entry id="mvz2:lightning_orb" count="5" />
+            <entry id="mvz2:lightning_orb" count="1" />
             <entry id="mvz2:magichest" count="1" minCount="0" />
+			<entry id="mvz2:firework_dispenser" count="1" />
+			<entry id="mvz2:SuperFireworkDispenser" count="1" />
         </conveyor>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-		<spawns flags="3" pointsMultiplier="2" pointsAddition="1">
+		<spawns flags="3" pointsMultiplier="1.8" pointsAddition="1">
 			<spawn id="mvz2:undead_flying_object_blitz" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:ghast" />
 			<spawn id="mvz2:anubisand" />
 			<spawn id="mvz2:Anubiskull" />
 			<spawn id="mvz2:RaiderSkull" />
+			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
-        <time firstWave="1" waveMax="2" waveAdvance="2" />
+        <time firstWave="1" waveMax="3" waveAdvance="3" />
         <properties>
             <bool name="noEnergy" value="true" />
-        </properties>
+			<float name="conveySpeed" value="1.5"/>
+		</properties>
     </stage>
 
     <!-- Bosses' Revenge -->
