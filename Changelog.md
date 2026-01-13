@@ -5,6 +5,8 @@
 ### Balance
 - Moonlight Sensor
   - Material: Stone -> Wood
+- Spike Block
+  - Now can destroy multiple Hell Chariots at once.
 - Jeweled Pagoda
   - Recharge time: Very Long -> Short
   - Tile disabling duration: 4 minutes -> 2 minutes

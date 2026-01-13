@@ -24,13 +24,46 @@ namespace PVZEngine.Armors
         {
             return behaviours.Remove(behaviour);
         }
-        public bool HasBehaviour(NamespaceID behaviour)
+        public bool HasBehaviourID(ArmorBehaviourDefinition behaviour)
         {
-            return behaviours.Contains(behaviour);
+            return HasBehaviour(behaviour.GetID());
+        }
+        public bool HasBehaviourID(NamespaceID id)
+        {
+            return behaviours.Contains(id);
         }
         public bool HasBehaviour(ArmorBehaviourDefinition behaviour)
         {
-            return HasBehaviour(behaviour.GetID());
+            return behaviourCaches.Contains(behaviour);
+        }
+        public bool HasBehaviour<T>()
+        {
+            return behaviourCaches.Exists(b => b is T);
+        }
+        public bool HasBehaviour(NamespaceID id)
+        {
+            return behaviourCaches.Exists(b => b.GetID() == id);
+        }
+        public T? GetBehaviour<T>()
+        {
+            foreach (var behaviour in behaviourCaches)
+            {
+                if (behaviour is T tBehaviour)
+                    return tBehaviour;
+            }
+            return default;
+        }
+        public ArmorBehaviourDefinition GetBehaviourAt(int behaviour)
+        {
+            return behaviourCaches[behaviour];
+        }
+        public int GetBehaviourCount()
+        {
+            return behaviourCaches.Count;
+        }
+        public T[] GetBehaviours<T>()
+        {
+            return behaviourCaches.OfType<T>().ToArray();
         }
         public void PostUpdate(Armor armor)
         {

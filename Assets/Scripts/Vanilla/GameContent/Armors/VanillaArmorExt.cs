@@ -117,5 +117,25 @@ namespace MVZ2.Vanilla.Armors
         {
             return VanillaEntityExt.Heal(new HealInput(amount, armor.Owner, armor, source));
         }
+        #region ±»¼â´Ì´Ý»Ù
+        public static bool TryDestroyBySpikes(this Armor armor, Entity source)
+        {
+            bool destroyed = false;
+            var definition = armor.Definition;
+            var count = definition.GetBehaviourCount();
+            for (int i = 0; i < count; i++)
+            {
+                var behaviour = definition.GetBehaviourAt(i);
+                if (behaviour is not IDestroyBySpikesArmorBehaviour entityBehaviour)
+                    continue;
+                if (entityBehaviour.CanBeDestroyedBySpikes(armor, source))
+                {
+                    entityBehaviour.DestroyBySpikes(armor, source);
+                    destroyed = true;
+                }
+            }
+            return destroyed;
+        }
+        #endregion
     }
 }

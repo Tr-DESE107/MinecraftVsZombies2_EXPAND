@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -30,7 +31,9 @@ namespace MVZ2.GameContent.Contraptions
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            SetAttackTimer(entity, new FrameTimer(AttackCooldown));
+            var attackTimer = new FrameTimer(AttackCooldown);
+            attackTimer.Frame = 1; // 为了让尖刺能够在放下之后立即扎车
+            SetAttackTimer(entity, attackTimer);
             SetEvocationTimer(entity, new FrameTimer(EvocationDuration));
         }
         protected override void UpdateAI(Entity entity)
@@ -49,6 +52,16 @@ namespace MVZ2.GameContent.Contraptions
                         foreach (var target in detectBuffer)
                         {
                             target.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.GROUND_SPIKES), entity);
+                            if (target.TryDestroyBySpikes(entity))
+                            {
+                                entity.TakeDamage(entity.GetTakenCrushDamage(), new DamageEffectList(VanillaDamageEffects.GRIND), target.Entity)?.Let(o =>
+                                {
+                                    if (o.BodyResult != null && o.BodyResult.Fatal)
+                                    {
+                                        entity.PlaySound(VanillaSoundID.smash);
+                                    }
+                                });
+                            }
                         }
                         entity.TriggerAnimation("Attack");
                         damaged = true;

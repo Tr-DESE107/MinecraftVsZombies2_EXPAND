@@ -18,7 +18,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
-    public class HellChariot : AIEntityBehaviour
+    public class HellChariot : AIEntityBehaviour, IDestroyBySpikesEntityBehaviour
     {
         public HellChariot(string nsp, string name) : base(nsp, name)
         {
@@ -78,46 +78,49 @@ namespace MVZ2.GameContent.Enemies
             if (!collision.Collider.IsForMain())
                 return;
             var other = collision.Other;
-            if (other.IsDead || !other.IsVulnerableEntity())
+            if (!other.IsVulnerableEntity())
                 return;
             var chariot = collision.Entity;
-            if (IsPunctured(chariot))
-                return;
-            if (!chariot.IsHostile(other))
+            if (IsPunctured(chariot) || !chariot.IsHostile(other))
                 return;
 
-            bool blocked = false;
             float damage = other.GetTakenCrushDamage();
             var vehicleInteraction = other.GetVehicleInteraction();
-            if (vehicleInteraction == VehicleInteraction.BLOCK)
+            switch (vehicleInteraction)
             {
-                damage = chariot.GetDamage() * 0.1f;
-            }
-            var output = collision.OtherCollider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), chariot);
-            if (output != null)
-            {
-                if (output.BodyResult != null && output.BodyResult.Fatal && other.Type == EntityTypes.PLANT)
-                {
-                    other.PlaySound(VanillaSoundID.smash);
-                }
-            }
-            if (other.IsInvincible() || vehicleInteraction == VehicleInteraction.BLOCK)
-            {
-                blocked = true;
+                case VehicleInteraction.BLOCK:
+                    damage = chariot.GetDamage() * 0.1f;
+                    break;
+                case VehicleInteraction.IGNORE:
+                    return;
             }
 
-            if (blocked)
+            if (!other.IsDead)
             {
-                var vel = chariot.Velocity;
-                if (vel.x * chariot.GetFacingX() > 0)
+                if (vehicleInteraction == VehicleInteraction.BLOCK || other.IsInvincible())
                 {
-                    vel.x = 0;
+                    var vel = chariot.Velocity;
+                    if (vel.x * chariot.GetFacingX() > 0)
+                    {
+                        vel.x = 0;
+                    }
+                    chariot.Velocity = vel;
                 }
-                chariot.Velocity = vel;
-            }
-            if (vehicleInteraction == VehicleInteraction.SPIKES)
-            {
-                Puncture(chariot);
+                DamageEffectList damageEffects = new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
+                collision.OtherCollider.TakeDamage(damage, damageEffects, chariot)?.Let(o =>
+                {
+                    if (o.BodyResult != null && o.BodyResult.Fatal)
+                    {
+                        if (other.Type == EntityTypes.PLANT || other.Type == EntityTypes.OBSTACLE)
+                        {
+                            other.PlaySound(VanillaSoundID.smash);
+                        }
+                        else if (other.Type == EntityTypes.ENEMY)
+                        {
+                            other.PlaySound(VanillaSoundID.grind);
+                        }
+                    }
+                });
             }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
@@ -138,6 +141,14 @@ namespace MVZ2.GameContent.Enemies
         }
         #endregion
 
+        public bool CanBeDestroyedBySpikes(Entity entity, Entity source)
+        {
+            return !IsPunctured(entity);
+        }
+        public void DestroyBySpikes(Entity entity, Entity source)
+        {
+            Puncture(entity);
+        }
         public static void Puncture(Entity entity)
         {
             if (IsPunctured(entity))

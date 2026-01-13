@@ -8,6 +8,7 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Entities;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
@@ -1155,6 +1156,27 @@ namespace MVZ2.Vanilla.Entities
             // 可能是没有保护的器械，也可能是不能保护器械。
             // 直接选中当前器械。
             return entity;
+        }
+        #endregion
+
+        #region 被尖刺摧毁
+        public static bool TryDestroyBySpikes(this Entity entity, Entity source)
+        {
+            bool destroyed = false;
+            var definition = entity.Definition;
+            var count = definition.GetBehaviourCount();
+            for (int i = 0; i < count; i++)
+            {
+                var behaviour = definition.GetBehaviourAt(i);
+                if (behaviour is not IDestroyBySpikesEntityBehaviour entityBehaviour)
+                    continue;
+                if (entityBehaviour.CanBeDestroyedBySpikes(entity, source))
+                {
+                    entityBehaviour.DestroyBySpikes(entity, source);
+                    destroyed = true;
+                }
+            }
+            return destroyed;
         }
         #endregion
         public static float GetRealGroundLimitY(this Entity entity)

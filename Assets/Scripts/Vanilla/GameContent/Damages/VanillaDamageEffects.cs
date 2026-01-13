@@ -24,8 +24,6 @@ namespace MVZ2.GameContent.Damages
         // Damage Types
         public readonly static NamespaceID PROJECTILE = Get("projectile");
         public readonly static NamespaceID FALL_DAMAGE = Get("fall_damage");
-        public static readonly NamespaceID FALL_OFF = Get("fall_off");
-        public static readonly NamespaceID DROWN = Get("drown");
         public static readonly NamespaceID GRIND = Get("grind");
         public static readonly NamespaceID WHACK = Get("whack");
         public static readonly NamespaceID GOLD = Get("gold");
@@ -43,12 +41,16 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID NO_DAMAGE_BLINK = Get("no_damage_blink");
         public static readonly NamespaceID BYPASS_BOSS_ARMOR = Get("bypass_boss_armor");
 
+        // Death Reason
+        public static readonly NamespaceID SACRIFICE = Get("sacrifice");
+        public static readonly NamespaceID OUT_OF_BOUND = Get("out_of_bound");
+        public static readonly NamespaceID DROWN = Get("drown");
+        public static readonly NamespaceID FALL_OFF = Get("fall_off");
+
         // Death Effect
         public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");
         public static readonly NamespaceID NO_DEATH_TRIGGER = Get("no_death_trigger");
         public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
-        public static readonly NamespaceID SACRIFICE = Get("sacrifice");
-        public static readonly NamespaceID OUT_OF_BOUND = Get("out_of_bound");
 
         public static NamespaceID Get(string name)
         {
