@@ -11,6 +11,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.GameContent.Buffs;
 
 
 namespace MVZ2.GameContent.Contraptions
@@ -26,12 +27,12 @@ namespace MVZ2.GameContent.Contraptions
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
         }
 
-        //public override void Init(Entity entity)
-        //{
-        //    base.Init(entity);
-        //    var buff = entity.AddBuff<ExplosionProtection>();
-        //    buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
-        //}
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            var buff = entity.AddBuff<ExplosionProtection>();
+            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
+        }
 
         // 每帧更新逻辑
         protected override void UpdateLogic(Entity contraption)

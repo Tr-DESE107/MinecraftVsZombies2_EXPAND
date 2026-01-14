@@ -2286,7 +2286,7 @@
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
-                <float name="mvz2:gravity" value="0" />
+                <float name="mvz2:gravity" value="0.1" />
                 <float name="mvz2:cryPitch" value="0.75" />
                 <id name="mvz2:shell" value="mvz2:cloud" />
                 <id name="mvz2:crySound" value="mvz2:zombie_cry" />
@@ -2307,7 +2307,7 @@
             </unlock>
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:cannon" />
-                <int name="mvz2:cost" value="150" />
+                <int name="mvz2:cost" value="200" />
             </properties>
         </zombie>
         <zombie id="cannonball_zombie" name="炮弹僵尸" deathMessage="-1up">
@@ -2324,7 +2324,8 @@
 				<float name="mvz2:range" value="40" />
                 <vector3 name="mvz2:size" x="38" y="26" z="38" />
 
-                <int name="mvz2:cost" value="150" />
+                <int name="mvz2:cost" value="100" />
+				<id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
             </properties>
         </zombie>
         <enemy id="pop_captain" name="大力船长僵尸" deathMessage="永久停泊">
@@ -2644,7 +2645,7 @@
 				<bool name="mvz2:immune_slowing" value="true" />
 				<float name="mvz2:maxHealth" value="800" />
 
-				<int name="mvz2:cost" value="75" />
+				<int name="mvz2:cost" value="800" />
 			</properties>
 		</Skeleton_Exp>
 		
@@ -2687,7 +2688,7 @@
 				<id name="mvz2:deathSound" value="mvz2:ghast_death" />
 				<idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
 
-				<int name="mvz2:cost" value="200" />
+				<int name="mvz2:cost" value="300" />
 				<int name="mvz2:waterInteraction" value="3" />
 				<int name="mvz2:airInteraction" value="3" />
 
@@ -3142,7 +3143,7 @@
 			</unlock>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:PirateBucket" />
-				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:cost" value="125" />
 				<int name="mvz2:waterInteraction" value="2" />
 				<float name="mvz2:damage" value="125" />
 				<float name="mvz2:speed" value="1.25" />
@@ -3160,7 +3161,7 @@
 				<float name="mvz2:mass" value="-2" />
 
 				<vector3 name="mvz2:size" x="25" y="10" z="25" />
-				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:cost" value="125" />
 				<int name="mvz2:waterInteraction" value="2" />
 				<bool name="mvz2:low_enemy" value="true" />
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
@@ -3413,7 +3414,7 @@
 
 				<vector3 name="shadowScale" x="2" y="2" z="1" />
 
-				<int name="mvz2:cost" value="800" />
+				<int name="mvz2:cost" value="500" />
 				<int name="mvz2:waterInteraction" value="3" />
 			</properties>
 		</mutantZombie>

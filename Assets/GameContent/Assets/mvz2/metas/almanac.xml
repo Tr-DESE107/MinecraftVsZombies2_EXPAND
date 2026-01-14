@@ -2664,7 +2664,7 @@
         </entry>
         <entry id="mvz2:Hemperor">
             <header>
-                <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
+                <p>天子僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200+50</color>]]></p>
