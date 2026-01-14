@@ -356,7 +356,23 @@ namespace PVZEngine.Buffs
         {
             if (modifierCaches.TryGetValue(name, out var list))
             {
-                results.AddRange(list);
+                noStackModifierBuffer.Clear();
+                foreach (var element in list)
+                {
+                    var modifier = element.modifier;
+                    if (modifier.NoStack)
+                    {
+                        if (noStackModifierBuffer.Contains(modifier))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            noStackModifierBuffer.Add(modifier);
+                        }
+                    }
+                    results.Add(element);
+                }
             }
         }
         private void AddModifierCaches(Buff buff)
@@ -472,6 +488,7 @@ namespace PVZEngine.Buffs
         private HashSet<IPropertyKey> changedPropertiesBuffer = new HashSet<IPropertyKey>();
         private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>(new PropertyKeyComparer());
         private List<ModifierContainerItem> modifierItemBuffer = new List<ModifierContainerItem>();
+        private static HashSet<PropertyModifier> noStackModifierBuffer = new HashSet<PropertyModifier>();
     }
     public class MultipleValueModifierException : Exception
     {

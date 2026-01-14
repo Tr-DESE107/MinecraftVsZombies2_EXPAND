@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Buffs.Entities
             AddModifier(new BooleanModifier(LogicEntityProps.IS_LIGHT_SOURCE, true));
             AddModifier(ColorModifier.Override(LogicEntityProps.LIGHT_COLOR, Color.yellow));
             AddModifier(new Vector3Modifier(LogicEntityProps.LIGHT_RANGE, NumberOperator.Set, Vector3.one * 256f));
-            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, new Color(1, 1, 0, 0.2f)));
+            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, new Color(1, 1, 0, 0.2f)) { NoStack = true });
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback, priority: VanillaCallbackPriorities.MULTIPLY);
         }
         public override void OnCreate(Buff buff)

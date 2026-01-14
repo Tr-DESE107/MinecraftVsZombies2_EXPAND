@@ -28,6 +28,7 @@ namespace PVZEngine.Modifiers
         public abstract object? ConstValue { get; }
         public abstract IPropertyKey UsingContainerPropertyName { get; }
         public int Priority { get; set; }
+        public bool NoStack { get; set; }
     }
     public abstract class PropertyModifier<T> : PropertyModifier
     {

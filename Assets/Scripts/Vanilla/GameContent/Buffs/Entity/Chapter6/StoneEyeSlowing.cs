@@ -19,8 +19,10 @@ namespace MVZ2.GameContent.Buffs.Entities
         {
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 0.5f));
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.Multiply, 0.5f));
-            AddModifier(new Vector3Modifier(LogicEntityProps.HSV, NumberOperator.Add, new Vector3(0, -50, 0)));
-            AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, new Color(1.05f, 1.1f, 1.05f, 1f)));
+            AddModifier(new Vector3Modifier(LogicEntityProps.HSV, NumberOperator.Add, new Vector3(0, -50, 0)) { NoStack = true });
+            var tintModifier = ColorModifier.Multiply(EngineEntityProps.TINT, new Color(1.05f, 1.1f, 1.05f, 1f));
+            tintModifier.NoStack = true;
+            AddModifier(tintModifier);
         }
     }
 }

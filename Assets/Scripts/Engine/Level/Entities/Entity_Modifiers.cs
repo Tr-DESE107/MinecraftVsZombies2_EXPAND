@@ -26,6 +26,7 @@ namespace PVZEngine.Entities
 
         #region 属性字段
         private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>(new PropertyKeyComparer());
+        private static HashSet<PropertyModifier> noStackModifierBuffer = new HashSet<PropertyModifier>();
         #endregion
     }
 }

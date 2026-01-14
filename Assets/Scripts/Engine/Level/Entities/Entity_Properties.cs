@@ -81,7 +81,23 @@ namespace PVZEngine.Entities
         {
             if (!modifierCaches.TryGetValue(name, out var list))
                 return;
-            results.AddRange(list);
+            noStackModifierBuffer.Clear();
+            foreach (var element in list)
+            {
+                var modifier = element.modifier;
+                if (modifier.NoStack)
+                {
+                    if (noStackModifierBuffer.Contains(modifier))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        noStackModifierBuffer.Add(modifier);
+                    }
+                }
+                results.Add(element);
+            }
         }
         void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
