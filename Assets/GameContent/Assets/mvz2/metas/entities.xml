@@ -1171,6 +1171,20 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
+        <contraption id="stone_eye" name="石眼" tooltip="减速并阻挡前方敌人">
+            <unlock>
+                <condition required="mvz2/:level.palace_4" />
+            </unlock>
+            <properties>
+                <float name="mvz2:range" value="160" />
+                <vector3 name="mvz2:size" x="32" y="48" z="32" />
+                <float name="mvz2:maxHealth" value="2000" />
+                <bool name="mvz2:defensive" value="true" />
+
+                <int name="mvz2:cost" value="75" />
+                <id name="mvz2:rechargeId" value="mvz2:long" />
+            </properties>
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人">

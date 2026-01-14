@@ -85,6 +85,7 @@
     <model name="transfenser" type="entity" path="mvz2:contraption/palace/transfenser" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="gravelpult" type="entity" path="mvz2:contraption/palace/gravelpult" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="cursed_candle" type="entity" path="mvz2:contraption/palace/cursed_candle" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="stone_eye" type="entity" path="mvz2:contraption/palace/stone_eye" width="64" height="64" xOffset="0" yOffset="-28" />
 
     <model name="infectenser" type="entity" path="mvz2:contraption/upgrade/infectenser" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="force_pad" type="entity" path="mvz2:contraption/upgrade/force_pad" width="64" height="64" xOffset="0" yOffset="-28" />

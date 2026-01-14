@@ -429,6 +429,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b8020c439faa36e4a93b2a903db60899, type: 3}
   - name: mobile_blueprint/stone_dropper
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
+  - name: mobile_blueprint/stone_eye
+    sprite: {fileID: 21300000, guid: 7fc99bc79b9678544a8fd5c1f35cfa60, type: 3}
   - name: mobile_blueprint/stone_shield
     sprite: {fileID: 21300000, guid: a001063ac6b540b42a716f3b66388328, type: 3}
   - name: mobile_blueprint/talisman_zombie
@@ -701,6 +703,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 44bd337d7a161b2498137668fbec6e35, type: 3}
   - name: entity/contraptions/stone_dropper
     sprite: {fileID: 21300000, guid: b54fb45c2064c9149942a6ea99c593f3, type: 3}
+  - name: entity/contraptions/stone_eye
+    sprite: {fileID: 21300000, guid: d0d9a7d7fc5072d41b02542545fd3de6, type: 3}
   - name: entity/contraptions/tnt
     sprite: {fileID: 21300000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
   - name: entity/contraptions/wooden_dropper

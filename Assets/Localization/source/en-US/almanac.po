@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-12 08:56+0800\n"
-"PO-Revision-Date: 2026-01-12 22:45+0800\n"
+"POT-Creation-Date: 2026-01-14 04:33+0800\n"
+"PO-Revision-Date: 2026-01-14 16:34+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1990,14 +1990,14 @@ msgid ""
 "爆炸伤害：<color=red>900</color>\n"
 "爆炸半径：<color=red>1.5格</color>\n"
 "特点：<color=red>不会触发死亡效果</color>\n"
-"技能：<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍，并且被炸死的其他怪物也不会触发死亡效果。</color>"
+"技能：<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍，并且被炸死的其他怪物也不会触发死亡效果</color>"
 msgstr ""
 "Fire damage: <color=red>20/s</color>\n"
 "Explosion damage: <color=red>900</color>\n"
 "Explosion radius: <color=red>1.5 tiles</color>\n"
 "Special: <color=red>Does not trigger the monster's death effects</color>\n"
 "Evocation: <color=red>Being placed on a cake, the explosion radius and damage of the monsters' self-destruction are doubled. Other "
-"monsters killed by the explosion will not trigger their death effects.</color>"
+"monsters killed by the explosion will not trigger their death effects</color>"
 
 #. Flavor for contraptions mvz2:cursed_candle
 #: Almanac meta file
@@ -2027,6 +2027,66 @@ msgstr ""
 "If MCP-310 is inserted into a cake, the cake will immediately turn green. At this stage, if any organism physically damages either the "
 "candle or the cake, both will burn down simultaneously and ignite the organism. If the organism subsequently dies, [REDACTED] (this "
 "caused the [DATA EXPUNGED] incident on ██-██-████)."
+
+#. Header for contraptions mvz2:stone_eye
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "石眼会降低前方敌人的攻击速度和移动速度。"
+msgstr "Stone Eyes will reduce the attack speed and movement speed of enemies ahead."
+
+#. Properties for contraptions mvz2:stone_eye
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"耐久：<color=red>2000</color>\n"
+"范围：<color=red>前方2格</color>\n"
+"特点：<color=red>范围内的敌人攻击速度和移动速度x50%</color>\n"
+"技能：<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘</color>"
+msgstr ""
+"Toughness: <color=red>2000</color>\n"
+"Range: <color=red>2 tiles ahead</color>\n"
+"Special: <color=red>x50% enemy attack speed and movement speed within the range</color>\n"
+"Evocation: <color=red>Petrifies all enemies ahead for 10 seconds, they can be destroyed by the pickaxe during this state</color>"
+
+#. Flavor for contraptions mvz2:stone_eye
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"<b>项目编号：</b>MCP-531\n"
+"<b>项目等级：</b>Safe\n"
+"<b>特殊收容措施：</b>MCP-531应被保管于一个光亮度可控且无窗户的密闭收容间内。除测试目的外，任何人员不得进入其正面视线范围。任何人员暴露"
+"于 MCP-531 正面视线的累计时间不得超过 60 秒。\n"
+"<b>描述：</b>MCP-531是一块边长约1m的暗绿色正方体石块，其材质与玄武岩相近，表面无明显风化或磨损痕迹。石块正面刻有一枚位于菱形轮廓中央的"
+"眼睛图案，两个侧面均刻有未知体系的象形文字，初步解读表明其内容为对MCP-531异常性质的警示性说明。\n"
+"当任何有机生命体或衍生有机组织位于MCP-531正面方向直线距离3米以内时，该类对象将逐渐发生物理性质的转变：质地逐渐硬化，密度相应增加，最终"
+"在持续暴露3至5分钟后完全转化为与MCP-531材质相同的岩石。此过程伴随对象生物活性的丧失，且转化后的雕塑在形态上会保留转化前一瞬间的视觉特"
+"征。\n"
+"该效应在对象完全矿化前为可逆：一旦移出MCP-531的视线作用范围，石化进程将停止并缓慢逆转。恢复原状所需时间与暴露时长呈正相关，观测案例中从"
+"数分钟至最长17天不等。多次实验表明，无机物及通过光学滤镜观察MCP-531均不会触发该异常效应。\n"
+"<b>附录 MCP-531-A：</b> 实验记录显示，被部分转化的对象在恢复期间报告有持续的“钝感”及局部麻木现象，但未发现永久性生理损伤。进一步跨文化"
+"考古比对工作正在进行，以确认MCP-531与多个神话中“凝视石化”传说的潜在关联。"
+msgstr ""
+"<b>Item #: </b>MCP-531\n"
+"<b>Object Class: </b>Safe\n"
+"<b>Special Containment Procedures: </b>MCP-531 is to be stored in a sealed, windowless containment chamber with controllable lighting. "
+"Personnel are prohibited from entering its direct line of sight except for testing purposes. Cumulative exposure to MCP-531's direct "
+"gaze must not exceed 60 seconds.\n"
+"<b>Description: </b>MCP-531 is a dark green, cube-shaped stone block measuring approximately 1m on each side. Its composition is "
+"similar to basalt, with no significant signs of weathering or erosion. The front face bears an engraving of an eye centered within a "
+"diamond shape. Two side faces are inscribed with glyphs of an unknown writing system; preliminary analysis suggests the text serves as "
+"a warning regarding MCP-531's anomalous properties.\n"
+"When any organic life form or derived organic tissue is positioned within a direct line of sight and a 3-meter range of MCP-531's "
+"front face, the subject will gradually undergo physical transformation: increasing hardness and density, culminating in complete "
+"conversion into rock material identical to MCP-531 after 3 to 5 minutes of continuous exposure. This process results in loss of "
+"biological activity, with the resultant statue retaining the visual characteristics of the subject's final moment prior to full "
+"petrification.\n"
+"This effect is reversible prior to complete petrification. Once removed from MCP-531's line of sight, the petrification process halts "
+"and slowly reverses. Recovery time is proportional to exposure duration, ranging from several minutes to a maximum of 17 days in "
+"observed cases. Repeated testing confirms that inorganic materials and viewing MCP-531 through optical filters do not trigger its "
+"anomalous effect.\n"
+"<b>Addendum MCP-531-A: </b>Test logs indicate that partially affected subjects report persistent \"dullness\" and localized numbness "
+"during recovery, with no permanent physiological damage observed. Further cross-cultural archaeological analysis is ongoing to "
+"investigate MCP-531's potential connection to various mythological \"petrifying gaze\" legends."
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -6010,6 +6070,18 @@ msgstr "Cursed Candle"
 msgctxt "entity.tooltip"
 msgid "诅咒并焚烧怪物，使其自爆"
 msgstr "Curse an enemy, make it burn and explode"
+
+#. Name for entity mvz2:stone_eye
+#: Entity meta file
+msgctxt "entity.name"
+msgid "石眼"
+msgstr "Stone Eye"
+
+#. Tooltip for entity mvz2:stone_eye
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "减速并阻挡前方敌人"
+msgstr "Slow and block enemies"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file

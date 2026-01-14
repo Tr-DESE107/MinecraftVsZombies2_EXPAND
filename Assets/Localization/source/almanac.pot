@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-12 08:56+0800\n"
+"POT-Creation-Date: 2026-01-14 04:33+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1682,7 +1682,7 @@ msgid ""
 "爆炸伤害：<color=red>900</color>\n"
 "爆炸半径：<color=red>1.5格</color>\n"
 "特点：<color=red>不会触发死亡效果</color>\n"
-"技能：<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍，并且被炸死的其他怪物也不会触发死亡效果。</color>"
+"技能：<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍，并且被炸死的其他怪物也不会触发死亡效果</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:cursed_candle
@@ -1695,6 +1695,35 @@ msgid ""
 "<b>描述：</b>MCP-310是一支白色偏绿的蜡烛，由未知生物的脂肪制成。无论何时，其总是处于点燃状态，蜡烛火焰呈绿色，且不可通过大部分方式熄灭。\n"
 "若有生物试图对蜡烛本体造成物理损害，则蜡烛会在极短的时间内燃尽，同时使用绿色火焰点燃该生物。若生物在此状态下死亡，则该生物的尸体会发生爆炸，爆炸当量相当于约0.5立方米的TNT炸药。蜡烛在燃尽的30秒之后会快速再生，并恢复成最初的结构。\n"
 "若MCP-310被插入到一块蛋糕之上，该蛋糕会立即被转换为绿色。若此时有生物对蜡烛或蛋糕产生物理损害，则蜡烛和蛋糕会同时燃尽并点燃该生物，之后若该生物死亡，则[数据删除]（在■■■■-■■-■■这一天造成了事件[已编辑]）。"
+msgstr ""
+
+#. Header for contraptions mvz2:stone_eye
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "石眼会降低前方敌人的攻击速度和移动速度。"
+msgstr ""
+
+#. Properties for contraptions mvz2:stone_eye
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"耐久：<color=red>2000</color>\n"
+"范围：<color=red>前方2格</color>\n"
+"特点：<color=red>范围内的敌人攻击速度和移动速度x50%</color>\n"
+"技能：<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:stone_eye
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"<b>项目编号：</b>MCP-531\n"
+"<b>项目等级：</b>Safe\n"
+"<b>特殊收容措施：</b>MCP-531应被保管于一个光亮度可控且无窗户的密闭收容间内。除测试目的外，任何人员不得进入其正面视线范围。任何人员暴露于 MCP-531 正面视线的累计时间不得超过 60 秒。\n"
+"<b>描述：</b>MCP-531是一块边长约1m的暗绿色正方体石块，其材质与玄武岩相近，表面无明显风化或磨损痕迹。石块正面刻有一枚位于菱形轮廓中央的眼睛图案，两个侧面均刻有未知体系的象形文字，初步解读表明其内容为对MCP-531异常性质的警示性说明。\n"
+"当任何有机生命体或衍生有机组织位于MCP-531正面方向直线距离3米以内时，该类对象将逐渐发生物理性质的转变：质地逐渐硬化，密度相应增加，最终在持续暴露3至5分钟后完全转化为与MCP-531材质相同的岩石。此过程伴随对象生物活性的丧失，且转化后的雕塑在形态上会保留转化前一瞬间的视觉特征。\n"
+"该效应在对象完全矿化前为可逆：一旦移出MCP-531的视线作用范围，石化进程将停止并缓慢逆转。恢复原状所需时间与暴露时长呈正相关，观测案例中从数分钟至最长17天不等。多次实验表明，无机物及通过光学滤镜观察MCP-531均不会触发该异常效应。\n"
+"<b>附录 MCP-531-A：</b> 实验记录显示，被部分转化的对象在恢复期间报告有持续的“钝感”及局部麻木现象，但未发现永久性生理损伤。进一步跨文化考古比对工作正在进行，以确认MCP-531与多个神话中“凝视石化”传说的潜在关联。"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -5013,6 +5042,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "诅咒并焚烧怪物，使其自爆"
+msgstr ""
+
+#. Name for entity mvz2:stone_eye
+#: Entity meta file
+msgctxt "entity.name"
+msgid "石眼"
+msgstr ""
+
+#. Tooltip for entity mvz2:stone_eye
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "减速并阻挡前方敌人"
 msgstr ""
 
 #. Name for entity mvz2:infectenser
