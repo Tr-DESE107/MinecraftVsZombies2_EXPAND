@@ -3,10 +3,12 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Fragments;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -14,15 +16,19 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.gravel)]
-    public class Gravel : ProjectileBehaviour
+    public class Gravel : EntityBehaviourDefinition
     {
         public Gravel(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
         }
-        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput? damage)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
-            base.PostHitEntity(hitResult, damage);
+            var hitResult = param.hit;
             var projectile = hitResult.Projectile;
+            if (!projectile.Definition.HasBehaviour(this))
+                return;
+            var damage = param.damage;
             var enemy = hitResult.Other;
             if (damage?.BodyResult == null && damage?.ArmorResult == null)
                 return;

@@ -53,8 +53,9 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
             var hit = param.hit;
-            var damage = param.damage;
             var projectile = hit.Projectile;
+            if (!projectile.HasBuff(this))
+                return;
             var buffs = projectile.GetBuffs(this);
             float additionalDamage = 0;
             bool cursed = false;
@@ -77,6 +78,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             var armorSlot = shield != null ? shield.Slot : null;
             target.TakeDamage(additionalDamage, new DamageEffectList(VanillaDamageEffects.FIRE), projectile, armorSlot);
 
+            var damage = param.damage;
             bool blocksFire = damage?.WillDamageBlockFire() ?? false;
 
             if (!blocksFire)

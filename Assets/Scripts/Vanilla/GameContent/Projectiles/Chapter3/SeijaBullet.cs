@@ -9,7 +9,7 @@ using Tools;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.seijaBullet)]
-    public class SeijaBullet : ProjectileBehaviour
+    public class SeijaBullet : EntityBehaviourDefinition
     {
         public SeijaBullet(string nsp, string name) : base(nsp, name)
         {

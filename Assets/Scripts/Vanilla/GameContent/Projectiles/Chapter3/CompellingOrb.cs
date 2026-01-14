@@ -2,12 +2,14 @@
 
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -17,10 +19,11 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.compellingOrb)]
-    public class CompellingOrb : ProjectileBehaviour
+    public class CompellingOrb : EntityBehaviourDefinition
     {
         public CompellingOrb(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
         }
         public override void Init(Entity entity)
         {
@@ -48,10 +51,12 @@ namespace MVZ2.GameContent.Projectiles
             }
             projectile.RenderRotation += Vector3.forward * 10;
         }
-        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput? damage)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
-            base.PostHitEntity(hitResult, damage);
+            var hitResult = param.hit;
             var projectile = hitResult.Projectile;
+            if (!projectile.Definition.HasBehaviour(this))
+                return;
             if (hitResult.Shield != null)
                 return;
             var target = hitResult.Other;

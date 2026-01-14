@@ -153,7 +153,7 @@ namespace MVZ2.GameContent.Bosses
         {
             var hit = param.hit;
             var self = hit.Other;
-            if (!self.IsEntityOf(VanillaBossID.wither))
+            if (!self.Definition.HasBehaviour(this))
                 return;
             if (!HasArmor(self))
                 return;

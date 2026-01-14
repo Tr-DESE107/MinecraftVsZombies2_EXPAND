@@ -10,7 +10,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.poisonJavelin)]
-    public class PoisonJavelin : ProjectileBehaviour
+    public class PoisonJavelin : EntityBehaviourDefinition
     {
         public PoisonJavelin(string nsp, string name) : base(nsp, name)
         {

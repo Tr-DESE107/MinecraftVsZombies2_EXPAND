@@ -14,7 +14,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.seijaMagicBomb)]
-    public class SeijaMagicBomb : ProjectileBehaviour
+    public class SeijaMagicBomb : EntityBehaviourDefinition
     {
         public SeijaMagicBomb(string nsp, string name) : base(nsp, name)
         {

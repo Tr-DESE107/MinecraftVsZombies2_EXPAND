@@ -17,7 +17,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.largeSnowball)]
-    public class LargeSnowball : ProjectileBehaviour, IHellfireIgniteBehaviour
+    public class LargeSnowball : EntityBehaviourDefinition, IHellfireIgniteBehaviour
     {
         public LargeSnowball(string nsp, string name) : base(nsp, name)
         {

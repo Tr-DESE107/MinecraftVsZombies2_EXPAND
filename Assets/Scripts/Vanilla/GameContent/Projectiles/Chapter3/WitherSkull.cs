@@ -10,7 +10,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.witherSkull)]
-    public class WitherSkull : ProjectileBehaviour
+    public class WitherSkull : EntityBehaviourDefinition
     {
         public WitherSkull(string nsp, string name) : base(nsp, name)
         {

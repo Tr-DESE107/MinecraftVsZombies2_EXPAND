@@ -8,7 +8,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.flyingTNT)]
-    public class FlyingTNT : ProjectileBehaviour
+    public class FlyingTNT : EntityBehaviourDefinition
     {
         public FlyingTNT(string nsp, string name) : base(nsp, name)
         {

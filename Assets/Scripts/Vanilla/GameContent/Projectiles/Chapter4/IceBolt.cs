@@ -11,7 +11,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.iceBolt)]
-    public class IceBolt : ProjectileBehaviour, IHellfireIgniteBehaviour
+    public class IceBolt : EntityBehaviourDefinition, IHellfireIgniteBehaviour
     {
         public IceBolt(string nsp, string name) : base(nsp, name)
         {

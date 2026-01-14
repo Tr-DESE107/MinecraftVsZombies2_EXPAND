@@ -7,7 +7,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.diamondCaltrop)]
-    public class DiamondCaltrop : ProjectileBehaviour
+    public class DiamondCaltrop : EntityBehaviourDefinition
     {
         public DiamondCaltrop(string nsp, string name) : base(nsp, name)
         {

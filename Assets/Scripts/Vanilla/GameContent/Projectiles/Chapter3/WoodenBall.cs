@@ -13,7 +13,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.woodenBall)]
-    public class WoodenBall : ProjectileBehaviour, IHellfireIgniteBehaviour
+    public class WoodenBall : EntityBehaviourDefinition, IHellfireIgniteBehaviour
     {
         public WoodenBall(string nsp, string name) : base(nsp, name)
         {

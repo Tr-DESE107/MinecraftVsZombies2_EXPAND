@@ -7,7 +7,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.shuriken)]
-    public class Shuriken : ProjectileBehaviour
+    public class Shuriken : EntityBehaviourDefinition
     {
         public Shuriken(string nsp, string name) : base(nsp, name)
         {

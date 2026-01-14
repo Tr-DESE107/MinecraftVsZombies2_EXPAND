@@ -9,7 +9,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.mineTNTSeed)]
-    public class MineTNTSeed : ProjectileBehaviour
+    public class MineTNTSeed : EntityBehaviourDefinition
     {
         public MineTNTSeed(string nsp, string name) : base(nsp, name)
         {

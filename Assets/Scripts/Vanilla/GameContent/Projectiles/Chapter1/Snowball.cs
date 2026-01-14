@@ -7,7 +7,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.snowball)]
-    public class Snowball : ProjectileBehaviour, IHellfireIgniteBehaviour
+    public class Snowball : EntityBehaviourDefinition, IHellfireIgniteBehaviour
     {
         public Snowball(string nsp, string name) : base(nsp, name)
         {

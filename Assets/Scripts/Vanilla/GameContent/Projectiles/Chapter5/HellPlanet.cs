@@ -11,7 +11,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.hellPlanet)]
-    public class HellPlanet : ProjectileBehaviour
+    public class HellPlanet : EntityBehaviourDefinition
     {
         public HellPlanet(string nsp, string name) : base(nsp, name)
         {

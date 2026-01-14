@@ -8,7 +8,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.chargedBolt)]
-    public class ChargedBolt : ProjectileBehaviour
+    public class ChargedBolt : EntityBehaviourDefinition
     {
         public ChargedBolt(string nsp, string name) : base(nsp, name)
         {

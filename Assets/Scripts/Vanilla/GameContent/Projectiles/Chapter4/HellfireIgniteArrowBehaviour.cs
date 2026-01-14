@@ -12,7 +12,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.hellfireIgnitedArrow)]
-    public class HellfireIgnitedArrowBehaviour : ProjectileBehaviour, IHellfireIgniteBehaviour
+    public class HellfireIgnitedArrowBehaviour : EntityBehaviourDefinition, IHellfireIgniteBehaviour
     {
         public HellfireIgnitedArrowBehaviour(string nsp, string name) : base(nsp, name)
         {

@@ -2,9 +2,11 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Projectiles;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -12,17 +14,21 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.fireball)]
-    public class Fireball : ProjectileBehaviour
+    public class Fireball : EntityBehaviourDefinition
     {
         public Fireball(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
         }
-        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput? damageOutput)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
-            base.PostHitEntity(hitResult, damageOutput);
+            var hitResult = param.hit;
+            var projectile = hitResult.Projectile;
+            if (!projectile.Definition.HasBehaviour(this))
+                return;
+            var damageOutput = param.damage;
             if (damageOutput == null)
                 return;
-            var entity = hitResult.Projectile;
             var other = hitResult.Other;
 
             bool blocksFire = damageOutput.WillDamageBlockFire();
@@ -30,8 +36,8 @@ namespace MVZ2.GameContent.Projectiles
             if (!blocksFire)
             {
                 var damageEffects = new DamageEffectList(VanillaDamageEffects.FIRE, VanillaDamageEffects.MUTE);
-                entity.SplashDamage(hitResult.Collider, entity.Position, 40, entity.GetFaction(), entity.GetDamage() / 4f, damageEffects);
-                entity.Spawn(VanillaEffectID.fireburn, entity.Position);
+                projectile.SplashDamage(hitResult.Collider, projectile.Position, 40, projectile.GetFaction(), projectile.GetDamage() / 4f, damageEffects);
+                projectile.Spawn(VanillaEffectID.fireburn, projectile.Position);
             }
         }
     }

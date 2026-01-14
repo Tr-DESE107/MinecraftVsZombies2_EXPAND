@@ -8,7 +8,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.fallingStar)]
-    public class FallingStar : ProjectileBehaviour
+    public class FallingStar : EntityBehaviourDefinition
     {
         public FallingStar(string nsp, string name) : base(nsp, name)
         {

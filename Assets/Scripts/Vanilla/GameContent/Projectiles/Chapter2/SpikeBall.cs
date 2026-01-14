@@ -15,7 +15,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.spikeBall)]
-    public class SpikeBall : ProjectileBehaviour
+    public class SpikeBall : EntityBehaviourDefinition
     {
         public SpikeBall(string nsp, string name) : base(nsp, name)
         {

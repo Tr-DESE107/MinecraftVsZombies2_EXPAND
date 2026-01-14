@@ -4,7 +4,7 @@ namespace MVZ2.Vanilla.Callbacks
 {
     public static class VanillaCallbackPriorities
     {
-        public const int EARLY = 1000;
+        public const int EARLY = -1000;
         public const int NORMAL = 0;
         public const int LATE = 1000;
         public const int ADD_MULTIPLE = 1000;
