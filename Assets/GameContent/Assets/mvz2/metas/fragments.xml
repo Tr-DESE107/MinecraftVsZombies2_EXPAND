@@ -232,6 +232,12 @@
             <key hex="#95a693" time="1" />
         </colorKeys>
     </fragment>
+    <fragment name="stone_eye">
+        <colorKeys>
+            <key hex="#5a6151" time="0.5" />
+            <key hex="#4b5143" time="1" />
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2" />

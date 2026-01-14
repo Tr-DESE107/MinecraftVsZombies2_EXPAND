@@ -61,7 +61,7 @@ namespace MVZ2.Vanilla.Detections
             }
             return most;
         }
-        public void DetectMultiple(DetectionParams self, List<IEntityCollider> results)
+        public void DetectMultiple(DetectionParams self, ICollection<IEntityCollider> results)
         {
             foreach (var collider in DetectColliders(self))
             {
@@ -109,7 +109,7 @@ namespace MVZ2.Vanilla.Detections
             }
             return most;
         }
-        public void DetectEntities(DetectionParams self, List<Entity> results)
+        public void DetectEntities(DetectionParams self, ICollection<Entity> results)
         {
             entityBuffer.Clear();
             foreach (var collider in DetectColliders(self))

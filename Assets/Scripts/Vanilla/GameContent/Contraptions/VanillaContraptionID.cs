@@ -60,6 +60,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string transfenser = "transfenser";
         public const string gravelpult = "gravelpult";
         public const string cursedCandle = "cursed_candle";
+        public const string stoneEye = "stone_eye";
 
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";

@@ -107,6 +107,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 6
             public const string transfenserGlowing = "transfenser_glowing";
             public const string cursedCandle = "cursed_candle";
+            public const string stoneEyeSlowing = "stone_eye_slowing";
 
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
@@ -429,6 +430,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 6
             public static readonly NamespaceID transfenserGlowing = Get(VanillaBuffNames.Entity.transfenserGlowing);
+            public static readonly NamespaceID stoneEyeSlowing = Get(VanillaBuffNames.Entity.stoneEyeSlowing);
 
             // Random China
             public static readonly NamespaceID worldwideCelebration = Get(VanillaBuffNames.Entity.worldwideCelebration);

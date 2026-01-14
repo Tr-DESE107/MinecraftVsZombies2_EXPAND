@@ -3375,6 +3375,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44af0df990a9b3645882e5d960e69e2d
+    m_Address: mvz2:contraption/palace/stone_eye
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44bd337d7a161b2498137668fbec6e35
     m_Address: mvz2:entity/contraptions/spike_block
     m_ReadOnly: 0
@@ -6260,6 +6267,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7fb8f9b8ab883a64887b34f86731c9b9
     m_Address: mvz2:entity/effects/frankenstein_jump_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fc99bc79b9678544a8fd5c1f35cfa60
+    m_Address: mvz2:mobile_blueprint/stone_eye
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
