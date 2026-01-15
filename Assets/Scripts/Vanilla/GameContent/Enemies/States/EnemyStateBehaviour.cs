@@ -10,7 +10,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyState)]
-    public class EnemyStateBehaviour : AIEntityBehaviour, IEnemyStateBehaviour
+    public class EnemyStateBehaviour : AIEntityBehaviour
     {
         public EnemyStateBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -20,12 +20,6 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateAI(entity);
             entity.State = GetActionState(entity);
-            entity.SetAnimationInt("State", entity.State);
-            entity.SetAnimationInt("AnimationState", GetAnimationState(entity.State));
-        }
-        public virtual int GetAnimationState(int state)
-        {
-            return state;
         }
         private int GetActionState(Entity enemy)
         {
@@ -69,11 +63,5 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_DEATH = LogicEnemyStates.DEATH;
         public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
         public const int STATE_LEAVE = LogicEnemyStates.LEAVE;
-        public const int ANIMATION_STATE_IDLE = 0;
-        public const int ANIMATION_STATE_WALK = 1;
-        public const int ANIMATION_STATE_ATTACK = 2;
-        public const int ANIMATION_STATE_CAST = 3;
-        public const int ANIMATION_STATE_DEATH = 4;
-        public const int ANIMATION_STATE_PRIVATE = 10000;
     }
 }

@@ -13,15 +13,6 @@ namespace MVZ2.GameContent.Enemies
         public Napstablook_StateBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
-        public override int GetAnimationState(int state)
-        {
-            switch (state)
-            {
-                case STATE_ANGRY:
-                    return ANIMATION_STATE_ANGRY;
-            }
-            return base.GetAnimationState(state);
-        }
         protected override int GetActiveState(Entity enemy)
         {
             if (Napstablook.IsAngry(enemy))
@@ -31,6 +22,5 @@ namespace MVZ2.GameContent.Enemies
             return STATE_WALK;
         }
         public const int STATE_ANGRY = VanillaEnemyStates.NAPSTABLOOK_ANGRY;
-        public const int ANIMATION_STATE_ANGRY = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
     }
 }

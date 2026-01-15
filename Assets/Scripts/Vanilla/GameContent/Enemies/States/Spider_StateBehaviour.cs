@@ -13,15 +13,6 @@ namespace MVZ2.GameContent.Enemies
         public Spider_StateBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
-        public override int GetAnimationState(int state)
-        {
-            switch (state)
-            {
-                case STATE_CLIMB:
-                    return ANIMATION_STATE_IDLE;
-            }
-            return base.GetAnimationState(state);
-        }
         protected override int GetActiveState(Entity enemy)
         {
             if (Spider.IsClimbingVertically(enemy))

@@ -61,6 +61,7 @@
             <behaviours>
                 <behaviour operator="add" id="mvz2:faction" />
                 <behaviour operator="add" id="mvz2:enemy_common" />
+                <behaviour operator="add" id="mvz2:enemy_common_animation" />
                 <behaviour operator="add" id="mvz2:enemy_state" />
                 <behaviour operator="add" id="mvz2:enemy_melee" />
                 <behaviour operator="add" id="mvz2:enemy_walk" />
@@ -212,6 +213,9 @@
             </behaviours>
         </specialEnemy>
         <humanoid id="2" parent="enemy">
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+            </behaviours>
             <properties>
                 <id name="mvz2:shape" value="mvz2:humanoid" />
                 <int name="mvz2:waterInteraction" value="2" />
@@ -1519,6 +1523,7 @@
                 <condition required="mvz2:level.dream_1" />
             </unlock>
             <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:spider/animation" />
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:spider/state" />
                 <behaviour operator="replace" source="mvz2:enemy_melee" id="mvz2:spider/melee" />
             </behaviours>
@@ -1992,6 +1997,7 @@
                 <condition required="mvz2:level.halloween_6" />
             </unlock>
             <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:napstablook/animation" />
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:napstablook/state" />
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
             </behaviours>
@@ -2041,6 +2047,7 @@
                 <condition required="mvz2:level.castle_6" />
             </unlock>
             <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:skeleton_horse/animation" />
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_horse/state" />
                 <behaviour operator="replace" source="mvz2:enemy_melee" id="mvz2:skeleton_horse/melee" />
             </behaviours>

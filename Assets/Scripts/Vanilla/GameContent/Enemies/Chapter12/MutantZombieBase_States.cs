@@ -292,11 +292,11 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_THROW = VanillaEnemyStates.MUTANT_ZOMBIE_THROW;
         public const int STATE_DEATH = LogicEnemyStates.DEATH;
 
-        public const int ANIMATION_STATE_IDLE = EnemyStateBehaviour.ANIMATION_STATE_IDLE;
-        public const int ANIMATION_STATE_WALK = EnemyStateBehaviour.ANIMATION_STATE_WALK;
-        public const int ANIMATION_STATE_DEATH = EnemyStateBehaviour.ANIMATION_STATE_DEATH;
-        public const int ANIMATION_STATE_SMASH = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
-        public const int ANIMATION_STATE_THROW = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 1;
+        public const int ANIMATION_STATE_IDLE = EnemyCommonAnimationBehaviour.ANIMATION_STATE_IDLE;
+        public const int ANIMATION_STATE_WALK = EnemyCommonAnimationBehaviour.ANIMATION_STATE_WALK;
+        public const int ANIMATION_STATE_DEATH = EnemyCommonAnimationBehaviour.ANIMATION_STATE_DEATH;
+        public const int ANIMATION_STATE_SMASH = EnemyCommonAnimationBehaviour.ANIMATION_STATE_PRIVATE + 0;
+        public const int ANIMATION_STATE_THROW = EnemyCommonAnimationBehaviour.ANIMATION_STATE_PRIVATE + 1;
     }
 
 }

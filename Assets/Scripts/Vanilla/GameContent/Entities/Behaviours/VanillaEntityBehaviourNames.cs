@@ -33,14 +33,19 @@ namespace MVZ2.Vanilla.Entities
 
         #region Enemies
         public const string enemyCommon = "enemy_common";
+        public const string enemyCommonAnimation = "enemy_common_animation";
         public const string enemyState = "enemy_state";
         public const string enemyMelee = "enemy_melee";
         public const string enemyWalk = "enemy_walk";
         public const string enemyDeathDisappear = "enemy_death_disappear";
 
+        public const string humanoidAnimation = "humanoid_animation";
+
         public const string skeleton_State = "skeleton/state";
+        public const string napstablook_Animation = "napstablook/animation";
         public const string napstablook_State = "napstablook/state";
 
+        public const string spider_Animation = "spider/animation";
         public const string spider_State = "spider/state";
         public const string spider_Melee = "spider/melee";
         public const string ghast_State = "ghast/state";
@@ -49,6 +54,7 @@ namespace MVZ2.Vanilla.Entities
         public const string dullahan_State = "dullahan/state";
         public const string damageByGold = "damage_by_gold";
         public const string reverseSatellite_State = "reverse_satellite/state";
+        public const string skeletonHorse_Animation = "skeleton_horse/animation";
         public const string skeletonHorse_State = "skeleton_horse/state";
         public const string skeletonHorse_Melee = "skeleton_horse/melee";
 

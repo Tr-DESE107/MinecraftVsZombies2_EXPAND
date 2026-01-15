@@ -300,12 +300,12 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_SMASH_UP = VanillaEnemyStates.POP_CAPTAIN_SMASH_UP;
         public const int STATE_DEATH = LogicEnemyStates.DEATH;
 
-        public const int ANIMATION_STATE_IDLE = EnemyStateBehaviour.ANIMATION_STATE_IDLE;
-        public const int ANIMATION_STATE_WALK = EnemyStateBehaviour.ANIMATION_STATE_WALK;
-        public const int ANIMATION_STATE_ATTACK = EnemyStateBehaviour.ANIMATION_STATE_ATTACK;
-        public const int ANIMATION_STATE_DEATH = EnemyStateBehaviour.ANIMATION_STATE_DEATH;
-        public const int ANIMATION_STATE_SMASH_DOWN = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
-        public const int ANIMATION_STATE_SMASH_UP = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 1;
+        public const int ANIMATION_STATE_IDLE = EnemyCommonAnimationBehaviour.ANIMATION_STATE_IDLE;
+        public const int ANIMATION_STATE_WALK = EnemyCommonAnimationBehaviour.ANIMATION_STATE_WALK;
+        public const int ANIMATION_STATE_ATTACK = EnemyCommonAnimationBehaviour.ANIMATION_STATE_ATTACK;
+        public const int ANIMATION_STATE_DEATH = EnemyCommonAnimationBehaviour.ANIMATION_STATE_DEATH;
+        public const int ANIMATION_STATE_SMASH_DOWN = EnemyCommonAnimationBehaviour.ANIMATION_STATE_PRIVATE + 0;
+        public const int ANIMATION_STATE_SMASH_UP = EnemyCommonAnimationBehaviour.ANIMATION_STATE_PRIVATE + 1;
     }
 
 }

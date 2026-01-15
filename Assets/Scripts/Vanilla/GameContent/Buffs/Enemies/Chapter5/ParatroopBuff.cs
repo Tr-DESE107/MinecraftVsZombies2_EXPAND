@@ -29,7 +29,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity == null)
                 return;
             entity.DeactivateArmorColliders(LogicArmorSlots.shield);
-            entity.SetAnimationBool("Parachuting", true);
         }
         public override void PostRemove(Buff buff)
         {
@@ -38,7 +37,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity == null)
                 return;
             entity.ActivateArmorColliders(LogicArmorSlots.shield);
-            entity.SetAnimationBool("Parachuting", IsParachuting(entity));
         }
         public override void PostUpdate(Buff buff)
         {

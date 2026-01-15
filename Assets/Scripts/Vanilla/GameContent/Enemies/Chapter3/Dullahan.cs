@@ -41,7 +41,6 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.RideOn(e);
             });
-            entity.SetAnimationBool("Sitting", true);
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
         }
         private void PostEntityCharmCallback(VanillaLevelCallbacks.PostApplyStatusEffectParams param, CallbackResult result)
@@ -75,9 +74,6 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateLogic(entity);
 
-            var horse = entity.GetRidingEntity();
-            var hasHorse = horse.ExistsAndAlive();
-            entity.SetAnimationBool("Sitting", hasHorse);
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
         }
         public void DeathEffects(Entity entity, DeathInfo info)

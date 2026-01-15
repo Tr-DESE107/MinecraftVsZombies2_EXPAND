@@ -21,6 +21,8 @@ namespace MVZ2.Vanilla.Enemies
         public const int POP_CAPTAIN_SMASH_DOWN = PRIVATE_NUMBER + 0;
         public const int POP_CAPTAIN_SMASH_UP = PRIVATE_NUMBER + 1;
 
+        public const int SKELETON_STATUE_REVIVING = PRIVATE_NUMBER + 0;
+
         private const int PRIVATE_NUMBER = 10000;
     }
 }

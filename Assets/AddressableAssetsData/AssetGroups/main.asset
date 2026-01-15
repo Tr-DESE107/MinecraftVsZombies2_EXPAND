@@ -1781,6 +1781,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2440037b2007e8048a8817eab8c62e4c
+    m_Address: mvz2:entity/contraptions/stone_eye_ray
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 244d499bb206eeb41994439f435532e2
     m_Address: mvz2:contraption/mausoleum/black_hole_bomb
     m_ReadOnly: 0
@@ -2752,6 +2759,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 387847971738747468a7be3c39ce89b6
+    m_Address: mvz2:entity/contraption/stone_eye
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 388a6266b2292d34ea34eb9864284d7b
     m_Address: mvz2:dark_skies_cast
     m_ReadOnly: 0
@@ -2859,6 +2873,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a637e8cf3701f147b8222a2c63f0e9b
     m_Address: mvz2:projectile/fireball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3aac9f3148d3e9f468542c971e602070
+    m_Address: mvz2:effect/petrified_shards
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3851,6 +3872,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cb781f5e02742741b9c40355797df88
+    m_Address: mvz2:petrified
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
     m_Address: mvz2:ui/map/map_drag_mark
     m_ReadOnly: 0
@@ -4117,6 +4145,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5388781fbbfc0eb4a81b878677ee7ac0
+    m_Address: mvz2:icons/petrified
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 538c7d5127bd5374092dc11853cec911
     m_Address: mvz2:firework_twinkle
     m_ReadOnly: 0
@@ -4140,6 +4175,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53bc7c4fb282ec44bb3535d6e51e8234
     m_Address: mvz2:talk/dialog_judge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53d1e0c137e030a4faab3a32bd115fcc
+    m_Address: mvz2:random/rock/crumble2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4942,6 +4984,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63abeb6d055623e498bc8080744c6d37
+    m_Address: mvz2:entity/effects/petrified_shard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6423a491a15f75342ad5caf161cf634d
     m_Address: mvz2:mobile_blueprint/skeleton_horse
@@ -6047,6 +6096,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c89e7f887c477341bb2ba8fdecb1370
+    m_Address: mvz2:random/rock/crumble3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c96fdff5dc5fde4ab6559e24a67dc99
     m_Address: mvz2:achievements/bonebreaker
@@ -10059,6 +10115,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d081c16f78b369c478965e4639cd564b
+    m_Address: mvz2:icon/petrified_feet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d088b4d6b29224e428f22c0184a33dc4
     m_Address: mvz2:nightmare_boss
     m_ReadOnly: 0
@@ -11549,6 +11612,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1a1241614fc78640a821faca9414ef9
+    m_Address: mvz2:random/rock/crumble1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1aefc59239478744b6bdc884a1fc842
     m_Address: mvz2:ui/level/wallet
