@@ -608,6 +608,9 @@
     <sound name="pearl_touch">
         <sample path="mvz2:pearl_touch" weight="1" />
     </sound>
+    <sound name="petrified">
+        <sample path="mvz2:petrified" weight="1" />
+    </sound>
     <sound name="people_noise">
         <sample path="mvz2:people_noise" weight="1" />
     </sound>
@@ -681,6 +684,11 @@
     </sound>
     <sound name="ring_off">
         <sample path="mvz2:ring_off" weight="1" />
+    </sound>
+    <sound name="rock_crumble">
+        <sample path="mvz2:random/rock/crumble1" weight="1" />
+        <sample path="mvz2:random/rock/crumble2" weight="1" />
+        <sample path="mvz2:random/rock/crumble3" weight="1" />
     </sound>
     <sound name="scifi_laser">
         <sample path="mvz2:scifi_laser" weight="1" />

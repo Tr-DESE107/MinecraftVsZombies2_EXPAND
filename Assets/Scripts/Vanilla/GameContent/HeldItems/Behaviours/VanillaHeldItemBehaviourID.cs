@@ -25,6 +25,7 @@ namespace MVZ2.GameContent.HeldItems
         public const string selectBlueprint = "select_blueprint";
         public const string putOutFire = "put_out_fire";
         public const string emptyHandEntity = "empty_hand_entity";
+        public const string digEnemy = "dig_enemy";
     }
     public static class VanillaHeldItemBehaviourID
     {
@@ -46,6 +47,7 @@ namespace MVZ2.GameContent.HeldItems
         public static readonly NamespaceID selectBlueprint = Get(VanillaHeldItemBehaviourNames.selectBlueprint);
         public static readonly NamespaceID putOutFire = Get(VanillaHeldItemBehaviourNames.putOutFire);
         public static readonly NamespaceID emptyHandEntity = Get(VanillaHeldItemBehaviourNames.emptyHandEntity);
+        public static readonly NamespaceID digEnemy = Get(VanillaHeldItemBehaviourNames.digEnemy);
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

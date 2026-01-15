@@ -1018,6 +1018,19 @@ namespace MVZ2.Vanilla.Entities
             GravelOnFaceBuff.MaxTime(buff, time);
             PostApplyStatusEffect(entity, buff, source);
         }
+        public static void InflictPetrified(this Entity entity, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.petrified);
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetBuffs(buffDefinition).FirstOrDefault(e => !e.IsFromAura);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            PetrifiedBuff.MaxTime(buff, time);
+            PostApplyStatusEffect(entity, buff, source);
+        }
 
 
         public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference? source)
@@ -1185,8 +1198,12 @@ namespace MVZ2.Vanilla.Entities
         {
             return !deathInfo.HasEffect(VanillaDamageEffects.NO_DEATH_EFFECTS) && !entity.HasNoDeathEffects();
         }
+        public static bool WillRemoveOnDeath(this Entity entity, DeathInfo deathInfo)
+        {
+            return deathInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) || entity.IsRemoveOnDeath();
+        }
         #endregion
-        
+
         public static float GetRealGroundLimitY(this Entity entity)
         {
             return entity.GetGroundLimitOffset() + entity.GetGroundY();

@@ -437,6 +437,7 @@
     <model name="nuke_flash" type="entity" path="mvz2:effect/nuke_flash" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <model name="mega_glowing_laser" type="entity" path="mvz2:effect/mega_glowing_laser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="petrified_shards" type="entity" path="mvz2:effect/petrified_shards" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />
@@ -536,6 +537,7 @@
     <model name="glowing_particles" type="icon" path="mvz2:icon/glowing_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="gravel_on_face" type="icon" path="mvz2:icon/gravel_on_face" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="candle_cursed" type="icon" path="mvz2:icon/candle_cursed" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+    <model name="petrified_feet" type="icon" path="mvz2:icon/petrified_feet" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 </models>

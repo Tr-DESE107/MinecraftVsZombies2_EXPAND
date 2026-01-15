@@ -187,7 +187,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 动画
-        private void UpdateEntityAnimators(IList<Animator> toUpdate, float deltaTime, float gameSpeed, float maxBatchPercentage)
+        private void UpdateEntityAnimators(IList<AnimatorUpdateData> toUpdate, float deltaTime, float gameSpeed, float maxBatchPercentage)
         {
             var count = toUpdate.Count;
             if (count <= 0)
@@ -200,9 +200,11 @@ namespace MVZ2.Level
             for (int i = 0; i < updateCount; i++)
             {
                 var index = (i + startIndex) % count;
-                var animator = toUpdate[index];
+                var data = toUpdate[index];
+                var animator = data.animator;
+                var speed = data.speed;
                 animator.enabled = false;
-                animator.Update(deltaTime * gameSpeed * updateSpeed);
+                animator.Update(deltaTime * gameSpeed * updateSpeed * speed);
             }
             currentEntityAnimatorIndex = (updateCount + startIndex) % count;
         }
@@ -219,7 +221,7 @@ namespace MVZ2.Level
         private List<EntityController> entities = new List<EntityController>();
         private EntityController? hoveredEntity;
         private EntityController? highlightedEntity;
-        private List<Animator> entityAnimatorBuffer = new List<Animator>();
+        private List<AnimatorUpdateData> entityAnimatorBuffer = new List<AnimatorUpdateData>();
         private int currentEntityAnimatorIndex = 0;
 
         [Header("Entities")]
@@ -268,6 +270,17 @@ namespace MVZ2.Level
                     description = description
                 };
             }
+        }
+    }
+    public struct AnimatorUpdateData
+    {
+        public Animator animator;
+        public float speed;
+
+        public AnimatorUpdateData(Animator animator, float speed)
+        {
+            this.animator = animator;
+            this.speed = speed;
         }
     }
 }

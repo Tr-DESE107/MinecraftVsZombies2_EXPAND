@@ -10,9 +10,9 @@ namespace MVZ2Logic.Entities
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class LogicEntityProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T? defaultValue = default)
         {
-            return new PropertyMeta<T>(name);
+            return new PropertyMeta<T>(name, defaultValue);
         }
         #region 形状ID
         public static readonly PropertyMeta<NamespaceID> SHAPE = Get<NamespaceID>("shape");
@@ -173,10 +173,10 @@ namespace MVZ2Logic.Entities
         #endregion
 
         #region HSV
-        public static readonly PropertyMeta<Vector3> HSV = Get<Vector3>("hsv");
-        public static void SetHSV(this Entity entity, float h, float s, float v) => entity.SetHSV(new Vector3(h, s, v));
-        public static void SetHSV(this Entity entity, Vector3 value) => entity.SetProperty(HSV, value);
-        public static Vector3 GetHSV(this Entity entity) => entity.GetProperty<Vector3>(HSV);
+        public static readonly PropertyMeta<Vector3> HSV_OFFSET = Get<Vector3>("hsv_offset");
+        public static void SetHSVOffset(this Entity entity, float h, float s, float v) => entity.SetHSVOffset(new Vector3(h, s, v));
+        public static void SetHSVOffset(this Entity entity, Vector3 value) => entity.SetProperty(HSV_OFFSET, value);
+        public static Vector3 GetHSVOffset(this Entity entity) => entity.GetProperty<Vector3>(HSV_OFFSET);
         public static void SetHSVToColor(this Entity entity, Color srcColor)
         {
             entity.SetHSVToColor(srcColor, Color.red);
@@ -188,7 +188,7 @@ namespace MVZ2Logic.Entities
             var h = (srcH - dstH) * 360;
             var s = (srcS - dstS) * 100;
             var v = (srcV - dstV) * 100;
-            entity.SetHSV(h, s, v);
+            entity.SetHSVOffset(h, s, v);
         }
         #endregion
 
@@ -303,10 +303,30 @@ namespace MVZ2Logic.Entities
         public static void SetShowHeightIndicator(this Entity entity, bool value) => entity.SetProperty(SHOW_HEIGHT_INDICATOR, value);
         #endregion
 
+        #region 死亡后移除
+        public static readonly PropertyMeta<bool> REMOVE_ON_DEATH = Get<bool>("remove_on_death");
+        public static bool IsRemoveOnDeath(this Entity entity) => entity.GetProperty<bool>(REMOVE_ON_DEATH);
+        public static void SetRemoveOnDeath(this Entity entity, bool value) => entity.SetProperty(REMOVE_ON_DEATH, value);
+        #endregion
+
         #region 死亡效果
         public static readonly PropertyMeta<bool> NO_DEATH_EFFECTS = Get<bool>("no_death_effects");
         public static bool HasNoDeathEffects(this Entity entity) => entity.GetProperty<bool>(NO_DEATH_EFFECTS);
         public static void SetNoDeathEffects(this Entity entity, bool value) => entity.SetProperty(NO_DEATH_EFFECTS, value);
+        #endregion
+
+        #region 动画速度
+        public static readonly PropertyMeta<float> ANIMATION_SPEED = Get<float>("animation_speed", 1f);
+        public static float GetAnimationSpeed(this Entity entity) => entity.GetProperty<float>(ANIMATION_SPEED);
+        public static void SetAnimationSpeed(this Entity entity, float value) => entity.SetProperty(ANIMATION_SPEED, value);
+        #endregion
+
+        #region 铁镐目标
+        public static readonly PropertyMeta<bool> KILL_BY_PICKAXE = Get<bool>("kill_by_pickaxe");
+        public static bool CanBeKilledByPickaxe(this Entity contraption)
+        {
+            return contraption.GetProperty<bool>(KILL_BY_PICKAXE);
+        }
         #endregion
     }
 }

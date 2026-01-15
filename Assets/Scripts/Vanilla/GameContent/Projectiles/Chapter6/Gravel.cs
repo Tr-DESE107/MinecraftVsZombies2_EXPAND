@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Projectiles
         public override void PostDeath(Entity entity, DeathInfo deathInfo)
         {
             base.PostDeath(entity, deathInfo);
-            if (deathInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (entity.WillRemoveOnDeath(deathInfo))
                 return;
             entity.CreateFragmentAndPlay(VanillaFragmentID.gravelpult, 50);
             entity.PlaySound(VanillaSoundID.butter);

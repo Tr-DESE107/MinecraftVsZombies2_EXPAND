@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Armors
         {
             var entity = param.entity;
             var info = param.deathInfo;
-            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (entity.WillRemoveOnDeath(info))
                 return;
             var shield = entity.GetArmorAtSlot(LogicArmorSlots.shield);
             if (shield == null)

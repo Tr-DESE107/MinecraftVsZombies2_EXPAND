@@ -7,6 +7,7 @@ using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Effects;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
@@ -83,7 +84,7 @@ namespace MVZ2.GameContent.Buffs.Entities
         {
             var entity = param.entity;
             var info = param.deathInfo;
-            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (entity.WillRemoveOnDeath(info))
                 return;
             foreach (var buff in entity.GetBuffs<DivineShieldBuff>())
             {

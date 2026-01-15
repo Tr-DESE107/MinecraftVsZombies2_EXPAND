@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 entity.AddBuff<SacrificedBuff>();
             }
-            else if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            else if (entity.WillRemoveOnDeath(damageInfo))
             {
                 entity.Remove();
             }
@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Contraptions
                 entity.PlayDeathSound();
                 entity.Remove();
             }
-            if (!damageInfo.Effects.HasEffect(VanillaDamageEffects.SELF_DAMAGE))
+            if (!damageInfo.Effects.HasEffect(VanillaDamageEffects.PICKAXE))
             {
                 entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DESTROY, new EntityCallbackParams(entity), entity.GetDefinitionID());
             }

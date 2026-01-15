@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
@@ -35,6 +36,12 @@ namespace MVZ2.GameContent.Detections
             if (!collider.IsForMain())
                 return false;
             return base.ValidateCollider(param, collider);
+        }
+        public override bool ValidateTarget(DetectionParams self, Entity target)
+        {
+            if (target.ImmuneSlowing())
+                return false;
+            return base.ValidateTarget(self, target);
         }
         public Vector3 shootOffset;
     }

@@ -28,6 +28,7 @@ namespace MVZ2.Vanilla.Entities
         public const string skywardBeacon_Evoke = "skyward_beacon/evoke";
         public const string transfenser_Trigger = "transfenser/trigger";
         public const string gravelpult_Evoke = "gravelpult/evoke";
+        public const string stoneEye_Evoke = "stone_eye/evoke";
         #endregion
 
         #region Enemies
@@ -109,6 +110,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region Effects
+        public const string effectLaserScaling = "effect_laser_scaling";
         public const string gas = "gas";
         public const string gasBlown = "gas_blown";
         public const string waterStainBlown = "water_stain_blown";

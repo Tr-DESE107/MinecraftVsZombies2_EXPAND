@@ -59,7 +59,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (!entity.WillRemoveOnDeath(info))
             {
                 var param = entity.GetSpawnParams();
                 param.SetProperty(EngineEntityProps.TINT, Color.black);

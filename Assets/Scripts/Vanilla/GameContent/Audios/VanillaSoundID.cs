@@ -165,6 +165,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID parabotTick = Get("parabot_tick");
         public readonly static NamespaceID parasitize = Get("parasitize");
         public readonly static NamespaceID pearlTouch = Get("pearl_touch");
+        public readonly static NamespaceID petrified = Get("petrified");
         public readonly static NamespaceID pick = Get("pick");
         public readonly static NamespaceID pistonIn = Get("piston_in");
         public readonly static NamespaceID pistonOut = Get("piston_out");
@@ -182,6 +183,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID reviveCast = Get("revive_cast");
         public readonly static NamespaceID revived = Get("revived");
         public readonly static NamespaceID reverseVampire = Get("reverse_vampire");
+        public readonly static NamespaceID rockCrumble = Get("rock_crumble");
         public readonly static NamespaceID sand = Get("sand");
         public readonly static NamespaceID scifiLaser = Get("scifi_laser");
         public readonly static NamespaceID screw = Get("screw");

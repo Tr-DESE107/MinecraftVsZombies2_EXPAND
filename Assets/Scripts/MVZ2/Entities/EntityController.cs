@@ -164,11 +164,16 @@ namespace MVZ2.Entities
                 Model.UpdateAnimators(deltaTime);
             }
         }
-        public void GetAnimatorsToUpdate(IList<Animator> results)
+        public void GetAnimatorsToUpdate(IList<AnimatorUpdateData> results)
         {
             if (Model.Exists())
             {
-                Model.GetAnimatorsToUpdate(results);
+                animatorBuffer.Clear();
+                Model.GetAnimatorsToUpdate(animatorBuffer);
+                foreach (var animator in animatorBuffer)
+                {
+                    results.Add(new AnimatorUpdateData(animator, Entity.GetAnimationSpeed()));
+                }
             }
         }
         #endregion
@@ -834,6 +839,7 @@ namespace MVZ2.Entities
         private IModelInterface bodyModelInterface = null!;
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
         private List<HPBarViewData> hpBarBuffer = new List<HPBarViewData>();
+        private List<Animator> animatorBuffer = new List<Animator>();
         [SerializeField]
         private ShadowController shadow = null!;
         [SerializeField]
@@ -860,7 +866,7 @@ namespace MVZ2.Entities
                 if (model != null)
                 {
                     model.SetShaderColor(ShaderProperties.TINT, entityCtrl.GetTint());
-                    model.SetShaderVector(ShaderProperties.HSV_OFFSET, entity.GetHSV());
+                    model.SetShaderVector(ShaderProperties.HSV_OFFSET, entity.GetHSVOffset());
                     model.SetShaderColor(ShaderProperties.COLOR_OFFSET, entityCtrl.GetColorOffset());
                     model.SetShaderInt(ShaderProperties.GRAYSCALE, entity.IsGrayscale() ? 1 : 0);
                     model.SetShaderInt(ShaderProperties.DEPTH_TEST, entity.IsDepthTest() ? 1 : 0);
@@ -909,7 +915,7 @@ namespace MVZ2.Entities
                         case PropertyName.HSV:
                             if (model.Exists())
                             {
-                                model.SetShaderVector(ShaderProperties.HSV_OFFSET, entity.GetHSV());
+                                model.SetShaderVector(ShaderProperties.HSV_OFFSET, entity.GetHSVOffset());
                                 model.ApplyShaderProperties();
                             }
                             break;
@@ -1027,7 +1033,7 @@ namespace MVZ2.Entities
             {
                 { EngineEntityProps.TINT, PropertyName.Tint },
                 { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
-                { LogicEntityProps.HSV, PropertyName.HSV },
+                { LogicEntityProps.HSV_OFFSET, PropertyName.HSV },
                 { LogicEntityProps.GRAYSCALE, PropertyName.Grayscale },
                 { LogicEntityProps.DEPTH_TEST, PropertyName.DepthTest },
                 { EngineEntityProps.FLIP_X, PropertyName.FlipX },

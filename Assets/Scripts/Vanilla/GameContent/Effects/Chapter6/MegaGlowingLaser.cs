@@ -5,14 +5,11 @@ using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Modifiers;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -21,12 +18,12 @@ namespace MVZ2.GameContent.Effects
     {
         public MegaGlowingLaser(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_SCALE_MULTIPLIER));
         }
         public override void Init(Entity entity)
         {
             base.Init(entity);
             entity.PlaySound(VanillaSoundID.scifiLaser);
+            detectBuffer.Clear();
             laserDetector.DetectEntities(entity, detectBuffer);
             var duration = Ticks.FromSeconds(GLOWING_DURATION_SECONDS);
             foreach (var target in detectBuffer)
@@ -35,15 +32,8 @@ namespace MVZ2.GameContent.Effects
             }
 
         }
-        public override void Update(Entity entity)
-        {
-            base.Update(entity);
-            var multi = new Vector3(1, (float)entity.Timeout / entity.GetMaxTimeout(), 1);
-            entity.SetProperty(PROP_SCALE_MULTIPLIER, multi);
-        }
         public const float GLOWING_DURATION_SECONDS = 30f;
         public static Detector laserDetector = new CollisionDetector(true);
         public List<Entity> detectBuffer = new List<Entity>();
-        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_SCALE_MULTIPLIER = new VanillaEntityPropertyMeta<Vector3>("scale_multiplier", Vector3.zero);
     }
 }

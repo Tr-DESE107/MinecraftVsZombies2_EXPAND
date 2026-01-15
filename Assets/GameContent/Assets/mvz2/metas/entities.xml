@@ -1173,10 +1173,11 @@
         </contraption>
         <contraption id="stone_eye" name="石眼" tooltip="减速并阻挡前方敌人">
             <unlock>
-                <condition required="mvz2/:level.palace_4" />
+                <condition required="mvz2:level.palace_4" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:model_damage_percent" />
+                <behaviour operator="add" id="mvz2:stone_eye/evoke" />
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="160" />
@@ -3042,7 +3043,7 @@
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="3000" y="3000" z="3000" />
                 <color name="mvz2:lightColor" value="#FF00FF" />
-                <vector3 name="mvz2:hsv" x="300" y="0" z="0" />
+                <vector3 name="mvz2:hsv_offset" x="300" y="0" z="0" />
             </properties>
         </effect>
         <effect id="evocation_star">
@@ -3739,6 +3740,9 @@
             </properties>
         </effect>
         <effect id="mega_glowing_laser">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:effect_laser_scaling"/>
+            </behaviours>
             <properties>
                 <vector3 name="mvz2:size" x="2000" y="26" z="26" />
                 <vector3 name="mvz2:boundsPivot" x="0" y="0.5" z="0.5" />
@@ -3761,6 +3765,23 @@
                 <bool name="mvz2:updateBeforeGame" value="true" />
                 <bool name="mvz2:updateAfterGameOver" value="true" />
                 <int name="mvz2:maxTimeout" value="30" />
+            </properties>
+        </effect>
+        <effect id="petrified_shards">
+            <properties>
+                <int name="mvz2:maxTimeout" value="15" />
+            </properties>
+        </effect>
+        <effect id="petrify_laser">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:effect_laser_scaling"/>
+            </behaviours>
+            <properties>
+                <id name="mvz2:modelId" value="mvz2:entity.mega_glowing_laser" />
+                <vector3 name="mvz2:hsv_offset" x="0" y="-100" z="0" />
+                <vector3 name="mvz2:size" x="2000" y="26" z="26" />
+                <vector3 name="mvz2:boundsPivot" x="0" y="0.5" z="0.5" />
+                <int name="mvz2:maxTimeout" value="15" />
             </properties>
         </effect>
     </entries>

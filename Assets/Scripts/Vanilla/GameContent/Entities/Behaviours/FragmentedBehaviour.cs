@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Entities
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            if (!damageInfo.HasEffect(VanillaDamageEffects.SACRIFICE) && !damageInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (!damageInfo.HasEffect(VanillaDamageEffects.SACRIFICE) && !entity.WillRemoveOnDeath(damageInfo))
             {
                 entity.GetOrCreateFragment()?.Let(e =>
                 {

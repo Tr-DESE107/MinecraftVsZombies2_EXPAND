@@ -20,19 +20,19 @@ namespace MVZ2.GameContent.HeldItems
         public PickaxeHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
+        public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.Plant;
+        }
         protected override bool CanUseOnEntity(Entity entity)
         {
-            if (!entity.ExistsAndAlive())
+            if (!entity.ExistsAndAlive() || entity.NoHeldTarget() || entity.CannotDig())
                 return false;
-            if (entity.Type != EntityTypes.PLANT)
-                return false;
-            if (entity.NoHeldTarget())
-                return false;
-            return entity.GetFaction() == entity.Level.Option.LeftFaction && !entity.CannotDig();
+            return entity.Type == EntityTypes.PLANT && entity.IsFriendlyEntity();
         }
         protected override void UseOnEntity(Entity entity)
         {
-            var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE);
+            DamageEffectList effects = new DamageEffectList(VanillaDamageEffects.PICKAXE, VanillaDamageEffects.SELF_DAMAGE);
             entity.Die(effects);
             if (entity.Level.IsPickaxeCountLimited())
             {

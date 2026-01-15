@@ -87,7 +87,7 @@ namespace MVZ2.GameContent.Buffs.Level
             var param = new SpawnParams();
             param.SetProperty(EngineEntityProps.FACTION, faction);
             param.SetProperty(VanillaEntityProps.DAMAGE, damage);
-            param.SetProperty(LogicEntityProps.HSV, hsvOffset);
+            param.SetProperty(LogicEntityProps.HSV_OFFSET, hsvOffset);
             param.SetProperty(LogicEntityProps.VARIANT, variant);
             var meteor = level.Spawn(VanillaProjectileID.beaconMeteor, pos, null, param)?.Let(e =>
             {

@@ -132,7 +132,7 @@ namespace MVZ2.GameContent.Carts
         public override void PostDeath(Entity entity, DeathInfo deathInfo)
         {
             base.PostDeath(entity, deathInfo);
-            if (!deathInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (!entity.WillRemoveOnDeath(deathInfo))
             {
                 entity.CreateFragmentAndPlay(emitSpeed: 500);
             }
