@@ -38,7 +38,7 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_beacon" name="升级器械：信标" description="必须放置在信标上" priority="0">
-            <icon sprite="mvz2:ui/almanac/Contraption(icon)[48]" />
+            <icon sprite="mvz2:ui/almanac/Contraption(icon)[44]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
 
@@ -164,20 +164,24 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
         </tag>
 		<tag id="placement_FireworkDispenser" name="升级器械：烟花发射器" description="必须放置在烟花发射器上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Contraption(icon)[49]" />
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[45]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
 		</tag>
 		<tag id="placement_RedstoneOre" name="升级器械：红石矿" description="必须放置在红石矿上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Contraption(icon)[17]" />
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[12]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
 		</tag>
 		<tag id="placement_hfpd" name="升级器械：高频脉冲发射器" description="必须放置在高频脉冲发射器上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Contraption(icon)[57]" />
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[56]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
 		</tag>
 		<tag id="placement_Eviltombstone" name="升级器械：邪灵墓碑" description="必须放置在邪灵墓碑上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Contraption(icon)[56]" />
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[55]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
+		</tag>
+		<tag id="placement_dispenser" name="升级器械：发射器" description="必须放置在发射器上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[0]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
 		</tag>
         
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
@@ -1257,6 +1261,24 @@
         <entry />
 
         <!-- Upgrades 1 -->
+		<entry id="mvz2:Snipenser">
+			<tags>
+				<tag id="mvz2:placement_dispenser" />
+			</tags>
+			<header>
+				<p>狙击发射器能够全方位发射高速箭。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>60</color>]]></p>
+				<p>特点：<![CDATA[<color=red>全方位射击</color>]]></p>
+				<p>技能：<![CDATA[<color=red>发射更加致命的子弹。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>狙击发射器酷爱玩FPS类游戏，它是个金枪黑百合，而他最喜欢的一把枪是AWP。村民曾夸它是“八百里开外一枪干掉僵尸的狙击手”……这一条只不过是胡诌罢了。</p>
+				<p/>
+				<p><![CDATA[<color=red>反重力方块在哪？？？？！！？！？！？！？！？？！？！</color>]]></p>
+			</flavor>
+		</entry>
 		<entry id="mvz2:AntiGravityPad">
 			<tags>
 				<tag id="mvz2:placement_AntiGravityPad" />
@@ -1274,55 +1296,7 @@
 				<p><![CDATA[<color=green>哈哈哈我反重力板通过小小的假死就骗过了牢狙，打赢复活赛了！</color>]]></p>
 			</flavor>
 		</entry>
-        <entry id="mvz2:infectenser">
-            <tags>
-                <tag id="mvz2:placement_infectenser" />
-            </tags>
-            <header>
-                <p>传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。</p>
-            </header>
-            <properties>
-                <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
-            </properties>
-            <flavor>
-                <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:force_pad">
-            <tags>
-                <tag id="mvz2:placement_force_pad" />
-            </tags>
-            <header>
-                <p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
-            </header>
-            <properties>
-                <p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
-                <p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
-                <p>技能：<![CDATA[<color=red>将周围的敌方怪物移动到一个指定的位置</color>]]></p>
-            </properties>
-            <flavor>
-                <p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:golden_dropper">
-            <tags>
-                <tag id="mvz2:placement_golden_dropper" />
-            </tags>
-            <header>
-                <p>金制投掷器向敌人发射金球，金球在击中敌人后有概率产生绿宝石，并在敌人间反弹。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>60，每次反弹后减半</color>]]></p>
-                <p>宝石概率：<![CDATA[<color=red>25%</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
-            </properties>
-            <flavor>
-                <p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
-            </flavor>
-        </entry>
+        
 		<entry id="mvz2:CopperDropper">
 			<tags>
 				<tag id="mvz2:placement_stone_dropper" />
@@ -1364,27 +1338,6 @@
                 <p><![CDATA[<color=#C6D1C5>图鉴没有写错。</color>]]></p>
             </flavor>
         </entry>
-
-        <entry id="mvz2:skyward_beacon">
-            <tags>
-                <tag id="mvz2:placement_beacon" />
-            </tags>
-            <header>
-                <p>御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>147</color>]]></p>
-                <p>技能：<![CDATA[<color=red>展开一片星空，将场地临时变为黑夜，空中会掉落总共300颗星星子弹，每颗星星造成55点伤害，持续30秒。</color>]]></p>
-            </properties>
-            <flavor>
-                <p>御天信标一直都是器械界的一位大歌星——我没在开双关玩笑，它是真的很有人气。</p>
-                <p>在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。</p>
-                <p>它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和石制投掷器算是不错的朋友，但它也非常讨厌骷髅头。</p>
-                <p>不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）</p>
-            </flavor>
-        </entry>
-
 		<entry id="mvz2:SuperFireworkDispenser">
 			<tags>
 				<tag id="mvz2:placement_FireworkDispenser" />
@@ -1405,6 +1358,102 @@
 				<p><![CDATA[<color=white>在之后的版本里，我将直接听从你的命令</color>]]></p>
 			</flavor>
 		</entry>
+		<entry id="mvz2:DiamondOre">
+			<tags>
+				<tag id="mvz2:placement_RedstoneOre" />
+			</tags>
+			<header>
+				<p>钻石矿打碎后可以获得钻石</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>1200</color>]]></p>
+				<p>特点：<![CDATA[<color=red>打碎后可以产生3个钻石</color>]]></p>
+				<p>技能：<![CDATA[<color=red>造成1200敌我不分的3*3爆炸伤害，产生3个钻石，并50%掉落一张钻石矿卡片。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>我发现使用镐子敲掉钻石矿会让人很开心。</p>
+
+			</flavor>
+		</entry>
+		
+		<entry/>
+		<entry/>
+
+		<entry id="mvz2:infectenser">
+			<tags>
+				<tag id="mvz2:placement_infectenser" />
+			</tags>
+			<header>
+				<p>传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。</p>
+			</header>
+			<properties>
+				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
+			</properties>
+			<flavor>
+				<p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:force_pad">
+			<tags>
+				<tag id="mvz2:placement_force_pad" />
+			</tags>
+			<header>
+				<p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
+			</header>
+			<properties>
+				<p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
+				<p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
+				<p>技能：<![CDATA[<color=red>将周围的敌方怪物移动到一个指定的位置</color>]]></p>
+			</properties>
+			<flavor>
+				<p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:golden_dropper">
+			<tags>
+				<tag id="mvz2:placement_golden_dropper" />
+			</tags>
+			<header>
+				<p>金制投掷器向敌人发射金球，金球在击中敌人后有概率产生绿宝石，并在敌人间反弹。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>60，每次反弹后减半</color>]]></p>
+				<p>宝石概率：<![CDATA[<color=red>25%</color>]]></p>
+				<p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
+			</properties>
+			<flavor>
+				<p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
+			</flavor>
+		</entry>
+        <entry id="mvz2:skyward_beacon">
+            <tags>
+                <tag id="mvz2:placement_beacon" />
+            </tags>
+            <header>
+                <p>御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>147</color>]]></p>
+                <p>技能：<![CDATA[<color=red>展开一片星空，将场地临时变为黑夜，空中会掉落总共300颗星星子弹，每颗星星造成55点伤害，持续30秒。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>御天信标一直都是器械界的一位大歌星——我没在开双关玩笑，它是真的很有人气。</p>
+                <p>在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。</p>
+                <p>它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和石制投掷器算是不错的朋友，但它也非常讨厌骷髅头。</p>
+                <p>不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）</p>
+            </flavor>
+        </entry>
+		
+		<entry/>
+		<entry/>
+		<entry/>
+		<entry/>
+
+		
 		
 
 
@@ -1453,25 +1502,8 @@
         </entry>
         <entry />
 
-
-
-		<entry id="mvz2:DiamondOre">
-			<tags>
-				<tag id="mvz2:placement_RedstoneOre" />
-			</tags>
-			<header>
-				<p>钻石矿打碎后可以获得钻石</p>
-			</header>
-			<properties>
-				<p>耐久：<![CDATA[<color=red>1200</color>]]></p>
-				<p>特点：<![CDATA[<color=red>打碎后可以产生3个钻石</color>]]></p>
-				<p>技能：<![CDATA[<color=red>造成1200敌我不分的3*3爆炸伤害，产生3个钻石，并50%掉落一张钻石矿卡片。</color>]]></p>
-			</properties>
-			<flavor>
-				<p>我发现使用镐子敲掉钻石矿会让人很开心。</p>
-
-			</flavor>
-		</entry>
+		
+		
         <entry id="mvz2:EXPANDispenser">
             <tags>
                 <tag id="mvz2:placement_hfpd" />
@@ -1529,31 +1561,16 @@
 			</header>
 			<properties>
 				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
-				<p>特点：<![CDATA[<color=red>驱动后能够冰冻全场敌人</color>]]></p>
-				<p>技能：<![CDATA[<color=red>先对全场被冰冻的敌人造成1000点伤害，后冰冻全场敌人。</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁后可以冰冻单格敌人</color>]]></p>
+				<p>技能：<![CDATA[<color=red>冰冻全场敌人，而后自毁</color>]]></p>
 			</properties>
 			<flavor>
-				<p>永冻冰觉得自己简直是被遗忘了，在expg里很长的一段时间内，他都没有图鉴文本，然而没有人在乎这一点，过了有一年乃至几个月制作者才发现他没有正规的图鉴，匆匆给他补上。然后似乎也没有人发现这一点，编辑Expwiki的逃兵们忘了更新它的条目，以至于又是一年乃至几个月，牢论把它制作到u时才发现他Expwiki的条目还是只有寥寥几句话。</p>
-				<p>"嗯，往好处想，至少我比牢狙早打赢复活赛。"他是这么想的</p>
+				<p>蓝冰之前好奇为什么寒冰发射器和永冻冰消失了，火焰发射器说他们去了很远很远的地方，于是永冻冰就把花圈给他们准备好了。今天他醒来，发现寒冰发射器和永冻冰就在他的身边，于是他就把花圈留着自己用了。</p>
 				<p/>
-				<p><![CDATA[<color=white>永冻冰后面去问寒冰发射器，为什么自己突然就被牢论记起来，并加进游戏里了？寒冰发射器讲：顺手的事。</color>]]></p>
+				<p><![CDATA[<color=white>永冻冰再后面再去问寒冰发射器，为什么蓝冰没有被牢论和我们一起顺手加进游戏？寒冰发射器讲：大概是忘了（不顺手的事）。</color>]]></p>
 			</flavor>
 		</entry>
-		<entry id="mvz2:Snipenser">
-			<header>
-				<p>狙击发射器能够全方位发射高速箭。</p>
-			</header>
-			<properties>
-				<p>伤害：<![CDATA[<color=red>60</color>]]></p>
-				<p>特点：<![CDATA[<color=red>全方位射击</color>]]></p>
-				<p>技能：<![CDATA[<color=red>发射更加致命的子弹。</color>]]></p>
-			</properties>
-			<flavor>
-				<p>狙击发射器酷爱玩FPS类游戏，它是个金枪黑百合，而他最喜欢的一把枪是AWP。村民曾夸它是“八百里开外一枪干掉僵尸的狙击手”……这一条只不过是胡诌罢了。</p>
-				<p/>
-				<p><![CDATA[<color=red>反重力方块在哪？？？？！！？！？！？！？！？？！？！</color>]]></p>
-			</flavor>
-		</entry>
+		
 		<entry id="mvz2:Randombstone">
 			<tags>
 				<tag id="mvz2:placement_Eviltombstone" />
