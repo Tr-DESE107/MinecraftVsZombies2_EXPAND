@@ -130,6 +130,10 @@
             <description>不会游戏结束。</description>
             <params />
         </variant>
+		<variant subname="all">
+			<description>全部作弊效果。</description>
+			<params />
+		</variant>
     </command>
     <command id="repeat">
         <description>重复上一条指令。</description>

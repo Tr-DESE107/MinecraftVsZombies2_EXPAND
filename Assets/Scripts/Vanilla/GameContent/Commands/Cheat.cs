@@ -46,6 +46,13 @@ namespace MVZ2.GameContent.Commands
                     buffDefinition = game.GetBuffDefinition<DebugStarshardBuff>();
                     cheatNameKey = VanillaStrings.CHEAT_NAME_STARSHARD;
                     break;
+                case "all":
+                    var cheatTypes = new[] { "godmode", "energy", "recharge", "starshard" };
+                    foreach (var cheat in cheatTypes)
+                    {
+                        Invoke(new[] { cheat });
+                    }
+                    return;
                 default:
                     throw new ArgumentException(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_CHEAT_NOT_FOUND, VanillaStrings.CONTEXT_COMMAND_OUTPUT, cheatCode));
             }
