@@ -80,19 +80,32 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.TriggerAnimation("Shoot");
             var proID = projectileID;
-            if (entity.RNG.Next(2) == 0)
+            var BulletRNG = entity.RNG.Next(6);
+            switch (BulletRNG)
             {
-                proID = VanillaProjectileID.bullet;
+                case 0:
+                    proID = VanillaProjectileID.SmallRocket;
+                    break;
+                case 1:
+                    proID = VanillaProjectileID.RedKnife;
+                    break;
+                case 2:
+                    proID = VanillaProjectileID.bullet;
+                    break;
+                default:
+                    proID = VanillaProjectileID.arrow;
+                    break;
             }
-            var projectile = entity.ShootProjectile(new ShootParams()
-            {
-                projectileID = proID,
-                position = entity.GetShootPoint(),
-                faction = entity.GetFaction(),
-                damage = damage,
-                soundID = entity.GetShootSound(),
-                velocity = velocity,
-            })?.Let(e => e.SetGravity(0)); // 移除重力，使用直线飞行  
+
+                var projectile = entity.ShootProjectile(new ShootParams()
+                {
+                    projectileID = proID,
+                    position = entity.GetShootPoint(),
+                    faction = entity.GetFaction(),
+                    damage = damage,
+                    soundID = entity.GetShootSound(),
+                    velocity = velocity,
+                })?.Let(e => e.SetGravity(0)); // 移除重力，使用直线飞行  
         }
         private void EvokedUpdate(Entity entity)
         {
@@ -117,7 +130,7 @@ namespace MVZ2.GameContent.Contraptions
                 evokeTimer.Run();
                 if (evokeTimer.PassedInterval(3))
                 {
-                    Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.fireCharge, entity.GetDamage(), velocity);
+                    Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.SmallRocket, entity.GetDamage(), velocity);
                 }
 
 
