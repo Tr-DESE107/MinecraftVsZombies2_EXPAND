@@ -105,6 +105,7 @@
     <model name="Freezenser" type="entity" path="mvz2:contraption/EXPAND/Freezenser" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="PermanentIce" type="entity" path="mvz2:contraption/EXPAND/PermanentIce" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="BlueIce" type="entity" path="mvz2:contraption/EXPAND/BlueIce" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="Snipenser" type="entity" path="mvz2:contraption/EXPAND/Snipenser" width="64" height="64" xOffset="0" yOffset="-28" />
 
 	<model name="Randombstone" type="entity" path="mvz2:contraption/GoldCard/Randombstone" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="SuperFireworkDispenser" type="entity" path="mvz2:contraption/EXPAND/SuperFireworkDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
@@ -686,6 +687,7 @@
 	<model name="IcedBolt" type="entity" path="mvz2:projectile/EXPAND_projectile/IcedBolt" width="64" height="20" xOffset="6" yOffset="-10" />
 	<model name="BloodBolt" type="entity" path="mvz2:projectile/EXPAND_projectile/BloodBolt" width="64" height="20" xOffset="6" yOffset="-10" />
 	<model name="BigFireCharge" type="entity" path="mvz2:projectile/EXPAND_projectile/BigFireCharge" width="48" height="48" xOffset="0" yOffset="-12" />
+	<model name="SmallRocket" type="entity" path="mvz2:projectile/EXPAND_projectile/SmallRocket" width="16" height="2" xOffset="0" yOffset="-1" />
 
 	<!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0" />
@@ -749,6 +751,7 @@
 	<model name="CorropoisonParticles" type="icon" path="mvz2:icon/CorropoisonParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="ShockStaticParticles" type="icon" path="mvz2:icon/ShockStaticParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="DeathMarkParticles" type="icon" path="mvz2:icon/DeathMarkParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+	<model name="EightDiagram" type="icon" path="mvz2:icon/EXPAND_icon/EightDiagram" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 </models>

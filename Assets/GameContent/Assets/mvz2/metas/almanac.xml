@@ -1464,8 +1464,8 @@
 			</header>
 			<properties>
 				<p>耐久：<![CDATA[<color=red>1200</color>]]></p>
-				<p>特点：<![CDATA[<color=red>打碎后可以获得3个钻石</color>]]></p>
-				<p>技能：<![CDATA[<color=red>造成1200敌我不分的3*3爆炸伤害，产生获得3个钻石，并掉落一张钻石矿卡片。</color>]]></p>
+				<p>特点：<![CDATA[<color=red>打碎后可以产生3个钻石</color>]]></p>
+				<p>技能：<![CDATA[<color=red>造成1200敌我不分的3*3爆炸伤害，产生3个钻石，并50%掉落一张钻石矿卡片。</color>]]></p>
 			</properties>
 			<flavor>
 				<p>我发现使用镐子敲掉钻石矿会让人很开心。</p>
@@ -1477,7 +1477,7 @@
                 <tag id="mvz2:placement_hfpd" />
             </tags>
             <header>
-                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。\n嗯，说是这么说，但还没做好</p>
+                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。嗯，说是这么说，但还没做好</p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
@@ -1537,6 +1537,21 @@
 				<p>"嗯，往好处想，至少我比牢狙早打赢复活赛。"他是这么想的</p>
 				<p/>
 				<p><![CDATA[<color=white>永冻冰后面去问寒冰发射器，为什么自己突然就被牢论记起来，并加进游戏里了？寒冰发射器讲：顺手的事。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:Snipenser">
+			<header>
+				<p>狙击发射器能够全方位发射高速箭。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>80</color>]]></p>
+				<p>特点：<![CDATA[<color=red>全方位射击</color>]]></p>
+				<p>技能：<![CDATA[<color=red>发射更加致命的子弹。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>狙击发射器酷爱玩FPS类游戏，它是个金枪黑百合，而他最喜欢的一把枪是AWP。村民曾夸它是“八百里开外一枪干掉僵尸的狙击手”……这一条只不过是胡诌罢了。</p>
+				<p/>
+				<p><![CDATA[<color=red>反重力方块在哪？？？？！！？！？！？！？！？？！？！</color>]]></p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:Randombstone">

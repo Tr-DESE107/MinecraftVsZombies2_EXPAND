@@ -1580,6 +1580,18 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
+        <dispenser id="Snipenser" name="狙击发射器" tooltip="攻击全场敌人">
+            <unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            </unlock>
+            <properties>
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:dispenser" />
+                <float name="mvz2:damage" value="80" />
+                <int name="mvz2:cost" value="500" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </dispenser>
         <dispenser id="Freezenser" name="寒冰发射器" tooltip="射出能够减速和冻结敌人的冰锥">
             <unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>

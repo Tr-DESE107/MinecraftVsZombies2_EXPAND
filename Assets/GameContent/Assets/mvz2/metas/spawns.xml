@@ -298,7 +298,7 @@
         <weight base="2000" />
     </entry>
     <entry id="Anubiskull" entity="mvz2:Anubiskull">
-        <spawn level="4.5" minWave="5" />
+        <spawn level="5" minWave="5" />
         <terrain water="true" air="true" />
         <weight base="1250" />
     </entry>

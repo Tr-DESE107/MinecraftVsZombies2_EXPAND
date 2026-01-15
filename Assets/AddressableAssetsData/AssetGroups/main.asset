@@ -2439,6 +2439,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 289d71f91f0defc4abab9d1f3e2f302c
+    m_Address: mvz2:mobile_blueprint/BlueIce
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28a1b23d69f2f284695b159c4c295d6f
     m_Address: mvz2:mobile_blueprint/EXPANDispenser
     m_ReadOnly: 0
@@ -2494,6 +2501,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29e83ddbd8dcc5c40ae7f1ff01e949a9
+    m_Address: mvz2:contraption/EXPAND/Snipenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29f2ee649e248da4facee783269e0899
     m_Address: mvz2:projectile/boulder
@@ -4431,6 +4445,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48f4733abfcc21d4a9d0b71aa00e1967
+    m_Address: mvz2:mobile_blueprint/Snipenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48f8ed9be271a3d4b906a194901246e4
     m_Address: mvz2:pickup/redstone
@@ -14007,6 +14028,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f41899d39e335b841adf74dca8851557
+    m_Address: mvz2:icon/EXPAND_icon/EightDiagram
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4504226a952f4341b7a99de92c93899
     m_Address: mvz2:mobile_blueprint/MegaZombie
     m_ReadOnly: 0
@@ -14048,6 +14076,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f498a17e7d689924f9e5b647a1d6f745
+    m_Address: mvz2:entity/effect/EXPAND/EightDiagram
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4c0bfb75f72dd04691ce970467c4c37
     m_Address: mvz2:entity/contraption/DiamondOre
@@ -14572,6 +14607,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fda78549c8341a5448aef8d58c997a7f
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/Snipenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe0e02bd8e3b7574bad03100a24b2c38
     m_Address: mvz2:effect/mutant_zombie_weapon

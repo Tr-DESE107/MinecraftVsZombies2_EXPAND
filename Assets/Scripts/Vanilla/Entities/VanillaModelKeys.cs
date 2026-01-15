@@ -26,6 +26,7 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles");
         public static readonly NamespaceID ShockStaticParticles = Get("ShockStaticParticles");
         public static readonly NamespaceID DeathMarkParticles = Get("DeathMarkParticles");
+        public static readonly NamespaceID EightDiagram = Get("EightDiagram");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

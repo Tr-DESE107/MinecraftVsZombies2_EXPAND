@@ -44,19 +44,13 @@ namespace MVZ2.GameContent.Contraptions
             entity.Level.ShakeScreen(10, 0, 15);
             entity.Remove();
 
-
-            for (var i = 0; i < 3; i++)
-            {
-                entity.Produce(VanillaPickupID.diamond);
-            }
-
-            //if (entity.RNG.Next(2) == 0) 
-            //{ 
+            if (entity.RNG.Next(1) == 0) 
+            { 
             var spawnParams = new SpawnParams();
             var blueprintID = VanillaContraptionID.DiamondOre;
             spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
             entity.Produce(VanillaPickupID.blueprintPickup, spawnParams);
-            //}
+            }
 
 
         }
