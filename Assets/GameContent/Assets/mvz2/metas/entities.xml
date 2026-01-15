@@ -1626,8 +1626,9 @@
 				<id name="mvz2:placeSound" value="mvz2:ice" />
 				<id name="mvz2:shell" value="mvz2:ice" />
 				<id name="mvz2:deathSound" value="mvz2:glass_break" />
+				<id name="mvz2:fragmentId" value="mvz2:PermanentIce" />
 
-				<int name="mvz2:cost" value="150" />
+				<int name="mvz2:cost" value="0" />
 				<id name="mvz2:rechargeId" value="mvz2:short" />
 			</properties>
 		</contraption>

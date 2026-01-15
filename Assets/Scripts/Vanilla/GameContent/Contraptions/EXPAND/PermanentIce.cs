@@ -117,11 +117,13 @@ namespace MVZ2.GameContent.Contraptions
             entity.AddBuff<GlowstoneEvokeBuff>();
             entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
             bool stunned = false;
+            var slowSource = new EntitySourceReference(entity);
             foreach (var target in entity.Level.GetEntities())
             {
                 if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
                 {
                     target.SoulFreeze(stunDuration);
+                    target.InflictSlow(stunDuration * 2, slowSource);
                     stunned = true;
                 }
             }
@@ -146,26 +148,13 @@ namespace MVZ2.GameContent.Contraptions
                 var range = entity.GetRange();
                 var damage = entity.GetDamage();
                 Explode(entity, range, damage);
-                //if (entity.IsEvoked())
-                //{
-                //    for (int i = 0; i < 4; i++)
-                //    {
-                //        var direction = Quaternion.Euler(0, i * 90, 0) * Vector3.right * 10;
-                //        var velocity = direction;
-                //        velocity.y = 10;
-                //        var shootParams = entity.GetShootParams();
-                //        shootParams.projectileID = VanillaProjectileID.flyingTNT;
-                //        shootParams.velocity = velocity;
-                //        shootParams.pivot = VanillaEntityProps.SHOT_PIVOT_BOTTOM;
-                //        entity.ShootProjectile(shootParams)?.Let(projectile =>
-                //        {
-                //            projectile.SetDamage(damage);
-                //            projectile.SetRange(range);
-                            
-                //        });
-                //    }
-                //}
-                Freeze(entity, 210);
+
+                var slowtime = 210;
+                if (entity.IsEvoked())
+                {
+                    slowtime = slowtime * 2;
+                }
+                Freeze(entity, slowtime);
                 entity.Remove();
             }
         }

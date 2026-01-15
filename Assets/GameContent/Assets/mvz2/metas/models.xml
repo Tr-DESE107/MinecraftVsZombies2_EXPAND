@@ -104,7 +104,7 @@
     <model name="Eradicator" type="entity" path="mvz2:contraption/EXPAND/Eradicator" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="Freezenser" type="entity" path="mvz2:contraption/EXPAND/Freezenser" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="PermanentIce" type="entity" path="mvz2:contraption/EXPAND/PermanentIce" width="64" height="64" xOffset="0" yOffset="-28" />
-	<model name="BlueIce" type="entity" path="mvz2:contraption/EXPAND/BlueIce" width="48" height="48" xOffset="0" yOffset="-28" />
+	<model name="BlueIce" type="entity" path="mvz2:contraption/EXPAND/BlueIce" width="64" height="64" xOffset="0" yOffset="-28" />
 
 	<model name="Randombstone" type="entity" path="mvz2:contraption/GoldCard/Randombstone" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="SuperFireworkDispenser" type="entity" path="mvz2:contraption/EXPAND/SuperFireworkDispenser" width="64" height="64" xOffset="0" yOffset="-28" />

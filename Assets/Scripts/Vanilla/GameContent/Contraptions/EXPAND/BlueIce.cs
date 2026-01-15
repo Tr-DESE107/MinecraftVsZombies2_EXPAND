@@ -45,7 +45,8 @@ namespace MVZ2.GameContent.Contraptions
             entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
             var level = entity.Level;
             
-            Freeze(entity,210);
+            Freeze(entity,240);
+            entity.Remove();
         }
 
         public override void PostDeath(Entity entity, DeathInfo info)
@@ -59,12 +60,13 @@ namespace MVZ2.GameContent.Contraptions
             var damageOutputs = Explode(entity, range, damage);
 
             // 只冰冻爆炸范围内的敌人  
-            FreezeInRange(entity, damageOutputs, 210);
+            FreezeInRange(entity, damageOutputs, 150);
         }
 
         private void FreezeInRange(Entity entity, DamageOutput[] damageOutputs, int stunDuration)
         {
             bool stunned = false;
+            var slowSource = new EntitySourceReference(entity);
 
             foreach (var output in damageOutputs)
             {
@@ -72,6 +74,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
                 {
                     target.SoulFreeze(stunDuration);
+                    target.InflictSlow(stunDuration*2, slowSource);
                     stunned = true;
                 }
             }
@@ -95,12 +98,15 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.AddBuff<GlowstoneEvokeBuff>();
             entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
+            var slowSource = new EntitySourceReference(entity);
+
             bool stunned = false;
             foreach (var target in entity.Level.GetEntities())
             {
                 if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
                 {
                     target.SoulFreeze(stunDuration);
+                    target.InflictSlow(stunDuration * 2, slowSource);
                     stunned = true;
                 }
             }
