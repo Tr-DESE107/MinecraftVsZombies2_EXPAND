@@ -1606,12 +1606,29 @@
 				<vector3 name="mvz2:size" x="48" y="48" z="48" />
 				<id name="mvz2:placeSound" value="mvz2:ice" />
 				<id name="mvz2:shell" value="mvz2:ice" />
-				<id name="mvz2:deathSound" value="mvz2:ice" />
+				<id name="mvz2:deathSound" value="mvz2:glass_break" />
 				<bool name="mvz2:triggerActive" value="true" />
 				<bool name="mvz2:instantTrigger" value="true" />
 
 				<int name="mvz2:cost" value="150" />
-				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+				<id name="mvz2:rechargeId" value="mvz2:long" />
+			</properties>
+		</contraption>
+		
+		<contraption id="BlueIce" name="蓝冰" tooltip="冰冻摧毁它的敌人">
+			<unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            </unlock>
+			<properties>
+				<float name="mvz2:damage" value="20" />
+				<float name="mvz2:range" value="40" />
+				<vector3 name="mvz2:size" x="36" y="36" z="36" />
+				<id name="mvz2:placeSound" value="mvz2:ice" />
+				<id name="mvz2:shell" value="mvz2:ice" />
+				<id name="mvz2:deathSound" value="mvz2:glass_break" />
+
+				<int name="mvz2:cost" value="150" />
+				<id name="mvz2:rechargeId" value="mvz2:short" />
 			</properties>
 		</contraption>
 

@@ -852,7 +852,7 @@
 				<p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹和爆炸来治疗自己。</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>5000</color>]]></p>
+				<p>耐久：<![CDATA[<color=red>4000</color>]]></p>
 				<p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
 				<p>技能：<![CDATA[<color=red>在5秒内吸收所有远程射弹和爆炸伤害并治疗自己，之后将这些伤害返还给所有敌人（最高900）</color>]]></p>
 			</properties>
@@ -1510,6 +1510,22 @@
 		<entry id="mvz2:PermanentIce">
 			<header>
 				<p>永冻冰驱动后能够冰冻全场敌人。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>特点：<![CDATA[<color=red>驱动后能够冰冻全场敌人</color>]]></p>
+				<p>技能：<![CDATA[<color=red>先对全场被冰冻的敌人造成1000点伤害，后冰冻全场敌人。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>永冻冰觉得自己简直是被遗忘了，在expg里很长的一段时间内，他都没有图鉴文本，然而没有人在乎这一点，过了有一年乃至几个月制作者才发现他没有正规的图鉴，匆匆给他补上。然后似乎也没有人发现这一点，编辑Expwiki的逃兵们忘了更新它的条目，以至于又是一年乃至几个月，牢论把它制作到u时才发现他Expwiki的条目还是只有寥寥几句话。</p>
+				<p>"嗯，往好处想，至少我比牢狙早打赢复活赛。"他是这么想的</p>
+				<p/>
+				<p><![CDATA[<color=white>永冻冰后面去问寒冰发射器，为什么自己突然就被牢论记起来，并加进游戏里了？寒冰发射器讲：顺手的事。</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:BlueIce">
+			<header>
+				<p>蓝冰能够冰冻摧毁它的敌人。</p>
 			</header>
 			<properties>
 				<p>伤害：<![CDATA[<color=red>20</color>]]></p>

@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Contraptions
                     target.Velocity = target.Velocity + Vector3.up * speed;
                 }
             }
-            Explosion.Spawn(entity, entity.GetCenter(), range);
+            //Explosion.Spawn(entity, entity.GetCenter(), range);
             entity.PlaySound(VanillaSoundID.explosion);
 
             
