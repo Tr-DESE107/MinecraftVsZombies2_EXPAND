@@ -1427,7 +1427,7 @@
         </zombie>
         <zombie id="diamond_helmetted_zombie" name="钻石盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <unlock>
-                <condition required="mvz2:level.palace_1" />
+                <condition required="mvz2:level.palace_2" />
             </unlock>
             <behaviours includeSelf="false"/>
             <properties>
