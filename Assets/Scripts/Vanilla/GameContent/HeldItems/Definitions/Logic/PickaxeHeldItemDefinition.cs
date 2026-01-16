@@ -14,8 +14,8 @@ namespace MVZ2.GameContent.HeldItems
             AddBehaviour(VanillaHeldItemBehaviourID.pickup);
             AddBehaviour(VanillaHeldItemBehaviourID.triggerCart);
             AddBehaviour(VanillaHeldItemBehaviourID.selectBlueprint);
-            AddBehaviour(VanillaHeldItemBehaviourID.pickaxe);
             AddBehaviour(VanillaHeldItemBehaviourID.digEnemy);
+            AddBehaviour(VanillaHeldItemBehaviourID.pickaxe);
         }
     }
 }

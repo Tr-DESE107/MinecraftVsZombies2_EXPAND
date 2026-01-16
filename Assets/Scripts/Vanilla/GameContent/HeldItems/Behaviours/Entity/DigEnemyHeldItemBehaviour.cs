@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
         {
-            return HeldTargetFlag.Plant | HeldTargetFlag.Enemy | HeldTargetFlag.Obstacle;
+            return HeldTargetFlag.Enemy;
         }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerInteraction)
         {
@@ -72,11 +72,19 @@ namespace MVZ2.GameContent.HeldItems
         {
             if (!entity.ExistsAndAlive() || entity.NoHeldTarget() || entity.CannotDig())
                 return false;
-            return entity.CanBeKilledByPickaxe();
+            return entity.Type == EntityTypes.ENEMY && entity.CanBeKilledByPickaxe();
         }
         private void UseOnEntity(Entity entity)
         {
-            DamageEffectList effects = new DamageEffectList(VanillaDamageEffects.PICKAXE);
+            DamageEffectList effects;
+            if (entity.IsFriendlyEntity())
+            {
+                effects = new DamageEffectList(VanillaDamageEffects.PICKAXE, VanillaDamageEffects.SELF_DAMAGE);
+            }
+            else
+            {
+                effects = new DamageEffectList(VanillaDamageEffects.PICKAXE);
+            }
             entity.Die(effects);
             if (entity.Level.IsPickaxeCountLimited())
             {

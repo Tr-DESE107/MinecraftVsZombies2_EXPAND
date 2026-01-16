@@ -22,17 +22,27 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
         {
-            return HeldTargetFlag.Plant;
+            return HeldTargetFlag.Plant | HeldTargetFlag.Obstacle;
         }
         protected override bool CanUseOnEntity(Entity entity)
         {
             if (!entity.ExistsAndAlive() || entity.NoHeldTarget() || entity.CannotDig())
                 return false;
-            return entity.Type == EntityTypes.PLANT && entity.IsFriendlyEntity();
+            if (entity.Type != EntityTypes.PLANT && entity.Type != EntityTypes.OBSTACLE)
+                return false;
+            return entity.IsFriendlyEntity() || entity.CanBeKilledByPickaxe();
         }
         protected override void UseOnEntity(Entity entity)
         {
-            DamageEffectList effects = new DamageEffectList(VanillaDamageEffects.PICKAXE, VanillaDamageEffects.SELF_DAMAGE);
+            DamageEffectList effects;
+            if (entity.IsFriendlyEntity())
+            {
+                effects = new DamageEffectList(VanillaDamageEffects.PICKAXE, VanillaDamageEffects.SELF_DAMAGE);
+            }
+            else
+            {
+                effects = new DamageEffectList(VanillaDamageEffects.PICKAXE);
+            }
             entity.Die(effects);
             if (entity.Level.IsPickaxeCountLimited())
             {
