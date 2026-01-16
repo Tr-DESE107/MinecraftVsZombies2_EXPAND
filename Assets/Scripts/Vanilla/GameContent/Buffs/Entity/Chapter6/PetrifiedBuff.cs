@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Fragments;
 using MVZ2.GameContent.Models;
+using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
@@ -30,6 +31,7 @@ namespace MVZ2.GameContent.Buffs.Entities
             AddModifier(new BooleanModifier(LogicEntityProps.REMOVE_ON_DEATH, true));
             AddModifier(new BooleanModifier(LogicEntityProps.NO_DEATH_EFFECTS, true));
             AddModifier(new BooleanModifier(LogicEntityProps.KILL_BY_PICKAXE, true));
+            AddModifier(new NamespaceIDModifier(EngineEntityProps.SHELL, SetOperator.Set, VanillaShellID.stone));
             AddModifier(new FloatModifier(LogicEntityProps.ANIMATION_SPEED, NumberOperator.Multiply, 0));
             AddModifier(new Vector3Modifier(LogicEntityProps.HSV_OFFSET, NumberOperator.Add, new Vector3(0, -100, 0)));
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback);
