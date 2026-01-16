@@ -39,6 +39,9 @@ namespace MVZ2.Vanilla.Entities
         public const string enemyWalk = "enemy_walk";
         public const string enemyDeathDisappear = "enemy_death_disappear";
 
+        public const string boatedEnemy = "boated_enemy";
+        public const string rickrollDrownAchievement = "rickroll_drown_achievement";
+
         public const string humanoidAnimation = "humanoid_animation";
 
         public const string skeleton_State = "skeleton/state";

@@ -10,7 +10,7 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.flagZombie)]
-    public class FlagZombie : Zombie
+    public class FlagZombie : EntityBehaviourDefinition
     {
         public FlagZombie(string nsp, string name) : base(nsp, name)
         {
