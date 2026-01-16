@@ -2333,6 +2333,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f92cbb3f1ef5464797729e47701048d
+    m_Address: mvz2:mobile_blueprint/skeleton_statue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30186cc749987114d9e9551582fb27ca
     m_Address: mvz2:cart/nyaightmare
     m_ReadOnly: 0
