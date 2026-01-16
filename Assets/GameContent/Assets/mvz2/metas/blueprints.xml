@@ -4,6 +4,7 @@
         <error id="not_enough_energy" message="能量不足" />
         <error id="tutorial" message="无法使用" />
         <error id="decrepify" message="受到衰老诅咒！" />
+        <error id="locked" message="被封锁！" />
     </errors>
     <styles>
         <style id="normal">

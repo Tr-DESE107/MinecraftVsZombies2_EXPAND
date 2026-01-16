@@ -478,6 +478,9 @@
     <sound name="lightning_attack">
         <sample path="mvz2:lightning_attack" weight="1" />
     </sound>
+    <sound name="locked" priority="0">
+        <sample path="mvz2:locked" weight="1" />
+    </sound>
     <sound name="lose_music" priority="0">
         <sample path="mvz2:lose_music" weight="1" />
     </sound>

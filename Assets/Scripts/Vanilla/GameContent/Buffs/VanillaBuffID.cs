@@ -332,6 +332,9 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 3
             public const string witherSkeletonSkullReduceCost = "wither_skeleton_skull_reduce_cost";
+
+            // Chapter 6
+            public const string blueprintLock = "blueprint_lock";
         }
     }
     public static class VanillaBuffID

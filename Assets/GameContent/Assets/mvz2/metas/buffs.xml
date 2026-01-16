@@ -198,6 +198,7 @@
     <buff id="ship_broken_grid" polarity="none" level="5000" target="grid" />
 
     <!-- Chapter 6 -->
+    <buff id="blueprint_lock" polarity="negative" level="0" target="blueprint" />
     <buff id="transfenser_glowing" polarity="negative" level="0" target="entity" />
     <buff id="gravel_on_face" polarity="negative" level="0" target="enemy" />
     <buff id="small_shadow_cell" polarity="mixed" level="1000" target="enemy" />

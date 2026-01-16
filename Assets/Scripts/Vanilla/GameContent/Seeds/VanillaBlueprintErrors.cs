@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Seeds
     {
         public static readonly NamespaceID tutorial = Get("tutorial");
         public static readonly NamespaceID decrepify = Get("decrepify");
+        public static readonly NamespaceID locked = Get("locked");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
