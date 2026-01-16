@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Detections
         public StoneEyeDetector(Vector3 shootOffset)
         {
             this.shootOffset = shootOffset;
+            mask = EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE;
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
