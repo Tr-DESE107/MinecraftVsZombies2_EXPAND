@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-06 06:37+0800\n"
-"PO-Revision-Date: 2026-01-06 18:40+0800\n"
+"POT-Creation-Date: 2026-01-16 03:00+0800\n"
+"PO-Revision-Date: 2026-01-16 15:02+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1272,7 +1272,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:730
+#: Scripts\MVZ2\Map\MapController.cs:734
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1280,7 +1280,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:732
+#: Scripts\MVZ2\Map\MapController.cs:736
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1288,11 +1288,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:734
+#: Scripts\MVZ2\Map\MapController.cs:738
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:736
+#: Scripts\MVZ2\Map\MapController.cs:740
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1301,12 +1301,12 @@ msgstr ""
 "{0}/{1}"
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:738
+#: Scripts\MVZ2\Map\MapController.cs:742
 msgid "目标地点{0}不存在。"
 msgstr "Target area {0} does not exist."
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:740
+#: Scripts\MVZ2\Map\MapController.cs:744
 msgid "目标关卡{0}不存在。"
 msgstr "Target stage {0} does not exist."
 
@@ -2127,46 +2127,46 @@ msgstr "Getting Sponsors..."
 msgid "FPS: {0}"
 msgstr "FPS: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:838
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:840
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:846
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:848
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
 # 语言包导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:846
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:850
 msgid "导出存档失败。"
 msgstr "Failed to export the user."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:848
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:852
 msgid "导入存档失败。"
 msgstr "Failed to import the user."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:850
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:854
 msgid "导入存档失败，文件可能已损坏。"
 msgstr "Failed to import the user. The file may corrupt."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:852
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:856
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 "Failed to import the user. A user with identical name exists, but the user "
 "to be imported cannot be renamed."
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:854
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:858
 msgid "存档已导出至{0}。"
 msgstr "The user has been successfully exported to {0}."
 
@@ -2177,16 +2177,16 @@ msgid "中文"
 msgstr "English (United States)"
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:795
+#: Scripts\MVZ2\Entities\EntityController.cs:804
 msgid "死亡"
 msgstr "Dead"
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:797
+#: Scripts\MVZ2\Entities\EntityController.cs:806
 msgid "摧毁"
 msgstr "Destroyed"
 
-#: Scripts\MVZ2\Entities\EntityController.cs:799
+#: Scripts\MVZ2\Entities\EntityController.cs:808
 msgid "{0}"
 msgstr "{0}"
 
@@ -2299,7 +2299,7 @@ msgstr ""
 "Excess mods:\n"
 "{0}"
 
-#: Scripts\MVZ2\Level\LevelController\LevelController_Entities.cs:215
+#: Scripts\MVZ2\Level\LevelController\LevelController_Entities.cs:217
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
@@ -2824,6 +2824,12 @@ msgstr "Ship"
 msgctxt "levelname"
 msgid "圣辇船无尽"
 msgstr "Ship Endless"
+
+#. Name for stage mvz2:palace_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "地灵殿"
+msgstr "Palace"
 
 #. Name for stage mvz2:whack_a_ghost
 #: Stage meta file
@@ -4088,6 +4094,47 @@ msgstr ""
 "that EviLex must be behind this, but the Jade Emperor believed that Lex "
 "couldn't defeat EviLex.\n"
 "In the end, Lex left the book and returned to the library once again."
+
+#. Name for music mvz2:palace_map
+#: Music meta file
+msgctxt "music.name"
+msgid "惊疑星球-地图"
+msgstr "Astounding Planet Map"
+
+#. Description for music mvz2:palace_map
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"地灵殿地图的音乐。\n"
+"======乐评施工中======"
+msgstr ""
+
+#. Name for music mvz2:palace_level
+#: Music meta file
+msgctxt "music.name"
+msgid "异常之眼"
+msgstr "Eye of Anomaly"
+
+#. Source for music mvz2:palace_level
+#: Music meta file
+msgctxt "music.source"
+msgid "东方地灵殿"
+msgstr "Subterranean Animism"
+
+#. Origin for music mvz2:palace_level
+#: Music meta file
+msgctxt "music.origin"
+msgid "少女觉 ～ 3rd eye"
+msgstr "Satori Maiden ~ 3rd eye"
+
+#. Description for music mvz2:palace_level
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"地灵殿关卡的音乐。\n"
+"原曲是《东方地灵殿》中古明地 觉的音乐《少女觉 ～ 3rd eye》。\n"
+"======乐评施工中======"
+msgstr ""
 
 #. Name for archive tag mvz2:prologue
 #: Archive meta file

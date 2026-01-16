@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-06 06:37+0800\n"
+"POT-Creation-Date: 2026-01-16 03:00+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1336,38 +1336,38 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:730
+#: Scripts\MVZ2\Map\MapController.cs:734
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:732
+#: Scripts\MVZ2\Map\MapController.cs:736
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:734
+#: Scripts\MVZ2\Map\MapController.cs:738
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:736
+#: Scripts\MVZ2\Map\MapController.cs:740
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:738
+#: Scripts\MVZ2\Map\MapController.cs:742
 msgid "目标地点{0}不存在。"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:740
+#: Scripts\MVZ2\Map\MapController.cs:744
 msgid "目标关卡{0}不存在。"
 msgstr ""
 
@@ -2192,47 +2192,47 @@ msgid "FPS: {0}"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:838
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:840
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:846
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:848
 msgid "确认要退出吗？"
 msgstr ""
 
 # 存档导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:846
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:850
 msgid "导出存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:848
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:852
 msgid "导入存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:850
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:854
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:852
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:856
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
 # 存档导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:854
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:858
 msgid "存档已导出至{0}。"
 msgstr ""
 
@@ -2243,17 +2243,17 @@ msgid "中文"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:795
+#: Scripts\MVZ2\Entities\EntityController.cs:804
 msgid "死亡"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:797
+#: Scripts\MVZ2\Entities\EntityController.cs:806
 msgid "摧毁"
 msgstr ""
 
 # 血条的文字模板
-#: Scripts\MVZ2\Entities\EntityController.cs:799
+#: Scripts\MVZ2\Entities\EntityController.cs:808
 msgid "{0}"
 msgstr ""
 
@@ -2360,7 +2360,7 @@ msgid ""
 msgstr ""
 
 # 实体提示
-#: Scripts\MVZ2\Level\LevelController\LevelController_Entities.cs:215
+#: Scripts\MVZ2\Level\LevelController\LevelController_Entities.cs:217
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr ""
@@ -2923,6 +2923,12 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "圣辇船无尽"
+msgstr ""
+
+#. Name for stage mvz2:palace_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "地灵殿"
 msgstr ""
 
 #. Name for stage mvz2:whack_a_ghost
@@ -3930,6 +3936,47 @@ msgid ""
 "在《书虫大冒险 Vol.2》中，主角Lex在《美猴王》这本书中击败了强大的敌人，得到了许多珍贵的宝物，结识了黄飞鸿和美猴王这两位同伴，并最终击败了四大天王和二郎神，到达了天庭。\n"
 "玉皇大帝告诉他，Lex的旅程尚未结束，他们发现了一种威胁，一种威胁到所有书中世界的威胁。Lex觉得这是邪恶Lex所为，但玉皇大帝却认为，Lex无法击败邪恶Lex。\n"
 "最终，Lex离开了这本书，再次回到了图书馆。"
+msgstr ""
+
+#. Name for music mvz2:palace_map
+#: Music meta file
+msgctxt "music.name"
+msgid "惊疑星球-地图"
+msgstr ""
+
+#. Description for music mvz2:palace_map
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"地灵殿地图的音乐。\n"
+"======乐评施工中======"
+msgstr ""
+
+#. Name for music mvz2:palace_level
+#: Music meta file
+msgctxt "music.name"
+msgid "异常之眼"
+msgstr ""
+
+#. Source for music mvz2:palace_level
+#: Music meta file
+msgctxt "music.source"
+msgid "东方地灵殿"
+msgstr ""
+
+#. Origin for music mvz2:palace_level
+#: Music meta file
+msgctxt "music.origin"
+msgid "少女觉 ～ 3rd eye"
+msgstr ""
+
+#. Description for music mvz2:palace_level
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"地灵殿关卡的音乐。\n"
+"原曲是《东方地灵殿》中古明地 觉的音乐《少女觉 ～ 3rd eye》。\n"
+"======乐评施工中======"
 msgstr ""
 
 #. Name for archive tag mvz2:prologue

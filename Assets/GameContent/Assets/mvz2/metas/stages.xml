@@ -1278,6 +1278,95 @@
             <bool name="endless" value="true" />
         </properties>
     </stage>
+    
+    <!-- Palace -->
+    <stage id="palace_1" name="地灵殿" dayNumber="1">
+        <unlock>
+            <condition required="mvz2:level.ship_11" />
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:palace_1" />
+            <talk type="end" value="mvz2:palace_1_over" />
+            <talk type="map" value="mvz2:palace_1_map" />
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:transfenser" />
+        <spawns flags="1">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+        </spawns>
+    </stage>
+    <stage id="palace_2" name="地灵殿" dayNumber="2">
+        <unlock>
+            <condition required="mvz2:level.palace_1" />
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:palace_2" />
+            <talk type="end" value="mvz2:palace_2_over" />
+            <talk type="map" value="mvz2:palace_2_map" />
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gravelpult" />
+        <spawns flags="2">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:shadow_cell" />
+        </spawns>
+    </stage>
+    <stage id="palace_3" name="地灵殿" dayNumber="3">
+        <unlock>
+            <condition required="mvz2:level.palace_2" />
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:palace_3" />
+            <talk type="end" value="mvz2:palace_3_over" />
+            <talk type="map" value="mvz2:palace_3_map" />
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:cursed_candle" />
+        <spawns flags="2">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:shadow_cell" />
+        </spawns>
+    </stage>
+    <stage id="palace_4" name="地灵殿" dayNumber="4">
+        <unlock>
+            <condition required="mvz2:level.palace_3" />
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:palace_4" />
+            <talk type="end" value="mvz2:palace_4_over" />
+            <talk type="map" value="mvz2:palace_4_map" />
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:stone_eye" />
+        <spawns flags="2">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:cave_spider" />
+            <spawn id="mvz2:skeleton_statue" />
+        </spawns>
+    </stage>
+    <stage id="palace_5" name="地灵殿" dayNumber="5">
+        <unlock>
+            <condition required="mvz2:level.palace_4" />
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:palace_5" />
+            <talk type="end" value="mvz2:palace_5_over" />
+            <talk type="map" value="mvz2:palace_5_map" />
+        </talks>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:skeleton_statue" />
+        </spawns>
+    </stage>
 
     
     <!-- Minigames -->
