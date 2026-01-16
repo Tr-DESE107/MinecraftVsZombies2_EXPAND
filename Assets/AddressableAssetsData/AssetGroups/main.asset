@@ -6307,6 +6307,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f8dd087bab015341b301b59a48e37a9
+    m_Address: mvz2:enemy/palace/skeleton_statue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f8e06c83314ca34b8fbb0a25bb3900d
     m_Address: mvz2:effect/wither_summoners
     m_ReadOnly: 0
@@ -11423,6 +11430,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef3b71d01f17e8a4887c220d4e42fd6e
+    m_Address: mvz2:entity/enemy/skeleton_statue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef5ee485e90ae3a4cafeb446d07a548c
     m_Address: mvz2:entity/skeleton_horse/skeleton_horse2

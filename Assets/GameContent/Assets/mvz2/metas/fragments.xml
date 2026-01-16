@@ -345,4 +345,10 @@
             <key hex="#FFFFFF" time="1" />
         </colorKeys>
     </fragment>
+    <fragment name="skeleton_statue">
+        <colorKeys>
+            <key hex="#eeeae6" time="0.5" />
+            <key hex="#dfd8d1" time="1" />
+        </colorKeys>
+    </fragment>
 </fragments>

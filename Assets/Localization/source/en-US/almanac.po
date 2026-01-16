@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-14 04:33+0800\n"
-"PO-Revision-Date: 2026-01-14 16:34+0800\n"
+"POT-Creation-Date: 2026-01-16 02:42+0800\n"
+"PO-Revision-Date: 2026-01-16 14:43+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3154,6 +3154,60 @@ msgstr ""
 "verification is needed.\n"
 "[2]. A highly unusual phenomenon where the undead do not burn under sunlight is observed in various parts of the world. Further "
 "research is needed."
+
+#. Header for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "骷髅雕像在死亡后会变为低矮的残骸，若残骸没有及时被摧毁，则会复活。"
+msgstr "Skeleton Statues turn into low-height remains upon death, if the remains are not destroyed in time, they will revive."
+
+#. Properties for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200（本体），200（残骸）</color>\n"
+"移速：<color=red>3</color>\n"
+"复活时长：<color=red>10秒</color>\n"
+"特殊：<color=red>被注视时停止移动</color>"
+msgstr ""
+"Toughness: <color=red>200 (Body), 200 (Remains)</color>\n"
+"Speed: <color=red>3</color>\n"
+"Revive time: <color=red>10 seconds</color>\n"
+"Special: <color=red>Stop moving when being gazed</color>"
+
+#. Flavor for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"<b>项目编号：</b>MCP-173\n"
+"<b>项目等级：</b>Keter\n"
+"<b>特殊收容措施：</b>MCP-173须收容于一个内衬光滑加固玻璃的球形强化舱内。舱体被无影灯持续照亮，并由六组独立供电的摄像头进行全方位、不间"
+"断监控。一旦任何视频信号中断超过0.5秒，将自动触发应急协议。球形舱外依次包裹三层可密封的合金隔离层，夹层中填充重型细砂，以极大迟滞其可能"
+"的挖掘行为。\n"
+"<b>描述：</b>MCP-173为一具高度约1.7米的石英质骷髅状雕塑，表面呈灰白色并带有若干细微裂痕。其面部雕刻被普遍描述为“令人不安”，多名人员报告"
+"在非接触期梦境中反复出现类似面容。颚部区域可见已干涸的暗红色颜料痕迹，成分分析显示为氧化铁混合物。\n"
+"MCP-173在受到持续直接目视观测时保持完全静止。一旦失去视觉监视，它将立即以约20 km/h的速度移动至最近的活体目标，并尝试实施攻击。如路径受"
+"阻，MCP-173能够通过物理挖掘方式破坏障碍物。\n"
+"若MCP-173受到物理破坏，其残骸将在约10秒内迅速重组，恢复至初始完整状态，该过程只能通过再次摧毁其残骸来阻止。即便如此，其残骸碎片在约1天"
+"内仍会自行缓慢重组。\n"
+"<b>附录 MCP-173-A：</b>实验记录显示，当处于项目MCP-531的视线范围内时，MCP-173会表现出与受人类直视时相同的静止状态。基于该现象，已提案研"
+"究将MCP-531纳入MCP-173长期收容方案的可行性，相关测试待批准。"
+msgstr ""
+"<b>Item #: </b>MCP-173\n"
+"<b>Object Class: </b>Keter\n"
+"<b>Special Containment Procedures: </b>MCP-173 must be contained within a spherical reinforced chamber lined with smooth, hardened "
+"glass. The chamber is illuminated by shadowless lighting and monitored without interruption by six independently powered cameras. If "
+"any video feed is lost for more than 0.5 seconds, emergency protocols are automatically activated. The sphere is surrounded by three "
+"sealed alloy isolation layers filled with heavy, fine sand to significantly impede potential digging attempts.\n"
+"<b>Description: </b>MCP-173 is a quartz-based skeletal sculpture approximately 1.7 meters in height, with a grey-white surface marked "
+"by fine cracks. Its facial carving is consistently described as \"disturbing,\" with multiple personnel reporting recurring "
+"appearances in dreams. Dried dark red pigment, identified as an iron oxide mixture, is present on its jaw.\n"
+"MCP-173 remains completely immobile while under direct visual observation. Once visual contact is broken, it moves at approximately 20 "
+"km/h toward the nearest living target and attempts to attack. If obstructed, it can physically dig through barriers.\n"
+"If physically damaged, MCP-173's remnants rapidly reassemble within about 10 seconds, restoring it to its original state. This process "
+"can only be halted by destroying the remnants again. Even then, fragments will slowly self-reassemble over approximately one day.\n"
+"<b>Addendum MCP-173-A: </b>Testing confirms that MCP-173 remains immobile when within the line of sight of SCP-531. A proposal to "
+"integrate SCP-531 into long-term containment protocols is pending approval."
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -6577,6 +6631,18 @@ msgctxt "death_message"
 msgid "僵尸就是这么来的。"
 msgstr "That's how zombies come about."
 
+#. Name for entity mvz2:skeleton_statue
+#: Entity meta file
+msgctxt "entity.name"
+msgid "骷髅雕像"
+msgstr "Skeleton Statue"
+
+#. Death message for entity mvz2:skeleton_statue
+#: Entity meta file
+msgctxt "death_message"
+msgid "*咔嚓*"
+msgstr "*Snap*"
+
 #. Name for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -7484,18 +7550,6 @@ msgstr "Zombie Cloud (Snow)"
 #~ "Toughness: <color=red>0-50</color>(Variable)\n"
 #~ "Speed: <color=red>4</color>\n"
 #~ "Mass: <color=red>Light</color>"
-
-#~ msgctxt "enemies.description"
-#~ msgid ""
-#~ "生命：<color=red>200</color>\n"
-#~ "速度：<color=red>1</color>\n"
-#~ "灵魂沙生命：<color=red>300</color>\n"
-#~ "特点：<color=red>不会被一般高度的子弹打中</color>"
-#~ msgstr ""
-#~ "Toughness: <color=red>200</color>\n"
-#~ "Speed: <color=red>1</color>\n"
-#~ "Soulsand Toughness: <color=red>300</color>\n"
-#~ "Special: <color=red>Will not be hit by medium height projectiles or lower</color>"
 
 #~ msgctxt "contraptions.description"
 #~ msgid ""

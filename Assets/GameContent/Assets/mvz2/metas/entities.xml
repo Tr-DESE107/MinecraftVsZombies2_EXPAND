@@ -1941,6 +1941,26 @@
                 <int name="mvz2:cost" value="100" />
             </properties>
         </enemy>
+        <humanoid id="skeleton_statue" name="骷髅雕像" deathMessage="*咔嚓*">
+            <unlock>
+                <condition required="mvz2:level.palace_3" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fragmented" />
+                <behaviour operator="replace" source="mvz2:humanoid_animation" id="mvz2:skeleton_statue/animation" />
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_statue/state" />
+                <behaviour operator="replace" source="mvz2:enemy_death_disappear" id="mvz2:skeleton_statue/death" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:speed" value="3" />
+                <id name="mvz2:shell" value="mvz2:stone" />
+                <id name="mvz2:crySound" value="mvz2:terror_cry" />
+                <id name="mvz2:deathSound" value="mvz2:stone" />
+                <idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
+
+                <int name="mvz2:cost" value="75" />
+            </properties>
+        </humanoid>
 
         <mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
             <unlock>

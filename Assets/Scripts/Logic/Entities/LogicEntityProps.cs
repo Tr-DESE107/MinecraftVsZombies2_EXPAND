@@ -314,6 +314,12 @@ namespace MVZ2Logic.Entities
         public static bool HasNoDeathEffects(this Entity entity) => entity.GetProperty<bool>(NO_DEATH_EFFECTS);
         public static void SetNoDeathEffects(this Entity entity, bool value) => entity.SetProperty(NO_DEATH_EFFECTS, value);
         #endregion
+        
+        #region 死亡效果
+        public static readonly PropertyMeta<bool> NO_NEUTRALIZE_ON_DEATH = Get<bool>("no_neutralize_on_death");
+        public static bool NoNeutralizedOnDeath(this Entity entity) => entity.GetProperty<bool>(NO_NEUTRALIZE_ON_DEATH);
+        public static void SetNoNeutralizedOnDeath(this Entity entity, bool value) => entity.SetProperty(NO_NEUTRALIZE_ON_DEATH, value);
+        #endregion
 
         #region 动画速度
         public static readonly PropertyMeta<float> ANIMATION_SPEED = Get<float>("animation_speed", 1f);

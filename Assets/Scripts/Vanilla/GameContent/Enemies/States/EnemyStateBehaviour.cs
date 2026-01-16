@@ -10,18 +10,34 @@ using PVZEngine.Entities;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyState)]
-    public class EnemyStateBehaviour : AIEntityBehaviour
+    public class EnemyStateBehaviour : EntityBehaviourDefinition
     {
         public EnemyStateBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
 
-        protected override void UpdateAI(Entity entity)
+        public override sealed void Update(Entity entity)
         {
-            base.UpdateAI(entity);
-            entity.State = GetActionState(entity);
+            base.Update(entity);
+            var passiveState = GetPassiveState(entity);
+            if (passiveState >= 0)
+            {
+                entity.State = passiveState;
+                return;
+            }
+            var over = entity.GetStateOverride();
+            if (over >= 0)
+            {
+                entity.State = passiveState;
+                return;
+            }
+            if (!entity.IsAIFrozen())
+            {
+                entity.State = GetActiveState(entity);
+                return;
+            }
         }
-        private int GetActionState(Entity enemy)
+        protected virtual int GetPassiveState(Entity enemy)
         {
             if (enemy.IsDead)
             {
@@ -31,15 +47,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 return STATE_IDLE;
             }
-            else
-            {
-                var over = enemy.GetStateOverride();
-                if (over >= 0)
-                {
-                    return over;
-                }
-                return GetActiveState(enemy);
-            }
+            return -1;
         }
         protected virtual int GetActiveState(Entity enemy)
         {

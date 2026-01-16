@@ -45,6 +45,7 @@ namespace MVZ2.GameContent.Enemies
         public const string popCaptain = "pop_captain";
 
         public const string shadowCell = "shadow_cell";
+        public const string skeletonStatue = "skeleton_statue";
 
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
@@ -103,6 +104,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID popCaptain = Get(VanillaEnemyNames.popCaptain);
 
         public static readonly NamespaceID shadowCell = Get(VanillaEnemyNames.shadowCell);
+        public static readonly NamespaceID skeletonStatue = Get(VanillaEnemyNames.skeletonStatue);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);

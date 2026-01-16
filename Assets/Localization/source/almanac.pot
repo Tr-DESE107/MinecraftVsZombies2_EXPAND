@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-14 04:33+0800\n"
+"POT-Creation-Date: 2026-01-16 02:42+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2567,6 +2567,35 @@ msgid ""
 "\n"
 "1. 有报告称，出现了一种不依赖于寄生便可存活的巨型暗影细胞，目前这种生物的存在仍需进一步确认。\n"
 "2. 如今世界各地的阳光底下却存在亡灵生物不燃烧的现象，此事相当异常，需要进一步调查。"
+msgstr ""
+
+#. Header for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "骷髅雕像在死亡后会变为低矮的残骸，若残骸没有及时被摧毁，则会复活。"
+msgstr ""
+
+#. Properties for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200（本体），200（残骸）</color>\n"
+"移速：<color=red>3</color>\n"
+"复活时长：<color=red>10秒</color>\n"
+"特殊：<color=red>被注视时停止移动</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"<b>项目编号：</b>MCP-173\n"
+"<b>项目等级：</b>Keter\n"
+"<b>特殊收容措施：</b>MCP-173须收容于一个内衬光滑加固玻璃的球形强化舱内。舱体被无影灯持续照亮，并由六组独立供电的摄像头进行全方位、不间断监控。一旦任何视频信号中断超过0.5秒，将自动触发应急协议。球形舱外依次包裹三层可密封的合金隔离层，夹层中填充重型细砂，以极大迟滞其可能的挖掘行为。\n"
+"<b>描述：</b>MCP-173为一具高度约1.7米的石英质骷髅状雕塑，表面呈灰白色并带有若干细微裂痕。其面部雕刻被普遍描述为“令人不安”，多名人员报告在非接触期梦境中反复出现类似面容。颚部区域可见已干涸的暗红色颜料痕迹，成分分析显示为氧化铁混合物。\n"
+"MCP-173在受到持续直接目视观测时保持完全静止。一旦失去视觉监视，它将立即以约20 km/h的速度移动至最近的活体目标，并尝试实施攻击。如路径受阻，MCP-173能够通过物理挖掘方式破坏障碍物。\n"
+"若MCP-173受到物理破坏，其残骸将在约10秒内迅速重组，恢复至初始完整状态，该过程只能通过再次摧毁其残骸来阻止。即便如此，其残骸碎片在约1天内仍会自行缓慢重组。\n"
+"<b>附录 MCP-173-A：</b>实验记录显示，当处于项目MCP-531的视线范围内时，MCP-173会表现出与受人类直视时相同的静止状态。基于该现象，已提案研究将MCP-531纳入MCP-173长期收容方案的可行性，相关测试待批准。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -5536,6 +5565,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "僵尸就是这么来的。"
+msgstr ""
+
+#. Name for entity mvz2:skeleton_statue
+#: Entity meta file
+msgctxt "entity.name"
+msgid "骷髅雕像"
+msgstr ""
+
+#. Death message for entity mvz2:skeleton_statue
+#: Entity meta file
+msgctxt "death_message"
+msgid "*咔嚓*"
 msgstr ""
 
 #. Name for entity mvz2:mutant_zombie

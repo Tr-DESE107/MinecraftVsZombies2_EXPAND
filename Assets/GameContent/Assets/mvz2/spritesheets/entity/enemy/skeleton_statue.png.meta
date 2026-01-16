@@ -1,22 +1,7 @@
 fileFormatVersion: 2
-guid: 20e366ae3ad04144489c4e881a2d2b4a
+guid: ef3b71d01f17e8a4887c220d4e42fd6e
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: skeleton_0
-  - first:
-      213: 21300002
-    second: skeleton_1
-  - first:
-      213: 21300004
-    second: skeleton_2
-  - first:
-      213: 21300006
-    second: skeleton_3
-  - first:
-      213: 21300008
-    second: skeleton_4
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,9 +63,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -109,6 +94,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -121,37 +119,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: skeleton_0
+      name: skeleton_statue_0
       rect:
         serializedVersion: 2
         x: 0
@@ -165,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da02226e1f08e1a48b280add1ce6a929
-      internalID: 21300000
+      spriteID: c59fc5c2612021241a83f7e322cad559
+      internalID: -1564703723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skeleton_1
+      name: skeleton_statue_1
       rect:
         serializedVersion: 2
         x: 33
@@ -186,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55e285eb3ed672b4bb142bad1b650a7a
-      internalID: 21300002
+      spriteID: 0a292ce2a06b29a44ab16685f92b06e8
+      internalID: -476977327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skeleton_2
+      name: skeleton_statue_2
       rect:
         serializedVersion: 2
         x: 53
@@ -207,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13551f7c96ba91e489252271cd1f6c38
-      internalID: 21300004
+      spriteID: 8622b333439b0fd4a9c3562397cc086a
+      internalID: 1539855783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skeleton_3
+      name: skeleton_statue_3
       rect:
         serializedVersion: 2
         x: 0
@@ -228,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9e5519f24351574096e2ada21958346
-      internalID: 21300006
+      spriteID: c0b6bed45e2a9a84a82bd3e8c0e99290
+      internalID: 1648830191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skeleton_4
+      name: skeleton_statue_4
       rect:
         serializedVersion: 2
         x: 9
@@ -249,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a8496364c5c20848bce2ec55e9b47ce
-      internalID: 21300008
+      spriteID: 2f59f5c11ab56f24aa92acb7680ac4fd
+      internalID: -547712249
       vertices: []
       indices: 
       edges: []
@@ -266,11 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      skeleton_0: 21300000
-      skeleton_1: 21300002
-      skeleton_2: 21300004
-      skeleton_3: 21300006
-      skeleton_4: 21300008
+      skeleton_statue_0: -1564703723
+      skeleton_statue_1: -476977327
+      skeleton_statue_2: 1539855783
+      skeleton_statue_3: 1648830191
+      skeleton_statue_4: -547712249
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

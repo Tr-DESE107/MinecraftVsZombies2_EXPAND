@@ -151,6 +151,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: bbbfd6a4e3820bb4c9fafefc9a604b80, type: 3}
   - name: icons/dream_key_shield
     sprite: {fileID: 21300000, guid: 536be77b316de444c86963d500ad1922, type: 3}
+  - name: icons/petrified
+    sprite: {fileID: 21300000, guid: 5388781fbbfc0eb4a81b878677ee7ac0, type: 3}
   - name: icons/short_circuited
     sprite: {fileID: 21300000, guid: ef8e70ac08eeb9a4aa57ec0abfff3b47, type: 3}
   - name: icons/sleeping
@@ -409,6 +411,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 50f49ea46da419e4dafa5ecbbd64b606, type: 3}
   - name: mobile_blueprint/skeleton_mage_lightning
     sprite: {fileID: 21300000, guid: c58e2047282dbf342864f9b099d799c4, type: 3}
+  - name: mobile_blueprint/skeleton_statue
+    sprite: {fileID: 21300000, guid: 2f92cbb3f1ef5464797729e47701048d, type: 3}
   - name: mobile_blueprint/skeleton_warrior
     sprite: {fileID: 21300000, guid: de2f50015df9b2341aa191a0813d294f, type: 3}
   - name: mobile_blueprint/skyward_beacon
@@ -703,8 +707,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 44bd337d7a161b2498137668fbec6e35, type: 3}
   - name: entity/contraptions/stone_dropper
     sprite: {fileID: 21300000, guid: b54fb45c2064c9149942a6ea99c593f3, type: 3}
-  - name: entity/contraptions/stone_eye
-    sprite: {fileID: 21300000, guid: d0d9a7d7fc5072d41b02542545fd3de6, type: 3}
+  - name: entity/contraptions/stone_eye_ray
+    sprite: {fileID: 21300000, guid: 2440037b2007e8048a8817eab8c62e4c, type: 3}
   - name: entity/contraptions/tnt
     sprite: {fileID: 21300000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
   - name: entity/contraptions/wooden_dropper
@@ -779,6 +783,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 04dcfd1cd164cbb41b834f5a6fdfba4b, type: 3}
   - name: entity/effects/pagoda_laser
     sprite: {fileID: 21300000, guid: 047996c4841327442a24b5f86e763852, type: 3}
+  - name: entity/effects/petrified_shard
+    sprite: {fileID: 21300000, guid: 63abeb6d055623e498bc8080744c6d37, type: 3}
   - name: entity/effects/pow
     sprite: {fileID: 21300000, guid: 8bf802c92af01e14ab7d98dedcdb86a1, type: 3}
   - name: entity/effects/rain
@@ -1973,6 +1979,11 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -391827783, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
     - {fileID: -1257104159, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
+  - name: entity/contraption/stone_eye
+    spritesheet:
+    - {fileID: 1879086689, guid: 387847971738747468a7be3c39ce89b6, type: 3}
+    - {fileID: -785946648, guid: 387847971738747468a7be3c39ce89b6, type: 3}
+    - {fileID: 310260605, guid: 387847971738747468a7be3c39ce89b6, type: 3}
   - name: entity/contraption/stone_shield
     spritesheet:
     - {fileID: 1538110737, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
@@ -2367,6 +2378,13 @@ MonoBehaviour:
     - {fileID: 368372763, guid: babb5d02ad003f04386275ffa8ddfc64, type: 3}
     - {fileID: -600053634, guid: babb5d02ad003f04386275ffa8ddfc64, type: 3}
     - {fileID: 1553506495, guid: babb5d02ad003f04386275ffa8ddfc64, type: 3}
+  - name: entity/enemy/skeleton_statue
+    spritesheet:
+    - {fileID: -1564703723, guid: ef3b71d01f17e8a4887c220d4e42fd6e, type: 3}
+    - {fileID: -476977327, guid: ef3b71d01f17e8a4887c220d4e42fd6e, type: 3}
+    - {fileID: 1539855783, guid: ef3b71d01f17e8a4887c220d4e42fd6e, type: 3}
+    - {fileID: 1648830191, guid: ef3b71d01f17e8a4887c220d4e42fd6e, type: 3}
+    - {fileID: -547712249, guid: ef3b71d01f17e8a4887c220d4e42fd6e, type: 3}
   - name: entity/enemy/skeleton_warrior_weapons
     spritesheet:
     - {fileID: -669547009, guid: 7933393e5a9fbec4495c064e00c7d75d, type: 3}

@@ -132,7 +132,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
         {
             var entity = param.entity;
             var info = param.deathInfo;
-            if (info.HasEffect(VanillaDamageEffects.NO_NEUTRALIZE))
+            if (info.HasEffect(VanillaDamageEffects.NO_NEUTRALIZE) || entity.NoNeutralizedOnDeath())
                 return;
             entity.Neutralize();
         }
