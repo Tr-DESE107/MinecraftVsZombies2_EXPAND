@@ -1189,7 +1189,7 @@
                 <float name="mvz2:maxHealth" value="2000" />
                 <bool name="mvz2:defensive" value="true" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
