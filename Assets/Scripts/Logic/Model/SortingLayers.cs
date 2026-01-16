@@ -14,8 +14,7 @@ namespace MVZ2Logic.Models
         public const string defaultLayer = "Default";
         public const string pickups = "Pickups";
         public const string foreground = "Foreground";
-        public const string collectedDrops = "CollectedDrops";
-        public const string drops = "Drops";
+        public const string collectedPickups = "CollectedPickups";
         public const string frontUI = "FrontUI";
         public const string money = "Money";
         public const string screenCover = "ScreenCover";

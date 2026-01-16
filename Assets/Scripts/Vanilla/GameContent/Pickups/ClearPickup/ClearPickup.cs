@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -53,6 +54,8 @@ namespace MVZ2.GameContent.Pickups
                 pickup.Velocity = (targetPos - pickup.Position) * 0.05f;
                 pickup.SetScale(Vector3.one * Mathf.Lerp(1, 3, timePercent));
                 pickup.SetDisplayScale(Vector3.one * Mathf.Lerp(1, 3, timePercent));
+                pickup.SetSortingLayer(SortingLayers.collectedPickups);
+                pickup.SetSortingOrder(9999);
 
                 shadowAlpha = 0;
             }

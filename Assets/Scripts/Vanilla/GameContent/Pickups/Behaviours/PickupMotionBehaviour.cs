@@ -57,6 +57,7 @@ namespace MVZ2.GameContent.Pickups
                 }
                 shadowHidden = true;
 
+                pickup.SetSortingLayer(SortingLayers.collectedPickups);
                 pickup.SetSortingOrder(9999);
                 if (pickup.GetPickupDestination() == PickupDestination.MONEY)
                 {
