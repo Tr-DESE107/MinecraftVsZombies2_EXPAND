@@ -128,7 +128,7 @@ namespace MVZ2.GameContent.Contraptions
                 SetEvocationTimer(entity, evocationTimer);
             }
             evocationTimer.Run();
-            if (evocationTimer.PassedInterval(4))
+            if (evocationTimer.PassedInterval(3))
             {
                 var projectile = Shoot(entity);
                 if (projectile != null)
@@ -252,8 +252,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_TRANSFORM_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("transform_timer");
 
         public static readonly Vector3 SHOOT_OFFSET = new Vector3(12, 40, 0);
-        public const int ATTACK_INTERVAL_MIN = 80;
-        public const int ATTACK_INTERVAL_MAX = 90;
+        public const int ATTACK_INTERVAL_MIN = 67;
+        public const int ATTACK_INTERVAL_MAX = 75;
         public const int MAX_LASER_RANGE = 2000;
         public const float TRANSFORM_TIME_SECONDS = 1f;
         public const float EVOCATION_DURATION_SECONDS = 4f;
