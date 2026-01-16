@@ -146,5 +146,14 @@ namespace MVZ2Logic.Entities
                 entity.AddBuff<DamageColorBuff>();
         }
         #endregion
+
+        public static void UpdateAnimationParameters(this Entity entity, int state)
+        {
+            var behaviour = entity.Definition.GetBehaviour<IEnemyAnimationBehaviour>();
+            if (behaviour != null)
+            {
+                behaviour.UpdateAnimationParameters(entity, state);
+            }
+        }
     }
 }

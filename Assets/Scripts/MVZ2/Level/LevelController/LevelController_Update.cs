@@ -191,6 +191,7 @@ namespace MVZ2.Level
             foreach (var entity in entities)
             {
                 bool modelActive = false;
+                bool updateAnimatorParams = false;
                 var ent = entity.Entity;
                 if (isGameOver)
                 {
@@ -198,17 +199,26 @@ namespace MVZ2.Level
                     var killerCtrl = killerEntity;
                     var killerEnt = killerCtrl?.Entity;
                     modelActive = CanUpdateAfterGameOver(ent) || ent == killerEnt || ent == killerEnt?.GetRideablePassenger();
+                    updateAnimatorParams = modelActive;
+                }
+                else if (!IsGameStarted())
+                {
+                    // 游戏没有开始，则只有在实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
+                    modelActive = CanUpdateBeforeGameStart(ent) || ent.IsPreviewEnemy();
+                    updateAnimatorParams = modelActive;
                 }
                 else
                 {
-                    // 游戏没有结束，则只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
-                    bool canRunBeforeGameStart = IsGameStarted() || CanUpdateBeforeGameStart(ent);
-                    bool canRunInPause = !IsGamePaused() || CanUpdateInPause(ent);
-                    modelActive = (canRunBeforeGameStart && canRunInPause) || ent.IsPreviewEnemy();
+                    // 游戏已开始并且没有结束，则只有在游戏没有暂停，或者可以在暂停中更新时，才会动起来。
+                    modelActive = CanUpdateInPause(ent) || !IsGamePaused();
                 }
                 float speed = modelActive ? gameSpeed : 0;
                 entity.SetSimulationSpeed(speed);
                 entity.UpdateFrame(deltaTime * speed);
+                if (updateAnimatorParams)
+                {
+                    entity.Entity.UpdateAnimationParameters(entity.Entity.State);
+                }
 
                 if (modelActive)
                 {

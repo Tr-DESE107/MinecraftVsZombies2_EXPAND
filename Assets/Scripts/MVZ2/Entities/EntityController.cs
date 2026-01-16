@@ -543,11 +543,7 @@ namespace MVZ2.Entities
 
             if (Level.IsGameOver() && Entity == Entity.Level.KillerEnemy)
             {
-                var behaviour = Entity.Definition.GetBehaviour<IEnemyAnimationBehaviour>();
-                if (behaviour != null)
-                {
-                    behaviour.UpdateAnimationParameters(Entity, LogicEnemyStates.WALK);
-                }
+                Entity.UpdateAnimationParameters(LogicEnemyStates.WALK);
             }
             var groundPos = Entity.Position;
             groundPos.y = Entity.GetGroundY();
