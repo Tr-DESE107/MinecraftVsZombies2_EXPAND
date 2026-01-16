@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-16 02:58+0800\n"
-"PO-Revision-Date: 2026-01-16 14:58+0800\n"
+"POT-Creation-Date: 2026-01-16 07:19+0800\n"
+"PO-Revision-Date: 2026-01-16 19:20+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1979,8 +1979,9 @@ msgstr ""
 #. Header for contraptions mvz2:cursed_candle
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。"
-msgstr "Monsters that destroy Cursed Candles will be cursed, continuously taking fire damage, and will explode upon death."
+msgid "徒手摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。"
+msgstr ""
+"Monsters that destroy Cursed Candles with melee attacks will be cursed, continuously taking fire damage, and will explode upon death."
 
 #. Properties for contraptions mvz2:cursed_candle
 #: Almanac meta file

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-16 02:58+0800\n"
+"POT-Creation-Date: 2026-01-16 07:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1671,7 +1671,7 @@ msgstr ""
 #. Header for contraptions mvz2:cursed_candle
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。"
+msgid "徒手摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。"
 msgstr ""
 
 #. Properties for contraptions mvz2:cursed_candle

@@ -877,7 +877,7 @@
         </entry>
         <entry id="mvz2:cursed_candle">
             <header>
-                <p>摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。</p>
+                <p>徒手摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。</p>
             </header>
             <properties>
                 <p>火焰伤害：<![CDATA[<color=red>20/秒</color>]]></p>
