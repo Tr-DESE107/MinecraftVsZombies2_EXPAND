@@ -33,6 +33,8 @@ namespace MVZ2.Debugs
             armorIDSet.Clear();
             armorSlotIDSet.Clear();
             unlockIDSet.Clear();
+            stageIDSet.Clear();
+            areaIDSet.Clear();
             foreach (var def in Main.Game.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
             {
                 entityIDSet.Add(def.GetID().ToString());
@@ -60,6 +62,14 @@ namespace MVZ2.Debugs
             foreach (var unlock in Main.ResourceManager.GetAllUnlockConditions())
             {
                 unlockIDSet.Add(unlock.ToString());
+            }
+            foreach (var def in Main.Game.GetAllStageDefinitions())
+            {
+                stageIDSet.Add(def.GetID().ToString());
+            }
+            foreach (var def in Main.Game.GetAllAreaDefinitions())
+            {
+                areaIDSet.Add(def.GetID().ToString());
             }
         }
         public bool IsConsoleActive()
@@ -451,6 +461,22 @@ namespace MVZ2.Debugs
                                     }
                                 }
                                 break;
+                            case CommandMetaParam.ID_TYPE_STAGE:
+                                {
+                                    foreach (var sug in stageIDSet)
+                                    {
+                                        yield return sug;
+                                    }
+                                }
+                                break;
+                            case CommandMetaParam.ID_TYPE_AREA:
+                                {
+                                    foreach (var sug in areaIDSet)
+                                    {
+                                        yield return sug;
+                                    }
+                                }
+                                break;
                         }
                     }
                     break;
@@ -556,6 +582,8 @@ namespace MVZ2.Debugs
         private HashSet<string> armorIDSet = new HashSet<string>();
         private HashSet<string> armorSlotIDSet = new HashSet<string>();
         private HashSet<string> unlockIDSet = new HashSet<string>();
+        private HashSet<string> stageIDSet = new HashSet<string>();
+        private HashSet<string> areaIDSet = new HashSet<string>();
         private HashSet<NamespaceID> commandIDSet = new HashSet<NamespaceID>();
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;

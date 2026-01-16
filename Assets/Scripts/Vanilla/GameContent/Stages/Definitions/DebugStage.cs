@@ -2,12 +2,14 @@
 
 using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Bosses;
+using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 
@@ -32,6 +34,11 @@ namespace MVZ2.GameContent.Stages
             var cartRef = level.GetCartReference();
             if (cartRef != null)
                 level.SpawnCarts(cartRef, LevelPositions.CART_START_X, 20);
+
+            level.AddBuff(VanillaBuffID.Level.debugEnergy);
+            level.AddBuff(VanillaBuffID.Level.debugGodmode);
+            level.AddBuff(VanillaBuffID.Level.debugNoRecharge);
+            level.AddBuff(VanillaBuffID.Level.debugStarshard);
         }
         public override void OnUpdate(LevelEngine level)
         {
@@ -44,24 +51,18 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.desirePot,
+                VanillaContraptionID.dispenser,
+                VanillaContraptionID.tnt,
+                VanillaContraptionID.obsidian,
+                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.forcePad,
                 VanillaContraptionID.beacon,
-                VanillaContraptionID.thunderDrum,
-                VanillaContraptionID.lightningOrb,
-                VanillaContraptionID.fireworkDispenser,
-                VanillaEnemyID.ghast,
-                VanillaEnemyID.dullahanHead,
-                VanillaEnemyID.anubisand,
-                VanillaEnemyID.ufo,
+                VanillaContraptionID.skywardBeacon,
                 VanillaEnemyID.zombie,
+                VanillaEnemyID.ironHelmettedZombie,
+                VanillaEnemyID.mesmerizer,
             });
             level.SetArtifactSlotCount(3);
-            level.ReplaceArtifacts(new NamespaceID[]
-            {
-                VanillaArtifactID.ufoToy,
-                VanillaArtifactID.almanac,
-                VanillaArtifactID.theCreaturesHeart,
-            });
         }
         private void ConveyorStart(LevelEngine level)
         {

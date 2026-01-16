@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-16 03:00+0800\n"
+"POT-Creation-Date: 2026-01-16 08:13+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -952,98 +952,104 @@ msgctxt "death_message"
 msgid "你失去了所有能量！"
 msgstr ""
 
-# 命令输出-help，{0}为命令名，{1}为命令描述
+# 命令输出
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:74
+msgctxt "command.output"
+msgid "该命令不能在关卡中调用"
+msgstr ""
+
+# 命令输出-help，{0}为命令名，{1}为命令描述
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:76
 msgctxt "command.output"
 msgid "/{0} - {1}"
 msgstr ""
 
 # 命令输出-help
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:76
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:78
 msgctxt "command.output"
 msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
 msgstr ""
 
 # 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:78
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:80
 msgctxt "command.output"
 msgid "{0}: [{1}] {2}"
 msgstr ""
 
 # 命令输出-blueprint，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:80
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
 msgctxt "command.output"
 msgid "蓝图槽位参数{0}超出范围"
 msgstr ""
 
 # 命令输出-cheat，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
 msgctxt "command.output"
 msgid "未找到作弊命令{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
 msgctxt "command.output"
 msgid "已启用{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
 msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr ""
 
 # 命令输出-save
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:90
 msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:90
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:92
 msgctxt "command.output"
 msgid "已解锁游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:92
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:94
 msgctxt "command.output"
 msgid "无法解锁游戏状态{0}：该状态已被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:94
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:96
 msgctxt "command.output"
 msgid "已重新锁定游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:96
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:98
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:99
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:101
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:101
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:103
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:103
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:105
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:105
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:107
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
@@ -2243,17 +2249,17 @@ msgid "中文"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:804
+#: Scripts\MVZ2\Entities\EntityController.cs:800
 msgid "死亡"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:806
+#: Scripts\MVZ2\Entities\EntityController.cs:802
 msgid "摧毁"
 msgstr ""
 
 # 血条的文字模板
-#: Scripts\MVZ2\Entities\EntityController.cs:808
+#: Scripts\MVZ2\Entities\EntityController.cs:804
 msgid "{0}"
 msgstr ""
 
@@ -2268,13 +2274,13 @@ msgid "日志已导出至{0}。"
 msgstr ""
 
 # 命令输出，{0}为命令名
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:563
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:591
 msgctxt "command.output"
 msgid "<color=red>命令不存在：{0}</color>"
 msgstr ""
 
 # 命令输出，{0}为错误
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:565
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:593
 msgctxt "command.output"
 msgid "<color=red>错误：{0}</color>"
 msgstr ""
@@ -5103,6 +5109,30 @@ msgstr ""
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "生成一队伞兵僵尸。"
+msgstr ""
+
+#. Description for command "mvz2:gotolevel"
+#: Commands meta file
+msgctxt "command.description"
+msgid "进入一个指定的关卡。"
+msgstr ""
+
+#. Description for command variant "mvz2:gotolevel "
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "进入一个指定的关卡。"
+msgstr ""
+
+#. Description for parameter stage of command "mvz2:gotolevel "
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "要进入的关卡ID。"
+msgstr ""
+
+#. Description for parameter area of command "mvz2:gotolevel "
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "要进入的场地ID。"
 msgstr ""
 
 #. Name for difficulty 简单

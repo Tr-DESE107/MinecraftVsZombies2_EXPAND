@@ -62,9 +62,17 @@ namespace PVZEngine
         {
             return provider.GetDefinition<AreaDefinition>(EngineDefinitionTypes.AREA, defRef);
         }
+        public static AreaDefinition[] GetAllAreaDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<AreaDefinition>(EngineDefinitionTypes.AREA);
+        }
         public static StageDefinition? GetStageDefinition(this IGameContent provider, NamespaceID? defRef)
         {
             return provider.GetDefinition<StageDefinition>(EngineDefinitionTypes.STAGE, defRef);
+        }
+        public static StageDefinition[] GetAllStageDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<StageDefinition>(EngineDefinitionTypes.STAGE);
         }
         public static GridDefinition? GetGridDefinition(this IGameContent provider, NamespaceID? defRef)
         {

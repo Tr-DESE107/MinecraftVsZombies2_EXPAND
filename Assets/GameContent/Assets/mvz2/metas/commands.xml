@@ -241,4 +241,14 @@
             <description>生成一队伞兵僵尸。</description>
         </variant>
     </command>
+    <command id="gotolevel">
+        <description>进入一个指定的关卡。</description>
+        <variant>
+            <description>进入一个指定的关卡。</description>
+            <params>
+                <param name="stage" type="id" idType="stage">要进入的关卡ID。</param>
+                <param name="area" type="id" idType="area">要进入的场地ID。</param>
+            </params>
+        </variant>
+    </command>
 </commands>

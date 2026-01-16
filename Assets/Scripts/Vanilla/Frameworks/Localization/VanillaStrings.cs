@@ -71,6 +71,8 @@ namespace MVZ2.Vanilla.Localization
         [TranslateMsg("死亡信息-我是僵尸", LogicStrings.CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES = "你失去了所有能量！";
 
+        [TranslateMsg("命令输出", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_CANNOT_BE_CALLED_IN_LEVEL = "该命令不能在关卡中调用";
         [TranslateMsg("命令输出-help，{0}为命令名，{1}为命令描述", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_HELP_COMMAND_LIST_TEMPLATE = "/{0} - {1}";
         [TranslateMsg("命令输出-help", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
