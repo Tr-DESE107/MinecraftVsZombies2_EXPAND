@@ -115,7 +115,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             }
             output.PlayHitSound();
         }
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;
@@ -128,7 +128,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 entity.Level.Triggers.RunCallback(LogicLevelCallbacks.ENTITY_DEATH_EFFECTS, param);
             }
         }
-        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

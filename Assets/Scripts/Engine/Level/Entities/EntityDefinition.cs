@@ -145,6 +145,13 @@ namespace PVZEngine.Entities
                 behaviour.PostCollision(collision, state);
             }
         }
+        public void PreDeath(Entity entity, DeathInfo deathInfo, CallbackResult result)
+        {
+            foreach (var behaviour in behaviourCaches)
+            {
+                behaviour.PreDeath(entity, deathInfo, result);
+            }
+        }
         public void PostDeath(Entity entity, DeathInfo deathInfo)
         {
             foreach (var behaviour in behaviourCaches)

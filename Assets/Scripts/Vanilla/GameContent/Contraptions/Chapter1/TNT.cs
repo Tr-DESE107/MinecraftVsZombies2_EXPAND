@@ -70,7 +70,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
             Ignite(entity);
         }
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

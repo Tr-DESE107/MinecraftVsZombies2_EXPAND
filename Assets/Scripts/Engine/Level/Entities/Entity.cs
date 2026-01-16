@@ -136,9 +136,25 @@ namespace PVZEngine.Entities
         {
             if (IsDead)
                 return;
+            if (!PreDeath(info))
+                return;
             IsDead = true;
-            info = info ?? new DeathInfo(this, new DamageEffectList(), null, null);
-            var param = new LevelCallbacks.PostEntityDeathParams(this, info);
+            PostDeath(info);
+        }
+        private bool PreDeath(DeathInfo info)
+        {
+            var param = new LevelCallbacks.EntityDeathParams(this, info);
+            var callbackResult = new CallbackResult(true);
+            Definition.PreDeath(this, info, callbackResult);
+            if (!callbackResult.IsBreakRequested)
+            {
+                Level.Triggers.RunCallbackWithResultFiltered(LevelCallbacks.PRE_ENTITY_DEATH, param, callbackResult, Type);
+            }
+            return callbackResult.GetValue<bool>();
+        }
+        private void PostDeath(DeathInfo info)
+        {
+            var param = new LevelCallbacks.EntityDeathParams(this, info);
             Definition.PostDeath(this, info);
             Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, param, Type);
         }

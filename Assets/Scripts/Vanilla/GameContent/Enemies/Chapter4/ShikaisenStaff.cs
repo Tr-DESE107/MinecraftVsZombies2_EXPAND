@@ -64,7 +64,7 @@ namespace MVZ2.GameContent.Enemies
                 input.SetAmount(entity.GetMaxHealth() * 10);
             }
         }
-        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

@@ -64,12 +64,12 @@ namespace PVZEngine.Callbacks
             public EntityCollision collision;
             public int state;
         }
-        public struct PostEntityDeathParams
+        public struct EntityDeathParams
         {
             public Entity entity;
             public DeathInfo deathInfo;
 
-            public PostEntityDeathParams(Entity entity, DeathInfo deathInfo)
+            public EntityDeathParams(Entity entity, DeathInfo deathInfo)
             {
                 this.entity = entity;
                 this.deathInfo = deathInfo;
@@ -100,7 +100,8 @@ namespace PVZEngine.Callbacks
         public readonly static CallbackType<PreEntityCollisionParams> PRE_ENTITY_COLLISION = new();
         public readonly static CallbackType<PostEntityCollisionParams> POST_ENTITY_COLLISION = new();
 
-        public readonly static CallbackType<PostEntityDeathParams> POST_ENTITY_DEATH = new();
+        public readonly static CallbackType<EntityDeathParams> PRE_ENTITY_DEATH = new();
+        public readonly static CallbackType<EntityDeathParams> POST_ENTITY_DEATH = new();
         public readonly static CallbackType<EntityCallbackParams> POST_ENTITY_REVIVE = new();
 
         public readonly static CallbackType<ArmorParams> POST_EQUIP_ARMOR = new();

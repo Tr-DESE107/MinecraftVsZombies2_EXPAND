@@ -35,13 +35,14 @@ namespace MVZ2.GameContent.Entities
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            if (!damageInfo.HasEffect(VanillaDamageEffects.SACRIFICE) && !entity.WillRemoveOnDeath(damageInfo))
+            if (damageInfo.HasEffect(VanillaDamageEffects.SACRIFICE) || entity.WillRemoveOnDeath(damageInfo))
+                return;
+            if (damageInfo.HasEffect(VanillaDamageEffects.FALL_OFF) || damageInfo.HasEffect(VanillaDamageEffects.DROWN))
+                return;
+            entity.GetOrCreateFragment()?.Let(e =>
             {
-                entity.GetOrCreateFragment()?.Let(e =>
-                {
-                    Fragment.AddEmitSpeed(e, 500);
-                });
-            }
+                Fragment.AddEmitSpeed(e, 500);
+            });
         }
         public override void PostTakeDamage(DamageOutput result)
         {

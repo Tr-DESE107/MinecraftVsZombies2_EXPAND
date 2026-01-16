@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Armors
             }
             armor.SetModelProperty("Raised", raised);
         }
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

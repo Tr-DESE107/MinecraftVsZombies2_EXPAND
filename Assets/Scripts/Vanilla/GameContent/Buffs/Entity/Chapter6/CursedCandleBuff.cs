@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Buffs.Entities
                 timer.Reset();
             }
         }
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             float damage = 0;

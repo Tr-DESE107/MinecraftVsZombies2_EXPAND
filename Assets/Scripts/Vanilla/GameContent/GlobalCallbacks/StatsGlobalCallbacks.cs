@@ -83,7 +83,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 Global.Saves.AddStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, entity.GetDefinitionID(), 1);
             }
         }
-        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             if (entity.Level.IsIZombie())

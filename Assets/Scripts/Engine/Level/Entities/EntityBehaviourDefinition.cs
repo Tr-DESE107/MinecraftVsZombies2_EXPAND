@@ -25,6 +25,7 @@ namespace PVZEngine.Entities
         public virtual void PostLeaveGround(Entity entity) { }
         public virtual void PreCollision(EntityCollision collision, CallbackResult result) { }
         public virtual void PostCollision(EntityCollision collision, int state) { }
+        public virtual void PreDeath(Entity entity, DeathInfo deathInfo, CallbackResult result) { }
         public virtual void PostDeath(Entity entity, DeathInfo deathInfo) { }
         public virtual void PostRemove(Entity entity) { }
         public virtual void PostEquipArmor(Entity entity, NamespaceID slot, Armor armor) { }

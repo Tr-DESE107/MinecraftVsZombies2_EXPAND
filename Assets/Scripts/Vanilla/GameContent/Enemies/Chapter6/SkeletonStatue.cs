@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Enemies
     {
         public SkeletonStatue(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(LogicEntityProps.NO_NEUTRALIZE_ON_DEATH, PROP_NO_NEUTRALIZE));
+            AddModifier(new BooleanModifier(LogicEnemyProps.HARMLESS, PROP_HARMLESS));
             AddModifier(new Vector3Modifier(EngineEntityProps.SIZE, NumberOperator.Multiply, PROP_SIZE_MULTIPLIER));
         }
         public override void Update(Entity entity)
@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Enemies
             if (IsReviving(entity))
             {
                 entity.SetProperty(PROP_SIZE_MULTIPLIER, new Vector3(1, 0.3f, 1));
-                entity.SetProperty(PROP_NO_NEUTRALIZE, false);
+                entity.SetProperty(PROP_HARMLESS, true);
                 if (!entity.IsDead & !entity.IsAIFrozen())
                 {
                     var reviveTimer = GetReviveTimer(entity);
@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Enemies
             else
             {
                 entity.SetProperty(PROP_SIZE_MULTIPLIER, Vector3.one);
-                entity.SetProperty(PROP_NO_NEUTRALIZE, true);
+                entity.SetProperty(PROP_HARMLESS, false);
             }
         }
         public const float REVIVE_SECONDS = 10f;
@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Enemies
         public static void SetReviveTimer(Entity entity, FrameTimer? value) => entity.SetBehaviourField(PROP_REVIVE_TIMER, value);
         public const int STATE_REVIVING = VanillaEnemyStates.SKELETON_STATUE_REVIVING;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_REVIVING = new VanillaEntityPropertyMeta<bool>("reviving");
-        public static readonly VanillaEntityPropertyMeta<bool> PROP_NO_NEUTRALIZE = new VanillaEntityPropertyMeta<bool>("no_neutralize");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_HARMLESS = new VanillaEntityPropertyMeta<bool>("harmless");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_REVIVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("revive_timer");
         public static readonly VanillaEntityPropertyMeta<Vector3> PROP_SIZE_MULTIPLIER = new VanillaEntityPropertyMeta<Vector3>("size_multiplier");
     }

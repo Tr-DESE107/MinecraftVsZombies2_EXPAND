@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             host.PlaySound(VanillaSoundID.bloody);
             host.EmitBlood();
         }
-        private void EntityDeathEffectsCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void EntityDeathEffectsCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

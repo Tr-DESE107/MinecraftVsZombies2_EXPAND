@@ -133,6 +133,6 @@ namespace MVZ2Logic.Callbacks
         public readonly static CallbackType<LevelCallbackParams> POST_HUGE_WAVE_APPROACH = new();
         public readonly static CallbackType<LevelCallbackParams> POST_FINAL_WAVE = new();
         public readonly static CallbackType<CalculateSpawnPointParams> CALCULATE_SPAWN_POINTS = new();
-        public readonly static CallbackType<PostEntityDeathParams> ENTITY_DEATH_EFFECTS = new();
+        public readonly static CallbackType<EntityDeathParams> ENTITY_DEATH_EFFECTS = new();
     }
 }
