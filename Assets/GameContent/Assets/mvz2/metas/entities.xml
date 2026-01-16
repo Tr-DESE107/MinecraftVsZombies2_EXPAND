@@ -362,6 +362,7 @@
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <vector3 name="mvz2:shotOffset" x="25" y="15" z="0" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
 
                 <int name="mvz2:cost" value="0" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
@@ -1142,6 +1143,7 @@
                 <id name="mvz2:hitSound" value="mvz2:gravel_hit" />
                 <id name="mvz2:placeSound" value="mvz2:gravel_break" />
                 <id name="mvz2:deathSound" value="mvz2:gravel_break" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
                 <vector3 name="mvz2:shadowOffset" x="8" y="0" z="0" />
 
                 <int name="mvz2:cost" value="100" />
@@ -3780,6 +3782,7 @@
             </properties>
         </effect>
         <effect id="nuke_smoke">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="90" />
             </properties>
@@ -3795,6 +3798,7 @@
             </properties>
         </effect>
         <effect id="petrified_shards">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="15" />
             </properties>
