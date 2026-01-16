@@ -1959,6 +1959,7 @@
                 <id name="mvz2:crySound" value="mvz2:terror_cry" />
                 <id name="mvz2:deathSound" value="mvz2:stone" />
                 <idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
+                <bool name="mvz2:undead" value="false" />
 
                 <int name="mvz2:cost" value="75" />
             </properties>

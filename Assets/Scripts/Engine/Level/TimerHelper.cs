@@ -22,6 +22,10 @@ namespace PVZEngine
                 yield return (t - 1) * interval;
             }
         }
+        public static float GetMaxSeconds(this FrameTimer timer)
+        {
+            return Ticks.ToSeconds(timer.MaxFrame);
+        }
         public static void ResetSeconds(this FrameTimer timer, float seconds)
         {
             timer.ResetTime(Ticks.FromSeconds(seconds));

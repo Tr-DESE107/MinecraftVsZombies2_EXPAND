@@ -53,7 +53,8 @@ namespace MVZ2.GameContent.Enemies
                 entity.SetProperty(PROP_HARMLESS, false);
             }
         }
-        public const float REVIVE_SECONDS = 10f;
+        public const float REVIVE_SECONDS = 5f;
+        public const float REVIVE_SECONDS_PER_DEATH = 2f;
         public static bool IsReviving(Entity entity) => entity.GetBehaviourField<bool>(PROP_REVIVING);
         public static void SetReviving(Entity entity, bool value) => entity.SetBehaviourField(PROP_REVIVING, value);
         public static FrameTimer? GetReviveTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_REVIVE_TIMER);

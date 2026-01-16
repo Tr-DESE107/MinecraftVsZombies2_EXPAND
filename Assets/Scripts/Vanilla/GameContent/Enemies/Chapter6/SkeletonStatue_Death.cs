@@ -30,7 +30,11 @@ namespace MVZ2.GameContent.Enemies
                 var timer = SkeletonStatue.GetReviveTimer(entity);
                 if (timer != null)
                 {
-                    timer.ResetSeconds(SkeletonStatue.REVIVE_SECONDS);
+                    timer.ResetSeconds(timer.GetMaxSeconds() + SkeletonStatue.REVIVE_SECONDS_PER_DEATH);
+                }
+                else
+                {
+                    timer = TimerHelper.NewSecondTimer(SkeletonStatue.REVIVE_SECONDS);
                 }
                 entity.AddFragmentTickDamage(500);
                 entity.PlayDeathSound();

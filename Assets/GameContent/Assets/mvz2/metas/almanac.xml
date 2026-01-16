@@ -1556,8 +1556,9 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>200（本体），200（残骸）</color>]]></p>
                 <p>移速：<![CDATA[<color=red>3</color>]]></p>
-                <p>复活时长：<![CDATA[<color=red>10秒</color>]]></p>
-                <p>特殊：<![CDATA[<color=red>被注视时停止移动</color>]]></p>
+                <p>复活时长：<![CDATA[<color=red>5秒，每次死亡+2秒</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>攻击速度越快复活越快</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>被注视时停止移动</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<b>项目编号：</b>]]>MCP-173</p>
