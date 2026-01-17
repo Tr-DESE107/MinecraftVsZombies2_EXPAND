@@ -913,6 +913,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11ddf9c5b34b6de459245a28986ea1ab
+    m_Address: mvz2:ui/blueprint_lock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 123080f471c7a22479f120e85b388165
     m_Address: mvz2:bones/spider
     m_ReadOnly: 0
@@ -1951,6 +1958,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26dc0bfdc50bd814f9f2c3f60f62e366
     m_Address: mvz2:ui/effect/crushing_wall_right_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 274fe14239cfc904690be243b7a2e8dc
+    m_Address: mvz2:icons/blueprint_lock
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3872,6 +3886,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c0d0823b7897e94582ffa5a8ca64d1f
+    m_Address: mvz2:locked
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c4c1d5c3108f034bbb656243270b2fd
     m_Address: mvz2:ui/level/mind_swap_blackhole
     m_ReadOnly: 0
@@ -5768,6 +5789,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7661d066eb4c9de4989300fb69c48e31
+    m_Address: mvz2:artifacts/control_rod
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7667a381c5230374d9c5b5a7bf629dd9
     m_Address: mvz2:entity/enemies/ghost_headwear
     m_ReadOnly: 0
@@ -7482,6 +7510,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 985a095921e1dbd48a14fc1b44a5b1e3
+    m_Address: mvz2:icons/blueprint_lock_white
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 985fbd93414b34845b4a0a7ee830eb1a
     m_Address: mvz2:entity/projectiles/gas
@@ -9372,13 +9407,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c37ae568963b3c141804d263bfe68ffd
-    m_Address: mvz2:artifacts/wither_skeleton_skull
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c382f6ef6a4cfc54e81d2ebfbc75de10
     m_Address: mvz2:talk/dialog_item_show

@@ -1990,14 +1990,8 @@
         </humanoid>
 
         <mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
-            <unlock>
-                <condition required="mvz2:level.shrine_8" />
-            </unlock>
         </mutantZombie>
         <mutantZombie id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？">
-            <unlock>
-                <condition required="mvz2:level.shrine_8" />
-            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="6000" />
                 <int name="mvz2:cost" value="500" />
