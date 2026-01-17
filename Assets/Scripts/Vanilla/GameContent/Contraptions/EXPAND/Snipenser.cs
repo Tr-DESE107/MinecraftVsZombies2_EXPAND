@@ -133,8 +133,7 @@ namespace MVZ2.GameContent.Contraptions
             else
             {
                 evokeTimer.Run();
-                Explode(entity, 120, 1200);
-                entity.Level.ShakeScreen(10, 0, 15);
+                
                 if (evokeTimer.PassedInterval(3))
                 {
                     Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.missile, entity.GetDamage(), velocity);
@@ -145,6 +144,12 @@ namespace MVZ2.GameContent.Contraptions
                 }
 
 
+            }
+            if (evokeTimer.Expired)
+            {
+                Explode(entity, 120, 900);
+                entity.Level.ShakeScreen(10, 0, 15);
+                entity.SetEvoked(false);
             }
         }
         public static DamageOutput[] Explode(Entity entity, float range, float damage)

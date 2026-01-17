@@ -1264,6 +1264,7 @@
 		<entry id="mvz2:Snipenser">
 			<tags>
 				<tag id="mvz2:placement_dispenser" />
+				<tag id="mvz2:antifly"/>
 			</tags>
 			<header>
 				<p>狙击发射器能够全方位发射高速箭。</p>
@@ -1271,7 +1272,7 @@
 			<properties>
 				<p>伤害：<![CDATA[<color=red>60</color>]]></p>
 				<p>特点：<![CDATA[<color=red>全方位射击</color>]]></p>
-				<p>技能：<![CDATA[<color=red>连续发射多发射弹</color>]]></p>
+				<p>技能：<![CDATA[<color=red>连续发射多发射弹，发射完毕后发生一次范围3*3，伤害900的爆炸</color>]]></p>
 			</properties>
 			<flavor>
 				<p>狙击发射器酷爱玩FPS类游戏，它是个金枪黑百合，而他最喜欢的一把枪是AWP。村民曾夸它是“八百里开外一枪干掉僵尸的狙击手”……这一条只不过是胡诌罢了。</p>
