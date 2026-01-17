@@ -127,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 63
+        y: 65
         width: 40
-        height: 59
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,9 +148,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 41
-        y: 80
-        width: 40
-        height: 42
+        y: 64
+        width: 15
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Snipenser_2
       rect:
         serializedVersion: 2
-        x: 82
-        y: 80
+        x: 57
+        y: 88
         width: 40
-        height: 42
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: Snipenser_3
       rect:
         serializedVersion: 2
-        x: 123
-        y: 80
+        x: 98
+        y: 88
         width: 40
-        height: 42
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,8 +210,8 @@ TextureImporter:
       name: Snipenser_4
       rect:
         serializedVersion: 2
-        x: 164
-        y: 80
+        x: 139
+        y: 84
         width: 40
         height: 42
       alignment: 0
@@ -231,10 +231,10 @@ TextureImporter:
       name: Snipenser_5
       rect:
         serializedVersion: 2
-        x: 12
-        y: 30
-        width: 15
-        height: 31
+        x: 180
+        y: 84
+        width: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,8 +252,8 @@ TextureImporter:
       name: Snipenser_6
       rect:
         serializedVersion: 2
-        x: 40
-        y: 41
+        x: 57
+        y: 49
         width: 40
         height: 38
       alignment: 0
@@ -273,8 +273,8 @@ TextureImporter:
       name: Snipenser_7
       rect:
         serializedVersion: 2
-        x: 81
-        y: 41
+        x: 98
+        y: 49
         width: 40
         height: 38
       alignment: 0
@@ -294,10 +294,10 @@ TextureImporter:
       name: Snipenser_8
       rect:
         serializedVersion: 2
-        x: 122
+        x: 139
         y: 41
         width: 40
-        height: 38
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: Snipenser_9
       rect:
         serializedVersion: 2
-        x: 163
+        x: 180
         y: 41
         width: 40
-        height: 38
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,8 +336,8 @@ TextureImporter:
       name: Snipenser_10
       rect:
         serializedVersion: 2
-        x: 40
-        y: 2
+        x: 57
+        y: 10
         width: 40
         height: 38
       alignment: 0
@@ -357,8 +357,8 @@ TextureImporter:
       name: Snipenser_11
       rect:
         serializedVersion: 2
-        x: 81
-        y: 2
+        x: 98
+        y: 10
         width: 40
         height: 38
       alignment: 0
@@ -378,7 +378,7 @@ TextureImporter:
       name: Snipenser_12
       rect:
         serializedVersion: 2
-        x: 123
+        x: 140
         y: 0
         width: 36
         height: 40
@@ -399,7 +399,7 @@ TextureImporter:
       name: Snipenser_13
       rect:
         serializedVersion: 2
-        x: 160
+        x: 184
         y: 0
         width: 36
         height: 40

@@ -11879,6 +11879,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd76219b28566c644ab04da291782af3
+    m_Address: mvz2:projectile/EXPAND_projectile/SmallRocket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd9fb24b2c51dc9499b06218585ad8b9
     m_Address: mvz2:boon
     m_ReadOnly: 0
@@ -13901,6 +13908,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f17354d7f24173049ac41e23655559b2
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/SmallRocket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f173973887b669a4f94c0bca7a3f56e6
     m_Address: mvz2:splash_big

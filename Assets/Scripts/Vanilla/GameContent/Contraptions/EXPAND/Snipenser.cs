@@ -15,6 +15,10 @@ using Tools;
 using UnityEngine;
 using MVZ2.GameContent.Buffs;
 using PVZEngine.Buffs;
+using MVZ2.GameContent.Damages;
+using PVZEngine.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -53,7 +57,7 @@ namespace MVZ2.GameContent.Contraptions
                     {
                         // 计算直线方向和速度  
                         var direction = (target.GetCenter() - entity.GetShootPoint()).normalized;
-                        var speed = entity.GetShotVelocity().magnitude;
+                        var speed = entity.GetShotVelocity().magnitude * 1.5f;
                         var velocity = direction * speed;
 
                         Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.fireCharge, entity.GetDamage(), velocity);
@@ -90,6 +94,7 @@ namespace MVZ2.GameContent.Contraptions
                     proID = VanillaProjectileID.RedKnife;
                     break;
                 case 2:
+                case 3:
                     proID = VanillaProjectileID.bullet;
                     break;
                 default:
@@ -97,15 +102,15 @@ namespace MVZ2.GameContent.Contraptions
                     break;
             }
 
-                var projectile = entity.ShootProjectile(new ShootParams()
-                {
-                    projectileID = proID,
-                    position = entity.GetShootPoint(),
-                    faction = entity.GetFaction(),
-                    damage = damage,
-                    soundID = entity.GetShootSound(),
-                    velocity = velocity,
-                })?.Let(e => e.SetGravity(0)); // 移除重力，使用直线飞行  
+            var projectile = entity.ShootProjectile(new ShootParams()
+            {
+                projectileID = proID,
+                position = entity.GetShootPoint(),
+                faction = entity.GetFaction(),
+                damage = damage,
+                soundID = entity.GetShootSound(),
+                velocity = velocity,
+            })?.Let(e => e.SetGravity(0)); // 移除重力，使用直线飞行  
         }
         private void EvokedUpdate(Entity entity)
         {
@@ -119,7 +124,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 targetPos = target.GetCenter() + frames * target.Velocity;
             }
-            var velocity = VanillaProjectileExt.GetLobVelocityByTime(entity.GetShootPoint(), targetPos, frames, GRAVITY);
+            var velocity = VanillaProjectileExt.GetLobVelocityByTime(entity.GetShootPoint(), targetPos, frames, 0);
 
             if (evokeTimer == null || evokeTimer.Expired)
             {
@@ -128,13 +133,41 @@ namespace MVZ2.GameContent.Contraptions
             else
             {
                 evokeTimer.Run();
+                Explode(entity, 120, 1200);
+                entity.Level.ShakeScreen(10, 0, 15);
                 if (evokeTimer.PassedInterval(3))
                 {
-                    Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.SmallRocket, entity.GetDamage(), velocity);
+                    Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.missile, entity.GetDamage(), velocity);
+                }
+                if (evokeTimer.PassedInterval(5))
+                {
+                    Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.NightmareBall, entity.GetDamage(), velocity);
                 }
 
 
             }
+        }
+        public static DamageOutput[] Explode(Entity entity, float range, float damage)
+        {
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
+            var damageOutputs = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, entity);
+            foreach (var output in damageOutputs)
+            {
+                var result = output.BodyResult;
+                if (result != null && result.Fatal)
+                {
+                    var target = output.Entity;
+                    var distance = (target.Position - entity.Position).magnitude;
+                    var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
+                    target.Velocity = target.Velocity + Vector3.up * speed;
+                }
+            }
+            Explosion.Spawn(entity, entity.GetCenter(), range);
+            entity.PlaySound(VanillaSoundID.explosion);
+            entity.Level.ShakeScreen(10, 0, 15);
+
+
+            return damageOutputs;
         }
         private static bool IsEvocationTarget(Entity self, Entity target)
         {

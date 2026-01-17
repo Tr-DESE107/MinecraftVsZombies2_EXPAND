@@ -1125,7 +1125,7 @@
             <entry id="mvz2:CopperDropper" count="1" />
         </conveyor>
         <clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:WitherHeartShield" />
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2.5">
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3">
             <spawn id="mvz2:WitherSkeleton" />
             <spawn id="mvz2:LeatherWitherSkeleton" />
             <spawn id="mvz2:IronWitherSkeleton" />
@@ -1806,7 +1806,7 @@
 			<entry id="mvz2:SuperFireworkDispenser" count="1" />
         </conveyor>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-		<spawns flags="3" pointsMultiplier="1.8" pointsAddition="1">
+		<spawns flags="3" pointsMultiplier="2" pointsAddition="1">
 			<spawn id="mvz2:undead_flying_object_blitz" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:ghast" />

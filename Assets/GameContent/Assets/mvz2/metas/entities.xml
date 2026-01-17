@@ -1644,7 +1644,7 @@
 				<id name="mvz2:placement" value="mvz2:upgrade" />
 
 				<float name="mvz2:damage" value="60" />
-				<int name="mvz2:cost" value="500" />
+				<int name="mvz2:cost" value="425" />
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</dispenser>
