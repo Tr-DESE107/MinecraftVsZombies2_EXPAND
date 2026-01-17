@@ -142,7 +142,7 @@ namespace MVZ2.GameContent.Contraptions
         private static float GetLastShootHealth(Entity e) =>
             e.GetBehaviourField<float>(PROP_LAST_SHOOT_HEALTH);
 
-        private static void SetLastShootHealth(Entity e, float hp) =>
-            e.SetBehaviourField(PROP_LAST_SHOOT_HEALTH, hp);
+        public static void SetLastShootHealth(Entity e, float hp) =>
+    e.SetBehaviourField(PROP_LAST_SHOOT_HEALTH, hp);
     }
 }
