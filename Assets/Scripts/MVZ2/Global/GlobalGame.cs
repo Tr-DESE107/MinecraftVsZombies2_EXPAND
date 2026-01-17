@@ -29,6 +29,10 @@ namespace MVZ2.GlobalGames
         {
             return main.CoroutineManager.StartCoroutine(enumerator);
         }
+        public NamespaceID[] GetAllUnlockConditions()
+        {
+            return main.ResourceManager.GetAllUnlockConditions();
+        }
 
         #region 属性
         public void SetProperty<T>(PropertyKey<T> name, T? value) => propertyDict.SetProperty<T>(name, value);

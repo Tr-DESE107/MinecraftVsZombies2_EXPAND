@@ -1,3 +1,10 @@
+## 添加
+- 为Debug模式加入命令：
+  - /gotolevel：前往某个关卡
+  - /unlock listlocked：打印所有未解锁的游戏状态。
+  - /unlock all：解锁所有游戏状态。
+  - /unlock none：重新锁定所有游戏状态。
+
 ## 修改
 
 - 御天信标现在无需触发，点击即可修改打击位置。

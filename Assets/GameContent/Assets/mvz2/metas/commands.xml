@@ -222,6 +222,18 @@
             <description>打印当前存档所有目前解锁的游戏状态。</description>
             <params/>
         </variant>
+        <variant subname="listlocked">
+            <description>打印当前存档所有目前尚未解锁的游戏状态。</description>
+            <params/>
+        </variant>
+        <variant subname="all">
+            <description>解锁所有游戏状态。</description>
+            <params/>
+        </variant>
+        <variant subname="none">
+            <description>锁定所有游戏状态。</description>
+            <params/>
+        </variant>
     </command>
     <command id="test" inLevel="true">
         <description>进行某些测试。</description>

@@ -11,6 +11,7 @@ namespace MVZ2Logic.Games
         bool IsMobile();
         bool UseMobileLayout();
         Coroutine StartCoroutine(IEnumerator coroutine);
+        NamespaceID[] GetAllUnlockConditions();
         string DefaultNamespace { get; }
     }
 }
