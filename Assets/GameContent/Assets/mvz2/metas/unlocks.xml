@@ -6,7 +6,7 @@
     </group>
 	<group id="EXPAND_Completed">
 		<conditions>
-			<condition required="mvz2:level.halloween_15 mvz2:level.castle_15" />
+			<condition required="mvz2:level.halloween_15 mvz2:level.castle_15 mvz2:level.ship_11 mvz2:level.puzzle_all_your_observes_are_belong_to_us" />
 		</conditions>
 	</group>
 </unlocks>
