@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-16 09:20+0800\n"
-"PO-Revision-Date: 2026-01-16 21:20+0800\n"
+"POT-Creation-Date: 2026-01-17 10:31+0800\n"
+"PO-Revision-Date: 2026-01-17 22:33+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1167,7 +1167,7 @@ msgstr ""
 #. Flavor for contraptions mvz2:dream_silk
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
+msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的充能时间也给睡长了。"
 msgstr ""
 "Dream Silk is a sleepy one. The first thing it does after waking up is sleep. Just look at it, even its recharge time has increased "
 "because of this."
@@ -2956,11 +2956,11 @@ msgstr "Emperor Zombie uses the Holy Sword to grant Divine Shields to nearby fri
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+50</color>\n"
-"施法冷却：<color=red>5秒</color>\n"
+"施法间隔：<color=red>5秒</color>\n"
 "特点：<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>"
 msgstr ""
 "Toughness: <color=red>200+50</color>\n"
-"Cast Cooldown: <color=red>5 seconds</color>\n"
+"Cast Interval: <color=red>5 seconds</color>\n"
 "Special: <color=red>Gives divine shields to up to 10 nearby friendly units, negating the next damage they take</color>"
 
 #. Flavor for enemies mvz2:emperor_zombie
@@ -3785,6 +3785,26 @@ msgstr ""
 "Even this final “replica” has been obtained by you. Unlike his kind mother, the tooth's owner spat out nothing but brutality from his "
 "mouth, showing no mercy at all to the weak.\n"
 "This eternal vengeance will never find its end."
+
+#. Header for artifacts mvz2:control_rod
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "灵乌路 空的一根备用核能控制棒。"
+msgstr "A spare nuclear control rod from Reiuji Utsuho."
+
+#. Properties for artifacts mvz2:control_rod
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>蓝图充能速度x150%，但怪物死亡后爆炸</color>"
+msgstr "Effect: <color=red>Blueprint recharge speed x150%, but monsters will explode upon death</color>"
+
+#. Flavor for artifacts mvz2:control_rod
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "不要觉得有了这东西，控制核能就变得轻而易举了——该坏了的时候还是会坏了的。"
+msgstr ""
+"Don't think that with this thing, controlling nuclear energy becomes a piece of cake—when it’s time to go wrong, it will still go "
+"wrong."
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
@@ -7204,18 +7224,6 @@ msgctxt "artifact.tooltip"
 msgid "+15%器械伤害"
 msgstr "+15% contraption damage"
 
-#. Name for artifact mvz2:wither_skeleton_skull
-#: Artifact meta file
-msgctxt "artifact.name"
-msgid "凋灵骷髅头"
-msgstr "Wither Skeleton Skull"
-
-#. Tooltip for artifact mvz2:wither_skeleton_skull
-#: Artifact meta file
-msgctxt "artifact.tooltip"
-msgid "×80%蓝图消耗，但新放下的器械的最大耐久×60%"
-msgstr "x80% blueprint cost, but x60% max toughness of newly built contraptions"
-
 #. Name for artifact mvz2:nether_star
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -7336,6 +7344,18 @@ msgctxt "artifact.tooltip"
 msgid "生命值为50%或以下的敌人受到的伤害x200%"
 msgstr "Enemies with 50% or less toughness take x200% damage"
 
+#. Name for artifact mvz2:control_rod
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "控制棒"
+msgstr "Control Rod"
+
+#. Tooltip for artifact mvz2:control_rod
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "蓝图充能速度x150%，但怪物死亡后爆炸"
+msgstr "Blueprint recharge speed x150%, but monsters will explode upon death"
+
 #. Message for blueprint error recharging
 #: Blueprints meta file
 msgctxt "blueprint.error"
@@ -7437,6 +7457,14 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "artifact.name"
+#~ msgid "凋灵骷髅头"
+#~ msgstr "Wither Skeleton Skull"
+
+#~ msgctxt "artifact.tooltip"
+#~ msgid "×80%蓝图消耗，但新放下的器械的最大耐久×60%"
+#~ msgstr "x80% blueprint cost, but x60% max toughness of newly built contraptions"
 
 #~ msgctxt "enemies.description"
 #~ msgid ""

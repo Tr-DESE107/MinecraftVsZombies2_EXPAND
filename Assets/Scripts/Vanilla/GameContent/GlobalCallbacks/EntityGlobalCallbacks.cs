@@ -125,7 +125,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 {
                     behaviour.DeathEffects(entity, info);
                 }
-                entity.Level.Triggers.RunCallback(LogicLevelCallbacks.ENTITY_DEATH_EFFECTS, param);
+                entity.Level.Triggers.RunCallbackFiltered(LogicLevelCallbacks.ENTITY_DEATH_EFFECTS, param, entity.Type);
             }
         }
         private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)

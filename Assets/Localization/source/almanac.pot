@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-16 09:20+0800\n"
+"POT-Creation-Date: 2026-01-17 10:31+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1043,7 +1043,7 @@ msgstr ""
 #. Flavor for contraptions mvz2:dream_silk
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
+msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的充能时间也给睡长了。"
 msgstr ""
 
 #. Header for contraptions mvz2:wooden_dropper
@@ -2417,7 +2417,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+50</color>\n"
-"施法冷却：<color=red>5秒</color>\n"
+"施法间隔：<color=red>5秒</color>\n"
 "特点：<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>"
 msgstr ""
 
@@ -3071,6 +3071,24 @@ msgid ""
 "而如今，少年举起孩子的牙齿，助其解脱。\n"
 "这最后的“仿制品”你也拿到了。它的主人完全没有它母亲那般仁慈，口中喷出的满是残暴，对于弱者毫无任何慈悲之心。\n"
 "此仇，永世无法平息。"
+msgstr ""
+
+#. Header for artifacts mvz2:control_rod
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "灵乌路 空的一根备用核能控制棒。"
+msgstr ""
+
+#. Properties for artifacts mvz2:control_rod
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>蓝图充能速度x150%，但怪物死亡后爆炸</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:control_rod
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "不要觉得有了这东西，控制核能就变得轻而易举了——该坏了的时候还是会坏了的。"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
@@ -6138,18 +6156,6 @@ msgctxt "artifact.tooltip"
 msgid "+15%器械伤害"
 msgstr ""
 
-#. Name for artifact mvz2:wither_skeleton_skull
-#: Artifact meta file
-msgctxt "artifact.name"
-msgid "凋灵骷髅头"
-msgstr ""
-
-#. Tooltip for artifact mvz2:wither_skeleton_skull
-#: Artifact meta file
-msgctxt "artifact.tooltip"
-msgid "×80%蓝图消耗，但新放下的器械的最大耐久×60%"
-msgstr ""
-
 #. Name for artifact mvz2:nether_star
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -6268,6 +6274,18 @@ msgstr ""
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "生命值为50%或以下的敌人受到的伤害x200%"
+msgstr ""
+
+#. Name for artifact mvz2:control_rod
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "控制棒"
+msgstr ""
+
+#. Tooltip for artifact mvz2:control_rod
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "蓝图充能速度x150%，但怪物死亡后爆炸"
 msgstr ""
 
 #. Message for blueprint error recharging

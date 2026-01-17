@@ -843,8 +843,8 @@ namespace MVZ2.Almanacs
         }
         [TranslateMsg("图鉴描述模板，{0}为能量", LogicStrings.CONTEXT_ALMANAC)]
         public const string COST_LABEL = "花费：<color=red>{0}</color>";
-        [TranslateMsg("图鉴描述模板，{0}为冷却时间", LogicStrings.CONTEXT_ALMANAC)]
-        public const string RECHARGE_LABEL = "冷却时间：<color=red>{0}</color>";
+        [TranslateMsg("图鉴描述模板，{0}为充能时间", LogicStrings.CONTEXT_ALMANAC)]
+        public const string RECHARGE_LABEL = "充能时间：<color=red>{0}</color>";
         [TranslateMsg("图鉴放大选项，{0}为缩放等级", LogicStrings.CONTEXT_ALMANAC)]
         public const string OPTION_ZOOM_SCALE = "缩放：{0}";
         [TranslateMsg("图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名", LogicStrings.CONTEXT_ALMANAC)]

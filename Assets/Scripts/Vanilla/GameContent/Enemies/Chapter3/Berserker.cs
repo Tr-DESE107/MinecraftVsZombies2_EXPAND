@@ -32,12 +32,16 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void Explode(Entity entity, float damage, DamageEffectList effects, int faction)
         {
+            Explode(entity, damage, entity.GetRange(), effects, faction);
+        }
+        public static void Explode(Entity entity, float damage, float range, DamageEffectList effects, int faction)
+        {
             var scale = entity.GetFinalScale();
             var scaleX = Mathf.Abs(scale.x);
-            var range = entity.GetRange() * scaleX;
-            entity.Explode(entity.GetCenter(), range, faction, damage, effects);
+            var radius = range * scaleX;
+            entity.Explode(entity.GetCenter(), radius, faction, damage, effects);
 
-            Explosion.Spawn(entity, entity.GetCenter(), range);
+            Explosion.Spawn(entity, entity.GetCenter(), radius);
 
             entity.PlaySound(VanillaSoundID.explosion, scaleX == 0 ? 1000 : 1 / (scaleX));
         }

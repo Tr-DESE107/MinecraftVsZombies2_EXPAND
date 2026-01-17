@@ -169,7 +169,6 @@ namespace MVZ2.GameContent.Buffs
             public const string glowstoneProtected = "glowstone_protected";
             public const string ironCurtain = "iron_curtain";
             public const string miracleMalletReplicaDamage = "miracle_mallet_replica_damage";
-            public const string witherSkeletonSkullReduceHealth = "wither_skeleton_skull_reduce_health";
             public const string brokenLantern = "broken_lantern";
 
             // Chapter 4
@@ -251,6 +250,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 6
             public const string gravelOnFace = "gravel_on_face";
             public const string smallShadowCell = "small_shadow_cell";
+            public const string controlRodUnstable = "control_rod_unstable";
         }
         public static class Obstacle
         {
@@ -330,11 +330,9 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 2
             public const string slendermanMindSwap = "slenderman_mind_swap";
 
-            // Chapter 3
-            public const string witherSkeletonSkullReduceCost = "wither_skeleton_skull_reduce_cost";
-
             // Chapter 6
             public const string blueprintLock = "blueprint_lock";
+            public const string controlRodRecharge = "control_rod_recharge";
         }
     }
     public static class VanillaBuffID
@@ -496,7 +494,6 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID glowstoneProtected = Get(VanillaBuffNames.Contraption.glowstoneProtected);
             public static readonly NamespaceID ironCurtain = Get(VanillaBuffNames.Contraption.ironCurtain);
             public static readonly NamespaceID miracleMalletReplicaDamage = Get(VanillaBuffNames.Contraption.miracleMalletReplicaDamage);
-            public static readonly NamespaceID witherSkeletonSkullReduceHealth = Get(VanillaBuffNames.Contraption.witherSkeletonSkullReduceHealth);
             public static readonly NamespaceID brokenLantern = Get(VanillaBuffNames.Contraption.brokenLantern);
 
             // Chapter 4
@@ -577,6 +574,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 6
             public static readonly NamespaceID gravelOnFace = Get(VanillaBuffNames.Enemy.gravelOnFace);
+            public static readonly NamespaceID controlRodUnstable = Get(VanillaBuffNames.Enemy.controlRodUnstable);
         }
         public static class Obstacle
         {
@@ -655,8 +653,8 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 2
             public static readonly NamespaceID slendermanMindSwap = Get(VanillaBuffNames.SeedPack.slendermanMindSwap);
 
-            // Chapter 3
-            public static readonly NamespaceID witherSkeletonSkullReduceCost = Get(VanillaBuffNames.SeedPack.witherSkeletonSkullReduceCost);
+            // Chapter 6
+            public static readonly NamespaceID controlRodRecharge = Get(VanillaBuffNames.SeedPack.controlRodRecharge);
         }
     }
 }

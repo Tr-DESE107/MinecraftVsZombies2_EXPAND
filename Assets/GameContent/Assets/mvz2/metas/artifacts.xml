@@ -1,4 +1,5 @@
 <artifacts>
+    <!-- Halloween -->
     <artifact id="almanac" name="图鉴" tooltip="本场战斗每出现2种怪物，开始战斗时+25能量" sprite="mvz2:artifacts/almanac">
         <unlock>
             <condition required="mvz2:level.halloween_5" />
@@ -20,6 +21,7 @@
         </unlock>
     </artifact>
     
+    <!-- Dream -->
     <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="器械每秒恢复10点耐久" sprite="mvz2:artifacts/sweet_sleep_pillow">
         <unlock>
             <condition required="mvz2:level.dream_2" />
@@ -46,6 +48,7 @@
         </unlock>
     </artifact>
 
+    <!-- Castle -->
     <artifact id="smart_phone" name="智能手机" tooltip="你在最后一波开始前每有10能量，关卡结束时便获得10金钱" sprite="mvz2:artifacts/smart_phone">
         <unlock>
             <condition required="mvz2:kourindou_visited_castle" />
@@ -61,11 +64,6 @@
             <condition required="mvz2:level.castle_11" />
         </unlock>
     </artifact>
-    <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/wither_skeleton_skull">
-        <unlock>
-            <condition required="mvz2:artifact.wither_skeleton_skull" />
-        </unlock>
-    </artifact>
     <artifact id="nether_star" name="下界之星" tooltip="每有4个星之碎片被使用，生成一个星之碎片" sprite="mvz2:artifacts/nether_star">
         <unlock>
             <condition required="mvz2:artifact.nether_star" />
@@ -77,6 +75,7 @@
         </unlock>
     </artifact>
 
+    <!-- Mausoleum -->
     <artifact id="manipulative_talismans" name="控制灵符" tooltip="怪物死亡并倒下时有10%的概率复活，并变为友方" sprite="mvz2:artifacts/manipulative_talismans">
         <unlock>
             <condition required="mvz2:level.mausoleum_3" />
@@ -98,6 +97,7 @@
         </unlock>
     </artifact>
 
+    <!-- Ship -->
     <artifact id="ufo_toy" name="飞碟玩具" tooltip="拾取三个同色宝石后，再生成一个同色的宝石" sprite="mvz2:artifacts/ufo_toy">
         <unlock>
             <condition required="mvz2:level.ship_3" />
@@ -116,6 +116,13 @@
     <artifact id="dragon_tooth" name="龙牙" tooltip="生命值为50%或以下的敌人受到的伤害x200%" sprite="mvz2:artifacts/dragon_tooth">
         <unlock>
             <condition required="mvz2:artifact.dragon_tooth" />
+        </unlock>
+    </artifact>
+
+    <!-- Palace -->
+    <artifact id="control_rod" name="控制棒" tooltip="蓝图充能速度x150%，但怪物死亡后爆炸" sprite="mvz2:artifacts/control_rod">
+        <unlock>
+            <condition required="mvz2:level.palace_3" />
         </unlock>
     </artifact>
 

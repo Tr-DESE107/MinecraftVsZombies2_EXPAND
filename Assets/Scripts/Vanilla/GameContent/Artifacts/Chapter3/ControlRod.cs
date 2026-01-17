@@ -2,10 +2,10 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
@@ -13,23 +13,23 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    //[AutoArtifactDefinition(VanillaArtifactNames.witherSkeletonSkull)]
-    public class WitherSkeletonSkull : ArtifactDefinition
+    [AutoArtifactDefinition(VanillaArtifactNames.controlRod)]
+    public class ControlRod : ArtifactDefinition
     {
-        public WitherSkeletonSkull(string nsp, string name) : base(nsp, name)
+        public ControlRod(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostContraptionInitCallback, filter: EntityTypes.PLANT);
-            AddAura(new ReduceCostAura());
+            AddAura(new BlueprintAura());
+            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
         }
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        private void PostContraptionInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
         {
-            var contraption = param.entity;
-            var level = contraption.Level;
+            var entity = param.entity;
+            var level = entity.Level;
             var artifacts = level.GetArtifacts();
             foreach (var artifact in artifacts)
             {
@@ -38,14 +38,12 @@ namespace MVZ2.GameContent.Artifacts
                 if (artifact.Definition != this)
                     continue;
                 artifact.Highlight();
-                contraption.AddBuff<WitherSkeletonSkullReduceHealthBuff>();
+                entity.AddBuff<ControlRodUnstableBuff>();
             }
         }
-        public static readonly NamespaceID ID = VanillaArtifactID.theCreaturesHeart;
-
-        public class ReduceCostAura : AuraEffectDefinition
+        public class BlueprintAura : AuraEffectDefinition
         {
-            public ReduceCostAura() : base(VanillaBuffID.SeedPack.witherSkeletonSkullReduceCost, 4)
+            public BlueprintAura() : base(VanillaBuffID.SeedPack.controlRodRecharge, 4)
             {
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

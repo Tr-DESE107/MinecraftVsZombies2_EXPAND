@@ -237,18 +237,6 @@
                 <stage price="15000" unlocks="mvz2:artifact.nether_star" />
             </stages>
         </product>
-        <!-- <product id="wither_skeleton_skull" sprite="mvz2:artifacts/wither_skeleton_skull">
-            <unlock>
-                <condition required="mvz2:level.castle_11" />
-            </unlock>
-            <talks>
-                <talk character="mvz2:crazy_villager">凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！</talk>
-                <talk character="mvz2:tokiko">很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们的耐久也会因此变为60%！</talk>
-            </talks>
-            <stages>
-                <stage price="15000" unlocks="mvz2:artifact.wither_skeleton_skull" />
-            </stages>
-        </product> -->
         <product id="greedy_vacuum" sprite="mvz2:artifacts/greedy_vacuum">
             <unlock>
                 <condition required="mvz2:level.mausoleum_5" />

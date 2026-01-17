@@ -22,7 +22,6 @@ namespace MVZ2.GameContent.Artifacts
         public const string invertedMirror = "inverted_mirror";
         public const string miracleMalletReplica = "miracle_mallet_replica";
         public const string netherStar = "nether_star";
-        public const string witherSkeletonSkull = "wither_skeleton_skull";
         public const string brokenLantern = "broken_lantern";
 
         public const string manipulativeTalismans = "manipulative_talismans";
@@ -34,6 +33,8 @@ namespace MVZ2.GameContent.Artifacts
         public const string dowsingRods = "dowsing_rods";
         public const string sorcerersScroll = "sorcerers_scroll";
         public const string dragonTooth = "dragon_tooth";
+
+        public const string controlRod = "control_rod";
     }
     public static class VanillaArtifactID
     {
@@ -51,7 +52,6 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID smartPhone = Get(VanillaArtifactNames.smartPhone);
         public static readonly NamespaceID invertedMirror = Get(VanillaArtifactNames.invertedMirror);
         public static readonly NamespaceID miracleMalletReplica = Get(VanillaArtifactNames.miracleMalletReplica);
-        public static readonly NamespaceID witherSkeletonSkull = Get(VanillaArtifactNames.witherSkeletonSkull);
         public static readonly NamespaceID netherStar = Get(VanillaArtifactNames.netherStar);
         public static readonly NamespaceID brokenLantern = Get(VanillaArtifactNames.brokenLantern);
 
