@@ -30,6 +30,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             // 注册触发器：在实体受到伤害前调用
             AddTrigger(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, PreProjectileHitCallback);
+            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback, priority: -200);
             thunderDetector = new LawnDetector();
         }
 
@@ -106,7 +107,32 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 }
             }
         }
+        // 新增方法:处理爆炸等直接伤害  
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
+        {
+            var damageInfo = param.input;
+            var entity = damageInfo.Entity;
 
+            // 确认受伤的实体是闪电之珠且处于Evoked状态  
+            if (!entity.HasBuff<LightningOrbEvokedBuff>())
+                return;
+
+            // 如果伤害包含爆炸效果,吸收它  
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.EXPLOSION))
+            {
+                foreach (var buff in entity.GetBuffs<LightningOrbEvokedBuff>())
+                {
+                    // 治疗自己  
+                    entity.HealEffects(damageInfo.Amount, entity);
+                    // 累积伤害用于反弹  
+                    AddTakenDamage(buff, damageInfo.Amount);
+                }
+
+                // 阻止伤害生效  
+                result.SetFinalValue(false);
+                damageInfo.Multiply(0f);
+            }
+        }
         // 在实体受到伤害前触发
         private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
         {
@@ -136,7 +162,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
 
         }
-
+        
 
         // 辅助方法：管理 Buff 的累积伤害数值
         public static float GetTakenDamage(Buff buff) => buff.GetProperty<float>(PROP_TAKEN_DAMAGE);

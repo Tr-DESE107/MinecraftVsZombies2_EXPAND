@@ -30,8 +30,6 @@ namespace MVZ2.GameContent.Contraptions
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            var buff = entity.AddBuff<ExplosionProtection>();
-            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
         }
 
         // 每帧更新逻辑
