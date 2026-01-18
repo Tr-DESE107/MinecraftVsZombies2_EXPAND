@@ -26,7 +26,8 @@ namespace MVZ2.UI.Level
         }
         public void SetRaycastDisabled(bool disabled)
         {
-            animator.SetBool("RaycastDisabled", disabled);
+            if (animator.gameObject.activeInHierarchy)
+                animator.SetBool("RaycastDisabled", disabled);
         }
         public void SetExitingToNote()
         {

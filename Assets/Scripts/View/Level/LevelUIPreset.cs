@@ -29,7 +29,8 @@ namespace MVZ2.UI.Level
         }
         public void UpdateFrame(float deltaTime)
         {
-            animator.Update(deltaTime);
+            if (animator.gameObject.activeInHierarchy)
+                animator.Update(deltaTime);
             for (int i = 0; i < artifactList.Count; i++)
             {
                 var artifact = artifactList.getElement<ArtifactItemUI>(i);

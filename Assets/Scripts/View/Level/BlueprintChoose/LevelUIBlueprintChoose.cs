@@ -46,12 +46,14 @@ namespace MVZ2.UI.Level
         public void SetSideUIBlend(float blend)
         {
             sideUIBlend = blend;
-            animator.SetFloat("SideUIBlend", sideUIBlend);
+            if (animator.gameObject.activeInHierarchy)
+                animator.SetFloat("SideUIBlend", sideUIBlend);
         }
         public void SetBlueprintChooseBlend(float blend)
         {
             blueprintChooseBlend = blend;
-            animator.SetFloat("BlueprintChooseBlend", blend);
+            if (animator.gameObject.activeInHierarchy)
+                animator.SetFloat("BlueprintChooseBlend", blend);
         }
         public void SetBlueprintChooseViewAlmanacButtonActive(bool active)
         {
