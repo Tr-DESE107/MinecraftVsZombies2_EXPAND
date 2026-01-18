@@ -4,6 +4,8 @@ using MVZ2Logic;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Definitions;
 using PVZEngine;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Commands
@@ -26,6 +28,7 @@ namespace MVZ2.GameContent.Commands
             float x = level.GetEntityColumnX(Mathf.FloorToInt(level.GetMaxColumnCount() * 0.5f));
             float z = level.GetEntityLaneZ(Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f));
             float y = level.GetGroundY(x, z);
+            int faction = -1;
             if (parameters[0] == "pos")
             {
                 if (parameters.Length >= 3)
@@ -39,6 +42,10 @@ namespace MVZ2.GameContent.Commands
                 if (parameters.Length >= 5)
                 {
                     z = CommandUtility.ParseOptionalFloat(parameters[4], z);
+                }
+                if (parameters.Length >= 6)
+                {
+                    faction = CommandUtility.ParseOptionalInt(parameters[5], faction);
                 }
             }
             else if (parameters[0] == "tile")
@@ -54,13 +61,22 @@ namespace MVZ2.GameContent.Commands
                 {
                     lane = CommandUtility.ParseOptionalFloat(parameters[3], lane);
                 }
+                if (parameters.Length >= 5)
+                {
+                    faction = CommandUtility.ParseOptionalInt(parameters[4], faction);
+                }
 
                 x = level.GetEntityColumnXFloat(column);
                 z = level.GetEntityLaneZFloat(lane);
                 y = level.GetGroundY(x, z);
             }
 
-            level.Spawn(id, new Vector3(x, y, z), null);
+            var spawnParam = new SpawnParams();
+            if (faction >= 0)
+            {
+                spawnParam.SetProperty(EngineEntityProps.FACTION, faction);
+            }
+            level.Spawn(id, new Vector3(x, y, z), null, spawnParam);
         }
     }
 }

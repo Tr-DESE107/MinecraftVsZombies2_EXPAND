@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-01-16 09:19+0800\n"
+"POT-Creation-Date: 2026-01-18 11:32+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -910,25 +910,25 @@ msgid ""
 "接下来的内容还在开发中，敬请期待！"
 msgstr ""
 
-# 冷却时间
+# 充能时间
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:52
 msgctxt "recharge_time"
 msgid "无"
 msgstr ""
 
-# 冷却时间
+# 充能时间
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:54
 msgctxt "recharge_time"
 msgid "短"
 msgstr ""
 
-# 冷却时间
+# 充能时间
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:56
 msgctxt "recharge_time"
 msgid "长"
 msgstr ""
 
-# 冷却时间
+# 充能时间
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:58
 msgctxt "recharge_time"
 msgid "很长"
@@ -1030,26 +1030,54 @@ msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr ""
 
+# 命令输出-unlock，{0}为游戏状态名列表
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:100
+msgctxt "command.output"
+msgid ""
+"已解锁游戏状态：\n"
+"{0}"
+msgstr ""
+
+# 命令输出-unlock
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:102
+msgctxt "command.output"
+msgid "无法解锁所有游戏状态：无游戏状态可解锁"
+msgstr ""
+
+# 命令输出-unlock，{0}为游戏状态名列表
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:104
+msgctxt "command.output"
+msgid ""
+"已重新锁定游戏状态：\n"
+"{0}"
+msgstr ""
+
+# 命令输出-unlock
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:106
+msgctxt "command.output"
+msgid "无法重新锁定游戏状态：无游戏状态可重新锁定"
+msgstr ""
+
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:101
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:109
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:103
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:105
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:107
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
@@ -2188,7 +2216,7 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:338
+#: Scripts\MVZ2\Managers\MainManager.cs:341
 msgid "获取赞助者列表……"
 msgstr ""
 
@@ -2401,10 +2429,10 @@ msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
-# 图鉴描述模板，{0}为冷却时间
+# 图鉴描述模板，{0}为充能时间
 #: Scripts\MVZ2\Almanac\AlmanacController.cs:846
 msgctxt "almanac"
-msgid "冷却时间：<color=red>{0}</color>"
+msgid "充能时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
@@ -4727,6 +4755,12 @@ msgctxt "command_parameter.description"
 msgid "可选。要生成的实体位置的Z值。"
 msgstr ""
 
+#. Description for parameter faction of command "mvz2:spawn pos"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。要生成的实体的阵营。0为友方，1为敌方。"
+msgstr ""
+
 #. Description for command variant "mvz2:spawn tile"
 #: Commands meta file
 msgctxt "command_variant.description"
@@ -5079,6 +5113,24 @@ msgstr ""
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "打印当前存档所有目前解锁的游戏状态。"
+msgstr ""
+
+#. Description for command variant "mvz2:unlock listlocked"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "打印当前存档所有目前尚未解锁的游戏状态。"
+msgstr ""
+
+#. Description for command variant "mvz2:unlock all"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "解锁所有游戏状态。"
+msgstr ""
+
+#. Description for command variant "mvz2:unlock none"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "锁定所有游戏状态。"
 msgstr ""
 
 #. Description for command "mvz2:test"

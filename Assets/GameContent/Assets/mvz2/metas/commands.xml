@@ -21,6 +21,7 @@
                 <param name="x" type="float" optional="true">可选。要生成的实体位置的X值。</param>
                 <param name="y" type="float" optional="true">可选。要生成的实体位置的Y值。</param>
                 <param name="z" type="float" optional="true">可选。要生成的实体位置的Z值。</param>
+                <param name="faction" type="int" optional="true">可选。要生成的实体的阵营。0为友方，1为敌方。</param>
             </params>
         </variant>
         <variant subname="tile">
@@ -29,6 +30,7 @@
                 <param name="id" type="id" idType="entity">要生成的实体ID。</param>
                 <param name="column" type="float" optional="true">可选。实体所在列。0代表最左侧一列，向右递增。</param>
                 <param name="lane" type="float" optional="true">可选。实体所在行。0代表最上方一行，向下递增。</param>
+                <param name="faction" type="int" optional="true">可选。要生成的实体的阵营。0为友方，1为敌方。</param>
             </params>
         </variant>
     </command>
