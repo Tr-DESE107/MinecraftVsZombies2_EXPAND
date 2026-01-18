@@ -351,7 +351,7 @@
         <!-- Halloween Contraptions -->
         <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球">
             <unlock>
-                <condition required="mvz2:level.halloween_1" />
+                <condition requiredGroups="mvz2:contraption.small_dispenser" />
             </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
@@ -370,7 +370,7 @@
         </dispenser>
         <contraption id="moonlight_sensor" name="月光传感器" tooltip="自动提供能量，一段时间后提升生产量">
             <unlock>
-                <condition required="mvz2:level.halloween_2" />
+                <condition requiredGroups="mvz2:contraption.moonlight_sensor" />
             </unlock>
             <properties>
                 <bool name="mvz2:producer" value="true" />
@@ -386,7 +386,7 @@
         </contraption>
         <contraption id="glowstone" name="荧石" tooltip="照亮周围范围">
             <unlock>
-                <condition required="mvz2:level.halloween_3" />
+                <condition requiredGroups="mvz2:contraption.glowstone" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -404,7 +404,7 @@
         </contraption>
         <contraption id="punchton" name="冲击活塞" tooltip="冲击前方敌人，需要时间再次准备">
             <unlock>
-                <condition required="mvz2:level.halloween_4" />
+                <condition requiredGroups="mvz2:contraption.punchton" />
             </unlock>
             <properties>
                 <float name="mvz2:damage" value="100" />
@@ -418,7 +418,7 @@
         </contraption>
         <contraption id="tnt" name="TNT" tooltip="触发后炸飞周围敌人">
             <unlock>
-                <condition required="mvz2:level.halloween_6" />
+                <condition requiredGroups="mvz2:contraption.tnt" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -439,7 +439,7 @@
         </contraption>
         <contraption id="soul_furnace" name="灵魂熔炉" tooltip="发射火球，但需要献祭前方的器械作为燃料">
             <unlock>
-                <condition required="mvz2:level.halloween_7" />
+                <condition requiredGroups="mvz2:contraption.soul_furnace" />
             </unlock>
             <properties>
                 <float name="mvz2:damage" value="80" />
@@ -461,7 +461,7 @@
         </contraption>
         <dispenser id="silvenser" name="银制发射器" tooltip="射出穿透肉体的飞刀">
             <unlock>
-                <condition required="mvz2:level.halloween_8" />
+                <condition requiredGroups="mvz2:contraption.silvenser" />
             </unlock>
             <properties>
                 <float name="mvz2:damage" value="15" />
@@ -475,7 +475,7 @@
         </dispenser>
         <contraption id="magichest" name="魔术箱" tooltip="将一个怪物变为星之碎片">
             <unlock>
-                <condition required="mvz2:level.halloween_9" />
+                <condition requiredGroups="mvz2:contraption.magichest" />
             </unlock>
             <properties>
                 <float name="mvz2:range" value="120" />
@@ -493,7 +493,7 @@
         <!-- Dream Contraptions -->
         <contraption id="lily_pad" name="睡莲" tooltip="允许在水上放置器械">
             <unlock>
-                <condition required="mvz2:level.dream_1" />
+                <condition requiredGroups="mvz2:contraption.lily_pad" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:lily_pad_carrier" />
@@ -521,7 +521,7 @@
         </contraption>
         <dispenser id="drivenser" name="驱动发射器" tooltip="能够堆叠放置，堆叠后子弹数量增加">
             <unlock>
-                <condition required="mvz2:level.dream_2" />
+                <condition requiredGroups="mvz2:contraption.drivenser" />
             </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
@@ -533,7 +533,7 @@
         </dispenser>
         <contraption id="gravity_pad" name="重力板" tooltip="增强上方物体的重力">
             <unlock>
-                <condition required="mvz2:level.dream_3" />
+                <condition requiredGroups="mvz2:contraption.gravity_pad" />
             </unlock>
 
             <properties>
@@ -554,7 +554,7 @@
         </contraption>
         <contraption id="vortex_hopper" name="漩涡漏斗" tooltip="把附近的僵尸拉入水底">
             <unlock>
-                <condition required="mvz2:level.dream_4" />
+                <condition requiredGroups="mvz2:contraption.vortex_hopper" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:destroy_outside_water" />
@@ -577,7 +577,7 @@
         </contraption>
         <dispenser id="pistenser" name="活塞发射器" tooltip="能够伸长自己来攻击空中敌人">
             <unlock>
-                <condition required="mvz2:level.dream_6" />
+                <condition requiredGroups="mvz2:contraption.pistenser" />
             </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
@@ -590,7 +590,7 @@
         </dispenser>
         <dispenser id="totenser" name="图腾发射器" tooltip="发射虚弱的飞镖并灼烧前方的僵尸">
             <unlock>
-                <condition required="mvz2:level.dream_7" />
+                <condition requiredGroups="mvz2:contraption.totenser" />
             </unlock>
             <properties>
                 <float name="mvz2:damage" value="15" />
@@ -603,7 +603,7 @@
         </dispenser>
         <contraption id="dream_crystal" name="梦境结晶" tooltip="能够自我修复的障碍墙">
             <unlock>
-                <condition required="mvz2:level.dream_8" />
+                <condition requiredGroups="mvz2:contraption.dream_crystal" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:model_damage_percent" />
@@ -623,7 +623,7 @@
         </contraption>
         <contraption id="dream_silk" name="美梦丝" tooltip="让一个器械睡着，醒来后生成一个星之碎片">
             <unlock>
-                <condition required="mvz2:level.dream_9" />
+                <condition requiredGroups="mvz2:contraption.dream_silk" />
             </unlock>
             <properties>
                 <bool name="mvz2:cannotDig" value="true" />
@@ -655,7 +655,7 @@
         <!-- Castle Contraptions -->
         <dispenser id="wooden_dropper" name="木制投掷器" tooltip="投出木制小球">
             <unlock>
-                <condition required="mvz2:level.castle_1" />
+                <condition requiredGroups="mvz2:contraption.wooden_dropper" />
             </unlock>
             <properties>
                 <id name="mvz2:projectileId" value="mvz2:wooden_ball" />
@@ -674,7 +674,7 @@
         </dispenser>
         <contraption id="spike_block" name="尖刺方块" tooltip="扎伤上面的敌人">
             <unlock>
-                <condition required="mvz2:level.castle_2" />
+                <condition requiredGroups="mvz2:contraption.spike_block" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -695,7 +695,7 @@
         </contraption>
         <dispenser id="stone_dropper" name="石制投掷器" tooltip="投出石子或巨石">
             <unlock>
-                <condition required="mvz2:level.castle_3" />
+                <condition requiredGroups="mvz2:contraption.stone_dropper" />
             </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
@@ -713,7 +713,7 @@
         </dispenser>
         <contraption id="stone_shield" name="石护罩" tooltip="保护内部的器械">
             <unlock>
-                <condition required="mvz2:level.castle_4" />
+                <condition requiredGroups="mvz2:contraption.stone_shield" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:model_damage_percent" />
@@ -732,7 +732,7 @@
         </contraption>
         <contraption id="golden_apple" name="金苹果" tooltip="魅惑攻击它的怪物">
             <unlock>
-                <condition required="mvz2:level.castle_6" />
+                <condition requiredGroups="mvz2:contraption.golden_apple" />
             </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
@@ -749,7 +749,7 @@
         </contraption>
         <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退怪物">
             <unlock>
-                <condition required="mvz2:level.castle_7" />
+                <condition requiredGroups="mvz2:contraption.thunder_drum" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -767,7 +767,7 @@
         </contraption>
         <contraption id="tesla_coil" name="磁暴线圈" tooltip="电击大范围内的敌人">
             <unlock>
-                <condition required="mvz2:level.castle_8" />
+                <condition requiredGroups="mvz2:contraption.tesla_coil" />
             </unlock>
             <properties>
                 <float name="mvz2:range" value="200" />
@@ -789,7 +789,7 @@
         </contraption>
         <contraption id="giant_bowl" name="巨碗" tooltip="生产并储存星之碎片">
             <unlock>
-                <condition required="mvz2:level.castle_9" />
+                <condition requiredGroups="mvz2:contraption.giant_bowl" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -805,7 +805,7 @@
         <!-- Mausoleum Contraptions -->
         <contraption id="note_block" name="音符盒" tooltip="发射反弹的音符">
             <unlock>
-                <condition required="mvz2:level.mausoleum_1" />
+                <condition requiredGroups="mvz2:contraption.note_block" />
             </unlock>
             <properties>
                 <id name="mvz2:projectileId" value="mvz2:note" />
@@ -826,7 +826,7 @@
         </contraption>
         <contraption id="lightning_orb" name="闪电之珠" tooltip="阻碍怪物前进，并吸收子弹来治疗自己">
             <unlock>
-                <condition required="mvz2:level.mausoleum_2" />
+                <condition requiredGroups="mvz2:contraption.lightning_orb" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -856,7 +856,7 @@
         </contraption>
         <dispenser id="splitenser" name="双向发射器" tooltip="向前后双方射出箭">
             <unlock>
-                <condition required="mvz2:level.mausoleum_3" />
+                <condition requiredGroups="mvz2:contraption.splitenser" />
             </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
@@ -865,7 +865,7 @@
         </dispenser>
         <contraption id="devourer" name="吞噬者" tooltip="移除刷怪笼，或将器械变回蓝图掉落物">
             <unlock>
-                <condition required="mvz2:level.mausoleum_4" />
+                <condition requiredGroups="mvz2:contraption.devourer" />
             </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
@@ -884,7 +884,7 @@
         </contraption>
         <contraption id="hellfire" name="地狱火" tooltip="点燃穿过的箭矢">
             <unlock>
-                <condition required="mvz2:level.mausoleum_6" />
+                <condition requiredGroups="mvz2:contraption.hellfire" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -905,7 +905,7 @@
         </contraption>
         <contraption id="necrotombstone" name="死灵墓碑" tooltip="召唤友方骷髅战士">
             <unlock>
-                <condition required="mvz2:level.mausoleum_7" />
+                <condition requiredGroups="mvz2:contraption.necrotombstone" />
             </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
@@ -920,7 +920,7 @@
         </contraption>
         <contraption id="black_hole_bomb" name="黑洞炸弹" tooltip="触发后产生引力黑洞">
             <unlock>
-                <condition required="mvz2:level.mausoleum_8" />
+                <condition requiredGroups="mvz2:contraption.black_hole_bomb" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -938,7 +938,7 @@
         </contraption>
         <contraption id="desire_pot" name="欲望壶" tooltip="复制怪物身上的星之碎片">
             <unlock>
-                <condition required="mvz2:level.mausoleum_9" />
+                <condition requiredGroups="mvz2:contraption.desire_pot" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -954,7 +954,7 @@
         <!-- Ship Contraptions -->
         <contraption id="gunpowder_barrel" name="火药桶" tooltip="提供大量能量，但有爆炸的风险">
             <unlock>
-                <condition required="mvz2:level.ship_1" />
+                <condition requiredGroups="mvz2:contraption.gunpowder_barrel" />
             </unlock>
             <properties>
                 <bool name="mvz2:dynamite" value="true" />
@@ -974,7 +974,7 @@
         </contraption>
         <dispenser id="triplenser" name="三头发射器" tooltip="一次射出三行的箭矢">
             <unlock>
-                <condition required="mvz2:level.ship_2" />
+                <condition requiredGroups="mvz2:contraption.triplenser" />
             </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
@@ -983,7 +983,7 @@
         </dispenser>
         <contraption id="firework_dispenser" name="烟花发射器" tooltip="轰击周围高空的敌人">
             <unlock>
-                <condition required="mvz2:level.ship_3" />
+                <condition requiredGroups="mvz2:contraption.firework_dispenser" />
             </unlock>
             <behaviours>
                 <behaviour id="mvz2:contraption_shooter_firework_dispenser" />
@@ -1005,7 +1005,7 @@
         </contraption>
         <dispenser id="repeatenser" name="连射发射器" tooltip="一次射出两支箭矢">
             <unlock>
-                <condition required="mvz2:level.ship_4" />
+                <condition requiredGroups="mvz2:contraption.repeatenser" />
             </unlock>
             <properties>
                 <int name="mvz2:cost" value="200" />
@@ -1013,7 +1013,7 @@
         </dispenser>
         <dispenser id="beacon" name="信标" tooltip="向五个方向发射手里剑">
             <unlock>
-                <condition required="mvz2:level.ship_6" />
+                <condition requiredGroups="mvz2:contraption.beacon" />
             </unlock>
             <properties>
                 <float name="mvz2:damage" value="20" />
@@ -1034,7 +1034,7 @@
         </dispenser>
         <contraption id="wooden_fan" name="木风扇" tooltip="吹动一整行的怪物">
             <unlock>
-                <condition required="mvz2:level.ship_7" />
+                <condition requiredGroups="mvz2:contraption.wooden_fan" />
             </unlock>
             <properties>
                 <id name="mvz2:shell" value="mvz2:wood" />
@@ -1053,7 +1053,7 @@
         </contraption>
         <contraption id="elastic_cloud" name="弹性云" tooltip="弹走接触到的怪物">
             <unlock>
-                <condition required="mvz2:level.ship_8" />
+                <condition requiredGroups="mvz2:contraption.elastic_cloud" />
             </unlock>
             <behaviours>
                 <behaviour id="mvz2:model_damage_percent" />
@@ -1079,7 +1079,7 @@
         </contraption>
         <contraption id="jeweled_pagoda" name="珠光宝塔" tooltip="禁用一整行地格并生成星之碎片">
             <unlock>
-                <condition required="mvz2:level.ship_9" />
+                <condition requiredGroups="mvz2:contraption.jeweled_pagoda" />
             </unlock>
             <properties>
                 <bool name="mvz2:cannotDig" value="true" />
@@ -1108,7 +1108,7 @@
         <!-- Palace Contraptions -->
         <dispenser id="transfenser" name="变形发射器" tooltip="发射光灵箭，或者瞄准最前方的敌人">
             <unlock>
-                <condition required="mvz2:level.palace_1" />
+                <condition requiredGroups="mvz2:contraption.transfenser" />
             </unlock>
             <properties>
                 <bool name="mvz2:triggerActive" value="true" />
@@ -1126,7 +1126,7 @@
         </dispenser>
         <contraption id="gravelpult" name="沙砾投手" tooltip="投出燧石或沙砾">
             <unlock>
-                <condition required="mvz2:level.palace_2" />
+                <condition requiredGroups="mvz2:contraption.gravelpult" />
             </unlock>
             <behaviours>
                 <behaviour id="mvz2:gravelpult/evoke" />
@@ -1152,7 +1152,7 @@
         </contraption>
         <contraption id="cursed_candle" name="诅咒蜡烛" tooltip="诅咒并焚烧怪物，使其自爆">
             <unlock>
-                <condition required="mvz2:level.palace_3" />
+                <condition requiredGroups="mvz2:contraption.cursed_candle" />
             </unlock>
             <properties>
                 <float name="mvz2:damage" value="20" />
@@ -1179,7 +1179,7 @@
         </contraption>
         <contraption id="stone_eye" name="石眼" tooltip="减速并阻挡前方敌人">
             <unlock>
-                <condition required="mvz2:level.palace_4" />
+                <condition requiredGroups="mvz2:contraption.stone_eye" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:model_damage_percent" />
@@ -1199,7 +1199,7 @@
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人">
             <unlock>
-                <condition required="mvz2:contraption.infectenser" />
+                <condition requiredGroups="mvz2:contraption.infectenser" />
             </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
@@ -1219,7 +1219,7 @@
         </dispenser>
         <contraption id="force_pad" name="传动力板" tooltip="（需要重力板）\n改变上方物体的力">
             <unlock>
-                <condition required="mvz2:contraption.force_pad" />
+                <condition requiredGroups="mvz2:contraption.force_pad" />
             </unlock>
 
             <properties>
@@ -1243,7 +1243,7 @@
         </contraption>
         <dispenser id="golden_dropper" name="金制投掷器" tooltip="（需要木制投掷器）\n投出反弹并产生绿宝石的金球">
             <unlock>
-                <condition required="mvz2:contraption.golden_dropper" />
+                <condition requiredGroups="mvz2:contraption.golden_dropper" />
             </unlock>
             <properties>
                 <id name="mvz2:projectileId" value="mvz2:golden_ball" />
@@ -1267,7 +1267,7 @@
         </dispenser>
         <contraption id="skyward_beacon" name="御天信标" tooltip="（需要信标）\n使用光柱定点打击位置">
             <unlock>
-                <condition required="mvz2:contraption.skyward_beacon" />
+                <condition requiredGroups="mvz2:contraption.skyward_beacon" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="skyward_beacon/trigger" />
@@ -1292,7 +1292,7 @@
         </contraption>
         <dispenser id="high_frequency_pulse_dispenser" name="高频脉冲发射器" tooltip="（需要连射发射器）\n一次射出四支箭矢">
             <unlock>
-                <condition required="mvz2:level.ship_5" />
+                <condition requiredGroups="mvz2:contraption.high_frequency_pulse_dispenser" />
             </unlock>
             <properties>
                 <bool name="mvz2:upgradeBlueprint" value="true" />
@@ -1306,7 +1306,7 @@
         </dispenser>
         <contraption id="diamond_spikes" name="钻石尖刺" tooltip="（需要尖刺方块）\n更快扎伤上面的敌人，并具有更高耐久">
             <unlock>
-                <condition required="mvz2:level.castle_5" />
+                <condition requiredGroups="mvz2:contraption.diamond_spikes" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:model_damage_percent" />
@@ -1337,7 +1337,7 @@
         </contraption>
         <contraption id="command_block" name="命令方块" tooltip="模仿一个器械">
             <unlock>
-                <condition requiredGroups="mvz2:command_block" />
+                <condition requiredGroups="mvz2:contraption.command_block" />
             </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />

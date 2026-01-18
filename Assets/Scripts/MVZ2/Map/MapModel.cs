@@ -96,18 +96,9 @@ namespace MVZ2.Map
                 return;
             button.SetBorderSpriteToDefault();
         }
-        public NamespaceID[] GetMapElementUnlocks()
+        public MapElement[] GetMapElements()
         {
-            return mapElements.Select(e => e.unlock?.Get()).OfType<NamespaceID>().Where(i => NamespaceID.IsValid(i)).ToArray();
-        }
-        public void SetMapElementUnlocked(NamespaceID unlock, bool unlocked)
-        {
-            foreach (var element in mapElements)
-            {
-                if (element.unlock?.Get() != unlock)
-                    continue;
-                element.SetActive(unlocked);
-            }
+            return mapElements;
         }
         private void Awake()
         {

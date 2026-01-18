@@ -11,6 +11,6 @@ namespace MVZ2.UI.Map
         {
             gameObject.SetActive(value);
         }
-        public NamespaceIDReference? unlock;
+        public NamespaceIDReference? unlockGroup;
     }
 }

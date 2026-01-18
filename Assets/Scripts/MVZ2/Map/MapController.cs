@@ -162,7 +162,7 @@ namespace MVZ2.Map
             UpdateModelElements(model);
             UpdateModelEndlessFlags(model);
             SetCameraBackgroundColor(mapPreset.backgroundColor);
-            model.SetMapKeyArrowVisible(!Main.SaveManager.IsUnlocked(LogicUnlockGroupID.enteredDream));
+            model.SetMapKeyArrowVisible(!Main.SaveManager.IsGroupUnlocked(LogicUnlockGroupID.chapter_Dream));
         }
         #endregion
 
@@ -264,7 +264,7 @@ namespace MVZ2.Map
         private async void OnMapKeyClickCallback()
         {
             ui.SetRaycastBlockerActive(true);
-            if (!Main.SaveManager.IsUnlocked(LogicUnlockGroupID.enteredDream) && MapID == VanillaMapID.halloween)
+            if (!Main.SaveManager.IsGroupUnlocked(LogicUnlockGroupID.chapter_Dream) && MapID == VanillaMapID.halloween)
             {
                 await talkController.SimpleStartTalkAsync(VanillaTalkID.halloweenFinal, 0, 0);
             }
@@ -664,7 +664,7 @@ namespace MVZ2.Map
             model.SetEndlessButtonColor(endlessColor);
             model.SetEndlessButtonText("\u221E");
 
-            model.SetMapKeyActive(Main.SaveManager.IsUnlocked(LogicUnlockGroupID.halloweenFinished));
+            model.SetMapKeyActive(Main.SaveManager.IsGroupUnlocked(LogicUnlockGroupID.chapterFinished_Halloween));
 
 
             if (unclearedMapButtonIndex >= 0)
@@ -680,11 +680,13 @@ namespace MVZ2.Map
         }
         private void UpdateModelElements(MapModel model)
         {
-            var unlocks = model.GetMapElementUnlocks();
-            for (int i = 0; i < unlocks.Length; i++)
+            var elements = model.GetMapElements();
+            foreach (var element in elements)
             {
-                var unlock = unlocks[i];
-                model.SetMapElementUnlocked(unlock, Main.SaveManager.IsUnlocked(unlock));
+                if (element.unlockGroup == null)
+                    continue;
+                var unlocked = Main.SaveManager.IsGroupUnlocked(element.unlockGroup.Get());
+                element.SetActive(unlocked);
             }
         }
         private void UpdateModelEndlessFlags(MapModel model)

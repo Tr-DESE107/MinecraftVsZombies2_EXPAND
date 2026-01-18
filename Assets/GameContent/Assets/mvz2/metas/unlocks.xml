@@ -1,4 +1,5 @@
 <unlocks>
+    <!-- Common -->
     <group id="starshard">
         <conditions>
             <condition required="mvz2:starshard" />
@@ -14,16 +15,6 @@
             <condition required="mvz2:trigger" />
         </conditions>
     </group>
-    <group id="halloween_finished">
-        <conditions>
-            <condition required="mvz2:level.halloween_11" />
-        </conditions>
-    </group>
-    <group id="entered_dream">
-        <conditions>
-            <condition required="mvz2:entered_dream" />
-        </conditions>
-    </group>
     <group id="store">
         <conditions>
             <condition required="mvz2:level.dream_5" />
@@ -31,7 +22,7 @@
     </group>
     <group id="gensokyo">
         <conditions>
-            <condition required="mvz2:level.dream_11" />
+            <condition requiredGroups="mvz2:chapter_finished.dream" />
         </conditions>
     </group>
     <group id="music_room">
@@ -41,7 +32,7 @@
     </group>
     <group id="command_block">
         <conditions>
-            <condition required="mvz2:level.mausoleum_5" />
+            <condition requiredGroups="mvz2:contraption.command_block" />
         </conditions>
     </group>
     <group id="arcade">
@@ -59,4 +50,91 @@
             <condition required="mvz2:level.ship_11" />
         </conditions>
     </group>
+
+    <!-- Chapters -->
+    <group id="chapter.halloween"><conditions><condition required="mvz2:level.prologue" /></conditions></group>
+    <group id="chapter.dream"><conditions><condition required="mvz2:entered_dream" /></conditions></group>
+    <group id="chapter.castle"><conditions><condition required="mvz2:entered_castle" /></conditions></group>
+    <group id="chapter.mausoleum"><conditions><condition required="mvz2:entered_mausoleum" /></conditions></group>
+    <group id="chapter.ship"><conditions><condition required="mvz2:entered_ship" /></conditions></group>
+    <group id="chapter.palace"><conditions><condition required="mvz2:level.ship_11" /></conditions></group>
+
+    <group id="chapter_finished.halloween"><conditions><condition required="mvz2:level.halloween_11" /></conditions></group>
+    <group id="chapter_finished.dream"><conditions><condition required="mvz2:level.dream_11" /></conditions></group>
+    <group id="chapter_finished.castle"><conditions><condition required="mvz2:level.castle_11" /></conditions></group>
+    <group id="chapter_finished.mausoleum"><conditions><condition required="mvz2:level.mausoleum_11" /></conditions></group>
+    <group id="chapter_finished.ship"><conditions><condition required="mvz2:level.ship_11" /></conditions></group>
+    <group id="chapter_finished.palace"><conditions><condition required="mvz2:level.palace_11" /></conditions></group>
+
+    <!-- Halloween Contraptions -->
+    <group id="contraption.small_dispenser"><conditions><condition required="mvz2:level.halloween_1" /></conditions></group>
+    <group id="contraption.moonlight_sensor"><conditions><condition required="mvz2:level.halloween_2" /></conditions></group>
+    <group id="contraption.glowstone"><conditions><condition required="mvz2:level.halloween_3" /></conditions></group>
+    <group id="contraption.punchton"><conditions><condition required="mvz2:level.halloween_4" /></conditions></group>
+    <group id="contraption.tnt"><conditions><condition required="mvz2:level.halloween_6" /></conditions></group>
+    <group id="contraption.soul_furnace"><conditions><condition required="mvz2:level.halloween_7" /></conditions></group>
+    <group id="contraption.silvenser"><conditions><condition required="mvz2:level.halloween_8" /></conditions></group>
+    <group id="contraption.magichest"><conditions><condition required="mvz2:level.halloween_9" /></conditions></group>
+
+    <!-- Dream Contraptions -->
+    <group id="contraption.lily_pad"><conditions><condition required="mvz2:level.dream_1" /></conditions></group>
+    <group id="contraption.drivenser"><conditions><condition required="mvz2:level.dream_2" /></conditions></group>
+    <group id="contraption.gravity_pad"><conditions><condition required="mvz2:level.dream_3" /></conditions></group>
+    <group id="contraption.vortex_hopper"><conditions><condition required="mvz2:level.dream_4" /></conditions></group>
+    <group id="contraption.pistenser"><conditions><condition required="mvz2:level.dream_6" /></conditions></group>
+    <group id="contraption.totenser"><conditions><condition required="mvz2:level.dream_7" /></conditions></group>
+    <group id="contraption.dream_crystal"><conditions><condition required="mvz2:level.dream_8" /></conditions></group>
+    <group id="contraption.dream_silk"><conditions><condition required="mvz2:level.dream_9" /></conditions></group>
+
+    <!-- Castle Contraptions -->
+    <group id="contraption.wooden_dropper"><conditions><condition required="mvz2:level.castle_1" /></conditions></group>
+    <group id="contraption.spike_block"><conditions><condition required="mvz2:level.castle_2" /></conditions></group>
+    <group id="contraption.stone_dropper"><conditions><condition required="mvz2:level.castle_3" /></conditions></group>
+    <group id="contraption.stone_shield"><conditions><condition required="mvz2:level.castle_4" /></conditions></group>
+    <group id="contraption.golden_apple"><conditions><condition required="mvz2:level.castle_6" /></conditions></group>
+    <group id="contraption.thunder_drum"><conditions><condition required="mvz2:level.castle_7" /></conditions></group>
+    <group id="contraption.tesla_coil"><conditions><condition required="mvz2:level.castle_8" /></conditions></group>
+    <group id="contraption.giant_bowl"><conditions><condition required="mvz2:level.castle_9" /></conditions></group>
+    
+    <!-- Mausoleum Contraptions -->
+    <group id="contraption.note_block"><conditions><condition required="mvz2:level.mausoleum_1" /></conditions></group>
+    <group id="contraption.lightning_orb"><conditions><condition required="mvz2:level.mausoleum_2" /></conditions></group>
+    <group id="contraption.splitenser"><conditions><condition required="mvz2:level.mausoleum_3" /></conditions></group>
+    <group id="contraption.devourer"><conditions><condition required="mvz2:level.mausoleum_4" /></conditions></group>
+    <group id="contraption.hellfire"><conditions><condition required="mvz2:level.mausoleum_6" /></conditions></group>
+    <group id="contraption.necrotombstone"><conditions><condition required="mvz2:level.mausoleum_7" /></conditions></group>
+    <group id="contraption.black_hole_bomb"><conditions><condition required="mvz2:level.mausoleum_8" /></conditions></group>
+    <group id="contraption.desire_pot"><conditions><condition required="mvz2:level.mausoleum_9" /></conditions></group>
+    
+    <!-- Ship Contraptions -->
+    <group id="contraption.gunpowder_barrel"><conditions><condition required="mvz2:level.ship_1" /></conditions></group>
+    <group id="contraption.triplenser"><conditions><condition required="mvz2:level.ship_2" /></conditions></group>
+    <group id="contraption.firework_dispenser"><conditions><condition required="mvz2:level.ship_3" /></conditions></group>
+    <group id="contraption.repeatenser"><conditions><condition required="mvz2:level.ship_4" /></conditions></group>
+    <group id="contraption.beacon"><conditions><condition required="mvz2:level.ship_6" /></conditions></group>
+    <group id="contraption.wooden_fan"><conditions><condition required="mvz2:level.ship_7" /></conditions></group>
+    <group id="contraption.elastic_cloud"><conditions><condition required="mvz2:level.ship_8" /></conditions></group>
+    <group id="contraption.jeweled_pagoda"><conditions><condition required="mvz2:level.ship_9" /></conditions></group>
+    
+    <!-- Palace Contraptions -->
+    <group id="contraption.transfenser"><conditions><condition required="mvz2:level.palace_1" /></conditions></group>
+    <group id="contraption.gravelpult"><conditions><condition required="mvz2:level.palace_2" /></conditions></group>
+    <group id="contraption.cursed_candle"><conditions><condition required="mvz2:level.palace_3" /></conditions></group>
+    <group id="contraption.stone_eye"><conditions><condition required="mvz2:level.palace_4" /></conditions></group>
+    <group id="contraption.cooling_cell"><conditions><condition required="mvz2:level.palace_6" /></conditions></group>
+    <group id="contraption.amethyst_pylon"><conditions><condition required="mvz2:level.palace_7" /></conditions></group>
+    <group id="contraption.nuke"><conditions><condition required="mvz2:level.palace_8" /></conditions></group>
+    <group id="contraption.nether_reactor"><conditions><condition required="mvz2:level.palace_9" /></conditions></group>
+    
+    <!-- Upgrade Contraptions -->
+    <group id="contraption.infectenser"><conditions><condition required="mvz2:contraption.infectenser" /></conditions></group>
+    <group id="contraption.force_pad"><conditions><condition required="mvz2:contraption.force_pad" /></conditions></group>
+    <group id="contraption.golden_dropper"><conditions><condition required="mvz2:contraption.golden_dropper" /></conditions></group>
+    <group id="contraption.skyward_beacon"><conditions><condition required="mvz2:contraption.skyward_beacon" /></conditions></group>
+
+    <!-- Old Upgrade Contraptions -->
+    <group id="contraption.high_frequency_pulse_dispenser"><conditions><condition required="mvz2:level.ship_5" /></conditions></group>
+    <group id="contraption.diamond_spikes"><conditions><condition required="mvz2:level.castle_5" /></conditions></group>
+    <group id="contraption.brick_cannon"><conditions><condition required="mvz2:level.palace_5" /></conditions></group>
+    <group id="contraption.command_block"><conditions><condition required="mvz2:level.mausoleum_5" /></conditions></group>
 </unlocks>

@@ -420,8 +420,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.mausoleum_3
+      propertyPath: unlockGroup.path
+      value: contraption.splitenser
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -643,8 +643,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.mausoleum_6
+      propertyPath: unlockGroup.path
+      value: contraption.hellfire
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -939,8 +939,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.mausoleum_7
+      propertyPath: unlockGroup.path
+      value: contraption.necrotombstone
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1023,8 +1023,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.mausoleum_1
+      propertyPath: unlockGroup.path
+      value: contraption.note_block
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1107,8 +1107,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.mausoleum_2
+      propertyPath: unlockGroup.path
+      value: contraption.lightning_orb
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1824,8 +1824,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.mausoleum_9
+      propertyPath: unlockGroup.path
+      value: contraption.desire_pot
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1908,8 +1908,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.mausoleum_4
+      propertyPath: unlockGroup.path
+      value: contraption.devourer
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -2138,8 +2138,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.mausoleum_8
+      propertyPath: unlockGroup.path
+      value: contraption.black_hole_bomb
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name

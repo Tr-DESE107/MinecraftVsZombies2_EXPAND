@@ -160,8 +160,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.prologue
+      propertyPath: unlockGroup.path
+      value: chapter.halloween
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -292,6 +292,7 @@ MonoBehaviour:
   id:
     spacename: mvz2
     path: halloween
+  arrow: {fileID: 0}
 --- !u!4 &5461804978657357290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8450122154962902690, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}

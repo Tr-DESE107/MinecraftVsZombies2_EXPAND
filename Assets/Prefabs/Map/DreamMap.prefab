@@ -1309,8 +1309,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_4
+      propertyPath: unlockGroup.path
+      value: contraption.vortex_hopper
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1459,8 +1459,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_9
+      propertyPath: unlockGroup.path
+      value: contraption.dream_silk
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1543,8 +1543,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_6
+      propertyPath: unlockGroup.path
+      value: contraption.pistenser
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1627,8 +1627,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_7
+      propertyPath: unlockGroup.path
+      value: contraption.totenser
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1850,8 +1850,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_8
+      propertyPath: unlockGroup.path
+      value: contraption.dream_crystal
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1934,8 +1934,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_2
+      propertyPath: unlockGroup.path
+      value: contraption.drivenser
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -2084,8 +2084,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_11
+      propertyPath: unlockGroup.path
+      value: chapter_finished.dream
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -2765,8 +2765,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_1
+      propertyPath: unlockGroup.path
+      value: contraption.lily_pad
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -2992,8 +2992,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_3
+      propertyPath: unlockGroup.path
+      value: contraption.gravity_pad
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name

@@ -206,8 +206,8 @@ PrefabInstance:
       value: Dream
       objectReference: {fileID: 0}
     - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
-      propertyPath: unlock.path
-      value: entered_dream
+      propertyPath: unlockGroup.path
+      value: chapter.dream
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,8 +302,8 @@ PrefabInstance:
       value: Castle
       objectReference: {fileID: 0}
     - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
-      propertyPath: unlock.path
-      value: entered_castle
+      propertyPath: unlockGroup.path
+      value: chapter.castle
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -398,8 +398,8 @@ PrefabInstance:
       value: Ship
       objectReference: {fileID: 0}
     - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
-      propertyPath: unlock.path
-      value: entered_ship
+      propertyPath: unlockGroup.path
+      value: chapter.ship
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -494,8 +494,8 @@ PrefabInstance:
       value: Palace
       objectReference: {fileID: 0}
     - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_11
+      propertyPath: unlockGroup.path
+      value: chapter.palace
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -590,8 +590,8 @@ PrefabInstance:
       value: Mausoleum
       objectReference: {fileID: 0}
     - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
-      propertyPath: unlock.path
-      value: entered_mausoleum
+      propertyPath: unlockGroup.path
+      value: chapter.mausoleum
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -680,6 +680,10 @@ PrefabInstance:
     - target: {fileID: 2783835787699341151, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_Name
       value: Halloween
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
+      propertyPath: unlockGroup.path
+      value: chapter.halloween
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -770,8 +774,8 @@ PrefabInstance:
       value: Kourindou
       objectReference: {fileID: 0}
     - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
-      propertyPath: unlock.path
-      value: level.dream_11
+      propertyPath: unlockGroup.path
+      value: store
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x

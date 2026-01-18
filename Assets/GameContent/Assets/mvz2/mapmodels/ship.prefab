@@ -652,8 +652,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_7
+      propertyPath: unlockGroup.path
+      value: contraption.wooden_fan
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -995,8 +995,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_2
+      propertyPath: unlockGroup.path
+      value: contraption.triplenser
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1079,8 +1079,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_3
+      propertyPath: unlockGroup.path
+      value: contraption.firework_dispenser
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1294,8 +1294,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_8
+      propertyPath: unlockGroup.path
+      value: contraption.elastic_cloud
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1455,8 +1455,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_6
+      propertyPath: unlockGroup.path
+      value: contraption.beacon
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -1539,8 +1539,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_1
+      propertyPath: unlockGroup.path
+      value: contraption.gunpowder_barrel
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -2054,8 +2054,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_9
+      propertyPath: unlockGroup.path
+      value: contraption.jeweled_pagoda
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
@@ -2350,8 +2350,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1296375411447829916}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: unlock.path
-      value: level.ship_4
+      propertyPath: unlockGroup.path
+      value: contraption.repeatenser
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name

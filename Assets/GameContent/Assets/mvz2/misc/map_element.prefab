@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26acd6faf848d24587466a3c571a0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlock:
+  unlockGroup:
     spacename: mvz2
     path: 
 --- !u!1001 &2984860700142830358
