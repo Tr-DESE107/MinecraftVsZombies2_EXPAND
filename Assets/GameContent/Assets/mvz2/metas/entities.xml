@@ -1186,7 +1186,7 @@
                 <behaviour operator="add" id="mvz2:stone_eye/evoke" />
             </behaviours>
             <properties>
-                <float name="mvz2:range" value="160" />
+                <float name="mvz2:range" value="80" />
                 <vector3 name="mvz2:size" x="32" y="48" z="32" />
                 <float name="mvz2:maxHealth" value="2000" />
                 <bool name="mvz2:defensive" value="true" />

@@ -901,7 +901,7 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>2000</color>]]></p>
-                <p>范围：<![CDATA[<color=red>前方2格</color>]]></p>
+                <p>范围：<![CDATA[<color=red>前方1格</color>]]></p>
                 <p>特点：<![CDATA[<color=red>范围内的敌人攻击速度和移动速度x50%</color>]]></p>
                 <p>技能：<![CDATA[<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘</color>]]></p>
             </properties>
