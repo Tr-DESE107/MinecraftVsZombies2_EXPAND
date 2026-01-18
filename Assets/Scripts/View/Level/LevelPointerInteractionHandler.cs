@@ -17,7 +17,9 @@ namespace MVZ2.View.Level
         }
         public void UpdateHoldAndStreak()
         {
-            foreach (var eventData in hoveredPointerDatas)
+            hoveredPointerDataBuffer.Clear();
+            hoveredPointerDataBuffer.AddRange(hoveredPointerDatas);
+            foreach (var eventData in hoveredPointerDataBuffer)
             {
                 OnPointerInteraction?.Invoke(this, eventData, PointerInteraction.Stay);
                 if (pressedPointerDatas.Exists(e => e.pointerId == eventData.pointerId))
@@ -104,6 +106,7 @@ namespace MVZ2.View.Level
         #endregion
 
         #region 属性字段
+        private List<PointerEventData> hoveredPointerDataBuffer = new List<PointerEventData>();
         private List<PointerEventData> hoveredPointerDatas = new List<PointerEventData>();
         private List<PointerEventData> pressedPointerDatas = new List<PointerEventData>();
         #endregion
