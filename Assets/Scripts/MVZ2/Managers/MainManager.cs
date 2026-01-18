@@ -211,6 +211,9 @@ namespace MVZ2.Managers
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Input.simulateMouseWithTouches = false;
+            Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.None);
+            Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.ScriptOnly);
+            Application.SetStackTraceLogType(LogType.Error, StackTraceLogType.Full);
 
             Game = new GlobalGame(this);
             Global.InitGame(Game);
