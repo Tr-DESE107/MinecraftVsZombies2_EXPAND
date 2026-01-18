@@ -7,7 +7,7 @@ using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Level;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
-using Tools.Mathematics;
+using Tools.Geometrical;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Detections
@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Detections
                 dir.x *= self.GetFacingX();
                 var destination = dir * range + source;
                 var capsule = new Capsule(source, destination, radius);
-                if (MathTool.CollideBetweenCubeAndCapsule(capsule, targetBounds))
+                if (Geometry.CollideBetweenCubeAndCapsule(capsule, targetBounds))
                 {
                     return true;
                 }

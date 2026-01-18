@@ -5,7 +5,7 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools.Mathematics;
+using Tools.Geometrical;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Detections
@@ -64,7 +64,7 @@ namespace MVZ2.Vanilla.Detections
         {
             float extent1 = xLength1 / 2;
             float extent2 = xLength2 / 2;
-            return MathTool.DoRangesIntersect(x1 - extent1, x1 + extent1, x2 - extent2, x2 + extent2);
+            return Geometry.DoRangesIntersect(x1 - extent1, x1 + extent1, x2 - extent2, x2 + extent2);
         }
         #endregion
 
@@ -79,7 +79,7 @@ namespace MVZ2.Vanilla.Detections
         }
         public static bool IsYCoincide(float y1, float yLength1, float y2, float yLength2)
         {
-            return MathTool.DoRangesIntersect(y1, y1 + yLength1, y2, y2 + yLength2);
+            return Geometry.DoRangesIntersect(y1, y1 + yLength1, y2, y2 + yLength2);
         }
         #endregion
 
@@ -92,7 +92,7 @@ namespace MVZ2.Vanilla.Detections
         {
             float extent1 = zLength1 / 2;
             float extent2 = zLength2 / 2;
-            return MathTool.DoRangesIntersect(z1 - extent1, z1 + extent1, z2 - extent2, z2 + extent2);
+            return Geometry.DoRangesIntersect(z1 - extent1, z1 + extent1, z2 - extent2, z2 + extent2);
         }
         #endregion
 

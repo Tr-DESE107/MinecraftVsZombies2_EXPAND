@@ -134,14 +134,14 @@ namespace MVZ2.GameContent.Bosses
             if (motionTime <= 0)
                 return;
             float lastPercent = Mathf.Clamp01(1 - motionTime / (float)MAX_MOVE_TIMEOUT);
-            float lastMovePercent = MathTool.EaseInAndOut(lastPercent);
+            float lastMovePercent = Transitions.EaseInAndOut(lastPercent);
 
             motionTime--;
 
             SetMoveTimeout(entity, motionTime);
 
             float percent = Mathf.Clamp01(1 - motionTime / (float)MAX_MOVE_TIMEOUT);
-            float movePercent = MathTool.EaseInAndOut(percent);
+            float movePercent = Transitions.EaseInAndOut(percent);
             var displacement = GetMoveDisplacement(entity);
 
             float addedPercent = movePercent - lastMovePercent;

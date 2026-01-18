@@ -14,6 +14,7 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using Tools.Geometrical;
 using Tools.Mathematics;
 using UnityEngine;
 
@@ -90,7 +91,7 @@ namespace MVZ2.GameContent.Effects
                 case STATE_CLOSED:
                     {
                         progress += 1 / 15f;
-                        var realProgress = MathTool.EaseIn(progress);
+                        var realProgress = Transitions.EaseIn(progress);
                         if (progress >= 1)
                         {
                             entity.Level.ShakeScreen(10, 0, 15);

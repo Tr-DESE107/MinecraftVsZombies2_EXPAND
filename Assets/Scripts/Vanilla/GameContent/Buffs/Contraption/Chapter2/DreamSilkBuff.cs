@@ -15,6 +15,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 using Tools;
+using Tools.Geometrical;
 using Tools.Mathematics;
 using UnityEngine;
 
@@ -85,15 +86,15 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             if (percentage <= 0.25f)
             {
-                return 1 - 0.2f * MathTool.EaseInAndOut(percentage / 0.25f);
+                return 1 - 0.2f * Transitions.EaseInAndOut(percentage / 0.25f);
             }
             else if (percentage <= 0.75f)
             {
-                return 0.8f + 0.45f * MathTool.EaseInAndOut((percentage - 0.25f) / 0.5f);
+                return 0.8f + 0.45f * Transitions.EaseInAndOut((percentage - 0.25f) / 0.5f);
             }
             else if (percentage <= 1)
             {
-                return 1.25f - 0.25f * MathTool.EaseInAndOut((percentage - 0.75f) / 0.25f);
+                return 1.25f - 0.25f * Transitions.EaseInAndOut((percentage - 0.75f) / 0.25f);
             }
             return 1;
         }

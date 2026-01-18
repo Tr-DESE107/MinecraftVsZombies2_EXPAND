@@ -11,7 +11,7 @@ using PVZEngine;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools.Mathematics;
+using Tools.Geometrical;
 using UnityEngine;
 
 namespace MVZ2.Level.Components
@@ -251,7 +251,7 @@ namespace MVZ2.Level.Components
                 if (targetEntity == null || !targetEntity.ReceivesLight())
                     continue;
 
-                if (!MathTool.CollideBetweenCubeAndRoundCube(roundCube, collider.GetBoundingBox()))
+                if (!Geometry.CollideBetweenCubeAndRoundCube(roundCube, collider.GetBoundingBox()))
                     continue;
 
                 results.Add(targetEntity.ID);

@@ -664,7 +664,7 @@ namespace MVZ2.Mainmenu
         }
         private Vector2 GetCurrentAnimatorBlend()
         {
-            return Vector2.Lerp(animatorBlendStart, animatorBlendEnd, MathTool.EaseInAndOut((transitionTime - animatorBlendTimeout) / transitionTime));
+            return Vector2.Lerp(animatorBlendStart, animatorBlendEnd, Transitions.EaseInAndOut((transitionTime - animatorBlendTimeout) / transitionTime));
         }
         private void UpdateWindowView()
         {

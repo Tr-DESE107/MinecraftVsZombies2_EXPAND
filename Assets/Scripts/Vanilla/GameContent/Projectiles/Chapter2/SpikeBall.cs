@@ -9,7 +9,7 @@ using MVZ2Logic.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using Tools.Mathematics;
+using Tools.Geometrical;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles

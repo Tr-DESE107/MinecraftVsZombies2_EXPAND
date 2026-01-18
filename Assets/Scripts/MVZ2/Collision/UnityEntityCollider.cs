@@ -9,7 +9,7 @@ using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
-using Tools.Mathematics;
+using Tools.Geometrical;
 using UnityEngine;
 
 namespace MVZ2.Collisions
@@ -181,7 +181,7 @@ namespace MVZ2.Collisions
         {
             var capsule = new Capsule(pos1, pos2, radius);
             var box = boxCollider.bounds;
-            return MathTool.CollideBetweenCubeAndCapsule(capsule, box);
+            return Geometry.CollideBetweenCubeAndCapsule(capsule, box);
         }
         #endregion
 

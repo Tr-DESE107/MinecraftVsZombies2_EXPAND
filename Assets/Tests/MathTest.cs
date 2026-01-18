@@ -1,4 +1,4 @@
-﻿using Tools.Mathematics;
+﻿using Tools.Geometrical;
 using UnityEngine;
 
 namespace MVZ2.Tests
@@ -10,8 +10,8 @@ namespace MVZ2.Tests
         {
             var box = new Bounds(boxCenter, boxSize);
             var capsule = new Capsule(lineStart, lineEnd, radius);
-            var distance = Mathf.Sqrt(MathTool.GetSegmentAABBSqrDistance(lineStart, lineEnd, box));
-            collision = MathTool.CollideBetweenCubeAndCapsule(capsule, box);
+            var distance = Mathf.Sqrt(Geometry.GetSegmentAABBSqrDistance(lineStart, lineEnd, box));
+            collision = Geometry.CollideBetweenCubeAndCapsule(capsule, box);
             Debug.Log($"Distance: {distance}");
         }
         private void OnDrawGizmos()

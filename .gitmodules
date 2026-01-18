@@ -10,3 +10,6 @@
 [submodule "Assets/LanguagePack"]
 	path = Assets/LanguagePack
 	url = https://github.com/Cuerzor/MVZ2LanguagePack.git
+[submodule "Assets/Scripts/Engine"]
+	path = Assets/Scripts/Engine
+	url = https://github.com/Cuerzor/PVZEngineUnity.git
