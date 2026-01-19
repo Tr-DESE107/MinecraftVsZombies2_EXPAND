@@ -250,10 +250,10 @@
     <model name="skeleton_warrior" type="entity" path="mvz2:enemy/mausoleum/skeleton_warrior" width="66" height="96" xOffset="16" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="skeleton_mage" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="skeleton_mage" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="84" height="96" xOffset="20" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="skeleton_mage_fire" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="skeleton_mage_fire" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="84" height="96" xOffset="20" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
         <animator updateOnShot="true">
             <parameters>
@@ -261,7 +261,7 @@
             </parameters>
         </animator>    
     </model>
-    <model name="skeleton_mage_frost" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="skeleton_mage_frost" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="84" height="96" xOffset="20" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
         <animator updateOnShot="true">
             <parameters>
@@ -269,7 +269,7 @@
             </parameters>
         </animator>    
     </model>
-    <model name="skeleton_mage_lightning" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="skeleton_mage_lightning" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="84" height="96" xOffset="20" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
         <animator updateOnShot="true">
             <parameters>

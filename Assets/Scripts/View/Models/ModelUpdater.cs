@@ -6,6 +6,13 @@ namespace MVZ2.Models
 {
     public class ModelUpdater : MonoBehaviour
     {
+        private void Awake()
+        {
+            if (model.Exists())
+            {
+                model.InitModel();
+            }
+        }
         void Update()
         {
             if (model.Exists())

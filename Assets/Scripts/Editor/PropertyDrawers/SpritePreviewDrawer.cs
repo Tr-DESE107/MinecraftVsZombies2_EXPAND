@@ -1,4 +1,5 @@
 using System.IO;
+using System.Xml.Linq;
 using MVZ2.Sprites;
 using UnityEditor;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 namespace MVZ2.Editor
 {
     [CustomPropertyDrawer(typeof(SpritePreview))]
-    public class SpritePreviewEditor : PropertyDrawer
+    public class SpritePreviewDrawer : PropertyDrawer
     {
         public const float MAX_WIDTH = 200;
         public const float MAX_HEIGHT = 200;
@@ -57,22 +58,11 @@ namespace MVZ2.Editor
             if (saveAs)
             {
                 var nameProperty = property.FindPropertyRelative("name");
-                var name = nameProperty.stringValue;
-                foreach (var chr in Path.GetInvalidFileNameChars())
-                {
-                    name = name.Replace(chr, '_');
-                }
+                var name = ToFilename(nameProperty.stringValue);
                 var path = EditorUtility.SaveFilePanel("Save Sprite", Application.dataPath, name, "png");
                 if (!string.IsNullOrEmpty(path))
                 {
-                    var bytes = sprite.texture.EncodeToPNG();
-                    using (var stream = File.Open(path, FileMode.Create))
-                    {
-                        using (var writer = new BinaryWriter(stream))
-                        {
-                            writer.Write(bytes);
-                        }
-                    }
+                    sprite.texture.SaveToPath(path);
                 }
             }
         }
@@ -88,6 +78,15 @@ namespace MVZ2.Editor
                 var height = Mathf.Min(MAX_HEIGHT, texture.height);
                 return new Vector2(height * texture.width / texture.height, height);
             }
+        }
+        public static string ToFilename(string idString)
+        {
+            var name = idString;
+            foreach (var chr in Path.GetInvalidFileNameChars())
+            {
+                name = name.Replace(chr, '_');
+            }
+            return name;
         }
     }
 }

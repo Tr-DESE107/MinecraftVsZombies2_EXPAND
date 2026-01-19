@@ -42,6 +42,10 @@ namespace MVZ2.Models
             }
             rng = new RandomGenerator(seed);
             eventCamera = camera;
+            InitModel();
+        }
+        public virtual void InitModel()
+        {
             modelComponents.Clear();
             GetComponentsInChildren<IModelComponent>(true, modelComponents);
             foreach (var comp in modelComponents)

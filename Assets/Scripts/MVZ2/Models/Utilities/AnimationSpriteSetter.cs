@@ -7,9 +7,14 @@ namespace MVZ2.Models
 {
     [ExecuteAlways]
     [RequireComponent(typeof(SpriteRenderer))]
-    public class AnimationSpriteSetter : MonoBehaviour
+    public class AnimationSpriteSetter : ModelComponent
     {
-        public void Update()
+        public override void UpdateFrame(float deltaTime)
+        {
+            base.UpdateFrame(deltaTime);
+            UpdateSprites();
+        }
+        public void UpdateSprites()
         {
             if (sprites != null && sprites.Length > 0)
             {
@@ -50,7 +55,6 @@ namespace MVZ2.Models
                 return sprRenderer;
             }
         }
-        public MainManager Main => MainManager.Instance;
         private SpriteRenderer? sprRenderer;
         public Sprite[]? sprites;
         private int beforeIndex = -1;
