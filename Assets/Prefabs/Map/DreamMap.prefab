@@ -2329,6 +2329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8909371243629498337}
     m_Modifications:
+    - target: {fileID: 2148762081023334645, guid: 5640e43e27f706941b36aa9a6c3aace7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606660457866220892, guid: 5640e43e27f706941b36aa9a6c3aace7, type: 3}
       propertyPath: m_Layer
       value: 12
@@ -2338,6 +2342,10 @@ PrefabInstance:
       value: vortex_hopper
       objectReference: {fileID: 0}
     - target: {fileID: 7010453786866649100, guid: 5640e43e27f706941b36aa9a6c3aace7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623043891383487220, guid: 5640e43e27f706941b36aa9a6c3aace7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.18
       objectReference: {fileID: 0}
