@@ -211,6 +211,8 @@ namespace MVZ2.Grids
                         continue;
                     if (entity.IsHPBarHidden())
                         continue;
+                    if (entity.GetGrid() != grid)
+                        continue;
                     if (gridHPBarEntityBuffer.Contains(entity))
                         continue;
                     var entityCtrl = Level?.GetEntityController(entity);

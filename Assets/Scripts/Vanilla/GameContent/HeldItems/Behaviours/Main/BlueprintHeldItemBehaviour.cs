@@ -143,10 +143,17 @@ namespace MVZ2.GameContent.HeldItems
             var level = entity.Level;
             var seedPack = GetSeedPack(level, data);
             var seedEntityID = seedPack?.GetSeedEntityID();
-            if (seedEntityID == null)
-                return false;
             var entityDef = level.Content.GetEntityDefinition(seedEntityID);
-            return entityDef != null && entityDef.IsUpgradeBlueprint() && entity.CanUpgradeToContraption(entityDef);
+            if (entityDef == null)
+                return false;
+            var placementID = entityDef.GetPlacementID();
+            var placementDef = level.Content.GetPlacementDefinition(placementID);
+            if (placementDef == null)
+                return false;
+            var method = placementDef.GetMethod<IEntityTwinklePlaceMethod>();
+            if (method == null)
+                return false;
+            return method.ShouldMakeEntityTwinkle(placementDef, entity, entityDef);
         }
 
         protected virtual void CostBlueprint(LawnGrid grid, IHeldItemData data)
@@ -162,6 +169,21 @@ namespace MVZ2.GameContent.HeldItems
                 return;
 
             result.SetFinalValue(seedDef.GetModelID());
+        }
+        public override void GetModelOffset(LevelEngine level, IHeldItemData data, CallbackResult result)
+        {
+            var seed = GetSeedPack(level, data);
+            var seedDef = seed?.Definition;
+            if (seedDef == null)
+                return;
+            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
+            {
+                var seedEntityID = seedDef.GetSeedEntityID();
+                var entityDef = level.Content.GetEntityDefinition(seedEntityID);
+                if (entityDef == null)
+                    return;
+                result.SetFinalValue(-entityDef.GetGridPivotOffset());
+            }
         }
     }
     [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.classicBlueprint)]

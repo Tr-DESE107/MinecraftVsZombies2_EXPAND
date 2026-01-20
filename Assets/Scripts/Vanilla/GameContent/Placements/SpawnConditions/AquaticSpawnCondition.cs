@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Placements
 {
     public class AquaticSpawnCondition : ContraptionSpawnCondition
     {
-        public override NamespaceID? GetSpawnError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
+        protected override NamespaceID? GetSpawnErrorOfGrid(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
             if (grid.IsCloud())
                 return VanillaGridStatus.notOnAir;
@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Placements
             if (!grid.IsWater())
                 return VanillaGridStatus.notOnLand;
 
-            var error = base.GetSpawnError(placement, grid, entity);
+            var error = base.GetSpawnErrorOfGrid(placement, grid, entity);
             if (error != null)
                 return error;
 

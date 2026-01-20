@@ -2,6 +2,7 @@
 
 using System;
 using System.Globalization;
+using UnityEngine;
 
 namespace MVZ2Logic
 {
@@ -26,6 +27,100 @@ namespace MVZ2Logic
         public static bool TryParseFloat(string str, out float parsed)
         {
             return float.TryParse(str, NumberStyles.Float, provider, out parsed);
+        }
+        public static string[] GetVectorNumberStrings(string str)
+        {
+            var left = str.IndexOf("[");
+            var right = str.IndexOf("]");
+            var substring = str.Substring(left + 1, right - left - 1);
+            return substring.Split(',');
+        }
+        public static bool TryParseVector2(string str, out Vector2 parsed)
+        {
+            parsed = Vector2.zero;
+            var numbers = GetVectorNumberStrings(str);
+            if (numbers.Length != 2)
+                return false;
+            for (int i = 0; i < 2; i++)
+            {
+                var number = numbers[i];
+                var trimed = number.Trim();
+                if (TryParseFloat(trimed, out var component))
+                {
+                    parsed[i] = component;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static bool TryParseVector3(string str, out Vector3 parsed)
+        {
+            parsed = Vector3.zero;
+            var numbers = GetVectorNumberStrings(str);
+            if (numbers.Length != 3)
+                return false;
+            for (int i = 0; i < 3; i++)
+            {
+                var number = numbers[i];
+                var trimed = number.Trim();
+                if (TryParseFloat(trimed, out var component))
+                {
+                    parsed[i] = component;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static bool TryParseVector2Int(string str, out Vector2Int parsed)
+        {
+            parsed = Vector2Int.zero;
+            var numbers = GetVectorNumberStrings(str);
+            if (numbers.Length != 2)
+                return false;
+            for (int i = 0; i < 2; i++)
+            {
+                var number = numbers[i];
+                var trimed = number.Trim();
+                if (TryParseInt(trimed, out var component))
+                {
+                    parsed[i] = component;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static bool TryParseVector3Int(string str, out Vector3Int parsed)
+        {
+            parsed = Vector3Int.zero;
+            var left = str.IndexOf("[");
+            var right = str.IndexOf("]");
+            var substring = str.Substring(left + 1, right - left - 1);
+            var numbers = substring.Split(',');
+            if (numbers.Length != 3)
+                return false;
+            for (int i = 0; i < 3; i++)
+            {
+                var number = numbers[i];
+                var trimed = number.Trim();
+                if (TryParseInt(trimed, out var component))
+                {
+                    parsed[i] = component;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         private static IFormatProvider provider => CultureInfo.InvariantCulture;
     }

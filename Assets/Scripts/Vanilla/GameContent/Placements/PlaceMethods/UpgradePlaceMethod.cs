@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic.Entities;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Placements;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -14,8 +15,12 @@ using PVZEngine.Placements;
 
 namespace MVZ2.GameContent.Placements
 {
-    public class UpgradePlaceMethod : PlaceMethod
+    public class UpgradePlaceMethod : PlaceMethod, IEntityTwinklePlaceMethod
     {
+        public bool ShouldMakeEntityTwinkle(PlacementDefinition placement, Entity entity, EntityDefinition entityDef)
+        {
+            return entityDef.IsUpgradeBlueprint() && entity.CanUpgradeToContraption(entityDef) && entity.IsFriendlyEntity();
+        }
         public override NamespaceID? GetPlaceError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
             var entities = grid.GetEntities();

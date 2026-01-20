@@ -1335,6 +1335,26 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
+        <contraption id="brick_cannon" name="石砖加农炮" tooltip="（需要一对相邻的沙砾投手）\n发射毁灭性的炮弹">
+            <unlock>
+                <condition requiredGroups="mvz2:contraption.brick_cannon" />
+            </unlock>
+            <properties>
+                <float name="mvz2:damage" value="1800" />
+                <vector3 name="mvz2:shadowScale" x="3" y="1" z="1" />
+                <vector3 name="mvz2:size" x="126" y="66" z="66" />
+                <vector3 name="mvz2:grid_pivot_offset" x="-40" y="0" z="0"  />
+                <idArray name="mvz2:gridLayers" value="mvz2:main mvz2:protector " />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
+                <bool name="mvz2:upgradeBlueprint" value="true" />
+                <id name="mvz2:upgradeFrom" value="mvz2:gravelpult" />
+                <id name="mvz2:placement" value="mvz2:brick_cannon" />
+                <vector2IntArray name="mvz2:extra_grids" value="[1,0]" />
+
+                <int name="mvz2:cost" value="500" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </contraption>
         <contraption id="command_block" name="命令方块" tooltip="模仿一个器械">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.command_block" />

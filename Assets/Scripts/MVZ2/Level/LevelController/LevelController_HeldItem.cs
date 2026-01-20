@@ -82,6 +82,7 @@ namespace MVZ2.Level
             var model = GetHeldItemModel();
             if (model != null)
             {
+                model.transform.localPosition = definition.GetModelOffset(level, data) * LawnToTransScale;
                 model.SetShaderInt(ShaderProperties.LIGHT_DISABLED, 1);
                 model.ApplyShaderProperties();
                 definition?.PostSetModel(level, data, heldItemModelInterface);

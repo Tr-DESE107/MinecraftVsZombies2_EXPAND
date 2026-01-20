@@ -1,5 +1,7 @@
 #nullable enable
 
+using System.Collections.Generic;
+using System.Linq;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Entities;
@@ -12,6 +14,8 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Placements;
 using PVZEngine.SeedPacks;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 namespace MVZ2Logic.Grids
@@ -20,10 +24,31 @@ namespace MVZ2Logic.Grids
     {
         public static HeldHighlight GetSeedHeldHighlight(this LawnGrid grid, SeedDefinition? seedDef)
         {
-            if (seedDef != null)
+            if (seedDef == null)
+                return HeldHighlight.None;
+
+            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
-                var seedID = seedDef.GetID();
-                if (grid.CanPlaceBlueprint(seedID, out _))
+                var entityID = seedDef.GetSeedEntityID();
+                var entityDef = grid.Level.Content.GetEntityDefinition(entityID);
+                if (entityDef == null)
+                    return HeldHighlight.None;
+
+                var error = grid.GetEntityPlaceStatus(entityDef);
+                var grids = entityDef.GetGridsToTake(grid).OfType<LawnGrid>();
+
+                if (error == null)
+                {
+                    return HeldHighlight.Green(grids);
+                }
+                else
+                {
+                    return HeldHighlight.Red(grids);
+                }
+            }
+            else
+            {
+                if (grid.CanPlaceBlueprint(seedDef, out _))
                 {
                     return HeldHighlight.Green(grid);
                 }
@@ -32,7 +57,6 @@ namespace MVZ2Logic.Grids
                     return HeldHighlight.Red(grid);
                 }
             }
-            return HeldHighlight.None;
         }
 
         #region ·ÅÖÃÒôÐ§
@@ -118,6 +142,12 @@ namespace MVZ2Logic.Grids
             var seedDef = level.Content.GetSeedDefinition(seedID);
             if (seedDef == null)
                 return false;
+            return CanPlaceBlueprint(grid, seedDef, out error);
+        }
+        public static bool CanPlaceBlueprint(this LawnGrid grid, SeedDefinition seedDef, out NamespaceID? error)
+        {
+            error = null;
+            var level = grid.Level;
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 var entityID = seedDef.GetSeedEntityID();
@@ -191,18 +221,19 @@ namespace MVZ2Logic.Grids
                 return null;
 
             var level = grid.Level;
-            var x = level.GetEntityColumnX(grid.Column);
-            var z = level.GetEntityLaneZ(grid.Lane);
-            var y = level.GetGroundY(x, z);
-
             var entityDef = level.Content.GetEntityDefinition(entityID);
             if (entityDef == null)
                 return null;
-            var position = new Vector3(x, y, z) + entityDef.GetStartingPositionOffset();
+
+            var offset = entityDef.GetStartingPositionOffset() - entityDef.GetGridPivotOffset();
+            var x = level.GetEntityColumnX(grid.Column) + offset.x;
+            var z = level.GetEntityLaneZ(grid.Lane) + offset.z;
+            var y = level.GetGroundY(x, z) + offset.y;
+
+            var position = new Vector3(x, y, z);
             return level.Spawn(entityID, position, null, param)?.Let(e =>
             {
                 e.PlaySoundIfNotNull(grid.GetPlaceSound(e));
-
                 grid.PostPlaceEntity(e);
             });
         }

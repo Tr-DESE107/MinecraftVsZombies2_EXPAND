@@ -6804,6 +6804,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a3366b53f8c5664da6cfeea30c441e9
+    m_Address: mvz2:mobile_blueprint/brick_cannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a70d92a6c7b75340b98df7a8a5bee15
     m_Address: mvz2:random/crystal/crystal3
     m_ReadOnly: 0
@@ -7062,6 +7069,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f9a200a255ff064dbee34bd4abfb3b5
+    m_Address: mvz2:contraption/upgrade/brick_cannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8fa9640ba0f023448b7908b72907bfc0
     m_Address: mvz2:energy_shield
@@ -10660,6 +10674,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dce15c317b704d949a0d980b190d97be
+    m_Address: mvz2:entity/contraption/brick_cannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd4675e804edf8a46bd5d3334beaff65
     m_Address: mvz2:effect/combat_punch

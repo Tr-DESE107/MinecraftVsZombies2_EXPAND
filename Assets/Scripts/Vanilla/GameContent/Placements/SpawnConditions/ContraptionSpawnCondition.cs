@@ -4,6 +4,7 @@ using System.Linq;
 using MVZ2.GameContent.Obstacles;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -14,7 +15,24 @@ namespace MVZ2.GameContent.Placements
 {
     public abstract class ContraptionSpawnCondition : SpawnCondition
     {
-        public override NamespaceID? GetSpawnError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
+        public sealed override NamespaceID? GetSpawnError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
+        {
+            var extraGrids = entity.GetGridsToTake(grid);
+            var thisGridError = GetSpawnErrorOfGrid(placement, grid, entity);
+            if (thisGridError != null)
+                return thisGridError;
+
+            foreach (var extraGrid in extraGrids)
+            {
+                if (extraGrid == null)
+                    return VanillaGridStatus.outOfBounds;
+                var error = GetSpawnErrorOfGrid(placement, extraGrid, entity);
+                if (error != null)
+                    return error;
+            }
+            return null;
+        }
+        protected virtual NamespaceID? GetSpawnErrorOfGrid(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
             if (grid.IsDisabled())
                 return VanillaGridStatus.gridDisabled;

@@ -75,6 +75,8 @@ namespace MVZ2.GameContent.Contraptions
             var grids = anvil.GetGridsToTake();
             foreach (var grid in grids)
             {
+                if (grid == null)
+                    continue;
                 var selfGridLayers = anvil.GetGridLayersToTake();
                 if (selfGridLayers != null)
                 {

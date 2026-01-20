@@ -226,11 +226,17 @@ namespace MVZ2.GameContent.HeldItems
             if (blueprintPickup == null)
                 return false;
             var seedEntityID = BlueprintPickup.GetSeedEntityID(blueprintPickup);
-            if (seedEntityID == null)
-                return false;
             var entityDef = level.Content.GetEntityDefinition(seedEntityID);
-
-            return entityDef != null && entityDef.IsUpgradeBlueprint() && entity.CanUpgradeToContraption(entityDef);
+            if (entityDef == null)
+                return false;
+            var placementID = entityDef.GetPlacementID();
+            var placementDef = level.Content.GetPlacementDefinition(placementID);
+            if (placementDef == null)
+                return false;
+            var method = placementDef.GetMethod<IEntityTwinklePlaceMethod>();
+            if (method == null)
+                return false;
+            return method.ShouldMakeEntityTwinkle(placementDef, entity, entityDef);
         }
     }
 }

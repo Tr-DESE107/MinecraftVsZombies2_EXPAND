@@ -46,6 +46,9 @@ namespace MVZ2Logic.HeldItems
         public virtual void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
         }
+        public virtual void GetModelOffset(LevelEngine level, IHeldItemData data, CallbackResult result)
+        {
+        }
         public virtual void GetRadius(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
         }

@@ -146,7 +146,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 spawnParam.SetProperty(VanillaEntityProps.WATER_INTERACTION, definition.GetWaterInteraction());
                 spawnParam.SetProperty(VanillaEntityProps.AIR_INTERACTION, definition.GetAirInteraction());
-                spawnParam.SetProperty(VanillaEntityProps.GRID_LAYERS, definition.GetGridLayersToTake());
+                spawnParam.SetProperty(LogicEntityProps.GRID_LAYERS, definition.GetGridLayersToTake());
             }
             return spawnParam;
         }

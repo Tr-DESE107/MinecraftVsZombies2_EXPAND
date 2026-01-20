@@ -541,6 +541,8 @@ namespace MVZ2.Vanilla.Entities
             var grids = entity.GetGridsToTake();
             foreach (var grid in grids)
             {
+                if (grid == null)
+                    continue;
                 var takenLayers = entity.GetGridLayersToTake();
                 if (takenLayers != null)
                 {
@@ -583,6 +585,8 @@ namespace MVZ2.Vanilla.Entities
 
             foreach (var grid in grids)
             {
+                if (grid == null)
+                    continue;
                 if (!CanTakeGrid(entity, grid))
                     continue;
                 foreach (var layer in layers)

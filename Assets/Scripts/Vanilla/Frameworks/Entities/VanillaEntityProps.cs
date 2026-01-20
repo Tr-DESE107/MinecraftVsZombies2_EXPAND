@@ -6,6 +6,7 @@ using MVZ2Logic.Options;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -291,56 +292,6 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 单元格
-        public static readonly PropertyMeta<Vector2Int[]> EXTRA_GRIDS = Get<Vector2Int[]>("extra_grids");
-        public static Vector2Int[]? GetExtraGrids(this EntityDefinition entity)
-        {
-            return entity.GetProperty<Vector2Int[]>(EXTRA_GRIDS);
-        }
-        public static Vector2Int[]? GetExtraGrids(this Entity entity)
-        {
-            return entity.GetProperty<Vector2Int[]>(EXTRA_GRIDS);
-        }
-        public static IEnumerable<LawnGrid> GetGridsToTake(this Entity entity)
-        {
-            var level = entity.Level;
-            var column = entity.GetColumn();
-            var lane = entity.GetLane();
-
-            var gridBelow = level.GetGrid(column, lane);
-            if (gridBelow != null)
-            {
-                yield return gridBelow;
-            }
-            var extraGrids = entity.GetExtraGrids();
-            if (extraGrids != null)
-            {
-                foreach (var offset in extraGrids)
-                {
-                    var grid = level.GetGrid(column + offset.x, lane + offset.y);
-                    if (grid != null)
-                    {
-                        yield return grid;
-                    }
-                }
-            }
-        }
-
-
-        public static readonly PropertyMeta<NamespaceID[]> GRID_LAYERS = Get<NamespaceID[]>("gridLayers");
-        public static NamespaceID[]? GetGridLayersToTake(this EntityDefinition entity)
-        {
-            return entity.GetProperty<NamespaceID[]>(GRID_LAYERS);
-        }
-        public static NamespaceID[]? GetGridLayersToTake(this Entity entity)
-        {
-            return entity.GetProperty<NamespaceID[]>(GRID_LAYERS);
-        }
-        public static void SetGridLayersToTake(this Entity entity, NamespaceID[] value)
-        {
-            entity.SetProperty(GRID_LAYERS, value);
-        }
-        #endregion
 
         #region 升级
         public static readonly PropertyMeta<NamespaceID> UPGRADE_FROM = Get<NamespaceID>("upgradeFrom");

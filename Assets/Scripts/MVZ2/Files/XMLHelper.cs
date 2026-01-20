@@ -403,6 +403,24 @@ namespace MVZ2.IO
                         }
                     }
                     break;
+                case "vector2Int":
+                    {
+                        if (node.TryGetAttributeVector2Int(out var vec2))
+                        {
+                            propValue = vec2;
+                            return true;
+                        }
+                    }
+                    break;
+                case "vector3Int":
+                    {
+                        if (node.TryGetAttributeVector3Int(out var vec3))
+                        {
+                            propValue = vec3;
+                            return true;
+                        }
+                    }
+                    break;
             }
             return false;
         }
@@ -427,6 +445,31 @@ namespace MVZ2.IO
             if (x.HasValue && y.HasValue && z.HasValue)
             {
                 propValue = new Vector3(x.Value, y.Value, z.Value);
+                return true;
+            }
+            return false;
+        }
+        public static bool TryGetAttributeVector2Int(this XmlNode node, out Vector2Int propValue)
+        {
+            propValue = default;
+            var x = node.GetAttributeInt("x");
+            var y = node.GetAttributeInt("y");
+            if (x.HasValue && y.HasValue)
+            {
+                propValue = new Vector2Int(x.Value, y.Value);
+                return true;
+            }
+            return false;
+        }
+        public static bool TryGetAttributeVector3Int(this XmlNode node, out Vector3Int propValue)
+        {
+            propValue = default;
+            var x = node.GetAttributeInt("x");
+            var y = node.GetAttributeInt("y");
+            var z = node.GetAttributeInt("z");
+            if (x.HasValue && y.HasValue && z.HasValue)
+            {
+                propValue = new Vector3Int(x.Value, y.Value, z.Value);
                 return true;
             }
             return false;
@@ -480,6 +523,94 @@ namespace MVZ2.IO
                         }
                     }
                     break;
+                case "vector2Array":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<Vector2>();
+                        }
+                        else
+                        {
+                            var vectors = new List<Vector2>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseVector2(s, out var parsed))
+                                {
+                                    vectors.Add(parsed);
+                                }
+                            }
+                            propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
+                case "vector3Array":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<Vector3>();
+                        }
+                        else
+                        {
+                            var vectors = new List<Vector3>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseVector3(s, out var parsed))
+                                {
+                                    vectors.Add(parsed);
+                                }
+                            }
+                            propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
+                case "vector2IntArray":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<Vector2Int>();
+                        }
+                        else
+                        {
+                            var vectors = new List<Vector2Int>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseVector2Int(s, out var parsed))
+                                {
+                                    vectors.Add(parsed);
+                                }
+                            }
+                            propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
+                case "vector3IntArray":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<Vector3Int>();
+                        }
+                        else
+                        {
+                            var vectors = new List<Vector3Int>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseVector3Int(s, out var parsed))
+                                {
+                                    vectors.Add(parsed);
+                                }
+                            }
+                            propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
             }
             return false;
         }

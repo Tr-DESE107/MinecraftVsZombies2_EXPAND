@@ -45,6 +45,8 @@ namespace MVZ2.Vanilla.Contraptions
             var grids = contraption.GetGridsToTake();
             foreach (var grid in grids)
             {
+                if (grid == null)
+                    continue;
                 if (grid.GetCarrierEntity() == contraption)
                 {
                     // 选取当前实体所占有图格的非承载层。
@@ -68,6 +70,8 @@ namespace MVZ2.Vanilla.Contraptions
             var grids = contraption.GetGridsToTake();
             foreach (var grid in grids)
             {
+                if (grid == null)
+                    continue;
                 if (grid.GetProtectorEntity() == contraption)
                 {
                     var protectingLayers = VanillaGridLayers.protectedLayers;
@@ -91,6 +95,8 @@ namespace MVZ2.Vanilla.Contraptions
             var grids = contraption.GetGridsToTake();
             foreach (var grid in grids)
             {
+                if (grid == null)
+                    continue;
                 if (grid.GetProtectorEntity() == contraption)
                 {
                     var protectingLayers = VanillaGridLayers.protectedLayers;
@@ -114,6 +120,8 @@ namespace MVZ2.Vanilla.Contraptions
             var grids = contraption.GetGridsToTake();
             foreach (var grid in grids)
             {
+                if (grid == null)
+                    continue;
                 var protector = grid.GetProtectorEntity();
                 if (protector != null && protector.Exists() && protector != contraption)
                     return protector;

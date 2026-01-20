@@ -62,6 +62,8 @@ namespace MVZ2.GameContent.Contraptions
                 var grids = sourceEnt.GetGridsToTake();
                 foreach (var grid in grids)
                 {
+                    if (grid == null)
+                        continue;
                     var main = grid.GetMainEntity();
                     if (main != null)
                     {

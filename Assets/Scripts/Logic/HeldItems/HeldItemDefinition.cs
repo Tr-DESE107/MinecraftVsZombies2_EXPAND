@@ -10,6 +10,7 @@ using PVZEngine.Base;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using PVZEngine.Models;
+using UnityEngine;
 
 namespace MVZ2Logic.HeldItems
 {
@@ -131,6 +132,17 @@ namespace MVZ2Logic.HeldItems
                 behaviour.GetModelID(level, data, callbackResult);
             }
             return callbackResult.GetValue<NamespaceID>();
+        }
+        public Vector3 GetModelOffset(LevelEngine level, IHeldItemData data)
+        {
+            var callbackResult = new CallbackResult(null);
+            foreach (var behaviour in GetBehaviours())
+            {
+                if (callbackResult.IsBreakRequested)
+                    break;
+                behaviour.GetModelOffset(level, data, callbackResult);
+            }
+            return callbackResult.GetValue<Vector3>();
         }
         public float GetRadius(LevelEngine level, IHeldItemData data)
         {
