@@ -1339,6 +1339,9 @@
             <unlock>
                 <condition requiredGroups="mvz2:contraption.brick_cannon" />
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:brick_cannon/trigger" />
+            </behaviours>
             <properties>
                 <float name="mvz2:damage" value="1800" />
                 <vector3 name="mvz2:shadowScale" x="3" y="1" z="1" />
@@ -1346,9 +1349,17 @@
                 <vector3 name="mvz2:grid_pivot_offset" x="-40" y="0" z="0"  />
                 <idArray name="mvz2:gridLayers" value="mvz2:main mvz2:protector " />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
+                <bool name="mvz2:no_abduction" value="true" />
+                <bool name="mvz2:no_devourer" value="true" />
                 <bool name="mvz2:upgradeBlueprint" value="true" />
                 <id name="mvz2:upgradeFrom" value="mvz2:gravelpult" />
                 <id name="mvz2:placement" value="mvz2:brick_cannon" />
+
+                <id name="mvz2:projectileId" value="mvz2:cannon_missile" />
+                <vector3 name="mvz2:shotVelocity" x="0" y="30" z="0" />
+                <vector3 name="mvz2:shotOffset" x="-40" y="100" z="5" />
+                <id name="mvz2:shootSound" value="mvz2:launch" />
+
                 <vector2IntArray name="mvz2:extra_grids" value="[1,0]" />
 
                 <int name="mvz2:cost" value="500" />
@@ -3055,6 +3066,21 @@
                 <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />
                 <idArray name="mvz2:damageEffects" value="mvz2:mute" />
                 <float name="mvz2:gravity" value="1" />
+            </properties>
+        </projectile>
+        <projectile id="cannon_missile">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:projectile_explode" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:noDestroyOutsideLawn" value="true" />
+                <bool name="mvz2:pointToDirection" value="true" />
+                <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:isFire" value="true" />
+                <float name="mvz2:range" value="120" />
+                <vector3 name="mvz2:size" x="24" y="100" z="24" />
+                <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />
+                <int name="mvz2:maxTimeout" value="60" />
             </properties>
         </projectile>
 

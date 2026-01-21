@@ -29,6 +29,7 @@ namespace MVZ2.Vanilla.Entities
         public const string transfenser_Trigger = "transfenser/trigger";
         public const string gravelpult_Evoke = "gravelpult/evoke";
         public const string stoneEye_Evoke = "stone_eye/evoke";
+        public const string brickCannon_Trigger = "brick_cannon/trigger";
         #endregion
 
         #region Enemies

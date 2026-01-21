@@ -35,6 +35,9 @@ namespace MVZ2.Vanilla.Contraptions
         public const int TRANSFENSER_AIMER = PRIVATE_NUMBER + 1;
         public const int TRANSFENSER_TO_SHOOTER = PRIVATE_NUMBER + 2;
 
+        public const int BRICK_CANNON_RELOAD = PRIVATE_NUMBER + 0;
+        public const int BRICK_CANNON_LAUNCH = PRIVATE_NUMBER + 1;
+
         private const int PRIVATE_NUMBER = 10000;
     }
 }

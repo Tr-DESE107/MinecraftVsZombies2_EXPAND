@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {
@@ -29,9 +30,10 @@ namespace MVZ2.GameContent.Buffs.Entities
             }
 
             var factor = GetChangeSpeedFactor(buff);
+            var gridPivotOffset = entity.GetGridPivotOffset();
             var revFactor = 1 - factor;
-            float targetX = entity.Level.GetEntityColumnX(targetColumn);
-            float targetZ = entity.Level.GetEntityLaneZ(targetLane);
+            float targetX = entity.Level.GetEntityColumnX(targetColumn) - gridPivotOffset.x;
+            float targetZ = entity.Level.GetEntityLaneZ(targetLane) - gridPivotOffset.z;
             var pos = entity.Position;
             pos.x = pos.x * revFactor + targetX * factor;
             pos.z = pos.z * revFactor + targetZ * factor;

@@ -58,6 +58,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string spectralArrow = "spectral_arrow";
         public const string flint = "flint";
         public const string gravel = "gravel";
+        public const string cannonMissile = "cannon_missile";
     }
     public static class VanillaProjectileID
     {

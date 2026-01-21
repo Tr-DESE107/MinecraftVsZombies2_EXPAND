@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Pickups;
@@ -142,6 +143,8 @@ namespace MVZ2.GameContent.Enemies
             if (entity.HasBuff<StolenByUFOBuff>())
                 return false;
             if (!EngineEntityExt.IsHostile(ufoFaction, entity.GetFaction()))
+                return false;
+            if (entity.IsNoAbduction())
                 return false;
             return true;
         }

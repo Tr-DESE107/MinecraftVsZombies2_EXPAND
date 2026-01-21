@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Projectiles
         public virtual void ExplodeDamage(Entity entity)
         {
             var range = entity.GetRange();
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
             entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
         }
         public virtual void SpawnExplosionEffect(Entity entity, Vector3 position)

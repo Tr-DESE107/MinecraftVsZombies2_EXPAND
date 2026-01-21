@@ -70,6 +70,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string highFrequencyPulseDispenser = "high_frequency_pulse_dispenser";
         public const string hfpd = highFrequencyPulseDispenser;
         public const string diamondSpikes = "diamond_spikes";
+        public const string brickCannon = "brick_cannon";
         public const string commandBlock = "command_block";
 
         public const string anvil = "anvil";
@@ -140,6 +141,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID highFrequencyPulseDispenser = Get(VanillaContraptionNames.highFrequencyPulseDispenser);
         public static readonly NamespaceID hfpd = highFrequencyPulseDispenser;
         public static readonly NamespaceID diamondSpikes = Get(VanillaContraptionNames.diamondSpikes);
+        public static readonly NamespaceID brickCannon = Get(VanillaContraptionNames.brickCannon);
         public static readonly NamespaceID commandBlock = Get(VanillaContraptionNames.commandBlock);
 
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);

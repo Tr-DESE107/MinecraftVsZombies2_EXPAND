@@ -70,6 +70,16 @@ namespace MVZ2.Vanilla.Contraptions
         public static readonly PropertyMeta<NamespaceID> FRAGMENT_ID = Get<NamespaceID>("fragmentId");
         public static NamespaceID? GetFragmentID(this Entity entity) => entity.GetProperty<NamespaceID>(FRAGMENT_ID);
         #endregion
+
+        #region 不能绑架
+        public static readonly PropertyMeta<bool> NO_ABDUCTION = Get<bool>("no_abduction");
+        public static bool IsNoAbduction(this Entity entity) => entity.GetProperty<bool>(NO_ABDUCTION);
+        #endregion
+
+        #region 不能使用吞噬者
+        public static readonly PropertyMeta<bool> NO_DEVOURER = Get<bool>("no_devourer");
+        public static bool IsNoDevourer(this Entity entity) => entity.GetProperty<bool>(NO_DEVOURER);
+        #endregion
     }
 }
 

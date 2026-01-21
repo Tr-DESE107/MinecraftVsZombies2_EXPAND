@@ -492,6 +492,7 @@
     <model name="spectral_arrow" type="entity" path="mvz2:projectile/spectral_arrow" width="32" height="10" xOffset="0" yOffset="-1" />
     <model name="flint" type="entity" path="mvz2:projectile/flint" width="16" height="16" xOffset="0" yOffset="0" />
     <model name="gravel" type="entity" path="mvz2:projectile/gravel" width="32" height="32" xOffset="0" yOffset="0" />
+    <model name="cannon_missile" type="entity" path="mvz2:projectile/cannon_missile" width="112" height="24" xOffset="0" yOffset="0" />
 
 
     <!-- Armors -->

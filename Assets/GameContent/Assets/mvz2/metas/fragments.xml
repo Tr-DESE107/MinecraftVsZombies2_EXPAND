@@ -284,6 +284,12 @@
             <key hex="#30C6C6" time="1" />
         </colorKeys>
     </fragment>
+    <fragment name="brick_cannon">
+        <colorKeys>
+            <key hex="#7f7f7f" time="0.5" />
+            <key hex="#442d16" time="1" />
+        </colorKeys>
+    </fragment>
     <fragment name="command_block">
         <colorKeys>
             <key hex="#C27546" time="0.3" />

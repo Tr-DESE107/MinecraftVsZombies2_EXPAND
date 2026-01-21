@@ -2,93 +2,33 @@
 
 using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
-using PVZEngine.Callbacks;
-using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
     [AutoHeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.skywardBeacon)]
-    public class SkywardBeaconHeldItemBehaviour : EntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
+    public class SkywardBeaconHeldItemBehaviour : ClickContraptionTargetHeldItemBehaviour
     {
         public SkywardBeaconHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
 
-        public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
+        protected override void OnUseOnGrid(HeldItemTargetGrid targetGrid, IHeldItemData data, PointerInteractionData pointerParams)
         {
-            return target is HeldItemTargetGrid || target is HeldItemTargetLawn || target is HeldItemTargetBlueprint;
-        }
-        public override HeldHighlight GetHighlight(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
-        {
-            if (target is not HeldItemTargetGrid targetGrid)
-                return HeldHighlight.None;
-            return HeldHighlight.Green(targetGrid.Target);
-        }
-        public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
-        {
-            result.SetFinalValue(VanillaModelID.targetHeldItem);
-        }
-        public override void OnUpdate(LevelEngine level, IHeldItemData data)
-        {
+            var level = targetGrid.GetLevel();
             var entity = GetEntity(level, data);
-            if (entity == null || !entity.Exists() || entity.IsAIFrozen())
+            if (entity != null)
             {
-                level.ResetHeldItem();
-                return;
+                SkywardBeacon.SetTargetColumn(entity, targetGrid.Target.Column);
+                SkywardBeacon.SetTargetLane(entity, targetGrid.Target.Lane);
+                entity.PlaySound(VanillaSoundID.wakeup);
+                WhiteFlashBuff.AddToEntity(entity, 30);
             }
-        }
-        public override void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
-        {
-            if (pointerParams.IsInvalidClickButton() || pointerParams.IsInvalidReleaseAction())
-                return;
-            if (target is HeldItemTargetGrid targetGrid)
-            {
-                if (targetGrid.Target == null)
-                    return;
-                var level = target.GetLevel();
-                var entity = GetEntity(level, data);
-                if (entity != null)
-                {
-                    SkywardBeacon.SetTargetColumn(entity, targetGrid.Target.Column);
-                    SkywardBeacon.SetTargetLane(entity, targetGrid.Target.Lane);
-                    entity.PlaySound(VanillaSoundID.wakeup);
-                    WhiteFlashBuff.AddToEntity(entity, 30);
-                }
-                level.ResetHeldItem();
-            }
-            else if (target is HeldItemTargetLawn targetLawn)
-            {
-                if (targetLawn.Area != LawnArea.Main)
-                {
-                    if (targetLawn.Level.CancelHeldItem())
-                    {
-                        targetLawn.Level.PlaySound(VanillaSoundID.tap);
-                    }
-                }
-            }
-            else if (target is HeldItemTargetBlueprint targetBlueprint)
-            {
-                var level = target.GetLevel();
-                if (level.CancelHeldItem())
-                {
-                    level.PlaySound(VanillaSoundID.tap);
-                }
-            }
-        }
-
-        public bool ShouldMakeEntityTwinkle(Entity entity, IHeldItemData data)
-        {
-            var current = GetEntity(entity.Level, data);
-            return entity == current;
         }
     }
 }

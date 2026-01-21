@@ -255,6 +255,8 @@ namespace MVZ2.GameContent.Contraptions
                 return false;
             if (!entity.IsEntityOf(VanillaObstacleID.monsterSpawner) && entity.Type != EntityTypes.PLANT)
                 return false;
+            if (entity.IsNoDevourer())
+                return false;
             return true;
         }
         #endregion
