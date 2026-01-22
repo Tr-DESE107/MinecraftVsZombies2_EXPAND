@@ -1998,6 +1998,13 @@
             </properties>
         </mutantZombie>
         <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+                <behaviour operator="add" id="mvz2:boated_enemy" />
+                <properties behaviour="mvz2:boated_enemy">
+                    <bool name="spawn_with_boat" value="false" />
+                </properties>
+            </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-1" />
                 <vector3 name="mvz2:size" x="16" y="54" z="16" />

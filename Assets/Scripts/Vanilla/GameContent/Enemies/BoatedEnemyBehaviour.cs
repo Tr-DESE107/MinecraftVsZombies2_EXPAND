@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -19,12 +20,15 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            var level = entity.Level;
-            var lane = entity.GetLane();
-            if (level.IsWaterLane(lane) || level.IsAirLane(lane))
+            if (entity.GetProperty<bool>(PROP_SPAWN_WITH_BOAT))
             {
-                entity.AddBuff<BoatBuff>();
-                entity.SetModelProperty("HasBoat", true);
+                var level = entity.Level;
+                var lane = entity.GetLane();
+                if (level.IsWaterLane(lane) || level.IsAirLane(lane))
+                {
+                    entity.AddBuff<BoatBuff>();
+                    entity.SetModelProperty("HasBoat", true);
+                }
             }
         }
         protected override void UpdateLogic(Entity entity)
@@ -32,5 +36,6 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateLogic(entity);
             entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
         }
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_SPAWN_WITH_BOAT = new VanillaEntityPropertyMeta<bool>("spawn_with_boat", true);
     }
 }

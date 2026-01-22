@@ -22,36 +22,9 @@ namespace MVZ2.GameContent.Enemies
         public CannoneerZombie(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            var level = entity.Level;
-            var lane = entity.GetLane();
-            if (level.IsWaterLane(lane) || level.IsAirLane(lane))
-            {
-                entity.AddBuff<BoatBuff>();
-                entity.SetModelProperty("HasBoat", true);
-            }
-        }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
-        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (entity.HasBuff<BoatBuff>())
-            {
-                entity.RemoveBuffs<BoatBuff>();
-                // 掉落碎船掉落物
-                entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity)?.Let(e =>
-                {
-                    e.Velocity = new Vector3(e.RNG.NextFloat() * 20 - 10, 5, 0);
-                    e.ChangeModel(VanillaModelID.boatItem);
-                    e.SetDisplayScale(entity.GetDisplayScale());
-                });
-            }
             if (info.Source is EntitySourceReference entitySource)
             {
                 var sourceEnt = entitySource.GetEntity(entity.Level);

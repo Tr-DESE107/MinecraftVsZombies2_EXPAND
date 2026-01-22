@@ -27,25 +27,5 @@ namespace MVZ2.GameContent.Enemies
                 entity.AddBuff<IZombieImpBuff>();
             }
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
-        }
-        public override void PostDeath(Entity entity, DeathInfo info)
-        {
-            base.PostDeath(entity, info);
-            if (entity.HasBuff<BoatBuff>())
-            {
-                entity.RemoveBuffs<BoatBuff>();
-                // 掉落碎船掉落物
-                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity)?.Let(e =>
-                {
-                    e.Velocity = new Vector3(e.RNG.NextFloat() * 20 - 10, 5, 0);
-                    e.ChangeModel(VanillaModelID.boatItem);
-                    e.SetDisplayScale(entity.GetDisplayScale());
-                });
-            }
-        }
     }
 }
