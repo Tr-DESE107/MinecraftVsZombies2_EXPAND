@@ -1341,6 +1341,7 @@
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:brick_cannon/trigger" />
+                <behaviour operator="add" id="mvz2:brick_cannon/evoke" />
             </behaviours>
             <properties>
                 <float name="mvz2:damage" value="1800" />
@@ -3070,7 +3071,7 @@
         </projectile>
         <projectile id="cannon_missile">
             <behaviours>
-                <behaviour operator="add" id="mvz2:projectile_explode" />
+                <behaviour operator="add" id="mvz2:projectile_explode_cannon_missile" />
             </behaviours>
             <properties>
                 <bool name="mvz2:noDestroyOutsideLawn" value="true" />

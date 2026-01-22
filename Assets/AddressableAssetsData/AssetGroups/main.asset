@@ -1466,6 +1466,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d0d45bb8eb65ba41952a96406398809
+    m_Address: mvz2:entity/projectiles/cannon_missile_danger
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d837605fa2501f4687ff04e54213ea3
     m_Address: mvz2:artifacts
     m_ReadOnly: 0
@@ -9408,6 +9415,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c33a8ddc48fc1234fac0f86c973b8e49
+    m_Address: mvz2:entity/projectiles/cannon_missile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c355acd9020355f408f0556a3f1b21d0
     m_Address: mvz2:talk/villager/villager_idle2
     m_ReadOnly: 0
@@ -10401,6 +10415,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6775903d641c1242bccd53e0ad9f907
+    m_Address: mvz2:projectile/cannon_missile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d69e436bf37b3d34d868afa95187baa1
     m_Address: mvz2:entity/effect/nightmare_eyes

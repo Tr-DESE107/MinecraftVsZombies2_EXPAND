@@ -30,6 +30,7 @@ namespace MVZ2.Vanilla.Entities
         public const string gravelpult_Evoke = "gravelpult/evoke";
         public const string stoneEye_Evoke = "stone_eye/evoke";
         public const string brickCannon_Trigger = "brick_cannon/trigger";
+        public const string brickCannon_Evoke = "brick_cannon/evoke";
         #endregion
 
         #region Enemies
@@ -119,6 +120,7 @@ namespace MVZ2.Vanilla.Entities
         public const string projectileExplode = "projectile_explode";
         public const string projectileExplodeMeteor = "projectile_explode_meteor";
         public const string projectileExplodeFirework = "projectile_explode_firework";
+        public const string projectileExplodeCannonMissile = "projectile_explode_cannon_missile";
         public const string projectileRotating = "projectile_rotating";
         #endregion
 

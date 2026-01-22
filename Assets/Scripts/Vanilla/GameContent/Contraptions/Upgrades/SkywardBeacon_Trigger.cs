@@ -18,17 +18,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         public override bool IsValidPointerInteraction(Entity entity, PointerInteractionData interaction)
         {
-            if (interaction.pointer.type == PointerTypes.TOUCH)
-            {
-                if (interaction.interaction == PointerInteraction.Release || interaction.interaction == PointerInteraction.Drag)
-                    return true;
-            }
-            else if (interaction.pointer.type == PointerTypes.MOUSE)
-            {
-                if (interaction.interaction == PointerInteraction.Down)
-                    return true;
-            }
-            return false;
+            return interaction.IsPointerDownOrDrag();
         }
         public override void EmptyHandClick(Entity entity)
         {

@@ -44,6 +44,7 @@ namespace MVZ2.GameContent.Contraptions
 
             var animationSpeed = entity.IsAIFrozen() ? 0 : 1;
             entity.SetModelProperty("NoMissile", HasNoMissile(entity));
+            entity.SetAnimationBool("Danger", IsDanger(entity));
             entity.SetAnimationInt("BodyState", GetAnimationBodyState(entity));
             entity.SetAnimationFloat("AnimationSpeed", animationSpeed);
             entity.SetAnimationFloat("AnimationAttackSpeed", animationSpeed * entity.GetAttackSpeed());
@@ -64,6 +65,15 @@ namespace MVZ2.GameContent.Contraptions
             stateMachine.StartState(entity, STATE_LAUNCH);
             SetTargetPosition(entity, target);
         }
+        public static void ReloadImmediate(Entity entity)
+        {
+            if (!HasNoMissile(entity) || entity.State != STATE_IDLE)
+                return;
+            var timer = stateMachine.GetStateTimer(entity);
+            timer.SetSeconds(0);
+        }
+        public static bool IsDanger(Entity entity) => entity.GetProperty<bool>(PROP_DANGER);
+        public static void SetDanger(Entity entity, bool value) => entity.SetProperty(PROP_DANGER, value);
         public static bool HasNoMissile(Entity entity) => entity.GetProperty<bool>(PROP_NO_MISSILE);
         public static void SetNoMissile(Entity entity, bool value) => entity.SetProperty(PROP_NO_MISSILE, value);
         public static Vector3 GetTargetPosition(Entity entity) => entity.GetProperty<Vector3>(PROP_TARGET_POSITION);
@@ -72,6 +82,7 @@ namespace MVZ2.GameContent.Contraptions
         public const int STATE_RELOAD = VanillaContraptionStates.BRICK_CANNON_RELOAD;
         public const int STATE_LAUNCH = VanillaContraptionStates.BRICK_CANNON_LAUNCH;
         public const float START_RELOAD_TIME_SECONDS = 5;
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_DANGER = new VanillaEntityPropertyMeta<bool>("danger");
         public static readonly VanillaEntityPropertyMeta<bool> PROP_NO_MISSILE = new VanillaEntityPropertyMeta<bool>("no_missile");
         public static readonly VanillaEntityPropertyMeta<Vector3> PROP_TARGET_POSITION = new VanillaEntityPropertyMeta<Vector3>("target_position");
         private static EntityStateMachine stateMachine = new BrickCannonStateMachine();
@@ -176,8 +187,9 @@ namespace MVZ2.GameContent.Contraptions
                     case SUBSTATE_START:
                         if (substateTimer.RunToExpired(entity.GetAttackSpeed()))
                         {
-                            SetNoMissile(entity, true);
                             LaunchMissile(entity);
+                            SetNoMissile(entity, true);
+                            SetDanger(entity, false);
                             machine.StartSubState(entity, SUBSTATE_LAUNCHED);
                             substateTimer.ResetSeconds(FINISH_TIME_SECONDS);
                         }
@@ -192,8 +204,10 @@ namespace MVZ2.GameContent.Contraptions
             }
             public Entity? LaunchMissile(Entity entity)
             {
+                var danger = IsDanger(entity);
                 var param = entity.GetShootParams();
                 param.spawnParam.SetProperty(CannonMissile.PROP_TARGET_POSITION, GetTargetPosition(entity));
+                param.spawnParam.SetProperty(LogicEntityProps.VARIANT, danger ? CannonMissile.VARIANT_DANGER : CannonMissile.VARIANT_NORMAL);
                 return entity.ShootProjectile(param);
             }
             public const float LAUNCH_TIME_SECONDS = 1.333333333f;
