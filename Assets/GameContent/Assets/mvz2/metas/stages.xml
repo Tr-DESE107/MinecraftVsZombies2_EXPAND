@@ -1476,6 +1476,20 @@
             <spawn id="mvz2:zombie_cat" />
         </spawns>
     </stage>
+    <stage id="palace_endless" name="地灵殿无尽" type="endless">
+        <unlock>
+            <condition required="mvz2:level.palace_5" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.money_chest" />
+        <spawns flags="2">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+        </spawns>
+        <properties>
+            <bool name="endless" value="true" />
+        </properties>
+    </stage>
+
 
     
     <!-- Minigames -->
