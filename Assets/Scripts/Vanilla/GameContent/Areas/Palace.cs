@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Areas
         {
             base.PostHugeWaveEvent(level);
             var seedPacks = level.GetAllSeedPacks().OfType<ClassicSeedPack>();
-            var count = Mathf.FloorToInt(seedPacks.Count() * LOCK_PERCENTAGE);
+            var count = seedPacks.Count() / LOCK_DIVISION;
             if (count <= 0)
                 return;
             var validSeedPacks = seedPacks.Where(e => !e.HasBuff<BlueprintLockBuff>());
@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Areas
         }
         public static RandomGenerator? GetRNG(LevelEngine level) => level.GetProperty<RandomGenerator>(PROP_RNG);
         public static void SetRNG(LevelEngine level, RandomGenerator? rng) => level.SetProperty(PROP_RNG, rng);
-        public const float LOCK_PERCENTAGE = 0.333333f;
+        public const int LOCK_DIVISION = 3;
         public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("rng");
     }
 }
