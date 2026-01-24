@@ -17,11 +17,17 @@ namespace MVZ2.Vanilla.Entities
         public const string fadeoutByMaxTimeout = "fadeout_by_max_timeout";
         public const string destroyOutsideWater = "destroy_outside_water";
         public const string burnAtDay = "burn_at_day";
+        public const string explodeOnFireDeath = "explode_on_fire_death";
+        public const string ignitable = "ignitable";
+        public const string ignitable_Trigger = "ignitable/trigger";
+        public const string ignitable_Evoke = "ignitable/evoke";
+
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
         public const string contraptionShooterFireworkDispenser = "contraption_shooter_firework_dispenser";
         public const string contraptionEvokeFireworkDispenser = "contraption_evoke_firework_dispenser";
+
         public const string elasticCloud_Projectile = "elastic_cloud/projectile";
         public const string elasticCloud_Evocation = "elastic_cloud/evocation";
         public const string skywardBeacon_Trigger = "skyward_beacon/trigger";

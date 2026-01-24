@@ -160,7 +160,7 @@ namespace MVZ2.GameContent.Stages
                         {
                             StartState(level, STATE_TRIGGER_TNT);
                         }
-                        else if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && TNT.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
+                        else if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && IgnitableBehaviour.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
                         {
                             StartState(level, STATE_TNT_TRIGGERED);
                         }
@@ -168,7 +168,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_TRIGGER_TNT:
                     {
-                        if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && TNT.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
+                        if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && IgnitableBehaviour.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
                         {
                             StartState(level, STATE_TNT_TRIGGERED);
                         }
@@ -209,7 +209,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_PLACE_TNT_SWAP:
                     {
-                        if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && TNT.IsIgnited(e)))
+                        if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && IgnitableBehaviour.IsIgnited(e)))
                         {
                             // 下一状态
                             StartState(level, STATE_TNT_PLACED_SWAP);

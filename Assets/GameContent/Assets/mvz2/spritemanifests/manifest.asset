@@ -371,6 +371,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: dfe9b9c4204e8234d86ec16eb408a6da, type: 3}
   - name: mobile_blueprint/note_block
     sprite: {fileID: 21300000, guid: 25a4420fd4681d943a556df9d9a939d2, type: 3}
+  - name: mobile_blueprint/nuke
+    sprite: {fileID: 21300000, guid: f285042715f1c8647a115c7920592f44, type: 3}
   - name: mobile_blueprint/obsidian
     sprite: {fileID: 21300000, guid: 4d49d253e83fc104d9eb629a8a238ee3, type: 3}
   - name: mobile_blueprint/parasite_terror
@@ -699,6 +701,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ab1cac139d76a6f478c12842a619042d, type: 3}
   - name: entity/contraptions/necrotombstone
     sprite: {fileID: 21300000, guid: 373251590bef7dc429d28962770f900b, type: 3}
+  - name: entity/contraptions/nuke
+    sprite: {fileID: 21300000, guid: 8d300c068c2e2c2479354ddfb6468e0f, type: 3}
   - name: entity/contraptions/pistenser_arm
     sprite: {fileID: 21300000, guid: 3c47f11cc215a5b4cad099f4d1d6158e, type: 3}
   - name: entity/contraptions/pressure_plate

@@ -42,6 +42,7 @@ using PVZEngine.Shells;
 using Tools;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using GridLayerData = System.Tuple<PVZEngine.Grids.LawnGrid, PVZEngine.NamespaceID>;
 
 namespace MVZ2.Vanilla.Entities
@@ -1213,6 +1214,16 @@ namespace MVZ2.Vanilla.Entities
         public static bool WillRemoveOnDeath(this Entity entity, DeathInfo deathInfo)
         {
             return deathInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) || entity.IsRemoveOnDeath();
+        }
+        #endregion
+
+        #region 爆炸
+        public static void BehaviourExplode(this Entity entity, float range, float damage)
+        {
+            foreach (var behaviour in entity.Definition.GetBehaviours<IExplodeContraptionBehaviour>())
+            {
+                behaviour.Explode(entity, range, damage);
+            }
         }
         #endregion
 

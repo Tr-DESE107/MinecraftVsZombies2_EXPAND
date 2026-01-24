@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Buffs.Entities
             DamageEffectList damageEffects;
             if (evoked)
             {
-                damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
+                damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
                 var color = new Color(0, 0.5f, 0, 1);
                 var spawnParam = entity.GetSpawnParams();
                 spawnParam.SetProperty(EngineEntityProps.TINT, color);
@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Buffs.Entities
             }
             else
             {
-                damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
+                damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
                 Explosion.Spawn(entity, center, range);
                 entity.PlaySound(VanillaSoundID.explosion);
                 entity.Level.ShakeScreen(10, 0, 15);

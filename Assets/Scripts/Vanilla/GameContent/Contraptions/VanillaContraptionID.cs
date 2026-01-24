@@ -61,6 +61,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string gravelpult = "gravelpult";
         public const string cursedCandle = "cursed_candle";
         public const string stoneEye = "stone_eye";
+        public const string nuke = "nuke";
 
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
@@ -132,6 +133,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID transfenser = Get(VanillaContraptionNames.transfenser);
         public static readonly NamespaceID gravelpult = Get(VanillaContraptionNames.gravelpult);
         public static readonly NamespaceID cursedCandle = Get(VanillaContraptionNames.cursedCandle);
+        public static readonly NamespaceID stoneEye = Get(VanillaContraptionNames.stoneEye);
+        public static readonly NamespaceID nuke = Get(VanillaContraptionNames.nuke);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);

@@ -5055,6 +5055,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64eefb30bf7392440991667798bebe82
+    m_Address: mvz2:contraption/palace/nuke
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6514a857fb8b7fc4d992741ae15f66e5
     m_Address: mvz2:mobile_blueprint/zombie
     m_ReadOnly: 0
@@ -6925,6 +6932,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8cf98dd491e96bf47ad3a5767c1578b2
     m_Address: mvz2:ui/level/card_upgrade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d300c068c2e2c2479354ddfb6468e0f
+    m_Address: mvz2:entity/contraptions/nuke
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11755,6 +11769,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f27fff12ebffcfe4cb3a825f5f701c61
     m_Address: mvz2:misc/surrounded_kourindou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f285042715f1c8647a115c7920592f44
+    m_Address: mvz2:mobile_blueprint/nuke
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

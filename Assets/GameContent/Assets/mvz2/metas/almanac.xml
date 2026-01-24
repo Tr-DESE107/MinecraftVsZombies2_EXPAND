@@ -921,7 +921,21 @@
         </entry>
         <entry />
         <entry />
-        <entry />
+        <entry id="mvz2:nuke">
+            <header>
+                <p>核弹在触发后会摧毁大范围内的敌人，让它们尸骨无存，但会暂时破坏所在的地块。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
+                <p>半径：<![CDATA[<color=red>3.5格</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会触发死亡效果；引爆后破坏所在的地块，无法放置器械，持续3分钟</color>]]></p>
+                <p>技能：<![CDATA[<color=red>消灭所有敌怪</color>]]></p>
+            </properties>
+            <flavor>
+                <p>“我诞生于人类与恶魔的交易之中。相信我，你绝对不会想要见到我的。”</p>
+                <p>“最好让我一直沉睡下去，一直一直沉睡下去，这对我和你们都有好处。”</p>
+            </flavor>
+        </entry>
         <entry />
 
         <!-- Chapter 7 -->
