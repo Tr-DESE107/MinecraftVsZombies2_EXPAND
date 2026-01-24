@@ -9703,7 +9703,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8ecc68819900c34cac1ab4ec7620a53
-    m_Address: mvz2:random/gravel/gravel1
+    m_Address: mvz2:random/gravel/break1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
