@@ -3,7 +3,6 @@
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Entities
 {

@@ -7,7 +7,6 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Placements;
 
 namespace MVZ2.Vanilla.Callbacks
 {

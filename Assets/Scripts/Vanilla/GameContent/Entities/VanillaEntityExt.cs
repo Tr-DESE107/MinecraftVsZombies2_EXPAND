@@ -8,7 +8,6 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Entities;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
@@ -1196,7 +1195,7 @@ namespace MVZ2.Vanilla.Entities
             return destroyed;
         }
         #endregion
-        
+
         #region 是否触发死亡效果
         public static bool ShouldTriggerDeathEffects(this Entity entity, DeathInfo deathInfo)
         {

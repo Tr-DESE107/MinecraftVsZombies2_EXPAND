@@ -2,10 +2,8 @@
 
 using System.Linq;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Shells;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 

@@ -5,7 +5,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using Tools.Geometrical;
 using Tools.Mathematics;
 using UnityEngine;
 

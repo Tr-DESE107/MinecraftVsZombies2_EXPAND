@@ -2,7 +2,6 @@
 
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;

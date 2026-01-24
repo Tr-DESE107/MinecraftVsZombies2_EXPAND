@@ -3,7 +3,6 @@
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Entities
 {

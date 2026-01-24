@@ -909,6 +909,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1180289811b708d4781f5bd9065fb543, type: 3}
   - name: entity/projectiles/bullet
     sprite: {fileID: 21300000, guid: ee8a95d990407e34ea9ff1aa13122998, type: 3}
+  - name: entity/projectiles/cannon_missile
+    sprite: {fileID: 21300000, guid: c33a8ddc48fc1234fac0f86c973b8e49, type: 3}
+  - name: entity/projectiles/cannon_missile_danger
+    sprite: {fileID: 21300000, guid: 1d0d45bb8eb65ba41952a96406398809, type: 3}
   - name: entity/projectiles/cobble
     sprite: {fileID: 21300000, guid: b619b60be7108ed4fafb8ba9257d68ce, type: 3}
   - name: entity/projectiles/compelling_orb
@@ -1801,6 +1805,7 @@ MonoBehaviour:
     - {fileID: -1634653685, guid: dce15c317b704d949a0d980b190d97be, type: 3}
     - {fileID: 2122071499, guid: dce15c317b704d949a0d980b190d97be, type: 3}
     - {fileID: -219957708, guid: dce15c317b704d949a0d980b190d97be, type: 3}
+    - {fileID: 512284907, guid: dce15c317b704d949a0d980b190d97be, type: 3}
   - name: entity/contraption/catapult_pole
     spritesheet:
     - {fileID: 676581287, guid: ced76b57ae0468641b35fc8ea48e8bfb, type: 3}

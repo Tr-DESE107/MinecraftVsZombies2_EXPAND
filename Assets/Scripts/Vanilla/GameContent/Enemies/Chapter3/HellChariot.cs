@@ -132,7 +132,8 @@ namespace MVZ2.GameContent.Enemies
             }
         }
         public void DeathEffects(Entity entity, DeathInfo info)
-        {;
+        {
+            ;
             var anubisandOffset = ANUBISAND_OFFSET;
             anubisandOffset.x *= entity.GetFacingX();
             var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);

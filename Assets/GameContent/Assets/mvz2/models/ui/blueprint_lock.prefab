@@ -325,7 +325,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2231111696375014510, guid: 74aee8cee15faaa48af8211ed97d19ff, type: 3}
       propertyPath: images.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2231111696375014510, guid: 74aee8cee15faaa48af8211ed97d19ff, type: 3}
       propertyPath: animators.Array.size
@@ -335,6 +335,10 @@ PrefabInstance:
       propertyPath: images.Array.data[0]
       value: 
       objectReference: {fileID: 3297625765258537125}
+    - target: {fileID: 2231111696375014510, guid: 74aee8cee15faaa48af8211ed97d19ff, type: 3}
+      propertyPath: images.Array.data[1]
+      value: 
+      objectReference: {fileID: 978378565555035748}
     - target: {fileID: 2231111696375014510, guid: 74aee8cee15faaa48af8211ed97d19ff, type: 3}
       propertyPath: animators.Array.data[0]
       value: 
