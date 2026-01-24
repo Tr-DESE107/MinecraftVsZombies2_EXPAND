@@ -1358,6 +1358,7 @@
             <talk type="end" value="mvz2:palace_5_over" />
             <talk type="map" value="mvz2:palace_5_map" />
         </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:brick_cannon" />
         <spawns flags="2">
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:leather_capped_zombie" />

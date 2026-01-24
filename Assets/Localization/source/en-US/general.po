@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-18 11:32+0800\n"
-"PO-Revision-Date: 2026-01-18 11:35+0800\n"
+"POT-Creation-Date: 2026-01-24 04:15+0800\n"
+"PO-Revision-Date: 2026-01-24 16:15+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1310,7 +1310,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:734
+#: Scripts\MVZ2\Map\MapController.cs:736
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1318,7 +1318,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:736
+#: Scripts\MVZ2\Map\MapController.cs:738
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1326,11 +1326,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:738
+#: Scripts\MVZ2\Map\MapController.cs:740
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:740
+#: Scripts\MVZ2\Map\MapController.cs:742
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1339,12 +1339,12 @@ msgstr ""
 "{0}/{1}"
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:742
+#: Scripts\MVZ2\Map\MapController.cs:744
 msgid "目标地点{0}不存在。"
 msgstr "Target area {0} does not exist."
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:744
+#: Scripts\MVZ2\Map\MapController.cs:746
 msgid "目标关卡{0}不存在。"
 msgstr "Target stage {0} does not exist."
 
@@ -2368,34 +2368,34 @@ msgstr ""
 "Best Streak:\n"
 "{0}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:844
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:846
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
 msgctxt "almanac"
 msgid "充能时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:848
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr "Scale: {0}"
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:850
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr "{0}: {1}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:852
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr "Hold left mouse and drag to move; Scroll to scale"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:854
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:855
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr "Drag with one finger to move; Touch with two fingers to scale"
@@ -4315,8 +4315,8 @@ msgstr "Can only be placed on contraptions that can sleep"
 #. Message for grid error mvz2:only_can_mill
 #: Grid meta file
 msgctxt "advice"
-msgid "只能放置在刷怪笼或者器械上"
-msgstr "Can only be placed on spawners or contraptions"
+msgid "只能放置在刷怪笼或者非大型器械上"
+msgstr "Can only be placed on spawners or non-large contraptions"
 
 #. Message for grid error mvz2:only_upgrade
 #: Grid meta file

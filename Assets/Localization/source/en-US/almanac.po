@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-18 11:38+0800\n"
-"PO-Revision-Date: 2026-01-18 11:38+0800\n"
+"POT-Creation-Date: 2026-01-22 06:01+0800\n"
+"PO-Revision-Date: 2026-01-22 18:10+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -136,6 +136,18 @@ msgstr "Upgrade Contraption: Spike Block"
 msgctxt "almanac_tag.description"
 msgid "必须放置在尖刺方块上"
 msgstr "Must be placed on Spike Block"
+
+#. Name for almanac tag placement_two_gravelpults
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：一对沙砾投手"
+msgstr "Upgrade Contraption: 2 Gravel-pults"
+
+#. Description for almanac tag placement_two_gravelpults
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在一对相邻的沙砾投手上"
+msgstr "Must be placed on a pair of Gravel-pults"
 
 #. Name for almanac tag grid_layer_main
 #: Almanac meta file
@@ -2275,6 +2287,59 @@ msgid ""
 msgstr ""
 "Can be used to purchase some game items, such as a vegetable that can destroy everything.\n"
 "...Haha, how could such a ridiculous thing happen?"
+
+#. Header for contraptions mvz2:brick_cannon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "点击石砖加农炮发射毁灭性的导弹。"
+msgstr "Click on the Brick Cannon to launch deadly missiles."
+
+#. Properties for contraptions mvz2:brick_cannon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>1800</color>\n"
+"装载时间：<color=red>30秒</color>\n"
+"特殊：<color=red>占两格地块</color>\n"
+"技能：<color=red>立即装载导弹，且下一发导弹会炸出36个火焰弹，每个造成135爆炸伤害</color>"
+msgstr ""
+"Damage: <color=red>1800</color>\n"
+"Reload Time: <color=red>30 seconds</color>\n"
+"Special: <color=red>Takes 2 tiles</color>\n"
+"Evocation: <color=red>Immediately load a missile, the next missile launched will blast apart into 36 fire charges, each dealing 135 "
+"explosion damage</color>"
+
+#. Flavor for contraptions mvz2:brick_cannon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"<b>项目编号：</b>MCP-044\n"
+"<b>项目等级：</b>Safe\n"
+"<b>特殊收容措施：</b>MCP-044应被保管于一个专用的隔音收容室内，须永久放置一枚经过安全处理的同口径训练弹（哑弹）于炮管内，以抑制其再生功"
+"能。未经至少一名3级研究员的明确许可，禁止任何人员进入其收容间或向其发出语音指令。所有测试须在50公里范围内的指定远程靶场进行。\n"
+"<b>描述：</b>MCP-044是一门全长约2.3米的石质前装滑膛加农炮，炮身由整块安山岩雕琢而成，炮架为针叶木材质。考古分析表明其制造年代约为三千年"
+"前。炮管表面刻有大量铭文与象形图案，暗示古人可能将其视为某种仪式性或防御性圣物。\n"
+"MCP-044能理解并响应以任何已知人类语言发出的口头攻击指令。接到指令后，它将自动调整射角，并从炮膛内生成并发射一枚高爆导弹，有效射程精确为"
+"50公里。超出此距离的指令会被其“拒绝”，表现为炮管无反应。\n"
+"炮膛内的导弹具备再生能力。每次发射后约30秒，一枚新的导弹会于膛内原位形成。此再生过程可被人工干预：若在发射后立即向炮管内填入与导弹体积"
+"相近的物体，再生将中止，且MCP-044会将该物体作为下一次发射的弹体使用。任何未用于攻击指令的再生导弹均无法被安全取出。"
+msgstr ""
+"<b>Item #:</b> MCP-044\n"
+"<b>Object Class:</b> Safe\n"
+"<b>Special Containment Procedures:</b> MCP-044 is to be contained within a dedicated, soundproofed chamber. A safely processed, inert "
+"training round (dummy) of matching caliber must be permanently kept within its barrel to inhibit its regenerative function. Personnel "
+"are prohibited from entering its chamber or issuing verbal commands without explicit authorization from at least one Level-3 "
+"researcher. All testing must be conducted at a designated remote firing range within a 50 km radius.\n"
+"<b>Description:</b> MCP-044 is a 2.3-meter-long, muzzle-loading stone cannon carved from a single block of andesite, mounted on a "
+"coniferous wood carriage. Archaeological analysis dates its construction to approximately 3000 years ago. Its barrel is covered in "
+"inscriptions and pictograms, suggesting it was regarded as a ritualistic or defensive relic.\n"
+"MCP-044 comprehends and responds to verbal attack commands in any known human language. Upon command, it automatically elevates and "
+"fires a high-explosive projectile generated within its chamber, with a precise effective range of 50 km. Commands beyond this range "
+"are \"rejected,\" resulting in no response.\n"
+"The projectile exhibits regenerative capabilities. A new round reforms in the chamber approximately 30 seconds after firing. This "
+"process can be interrupted by immediately inserting a similarly-sized object into the barrel post-firing, which halts regeneration and "
+"causes MCP-044 to utilize the inserted object as ammunition. Regenerated projectiles cannot be safely removed unless used for an "
+"attack command."
 
 #. Header for contraptions mvz2:command_block
 #: Almanac meta file
@@ -6253,6 +6318,22 @@ msgid ""
 msgstr ""
 "(Requires Spike Block)\n"
 "Damage enemies above quicker, and has more toughness"
+
+#. Name for entity mvz2:brick_cannon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "石砖加农炮"
+msgstr "Brick Cannon"
+
+#. Tooltip for entity mvz2:brick_cannon
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要一对相邻的沙砾投手）\n"
+"发射毁灭性的炮弹"
+msgstr ""
+"(Requires 2 Gravel-pults)\n"
+"Click to launch deadly missiles"
 
 #. Name for entity mvz2:command_block
 #: Entity meta file
