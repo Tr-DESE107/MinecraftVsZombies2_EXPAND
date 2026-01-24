@@ -30,6 +30,7 @@ namespace MVZ2.GameContent.Buffs.Entities
         public CursedCandleBuff(string nsp, string name) : base(nsp, name)
         {
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.candleCursed, VanillaModelID.candleCursed);
+            AddModifier(new BooleanModifier(LogicEntityProps.REMOVE_ON_DEATH, true));
             AddModifier(new BooleanModifier(LogicEntityProps.NO_DEATH_EFFECTS, true));
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback);
         }
@@ -90,7 +91,6 @@ namespace MVZ2.GameContent.Buffs.Entities
             }
             entity.Level.ExplodeAgainstFriendly(center, range, entity.GetFaction(), damage, damageEffects, entity);
             entity.RemoveBuffs(this);
-            entity.Remove();
         }
         public static bool IsEvoked(Buff buff) => buff.GetProperty<bool>(PROP_EVOKED);
         public static void SetEvoked(Buff buff, bool value) => buff.SetProperty(PROP_EVOKED, value);
