@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.HeldItems
             var entity = GetEntity(level, data);
             if (entity != null)
             {
-                BrickCannon.Launch(entity, targetGrid.Target.GetCenterPosition());
+                BrickCannon.Launch(entity, targetGrid.Target.GetEntityPosition());
             }
         }
     }
