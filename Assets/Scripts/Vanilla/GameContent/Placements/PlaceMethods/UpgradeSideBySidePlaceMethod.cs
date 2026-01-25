@@ -22,8 +22,6 @@ namespace MVZ2.GameContent.Placements
                 return false;
             if (!IsCellOfUpgrade(entity, toPlace))
                 return false;
-            if (!entity.IsFriendlyEntity())
-                return false;
             return IsSideBySide(entity, toPlace);
         }
         public override NamespaceID? GetPlaceError(PlacementDefinition placement, LawnGrid grid, EntityDefinition toPlace)
@@ -78,7 +76,7 @@ namespace MVZ2.GameContent.Placements
         }
         private bool IsCellOfUpgrade(Entity entity, EntityDefinition toPlace)
         {
-            return entity.CanUpgradeToContraption(toPlace) && entity.GetProtector() == null;
+            return entity.CanUpgradeToContraption(toPlace) && entity.GetProtector() == null && entity.IsFriendlyEntity();
         }
         private Entity? GetTargetEntity(LawnGrid? grid, EntityDefinition toPlace)
         {
