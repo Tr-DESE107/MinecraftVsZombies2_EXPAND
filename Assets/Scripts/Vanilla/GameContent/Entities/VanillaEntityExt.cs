@@ -467,6 +467,15 @@ namespace MVZ2.Vanilla.Entities
             column = Math.Clamp(column, 0, level.GetMaxColumnCount() - 1);
             lane = Math.Clamp(lane, 0, level.GetMaxLaneCount() - 1);
             ChangeGridBuff.Start(buff, column, lane);
+            var grid = level.GetGrid(column, lane);
+            if (grid != null)
+            {
+                var layers = entity.GetGridLayersToTake();
+                if (layers != null)
+                {
+                    entity.DestroyConflictGridEntities(grid, layers);
+                }
+            }
         }
         public static void StopChangingGrid(this Entity entity)
         {

@@ -165,13 +165,17 @@ namespace MVZ2.Vanilla.Contraptions
                 return false;
             return contraption.IsEntityOf(id);
         }
-        public static Entity? UpgradeToContraption(this Entity contraption, NamespaceID target)
+        public static Entity? UpgradeToContraption(this Entity contraption, NamespaceID target, params Entity[] extraEntities)
         {
             var grid = contraption.GetGrid();
             if (grid == null)
                 return null;
             var awake = !contraption.HasBuff<NocturnalBuff>();
             contraption.Remove();
+            foreach (var ent in extraEntities)
+            {
+                ent.Remove();
+            }
             var upgraded = grid.SpawnPlacedEntity(target);
             if (upgraded == null)
                 return null;
@@ -179,6 +183,7 @@ namespace MVZ2.Vanilla.Contraptions
             {
                 upgraded.RemoveBuffs<NocturnalBuff>();
             }
+            upgraded.DestroyConflictGridEntities();
             return upgraded;
         }
         public static void FirstAid(this Entity contraption)

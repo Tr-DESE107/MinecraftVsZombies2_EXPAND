@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Placements
                 return PlaceOutput.InvalidOutput;
 
             bool isCommandBlock = param.IsCommandBlock();
-            var ent = entity.UpgradeToContraption(toPlace.GetID());
+            var ent = entity.UpgradeToContraption(toPlace.GetID(), sideEntity);
             if (ent != null)
             {
                 if (isCommandBlock)
@@ -57,7 +57,6 @@ namespace MVZ2.GameContent.Placements
                     ent.AddBuff<ImitatedBuff>();
                 }
                 ent.SetVariant(param.GetVariant());
-                sideEntity.Remove();
             }
             return new PlaceOutput(ent, toPlace)
             {
