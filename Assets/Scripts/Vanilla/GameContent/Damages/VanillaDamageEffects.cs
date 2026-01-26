@@ -47,6 +47,7 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID DROWN = Get("drown");
         public static readonly NamespaceID FALL_OFF = Get("fall_off");
         public static readonly NamespaceID PICKAXE = Get("pickaxe");
+        public static readonly NamespaceID INSTA_KILL = Get("insta_kill");
 
         // Death Effect
         public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");

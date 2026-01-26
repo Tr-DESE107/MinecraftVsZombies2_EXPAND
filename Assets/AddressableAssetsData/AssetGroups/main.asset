@@ -2452,6 +2452,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3295dd6b4a9c35448b19b39a2404a83d
+    m_Address: mvz2:grid/broken
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 329b9a3401e28284e914a54eee51e840
     m_Address: mvz2:entity/pickups/ender_chest
     m_ReadOnly: 0
@@ -2950,6 +2957,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b8ba75cdb635b54db18d67e1674ea4d
     m_Address: mvz2:entity/enemy/napstablook
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bb835826f0becf4fbca23d9d96b230a
+    m_Address: mvz2:level/grids/broken_tile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8022,6 +8036,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2b58e19d655689418bc8cd8b5cdf84b
+    m_Address: mvz2:level/grids/broken_tile_water
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2c663f155f7ff44eb88ea0b4b0a285e
     m_Address: mvz2:mobile_blueprint/iron_helmetted_zombie
     m_ReadOnly: 0
@@ -9932,6 +9953,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc6b3e7a91e2c864fb023c7055695568
+    m_Address: mvz2:level/grids/broken_tile_slope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccd2a604f2ad58647907f41a4d1443fa
     m_Address: mvz2:giant_roar

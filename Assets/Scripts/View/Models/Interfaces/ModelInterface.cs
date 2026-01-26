@@ -128,5 +128,39 @@ namespace MVZ2.Models
             return child.GetParentModelInterface();
         }
         protected abstract Model? GetModel();
+        public string SortingLayer 
+        { 
+            get 
+            {
+                var model = GetModel();
+                if (!model.Exists() || model is not EntityModel entityModel)
+                    return string.Empty;
+                return entityModel.SortingLayerName;
+            }
+            set
+            {
+                var model = GetModel();
+                if (!model.Exists() || model is not EntityModel entityModel)
+                    return;
+                entityModel.SortingLayerName = value;
+            }
+        }
+        public int SortingOrder
+        {
+            get
+            {
+                var model = GetModel();
+                if (!model.Exists() || model is not EntityModel entityModel)
+                    return 0;
+                return entityModel.SortingOrder;
+            }
+            set
+            {
+                var model = GetModel();
+                if (!model.Exists() || model is not EntityModel entityModel)
+                    return;
+                entityModel.SortingOrder = value;
+            }
+        }
     }
 }

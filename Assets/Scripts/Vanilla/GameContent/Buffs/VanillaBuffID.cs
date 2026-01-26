@@ -74,6 +74,9 @@ namespace MVZ2.GameContent.Buffs
             public const string waterStainWet = "water_stain_wet";
             public const string goldenGrid = "golden_grid";
             public const string shipBrokenGrid = "ship_broken_grid";
+
+            // Chapter 6
+            public const string brokenTile = "broken_tile";
         }
         public static class Entity
         {

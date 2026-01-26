@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using MVZ2.GameContent.Grids;
 using MVZ2Logic.Grids;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -99,5 +100,21 @@ namespace MVZ2.Vanilla.Grids
             return null;
         }
         #endregion
+        public static int GetGridModelType(this LawnGrid grid)
+        {
+            if (grid.GetSlope() > 0)
+            {
+                return VanillaGridModelTypes.TYPE_SLOPE;
+            }
+            if (grid.Definition.IsCloud())
+            {
+                return VanillaGridModelTypes.TYPE_CLOUD;
+            }
+            if (grid.Definition.IsWater())
+            {
+                return VanillaGridModelTypes.TYPE_WATER;
+            }
+            return VanillaGridModelTypes.TYPE_NORMAL;
+        }
     }
 }
