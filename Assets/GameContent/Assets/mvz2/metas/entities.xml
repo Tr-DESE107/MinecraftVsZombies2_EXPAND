@@ -304,7 +304,7 @@
             </properties>
         </gem>
 
-		<Imp_Exp id="2" parent="enemy">
+		<Imp_Exp id="2" parent="humanoid">
 			<properties>
 				<float name="mvz2:mass" value="-1" />
 				<float name="mvz2:fallResistance" value="18" />
@@ -2588,6 +2588,7 @@
 				<int name="mvz2:waterInteraction" value="2" />
 				<float name="mvz2:maxHealth" value="400" />
 				<float name="mvz2:speed" value="0.85" />
+				<id name="mvz2:starting_armor" value="mvz2:HostHelmet" />
 			</properties>
 		</zombie>
 		<zombie id="BloodlustHostZombie" name="渴血宿主僵尸" deathMessage="超级生化危机">
@@ -2600,6 +2601,7 @@
 				<float name="mvz2:maxHealth" value="1000" />
 				<float name="mvz2:damage" value="150" />
 				<float name="mvz2:speed" value="0.6" />
+				<id name="mvz2:starting_armor" value="mvz2:HostHelmet" />
 			</properties>
 		</zombie>
 		<Head_Exp id="HostHead" name="宿主僵尸头" deathMessage="拍恐怖片呢？">
@@ -2618,6 +2620,7 @@
 				<int name="mvz2:waterInteraction" value="2" />
 				<bool name="mvz2:low_enemy" value="true" />
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
+				<id name="mvz2:starting_armor" value="mvz2:HostHelmet" />
 			</properties>
 		</Head_Exp>
 		<mutantZombie id="HostMutant" name="宿主突变僵尸" deathMessage="房子被挤满了">
@@ -2642,6 +2645,7 @@
 
 				<int name="mvz2:cost" value="800" />
 				<int name="mvz2:waterInteraction" value="3" />
+				<id name="mvz2:starting_armor" value="mvz2:HostHelmet" />
 			</properties>
 		</mutantZombie>
 		<Imp_Exp id="HostIMP" name="宿主小鬼僵尸" deathMessage="每秒120回复？">
@@ -2657,6 +2661,7 @@
 				<float name="mvz2:maxHealth" value="240" />
 				<float name="mvz2:speed" value="2.4" />
 				<float name="mvz2:damage" value="150" />
+				<id name="mvz2:starting_armor" value="mvz2:HostHelmet" />
 			</properties>
 		</Imp_Exp>
 
@@ -2694,6 +2699,7 @@
 				<float name="mvz2:maxHealth" value="2000" />
 				<float name="mvz2:damage" value="300" />
 				<float name="mvz2:speed" value="1.5" />
+				<id name="mvz2:starting_armor" value="mvz2:HostHelmet" />
 			</properties>
 		</zombie>
 

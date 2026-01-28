@@ -3670,11 +3670,21 @@ MonoBehaviour:
     - {fileID: -904862214, guid: 439af6a040ba009429682529df6aaa94, type: 3}
     - {fileID: -1494774868, guid: 439af6a040ba009429682529df6aaa94, type: 3}
     - {fileID: 946859832, guid: 439af6a040ba009429682529df6aaa94, type: 3}
+  - name: entity/armor/EXPAND_armor/DiamondHelmet
+    spritesheet:
+    - {fileID: -66648688, guid: f50672681eeea164bb9d49a49dc9e5e7, type: 3}
+    - {fileID: 59558320, guid: f50672681eeea164bb9d49a49dc9e5e7, type: 3}
+    - {fileID: 552320810, guid: f50672681eeea164bb9d49a49dc9e5e7, type: 3}
   - name: entity/armor/EXPAND_armor/DiamondWarriorHelmet
     spritesheet:
     - {fileID: 1301645993, guid: dce8c78b648570445a527e76fd595339, type: 3}
     - {fileID: -75240182, guid: dce8c78b648570445a527e76fd595339, type: 3}
     - {fileID: -1413692403, guid: dce8c78b648570445a527e76fd595339, type: 3}
+  - name: entity/armor/EXPAND_armor/GoldenHelmet
+    spritesheet:
+    - {fileID: 1649289403, guid: 9e9e1ca0468eacb4c8a7f5a7275539ce, type: 3}
+    - {fileID: -475770883, guid: 9e9e1ca0468eacb4c8a7f5a7275539ce, type: 3}
+    - {fileID: -977213242, guid: 9e9e1ca0468eacb4c8a7f5a7275539ce, type: 3}
   - name: entity/armor/EXPAND_armor/HostHelmet
     spritesheet:
     - {fileID: 1805266693, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}

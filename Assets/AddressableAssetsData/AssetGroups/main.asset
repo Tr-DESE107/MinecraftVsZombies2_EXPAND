@@ -5097,6 +5097,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 543392659ebdb5d4ca7849f0e24a5cbd
+    m_Address: mvz2:armor/EXPAND_armor/GoldenHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 544a0e954e368bd47922b782463ea965
     m_Address: mvz2:slow_down
     m_ReadOnly: 0
@@ -9338,6 +9345,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e9e1ca0468eacb4c8a7f5a7275539ce
+    m_Address: mvz2:entity/armor/EXPAND_armor/GoldenHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9eef34f8d7ef2c7479e4559a492dc320
     m_Address: mvz2:mausoleum_minigame
     m_ReadOnly: 0
@@ -9918,6 +9932,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa57240ce488f26419e9106c10fac142
+    m_Address: mvz2:enemy/dream/HostIMP
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa63f39b396eaed4fb47b10bf58cbc48
     m_Address: mvz2:thread
@@ -13644,7 +13665,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee0d9a640b2cb144d8496a6a33101a7e
-    m_Address: mvz2:armor/HostHelmet
+    m_Address: mvz2:armor/EXPAND_armor/HostHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13726,6 +13747,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef9cb322c99135449827e72cd50c89e5
+    m_Address: mvz2:armor/EXPAND_armor/DiamondHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef9ec30ff6041c641975076d761893f8
     m_Address: mvz2:projectile/falling_star
@@ -14128,6 +14156,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4fbabfb2f9642d4ab30e7d1ccabb6c9
     m_Address: mvz2:entity/contraption/EXPAND_Skin/G.I
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f50672681eeea164bb9d49a49dc9e5e7
+    m_Address: mvz2:entity/armor/EXPAND_armor/DiamondHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
