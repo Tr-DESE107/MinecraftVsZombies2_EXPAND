@@ -2276,6 +2276,7 @@
             </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
+				<float name="mvz2:maxHealth" value="600" />
                 <int name="mvz2:cost" value="100" />
             </properties>
         </zombie>
@@ -3131,6 +3132,7 @@
 			</unlock>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:HemperorCrown" />
+				<float name="mvz2:maxHealth" value="600" />
 				<int name="mvz2:cost" value="100" />
 			</properties>
 		</zombie>

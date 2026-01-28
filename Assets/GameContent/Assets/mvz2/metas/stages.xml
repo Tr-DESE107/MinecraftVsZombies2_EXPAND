@@ -1999,9 +1999,6 @@
             <spawn id="mvz2:mega_mutant_zombie" />
             <spawn id="mvz2:HostMutant" />
             <spawn id="mvz2:HeavyGutant" />
-            <spawn id="mvz2:MegaMutantVillager" />
-            <spawn id="mvz2:MutantVillager" />
-            <spawn id="mvz2:MutantMannequin" />
             
         </spawns>
         <properties>
