@@ -715,13 +715,19 @@
 	<model name="netherite_ingot_helmet" type="armor" path="mvz2:armor/netherite_ingot_helmet" width="33" height="26" xOffset="0" yOffset="2" />
 	<model name="nether_vanguard_shield" type="armor" path="mvz2:armor/nether_vanguard_shield" width="34" height="34" xOffset="4" yOffset="4" />
 	<model name="SantaHat" type="armor" path="mvz2:armor/SantaHat" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="WealthHat" type="armor" path="mvz2:armor/EXPAND_armor/WealthHat" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="PirateBucket" type="armor" path="mvz2:armor/PirateBucket" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="PirateLeatherCap" type="armor" path="mvz2:armor/PirateLeatherCap" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="HemperorCrown" type="armor" path="mvz2:armor/HemperorCrown" width="70" height="72" xOffset="1" yOffset="18" />
 
 	<model name="HostHelmet" type="armor" path="mvz2:armor/EXPAND_armor/HostHelmet" width="33" height="26" xOffset="0" yOffset="0" />
 	<model name="GoldenHelmet" type="armor" path="mvz2:armor/EXPAND_armor/GoldenHelmet" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="RustedIronHelmet" type="armor" path="mvz2:armor/EXPAND_armor/RustedIronHelmet" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="CopperHelmet" type="armor" path="mvz2:armor/EXPAND_armor/CopperHelmet" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="ChainmailHelmet" type="armor" path="mvz2:armor/EXPAND_armor/ChainmailHelmet" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="AncientMetalHelmet" type="armor" path="mvz2:armor/EXPAND_armor/AncientMetalHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="DiamondHelmet" type="armor" path="mvz2:armor/EXPAND_armor/DiamondHelmet" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="NetheriteHelmet" type="armor" path="mvz2:armor/EXPAND_armor/NetheriteHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28" />

@@ -647,6 +647,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0aa5ccb57de84d941aef1205bb1219a9
+    m_Address: mvz2:entity/enemy/EXPAND/RandomEnemy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ae5af202f9ad9c4cb362f05a0290a3b
     m_Address: mvz2:units/colliders/humanoid
     m_ReadOnly: 0
@@ -1473,6 +1480,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 178ac61ff3e25604fb0d19fd6d98c64c
+    m_Address: mvz2:entity/armor/EXPAND_armor/CopperHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 17b5db58744a62b40aa838a035741a85
     m_Address: mvz2:entity/contraption/Eradicator
     m_ReadOnly: 0
@@ -1892,6 +1906,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f946e4fb3ea5cc429e0d9837d04e557
+    m_Address: mvz2:armor/EXPAND_armor/AncientMetalHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f962bc3215f7e844ba8e93afb3398ec
     m_Address: mvz2:entity/enemy/EXPAND/PirateZombie
@@ -3494,6 +3515,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39ff6994398f0dd40a4b04168abccb9e
+    m_Address: mvz2:entity/armor/EXPAND_armor/NetheriteHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a2d8f0334da2b349b397a3ed1cf7b97
     m_Address: mvz2:mobile_blueprint/tnt
     m_ReadOnly: 0
@@ -3626,6 +3654,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c80a8d448ef88345a7fc694f4e5e345
+    m_Address: mvz2:armor/EXPAND_armor/RustedIronHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c8797b9e94ec4e4b9dfab05cb57672d
     m_Address: mvz2:contraption/castle/stone_shield
@@ -4733,6 +4768,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d90d0bd18cc57c4aba756fceda3e221
+    m_Address: mvz2:armor/EXPAND_armor/ChainmailHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d92b5d7677db944c9d67a9d6df8a26a
     m_Address: mvz2:entity/armor/nether_helmet
     m_ReadOnly: 0
@@ -4950,6 +4992,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51a01377b4ff1454a952d28a8cf54221
+    m_Address: mvz2:entity/armor/EXPAND_armor/AncientMetalHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51b5678df05eb434f9dc35d0069a9c08
     m_Address: mvz2:areas
     m_ReadOnly: 0
@@ -4970,6 +5019,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51e4b0f26950e14469de80f84652379d
+    m_Address: mvz2:armor/EXPAND_armor/WealthHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52224e26acb83e248a1a595c220c3f0d
     m_Address: mvz2:entity/boss/wither
@@ -6653,6 +6709,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f6eb6d6c17bc334c92fc44eb01e11d9
     m_Address: mvz2:contraption/ship/wooden_fan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f7355ce2e0a48744ab18fffb9ba7088
+    m_Address: mvz2:armor/EXPAND_armor/CopperHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9709,6 +9772,13 @@ MonoBehaviour:
     - AreaModel
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6559072dba7fa4468fa5b18eec1f3ce
+    m_Address: mvz2:entity/enemy/EXPAND/Bedserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6593d9123fd3ed40b97b320a74e5da3
     m_Address: mvz2:entity/effects/soul
     m_ReadOnly: 0
@@ -10306,6 +10376,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b13c3fbc306a24341911cb0231949ec1
     m_Address: mvz2:entity/enemy/RandomKingSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b17617c5559b3c346a42a3c226f0b3d1
+    m_Address: mvz2:entity/armor/EXPAND_armor/ChainmailHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11004,6 +11081,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcbafe97c92af034e908bbba563c22d8
+    m_Address: mvz2:entity/armor/EXPAND_armor/WealthHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bcd84c9f2a5e9694798c2f077f298a5d
     m_Address: mvz2:entity/enemy/PhaseSpider
     m_ReadOnly: 0
@@ -11150,6 +11234,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0655f7eda371c24089f99668e480771
+    m_Address: mvz2:armor/EXPAND_armor/NetheriteHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c10d5cdc8afb68b48a2e80b9dae85b0f
     m_Address: mvz2:bash
@@ -12719,6 +12810,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbad33881065c2d468c0a476c164b85d
+    m_Address: mvz2:enemy/EXPAND/RandomEnemy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc158f8a14c1b36448838afc1a3bfa51
     m_Address: mvz2:entity/zombie/zombie_cry2
     m_ReadOnly: 0
@@ -13110,6 +13208,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3c74e05995ec5f47a3c0173025c6c78
+    m_Address: mvz2:enemy/EXPAND/RandomPlayer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3db0a973aafd3c49b0bcb73e3353e59
     m_Address: mvz2:random/stone4
@@ -14545,6 +14650,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faf2aafff7ca581458f4c85dd7f3bfb5
+    m_Address: mvz2:entity/armor/EXPAND_armor/RustedIronHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fafac1d45c5bdb24b9dfb56a50fc4fe2
     m_Address: mvz2:pacman_kill
     m_ReadOnly: 0
@@ -14789,6 +14901,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff9eff07fe22a764e83ed19a25169123
+    m_Address: mvz2:entity/enemy/EXPAND/RandomPlayer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffb9065a06ea7a345978dc5d8d0d0bea
     m_Address: mvz2:entity/projectiles/hell_planets
