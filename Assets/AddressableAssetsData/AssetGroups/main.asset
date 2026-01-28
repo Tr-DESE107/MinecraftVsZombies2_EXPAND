@@ -1977,6 +1977,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 216ca71f548251d488ac244d01aa7450
+    m_Address: mvz2:enemy/dream/HostHelmetZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2171d910922ad824c87a850943cb1986
     m_Address: mvz2:talk/dialog_explosive
     m_ReadOnly: 0
@@ -4655,13 +4662,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4c6c09f672ad5854c98d3f66cf1d4638
-    m_Address: mvz2:enemy/dream/HostIMP
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c6d3c800778b28489a87251ba3eb5c4
     m_Address: mvz2:entity/contraption/Bedrock
@@ -8388,6 +8388,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ee7e3c6233a6be4191bfd80ff87e80e
     m_Address: mvz2:entity/enemy/boat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ef0c48b76820b044971c6a3fd7d5340
+    m_Address: mvz2:entity/armor/EXPAND_armor/HostHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13635,6 +13642,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee0d9a640b2cb144d8496a6a33101a7e
+    m_Address: mvz2:armor/HostHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee236b9bf29256844b94ea76798c4239
     m_Address: mvz2:mobile_blueprint/soulsand

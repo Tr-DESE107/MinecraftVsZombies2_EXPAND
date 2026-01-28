@@ -713,6 +713,7 @@
 	<model name="KingofReverserCrown" type="armor" path="mvz2:armor/KingofReverserCrown" width="34" height="40" xOffset="0" yOffset="-21" />
 	<model name="nether_helmet" type="armor" path="mvz2:armor/nether_helmet" width="33" height="26" xOffset="0" yOffset="2" />
 	<model name="netherite_ingot_helmet" type="armor" path="mvz2:armor/netherite_ingot_helmet" width="33" height="26" xOffset="0" yOffset="2" />
+	<model name="HostHelmet" type="armor" path="mvz2:armor/HostHelmet" width="33" height="26" xOffset="0" yOffset="-2" />
 	<model name="nether_vanguard_shield" type="armor" path="mvz2:armor/nether_vanguard_shield" width="34" height="34" xOffset="4" yOffset="4" />
 	<model name="SantaHat" type="armor" path="mvz2:armor/SantaHat" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="PirateBucket" type="armor" path="mvz2:armor/PirateBucket" width="33" height="14" xOffset="0" yOffset="0" />

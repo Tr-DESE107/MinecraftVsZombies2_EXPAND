@@ -102,6 +102,15 @@
 				<float name="mvz2:maxHealth" value="200" />
 			</props>
 		</entry>
+		<entry id="HostHelmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:flesh" />
+				<float name="mvz2:maxHealth" value="200" />
+			</props>
+		</entry>
 		<entry id="AngryReverserCrown">
 			<behaviours>
 				<behaviour id="mvz2:damage_state_3" />
