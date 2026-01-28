@@ -126,10 +126,10 @@ TextureImporter:
       name: XCarrierMutant_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 158
-        width: 61
-        height: 50
+        x: 4
+        y: 174
+        width: 54
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +147,8 @@ TextureImporter:
       name: XCarrierMutant_1
       rect:
         serializedVersion: 2
-        x: 62
-        y: 148
+        x: 59
+        y: 153
         width: 31
         height: 60
       alignment: 2
@@ -168,8 +168,8 @@ TextureImporter:
       name: XCarrierMutant_2
       rect:
         serializedVersion: 2
-        x: 94
-        y: 148
+        x: 92
+        y: 153
         width: 31
         height: 60
       alignment: 2
@@ -189,8 +189,8 @@ TextureImporter:
       name: XCarrierMutant_3
       rect:
         serializedVersion: 2
-        x: 126
-        y: 163
+        x: 123
+        y: 168
         width: 31
         height: 45
       alignment: 2
@@ -210,8 +210,8 @@ TextureImporter:
       name: XCarrierMutant_4
       rect:
         serializedVersion: 2
-        x: 158
-        y: 159
+        x: 155
+        y: 164
         width: 36
         height: 49
       alignment: 2
@@ -231,8 +231,8 @@ TextureImporter:
       name: XCarrierMutant_5
       rect:
         serializedVersion: 2
-        x: 195
-        y: 159
+        x: 192
+        y: 164
         width: 36
         height: 49
       alignment: 2
@@ -252,8 +252,8 @@ TextureImporter:
       name: XCarrierMutant_6
       rect:
         serializedVersion: 2
-        x: 232
-        y: 178
+        x: 229
+        y: 183
         width: 36
         height: 30
       alignment: 2
@@ -273,8 +273,8 @@ TextureImporter:
       name: XCarrierMutant_7
       rect:
         serializedVersion: 2
-        x: 269
-        y: 178
+        x: 266
+        y: 183
         width: 36
         height: 30
       alignment: 2
@@ -294,8 +294,8 @@ TextureImporter:
       name: XCarrierMutant_8
       rect:
         serializedVersion: 2
-        x: 306
-        y: 117
+        x: 304
+        y: 122
         width: 54
         height: 91
       alignment: 7
@@ -315,8 +315,8 @@ TextureImporter:
       name: XCarrierMutant_9
       rect:
         serializedVersion: 2
-        x: 361
-        y: 117
+        x: 358
+        y: 122
         width: 54
         height: 91
       alignment: 7
@@ -336,8 +336,8 @@ TextureImporter:
       name: XCarrierMutant_10
       rect:
         serializedVersion: 2
-        x: 416
-        y: 117
+        x: 413
+        y: 122
         width: 54
         height: 91
       alignment: 7
@@ -357,9 +357,9 @@ TextureImporter:
       name: XCarrierMutant_11
       rect:
         serializedVersion: 2
-        x: 6
-        y: 82
-        width: 91
+        x: 2
+        y: 85
+        width: 92
         height: 34
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -378,8 +378,8 @@ TextureImporter:
       name: XCarrierMutant_12
       rect:
         serializedVersion: 2
-        x: 98
-        y: 45
+        x: 95
+        y: 50
         width: 172
         height: 71
       alignment: 5
@@ -399,8 +399,8 @@ TextureImporter:
       name: XCarrierMutant_13
       rect:
         serializedVersion: 2
-        x: 271
-        y: 68
+        x: 268
+        y: 73
         width: 168
         height: 48
       alignment: 5
@@ -420,8 +420,8 @@ TextureImporter:
       name: XCarrierMutant_14
       rect:
         serializedVersion: 2
-        x: 440
-        y: 93
+        x: 437
+        y: 98
         width: 22
         height: 23
       alignment: 0
@@ -441,12 +441,12 @@ TextureImporter:
       name: XCarrierMutant_15
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 64
-        height: 44
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        width: 67
+        height: 49
+      alignment: 9
+      pivot: {x: 1, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -462,12 +462,12 @@ TextureImporter:
       name: XCarrierMutant_16
       rect:
         serializedVersion: 2
-        x: 71
+        x: 68
         y: 0
-        width: 64
-        height: 44
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        width: 67
+        height: 49
+      alignment: 9
+      pivot: {x: 1, y: 0.55}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
