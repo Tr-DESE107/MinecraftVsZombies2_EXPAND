@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-22 06:01+0800\n"
-"PO-Revision-Date: 2026-01-22 18:10+0800\n"
+"POT-Creation-Date: 2026-01-30 05:17+0800\n"
+"PO-Revision-Date: 2026-01-30 17:28+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2100,6 +2100,39 @@ msgstr ""
 "<b>Addendum MCP-531-A: </b>Test logs indicate that partially affected subjects report persistent \"dullness\" and localized numbness "
 "during recovery, with no permanent physiological damage observed. Further cross-cultural archaeological analysis is ongoing to "
 "investigate MCP-531's potential connection to various mythological \"petrifying gaze\" legends."
+
+#. Header for contraptions mvz2:nuke
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "核弹在触发后会摧毁大范围内的敌人，让它们尸骨无存，但会暂时破坏所在的地块。"
+msgstr ""
+"Nukes will destroy enemies on a large radius after being triggered, leaving them with no remains, but they will temporarily break the "
+"tiles they are located on."
+
+#. Properties for contraptions mvz2:nuke
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>1800</color>\n"
+"半径：<color=red>3.5格</color>\n"
+"特点：<color=red>不会触发死亡效果；引爆后破坏所在的地块，无法放置器械，持续3分钟</color>\n"
+"技能：<color=red>消灭所有敌怪</color>"
+msgstr ""
+"Damage: <color=red>1800</color>\n"
+"Radius: <color=red>3.5 tiles</color>\n"
+"Special: <color=red>Does not trigger the monsters' death effects; The tile will be broken and disabled for 3 minutes after detonation</"
+"color>\n"
+"Evocation: <color=red>Destroy all enemy monsters</color>"
+
+#. Flavor for contraptions mvz2:nuke
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"“我诞生于人类与恶魔的交易之中。相信我，你绝对不会想要见到我的。”\n"
+"“最好让我一直沉睡下去，一直一直沉睡下去，这对我和你们都有好处。”"
+msgstr ""
+"\"I was born from a pact between humanity and demons. Trust me, you never want to lay eyes on me.\"\n"
+"\"It's better to let me sleep on, forever and ever. That would be for the best—for both our sakes.\""
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -6225,6 +6258,18 @@ msgctxt "entity.tooltip"
 msgid "减速并阻挡前方敌人"
 msgstr "Slow and block enemies"
 
+#. Name for entity mvz2:nuke
+#: Entity meta file
+msgctxt "entity.name"
+msgid "核弹"
+msgstr "Nuke"
+
+#. Tooltip for entity mvz2:nuke
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "触发后摧毁大范围内的敌人以及所在地块"
+msgstr "Destroy enemies and the tile after being triggered"
+
 #. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -7646,18 +7691,6 @@ msgstr "Zombie Cloud (Snow)"
 #~ "Speed: <color=red>2</color>\n"
 #~ "Special: <color=red>Will not be hit by medium height projectiles or lower</color>\n"
 #~ "Mass: <color=red>Light</color>"
-
-#~ msgctxt "enemies.description"
-#~ msgid ""
-#~ "生命：<color=red>100</color>\n"
-#~ "速度：<color=red>1</color>\n"
-#~ "特点：<color=red>不会被一般高度的子弹打中</color>\n"
-#~ "质量：<color=red>很轻</color>"
-#~ msgstr ""
-#~ "Toughness: <color=red>100</color>\n"
-#~ "Speed: <color=red>1</color>\n"
-#~ "Special: <color=red>Will not be hit by medium height projectiles or lower</color>\n"
-#~ "Mass: <color=red>Very Light</color>"
 
 #~ msgctxt "enemies.description"
 #~ msgid ""
