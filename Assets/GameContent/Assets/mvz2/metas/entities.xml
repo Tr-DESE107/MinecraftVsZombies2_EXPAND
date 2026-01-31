@@ -629,6 +629,7 @@
                 <id name="mvz2:deathSound" value="mvz2:grass" />
                 <bool name="mvz2:triggerActive" value="true" />
                 <bool name="mvz2:instantTrigger" value="true" />
+				<float name="mvz2:takenCrushDamage" value="150" />
 
                 <int name="mvz2:cost" value="150" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
@@ -1185,14 +1186,14 @@
                 <behaviour id="mvz2:contraption_evoke_firework_dispenser" />
             </behaviours>
             <properties>
-                <float name="mvz2:damage" value="200" />
+                <float name="mvz2:damage" value="150" />
                 <float name="mvz2:range" value="120" />
                 <vector3 name="mvz2:shotVelocity" x="0" y="5" z="0" />
                 <vector3 name="mvz2:shotOffset" x="0" y="48" z="0" />
                 <id name="mvz2:shootSound" value="mvz2:firework_launch" />
                 <id name="mvz2:projectileId" value="mvz2:fire_charge" />
                 <idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
-				<float name="mvz2:attackSpeed" value="0.75" />
+				<float name="mvz2:attackSpeed" value="1" />
 
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <int name="mvz2:cost" value="275" />
@@ -1801,7 +1802,7 @@
 				<id name="mvz2:shootSound" value="mvz2:firework_launch" />
 				<id name="mvz2:projectileId" value="mvz2:firework" />
 				<idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
-				<float name="mvz2:attackSpeed" value="0.25" />
+				<float name="mvz2:attackSpeed" value="0.3" />
 				<id name="mvz2:fragmentId" value="mvz2:firework_dispenser" />
 
 				<vector3 name="mvz2:size" x="48" y="48" z="48" />

@@ -484,7 +484,7 @@
 		</entry>
 		<entry id="mvz2:silvenser">
 			<header>
-				<p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
+				<p>银制发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
 			</header>
 			<properties>
 				<p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
@@ -492,7 +492,7 @@
 				<p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
 			</properties>
 			<flavor>
-				<p>银质发射器其实是个JOJO迷，飞刀则是他最擅长的把戏。他喜欢JOJO里面的各种台词、各种替身。有时候他也会模仿里面的姿势——尽管他没有手。</p>
+				<p>银制发射器其实是个JOJO迷，飞刀则是他最擅长的把戏。他喜欢JOJO里面的各种台词、各种替身。有时候他也会模仿里面的姿势——尽管他没有手。</p>
 				<p>以下是他表演的舞台剧片段：</p>
 				<p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
 				<p/>
@@ -1028,8 +1028,8 @@
                 <p>烟花发射器会发射火焰弹攻击上方高空中的敌人。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>1发/2秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>200，只攻击空中敌人</color>]]></p>
+                <p>发射速度：<![CDATA[<color=red>1发/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>150，只攻击空中敌人</color>]]></p>
                 <p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>射程永久+1格</color>]]></p>
             </properties>
@@ -1351,7 +1351,7 @@
 				<p>超级烟花发射器会发射烟花轰击上方高空中的敌人。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1发/6秒</color>]]></p>
+				<p>发射速度：<![CDATA[<color=red>1发/5秒</color>]]></p>
 				<p>伤害：<![CDATA[<color=red>200，只伤害空中敌人</color>]]></p>
 				<p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
 				<p>技能：<![CDATA[<color=red>开展烟火大会，射程永久+1格</color>]]></p>
