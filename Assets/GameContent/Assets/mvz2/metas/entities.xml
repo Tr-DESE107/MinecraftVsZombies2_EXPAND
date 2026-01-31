@@ -4668,6 +4668,7 @@
 				<behaviour operator="add" id="mvz2:projectile_explode" />
 			</behaviours>
 			<properties>
+				<bool name="mvz2:pointToDirection" value="true" />
 				<float name="mvz2:range" value="60" />
 				<vector3 name="mvz2:size" x="16" y="2" z="16" />
 			</properties>
