@@ -38,6 +38,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0061d2308c839d540a3775902506913f
+    m_Address: mvz2:entity/effect/EXPAND/VanguardResistanceShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 007cea1564ea1d74b958c1addee3b554
     m_Address: mvz2:enemy/castle/WitherSkeleton
     m_ReadOnly: 0
@@ -5055,6 +5062,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52885b8256c3be34db14ec62f61037b5
+    m_Address: mvz2:icon/EXPAND_icon/ResistanceShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 529c022f5f623db4db8f49685b84b1a8
     m_Address: mvz2:ui/level/progress_bar/wither_foreground
     m_ReadOnly: 0
@@ -8826,6 +8840,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93aae7d77d263eb44a2b4e06c3347542
+    m_Address: mvz2:entity/effect/EXPAND/ResistanceShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93c5b317cb00bed43987f7d53dbc1dd6
     m_Address: mvz2:bonk
@@ -13210,7 +13231,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3c74e05995ec5f47a3c0173025c6c78
-    m_Address: mvz2:enemy/EXPAND/RandomPlayer
+    m_Address: mvz2:enemy/EXPAND/RandomMannequin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -14574,6 +14595,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9c9a5b7cd7f89b4188c7b8d35b64941
+    m_Address: mvz2:icon/EXPAND_icon/VanguardResistanceShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9d57c38d8200e6419e44a8abaf48c88
     m_Address: mvz2:enemy/castle/seija_cursed_doll
     m_ReadOnly: 0
@@ -14903,7 +14931,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff9eff07fe22a764e83ed19a25169123
-    m_Address: mvz2:entity/enemy/EXPAND/RandomPlayer
+    m_Address: mvz2:entity/enemy/EXPAND/RandomMannequin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

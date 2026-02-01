@@ -12,25 +12,14 @@ using MVZ2Logic.Models;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    /// <summary>
-    /// VanguardResistanceBuff��
-    /// ֻ�ṩ�˺�����Ч�����ҵ����ﴦ�ڹ���״̬ʱ������
-    /// �������κ��Ӿ����黯����
-    /// </summary>
     [BuffDefinition(VanillaBuffNames.Enemy.VanguardResistance)]
     public class VanguardResistanceBuff : BuffDefinition
     {
         public VanguardResistanceBuff(string nsp, string name) : base(nsp, name)
         {
-            // ע��ʵ������ǰ�Ļص�������ʵ�ּ��˻���
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
-            //AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.ShockStaticParticles, VanillaModelID.ShockStaticParticles);
-
+            AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.VanguardResistanceShield, VanillaModelID.VanguardResistanceShield);
         }
-
-        /// <summary>
-        /// �˺�ǰ�ص����ж��Ƿ�ӵ�и�Buff���ҹ���ǹ���״̬ʱӦ�ü��˱���
-        /// </summary>
         private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
         {
             var damageInfo = param.input;
@@ -39,27 +28,22 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity == null)
                 return;
 
-
-            // ������˴��ڹ���״̬���򲻼��ˣ�ֱ�ӷ���
+            // 如果实体处于近战攻击状态,移除这个Buff  
             if (entity.State == STATE_MELEE_ATTACK)
             {
-
+                entity.RemoveBuffs<VanguardResistanceBuff>();
                 return;
-
             }
 
-
-            // ��ȡ��ʵ����������VanguardResistanceBuffʵ��
+            // 获取实体身上所有VanguardResistanceBuff实例  
             buffBuffer.Clear();
             entity.GetBuffs<VanguardResistanceBuff>(buffBuffer);
             if (buffBuffer.Count == 0)
                 return;
 
-            // Ӧ�ù̶����˱��ʣ�����0.1������90%��
+            // 应用固定减伤比率,乘以0.1(即90%减伤)  
             damageInfo.Multiply(0.1f);
         }
-
-        // �������б������ÿ�η��䣬��������
         private List<Buff> buffBuffer = new List<Buff>();
         public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
     }

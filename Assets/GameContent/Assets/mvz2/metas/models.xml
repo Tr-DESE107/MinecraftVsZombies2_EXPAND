@@ -762,6 +762,8 @@
 	<model name="ShockStaticParticles" type="icon" path="mvz2:icon/ShockStaticParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="DeathMarkParticles" type="icon" path="mvz2:icon/DeathMarkParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="EightDiagram" type="icon" path="mvz2:icon/EXPAND_icon/EightDiagram" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+	<model name="ResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/ResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+	<model name="VanguardResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/VanguardResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 </models>

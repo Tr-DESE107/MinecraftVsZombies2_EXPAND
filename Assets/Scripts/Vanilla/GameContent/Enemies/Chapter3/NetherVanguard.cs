@@ -35,7 +35,20 @@ namespace MVZ2.GameContent.Enemies
 
             if (entity.State == STATE_MELEE_ATTACK)
             {
+                // 攻击时移除减伤buff  
+                if (entity.HasBuff<VanguardResistanceBuff>())
+                {
+                    entity.RemoveBuffs<VanguardResistanceBuff>();
+                }
                 WitherAOE(entity, 2f, entity.GetFaction());
+            }
+            else
+            {
+                // 不攻击时添加减伤buff  
+                if (!entity.HasBuff<VanguardResistanceBuff>())
+                {
+                    entity.AddBuff<VanguardResistanceBuff>();
+                }
             }
         }
 

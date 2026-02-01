@@ -58,6 +58,8 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID ShockStaticParticles = Get("ShockStaticParticles", TYPE_ICON);
         public static readonly NamespaceID DeathMarkParticles = Get("DeathMarkParticles", TYPE_ICON);
         public static readonly NamespaceID EightDiagram = Get("EightDiagram", TYPE_ICON);
+        public static readonly NamespaceID ResistanceShield = Get("ResistanceShield", TYPE_ICON);
+        public static readonly NamespaceID VanguardResistanceShield = Get("VanguardResistanceShield", TYPE_ICON);
 
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
         {
