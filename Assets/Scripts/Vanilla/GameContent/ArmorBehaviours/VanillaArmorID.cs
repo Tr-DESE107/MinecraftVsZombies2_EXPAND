@@ -32,6 +32,7 @@ namespace MVZ2.GameContent.Armors
         public const string netherite_ingot_helmet = "netherite_ingot_helmet";
         public const string AngryReverserCrown = "AngryReverserCrown";
         public const string KingofReverserCrown = "KingofReverserCrown";
+        public const string nether_vanguard_shield = "nether_vanguard_shield";
 
         public const string GoldenHelmet = "GoldenHelmet";
         public const string RustedIronHelmet = "RustedIronHelmet";
@@ -70,6 +71,7 @@ namespace MVZ2.GameContent.Armors
         public static readonly NamespaceID netherite_ingot_helmet = Get(VanillaArmorNames.netherite_ingot_helmet);
         public static readonly NamespaceID AngryReverserCrown = Get(VanillaArmorNames.AngryReverserCrown);
         public static readonly NamespaceID KingofReverserCrown = Get(VanillaArmorNames.KingofReverserCrown);
+        public static readonly NamespaceID nether_vanguard_shield = Get(VanillaArmorNames.nether_vanguard_shield);
         
         public static readonly NamespaceID GoldenHelmet = Get(VanillaArmorNames.GoldenHelmet);
         public static readonly NamespaceID RustedIronHelmet = Get(VanillaArmorNames.RustedIronHelmet);

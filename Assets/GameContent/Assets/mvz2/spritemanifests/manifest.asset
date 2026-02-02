@@ -47,10 +47,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 189f112b6d7102349abf49d1f81dd167, type: 3}
   - name: arcade/ContraptionDevourer_2
     sprite: {fileID: 21300000, guid: 6ea26757df2a2c3429baac2c389eed4c, type: 3}
+  - name: arcade/DowsingNote
+    sprite: {fileID: 21300000, guid: 05483d8d75986e7458c19808a913db2f, type: 3}
   - name: arcade/Do_Magic_Tricks
     sprite: {fileID: 21300000, guid: 7b01598df4c4ae6499b8d5b7002f7543, type: 3}
   - name: arcade/frankensteins_revenge
     sprite: {fileID: 21300000, guid: 47bb6e3e6595451449c147cdca10b84c, type: 3}
+  - name: arcade/GiantCrisis
+    sprite: {fileID: 21300000, guid: 1162ce482dc657f42888f74cada3662f, type: 3}
   - name: arcade/i_zombie
     sprite: {fileID: 21300000, guid: 954f4a9aadd5d0141a70086f5aaedcc5, type: 3}
   - name: arcade/LigneMaginot

@@ -128,6 +128,10 @@ namespace MVZ2.GameContent.Stages
         public const string LigneMaginot = "LigneMaginot";
 
         public const string AnotherPrologue = "AnotherPrologue";
+        public const string ArmorParty = "ArmorParty";
+        public const string big_trouble_and_little_zombie_2 = "big_trouble_and_little_zombie_2";
+        public const string GiantCrisis = "GiantCrisis";
+        public const string DowsingNote = "DowsingNote";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
