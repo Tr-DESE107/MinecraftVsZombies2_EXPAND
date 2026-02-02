@@ -729,6 +729,7 @@
 	<model name="AncientMetalHelmet" type="armor" path="mvz2:armor/EXPAND_armor/AncientMetalHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="DiamondHelmet" type="armor" path="mvz2:armor/EXPAND_armor/DiamondHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="BedrockHelmet" type="armor" path="mvz2:armor/EXPAND_armor/BedrockHelmet" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="BarrierHelmet" type="armor" path="mvz2:armor/EXPAND_armor/BarrierHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="NetheriteHelmet" type="armor" path="mvz2:armor/EXPAND_armor/NetheriteHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 
     <!-- HeldItems -->

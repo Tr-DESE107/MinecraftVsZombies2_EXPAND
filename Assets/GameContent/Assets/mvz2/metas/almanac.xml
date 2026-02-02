@@ -2725,7 +2725,7 @@
                 <p>天子僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>600+50</color>]]></p>
+                <p>生命：<![CDATA[<color=red>600+100</color>]]></p>
                 <p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
                 <p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方60/s的再生效果。</color>]]></p>
             </properties>
