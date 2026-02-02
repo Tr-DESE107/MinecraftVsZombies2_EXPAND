@@ -20,6 +20,7 @@ namespace MVZ2.GameContent.Placements
         public const string brickCannon = "brick_cannon";
         public const string drivenser = "drivenser";
         public const string enemy = "enemy";
+        public const string coolingCell = "cooling_cell";
     }
     public static class VanillaPlacementID
     {
@@ -36,6 +37,7 @@ namespace MVZ2.GameContent.Placements
         public static readonly NamespaceID brickCannon = Get(VanillaPlacementNames.brickCannon);
         public static readonly NamespaceID drivenser = Get(VanillaPlacementNames.drivenser);
         public static readonly NamespaceID enemy = Get(VanillaPlacementNames.enemy);
+        public static readonly NamespaceID coolingCell = Get(VanillaPlacementNames.coolingCell);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

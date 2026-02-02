@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-30 05:17+0800\n"
-"PO-Revision-Date: 2026-01-30 17:28+0800\n"
+"POT-Creation-Date: 2026-02-02 11:09+0800\n"
+"PO-Revision-Date: 2026-02-02 14:03+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2100,6 +2100,32 @@ msgstr ""
 "<b>Addendum MCP-531-A: </b>Test logs indicate that partially affected subjects report persistent \"dullness\" and localized numbness "
 "during recovery, with no permanent physiological damage observed. Further cross-cultural archaeological analysis is ongoing to "
 "investigate MCP-531's potential connection to various mythological \"petrifying gaze\" legends."
+
+#. Header for contraptions mvz2:cooling_cell
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "冷却单元可以放在器械上来缩短其蓝图的充能时间。"
+msgstr "Cooling Cells can be placed on contraptions to reduce their blueprint recharge time."
+
+#. Properties for contraptions mvz2:cooling_cell
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"缩短时间：<color=red>30秒</color>\n"
+"技能：<color=red>无</color>"
+msgstr ""
+"Time reduced: <color=red>30 seconds</color>\n"
+"Evocation: <color=red>None</color>"
+
+#. Flavor for contraptions mvz2:cooling_cell
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"核电站中常用的冷却单元。虽然摸起来不算很冷，却也十分有效。\n"
+"核能真是太酷了！"
+msgstr ""
+"A cooling cell commonly used in nuclear power plants. Although it doesn't feel very cold when touched, it's quite effective.\n"
+"Nuclear energy is so cool!"
 
 #. Header for contraptions mvz2:nuke
 #: Almanac meta file
@@ -6257,6 +6283,18 @@ msgstr "Stone Eye"
 msgctxt "entity.tooltip"
 msgid "减速并阻挡前方敌人"
 msgstr "Slow and block enemies"
+
+#. Name for entity mvz2:cooling_cell
+#: Entity meta file
+msgctxt "entity.name"
+msgid "冷却单元"
+msgstr "Cooling Cell"
+
+#. Tooltip for entity mvz2:cooling_cell
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "加快器械的充能进度"
+msgstr "Speed up the recharge time of a contraption"
 
 #. Name for entity mvz2:nuke
 #: Entity meta file

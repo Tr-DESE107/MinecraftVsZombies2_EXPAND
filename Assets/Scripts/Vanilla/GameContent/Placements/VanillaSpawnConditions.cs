@@ -12,6 +12,7 @@ namespace MVZ2.GameContent.Placements
         public static readonly SpawnCondition aquatic = new AquaticSpawnCondition();
         public static readonly SpawnCondition pad = new PadSpawnCondition();
         public static readonly SpawnCondition dreamSilk = new DreamSilkSpawnCondition();
+        public static readonly SpawnCondition coolingCell = new CoolingCellSpawnCondition();
         public static readonly SpawnCondition suspension = new SuspensionSpawnCondition();
         public static readonly SpawnCondition devourer = new DevourerSpawnCondition();
     }

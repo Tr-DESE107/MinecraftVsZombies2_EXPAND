@@ -919,7 +919,19 @@
                 <p><![CDATA[<b>附录 MCP-531-A：</b>]]> 实验记录显示，被部分转化的对象在恢复期间报告有持续的“钝感”及局部麻木现象，但未发现永久性生理损伤。进一步跨文化考古比对工作正在进行，以确认MCP-531与多个神话中“凝视石化”传说的潜在关联。</p>
             </flavor>
         </entry>
-        <entry />
+        <entry id="mvz2:cooling_cell">
+            <header>
+                <p>冷却单元可以放在器械上来缩短其蓝图的充能时间。</p>
+            </header>
+            <properties>
+                <p>缩短时间：<![CDATA[<color=red>30秒</color>]]></p>
+                <p>技能：<![CDATA[<color=red>无</color>]]></p>
+            </properties>
+            <flavor>
+                <p>核电站中常用的冷却单元。虽然摸起来不算很冷，却也十分有效。</p>
+                <p>核能真是太酷了！</p>
+            </flavor>
+        </entry>
         <entry />
         <entry id="mvz2:nuke">
             <header>

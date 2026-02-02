@@ -25,6 +25,7 @@ namespace MVZ2.Vanilla.Entities
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
+        public const string contraptionTimeoutFade = "contraption_timeout_fade";
         public const string contraptionShooterFireworkDispenser = "contraption_shooter_firework_dispenser";
         public const string contraptionEvokeFireworkDispenser = "contraption_evoke_firework_dispenser";
 

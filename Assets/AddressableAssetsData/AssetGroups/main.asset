@@ -472,6 +472,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09b9160cc275ac44cb391c2c597e8314
+    m_Address: mvz2:contraption/palace/cooling_cell
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09e33d4b66b1efa4eb15944bf80b140f
     m_Address: mvz2:entity/contraption/dream_alarm
     m_ReadOnly: 0
@@ -10395,6 +10402,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4bcf7cba68b73548a93f2447318868f
+    m_Address: mvz2:entity/contraptions/cooling_cell
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d502efd9e6fce1543ae6919e926b244c
     m_Address: mvz2:mobile_blueprint/lily_pad
     m_ReadOnly: 0
@@ -11024,6 +11038,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3e1596d953b94b41ae3901ea2d4e8af
+    m_Address: mvz2:mobile_blueprint/cooling_cell
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4338c72026e47949a5e8edc50e80692
     m_Address: mvz2:ui/level/imbued_icon

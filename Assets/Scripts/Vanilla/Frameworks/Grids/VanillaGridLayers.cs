@@ -31,6 +31,12 @@ namespace MVZ2.Vanilla.Grids
             main,
             carrier
         };
+        public static NamespaceID[] coolingCellLayers = new NamespaceID[]
+        {
+            main,
+            protector,
+            carrier
+        };
         public static NamespaceID[] devourerLayers = new NamespaceID[]
         {
             main,

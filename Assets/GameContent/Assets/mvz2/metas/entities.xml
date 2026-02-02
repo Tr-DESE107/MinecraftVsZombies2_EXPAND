@@ -631,6 +631,9 @@
             <unlock>
                 <condition requiredGroups="mvz2:contraption.dream_silk" />
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:contraption_timeout_fade" />
+            </behaviours>
             <properties>
                 <bool name="mvz2:cannotDig" value="true" />
                 <bool name="mvz2:invisible" value="true" />
@@ -1204,6 +1207,39 @@
                 <bool name="mvz2:defensive" value="true" />
 
                 <int name="mvz2:cost" value="125" />
+                <id name="mvz2:rechargeId" value="mvz2:long" />
+            </properties>
+        </contraption>
+        <contraption id="cooling_cell" name="冷却单元" tooltip="加快器械的充能进度">
+            <unlock>
+                <condition requiredGroups="mvz2:contraption.cooling_cell" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:contraption_timeout_fade" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:cannotDig" value="true" />
+                <bool name="mvz2:invisible" value="true" />
+                <bool name="mvz2:invincible" value="true" />
+                <bool name="mvz2:shadowHidden" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:instantEvoke" value="false" />
+                <bool name="mvz2:no_evoke" value="true" />
+                <int name="mvz2:maxTimeout" value="30" />
+                <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:airInteraction" value="0" />
+                <float name="mvz2:gravity" value="-0.25" />
+                <vector3 name="mvz2:size" x="0" y="0" z="0" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:placement" value="mvz2:cooling_cell" />
+                <id name="mvz2:fragmentId" value="mvz2:silvenser" />
+                <id name="mvz2:placeSound" null="true" />
+                <id name="mvz2:deathSound" null="true" />
+                <id name="mvz2:hitSound" null="true" />
+                <idArray name="mvz2:gridLayers" value="" />
+
+                <int name="mvz2:cost" value="75" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
