@@ -127,6 +127,8 @@ namespace MVZ2.GameContent.Stages
         public const string MortalZombat = "MortalZombat";
         public const string LigneMaginot = "LigneMaginot";
 
+        public const string AnotherPrologue = "AnotherPrologue";
+
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
         public const string puzzleISkeleton = "puzzle_i_skeleton";

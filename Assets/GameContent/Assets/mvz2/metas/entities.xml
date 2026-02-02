@@ -543,7 +543,25 @@
                 <int name="mvz2:cost" value="75" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
+        </contraption>
+		
+        <contraption id="LCMTNT" name="精简TNT" tooltip="接触时爆炸，但需要时间准备">
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:dynamite" value="true" />
+                <float name="mvz2:damage" value="1800" />
+                <float name="mvz2:range" value="40" />
+                <id name="mvz2:placeSound" value="mvz2:grass" />
+                <id name="mvz2:shell" value="mvz2:grass" />
+                <id name="mvz2:placement" value="mvz2:buried" />
+                <id name="mvz2:deathSound" value="mvz2:grass" />
+                <vector3 name="mvz2:size" x="48" y="24" z="48" />
+                <idArray name="mvz2:gridLayers" value="mvz2:main mvz2:carrier" />
+
+                <int name="mvz2:cost" value="25" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
+            </properties>
         </contraption>
 
         <!-- Halloween Contraptions -->

@@ -30,7 +30,7 @@
             <spawn id="mvz2:mutant_zombie" />
         </spawns>
     </stage>
-
+    
     <!-- Halloween -->
     <stage id="halloween_1" name="万圣夜" dayNumber="1">
         <unlock>
@@ -2137,8 +2137,6 @@
     <stage id="TrueAndFalseSteve" name="真假史蒂夫" type="minigame" music="mvz2:Lava_Chicken">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="2" firstWaveTime="600" pointsMultiplier="2">
-
-
             <spawn id="mvz2:ImpMannequin" />
             <spawn id="mvz2:MegaImpMannequin" />
             <spawn id="mvz2:MutantMannequin" />
@@ -2150,7 +2148,6 @@
             <spawn id="mvz2:HostZombie" />
             <spawn id="mvz2:BloodlustHostZombie" />
             <spawn id="mvz2:gargoyle" />
-
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />
@@ -2160,8 +2157,6 @@
     <stage id="ContraptionDevourer_2" name="器械吞噬者2" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="2" firstWaveTime="600" pointsMultiplier="2">
-
-
             <spawn id="mvz2:ImpMannequin" />
             <spawn id="mvz2:MegaImpMannequin" />
             <spawn id="mvz2:MutantMannequin" />
@@ -2169,7 +2164,6 @@
 
             <spawn id="mvz2:MutantVillager" />
             <spawn id="mvz2:zombie" />
-
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />
@@ -2179,8 +2173,6 @@
     <stage id="RandomChinaDevourer" name="随机瓷器吞噬者" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="2" firstWaveTime="600" pointsMultiplier="1.75">
-
-
             <spawn id="mvz2:ImpMannequin" />
             <spawn id="mvz2:MutantMannequin" />
             <spawn id="mvz2:Mannequin" />
@@ -2193,7 +2185,6 @@
             <spawn id="mvz2:MutantVillager" />
             <spawn id="mvz2:gargoyle" />
             <spawn id="mvz2:NetherWarrior" />
-
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />
@@ -2202,14 +2193,11 @@
     <stage id="vsRandomZombie" name="对战随机僵尸" type="minigame" music="mvz2:Lava_Chicken">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="2" firstWaveTime="600" pointsMultiplier="1.05">
-
-
             <spawn id="mvz2:RandomZombie" />
             <spawn id="mvz2:RandomMutant" />
             <spawn id="mvz2:RandomImp" />
             <spawn id="mvz2:RandomSkeleton" />
             <spawn id="mvz2:RandomKingSkeleton" />
-
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />
@@ -2219,7 +2207,6 @@
 	<stage id="MortalZombat" name="真尸快打" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
 		<spawns flags="2" firstWaveTime="30" pointsMultiplier="1.1">
-
 			<spawn id="mvz2:berserker" />
 			<spawn id="mvz2:dullahan" />
 			<spawn id="mvz2:NetherWarrior" />
@@ -2242,14 +2229,11 @@
 			<spawn id="mvz2:MonkZombie" />
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:PirateSkeleton" />
-
 		</spawns>
-		
 	</stage>
 	<stage id="LigneMaginot" name="马奇诺防线" needBlueprints="true" type="minigame" music="mvz2:Lava_Chicken">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
 		<spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="8">
-
 			<spawn id="mvz2:NetherTroopCarrier" />
 			<spawn id="mvz2:dullahan" />
 			<spawn id="mvz2:hell_chariot" />
@@ -2275,11 +2259,18 @@
 			<spawn id="mvz2:necromancer" />
 			<spawn id="mvz2:KingSkeleton" />
 			<spawn id="mvz2:KingofReverser" />
-			
-			
-
 		</spawns>
-
+	</stage>
+	
+	<stage id="AnotherPrologue" name="另一个序章" needBlueprints="false" type="minigame">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
+		<spawns flags="3" pointsMultiplier="2">
+			<spawn id="mvz2:zombie" />
+			<spawn id="mvz2:mutant_zombie" />
+			<spawn id="mvz2:imp" />
+			<spawn id="mvz2:skeleton" />
+		</spawns>
+		<time firstWave="45" />
 	</stage>
 
     <!-- Puzzles -->

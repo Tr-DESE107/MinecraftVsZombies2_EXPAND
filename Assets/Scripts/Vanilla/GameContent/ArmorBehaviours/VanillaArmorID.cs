@@ -10,18 +10,9 @@ namespace MVZ2.GameContent.Armors
         public const string leatherCap = "leather_cap";
         public const string ironHelmet = "iron_helmet";
 
-        public const string SandstoneHelmet = "SandstoneHelmet";
-        public const string bone_helmet = "bone_helmet";
-        public const string necromancer_helmet = "necromancer_helmet";
-
         public const string mesmerizerCrown = "mesmerizer_crown";
         public const string berserkerHelmet = "berserker_helmet";
         public const string bedserkerHelmet = "bedserker_helmet";
-
-        public const string nether_helmet = "nether_helmet";
-        public const string netherite_ingot_helmet = "netherite_ingot_helmet";
-        public const string AngryReverserCrown = "AngryReverserCrown";
-        public const string KingofReverserCrown = "KingofReverserCrown";
 
         public const string reflectiveBarrier = "reflective_barrier";
         public const string wickedHermitHat = "wicked_hermit_hat";
@@ -31,24 +22,35 @@ namespace MVZ2.GameContent.Armors
 
         public const string umbrellaShield = "umbrella_shield";
         public const string cannon = "cannon";
+
+        //EXPAND
+        public const string SandstoneHelmet = "SandstoneHelmet";
+        public const string bone_helmet = "bone_helmet";
+        public const string necromancer_helmet = "necromancer_helmet";
+
+        public const string nether_helmet = "nether_helmet";
+        public const string netherite_ingot_helmet = "netherite_ingot_helmet";
+        public const string AngryReverserCrown = "AngryReverserCrown";
+        public const string KingofReverserCrown = "KingofReverserCrown";
+
+        public const string GoldenHelmet = "GoldenHelmet";
+        public const string RustedIronHelmet = "RustedIronHelmet";
+        public const string CopperHelmet = "CopperHelmet";
+        public const string ChainmailHelmet = "ChainmailHelmet";
+        public const string AncientMetalHelmet = "AncientMetalHelmet";
+        public const string DiamondHelmet = "DiamondHelmet";
+        public const string NetheriteHelmet = "NetheriteHelmet";
+        public const string BedrockHelmet = "BedrockHelmet";
+
     }
     public static class VanillaArmorID
     {
         public static readonly NamespaceID leatherCap = Get(VanillaArmorNames.leatherCap);
         public static readonly NamespaceID ironHelmet = Get(VanillaArmorNames.ironHelmet);
 
-        public static readonly NamespaceID SandstoneHelmet = Get(VanillaArmorNames.SandstoneHelmet);
-        public static readonly NamespaceID necromancer_helmet = Get(VanillaArmorNames.necromancer_helmet);
-        public static readonly NamespaceID bone_helmet = Get(VanillaArmorNames.bone_helmet);
-
         public static readonly NamespaceID mesmerizerCrown = Get(VanillaArmorNames.mesmerizerCrown);
         public static readonly NamespaceID bersekerHelmet = Get(VanillaArmorNames.berserkerHelmet);
         public static readonly NamespaceID bedserkerHelmet = Get(VanillaArmorNames.bedserkerHelmet);
-
-        public static readonly NamespaceID nether_helmet = Get(VanillaArmorNames.nether_helmet);
-        public static readonly NamespaceID netherite_ingot_helmet = Get(VanillaArmorNames.netherite_ingot_helmet);
-        public static readonly NamespaceID AngryReverserCrown = Get(VanillaArmorNames.AngryReverserCrown);
-        public static readonly NamespaceID KingofReverserCrown = Get(VanillaArmorNames.KingofReverserCrown);
 
         public static readonly NamespaceID reflectiveBarrier = Get(VanillaArmorNames.reflectiveBarrier);
         public static readonly NamespaceID wickedHermitHat = Get(VanillaArmorNames.wickedHermitHat);
@@ -58,6 +60,26 @@ namespace MVZ2.GameContent.Armors
 
         public static readonly NamespaceID umbrellaShield = Get(VanillaArmorNames.umbrellaShield);
         public static readonly NamespaceID cannon = Get(VanillaArmorNames.cannon);
+
+        //EXPAND
+        public static readonly NamespaceID SandstoneHelmet = Get(VanillaArmorNames.SandstoneHelmet);
+        public static readonly NamespaceID necromancer_helmet = Get(VanillaArmorNames.necromancer_helmet);
+        public static readonly NamespaceID bone_helmet = Get(VanillaArmorNames.bone_helmet);
+
+        public static readonly NamespaceID nether_helmet = Get(VanillaArmorNames.nether_helmet);
+        public static readonly NamespaceID netherite_ingot_helmet = Get(VanillaArmorNames.netherite_ingot_helmet);
+        public static readonly NamespaceID AngryReverserCrown = Get(VanillaArmorNames.AngryReverserCrown);
+        public static readonly NamespaceID KingofReverserCrown = Get(VanillaArmorNames.KingofReverserCrown);
+        
+        public static readonly NamespaceID GoldenHelmet = Get(VanillaArmorNames.GoldenHelmet);
+        public static readonly NamespaceID RustedIronHelmet = Get(VanillaArmorNames.RustedIronHelmet);
+        public static readonly NamespaceID CopperHelmet = Get(VanillaArmorNames.CopperHelmet);
+        public static readonly NamespaceID ChainmailHelmet = Get(VanillaArmorNames.ChainmailHelmet);
+        public static readonly NamespaceID AncientMetalHelmet = Get(VanillaArmorNames.AncientMetalHelmet);
+        public static readonly NamespaceID DiamondHelmet = Get(VanillaArmorNames.DiamondHelmet);
+        public static readonly NamespaceID NetheriteHelmet = Get(VanillaArmorNames.NetheriteHelmet);
+        public static readonly NamespaceID BedrockHelmet = Get(VanillaArmorNames.BedrockHelmet);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

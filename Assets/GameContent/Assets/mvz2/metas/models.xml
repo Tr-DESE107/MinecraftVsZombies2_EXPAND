@@ -106,7 +106,8 @@
 	<model name="PermanentIce" type="entity" path="mvz2:contraption/EXPAND/PermanentIce" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="BlueIce" type="entity" path="mvz2:contraption/EXPAND/BlueIce" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="Snipenser" type="entity" path="mvz2:contraption/EXPAND/Snipenser" width="64" height="64" xOffset="0" yOffset="-28" />
-
+	<model name="LCMTNT" type="entity" path="mvz2:contraption/prologue/LCMTNT" width="64" height="64" xOffset="0" yOffset="-28" />
+	
 	<model name="Randombstone" type="entity" path="mvz2:contraption/GoldCard/Randombstone" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="SuperFireworkDispenser" type="entity" path="mvz2:contraption/EXPAND/SuperFireworkDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
     
@@ -727,6 +728,7 @@
 	<model name="ChainmailHelmet" type="armor" path="mvz2:armor/EXPAND_armor/ChainmailHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="AncientMetalHelmet" type="armor" path="mvz2:armor/EXPAND_armor/AncientMetalHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="DiamondHelmet" type="armor" path="mvz2:armor/EXPAND_armor/DiamondHelmet" width="33" height="14" xOffset="0" yOffset="0" />
+	<model name="BedrockHelmet" type="armor" path="mvz2:armor/EXPAND_armor/BedrockHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="NetheriteHelmet" type="armor" path="mvz2:armor/EXPAND_armor/NetheriteHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 
     <!-- HeldItems -->

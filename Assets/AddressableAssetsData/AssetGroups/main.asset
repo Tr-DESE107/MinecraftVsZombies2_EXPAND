@@ -7210,6 +7210,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7940a8233b4231c4a82f8d3cc6b2c688
+    m_Address: mvz2:contraption/prologue/LCMTNT
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79486b33dabc7014b8d326dfcbd70828
     m_Address: mvz2:arcade/RandomChinaAndPot
     m_ReadOnly: 0
@@ -9590,6 +9597,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a20c664f002d02c45a83c93d170c5c1a
+    m_Address: mvz2:entity/armor/EXPAND_armor/BedrockHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a24f2a1292d3c6949ae1ebf80560127c
     m_Address: mvz2:mausoleum_level
     m_ReadOnly: 0
@@ -11241,6 +11255,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfdb5e05dfdc66648a98613904a0a2fb
+    m_Address: mvz2:armor/EXPAND_armor/BedrockHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0143cb0af20efc499da5943439d6197
     m_Address: mvz2:grind1

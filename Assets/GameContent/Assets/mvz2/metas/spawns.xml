@@ -217,6 +217,10 @@
         <spawn level="3" minWave="5" />
         <weight base="1000" />
     </entry>
+	<entry id="imp" entity="mvz2:imp">
+		<spawn level="1" />
+		<weight base="3000" />
+	</entry>
 	
     <!--EXPAND C2-->
     <entry id="HostHead" entity="mvz2:HostHead">

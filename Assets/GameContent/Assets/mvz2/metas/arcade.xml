@@ -27,6 +27,7 @@
     <minigame id="vsRandomZombie" stage="mvz2:vsRandomZombie" area="mvz2:halloween" icon="mvz2:arcade/vsRandomZombie" />
     <minigame id="MortalZombat" stage="mvz2:MortalZombat" area="mvz2:ship" icon="mvz2:arcade/MortalZombat" />
     <minigame id="LigneMaginot" stage="mvz2:LigneMaginot" area="mvz2:day" icon="mvz2:arcade/LigneMaginot" />
+    <minigame id="AnotherPrologue" stage="mvz2:AnotherPrologue" area="mvz2:day" icon="mvz2:arcade/LigneMaginot" />
 
     <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />
     <puzzle id="puzzle_i_skeleton" stage="mvz2:puzzle_i_skeleton" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_skeleton" />

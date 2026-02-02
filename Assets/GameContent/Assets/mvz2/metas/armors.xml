@@ -260,6 +260,16 @@
 				<float name="mvz2:maxHealth" value="2738" />
 			</props>
 		</entry>
+		
+		<entry id="BedrockHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<float name="mvz2:maxHealth" value="2147483647" />
+			</props>
+		</entry>
 
         <!-- Shields -->
         <entry id="reflective_barrier" type="mvz2:large_shield">

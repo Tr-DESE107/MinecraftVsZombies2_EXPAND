@@ -3677,6 +3677,11 @@ MonoBehaviour:
     - {fileID: 226334762, guid: 51a01377b4ff1454a952d28a8cf54221, type: 3}
     - {fileID: -712758732, guid: 51a01377b4ff1454a952d28a8cf54221, type: 3}
     - {fileID: -1245376063, guid: 51a01377b4ff1454a952d28a8cf54221, type: 3}
+  - name: entity/armor/EXPAND_armor/BedrockHelmet
+    spritesheet:
+    - {fileID: 1525796552, guid: a20c664f002d02c45a83c93d170c5c1a, type: 3}
+    - {fileID: 1619024437, guid: a20c664f002d02c45a83c93d170c5c1a, type: 3}
+    - {fileID: 1494735760, guid: a20c664f002d02c45a83c93d170c5c1a, type: 3}
   - name: entity/armor/EXPAND_armor/ChainmailHelmet
     spritesheet:
     - {fileID: -911301944, guid: b17617c5559b3c346a42a3c226f0b3d1, type: 3}

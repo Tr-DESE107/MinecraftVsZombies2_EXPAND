@@ -91,6 +91,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string SuperFireworkDispenser = "SuperFireworkDispenser";
         public const string BlueIce = "BlueIce";
         public const string Snipenser = "Snipenser";
+        public const string LCMTNT = "LCMTNT";
 
         //EXPAND BlackCard
         public const string Bedrock = "Bedrock";
@@ -182,6 +183,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID SuperFireworkDispenser = Get(VanillaContraptionNames.SuperFireworkDispenser);
         public static readonly NamespaceID BlueIce = Get(VanillaContraptionNames.BlueIce);
         public static readonly NamespaceID Snipenser = Get(VanillaContraptionNames.Snipenser);
+        public static readonly NamespaceID LCMTNT = Get(VanillaContraptionNames.LCMTNT);
 
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);
