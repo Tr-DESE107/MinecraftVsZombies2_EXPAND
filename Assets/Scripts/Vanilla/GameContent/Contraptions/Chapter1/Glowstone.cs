@@ -75,7 +75,7 @@ namespace MVZ2.GameContent.Contraptions
                     return;
                 detectBuffer.Clear();
                 var level = auraEffect.Level;
-                level.GetIlluminatiingEntities(source, detectBuffer);
+                level.GetIlluminatiingEntitiesNonAlloc(source, detectBuffer);
                 foreach (var id in detectBuffer)
                 {
                     var ent = level.FindEntityByID(id);

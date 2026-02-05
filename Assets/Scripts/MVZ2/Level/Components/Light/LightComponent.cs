@@ -106,6 +106,14 @@ namespace MVZ2.Level.Components
             }
         }
 
+        public void GetIlluminationLightSourcesNonAlloc(Entity entity, HashSet<long> results)
+        {
+            if (entityToLights.TryGetValue(entity.ID, out var set))
+            {
+                foreach (var id in set)
+                    results.Add(id);
+            }
+        }
         public IEnumerable<long> GetIlluminatingEntities(long lightSourceID)
         {
             if (lightToEntities.TryGetValue(lightSourceID, out var set))
@@ -132,7 +140,7 @@ namespace MVZ2.Level.Components
         #region 事件回调
         private void PostEntityEnabledCallback(Entity entity)
         {
-            if (entity.IsLightSource() || entity.ReceivesLight())
+            if (entity.IsLightSource() || entity.GetLitMask() != 0)
             {
                 lightDirty = true;
             }
@@ -242,13 +250,13 @@ namespace MVZ2.Level.Components
             overlapResults.Clear();
 
             Level.OverlapBoxNonAlloc(center, overlapSize, 0, mask, mask, overlapResults);
-
+            var lightType = light.Type;
             foreach (var collider in overlapResults)
             {
                 if (!collider.IsForMain())
                     continue;
                 var targetEntity = collider.Entity;
-                if (targetEntity == null || !targetEntity.ReceivesLight())
+                if (targetEntity == null || !targetEntity.ReceivesLightBy(lightType))
                     continue;
 
                 if (!Geometry.CollideBetweenCubeAndRoundCube(roundCube, collider.GetBoundingBox()))

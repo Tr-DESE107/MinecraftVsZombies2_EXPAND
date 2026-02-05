@@ -26,7 +26,13 @@ namespace MVZ2Logic.Level
             if (component == null) return Enumerable.Empty<long>();
             return component.GetIlluminationLightSources(entity);
         }
-        public static void GetIlluminatiingEntities(this LevelEngine level, Entity entity, HashSet<long> results)
+        public static void GetIlluminationLightSourcesNonAlloc(this LevelEngine level, Entity entity, HashSet<long> results)
+        {
+            var component = level.GetLightComponent();
+            if (component == null) return;
+            component.GetIlluminationLightSourcesNonAlloc(entity, results);
+        }
+        public static void GetIlluminatiingEntitiesNonAlloc(this LevelEngine level, Entity entity, HashSet<long> results)
         {
             var component = level.GetLightComponent();
             if (component == null) return;

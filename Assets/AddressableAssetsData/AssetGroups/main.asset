@@ -6860,6 +6860,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a525b2b758a41245aaa1250503650fc
+    m_Address: mvz2:bolt_charge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a70d92a6c7b75340b98df7a8a5bee15
     m_Address: mvz2:random/crystal/crystal3
     m_ReadOnly: 0

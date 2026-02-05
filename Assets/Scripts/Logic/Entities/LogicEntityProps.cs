@@ -217,7 +217,7 @@ namespace MVZ2Logic.Entities
 
         #region 光照
         public static readonly PropertyMeta<bool> IS_LIGHT_SOURCE = Get<bool>("isLightSource");
-        public static readonly PropertyMeta<bool> RECEIVES_LIGHT = Get<bool>("receivesLight");
+        public static readonly PropertyMeta<int> LIT_MASK = Get<int>("lit_mask");
         public static readonly PropertyMeta<Color> LIGHT_COLOR = Get<Color>("lightColor");
         public static readonly PropertyMeta<Vector3> LIGHT_RANGE = Get<Vector3>("lightRange");
         public static void SetLightSource(this Entity entity, bool value)
@@ -232,13 +232,18 @@ namespace MVZ2Logic.Entities
         {
             return entity.GetProperty<bool>(IS_LIGHT_SOURCE);
         }
-        public static void SetReceivesLight(this Entity entity, bool value)
+        public static int GetLitMask(this Entity entity)
         {
-            entity.SetProperty(RECEIVES_LIGHT, value);
+            return entity.GetProperty<int>(LIT_MASK);
         }
-        public static bool ReceivesLight(this Entity entity)
+        public static bool ReceivesLightBy(this Entity entity, Entity lightSource)
         {
-            return entity.GetProperty<bool>(RECEIVES_LIGHT);
+            return entity.ReceivesLightBy(lightSource.Type);
+        }
+        public static bool ReceivesLightBy(this Entity entity, int lightSourceType)
+        {
+            var mask = entity.GetLitMask();
+            return (mask & EntityCollisionHelper.GetTypeMask(lightSourceType)) != 0;
         }
         public static void SetLightRange(this Entity entity, Vector3 value)
         {

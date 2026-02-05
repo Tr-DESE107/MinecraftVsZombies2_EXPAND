@@ -155,6 +155,7 @@ namespace MVZ2Logic.Level.Components
         bool IsIlluminated(Entity entity);
         bool IsIlluminatedBy(Entity entity, long lightSourceID);
         IEnumerable<long> GetIlluminationLightSources(Entity entity);
+        void GetIlluminationLightSourcesNonAlloc(Entity entity, HashSet<long> results);
         IEnumerable<long> GetIlluminatingEntities(long lightSourceID);
         void GetIlluminatingEntitiesNonAlloc(long lightSourceID, HashSet<long> results);
         int GetIlluminationCount(long lightSourceID);
