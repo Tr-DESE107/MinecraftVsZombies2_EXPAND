@@ -38,6 +38,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID bloody = Get("bloody");
         public readonly static NamespaceID blow = Get("blow");
         public readonly static NamespaceID boing = Get("boing");
+        public readonly static NamespaceID boltCharge = Get("bolt_charge");
         public readonly static NamespaceID bombFalling = Get("bomb_falling");
         public readonly static NamespaceID boneHit = Get("bone_hit");
         public readonly static NamespaceID boneWallBuild = Get("bone_wall_build");

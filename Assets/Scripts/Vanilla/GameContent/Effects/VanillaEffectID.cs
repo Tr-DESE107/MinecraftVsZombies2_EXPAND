@@ -111,6 +111,7 @@ namespace MVZ2.GameContent.Effects
         public const string nukeFlash = "nuke_flash";
         public const string petrifiedShards = "petrified_shards";
         public const string petrifyLaser = "petrify_laser";
+        public const string amethystPylonLaser = "amethyst_pylon_laser";
     }
     public static class VanillaEffectID
     {
@@ -218,6 +219,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID nukeFlash = Get(VanillaEffectNames.nukeFlash);
         public static readonly NamespaceID petrifiedShards = Get(VanillaEffectNames.petrifiedShards);
         public static readonly NamespaceID petrifyLaser = Get(VanillaEffectNames.petrifyLaser);
+        public static readonly NamespaceID amethystPylonLaser = Get(VanillaEffectNames.amethystPylonLaser);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

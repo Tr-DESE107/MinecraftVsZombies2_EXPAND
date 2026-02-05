@@ -238,6 +238,14 @@
             <key hex="#4b5143" time="1" />
         </colorKeys>
     </fragment>
+    <fragment name="amethyst_pylon">
+        <colorKeys>
+            <key hex="#9d4fa9" time="0.3" />
+            <key hex="#7e3789" time="0.6" />
+            <key hex="#e09b6e" time="0.8" />
+            <key hex="#c06e38" time="1" />
+        </colorKeys>
+    </fragment>
     <fragment name="nuke">
         <colorKeys>
             <key hex="#00FF00" time="0.6" />

@@ -245,6 +245,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: cb2161762d5c5c54f989ec0a1e6d85e9, type: 3}
   - name: mobile_blueprint/add_pearl
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
+  - name: mobile_blueprint/amethyst_pylon
+    sprite: {fileID: 21300000, guid: 44691debf33607e4a85f6e43c29ba535, type: 3}
   - name: mobile_blueprint/anubisand
     sprite: {fileID: 21300000, guid: 2d37eb66e5d769343ab9e6ee42496b68, type: 3}
   - name: mobile_blueprint/anvil
@@ -1797,6 +1799,15 @@ MonoBehaviour:
     - {fileID: -7760324040334233758, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
     - {fileID: -3414009260396193802, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
     - {fileID: 4886630257185471161, guid: 97fb6eef6b0b240438ad3bc4f783cf48, type: 3}
+  - name: entity/contraption/amethyst_pylon
+    spritesheet:
+    - {fileID: 162362448, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
+    - {fileID: -1558850047, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
+    - {fileID: -371327822, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
+    - {fileID: 1621944610, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
+    - {fileID: 364926735, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
+    - {fileID: 1585794174, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
+    - {fileID: -663098386, guid: 1ee8150da861dd84b850d645ca19c458, type: 3}
   - name: entity/contraption/anvil
     spritesheet:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}

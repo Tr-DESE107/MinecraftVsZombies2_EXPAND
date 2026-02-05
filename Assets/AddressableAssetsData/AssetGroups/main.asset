@@ -1550,6 +1550,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ee8150da861dd84b850d645ca19c458
+    m_Address: mvz2:entity/contraption/amethyst_pylon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f0a8eaf9b153b3429a373a0155f968f
     m_Address: mvz2:entity/contraptions/tnt
     m_ReadOnly: 0
@@ -3433,6 +3440,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43fcd92f2a72ca443ab18701d0b8563c
     m_Address: mvz2:ui/charge_bar_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44691debf33607e4a85f6e43c29ba535
+    m_Address: mvz2:mobile_blueprint/amethyst_pylon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10667,6 +10681,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dadd7d630cd112f4e8151abc45659e12
+    m_Address: mvz2:contraption/palace/amethyst_pylon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db0ccfdb5599c9940881a8ab026c2277
     m_Address: mvz2:effect/magic_stars

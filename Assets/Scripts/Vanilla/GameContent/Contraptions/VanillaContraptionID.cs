@@ -62,6 +62,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string cursedCandle = "cursed_candle";
         public const string stoneEye = "stone_eye";
         public const string coolingCell = "cooling_cell";
+        public const string amethystPylon = "amethyst_pylon";
         public const string nuke = "nuke";
 
         public const string infectenser = "infectenser";
@@ -136,6 +137,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID cursedCandle = Get(VanillaContraptionNames.cursedCandle);
         public static readonly NamespaceID stoneEye = Get(VanillaContraptionNames.stoneEye);
         public static readonly NamespaceID coolingCell = Get(VanillaContraptionNames.coolingCell);
+        public static readonly NamespaceID amethystPylon = Get(VanillaContraptionNames.amethystPylon);
         public static readonly NamespaceID nuke = Get(VanillaContraptionNames.nuke);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
