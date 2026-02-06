@@ -27,8 +27,7 @@ namespace MVZ2.GameContent.IZombie
                 VanillaEnemyID.NetherVanguard,
                 VanillaEnemyID.NetherTroopCarrier,
                 VanillaEnemyID.AssaultDullahan,
-                //VanillaEnemyID.RaiderSkull,
-                VanillaEnemyID.WitherSkeletonHorse,
+                VanillaEnemyID.RaiderSkull,
                 VanillaEnemyID.skeletonWarrior,
             };
         }
