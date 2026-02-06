@@ -57,6 +57,8 @@ namespace MVZ2.Metas
 
         public bool NeedBlueprints { get; private set; }
 
+        public int WavesPerFlag { get; private set; }
+
         public Dictionary<string, object?> Properties { get; private set; }
         public static StageMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -126,6 +128,8 @@ namespace MVZ2.Metas
             var spawnPointsPower = spawnNode?.GetAttributeFloat("pointsPower") ?? 1;
             var spawnPointsMultiplier = spawnNode?.GetAttributeFloat("pointsMultiplier") ?? 1;
             var spawnPointsAddition = spawnNode?.GetAttributeFloat("pointsAddition") ?? 0;
+            var wavesPerFlag = spawnNode?.GetAttributeInt("wavesPerFlag") ?? 10;
+
             NamespaceID[]? spawns = null;
             if (spawnNode != null)
             {
@@ -193,7 +197,9 @@ namespace MVZ2.Metas
                 SpawnPointsMultiplier = spawnPointsMultiplier,
                 SpawnPointsAddition = spawnPointsAddition,
 
-                NeedBlueprints = needBlueprints
+                NeedBlueprints = needBlueprints,
+
+                WavesPerFlag = wavesPerFlag,
             };
         }
         public static readonly Dictionary<string, LevelCameraPosition> cameraPositionDict = new Dictionary<string, LevelCameraPosition>()
