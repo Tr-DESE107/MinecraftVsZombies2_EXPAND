@@ -16,6 +16,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Level;
+using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -43,9 +44,20 @@ namespace MVZ2.GameContent.Stages
             if (entity.IsEntityOf(VanillaEnemyID.mutantZombie))
                 return;
 
-            // 定义盔甲列表  
-            var helmetOptions = new NamespaceID[]
-            {
+        // 使用实体的随机数生成器随机选择一个盔甲  
+        var randomID = GetRandomSkeletonID(entity.RNG);
+
+        // 装备选中的盔甲  
+        entity.EquipMainArmor(randomID);
+        }
+        public NamespaceID GetRandomSkeletonID(RandomGenerator rng)
+        {
+            var index = rng.WeightedRandom(RandomSkeletonWeights);
+            return RandomSkeleton[index];
+        }
+
+        private static NamespaceID[] RandomSkeleton = new NamespaceID[]
+        {
         VanillaArmorID.leatherCap,
         VanillaArmorID.ironHelmet,
         VanillaArmorID.GoldenHelmet,
@@ -54,14 +66,20 @@ namespace MVZ2.GameContent.Stages
         VanillaArmorID.ChainmailHelmet,
         VanillaArmorID.DiamondHelmet,
         VanillaArmorID.NetheriteHelmet,
-            };
 
-            // 使用实体的随机数生成器随机选择一个盔甲  
-            var randomHelmet = helmetOptions[entity.RNG.Next(0, helmetOptions.Length)];
+        };
 
-            // 装备选中的盔甲  
-            entity.EquipMainArmor(randomHelmet);
-        }
+        private static int[] RandomSkeletonWeights = new int[]
+        {
+            10,
+            3,
+            4,
+            5,
+            5,
+            3,
+            1,
+            1,
+        };
 
         public override void OnSetup(LevelEngine level)
         {

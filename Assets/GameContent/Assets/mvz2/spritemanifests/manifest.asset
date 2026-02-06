@@ -37,10 +37,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 70de6ddff3a791547a9503617054e1c9, type: 3}
   - name: arcade/arcade_category_puzzle
     sprite: {fileID: 21300000, guid: 2cf19462984a14b4cbd808d15638e9bd, type: 3}
+  - name: arcade/ArmorParty
+    sprite: {fileID: 21300000, guid: 16091dff3a30e294087ccd6de32c9aab, type: 3}
   - name: arcade/a_tooth_for_a_tooth
     sprite: {fileID: 21300000, guid: f45a6df23c71d23459d9697033f1c6c9, type: 3}
   - name: arcade/big_trouble_and_little_zombie
     sprite: {fileID: 21300000, guid: 0966a8cb4bb36ec4f8354fc756227214, type: 3}
+  - name: arcade/big_trouble_and_little_zombie_2
+    sprite: {fileID: 21300000, guid: 8ce35d6e8e1182e46b511d35071fe8b8, type: 3}
   - name: arcade/breakout
     sprite: {fileID: 21300000, guid: b0de64e2af2016c45ae16c1d0b361591, type: 3}
   - name: arcade/ContraptionDevourer

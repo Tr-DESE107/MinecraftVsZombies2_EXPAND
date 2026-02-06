@@ -554,6 +554,7 @@
                 <float name="mvz2:range" value="40" />
                 <id name="mvz2:placeSound" value="mvz2:grass" />
                 <id name="mvz2:shell" value="mvz2:grass" />
+				<id name="mvz2:fragmentId" value="mvz2:mine_tnt" />
                 <id name="mvz2:placement" value="mvz2:buried" />
                 <id name="mvz2:deathSound" value="mvz2:grass" />
                 <vector3 name="mvz2:size" x="48" y="24" z="48" />

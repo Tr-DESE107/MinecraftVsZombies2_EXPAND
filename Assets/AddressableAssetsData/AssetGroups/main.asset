@@ -199,6 +199,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 032065dd5057b1647ad97bc02733e26e
+    m_Address: mvz2:entity/armor/EXPAND_armor/BarrierHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03686950f619ced4a8354b626d1c347e
     m_Address: mvz2:entity/effects/redline
     m_ReadOnly: 0
@@ -9407,6 +9414,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d97cd4c9cad55049938b6c4b36cf94d
+    m_Address: mvz2:armor/EXPAND_armor/BarrierHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9db1c252e2a4b0944a7655f2fb93b494
     m_Address: mvz2:random/crystal/crystal_break3
