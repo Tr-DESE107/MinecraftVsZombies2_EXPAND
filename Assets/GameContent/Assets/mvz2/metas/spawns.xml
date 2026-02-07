@@ -403,7 +403,7 @@
         <terrain water="true" />
         <weight base="1600" />
     </entry>
-    
+
     <!--EXPAND Villager-->
     <entry id="VillagerGhast" entity="mvz2:VillagerGhast">
         <spawn level="3" minWave="10" />
@@ -463,6 +463,12 @@
 		<entity id="mvz2:RandomSkeleton" />
 		<spawn level="2" />
 		<weight base="5000" />
+	</entry>
+
+	<entry id="XCarrierMutant" entity="mvz2:XCarrierMutant">
+		<spawn level="8" />
+		<terrain water="true" />
+		<weight base="2000" />
 	</entry>
 
 </spawns>

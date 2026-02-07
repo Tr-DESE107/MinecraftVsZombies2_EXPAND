@@ -435,6 +435,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2b4c560e9ec742d409f1512cf53ccb09, type: 3}
   - name: mobile_blueprint/KingSkeleton
     sprite: {fileID: 21300000, guid: c739a0e8065c7794eab33b1e0e3f511f, type: 3}
+  - name: mobile_blueprint/LCMTNT
+    sprite: {fileID: 21300000, guid: 7481dbcee85f61e4ebe3fd97845a4e22, type: 3}
   - name: mobile_blueprint/LeatherMonkZombie
     sprite: {fileID: 21300000, guid: 279e0ff132f5f6048b4a21aec96b5b54, type: 3}
   - name: mobile_blueprint/LeatherPirateZombie

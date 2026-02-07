@@ -40,14 +40,26 @@ namespace MVZ2.GameContent.Stages
             if (level.StageDefinition != this)
                 return;
 
-            //if (entity.IsEntityOf(VanillaEnemyID.mutantZombie))
-            //    return;
 
             // 定义盔甲列表  
             var helmetOptions = new NamespaceID[]
             {
         VanillaArmorID.leatherCap,
         VanillaArmorID.ironHelmet,
+        VanillaArmorID.mesmerizerCrown,
+        VanillaArmorID.bersekerHelmet,
+        VanillaArmorID.bedserkerHelmet,
+        VanillaArmorID.wickedHermitHat,
+        VanillaArmorID.skeletonWarriorHelmet,
+        VanillaArmorID.emperorCrown,
+        VanillaArmorID.SandstoneHelmet,
+        VanillaArmorID.bone_helmet,
+        VanillaArmorID.necromancer_helmet,
+        VanillaArmorID.nether_helmet,
+        VanillaArmorID.netherite_ingot_helmet,
+        VanillaArmorID.AngryReverserCrown,
+        VanillaArmorID.KingofReverserCrown,
+        VanillaArmorID.SantaHat,
         VanillaArmorID.GoldenHelmet,
         VanillaArmorID.RustedIronHelmet,
         VanillaArmorID.CopperHelmet,
@@ -71,6 +83,9 @@ namespace MVZ2.GameContent.Stages
 
             // 装备选中的盔甲  
             entity.EquipMainArmor(randomHelmet);
+
+            if (entity.IsEntityOf(VanillaEnemyID.cannoneerZombie))
+                return;
             entity.EquipArmorTo(VanillaArmorSlots.shield, randomShield);
         }
 

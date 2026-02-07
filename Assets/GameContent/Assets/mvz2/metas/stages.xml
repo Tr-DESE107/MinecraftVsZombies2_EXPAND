@@ -2281,12 +2281,14 @@
 			<spawn id="mvz2:zombie" />
 			<spawn id="mvz2:HostMutant" />
 			<spawn id="mvz2:cannoneer_zombie" />
-			<spawn id="mvz2:cannonball_zombie" />
 			<spawn id="mvz2:pop_captain" />
 			<spawn id="mvz2:EvilMage" />
 			<spawn id="mvz2:mutant_zombie" />
 			<spawn id="mvz2:imp" />
 			<spawn id="mvz2:skeleton" />
+			<spawn id="mvz2:HostHead" />
+			<spawn id="mvz2:BloodlustHostZombie" />
+			<spawn id="mvz2:Hemperor" />
 		</spawns>
 		<time firstWave="15" />
 	</stage>

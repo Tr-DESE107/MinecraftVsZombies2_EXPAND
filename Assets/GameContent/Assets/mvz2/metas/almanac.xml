@@ -896,6 +896,7 @@
 			</header>
 			<properties>
 				<p>技能：<![CDATA[<color=red>变成吃豆人中的小幽灵！</color>]]></p>
+				<p>特点：<![CDATA[<color=red>可以用于消除刷怪笼，或者用于将器械变回一张蓝图掉落物，后者的速度是前者的2倍。</color>]]></p>
 			</properties>
 			<flavors>
 				<flavor>
@@ -1024,6 +1025,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:firework_dispenser">
+			<tags>
+				<tag id="mvz2:antifly"/>
+			</tags>
             <header>
                 <p>烟花发射器会发射火焰弹攻击上方高空中的敌人。</p>
             </header>
@@ -1346,6 +1350,7 @@
 		<entry id="mvz2:SuperFireworkDispenser">
 			<tags>
 				<tag id="mvz2:placement_FireworkDispenser" />
+				<tag id="mvz2:antifly"/>
 			</tags>
 			<header>
 				<p>超级烟花发射器会发射烟花轰击上方高空中的敌人。</p>
