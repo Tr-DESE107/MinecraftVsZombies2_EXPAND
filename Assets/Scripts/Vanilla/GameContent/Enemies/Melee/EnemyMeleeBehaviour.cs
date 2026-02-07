@@ -66,15 +66,9 @@ namespace MVZ2.GameContent.Enemies
             var currentTarget = targetID?.GetEntity(enemy.Level);
             if (ValidateMeleeTarget(enemy, currentTarget))
                 return;
-            var target = other;
-            var protector = target.GetProtector();
-            if (protector != null && protector.Exists() && !protector.IsFriendly(enemy))
+            if (ValidateMeleeTarget(enemy, other))
             {
-                target = protector;
-            }
-            if (ValidateMeleeTarget(enemy, target))
-            {
-                SetMeleeTarget(enemy, new EntityID(target));
+                SetMeleeTarget(enemy, new EntityID(other));
             }
         }
         private void CollisionExit(Entity enemy, Entity other)
