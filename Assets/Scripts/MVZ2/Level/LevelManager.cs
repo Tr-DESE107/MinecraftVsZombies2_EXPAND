@@ -245,7 +245,7 @@ namespace MVZ2.Level
         }
 
 
-        public const int CURRENT_DATA_VERSION = 3;
+        public const int CURRENT_DATA_VERSION = 4;
         public float LawnToTransScale => 1 / transToLawnScale;
         public float TransToLawnScale => transToLawnScale;
         public MainManager Main => main;
