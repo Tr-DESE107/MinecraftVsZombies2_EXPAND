@@ -446,6 +446,7 @@
 
     <model name="mega_glowing_laser" type="entity" path="mvz2:effect/mega_glowing_laser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="petrified_shards" type="entity" path="mvz2:effect/petrified_shards" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="master_spark" type="entity" path="mvz2:effect/master_spark" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />

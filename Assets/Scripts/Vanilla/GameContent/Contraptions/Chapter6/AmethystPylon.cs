@@ -32,15 +32,32 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
-            switch (entity.State)
+            if (entity.IsEvoked())
             {
-                case STATE_IDLE:
-                    UpdateStateIdle(entity);
-                    break;
+                SetCrystalAlpha(entity, 1);
+                var masterSparkID = GetMasterSparkID(entity);
+                var masterSpark = masterSparkID?.GetEntity(entity.Level);
+                if (!masterSpark.ExistsAndAlive() || MasterSpark.IsShrinking(masterSpark))
+                {
+                    SetMasterSparkID(entity, null);
+                    SetCrystalAlpha(entity, 0);
+                    entity.SetEvoked(false);
+                    entity.ShortCircuit(Ticks.FromSeconds(EVOCATION_DISABLE_SECONDS), new EntitySourceReference(entity));
+                    entity.PlaySound(VanillaSoundID.powerOff);
+                }
+            }
+            else
+            {
+                switch (entity.State)
+                {
+                    case STATE_IDLE:
+                        UpdateStateIdle(entity);
+                        break;
 
-                case STATE_ATTACK:
-                    UpdateStateAttack(entity);
-                    break;
+                    case STATE_ATTACK:
+                        UpdateStateAttack(entity);
+                        break;
+                }
             }
         }
         protected override void UpdateLogic(Entity entity)
@@ -93,9 +110,12 @@ namespace MVZ2.GameContent.Contraptions
             var sourcePosition = entity.Position + offset;
             var param = entity.GetSpawnParams();
             param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
+            param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFacingLeft());
 
             entity.Spawn(VanillaEffectID.amethystPylonLaser, sourcePosition, param);
         }
+        public static EntityID? GetMasterSparkID(Entity entity) => entity.GetBehaviourField<EntityID>(PROP_MASTER_SPARK_ID);
+        public static void SetMasterSparkID(Entity entity, EntityID? timer) => entity.SetBehaviourField(PROP_MASTER_SPARK_ID, timer);
         public static FrameTimer? GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
         public static void SetStateTimer(Entity entity, FrameTimer? timer) => entity.SetBehaviourField(PROP_STATE_TIMER, timer);
         public static float GetCrystalAlpha(Entity entity) => entity.GetBehaviourField<float>(PROP_CRYSTAL_ALPHA);
@@ -104,8 +124,10 @@ namespace MVZ2.GameContent.Contraptions
         public const float ATTACK_COOLDOWN_SECONDS = 65 / 30f;
         public const float ATTACK_CHARGE_SECONDS = 25 / 30f;
         public const float ATTACK_RECHECK_SECONDS = 7 / 30f;
+        public const float EVOCATION_DISABLE_SECONDS = 30f;
         public const int STATE_IDLE = VanillaContraptionStates.IDLE;
         public const int STATE_ATTACK = VanillaContraptionStates.AMETHYST_PYLON_ATTACK;
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_MASTER_SPARK_ID = new VanillaEntityPropertyMeta<EntityID>("master_spark_id");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("state_timer");
         public static readonly VanillaEntityPropertyMeta<float> PROP_CRYSTAL_ALPHA = new VanillaEntityPropertyMeta<float>("crystal_alpha");
 

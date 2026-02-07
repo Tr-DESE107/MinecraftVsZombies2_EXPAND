@@ -39,7 +39,8 @@ namespace MVZ2.Vanilla.Entities
         public const string brickCannon_Trigger = "brick_cannon/trigger";
         public const string brickCannon_Evoke = "brick_cannon/evoke";
         public const string amethystPylon_Lit = "amethyst_pylon/lit";
-        
+        public const string amethystPylon_Evoke = "amethyst_pylon/evoke";
+
         #endregion
 
         #region Enemies

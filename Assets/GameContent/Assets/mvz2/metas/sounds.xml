@@ -499,6 +499,9 @@
     <sound name="magnetic">
         <sample path="mvz2:entity/force_pad/magnetic" weight="1" />
     </sound>
+    <sound name="master_spark">
+        <sample path="mvz2:master_spark" weight="1" />
+    </sound>
     <sound name="mech_setup">
         <sample path="mvz2:mech_setup" weight="1" />
     </sound>
@@ -910,6 +913,9 @@
     </sound>
     <sound name="touhou_death">
         <sample path="mvz2:touhou_death" weight="1" />
+    </sound>
+    <sound name="touhou_laser">
+        <sample path="mvz2:touhou_laser" weight="1" />
     </sound>
     <sound name="tractor_beam">
         <sample path="mvz2:tractor_beam" weight="1" />

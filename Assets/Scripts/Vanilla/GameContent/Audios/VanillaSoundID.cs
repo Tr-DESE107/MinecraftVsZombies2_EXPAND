@@ -137,6 +137,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID lurker = Get("lurker");
         public readonly static NamespaceID magical = Get("magical");
         public readonly static NamespaceID magnetic = Get("magnetic");
+        public readonly static NamespaceID masterSpark = Get("master_spark");
         public readonly static NamespaceID mechSetup = Get("mech_setup");
         public readonly static NamespaceID mechanism = Get("mechanism");
         public readonly static NamespaceID meow = Get("meow");
@@ -225,6 +226,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID timeWarp = Get("time_warp");
         public readonly static NamespaceID tornado = Get("tornado");
         public readonly static NamespaceID touhouDeath = Get("touhou_death");
+        public readonly static NamespaceID touhouLaser = Get("touhou_laser");
         public readonly static NamespaceID tractorBeam = Get("tractor_beam");
         public readonly static NamespaceID trainTravel = Get("train_travel");
         public readonly static NamespaceID trainWhistle = Get("train_whistle");

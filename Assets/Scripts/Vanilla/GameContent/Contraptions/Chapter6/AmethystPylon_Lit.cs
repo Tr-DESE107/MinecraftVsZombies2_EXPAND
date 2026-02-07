@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public const int MAX_LIGHT_SOURCE_COUNT = 3;
         public const float CHECK_SECONDS = 7 / 30f;
-        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_CHECK_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("state_timer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_CHECK_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("check_timer");
         public static readonly VanillaEntityPropertyMeta<float> PROP_DAMAGE_MULTIPLIER = new VanillaEntityPropertyMeta<float>("damage_multiplier");
         private static HashSet<long> lightSourceBuffer = new HashSet<long>();
     }
