@@ -45,6 +45,13 @@ namespace MVZ2.GameContent.Contraptions
                     entity.ShortCircuit(Ticks.FromSeconds(EVOCATION_DISABLE_SECONDS), new EntitySourceReference(entity));
                     entity.PlaySound(VanillaSoundID.powerOff);
                 }
+                else
+                {
+                    var sourcePosition = GetLaserPosition(entity);
+                    masterSpark.Position = sourcePosition;
+                    masterSpark.SetFlipX(entity.IsFacingLeft());
+                    masterSpark.SetFaction(entity.GetFaction());
+                }
             }
             else
             {
@@ -105,14 +112,18 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static void Attack(Entity entity)
         {
-            var offset = entity.GetShotOffset();
-            offset.x *= entity.GetFacingX();
-            var sourcePosition = entity.Position + offset;
+            var sourcePosition = GetLaserPosition(entity);
             var param = entity.GetSpawnParams();
             param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
             param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFacingLeft());
 
             entity.Spawn(VanillaEffectID.amethystPylonLaser, sourcePosition, param);
+        }
+        public static Vector3 GetLaserPosition(Entity entity)
+        {
+            var offset = entity.GetShotOffset();
+            offset.x *= entity.GetFacingX();
+            return entity.Position + offset;
         }
         public static EntityID? GetMasterSparkID(Entity entity) => entity.GetBehaviourField<EntityID>(PROP_MASTER_SPARK_ID);
         public static void SetMasterSparkID(Entity entity, EntityID? timer) => entity.SetBehaviourField(PROP_MASTER_SPARK_ID, timer);

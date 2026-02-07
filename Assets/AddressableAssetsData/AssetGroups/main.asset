@@ -703,6 +703,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0dbb7eec752b56740a4fc2bd819739f7
+    m_Address: mvz2:entity/effect/master_spark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0deb751d188532a459548c9e64ada4b5
     m_Address: mvz2:damage/bone/bone_hit2
     m_ReadOnly: 0
@@ -2625,6 +2632,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 357d5de4018192146ba66f747ecde434
+    m_Address: mvz2:touhou_laser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3583655055a075342acf09efa95d3f56
     m_Address: mvz2:day
@@ -8519,6 +8533,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acd12b5ce0dafca4d9649b255c554d3d
+    m_Address: mvz2:master_spark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: acfe49e4096d3e242bf14e1ee6fc70eb
     m_Address: mvz2:trident_thunder2
     m_ReadOnly: 0
@@ -9242,6 +9263,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc3719cae8db6484dae084e01015fb7b
     m_Address: mvz2:effect/dark_hole
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc7ffee90482abe4a9cfce689fa0ac4a
+    m_Address: mvz2:effect/master_spark
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
