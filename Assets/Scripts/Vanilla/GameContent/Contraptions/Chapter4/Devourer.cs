@@ -180,7 +180,14 @@ namespace MVZ2.GameContent.Contraptions
             UpdateDevourerPosition(devourer);
 
             var devourTimer = GetDevourTimer(devourer);
-            devourTimer?.Run();
+            if (devourer.Target.Type == EntityTypes.PLANT)
+            {
+                devourTimer?.Run(2); // 2倍速度  
+            }
+            else
+            {
+                devourTimer?.Run(); // 刷怪笼保持原速  
+            }
             if (devourTimer == null || devourTimer.Expired)
             {
                 var target = devourer.Target;
