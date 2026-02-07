@@ -380,7 +380,7 @@
 			</header>
 			<properties>
 				<p>射程：<![CDATA[<color=red>5格</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20，蚀毒效果30/s，持续5s</color>]]></p>
 				<p>技能：<![CDATA[<color=red>射出一个越滚越大的毒球</color>]]></p>
 			</properties>
 			<flavor>
@@ -1393,7 +1393,7 @@
 			</header>
 			<properties>
 				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20，蚀毒效果36/s，持续7s</color>]]></p>
 				<p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
 			</properties>
 			<flavor>

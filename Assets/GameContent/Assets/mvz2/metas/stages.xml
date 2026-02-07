@@ -2264,7 +2264,7 @@
 	
 	<stage id="AnotherPrologue" name="另一个序章" needBlueprints="false" type="minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
-		<spawns flags="3" wavesPerFlag="8" pointsMultiplier="1.1">
+		<spawns flags="3" wavesPerFlag="8" pointsMultiplier="1.2">
 			<spawn id="mvz2:zombie" />
 			<spawn id="mvz2:leather_capped_zombie" />
 			<spawn id="mvz2:iron_helmetted_zombie" />
@@ -2272,15 +2272,17 @@
 			<spawn id="mvz2:imp" />
 			<spawn id="mvz2:skeleton" />
 		</spawns>
-		<time firstWave="45" />
+		<time firstWave="30" />
 	</stage>
 	
 	<stage id="ArmorParty" name="盔甲派对" type="minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
-		<spawns flags="3" pointsMultiplier="2">
+		<spawns flags="3" wavesPerFlag="9" pointsMultiplier="2">
 			<spawn id="mvz2:zombie" />
-			<spawn id="mvz2:cannoneerZombie" />
-			<spawn id="mvz2:cannonballZombie" />
+			<spawn id="mvz2:HostMutant" />
+			<spawn id="mvz2:cannoneer_zombie" />
+			<spawn id="mvz2:cannonball_zombie" />
+			<spawn id="mvz2:pop_captain" />
 			<spawn id="mvz2:EvilMage" />
 			<spawn id="mvz2:mutant_zombie" />
 			<spawn id="mvz2:imp" />
@@ -2291,7 +2293,7 @@
 
 	<stage id="big_trouble_and_little_zombie_2" name="小僵尸和大麻烦2" type="minigame" music="mvz2:minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
-		<spawns flags="2" pointsMultiplier="3">
+		<spawns flags="3" wavesPerFlag="8" pointsMultiplier="3">
 			<spawn id="mvz2:WitherSkeleton" />
 			<spawn id="mvz2:LeatherWitherSkeleton" />
 			<spawn id="mvz2:IronWitherSkeleton" />
@@ -2301,21 +2303,28 @@
 			<spawn id="mvz2:spider" />
 			<spawn id="mvz2:HostZombie" />
 			<spawn id="mvz2:HostMutant" />
+			<spawn id="mvz2:VillagerGhast" />
+			<spawn id="mvz2:XCarrierMutant" />
+			<spawn id="mvz2:NightmareDisciple" />
 		</spawns>
 	</stage>
 	
 	<stage id="GiantCrisis" name="真·巨人危机" type="minigame" music="mvz2:minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
-		<spawns flags="2" pointsMultiplier="3">
+		<spawns flags="3" wavesPerFlag="7" pointsMultiplier="2">
 			<spawn id="mvz2:WitherSkeleton" />
 			<spawn id="mvz2:LeatherWitherSkeleton" />
 			<spawn id="mvz2:IronWitherSkeleton" />
 			<spawn id="mvz2:berserker" />
+			<spawn id="mvz2:ImpMannequin" />
 			<spawn id="mvz2:ghast" />
+			<spawn id="mvz2:VillagerGhast" />
 			<spawn id="mvz2:dullahan" />
 			<spawn id="mvz2:spider" />
+			<spawn id="mvz2:mother_terror" />
 			<spawn id="mvz2:HostZombie" />
 			<spawn id="mvz2:HostMutant" />
+			<spawn id="mvz2:XCarrierMutant" />
 		</spawns>
 	</stage>
 	

@@ -29,6 +29,11 @@ namespace MVZ2.GameContent.Projectiles
             }
             buff.SetProperty(ParabotBuff.PROP_FACTION, projectile.GetFaction());
             buff.SetProperty(ParabotBuff.PROP_TIMEOUT, MAX_TIMEOUT);
+
+            var enemy = hitResult.Other;
+            if (enemy.Type != EntityTypes.ENEMY)
+                return;
+            enemy.InflictCorropoisonBuff(1.2f, 210, new EntitySourceReference(hitResult.Projectile));
         }
         public const int MAX_TIMEOUT = 180;
     }

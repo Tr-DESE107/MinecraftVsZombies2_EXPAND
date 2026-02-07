@@ -1382,6 +1382,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16091dff3a30e294087ccd6de32c9aab
+    m_Address: mvz2:arcade/ArmorParty
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 160f9fc9ad1c8524f8dc892654dc1557
     m_Address: mvz2:characters/shou
     m_ReadOnly: 0
@@ -8393,6 +8400,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ce35d6e8e1182e46b511d35071fe8b8
+    m_Address: mvz2:arcade/big_trouble_and_little_zombie_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8cf98dd491e96bf47ad3a5767c1578b2
     m_Address: mvz2:ui/level/card_upgrade
     m_ReadOnly: 0
@@ -10796,6 +10810,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b63bdd3991537ac4f9fd0e050c80fa41
     m_Address: mvz2:ui/level/progress_bar/nightmare_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b63d1beba14242a439dc16b97f9db804
+    m_Address: mvz2:arcade/AnotherPrologue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
