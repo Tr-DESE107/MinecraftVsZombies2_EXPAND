@@ -4,7 +4,8 @@
     </character>
     <character id="crazy_villager" name="村民">
         <variant id="mvz2:normal" width="488" height="1000" pivotX="0.5" pivotY="0.5">
-            <layer sprite="mvz2:characters/crazy_villager[0]" />
+			<!--<layer sprite="mvz2:characters/crazy_villager[0]" />-->
+			<layer sprite="mvz2:characters/CrazyVillager_ChineseNewYear[0]" />
         </variant>
     </character>
     <character id="orant" name="欧兰特">
