@@ -932,7 +932,19 @@
                 <p>核能真是太酷了！</p>
             </flavor>
         </entry>
-        <entry />
+        <entry id="mvz2:amethyst_pylon">
+            <header>
+                <p>紫晶塔向前发射穿透所有敌人的激光。周围的光源越多，紫晶塔的伤害越高。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red>10（无光源），20（1光源），40（2光源），60（3光源）</color>]]></p>
+                <p>攻击间隔：<![CDATA[<color=red>3秒</color>]]></p>
+                <p>技能：<![CDATA[<color=red>发射一道贯穿三行的超能光束，之后紫晶塔被禁用30秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——这就是紫晶塔的来历了。</p>
+            </flavor>
+        </entry>
         <entry id="mvz2:nuke">
             <header>
                 <p>核弹在触发后会摧毁大范围内的敌人，让它们尸骨无存，但会暂时破坏所在的地块。</p>

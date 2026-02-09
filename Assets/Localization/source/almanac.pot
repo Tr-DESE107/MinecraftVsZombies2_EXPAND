@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-02-02 11:09+0800\n"
+"POT-Creation-Date: 2026-02-09 03:20+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1758,6 +1758,27 @@ msgctxt "contraptions.description"
 msgid ""
 "核电站中常用的冷却单元。虽然摸起来不算很冷，却也十分有效。\n"
 "核能真是太酷了！"
+msgstr ""
+
+#. Header for contraptions mvz2:amethyst_pylon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "紫晶塔向前发射穿透所有敌人的激光。周围的光源越多，紫晶塔的伤害越高。"
+msgstr ""
+
+#. Properties for contraptions mvz2:amethyst_pylon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>10（无光源），20（1光源），40（2光源），60（3光源）</color>\n"
+"攻击间隔：<color=red>3秒</color>\n"
+"技能：<color=red>发射一道贯穿三行的超能光束，之后紫晶塔被禁用30秒</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:amethyst_pylon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——这就是紫晶塔的来历了。"
 msgstr ""
 
 #. Header for contraptions mvz2:nuke
@@ -5200,6 +5221,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "加快器械的充能进度"
+msgstr ""
+
+#. Name for entity mvz2:amethyst_pylon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "紫晶塔"
+msgstr ""
+
+#. Tooltip for entity mvz2:amethyst_pylon
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "发射穿透激光，在光线中增强"
 msgstr ""
 
 #. Name for entity mvz2:nuke

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-02-02 11:09+0800\n"
-"PO-Revision-Date: 2026-02-02 14:03+0800\n"
+"POT-Creation-Date: 2026-02-09 03:20+0800\n"
+"PO-Revision-Date: 2026-02-09 15:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2126,6 +2126,32 @@ msgid ""
 msgstr ""
 "A cooling cell commonly used in nuclear power plants. Although it doesn't feel very cold when touched, it's quite effective.\n"
 "Nuclear energy is so cool!"
+
+#. Header for contraptions mvz2:amethyst_pylon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "紫晶塔向前发射穿透所有敌人的激光。周围的光源越多，紫晶塔的伤害越高。"
+msgstr "Amethyst Pylons fire lasers that pierces all enemies. The more light sources around them, the higher their damage."
+
+#. Properties for contraptions mvz2:amethyst_pylon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red>10（无光源），20（1光源），40（2光源），60（3光源）</color>\n"
+"攻击间隔：<color=red>3秒</color>\n"
+"技能：<color=red>发射一道贯穿三行的超能光束，之后紫晶塔被禁用30秒</color>"
+msgstr ""
+"Damage: <color=red>10 (no light sources), 20 (1 light source), 40 (2 light sources), 60 (3 light sources)</color>\n"
+"Fire rate: <color=red>3 seconds</color>\n"
+"Evocation: <color=red>Fires a hyperbeam that pierces three lanes, after which the Amethyst Pylon is disabled for 30 seconds</color>"
+
+#. Flavor for contraptions mvz2:amethyst_pylon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——这就是紫晶塔的来历了。"
+msgstr ""
+"Someone once tried to build a telescope, but got the quantities of amethyst and copper ingots wrong—that's the origin of Amethyst "
+"Pylon."
 
 #. Header for contraptions mvz2:nuke
 #: Almanac meta file
@@ -6295,6 +6321,18 @@ msgstr "Cooling Cell"
 msgctxt "entity.tooltip"
 msgid "加快器械的充能进度"
 msgstr "Speed up the recharge time of a contraption"
+
+#. Name for entity mvz2:amethyst_pylon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "紫晶塔"
+msgstr "Amethyst Pylon"
+
+#. Tooltip for entity mvz2:amethyst_pylon
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "发射穿透激光，在光线中增强"
+msgstr "Shoot lasers and is enhanced by lights"
 
 #. Name for entity mvz2:nuke
 #: Entity meta file
