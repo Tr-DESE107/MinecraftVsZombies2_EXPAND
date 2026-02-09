@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-01-24 04:15+0800\n"
-"PO-Revision-Date: 2026-01-24 16:15+0800\n"
+"POT-Creation-Date: 2026-02-09 06:07+0800\n"
+"PO-Revision-Date: 2026-02-09 18:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2368,34 +2368,34 @@ msgstr ""
 "Best Streak:\n"
 "{0}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:844
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:846
 msgctxt "almanac"
 msgid "充能时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:848
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr "Scale: {0}"
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:850
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr "{0}: {1}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:852
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr "Hold left mouse and drag to move; Scroll to scale"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:855
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:854
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr "Drag with one finger to move; Touch with two fingers to scale"
@@ -4317,6 +4317,12 @@ msgstr "Can only be placed on contraptions that can sleep"
 msgctxt "advice"
 msgid "只能放置在刷怪笼或者非大型器械上"
 msgstr "Can only be placed on spawners or non-large contraptions"
+
+#. Message for grid error mvz2:only_can_cool
+#: Grid meta file
+msgctxt "advice"
+msgid "只能放置在可以冷却的器械上"
+msgstr "Can only be placed on contraptions that can be cooled"
 
 #. Message for grid error mvz2:only_upgrade
 #: Grid meta file
