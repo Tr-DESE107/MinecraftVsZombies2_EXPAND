@@ -87,7 +87,7 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     entity.State = STATE_ATTACK;
                     timer.ResetSeconds(ATTACK_CHARGE_SECONDS);
-                    entity.PlaySound(VanillaSoundID.boltCharge);
+                    entity.PlaySound(VanillaSoundID.boltCharge, volume: 0.5f);
                 }
                 else
                 {
