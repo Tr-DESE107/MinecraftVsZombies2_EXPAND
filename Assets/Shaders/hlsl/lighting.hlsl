@@ -31,6 +31,10 @@ float4 GetSpotLight(float2 lightUV)
 {
     return tex2D(_LightMapSpot, lightUV);
 }
+float4 GetSpotLightParticle(float4 lightUV)
+{
+    return tex2Dlod(_LightMapSpot, lightUV);
+}
 float4 GetLight(float2 lightUV)
 {
     float4 light = GetGlobalLight();
@@ -42,6 +46,25 @@ float4 GetLight(float2 lightUV)
     if (_SpotLit)
     {
         float4 spot = GetSpotLight(lightUV);
+        light += spot;
+    }
+    if (_HDRDisabled)
+    {
+        light = saturate(light);
+    }
+    return light;
+}
+float4 GetLightParticle(float4 lightUV)
+{
+    float4 light = GetGlobalLight();
+    if (_BackgroundLit)
+    {
+        float4 background = GetBackgroundLight();
+        light *= background;
+    }
+    if (_SpotLit)
+    {
+        float4 spot = GetSpotLightParticle(lightUV);
         light += spot;
     }
     if (_HDRDisabled)
@@ -84,6 +107,20 @@ float4 ApplyLight(float4 col, float2 lightUV)
             colLin *= tintLin;
         }
         col = ToGamma(colLin);
+    }
+    return col;
+}
+float4 ApplyLightParticle(float4 col, float4 lightUV)
+{
+    if (!LightDisabled() && _LightStarted)
+    {
+        float4 light = GetLightParticle(lightUV);
+        col.rgb *= light.rgb * saturate(light.a);
+        col.rgb = saturate(col.rgb);
+        if (_BackgroundLit)
+        {
+            col *= _BackgroundTint;
+        }
     }
     return col;
 }

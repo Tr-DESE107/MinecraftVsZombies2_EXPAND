@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: particle_lit
-  m_Shader: {fileID: 4800000, guid: 3adf19911e6eca84b85fde7eb8ada35b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3db785e965bfc3947a30fc72a2703f0f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -139,6 +139,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DepthOffset: 100
+    - _DepthTest: 0
     - _DepthTestEnabled: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
@@ -175,6 +176,7 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
+    - _SoftFactor: 10
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
