@@ -57,14 +57,13 @@ Shader "MinecraftVSZombies2/Legacy/Particle"
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
-                float4 color : COLOR;
+                half4 color : COLOR;
             };
 
             struct v2f {
                 float4 vertex : SV_POSITION;
                 float2 uv : TEXCOORD0;
-                float4 color : COLOR;
-                float softFade : TEXCOORD1;
+                half4 color : COLOR;
             };
 
             sampler2D _MainTex;
@@ -87,13 +86,12 @@ Shader "MinecraftVSZombies2/Legacy/Particle"
                 o.color = ApplyLightParticle(o.color, lodUV);
                 #endif
 
+
                 // …Ó∂»≤‚ ‘
                 #if DEPTH_TEST
                 float4 world = mul(unity_ObjectToWorld, v.vertex);
                 float depth = SampleDepthParticle(world, lodUV);
-                o.softFade = 1.0 - saturate(depth * _SoftFactor);
-                #else
-                o.softFade = 1.0;
+                o.color.a *= saturate(1.0 - depth * _SoftFactor);
                 #endif
 
                 return o;
@@ -101,13 +99,8 @@ Shader "MinecraftVSZombies2/Legacy/Particle"
 
             half4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, i.uv);
-                
-                col *= i.color;
-                col.a *= i.softFade;
+                half4 col = tex2D(_MainTex, i.uv) * i.color;
                 col.rgb *= col.a;
-
-
                 return col;
             }
             ENDHLSL
