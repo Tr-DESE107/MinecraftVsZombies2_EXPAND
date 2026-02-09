@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-02-09 03:20+0800\n"
-"PO-Revision-Date: 2026-02-09 18:06+0800\n"
+"POT-Creation-Date: 2026-02-09 08:20+0800\n"
+"PO-Revision-Date: 2026-02-10 22:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2151,10 +2151,10 @@ msgstr ""
 #. Flavor for contraptions mvz2:amethyst_pylon
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——这就是紫晶塔的来历了。"
+msgid "有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——现在它成为了你必须建造更多的玩意。"
 msgstr ""
-"Someone once wanted to craft a spyglass, but got the quantities of amethyst and copper ingots wrong—and that's the origin of the "
-"Amethyst Pylon."
+"\"YOU MUST CONSTRUCT ADDITIONAL PYLONS\", the person said to his apprentice after messing up the quantities of amethyst and copper "
+"ingots needed to craft the spyglass."
 
 #. Header for contraptions mvz2:nuke
 #: Almanac meta file
