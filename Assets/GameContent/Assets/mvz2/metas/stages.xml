@@ -1570,7 +1570,6 @@
 			<entry id="mvz2:lightning_orb" count="5" />
 			<entry id="mvz2:magichest" count="5"/>
 			<entry id="mvz2:firework_dispenser" count="10" />
-			<entry id="mvz2:SuperFireworkDispenser" count="2" />
 			<entry id="mvz2:wooden_fan" count="10" />
 			<entry id="mvz2:stone_shield" count="10" />
 			<entry id="mvz2:punchton" count="20" />
@@ -1804,7 +1803,6 @@
             <entry id="mvz2:lightning_orb" count="1" />
             <entry id="mvz2:magichest" count="1" minCount="0" />
 			<entry id="mvz2:firework_dispenser" count="1" />
-			<entry id="mvz2:SuperFireworkDispenser" count="1" />
         </conveyor>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
 		<spawns flags="3" pointsMultiplier="2" pointsAddition="1">

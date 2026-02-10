@@ -1579,6 +1579,9 @@ MonoBehaviour:
     - {fileID: 1138428065, guid: 4dce52e9fb4e43b4a9bf9a9af890bcf9, type: 3}
     - {fileID: -731492466, guid: 4dce52e9fb4e43b4a9bf9a9af890bcf9, type: 3}
     - {fileID: 1416557461, guid: 4dce52e9fb4e43b4a9bf9a9af890bcf9, type: 3}
+  - name: characters/CrazyVillager_ChineseNewYear
+    spritesheet:
+    - {fileID: 21300000, guid: dc3e837e38e396f4ab8cb7af2c11cfe8, type: 3}
   - name: characters/crazy_villager
     spritesheet:
     - {fileID: 21300000, guid: c321612661c274844b82586aba232f9f, type: 3}

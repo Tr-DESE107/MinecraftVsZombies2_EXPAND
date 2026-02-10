@@ -354,7 +354,7 @@
         <terrain water="true" air="true" />
         <weight base="0" />
     </entry>
-    <entry id="SixQiZombie" entity="mvz2:SixQiZombie">
+    <entry id="SixQiZombie" entity="mvz2:SixQiZombie" noEndless="true">
         <spawn level="4" />
         <weight base="1250" />
     </entry>

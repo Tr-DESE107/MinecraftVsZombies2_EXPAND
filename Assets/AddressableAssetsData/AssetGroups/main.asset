@@ -6987,6 +6987,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7481dbcee85f61e4ebe3fd97845a4e22
+    m_Address: mvz2:mobile_blueprint/LCMTNT
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7490e9324285caa4194143af3411c4df
     m_Address: mvz2:level/mausoleum/mausoleum
     m_ReadOnly: 0
@@ -12949,6 +12956,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc3e837e38e396f4ab8cb7af2c11cfe8
+    m_Address: mvz2:characters/CrazyVillager_ChineseNewYear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc3f43337866cef4c94af92af1159b8f
     m_Address: mvz2:mobile_blueprint/drivenser

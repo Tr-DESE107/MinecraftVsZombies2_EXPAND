@@ -2373,6 +2373,7 @@
                 <float name="mvz2:maxHealth" value="100" />
                 <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="4" />
+                <float name="mvz2:damage" value="50" />
                 <bool name="mvz2:noReward" value="true" />
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <id name="mvz2:shape" value="mvz2:cannonball" />
