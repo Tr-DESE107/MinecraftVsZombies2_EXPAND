@@ -48,6 +48,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 return;
             entity.Revive();
             var costHealth = Mathf.Min(source.Health, entity.GetMaxHealth());
+            entity.Health = Mathf.Max(0, entity.Health);
             entity.HealEffects(costHealth, source);
             source.TakeDamage(costHealth, new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), source);
             if (source.Health <= 0)
