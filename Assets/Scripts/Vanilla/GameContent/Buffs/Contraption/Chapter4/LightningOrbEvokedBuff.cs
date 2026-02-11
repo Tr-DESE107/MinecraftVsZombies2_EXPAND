@@ -19,6 +19,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
@@ -31,6 +32,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             // 注册触发器：在实体受到伤害前调用
             AddTrigger(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, PreProjectileHitCallback);
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback, priority: -200);
+            AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
             thunderDetector = new LawnDetector();
         }
 
