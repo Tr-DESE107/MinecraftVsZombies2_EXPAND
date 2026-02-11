@@ -15,6 +15,7 @@ using Tools;
 using UnityEngine;
 using MVZ2.GameContent.Buffs;
 using PVZEngine.Buffs;
+using MVZ2.GameContent.Effects;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -39,6 +40,11 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
             entity.PlaySound(VanillaSoundID.gunReload);
             entity.PlaySound(VanillaSoundID.fuse);
+
+            entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), entity.RNG.Next())?.Let(text =>
+            {
+                FloatingText.SetText(text, "ĞÂÄê¿ìÀÖ");
+            });
         }
         protected override void UpdateAI(Entity entity)
         {
