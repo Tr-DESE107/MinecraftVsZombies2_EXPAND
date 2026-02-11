@@ -87,6 +87,8 @@
 
                 <int name="mvz2:waterInteraction" value="1" />
                 <int name="mvz2:airInteraction" value="2" />
+
+				<id name="mvz2:starting_armor" value="mvz2:WealthHat" />
             </properties>
         </enemy>
         <obstacle id="3" parent="entity">
