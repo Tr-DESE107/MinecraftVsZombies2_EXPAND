@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-02-09 08:20+0800\n"
-"PO-Revision-Date: 2026-02-10 22:08+0800\n"
+"POT-Creation-Date: 2026-02-11 12:33+0800\n"
+"PO-Revision-Date: 2026-02-11 12:33+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3174,8 +3174,12 @@ msgstr ""
 #. Properties for enemies mvz2:zombie_cloud
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "生命：<color=red>200</color>"
-msgstr "Toughness: <color=red>200</color>"
+msgid ""
+"生命：<color=red>200</color>\n"
+"特点：<color=red>被闪电和冰冷伤害攻击会转换为对应的形态</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Special: <color=red>Transform into corresponding forms when hit by lightning or cold attacks</color>"
 
 #. Flavor for enemies mvz2:zombie_cloud
 #: Almanac meta file
@@ -7662,6 +7666,10 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "enemies.description"
+#~ msgid "生命：<color=red>200</color>"
+#~ msgstr "Toughness: <color=red>200</color>"
 
 #~ msgctxt "artifact.name"
 #~ msgid "凋灵骷髅头"

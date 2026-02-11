@@ -1548,6 +1548,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>特点：<![CDATA[<color=red>被闪电和冰冷伤害攻击会转换为对应的形态</color>]]></p>
             </properties>
             <flavor>
                 <p>至少这朵云没有对你竖中指。</p>
