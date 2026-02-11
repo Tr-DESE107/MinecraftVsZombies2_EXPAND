@@ -327,6 +327,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b362171cd0a32824e9b3ac7c42f24dd7, type: 3}
   - name: mobile_blueprint/gunpowder_barrel
     sprite: {fileID: 21300000, guid: c7c2c17e30f15d84fa48bd11657b600a, type: 3}
+  - name: mobile_blueprint/hacker
+    sprite: {fileID: 21300000, guid: 259d5765d58e26d40bcd0e31330e9195, type: 3}
   - name: mobile_blueprint/hellfire
     sprite: {fileID: 21300000, guid: 358463c4a1670b441b15bd6423009e35, type: 3}
   - name: mobile_blueprint/hell_chariot
@@ -2266,6 +2268,15 @@ MonoBehaviour:
     - {fileID: 1603489236, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
     - {fileID: -786789113, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
     - {fileID: -471910337, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
+  - name: entity/enemy/hacker
+    spritesheet:
+    - {fileID: -933410910, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
+    - {fileID: 1632798389, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
+    - {fileID: 1070594744, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
+    - {fileID: -1796438724, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
+    - {fileID: -1525853295, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
+    - {fileID: -1367346586, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
+    - {fileID: 414838309, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
   - name: entity/enemy/hell_chariot
     spritesheet:
     - {fileID: -871321623, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}

@@ -2118,6 +2118,25 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>
+        <witherSkeleton id="hacker" name="黑客" deathMessage="G4M3 0V3R">
+            <unlock>
+                <condition required="mvz2:level.palace_6" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:humanoid_animation" id="mvz2:hacker/animation" />
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:hacker/state" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:range" value="800" />
+                <vector3 name="mvz2:size" x="38" y="103" z="38" />
+                <id name="mvz2:shell" value="mvz2:nether" />
+                <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+                <id name="mvz2:hitSound" value="mvz2:bone_hit" />
+                <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+
+                <int name="mvz2:cost" value="100" />
+            </properties>
+        </witherSkeleton>
 
         <mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
         </mutantZombie>

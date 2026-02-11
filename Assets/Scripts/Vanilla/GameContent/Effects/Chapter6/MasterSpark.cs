@@ -37,8 +37,8 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (!entity.Parent.ExistsAndAlive())
-            {
+            if (!entity.Parent.ExistsAndAlive() || entity.Parent.IsAIFrozen())
+            { 
                 entity.Remove();
                 return;
             }

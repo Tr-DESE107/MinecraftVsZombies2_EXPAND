@@ -997,6 +997,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 133d04fb15c125c43a056f3ad563f950
+    m_Address: mvz2:enemy/palace/hacker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 135dff09421d4164c91798ffaa81d047
     m_Address: mvz2:entity/carts/unzan_fist
     m_ReadOnly: 0
@@ -1461,6 +1468,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ce6dc58e8464274cb75bcc29d1ce3f8
     m_Address: mvz2:entity/contraption/triplenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cffeb798b5d3c646b2556be70630109
+    m_Address: mvz2:entity/enemy/hacker
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -232,6 +232,9 @@
     <model name="skeleton_statue" type="entity" path="mvz2:enemy/palace/skeleton_statue" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+    <model name="hacker" type="entity" path="mvz2:enemy/palace/hacker" width="70" height="106" xOffset="15" yOffset="-50">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/shrine/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/shrine/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90" />

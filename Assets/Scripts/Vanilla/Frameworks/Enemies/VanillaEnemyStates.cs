@@ -23,6 +23,8 @@ namespace MVZ2.Vanilla.Enemies
 
         public const int SKELETON_STATUE_REVIVING = PRIVATE_NUMBER + 0;
 
+        public const int HACKER_HACK = PRIVATE_NUMBER + 0;
+
         private const int PRIVATE_NUMBER = 10000;
     }
 }

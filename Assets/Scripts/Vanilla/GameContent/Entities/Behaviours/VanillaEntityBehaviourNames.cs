@@ -80,6 +80,8 @@ namespace MVZ2.Vanilla.Entities
         public const string skeletonStatue_Animation = "skeleton_statue/animation";
         public const string skeletonStatue_Death = "skeleton_statue/death";
         public const string skeletonStatue_State = "skeleton_statue/state";
+        public const string hacker_Animation = "hacker/animation";
+        public const string hacker_State = "hacker/state";
         #endregion
 
         #region Obstacles
