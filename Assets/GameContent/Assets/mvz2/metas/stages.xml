@@ -2259,8 +2259,8 @@
 			<spawn id="mvz2:KingofReverser" />
 		</spawns>
 	</stage>
-	
-	<stage id="AnotherPrologue" name="另一个序章" needBlueprints="false" type="minigame">
+
+	<stage id="AnotherPrologue" name="&lt;color=red&gt;另一个序章&lt;/color&gt;" needBlueprints="false" type="minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
 		<spawns flags="3" wavesPerFlag="8" pointsMultiplier="1.2">
 			<spawn id="mvz2:zombie" />
@@ -2316,7 +2316,6 @@
 			<spawn id="mvz2:LeatherWitherSkeleton" />
 			<spawn id="mvz2:IronWitherSkeleton" />
 			<spawn id="mvz2:berserker" />
-			<spawn id="mvz2:ImpMannequin" />
 			<spawn id="mvz2:ghast" />
 			<spawn id="mvz2:VillagerGhast" />
 			<spawn id="mvz2:dullahan" />

@@ -2572,7 +2572,7 @@ MonoBehaviour:
     - {fileID: -94971770, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
     - {fileID: 1939102905, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
     - {fileID: 578030354, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
-  - name: entity/enemy/CannoneerManeequin
+  - name: entity/enemy/CannoneerMannequin
     spritesheet:
     - {fileID: 1694852501, guid: a95ce05ec9225b245882a09e4183edc7, type: 3}
     - {fileID: -583230075, guid: a95ce05ec9225b245882a09e4183edc7, type: 3}
