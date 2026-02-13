@@ -365,5 +365,23 @@
 				<float name="mvz2:maxHealth" value="600" />
 			</props>
 		</entry>
+		<entry id="MannequinCannon" type="mvz2:handheld">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+				<behaviour id="mvz2:MannequinCannon" />
+			</behaviours>
+			<colliders>
+				<collider name="main">
+					<offset x="-5" y="-7" z="0" />
+					<size x="61" y="36" z="18" />
+					<pivot x="0.5" y="0.5" z="0.5" />
+				</collider>
+			</colliders>
+			<props>
+				<bool name="mvz2:noDiscard" value="true" />
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1110" />
+			</props>
+		</entry>
     </entries>
 </armors>

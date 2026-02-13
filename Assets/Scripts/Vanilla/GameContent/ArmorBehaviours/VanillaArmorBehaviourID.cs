@@ -12,6 +12,9 @@ namespace MVZ2.GameContent.Armors
         public const string umbrellaShield = "umbrella_shield";
         public const string cannon = "cannon";
         public const string destroyAfterHalfHP = "destroy_after_half_hp";
+
+        //EXPAND
+        public const string MannequinCannon = "MannequinCannon";
     }
     public static class VanillaArmorBehaviourID
     {
@@ -20,6 +23,9 @@ namespace MVZ2.GameContent.Armors
         public static readonly NamespaceID umbrellaShield = Get(VanillaArmorBehaviourNames.umbrellaShield);
         public static readonly NamespaceID cannon = Get(VanillaArmorBehaviourNames.cannon);
         public static readonly NamespaceID destroyAfterHalfHP = Get(VanillaArmorBehaviourNames.destroyAfterHalfHP);
+
+        //EXPAND
+        public static readonly NamespaceID MannequinCannon = Get(VanillaArmorBehaviourNames.MannequinCannon);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

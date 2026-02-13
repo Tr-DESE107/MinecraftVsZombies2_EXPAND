@@ -3450,6 +3450,15 @@
                 
             </properties>
         </Mannequin_Exp>
+		<Mannequin_Exp id="CannoneerMannequin" name="炮手僵尸" deathMessage="炮决！">
+			<unlock>
+				<condition required="mvz2:level.ucannotunlock" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_shield" value="mvz2:MannequinCannon" />
+				<int name="mvz2:cost" value="500" />
+			</properties>
+		</Mannequin_Exp>
 
 		<!-- EXPAND Enemies X -->
 		<mutantZombie id="XCarrierMutant" name="X物质携带者宿主" deathMessage="高危物质携带体！！！">

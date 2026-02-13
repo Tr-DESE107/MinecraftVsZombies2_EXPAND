@@ -44,6 +44,7 @@ namespace MVZ2.GameContent.Armors
         public const string BedrockHelmet = "BedrockHelmet";
 
         public const string SantaHat = "SantaHat";
+        public const string MannequinCannon = "MannequinCannon";
 
     }
     public static class VanillaArmorID
@@ -85,6 +86,7 @@ namespace MVZ2.GameContent.Armors
         public static readonly NamespaceID BedrockHelmet = Get(VanillaArmorNames.BedrockHelmet);
 
         public static readonly NamespaceID SantaHat = Get(VanillaArmorNames.SantaHat);
+        public static readonly NamespaceID MannequinCannon = Get(VanillaArmorNames.MannequinCannon);
 
         private static NamespaceID Get(string name)
         {
