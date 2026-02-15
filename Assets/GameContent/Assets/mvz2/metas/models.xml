@@ -521,6 +521,7 @@
     <model name="CopperIngot" type="entity" path="mvz2:pickup/CopperIngot" width="48" height="48" xOffset="0" yOffset="-16" />
     <model name="CopperNugget" type="entity" path="mvz2:pickup/CopperNugget" width="32" height="32" xOffset="0" yOffset="-16" />
     <model name="ShrunkenHead" type="entity" path="mvz2:pickup/ShrunkenHead" width="64" height="64" xOffset="0" yOffset="-16" />
+	<model name="RedEnvelope" type="entity" path="mvz2:pickup/RedEnvelope" width="72" height="72" xOffset="0" yOffset="-32" />
 
     <!-- Effects -->
     <model name="miner" type="entity" path="mvz2:effect/miner" width="32" height="32" xOffset="0" yOffset="-16" />
