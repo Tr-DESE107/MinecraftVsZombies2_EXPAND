@@ -22,6 +22,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Pickups;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -143,6 +144,10 @@ namespace MVZ2.GameContent.Enemies
             if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
                 return;
             entity.SpawnWithParams(VanillaEnemyID.MannequinTNT, entity.Position);
+            for (var i = 0; i < 3; i++)
+            {
+                entity.SpawnWithParams(VanillaPickupID.RedEnvelope, entity.Position);
+            }
         }
 
         // �洢���ϴδ���ʱ��Ѫ�������ֶ���
