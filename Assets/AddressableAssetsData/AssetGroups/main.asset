@@ -10025,7 +10025,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a95ce05ec9225b245882a09e4183edc7
-    m_Address: mvz2:entity/enemy/CannoneerManeequin
+    m_Address: mvz2:entity/enemy/CannoneerMannequin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13987,7 +13987,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efac489457ac2b44ab5afdf082831b62
-    m_Address: mvz2:enemy/ship/CannoneerManeequin
+    m_Address: mvz2:enemy/EXPAND/CannoneerMannequin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -21,6 +21,7 @@ namespace MVZ2.GameContent.Pickups
 
         public const string CopperIngot = "CopperIngot";
         public const string CopperNugget = "CopperNugget";
+        public const string RedEnvelope = "RedEnvelope";
     }
     public static class VanillaPickupID
     {
@@ -38,6 +39,7 @@ namespace MVZ2.GameContent.Pickups
 
         public static readonly NamespaceID CopperIngot = Get(VanillaPickupNames.CopperIngot);
         public static readonly NamespaceID CopperNugget = Get(VanillaPickupNames.CopperNugget);
+        public static readonly NamespaceID RedEnvelope = Get(VanillaPickupNames.RedEnvelope);
 
         private static NamespaceID Get(string name)
         {

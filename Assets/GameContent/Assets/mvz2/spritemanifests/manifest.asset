@@ -1119,6 +1119,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: aad19d3d7617e834f8cccff23f786aa5, type: 3}
   - name: entity/pickups/money_chest
     sprite: {fileID: 21300000, guid: 2aa6e1715df244b4bb2e23736a2e751c, type: 3}
+  - name: entity/pickups/RedEnvelope
+    sprite: {fileID: 21300000, guid: e35415f57161b804da4ffb64a491c409, type: 3}
   - name: entity/pickups/redstone
     sprite: {fileID: 21300000, guid: 99fdfba4aeff67c43b3124c97a3a0dd7, type: 3}
   - name: entity/pickups/trophy
