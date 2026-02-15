@@ -9,7 +9,7 @@
         </description>
     </music>
     <music id="choosing" name="选择你的种子">
-        <track main="mvz2:choosing" />
+        <track main="mvz2:Spring_Festival_Overture" />
         <source>植物大战僵尸</source>
         <description>
             <p>选择蓝图时，以及一些界面中的音乐。</p>

@@ -4089,6 +4089,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 421e4ec1cee7fd34ca1c409bd04709e4
+    m_Address: mvz2:Spring_Festival_Overture
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42226c15cb218274b8576006d9f58dc6
     m_Address: mvz2:ui/effect/crushing_wall_left_censored
     m_ReadOnly: 0
@@ -4718,6 +4725,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bd815321ad795f4c808518080bfc857
+    m_Address: mvz2:pickup/RedEnvelope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bf17da5ebe2d2a4eb8257f66201b808
     m_Address: mvz2:final_wave
@@ -8245,6 +8259,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8893a45f3b64509479ecf5381acff238
+    m_Address: mvz2:Congratulations_and_Prosperity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88b80ff4881ad6943a3c622c9eec56f4
     m_Address: mvz2:contraption/mausoleum/lightning_orb
@@ -13313,6 +13334,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e35415f57161b804da4ffb64a491c409
+    m_Address: mvz2:entity/pickups/RedEnvelope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3c74e05995ec5f47a3c0173025c6c78
     m_Address: mvz2:enemy/EXPAND/RandomMannequin
