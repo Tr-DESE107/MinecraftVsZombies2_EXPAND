@@ -1,6 +1,6 @@
 <musics>
     <music id="mainmenu" name="疯狂戴夫">
-        <track main="mvz2:mainmenu" />
+        <track main="mvz2:Congratulations_and_Prosperity" />
         <source>植物大战僵尸</source>
         <description>
             <p>主界面，以及关卡前对话的音乐。</p>
