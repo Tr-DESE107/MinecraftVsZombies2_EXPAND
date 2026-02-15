@@ -35,7 +35,15 @@ PrefabInstance:
     - target: {fileID: 5449253582177849332, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2054582241, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+      objectReference: {fileID: -1027238215, guid: ff9eff07fe22a764e83ed19a25169123, type: 3}
+    - target: {fileID: 6198475333505180476, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1889940336, guid: ff9eff07fe22a764e83ed19a25169123, type: 3}
+    - target: {fileID: 6661205224612282001, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1889940336, guid: ff9eff07fe22a764e83ed19a25169123, type: 3}
     - target: {fileID: 7019102104622992105, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -87,19 +95,19 @@ PrefabInstance:
     - target: {fileID: 7970115725811556222, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 1464070581, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+      objectReference: {fileID: -1511962442, guid: ff9eff07fe22a764e83ed19a25169123, type: 3}
     - target: {fileID: 7970115725811556222, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: -1898690792, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+      objectReference: {fileID: -1719721106, guid: ff9eff07fe22a764e83ed19a25169123, type: 3}
     - target: {fileID: 8365785606802476641, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2054582241, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+      objectReference: {fileID: -1027238215, guid: ff9eff07fe22a764e83ed19a25169123, type: 3}
     - target: {fileID: 8996217967525711044, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1464070581, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+      objectReference: {fileID: -1511962442, guid: ff9eff07fe22a764e83ed19a25169123, type: 3}
     - target: {fileID: 9198320902467191658, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       propertyPath: m_Offset.y
       value: 0.22
