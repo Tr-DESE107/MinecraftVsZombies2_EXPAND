@@ -391,7 +391,7 @@
 		<weight base="3000" />
 	</entry>
 	<entry id="cannonball_zombie" entity="mvz2:cannonball_zombie">
-		<spawn level="1.5" />
+		<spawn level="2" minWave="2"/>
 		<weight base="3000" />
 	</entry>
     <entry id="Endermite" entity="mvz2:Endermite">

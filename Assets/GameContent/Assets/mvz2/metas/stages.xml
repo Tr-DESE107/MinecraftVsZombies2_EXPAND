@@ -2023,7 +2023,7 @@
         </properties>
     </stage>
 
-    <stage id="RandomChinaAndPot" name="随机瓷器与欲望壶" needBlueprints="false" type="minigame" music="mvz2:minigame">
+    <stage id="RandomChinaAndPot" name="&lt;color=yellow&gt;随机瓷器与欲望壶&lt;/color&gt;" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <conveyor>
             <entry id="mvz2:random_china" count="10" />
             <entry id="mvz2:desire_pot" count="5" />
@@ -2157,7 +2157,6 @@
         <spawns flags="2" firstWaveTime="600" pointsMultiplier="2">
             <spawn id="mvz2:ImpMannequin" />
             <spawn id="mvz2:MegaImpMannequin" />
-            <spawn id="mvz2:MutantMannequin" />
             <spawn id="mvz2:Mannequin" />
 
             <spawn id="mvz2:MutantVillager" />
@@ -2168,7 +2167,7 @@
         </properties>
     </stage>
 
-    <stage id="RandomChinaDevourer" name="随机瓷器吞噬者" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
+    <stage id="RandomChinaDevourer" name="&lt;color=yellow&gt;随机瓷器吞噬者&lt;/color&gt;" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="2" firstWaveTime="600" pointsMultiplier="1.75">
             <spawn id="mvz2:ImpMannequin" />
@@ -2188,7 +2187,7 @@
             <bool name="ignoreHugeWaveEvent" value="true" />
         </properties>
     </stage>
-    <stage id="vsRandomZombie" name="对战随机僵尸" type="minigame" music="mvz2:Lava_Chicken">
+    <stage id="vsRandomZombie" name="&lt;color=yellow&gt;对战随机僵尸&lt;/color&gt;" type="minigame" music="mvz2:Lava_Chicken">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="2" firstWaveTime="600" pointsMultiplier="1.05">
             <spawn id="mvz2:RandomZombie" />
@@ -2327,7 +2326,7 @@
 		</spawns>
 	</stage>
 	
-	<stage id="DowsingNote" name="探宝笔记" needBlueprints="false" type="minigame">
+	<stage id="DowsingNote" name="&lt;color=yellow&gt;探宝笔记&lt;/color&gt;" needBlueprints="false" type="minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
 		<spawns flags="2" pointsMultiplier="2">
 			<spawn id="mvz2:MonkZombie" />
@@ -2453,7 +2452,7 @@
     </stage>
 
     <!-- EXPAND Puzzle -->
-    <stage id="puzzleRandomCvsRandomE" name="随机器械vs随机怪物" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon">
+    <stage id="puzzleRandomCvsRandomE" name="&lt;color=yellow&gt;随机器械vs随机怪物&lt;/color&gt;" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <camera position="lawn" transition="instant" />
         <properties>
