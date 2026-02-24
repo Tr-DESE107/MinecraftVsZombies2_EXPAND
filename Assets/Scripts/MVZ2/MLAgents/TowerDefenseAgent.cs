@@ -13,7 +13,7 @@ using MVZ2Logic.Level;      // LevelEngine
 using PVZEngine.Level;      // LevelEngine 基类
 using PVZEngine.Entities;   // Entity, EntityTypes
 using MVZ2.Vanilla.Level;   // VanillaLevelExt (CheckGameOver, IsCleared 等)
-using MVZ2.Vanilla.Entities;// VanillaEntityExt (GetEntityType 等)
+using MVZ2.Vanilla.Entities;// VanillaEntityExt (GetEntityType 等), VanillaEnemyProps (GetSpeed 等)
 using MVZ2.Vanilla.Callbacks;// VanillaLevelCallbacks (事件名称常量)
 using PVZEngine.Callbacks;  // CallbackResult
 using MVZ2.Vanilla.Grids;   // VanillaGridExt (CanSpawnEntity, SpawnPlacedEntity 等)
@@ -36,36 +36,34 @@ public class TowerDefenseAgent : Agent
     [Tooltip("拖拽场景中的 LevelManager GameObject")]  
     public LevelManager levelManager;       // MVZ2.Level.LevelManager  
   
-    // ===== 器械 ID 映射 =====  
-    // 动作 0~21 对应 22 种器械的 NamespaceID  
-    // 【需要你补充】根据你的关卡选择的 22 种器械，填入对应的 NamespaceID 字符串  
-    // 参考 VanillaContraptionID 类中的常量  
-    private static readonly string[] ContraptionActionMap = new string[]  
-    {  
-        "mvz2:dispenser",       // 0 - 发射器  
-        "mvz2:furnace",         // 1 - 熔炉（生产能量）  
-        "mvz2:obsidian",        // 2 - 黑曜石（防御）  
-        "mvz2:tnt",             // 3 - TNT  
-        "mvz2:anvil",           // 4 - 铁砧（来自 entities.xml）  
-        // ... 继续填充到 21  
-        // 【TODO】根据你的 22 种器械补全此数组  
-        "mvz2:dispenser",       // 5 (占位)  
-        "mvz2:dispenser",       // 6 (占位)  
-        "mvz2:dispenser",       // 7 (占位)  
-        "mvz2:dispenser",       // 8 (占位)  
-        "mvz2:dispenser",       // 9 (占位)  
-        "mvz2:dispenser",       // 10 (占位)  
-        "mvz2:dispenser",       // 11 (占位)  
-        "mvz2:dispenser",       // 12 (占位)  
-        "mvz2:dispenser",       // 13 (占位)  
-        "mvz2:dispenser",       // 14 (占位)  
-        "mvz2:dispenser",       // 15 (占位)  
-        "mvz2:dispenser",       // 16 (占位)  
-        "mvz2:dispenser",       // 17 (占位)  
-        "mvz2:dispenser",       // 18 (占位)  
-        "mvz2:dispenser",       // 19 (占位)  
-        "mvz2:dispenser",       // 20 (占位)  
-        "mvz2:dispenser",       // 21 (占位)  
+    // ===== 器械 ID 映射 =====
+    // 动作 0~21 对应 22 种器械的 NamespaceID
+    // 【需要你补充】根据你的关卡选择的 22 种器械，填入对应的 NamespaceID 字符串
+    // 参考 VanillaContraptionID 类中的常量
+    private static readonly string[] ContraptionActionMap = new string[]
+    {
+        "mvz2:dispenser",           // 0 - 发射器
+        "mvz2:furnace",             // 1 - 熔炉（生产能量）
+        "mvz2:obsidian",            // 2 - 黑曜石（防御）
+        "mvz2:tnt",                 // 3 - TNT
+        "mvz2:anvil",               // 4 - 铁砧
+        "mvz2:super_firework_dispenser", // 5 - 超级烟花发射器
+        "mvz2:snipenser",           // 6 - 狙击发射器
+        "mvz2:freezenser",          // 7 - 冰冻发射器
+        "mvz2:dispen_shield",       // 8 - 盾牌发射器
+        "mvz2:glowing_obsidian",    // 9 - 发光黑曜石
+        "mvz2:bedrock",             // 10 - 基岩
+        "mvz2:barrier",             // 11 - 屏障
+        "mvz2:diamond_ore",         // 12 - 钻石矿
+        "mvz2:redstone_ore",        // 13 - 红石矿
+        "mvz2:eradicator",          // 14 - 根除者
+        "mvz2:anti_gravity_pad",    // 15 - 反重力垫
+        "mvz2:permanent_ice",       // 16 - 永久冰
+        "mvz2:blue_ice",            // 17 - 蓝冰
+        "mvz2:desire_pot",          // 18 - 欲望锅
+        "mvz2:gunpowder_barrel",     // 19 - 火药桶
+        "mvz2:mine_tnt",            // 20 - 地雷TNT
+        "mvz2:mannequin_tnt",       // 21 - 假人TNT
     };  
   
     // ===== 观测参数 =====  
@@ -112,17 +110,17 @@ public class TowerDefenseAgent : Agent
         SubscribeToLevelEvents();  
     }  
   
-    private void Update()  
-    {  
-        if (episodeEnded) return;  
-  
-        var level = Level;  
-        if (level == null) return;  
-  
-        // 检查游戏是否正在运行（参考 LevelController.IsGameRunning()）  
-        // 【注意】IsGameRunning() 是 LevelController 的方法，需要通过 levelController 访问  
-        // 但 LevelController 的 IsGameRunning 是 public 的  
-        if (!levelController.IsGameRunning()) return;  
+    private void Update()
+    {
+        if (episodeEnded) return;
+
+        var level = Level;
+        if (level == null) return;
+
+        // 检查游戏是否正在运行（参考 LevelController.IsGameRunning()）
+        // 【注意】IsGameRunning() 是 LevelController 的方法，需要通过 levelController 访问
+        // 但 LevelController 的 IsGameRunning 是 public 的
+        if (levelController == null || !levelController.IsGameRunning()) return;  
   
         // 存活时间奖励：每 10 秒 +0.01  
         survivalTimer += Time.deltaTime;  
@@ -184,13 +182,10 @@ public class TowerDefenseAgent : Agent
         // --- 全局信息（2 维）---  
         if (level != null)  
         {  
-            // 当前能量（归一化到 [0,1]）  
-            // 【需要补充】level.Energy 或通过 VanillaLevelExt 扩展方法获取  
-            // 参考：level.GetProperty<int>(VanillaLevelProps.ENERGY) 或类似方式  
-            float energy = 0f;  
-            // TODO: energy = level.GetEnergy() / MAX_ENERGY;  
-            // 暂时用 0 占位，你需要找到获取能量的正确 API  
-            sensor.AddObservation(energy);  
+            // 当前能量（归一化到 [0,1]）
+            // 使用 LevelEngine 的 Energy 属性获取当前能量值
+            float energy = level.Energy / MAX_ENERGY;
+            sensor.AddObservation(Mathf.Clamp01(energy));  
   
             // 当前波次（归一化）  
             float wave = (float)level.CurrentWave / MAX_WAVE;  
@@ -253,9 +248,9 @@ public class TowerDefenseAgent : Agent
                 sensor.AddObservation(e.Position.z / 100f);               // Z 位置  
                 float maxHp = e.GetMaxHealth();  
                 sensor.AddObservation(maxHp > 0 ? e.Health / maxHp : 0f); // 血量  
-                // 速度：通过 VanillaEnemyProps.SPEED 属性获取  
-                // TODO: sensor.AddObservation(e.GetSpeed() / 10f);  
-                sensor.AddObservation(0f); // 占位，替换为真实速度  
+                // 速度：通过 VanillaEnemyProps.SPEED 属性获取
+                float speed = e.GetSpeed() / 10f;
+                sensor.AddObservation(Mathf.Clamp01(speed));  
             }  
             else  
             {  
@@ -276,12 +271,12 @@ public class TowerDefenseAgent : Agent
     // OnActionReceived：执行动作 + 即时奖励  
     // =========================================================  
   
-    public override void OnActionReceived(ActionBuffers actions)  
-    {  
-        if (episodeEnded) return;  
-  
-        var level = Level;  
-        if (level == null || !levelController.IsGameRunning()) return;  
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        if (episodeEnded) return;
+
+        var level = Level;
+        if (level == null || levelController == null || !levelController.IsGameRunning()) return;  
   
         int action = actions.DiscreteActions[0]; // 0~21  
         bool placed = TryPlaceContraption(action, level);  
@@ -317,11 +312,10 @@ public class TowerDefenseAgent : Agent
         // 将字符串解析为 NamespaceID
         var contraptionID = NamespaceID.ParseStrict(contraptionIDStr);  
   
-        // 检查能量是否足够  
-        // 【TODO】获取该器械的费用：  
-        // var def = level.Content.GetEntityDefinition(contraptionID);  
-        // var cost = def?.GetCost() ?? 9999;  
-        // if (level.Energy < cost) return false;  
+        // 检查能量是否足够
+        var def = level.Content.GetEntityDefinition(contraptionID);
+        var cost = def?.GetCost() ?? 9999;
+        if (level.Energy < cost) return false;  
   
         // 找到所有可用格子
         var grids = level.GetAllGrids();
@@ -340,49 +334,63 @@ public class TowerDefenseAgent : Agent
     // 事件订阅与处理  
     // =========================================================  
   
-    /// <summary>  
-    /// 订阅 LevelEngine 的 Trigger 事件。  
-    /// 参考 LevelController_Sponsors.AddLevelCallbacks_Sponsors() 的写法：  
-    ///   level.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, callback);  
-    /// </summary>  
-    private void SubscribeToLevelEvents()  
-    {  
-        var level = Level;  
-        if (level == null) return;  
-  
-        // 订阅怪物死亡事件  
-        // 【TODO】找到正确的 Callback 常量名，例如：  
-        // level.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_DEATH, OnEntityDeath);  
-  
-        // 订阅器械被摧毁事件  
-        // level.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_DEATH, OnContraptionDestroyed);  
-  
-        // 订阅关卡通关事件  
-        // level.AddTrigger(VanillaLevelCallbacks.POST_LEVEL_CLEAR, OnLevelClearedCallback);  
-  
-        // 订阅关卡失败事件  
-        // level.AddTrigger(VanillaLevelCallbacks.POST_GAME_OVER, OnGameOverCallback);  
-  
-        Debug.Log("[Agent] 事件订阅完成（需补充具体 Callback 常量）");  
+    /// <summary>
+    /// 订阅 LevelEngine 的 Trigger 事件。
+    /// 参考 LevelController_Sponsors.AddLevelCallbacks_Sponsors() 的写法：
+    ///   level.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, callback);
+    /// </summary>
+    private void SubscribeToLevelEvents()
+    {
+        var level = Level;
+        if (level == null) return;
+
+        // 订阅怪物死亡事件
+        level.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, OnEntityDeath);
+
+        // 订阅关卡通关事件
+        level.AddTrigger(LevelCallbacks.POST_LEVEL_CLEAR, OnLevelClearedCallback);
+
+        // 订阅关卡失败事件
+        level.AddTrigger(LevelCallbacks.POST_GAME_OVER, OnGameOverCallback);
+
+        Debug.Log("[Agent] 事件订阅完成");
     }  
   
-    /// <summary>  
-    /// 怪物死亡时的回调。  
-    /// 根据怪物类型给予不同奖励。  
-    /// </summary>  
-    private CallbackResult OnEntityDeath(/* 参数类型根据实际 Trigger 签名填写 */)  
-    {  
-        // 示例：  
-        // if (entity.Type == EntityTypes.ENEMY)  
-        // {  
-        //     bool isElite = entity.HasBuff<SomeBossBuffType>();  
-        //     AddReward(isElite ? 0.5f : 0.2f);  
-        // }  
-        // else if (entity.Type == EntityTypes.PLANT) // 器械被摧毁  
-        // {  
-        //     AddReward(-0.1f);  
-        // }  
-        return new CallbackResult(true);  
+    /// <summary>
+    /// 怪物死亡时的回调。
+    /// 根据怪物类型给予不同奖励。
+    /// </summary>
+    private void OnEntityDeath(LevelCallbacks.PostEntityDeathParams param, CallbackResult callbackResult)
+    {
+        var entity = param.entity;
+        if (entity.Type == EntityTypes.ENEMY)
+        {
+            // 普通怪物奖励
+            AddReward(0.2f);
+            Debug.Log($"[Agent] 怪物死亡，奖励 +0.2");
+        }
+        else if (entity.Type == EntityTypes.PLANT) // 器械被摧毁
+        {
+            // 器械被摧毁惩罚
+            AddReward(-0.1f);
+            Debug.Log($"[Agent] 器械被摧毁，惩罚 -0.1");
+        }
+    }
+
+    /// <summary>
+    /// 关卡通关回调。
+    /// </summary>
+    private void OnLevelClearedCallback(LevelCallbackParams param, CallbackResult callbackResult)
+    {
+        OnLevelCleared();
+    }
+
+    /// <summary>
+    /// 关卡失败回调。
+    /// </summary>
+    private void OnGameOverCallback(LevelCallbacks.PostGameOverParams param, CallbackResult callbackResult)
+    {
+        OnGameOver();
     }  
   
     /// <summary>  
