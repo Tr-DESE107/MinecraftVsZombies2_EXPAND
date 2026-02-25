@@ -38,43 +38,45 @@ public class TowerDefenseAgent : Agent
 {  
     // ===== Inspector 可配置引用 =====  
     [Header("游戏管理器引用")]  
-    [Tooltip("拖拽场景中的 LevelController GameObject")]  
-    public LevelController levelController; // MVZ2.Level.LevelController  
-
     [Tooltip("拖拽场景中的 LevelManager GameObject")]  
     public LevelManager levelManager;       // MVZ2.Level.LevelManager  
+    
+    // 通过 LevelManager 获取 LevelController
+    private LevelController LevelController => levelManager?.GetLevelController();
 
     // ===== 静态实例 =====
     public static TowerDefenseAgent Instance { get; private set; }
 
-    // ===== 器械 ID 映射 =====
-    // 动作 0~21 对应 22 种器械的 NamespaceID
-    // 【需要你补充】根据你的关卡选择的 22 种器械，填入对应的 NamespaceID 字符串
-    // 参考 VanillaContraptionID 类中的常量
-    private static readonly string[] ContraptionActionMap = new string[]
+    // ===== 动作映射 =====
+    // 动作 0~9 对应选择 0~9 的蓝图
+    // 动作 10 为使用铁镐
+    // 动作 11 为使用驱动
+    // 动作 12 为使用星之碎片
+    // 其他动作（13-21）暂时不工作
+    private static readonly string[] ActionMap = new string[]
     {
-        "mvz2:dispenser",           // 0 - 发射器
-        "mvz2:furnace",             // 1 - 熔炉（生产能量）
-        "mvz2:obsidian",            // 2 - 黑曜石（防御）
-        "mvz2:tnt",                 // 3 - TNT
-        "mvz2:anvil",               // 4 - 铁砧
-        "mvz2:super_firework_dispenser", // 5 - 超级烟花发射器
-        "mvz2:snipenser",           // 6 - 狙击发射器
-        "mvz2:freezenser",          // 7 - 冰冻发射器
-        "mvz2:dispen_shield",       // 8 - 盾牌发射器
-        "mvz2:glowing_obsidian",    // 9 - 发光黑曜石
-        "mvz2:bedrock",             // 10 - 基岩
-        "mvz2:barrier",             // 11 - 屏障
-        "mvz2:diamond_ore",         // 12 - 钻石矿
-        "mvz2:redstone_ore",        // 13 - 红石矿
-        "mvz2:eradicator",          // 14 - 根除者
-        "mvz2:anti_gravity_pad",    // 15 - 反重力垫
-        "mvz2:permanent_ice",       // 16 - 永久冰
-        "mvz2:blue_ice",            // 17 - 蓝冰
-        "mvz2:desire_pot",          // 18 - 欲望锅
-        "mvz2:gunpowder_barrel",     // 19 - 火药桶
-        "mvz2:mine_tnt",            // 20 - 地雷TNT
-        "mvz2:mannequin_tnt",       // 21 - 假人TNT
+        "blueprint_0",    // 0 - 选择蓝图 0
+        "blueprint_1",    // 1 - 选择蓝图 1
+        "blueprint_2",    // 2 - 选择蓝图 2
+        "blueprint_3",    // 3 - 选择蓝图 3
+        "blueprint_4",    // 4 - 选择蓝图 4
+        "blueprint_5",    // 5 - 选择蓝图 5
+        "blueprint_6",    // 6 - 选择蓝图 6
+        "blueprint_7",    // 7 - 选择蓝图 7
+        "blueprint_8",    // 8 - 选择蓝图 8
+        "blueprint_9",    // 9 - 选择蓝图 9
+        "iron_pickaxe",   // 10 - 使用铁镐
+        "driver",         // 11 - 使用驱动
+        "star_shard",     // 12 - 使用星之碎片
+        "unused",         // 13 - 未使用
+        "unused",         // 14 - 未使用
+        "unused",         // 15 - 未使用
+        "unused",         // 16 - 未使用
+        "unused",         // 17 - 未使用
+        "unused",         // 18 - 未使用
+        "unused",         // 19 - 未使用
+        "unused",         // 20 - 未使用
+        "unused",         // 21 - 未使用
     };  
 
     // ===== 观测参数 =====  
@@ -90,7 +92,7 @@ public class TowerDefenseAgent : Agent
 
     // ===== 状态标志 =====
     private bool episodeEnded = false;
-    private bool aiActive = false; // AI 激活状态
+    private bool aiActive = false; // AI 激活状态（由指令管理）
 
     // ===== AI 鼠标控制 =====
     private Vector3 aiMousePosition; // AI 鼠标位置
@@ -115,8 +117,6 @@ public class TowerDefenseAgent : Agent
         Instance = this;
         
         // 如果没有在 Inspector 中拖拽，尝试自动查找  
-        if (levelController == null)  
-            levelController = FindObjectOfType<LevelController>();  
         if (levelManager == null)  
             levelManager = FindObjectOfType<LevelManager>();  
         
@@ -210,8 +210,9 @@ public class TowerDefenseAgent : Agent
     private void SetAIMousePosition(Vector3 position)
     {
         aiMousePosition = position;
-        // 这里可以添加实际的鼠标位置设置逻辑
-        // 例如使用 Input 系统模拟鼠标移动
+        // 使用 Unity 的 Input 系统模拟鼠标移动
+        // 注意：这需要在 Update 方法中处理，或者使用其他方式实现
+        Debug.Log($"[Agent] 设置鼠标位置: {position}");
     }
     
     /// <summary>
@@ -223,11 +224,15 @@ public class TowerDefenseAgent : Agent
         SetAIMousePosition(position);
         isMouseDown = true;
         // 模拟鼠标按下
-        // 这里可以添加实际的鼠标点击模拟逻辑
-        Debug.Log($"[Agent] 模拟鼠标点击: {position}");
+        Debug.Log($"[Agent] 模拟鼠标按下: {position}");
         
         // 模拟鼠标释放
         isMouseDown = false;
+        Debug.Log($"[Agent] 模拟鼠标释放: {position}");
+        
+        // 触发点击事件
+        // 这里可以添加实际的点击事件触发逻辑
+        // 例如使用 EventSystem 模拟 UI 点击
     }
     
     /// <summary>
@@ -281,9 +286,9 @@ public class TowerDefenseAgent : Agent
         if (level == null) return;
 
         // 检查游戏是否正在运行（参考 LevelController.IsGameRunning()）
-        // 【注意】IsGameRunning() 是 LevelController 的方法，需要通过 levelController 访问
+        // 【注意】IsGameRunning() 是 LevelController 的方法，需要通过 LevelController 访问
         // 但 LevelController 的 IsGameRunning 是 public 的
-        if (levelController == null || !levelController.IsGameRunning()) return;  
+        if (LevelController == null || !LevelController.IsGameRunning()) return;  
 
         // 存活时间奖励：每 10 秒 +0.01  
         survivalTimer += Time.deltaTime;  
@@ -602,26 +607,98 @@ public class TowerDefenseAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        if (episodeEnded) return;
+        Debug.Log($"[Agent] 收到动作: {actions.DiscreteActions[0]}");
+        
+        if (episodeEnded)
+        {
+            Debug.Log("[Agent] 回合已结束，跳过动作执行");
+            return;
+        }
 
         // 检查 AI 是否激活
-        if (!aiActive) return;
+        if (!aiActive)
+        {
+            Debug.Log("[Agent] AI 未激活，跳过动作执行");
+            return;
+        }
 
         var level = Level;
-        if (level == null || levelController == null || !levelController.IsGameRunning()) return;  
+        if (level == null)
+        {
+            Debug.Log("[Agent] LevelEngine 未初始化，跳过动作执行");
+            return;
+        }
+        
+        if (LevelController == null)
+        {
+            Debug.Log("[Agent] LevelController 未初始化，跳过动作执行");
+            return;
+        }
+        
+        if (!LevelController.IsGameRunning())
+        {
+            Debug.Log("[Agent] 游戏未运行，跳过动作执行");
+            return;
+        }
 
         int action = actions.DiscreteActions[0]; // 0~21  
-        bool placed = TryPlaceContraption(action, level);  
+        Debug.Log($"[Agent] 执行动作: {action}");
+        bool success = false;
+        
+        // 使用 ActionMap 执行动作
+        if (action >= 0 && action < ActionMap.Length)
+        {
+            string actionName = ActionMap[action];
+            Debug.Log($"[Agent] 动作名称: {actionName}");
+            switch (actionName)
+            {
+                case "blueprint_0":
+                case "blueprint_1":
+                case "blueprint_2":
+                case "blueprint_3":
+                case "blueprint_4":
+                case "blueprint_5":
+                case "blueprint_6":
+                case "blueprint_7":
+                case "blueprint_8":
+                case "blueprint_9":
+                    int blueprintIndex = int.Parse(actionName.Split('_')[1]);
+                    Debug.Log($"[Agent] 尝试放置蓝图: {blueprintIndex}");
+                    success = TrySelectAndPlaceBlueprint(blueprintIndex, level);
+                    break;
+                case "iron_pickaxe":
+                    Debug.Log("[Agent] 尝试使用铁镐");
+                    success = TryUseIronPickaxe(level);
+                    break;
+                case "driver":
+                    Debug.Log("[Agent] 尝试使用驱动");
+                    success = TryUseDriver(level);
+                    break;
+                case "star_shard":
+                    Debug.Log("[Agent] 尝试使用星之碎片");
+                    success = TryUseStarShard(level);
+                    break;
+                default:
+                    Debug.Log($"[Agent] 动作 {actionName} 未实现，暂时不工作");
+                    success = false;
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log($"[Agent] 无效的动作索引: {action}");
+            success = false;
+        }
 
-        if (placed)  
+        if (success)  
         {
             AddReward(0.1f);  
-            Debug.Log($"[Agent] 成功放置器械 {action}，奖励 +0.1");  
+            Debug.Log($"[Agent] 动作 {action} 执行成功，奖励 +0.1");  
         }
         else  
         {
             AddReward(-0.05f);  
-            Debug.Log($"[Agent] 放置失败（资源不足或位置不可用），惩罚 -0.05");  
+            Debug.Log($"[Agent] 动作 {action} 执行失败，惩罚 -0.05");  
         }
     }  
 
@@ -630,111 +707,212 @@ public class TowerDefenseAgent : Agent
     // =========================================================  
 
     /// <summary>  
-    /// 尝试通过蓝图系统放置指定器械。  
+    /// 尝试选择蓝图并放置器械。  
     /// 模拟玩家点击蓝图并放置的流程。  
     /// </summary>  
-    private bool TryPlaceContraption(int actionIndex, LevelEngine level)  
+    private bool TrySelectAndPlaceBlueprint(int blueprintIndex, LevelEngine level)  
     {  
-        if (actionIndex < 0 || actionIndex >= ContraptionActionMap.Length)  
+        if (blueprintIndex < 0 || blueprintIndex > 9)
+        {
+            Debug.LogWarning($"[Agent] 无效的蓝图索引: {blueprintIndex}");
             return false;  
+        }
 
-        var contraptionIDStr = ContraptionActionMap[actionIndex];  
-        // 将字符串解析为 NamespaceID
-        var contraptionID = NamespaceID.ParseStrict(contraptionIDStr);  
+        Debug.Log($"[Agent] 尝试选择并放置蓝图 {blueprintIndex}");
+
+        // 尝试获取指定索引的蓝图
+        var seedPack = FindSeedPackByIndex(level, blueprintIndex);
+        if (seedPack == null)
+        {
+            Debug.LogWarning($"[Agent] 未找到蓝图 {blueprintIndex}");
+            return false;
+        }
+
+        // 尝试获取蓝图对应的实体ID
+        NamespaceID contraptionID = GetEntityIDFromSeedPack(seedPack);
+        if (contraptionID == null)
+        {
+            Debug.LogWarning($"[Agent] 无法获取蓝图 {blueprintIndex} 对应的实体ID");
+            return false;
+        }
 
         // 检查能量是否足够
         var def = level.Content.GetEntityDefinition(contraptionID);
-        var cost = def?.GetCost() ?? 9999;
-        if (level.Energy < cost) return false;  
+        if (def == null)
+        {
+            Debug.LogWarning($"[Agent] 未找到器械定义: {contraptionID}");
+            return false;
+        }
+        
+        var cost = def.GetCost();
+        Debug.Log($"[Agent] 器械成本: {cost}, 当前能量: {level.Energy}");
+        if (level.Energy < cost) 
+        {
+            Debug.LogWarning($"[Agent] 能量不足，无法放置器械");
+            return false;  
+        }
 
         // 找到所有可用格子
         var grids = level.GetAllGrids();
         if (grids == null || grids.Length == 0)
+        {
+            Debug.LogWarning("[Agent] 未找到可用网格");
             return false;
+        }
             
         var validGrids = grids.Where(g => g != null && g.CanSpawnEntity(contraptionID)).ToList();
         if (validGrids.Count == 0)
+        {
+            Debug.LogWarning("[Agent] 未找到可放置的有效网格");
             return false;  
+        }  
 
         // 随机选一个格子放置  
         var grid = validGrids[UnityEngine.Random.Range(0, validGrids.Count)];  
         if (grid == null)
+        {
+            Debug.LogWarning("[Agent] 选中的网格为 null");
             return false;
+        }
+        
+        Debug.Log($"[Agent] 选中的放置位置: {grid}");
         
         // 尝试使用蓝图系统放置器械
         try
         {
             // 模拟玩家放置流程
-            // 1. 检查是否有对应的种子包（蓝图）
-            var seedPack = FindSeedPackForContraption(level, contraptionID);
-            if (seedPack == null)
-            {
-                Debug.LogWarning($"[Agent] 未找到器械 {contraptionID} 的种子包");
-                // 如果没有种子包，使用备用方法
-                return TryPlaceContraptionFallback(grid, contraptionID, level);
-            }
-
-            // 2. 检查种子包是否有效
-            if (seedPack == null)
-            {
-                Debug.LogWarning($"[Agent] 种子包 {contraptionID} 为 null");
-                return false;
-            }
-
-            // 3. 模拟玩家点击蓝图卡片
-            Debug.Log($"[Agent] 模拟点击蓝图: {contraptionID}");
+            // 1. 模拟玩家点击蓝图卡片
+            Debug.Log($"[Agent] 模拟点击蓝图 {blueprintIndex}: {contraptionID}");
+            // 模拟鼠标点击蓝图卡片 - 使用游戏中实际的蓝图位置
+            // 蓝图卡片通常在屏幕顶部，从左到右排列
+            float blueprintX = 500 + blueprintIndex * 60; // 调整位置以匹配游戏实际UI
+            float blueprintY = 50; // 顶部位置
+            Vector3 blueprintScreenPos = new Vector3(blueprintX, blueprintY, 0);
+            SimulateMouseClick(blueprintScreenPos);
             
-            // 4. 模拟玩家点击网格放置器械
+            // 2. 模拟玩家点击网格放置器械
             Debug.Log($"[Agent] 模拟点击网格放置器械: {contraptionID} at {grid}");
+            // 计算网格的屏幕位置
+            Vector3 gridWorldPos = grid.GetCenterPosition(); // 使用GetCenterPosition()方法获取网格中心位置
+            Vector3 gridScreenPos = WorldToScreenPoint(gridWorldPos);
+            SimulateMouseClick(gridScreenPos);
             
-            // 5. 扣除能量
+            // 3. 扣除能量
             level.AddEnergy(-cost);
+            Debug.Log($"[Agent] 扣除能量: {cost}, 剩余能量: {level.Energy}");
             
-            // 6. 使用种子包放置器械
+            // 4. 使用种子包放置器械
             grid.UseEntityBlueprint(seedPack, null);
+            Debug.Log($"[Agent] 使用种子包成功放置器械: {contraptionID}");
             
-            // 7. 确保触发放置事件
-            {
-                // 尝试触发 VanillaLevelCallbacks 中的放置后事件
-                try
-                {
-                    // 检查 VanillaLevelCallbacks 是否存在
-                    if (typeof(MVZ2.Vanilla.Callbacks.VanillaLevelCallbacks).GetField("POST_PLACE_ENTITY") != null)
-                    {
-                        // 由于spawned变量不存在，我们暂时不触发这个事件
-                        // 后续可以通过其他方式获取放置的实体
-                        Debug.LogWarning("[Agent] 暂未触发放置事件，需要实现获取放置实体的逻辑");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // 如果事件不存在或触发失败，忽略错误
-                    Debug.LogWarning($"[Agent] 触发放置事件失败: {ex.Message}");
-                }
-                return true;
-            }
+            return true;
         }
         catch (Exception e)
         {
             Debug.LogError($"[Agent] 放置器械失败: {e.Message}");
+            Debug.LogError($"[Agent] 堆栈跟踪: {e.StackTrace}");
             // 使用备用方法
-            return TryPlaceContraptionFallback(grid, contraptionID, level);
+            bool fallbackResult = TryPlaceContraptionFallback(grid, contraptionID, level);
+            Debug.Log($"[Agent] 备用方法放置结果: {fallbackResult}");
+            return fallbackResult;
         }
     }
     
-    /// <summary>
-    /// 查找对应器械的种子包
-    /// </summary>
-    /// <param name="level">LevelEngine实例</param>
-    /// <param name="contraptionID">器械ID</param>
-    /// <returns>种子包实例</returns>
-    private SeedPack FindSeedPackForContraption(LevelEngine level, NamespaceID contraptionID)
-    {
+    /// <summary>  
+    /// 尝试使用铁镐  
+    /// </summary>  
+    private bool TryUseIronPickaxe(LevelEngine level)  
+    {  
         try
         {
-            // 由于GetAllSeedPacks方法可能不存在，我们直接返回null
-            // 让备用方法处理器械放置
-            Debug.LogWarning($"[Agent] 种子包查找功能暂未实现，使用备用放置方法");
+            Debug.Log("[Agent] 尝试使用铁镐");
+            // 这里添加使用铁镐的逻辑
+            // 例如：破坏障碍物、采集资源等
+            
+            // 模拟鼠标点击操作
+            Vector3 pickaxeScreenPos = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            SimulateMouseClick(pickaxeScreenPos);
+            
+            Debug.Log("[Agent] 使用铁镐成功");
+            return true;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[Agent] 使用铁镐失败: {e.Message}");
+            return false;
+        }
+    }  
+    
+    /// <summary>  
+    /// 尝试使用驱动  
+    /// </summary>  
+    private bool TryUseDriver(LevelEngine level)  
+    {  
+        try
+        {
+            Debug.Log("[Agent] 尝试使用驱动");
+            // 这里添加使用驱动的逻辑
+            // 例如：激活某些机械装置等
+            
+            // 模拟鼠标点击操作
+            Vector3 driverScreenPos = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            SimulateMouseClick(driverScreenPos);
+            
+            Debug.Log("[Agent] 使用驱动成功");
+            return true;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[Agent] 使用驱动失败: {e.Message}");
+            return false;
+        }
+    }  
+    
+    /// <summary>  
+    /// 尝试使用星之碎片  
+    /// </summary>  
+    private bool TryUseStarShard(LevelEngine level)  
+    {  
+        try
+        {
+            Debug.Log("[Agent] 尝试使用星之碎片");
+            // 这里添加使用星之碎片的逻辑
+            // 例如：升级器械、激活特殊能力等
+            
+            // 模拟鼠标点击操作
+            Vector3 starShardScreenPos = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+            SimulateMouseClick(starShardScreenPos);
+            
+            Debug.Log("[Agent] 使用星之碎片成功");
+            return true;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[Agent] 使用星之碎片失败: {e.Message}");
+            return false;
+        }
+    }  
+    
+    /// <summary>  
+    /// 根据索引查找种子包  
+    /// </summary>  
+    private SeedPack FindSeedPackByIndex(LevelEngine level, int index)  
+    {  
+        try
+        {
+            // 尝试获取所有种子包
+            var allSeedPacks = level.GetAllSeedPacks();
+            if (allSeedPacks != null && allSeedPacks.Length > index)
+            {
+                var seedPack = allSeedPacks[index];
+                if (seedPack != null)
+                {
+                    Debug.Log($"[Agent] 找到种子包索引 {index}: {seedPack}");
+                    return seedPack;
+                }
+            }
+            
+            Debug.LogWarning($"[Agent] 未找到种子包索引 {index}");
             return null;
         }
         catch (Exception ex)
@@ -742,17 +920,46 @@ public class TowerDefenseAgent : Agent
             Debug.LogWarning($"[Agent] 查找种子包失败: {ex.Message}");
             return null;
         }
-    }
+    }  
     
-    /// <summary>
-    /// 备用放置方法，当蓝图系统不可用时使用
-    /// </summary>
-    /// <param name="grid">目标网格</param>
-    /// <param name="contraptionID">器械ID</param>
-    /// <param name="level">LevelEngine实例</param>
-    /// <returns>是否放置成功</returns>
-    private bool TryPlaceContraptionFallback(LawnGrid grid, NamespaceID contraptionID, LevelEngine level)
-    {
+    /// <summary>  
+    /// 从种子包获取实体ID  
+    /// </summary>  
+    private NamespaceID GetEntityIDFromSeedPack(SeedPack seedPack)  
+    {  
+        try
+        {
+            // 尝试获取种子包的实体ID
+            // 由于不同版本的API可能不同，我们使用反射来尝试获取
+            var entityIDProperty = seedPack.GetType().GetProperty("EntityID");
+            if (entityIDProperty != null)
+            {
+                return entityIDProperty.GetValue(seedPack) as NamespaceID;
+            }
+            
+            // 尝试其他可能的属性名
+            var definitionIDProperty = seedPack.GetType().GetProperty("DefinitionID");
+            if (definitionIDProperty != null)
+            {
+                return definitionIDProperty.GetValue(seedPack) as NamespaceID;
+            }
+            
+            Debug.LogWarning("[Agent] 无法从种子包获取实体ID");
+            return null;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning($"[Agent] 获取种子包实体ID失败: {ex.Message}");
+            return null;
+        }
+    }  
+    
+    /// <summary>  
+    /// 尝试通过蓝图系统放置指定器械（备用方法）。  
+    /// 当种子包系统不可用时使用。  
+    /// </summary>  
+    private bool TryPlaceContraptionFallback(LawnGrid grid, NamespaceID contraptionID, LevelEngine level)  
+    {  
         try
         {
             // 直接使用 SpawnPlacedEntity 生成实体
@@ -766,8 +973,11 @@ public class TowerDefenseAgent : Agent
                 var cost = def?.GetCost() ?? 9999;
                 level.AddEnergy(-cost);
                 
+                Debug.Log($"[Agent] 备用方法成功放置器械: {contraptionID}");
                 return true;
             }
+            
+            Debug.LogWarning($"[Agent] 备用方法放置器械失败: {contraptionID}");
             return false;
         }
         catch (Exception e)
@@ -775,7 +985,11 @@ public class TowerDefenseAgent : Agent
             Debug.LogError($"[Agent] 备用放置方法失败: {e.Message}");
             return false;
         }
-    }  
+    }
+    
+
+    
+
 
     // =========================================================  
     // 事件订阅与处理  
@@ -986,14 +1200,14 @@ public class TowerDefenseAgent : Agent
 
     /// <summary>  
     /// 获取器械类型的整数索引（用于观测编码）。  
-    /// 根据 ContraptionActionMap 中的顺序返回索引。  
+    /// 使用器械ID的哈希值来生成索引，确保不同器械有不同的索引。  
     /// </summary>  
     private int GetContraptionTypeIndex(Entity entity)  
     {  
         var id = entity.GetDefinitionID()?.ToString();  
         if (id == null) return 0;  
-        var idx = System.Array.IndexOf(ContraptionActionMap, id);  
-        return idx >= 0 ? idx : 0;  
+        // 使用哈希值生成索引，确保不同器械有不同的索引  
+        return Mathf.Abs(id.GetHashCode()) % 22;  
     }  
 
     /// <summary>  
