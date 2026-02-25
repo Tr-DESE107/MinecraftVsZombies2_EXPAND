@@ -171,12 +171,22 @@ public class TowerDefenseAgent : Agent
     /// </summary>
     public void StartAI()
     {
+        if (aiActive)
+        {
+            Debug.Log("[Agent] AI 已经激活");
+            return;
+        }
+        
+        Debug.Log("[Agent] AI 训练启动");
         aiActive = true;
         episodeEnded = false;
         survivalTimer = 0f;
-        Debug.Log("[Agent] AI 训练已启动");
-        // 开始新的训练回合
-        OnEpisodeBegin();
+        
+        // 订阅事件
+        StartCoroutine(SubscribeToEventsAfterDelay());
+        
+        // 开始新的回合
+        Debug.Log("[Agent] AI 训练已启动，开始观察当前关卡");
     }
     
     /// <summary>
@@ -302,16 +312,21 @@ public class TowerDefenseAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        Debug.Log("[Agent] Episode 开始，重置游戏...");
+        // 只有当AI被激活时才执行操作
+        if (!aiActive)
+        {
+            Debug.Log("[Agent] AI 未激活，跳过 Episode 开始流程");
+            return;
+        }
+        
+        Debug.Log("[Agent] Episode 开始，初始化状态...");
         episodeEnded = false;
         survivalTimer = 0f;
 
         try
         {
-            // 重置游戏关卡
-            ResetLevel();
-
-            // 延迟一点时间再订阅事件，确保 LevelEngine 有足够时间初始化
+            // 不再重置关卡，使用当前关卡
+            // 直接订阅事件
             StartCoroutine(SubscribeToEventsAfterDelay());
         }
         catch (Exception ex)
@@ -328,41 +343,65 @@ public class TowerDefenseAgent : Agent
     /// </summary>
     private System.Collections.IEnumerator SubscribeToEventsAfterDelay()
     {
-        // 等待一帧，让 LevelEngine 有时间初始化
-        yield return null;
-        
-        // 检查 LevelEngine 是否初始化
-        var level = Level;
-        if (level == null)
+        // 只有当AI被激活时才尝试订阅事件
+        if (!aiActive)
         {
-            Debug.LogWarning("[Agent] LevelEngine 尚未初始化，延迟订阅事件");
-            // 再等待一帧
-            yield return null;
-            level = Level;
-            if (level == null)
+            Debug.Log("[Agent] AI 未激活，跳过事件订阅");
+            yield break;
+        }
+        
+        // 等待多帧，让 LevelEngine 有足够的时间初始化
+        int retryCount = 0;
+        const int maxRetries = 10;
+        
+        while (retryCount < maxRetries)
+        {
+            // 检查 LevelEngine 是否初始化
+            var level = Level;
+            if (level != null)
             {
-                Debug.LogError("[Agent] LevelEngine 初始化失败，无法订阅事件");
-                yield break;
+                try
+                {
+                    // 订阅事件
+                    SubscribeToLevelEvents();
+                    Debug.Log("[Agent] 事件订阅完成");
+                    yield break;
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"[Agent] SubscribeToEventsAfterDelay 失败: {ex.Message}");
+                    Debug.LogError($"[Agent] 堆栈跟踪: {ex.StackTrace}");
+                    yield break;
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"[Agent] LevelEngine 尚未初始化，延迟订阅事件 (尝试 {retryCount+1}/{maxRetries})");
+                // 等待更长时间
+                yield return new UnityEngine.WaitForSeconds(0.5f);
+                retryCount++;
             }
         }
         
-        try
-        {
-            // 订阅事件
-            SubscribeToLevelEvents();
-            Debug.Log("[Agent] 事件订阅完成");
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Agent] SubscribeToEventsAfterDelay 失败: {ex.Message}");
-            Debug.LogError($"[Agent] 堆栈跟踪: {ex.StackTrace}");
-        }
+        // 达到最大重试次数后仍然失败
+        Debug.LogError("[Agent] LevelEngine 初始化失败，无法订阅事件");
     }  
 
     public override void CollectObservations(VectorSensor sensor)  
     {  
         try
         {
+            // 只有当AI被激活时才执行收集观察的逻辑
+            if (!aiActive)
+            {
+                // 填充默认值，确保观测向量维度正确
+                for (int i = 0; i < 100; i++)
+                {
+                    sensor.AddObservation(0f);
+                }
+                return;
+            }
+
             // 目标：填充 100 维观测向量  
             // 布局：  
             //   [0]     : 当前能量（归一化到 [0,1]）
@@ -878,6 +917,10 @@ public class TowerDefenseAgent : Agent
 
         try
         {
+            // 尝试等待一帧，确保之前的关卡完全清理
+            UnityEngine.YieldInstruction wait = new UnityEngine.WaitForEndOfFrame();
+            UnityEngine.MonoBehaviour.print("[Agent] 等待关卡清理...");
+
             // 使用正确的关卡ID
             // 注意：根据你的游戏实际情况修改这些值
             // 你可以在游戏的区域和关卡定义中找到正确的 ID
@@ -892,6 +935,26 @@ public class TowerDefenseAgent : Agent
         {
             Debug.LogError($"[Agent] 关卡定义不存在: {ex.Message}");
             Debug.LogError("[Agent] 请检查关卡 ID 是否正确，或在游戏中确认可用的关卡");
+            
+            // 尝试使用备选关卡
+            try
+            {
+                targetAreaID = new NamespaceID("mvz2", "day");
+                targetStageID = new NamespaceID("mvz2", "tutorial_1"); // 备选关卡
+                Debug.Log($"[Agent] 尝试使用备选关卡: {targetAreaID} - {targetStageID}");
+                levelManager.InitLevel(targetAreaID, targetStageID, beginningDelay: 0f);
+                Debug.Log("[Agent] 备选关卡已重置");
+            }
+            catch (Exception ex2)
+            {
+                Debug.LogError($"[Agent] 备选关卡也失败: {ex2.Message}");
+            }
+        }
+        catch (System.ArgumentException ex) when (ex.Message.Contains("An item with the same key has already been added"))
+        {
+            // 处理重复键错误
+            Debug.LogError($"[Agent] 关卡重置时出现重复键错误: {ex.Message}");
+            Debug.LogError("[Agent] 这通常是因为关卡状态没有完全清理，尝试使用备选关卡...");
             
             // 尝试使用备选关卡
             try
