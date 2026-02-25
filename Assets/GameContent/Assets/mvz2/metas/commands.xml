@@ -245,4 +245,15 @@
             <description>生成一队伞兵僵尸。</description>
         </variant>
     </command>
+    <command id="AI" inLevel="true">
+        <description>启用AI训练。</description>
+        <variant subname="start">
+            <description>启动</description>
+            <params />
+        </variant>
+        <variant subname="stop">
+            <description>关闭</description>
+            <params />
+        </variant>
+    </command>
 </commands>

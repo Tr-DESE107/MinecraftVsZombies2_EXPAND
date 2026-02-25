@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Commands
         public const string artifact = "artifact";
         public const string test = "test";
         public const string unlock = "unlock";
+        public const string AI = "AI";
     }
     public static class VanillaCommandID
     {
@@ -43,6 +44,7 @@ namespace MVZ2.GameContent.Commands
         public static readonly NamespaceID load = Get(VanillaCommandNames.load);
         public static readonly NamespaceID artifact = Get(VanillaCommandNames.artifact);
         public static readonly NamespaceID unlock = Get(VanillaCommandNames.unlock);
+        public static readonly NamespaceID AI = Get(VanillaCommandNames.AI);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
