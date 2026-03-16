@@ -35,10 +35,14 @@ namespace MVZ2.GameContent.Contraptions
         {
             if (entity.RNG.Next(6) == 0)
             {
+                var spawnParam = entity.GetSpawnParams();
+                spawnParam.SetProperty(EngineEntityProps.SCALE, Vector3.one * 2);
+                spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
+                spawnParam.SetProperty(VanillaEntityProps.SHADOW_SCALE, Vector3.one * 2);
+
                 var param = entity.GetShootParams();
-                param.projectileID = VanillaProjectileID.goldenBall;
-                param.damage *= 2;
-                entity.TriggerAnimation("Shoot");
+                param.damage *= 4;
+                param.spawnParam = spawnParam;
                 return entity.ShootProjectile(param);
             }
             return base.Shoot(entity);

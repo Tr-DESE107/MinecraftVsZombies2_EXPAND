@@ -1385,7 +1385,7 @@
                 <vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
 
-                <int name="mvz2:cost" value="275" />
+                <int name="mvz2:cost" value="475" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
