@@ -425,6 +425,7 @@
 	</model>
 	
     <model name="HeavyGutant" type="entity" path="mvz2:enemy/ship/HeavyGutant" width="200" height="180" xOffset="0" yOffset="-90" />
+	<model name="PirateBomb" type="entity" path="mvz2:enemy/ship/PirateBomb" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="Endermite" type="entity" path="mvz2:enemy/ship/Endermite" width="25" height="10" xOffset="0" yOffset="-5" />
 
     <!--EXPAND Enemies Villager-->

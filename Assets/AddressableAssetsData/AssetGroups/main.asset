@@ -115,6 +115,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 017e46206dc60f9449621afd595a4d77
+    m_Address: mvz2:entity/enemy/EXPAND/PirateBomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01a6d95d6ca2e274e9579d9781bf522e
     m_Address: mvz2:enemy/prologue/zombie
     m_ReadOnly: 0
@@ -4719,6 +4726,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bd815321ad795f4c808518080bfc857
+    m_Address: mvz2:pickup/RedEnvelope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bf17da5ebe2d2a4eb8257f66201b808
     m_Address: mvz2:final_wave
     m_ReadOnly: 0
@@ -6846,6 +6860,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 723cddd605a4c3345863e82b986f7939
+    m_Address: mvz2:enemy/ship/PirateBomb2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7255b794a3fcb9145becfcafa89b5c99
     m_Address: mvz2:talk/dialog_item_hide
@@ -13313,6 +13334,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e35415f57161b804da4ffb64a491c409
+    m_Address: mvz2:entity/pickups/RedEnvelope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3c74e05995ec5f47a3c0173025c6c78
     m_Address: mvz2:enemy/EXPAND/RandomMannequin
