@@ -427,6 +427,9 @@
     <model name="HeavyGutant" type="entity" path="mvz2:enemy/ship/HeavyGutant" width="200" height="180" xOffset="0" yOffset="-90" />
 	<model name="PirateBomb" type="entity" path="mvz2:enemy/ship/PirateBomb" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="Endermite" type="entity" path="mvz2:enemy/ship/Endermite" width="25" height="10" xOffset="0" yOffset="-5" />
+	<model name="KogasaZombie" type="entity" path="mvz2:enemy/ship/KogasaZombie" width="96" height="106" xOffset="30" yOffset="-47">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
 
     <!--EXPAND Enemies Villager-->
     <model name="MegaMutantVillager" type="entity" path="mvz2:enemy/EXPAND/MegaMutantVillager" width="200" height="180" xOffset="0" yOffset="-90" />

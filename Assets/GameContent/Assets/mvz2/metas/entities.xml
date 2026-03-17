@@ -2482,7 +2482,7 @@
 
 		<Skeleton_Exp id="MeleeSkeleton" name="骷髅仆从" deathMessage="起来!饥寒交迫的人民!">
 			<unlock>
-				<condition required="mvz2:level.halloween_8" />
+				<condition required="mvz2:level.halloween_12" />
 			</unlock>
 			<properties>
 				<int name="mvz2:cost" value="50" />
@@ -2493,7 +2493,7 @@
 		</Skeleton_Exp>
 		<Skeleton_Exp id="KingSkeleton" name="国王骷髅" deathMessage="现在我就是这个家的王了!">
 			<unlock>
-				<condition required="mvz2:level.halloween_8" />
+				<condition required="mvz2:level.halloween_12" />
 			</unlock>
 			<properties>
 				<id name="mvz2:shell" value="mvz2:bone" />
@@ -3255,6 +3255,18 @@
 
 			</properties>
 		</specialEnemy>
+		<zombie id="KogasaZombie" name="小伞僵尸" deathMessage="吓死你!">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_shield" value="mvz2:umbrella_shield" />
+				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:maxHealth" value="250" />
+				<float name="mvz2:speed" value="0.9" />
+				<int name="mvz2:cost" value="75" />
+			</properties>
+		</zombie>
 
         <!-- EXPAND Enemies Villager -->
 		<Villager_Exp id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！">

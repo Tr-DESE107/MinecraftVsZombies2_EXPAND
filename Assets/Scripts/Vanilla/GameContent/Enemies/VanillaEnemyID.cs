@@ -127,6 +127,7 @@ namespace MVZ2.GameContent.Enemies
         public const string HeavyGutant = "HeavyGutant";
         public const string PirateBomb = "PirateBomb";
         public const string Endermite = "Endermite";//todo
+        public const string KogasaZombie = "KogasaZombie";
 
         //EXPAND_Villager
         public const string MegaMutantVillager = "MegaMutantVillager";
@@ -273,6 +274,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID HeavyGutant = Get(VanillaEnemyNames.HeavyGutant);
         public static readonly NamespaceID PirateBomb = Get(VanillaEnemyNames.PirateBomb);
         public static readonly NamespaceID Endermite = Get(VanillaEnemyNames.Endermite);
+        public static readonly NamespaceID KogasaZombie = Get(VanillaEnemyNames.KogasaZombie);
         
         //EXPAND_Villager
         public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);

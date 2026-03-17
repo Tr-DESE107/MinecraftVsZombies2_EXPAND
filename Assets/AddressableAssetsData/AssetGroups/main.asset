@@ -6862,7 +6862,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 723cddd605a4c3345863e82b986f7939
-    m_Address: mvz2:enemy/ship/PirateBomb2
+    m_Address: mvz2:enemy/ship/PirateBomb
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
