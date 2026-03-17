@@ -13,6 +13,12 @@ namespace MVZ2.GameContent.Enemies
         public Hacker_AnimationBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void UpdateAnimationParameters(Entity entity, int state)
+        {
+            base.UpdateAnimationParameters(entity, state);
+            var timer = Hacker.GetHackTimer(entity);
+            entity.SetAnimationFloat("HackProgress", timer?.GetPassedPercentage() ?? 0);
+        }
         protected override void ModifyAnimationParameters(Entity entity, int state, ref AnimationParameters parameters)
         {
             base.ModifyAnimationParameters(entity, state, ref parameters);
