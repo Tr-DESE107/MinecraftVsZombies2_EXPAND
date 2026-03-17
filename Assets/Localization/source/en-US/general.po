@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2026-02-09 06:07+0800\n"
-"PO-Revision-Date: 2026-02-09 18:08+0800\n"
+"PO-Revision-Date: 2026-03-20 20:29+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -771,7 +771,7 @@ msgstr "Come True"
 
 #: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:506
 msgid "深潜者"
-msgstr "The Lurker"
+msgstr "The Deep Ones"
 
 #: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:508
 msgid "黑太阳"

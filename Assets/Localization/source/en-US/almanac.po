@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2026-02-11 12:33+0800\n"
-"PO-Revision-Date: 2026-02-11 12:33+0800\n"
+"PO-Revision-Date: 2026-03-17 17:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4519,7 +4519,7 @@ msgstr "Spawner will summon a monster inside it when a huge wave of monsters is 
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "我的水桶、告示牌和灵魂沙呢？"
-msgstr "Where're my water buckets, signs and soul sands?"
+msgstr "Where're my water buckets, signs and soul sand?"
 
 #. Name for misc mvz2:unzan_fist
 #: Almanac meta file
