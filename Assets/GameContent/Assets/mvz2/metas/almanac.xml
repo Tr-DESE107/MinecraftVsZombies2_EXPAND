@@ -1634,6 +1634,19 @@
                 <p><![CDATA[<b>附录 MCP-173-A：</b>]]>实验记录显示，当处于项目MCP-531的视线范围内时，MCP-173会表现出与受人类直视时相同的静止状态。基于该现象，已提案研究将MCP-531纳入MCP-173长期收容方案的可行性，相关测试待批准。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:hacker">
+            <header>
+                <p>黑客会骇入并暂时禁用最后方的器械。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>骇入时长：<![CDATA[<color=red>10秒</color>]]></p>
+                <p>禁用时长：<![CDATA[<color=red>60秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>&gt;rm -rf</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

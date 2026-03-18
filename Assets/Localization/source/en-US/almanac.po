@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-02-11 12:33+0800\n"
-"PO-Revision-Date: 2026-03-17 17:46+0800\n"
+"POT-Creation-Date: 2026-03-18 08:47+0800\n"
+"PO-Revision-Date: 2026-03-18 20:52+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3368,6 +3368,30 @@ msgstr ""
 "can only be halted by destroying the remnants again. Even then, fragments will slowly self-reassemble over approximately one day.\n"
 "<b>Addendum MCP-173-A: </b>Testing confirms that MCP-173 remains immobile when within the line of sight of SCP-531. A proposal to "
 "integrate SCP-531 into long-term containment protocols is pending approval."
+
+#. Header for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "黑客会骇入并暂时禁用最后方的器械。"
+msgstr "Hackers will hack into and temporarily disable the leftmost contraptions."
+
+#. Properties for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"骇入时长：<color=red>10秒</color>\n"
+"禁用时长：<color=red>60秒</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Hack Duration: <color=red>10 seconds</color>\n"
+"Disable Duration: <color=red>60 seconds</color>"
+
+#. Flavor for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ">rm -rf"
+msgstr ">rm -rf"
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -6874,6 +6898,18 @@ msgstr "Skeleton Statue"
 msgctxt "death_message"
 msgid "*咔嚓*"
 msgstr "*Snap*"
+
+#. Name for entity mvz2:hacker
+#: Entity meta file
+msgctxt "entity.name"
+msgid "黑客"
+msgstr "Hacker"
+
+#. Death message for entity mvz2:hacker
+#: Entity meta file
+msgctxt "death_message"
+msgid "G4M3 0V3R"
+msgstr "G4M3 0V3R"
 
 #. Name for entity mvz2:mutant_zombie
 #: Entity meta file

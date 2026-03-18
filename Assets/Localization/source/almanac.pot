@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-02-11 12:33+0800\n"
+"POT-Creation-Date: 2026-03-18 08:47+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2706,6 +2706,27 @@ msgid ""
 "MCP-173在受到持续直接目视观测时保持完全静止。一旦失去视觉监视，它将立即以约20 km/h的速度移动至最近的活体目标，并尝试实施攻击。如路径受阻，MCP-173能够通过物理挖掘方式破坏障碍物。\n"
 "若MCP-173受到物理破坏，其残骸将在约10秒内迅速重组，恢复至初始完整状态，该过程只能通过再次摧毁其残骸来阻止。即便如此，其残骸碎片在约1天内仍会自行缓慢重组。\n"
 "<b>附录 MCP-173-A：</b>实验记录显示，当处于项目MCP-531的视线范围内时，MCP-173会表现出与受人类直视时相同的静止状态。基于该现象，已提案研究将MCP-531纳入MCP-173长期收容方案的可行性，相关测试待批准。"
+msgstr ""
+
+#. Header for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "黑客会骇入并暂时禁用最后方的器械。"
+msgstr ""
+
+#. Properties for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"骇入时长：<color=red>10秒</color>\n"
+"禁用时长：<color=red>60秒</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ">rm -rf"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -5755,6 +5776,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "*咔嚓*"
+msgstr ""
+
+#. Name for entity mvz2:hacker
+#: Entity meta file
+msgctxt "entity.name"
+msgid "黑客"
+msgstr ""
+
+#. Death message for entity mvz2:hacker
+#: Entity meta file
+msgctxt "death_message"
+msgid "G4M3 0V3R"
 msgstr ""
 
 #. Name for entity mvz2:mutant_zombie
