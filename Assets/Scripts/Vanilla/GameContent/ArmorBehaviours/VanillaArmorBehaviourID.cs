@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Armors
 
         //EXPAND
         public const string MannequinCannon = "MannequinCannon";
+        public const string ChiefCannon = "ChiefCannon";
     }
     public static class VanillaArmorBehaviourID
     {
@@ -26,6 +27,7 @@ namespace MVZ2.GameContent.Armors
 
         //EXPAND
         public static readonly NamespaceID MannequinCannon = Get(VanillaArmorBehaviourNames.MannequinCannon);
+        public static readonly NamespaceID ChiefCannon = Get(VanillaArmorBehaviourNames.ChiefCannon);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

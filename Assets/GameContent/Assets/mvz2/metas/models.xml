@@ -430,6 +430,12 @@
 	<model name="KogasaZombie" type="entity" path="mvz2:enemy/ship/KogasaZombie" width="96" height="106" xOffset="30" yOffset="-47">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
+	<model name="ChiefCannoneerZombie" type="entity" path="mvz2:enemy/ship/ChiefCannoneerZombie" width="85" height="92" xOffset="22" yOffset="-41">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
+	<model name="PirateIMP" type="entity" path="mvz2:enemy/ship/PirateIMP" width="48" height="56" xOffset="0" yOffset="-28">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
 
     <!--EXPAND Enemies Villager-->
     <model name="MegaMutantVillager" type="entity" path="mvz2:enemy/EXPAND/MegaMutantVillager" width="200" height="180" xOffset="0" yOffset="-90" />
@@ -714,7 +720,7 @@
     <model name="umbrella_shield" type="armor" path="mvz2:armor/umbrella_shield" width="64" height="100" xOffset="16" yOffset="0" />
     <model name="cannon" type="armor" path="mvz2:armor/cannon" width="61" height="36" xOffset="5" yOffset="7" />
     <model name="pop_captain_cap" type="armor" path="mvz2:armor/pop_captain_cap" width="40" height="12" xOffset="0" yOffset="-6" />
-
+	
 	<!--EXPAND Armors -->
 	<model name="SandstoneHelmet" type="armor" path="mvz2:armor/SandstoneHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="necromancer_helmet" type="armor" path="mvz2:armor/necromancer_helmet" width="32" height="14" xOffset="0" yOffset="0" />
@@ -742,7 +748,9 @@
 	<model name="NetheriteHelmet" type="armor" path="mvz2:armor/EXPAND_armor/NetheriteHelmet" width="33" height="26" xOffset="0" yOffset="2" />
 
 	<model name="MannequinCannon" type="armor" path="mvz2:armor/MannequinCannon" width="61" height="36" xOffset="5" yOffset="7" />
-
+	<model name="ChiefCannon" type="armor" path="mvz2:armor/EXPAND_armor/ChiefCannon" width="61" height="36" xOffset="5" yOffset="7" />
+	<model name="ChiefCap" type="armor" path="mvz2:armor/EXPAND_armor/ChiefCap" width="40" height="12" xOffset="0" yOffset="-6" />
+	
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28" />
     <model name="starshard.halloween" type="held" path="mvz2:held/starshards/halloween" shot="false" width="32" height="32" xOffset="0" yOffset="-28" />

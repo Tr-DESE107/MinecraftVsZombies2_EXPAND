@@ -3267,6 +3267,31 @@
 				<int name="mvz2:cost" value="75" />
 			</properties>
 		</zombie>
+		<Imp_Exp id="PirateIMP" name="海盗小鬼僵尸" deathMessage="小孩子不能玩枪!">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18" />
+				<float name="mvz2:cryPitch" value="2" />
+				<int name="mvz2:cost" value="100" />
+				<int name="mvz2:waterInteraction" value="2" />
+				<float name="mvz2:maxHealth" value="240" />
+				<float name="mvz2:speed" value="2" />
+				<float name="mvz2:damage" value="100" />
+			</properties>
+		</Imp_Exp>
+		<Mannequin_Exp id="ChiefCannoneerZombie" name="炮长僵尸" deathMessage="炮决立刻执行！">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:ChiefCap" />
+				<id name="mvz2:starting_shield" value="mvz2:ChiefCannon" />
+				<int name="mvz2:cost" value="500" />
+			</properties>
+		</Mannequin_Exp>
 
         <!-- EXPAND Enemies Villager -->
 		<Villager_Exp id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！">
@@ -3482,7 +3507,7 @@
                 
             </properties>
         </Mannequin_Exp>
-		<Mannequin_Exp id="CannoneerMannequin" name="炮手僵尸" deathMessage="炮决！">
+		<Mannequin_Exp id="CannoneerMannequin" name="炮手玩家模型" deathMessage="开！炮！">
 			<unlock>
 				<condition required="mvz2:level.ucannotunlock" />
 			</unlock>
