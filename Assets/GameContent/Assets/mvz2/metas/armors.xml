@@ -138,7 +138,7 @@
 				<float name="mvz2:maxHealth" value="400" />
 			</props>
 		</entry>
-		<entry id="netherite_ingot_helmet">
+		<entry id="NetherVanguardHelmet">
 			<behaviours>
 				<behaviour id="mvz2:damage_state_3" />
 			</behaviours>

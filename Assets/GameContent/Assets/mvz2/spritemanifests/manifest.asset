@@ -1093,6 +1093,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c722a1dec874bb34e9a87bb1dd009e63, type: 3}
   - name: entity/enemies/mesmerizer_rod_pro
     sprite: {fileID: 21300000, guid: ce61d5f5e6687a643968d800f45003ef, type: 3}
+  - name: entity/enemies/muskets
+    sprite: {fileID: 21300000, guid: 38321ae00bfd2c647a4a0e221e08ce9a, type: 3}
   - name: entity/enemies/RedEyeZombieHead
     sprite: {fileID: 21300000, guid: 645fcd6dca551b74081afa84999b7736, type: 3}
   - name: entity/enemies/SkeletonHead
@@ -1900,11 +1902,11 @@ MonoBehaviour:
     - {fileID: -401330018, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
     - {fileID: -353578488, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
     - {fileID: 1897382163, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
-  - name: entity/armor/netherite_ingot_helmet
+  - name: entity/armor/NetherVanguardHelmet
     spritesheet:
-    - {fileID: -216840252, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
-    - {fileID: -1581868723, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
-    - {fileID: -531697934, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
+    - {fileID: 238338300, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
+    - {fileID: 410372369, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
+    - {fileID: 1212134690, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
   - name: entity/armor/nether_helmet
     spritesheet:
     - {fileID: -1984175535, guid: 4d92b5d7677db944c9d67a9d6df8a26a, type: 3}

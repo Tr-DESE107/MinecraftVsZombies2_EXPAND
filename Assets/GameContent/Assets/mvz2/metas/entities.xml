@@ -2874,7 +2874,7 @@
 				<condition required="mvz2:level.castle_6" />
 			</unlock>
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:netherite_ingot_helmet" />
+				<id name="mvz2:starting_armor" value="mvz2:NetherVanguardHelmet" />
 				<id name="mvz2:starting_shield" value="mvz2:nether_vanguard_shield" />
 				<float name="mvz2:maxHealth" value="600" />
 				<id name="mvz2:shell" value="mvz2:nether" />

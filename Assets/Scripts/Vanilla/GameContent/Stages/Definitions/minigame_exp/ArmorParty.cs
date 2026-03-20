@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Stages
         VanillaArmorID.bone_helmet,
         VanillaArmorID.necromancer_helmet,
         VanillaArmorID.nether_helmet,
-        VanillaArmorID.netherite_ingot_helmet,
+        VanillaArmorID.NetherVanguardHelmet,
         VanillaArmorID.AngryReverserCrown,
         VanillaArmorID.KingofReverserCrown,
         VanillaArmorID.SantaHat,

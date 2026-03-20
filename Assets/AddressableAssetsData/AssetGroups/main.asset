@@ -1676,6 +1676,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a7cc570d0e378543a6d625059159960
+    m_Address: mvz2:armor/EXPAND_armor/ChiefCannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a8ffe6b2a694d04494eab0a724bcf8e
     m_Address: mvz2:pacman_attack
     m_ReadOnly: 0
@@ -1984,6 +1991,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2094808b0fbf91646acb06fbaf8bab36
+    m_Address: mvz2:enemy/ship/PirateIMP
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20958533b91069a45b0be07ee94c9c4a
     m_Address: mvz2:entity/ghost/ghost_cry2
     m_ReadOnly: 0
@@ -2153,7 +2167,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 22b85ec07e4d4cf4fa6cd20ae2b6cf65
-    m_Address: mvz2:armor/netherite_ingot_helmet
+    m_Address: mvz2:armor/NetherVanguardHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3433,6 +3447,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3816b1ac92926794f8be0374fd4656aa
     m_Address: mvz2:mobile_blueprint/NetherTroopCarrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38321ae00bfd2c647a4a0e221e08ce9a
+    m_Address: mvz2:entity/enemies/muskets
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6154,6 +6175,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6376a807c8042aa4d97898d399a3886c
+    m_Address: mvz2:entity/enemy/EXPAND/PirateIMP
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63931386c553c1940b368a0c2054db20
     m_Address: mvz2:soul_sand_break7
     m_ReadOnly: 0
@@ -6176,7 +6204,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6452c58bcebfd4048999128bc5e19b17
-    m_Address: mvz2:entity/armor/netherite_ingot_helmet
+    m_Address: mvz2:entity/armor/NetherVanguardHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9814,6 +9842,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5a4db0e76add6146b289d8c83fb9907
+    m_Address: mvz2:entity/armor/ChiefCap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5a8678da695d194583b685cf37473e1
     m_Address: mvz2:diamond
     m_ReadOnly: 0
@@ -11172,6 +11207,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc3e21048259221499c279607a85c43b
+    m_Address: mvz2:enemy/ship/ChiefCannoneerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc7f633f0f53dd349827ea61dbdfad23
     m_Address: mvz2:entity/contraption/EXPAND_Contraption/SuperFireworkDispenser
     m_ReadOnly: 0
@@ -11360,6 +11402,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0c01de9a3a039d44b91dde68e814643
+    m_Address: mvz2:entity/armor/EXPAND_armor/ChiefCannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c10d5cdc8afb68b48a2e80b9dae85b0f
     m_Address: mvz2:bash
@@ -12775,6 +12824,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8a695fa743a5e64288767e1aac5bfec
+    m_Address: mvz2:armor/EXPAND_armor/ChiefCap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8b4a6fef193f41428666f3177af2af7
     m_Address: mvz2:mobile_blueprint/tesla_coil
     m_ReadOnly: 0
@@ -13397,6 +13453,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e50630d78a2fedb438493ddc59a2208d
+    m_Address: mvz2:entity/enemy/EXPAND/RaiderSkull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e54f2595624bbc447b98881de587ce72
     m_Address: mvz2:ui/level/hint_arrow
@@ -14901,6 +14964,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd527d0a29c8d2c46b18fdc2709c22d4
+    m_Address: mvz2:entity/enemy/EXPAND/ChiefCannoneerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd81cc50c2effc04687a0f7feb588738
     m_Address: mvz2:enemy/dream/parasite_terror
