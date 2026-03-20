@@ -3972,6 +3972,13 @@ MonoBehaviour:
     - {fileID: -585815378, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
     - {fileID: 1470687961, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
     - {fileID: -1157297119, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
+  - name: entity/enemy/EXPAND/MusketeerZombie
+    spritesheet:
+    - {fileID: -1102968922, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
+    - {fileID: -148507663, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
+    - {fileID: -168768756, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
+    - {fileID: -1082140172, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
+    - {fileID: -210768420, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
   - name: entity/enemy/EXPAND/NightmareDisciple
     spritesheet:
     - {fileID: -1059939155, guid: c2aa38fe12afc8b408156c23b53f38b4, type: 3}

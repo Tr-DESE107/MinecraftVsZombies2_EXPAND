@@ -3282,7 +3282,7 @@
 				<float name="mvz2:damage" value="100" />
 			</properties>
 		</Imp_Exp>
-		<Mannequin_Exp id="ChiefCannoneerZombie" name="炮长僵尸" deathMessage="炮决立刻执行！">
+		<zombie id="ChiefCannoneerZombie" name="炮长僵尸" deathMessage="炮决立刻执行！">
 			<unlock>
 				<condition required="mvz2:level.ship_12" />
 			</unlock>
@@ -3291,7 +3291,22 @@
 				<id name="mvz2:starting_shield" value="mvz2:ChiefCannon" />
 				<int name="mvz2:cost" value="500" />
 			</properties>
-		</Mannequin_Exp>
+		</zombie>
+		<zombie id="MusketeerZombie" name="火枪手僵尸" deathMessage="他没射中靶子，气急败坏的打了你一顿">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+				<int name="mvz2:cost" value="100" />
+			</properties>
+		</zombie>
 
         <!-- EXPAND Enemies Villager -->
 		<Villager_Exp id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！">
