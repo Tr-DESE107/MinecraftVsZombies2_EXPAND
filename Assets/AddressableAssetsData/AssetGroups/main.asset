@@ -8337,6 +8337,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a4d031a7b9504044ade6c6e1f8abbbb
+    m_Address: mvz2:entity/enemy/EXPAND/MusketeerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a70d92a6c7b75340b98df7a8a5bee15
     m_Address: mvz2:random/crystal/crystal3
     m_ReadOnly: 0
@@ -12389,6 +12396,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d01c7cac1b0e2be419320afe7889adf7
+    m_Address: mvz2:enemy/ship/MusketeerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d01de9681d160e54d936453e5f9f9ac8
     m_Address: mvz2:armor/PirateLeatherCap

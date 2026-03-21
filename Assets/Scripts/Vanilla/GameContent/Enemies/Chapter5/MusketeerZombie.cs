@@ -9,6 +9,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
+using MVZ2.Vanilla.Audios;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -85,7 +86,8 @@ namespace MVZ2.GameContent.Enemies
                 
                 // 发射子弹
                 entity.ShootProjectile();
-                
+                entity.PlaySound(VanillaSoundID.gunShot);
+
                 // 设置 reload 状态
                 SetIsReloading(entity, true);
                 
@@ -122,7 +124,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_RELOAD_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("reloadTimer");
         public const int STATE_WALK = VanillaEnemyStates.WALK;
         public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
-        public const int MAX_AMMO = 10; // 最大子弹数量
+        public const int MAX_AMMO = 1; // 最大子弹数量
         public const int RELOAD_TIME = 30; //  reload 时间（帧）
     }
 }
