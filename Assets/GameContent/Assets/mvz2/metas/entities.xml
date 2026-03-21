@@ -1385,7 +1385,7 @@
                 <vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
 
-                <int name="mvz2:cost" value="275" />
+                <int name="mvz2:cost" value="475" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
@@ -2482,7 +2482,7 @@
 
 		<Skeleton_Exp id="MeleeSkeleton" name="骷髅仆从" deathMessage="起来!饥寒交迫的人民!">
 			<unlock>
-				<condition required="mvz2:level.halloween_8" />
+				<condition required="mvz2:level.halloween_12" />
 			</unlock>
 			<properties>
 				<int name="mvz2:cost" value="50" />
@@ -2493,7 +2493,7 @@
 		</Skeleton_Exp>
 		<Skeleton_Exp id="KingSkeleton" name="国王骷髅" deathMessage="现在我就是这个家的王了!">
 			<unlock>
-				<condition required="mvz2:level.halloween_8" />
+				<condition required="mvz2:level.halloween_12" />
 			</unlock>
 			<properties>
 				<id name="mvz2:shell" value="mvz2:bone" />
@@ -2874,7 +2874,7 @@
 				<condition required="mvz2:level.castle_6" />
 			</unlock>
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:netherite_ingot_helmet" />
+				<id name="mvz2:starting_armor" value="mvz2:NetherVanguardHelmet" />
 				<id name="mvz2:starting_shield" value="mvz2:nether_vanguard_shield" />
 				<float name="mvz2:maxHealth" value="600" />
 				<id name="mvz2:shell" value="mvz2:nether" />
@@ -3235,6 +3235,87 @@
 			</properties>
 		</mutantZombie>
 
+		<specialEnemy id="PirateBomb" name="海盗炸弹" deathMessage="小作坊下药就是猛">
+			<unlock>
+				<condition required="mvz2:level.TrueAndFalseSteve" />
+			</unlock>
+			<properties>
+
+				<bool name="mvz2:notActiveEnemy" value="true" />
+				<float name="mvz2:damage" value="1800" />
+				<float name="mvz2:range" value="120" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+				<id name="mvz2:fragmentId" value="mvz2:iron" />
+				<id name="mvz2:placeSound" value="mvz2:iron" />
+
+				<id name="mvz2:deathSound" value="mvz2:iron" />
+				<float name="mvz2:maxHealth" value="900" />
+
+				<int name="mvz2:cost" value="200" />
+
+			</properties>
+		</specialEnemy>
+		<zombie id="KogasaZombie" name="小伞僵尸" deathMessage="吓死你!">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_shield" value="mvz2:umbrella_shield" />
+				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:maxHealth" value="250" />
+				<float name="mvz2:speed" value="0.9" />
+				<int name="mvz2:cost" value="75" />
+			</properties>
+		</zombie>
+		<Imp_Exp id="PirateIMP" name="海盗小鬼僵尸" deathMessage="小孩子不能玩枪!">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18" />
+				<float name="mvz2:cryPitch" value="2" />
+				<int name="mvz2:cost" value="100" />
+				<int name="mvz2:waterInteraction" value="2" />
+				<float name="mvz2:maxHealth" value="240" />
+				<float name="mvz2:speed" value="2" />
+				<float name="mvz2:damage" value="150" />
+
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="10" y="20" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+				<id name="mvz2:projectileId" value="mvz2:bullet" />
+			</properties>
+		</Imp_Exp>
+		<zombie id="ChiefCannoneerZombie" name="炮长僵尸" deathMessage="炮决立刻执行！">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:ChiefCap" />
+				<id name="mvz2:starting_shield" value="mvz2:ChiefCannon" />
+				<int name="mvz2:cost" value="500" />
+			</properties>
+		</zombie>
+		<zombie id="MusketeerZombie" name="火枪手僵尸" deathMessage="他没射中靶子，气急败坏的打了你一顿">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+				<id name="mvz2:projectileId" value="mvz2:bullet" />
+				<int name="mvz2:cost" value="100" />
+			</properties>
+		</zombie>
+
         <!-- EXPAND Enemies Villager -->
 		<Villager_Exp id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！">
             <unlock>
@@ -3432,7 +3513,6 @@
             </unlock>
 			<behaviours>
 				<behaviour operator="add" id="mvz2:fragmented" />
-				<behaviour operator="add" id="mvz2:timeout_death" />
 			</behaviours>
             <properties>
                 
@@ -3450,7 +3530,7 @@
                 
             </properties>
         </Mannequin_Exp>
-		<Mannequin_Exp id="CannoneerMannequin" name="炮手僵尸" deathMessage="炮决！">
+		<Mannequin_Exp id="CannoneerMannequin" name="炮手玩家模型" deathMessage="开！炮！">
 			<unlock>
 				<condition required="mvz2:level.ucannotunlock" />
 			</unlock>

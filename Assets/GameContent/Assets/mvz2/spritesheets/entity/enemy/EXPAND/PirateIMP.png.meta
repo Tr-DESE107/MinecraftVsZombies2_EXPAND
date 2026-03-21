@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6452c58bcebfd4048999128bc5e19b17
+guid: 6376a807c8042aa4d97898d399a3886c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,64 +123,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: netherite_ingot_helmet_0
+      name: PirateIMP_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 33
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 41
+        width: 32
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 815e09feb4cd60c4ab3c63f6d4dce13b
-      internalID: -216840252
+      spriteID: 6d50a9f788df51e4588d76d070195a61
+      internalID: -1193626472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: netherite_ingot_helmet_1
+      name: PirateIMP_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 33
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 33
+        y: 56
+        width: 42
+        height: 14
+      alignment: 9
+      pivot: {x: 0.8571429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02b46630d0ac9ac4586b7a1c11dcaa47
-      internalID: -1581868723
+      spriteID: 4b9c41d58ad39e0489d120f1ef39cc1a
+      internalID: -728381366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: netherite_ingot_helmet_2
+      name: PirateIMP_2
       rect:
         serializedVersion: 2
-        x: 69
-        y: 0
-        width: 33
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 33
+        y: 41
+        width: 42
+        height: 14
+      alignment: 9
+      pivot: {x: 0.8571429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cd52818b21efca42bd0d2ee22993f67
-      internalID: -531697934
+      spriteID: 746144a01703df94495f9d82b2b6df3c
+      internalID: 747214165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PirateIMP_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 16
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.87}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8b6d8415c75a740a2e31a868dae768
+      internalID: 708007959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PirateIMP_4
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 3
+        width: 19
+        height: 37
+      alignment: 9
+      pivot: {x: 0.473, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc17b3bb8a0c944392988f7c11fc143
+      internalID: -175355847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PirateIMP_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 3
+        width: 19
+        height: 37
+      alignment: 9
+      pivot: {x: 0.473, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6317c789890f174f8a6b596a44d5595
+      internalID: -421605466
       vertices: []
       indices: 
       edges: []
@@ -196,9 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      netherite_ingot_helmet (1)_0: -216840252
-      netherite_ingot_helmet (1)_1: -1581868723
-      netherite_ingot_helmet (1)_2: -531697934
+      PirateIMP_0: -1193626472
+      PirateIMP_1: -728381366
+      PirateIMP_2: 747214165
+      PirateIMP_3: 708007959
+      PirateIMP_4: -175355847
+      PirateIMP_5: -421605466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

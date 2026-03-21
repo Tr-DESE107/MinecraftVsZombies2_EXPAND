@@ -30,6 +30,20 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
         }
+        public override Entity? Shoot(Entity entity)
+        {
+            var shotSpeed = entity.GetShotVelocity().magnitude;
+            foreach (var direction in shootDirections)
+            {
+                var dir = direction;
+                dir.x *= entity.GetFacingX();
+                var shootParams = entity.GetShootParams();
+                shootParams.velocity = dir * shotSpeed;
+                entity.ShootProjectile(shootParams);
+            }
+            return entity.ShootProjectile();
+        }
+
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
@@ -45,5 +59,17 @@ namespace MVZ2.GameContent.Contraptions
             }
             entity.PlaySound(VanillaSoundID.launch);
         }
+
+        public static Vector3[] shootDirections = new Vector3[]
+        {
+            new Vector3(1, 0, 0),   // 向前  
+            new Vector3(0.5f, 0, 0.25f).normalized,   // 向左上  
+            new Vector3(0.5f, 0, -0.25f).normalized,    // 向右上  
+            //new Vector3(-1, 0, 0), // Back
+            //new Vector3(0, 0, 1), // Up
+            //new Vector3(0, 0, -1), // Down
+            //new Vector3(0.866025f, 0, 0.5f).normalized, // Front-Up
+            //new Vector3(0.866025f, 0, -0.5f).normalized, // Front-Down
+        };
     }
 }
