@@ -727,6 +727,7 @@
 	<!--EXPAND Armors -->
 	<model name="SandstoneHelmet" type="armor" path="mvz2:armor/SandstoneHelmet" width="33" height="14" xOffset="0" yOffset="0" />
 	<model name="necromancer_helmet" type="armor" path="mvz2:armor/necromancer_helmet" width="32" height="14" xOffset="0" yOffset="0" />
+	<model name="KingSkeletonCrown" type="armor" path="mvz2:armor/EXPAND_armor/KingSkeletonCrown" width="32" height="14" xOffset="0" yOffset="0" />
 	<model name="bone_helmet" type="armor" path="mvz2:armor/bone_helmet" width="40" height="25" xOffset="0" yOffset="0" />
 	<model name="AngryReverserCrown" type="armor" path="mvz2:armor/AngryReverserCrown" width="34" height="40" xOffset="0" yOffset="-21" />
 	<model name="KingofReverserCrown" type="armor" path="mvz2:armor/KingofReverserCrown" width="40" height="50" xOffset="0" yOffset="-21" />

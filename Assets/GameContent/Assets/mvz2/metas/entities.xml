@@ -2497,6 +2497,7 @@
 			</unlock>
 			<properties>
 				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:starting_armor" value="mvz2:KingSkeletonCrown" />
 				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
 				<float name="mvz2:maxHealth" value="350" />
