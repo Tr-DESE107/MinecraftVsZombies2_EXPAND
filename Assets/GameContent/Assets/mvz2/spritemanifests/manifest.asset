@@ -3743,6 +3743,11 @@ MonoBehaviour:
     - {fileID: 1805266693, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}
     - {fileID: 1960920757, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}
     - {fileID: -761374647, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}
+  - name: entity/armor/EXPAND_armor/KingSkeletonCrown
+    spritesheet:
+    - {fileID: -322653453, guid: f1cfdcfbaf466c34a9c3a526d15daa56, type: 3}
+    - {fileID: 284140208, guid: f1cfdcfbaf466c34a9c3a526d15daa56, type: 3}
+    - {fileID: -820999370, guid: f1cfdcfbaf466c34a9c3a526d15daa56, type: 3}
   - name: entity/armor/EXPAND_armor/NetheriteHelmet
     spritesheet:
     - {fileID: -126034771, guid: 39ff6994398f0dd40a4b04168abccb9e, type: 3}
@@ -3947,7 +3952,6 @@ MonoBehaviour:
     - {fileID: 1411964412, guid: a6559072dba7fa4468fa5b18eec1f3ce, type: 3}
   - name: entity/enemy/EXPAND/ChiefCannoneerZombie
     spritesheet:
-    - {fileID: 1302413240, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: 2058068227, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: -1656223774, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: 79111158, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}

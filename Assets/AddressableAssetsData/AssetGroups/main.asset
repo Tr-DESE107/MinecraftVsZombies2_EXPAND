@@ -14175,6 +14175,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f070d07817313f643adc0d9126f75d11
+    m_Address: mvz2:armor/EXPAND_armor/KingSkeletonCrown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f07888a4760122e4d9f13591b874dbe4
     m_Address: mvz2:entity/Player/Player_hurt1
     m_ReadOnly: 0
@@ -14300,6 +14307,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1cfdcfbaf466c34a9c3a526d15daa56
+    m_Address: mvz2:entity/armor/EXPAND_armor/KingSkeletonCrown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1d32022e0316ea4d90c7859511d1871
     m_Address: mvz2:effect/fire_breath
