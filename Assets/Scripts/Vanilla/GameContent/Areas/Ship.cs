@@ -32,6 +32,10 @@ namespace MVZ2.GameContent.Areas
             base.Setup(level);
             SetSkyOffsetSpeed(level, SKY_OFFSET_SPEED_NORMAL);
             SetRNG(level, level.CreateRNG());
+            if (level.GetProperty<NamespaceID[]>(PARATROOP_POOL) == null)
+            {
+                level.SetProperty(PARATROOP_POOL, paratroopsToSpawn);
+            }
         }
         public override void Update(LevelEngine level)
         {
@@ -88,7 +92,7 @@ namespace MVZ2.GameContent.Areas
             var grids = rng != null ? valid.WeightedRandomTake(weightArray, count, rng) : valid.Take(count);
             foreach (var grid in grids)
             {
-                var entityToSpawn = rng != null ? GetParatroopToSpawn(rng) : VanillaEnemyID.zombie;
+                var entityToSpawn = rng != null ? GetParatroopToSpawn(level, rng) : VanillaEnemyID.zombie;
                 SpawnParatroopOnGrid(level, entityToSpawn, grid);
             }
             level.PlaySound(VanillaSoundID.wind);
@@ -107,9 +111,10 @@ namespace MVZ2.GameContent.Areas
         {
             return column - SPAWNER_MIN_COLUMN + 1;
         }
-        private static NamespaceID GetParatroopToSpawn(RandomGenerator rng)
+        private static NamespaceID GetParatroopToSpawn(LevelEngine level, RandomGenerator rng)
         {
-            return paratroopsToSpawn.Random(rng);
+            var pool = level.GetProperty<NamespaceID[]>(PARATROOP_POOL) ?? paratroopsToSpawn;
+            return pool.Random(rng);
         }
         public static float GetSkyOffsetSpeed(LevelEngine level) => level.GetProperty<float>(PROP_SKY_OFFSET_SPEED);
         public static void SetSkyOffsetSpeed(LevelEngine level, float value) => level.SetProperty<float>(PROP_SKY_OFFSET_SPEED, value);
@@ -128,5 +133,6 @@ namespace MVZ2.GameContent.Areas
         public const float SKY_OFFSET_ACCELERATION = 0.1f;
         public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("SpawnerRNG");
         public static readonly VanillaLevelPropertyMeta<float> PROP_SKY_OFFSET_SPEED = new VanillaLevelPropertyMeta<float>("sky_offset_speed");
+        public static readonly PropertyMeta<NamespaceID[]> PARATROOP_POOL = new PropertyMeta<NamespaceID[]>("paratroopPool");
     }
 }
