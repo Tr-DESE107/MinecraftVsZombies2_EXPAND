@@ -95,6 +95,10 @@ namespace MVZ2.GameContent.Stages
         public const string ship9 = "ship_9";
         public const string ship10 = "ship_10";
         public const string ship11 = "ship_11";
+        public const string ship12 = "ship_12";
+        public const string ship13 = "ship_13";
+        public const string ship14 = "ship_14";
+        public const string ship15 = "ship_15";
         public const string shipEndless = "ship_endless";
 
         // Minigames

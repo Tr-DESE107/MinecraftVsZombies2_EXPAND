@@ -5,6 +5,7 @@ using System.Linq;
 using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -18,6 +19,7 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2;
 
 namespace MVZ2.GameContent.Areas
 {
@@ -88,7 +90,7 @@ namespace MVZ2.GameContent.Areas
             var grids = rng != null ? valid.WeightedRandomTake(weightArray, count, rng) : valid.Take(count);
             foreach (var grid in grids)
             {
-                var entityToSpawn = rng != null ? GetParatroopToSpawn(rng) : VanillaEnemyID.zombie;
+                var entityToSpawn = rng != null ? GetParatroopToSpawn(rng, level) : VanillaEnemyID.zombie;
                 SpawnParatroopOnGrid(level, entityToSpawn, grid);
             }
             level.PlaySound(VanillaSoundID.wind);
@@ -107,8 +109,25 @@ namespace MVZ2.GameContent.Areas
         {
             return column - SPAWNER_MIN_COLUMN + 1;
         }
-        private static NamespaceID GetParatroopToSpawn(RandomGenerator rng)
+        private static Dictionary<string, NamespaceID[]> levelSpecificParatroops = new Dictionary<string, NamespaceID[]>()
         {
+            // 示例：关卡 "level_10" 使用特定的伞兵类型
+            { "ship_12", new NamespaceID[] { VanillaEnemyID.MusketeerZombie, VanillaEnemyID.KogasaZombie } },
+            // 可以添加更多关卡配置
+        };
+
+        private static NamespaceID GetParatroopToSpawn(RandomGenerator rng, LevelEngine level)
+        {
+            // 获取当前关卡的 Stage ID
+            var stageID = level.StageID;
+            
+            // 检查是否有关卡特定的配置
+            if (stageID != null && levelSpecificParatroops.TryGetValue(stageID.ToString(), out var specificParatroops))
+            {
+                return specificParatroops.Random(rng);
+            }
+            
+            // 默认配置
             return paratroopsToSpawn.Random(rng);
         }
         public static float GetSkyOffsetSpeed(LevelEngine level) => level.GetProperty<float>(PROP_SKY_OFFSET_SPEED);

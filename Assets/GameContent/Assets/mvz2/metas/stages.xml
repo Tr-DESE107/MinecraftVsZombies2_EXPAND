@@ -1715,6 +1715,18 @@
 			<id name="clearSound" value="mvz2:final_item" />
 		</properties>
 	</stage>
+	<stage id="ship_12" name="圣辇船" dayNumber="12">
+		<unlock>
+			<condition required="mvz2:level.ship_11" />
+		</unlock>
+		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gunpowder_barrel" />
+		<spawns flags="10" wavesPerFlag="1">
+			<spawn id="mvz2:PirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
+			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:imp" />
+		</spawns>
+	</stage>
 	<stage id="ship_endless" name="圣辇船无尽" type="endless">
 		<unlock>
 			<condition required="mvz2:level.ship_11" />
