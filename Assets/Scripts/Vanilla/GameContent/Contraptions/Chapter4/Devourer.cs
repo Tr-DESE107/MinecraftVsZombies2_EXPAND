@@ -200,7 +200,8 @@ namespace MVZ2.GameContent.Contraptions
             if (!target.ExistsAndAlive())
                 return;
 
-            if (target.IsEntityOf(VanillaObstacleID.monsterSpawner))
+            //if (target.IsEntityOf(VanillaObstacleID.monsterSpawner))
+            if (target.Type == EntityTypes.OBSTACLE)
             {
                 target.Remove();
                 devourer.Produce(VanillaPickupID.emerald);
@@ -262,7 +263,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             if (!entity.ExistsAndAlive())
                 return false;
-            if (!entity.IsEntityOf(VanillaObstacleID.monsterSpawner) && entity.Type != EntityTypes.PLANT)
+            if (entity.Type != EntityTypes.OBSTACLE && entity.Type != EntityTypes.PLANT)
                 return false;
             return true;
         }
