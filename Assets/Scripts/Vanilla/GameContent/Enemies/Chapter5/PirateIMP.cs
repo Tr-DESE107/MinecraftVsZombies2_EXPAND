@@ -29,7 +29,18 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateAI(enemy);
 
-            // 检查是否还有子弹
+            // 每帧推进 reload 计时器  
+            var reloadTimer = GetReloadTimer(enemy);
+            if (reloadTimer != null)
+            {
+                reloadTimer.Run(enemy.GetAttackSpeed());
+                if (reloadTimer.Expired)
+                {
+                    SetIsReloading(enemy, false);
+                }
+            }
+
+            // 检查是否还有子弹  
             if (GetAmmo(enemy) > 0)
             {
                 if (CanShoot(enemy))
@@ -45,15 +56,29 @@ namespace MVZ2.GameContent.Enemies
                     enemy.Target = null;
                 }
 
-                // 远程攻击状态
+                // 远程攻击状态下尝试开火  
                 if (enemy.State == STATE_RANGED_ATTACK && enemy.Target != null)
                 {
-                    FireGun(enemy);
+                    if (!GetIsReloading(enemy))
+                    {
+                        // 消耗一发子弹  
+                        int currentAmmo = GetAmmo(enemy);
+                        currentAmmo--;
+                        SetAmmo(enemy, currentAmmo);
+
+                        // 发射子弹  
+                        enemy.ShootProjectile();
+                        enemy.PlaySound(VanillaSoundID.gunShot);
+
+                        // 进入 reload  
+                        SetIsReloading(enemy, true);
+                        SetReloadTimer(enemy, new FrameTimer(RELOAD_TIME));
+                    }
                 }
             }
             else
             {
-                // 子弹用完，转为近战攻击
+                // 子弹用完，转为近战攻击  
                 enemy.Target = null;
             }
         }
@@ -118,13 +143,13 @@ namespace MVZ2.GameContent.Enemies
         public static void SetReloadTimer(Entity enemy, FrameTimer value) => enemy.SetBehaviourField(ID, PROP_RELOAD_TIMER, value);
 
         private Detector detector;
-        private static readonly NamespaceID ID = VanillaEnemyID.MusketeerZombie;
+        private static readonly NamespaceID ID = VanillaEnemyID.PirateIMP;
         public static readonly VanillaEntityPropertyMeta<int> PROP_AMMO = new VanillaEntityPropertyMeta<int>("ammo", MAX_AMMO);
         public static readonly VanillaEntityPropertyMeta<bool> PROP_IS_RELOADING = new VanillaEntityPropertyMeta<bool>("isReloading", false);
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_RELOAD_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("reloadTimer");
         public const int STATE_WALK = VanillaEnemyStates.WALK;
         public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
         public const int MAX_AMMO = 1; // 最大子弹数量
-        public const int RELOAD_TIME = 30; //  reload 时间（帧）
+        public const int RELOAD_TIME = 90; //  reload 时间（帧）
     }
 }

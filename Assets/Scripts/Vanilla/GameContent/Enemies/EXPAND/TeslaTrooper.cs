@@ -86,7 +86,7 @@ namespace MVZ2.GameContent.Enemies
 
                             TeslaCoil.Shock(enemy, enemy.GetDamage(), enemy.GetFaction(), SHOCK_RADIUS, targetPos);
                             TeslaCoil.CreateArc(enemy, enemy.GetShootPoint(), targetPos);
-                            enemy.PlaySound(VanillaSoundID.teslaAttack);
+                            enemy.PlaySound(VanillaSoundID.TeslaTrooperAttack);
                         }
                         shootTimer.ResetTime(SHOOT_COOLDOWN);
                     }
