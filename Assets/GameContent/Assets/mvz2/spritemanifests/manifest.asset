@@ -4049,6 +4049,14 @@ MonoBehaviour:
     - {fileID: 957661269, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
     - {fileID: 347712781, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
     - {fileID: -1808796182, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
+  - name: entity/enemy/EXPAND/TeslaTrooper
+    spritesheet:
+    - {fileID: 208453340, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -822257388, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -442644671, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -505716809, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -1140522136, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -1676316945, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
   - name: entity/enemy/EXPAND/TorchKongfuZombie
     spritesheet:
     - {fileID: -651146863, guid: 165a945045c255843b5681f8fa31c975, type: 3}
