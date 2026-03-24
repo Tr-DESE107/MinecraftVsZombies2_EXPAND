@@ -131,6 +131,7 @@ namespace MVZ2.GameContent.Enemies
         public const string PirateIMP = "PirateIMP";
         public const string ChiefCannoneerZombie = "ChiefCannoneerZombie";
         public const string MusketeerZombie = "MusketeerZombie";
+        public const string SailorZombie = "SailorZombie";
 
         //EXPAND_Villager
         public const string MegaMutantVillager = "MegaMutantVillager";
@@ -282,6 +283,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID PirateIMP = Get(VanillaEnemyNames.PirateIMP);
         public static readonly NamespaceID ChiefCannoneerZombie = Get(VanillaEnemyNames.ChiefCannoneerZombie);
         public static readonly NamespaceID MusketeerZombie = Get(VanillaEnemyNames.MusketeerZombie);
+        public static readonly NamespaceID SailorZombie = Get(VanillaEnemyNames.SailorZombie);
         
         //EXPAND_Villager
         public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);

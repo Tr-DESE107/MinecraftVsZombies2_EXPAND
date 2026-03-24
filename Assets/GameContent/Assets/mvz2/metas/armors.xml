@@ -299,6 +299,15 @@
 				<float name="mvz2:maxHealth" value="50" />
 			</props>
 		</entry>
+		<entry id="SailorHat">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:grass" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
 
         <!-- Shields -->
         <entry id="reflective_barrier" type="mvz2:large_shield">

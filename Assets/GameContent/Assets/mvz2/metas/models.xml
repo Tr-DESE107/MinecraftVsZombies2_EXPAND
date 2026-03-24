@@ -439,6 +439,9 @@
 	<model name="MusketeerZombie" type="entity" path="mvz2:enemy/ship/MusketeerZombie" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
+	<model name="SailorZombie" type="entity" path="mvz2:enemy/ship/SailorZombie" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
 
     <!--EXPAND Enemies Villager-->
     <model name="MegaMutantVillager" type="entity" path="mvz2:enemy/EXPAND/MegaMutantVillager" width="200" height="180" xOffset="0" yOffset="-90" />
@@ -757,6 +760,7 @@
 	<model name="MannequinCannon" type="armor" path="mvz2:armor/MannequinCannon" width="61" height="36" xOffset="5" yOffset="7" />
 	<model name="ChiefCannon" type="armor" path="mvz2:armor/EXPAND_armor/ChiefCannon" width="61" height="36" xOffset="5" yOffset="7" />
 	<model name="ChiefCap" type="armor" path="mvz2:armor/EXPAND_armor/ChiefCap" width="40" height="12" xOffset="0" yOffset="-6" />
+	<model name="SailorHat" type="armor" path="mvz2:armor/EXPAND_armor/SailorHat" width="32" height="14" xOffset="0" yOffset="0" />
 	
     <!-- HeldItems -->
     <model name="starshard.default" type="held" path="mvz2:held/starshards/default" shot="false" width="32" height="32" xOffset="0" yOffset="-28" />

@@ -3316,6 +3316,15 @@
 				<int name="mvz2:cost" value="100" />
 			</properties>
 		</zombie>
+		<zombie id="SailorZombie" name="水手僵尸" deathMessage="湿又滑！">
+			<unlock>
+				<condition required="mvz2:level.ship_12" />
+			</unlock>
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:SailorHat" />
+				<int name="mvz2:cost" value="100" />
+			</properties>
+		</zombie>
 
         <!-- EXPAND Enemies Villager -->
 		<Villager_Exp id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！">

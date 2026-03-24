@@ -2075,6 +2075,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2180a5910b776f54d8458dda07fcc49d
+    m_Address: mvz2:entity/TeslaTrooper/TeslaTrooperAttack3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 21b4e022322b9bd44bb63fe7b9c40027
     m_Address: mvz2:projectile/golden_ball
     m_ReadOnly: 0
@@ -3194,6 +3201,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33c9625bcf6f0264fb5221aab3a1271f
+    m_Address: mvz2:enemy/EXPAND/TeslaTrooper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33d140b9942701745a921a9fc102ca79
     m_Address: mvz2:damage/fall/fall_small
     m_ReadOnly: 0
@@ -4130,6 +4144,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 427dece4814c57e42836435448419b92
+    m_Address: mvz2:entity/TeslaTrooper/TeslaTrooperAttack1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42aed5a151c953c4aa6add38a42869c2
     m_Address: mvz2:held/starshards/ship
@@ -5475,6 +5496,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5864d688036366a4189ccc01ce7e060d
+    m_Address: mvz2:entity/enemy/EXPAND/TeslaTrooper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58755531f1cc59b4ab7563c5bedf58b2
     m_Address: mvz2:entity/armor/emperor_crown
     m_ReadOnly: 0
@@ -6294,6 +6322,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65ef574b1d361c84d9831dcc4a0d1660
+    m_Address: mvz2:armor/EXPAND_armor/SailorHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65f5a79b8f9519a4280b272150a69514
     m_Address: mvz2:fizz
     m_ReadOnly: 0
@@ -6440,6 +6475,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68c3fd1fcaf18404d814087bc806123f
+    m_Address: mvz2:entity/TeslaTrooper/TeslaTrooperAttack4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68df9535e6e494f42a1aec0c040508a8
     m_Address: mvz2:entity/armor/SandstoneHelmet
@@ -10409,6 +10451,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae93f49531ea7d74db1e9291b6bcc53c
+    m_Address: mvz2:entity/TeslaTrooper/TeslaTrooperAttack2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aeb846fd935c8c24ca242f70ab828253
     m_Address: mvz2:effect/frankenstein_jump_trail
     m_ReadOnly: 0
@@ -13223,6 +13272,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfcd4fddf7170c445ab26db4fae8337b
+    m_Address: mvz2:entity/armor/EXPAND_armor/SailorHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfd23f4bf547c91488f6d7e24b5d60ef
     m_Address: mvz2:choosing
     m_ReadOnly: 0
@@ -13288,6 +13344,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e155d02fcd88b6d47b6c40b7c64e9aae
     m_Address: mvz2:entity/enemy/EXPAND/AngryGhast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1789c706b5a8914b913bb0e0fd8f330
+    m_Address: mvz2:entity/enemy/EXPAND/SailorZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -14876,6 +14939,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fac3929eed4b4314b975f5a7274d1bc7
     m_Address: mvz2:enemy/mausoleum/IronMonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fae5b36cf711fa046b8035a450c6ddbf
+    m_Address: mvz2:enemy/ship/SailorZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
