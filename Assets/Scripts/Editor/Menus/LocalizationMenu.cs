@@ -114,7 +114,8 @@ namespace MVZ2.Editor
             }
             foreach (var option in blueprintsList.Options)
             {
-                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", LogicStrings.CONTEXT_OPTION_NAME);
+                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", LogicStrings.CONTEXT_BLUEPRINT_OPTION_NAME);
+                AddTranslation(potGenerator, option.Tooltip, blueprintsReference, $"Tooltip for blueprint option {option.ID}", LogicStrings.CONTEXT_BLUEPRINT_OPTION_TOOLTIP);
             }
             foreach (var entity in blueprintsList.Entities)
             {

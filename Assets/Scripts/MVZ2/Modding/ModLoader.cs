@@ -485,6 +485,7 @@ namespace MVZ2.Modding
                     continue;
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.COST, meta.Cost);
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.NAME, meta.Name);
+                seedOptionDefinition.SetProperty(LogicSeedOptionProps.TOOLTIP, meta.Tooltip);
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.ICON, meta.GetIcon());
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.MOBILE_ICON, meta.GetMobileIcon());
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.MODEL_ID, meta.GetModelID());

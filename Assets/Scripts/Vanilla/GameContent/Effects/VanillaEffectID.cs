@@ -113,6 +113,8 @@ namespace MVZ2.GameContent.Effects
         public const string petrifyLaser = "petrify_laser";
         public const string amethystPylonLaser = "amethyst_pylon_laser";
         public const string masterSpark = "master_spark";
+        public const string minecartRail = "minecart_rail";
+        public const string minecartRideable = "minecart_rideable";
     }
     public static class VanillaEffectID
     {
@@ -222,6 +224,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID petrifyLaser = Get(VanillaEffectNames.petrifyLaser);
         public static readonly NamespaceID amethystPylonLaser = Get(VanillaEffectNames.amethystPylonLaser);
         public static readonly NamespaceID masterSpark = Get(VanillaEffectNames.masterSpark);
+        public static readonly NamespaceID minecartRail = Get(VanillaEffectNames.minecartRail);
+        public static readonly NamespaceID minecartRideable = Get(VanillaEffectNames.minecartRideable);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

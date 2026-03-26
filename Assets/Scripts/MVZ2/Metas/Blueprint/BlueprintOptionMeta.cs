@@ -16,6 +16,7 @@ namespace MVZ2.Metas
         public string ID { get; private set; }
         public int Cost { get; private set; }
         public string Name { get; private set; } = string.Empty;
+        public string Tooltip { get; private set; } = string.Empty;
         public BlueprintMetaIcon? Icon { get; private set; }
         public static BlueprintOptionMeta? FromXmlNode(string nsp, XmlNode node, string defaultNsp)
         {
@@ -28,6 +29,7 @@ namespace MVZ2.Metas
             var blueprintID = new NamespaceID(nsp, id);
             var cost = node.GetAttributeInt("cost") ?? 0;
             var name = node.GetAttribute("name") ?? string.Empty;
+            var tooltip = node.GetAttribute("tooltip") ?? string.Empty;
             BlueprintMetaIcon? icon = null;
             var iconNode = node["icon"];
             if (iconNode != null)
@@ -37,6 +39,7 @@ namespace MVZ2.Metas
             return new BlueprintOptionMeta(id)
             {
                 Name = name,
+                Tooltip = tooltip,
                 Cost = cost,
                 Icon = icon
             };

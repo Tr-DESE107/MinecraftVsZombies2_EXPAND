@@ -17,6 +17,11 @@ namespace MVZ2Logic.Blueprints
         {
             return definition.GetProperty<string>(NAME);
         }
+        public static readonly PropertyMeta<string> TOOLTIP = Get<string>("tooltip");
+        public static string? GetOptionTooltip(this SeedOptionDefinition definition)
+        {
+            return definition.GetProperty<string>(TOOLTIP);
+        }
         public static readonly PropertyMeta<SpriteReference> ICON = Get<SpriteReference>("icon");
         public static SpriteReference? GetIcon(this SeedOptionDefinition definition)
         {

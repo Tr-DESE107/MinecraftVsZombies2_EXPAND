@@ -8,6 +8,8 @@ namespace MVZ2Logic.Games
     {
         Vector2 GetPointerScreenPosition();
         Vector2 GetPointerScreenPosition(int type, int button);
+        bool TryGetPointerScreenPosition(out Vector2 screenPosition);
+        bool TryGetPointerScreenPosition(int type, int button, out Vector2 screenPosition);
         bool IsPointerDown(int type, int button);
         bool IsPointerHolding(int type, int button);
         bool IsPointerUp(int type, int button);

@@ -80,11 +80,26 @@ namespace MVZ2.GameContent.Stages
         public const string ship11 = "ship_11";
         public const string shipEndless = "ship_endless";
 
+
+        public const string palace1 = "palace_1";
+        public const string palace2 = "palace_2";
+        public const string palace3 = "palace_3";
+        public const string palace4 = "palace_4";
+        public const string palace5 = "palace_5";
+        public const string palace6 = "palace_6";
+        public const string palace7 = "palace_7";
+        public const string palace8 = "palace_8";
+        public const string palace9 = "palace_9";
+        public const string palace10 = "palace_10";
+        public const string palace11 = "palace_11";
+        public const string palaceEndless = "palace_endless";
+
         // Minigames
         public const string whackAGhost = "whack_a_ghost";
         public const string breakout = "breakout";
         public const string bigTroubleAndLittleZombie = "big_trouble_and_little_zombie";
         public const string ufoBlitz = "ufo_blitz";
+        public const string heavyWeapon = "heavy_weapon";
 
         public const string frankensteinsRevenge = "frankensteins_revenge";
         public const string nightmaresRevenge = "nightmares_revenge";

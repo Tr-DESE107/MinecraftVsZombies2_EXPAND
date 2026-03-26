@@ -135,13 +135,35 @@ namespace MVZ2Logic.Inputs
             }
             return Vector2.zero;
         }
-        public static Vector2 GetPointerPosition()
+        public static Vector2 GetPointerPosition(int type, int button)
         {
-            if (Input.touchCount > 0)
+            if (type == PointerTypes.TOUCH)
             {
-                return Input.GetTouch(0).position;
+                if (Input.touchCount > button)
+                {
+                    return Input.GetTouch(button).position;
+                }
+                return Vector2.zero;
             }
             return Input.mousePosition;
+        }
+        public static bool TryGetPointerPosition(int type, int button, out Vector2 screenPosition)
+        {
+            if (type == PointerTypes.TOUCH)
+            {
+                if (Input.touchCount > button)
+                {
+                    screenPosition = Input.GetTouch(button).position;
+                    return true;
+                }
+            }
+            else if (type == PointerTypes.MOUSE)
+            {
+                screenPosition = Input.mousePosition;
+                return true;
+            }
+            screenPosition = Vector2.zero;
+            return false;
         }
         #endregion
 

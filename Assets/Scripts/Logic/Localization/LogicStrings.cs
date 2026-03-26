@@ -64,6 +64,8 @@ namespace MVZ2Logic.Localization
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_ENTITY_COUNTER_NAME = "entity_counter.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
+        public const string CONTEXT_BLUEPRINT_OPTION_NAME = "blueprint_option.name";
+        public const string CONTEXT_BLUEPRINT_OPTION_TOOLTIP = "blueprint_option.tooltip";
         public const string CONTEXT_ARTIFACT_NAME = "artifact.name";
         public const string CONTEXT_ARTIFACT_TOOLTIP = "artifact.tooltip";
         public const string CONTEXT_DEATH_MESSAGE = "death_message";

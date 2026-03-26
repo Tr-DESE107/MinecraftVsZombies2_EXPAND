@@ -4,7 +4,10 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -14,6 +17,12 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public MinigameEnemySpeedBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, PROP_SPEED_MULTIPLIER));
+        }
+        public static Buff AddSpeedBuff(Entity entity, float min, float max)
+        {
+            var buff = entity.AddBuff<MinigameEnemySpeedBuff>();
+            buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(min, max, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
+            return buff;
         }
         public static readonly VanillaBuffPropertyMeta<float> PROP_SPEED_MULTIPLIER = new VanillaBuffPropertyMeta<float>("SpeedMultiplier");
     }

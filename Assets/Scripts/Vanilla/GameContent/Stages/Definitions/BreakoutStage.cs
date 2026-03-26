@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new FinalWaveClearBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new RedstoneDropStageBehaviour(this));
+            AddBehaviour(new SpeedUpStageBehaviour(this, 1, 2));
         }
         public override void OnSetup(LevelEngine level)
         {
@@ -62,11 +63,6 @@ namespace MVZ2.GameContent.Stages
                 level.SetHeldItem(builder);
             }
         }
-        public override void OnPostEnemySpawned(Entity entity)
-        {
-            base.OnPostEnemySpawned(entity);
-            AddSpeedBuff(entity);
-        }
         private Entity? SpawnBoard(LevelEngine level)
         {
             var x = level.GetEntityColumnX(1);
@@ -77,11 +73,6 @@ namespace MVZ2.GameContent.Stages
             {
                 BreakoutBoard.SpawnPearl(e);
             });
-        }
-        private void AddSpeedBuff(Entity entity)
-        {
-            var buff = entity.AddBuff<MinigameEnemySpeedBuff>();
-            buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(1, 2, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
         }
     }
 }

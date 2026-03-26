@@ -71,7 +71,7 @@ namespace MVZ2.Level
             }
             else
             {
-                heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(InputHelper.GetPointerPosition());
+                heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Main.InputManager.GetPointerScreenPosition());
             }
             ui.SetHeldItemPosition(heldItemPosition);
         }

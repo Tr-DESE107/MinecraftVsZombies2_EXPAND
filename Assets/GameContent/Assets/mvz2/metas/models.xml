@@ -103,6 +103,7 @@
     <model name="anvil" type="entity" path="mvz2:contraption/dream/anvil" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="random_china" type="entity" path="mvz2:contraption/prologue/random_china" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="error_block" type="entity" path="mvz2:contraption/upgrade/error_block" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="snipenser" type="entity" path="mvz2:contraption/palace/snipenser" width="64" height="64" xOffset="0" yOffset="-28" />
 
 
     <!-- Enemies -->
@@ -450,6 +451,8 @@
     <model name="mega_glowing_laser" type="entity" path="mvz2:effect/mega_glowing_laser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="petrified_shards" type="entity" path="mvz2:effect/petrified_shards" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="master_spark" type="entity" path="mvz2:effect/master_spark" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="minecart_rail" type="entity" path="mvz2:effect/minecart_rail" width="48" height="480" xOffset="0" yOffset="0"/>
+    <model name="minecart_rideable" type="entity" path="mvz2:effect/minecart_rideable" width="48" height="48" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />

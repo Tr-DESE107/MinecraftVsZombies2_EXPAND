@@ -617,7 +617,7 @@ namespace MVZ2.Entities
             var hoverDisplayRange = Main.OptionsManager.GetHPBarHoverDisplayRange();
             if (hoverDisplayRange > 0)
             {
-                var pointerScreenPos = InputHelper.GetPointerPosition();
+                var pointerScreenPos = Main.InputManager.GetPointerScreenPosition();
                 var pointerPos = Level.ScreenToLawnPositionByY(pointerScreenPos, Entity.Position.y);
                 if ((pointerPos - Entity.Position).sqrMagnitude <= hoverDisplayRange * hoverDisplayRange)
                 {

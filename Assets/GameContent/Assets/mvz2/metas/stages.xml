@@ -1368,6 +1368,34 @@
             <spawn id="mvz2:skeleton_statue" />
         </spawns>
     </stage>
+    <stage id="palace_6" name="地灵殿" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.palace_5" />
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:palace_6" />
+            <talk type="end" value="mvz2:palace_6_over" />
+            <talk type="map" value="mvz2:palace_6_map" />
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:cooling_cell" />
+        <spawns flags="3" >
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:reflective_barrier_zombie" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:shadow_cell" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <bool name="autoCollectAll" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
+    </stage>
 
     
     <!-- Minigames -->

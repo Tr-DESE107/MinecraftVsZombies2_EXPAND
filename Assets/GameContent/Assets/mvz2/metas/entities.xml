@@ -1529,6 +1529,18 @@
                 <id name="mvz2:rechargeId" value="mvz2:none" />
             </properties>
         </contraption>
+        <dispenser id="snipenser" name="狙击发射器" tooltip="（需要发射器）\n朝指针位置发射箭矢">
+            <properties>
+                <float name="mvz2:damage" value="40" />
+                <bool name="mvz2:upgradeBlueprint" value="true" />
+                <id name="mvz2:upgradeFrom" value="mvz2:dispenser" />
+                <id name="mvz2:placement" value="mvz2:upgrade" />
+                <vector3 name="mvz2:shotVelocity" x="20" y="0" z="0" />
+
+                <int name="mvz2:cost" value="100" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </dispenser>
 
         <!-- Enemies -->
         <zombie id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
@@ -4041,6 +4053,19 @@
                 <color name="mvz2:lightColor" value="#FFAA00" />
 
                 <int name="mvz2:maxTimeout" value="200" />
+            </properties>
+        </effect>
+        <effect id="minecart_rail">
+            <behaviours includeSelf="false">
+            </behaviours>
+            <properties>
+                <string name="mvz2:sortingLayer" value="Ground" />
+                <vector3 name="mvz2:size" x="48" y="1" z="480" />
+            </properties>
+        </effect>
+        <effect id="minecart_rideable">
+            <properties>
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
             </properties>
         </effect>
     </entries>

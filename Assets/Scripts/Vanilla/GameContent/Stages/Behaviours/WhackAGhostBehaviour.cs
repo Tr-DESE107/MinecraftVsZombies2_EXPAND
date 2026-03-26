@@ -7,7 +7,6 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
-using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -65,7 +64,7 @@ namespace MVZ2.GameContent.Stages
                 spawnParam.SetProperty(EngineEntityProps.FACTION, level.Option.LeftFaction);
                 level.Spawn(VanillaEnemyID.napstablook, new Vector3(x, y, z), null, spawnParam)?.Let(e =>
                 {
-                    AddSpeedBuff(e);
+                    MinigameEnemySpeedBuff.AddSpeedBuff(e, 3, 5);
                 });
             }
         }
@@ -77,13 +76,6 @@ namespace MVZ2.GameContent.Stages
                 var advanceDistance = entity.RNG.Next(0, entity.Level.GetGridWidth() * 3f);
                 entity.Position += Vector3.left * advanceDistance;
             }
-            AddSpeedBuff(entity);
-        }
-
-        private void AddSpeedBuff(Entity entity)
-        {
-            var buff = entity.AddBuff<MinigameEnemySpeedBuff>();
-            buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(3, 5, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
         }
         #region 关卡属性
         private void SetThunderTimer(LevelEngine level, FrameTimer timer) => level.SetProperty(PROP_THUNDER_TIMER, timer);

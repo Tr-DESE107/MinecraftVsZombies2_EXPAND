@@ -3,7 +3,7 @@
         <colorKeys>
             <key hex="#4F4F4F" time="0.35" />
             <key hex="#ABABAB" time="0.7" />
-            <key hex="#C3A26D" time="0.3" />
+            <key hex="#C3A26D" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="furnace">
@@ -323,6 +323,14 @@
             <key hex="#0072FF" time="0.25" />
             <key hex="#E8E6D9" time="0.75" />
             <key hex="#FF0000" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="snipenser">
+        <colorKeys>
+            <key hex="#FF0000" time="0.1" />
+            <key hex="#4F4F4F" time="0.4" />
+            <key hex="#ABABAB" time="0.7" />
+            <key hex="#C3A26D" time="1" />
         </colorKeys>
     </fragment>
     <fragment name="hell_chariot">

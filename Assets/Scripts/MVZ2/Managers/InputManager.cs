@@ -145,21 +145,21 @@ namespace MVZ2.Inputs
             };
             pointerEventCacheList.Add(cache);
         }
-        Vector2 IGlobalInput.GetPointerScreenPosition()
+        public Vector2 GetPointerScreenPosition()
         {
-            return InputHelper.GetPointerPosition();
+            return GetPointerScreenPosition(currentPointerType, 0);
         }
-        Vector2 IGlobalInput.GetPointerScreenPosition(int type, int button)
+        public Vector2 GetPointerScreenPosition(int type, int button)
         {
-            if (type == PointerTypes.TOUCH)
-            {
-                if (Input.touchCount > button)
-                {
-                    return Input.GetTouch(button).position;
-                }
-                return Vector2.zero;
-            }
-            return Input.mousePosition;
+            return InputHelper.GetPointerPosition(type, button);
+        }
+        public bool TryGetPointerScreenPosition(out Vector2 screenPosition)
+        {
+            return TryGetPointerScreenPosition(currentPointerType, 0, out screenPosition);
+        }
+        public bool TryGetPointerScreenPosition(int type, int button, out Vector2 screenPosition)
+        {
+            return InputHelper.TryGetPointerPosition(type, button, out screenPosition);
         }
         bool IGlobalInput.IsPointerDown(int type, int button)
         {
