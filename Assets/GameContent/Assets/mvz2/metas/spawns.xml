@@ -403,6 +403,26 @@
         <terrain water="true" />
         <weight base="1600" />
     </entry>
+	<entry id="ChiefCannoneerZombie">
+		<entity id="mvz2:ChiefCannoneerZombie" />
+		<spawn level="4" minWave="10" />
+		<terrain water="true" air="true" />
+		<weight base="1500" />
+	</entry>
+	<entry id="SailorZombie">
+		<entity id="mvz2:SailorZombie" />
+		<spawn level="3" minWave="5" />
+		<weight base="2000" />
+	</entry>
+	<entry id="MusketeerZombie">
+		<entity id="mvz2:MusketeerZombie" />
+		<spawn level="2" minWave="5" />
+		<weight base="1750" />
+	</entry>
+	<entry id="PirateIMP" entity="mvz2:PirateIMP">
+		<spawn level="2" minWave="2"/>
+		<weight base="3000" />
+	</entry>
 
     <!--EXPAND Villager-->
     <entry id="VillagerGhast" entity="mvz2:VillagerGhast">

@@ -137,9 +137,10 @@ namespace MVZ2.GameContent.Areas
 
         public static readonly NamespaceID[] paratroopsToSpawn = new NamespaceID[]
         {
-            VanillaEnemyID.zombie,
-            VanillaEnemyID.leatherCappedZombie,
-            VanillaEnemyID.ironHelmettedZombie
+            //VanillaEnemyID.zombie,
+            //VanillaEnemyID.leatherCappedZombie,
+            //VanillaEnemyID.ironHelmettedZombie,
+            VanillaEnemyID.KogasaZombie,
         };
         public const int SPAWNER_MIN_COLUMN = 5;
         public const float SKY_OFFSET_SPEED_NORMAL = 1;

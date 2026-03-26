@@ -46,11 +46,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 Ignite(entity);
             }
-            if (entity.HasBuff<FrankensteinShockedBuff>())
-            {
-                entity.RemoveBuffs<FrankensteinShockedBuff>();
-                return;
-            }
+            
         }
         public override void PostTakeDamage(DamageOutput result)
         {
@@ -165,22 +161,7 @@ namespace MVZ2.GameContent.Enemies
                 entity.Remove();
             }
         }
-        public static void ExplodeArcs(Entity entity, Vector3 position, float arcLength = 1000)
-        {
-            var level = entity.Level;
-            for (int i = 0; i < 18; i++)
-            {
-                level.Spawn(VanillaEffectID.electricArc, position, entity)?.Let(e =>
-                {
-                    float degree = i * 20;
-                    float rad = degree * Mathf.Deg2Rad;
-                    Vector3 pos = position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
-                    ElectricArc.Connect(e, pos);
-                    ElectricArc.UpdateArc(e);
-                });
-
-            }
-        }
+        
         
         private static readonly NamespaceID ID = VanillaEnemyID.PirateBomb;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_IGNITED = new VanillaEntityPropertyMeta<bool>("Ignited");

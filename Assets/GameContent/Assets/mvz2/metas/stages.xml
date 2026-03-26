@@ -1626,6 +1626,7 @@
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:cannoneer_zombie" />
 			<spawn id="mvz2:ghast" />
+			<spawn id="mvz2:SailorZombie" />
 			<spawn id="mvz2:HeavyGutant" />
 			<spawn id="mvz2:cannonball_zombie" />
 		</spawns>
@@ -1648,8 +1649,9 @@
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:cannoneer_zombie" />
 			<spawn id="mvz2:pop_captain" />
-			<spawn id="mvz2:skeleton" />
 			<spawn id="mvz2:HeavyGutant" />
+			<spawn id="mvz2:MusketeerZombie" />
+			<spawn id="mvz2:SailorZombie" />
 		</spawns>
 	</stage>
 	<stage id="ship_10" name="圣辇船" dayNumber="10">
@@ -1671,6 +1673,8 @@
 			<spawn id="mvz2:cannoneer_zombie" />
 			<spawn id="mvz2:pop_captain" />
 			<spawn id="mvz2:HeavyGutant" />
+			<spawn id="mvz2:SailorZombie" />
+			<spawn id="mvz2:MusketeerZombie" />
 		</spawns>
 	</stage>
 	<stage id="ship_11" name="圣辇船" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:ship_final">
@@ -1688,7 +1692,7 @@
 			<entry id="mvz2:firework_dispenser" count="2" />
 			<entry id="mvz2:repeatenser" count="5" />
 			<entry id="mvz2:beacon" count="10" />
-			<entry id="mvz2:gunpowder_barrel" count="10" />
+			<entry id="mvz2:gunpowder_barrel" count="4" />
 			<entry id="mvz2:wooden_fan" count="4" />
 			<entry id="mvz2:elastic_cloud" count="5" />
 			<entry id="mvz2:tesla_coil" count="5" />
@@ -1707,6 +1711,11 @@
 			<spawn id="mvz2:HeavyGutant" />
 			<spawn id="mvz2:Endermite" />
 			<spawn id="mvz2:cannonball_zombie" />
+			<spawn id="mvz2:PirateIMP" />
+			<spawn id="mvz2:ChiefCannoneerZombie" />
+			<spawn id="mvz2:MusketeerZombie" />
+			<spawn id="mvz2:SailorZombie" />
+			
 		</spawns>
 		<time firstWave="1" />
 		<properties>
@@ -1720,11 +1729,21 @@
 			<condition required="mvz2:level.ship_11" />
 		</unlock>
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gunpowder_barrel" />
-		<spawns flags="10" wavesPerFlag="1">
+		<spawns flags="3" wavesPerFlag="8">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
 			<spawn id="mvz2:IronPirateSkeleton" />
-			<spawn id="mvz2:imp" />
+			<spawn id="mvz2:undead_flying_object" />
+			<spawn id="mvz2:zombie_cloud" />
+			<spawn id="mvz2:cannoneer_zombie" />
+			<spawn id="mvz2:pop_captain" />
+			<spawn id="mvz2:HeavyGutant" />
+			<spawn id="mvz2:Endermite" />
+			<spawn id="mvz2:cannonball_zombie" />
+			<spawn id="mvz2:PirateIMP" />
+			<spawn id="mvz2:ChiefCannoneerZombie" />
+			<spawn id="mvz2:MusketeerZombie" />
+			<spawn id="mvz2:SailorZombie" />
 		</spawns>
 	</stage>
 	<stage id="ship_endless" name="圣辇船无尽" type="endless">
