@@ -11634,6 +11634,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c35dfe862a3ca1e4ea02f5823e312c38
+    m_Address: mvz2:arcade/WarThunder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c36d7fac13418ce41a6a7609394c2500
     m_Address: mvz2:rain
     m_ReadOnly: 0
