@@ -184,7 +184,7 @@ namespace MVZ2.Grids
         #region 血条
         private void UpdateHPBars()
         {
-            if (Level != null && Level.ShouldShowHPBars())
+            if (Level != null)
             {
                 if (grid != null)
                 {
@@ -192,14 +192,13 @@ namespace MVZ2.Grids
                     return;
                 }
             }
-            hpBarView.SetActive(false);
         }
         private void ShowGridHPBars(LawnGrid grid)
         {
-            hpBarView.SetActive(true);
             var amountMode = Main.OptionsManager.GetHPBarAmountMode();
             gridHPBarEntityBuffer.Clear();
             gridHPBarBuffer.Clear();
+            bool shouldShow = Level?.ShouldShowHPBars() ?? false;
             var layers = grid.GetLayers();
             foreach (var layer in layers)
             {
@@ -209,7 +208,10 @@ namespace MVZ2.Grids
                 {
                     if (!entity.Exists())
                         continue;
-                    if (entity.IsHPBarHidden())
+                    var visibility = entity.GetHPBarVisibility();
+                    if (visibility == HPBarVisibility.HIDDEN)
+                        continue;
+                    if (!shouldShow && visibility != HPBarVisibility.FORCE)
                         continue;
                     if (entity.GetGrid() != grid)
                         continue;
@@ -236,6 +238,11 @@ namespace MVZ2.Grids
             for (int i = 0; i < gridHPBarBuffer.Count; i++)
             {
                 UpdateHPBar(i, gridHPBarBuffer[i]);
+            }
+            bool visible = gridHPBarBuffer.Count > 0;
+            if (visible != hpBarView.IsActiveSelf())
+            {
+                hpBarView.SetActive(visible);
             }
         }
         #endregion

@@ -40,13 +40,13 @@
             <icon sprite="mvz2:options/add_pearl" />
         </option>
         <option id="heavy_weapon_nuke" cost="75" name="消灭敌人">
-            <icon model="mvz2:options/heavy_weapon_nuke" mobile="mvz2:mobile_blueprint/heavy_weapon_nuke" />
+            <icon sprite="mvz2:options/heavy_weapon_nuke" mobile="mvz2:mobile_blueprint/heavy_weapon_nuke" />
         </option>
         <option id="heavy_weapon_rapid" cost="125" name="增加射速">
-            <icon model="mvz2:options/heavy_weapon_rapid" mobile="mvz2:mobile_blueprint/heavy_weapon_rapid" />
+            <icon sprite="mvz2:options/heavy_weapon_rapid" mobile="mvz2:mobile_blueprint/heavy_weapon_rapid" />
         </option>
         <option id="heavy_weapon_spread" cost="200" name="增加散射">
-            <icon model="mvz2:options/heavy_weapon_spread" mobile="mvz2:mobile_blueprint/heavy_weapon_spread" />
+            <icon sprite="mvz2:options/heavy_weapon_spread" mobile="mvz2:mobile_blueprint/heavy_weapon_spread" />
         </option>
     </options>
     <entities>

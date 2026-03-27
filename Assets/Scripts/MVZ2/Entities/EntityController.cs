@@ -610,7 +610,14 @@ namespace MVZ2.Entities
         #region 血条
         public bool ShouldShowHPBarOnEntity()
         {
-            return Entity.Type == EntityTypes.ENEMY;
+            if (Entity.Type == EntityTypes.ENEMY)
+                return true;
+            if (Entity.Type == EntityTypes.PLANT || Entity.Type == EntityTypes.OBSTACLE)
+            {
+                if (!Entity.HasTakenGrid())
+                    return true;
+            }
+            return false; ;
         }
         public bool IsHPBarHovered()
         {
@@ -712,9 +719,11 @@ namespace MVZ2.Entities
         }
         private void UpdateHPBar()
         {
-            if (Level.ShouldShowHPBars() && !Entity.IsHPBarHidden() && !Entity.IsPreviewEnemy())
+            if (!Entity.IsPreviewEnemy())
             {
-                if (ShouldShowHPBarOnEntity())
+                var visibility = Entity.GetHPBarVisibility();
+                bool shouldShow = visibility == HPBarVisibility.FORCE || (Level.ShouldShowHPBars() && visibility != HPBarVisibility.HIDDEN);
+                if (shouldShow && ShouldShowHPBarOnEntity())
                 {
                     ShowHPBar();
                     return;

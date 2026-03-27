@@ -300,9 +300,9 @@ namespace MVZ2Logic.Entities
         #endregion
 
         #region 血条
-        public static readonly PropertyMeta<bool> HIDE_HP_BAR = Get<bool>("hide_hp_bar");
-        public static bool IsHPBarHidden(this Entity entity) => entity.GetProperty<bool>(HIDE_HP_BAR);
-        public static void SetHPBarHidden(this Entity entity, bool value) => entity.SetProperty(HIDE_HP_BAR, value);
+        public static readonly PropertyMeta<int> HP_BAR_VISIBILITY = Get<int>("hp_bar_visibility");
+        public static int GetHPBarVisibility(this Entity entity) => entity.GetProperty<int>(HP_BAR_VISIBILITY);
+        public static void SetHPBarVisibility(this Entity entity, int value) => entity.SetProperty(HP_BAR_VISIBILITY, value);
         #endregion
 
         #region 血条
@@ -385,7 +385,7 @@ namespace MVZ2Logic.Entities
         {
             return entity.GetProperty<NamespaceID[]>(GRID_LAYERS);
         }
-        public static void SetGridLayersToTake(this Entity entity, NamespaceID[] value)
+        public static void SetGridLayersToTake(this Entity entity, NamespaceID[]? value)
         {
             entity.SetProperty(GRID_LAYERS, value);
         }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-02-09 06:07+0800\n"
+"POT-Creation-Date: 2026-03-27 02:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -952,86 +952,92 @@ msgctxt "death_message"
 msgid "你失去了所有能量！"
 msgstr ""
 
+# 死亡信息-重装兵器
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:73
+msgctxt "death_message"
+msgid "你失去了狙击发射器！"
+msgstr ""
+
 # 命令输出
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:74
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:76
 msgctxt "command.output"
 msgid "该命令不能在关卡中调用"
 msgstr ""
 
 # 命令输出-help，{0}为命令名，{1}为命令描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:76
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:78
 msgctxt "command.output"
 msgid "/{0} - {1}"
 msgstr ""
 
 # 命令输出-help
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:78
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:80
 msgctxt "command.output"
 msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
 msgstr ""
 
 # 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:80
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
 msgctxt "command.output"
 msgid "{0}: [{1}] {2}"
 msgstr ""
 
 # 命令输出-blueprint，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
 msgctxt "command.output"
 msgid "蓝图槽位参数{0}超出范围"
 msgstr ""
 
 # 命令输出-cheat，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
 msgctxt "command.output"
 msgid "未找到作弊命令{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
 msgctxt "command.output"
 msgid "已启用{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:90
 msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr ""
 
 # 命令输出-save
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:90
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:92
 msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:92
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:94
 msgctxt "command.output"
 msgid "已解锁游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:94
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:96
 msgctxt "command.output"
 msgid "无法解锁游戏状态{0}：该状态已被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:96
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:98
 msgctxt "command.output"
 msgid "已重新锁定游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:98
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:100
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名列表
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:100
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:102
 msgctxt "command.output"
 msgid ""
 "已解锁游戏状态：\n"
@@ -1039,13 +1045,13 @@ msgid ""
 msgstr ""
 
 # 命令输出-unlock
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:102
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:104
 msgctxt "command.output"
 msgid "无法解锁所有游戏状态：无游戏状态可解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名列表
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:104
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:106
 msgctxt "command.output"
 msgid ""
 "已重新锁定游戏状态：\n"
@@ -1053,31 +1059,31 @@ msgid ""
 msgstr ""
 
 # 命令输出-unlock
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:106
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:108
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态：无游戏状态可重新锁定"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:109
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:117
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
@@ -2277,17 +2283,17 @@ msgid "中文"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:800
+#: Scripts\MVZ2\Entities\EntityController.cs:809
 msgid "死亡"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:802
+#: Scripts\MVZ2\Entities\EntityController.cs:811
 msgid "摧毁"
 msgstr ""
 
 # 血条的文字模板
-#: Scripts\MVZ2\Entities\EntityController.cs:804
+#: Scripts\MVZ2\Entities\EntityController.cs:813
 msgid "{0}"
 msgstr ""
 
@@ -2672,43 +2678,43 @@ msgid "未知难度"
 msgstr ""
 
 # 怪物说明-还没有遇到
-#: Scripts\Logic\Localization\LogicStrings.cs:76
+#: Scripts\Logic\Localization\LogicStrings.cs:78
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr ""
 
 # 图鉴说明-未知
-#: Scripts\Logic\Localization\LogicStrings.cs:78
+#: Scripts\Logic\Localization\LogicStrings.cs:80
 msgctxt "almanac"
 msgid "？？？"
 msgstr ""
 
 # 对话档案对话框标题
-#: Scripts\Logic\Localization\LogicStrings.cs:101
+#: Scripts\Logic\Localization\LogicStrings.cs:103
 msgctxt "archive"
 msgid "剧情分支"
 msgstr ""
 
 # 对话档案对话框标题
-#: Scripts\Logic\Localization\LogicStrings.cs:103
+#: Scripts\Logic\Localization\LogicStrings.cs:105
 msgctxt "archive"
 msgid "对话结束"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Logic\Localization\LogicStrings.cs:105
+#: Scripts\Logic\Localization\LogicStrings.cs:107
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr ""
 
 # 关卡名称
-#: Scripts\Logic\Localization\LogicStrings.cs:113
+#: Scripts\Logic\Localization\LogicStrings.cs:115
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Logic\Localization\LogicStrings.cs:115
+#: Scripts\Logic\Localization\LogicStrings.cs:117
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgid_plural "{0} - 第{1}天"
@@ -2716,7 +2722,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 关卡名称，{0}为关卡名，{1}为无尽模式轮数
-#: Scripts\Logic\Localization\LogicStrings.cs:117
+#: Scripts\Logic\Localization\LogicStrings.cs:119
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgid_plural "{0} - 第{1}轮"
@@ -2724,159 +2730,159 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 命令输出
-#: Scripts\Logic\Localization\LogicStrings.cs:132
+#: Scripts\Logic\Localization\LogicStrings.cs:134
 msgctxt "command.output"
 msgid "命令格式错误"
 msgstr ""
 
 # 命令输出
-#: Scripts\Logic\Localization\LogicStrings.cs:134
+#: Scripts\Logic\Localization\LogicStrings.cs:136
 msgctxt "command.output"
 msgid "该命令只能在关卡中被调用"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Logic\Localization\LogicStrings.cs:136
+#: Scripts\Logic\Localization\LogicStrings.cs:138
 msgctxt "command.output"
 msgid "参数{0}格式错误"
 msgstr ""
 
 # 命令输出
-#: Scripts\Logic\Localization\LogicStrings.cs:138
+#: Scripts\Logic\Localization\LogicStrings.cs:140
 msgctxt "command.output"
 msgid "参数数量错误"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Logic\Localization\LogicStrings.cs:140
+#: Scripts\Logic\Localization\LogicStrings.cs:142
 msgctxt "command.output"
 msgid "参数{0}丢失"
 msgstr ""
 
 # 命令输出，{0}为有效参数列表
-#: Scripts\Logic\Localization\LogicStrings.cs:142
+#: Scripts\Logic\Localization\LogicStrings.cs:144
 msgctxt "command.output"
 msgid "参数错误，有效值为{0}"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Logic\Localization\LogicStrings.cs:144
+#: Scripts\Logic\Localization\LogicStrings.cs:146
 msgctxt "command.output"
 msgid "参数丢失，有效值为{0}"
 msgstr ""
 
 # 命令输出，{0}为命令名
-#: Scripts\Logic\Localization\LogicStrings.cs:146
+#: Scripts\Logic\Localization\LogicStrings.cs:148
 msgctxt "command.output"
 msgid "未找到命令{0}！"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:149
+#: Scripts\Logic\Localization\LogicStrings.cs:151
 msgctxt "command_parameter.type"
 msgid "真值"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:151
+#: Scripts\Logic\Localization\LogicStrings.cs:153
 msgctxt "command_parameter.type"
 msgid "整数"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:153
+#: Scripts\Logic\Localization\LogicStrings.cs:155
 msgctxt "command_parameter.type"
 msgid "实数"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:155
+#: Scripts\Logic\Localization\LogicStrings.cs:157
 msgctxt "command_parameter.type"
 msgid "ID"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:157
+#: Scripts\Logic\Localization\LogicStrings.cs:159
 msgctxt "command_parameter.type"
 msgid "命令"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:159
+#: Scripts\Logic\Localization\LogicStrings.cs:161
 msgctxt "command_parameter.type"
 msgid "未知"
 msgstr ""
 
 # 音乐名-无
-#: Scripts\Logic\Localization\LogicStrings.cs:174
+#: Scripts\Logic\Localization\LogicStrings.cs:176
 msgctxt "music.name"
 msgid "无"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Logic\Localization\LogicStrings.cs:198
+#: Scripts\Logic\Localization\LogicStrings.cs:200
 msgid "挖掉器械"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Logic\Localization\LogicStrings.cs:200
+#: Scripts\Logic\Localization\LogicStrings.cs:202
 msgid "触发器械"
 msgstr ""
 
 # 固有蓝图的提示
-#: Scripts\Logic\Localization\LogicStrings.cs:202
+#: Scripts\Logic\Localization\LogicStrings.cs:204
 msgid "固有"
 msgstr ""
 
 # 不推荐使用的提示
-#: Scripts\Logic\Localization\LogicStrings.cs:204
+#: Scripts\Logic\Localization\LogicStrings.cs:206
 msgid "不推荐在这关使用"
 msgstr ""
 
 # 无法携带提示
-#: Scripts\Logic\Localization\LogicStrings.cs:206
+#: Scripts\Logic\Localization\LogicStrings.cs:208
 msgid "无法模仿此器械"
 msgstr ""
 
 # 命令方块蓝图名，{0}为原名称
-#: Scripts\Logic\Localization\LogicStrings.cs:208
+#: Scripts\Logic\Localization\LogicStrings.cs:210
 msgid "[命令方块]{0}"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Logic\Localization\LogicStrings.cs:213
+#: Scripts\Logic\Localization\LogicStrings.cs:215
 msgid "用户名不能为空"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Logic\Localization\LogicStrings.cs:215
+#: Scripts\Logic\Localization\LogicStrings.cs:217
 msgid "已经存在该用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Logic\Localization\LogicStrings.cs:217
+#: Scripts\Logic\Localization\LogicStrings.cs:219
 msgid "无法重命名为该用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Logic\Localization\LogicStrings.cs:219
+#: Scripts\Logic\Localization\LogicStrings.cs:221
 msgid "第一次游戏必须输入用户名"
 msgstr ""
 
 # 删除用户时的警告，{0}为名称
-#: Scripts\Logic\Localization\LogicStrings.cs:221
+#: Scripts\Logic\Localization\LogicStrings.cs:223
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
 msgstr ""
 
 # 重命名特殊用户时的警告
-#: Scripts\Logic\Localization\LogicStrings.cs:223
+#: Scripts\Logic\Localization\LogicStrings.cs:225
 msgid "你无法重命名该用户"
 msgstr ""
 
 # 预览战场的提示
-#: Scripts\Logic\Localization\LogicStrings.cs:244
+#: Scripts\Logic\Localization\LogicStrings.cs:246
 msgctxt "advice"
 msgid "点击以继续"
 msgstr ""

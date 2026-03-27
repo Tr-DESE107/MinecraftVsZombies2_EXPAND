@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, new Color(1, 1, 1, 0)));
             AddModifier(new BooleanModifier(LogicEntityProps.SHOW_HEIGHT_INDICATOR, false));
-            AddModifier(new BooleanModifier(LogicEntityProps.HIDE_HP_BAR, true));
+            AddModifier(new IntModifier(LogicEntityProps.HP_BAR_VISIBILITY, IntegerOperator.Set, HPBarVisibility.HIDDEN));
             AddModifier(new BooleanModifier(LogicEntityProps.SHADOW_HIDDEN, true));
             AddAura(new ArmorInvisibleAura());
             AddTrigger(LevelCallbacks.POST_GAME_OVER, PostGameOverCallback);

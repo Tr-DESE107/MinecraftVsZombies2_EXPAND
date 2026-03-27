@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-03-18 08:47+0800\n"
+"POT-Creation-Date: 2026-03-27 02:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5416,6 +5416,20 @@ msgctxt "entity.tooltip"
 msgid "出错了！"
 msgstr ""
 
+#. Name for entity mvz2:snipenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "狙击发射器"
+msgstr ""
+
+#. Tooltip for entity mvz2:snipenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要发射器）\n"
+"朝指针位置发射箭矢"
+msgstr ""
+
 #. Name for entity mvz2:zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -6512,20 +6526,38 @@ msgstr ""
 
 #. Name for blueprint option return_pearl
 #: Blueprints meta file
-msgctxt "option.name"
+msgctxt "blueprint_option.name"
 msgid "返回弹珠"
 msgstr ""
 
 #. Name for blueprint option lengthen_board
 #: Blueprints meta file
-msgctxt "option.name"
+msgctxt "blueprint_option.name"
 msgid "增长挡板"
 msgstr ""
 
 #. Name for blueprint option add_pearl
 #: Blueprints meta file
-msgctxt "option.name"
+msgctxt "blueprint_option.name"
 msgid "增加弹珠"
+msgstr ""
+
+#. Name for blueprint option heavy_weapon_nuke
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "消灭敌人"
+msgstr ""
+
+#. Name for blueprint option heavy_weapon_rapid
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "增加射速"
+msgstr ""
+
+#. Name for blueprint option heavy_weapon_spread
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "增加散射"
 msgstr ""
 
 #. Name for entity blueprint skeleton_mage_fire

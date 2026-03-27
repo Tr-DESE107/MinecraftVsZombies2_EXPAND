@@ -70,6 +70,8 @@ namespace MVZ2.Vanilla.Localization
         public const string DEATH_MESSAGE_CRUSHING_WALLS = "<color=red>来到我们之中吧</color>";
         [TranslateMsg("死亡信息-我是僵尸", LogicStrings.CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES = "你失去了所有能量！";
+        [TranslateMsg("死亡信息-重装兵器", LogicStrings.CONTEXT_DEATH_MESSAGE)]
+        public const string DEATH_MESSAGE_SNIPENSER_LOST = "你失去了狙击发射器！";
 
         [TranslateMsg("命令输出", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_CANNOT_BE_CALLED_IN_LEVEL = "该命令不能在关卡中调用";

@@ -3900,6 +3900,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4aa84362f484602499fc2245def60efa
+    m_Address: mvz2:options/heavy_weapon_spread
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ac894cccf343c44e81c86c063ac4d75
     m_Address: mvz2:entity/enemies/bedserker_bed
     m_ReadOnly: 0
@@ -3913,6 +3920,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ad05a8a9f2400944964d89c9833fab0
+    m_Address: mvz2:mobile_blueprint/heavy_weapon_rapid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ae8154b67549d64b891e3ffb3b1e551
     m_Address: mvz2:castle_final
@@ -5596,6 +5610,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6edd9e40e4ec07849b044419d54304d8
     m_Address: mvz2:mobile_blueprint/gravelpult
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f03c87f9ae558d46b68a9fb3b0a0c3d
+    m_Address: mvz2:mobile_blueprint/heavy_weapon_nuke
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8133,6 +8154,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a190da7a89dae4444b93a2bd2f3721d4
+    m_Address: mvz2:options/heavy_weapon_rapid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a24f2a1292d3c6949ae1ebf80560127c
     m_Address: mvz2:mausoleum_level
@@ -11151,6 +11179,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2fcfb282a3d6aa4eb0b3512fce5fc79
+    m_Address: mvz2:mobile_blueprint/heavy_weapon_spread
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e331ed1f540bbb04db318b073f0720ac
     m_Address: mvz2:talk/dialog_faint
     m_ReadOnly: 0
@@ -12252,6 +12287,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8e133db9e0078b42bbd5979c7143e76
     m_Address: mvz2:ui/level/progress_bar/seija_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8e1af0de3d03d143b01fe266b03435b
+    m_Address: mvz2:options/heavy_weapon_nuke
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

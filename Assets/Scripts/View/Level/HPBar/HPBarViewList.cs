@@ -10,6 +10,10 @@ namespace MVZ2.UI.Level
         {
             gameObject.SetActive(value);
         }
+        public bool IsActiveSelf()
+        {
+            return gameObject.activeSelf;
+        }
         public void SetCamera(Camera camera)
         {
             canvas.worldCamera = camera;

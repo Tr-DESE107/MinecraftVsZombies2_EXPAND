@@ -10,5 +10,9 @@ namespace MVZ2Logic.Level
         {
             return level.StageDefinition.HasBehaviour<T>();
         }
+        public static bool HasBehaviour(this LevelEngine level, StageBehaviour behaviour)
+        {
+            return level.StageDefinition.HasBehaviour(behaviour);
+        }
     }
 }
