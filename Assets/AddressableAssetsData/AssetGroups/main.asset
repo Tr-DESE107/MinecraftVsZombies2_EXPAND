@@ -6217,6 +6217,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63e64c26dd6685b47b1f1682392df422
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/StoneGenerator
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 641f2ef95c0d9684eaa734109a643d9a
     m_Address: mvz2:artifacts/ShadowCellCore
     m_ReadOnly: 0
@@ -8280,6 +8287,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 877ec3244cd69d3429363c4df8932cb8
+    m_Address: mvz2:contraption/EXPAND/Stone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87b336d7b20b7a145a9300914c7bf0e8
     m_Address: mvz2:characters/marisa
@@ -11228,6 +11242,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb415ce932f208c4cadeac8fee83ea47
+    m_Address: mvz2:contraption/EXPAND/StoneGenerator
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb5ecf4eaca68cc49be8e39e2b78bda8
     m_Address: mvz2:level/castle/castle_twilight
     m_ReadOnly: 0
@@ -12259,6 +12280,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd76219b28566c644ab04da291782af3
     m_Address: mvz2:projectile/EXPAND_projectile/SmallRocket
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd8125094d660a04c882a04f6917ca28
+    m_Address: mvz2:enemy/EXPAND/Cobblestone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13909,6 +13937,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb228c134b78af34daafe116fcc73068
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/Stone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb26cc17d9087f14a97eea7b8ef7747d
     m_Address: mvz2:held/starshards/default
     m_ReadOnly: 0
@@ -15188,6 +15223,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: febc336ac09c358449eedd782617acf6
+    m_Address: mvz2:entity/enemy/EXPAND/Cobblestone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fed9515588b290243a9ff01f3085957e
     m_Address: mvz2:effect/SoulFreeze

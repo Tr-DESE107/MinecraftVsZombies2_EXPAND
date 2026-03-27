@@ -107,6 +107,8 @@
 	<model name="BlueIce" type="entity" path="mvz2:contraption/EXPAND/BlueIce" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="Snipenser" type="entity" path="mvz2:contraption/EXPAND/Snipenser" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="LCMTNT" type="entity" path="mvz2:contraption/prologue/LCMTNT" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="StoneGenerator" type="entity" path="mvz2:contraption/EXPAND/StoneGenerator" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="Stone" type="entity" path="mvz2:contraption/EXPAND/Stone" width="64" height="64" xOffset="0" yOffset="-28" />
 	
 	<model name="Randombstone" type="entity" path="mvz2:contraption/GoldCard/Randombstone" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="SuperFireworkDispenser" type="entity" path="mvz2:contraption/EXPAND/SuperFireworkDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
@@ -472,6 +474,7 @@
 	<model name="TeslaTrooper" type="entity" path="mvz2:enemy/EXPAND/TeslaTrooper" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
+	<model name="Cobblestone" type="entity" path="mvz2:enemy/EXPAND/Cobblestone" width="64" height="64" xOffset="0" yOffset="-28" />
     <!--EXPAND RANDOM-->
     <model name="RandomMutant" type="entity" path="mvz2:enemy/EXPAND/RandomMutant" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="RandomZombie" type="entity" path="mvz2:enemy/EXPAND/RandomZombie" width="64" height="96" xOffset="10" yOffset="-44">

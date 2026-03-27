@@ -3915,6 +3915,14 @@ MonoBehaviour:
     - {fileID: -986021256, guid: fda78549c8341a5448aef8d58c997a7f, type: 3}
     - {fileID: 1542480221, guid: fda78549c8341a5448aef8d58c997a7f, type: 3}
     - {fileID: -1959532904, guid: fda78549c8341a5448aef8d58c997a7f, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/Stone
+    spritesheet:
+    - {fileID: 1567805984, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/StoneGenerator
+    spritesheet:
+    - {fileID: -3211789, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
+    - {fileID: -1463778970, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
+    - {fileID: 328039554, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
   - name: entity/contraption/EXPAND_Contraption/SuperFireworkDispenser
     spritesheet:
     - {fileID: 21300000, guid: bc7f633f0f53dd349827ea61dbdfad23, type: 3}
@@ -3974,6 +3982,9 @@ MonoBehaviour:
     - {fileID: 79111158, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: -1085377205, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: 467352533, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
+  - name: entity/enemy/EXPAND/Cobblestone
+    spritesheet:
+    - {fileID: -2005932341, guid: febc336ac09c358449eedd782617acf6, type: 3}
   - name: entity/enemy/EXPAND/DrunkardMonkZombie
     spritesheet:
     - {fileID: -1000115360, guid: 933250d176c80344e81129e139acc3cd, type: 3}

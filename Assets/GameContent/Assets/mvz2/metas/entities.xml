@@ -1654,6 +1654,35 @@
 			</properties>
 		</contraption>
 
+		<contraption id="StoneGenerator" name="刷石机" tooltip="产生阻挡敌人的圆石和石头">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<bool name="mvz2:producer" value="true" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+				<bool name="mvz2:isLightSource" value="true" />
+				<vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
+				<color name="mvz2:lightColor" value="#FFAA00" />
+
+				<int name="mvz2:cost" value="300" />
+				<id name="mvz2:rechargeId" value="mvz2:medium" />
+			</properties>
+		</contraption>
+		<contraption id="Stone" name="石头" tooltip="阻碍怪物的前进">
+			<properties>
+				<bool name="mvz2:canDeactive" value="false" />
+				<bool name="mvz2:defensive" value="true" />
+				<float name="mvz2:maxHealth" value="400" />
+				<id name="mvz2:fragmentId" value="mvz2:furnace" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+				<int name="mvz2:cost" value="0" />
+				<id name="mvz2:rechargeId" value="mvz2:long" />
+			</properties>
+		</contraption>
+
 		<dispenser id="Snipenser" name="狙击发射器" tooltip="攻击全场敌人">
 			<unlock>
 				<condition required="mvz2:contraption.Snipenser" />
@@ -3848,6 +3877,35 @@
                 <id name="mvz2:fragmentId" value="mvz2:soul_sand" />
                 <float name="mvz2:maxHealth" value="300" />
                 <int name="mvz2:maxTimeout" value="1800" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+                <int name="mvz2:cost" value="25" />
+            </properties>
+        </specialEnemy>
+        <specialEnemy id="Cobblestone" name="圆石" deathMessage="你再说一遍你怎么被圆石杀掉的？">
+            <unlock>
+                <condition required="mvz2:level.castle_9" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fragmented" />
+                <behaviour operator="add" id="mvz2:timeout_death" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:harmless" value="true" />
+                <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
+                <float name="mvz2:fallResistance" value="10000" />
+                <id name="mvz2:shell" value="mvz2:stone" />
+                <id name="mvz2:shape" value="mvz2:block" />
+                <id name="mvz2:crySound" null="true" />
+                <id name="mvz2:hitSound" value="mvz2:stone" />
+                <id name="mvz2:deathSound" value="mvz2:stone" />
+                <id name="mvz2:fragmentId" value="mvz2:furnace" />
+                <float name="mvz2:maxHealth" value="200" />
+                <int name="mvz2:maxTimeout" value="3600" />
+				<int name="mvz2:faction" value="0" />
+				<id name="mvz2:placeSound" value="mvz2:stone" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
 
                 <int name="mvz2:cost" value="25" />

@@ -151,6 +151,7 @@ namespace MVZ2.GameContent.Enemies
         //EXPAND_X
         public const string XCarrierMutant = "XCarrierMutant";
         public const string TeslaTrooper = "TeslaTrooper";
+        public const string Cobblestone = "Cobblestone";
 
         //EXPAND RANDOM
         public const string RandomZombie = "RandomZombie";
@@ -303,6 +304,7 @@ namespace MVZ2.GameContent.Enemies
         //EXPAND_X
         public static readonly NamespaceID XCarrierMutant = Get(VanillaEnemyNames.XCarrierMutant);
         public static readonly NamespaceID TeslaTrooper = Get(VanillaEnemyNames.TeslaTrooper);
+        public static readonly NamespaceID Cobblestone = Get(VanillaEnemyNames.Cobblestone);
 
         //EXPAND RANDOM
         public static readonly NamespaceID RandomZombie = Get(VanillaEnemyNames.RandomZombie);
