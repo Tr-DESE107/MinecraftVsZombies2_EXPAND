@@ -490,5 +490,11 @@
 		<terrain water="true" />
 		<weight base="2000" />
 	</entry>
+	<entry id="TeslaTrooper">
+		<entity id="mvz2:TeslaTrooper" />
+		<spawn level="2" minWave="3" />
+		<terrain water="true" />
+		<weight base="2000" />
+	</entry>
 
 </spawns>

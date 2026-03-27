@@ -2373,6 +2373,77 @@
 		</spawns>
 	</stage>
 
+	<stage id="FeedFeast" name="狂宴" type="minigame" needBlueprints="false" music="mvz2:minigame">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
+		<conveyor>
+			<entry id="mvz2:triplenser" count="5" />
+			<entry id="mvz2:firework_dispenser" count="2" />
+			<entry id="mvz2:repeatenser" count="5" />
+			<entry id="mvz2:beacon" count="10" />
+			<entry id="mvz2:gunpowder_barrel" count="4" />
+			<entry id="mvz2:wooden_fan" count="4" />
+			<entry id="mvz2:elastic_cloud" count="5" />
+			<entry id="mvz2:tesla_coil" count="5" />
+			<entry id="mvz2:stone_shield" count="8" />
+			<entry id="mvz2:jeweled_pagoda" count="1" minCount="0" />
+		</conveyor>
+		<spawns flags="2" pointsMultiplier="2">
+			<spawn id="mvz2:WitherSkeleton" />
+			<spawn id="mvz2:LeatherWitherSkeleton" />
+			<spawn id="mvz2:IronWitherSkeleton" />
+			<spawn id="mvz2:berserker" />
+			<spawn id="mvz2:ghast" />
+			<spawn id="mvz2:VillagerGhast" />
+			<spawn id="mvz2:dullahan" />
+			<spawn id="mvz2:spider" />
+			<spawn id="mvz2:mother_terror" />
+			<spawn id="mvz2:HostZombie" />
+			<spawn id="mvz2:HostMutant" />
+			<spawn id="mvz2:XCarrierMutant" />
+		</spawns>
+	</stage>
+	
+	<stage id="ZombiesTide" name="尸海战术" type="minigame" music="mvz2:minigame">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
+		<spawns flags="4" wavesPerFlag="9" pointsMultiplier="2.5">
+			<spawn id="mvz2:MonkZombie" />
+			<spawn id="mvz2:IronMonkZombie" />
+			<spawn id="mvz2:Hemperor" />
+			<spawn id="mvz2:TorchKongfuZombie" />
+			<spawn id="mvz2:SailorZombie" />
+			<spawn id="mvz2:mummy" />
+			<spawn id="mvz2:berserker" />
+			<spawn id="mvz2:KingSkeleton" />
+			<spawn id="mvz2:zombie_cloud" />
+			<spawn id="mvz2:wicked_hermit_zombie" />
+			<spawn id="mvz2:shikaisen_zombie" />
+			<spawn id="mvz2:emperor_zombie" />
+			<spawn id="mvz2:skeleton" />
+			<spawn id="mvz2:ghost" />
+		</spawns>
+	</stage>
+	
+	<stage id="WarThunder" name="战争雷霆" type="minigame" music="mvz2:minigame">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
+		<spawns flags="3" wavesPerFlag="8" pointsMultiplier="2">
+			<spawn id="mvz2:TeslaTrooper" />
+			<spawn id="mvz2:MusketeerZombie" />
+			<spawn id="mvz2:ChiefCannoneerZombie" />
+			<spawn id="mvz2:PirateIMP" />
+			<spawn id="mvz2:HeavyGutant" />
+			<spawn id="mvz2:NetherTroopCarrier" />
+			<spawn id="mvz2:RaiderSkull" />
+			<spawn id="mvz2:AssaultDullahan" />
+			<spawn id="mvz2:cannonball_zombie" />
+			<spawn id="mvz2:cannoneer_zombie" />
+			<spawn id="mvz2:bedserker" />
+			<spawn id="mvz2:SailorZombie" />
+			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:IronMonkZombie" />
+			
+		</spawns>
+	</stage>
+
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />

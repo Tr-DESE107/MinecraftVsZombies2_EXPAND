@@ -3,7 +3,7 @@
     <minigame id="breakout" stage="mvz2:breakout" area="mvz2:dream" icon="mvz2:arcade/breakout" />
     <minigame id="big_trouble_and_little_zombie" stage="mvz2:big_trouble_and_little_zombie" area="mvz2:castle" icon="mvz2:arcade/big_trouble_and_little_zombie" />
     <minigame id="ufo_blitz" stage="mvz2:ufo_blitz" area="mvz2:ship" icon="mvz2:arcade/ufo_blitz" />
-    <minigame/>
+	<minigame/>
     <minigame id="frankensteins_revenge" stage="mvz2:frankensteins_revenge" area="mvz2:halloween" icon="mvz2:arcade/frankensteins_revenge"/>
     <minigame id="nightmare_revenge" stage="mvz2:nightmares_revenge" area="mvz2:dream" icon="mvz2:arcade/nightmares_revenge"/>
     <minigame id="withers_revenge" stage="mvz2:withers_revenge" area="mvz2:castle" icon="mvz2:arcade/withers_revenge"/>
@@ -32,6 +32,10 @@
     <minigame id="big_trouble_and_little_zombie_2" stage="mvz2:big_trouble_and_little_zombie_2" area="mvz2:castle" icon="mvz2:arcade/big_trouble_and_little_zombie_2" />
     <minigame id="GiantCrisis" stage="mvz2:GiantCrisis" area="mvz2:castle" icon="mvz2:arcade/GiantCrisis" />
     <minigame id="DowsingNote" stage="mvz2:DowsingNote" area="mvz2:mausoleum" icon="mvz2:arcade/DowsingNote" />
+    <minigame id="FeedFeast" stage="mvz2:FeedFeast" area="mvz2:halloween" icon="mvz2:arcade/FeedFeast" />
+    <minigame id="ZombiesTide" stage="mvz2:ZombiesTide" area="mvz2:mausoleum" icon="mvz2:arcade/ZombiesTide" />
+    <minigame id="WarThunder" stage="mvz2:WarThunder" area="mvz2:dream" icon="mvz2:arcade/WarThunder" />
+    
 
     <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />
     <puzzle id="puzzle_i_skeleton" stage="mvz2:puzzle_i_skeleton" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_skeleton" />

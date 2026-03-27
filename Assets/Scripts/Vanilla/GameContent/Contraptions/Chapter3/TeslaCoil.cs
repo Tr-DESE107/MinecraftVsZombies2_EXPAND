@@ -49,7 +49,10 @@ namespace MVZ2.GameContent.Contraptions
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.LIGHTNING))
             {
                 damageInfo.Multiply(0);
-                entity.AddBuff<TeslaCoilOvercharge>();
+                if (!entity.HasBuff<TeslaCoilOvercharge>()) 
+                { 
+                    entity.AddBuff<TeslaCoilOvercharge>();
+                }
             }
 
         }

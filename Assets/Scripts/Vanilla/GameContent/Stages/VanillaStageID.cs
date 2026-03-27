@@ -137,6 +137,10 @@ namespace MVZ2.GameContent.Stages
         public const string GiantCrisis = "GiantCrisis";
         public const string DowsingNote = "DowsingNote";
 
+        public const string FeedFeast = "FeedFeast";
+        public const string ZombiesTide = "ZombiesTide";
+        public const string WarThunder = "WarThunder";
+
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
         public const string puzzleISkeleton = "puzzle_i_skeleton";
