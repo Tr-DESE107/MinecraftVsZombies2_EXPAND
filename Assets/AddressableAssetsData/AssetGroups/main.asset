@@ -10661,6 +10661,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b30a95d3bfd188f45ab62903c456664c
+    m_Address: mvz2:arcade/ZombiesTide
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b313380a24fed9c4188e26b3b5aa44cf
     m_Address: mvz2:bones/potion_particles
     m_ReadOnly: 0
@@ -13901,6 +13908,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb364ec11ae57b448b2dee5dc82f49cf
+    m_Address: mvz2:arcade/FeedFeast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb5396e8d49b71b4b899a73dae8c9ce9
     m_Address: mvz2:mobile_blueprint/glowstone
