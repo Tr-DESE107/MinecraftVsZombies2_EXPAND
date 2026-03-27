@@ -52,12 +52,12 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateLogic(entity);
         }
         
-        public override void PostDeath(Entity entity, DeathInfo info)
-        {
-            base.PostDeath(entity, info);
-            var param = entity.GetSpawnParams();
-            entity.Remove();
-        }
+        //public override void PostDeath(Entity entity, DeathInfo info)
+        //{
+        //    base.PostDeath(entity, info);
+        //    var param = entity.GetSpawnParams();
+        //    entity.Remove();
+        //}
         //public static void ChangeVariant(Entity entity, int variant)
         //{
         //    if (entity.GetVariant() == variant)

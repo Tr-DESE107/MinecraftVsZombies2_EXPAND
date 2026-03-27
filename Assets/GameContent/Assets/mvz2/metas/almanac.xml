@@ -3468,7 +3468,8 @@
                 <p>多么惊悚恐怖的骷髅头！</p>
             </flavor>
         </entry>
-		
+		<entry/>
+		<entry/>
         <entry id="mvz2:FrankensteinBrain">
             <header>
                 <p>科学怪人的大脑。</p>
@@ -3512,6 +3513,31 @@
             </properties>
             <flavor>
                 <p>暗影细胞核心能够唤醒怪物的有效部分。尸体复活不可怕，尸体的单独一部分复活才可怕。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:LeftHandBow">
+            <header>
+                <p></p>
+            </header>
+            <properties>
+				<p>效果：<![CDATA[<color=red>使得怪物拥有难以置信的攻击速度。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>吓哭了</p>
+                <p><![CDATA[<color=blue>正在播放：恋人を射ち堕とした日 (射杀恋人的那天)</color>]]></p>
+				<p/>
+                <p><![CDATA[<color=white>有这个后我们就可以不用出左弓版了！</color>]]></p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:HerobrineSkull">
+            <header>
+                <p></p>
+            </header>
+            <properties>
+                
+            </properties>
+            <flavor>
+                <p><![CDATA[<color=red>面对我</color>]]></p>
             </flavor>
         </entry>
 

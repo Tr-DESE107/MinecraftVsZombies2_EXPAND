@@ -150,4 +150,14 @@
             <condition required="mvz2:level.mausoleum_11" />
         </unlock>
     </artifact>
+    <artifact id="LeftHandBow" name="&lt;color=red&gt;左弓&lt;/color&gt;" tooltip="&lt;color=red&gt;使得怪物拥有难以置信的攻击速度&lt;/color&gt;" sprite="mvz2:artifacts/LeftHandBow">
+        <unlock>
+			<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+        </unlock>
+    </artifact>
+    <artifact id="HerobrineSkull" name="&lt;color=red&gt;邪神头颅&lt;/color&gt;" tooltip="&lt;color=red&gt;面对我&lt;/color&gt;" sprite="mvz2:artifacts/HerobrineSkull">
+        <unlock>
+			<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+        </unlock>
+    </artifact>
 </artifacts>

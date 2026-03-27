@@ -239,6 +239,7 @@ namespace MVZ2.GameContent.Buffs
             public const string nightmareComeTrue = "nightmare_come_true";
             public const string NightmareMaskEvade = "NightmareMaskEvade";
             public const string WitherHeartShieldResistanceBuff = "WitherHeartShieldResistanceBuff";
+            public const string LeftHandBowBuff = "LeftHandBowBuff";
 
             // Chapter 3
             public const string littleZombie = "little_zombie";
@@ -578,6 +579,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID nightmareComeTrue = Get(VanillaBuffNames.Enemy.nightmareComeTrue);
             public static readonly NamespaceID NightmareMaskEvade = Get(VanillaBuffNames.Enemy.NightmareMaskEvade);
             public static readonly NamespaceID WitherHeartShieldResistanceBuff = Get(VanillaBuffNames.Enemy.WitherHeartShieldResistanceBuff);
+            public static readonly NamespaceID LeftHandBowBuff = Get(VanillaBuffNames.Enemy.LeftHandBowBuff);
 
             // Chapter 3
             public static readonly NamespaceID littleZombie = Get(VanillaBuffNames.Enemy.littleZombie);

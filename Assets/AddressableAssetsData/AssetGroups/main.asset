@@ -9163,6 +9163,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96d9f9a0702cc4b48a3cad9a65a5ccda
+    m_Address: mvz2:artifacts/HerobrineSkull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 96de985149d6cff47afbc5b191b1744e
     m_Address: mvz2:projectile/explosive_large_fireball
     m_ReadOnly: 0
@@ -9807,6 +9814,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a34840612bb83fe439ed967b044a553a
+    m_Address: mvz2:artifacts/RedDragonsSeveredWing
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a352f6d9e2e0b4847a4098f315cd2802
     m_Address: mvz2:level/grids/golden_grid_slope
     m_ReadOnly: 0
@@ -10429,6 +10443,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae60b10c0b93bd04f99aa332fd81bfab
+    m_Address: mvz2:artifacts/LeftHandBow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae760a3d6ee757e4e90c0f9da62cee9a
     m_Address: mvz2:giant_spike
