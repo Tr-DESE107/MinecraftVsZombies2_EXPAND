@@ -25,11 +25,9 @@ namespace MVZ2.GameContent.Enemies
             if (state == STATE_HACK)
             {
                 parameters.walkState = WALK_STATE_NONE;
-                parameters.armState = ARM_STATE_NONE;
-                parameters.specialState = SPECIAL_STATE_HACKING;
+                parameters.armState = ARM_STATE_SPECIAL_1;
             }
         }
         public const int STATE_HACK = VanillaEnemyStates.HACKER_HACK;
-        public const int SPECIAL_STATE_HACKING = 1;
     }
 }

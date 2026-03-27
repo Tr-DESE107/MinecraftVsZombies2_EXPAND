@@ -69,6 +69,7 @@ namespace MVZ2.GameContent.Enemies
         public const int ARM_STATE_ATTACK = 2;
         public const int ARM_STATE_CAST = 3;
         public const int ARM_STATE_HANDS_UP = 4;
+        public const int ARM_STATE_SPECIAL_1 = 10000;
         public struct AnimationParameters
         {
             public bool dead;

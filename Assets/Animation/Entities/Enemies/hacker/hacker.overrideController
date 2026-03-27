@@ -9,5 +9,5 @@ AnimatorOverrideController:
   m_Name: hacker
   m_Controller: {fileID: 9100000, guid: 892e4149fd693fe46b55bb7bc3236fe8, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 7f3bf75d5820f354dbcc1604aff3bc45, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ed51c4de4aaefb140b2d9a4d7f361252, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ed51c4de4aaefb140b2d9a4d7f361252, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 66179adf89c913149832ad991a618678, type: 2}
