@@ -63,7 +63,7 @@
     </entry>
     <entry id="ghast">
         <entity id="mvz2:ghast" />
-        <spawn level="3" minWave="10" />
+        <spawn level="3" minWave="6" />
         <terrain water="true" air="true" />
         <weight base="2000" />
     </entry>
@@ -253,6 +253,17 @@
         <terrain water="true" />
         <weight base="900" />
     </entry>
+	<entry id="AngryGhast">
+		<entity id="mvz2:AngryGhast" />
+		<spawn level="3" minWave="6" />
+		<terrain water="true" air="true" />
+		<weight base="2000" />
+	</entry>
+	<entry id="parasite_terror">
+		<entity id="mvz2:parasite_terror" />
+		<spawn level="2" minWave="1" />
+		<weight base="1000" />
+	</entry>
 	
     <!--EXPAND C3-->
     <entry id="WitherSkeleton" entity="mvz2:WitherSkeleton">

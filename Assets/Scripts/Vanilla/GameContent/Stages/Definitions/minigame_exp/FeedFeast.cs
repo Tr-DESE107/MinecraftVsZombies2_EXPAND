@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Stages
             // 禁用除 column 1 以外的所有格子  
             for (int col = 0; col < level.GetMaxColumnCount(); col++)
             {
-                if (col == 1) continue; // 跳过灵魂熔炉所在列  
+                if (col == 1 || col == 2) continue; // 跳过灵魂熔炉所在列  
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
                     var grid = level.GetGrid(col, lane);
@@ -63,7 +63,7 @@ namespace MVZ2.GameContent.Stages
             // 永久维持禁用：重置所有 goldenGrid buff 的超时计时器  
             for (int col = 0; col < level.GetMaxColumnCount(); col++)
             {
-                if (col == 1) continue;
+                if (col == 1 || col == 2) continue;
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
                     var grid = level.GetGrid(col, lane);

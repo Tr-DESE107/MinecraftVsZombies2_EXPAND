@@ -2374,32 +2374,35 @@
 	</stage>
 
 	<stage id="FeedFeast" name="狂宴" type="minigame" needBlueprints="false" music="mvz2:minigame">
-		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
+		<clear pickupModel="mvz2:entity.trophy" trophy="true" pointsMultiplier="2" pointsAddition="5"/>
 		<conveyor>
-			<entry id="mvz2:triplenser" count="5" />
-			<entry id="mvz2:firework_dispenser" count="2" />
-			<entry id="mvz2:repeatenser" count="5" />
-			<entry id="mvz2:beacon" count="10" />
-			<entry id="mvz2:gunpowder_barrel" count="4" />
-			<entry id="mvz2:wooden_fan" count="4" />
-			<entry id="mvz2:elastic_cloud" count="5" />
-			<entry id="mvz2:tesla_coil" count="5" />
-			<entry id="mvz2:stone_shield" count="8" />
-			<entry id="mvz2:jeweled_pagoda" count="1" minCount="0" />
+			<entry id="mvz2:splitenser" count="8" />
+			<entry id="mvz2:golden_apple" count="8" />
+			<entry id="mvz2:wooden_fan" count="2" />
+			<entry id="mvz2:glowstone" count="2" />
+			<entry id="mvz2:tnt" count="2" />
+			<entry id="mvz2:dreamCrystal" count="4" />
+			<entry id="mvz2:magichest" count="4" />
+			<entry id="mvz2:punchton" count="6" />
+			<entry id="mvz2:devourer" count="6" />
+			<entry id="mvz2:GlowingObsidian" count="6" />
+			<entry id="mvz2:dreamSilk" count="6" />
+			<entry id="mvz2:lightning_orb" count="4" />
+			<entry id="mvz2:elastic_cloud" count="2" />
+			<entry id="mvz2:stoneShield" count="2" />
+			<entry id="mvz2:soul_furnace" count="1" />
 		</conveyor>
 		<spawns flags="2" pointsMultiplier="2">
-			<spawn id="mvz2:WitherSkeleton" />
-			<spawn id="mvz2:LeatherWitherSkeleton" />
-			<spawn id="mvz2:IronWitherSkeleton" />
+			<spawn id="mvz2:wicked_hermit_zombie" />
+			<spawn id="mvz2:shikaisen_zombie" />
+			<spawn id="mvz2:mummy" />
+			<spawn id="mvz2:ghost" />
+			<spawn id="mvz2:zombie" />
 			<spawn id="mvz2:berserker" />
+			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:ghast" />
-			<spawn id="mvz2:VillagerGhast" />
-			<spawn id="mvz2:dullahan" />
-			<spawn id="mvz2:spider" />
-			<spawn id="mvz2:mother_terror" />
-			<spawn id="mvz2:HostZombie" />
-			<spawn id="mvz2:HostMutant" />
-			<spawn id="mvz2:XCarrierMutant" />
+			<spawn id="mvz2:NightmareDisciple" />
+			
 		</spawns>
 	</stage>
 	
@@ -2407,7 +2410,8 @@
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
 		<spawns flags="4" wavesPerFlag="9" pointsMultiplier="2.5">
 			<spawn id="mvz2:MonkZombie" />
-			<spawn id="mvz2:IronMonkZombie" />
+			<spawn id="mvz2:LeatherMonkZombie" />
+			<spawn id="mvz2:IronPirateSkeleton" />
 			<spawn id="mvz2:Hemperor" />
 			<spawn id="mvz2:TorchKongfuZombie" />
 			<spawn id="mvz2:SailorZombie" />
@@ -2425,7 +2429,7 @@
 	
 	<stage id="WarThunder" name="战争雷霆" type="minigame" music="mvz2:minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
-		<spawns flags="3" wavesPerFlag="8" pointsMultiplier="2">
+		<spawns flags="3" wavesPerFlag="8" pointsMultiplier="2.5">
 			<spawn id="mvz2:TeslaTrooper" />
 			<spawn id="mvz2:MusketeerZombie" />
 			<spawn id="mvz2:ChiefCannoneerZombie" />
@@ -2438,8 +2442,11 @@
 			<spawn id="mvz2:cannoneer_zombie" />
 			<spawn id="mvz2:bedserker" />
 			<spawn id="mvz2:SailorZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:iron_helmetted_zombie" />
+			<spawn id="mvz2:IronWitherSkeleton" />
 			<spawn id="mvz2:IronMonkZombie" />
+			<spawn id="mvz2:ghast" />
+			<spawn id="mvz2:AngryGhast" />
 			
 		</spawns>
 	</stage>
