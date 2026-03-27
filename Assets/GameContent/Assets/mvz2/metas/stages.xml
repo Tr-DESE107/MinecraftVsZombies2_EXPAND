@@ -1396,6 +1396,44 @@
             <float name="redstoneCarrierCounterIncreament" value="33" />
         </properties>
     </stage>
+    <stage id="palace_7" name="地灵殿" dayNumber="7">
+        <unlock>
+            <condition required="mvz2:level.palace_6" />
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:palace_7" />
+            <talk type="end" value="mvz2:palace_7_over" />
+            <talk type="map" value="mvz2:palace_7_map" />
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:amethyst_pylon" />
+        <spawns flags="2">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:skeleton_statue" />
+            <spawn id="mvz2:hacker" />
+        </spawns>
+    </stage>
+    <stage id="palace_8" name="地灵殿" dayNumber="8">
+        <unlock>
+            <condition required="mvz2:level.palace_7" />
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:palace_8" />
+            <talk type="end" value="mvz2:palace_8_over" />
+            <talk type="map" value="mvz2:palace_8_map" />
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:nuke" />
+        <spawns flags="2">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:shadow_cell" />
+            <spawn id="mvz2:hacker" />
+        </spawns>
+    </stage>
 
     
     <!-- Minigames -->
