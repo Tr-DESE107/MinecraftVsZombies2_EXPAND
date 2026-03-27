@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-03-27 02:19+0800\n"
-"PO-Revision-Date: 2026-03-27 14:43+0800\n"
+"POT-Creation-Date: 2026-03-27 02:52+0800\n"
+"PO-Revision-Date: 2026-03-27 14:55+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3372,20 +3372,20 @@ msgstr ""
 #. Header for enemies mvz2:hacker
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "黑客会骇入并暂时禁用最后方的器械。"
-msgstr "Hackers will hack into and temporarily disable the leftmost contraptions."
+msgid "黑客会使用它的奇硅电脑骇入并暂时禁用最后方的器械。"
+msgstr "Hackers will use their Si-ngular Laptops to hack into and temporarily disable the leftmost contraptions."
 
 #. Properties for enemies mvz2:hacker
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"生命：<color=red>200</color>\n"
-"骇入时长：<color=red>10秒</color>\n"
-"禁用时长：<color=red>60秒</color>"
+"生命：<color=red>512</color>\n"
+"骇入时长：<color=red>16秒</color>\n"
+"禁用时长：<color=red>32秒</color>"
 msgstr ""
-"Toughness: <color=red>200</color>\n"
-"Hack Duration: <color=red>10 seconds</color>\n"
-"Disable Duration: <color=red>60 seconds</color>"
+"Toughness: <color=red>512</color>\n"
+"Hack Duration: <color=red>16 seconds</color>\n"
+"Disable Duration: <color=red>32 seconds</color>"
 
 #. Flavor for enemies mvz2:hacker
 #: Almanac meta file

@@ -2142,6 +2142,7 @@
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:hacker/state" />
             </behaviours>
             <properties>
+                <float name="mvz2:maxHealth" value="512" />
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:size" x="38" y="103" z="38" />
                 <id name="mvz2:shell" value="mvz2:nether" />

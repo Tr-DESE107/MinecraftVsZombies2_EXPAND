@@ -1636,12 +1636,12 @@
         </entry>
         <entry id="mvz2:hacker">
             <header>
-                <p>黑客会骇入并暂时禁用最后方的器械。</p>
+                <p>黑客会使用它的奇硅电脑骇入并暂时禁用最后方的器械。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200</color>]]></p>
-                <p>骇入时长：<![CDATA[<color=red>10秒</color>]]></p>
-                <p>禁用时长：<![CDATA[<color=red>60秒</color>]]></p>
+                <p>生命：<![CDATA[<color=red>512</color>]]></p>
+                <p>骇入时长：<![CDATA[<color=red>16秒</color>]]></p>
+                <p>禁用时长：<![CDATA[<color=red>32秒</color>]]></p>
             </properties>
             <flavor>
                 <p>&gt;rm -rf</p>

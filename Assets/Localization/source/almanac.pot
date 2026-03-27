@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-03-27 02:19+0800\n"
+"POT-Creation-Date: 2026-03-27 02:52+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2711,16 +2711,16 @@ msgstr ""
 #. Header for enemies mvz2:hacker
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "黑客会骇入并暂时禁用最后方的器械。"
+msgid "黑客会使用它的奇硅电脑骇入并暂时禁用最后方的器械。"
 msgstr ""
 
 #. Properties for enemies mvz2:hacker
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"生命：<color=red>200</color>\n"
-"骇入时长：<color=red>10秒</color>\n"
-"禁用时长：<color=red>60秒</color>"
+"生命：<color=red>512</color>\n"
+"骇入时长：<color=red>16秒</color>\n"
+"禁用时长：<color=red>32秒</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:hacker
