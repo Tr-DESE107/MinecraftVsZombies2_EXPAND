@@ -18,6 +18,13 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.Vanilla.Callbacks;
+using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
+using MVZ2.GameContent.Buffs.Contraption;
+using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -27,6 +34,24 @@ namespace MVZ2.GameContent.Contraptions
         public TeslaCoil(string nsp, string name) : base(nsp, name)
         {
             detector = new TeslaCoilDetector(ATTACK_HEIGHT);
+            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
+        }
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
+        {
+            var damageInfo = param.input;
+            var entity = damageInfo.Entity;
+
+            if (entity == null)
+                return;
+
+            if (!entity.IsEntityOf(VanillaContraptionID.teslaCoil))
+                return;
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.LIGHTNING))
+            {
+                damageInfo.Multiply(0);
+                entity.AddBuff<TeslaCoilOvercharge>();
+            }
+
         }
         public override void Init(Entity entity)
         {
@@ -94,6 +119,10 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetAnimationBool("Attacking", entity.State == STATE_ATTACK);
             entity.SetAnimationBool("ShowArc", entity.State != STATE_ATTACK && !entity.IsAIFrozen());
             entity.SetAnimationFloat("AttackSpeed", entity.GetAttackSpeed());
+            if (entity.HasBuff<FrankensteinShockedBuff>())
+            {
+                entity.RemoveBuffs<FrankensteinShockedBuff>();
+            }
         }
         private float GetTargetPriority(Entity self, Entity target)
         {
@@ -140,6 +169,18 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     //entity.ShortCircuit(150);
                     entity.InflictShock(30, new EntitySourceReference(entity));
+                    if (entity.HasBuff<FlyBuff>())
+                    {
+                        if (entity.RNG.Next(4) == 0)
+                        {
+                            entity.RemoveBuffs<FlyBuff>();
+                            entity.Stun(60);
+                        }
+                        if (entity.RNG.Next(2) == 0)
+                        {
+                            entity.Stun(30);
+                        }
+                    }
                 }
             }
         }

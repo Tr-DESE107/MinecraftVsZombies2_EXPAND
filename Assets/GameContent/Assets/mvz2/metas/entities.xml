@@ -3554,7 +3554,6 @@
 		<enemy id="TeslaTrooper" name="磁暴步兵" deathMessage="电力不足">
 			<behaviours>
 				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
-				<behaviour operator="remove" id="mvz2:enemy_melee" />
 			</behaviours>
 			<properties>
 				<float name="mvz2:maxHealth" value="600" />

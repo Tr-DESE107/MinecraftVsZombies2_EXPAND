@@ -198,6 +198,9 @@ namespace MVZ2.GameContent.Buffs
             public const string elasticCloudBounceCooldown = "elastic_cloud_bounce_cooldown";
             public const string elasticCloudEvocation = "elastic_cloud_evocation";
             public const string skywardBeaconNight = "skyward_beacon_night";
+
+            //EXPAND
+            public const string TeslaCoilOvercharge = "TeslaCoilOvercharge";
         }
         public static class Enemy
         {
