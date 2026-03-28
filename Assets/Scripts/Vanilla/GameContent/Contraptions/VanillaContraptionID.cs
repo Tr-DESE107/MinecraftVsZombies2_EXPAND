@@ -89,6 +89,11 @@ namespace MVZ2.GameContent.Contraptions
         public const string PermanentIce = "PermanentIce";
         public const string Randombstone = "Randombstone";
         public const string SuperFireworkDispenser = "SuperFireworkDispenser";
+        public const string BlueIce = "BlueIce";
+        public const string Snipenser = "Snipenser";
+        public const string LCMTNT = "LCMTNT";
+        public const string StoneGenerator = "StoneGenerator";
+        public const string Stone = "Stone";
 
         //EXPAND BlackCard
         public const string Bedrock = "Bedrock";
@@ -178,6 +183,11 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID PermanentIce = Get(VanillaContraptionNames.PermanentIce);
         public static readonly NamespaceID Randombstone = Get(VanillaContraptionNames.Randombstone);
         public static readonly NamespaceID SuperFireworkDispenser = Get(VanillaContraptionNames.SuperFireworkDispenser);
+        public static readonly NamespaceID BlueIce = Get(VanillaContraptionNames.BlueIce);
+        public static readonly NamespaceID Snipenser = Get(VanillaContraptionNames.Snipenser);
+        public static readonly NamespaceID LCMTNT = Get(VanillaContraptionNames.LCMTNT);
+        public static readonly NamespaceID StoneGenerator = Get(VanillaContraptionNames.StoneGenerator);
+        public static readonly NamespaceID Stone = Get(VanillaContraptionNames.Stone);
 
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);

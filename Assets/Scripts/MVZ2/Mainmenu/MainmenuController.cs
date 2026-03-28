@@ -144,6 +144,10 @@ namespace MVZ2.Mainmenu
                 {
                     StartCoroutine(GotoDebugStage(VanillaAreaID.ship));
                 }
+                else if (Input.GetKeyDown(KeyCode.F11))
+                {
+                    StartCoroutine(GotoDebugStage(VanillaAreaID.day));
+                }
             }
             if (animatorBlendTimeout > 0)
             {

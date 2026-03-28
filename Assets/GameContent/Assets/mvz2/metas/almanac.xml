@@ -38,7 +38,7 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_beacon" name="升级器械：信标" description="必须放置在信标上" priority="0">
-            <icon sprite="mvz2:ui/almanac/Contraption(icon)[48]" />
+            <icon sprite="mvz2:ui/almanac/Contraption(icon)[44]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
 
@@ -164,20 +164,24 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
         </tag>
 		<tag id="placement_FireworkDispenser" name="升级器械：烟花发射器" description="必须放置在烟花发射器上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Contraption(icon)[49]" />
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[45]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
 		</tag>
 		<tag id="placement_RedstoneOre" name="升级器械：红石矿" description="必须放置在红石矿上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Contraption(icon)[17]" />
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[12]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
 		</tag>
 		<tag id="placement_hfpd" name="升级器械：高频脉冲发射器" description="必须放置在高频脉冲发射器上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Contraption(icon)[57]" />
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[56]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
 		</tag>
 		<tag id="placement_Eviltombstone" name="升级器械：邪灵墓碑" description="必须放置在邪灵墓碑上" priority="0">
-			<icon sprite="mvz2:ui/almanac/Contraption(icon)[56]" />
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[55]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
+		</tag>
+		<tag id="placement_dispenser" name="升级器械：发射器" description="必须放置在发射器上" priority="0">
+			<icon sprite="mvz2:ui/almanac/Contraption(icon)[0]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
 		</tag>
         
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
@@ -376,7 +380,7 @@
 			</header>
 			<properties>
 				<p>射程：<![CDATA[<color=red>5格</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20，蚀毒效果30/s，持续5s</color>]]></p>
 				<p>技能：<![CDATA[<color=red>射出一个越滚越大的毒球</color>]]></p>
 			</properties>
 			<flavor>
@@ -480,7 +484,7 @@
 		</entry>
 		<entry id="mvz2:silvenser">
 			<header>
-				<p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
+				<p>银制发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
 			</header>
 			<properties>
 				<p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
@@ -488,7 +492,7 @@
 				<p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
 			</properties>
 			<flavor>
-				<p>银质发射器其实是个JOJO迷，飞刀则是他最擅长的把戏。他喜欢JOJO里面的各种台词、各种替身。有时候他也会模仿里面的姿势——尽管他没有手。</p>
+				<p>银制发射器其实是个JOJO迷，飞刀则是他最擅长的把戏。他喜欢JOJO里面的各种台词、各种替身。有时候他也会模仿里面的姿势——尽管他没有手。</p>
 				<p>以下是他表演的舞台剧片段：</p>
 				<p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
 				<p/>
@@ -852,7 +856,7 @@
 				<p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹和爆炸来治疗自己。</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>5000</color>]]></p>
+				<p>耐久：<![CDATA[<color=red>4000</color>]]></p>
 				<p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
 				<p>技能：<![CDATA[<color=red>在5秒内吸收所有远程射弹和爆炸伤害并治疗自己，之后将这些伤害返还给所有敌人（最高900）</color>]]></p>
 			</properties>
@@ -867,12 +871,12 @@
 		</entry>
 		<entry id="mvz2:splitenser">
 			<header>
-				<p>双向发射器在向前发射箭矢的同时，也会向后方发射两次箭矢或飞镖。</p>
+				<p>双向发射器在向前发射箭矢的同时，也会向后方发射一发箭矢和一发飞镖。</p>
 			</header>
 			<properties>
 				<p>发射速度：<![CDATA[<color=red>1发/1.5秒（前方），2发/1.5秒（后方）</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>箭和飞镖20</color>]]></p>
-				<p>技能：<![CDATA[<color=red>快速向前后分别发射60支箭矢，最后向后发射一支大箭矢</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>箭和飞镖20，小导弹100，大导弹600</color>]]></p>
+				<p>技能：<![CDATA[<color=red>快速向前发射60支箭矢，向后发射20发箭矢和8发小导弹，最后向后发射1发大导弹</color>]]></p>
 			</properties>
 			<flavor>
 				<p>“别射了，你把我晃得头晕！”后面的发射器很不爽。</p>
@@ -892,6 +896,7 @@
 			</header>
 			<properties>
 				<p>技能：<![CDATA[<color=red>变成吃豆人中的小幽灵！</color>]]></p>
+				<p>特点：<![CDATA[<color=red>可以用于消除刷怪笼，或者用于将器械变回一张蓝图掉落物，后者的速度是前者的2倍。</color>]]></p>
 			</properties>
 			<flavors>
 				<flavor>
@@ -993,9 +998,9 @@
             <properties>
                 <p>爆炸伤害：<![CDATA[<color=red>100（简单）、150（普通）、300（困难）</color>]]></p>
                 <p>爆炸半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>生产时间：<![CDATA[<color=red>36秒</color>]]></p>
-                <p>提供能量：<![CDATA[<color=red>50</color>]]></p>
-                <p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供100能量，但是会更快爆炸</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red>30秒</color>]]></p>
+                <p>提供能量：<![CDATA[<color=red>75</color>]]></p>
+                <p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供125能量，但是会更快爆炸</color>]]></p>
             </properties>
             <flavor>
                 <p>众所周知，最早的黑火药由三种材料制作：</p>
@@ -1020,12 +1025,15 @@
             </flavor>
         </entry>
         <entry id="mvz2:firework_dispenser">
+			<tags>
+				<tag id="mvz2:antifly"/>
+			</tags>
             <header>
                 <p>烟花发射器会发射火焰弹攻击上方高空中的敌人。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>1发/2秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>200，只攻击空中敌人</color>]]></p>
+                <p>发射速度：<![CDATA[<color=red>1发/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>150，只攻击空中敌人</color>]]></p>
                 <p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>射程永久+1格</color>]]></p>
             </properties>
@@ -1040,12 +1048,16 @@
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>2支/1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20，脉冲箭40，大箭矢600</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速发射40支箭矢和8发小导弹，最后发射一支大箭矢</color>]]></p>
             </properties>
             <flavor>
-                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
-                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
+                <p>他没能有幸加入高频脉冲发射器的士兵队伍，因为他每次说话都要说两遍。</p>
+                <p>他没能有幸加入高频脉冲发射器的士兵队伍，因为他每次说话都要说两遍。</p>
+				<p/>
+				<p/>
+				<p>另外，他为了和双向发射器做出区别，他选择发射大箭矢而非大导弹。</p>
+				<p>另外，他为了和双向发射器做出区别，他选择发射大箭矢而非大导弹。</p>
             </flavor>
         </entry>
         <entry id="mvz2:beacon">
@@ -1257,6 +1269,25 @@
         <entry />
 
         <!-- Upgrades 1 -->
+		<entry id="mvz2:Snipenser">
+			<tags>
+				<tag id="mvz2:placement_dispenser" />
+				<tag id="mvz2:antifly"/>
+			</tags>
+			<header>
+				<p>狙击发射器能够全方位发射高速箭。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>60</color>]]></p>
+				<p>特点：<![CDATA[<color=red>全方位射击</color>]]></p>
+				<p>技能：<![CDATA[<color=red>连续发射多发射弹，发射完毕后发生一次范围3*3，伤害900的爆炸</color>]]></p>
+			</properties>
+			<flavor>
+				<p>狙击发射器酷爱玩FPS类游戏，它是个金枪黑百合，而他最喜欢的一把枪是AWP。村民曾夸它是“八百里开外一枪干掉僵尸的狙击手”……这一条只不过是胡诌罢了。</p>
+				<p/>
+				<p><![CDATA[<color=red>反重力方块在哪？？？？！！？！？！？！？！？？！？！</color>]]></p>
+			</flavor>
+		</entry>
 		<entry id="mvz2:AntiGravityPad">
 			<tags>
 				<tag id="mvz2:placement_AntiGravityPad" />
@@ -1274,55 +1305,7 @@
 				<p><![CDATA[<color=green>哈哈哈我反重力板通过小小的假死就骗过了牢狙，打赢复活赛了！</color>]]></p>
 			</flavor>
 		</entry>
-        <entry id="mvz2:infectenser">
-            <tags>
-                <tag id="mvz2:placement_infectenser" />
-            </tags>
-            <header>
-                <p>传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。</p>
-            </header>
-            <properties>
-                <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
-            </properties>
-            <flavor>
-                <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:force_pad">
-            <tags>
-                <tag id="mvz2:placement_force_pad" />
-            </tags>
-            <header>
-                <p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
-            </header>
-            <properties>
-                <p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
-                <p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
-                <p>技能：<![CDATA[<color=red>将周围的敌方怪物移动到一个指定的位置</color>]]></p>
-            </properties>
-            <flavor>
-                <p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:golden_dropper">
-            <tags>
-                <tag id="mvz2:placement_golden_dropper" />
-            </tags>
-            <header>
-                <p>金制投掷器向敌人发射金球，金球在击中敌人后有概率产生绿宝石，并在敌人间反弹。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>60，每次反弹后减半</color>]]></p>
-                <p>宝石概率：<![CDATA[<color=red>25%</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
-            </properties>
-            <flavor>
-                <p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
-            </flavor>
-        </entry>
+        
 		<entry id="mvz2:CopperDropper">
 			<tags>
 				<tag id="mvz2:placement_stone_dropper" />
@@ -1364,7 +1347,97 @@
                 <p><![CDATA[<color=#C6D1C5>图鉴没有写错。</color>]]></p>
             </flavor>
         </entry>
+		<entry id="mvz2:SuperFireworkDispenser">
+			<tags>
+				<tag id="mvz2:placement_FireworkDispenser" />
+				<tag id="mvz2:antifly"/>
+			</tags>
+			<header>
+				<p>超级烟花发射器会发射烟花轰击上方高空中的敌人。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1发/5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>200，只伤害空中敌人</color>]]></p>
+				<p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>技能：<![CDATA[<color=red>开展烟火大会，射程永久+1格</color>]]></p>
+			</properties>
+			<flavor>
+				<p>超级烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。</p>
+				<p>其实烟花并没有那么贵，只要你不往烟火之星里放钻石，造起来还是挺廉价的，超级烟花发射器放的就是普通的烟花。但他的弟弟坚持要放有珍贵的、有仪式感的烟花。</p>
+				<p/>
+				<p><![CDATA[<color=white>在之后的版本里，我将直接听从你的命令</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:DiamondOre">
+			<tags>
+				<tag id="mvz2:placement_RedstoneOre" />
+			</tags>
+			<header>
+				<p>钻石矿打碎后可以获得钻石</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>1200</color>]]></p>
+				<p>特点：<![CDATA[<color=red>打碎后可以产生3个钻石</color>]]></p>
+				<p>技能：<![CDATA[<color=red>造成1200敌我不分的3*3爆炸伤害，产生3个钻石，并50%掉落一张钻石矿卡片。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>我发现使用镐子敲掉钻石矿会让人很开心。</p>
 
+			</flavor>
+		</entry>
+		
+		<entry/>
+		<entry/>
+
+		<entry id="mvz2:infectenser">
+			<tags>
+				<tag id="mvz2:placement_infectenser" />
+			</tags>
+			<header>
+				<p>传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。</p>
+			</header>
+			<properties>
+				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20，蚀毒效果36/s，持续7s</color>]]></p>
+				<p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
+			</properties>
+			<flavor>
+				<p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:force_pad">
+			<tags>
+				<tag id="mvz2:placement_force_pad" />
+			</tags>
+			<header>
+				<p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
+			</header>
+			<properties>
+				<p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
+				<p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
+				<p>技能：<![CDATA[<color=red>将周围的敌方怪物移动到一个指定的位置</color>]]></p>
+			</properties>
+			<flavor>
+				<p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:golden_dropper">
+			<tags>
+				<tag id="mvz2:placement_golden_dropper" />
+			</tags>
+			<header>
+				<p>金制投掷器向敌人发射金球，金球在击中敌人后有概率产生绿宝石，并在敌人间反弹。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>60，每次反弹后减半</color>]]></p>
+				<p>宝石概率：<![CDATA[<color=red>25%</color>]]></p>
+				<p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
+			</properties>
+			<flavor>
+				<p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:skyward_beacon">
             <tags>
                 <tag id="mvz2:placement_beacon" />
@@ -1384,27 +1457,13 @@
                 <p>不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）</p>
             </flavor>
         </entry>
+		
+		<entry/>
+		<entry/>
+		<entry/>
+		<entry/>
 
-		<entry id="mvz2:SuperFireworkDispenser">
-			<tags>
-				<tag id="mvz2:placement_FireworkDispenser" />
-			</tags>
-			<header>
-				<p>超级烟花发射器会发射烟花轰击上方高空中的敌人。</p>
-			</header>
-			<properties>
-				<p>发射速度：<![CDATA[<color=red>1发/6秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>200，只伤害空中敌人</color>]]></p>
-				<p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
-				<p>技能：<![CDATA[<color=red>开展烟火大会，射程永久+1格</color>]]></p>
-			</properties>
-			<flavor>
-				<p>超级烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。</p>
-				<p>其实烟花并没有那么贵，只要你不往烟火之星里放钻石，造起来还是挺廉价的，超级烟花发射器放的就是普通的烟花。但他的弟弟坚持要放有珍贵的、有仪式感的烟花。</p>
-				<p/>
-				<p><![CDATA[<color=white>在之后的版本里，我将直接听从你的命令</color>]]></p>
-			</flavor>
-		</entry>
+		
 		
 
 
@@ -1453,31 +1512,14 @@
         </entry>
         <entry />
 
-
-
-		<entry id="mvz2:DiamondOre">
-			<tags>
-				<tag id="mvz2:placement_RedstoneOre" />
-			</tags>
-			<header>
-				<p>钻石矿打碎后可以获得钻石</p>
-			</header>
-			<properties>
-				<p>耐久：<![CDATA[<color=red>1200</color>]]></p>
-				<p>特点：<![CDATA[<color=red>打碎后可以获得3个钻石</color>]]></p>
-				<p>技能：<![CDATA[<color=red>造成1200敌我不分的3*3爆炸伤害，产生获得3个钻石，并掉落一张钻石矿卡片。</color>]]></p>
-			</properties>
-			<flavor>
-				<p>我发现使用镐子敲掉钻石矿会让人很开心。</p>
-
-			</flavor>
-		</entry>
+		
+		
         <entry id="mvz2:EXPANDispenser">
             <tags>
                 <tag id="mvz2:placement_hfpd" />
             </tags>
             <header>
-                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。\n嗯，说是这么说，但还没做好</p>
+                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。嗯，说是这么说，但还没做好</p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
@@ -1523,6 +1565,27 @@
 				<p><![CDATA[<color=white>永冻冰后面去问寒冰发射器，为什么自己突然就被牢论记起来，并加进游戏里了？寒冰发射器讲：顺手的事。</color>]]></p>
 			</flavor>
 		</entry>
+		<entry id="mvz2:BlueIce">
+			<header>
+				<p>蓝冰能够冰冻摧毁它的敌人。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁后可以冰冻单格敌人</color>]]></p>
+				<p>技能：<![CDATA[<color=red>冰冻全场敌人，而后自毁</color>]]></p>
+			</properties>
+			<flavor>
+				<p>蓝冰和火焰发射器在器械村门口等寒冰发射器和永冻冰。</p>
+				<p>火焰发射器：“寒冰发射器和永冻冰怎么还不回来啊。”</p>
+				<p>蓝冰：“一定是被狙击发射器肘死了，我已经为他们准备好花圈了。”</p>
+				<p>火焰发射器怒斥：“你这个没良心的！”</p>
+				<p/>
+				<p>今天他醒来，发现寒冰发射器和永冻冰就在他的身边，于是他就把花圈留着自己用了。</p>
+				<p/>
+				<p><![CDATA[<color=white>永冻冰再后面再去问寒冰发射器，为什么蓝冰没有被牢论和我们一起顺手加进游戏？寒冰发射器讲：大概是忘了（不顺手的事）。</color>]]></p>
+			</flavor>
+		</entry>
+		
 		<entry id="mvz2:Randombstone">
 			<tags>
 				<tag id="mvz2:placement_Eviltombstone" />
@@ -1540,6 +1603,27 @@
 				<p/>
 				<p>你抽到了假文本。</p>
 				<!--  真正的文本：wandom的手艺  -->
+			</flavor>
+		</entry>
+		
+		<entry id="mvz2:StoneGenerator">
+			<header>
+				<p>刷石机能够产生阻挡敌人的圆石和石头。</p>
+			</header>
+			<properties>
+				<p>生产时间：<![CDATA[<color=red>24秒</color>]]></p>
+				<p>耐久：<![CDATA[<color=red>圆石350，石头600</color>]]></p>
+				<p>技能：<![CDATA[<color=red>瞬间生成6张卡片</color>]]></p>
+			</properties>
+			<flavor>
+				<p>刷石机（StoneGenerator，又称Cobblestone farming）是通过熔岩的凝固行为自动或半自动地生产圆石、石头或玄武岩的机器，同时也是空岛生存必备的机器。</p>
+				<p>当熔岩以不同的方式流动到与水或蓝冰相邻的方块时，其将会凝固并生成不同的石制方块。通过约束液体流动，熔岩可以稳定地在同一位置凝固，从而可再生地产出石制方块。这些方块可以在原位采集，或是通过活塞机械移出装置，汇集到某个位置集中采掘，或者推入爆炸室等装置自动收集。</p>
+			    <p>圆石和石头是重要的合成材料，用于合成相当多的红石元件和其他方块。尽管可以直接在世界中采掘这些方块，但建造一个自动的、无需玩家在场的刷石机可以更方便地获取大量圆石和石头。此外，自动生成的方块本身也有一些有趣的用途。</p>
+				<p>在此，本教程将为您展示刷石机如何建造。</p>
+				<p/>
+				<p/>
+				<p/>
+				<p><![CDATA[<color=red>===开通坑爹商城会员以阅读全文===</color>]]></p>
 			</flavor>
 		</entry>
 		
@@ -2653,7 +2737,7 @@
                 <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200+50</color>]]></p>
+                <p>生命：<![CDATA[<color=red>600+50</color>]]></p>
                 <p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
                 <p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>]]></p>
             </properties>
@@ -2664,10 +2748,10 @@
         </entry>
         <entry id="mvz2:Hemperor">
             <header>
-                <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
+                <p>天子僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200+50</color>]]></p>
+                <p>生命：<![CDATA[<color=red>600+100</color>]]></p>
                 <p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
                 <p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方60/s的再生效果。</color>]]></p>
             </properties>
@@ -2798,6 +2882,41 @@
             <flavor>
                 <p>没错，炮弹也是一只僵尸！</p>
                 <p>而且特别害怕被脚踩！</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:SailorZombie">
+            <header>
+                <p>水手僵尸走路时会留下水迹，踩到水迹的怪物会向前滑动。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>450</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+            </properties>
+            <flavor>
+				<p>水手僵尸和海盗团里的小崽子们关系很好，他经常和小鬼们玩出海游戏：</p>
+                <p>Are ya ready, kids?（小鬼们，都准备好了吗？）</p>
+                <p>Aye-aye, Captain!（是——的，船长！）</p>
+                <p>I can't hear you!（我听不见！）</p>
+                <p>AYE-AYE, CAPTAIN!（是——的，船长！）</p>
+                <p>Oooooohhhhh————AHHHHH！ I'm sorry,Pop-Captain! I was wrong!（船长我没错）</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:MusketeerZombie">
+            <header>
+                <p>火枪手会朝你的器械发射子弹，子弹打完后会正常走向你的阵线。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>600</color>]]></p>
+                <p>速度：<![CDATA[<color=red>0.8</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>150</color>]]></p>
+                <p>特点：<![CDATA[<color=red>有10发火枪弹药，每次发射一发，射击完毕后会正常近战攻击</color>]]></p>
+            </properties>
+            <flavor>
+                <p>火枪手僵尸宣称自己脸上的疤是在一次牛仔决斗时受的伤，并称自己是狂野西部最强的快枪手。可惜这里是海盗港湾，他不是最强的。</p>
+                <p>其实，他脸上的疤是他在玩枪斗术时给自己弄伤的。</p>
+				<!--似乎就是这家伙卖给小鬼们枪支的-->
+				<p/>
+				<p><![CDATA[<color=grey>不知道为什么，有人管他叫马斯克僵尸。</color>]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:pop_captain">
@@ -3405,7 +3524,8 @@
                 <p>多么惊悚恐怖的骷髅头！</p>
             </flavor>
         </entry>
-		
+		<entry/>
+		<entry/>
         <entry id="mvz2:FrankensteinBrain">
             <header>
                 <p>科学怪人的大脑。</p>
@@ -3450,6 +3570,31 @@
             <flavor>
                 <p>暗影细胞核心能够唤醒怪物的有效部分。尸体复活不可怕，尸体的单独一部分复活才可怕。</p>
             </flavor>
+        </entry>
+        <entry id="mvz2:LeftHandBow">
+            <header>
+                <p></p>
+            </header>
+            <properties>
+				<p>效果：<![CDATA[<color=red>使得怪物拥有难以置信的攻击速度。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>吓哭了</p>
+                <p><![CDATA[<color=blue>正在播放：恋人を射ち堕とした日 (射杀恋人的那天)</color>]]></p>
+				<p/>
+                <p><![CDATA[<color=white>有这个后我们就可以不用出左弓版了！</color>]]></p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:HerobrineSkull">
+            <header>
+                <p></p>
+            </header>
+            <properties>
+                
+            </properties>
+			<flavor>
+				<p align="center"><![CDATA[<color=red><size=300%><b>    面对我</b></size></color>]]></p>
+			</flavor>
         </entry>
 
     </artifacts>
@@ -3801,7 +3946,8 @@
                     <p>与史蒂夫共同生活的白衣村民，原名戴夫。</p>
                 </header>
                 <properties>
-                    <p>画师：<![CDATA[<color=red>Cuerzor58</color>]]></p>
+                    <p>原画师：<![CDATA[<color=red>Cuerzor58</color>]]></p>
+                    <p>皮肤画师：<![CDATA[<color=red>我想喝柠檬水</color>]]></p>
                 </properties>
                 <flavor>
                     <p>史蒂夫从小到大的抚养者，在几年前突然变得疯狂，言行举止无法被人理解。</p>

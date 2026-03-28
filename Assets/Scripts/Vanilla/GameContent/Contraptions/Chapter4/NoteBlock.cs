@@ -15,6 +15,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -75,6 +76,9 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.ufo);
             entity.PlaySound(VanillaSoundID.growBig);
 
+            Explode(entity, 120, 1200);
+            entity.Level.ShakeScreen(10, 0, 15);
+
             if (entity.HasBuff<NoteBlockChargedBuff>())
             {
                 entity.Level.ShakeScreen(15, 0, 90);
@@ -94,6 +98,28 @@ namespace MVZ2.GameContent.Contraptions
                 entity.RemoveBuffs<NoteBlockChargedBuff>();
                 entity.PlaySound(VanillaSoundID.giantRoar, 2);
             }
+        }
+        public static DamageOutput[] Explode(Entity entity, float range, float damage)
+        {
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
+            var damageOutputs = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, entity);
+            foreach (var output in damageOutputs)
+            {
+                var result = output.BodyResult;
+                if (result != null && result.Fatal)
+                {
+                    var target = output.Entity;
+                    var distance = (target.Position - entity.Position).magnitude;
+                    var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
+                    target.Velocity = target.Velocity + Vector3.up * speed;
+                }
+            }
+            Explosion.Spawn(entity, entity.GetCenter(), range);
+            entity.PlaySound(VanillaSoundID.explosion);
+            entity.Level.ShakeScreen(10, 0, 15);
+
+
+            return damageOutputs;
         }
         public override bool CanEvoke(Entity entity)
         {

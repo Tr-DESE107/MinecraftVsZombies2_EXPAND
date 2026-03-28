@@ -63,7 +63,7 @@
     </entry>
     <entry id="ghast">
         <entity id="mvz2:ghast" />
-        <spawn level="3" minWave="10" />
+        <spawn level="3" minWave="6" />
         <terrain water="true" air="true" />
         <weight base="2000" />
     </entry>
@@ -217,6 +217,10 @@
         <spawn level="3" minWave="5" />
         <weight base="1000" />
     </entry>
+	<entry id="imp" entity="mvz2:imp">
+		<spawn level="1" />
+		<weight base="3000" />
+	</entry>
 	
     <!--EXPAND C2-->
     <entry id="HostHead" entity="mvz2:HostHead">
@@ -249,6 +253,22 @@
         <terrain water="true" />
         <weight base="900" />
     </entry>
+	<entry id="AngryGhast">
+		<entity id="mvz2:AngryGhast" />
+		<spawn level="3" minWave="6" />
+		<terrain water="true" air="true" />
+		<weight base="2000" />
+	</entry>
+	<entry id="parasite_terror">
+		<entity id="mvz2:parasite_terror" />
+		<spawn level="2" minWave="1" />
+		<weight base="2000" />
+	</entry>
+	<entry id="PhaseSpider">
+		<entity id="mvz2:PhaseSpider" />
+		<spawn level="3" minWave="5" />
+		<weight base="2000" />
+	</entry>
 	
     <!--EXPAND C3-->
     <entry id="WitherSkeleton" entity="mvz2:WitherSkeleton">
@@ -298,7 +318,7 @@
         <weight base="2000" />
     </entry>
     <entry id="Anubiskull" entity="mvz2:Anubiskull">
-        <spawn level="4.5" minWave="5" />
+        <spawn level="5" minWave="5" />
         <terrain water="true" air="true" />
         <weight base="1250" />
     </entry>
@@ -350,7 +370,7 @@
         <terrain water="true" air="true" />
         <weight base="0" />
     </entry>
-    <entry id="SixQiZombie" entity="mvz2:SixQiZombie">
+    <entry id="SixQiZombie" entity="mvz2:SixQiZombie" noEndless="true">
         <spawn level="4" />
         <weight base="1250" />
     </entry>
@@ -387,7 +407,7 @@
 		<weight base="3000" />
 	</entry>
 	<entry id="cannonball_zombie" entity="mvz2:cannonball_zombie">
-		<spawn level="1.5" />
+		<spawn level="2" minWave="2"/>
 		<weight base="3000" />
 	</entry>
     <entry id="Endermite" entity="mvz2:Endermite">
@@ -399,7 +419,27 @@
         <terrain water="true" />
         <weight base="1600" />
     </entry>
-    
+	<entry id="ChiefCannoneerZombie">
+		<entity id="mvz2:ChiefCannoneerZombie" />
+		<spawn level="4" minWave="10" />
+		<terrain water="true" air="true" />
+		<weight base="1500" />
+	</entry>
+	<entry id="SailorZombie">
+		<entity id="mvz2:SailorZombie" />
+		<spawn level="3" minWave="5" />
+		<weight base="2000" />
+	</entry>
+	<entry id="MusketeerZombie">
+		<entity id="mvz2:MusketeerZombie" />
+		<spawn level="2" minWave="5" />
+		<weight base="1750" />
+	</entry>
+	<entry id="PirateIMP" entity="mvz2:PirateIMP">
+		<spawn level="2" minWave="2"/>
+		<weight base="3000" />
+	</entry>
+
     <!--EXPAND Villager-->
     <entry id="VillagerGhast" entity="mvz2:VillagerGhast">
         <spawn level="3" minWave="10" />
@@ -459,6 +499,18 @@
 		<entity id="mvz2:RandomSkeleton" />
 		<spawn level="2" />
 		<weight base="5000" />
+	</entry>
+
+	<entry id="XCarrierMutant" entity="mvz2:XCarrierMutant">
+		<spawn level="8" />
+		<terrain water="true" />
+		<weight base="2000" />
+	</entry>
+	<entry id="TeslaTrooper">
+		<entity id="mvz2:TeslaTrooper" />
+		<spawn level="2" minWave="3" />
+		<terrain water="true" />
+		<weight base="2000" />
 	</entry>
 
 </spawns>

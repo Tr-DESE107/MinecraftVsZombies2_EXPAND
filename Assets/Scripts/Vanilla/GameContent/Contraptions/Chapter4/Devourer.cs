@@ -180,7 +180,14 @@ namespace MVZ2.GameContent.Contraptions
             UpdateDevourerPosition(devourer);
 
             var devourTimer = GetDevourTimer(devourer);
-            devourTimer?.Run();
+            if (devourer.Target.Type == EntityTypes.PLANT)
+            {
+                devourTimer?.Run(2); // 2倍速度  
+            }
+            else
+            {
+                devourTimer?.Run(); // 刷怪笼保持原速  
+            }
             if (devourTimer == null || devourTimer.Expired)
             {
                 var target = devourer.Target;
@@ -193,7 +200,8 @@ namespace MVZ2.GameContent.Contraptions
             if (!target.ExistsAndAlive())
                 return;
 
-            if (target.IsEntityOf(VanillaObstacleID.monsterSpawner))
+            //if (target.IsEntityOf(VanillaObstacleID.monsterSpawner))
+            if (target.Type == EntityTypes.OBSTACLE)
             {
                 target.Remove();
                 devourer.Produce(VanillaPickupID.emerald);
@@ -255,7 +263,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             if (!entity.ExistsAndAlive())
                 return false;
-            if (!entity.IsEntityOf(VanillaObstacleID.monsterSpawner) && entity.Type != EntityTypes.PLANT)
+            if (entity.Type != EntityTypes.OBSTACLE && entity.Type != EntityTypes.PLANT)
                 return false;
             return true;
         }

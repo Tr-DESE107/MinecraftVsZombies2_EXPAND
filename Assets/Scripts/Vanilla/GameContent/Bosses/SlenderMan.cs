@@ -805,7 +805,7 @@ namespace MVZ2.GameContent.Bosses
             foreach (var enemy in enemies)
             {
                 var regenBuff = enemy.AddBuff<RegenerationBuff>();
-                regenBuff?.SetProperty(RegenerationBuff.PROP_HEAL_AMOUNT, 1f);
+                regenBuff?.SetProperty(RegenerationBuff.PROP_HEAL_AMOUNT, 2f);
                 regenBuff?.SetProperty(RegenerationBuff.PROP_TIMEOUT, 600);
             }
         }

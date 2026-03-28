@@ -13,6 +13,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using MVZ2.GameContent.Contraptions;
 
 namespace MVZ2.Vanilla.Contraptions
 {
@@ -159,6 +160,11 @@ namespace MVZ2.Vanilla.Contraptions
         public static void FirstAid(this Entity contraption)
         {
             contraption.HealEffects(contraption.GetMaxHealth(), contraption);
+            // 检查是否为黑曜石并重置射弹记录  
+            if (contraption.IsEntityOf(VanillaContraptionID.obsidian))
+            {
+                Obsidian.SetLastShootHealth(contraption, contraption.Health);
+            }
             var soundID = contraption.GetGrid()?.GetPlaceSound(contraption);
             if (soundID != null)
                 contraption.PlaySound(soundID);

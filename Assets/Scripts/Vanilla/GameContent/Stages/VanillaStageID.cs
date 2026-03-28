@@ -95,6 +95,10 @@ namespace MVZ2.GameContent.Stages
         public const string ship9 = "ship_9";
         public const string ship10 = "ship_10";
         public const string ship11 = "ship_11";
+        public const string ship12 = "ship_12";
+        public const string ship13 = "ship_13";
+        public const string ship14 = "ship_14";
+        public const string ship15 = "ship_15";
         public const string shipEndless = "ship_endless";
 
         // Minigames
@@ -126,6 +130,18 @@ namespace MVZ2.GameContent.Stages
         public const string vsRandomZombie = "vsRandomZombie";
         public const string MortalZombat = "MortalZombat";
         public const string LigneMaginot = "LigneMaginot";
+
+        public const string AnotherPrologue = "AnotherPrologue";
+        public const string ArmorParty = "ArmorParty";
+        public const string big_trouble_and_little_zombie_2 = "big_trouble_and_little_zombie_2";
+        public const string GiantCrisis = "GiantCrisis";
+        public const string DowsingNote = "DowsingNote";
+
+        public const string FeedFeast = "FeedFeast";
+        public const string ZombiesTide = "ZombiesTide";
+        public const string WarThunder = "WarThunder";
+        public const string ZombieNimbleZombieQuick = "ZombieNimbleZombieQuick";
+        public const string OpticalIllusion = "OpticalIllusion";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

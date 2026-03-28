@@ -591,10 +591,10 @@ namespace MVZ2.Options
         public event Action? OnClose;
 
         public const int FASTFORWARD_STEP_COUNT = 20;
-        public const float FASTFORWARD_SLIDER_START = 1;
+        public const float FASTFORWARD_SLIDER_START = 0;
         public const float FASTFORWARD_SLIDER_END = FASTFORWARD_STEP_COUNT;
-        public const float FASTFORWARD_MULTIPLIER_START = 1;
-        public const float FASTFORWARD_MULTIPLIER_END = 3;
+        public const float FASTFORWARD_MULTIPLIER_START = 0;
+        public const float FASTFORWARD_MULTIPLIER_END = 4;
         public const float FASTFORWARD_MULTIPLIER_RANGE = FASTFORWARD_MULTIPLIER_END - FASTFORWARD_MULTIPLIER_START;
         public const float FASTFORWARD_STEP = FASTFORWARD_MULTIPLIER_RANGE / FASTFORWARD_STEP_COUNT;
 

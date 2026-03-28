@@ -11,7 +11,7 @@ namespace MVZ2.Vanilla.Enemies
     {
         public HeavyGutant(string nsp, string name) : base(nsp, name)
         {
-            SetImpID(VanillaContraptionID.tnt);
+            SetImpID(VanillaEnemyID.PirateBomb);
         }
     }
 

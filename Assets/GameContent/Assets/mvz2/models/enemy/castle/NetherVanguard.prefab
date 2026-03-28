@@ -329,7 +329,7 @@ PrefabInstance:
       addedObject: {fileID: 6247210981048058313}
     - targetCorrespondingSourceObject: {fileID: 8510609027377503110, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1435981253300559858}
+      addedObject: {fileID: 447482871533131987}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
 --- !u!114 &1337129100343087948 stripped
@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b774393e4088b5f41b3a2f3dcbab906e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &3625624055417122956
+--- !u!1001 &2848715622679574445
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -688,7 +688,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 565491770655542234, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_Name
-      value: netherite_ingot_helmet
+      value: NetherVanguardHelmet
       objectReference: {fileID: 0}
     - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -735,10 +735,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
---- !u!4 &1435981253300559858 stripped
+--- !u!4 &447482871533131987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
-  m_PrefabInstance: {fileID: 3625624055417122956}
+  m_PrefabInstance: {fileID: 2848715622679574445}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5867940377431963252
 PrefabInstance:

@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Contraptions
                         // 计算直线方向和速度  
                         var direction = (target.GetCenter() - entity.GetShootPoint()).normalized;
                         var speed = entity.GetShotVelocity().magnitude;
-                        var velocity = direction * speed;
+                        var velocity = direction * speed * 1.5f;
 
                         Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.fireCharge, entity.GetDamage(), velocity);
                     }

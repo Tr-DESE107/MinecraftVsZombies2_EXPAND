@@ -127,6 +127,15 @@
             </stages>
         </product>
 
+        <product id="Snipenser" blueprintId="mvz2:Snipenser">
+            <talks>
+                <talk character="mvz2:crazy_villager">把狙击发射器放在发射器上，让其能够向四面八分发射骇人的子弹！</talk>
+                <talk character="mvz2:tokiko">狙击发射器能升级发射器，可以向四面八分发射高级的子弹！</talk>
+            </talks>
+            <stages>
+                <stage price="5000" unlocks="mvz2:contraption.Snipenser" />
+            </stages>
+        </product>
         <product id="AntiGravityPad" blueprintId="mvz2:AntiGravityPad">
             <talks>
                 <talk character="mvz2:crazy_villager">把反重力板放在重力板上，其能够吹飞上方怪物，驱动时还可使受它影响的怪物的装备极大受损。</talk>
@@ -197,18 +206,6 @@
 			</talks>
 			<stages>
 				<stage price="50000" unlocks="mvz2:contraption.SuperFireworkDispenser" />
-			</stages>
-		</product>
-		<product id="DiamondOre" blueprintId="mvz2:DiamondOre">
-			<unlock>
-				<condition requiredGroups="mvz2:EXPAND_Completed" />
-			</unlock>
-			<talks>
-				<talk character="mvz2:crazy_villager">我们老旧的钻石矿在赚钱性能上已经完全超越了金制投掷器，将他放在红石矿上，挖掉并把掉落物带回给我！</talk>
-				<talk character="mvz2:tokiko">戴夫先生说这个器械他一般不卖的，现在赔本大甩卖，将钻石矿放在红石矿上，挖掉就能获得钻石！</talk>
-			</talks>
-			<stages>
-				<stage price="500000" unlocks="mvz2:contraption.DiamondOre" />
 			</stages>
 		</product>
 		
@@ -341,20 +338,18 @@
                 <stage price="15000" unlocks="mvz2:artifact.dragon_tooth" />
             </stages>
         </product>
-        <product id="cake" sprite="mvz2:products/cake">
-            <unlock>
-                <condition requiredGroups="mvz2:game_completed" />
-            </unlock>
-            <talks>
-                <talk character="mvz2:crazy_villager">蛋糕！在你完成所有内容后，来大吃一顿吧！</talk>
-                <talk character="mvz2:tokiko">蛋糕！在一切都结束之后，来大吃一顿吧！</talk>
-            </talks>
-            <stages>
-                <stage price="20000">
-                    <stat entry="mvz2:deceived_by_the_cake" value="1" />
-                </stage>
-            </stages>
-        </product>
+		<product id="DiamondOre" blueprintId="mvz2:DiamondOre">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" />
+			</unlock>
+			<talks>
+				<talk character="mvz2:crazy_villager">我们老旧的钻石矿在赚钱性能上已经完全超越了金制投掷器，将他放在红石矿上，挖掉并把掉落物带回给我！</talk>
+				<talk character="mvz2:tokiko">戴夫先生说这个器械他一般不卖的，现在赔本大甩卖，将钻石矿放在红石矿上，挖掉就能获得钻石！</talk>
+			</talks>
+			<stages>
+				<stage price="500000" unlocks="mvz2:contraption.DiamondOre" />
+			</stages>
+		</product>
         <product id="EXPANDGiftPack" sprite="mvz2:products/EXPANDGiftPack">
             <unlock>
                 <condition requiredGroups="mvz2:EXPAND_Completed" />
@@ -367,5 +362,19 @@
 					<stage price="1071070" unlocks="mvz2:goods.EXPAND_Completed" />
             </stages>
         </product>
+		<product id="cake" sprite="mvz2:products/cake">
+			<unlock>
+				<condition requiredGroups="mvz2:game_completed" />
+			</unlock>
+			<talks>
+				<talk character="mvz2:crazy_villager">蛋糕！在你完成所有内容后，来大吃一顿吧！</talk>
+				<talk character="mvz2:tokiko">蛋糕！在一切都结束之后，来大吃一顿吧！</talk>
+			</talks>
+			<stages>
+				<stage price="20000">
+					<stat entry="mvz2:deceived_by_the_cake" value="1" />
+				</stage>
+			</stages>
+		</product>
     </products>
 </store>

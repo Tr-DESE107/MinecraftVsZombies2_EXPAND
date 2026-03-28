@@ -6,6 +6,10 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
+using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla.Callbacks;
+using PVZEngine.Callbacks;
+using System.Collections.Generic;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
@@ -14,6 +18,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
     {
         public TNTIgnitedBuff(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR));
         }
         public override void PostAdd(Buff buff)
@@ -37,6 +42,25 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var alpha = (Mathf.Sin(time * 24 * Mathf.Deg2Rad) + 1) * 0.5f;
             buff.SetProperty(PROP_COLOR, new Color(1, 1, 1, alpha));
         }
+
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
+        {
+            var damageInfo = param.input;
+            var entity = damageInfo.Entity;
+
+            if (entity == null)
+                return;
+
+            buffBuffer.Clear();
+            entity.GetBuffs<TNTIgnitedBuff>(buffBuffer);
+            if (buffBuffer.Count == 0)
+                return;
+
+            damageInfo.Multiply(0.1f);
+        }
+
+        private List<Buff> buffBuffer = new List<Buff>();
+
         public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
         public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR = new VanillaBuffPropertyMeta<Color>("Color");
     }

@@ -537,7 +537,8 @@
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">嘿！看远处的天上！有一大堆飞碟！</sentence>
         <sentence speaker="mvz2:shou" sounds="mvz2:dialog_cut" onStart="shake" variant="mvz2:surprised">怎么回事？怎么会有这么多！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake" onClick="end">不好！那些飞碟飞过来了！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake">不好！那些飞碟飞过来了！</sentence>
+		<sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">正好我有一些没做好的器械需要测试，邻居，接好了！</sentence>
       </sentences>
     </section>
   </group>

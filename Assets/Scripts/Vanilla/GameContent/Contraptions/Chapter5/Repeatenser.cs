@@ -86,11 +86,15 @@ namespace MVZ2.GameContent.Contraptions
             if (evocationTimer == null)
                 return;
             evocationTimer.Run();
-            if (evocationTimer.PassedInterval(2))
+            if (evocationTimer.PassedInterval(4))
             {
                 var projectile = Shoot(entity);
                 if (projectile != null)
                     projectile.Velocity *= 2;
+            }
+            if (evocationTimer.PassedInterval(15))
+            {
+                ShootSmallMissile(entity);
             }
             if (evocationTimer.Expired)
             {
@@ -99,6 +103,23 @@ namespace MVZ2.GameContent.Contraptions
                 var shootTimer = GetShootTimer(entity);
                 shootTimer?.Reset();
             }
+        }
+        public Entity? ShootSmallMissile(Entity entity)
+        {
+            entity.TriggerAnimation("Shoot");
+
+            var param = entity.GetShootParams();
+            param.projectileID = VanillaProjectileID.SmallRocket;
+            param.damage = entity.GetDamage() * 5;
+
+            var offset = entity.GetShotOffset();
+            param.position = entity.Position + offset;
+
+            var vel = param.velocity;
+            vel.x *= 1;
+            param.velocity = vel;
+
+            return entity.ShootProjectile(param);
         }
         private Entity? ShootLargeArrow(Entity entity)
         {
