@@ -3358,7 +3358,7 @@
 		</zombie>
 		<zombie id="MusketeerZombie" name="火枪手僵尸" deathMessage="他没射中靶子，气急败坏的打了你一顿">
 			<unlock>
-				<condition required="mvz2:level.ship_12" />
+				<condition required="mvz2:level.ship_8" />
 			</unlock>
 			<behaviours>
 				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
@@ -3370,15 +3370,18 @@
 				<id name="mvz2:projectileId" value="mvz2:bullet" />
 				<int name="mvz2:cost" value="100" />
 				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:maxHealth" value="600" />
+				<float name="mvz2:speed" value="0.8" />
 			</properties>
 		</zombie>
 		<zombie id="SailorZombie" name="水手僵尸" deathMessage="湿又滑！">
 			<unlock>
-				<condition required="mvz2:level.ship_12" />
+				<condition required="mvz2:level.ship_7" />
 			</unlock>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:SailorHat" />
 				<int name="mvz2:cost" value="100" />
+				<float name="mvz2:maxHealth" value="450" />
 			</properties>
 		</zombie>
 
@@ -3919,6 +3922,7 @@
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
+				<bool name="mvz2:undead" value="false" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:fallResistance" value="10000" />

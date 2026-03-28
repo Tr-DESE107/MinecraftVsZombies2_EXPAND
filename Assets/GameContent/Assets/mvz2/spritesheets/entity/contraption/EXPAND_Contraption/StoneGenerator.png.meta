@@ -127,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 2
-        width: 59
-        height: 59
+        y: 60
+        width: 61
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: StoneGenerator_1
       rect:
         serializedVersion: 2
-        x: 61
-        y: 2
-        width: 59
-        height: 59
+        x: 63
+        y: 60
+        width: 61
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: StoneGenerator_2
       rect:
         serializedVersion: 2
-        x: 121
-        y: 2
-        width: 59
-        height: 59
+        x: 1
+        y: 1
+        width: 61
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,6 +181,27 @@ TextureImporter:
       bones: []
       spriteID: dabd95211f66f6b43950eae7d4d9137a
       internalID: 328039554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoneGenerator_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1
+        width: 61
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4310ce943a6670e479eb75169dd4bab6
+      internalID: -756544251
       vertices: []
       indices: 
       edges: []
@@ -199,6 +220,7 @@ TextureImporter:
       StoneGenerator_0: -3211789
       StoneGenerator_1: -1463778970
       StoneGenerator_2: 328039554
+      StoneGenerator_3: -756544251
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

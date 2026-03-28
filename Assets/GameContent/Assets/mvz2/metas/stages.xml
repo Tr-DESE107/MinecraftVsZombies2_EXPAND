@@ -2388,7 +2388,7 @@
 			<spawn id="mvz2:zombie" />
 			<spawn id="mvz2:berserker" />
 			<spawn id="mvz2:IronPirateSkeleton" />
-			<spawn id="mvz2:NightmareDisciple" />
+			<spawn id="mvz2:anubisand" />
 			
 		</spawns>
 	</stage>
@@ -2461,7 +2461,7 @@
 		</spawns>
 	</stage>
 	
-	<stage id="OpticalIllusion" name="&lt;color=red&gt;视错觉&lt;/color&gt;" type="minigame" music="mvz2:minigame">
+	<stage id="OpticalIllusion" name="&lt;color=red&gt;视错觉&lt;/color&gt;" type="minigame" music="mvz2:Sacrificial">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true" />
 		<spawns flags="8" wavesPerFlag="5" pointsMultiplier="2.5">
 			<spawn id="mvz2:AngryGhast" />

@@ -81,7 +81,7 @@
             <p>听上去像是一个神秘的法师在他的花园中闲庭漫步，思考着符文与法术。</p>
         </description>
     </music>
-
+    
     <music id="dream_level" name="破碎的童话-关卡">
         <track main="mvz2:dream_level" />
         <source>书虫大冒险 Vol.2</source>
@@ -160,6 +160,17 @@
             <p>梦魇收割者的一部分设计来源于《以撒的结合：忏悔》中的教条。</p>
         </description>
     </music>
+	<music id="Sacrificial" name="Sacrificial(牺牲)">
+		<track main="mvz2:Sacrificial" />
+		<source>以撒的结合</source>
+		<description>
+			<p>噩梦世界拓展Boss战的道中音乐，也是mvz2_gms2版本噩梦世界最终关的道中音乐，老玩家们应该都听懂了</p>
+			<p>来源以撒的结合的地下室层音乐。</p>
+			<p>冰与冷知识时间到</p>
+			<p>很早就玩b站看pvz视频的朋友们可能知道有个叫做超级滑稽的up主，他制作的诅咒系列当时，在圈内可是大有名气，甚至掀起过其他人跟风模仿的自制诅咒关卡实况。</p>
+			<p>当时超级滑稽视频配乐就多用这个bgm，这大概也是因为他是一位MVZ2爱好者。</p>
+		</description>
+	</music>
 
     <music id="gensokyo_map" name="青空之影">
         <track main="mvz2:gensokyo_map" />

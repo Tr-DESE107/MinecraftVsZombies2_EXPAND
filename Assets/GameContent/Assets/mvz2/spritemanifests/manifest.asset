@@ -77,6 +77,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 56a0e96d821b4d74ea79ea5117dee84d, type: 3}
   - name: arcade/nightmares_revenge
     sprite: {fileID: 21300000, guid: eb0eb64f7392deb41831563ed71fa81a, type: 3}
+  - name: arcade/OpticalIllusion
+    sprite: {fileID: 21300000, guid: a1447ef5422a9884880007586d621e26, type: 3}
   - name: arcade/PerformanceArt
     sprite: {fileID: 21300000, guid: bf765943926e6514895dea3bf309fd68, type: 3}
   - name: arcade/RandomChinaAndPot
@@ -333,6 +335,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 36644e32a58432140b6b7f7339f2bac1, type: 3}
   - name: mobile_blueprint/cave_spider
     sprite: {fileID: 21300000, guid: 2be33464724166c4fa3a121643edceb8, type: 3}
+  - name: mobile_blueprint/ChiefCannoneerZombie
+    sprite: {fileID: 21300000, guid: a12b3a39d017ac9418f7be84ba9deab2, type: 3}
+  - name: mobile_blueprint/Cobblestone
+    sprite: {fileID: 21300000, guid: 7c436aa11a416094ba8cbae88fdf1f47, type: 3}
   - name: mobile_blueprint/command_block
     sprite: {fileID: 21300000, guid: c5e0b87d540b275409a8860725de7933, type: 3}
   - name: mobile_blueprint/CopperDropper
@@ -499,6 +505,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3a4d775ca16aed8489fddf37bc1ced64, type: 3}
   - name: mobile_blueprint/mummy
     sprite: {fileID: 21300000, guid: 9471881cde5f3d841abcd44501e0f922, type: 3}
+  - name: mobile_blueprint/MusketeerZombie
+    sprite: {fileID: 21300000, guid: cf9b76e215bcd4b4ca490f046354434e, type: 3}
   - name: mobile_blueprint/MutantMannequin
     sprite: {fileID: 21300000, guid: ab8b500782b9cf24bbc0ddcc4f9c9103, type: 3}
   - name: mobile_blueprint/MutantVillager
@@ -535,6 +543,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 333296bf7a142dd43a413222f3881bcb, type: 3}
   - name: mobile_blueprint/PermanentIce
     sprite: {fileID: 21300000, guid: 2bb72792699c5fa4eb479776078c6604, type: 3}
+  - name: mobile_blueprint/PhaseSpider
+    sprite: {fileID: 21300000, guid: aecbbe965ff38bb418d77b709df81eb3, type: 3}
+  - name: mobile_blueprint/PirateIMP
+    sprite: {fileID: 21300000, guid: 00fe738c912ea7440a7622ee4060499d, type: 3}
   - name: mobile_blueprint/PirateSkeleton
     sprite: {fileID: 21300000, guid: 6d7b5d821d532134eb2216dceceb2669, type: 3}
   - name: mobile_blueprint/PirateZombie
@@ -577,6 +589,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 90b1efed9d95d3b43a897fa9d566324a, type: 3}
   - name: mobile_blueprint/reverse_satellite
     sprite: {fileID: 21300000, guid: 35f80fb8af94a064f86a987dc6dae8e0, type: 3}
+  - name: mobile_blueprint/SailorZombie
+    sprite: {fileID: 21300000, guid: a32750f930e0ef44faf7b1915e84ab24, type: 3}
   - name: mobile_blueprint/seija
     sprite: {fileID: 21300000, guid: 9390c4e06c35d1849b57a496ba6b0339, type: 3}
   - name: mobile_blueprint/seija_cursed_doll
@@ -625,6 +639,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d0f973bcd4babdc40b8ee0cfc233300c, type: 3}
   - name: mobile_blueprint/splitenser
     sprite: {fileID: 21300000, guid: b8020c439faa36e4a93b2a903db60899, type: 3}
+  - name: mobile_blueprint/Stone
+    sprite: {fileID: 21300000, guid: c854475b201c632478d34d81f1813891, type: 3}
+  - name: mobile_blueprint/StoneGenerator
+    sprite: {fileID: 21300000, guid: 59570312d7625f042870edf5afca18e7, type: 3}
   - name: mobile_blueprint/stone_dropper
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
   - name: mobile_blueprint/stone_shield
@@ -635,6 +653,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d4ee8be540cfcd14ebdc500a75d0a018, type: 3}
   - name: mobile_blueprint/talisman_zombie
     sprite: {fileID: 21300000, guid: 70bd3779c2eea2b4fb4e071481e6acb1, type: 3}
+  - name: mobile_blueprint/TeslaTrooper
+    sprite: {fileID: 21300000, guid: 9e960be2538002245a37e27c37d1eca1, type: 3}
   - name: mobile_blueprint/tesla_coil
     sprite: {fileID: 21300000, guid: d8b4a6fef193f41428666f3177af2af7, type: 3}
   - name: mobile_blueprint/the_giant
@@ -3920,11 +3940,17 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/Stone
     spritesheet:
     - {fileID: 1567805984, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: 413954105, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: 622766689, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: -583072539, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: 1454274185, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: 55457186, guid: eb228c134b78af34daafe116fcc73068, type: 3}
   - name: entity/contraption/EXPAND_Contraption/StoneGenerator
     spritesheet:
     - {fileID: -3211789, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
     - {fileID: -1463778970, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
     - {fileID: 328039554, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
+    - {fileID: -756544251, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
   - name: entity/contraption/EXPAND_Contraption/SuperFireworkDispenser
     spritesheet:
     - {fileID: 21300000, guid: bc7f633f0f53dd349827ea61dbdfad23, type: 3}
@@ -3987,6 +4013,11 @@ MonoBehaviour:
   - name: entity/enemy/EXPAND/Cobblestone
     spritesheet:
     - {fileID: -2005932341, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: 145870215, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: -840620074, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: -126386727, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: 396112045, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: 825940752, guid: febc336ac09c358449eedd782617acf6, type: 3}
   - name: entity/enemy/EXPAND/DrunkardMonkZombie
     spritesheet:
     - {fileID: -1000115360, guid: 933250d176c80344e81129e139acc3cd, type: 3}

@@ -73,6 +73,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00fe738c912ea7440a7622ee4060499d
+    m_Address: mvz2:mobile_blueprint/PirateIMP
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01135a0e2629bc5439a4f6e0fab3977a
     m_Address: mvz2:bones/contraption
     m_ReadOnly: 0
@@ -1199,6 +1206,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1354f05315c703748a1a61c71899ea9e
+    m_Address: mvz2:entity/Enderman/EndermanTeleport1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 135dff09421d4164c91798ffaa81d047
     m_Address: mvz2:entity/carts/unzan_fist
@@ -5594,6 +5608,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59570312d7625f042870edf5afca18e7
+    m_Address: mvz2:mobile_blueprint/StoneGenerator
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59ab9a6cecef3704297679a5a4c3e342
     m_Address: mvz2:effect/smoke
     m_ReadOnly: 0
@@ -7587,6 +7608,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c436aa11a416094ba8cbae88fdf1f47
+    m_Address: mvz2:mobile_blueprint/Cobblestone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c6a578dbe25d684690f811137ed23d4
     m_Address: mvz2:pickup/zombie_scroll
@@ -9611,6 +9639,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e960be2538002245a37e27c37d1eca1
+    m_Address: mvz2:mobile_blueprint/TeslaTrooper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e9e1ca0468eacb4c8a7f5a7275539ce
     m_Address: mvz2:entity/armor/EXPAND_armor/GoldenHelmet
     m_ReadOnly: 0
@@ -9765,12 +9800,26 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a12b3a39d017ac9418f7be84ba9deab2
+    m_Address: mvz2:mobile_blueprint/ChiefCannoneerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a13dd6aa116e1d74cbf955bb846d1d0c
     m_Address: mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Pistenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1447ef5422a9884880007586d621e26
+    m_Address: mvz2:arcade/OpticalIllusion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a20c664f002d02c45a83c93d170c5c1a
     m_Address: mvz2:entity/armor/EXPAND_armor/BedrockHelmet
@@ -9813,6 +9862,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a32750f930e0ef44faf7b1915e84ab24
+    m_Address: mvz2:mobile_blueprint/SailorZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a336a65f650e22f4395ebcd0039d9ec1
     m_Address: mvz2:enemy/halloween/gargoyle
@@ -10509,6 +10565,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aeb8f84fd7f52684e9107599101bf807
     m_Address: mvz2:misc/nightmare_appear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aecbbe965ff38bb418d77b709df81eb3
+    m_Address: mvz2:mobile_blueprint/PhaseSpider
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11718,6 +11781,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c441f1dea3a808540af8bd025f6b481c
+    m_Address: mvz2:entity/Enderman/EndermanTeleport2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c48390d6002ea294c877b56330723002
     m_Address: mvz2:entity/contraption/EXPANDispenser/EXPANDispenser_Repeatenser
     m_ReadOnly: 0
@@ -11937,6 +12007,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c853afac5f602874e877872193826015
     m_Address: mvz2:ui/debug_console_icon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c854475b201c632478d34d81f1813891
+    m_Address: mvz2:mobile_blueprint/Stone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -12466,6 +12543,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf9b76e215bcd4b4ca490f046354434e
+    m_Address: mvz2:mobile_blueprint/MusketeerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfdbd04b988d2f345b42207077875f98
     m_Address: mvz2:contraption/halloween/glowstone

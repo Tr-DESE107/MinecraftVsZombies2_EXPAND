@@ -113,8 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -2005932341, guid: febc336ac09c358449eedd782617acf6, type: 3}
-  - {fileID: -2005932341, guid: febc336ac09c358449eedd782617acf6, type: 3}
-  - {fileID: -2005932341, guid: febc336ac09c358449eedd782617acf6, type: 3}
+  - {fileID: 145870215, guid: febc336ac09c358449eedd782617acf6, type: 3}
+  - {fileID: -840620074, guid: febc336ac09c358449eedd782617acf6, type: 3}
 --- !u!1 &5458237617972372488
 GameObject:
   m_ObjectHideFlags: 0

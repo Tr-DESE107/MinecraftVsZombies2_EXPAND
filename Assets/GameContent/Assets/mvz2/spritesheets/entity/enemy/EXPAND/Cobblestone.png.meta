@@ -123,15 +123,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cobblestone
+      name: Cobblestone_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 8
+        y: 65
         width: 48
         height: 57
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,6 +139,111 @@ TextureImporter:
       bones: []
       spriteID: c33eafff8a53e444baa24ab28bee525c
       internalID: -2005932341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 64
+        width: 48
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a1e1eb6527a8848a6c3c41eb24bd79
+      internalID: 145870215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 64
+        width: 48
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e565ba6175e7d4e99dba6ea5dc3e82
+      internalID: -840620074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1
+        width: 48
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d26f0586d46c6945a3fd075bba28ece
+      internalID: -126386727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone_4
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1
+        width: 48
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0888a26015213d0449499a358d875f98
+      internalID: 396112045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone_5
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1
+        width: 48
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3faa3b9ed7c2fb40bd4326c818b1e15
+      internalID: 825940752
       vertices: []
       indices: 
       edges: []
@@ -155,6 +260,11 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Cobblestone_0: -2005932341
+      Cobblestone_1: 145870215
+      Cobblestone_2: -840620074
+      Cobblestone_3: -126386727
+      Cobblestone_4: 396112045
+      Cobblestone_5: 825940752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -321,8 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 1567805984, guid: eb228c134b78af34daafe116fcc73068, type: 3}
-  - {fileID: 1567805984, guid: eb228c134b78af34daafe116fcc73068, type: 3}
-  - {fileID: 1567805984, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+  - {fileID: 413954105, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+  - {fileID: 622766689, guid: eb228c134b78af34daafe116fcc73068, type: 3}
 --- !u!114 &8638934601161811596
 MonoBehaviour:
   m_ObjectHideFlags: 0
