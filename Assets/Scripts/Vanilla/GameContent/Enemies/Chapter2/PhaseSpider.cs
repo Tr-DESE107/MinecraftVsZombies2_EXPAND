@@ -146,7 +146,7 @@ namespace MVZ2.GameContent.Enemies
             entity.Spawn(VanillaEffectID.smokeCluster, entity.GetCenter());
 
             // 播放传送音效  
-            entity.PlaySound(VanillaSoundID.gapWarp);
+            entity.PlaySound(VanillaSoundID.EndermanTeleport);
         }
 
         // 瞬移距离范围（世界坐标单位）  

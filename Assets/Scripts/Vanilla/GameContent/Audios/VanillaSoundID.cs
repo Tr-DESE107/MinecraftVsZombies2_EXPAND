@@ -243,6 +243,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID Player_death = Get("Player_death");
         public readonly static NamespaceID Player_death_Old = Get("Player_death_Old");
         public readonly static NamespaceID TeslaTrooperAttack = Get("TeslaTrooperAttack");
+        public readonly static NamespaceID EndermanTeleport = Get("EndermanTeleport");
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

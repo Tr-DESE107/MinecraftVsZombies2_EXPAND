@@ -1041,4 +1041,8 @@
 		<sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack3" weight="1" />
 		<sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack4" weight="1" />
 	</sound>
+	<sound name="EndermanTeleport">
+		<sample path="mvz2:entity/Enderman/EndermanTeleport1" weight="1" />
+		<sample path="mvz2:entity/Enderman/EndermanTeleport2" weight="1" />
+	</sound>
 </sounds>
