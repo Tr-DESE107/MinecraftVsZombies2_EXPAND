@@ -20,6 +20,7 @@ using MVZ2.Vanilla.Entities;     // IsInWater 扩展方法
 using MVZ2.GameContent.Areas;           // Dream  
 using MVZ2.GameContent.Buffs.Level;     // SkywardNightBuff, BloodMoonBuff  
 using MVZ2.Vanilla.Level;               // VanillaLevelExt (StartRain, Thunder)  
+using MVZ2.Vanilla.Audios;
 
 namespace MVZ2.GameContent.Stages  
 {  
@@ -94,18 +95,37 @@ namespace MVZ2.GameContent.Stages
             // 给所有敌人添加船，使其在水上和空路上都能漂浮  
             entity.AddBuff<BoatBuff>();
             entity.SetModelProperty("HasBoat", true);
+
+            // 第20波之后，小概率获得幽灵buff  
+            if (level.CurrentWave >= WAVE_GHOST_TRIGGER)
+            {
+                // 20%概率（可调）  
+                if (entity.RNG.Next(0f, 1f) < GHOST_CHANCE)
+                {
+                    if (!entity.HasBuff<GhostBuff>())
+                    {
+                        entity.AddBuff<GhostBuff>();
+                    }
+                }
+            }
         }
-  
+        // 第20波之后开始出现幽灵化敌人  
+        private const int WAVE_GHOST_TRIGGER = 20;
+
+        // 敌人获得幽灵buff的概率
+        private const float GHOST_CHANCE = 0.2f;
+
         public override void OnPostWave(LevelEngine level, int wave)  
         {  
             base.OnPostWave(level, wave);  
   
-            // 第15波：原水池区域（现在是陆地）变为空路  
+            // 第20波：原水池区域（现在是陆地）变为空路  
             if (wave == WAVE_AIR_TRIGGER)  
             {  
                 ConvertOriginalWaterToAir(level);  
             }  
   
+            level.PlaySound(VanillaSoundID.scream);
             // 每隔 SATELLITE_INTERVAL 小波生成一次反逆卫星  
             if (wave > 0 && wave % SATELLITE_INTERVAL == 0)  
             {  
@@ -195,7 +215,7 @@ namespace MVZ2.GameContent.Stages
         /// <summary>  
         /// 第15波触发空路转换  
         /// </summary>  
-        private const int WAVE_AIR_TRIGGER = 15;  
+        private const int WAVE_AIR_TRIGGER = 20;  
   
         /// <summary>  
         /// 每隔多少小波出一次反逆卫星（可调参数）  

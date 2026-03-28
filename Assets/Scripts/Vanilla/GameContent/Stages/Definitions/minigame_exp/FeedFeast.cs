@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Stages
                     {
                         // 当计时器过了 40% 时重置，避免出现半透明的"即将消失"视觉效果  
                         var timer = buff.GetProperty<FrameTimer>(GoldenGridBuff.PROP_TIMEOUT_TIMER);
-                        if (timer != null && timer.GetPassedPercentage() > 0.5f)
+                        if (timer != null && timer.GetPassedPercentage() > 0.6f)
                         {
                             timer.Reset();
                         }

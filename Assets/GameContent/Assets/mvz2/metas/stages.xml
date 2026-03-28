@@ -2484,6 +2484,7 @@
 			<spawn id="mvz2:iron_helmetted_zombie" />
 			<spawn id="mvz2:bedserker" />
 			<spawn id="mvz2:KingSkeleton" />
+			<spawn id="mvz2:ghost" />
 			
 		</spawns>
 	</stage>
