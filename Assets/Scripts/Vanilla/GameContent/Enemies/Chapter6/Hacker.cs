@@ -87,7 +87,7 @@ namespace MVZ2.GameContent.Enemies
         {
             canDetectInvisible = false
         };
-        public const float HACK_DURATION_SECONDS = 16f;
+        public const float HACK_DURATION_SECONDS = 8f;
         public const float HACK_EFFECT_DURATION_SECONDS = 32f;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_HACK_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("hack_timer");
         public const int STATE_WALK = LogicEnemyStates.WALK;
