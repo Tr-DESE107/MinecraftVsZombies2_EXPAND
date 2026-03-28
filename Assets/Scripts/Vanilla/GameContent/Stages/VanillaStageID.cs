@@ -140,6 +140,8 @@ namespace MVZ2.GameContent.Stages
         public const string FeedFeast = "FeedFeast";
         public const string ZombiesTide = "ZombiesTide";
         public const string WarThunder = "WarThunder";
+        public const string ZombieNimbleZombieQuick = "ZombieNimbleZombieQuick";
+        public const string OpticalIllusion = "OpticalIllusion";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

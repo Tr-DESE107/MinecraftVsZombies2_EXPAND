@@ -752,6 +752,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0be18edb995c39d4795546bfdcf15ed7
+    m_Address: mvz2:arcade/ZombieNimbleZombieQuick
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bf511a37a1879d42861015390ad24ff
     m_Address: mvz2:pickup/starshards/ship
     m_ReadOnly: 0

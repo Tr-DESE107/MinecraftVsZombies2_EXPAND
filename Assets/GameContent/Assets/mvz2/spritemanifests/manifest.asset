@@ -103,6 +103,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ba09814b17fbf24438727f22089f7192, type: 3}
   - name: arcade/withers_revenge
     sprite: {fileID: 21300000, guid: cf276e1f4880f4c40b8cd6fdc9e9640e, type: 3}
+  - name: arcade/ZombieNimbleZombieQuick
+    sprite: {fileID: 21300000, guid: 0be18edb995c39d4795546bfdcf15ed7, type: 3}
   - name: arcade/ZombiesTide
     sprite: {fileID: 21300000, guid: b30a95d3bfd188f45ab62903c456664c, type: 3}
   - name: archive/castle_note
@@ -834,7 +836,7 @@ MonoBehaviour:
   - name: entity/armor/berserker_helmet
     sprite: {fileID: 21300000, guid: 7b5b04fa7d4703a48867a2ec9b7c31f6, type: 3}
   - name: entity/armor/ChiefCap
-    sprite: {fileID: 21300000, guid: a5a4db0e76add6146b289d8c83fb9907, type: 3}
+    sprite: {fileID: 1938509936, guid: a5a4db0e76add6146b289d8c83fb9907, type: 3}
   - name: entity/armor/emperor_crown
     sprite: {fileID: 21300000, guid: 58755531f1cc59b4ab7563c5bedf58b2, type: 3}
   - name: entity/armor/mesmerizer_crown

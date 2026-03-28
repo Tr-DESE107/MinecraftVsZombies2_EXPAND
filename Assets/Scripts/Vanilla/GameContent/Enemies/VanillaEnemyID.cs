@@ -85,6 +85,7 @@ namespace MVZ2.GameContent.Enemies
 
         public const string EnragedHostZombie = "EnragedHostZombie";
         public const string AngryGhast = "AngryGhast";
+        public const string PhaseSpider = "PhaseSpider";
 
         public const string SpiderQueen = "SpiderQueen"; //todo
 
@@ -240,6 +241,7 @@ namespace MVZ2.GameContent.Enemies
 
         public static readonly NamespaceID EnragedHostZombie = Get(VanillaEnemyNames.EnragedHostZombie);
         public static readonly NamespaceID AngryGhast = Get(VanillaEnemyNames.AngryGhast);
+        public static readonly NamespaceID PhaseSpider = Get(VanillaEnemyNames.PhaseSpider);
 
         //EXPAND_C3
         public static readonly NamespaceID WitherSkeleton = Get(VanillaEnemyNames.WitherSkeleton);

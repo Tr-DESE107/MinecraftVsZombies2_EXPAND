@@ -137,7 +137,7 @@
     </artifact>
     <artifact id="NightmareMask" name="梦魇之面" tooltip="敌人的攻击速度下降20%，但有33%概率不受到本次伤害" sprite="mvz2:artifacts/NightmareMask">
         <unlock>
-            <condition required="mvz2:level.dream_11" />
+            <condition required="mvz2:level.dream_12" />
         </unlock>
     </artifact>
     <artifact id="WitherHeartShield" name="凋灵护心盾" tooltip="使敌方怪物常态减伤，攻击时额外受到伤害，并使我方怪物常态额外受到伤害" sprite="mvz2:artifacts/WitherHeartShield">

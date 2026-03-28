@@ -35,6 +35,8 @@
     <minigame id="FeedFeast" stage="mvz2:FeedFeast" area="mvz2:halloween" icon="mvz2:arcade/FeedFeast" />
     <minigame id="ZombiesTide" stage="mvz2:ZombiesTide" area="mvz2:mausoleum" icon="mvz2:arcade/ZombiesTide" />
     <minigame id="WarThunder" stage="mvz2:WarThunder" area="mvz2:dream" icon="mvz2:arcade/WarThunder" />
+    <minigame id="ZombieNimbleZombieQuick" stage="mvz2:ZombieNimbleZombieQuick" area="mvz2:castle" icon="mvz2:arcade/ZombieNimbleZombieQuick" />
+    <minigame id="OpticalIllusion" stage="mvz2:OpticalIllusion" area="mvz2:dream" icon="mvz2:arcade/OpticalIllusion" />
     
 
     <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />

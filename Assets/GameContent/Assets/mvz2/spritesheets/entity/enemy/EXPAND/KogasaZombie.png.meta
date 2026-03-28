@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 84
+        y: 78
         width: 42
         height: 14
       alignment: 9
@@ -147,12 +147,12 @@ TextureImporter:
       name: KogasaZombie_1
       rect:
         serializedVersion: 2
-        x: 47
+        x: 46
         y: 76
-        width: 35
+        width: 38
         height: 24
       alignment: 9
-      pivot: {x: 0.5, y: 0.08}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
         width: 42
         height: 14
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.87, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)  
         {  
             base.Init(entity);  
-            // 初始化瞬移冷却计时器，约150帧（5秒@30fps）  
+            // 初始化瞬移冷却计时器，240帧（5秒@30fps）  
             SetTeleportTimer(entity, new FrameTimer(TELEPORT_INTERVAL));  
             // 初始化瞬移RNG  
             SetTeleportRNG(entity, new RandomGenerator(entity.RNG.Next()));  
@@ -126,8 +126,8 @@ namespace MVZ2.GameContent.Enemies
             Vector3 targetPos = entity.Position + displacement;
 
             // 限制在关卡有效范围内  
-            float minX = level.GetEntityColumnX(1);              // 避免太靠近房子  
-            float maxX = level.GetEntityColumnX(level.GetMaxColumnCount() - 1);
+            float minX = level.GetEntityColumnX(0);              // 避免太靠近房子  
+            float maxX = level.GetEntityColumnX(level.GetMaxColumnCount());
             float minZ = level.GetGridBottomZ();
             float maxZ = level.GetGridTopZ();
 
