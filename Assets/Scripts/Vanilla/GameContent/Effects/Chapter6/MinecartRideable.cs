@@ -2,8 +2,10 @@
 
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -15,12 +17,17 @@ namespace MVZ2.GameContent.Effects
     {
         public MinecartRideable(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(LogicLevelCallbacks.POST_PAUSE, PostPauseCallback);
         }
-
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            SetTargetPosition(entity, entity.Position);
+        }
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (Global.Input.TryGetPointerScreenPosition(out var screenPosition))
+            if (Global.Input.TryGetPointerScreenPosition(out var screenPosition) && entity.Level.IsGameRunning())
             {
                 var targetPosition = entity.Level.ScreenToLawnPositionByRelativeY(screenPosition, 0);
                 SetTargetPosition(entity, targetPosition);
@@ -47,6 +54,15 @@ namespace MVZ2.GameContent.Effects
             distance = magnitude * distance.normalized;
             var targetVelocity = distance * VELOCITY_DAMP;
             entity.Velocity = targetVelocity;
+        }
+        private void PostPauseCallback(LevelCallbackParams param, CallbackResult result)
+        {
+            var level = param.level;
+            foreach (var cart in level.FindEntities(e => e.HasBehaviour(this)))
+            {
+                cart.Velocity = Vector3.zero;
+                SetTargetPosition(cart, cart.Position);
+            }
         }
         public static Vector3 GetTargetPosition(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_TARGET_POSITION);
         public static void SetTargetPosition(Entity entity, Vector3 value) => entity.SetBehaviourField(PROP_TARGET_POSITION, value);

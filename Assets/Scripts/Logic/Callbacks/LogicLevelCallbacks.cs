@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
@@ -120,6 +121,21 @@ namespace MVZ2Logic.Callbacks
                 this.param = param;
             }
         }
+        public struct PostHeldItemEventParams
+        {
+            public LevelEngine level;
+            public IHeldItemTarget target;
+            public IHeldItemData data;
+            public PointerInteractionData pointerInteraction;
+
+            public PostHeldItemEventParams(LevelEngine level, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerInteraction)
+            {
+                this.level = level;
+                this.target = target;
+                this.data = data;
+                this.pointerInteraction = pointerInteraction;
+            }
+        }
         public readonly static CallbackType<LevelCallbackParams> POST_LEVEL_STOP = new();
         public readonly static CallbackType<LevelCallbackParams> PRE_BATTLE = new();
         public readonly static CallbackType<GetBlueprintNotRecommondedParams> GET_BLUEPRINT_NOT_RECOMMONDED = new();
@@ -134,5 +150,8 @@ namespace MVZ2Logic.Callbacks
         public readonly static CallbackType<LevelCallbackParams> POST_FINAL_WAVE = new();
         public readonly static CallbackType<CalculateSpawnPointParams> CALCULATE_SPAWN_POINTS = new();
         public readonly static CallbackType<EntityDeathParams> ENTITY_DEATH_EFFECTS = new();
+        public readonly static CallbackType<PostHeldItemEventParams> POST_HELD_ITEM_EVENT = new();
+        public readonly static CallbackType<LevelCallbackParams> POST_PAUSE = new();
+        public readonly static CallbackType<LevelCallbackParams> POST_RESUME = new();
     }
 }
