@@ -262,7 +262,12 @@
 	<entry id="parasite_terror">
 		<entity id="mvz2:parasite_terror" />
 		<spawn level="2" minWave="1" />
-		<weight base="1000" />
+		<weight base="2000" />
+	</entry>
+	<entry id="PhaseSpider">
+		<entity id="mvz2:parasite_terror" />
+		<spawn level="3" minWave="1" />
+		<weight base="2000" />
 	</entry>
 	
     <!--EXPAND C3-->
