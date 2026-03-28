@@ -10080,6 +10080,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6bff2aff29ec2e468a83cd838ec4790
+    m_Address: mvz2:Sacrificial
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6c3bff2554b63442a1f25c7c9dac764
     m_Address: mvz2:talks/dream
     m_ReadOnly: 0
