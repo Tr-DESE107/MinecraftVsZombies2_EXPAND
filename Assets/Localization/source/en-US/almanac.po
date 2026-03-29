@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-03-28 02:33+0800\n"
-"PO-Revision-Date: 2026-03-28 14:33+0800\n"
+"POT-Creation-Date: 2026-03-29 07:35+0800\n"
+"PO-Revision-Date: 2026-03-29 19:35+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -5574,6 +5574,37 @@ msgstr ""
 "\"Your repair technique seems to be different from mine, how did you do it?\"\n"
 "\"If your hands are fast enough, you can dig the contraption up and place a new one in an instant.\"\n"
 "\"?\""
+
+#. Name for misc mvz2:satori_detector
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "觉眼探测器"
+msgstr "Satori Detector"
+
+#. Header for misc mvz2:satori_detector
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "用于洞悉器械和怪物内心的高科技眼镜。"
+msgstr "High-tech goggles that let you see the inner workings of contraptions and monsters."
+
+#. Properties for misc mvz2:satori_detector
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "效果：<color=red>可以查看器械和怪物的血量</color>"
+msgstr "Effect: <color=red>Allows you to view the health points of contraptions and monsters</color>"
+
+#. Flavor for misc mvz2:satori_detector
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"基于来自外界的装置进行改造，并融合了觉妖怪的读心能力。\n"
+"据说，这在外界是人们用于欺骗自己眼睛的装置，用以逃离残酷的现实。\n"
+"装置在外界似乎意外地流行，不由得让人思考，那里究竟是何种地狱。"
+msgstr ""
+"Modified from a device originating from the Outside World and combined with the mind-reading abilities of a satori youkai.\n"
+"It is said that in the Outside World, this device is used by people to deceive their own eyes to escape the harsh reality.\n"
+"The device seems to have become unexpectedly popular in the Outside World, which inevitably makes one think about what kind of hell "
+"that place really is."
 
 #. Name for almanac group mvz2:lore
 #: Almanac meta file

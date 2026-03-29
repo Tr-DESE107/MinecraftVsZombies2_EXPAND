@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-03-27 02:19+0800\n"
+"POT-Creation-Date: 2026-03-29 04:29+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4357,6 +4357,18 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid "修复器械们的神奇技术！可以在防御性器械上再放一个同样的器械，来把它完全修好！"
+msgstr ""
+
+#. Store item description of mvz2:satori_detector by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "我专门研发的觉眼探测器！可以用于查看器械和怪物的血量！"
+msgstr ""
+
+#. Store item description of mvz2:satori_detector by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "神奇的头戴眼镜！可以用于查看器械和怪物的血量！"
 msgstr ""
 
 #. Store item description of mvz2:infectenser by character mvz2:crazy_villager

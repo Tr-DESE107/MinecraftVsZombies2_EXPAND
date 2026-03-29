@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-03-27 02:19+0800\n"
-"PO-Revision-Date: 2026-03-27 14:22+0800\n"
+"POT-Creation-Date: 2026-03-29 04:29+0800\n"
+"PO-Revision-Date: 2026-03-29 19:32+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4534,6 +4534,22 @@ msgid ""
 msgstr ""
 "A magical technique to repair contraptions! You can place another identical "
 "defensive contraption on the existing one to fully repair it!"
+
+#. Store item description of mvz2:satori_detector by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "我专门研发的觉眼探测器！可以用于查看器械和怪物的血量！"
+msgstr ""
+"My specially developed Satori Detector! It lets you check the health points "
+"of contraptions and monsters!"
+
+#. Store item description of mvz2:satori_detector by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "神奇的头戴眼镜！可以用于查看器械和怪物的血量！"
+msgstr ""
+"A pair of magical goggles! It lets you see how much health contraptions and "
+"monsters have!"
 
 #. Store item description of mvz2:infectenser by character mvz2:crazy_villager
 #: Store meta file

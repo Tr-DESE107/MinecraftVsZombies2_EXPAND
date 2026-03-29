@@ -203,6 +203,7 @@
     <buff id="cursed_candle" polarity="negative" level="0" target="entity" />
     <buff id="stone_eye_slowing" polarity="negative" level="0" target="entity" />
     <buff id="petrified" polarity="negative" level="0" target="entity" />
+    <buff id="broken_tile" polarity="negative" level="0" target="grid" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />

@@ -126,6 +126,21 @@
                 <stage price="2000" unlocks="mvz2:obsidian_first_aid" />
             </stages>
         </product>
+        <product id="satori_detector" sprite="mvz2:products/satori_detector">
+            <unlock>
+                <condition required="mvz2:level.palace_5" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">我专门研发的觉眼探测器！可以用于查看器械和怪物的血量！</talk>
+                <talk character="mvz2:tokiko">神奇的头戴眼镜！可以用于查看器械和怪物的血量！</talk>
+            </talks>
+            <stages>
+                <stage price="5000" unlocks="mvz2:satori_detector" />
+            </stages>
+        </product>
+        <product/>
+        <product/>
+        <product/>
 
         <product id="infectenser" blueprintId="mvz2:infectenser">
             <talks>

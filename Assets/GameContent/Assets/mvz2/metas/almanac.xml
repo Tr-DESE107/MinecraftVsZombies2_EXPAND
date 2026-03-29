@@ -2879,6 +2879,23 @@
                     <p>“？”</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:satori_detector" name="觉眼探测器">
+                <unlock>
+                    <condition required="mvz2:satori_detector" />
+                </unlock>
+                <picture sprite="mvz2:products/satori_detector" fixedSize="true" zoom="false" />
+                <header>
+                    <p>用于洞悉器械和怪物内心的高科技眼镜。</p>
+                </header>
+                <properties>
+                    <p>效果：<![CDATA[<color=red>可以查看器械和怪物的血量</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>基于来自外界的装置进行改造，并融合了觉妖怪的读心能力。</p>
+                    <p>据说，这在外界是人们用于欺骗自己眼睛的装置，用以逃离残酷的现实。</p>
+                    <p>装置在外界似乎意外地流行，不由得让人思考，那里究竟是何种地狱。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Lore -->
         <group id="mvz2:lore" name="剧情" order="700">

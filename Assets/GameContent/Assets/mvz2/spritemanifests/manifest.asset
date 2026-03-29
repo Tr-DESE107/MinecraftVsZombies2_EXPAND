@@ -549,6 +549,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 78ada02b958a3804fac1e795d393ee64, type: 3}
   - name: products/obsidian_first_aid
     sprite: {fileID: 21300000, guid: beb139d5d07db39408272c27eaea0034, type: 3}
+  - name: products/satori_detector
+    sprite: {fileID: 21300000, guid: 9e904d74c82bc6f4c8203ec8ae847ec2, type: 3}
   - name: products/starshard_slot
     sprite: {fileID: 21300000, guid: b944e3154656ac74f8054ed14cb53335, type: 3}
   - name: shading/beacon_beam

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-03-28 02:33+0800\n"
+"POT-Creation-Date: 2026-03-29 07:35+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4485,6 +4485,33 @@ msgid ""
 "“你的修复术好像和我的不太一样，你这是怎么修的？”\n"
 "“只要你手速够快，就可以在一瞬间内挖掉器械，再重新放一个。”\n"
 "“？”"
+msgstr ""
+
+#. Name for misc mvz2:satori_detector
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "觉眼探测器"
+msgstr ""
+
+#. Header for misc mvz2:satori_detector
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "用于洞悉器械和怪物内心的高科技眼镜。"
+msgstr ""
+
+#. Properties for misc mvz2:satori_detector
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "效果：<color=red>可以查看器械和怪物的血量</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:satori_detector
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"基于来自外界的装置进行改造，并融合了觉妖怪的读心能力。\n"
+"据说，这在外界是人们用于欺骗自己眼睛的装置，用以逃离残酷的现实。\n"
+"装置在外界似乎意外地流行，不由得让人思考，那里究竟是何种地狱。"
 msgstr ""
 
 #. Name for almanac group mvz2:lore
