@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public WickedHermitWarpBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.Set, EntityCollisionHelper.DETECTION_IGNORE));
+            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.BitOr, EntityCollisionHelper.DETECTION_NO_COLLISION));
         }
         public override void PostAdd(Buff buff)
         {

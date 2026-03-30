@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -23,7 +24,8 @@ namespace MVZ2.GameContent.Effects
             base.Init(entity);
             entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_VULNERABLE;
             targetBuffer.Clear();
-            entity.Level.OverlapBoxNonAlloc(entity.GetCenter(), entity.GetScaledSize(), entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0, targetBuffer);
+            var overlapParam = OverlapParams.Hostile(entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE);
+            entity.Level.OverlapBoxNonAlloc(entity.GetCenter(), entity.GetScaledSize(), overlapParam, targetBuffer);
             var damage = entity.GetDamage();
             var effectList = new DamageEffectList(VanillaDamageEffects.LIGHT);
             foreach (var collider in targetBuffer)

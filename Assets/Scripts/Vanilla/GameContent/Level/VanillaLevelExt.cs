@@ -18,6 +18,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -105,7 +106,8 @@ namespace MVZ2.Vanilla.Level
         public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference? source, Predicate<IEntityCollider>? filter = null)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
-            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
+            var overlapParam = OverlapParams.Hostile(faction, EntityCollisionHelper.MASK_VULNERABLE);
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, overlapParam))
             {
                 if (filter != null && !filter(entityCollider))
                     continue;
@@ -124,7 +126,8 @@ namespace MVZ2.Vanilla.Level
         public static DamageOutput[] ExplodeAgainstFriendly(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference source)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
-            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, 0, EntityCollisionHelper.MASK_VULNERABLE))
+            var overlapParam = OverlapParams.Friendly(faction, EntityCollisionHelper.MASK_VULNERABLE);
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, overlapParam))
             {
                 var damageOutput = entityCollider.TakeDamage(amount, effects, source);
                 if (damageOutput != null)
@@ -141,7 +144,8 @@ namespace MVZ2.Vanilla.Level
         public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference source)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
-            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
+            var overlapParam = OverlapParams.Friendly(faction, EntityCollisionHelper.MASK_VULNERABLE);
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, overlapParam))
             {
                 if (entityCollider == excludeCollider)
                     continue;

@@ -9,6 +9,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools.Geometrical;
@@ -249,7 +250,9 @@ namespace MVZ2.Level.Components
 
             overlapResults.Clear();
 
-            Level.OverlapBoxNonAlloc(center, overlapSize, 0, mask, mask, overlapResults);
+            var overlapParam = OverlapParams.AnyFaction(mask);
+            overlapParam.includeIgnored = true;
+            Level.OverlapBoxNonAlloc(center, overlapSize, overlapParam, overlapResults);
             var lightType = light.Type;
             foreach (var collider in overlapResults)
             {

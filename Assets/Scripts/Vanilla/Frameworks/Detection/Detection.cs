@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools.Geometrical;
@@ -96,7 +97,7 @@ namespace MVZ2.Vanilla.Detections
         }
         #endregion
 
-        public static void OverlapGridGroundNonAlloc(this LevelEngine level, int column, int lane, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
+        public static void OverlapGridGroundNonAlloc(this LevelEngine level, int column, int lane, OverlapParams param, List<IEntityCollider> results)
         {
             var sizeX = level.GetGridWidth();
             var sizeY = 200;
@@ -108,7 +109,7 @@ namespace MVZ2.Vanilla.Detections
             var centerY = level.GetGroundY(centerX, centerZ) - sizeY * 0.5f;
             var center = new Vector3(centerX, centerY, centerZ);
             var size = new Vector3(sizeX, sizeY, sizeZ);
-            level.OverlapBoxNonAlloc(center, size, faction, hostileMask, friendlyMask, results);
+            level.OverlapBoxNonAlloc(center, size, param, results);
         }
     }
 }

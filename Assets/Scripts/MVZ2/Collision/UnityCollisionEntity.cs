@@ -53,12 +53,11 @@ namespace MVZ2.Collisions
         }
         public void UpdateEntityDetection()
         {
-            var detection = Entity.GetCollisionDetection();
-            bool active = detection != EntityCollisionHelper.DETECTION_IGNORE;
-            if (gameObject.activeSelf != active)
-            {
-                gameObject.SetActive(active);
-            }
+            //bool active = Entity.IsCollisionDisabled();
+            //if (gameObject.activeSelf != active)
+            //{
+            //    gameObject.SetActive(active);
+            //}
         }
         public void UpdateEntityPosition()
         {

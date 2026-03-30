@@ -19,10 +19,12 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -283,7 +285,8 @@ namespace MVZ2.GameContent.Bosses
                 }
                 // Jab.
                 bool jabbed = false;
-                foreach (IEntityCollider collider in entity.Level.OverlapBox(target.GetCenter(), Vector3.one * 40, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
+                var overlapParam = OverlapParams.Hostile(entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE);
+                foreach (IEntityCollider collider in entity.Level.OverlapBox(target.GetCenter(), Vector3.one * 40, overlapParam))
                 {
                     var damage = collider.Entity.GetTakenCrushDamage();
                     var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
@@ -423,7 +426,8 @@ namespace MVZ2.GameContent.Bosses
 
                     var point0 = entity.GetCenter() + Vector3.up * SPIN_HEIGHT * 0.5f;
                     var point1 = entity.GetCenter() + Vector3.down * SPIN_HEIGHT * 0.5f;
-                    level.OverlapCapsuleNonAlloc(point0, point1, SPIN_RADIUS, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0, detectBuffer);
+                    var overlapParam = OverlapParams.Hostile(entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE);
+                    level.OverlapCapsuleNonAlloc(point0, point1, SPIN_RADIUS, overlapParam, detectBuffer);
                     foreach (IEntityCollider collider in detectBuffer)
                     {
                         var target = collider.Entity;

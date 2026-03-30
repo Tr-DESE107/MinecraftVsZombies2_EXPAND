@@ -12,6 +12,7 @@ using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -107,7 +108,8 @@ namespace MVZ2.GameContent.Effects
 
             var mask = EntityCollisionHelper.MASK_EFFECT;
             resultsBuffer.Clear();
-            level.OverlapBoxNonAlloc(bounds.center, bounds.size, 0, mask, mask, resultsBuffer);
+            var overlapParam = OverlapParams.AnyFaction(mask);
+            level.OverlapBoxNonAlloc(bounds.center, bounds.size, overlapParam, resultsBuffer);
             return resultsBuffer.FirstOrDefault(c => c.Entity.IsEntityOf(VanillaEffectID.waterStain) && !IsDisappearing(c.Entity))?.Entity;
         }
         public static void Disappear(Entity stain)

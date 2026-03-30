@@ -21,6 +21,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
@@ -1201,8 +1202,8 @@ namespace MVZ2.GameContent.Bosses
             private void Eat(Entity entity, float time)
             {
                 var hitbox = GetEatHitbox(entity, time);
-                var mask = EntityCollisionHelper.MASK_VULNERABLE;
-                var targets = entity.Level.OverlapBox(hitbox.center, hitbox.size, entity.GetFaction(), mask, mask);
+                var overlapParam = OverlapParams.AnyFaction(EntityCollisionHelper.MASK_VULNERABLE);
+                var targets = entity.Level.OverlapBox(hitbox.center, hitbox.size, overlapParam);
                 foreach (var collider in targets)
                 {
                     var target = collider.Entity;

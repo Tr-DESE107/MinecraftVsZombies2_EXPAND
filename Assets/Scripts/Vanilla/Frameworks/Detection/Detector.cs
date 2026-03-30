@@ -7,6 +7,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools.Mathematics;
@@ -198,7 +199,9 @@ namespace MVZ2.Vanilla.Detections
             var hostileMask = factionTarget == FactionTarget.Friendly ? 0 : mask;
             var friendlyMask = factionTarget == FactionTarget.Hostile ? 0 : mask;
             resultsBuffer.Clear();
-            param.entity.Level.OverlapBoxNonAlloc(bounds.center, bounds.size, param.faction, hostileMask, friendlyMask, resultsBuffer);
+
+            var overlapParam = new OverlapParams(param.faction, hostileMask, friendlyMask, includeOverlapDisabled);
+            param.entity.Level.OverlapBoxNonAlloc(bounds.center, bounds.size, overlapParam, resultsBuffer);
             return resultsBuffer;
         }
         public int mask = EntityCollisionHelper.MASK_VULNERABLE;
@@ -206,6 +209,7 @@ namespace MVZ2.Vanilla.Detections
         public bool canDetectInvisible;
         public bool ignoreBoss;
         public bool includeSelf;
+        public bool includeOverlapDisabled;
         private List<IEntityCollider> resultsBuffer = new List<IEntityCollider>();
         private List<Entity> entityBuffer = new List<Entity>();
         private Dictionary<NamespaceID, EntityDefinition> definitionCaches = new Dictionary<NamespaceID, EntityDefinition>();

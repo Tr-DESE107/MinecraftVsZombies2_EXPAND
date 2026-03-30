@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Buffs.Bosses
     {
         public TheGiantInactiveBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.Set, EntityCollisionHelper.DETECTION_IGNORE));
+            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.BitOr, EntityCollisionHelper.DETECTION_NO_COLLISION));
             AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, Vector3.zero));
             AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
             AddModifier(new BooleanModifier(LogicEntityProps.SHADOW_HIDDEN, true));
