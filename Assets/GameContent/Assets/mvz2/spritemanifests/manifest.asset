@@ -91,6 +91,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 34e619cc0502d6c499f470950cf5acec, type: 3}
   - name: artifacts/eye_of_the_giant
     sprite: {fileID: 21300000, guid: 8e09eb5034d8901409cccb88e3f86633, type: 3}
+  - name: artifacts/ghostly_cart
+    sprite: {fileID: 21300000, guid: 6bd825bd837f3f443b9f6ca347065e61, type: 3}
   - name: artifacts/greedy_vacuum
     sprite: {fileID: 21300000, guid: 0b687cc971691aa4786964a361a0d14c, type: 3}
   - name: artifacts/hoe

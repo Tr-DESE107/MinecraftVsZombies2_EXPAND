@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-03-29 07:35+0800\n"
-"PO-Revision-Date: 2026-03-29 19:35+0800\n"
+"POT-Creation-Date: 2026-03-30 08:09+0800\n"
+"PO-Revision-Date: 2026-03-30 20:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3987,6 +3987,25 @@ msgstr ""
 "Don't think that with this thing, controlling nuclear energy becomes a piece of cake—when it’s time to go wrong, it will still go "
 "wrong."
 
+#. Header for artifacts mvz2:ghostly_cart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "火焰猫 燐的一辆用于运送尸体的推车。"
+msgstr "One of Rin Kaenbyou's cart used for transporting corpses."
+
+#. Properties for artifacts mvz2:ghostly_cart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每3分钟刷新你的最终防线小车</color>"
+msgstr "Effect: <color=red>Reloads final defense carts every 3 minutes</color>"
+
+#. Flavor for artifacts mvz2:ghostly_cart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "车的正面被画上了一只黑白相间的小猫的脸，但你并不认识这是哪只猫。"
+msgstr ""
+"There's a face of a black-and-white kitten painted on the front of the cart, but you don't recognize which kitten the face belongs to."
+
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -7647,6 +7666,18 @@ msgstr "Control Rod"
 msgctxt "artifact.tooltip"
 msgid "蓝图充能速度x150%，但怪物死亡后爆炸"
 msgstr "Blueprint recharge speed x150%, but monsters will explode upon death"
+
+#. Name for artifact mvz2:ghostly_cart
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "幽灵推车"
+msgstr "Ghostly Cart"
+
+#. Tooltip for artifact mvz2:ghostly_cart
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "每3分钟刷新你的最终防线小车"
+msgstr "Reloads final defense carts every 3 minutes"
 
 #. Message for blueprint error recharging
 #: Blueprints meta file

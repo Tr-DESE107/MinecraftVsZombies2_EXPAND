@@ -125,5 +125,10 @@
             <condition required="mvz2:level.palace_3" />
         </unlock>
     </artifact>
+    <artifact id="ghostly_cart" name="幽灵推车" tooltip="每3分钟刷新你的最终防线小车" sprite="mvz2:artifacts/ghostly_cart">
+        <unlock>
+            <condition required="mvz2:artifact.ghostly_cart" />
+        </unlock>
+    </artifact>
 
 </artifacts>

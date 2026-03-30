@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-03-29 04:29+0800\n"
+"POT-Creation-Date: 2026-03-30 08:09+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4537,6 +4537,18 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid "红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到更多的伤害！"
+msgstr ""
+
+#. Store item description of mvz2:ghostly_cart by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "一辆废弃的尸体推车！每3分钟都会刷新你的最终防线小车！"
+msgstr ""
+
+#. Store item description of mvz2:ghostly_cart by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "偷尸体的猫的小推车！每3分钟都会刷新你的最终防线小车！"
 msgstr ""
 
 #. Store item description of mvz2:cake by character mvz2:crazy_villager

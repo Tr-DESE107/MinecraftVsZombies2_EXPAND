@@ -51,6 +51,7 @@ namespace MVZ2.GameContent.Stages
             level.AreaDefinition.PrepareForBattle(level);
             if (!level.HasNoCarts() && level.CurrentFlag <= 0)
             {
+                level.RefreshCarts();
                 var cartRef = level.GetCartReference();
                 if (cartRef != null)
                     level.SpawnCarts(cartRef, LevelPositions.CART_START_X, 20);

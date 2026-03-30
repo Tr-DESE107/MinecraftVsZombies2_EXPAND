@@ -37,6 +37,12 @@ namespace MVZ2.Vanilla.Level
         }
 
         #region 推车
+        public static void RefreshCarts(this LevelEngine level)
+        {
+            var cartRef = level.GetCartReference();
+            if (cartRef != null)
+                level.SpawnCarts(cartRef, LevelPositions.CART_START_X, 20);
+        }
         public static void SpawnCarts(this LevelEngine game, NamespaceID cartRef, float x, float xInterval)
         {
             var carts = game.GetEntities(EntityTypes.CART);

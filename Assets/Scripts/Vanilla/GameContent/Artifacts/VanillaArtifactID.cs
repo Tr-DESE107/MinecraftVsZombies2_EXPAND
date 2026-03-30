@@ -35,6 +35,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string dragonTooth = "dragon_tooth";
 
         public const string controlRod = "control_rod";
+        public const string ghostlyCart = "ghostly_cart";
     }
     public static class VanillaArtifactID
     {
@@ -64,6 +65,9 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID dowsingRods = Get(VanillaArtifactNames.dowsingRods);
         public static readonly NamespaceID sorcerersScroll = Get(VanillaArtifactNames.sorcerersScroll);
         public static readonly NamespaceID dragonTooth = Get(VanillaArtifactNames.dragonTooth);
+
+        public static readonly NamespaceID controlRod = Get(VanillaArtifactNames.controlRod);
+        public static readonly NamespaceID ghostlyCart = Get(VanillaArtifactNames.ghostlyCart);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

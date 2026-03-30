@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-03-29 04:29+0800\n"
-"PO-Revision-Date: 2026-03-29 19:32+0800\n"
+"POT-Creation-Date: 2026-03-30 08:09+0800\n"
+"PO-Revision-Date: 2026-03-31 14:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4781,6 +4781,21 @@ msgid "红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到�
 msgstr ""
 "The red dragon's fallen tooth! If an enemy is seriously damaged, it will "
 "suffer even more damage!"
+
+#. Store item description of mvz2:ghostly_cart by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "一辆废弃的尸体推车！每3分钟都会刷新你的最终防线小车！"
+msgstr ""
+"A junky ol' corpse cart! It reloads your final defense carts every 3 minutes!"
+
+#. Store item description of mvz2:ghostly_cart by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "偷尸体的猫的小推车！每3分钟都会刷新你的最终防线小车！"
+msgstr ""
+"A cart owned by the corpse-stealing cat! Your final defense carts will be "
+"reloaded every 3 minutes!"
 
 #. Store item description of mvz2:cake by character mvz2:crazy_villager
 #: Store meta file

@@ -1974,6 +1974,17 @@
                 <p>不要觉得有了这东西，控制核能就变得轻而易举了——该坏了的时候还是会坏了的。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:ghostly_cart">
+            <header>
+                <p>火焰猫 燐的一辆用于运送尸体的推车。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>每3分钟刷新你的最终防线小车</color>]]></p>
+            </properties>
+            <flavor>
+                <p>车的正面被画上了一只黑白相间的小猫的脸，但你并不认识这是哪只猫。</p>
+            </flavor>
+        </entry>
     </artifacts>
     <misc>
         <!-- Bosses -->

@@ -3,6 +3,7 @@
 using MVZ2Logic.Conditions;
 using MVZ2Logic.Resources;
 using PVZEngine;
+using Tools;
 
 namespace MVZ2Logic.Artifacts
 {
@@ -92,7 +93,7 @@ namespace MVZ2Logic.Artifacts
         }
         #endregion
 
-        #region 制品工具提示
+        #region 制品解锁
         public static readonly PropertyMeta<IConditionList> UNLOCK = Get<IConditionList>("unlock");
         public static IConditionList? GetUnlockConditions(this ArtifactDefinition definition)
         {
@@ -103,6 +104,16 @@ namespace MVZ2Logic.Artifacts
             definition.SetProperty(UNLOCK, value);
         }
         #endregion
+
+        public static readonly PropertyMeta<FrameTimer> SECOND_TIMER = Get<FrameTimer>("second_timer");
+        public static FrameTimer? GetSecondTimer(this Artifact artifact)
+        {
+            return artifact.GetProperty<FrameTimer>(SECOND_TIMER);
+        }
+        public static void SetSecondTimer(this Artifact artifact, FrameTimer? value)
+        {
+            artifact.SetProperty(SECOND_TIMER, value);
+        }
     }
 }
 

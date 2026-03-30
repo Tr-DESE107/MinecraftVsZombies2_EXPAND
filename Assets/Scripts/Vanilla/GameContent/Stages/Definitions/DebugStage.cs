@@ -33,9 +33,7 @@ namespace MVZ2.GameContent.Stages
             level.SetProgressBarToBoss(VanillaProgressBarID.redDragon);
             level.SetTriggerActive(true);
             level.SetStarshardSlotCount(5);
-            var cartRef = level.GetCartReference();
-            if (cartRef != null)
-                level.SpawnCarts(cartRef, LevelPositions.CART_START_X, 20);
+            level.RefreshCarts();
 
             level.AddBuff(VanillaBuffID.Level.debugEnergy);
             level.AddBuff(VanillaBuffID.Level.debugGodmode);

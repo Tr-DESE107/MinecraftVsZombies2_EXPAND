@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-03-29 07:35+0800\n"
+"POT-Creation-Date: 2026-03-30 08:09+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3219,6 +3219,24 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "不要觉得有了这东西，控制核能就变得轻而易举了——该坏了的时候还是会坏了的。"
+msgstr ""
+
+#. Header for artifacts mvz2:ghostly_cart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "火焰猫 燐的一辆用于运送尸体的推车。"
+msgstr ""
+
+#. Properties for artifacts mvz2:ghostly_cart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每3分钟刷新你的最终防线小车</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:ghostly_cart
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "车的正面被画上了一只黑白相间的小猫的脸，但你并不认识这是哪只猫。"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
@@ -6519,6 +6537,18 @@ msgstr ""
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "蓝图充能速度x150%，但怪物死亡后爆炸"
+msgstr ""
+
+#. Name for artifact mvz2:ghostly_cart
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "幽灵推车"
+msgstr ""
+
+#. Tooltip for artifact mvz2:ghostly_cart
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "每3分钟刷新你的最终防线小车"
 msgstr ""
 
 #. Message for blueprint error recharging

@@ -300,6 +300,18 @@
                 <stage price="15000" unlocks="mvz2:artifact.dragon_tooth" />
             </stages>
         </product>
+        <product id="ghostly_cart" sprite="mvz2:artifacts/ghostly_cart">
+            <unlock>
+                <condition required="mvz2:level.palace_5" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">一辆废弃的尸体推车！每3分钟都会刷新你的最终防线小车！</talk>
+                <talk character="mvz2:tokiko">偷尸体的猫的小推车！每3分钟都会刷新你的最终防线小车！</talk>
+            </talks>
+            <stages>
+                <stage price="4440" unlocks="mvz2:artifact.ghostly_cart" />
+            </stages>
+        </product>
         <product id="cake" sprite="mvz2:products/cake">
             <unlock>
                 <condition requiredGroups="mvz2:game_completed" />
