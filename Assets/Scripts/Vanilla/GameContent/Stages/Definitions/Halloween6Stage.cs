@@ -23,6 +23,7 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new StarshardStageBehaviour(this));
             AddBehaviour(new RedstoneDropStageBehaviour(this));
+            AddBehaviour(new SpeedUpStageBehaviour(this, 3, 5));
         }
         public override void OnSetup(LevelEngine level)
         {
