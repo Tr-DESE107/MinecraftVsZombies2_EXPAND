@@ -93,6 +93,15 @@
 				<float name="mvz2:maxHealth" value="400" />
 			</props>
 		</entry>
+		<entry id="KingSkeletonCrown">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
 		<entry id="bone_helmet">
 			<behaviours>
 				<behaviour id="mvz2:damage_state_3" />
@@ -288,6 +297,15 @@
 			<props>
 				<id name="mvz2:shell" value="mvz2:leather" />
 				<float name="mvz2:maxHealth" value="50" />
+			</props>
+		</entry>
+		<entry id="SailorHat">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:grass" />
+				<float name="mvz2:maxHealth" value="400" />
 			</props>
 		</entry>
 

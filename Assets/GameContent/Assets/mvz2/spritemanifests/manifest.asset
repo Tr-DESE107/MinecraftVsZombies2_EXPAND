@@ -57,6 +57,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 05483d8d75986e7458c19808a913db2f, type: 3}
   - name: arcade/Do_Magic_Tricks
     sprite: {fileID: 21300000, guid: 7b01598df4c4ae6499b8d5b7002f7543, type: 3}
+  - name: arcade/FeedFeast
+    sprite: {fileID: 21300000, guid: eb364ec11ae57b448b2dee5dc82f49cf, type: 3}
   - name: arcade/frankensteins_revenge
     sprite: {fileID: 21300000, guid: 47bb6e3e6595451449c147cdca10b84c, type: 3}
   - name: arcade/GiantCrisis
@@ -75,6 +77,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 56a0e96d821b4d74ea79ea5117dee84d, type: 3}
   - name: arcade/nightmares_revenge
     sprite: {fileID: 21300000, guid: eb0eb64f7392deb41831563ed71fa81a, type: 3}
+  - name: arcade/OpticalIllusion
+    sprite: {fileID: 21300000, guid: a1447ef5422a9884880007586d621e26, type: 3}
   - name: arcade/PerformanceArt
     sprite: {fileID: 21300000, guid: bf765943926e6514895dea3bf309fd68, type: 3}
   - name: arcade/RandomChinaAndPot
@@ -93,12 +97,18 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 025d4118f149db24688665104d945d37, type: 3}
   - name: arcade/vsRandomZombie
     sprite: {fileID: 21300000, guid: 645490e64b41d45458a7135643299909, type: 3}
+  - name: arcade/WarThunder
+    sprite: {fileID: 21300000, guid: c35dfe862a3ca1e4ea02f5823e312c38, type: 3}
   - name: arcade/WhackASkeleton
     sprite: {fileID: 21300000, guid: 20f80c720c62e1248b514ad13b0a0939, type: 3}
   - name: arcade/whack_a_ghost
     sprite: {fileID: 21300000, guid: ba09814b17fbf24438727f22089f7192, type: 3}
   - name: arcade/withers_revenge
     sprite: {fileID: 21300000, guid: cf276e1f4880f4c40b8cd6fdc9e9640e, type: 3}
+  - name: arcade/ZombieNimbleZombieQuick
+    sprite: {fileID: 21300000, guid: 0be18edb995c39d4795546bfdcf15ed7, type: 3}
+  - name: arcade/ZombiesTide
+    sprite: {fileID: 21300000, guid: b30a95d3bfd188f45ab62903c456664c, type: 3}
   - name: archive/castle_note
     sprite: {fileID: 21300000, guid: b43c7c77cd3ff54418daebbaccf227db, type: 3}
   - name: archive/dream_note
@@ -135,10 +145,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 626129598a5199844bd0251fa586c2bd, type: 3}
   - name: artifacts/greedy_vacuum
     sprite: {fileID: 21300000, guid: 0b687cc971691aa4786964a361a0d14c, type: 3}
+  - name: artifacts/HerobrineSkull
+    sprite: {fileID: 21300000, guid: 96d9f9a0702cc4b48a3cad9a65a5ccda, type: 3}
   - name: artifacts/hoe
     sprite: {fileID: 21300000, guid: 3099084e873c11d4084a10707cd96120, type: 3}
   - name: artifacts/inverted_mirror
     sprite: {fileID: 21300000, guid: d12e7157df0411749ab53333da0a507d, type: 3}
+  - name: artifacts/LeftHandBow
+    sprite: {fileID: 21300000, guid: ae60b10c0b93bd04f99aa332fd81bfab, type: 3}
   - name: artifacts/lightbomb
     sprite: {fileID: 21300000, guid: 36eda47ce4c8f0e40ab52622c040d37d, type: 3}
   - name: artifacts/manipulative_talismans
@@ -151,6 +165,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8f3ef6c96e58e2642b44b12c151a1062, type: 3}
   - name: artifacts/pagoda_branch
     sprite: {fileID: 21300000, guid: 48d03b03b358d9948863f3eb0517933a, type: 3}
+  - name: artifacts/RedDragonsSeveredWing
+    sprite: {fileID: 21300000, guid: a34840612bb83fe439ed967b044a553a, type: 3}
   - name: artifacts/ShadowCellCore
     sprite: {fileID: 21300000, guid: 641f2ef95c0d9684eaa734109a643d9a, type: 3}
   - name: artifacts/ShrunkenHead
@@ -319,6 +335,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 36644e32a58432140b6b7f7339f2bac1, type: 3}
   - name: mobile_blueprint/cave_spider
     sprite: {fileID: 21300000, guid: 2be33464724166c4fa3a121643edceb8, type: 3}
+  - name: mobile_blueprint/ChiefCannoneerZombie
+    sprite: {fileID: 21300000, guid: a12b3a39d017ac9418f7be84ba9deab2, type: 3}
+  - name: mobile_blueprint/Cobblestone
+    sprite: {fileID: 21300000, guid: 7c436aa11a416094ba8cbae88fdf1f47, type: 3}
   - name: mobile_blueprint/command_block
     sprite: {fileID: 21300000, guid: c5e0b87d540b275409a8860725de7933, type: 3}
   - name: mobile_blueprint/CopperDropper
@@ -435,6 +455,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2b4c560e9ec742d409f1512cf53ccb09, type: 3}
   - name: mobile_blueprint/KingSkeleton
     sprite: {fileID: 21300000, guid: c739a0e8065c7794eab33b1e0e3f511f, type: 3}
+  - name: mobile_blueprint/KogasaZombie
+    sprite: {fileID: 21300000, guid: 226a3cf89e4a07e4aab3a61a2ba15f3e, type: 3}
   - name: mobile_blueprint/LCMTNT
     sprite: {fileID: 21300000, guid: 7481dbcee85f61e4ebe3fd97845a4e22, type: 3}
   - name: mobile_blueprint/LeatherMonkZombie
@@ -485,6 +507,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3a4d775ca16aed8489fddf37bc1ced64, type: 3}
   - name: mobile_blueprint/mummy
     sprite: {fileID: 21300000, guid: 9471881cde5f3d841abcd44501e0f922, type: 3}
+  - name: mobile_blueprint/MusketeerZombie
+    sprite: {fileID: 21300000, guid: cf9b76e215bcd4b4ca490f046354434e, type: 3}
   - name: mobile_blueprint/MutantMannequin
     sprite: {fileID: 21300000, guid: ab8b500782b9cf24bbc0ddcc4f9c9103, type: 3}
   - name: mobile_blueprint/MutantVillager
@@ -521,6 +545,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 333296bf7a142dd43a413222f3881bcb, type: 3}
   - name: mobile_blueprint/PermanentIce
     sprite: {fileID: 21300000, guid: 2bb72792699c5fa4eb479776078c6604, type: 3}
+  - name: mobile_blueprint/PhaseSpider
+    sprite: {fileID: 21300000, guid: aecbbe965ff38bb418d77b709df81eb3, type: 3}
+  - name: mobile_blueprint/PirateIMP
+    sprite: {fileID: 21300000, guid: 00fe738c912ea7440a7622ee4060499d, type: 3}
   - name: mobile_blueprint/PirateSkeleton
     sprite: {fileID: 21300000, guid: 6d7b5d821d532134eb2216dceceb2669, type: 3}
   - name: mobile_blueprint/PirateZombie
@@ -563,6 +591,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 90b1efed9d95d3b43a897fa9d566324a, type: 3}
   - name: mobile_blueprint/reverse_satellite
     sprite: {fileID: 21300000, guid: 35f80fb8af94a064f86a987dc6dae8e0, type: 3}
+  - name: mobile_blueprint/SailorZombie
+    sprite: {fileID: 21300000, guid: a32750f930e0ef44faf7b1915e84ab24, type: 3}
   - name: mobile_blueprint/seija
     sprite: {fileID: 21300000, guid: 9390c4e06c35d1849b57a496ba6b0339, type: 3}
   - name: mobile_blueprint/seija_cursed_doll
@@ -611,6 +641,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d0f973bcd4babdc40b8ee0cfc233300c, type: 3}
   - name: mobile_blueprint/splitenser
     sprite: {fileID: 21300000, guid: b8020c439faa36e4a93b2a903db60899, type: 3}
+  - name: mobile_blueprint/Stone
+    sprite: {fileID: 21300000, guid: c854475b201c632478d34d81f1813891, type: 3}
+  - name: mobile_blueprint/StoneGenerator
+    sprite: {fileID: 21300000, guid: 59570312d7625f042870edf5afca18e7, type: 3}
   - name: mobile_blueprint/stone_dropper
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
   - name: mobile_blueprint/stone_shield
@@ -621,6 +655,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d4ee8be540cfcd14ebdc500a75d0a018, type: 3}
   - name: mobile_blueprint/talisman_zombie
     sprite: {fileID: 21300000, guid: 70bd3779c2eea2b4fb4e071481e6acb1, type: 3}
+  - name: mobile_blueprint/TeslaTrooper
+    sprite: {fileID: 21300000, guid: 9e960be2538002245a37e27c37d1eca1, type: 3}
   - name: mobile_blueprint/tesla_coil
     sprite: {fileID: 21300000, guid: d8b4a6fef193f41428666f3177af2af7, type: 3}
   - name: mobile_blueprint/the_giant
@@ -822,7 +858,7 @@ MonoBehaviour:
   - name: entity/armor/berserker_helmet
     sprite: {fileID: 21300000, guid: 7b5b04fa7d4703a48867a2ec9b7c31f6, type: 3}
   - name: entity/armor/ChiefCap
-    sprite: {fileID: 21300000, guid: a5a4db0e76add6146b289d8c83fb9907, type: 3}
+    sprite: {fileID: 1938509936, guid: a5a4db0e76add6146b289d8c83fb9907, type: 3}
   - name: entity/armor/emperor_crown
     sprite: {fileID: 21300000, guid: 58755531f1cc59b4ab7563c5bedf58b2, type: 3}
   - name: entity/armor/mesmerizer_crown
@@ -3743,6 +3779,11 @@ MonoBehaviour:
     - {fileID: 1805266693, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}
     - {fileID: 1960920757, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}
     - {fileID: -761374647, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}
+  - name: entity/armor/EXPAND_armor/KingSkeletonCrown
+    spritesheet:
+    - {fileID: -322653453, guid: f1cfdcfbaf466c34a9c3a526d15daa56, type: 3}
+    - {fileID: 284140208, guid: f1cfdcfbaf466c34a9c3a526d15daa56, type: 3}
+    - {fileID: -820999370, guid: f1cfdcfbaf466c34a9c3a526d15daa56, type: 3}
   - name: entity/armor/EXPAND_armor/NetheriteHelmet
     spritesheet:
     - {fileID: -126034771, guid: 39ff6994398f0dd40a4b04168abccb9e, type: 3}
@@ -3763,6 +3804,11 @@ MonoBehaviour:
     - {fileID: 1962227244, guid: faf2aafff7ca581458f4c85dd7f3bfb5, type: 3}
     - {fileID: 1092585919, guid: faf2aafff7ca581458f4c85dd7f3bfb5, type: 3}
     - {fileID: -488943849, guid: faf2aafff7ca581458f4c85dd7f3bfb5, type: 3}
+  - name: entity/armor/EXPAND_armor/SailorHat
+    spritesheet:
+    - {fileID: -677371508, guid: dfcd4fddf7170c445ab26db4fae8337b, type: 3}
+    - {fileID: 857791307, guid: dfcd4fddf7170c445ab26db4fae8337b, type: 3}
+    - {fileID: 570202221, guid: dfcd4fddf7170c445ab26db4fae8337b, type: 3}
   - name: entity/armor/EXPAND_armor/SamuraiZombieArmor
     spritesheet:
     - {fileID: 387587115, guid: e2a7fe0a9f0069c43b073078ab01aeb4, type: 3}
@@ -3893,6 +3939,20 @@ MonoBehaviour:
     - {fileID: -986021256, guid: fda78549c8341a5448aef8d58c997a7f, type: 3}
     - {fileID: 1542480221, guid: fda78549c8341a5448aef8d58c997a7f, type: 3}
     - {fileID: -1959532904, guid: fda78549c8341a5448aef8d58c997a7f, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/Stone
+    spritesheet:
+    - {fileID: 1567805984, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: 413954105, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: 622766689, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: -583072539, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: 1454274185, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+    - {fileID: 55457186, guid: eb228c134b78af34daafe116fcc73068, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/StoneGenerator
+    spritesheet:
+    - {fileID: -3211789, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
+    - {fileID: -1463778970, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
+    - {fileID: 328039554, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
+    - {fileID: -756544251, guid: 63e64c26dd6685b47b1f1682392df422, type: 3}
   - name: entity/contraption/EXPAND_Contraption/SuperFireworkDispenser
     spritesheet:
     - {fileID: 21300000, guid: bc7f633f0f53dd349827ea61dbdfad23, type: 3}
@@ -3947,12 +4007,19 @@ MonoBehaviour:
     - {fileID: 1411964412, guid: a6559072dba7fa4468fa5b18eec1f3ce, type: 3}
   - name: entity/enemy/EXPAND/ChiefCannoneerZombie
     spritesheet:
-    - {fileID: 1302413240, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: 2058068227, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: -1656223774, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: 79111158, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: -1085377205, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
     - {fileID: 467352533, guid: fd527d0a29c8d2c46b18fdc2709c22d4, type: 3}
+  - name: entity/enemy/EXPAND/Cobblestone
+    spritesheet:
+    - {fileID: -2005932341, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: 145870215, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: -840620074, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: -126386727, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: 396112045, guid: febc336ac09c358449eedd782617acf6, type: 3}
+    - {fileID: 825940752, guid: febc336ac09c358449eedd782617acf6, type: 3}
   - name: entity/enemy/EXPAND/DrunkardMonkZombie
     spritesheet:
     - {fileID: -1000115360, guid: 933250d176c80344e81129e139acc3cd, type: 3}
@@ -4038,6 +4105,15 @@ MonoBehaviour:
     - {fileID: -1265149394, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
     - {fileID: -1935018447, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
     - {fileID: -2092059575, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+  - name: entity/enemy/EXPAND/SailorZombie
+    spritesheet:
+    - {fileID: -45798241, guid: e1789c706b5a8914b913bb0e0fd8f330, type: 3}
+    - {fileID: -1514616942, guid: e1789c706b5a8914b913bb0e0fd8f330, type: 3}
+    - {fileID: -1290352348, guid: e1789c706b5a8914b913bb0e0fd8f330, type: 3}
+    - {fileID: 1358595008, guid: e1789c706b5a8914b913bb0e0fd8f330, type: 3}
+    - {fileID: -219392885, guid: e1789c706b5a8914b913bb0e0fd8f330, type: 3}
+    - {fileID: 2050018614, guid: e1789c706b5a8914b913bb0e0fd8f330, type: 3}
+    - {fileID: 1178082360, guid: e1789c706b5a8914b913bb0e0fd8f330, type: 3}
   - name: entity/enemy/EXPAND/SamuraiZombie
     spritesheet:
     - {fileID: 1265487418, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
@@ -4045,6 +4121,14 @@ MonoBehaviour:
     - {fileID: 957661269, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
     - {fileID: 347712781, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
     - {fileID: -1808796182, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
+  - name: entity/enemy/EXPAND/TeslaTrooper
+    spritesheet:
+    - {fileID: 208453340, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -822257388, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -442644671, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -505716809, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -1140522136, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
+    - {fileID: -1676316945, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
   - name: entity/enemy/EXPAND/TorchKongfuZombie
     spritesheet:
     - {fileID: -651146863, guid: 165a945045c255843b5681f8fa31c975, type: 3}

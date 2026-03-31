@@ -113,6 +113,11 @@ namespace MVZ2.GameContent.Buffs.Enemies
             {
                 return 0;
             }
+            // 新增：如果关卡有 OpticalIllusion stage，也完全隐形  
+            if (buff.Level.StageDefinition is OpticalIllusion)
+            {
+                return 0;
+            }
             return TINT_ALPHA_MIN;
         }
         public static void SetEverIlluminated(Buff buff, bool value)

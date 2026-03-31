@@ -126,28 +126,7 @@ TextureImporter:
       name: ChiefCannoneerZombie_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 63
-        width: 38
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aad0c1b45b6889d4eb3a3203925c95ca
-      internalID: 1302413240
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChiefCannoneerZombie_1
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 1
         y: 40
         width: 32
         height: 22
@@ -165,10 +144,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChiefCannoneerZombie_2
+      name: ChiefCannoneerZombie_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 39
         y: 48
         width: 42
         height: 14
@@ -186,10 +165,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChiefCannoneerZombie_3
+      name: ChiefCannoneerZombie_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
         width: 16
         height: 39
@@ -207,10 +186,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChiefCannoneerZombie_4
+      name: ChiefCannoneerZombie_3
       rect:
         serializedVersion: 2
-        x: 19
+        x: 18
         y: 3
         width: 19
         height: 36
@@ -228,10 +207,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChiefCannoneerZombie_5
+      name: ChiefCannoneerZombie_4
       rect:
         serializedVersion: 2
-        x: 39
+        x: 38
         y: 3
         width: 19
         height: 36

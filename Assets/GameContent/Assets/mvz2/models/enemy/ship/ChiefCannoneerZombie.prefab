@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1856772497593700665}
     m_Modifications:
+    - target: {fileID: 4748487652604305547, guid: d8a695fa743a5e64288767e1aac5bfec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.025
+      objectReference: {fileID: 0}
     - target: {fileID: 6875236960887833551, guid: d8a695fa743a5e64288767e1aac5bfec, type: 3}
       propertyPath: m_Name
       value: ChiefCap
