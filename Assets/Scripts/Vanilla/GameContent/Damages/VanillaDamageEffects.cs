@@ -53,6 +53,7 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");
         public static readonly NamespaceID NO_DEATH_EFFECTS = Get("no_death_effects");
         public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
+        public static readonly NamespaceID NO_BROKEN_LOCK = Get("no_broken_lock");
 
         public static NamespaceID Get(string name)
         {

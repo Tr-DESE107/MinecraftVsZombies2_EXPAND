@@ -194,6 +194,11 @@ namespace MVZ2.Vanilla.Contraptions
                 contraption.PlaySound(soundID);
             contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, new EntityCallbackParams(contraption), contraption.GetDefinitionID());
         }
-
+        #region 命令方块
+        public static bool IsImitated(this Entity contraption)
+        {
+            return contraption.HasBuff<ImitatedBuff>();
+        }
+        #endregion
     }
 }

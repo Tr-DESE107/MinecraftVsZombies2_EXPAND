@@ -312,6 +312,18 @@
                 <stage price="4440" unlocks="mvz2:artifact.ghostly_cart" />
             </stages>
         </product>
+        <product id="broken_lock" sprite="mvz2:artifacts/broken_lock">
+            <unlock>
+                <condition required="mvz2:level.palace_11" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">上锁箱子的挂锁！当器械被除铁镐和自毁之外的方式摧毁时，立即充能它的蓝图！</talk>
+                <talk character="mvz2:tokiko">那个可恶箱子的挂锁！当器械被除铁镐和自毁之外的方式摧毁时，立即充能它的蓝图！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.broken_lock" />
+            </stages>
+        </product>
         <product id="cake" sprite="mvz2:products/cake">
             <unlock>
                 <condition requiredGroups="mvz2:game_completed" />

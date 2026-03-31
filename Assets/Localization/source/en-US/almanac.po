@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-03-31 02:32+0800\n"
-"PO-Revision-Date: 2026-03-31 17:54+0800\n"
+"POT-Creation-Date: 2026-04-02 02:45+0800\n"
+"PO-Revision-Date: 2026-04-02 14:48+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4024,6 +4024,55 @@ msgctxt "artifacts.description"
 msgid "不是，你什么时候解锁这个制品的？"
 msgstr "Wait, when did you unlock this artifact?"
 
+#. Header for artifacts mvz2:broken_lock
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "从上锁的箱子上掉落的损坏挂锁。"
+msgstr "A broken padlock that fell off the Locked Chest."
+
+#. Properties for artifacts mvz2:broken_lock
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>当器械被摧毁时，立即充能其蓝图（铁镐和自毁除外）</color>"
+msgstr ""
+"Effect: <color=red>When a contraption is destroyed, its blueprint will be instantly recharged (excluding being dug up and self-"
+"destruction)</color>"
+
+#. Flavor for artifacts mvz2:broken_lock
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"<b>项目编号：</b>MCP-988\n"
+"<b>项目等级：</b>Keter\n"
+"<b>特殊收容措施：</b>由于MCP-988“瞬移”区域十分广阔，收容是不可能的。MCP-988已被埋入███区域地下██米，█国政府已经批准建立一个对外宣称是军"
+"事行动区的区域来阻止人员靠近这些区域。\n"
+"<b>描述：</b>MCP-988是一个长0.64米，宽0.95米，高0.85米的木制箱子，其边缘部分由未知的紫色金属条固定。一般情况下的MCP-988被铁链和一块坚固"
+"的锁头（下称MCP-988-1）锁住。\n"
+"每隔约2小时，MCP-988会随机锁定周围的一名落单的人员作为其狩猎目标并瞬间移动至其附近。一旦目标从MCP-988身上转移注意力并远离时，MCP-988会"
+"以高速跃起并砸向目标的头部。此后MCP-988-1会脱落，且MCP-988会将目标吞入箱中。\n"
+"被吞入箱中的受害者会随着被吞入的时间而受到不同程度的损害。时间较短者不会受到除重击之外的任何物理损伤，但会永久性失去意识；时间较长者会"
+"因箱中分泌物质的物理侵蚀而受到物理损伤，因此导致死亡甚至溶化。\n"
+"MCP-988似乎拥有某种智慧。若MCP-988的意图在多名人员眼前暴露，MCP-988会表现出极度的攻击欲，以跳跃、撞击等物理攻击手段表现。若MCP-988-1处"
+"于脱落状态，则其会尝试以喷吐大量有毒垃圾的手段进行攻击。"
+msgstr ""
+"<b>Item #:</b> MCP-988\n"
+"<b>Object Class:</b> Keter\n"
+"<b>Special Containment Procedures:</b> Due to the extremely wide range of MCP-988's \"teleportation\", containment is impossible. "
+"MCP-988 has been buried ██ meters underground in the ██████ region. The government of the country ███████ has authorized the "
+"establishment of an area publicly claimed as a military operations area to prevent anybody from approaching these areas.\n"
+"<b>Description:</b> MCP-988 is a wooden box measuring 0.64m x 0.95m x 0.85m, with its edges secured by unknown purple metal strips. "
+"Under normal conditions, MCP-988 is bound by iron chains and secured with a sturdy lock (hereafter referred to as MCP-988-1).\n"
+"Approximately every two hours, MCP-988 will randomly lock onto a lone individual within its vicinity as its hunting target and "
+"instantly teleport to their location. Once the target diverts their attention away from MCP-988 and moves away, it will leap at high "
+"speed and slam into the target's head. After this, MCP-988-1 will detach and MCP-988 will swallow the target into the box.\n"
+"Victims swallowed into the box will suffer varying degrees of harm depending on the duration they remain inside. Those kept for "
+"shorter durations will not sustain physical injuries beyond the initial impact, but will permanently lose consciousness; those kept "
+"for longer periods will suffer physical damage from the corrosive substances secreted within the box, leading to death or even "
+"dissolution.\n"
+"MCP-988 appears to possess some form of intelligence. If its intentions are exposed in front of multiple individuals, it will exhibit "
+"extreme aggression, attacking with physical means such as pouncing and ramming. If MCP-988-1 is in a detached state, it will attempt "
+"to attack by spitting out large amounts of toxic waste."
+
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -7708,6 +7757,18 @@ msgstr "Censer of the Forgotten"
 msgctxt "artifact.tooltip"
 msgid "每60秒眩晕所有敌怪5秒"
 msgstr "Stuns all enemy monsters for 5 seconds every 60 seconds"
+
+#. Name for artifact mvz2:broken_lock
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "损坏的挂锁"
+msgstr "Broken Lock"
+
+#. Tooltip for artifact mvz2:broken_lock
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "当器械被摧毁时，立即充能其蓝图（铁镐和自毁除外）"
+msgstr "When a contraption is destroyed, its blueprint will be instantly recharged (excluding being dug up and self-destruction)"
 
 #. Message for blueprint error recharging
 #: Blueprints meta file

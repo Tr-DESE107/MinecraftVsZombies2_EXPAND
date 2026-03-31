@@ -76,15 +76,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         private void UseOnEntity(Entity entity)
         {
-            DamageEffectList effects;
-            if (entity.IsFriendlyEntity())
-            {
-                effects = new DamageEffectList(VanillaDamageEffects.PICKAXE, VanillaDamageEffects.SELF_DAMAGE);
-            }
-            else
-            {
-                effects = new DamageEffectList(VanillaDamageEffects.PICKAXE);
-            }
+            DamageEffectList effects = new DamageEffectList(VanillaDamageEffects.PICKAXE);
             entity.Die(effects);
             if (entity.Level.IsPickaxeCountLimited())
             {

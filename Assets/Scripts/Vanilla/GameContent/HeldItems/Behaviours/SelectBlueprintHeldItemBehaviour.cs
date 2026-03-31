@@ -125,8 +125,7 @@ namespace MVZ2.GameContent.HeldItems
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            var blueprintDef = blueprint.Definition;
-            var seedType = blueprintDef.GetSeedType();
+            var seedType = blueprint.GetSeedType();
             switch (seedType)
             {
                 case SeedTypes.ENTITY:
@@ -155,7 +154,7 @@ namespace MVZ2.GameContent.HeldItems
 
                 case SeedTypes.OPTION:
                     {
-                        var optionID = blueprintDef.GetSeedOptionID();
+                        var optionID = blueprint.GetSeedOptionID();
                         if (optionID == null)
                             return;
                         var optionDef = level.Content.GetSeedOptionDefinition(optionID);

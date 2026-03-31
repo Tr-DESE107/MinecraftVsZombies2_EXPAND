@@ -253,10 +253,9 @@ namespace MVZ2.GameContent.Bosses
                 var blueprint = level.GetConveyorSeedPackAt(i);
                 if (blueprint == null) continue;
 
-                var blueprintDef = blueprint.Definition;
-                if (blueprintDef == null || blueprintDef.GetSeedType() != SeedTypes.ENTITY) continue;
+                if (blueprint.GetSeedType() != SeedTypes.ENTITY) continue;
 
-                var entityID = blueprintDef.GetSeedEntityID();
+                var entityID = blueprint.GetSeedEntityID();
                 if (entityID == null) continue;
 
                 var entityDef = level.Content.GetEntityDefinition(entityID);

@@ -82,6 +82,8 @@ namespace MVZ2.GameContent.Contraptions
             var damageEffects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.INSTA_KILL);
             foreach (var entity in grid.GetEntities())
             {
+                if (entity == source)
+                    continue;
                 entity.Die(damageEffects, entity);
             }
         }

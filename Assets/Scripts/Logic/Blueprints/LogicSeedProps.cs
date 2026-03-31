@@ -96,6 +96,10 @@ namespace MVZ2Logic.Blueprints
         {
             return definition.GetProperty<int>(SEED_TYPE);
         }
+        public static int GetSeedType(this SeedPack seedPack)
+        {
+            return seedPack.GetProperty<int>(SEED_TYPE);
+        }
         #endregion
 
         #region 蓝图实体ID
@@ -104,6 +108,10 @@ namespace MVZ2Logic.Blueprints
         {
             return definition.GetProperty<NamespaceID>(SEED_ENTITY_ID);
         }
+        public static NamespaceID? GetSeedEntityID(this SeedPack seedPack)
+        {
+            return seedPack.GetProperty<NamespaceID>(SEED_ENTITY_ID);
+        }
         #endregion
 
         #region 蓝图选项ID
@@ -111,6 +119,10 @@ namespace MVZ2Logic.Blueprints
         public static NamespaceID? GetSeedOptionID(this SeedDefinition definition)
         {
             return definition.GetProperty<NamespaceID>(SEED_OPTION_ID);
+        }
+        public static NamespaceID? GetSeedOptionID(this SeedPack seedPack)
+        {
+            return seedPack.GetProperty<NamespaceID>(SEED_OPTION_ID);
         }
         #endregion
 

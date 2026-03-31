@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-03-30 08:09+0800\n"
-"PO-Revision-Date: 2026-03-31 14:08+0800\n"
+"POT-Creation-Date: 2026-04-02 02:45+0800\n"
+"PO-Revision-Date: 2026-04-02 14:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -741,39 +741,39 @@ msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
 msgid "选择你的命运"
 msgstr "Choose your fate"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
 msgid "选吧。"
 msgstr "Choose."
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
 msgid "潘多拉的魔盒"
 msgstr "Pandora's Box"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
 msgid "尸潮"
 msgstr "Biohazard"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
 msgid "衰老"
 msgstr "Decrepify"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:502
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
 msgid "疯狂"
 msgstr "Insanity"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:504
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
 msgid "成真"
 msgstr "Come True"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:506
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:505
 msgid "深潜者"
 msgstr "The Deep Ones"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:508
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:507
 msgid "黑太阳"
 msgstr "The Black Sun"
 
@@ -4796,6 +4796,26 @@ msgid "偷尸体的猫的小推车！每3分钟都会刷新你的最终防线小
 msgstr ""
 "A cart owned by the corpse-stealing cat! Your final defense carts will be "
 "reloaded every 3 minutes!"
+
+#. Store item description of mvz2:broken_lock by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"上锁箱子的挂锁！当器械被除铁镐和自毁之外的方式摧毁时，立即充能它的蓝图！"
+msgstr ""
+"It's the padlock on the Locked Chest! When a contraption is destroyed by any "
+"means other than digging it up or self-destruction, the blueprint of that "
+"contraption will be instantly recharged!"
+
+#. Store item description of mvz2:broken_lock by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"那个可恶箱子的挂锁！当器械被除铁镐和自毁之外的方式摧毁时，立即充能它的蓝图！"
+msgstr ""
+"It's the padlock on that wretched chest! When a contraption is destroyed by "
+"anything other than digging it up or self-destruction, the blueprint of that "
+"contraption will be instantly recharged!"
 
 #. Store item description of mvz2:cake by character mvz2:crazy_villager
 #: Store meta file

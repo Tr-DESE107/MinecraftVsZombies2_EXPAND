@@ -198,7 +198,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             else
             {
-                var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS);
+                var effects = new DamageEffectList(VanillaDamageEffects.NO_BROKEN_LOCK, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS);
                 target.Die(effects, devourer);
                 var spawnParams = devourer.GetSpawnParams();
                 var entityID = target.GetDefinitionID();

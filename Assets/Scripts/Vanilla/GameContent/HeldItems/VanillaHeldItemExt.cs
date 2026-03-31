@@ -28,7 +28,11 @@ namespace MVZ2.Vanilla.HeldItems
             else
             {
                 var seed = heldDefinition.GetSeedPack(level, data);
-                return seed?.GetSeedEntityID();
+                if (seed != null && seed.GetSeedType() == SeedTypes.ENTITY)
+                {
+                    return seed.GetSeedEntityID();
+                }
+                return null;
             }
         }
     }

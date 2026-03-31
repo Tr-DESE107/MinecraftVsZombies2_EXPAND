@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Contraptions
             enemy.Velocity += knockbackMultiplier * KNOCKBACK_DISTANCE * self.GetFacingDirection();
 
             var bounceDamage = BOUNCE_DAMAGE * self.Level.GetElasticCloudBounceDamageMultiplier();
-            self.TakeDamage(bounceDamage, new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), self);
+            self.TakeDamage(bounceDamage, new DamageEffectList(), self);
             AddEnemyKnockbackCooldown(self, enemy, Ticks.FromSeconds(KNOCKBACK_COOLDOWN_SECONDS));
             PlayBounceEffect(self);
             return true;

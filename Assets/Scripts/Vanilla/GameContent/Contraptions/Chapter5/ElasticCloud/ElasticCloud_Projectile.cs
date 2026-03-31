@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Contraptions
             var velocity = target.GetFacingDirection() * proj.Velocity.magnitude;
             proj.Velocity = velocity;
             proj.SetFaction(target.GetFaction());
-            target.TakeDamage(BOUNCE_DAMAGE, new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), target);
+            target.TakeDamage(BOUNCE_DAMAGE, new DamageEffectList(), target);
             ElasticCloud.PlayBounceEffect(target);
             result.SetFinalValue(false);
         }

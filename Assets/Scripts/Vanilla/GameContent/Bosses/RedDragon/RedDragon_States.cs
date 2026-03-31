@@ -688,7 +688,7 @@ namespace MVZ2.GameContent.Bosses
                 {
                     if (entity.IsVulnerableEntity())
                     {
-                        entity.Die(new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), dragon);
+                        entity.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL), dragon);
                     }
                     else if (entity.IsEntityOf(VanillaEffectID.gridFire) || entity.IsEntityOf(VanillaEffectID.waterStain))
                     {

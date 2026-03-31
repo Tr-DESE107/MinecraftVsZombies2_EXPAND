@@ -50,15 +50,6 @@ namespace MVZ2Logic.Blueprints
             }
             return error;
         }
-        public static NamespaceID? GetSeedEntityID(this SeedPack seed)
-        {
-            var seedDef = seed.Definition;
-            if (seedDef == null)
-                return null;
-            if (seedDef.GetSeedType() != SeedTypes.ENTITY)
-                return null;
-            return seedDef.GetSeedEntityID();
-        }
         public static bool CanInstantTrigger(this SeedPack seedPack)
         {
             var blueprintDef = seedPack.Definition;

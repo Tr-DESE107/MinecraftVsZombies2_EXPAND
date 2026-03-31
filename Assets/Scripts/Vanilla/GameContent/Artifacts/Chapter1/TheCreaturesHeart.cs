@@ -105,12 +105,9 @@ namespace MVZ2.GameContent.Artifacts
                 base.UpdateTargetBuff(effect, target, buff);
                 if (target is not SeedPack seed)
                     return;
-                var seedDef = seed.Definition;
-                if (seedDef == null)
+                if (seed.GetSeedType() != SeedTypes.ENTITY)
                     return;
-                if (seedDef.GetSeedType() != SeedTypes.ENTITY)
-                    return;
-                var entityID = seed.Definition.GetSeedEntityID();
+                var entityID = seed.GetSeedEntityID();
                 if (!NamespaceID.IsValid(entityID))
                     return;
                 buff.SetProperty(TheCreaturesHeartReduceCostBuff.PROP_ADDITION, seed.Level.GetEntityCount(entityID) * REDUCTION);

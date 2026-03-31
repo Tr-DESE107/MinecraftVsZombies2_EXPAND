@@ -151,7 +151,7 @@ namespace MVZ2.GameContent.Contraptions
             if (!result.GetValue<bool>())
                 return;
 
-            var effects = new DamageEffectList(VanillaDamageEffects.SACRIFICE, VanillaDamageEffects.SELF_DAMAGE);
+            var effects = new DamageEffectList(VanillaDamageEffects.SACRIFICE);
             entity.Die(effects, soulFurnace);
             AddFuel(soulFurnace, fuel);
             entity.Level.Spawn(VanillaEffectID.soulfireBurn, entity.GetCenter(), soulFurnace);

@@ -141,7 +141,9 @@ namespace MVZ2.GameContent.HeldItems
         {
             var level = entity.Level;
             var seedPack = GetSeedPack(level, data);
-            var seedEntityID = seedPack?.GetSeedEntityID();
+            if (seedPack == null || seedPack.GetSeedType() != SeedTypes.ENTITY)
+                return false;
+            var seedEntityID = seedPack.GetSeedEntityID();
             var entityDef = level.Content.GetEntityDefinition(seedEntityID);
             if (entityDef == null)
                 return false;

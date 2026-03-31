@@ -57,10 +57,9 @@ namespace MVZ2.GameContent.Seeds
                 base.UpdateTargetBuff(effect, target, buff);
                 if (target is not SeedPack seed)
                     return;
-                var seedDef = seed.Definition;
-                if (seedDef == null || seedDef.GetSeedType() != SeedTypes.ENTITY)
+                if (seed.GetSeedType() != SeedTypes.ENTITY)
                     return;
-                var entityID = seed.Definition?.GetSeedEntityID();
+                var entityID = seed.GetSeedEntityID();
                 if (!NamespaceID.IsValid(entityID))
                     return;
                 buff.SetProperty(UpgradeEndlessCostBuff.PROP_ADDITION, seed.Level.GetEntityCount(entityID) * ADDITION);

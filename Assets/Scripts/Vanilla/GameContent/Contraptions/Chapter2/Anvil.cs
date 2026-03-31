@@ -85,7 +85,7 @@ namespace MVZ2.GameContent.Contraptions
                         var ent = grid.GetLayerEntity(layer);
                         if (ent != null && CanSmash(anvil, ent))
                         {
-                            ent.Die(new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.SELF_DAMAGE), anvil, null);
+                            ent.Die(new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.INSTA_KILL), anvil, null);
                         }
                     }
                 }
