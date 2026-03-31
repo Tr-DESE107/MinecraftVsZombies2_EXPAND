@@ -130,5 +130,10 @@
             <condition required="mvz2:artifact.ghostly_cart" />
         </unlock>
     </artifact>
+    <artifact id="censer_of_forgotten" name="遗忘香炉" tooltip="每60秒眩晕所有敌怪5秒" sprite="mvz2:artifacts/censer_of_forgotten">
+        <unlock>
+            <condition required="mvz2:level.palace_11" />
+        </unlock>
+    </artifact>
 
 </artifacts>

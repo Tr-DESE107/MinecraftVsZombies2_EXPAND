@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-03-30 08:09+0800\n"
-"PO-Revision-Date: 2026-03-30 20:45+0800\n"
+"POT-Creation-Date: 2026-03-31 02:32+0800\n"
+"PO-Revision-Date: 2026-03-31 17:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4006,6 +4006,24 @@ msgid "车的正面被画上了一只黑白相间的小猫的脸，但你并不�
 msgstr ""
 "There's a face of a black-and-white kitten painted on the front of the cart, but you don't recognize which kitten the face belongs to."
 
+#. Header for artifacts mvz2:censer_of_forgotten
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "不知何人赠予的奇怪香炉。"
+msgstr "A strange censer gifted by an unknown person."
+
+#. Properties for artifacts mvz2:censer_of_forgotten
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每60秒眩晕所有敌怪5秒</color>"
+msgstr "Effect: <color=red>Stuns all enemy monsters for 5 seconds every 60 seconds</color>"
+
+#. Flavor for artifacts mvz2:censer_of_forgotten
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "不是，你什么时候解锁这个制品的？"
+msgstr "Wait, when did you unlock this artifact?"
+
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -7678,6 +7696,18 @@ msgstr "Ghostly Cart"
 msgctxt "artifact.tooltip"
 msgid "每3分钟刷新你的最终防线小车"
 msgstr "Reloads final defense carts every 3 minutes"
+
+#. Name for artifact mvz2:censer_of_forgotten
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "遗忘香炉"
+msgstr "Censer of the Forgotten"
+
+#. Tooltip for artifact mvz2:censer_of_forgotten
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "每60秒眩晕所有敌怪5秒"
+msgstr "Stuns all enemy monsters for 5 seconds every 60 seconds"
 
 #. Message for blueprint error recharging
 #: Blueprints meta file

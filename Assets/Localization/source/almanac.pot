@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-03-30 08:09+0800\n"
+"POT-Creation-Date: 2026-03-31 02:32+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3237,6 +3237,24 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "车的正面被画上了一只黑白相间的小猫的脸，但你并不认识这是哪只猫。"
+msgstr ""
+
+#. Header for artifacts mvz2:censer_of_forgotten
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "不知何人赠予的奇怪香炉。"
+msgstr ""
+
+#. Properties for artifacts mvz2:censer_of_forgotten
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>每60秒眩晕所有敌怪5秒</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:censer_of_forgotten
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "不是，你什么时候解锁这个制品的？"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
@@ -6549,6 +6567,18 @@ msgstr ""
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "每3分钟刷新你的最终防线小车"
+msgstr ""
+
+#. Name for artifact mvz2:censer_of_forgotten
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "遗忘香炉"
+msgstr ""
+
+#. Tooltip for artifact mvz2:censer_of_forgotten
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "每60秒眩晕所有敌怪5秒"
 msgstr ""
 
 #. Message for blueprint error recharging

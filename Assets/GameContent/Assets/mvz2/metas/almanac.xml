@@ -1985,6 +1985,17 @@
                 <p>车的正面被画上了一只黑白相间的小猫的脸，但你并不认识这是哪只猫。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:censer_of_forgotten">
+            <header>
+                <p>不知何人赠予的奇怪香炉。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>每60秒眩晕所有敌怪5秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>不是，你什么时候解锁这个制品的？</p>
+            </flavor>
+        </entry>
     </artifacts>
     <misc>
         <!-- Bosses -->

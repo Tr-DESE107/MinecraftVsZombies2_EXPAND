@@ -36,6 +36,7 @@ namespace MVZ2.GameContent.Artifacts
 
         public const string controlRod = "control_rod";
         public const string ghostlyCart = "ghostly_cart";
+        public const string censerOfForgotten = "censer_of_forgotten";
     }
     public static class VanillaArtifactID
     {
@@ -68,6 +69,7 @@ namespace MVZ2.GameContent.Artifacts
 
         public static readonly NamespaceID controlRod = Get(VanillaArtifactNames.controlRod);
         public static readonly NamespaceID ghostlyCart = Get(VanillaArtifactNames.ghostlyCart);
+        public static readonly NamespaceID censerOfForgotten = Get(VanillaArtifactNames.censerOfForgotten);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
