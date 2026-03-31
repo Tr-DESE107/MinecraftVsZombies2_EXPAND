@@ -657,6 +657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light
       objectReference: {fileID: 0}
+    - target: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -746,6 +750,10 @@ PrefabInstance:
     - target: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Name
       value: Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalScale.x

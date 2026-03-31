@@ -116,7 +116,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ad2a81ec3068eafd48753df1825a8dd7201ce60c"
+      "hash": "c7923746fa5e95916bf1a4087eceadb72305d5b5"
     },
     "com.unity.burst": {
       "version": "1.8.21",
@@ -308,7 +308,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "de516b9ebd2fbb79dcee99f31a778f5bff43562f"
+      "hash": "4fbc21600667ce8dbcfbfce1f159776dc9a52f15"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

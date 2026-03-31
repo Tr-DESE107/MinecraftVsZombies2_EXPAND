@@ -430,19 +430,19 @@
     <model name="HeavyGutant" type="entity" path="mvz2:enemy/ship/HeavyGutant" width="200" height="180" xOffset="0" yOffset="-90" />
 	<model name="PirateBomb" type="entity" path="mvz2:enemy/ship/PirateBomb" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="Endermite" type="entity" path="mvz2:enemy/ship/Endermite" width="25" height="10" xOffset="0" yOffset="-5" />
-	<model name="KogasaZombie" type="entity" path="mvz2:enemy/ship/KogasaZombie" width="96" height="106" xOffset="30" yOffset="-47">
+	<model name="KogasaZombie" type="entity" path="mvz2:enemy/ship/KogasaZombie" width="98" height="115" xOffset="30" yOffset="-47">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
-	<model name="ChiefCannoneerZombie" type="entity" path="mvz2:enemy/ship/ChiefCannoneerZombie" width="85" height="92" xOffset="22" yOffset="-41">
+	<model name="ChiefCannoneerZombie" type="entity" path="mvz2:enemy/ship/ChiefCannoneerZombie" width="95" height="110" xOffset="18" yOffset="-45">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
-	<model name="PirateIMP" type="entity" path="mvz2:enemy/ship/PirateIMP" width="48" height="56" xOffset="0" yOffset="-28">
+	<model name="PirateIMP" type="entity" path="mvz2:enemy/ship/PirateIMP" width="70" height="60" xOffset="15" yOffset="-25">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
-	<model name="MusketeerZombie" type="entity" path="mvz2:enemy/ship/MusketeerZombie" width="64" height="96" xOffset="10" yOffset="-44">
+	<model name="MusketeerZombie" type="entity" path="mvz2:enemy/ship/MusketeerZombie" width="100" height="100" xOffset="25" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
-	<model name="SailorZombie" type="entity" path="mvz2:enemy/ship/SailorZombie" width="64" height="96" xOffset="10" yOffset="-44">
+	<model name="SailorZombie" type="entity" path="mvz2:enemy/ship/SailorZombie" width="64" height="100" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
 
