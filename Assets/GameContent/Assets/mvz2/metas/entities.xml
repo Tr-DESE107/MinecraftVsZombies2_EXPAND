@@ -174,6 +174,7 @@
                 <bool name="mvz2:killOnGround" value="true" />
                 <int name="mvz2:maxTimeout" value="900" />
                 <float name="mvz2:changeLaneSpeed" value="10" />
+                <float name="mvz2:fallResistance" value="10000" />
                 <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
                 <int name="mvz2:waterInteraction" value="1" />
                 <int name="mvz2:airInteraction" value="2" />

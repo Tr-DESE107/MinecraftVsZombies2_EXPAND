@@ -20,6 +20,7 @@ using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic;
@@ -1241,6 +1242,10 @@ namespace MVZ2.Vanilla.Entities
         {
             var param = entity.GetSpawnParams();
             return entity.Spawn(id, pos, param);
+        }
+        public static Entity? SpawnUnlockArtifactPickup(this Entity entity, NamespaceID areaID, NamespaceID unlockID, NamespaceID artifactID, Vector3 position)
+        {
+            return entity.Level.SpawnUnlockArtifactPickup(areaID, unlockID, artifactID, position, entity);
         }
 
         private const string PROP_REGION = "entities";

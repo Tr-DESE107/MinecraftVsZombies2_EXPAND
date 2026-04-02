@@ -3,6 +3,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
@@ -13,6 +15,9 @@ using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
+using MVZ2.Vanilla.Pickups;
+using MVZ2.Vanilla.Unlocks;
+using MVZ2Logic;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -269,6 +274,23 @@ namespace MVZ2.Vanilla.Level
             if (data == null)
                 return null;
             return data.GetSeedEntityID(level);
+        }
+        #endregion
+
+        #region 制品解锁
+        public static Entity? SpawnUnlockArtifactPickup(this LevelEngine level, NamespaceID areaID, NamespaceID unlockID, NamespaceID artifactID, Vector3 position, Entity? spawner)
+        {
+            if (level.AreaID == areaID && !Global.Saves.IsUnlocked(unlockID))
+            {
+                if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && e.GetPickupContentID() == artifactID))
+                {
+                    return level.Spawn(VanillaPickupID.artifactPickup, position, spawner)?.Let(e =>
+                    {
+                        e.SetPickupContentID(artifactID);
+                    });
+                }
+            }
+            return null;
         }
         #endregion
     }

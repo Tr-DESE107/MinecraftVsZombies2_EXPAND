@@ -5,12 +5,10 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Detections;
-using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Pickups;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Unlocks;
-using MVZ2Logic;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -50,17 +48,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             var pos = entity.Position + Vector3.up * 600;
-            var level = entity.Level;
-            if (level.AreaID == VanillaAreaID.castle && !Global.Saves.IsUnlocked(VanillaUnlockID.brokenLantern))
-            {
-                if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && e.GetPickupContentID() == VanillaArtifactID.brokenLantern))
-                {
-                    level.Spawn(VanillaPickupID.artifactPickup, pos + Vector3.up * 100, entity)?.Let(e =>
-                    {
-                        e.SetPickupContentID(VanillaArtifactID.brokenLantern);
-                    });
-                }
-            }
+            entity.SpawnUnlockArtifactPickup(VanillaAreaID.castle, VanillaUnlockID.brokenLantern, VanillaArtifactID.brokenLantern, pos + Vector3.up * 100);
             var anvil = entity.SpawnWithParams(VanillaContraptionID.anvil, pos);
         }
         public const float AFFECT_HEIGHT = 64;
