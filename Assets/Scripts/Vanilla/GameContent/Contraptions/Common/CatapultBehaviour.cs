@@ -52,8 +52,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             if (timer.RunToExpired(entity.GetAttackSpeed()))
             {
-                var centerX = entity.GetCenter().x;
-                var target = detector.DetectEntityWithTheLeast(entity, e => entity.GetFacingX() * (e.GetCenter().x - centerX));
+                var target = detector.DetectEntityWithTheLeast(entity, e => GetTargetPriority(e, entity));
                 if (target != null)
                 {
                     SetCatapultState(entity, CATAPULT_STATE_ATTACK);
@@ -137,6 +136,23 @@ namespace MVZ2.GameContent.Contraptions
             param.velocity = VanillaProjectileExt.GetLobVelocityByTime(param.position, targetPosition, flyTime, gravity);
             PostModifyShootParameters(entity, ref param);
             return entity.ShootProjectile(param);
+        }
+        public virtual float GetTargetPriority(Entity target, Entity entity)
+        {
+            float priority = 0;
+            if (entity.IsFacingLeft())
+            {
+                priority += entity.GetCenter().x - target.GetCenter().x;
+            }
+            else
+            {
+                priority += target.GetCenter().x - entity.GetCenter().x;
+            }
+            if (target.Type == EntityTypes.OBSTACLE)
+            {
+                priority += 100000;
+            }
+            return priority;
         }
         protected virtual void PreModifyShootParameters(Entity entity, ref ShootParams param)
         {
