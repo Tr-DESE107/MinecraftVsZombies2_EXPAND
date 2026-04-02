@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-02 02:45+0800\n"
+"POT-Creation-Date: 2026-04-02 03:11+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3280,6 +3280,24 @@ msgid ""
 "每隔约2小时，MCP-988会随机锁定周围的一名落单的人员作为其狩猎目标并瞬间移动至其附近。一旦目标从MCP-988身上转移注意力并远离时，MCP-988会以高速跃起并砸向目标的头部。此后MCP-988-1会脱落，且MCP-988会将目标吞入箱中。\n"
 "被吞入箱中的受害者会随着被吞入的时间而受到不同程度的损害。时间较短者不会受到除重击之外的任何物理损伤，但会永久性失去意识；时间较长者会因箱中分泌物质的物理侵蚀而受到物理损伤，因此导致死亡甚至溶化。\n"
 "MCP-988似乎拥有某种智慧。若MCP-988的意图在多名人员眼前暴露，MCP-988会表现出极度的攻击欲，以跳跃、撞击等物理攻击手段表现。若MCP-988-1处于脱落状态，则其会尝试以喷吐大量有毒垃圾的手段进行攻击。"
+msgstr ""
+
+#. Header for artifacts mvz2:magma_stone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "一块岩浆石。"
+msgstr ""
+
+#. Properties for artifacts mvz2:magma_stone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>敌人受到的火焰伤害+50%</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:magma_stone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "都说了不要在地下引发地震！！！"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
@@ -6616,6 +6634,18 @@ msgstr ""
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "当器械被摧毁时，立即充能其蓝图（铁镐和自毁除外）"
+msgstr ""
+
+#. Name for artifact mvz2:magma_stone
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "岩浆石"
+msgstr ""
+
+#. Tooltip for artifact mvz2:magma_stone
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "敌人受到的火焰伤害+50%"
 msgstr ""
 
 #. Message for blueprint error recharging

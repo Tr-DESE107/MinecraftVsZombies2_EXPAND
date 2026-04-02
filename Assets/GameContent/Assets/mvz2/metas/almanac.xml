@@ -2013,6 +2013,20 @@
                 <p>MCP-988似乎拥有某种智慧。若MCP-988的意图在多名人员眼前暴露，MCP-988会表现出极度的攻击欲，以跳跃、撞击等物理攻击手段表现。若MCP-988-1处于脱落状态，则其会尝试以喷吐大量有毒垃圾的手段进行攻击。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:magma_stone">
+            <silhouette>
+                <condition required="mvz2:level.palace_11" />
+            </silhouette>
+            <header>
+                <p>一块岩浆石。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>敌人受到的火焰伤害+50%</color>]]></p>
+            </properties>
+            <flavor>
+                <p>都说了不要在地下引发地震！！！</p>
+            </flavor>
+        </entry>
     </artifacts>
     <misc>
         <!-- Bosses -->

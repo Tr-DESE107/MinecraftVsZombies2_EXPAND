@@ -140,5 +140,10 @@
             <condition required="mvz2:artifact.broken_lock" />
         </unlock>
     </artifact>
+    <artifact id="magma_stone" name="岩浆石" tooltip="敌人受到的火焰伤害+50%" sprite="mvz2:artifacts/magma_stone">
+        <unlock>
+            <condition required="mvz2:artifact.magma_stone" />
+        </unlock>
+    </artifact>
 
 </artifacts>

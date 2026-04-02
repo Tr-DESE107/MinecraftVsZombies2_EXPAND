@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-02 02:45+0800\n"
-"PO-Revision-Date: 2026-04-02 14:48+0800\n"
+"POT-Creation-Date: 2026-04-02 03:11+0800\n"
+"PO-Revision-Date: 2026-04-02 15:13+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4073,6 +4073,24 @@ msgstr ""
 "extreme aggression, attacking with physical means such as pouncing and ramming. If MCP-988-1 is in a detached state, it will attempt "
 "to attack by spitting out large amounts of toxic waste."
 
+#. Header for artifacts mvz2:magma_stone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "一块岩浆石。"
+msgstr "A magma stone."
+
+#. Properties for artifacts mvz2:magma_stone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>敌人受到的火焰伤害+50%</color>"
+msgstr "Effect: <color=red>Enemies take +50% fire damage</color>"
+
+#. Flavor for artifacts mvz2:magma_stone
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "都说了不要在地下引发地震！！！"
+msgstr "I told you not to cause earthquakes underground!!!"
+
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -7769,6 +7787,18 @@ msgstr "Broken Lock"
 msgctxt "artifact.tooltip"
 msgid "当器械被摧毁时，立即充能其蓝图（铁镐和自毁除外）"
 msgstr "When a contraption is destroyed, its blueprint will be instantly recharged (excluding being dug up and self-destruction)"
+
+#. Name for artifact mvz2:magma_stone
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "岩浆石"
+msgstr "Magma Stone"
+
+#. Tooltip for artifact mvz2:magma_stone
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "敌人受到的火焰伤害+50%"
+msgstr "Enemies take +50% fire damage"
 
 #. Message for blueprint error recharging
 #: Blueprints meta file
