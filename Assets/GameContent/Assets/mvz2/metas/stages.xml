@@ -1429,6 +1429,7 @@
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:reflective_barrier_zombie" />
             <spawn id="mvz2:ghost" />
             <spawn id="mvz2:shadow_cell" />
             <spawn id="mvz2:hacker" />
