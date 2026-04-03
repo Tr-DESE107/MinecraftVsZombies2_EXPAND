@@ -1297,6 +1297,20 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
+        <contraption id="nether_reactor_core" name="下界反应核" tooltip="在特殊阵型中持续提供星之碎片">
+            <properties>
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:placeSound" value="mvz2:metal_break" />
+
+                <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
+                <color name="mvz2:lightColor" value="#FF0000" />
+
+                <int name="mvz2:cost" value="125" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人">
