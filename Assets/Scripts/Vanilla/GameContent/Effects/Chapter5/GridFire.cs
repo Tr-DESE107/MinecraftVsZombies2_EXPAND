@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
@@ -51,10 +52,7 @@ namespace MVZ2.GameContent.Contraptions
             detector.DetectEntities(hellfire, igniteBuffer);
             foreach (Entity target in igniteBuffer)
             {
-                var behaviour = target.Definition?.GetBehaviour<IHellfireIgniteBehaviour>();
-                if (behaviour == null)
-                    return;
-                behaviour.Ignite(target, hellfire, false);
+                target.HellfireIgnite(hellfire, false);
             }
         }
         public void BeBlown(Entity entity, Entity source)

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-04 12:53+0800\n"
+"POT-Creation-Date: 2026-04-04 02:24+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6829,5 +6829,23 @@ msgstr ""
 #: Blueprints meta file
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
+msgstr ""
+
+#. Name for entity blueprint nether_mage_fire
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "下界法师（火）"
+msgstr ""
+
+#. Name for entity blueprint nether_mage_frost
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "下界法师（冰）"
+msgstr ""
+
+#. Name for entity blueprint nether_mage_lightning
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "下界法师（电）"
 msgstr ""
 

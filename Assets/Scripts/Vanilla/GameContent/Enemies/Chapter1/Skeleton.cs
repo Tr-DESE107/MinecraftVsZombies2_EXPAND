@@ -81,7 +81,7 @@ namespace MVZ2.GameContent.Enemies
                     bowPower = BOW_POWER_MAX;
                     SetBowFired(entity, true);
 
-                    entity.ShootProjectile();
+                    ShootArrow(entity);
                 }
             }
             else
@@ -106,13 +106,26 @@ namespace MVZ2.GameContent.Enemies
             }
             SetBowPower(enemy, bowPower);
         }
+        private void ShootArrow(Entity entity)
+        {
+            entity.ShootProjectile()?.Let(e =>
+            {
+                if (IsArrowFlame(entity))
+                {
+                    e.HellfireIgnite(entity, false);
+                }
+            });
+        }
         public static int GetBowPower(Entity enemy) => enemy.GetProperty<int>(PROP_BOW_POWER);
-        public static bool GetBowFired(Entity enemy) => enemy.GetProperty<bool>(PROP_BOW_FIRED);
         public static void SetBowPower(Entity enemy, int value) => enemy.SetProperty(PROP_BOW_POWER, value);
+        public static bool GetBowFired(Entity enemy) => enemy.GetProperty<bool>(PROP_BOW_FIRED);
         public static void SetBowFired(Entity enemy, bool value) => enemy.SetProperty(PROP_BOW_FIRED, value);
+        public static bool IsArrowFlame(Entity enemy) => enemy.GetProperty<bool>(PROP_FLAME);
+        public static void SetArrowFlame(Entity enemy, bool value) => enemy.SetProperty(PROP_FLAME, value);
         private Detector detector;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_BOW_FIRED = new VanillaEntityPropertyMeta<bool>("bowFired");
         public static readonly VanillaEntityPropertyMeta<int> PROP_BOW_POWER = new VanillaEntityPropertyMeta<int>("bowPower");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_FLAME = new VanillaEntityPropertyMeta<bool>("flame");
         public const int STATE_WALK = LogicEnemyStates.WALK;
         public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
         public const int BOW_POWER_PULL_SPEED = 100;

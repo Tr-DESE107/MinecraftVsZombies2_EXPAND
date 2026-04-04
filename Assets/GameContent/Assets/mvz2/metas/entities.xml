@@ -2460,6 +2460,9 @@
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
                 <behaviour operator="add" id="mvz2:skeleton" />
+                <properties behaviour="mvz2:skeleton">
+                    <bool name="flame" value="true"/>
+                </properties>
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />

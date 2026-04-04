@@ -387,6 +387,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8a0fa8e6a83d14c4581f8cee8ce07eed, type: 3}
   - name: mobile_blueprint/necrotombstone
     sprite: {fileID: 21300000, guid: d1bf852fe2722b54e9735417e907a23c, type: 3}
+  - name: mobile_blueprint/nether_hunter
+    sprite: {fileID: 21300000, guid: 457f7a981eb5b634788558bb96099823, type: 3}
+  - name: mobile_blueprint/nether_mage
+    sprite: {fileID: 21300000, guid: fdc7423050cadcd4ea47886ef15e78fc, type: 3}
+  - name: mobile_blueprint/nether_mage_fire
+    sprite: {fileID: 21300000, guid: 8b716f35d6aa1244598083b3b6c468e9, type: 3}
+  - name: mobile_blueprint/nether_mage_frost
+    sprite: {fileID: 21300000, guid: 42c1f6818cdc98a4a93e475bc0ad3fea, type: 3}
+  - name: mobile_blueprint/nether_mage_lightning
+    sprite: {fileID: 21300000, guid: e6f619d8a994df64fa008fbd0106d382, type: 3}
   - name: mobile_blueprint/nether_reactor_core
     sprite: {fileID: 21300000, guid: bd62b007f1f07454caaa39796ab08f5c, type: 3}
   - name: mobile_blueprint/nightmareaper
@@ -913,6 +923,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 580a757d547930b41a026df31631b7c9, type: 3}
   - name: entity/enemies/mesmerizer_rod
     sprite: {fileID: 21300000, guid: c722a1dec874bb34e9a87bb1dd009e63, type: 3}
+  - name: entity/enemies/nether_hunter_head
+    sprite: {fileID: 21300000, guid: daacd6431b68345418543c8d8f49fa95, type: 3}
+  - name: entity/enemies/nether_mage_head
+    sprite: {fileID: 21300000, guid: bf13519ae2dc4d14d863408fe29d69be, type: 3}
   - name: entity/enemies/skeleton_face_light
     sprite: {fileID: 21300000, guid: 940eb15b5d256ad4fb1eb9e59a010c53, type: 3}
   - name: entity/enemies/stone_sword

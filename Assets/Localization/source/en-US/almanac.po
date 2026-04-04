@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-04 12:53+0800\n"
-"PO-Revision-Date: 2026-04-04 12:54+0800\n"
+"POT-Creation-Date: 2026-04-04 02:24+0800\n"
+"PO-Revision-Date: 2026-04-04 14:24+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -7992,6 +7992,24 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#. Name for entity blueprint nether_mage_fire
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "下界法师（火）"
+msgstr "Nether Mage (Fire)"
+
+#. Name for entity blueprint nether_mage_frost
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "下界法师（冰）"
+msgstr "Nether Mage (Frost)"
+
+#. Name for entity blueprint nether_mage_lightning
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "下界法师（电）"
+msgstr "Nether Mage (Lightning)"
 
 #~ msgctxt "enemies.description"
 #~ msgid "生命：<color=red>200</color>"

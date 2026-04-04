@@ -8,6 +8,7 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Entities;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
@@ -1225,6 +1226,16 @@ namespace MVZ2.Vanilla.Entities
             {
                 behaviour.Explode(entity, range, damage);
             }
+        }
+        #endregion
+
+        #region 地狱火
+        public static void HellfireIgnite(this Entity target, Entity hellfire, bool cursed)
+        {
+            var behaviour = target.Definition?.GetBehaviour<IHellfireIgniteBehaviour>();
+            if (behaviour == null)
+                return;
+            behaviour.Ignite(target, hellfire, cursed);
         }
         #endregion
 

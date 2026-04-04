@@ -7,6 +7,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -63,10 +64,7 @@ namespace MVZ2.GameContent.Contraptions
             detector.DetectEntities(hellfire, igniteBuffer);
             foreach (Entity target in igniteBuffer)
             {
-                var behaviour = target.Definition?.GetBehaviour<IHellfireIgniteBehaviour>();
-                if (behaviour == null)
-                    return;
-                behaviour.Ignite(target, hellfire, cursed);
+                target.HellfireIgnite(hellfire, cursed);
             }
         }
         public static void Curse(Entity entity)

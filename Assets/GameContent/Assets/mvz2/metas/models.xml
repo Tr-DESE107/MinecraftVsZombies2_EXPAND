@@ -291,8 +291,32 @@
     <model name="nether_hunter" type="entity" path="mvz2:enemy/palace/nether_hunter" width="77" height="120" xOffset="12" yOffset="-55">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="nether_mage" type="entity" path="mvz2:enemy/palace/nether_mage" width="77" height="120" xOffset="12" yOffset="-55">
+    <model name="nether_mage" type="entity" path="mvz2:enemy/palace/nether_mage" width="101" height="120" xOffset="12" yOffset="-55">
         <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="nether_mage_fire" type="entity" path="mvz2:enemy/palace/nether_mage" width="101" height="120" xOffset="12" yOffset="-55">
+        <armorconfig>mvz2:humanoid</armorconfig>
+        <animator updateOnShot="true">
+            <parameters>
+                <int name="Variant" value="1" />
+            </parameters>
+        </animator>    
+    </model>
+    <model name="nether_mage_frost" type="entity" path="mvz2:enemy/palace/nether_mage" width="101" height="120" xOffset="12" yOffset="-55">
+        <armorconfig>mvz2:humanoid</armorconfig>
+        <animator updateOnShot="true">
+            <parameters>
+                <int name="Variant" value="2" />
+            </parameters>
+        </animator>    
+    </model>
+    <model name="nether_mage_lightning" type="entity" path="mvz2:enemy/palace/nether_mage" width="101" height="120" xOffset="12" yOffset="-55">
+        <armorconfig>mvz2:humanoid</armorconfig>
+        <animator updateOnShot="true">
+            <parameters>
+                <int name="Variant" value="3" />
+            </parameters>
+        </animator>    
     </model>
 
 
