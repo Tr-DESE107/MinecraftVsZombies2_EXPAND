@@ -52,9 +52,9 @@ namespace MVZ2.GameContent.Contraptions
         private static readonly NamespaceID[] enemiesID = new NamespaceID[]
         {
             VanillaEnemyID.berserker,
-            VanillaEnemyID.berserker,
+            VanillaEnemyID.netherHunter,
             VanillaEnemyID.mesmerizer,
-            VanillaEnemyID.berserker,
+            VanillaEnemyID.netherMage,
         };
     }
 }

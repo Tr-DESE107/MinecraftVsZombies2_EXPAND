@@ -3438,6 +3438,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4279e43b4900a40468ea8adbff5fb1e5
+    m_Address: mvz2:units/mage_headwear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42aed5a151c953c4aa6add38a42869c2
     m_Address: mvz2:held/starshards/ship
     m_ReadOnly: 0
@@ -4711,6 +4718,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b5213d77c9c7a64ba60bb7308595a0f
+    m_Address: mvz2:enemy/palace/nether_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b5807cbe5906d74389da8dcb37a214c
     m_Address: mvz2:money_fall
@@ -9513,6 +9527,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf13519ae2dc4d14d863408fe29d69be
+    m_Address: mvz2:entity/enemies/nether_mage_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf3a501acdcc05c4eb17ccc6d167e47d
     m_Address: mvz2:projectile/missile
     m_ReadOnly: 0
@@ -10877,6 +10898,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daacd6431b68345418543c8d8f49fa95
+    m_Address: mvz2:entity/enemies/nether_hunter_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dac1586e39e4041458440f57f1c2bca6
     m_Address: mvz2:ship
@@ -12319,6 +12347,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f83dd9aa39ae3ce4abe575b90ede0fc4
+    m_Address: mvz2:enemy/palace/nether_hunter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8537348cff248540b14cd2db910003e
     m_Address: mvz2:damage/leather/leather_hit1

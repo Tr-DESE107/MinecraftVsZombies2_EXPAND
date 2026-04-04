@@ -7,7 +7,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
-using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -57,10 +56,6 @@ namespace MVZ2.GameContent.Enemies
             entity.SetAnimationFloat("BowBlend", 1 - Mathf.Pow(1 - GetBowPower(entity) / (float)BOW_POWER_MAX, 2));
             entity.SetAnimationBool("ArrowVisible", !GetBowFired(entity));
         }
-        public static int GetBowPower(Entity enemy) => enemy.GetBehaviourField<int>(ID, PROP_BOW_POWER);
-        public static bool GetBowFired(Entity enemy) => enemy.GetBehaviourField<bool>(ID, PROP_BOW_FIRED);
-        public static void SetBowPower(Entity enemy, int value) => enemy.SetBehaviourField(ID, PROP_BOW_POWER, value);
-        public static void SetBowFired(Entity enemy, bool value) => enemy.SetBehaviourField(ID, PROP_BOW_FIRED, value);
         private bool CanShoot(Entity enemy)
         {
             return enemy.Position.x <= enemy.Level.GetEntityColumnX(enemy.Level.GetMaxColumnCount() - 1);
@@ -111,8 +106,11 @@ namespace MVZ2.GameContent.Enemies
             }
             SetBowPower(enemy, bowPower);
         }
+        public static int GetBowPower(Entity enemy) => enemy.GetProperty<int>(PROP_BOW_POWER);
+        public static bool GetBowFired(Entity enemy) => enemy.GetProperty<bool>(PROP_BOW_FIRED);
+        public static void SetBowPower(Entity enemy, int value) => enemy.SetProperty(PROP_BOW_POWER, value);
+        public static void SetBowFired(Entity enemy, bool value) => enemy.SetProperty(PROP_BOW_FIRED, value);
         private Detector detector;
-        private static readonly NamespaceID ID = VanillaEnemyID.skeleton;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_BOW_FIRED = new VanillaEntityPropertyMeta<bool>("bowFired");
         public static readonly VanillaEntityPropertyMeta<int> PROP_BOW_POWER = new VanillaEntityPropertyMeta<int>("bowPower");
         public const int STATE_WALK = LogicEnemyStates.WALK;

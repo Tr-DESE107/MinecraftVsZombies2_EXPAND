@@ -288,6 +288,12 @@
         </animator>    
     </model>
     <model name="shikaisen_staff" type="entity" path="mvz2:enemy/mausoleum/shikaisen_staff" width="24" height="64" xOffset="0" yOffset="-26" />
+    <model name="nether_hunter" type="entity" path="mvz2:enemy/palace/nether_hunter" width="77" height="120" xOffset="12" yOffset="-55">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="nether_mage" type="entity" path="mvz2:enemy/palace/nether_mage" width="77" height="120" xOffset="12" yOffset="-55">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
 
 
     <!-- Obstacles -->

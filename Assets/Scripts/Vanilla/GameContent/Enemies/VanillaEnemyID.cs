@@ -63,6 +63,8 @@ namespace MVZ2.GameContent.Enemies
         public const string skeletonWarrior = "skeleton_warrior";
         public const string skeletonMage = "skeleton_mage";
         public const string shikaisenStaff = "shikaisen_staff";
+        public const string netherHunter = "nether_hunter";
+        public const string netherMage = "nether_mage";
 
     }
     public static class VanillaEnemyID
@@ -123,6 +125,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID skeletonWarrior = Get(VanillaEnemyNames.skeletonWarrior);
         public static readonly NamespaceID skeletonMage = Get(VanillaEnemyNames.skeletonMage);
         public static readonly NamespaceID shikaisenStaff = Get(VanillaEnemyNames.shikaisenStaff);
+        public static readonly NamespaceID netherHunter = Get(VanillaEnemyNames.netherHunter);
+        public static readonly NamespaceID netherMage = Get(VanillaEnemyNames.netherMage);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

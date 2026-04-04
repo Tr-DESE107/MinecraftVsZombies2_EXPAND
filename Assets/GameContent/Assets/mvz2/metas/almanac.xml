@@ -960,7 +960,24 @@
                 <p>“最好让我一直沉睡下去，一直一直沉睡下去，这对我和你们都有好处。”</p>
             </flavor>
         </entry>
-        <entry />
+        <entry id="mvz2:nether_reactor_core">
+            <header>
+                <p>如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出星之碎片。</p>
+            </header>
+            <properties>
+                <p>结构：<![CDATA[<color=red><color=black>X</color>为下界反应核，A和<color=blue>B</color>为两种不同的器械</color>]]></p>
+                <p><![CDATA[<color=red>A<color=blue>B</color>A</color>]]></p>
+                <p><![CDATA[<color=blue>B<color=black>X</color>B</color>]]></p>
+                <p><![CDATA[<color=red>A<color=blue>B</color>A</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red>30-300秒（根据器械A和B的花费和充能时间而定）</color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤4个友方的凋灵骷髅，分别是狂战士、猎手、法师和催眠者</color>]]></p>
+            </properties>
+            <flavor>
+                <p>传说在先古时期，有人用一种蓝色的东西作为核心，创造了一座尖塔。</p>
+                <p>尖塔中存在着各式各样的宝物，塔内也有着四个生物。</p>
+                <p>有一天，这座尖塔就被杀戮了，它在之后再也没有出现过。</p>
+            </flavor>
+        </entry>
 
         <!-- Chapter 7 -->
         <entry />

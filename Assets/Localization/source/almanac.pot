@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-02 03:11+0800\n"
+"POT-Creation-Date: 2026-04-04 12:53+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1803,6 +1803,33 @@ msgctxt "contraptions.description"
 msgid ""
 "“我诞生于人类与恶魔的交易之中。相信我，你绝对不会想要见到我的。”\n"
 "“最好让我一直沉睡下去，一直一直沉睡下去，这对我和你们都有好处。”"
+msgstr ""
+
+#. Header for contraptions mvz2:nether_reactor_core
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出星之碎片。"
+msgstr ""
+
+#. Properties for contraptions mvz2:nether_reactor_core
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"结构：<color=red><color=black>X</color>为下界反应核，A和<color=blue>B</color>为两种不同的器械</color>\n"
+"<color=red>A<color=blue>B</color>A</color>\n"
+"<color=blue>B<color=black>X</color>B</color>\n"
+"<color=red>A<color=blue>B</color>A</color>\n"
+"生产时间：<color=red>30-300秒（根据器械A和B的花费和充能时间而定）</color>\n"
+"技能：<color=red>召唤4个友方的凋灵骷髅，分别是狂战士、猎手、法师和催眠者</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:nether_reactor_core
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"传说在先古时期，有人用一种蓝色的东西作为核心，创造了一座尖塔。\n"
+"尖塔中存在着各式各样的宝物，塔内也有着四个生物。\n"
+"有一天，这座尖塔就被杀戮了，它在之后再也没有出现过。"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -5376,6 +5403,18 @@ msgctxt "entity.tooltip"
 msgid "触发后摧毁大范围内的敌人以及所在地块"
 msgstr ""
 
+#. Name for entity mvz2:nether_reactor_core
+#: Entity meta file
+msgctxt "entity.name"
+msgid "下界反应核"
+msgstr ""
+
+#. Tooltip for entity mvz2:nether_reactor_core
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "在特殊阵型中持续提供星之碎片"
+msgstr ""
+
 #. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -6052,6 +6091,30 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "尸解仙之杖"
+msgstr ""
+
+#. Name for entity mvz2:nether_hunter
+#: Entity meta file
+msgctxt "entity.name"
+msgid "下界猎手"
+msgstr ""
+
+#. Death message for entity mvz2:nether_hunter
+#: Entity meta file
+msgctxt "death_message"
+msgid "转来转去像个小丑"
+msgstr ""
+
+#. Name for entity mvz2:nether_mage
+#: Entity meta file
+msgctxt "entity.name"
+msgid "下界法师"
+msgstr ""
+
+#. Death message for entity mvz2:nether_mage
+#: Entity meta file
+msgctxt "death_message"
+msgid "我已启动"
 msgstr ""
 
 #. Name for entity mvz2:gargoyle_statue
