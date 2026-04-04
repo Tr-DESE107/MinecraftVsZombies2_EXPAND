@@ -1,3 +1,10 @@
+## Added
+- Added commands for Debug mode:
+  - /gotolevel: Goto a level.
+  - /unlock listlocked: Lists all locked game states.
+  - /unlock all: Unlocks all game states.
+  - /unlock none: Relocks all game states.
+
 ## Modified
 
 - Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
@@ -13,6 +20,7 @@
 - Command Block
   - Material: Stone -> Metal
 - Dark Matter now make monsters invisible instead of making the battlefield dark.
+- The total flag amount of level 1-3 is from 2 -> 1.
 
 ## Fixed
 - Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.
