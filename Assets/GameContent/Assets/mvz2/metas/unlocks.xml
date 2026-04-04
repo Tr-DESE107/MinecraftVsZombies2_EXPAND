@@ -124,7 +124,7 @@
     <group id="contraption.cooling_cell"><conditions><condition required="mvz2:level.palace_6" /></conditions></group>
     <group id="contraption.amethyst_pylon"><conditions><condition required="mvz2:level.palace_7" /></conditions></group>
     <group id="contraption.nuke"><conditions><condition required="mvz2:level.palace_8" /></conditions></group>
-    <group id="contraption.nether_reactor"><conditions><condition required="mvz2:level.palace_9" /></conditions></group>
+    <group id="contraption.nether_reactor_core"><conditions><condition required="mvz2:level.palace_9" /></conditions></group>
     
     <!-- Upgrade Contraptions -->
     <group id="contraption.infectenser"><conditions><condition required="mvz2:contraption.infectenser" /></conditions></group>

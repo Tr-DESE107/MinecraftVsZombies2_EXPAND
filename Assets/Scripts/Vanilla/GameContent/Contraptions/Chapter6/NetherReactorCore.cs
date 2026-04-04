@@ -88,10 +88,9 @@ namespace MVZ2.GameContent.Contraptions
             var level = entity.Level;
             var column = grid.Column;
             var lane = grid.Lane;
-            const int count = 4;
             NamespaceID? entityID = null;
             var entityRefs = new HashSet<long>();
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < offsets.Length; i++)
             {
                 var offset = offsets[i];
                 var ent = level.GetGrid(column + offset.x, lane + offset.y)?.GetMainEntity();

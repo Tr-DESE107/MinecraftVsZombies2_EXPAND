@@ -1298,6 +1298,12 @@
             </properties>
         </contraption>
         <contraption id="nether_reactor_core" name="下界反应核" tooltip="在特殊阵型中持续提供星之碎片">
+            <unlock>
+                <condition requiredGroups="mvz2:contraption.nether_reactor_core" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:nether_reactor_core/evoke" />
+            </behaviours>
             <properties>
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
 

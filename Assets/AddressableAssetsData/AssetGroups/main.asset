@@ -171,6 +171,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03e6572f91fe33b41bbe79290e5ef125
+    m_Address: mvz2:contraption/palace/nether_reactor_core
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04449195224ad4244a17407dc21b85f1
     m_Address: mvz2:damage/bone/bone_hit1
     m_ReadOnly: 0
@@ -2459,6 +2466,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 319433371d6e7c945a25348c8bd53839
+    m_Address: mvz2:artifacts/censer_of_forgotten
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3197d6937f6ec6b489717190a1a006f8
     m_Address: mvz2:level/ship/ship_depth_2
     m_ReadOnly: 0
@@ -4152,6 +4166,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51034f3ae31016a40be01e52b28751b6
+    m_Address: mvz2:entity/contraptions/nether_reactor_core
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51097045838a9b647a215e8e0f56e559
     m_Address: mvz2:held/starshards/mausoleum
     m_ReadOnly: 0
@@ -4574,6 +4595,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58e2346d2fb90df44b58aebece0d82ad
     m_Address: mvz2:mobile_blueprint/skeleton_mage_fire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58e9f34d21943544ebeddf8f336f0379
+    m_Address: mvz2:artifacts/magma_stone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5013,6 +5041,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 610273fe8572b5d4abc29354cc157783
+    m_Address: mvz2:artifacts/broken_lock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 614ed32a96b18ee45b196d855175f379
     m_Address: mvz2:entity/enemy/mother_terror
     m_ReadOnly: 0
@@ -5446,6 +5481,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bd825bd837f3f443b9f6ca347065e61
+    m_Address: mvz2:artifacts/ghostly_cart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6be91ec42a553aa4489d5429b0576a27
     m_Address: mvz2:ui/level/speed_up
@@ -7098,6 +7140,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dfc059bdbbc9174bb6b803e2051e4b4
+    m_Address: mvz2:entity/contraption/nether_reactor_core_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e09eb5034d8901409cccb88e3f86633
     m_Address: mvz2:artifacts/eye_of_the_giant
     m_ReadOnly: 0
@@ -8003,6 +8052,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e859336bcdaf054593a5dc4ca4b79ae
     m_Address: mvz2:mobile_blueprint/dullahan_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e904d74c82bc6f4c8203ec8ae847ec2
+    m_Address: mvz2:products/satori_detector
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9396,6 +9452,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd020c04ecf41f542b2e72b0e73bf3d7
     m_Address: mvz2:mainmenu/gold_name_shine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd62b007f1f07454caaa39796ab08f5c
+    m_Address: mvz2:mobile_blueprint/nether_reactor_core
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

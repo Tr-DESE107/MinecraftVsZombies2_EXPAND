@@ -40,6 +40,7 @@ namespace MVZ2.Vanilla.Entities
         public const string brickCannon_Evoke = "brick_cannon/evoke";
         public const string amethystPylon_Lit = "amethyst_pylon/lit";
         public const string amethystPylon_Evoke = "amethyst_pylon/evoke";
+        public const string netherReactorCore_Evoke = "nether_reactor_core/evoke";
 
         #endregion
 
