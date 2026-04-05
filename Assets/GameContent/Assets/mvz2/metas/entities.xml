@@ -2174,6 +2174,30 @@
                 <int name="mvz2:cost" value="100" />
             </properties>
         </witherSkeleton>
+        <enemy id="zombie_cat" name="僵尸猫" deathMessage="你不会忘记挚爱的宠物，因为藏骨之处它永生不灭">
+            <unlock>
+                <condition required="mvz2:level.palace_8" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:enemy_self_revival" />
+                <behaviour operator="add" id="mvz2:zombie_cat/model" />
+                <properties behaviour="mvz2:enemy_self_revival">
+                    <int name="revive_times" value="8"/>
+                    <float name="revive_stun_seconds" value="1"/>
+                </properties>
+            </behaviours>
+            <properties>
+                <float name="mvz2:mass" value="-1" />
+                <float name="mvz2:maxHealth" value="100" />
+                <float name="mvz2:speed" value="1" />
+                <vector3 name="mvz2:size" x="48" y="34" z="24" />
+                <id name="mvz2:crySound" value="mvz2:zombie_cat_meow" />
+                <id name="mvz2:deathSound" value="mvz2:zombie_cat_death" />
+                <id name="mvz2:shape" value="mvz2:cat" />
+
+                <int name="mvz2:cost" value="75" />
+            </properties>
+        </enemy>
 
         <mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
         </mutantZombie>

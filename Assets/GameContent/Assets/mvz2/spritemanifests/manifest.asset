@@ -515,6 +515,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f79c654b2f8fb7246a6a8a3e9f3c6ba6, type: 3}
   - name: mobile_blueprint/zombie
     sprite: {fileID: 21300000, guid: 6514a857fb8b7fc4d992741ae15f66e5, type: 3}
+  - name: mobile_blueprint/zombie_cat
+    sprite: {fileID: 21300000, guid: 9e8b96acd54be694a9e26a07bd64fb2b, type: 3}
   - name: mobile_blueprint/zombie_cloud
     sprite: {fileID: 21300000, guid: 6cee1e618aa7aaa4290570ca7f2eb1c8, type: 3}
   - name: mobile_blueprint/zombie_cloud_snow
@@ -2591,6 +2593,28 @@ MonoBehaviour:
     - {fileID: 21300004, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     - {fileID: 21300006, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     - {fileID: 21300008, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
+  - name: entity/enemy/zombie_cat
+    spritesheet:
+    - {fileID: -1750296493, guid: 8daf65bcf7b24b04e99daa72b94bfee5, type: 3}
+    - {fileID: -1040194522, guid: 8daf65bcf7b24b04e99daa72b94bfee5, type: 3}
+    - {fileID: -536326207, guid: 8daf65bcf7b24b04e99daa72b94bfee5, type: 3}
+    - {fileID: -577346788, guid: 8daf65bcf7b24b04e99daa72b94bfee5, type: 3}
+    - {fileID: -1375813795, guid: 8daf65bcf7b24b04e99daa72b94bfee5, type: 3}
+  - name: entity/enemy/zombie_cat_death
+    spritesheet:
+    - {fileID: -1754984736, guid: 4809b60a7695d2c43a07158c171a48f9, type: 3}
+    - {fileID: -291040290, guid: 4809b60a7695d2c43a07158c171a48f9, type: 3}
+  - name: entity/enemy/zombie_cat_wounds
+    spritesheet:
+    - {fileID: -525848802, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
+    - {fileID: 1291786858, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
+    - {fileID: -2115129458, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
+    - {fileID: -1099166299, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
+    - {fileID: 1378681784, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
+    - {fileID: 281593953, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
+    - {fileID: 394133694, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
+    - {fileID: 1127189890, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
+    - {fileID: -1739882786, guid: b923f5c63e44e7a4b8ef1274512ad86a, type: 3}
   - name: entity/enemy/zombie_cloud
     spritesheet:
     - {fileID: -721226712, guid: daa11bf204159aa4ba9261b3b3bb7063, type: 3}

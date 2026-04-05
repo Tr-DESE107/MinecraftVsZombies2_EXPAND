@@ -51,6 +51,7 @@ namespace MVZ2.Vanilla.Entities
         public const string enemyMelee = "enemy_melee";
         public const string enemyWalk = "enemy_walk";
         public const string enemyDeathDisappear = "enemy_death_disappear";
+        public const string enemySelfRevival = "enemy_self_revival";
 
         public const string boatedEnemy = "boated_enemy";
         public const string rickrollDrownAchievement = "rickroll_drown_achievement";
@@ -83,6 +84,7 @@ namespace MVZ2.Vanilla.Entities
         public const string skeletonStatue_State = "skeleton_statue/state";
         public const string hacker_Animation = "hacker/animation";
         public const string hacker_State = "hacker/state";
+        public const string zombieCat_Model = "zombie_cat/model";
         #endregion
 
         #region Obstacles

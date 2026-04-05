@@ -35,6 +35,11 @@ namespace MVZ2.GameContent.Enemies
                 entity.State = GetActiveState(entity);
                 return;
             }
+            if (entity.State == STATE_DEATH && !entity.IsDead) // ∏¥ªÓ∫Û÷ÿ÷√◊¥Ã¨
+            {
+                entity.State = GetActiveState(entity);
+                return;
+            }
         }
         protected virtual int GetPassiveState(Entity enemy)
         {

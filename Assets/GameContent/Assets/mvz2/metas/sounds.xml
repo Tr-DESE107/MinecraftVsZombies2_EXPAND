@@ -1048,6 +1048,17 @@
         <sample path="mvz2:zap3" weight="1" />
         <sample path="mvz2:zap4" weight="1" />
     </sound>
+    <sound name="zombie_cat_meow">
+        <sample path="mvz2:entity/zombie_cat/meow1" weight="1" />
+        <sample path="mvz2:entity/zombie_cat/meow2" weight="1" />
+        <sample path="mvz2:entity/zombie_cat/meow3" weight="1" />
+        <sample path="mvz2:entity/zombie_cat/meow4" weight="1" />
+    </sound>
+    <sound name="zombie_cat_death">
+        <sample path="mvz2:entity/zombie_cat/death1" weight="1" />
+        <sample path="mvz2:entity/zombie_cat/death2" weight="1" />
+        <sample path="mvz2:entity/zombie_cat/death3" weight="1" />
+    </sound>
     <sound name="zombie_cry">
         <sample path="mvz2:entity/zombie/zombie_cry1" weight="1" />
         <sample path="mvz2:entity/zombie/zombie_cry2" weight="1" />

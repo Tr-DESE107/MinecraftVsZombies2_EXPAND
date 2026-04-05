@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (entity.State == STATE_DEATH)
+            if (entity.State == STATE_DEATH && entity.IsDead)
             {
                 var deathTimer = GetDeathTimer(entity);
                 if (deathTimer == null)

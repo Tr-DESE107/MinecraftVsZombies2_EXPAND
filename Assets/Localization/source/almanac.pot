@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-04 02:24+0800\n"
+"POT-Creation-Date: 2026-04-05 03:46+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5947,6 +5947,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "G4M3 0V3R"
+msgstr ""
+
+#. Name for entity mvz2:zombie_cat
+#: Entity meta file
+msgctxt "entity.name"
+msgid "僵尸猫"
+msgstr ""
+
+#. Death message for entity mvz2:zombie_cat
+#: Entity meta file
+msgctxt "death_message"
+msgid "你不会忘记挚爱的宠物，因为藏骨之处它永生不灭"
 msgstr ""
 
 #. Name for entity mvz2:mutant_zombie

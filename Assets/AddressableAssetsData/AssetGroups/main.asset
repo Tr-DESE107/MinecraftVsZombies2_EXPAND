@@ -3452,6 +3452,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42c1f6818cdc98a4a93e475bc0ad3fea
+    m_Address: mvz2:mobile_blueprint/nether_mage_frost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42d4cd48e21a9fe448a9bbff03e200d1
     m_Address: mvz2:effect/nightmare_watching_eye
     m_ReadOnly: 0
@@ -3601,6 +3608,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 457b5a24e00ab4e4dbfda04a0d313e49
     m_Address: mvz2:entity/effects/nightmare_portal_background_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 457f7a981eb5b634788558bb96099823
+    m_Address: mvz2:mobile_blueprint/nether_hunter
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3787,6 +3801,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4809b60a7695d2c43a07158c171a48f9
+    m_Address: mvz2:entity/enemy/zombie_cat_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 482bc6c937f3f2345b34075e5d1a3f69
     m_Address: mvz2:map/dream/nightmare
@@ -4739,6 +4760,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b9f7b131257acb4cb4372a72490c422
+    m_Address: mvz2:entity/zombie_cat/death1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5bad6b1e0c748e241bcf9fa3241d3df6
     m_Address: mvz2:projectile/wooden_ball
@@ -5992,6 +6020,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76c528c38d7afbd4999f27e6fbd18735
+    m_Address: mvz2:entity/zombie_cat/meow1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 772451afbb93e0949906b761c0971acc
     m_Address: mvz2:random/crystal/crystal1
     m_ReadOnly: 0
@@ -6685,6 +6720,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82744b9d240e1b54cb864869fc794a02
+    m_Address: mvz2:entity/zombie_cat/meow2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82a10341e3b6a454d9c21086c64d5367
     m_Address: mvz2:halloween
     m_ReadOnly: 0
@@ -7056,6 +7098,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b716f35d6aa1244598083b3b6c468e9
+    m_Address: mvz2:mobile_blueprint/nether_mage_fire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b9310b7e61da30448b5d9b66c4cf9f3
     m_Address: mvz2:entity/enemies/ghost_tail
     m_ReadOnly: 0
@@ -7146,6 +7195,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8daf65bcf7b24b04e99daa72b94bfee5
+    m_Address: mvz2:entity/enemy/zombie_cat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8db4c51b1c46e4643b5b47a25c4378ef
     m_Address: mvz2:notes
@@ -7819,6 +7875,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9afaa405c51bd7047a789336435874e0
+    m_Address: mvz2:entity/zombie_cat/death3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b0ae17858b30854380a3a68f83e2a5f
     m_Address: mvz2:entity/carts/ballista_body
     m_ReadOnly: 0
@@ -7959,6 +8022,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c738ff97ec299e44824ed8a9e5bb620
+    m_Address: mvz2:entity/zombie_cat/meow3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c75c56b2f4234d49b785662db36dd47
     m_Address: mvz2:projectile/breakout_pearl
     m_ReadOnly: 0
@@ -8066,6 +8136,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e859336bcdaf054593a5dc4ca4b79ae
     m_Address: mvz2:mobile_blueprint/dullahan_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e8b96acd54be694a9e26a07bd64fb2b
+    m_Address: mvz2:mobile_blueprint/zombie_cat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8511,6 +8588,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a89018c4ced15d34b94c84b4777230c8
+    m_Address: mvz2:enemy/palace/zombie_cat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8cf5193a3c0b9a4ea8d1119e96dfa2b
     m_Address: mvz2:ui/level/pause_image_2
@@ -9289,6 +9373,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b923f5c63e44e7a4b8ef1274512ad86a
+    m_Address: mvz2:entity/enemy/zombie_cat_wounds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b944e3154656ac74f8054ed14cb53335
     m_Address: mvz2:products/starshard_slot
     m_ReadOnly: 0
@@ -9431,6 +9522,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc0c95cfbb7cc444c87d393aaaf6209d
     m_Address: mvz2:projectile/diamond_caltrop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc31031616aeda64f97afba96b962ff0
+    m_Address: mvz2:bones/cat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9674,6 +9772,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2bd76c425fcb814f88e69822e1bbf6d
+    m_Address: mvz2:entity/zombie_cat/meow4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2e6ace3e57f0964eb3d1cfe1113a3cd
     m_Address: mvz2:characters/shinmyoumaru_bottle
     m_ReadOnly: 0
@@ -9750,6 +9855,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c48eaf4b163abae47b971fe9c93c6ec2
+    m_Address: mvz2:entity/zombie_cat/death2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c49340a60ad150a4895d58f3e7e9b9ce
     m_Address: mvz2:entity/effects/water_stain
@@ -10612,6 +10724,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d44009fc6d670e4488d49e21397cee3e
+    m_Address: mvz2:units/colliders/cat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d4437c9a030322a468d926213790a942
     m_Address: mvz2:shadow_cast
     m_ReadOnly: 0
@@ -11426,6 +11545,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6ef82d213584ae4e8a121cddec4c0ca
     m_Address: mvz2:entity/effects/rain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6f619d8a994df64fa008fbd0106d382
+    m_Address: mvz2:mobile_blueprint/nether_mage_lightning
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -12598,6 +12724,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdc7423050cadcd4ea47886ef15e78fc
+    m_Address: mvz2:mobile_blueprint/nether_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe0e02bd8e3b7574bad03100a24b2c38
     m_Address: mvz2:effect/mutant_zombie_weapon
