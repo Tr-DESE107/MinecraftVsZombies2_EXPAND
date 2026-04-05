@@ -144,7 +144,7 @@
     <model name="ghost" type="entity" path="mvz2:enemy/halloween/ghost" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="mummy" type="entity" path="mvz2:enemy/halloween/mummy" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="mummy" type="entity" path="mvz2:enemy/EXPAND/LEOLau" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="necromancer" type="entity" path="mvz2:enemy/halloween/necromancer" width="64" height="96" xOffset="10" yOffset="-44">
@@ -263,6 +263,7 @@
     <model name="skeleton_warrior" type="entity" path="mvz2:enemy/mausoleum/skeleton_warrior" width="66" height="86" xOffset="16" yOffset="-50">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+	<!--
     <model name="skeleton_mage" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
@@ -283,6 +284,34 @@
         </animator>
     </model>
     <model name="skeleton_mage_lightning" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+        <animator updateOnShot="true">
+            <parameters>
+                <int name="Variant" value="3" />
+            </parameters>
+        </animator>
+    </model>
+	-->
+    <model name="skeleton_mage" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="skeleton_mage_fire" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+        <animator updateOnShot="true">
+            <parameters>
+                <int name="Variant" value="1" />
+            </parameters>
+        </animator>
+    </model>
+    <model name="skeleton_mage_frost" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+        <animator updateOnShot="true">
+            <parameters>
+                <int name="Variant" value="2" />
+            </parameters>
+        </animator>
+    </model>
+    <model name="skeleton_mage_lightning" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
         <animator updateOnShot="true">
             <parameters>
@@ -452,17 +481,17 @@
     <model name="VillagerGhast" type="entity" path="mvz2:enemy/EXPAND/VillagerGhast" width="64" height="64" xOffset="0" yOffset="-28" />
 
     <!--EXPAND Enemies Mannequin-->
-    <model name="Mannequin" type="entity" path="mvz2:enemy/EXPAND/Mannequin" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="Mannequin" type="entity" path="mvz2:enemy/EXPAND/DESE107" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="ImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
+    <model name="ImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpDESE107" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="MegaImpMannequin" type="entity" path="mvz2:enemy/EXPAND/MegaImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
+    <model name="MegaImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpDESE107" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 
-    <model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantMannequin" width="200" height="180" xOffset="0" yOffset="-90" />
+    <model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantDESE107" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="MannequinTNT" type="entity" path="mvz2:enemy/EXPAND/MannequinTNT" width="64" height="64" xOffset="0" yOffset="-28" />
 	
 	<model name="CannoneerMannequin" type="entity" path="mvz2:enemy/EXPAND/CannoneerMannequin" width="85" height="92" xOffset="22" yOffset="-41">

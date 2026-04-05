@@ -2709,7 +2709,7 @@
                 <p>不同的骷髅法师能够使用不同种类的法术。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>生命：<![CDATA[<color=red>800</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>冰锥20，闪电球20，火弹80</color>]]></p>
             </properties>

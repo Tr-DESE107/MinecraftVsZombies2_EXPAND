@@ -4039,6 +4039,22 @@ MonoBehaviour:
     - {fileID: -585815378, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
     - {fileID: 1470687961, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
     - {fileID: -1157297119, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
+  - name: entity/enemy/EXPAND/LEOLau
+    spritesheet:
+    - {fileID: 1949722429, guid: fd9ad7c66df138e4089d9de9d50b3639, type: 3}
+    - {fileID: 684138545, guid: fd9ad7c66df138e4089d9de9d50b3639, type: 3}
+    - {fileID: 1953058575, guid: fd9ad7c66df138e4089d9de9d50b3639, type: 3}
+    - {fileID: -1287463465, guid: fd9ad7c66df138e4089d9de9d50b3639, type: 3}
+    - {fileID: 1088223184, guid: fd9ad7c66df138e4089d9de9d50b3639, type: 3}
+  - name: entity/enemy/EXPAND/LGBTMage
+    spritesheet:
+    - {fileID: 1707663983, guid: c0e02c96206b419449d126677178c74e, type: 3}
+    - {fileID: 1965421414, guid: c0e02c96206b419449d126677178c74e, type: 3}
+    - {fileID: -1658794129, guid: c0e02c96206b419449d126677178c74e, type: 3}
+    - {fileID: 1777863780, guid: c0e02c96206b419449d126677178c74e, type: 3}
+    - {fileID: 2111437842, guid: c0e02c96206b419449d126677178c74e, type: 3}
+    - {fileID: -978200601, guid: c0e02c96206b419449d126677178c74e, type: 3}
+    - {fileID: 488333908, guid: c0e02c96206b419449d126677178c74e, type: 3}
   - name: entity/enemy/EXPAND/MusketeerZombie
     spritesheet:
     - {fileID: -1102968922, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
