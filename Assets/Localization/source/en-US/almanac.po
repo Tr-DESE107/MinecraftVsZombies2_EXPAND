@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-06 03:02+0800\n"
-"PO-Revision-Date: 2026-04-06 15:03+0800\n"
+"POT-Creation-Date: 2026-04-06 03:18+0800\n"
+"PO-Revision-Date: 2026-04-06 15:18+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3429,6 +3429,60 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ">rm -rf"
 msgstr ">rm -rf"
+
+#. Header for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "僵尸猫拥有9条命，并且每次死亡时都有50%的概率召唤一只鬼火苍蝇。"
+msgstr "Zombie Cat has 9 lives, and each time it dies, there is a 50% chance to spawn a Wisp Fly."
+
+#. Properties for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>100</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>能复活8次</color>"
+msgstr ""
+"Toughness: <color=red>100</color>\n"
+"Speed: <color=red>1</color>\n"
+"Special: <color=red>Revives for 8 times</color>"
+
+#. Flavor for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "我们修复了在夜间游荡的僵尸不会攻击村庄中的流浪猫的问题。"
+msgstr "We have fixed an issue where zombies wandering at night would not attack stray cats in villages."
+
+#. Header for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "鬼火苍蝇会冲向你的器械，并产生一次小型自爆。"
+msgstr "Wisp Flies will charge at your contraptions and trigger a small self-destruct."
+
+#. Properties for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>100</color>\n"
+"速度：<color=red>2</color>\n"
+"伤害：<color=red>100点火焰伤害（自爆）</color>"
+msgstr ""
+"Toughness: <color=red>100</color>\n"
+"Speed: <color=red>2</color>\n"
+"Damage: <color=red>100 fire damage (Self-destruction)</color>"
+
+#. Flavor for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"一：为了解决现实中青蛙吃萤火虫会中毒的问题，我们干脆不加入萤火虫。\n"
+"二：我们反悔了，这次我们加入了萤火虫，但是只是方块的视觉效果。\n"
+"三：现在我们真的加入“萤火虫”了。"
+msgstr ""
+"1. To solve the issue where frogs get poisoned by eating fireflies in real life, we simply decided not to add fireflies.\n"
+"2. We changed our minds. This time we added fireflies, but only as a block visual effect.\n"
+"3. Now we have truly added \"fireflies.\""
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file

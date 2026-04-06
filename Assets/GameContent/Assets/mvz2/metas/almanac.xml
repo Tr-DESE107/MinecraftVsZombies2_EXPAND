@@ -1664,6 +1664,34 @@
                 <p>&gt;rm -rf</p>
             </flavor>
         </entry>
+        <entry id="mvz2:zombie_cat">
+            <header>
+                <p>僵尸猫拥有9条命，并且每次死亡时都有50%的概率召唤一只鬼火苍蝇。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>100</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>特点：<![CDATA[<color=red>能复活8次</color>]]></p>
+            </properties>
+            <flavor>
+                <p>我们修复了在夜间游荡的僵尸不会攻击村庄中的流浪猫的问题。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:wisp_fly">
+            <header>
+                <p>鬼火苍蝇会冲向你的器械，并产生一次小型自爆。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>100</color>]]></p>
+                <p>速度：<![CDATA[<color=red>2</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>100点火焰伤害（自爆）</color>]]></p>
+            </properties>
+            <flavor>
+                <p>一：为了解决现实中青蛙吃萤火虫会中毒的问题，我们干脆不加入萤火虫。</p>
+                <p>二：我们反悔了，这次我们加入了萤火虫，但是只是方块的视觉效果。</p>
+                <p>三：现在我们真的加入“萤火虫”了。</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-06 03:02+0800\n"
+"POT-Creation-Date: 2026-04-06 03:18+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2754,6 +2754,51 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ">rm -rf"
+msgstr ""
+
+#. Header for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "僵尸猫拥有9条命，并且每次死亡时都有50%的概率召唤一只鬼火苍蝇。"
+msgstr ""
+
+#. Properties for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>100</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>能复活8次</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "我们修复了在夜间游荡的僵尸不会攻击村庄中的流浪猫的问题。"
+msgstr ""
+
+#. Header for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "鬼火苍蝇会冲向你的器械，并产生一次小型自爆。"
+msgstr ""
+
+#. Properties for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>100</color>\n"
+"速度：<color=red>2</color>\n"
+"伤害：<color=red>100点火焰伤害（自爆）</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"一：为了解决现实中青蛙吃萤火虫会中毒的问题，我们干脆不加入萤火虫。\n"
+"二：我们反悔了，这次我们加入了萤火虫，但是只是方块的视觉效果。\n"
+"三：现在我们真的加入“萤火虫”了。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
