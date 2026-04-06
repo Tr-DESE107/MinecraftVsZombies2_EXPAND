@@ -10,6 +10,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -35,6 +36,7 @@ namespace MVZ2.GameContent.Enemies
             if (reviveTimes <= 0)
                 return;
             entity.Revive();
+            entity.Health = Mathf.Max(0, entity.Health);
             entity.HealEffects(entity.GetMaxHealth(), entity);
             SetReviveTimes(entity, reviveTimes - 1);
 

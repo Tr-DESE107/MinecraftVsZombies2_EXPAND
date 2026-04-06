@@ -15,6 +15,7 @@ namespace MVZ2.Metas
         public int maxCount;
         public float loopPitchStart;
         public float loopPitchEnd;
+        public float loopVolume;
         public float loopFadeInSpeed;
         public float loopFadeOutSpeed;
 
@@ -34,6 +35,7 @@ namespace MVZ2.Metas
             }
             var priority = node.GetAttributeInt("priority") ?? 128;
             var maxCount = node.GetAttributeInt("maxCount") ?? 2;
+            var loopVolume = node.GetAttributeFloat("loopVolume") ?? 1;
             var loopPitchStart = node.GetAttributeFloat("loopPitchStart") ?? 1;
             var loopPitchEnd = node.GetAttributeFloat("loopPitchEnd") ?? 1;
             var loopFadeInSpeed = node.GetAttributeFloat("loopFadeInSpeed") ?? 1;
@@ -49,6 +51,7 @@ namespace MVZ2.Metas
             {
                 priority = priority,
                 maxCount = maxCount,
+                loopVolume = loopVolume,
                 loopPitchStart = loopPitchStart,
                 loopPitchEnd = loopPitchEnd,
                 loopFadeInSpeed = loopFadeInSpeed,

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-05 03:46+0800\n"
-"PO-Revision-Date: 2026-04-05 15:46+0800\n"
+"POT-Creation-Date: 2026-04-06 03:02+0800\n"
+"PO-Revision-Date: 2026-04-06 15:03+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -7121,7 +7121,19 @@ msgstr "Zombie Cat"
 #: Entity meta file
 msgctxt "death_message"
 msgid "你不会忘记挚爱的宠物，因为藏骨之处它永生不灭"
-msgstr "You shan't forget your favorite pet, cause in the boneyard it never died"
+msgstr "You shan't forget your favorite pet, 'cause in the boneyard it never died"
+
+#. Name for entity mvz2:wisp_fly
+#: Entity meta file
+msgctxt "entity.name"
+msgid "鬼火苍蝇"
+msgstr "Wisp Fly"
+
+#. Death message for entity mvz2:wisp_fly
+#: Entity meta file
+msgctxt "death_message"
+msgid "嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡"
+msgstr "BUZZZZZZZZZZZZZZZZ"
 
 #. Name for entity mvz2:mutant_zombie
 #: Entity meta file

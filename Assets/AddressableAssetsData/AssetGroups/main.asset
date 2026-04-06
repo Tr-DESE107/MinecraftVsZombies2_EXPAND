@@ -1074,6 +1074,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 149345eececfd584193cee0c24c868d1
+    m_Address: mvz2:entity/enemy/wisp_fly
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 149e191aac53ee54a9cc4f197a4bc20f
     m_Address: mvz2:enemy/ship/cannoneer_zombie
     m_ReadOnly: 0
@@ -2193,6 +2200,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c07f4632c14c16469e70d28dd896f32
+    m_Address: mvz2:enemy/palace/wisp_fly
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c0f3cc55c6401d458ad5611a9d70c0e
     m_Address: mvz2:mobile_blueprint/lengthen_board
@@ -12166,6 +12180,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1c1f36a0e28e5e4daa91d206193c16d
+    m_Address: mvz2:mobile_blueprint/wisp_fly
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1ca318cee6cb0f4e9bf3673036fa482
     m_Address: mvz2:effect/tornado
     m_ReadOnly: 0
@@ -12441,6 +12462,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7a8f6567388ead408d2056f92912c2d
     m_Address: mvz2:siren
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7b478c6ab8efa4448abafa7f9f34344
+    m_Address: mvz2:fly_swarm
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

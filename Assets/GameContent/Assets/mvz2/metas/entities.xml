@@ -2198,6 +2198,30 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </enemy>
+        <enemy id="wisp_fly" name="鬼火苍蝇" deathMessage="嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡">
+            <unlock>
+                <condition required="mvz2:level.palace_9" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_melee" id="wisp_fly/self_destruct" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:mass" value="-2" />
+                <float name="mvz2:maxHealth" value="100" />
+                <float name="mvz2:speed" value="2" />
+                <vector3 name="mvz2:size" x="24" y="24" z="24" />
+                <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
+                <id name="mvz2:crySound" null="true" />
+                <id name="mvz2:deathSound" value="mvz2:fire" />
+                <id name="mvz2:shape" value="mvz2:fly" />
+
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="48" y="48" z="48" />
+                <color name="mvz2:lightColor" value="#00FF00" />
+
+                <int name="mvz2:cost" value="25" />
+            </properties>
+        </enemy>
 
         <mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
         </mutantZombie>

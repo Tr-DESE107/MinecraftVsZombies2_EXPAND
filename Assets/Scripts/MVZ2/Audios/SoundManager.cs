@@ -172,7 +172,7 @@ namespace MVZ2.Audios
             var pitchStart = meta.loopPitchStart;
             var pitchEnd = meta.loopPitchEnd;
             var pitch = (pitchEnd - pitchStart) * intensity + pitchStart;
-            source.Volume = intensity;
+            source.Volume = intensity * meta.loopVolume;
             source.Pitch = pitch;
         }
         private void RemoveSoundSource(SoundSource source)

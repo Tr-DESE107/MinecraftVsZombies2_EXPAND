@@ -85,6 +85,7 @@ namespace MVZ2.Vanilla.Entities
         public const string hacker_Animation = "hacker/animation";
         public const string hacker_State = "hacker/state";
         public const string zombieCat_Model = "zombie_cat/model";
+        public const string wispFly_SelfDestruct = "wisp_fly/self_destruct";
         #endregion
 
         #region Obstacles

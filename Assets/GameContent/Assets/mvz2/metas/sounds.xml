@@ -310,6 +310,9 @@
     <sound name="floop">
         <sample path="mvz2:floop" weight="1" />
     </sound>
+    <sound name="fly_swarm" loopVolume="0.25">
+        <sample path="mvz2:fly_swarm" weight="1" />
+    </sound>
     <sound name="frankenstein_laugh">
         <sample path="mvz2:frankenstein_laugh" weight="1" />
     </sound>

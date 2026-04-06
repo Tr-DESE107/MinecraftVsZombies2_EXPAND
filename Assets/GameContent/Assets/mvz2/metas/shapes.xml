@@ -275,4 +275,15 @@
             </armor>
         </armors>
     </shape>
+    <shape id="fly">
+        <armors>
+            <armor slot="mvz2:main">
+                <position x="0" y="1" z="0" />
+                <scale x="0.25" y="0.25" z="0.25" />
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-20" y="12" z="0" />
+            </armor>
+        </armors>
+    </shape>
 </shapes>
