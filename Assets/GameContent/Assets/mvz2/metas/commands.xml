@@ -239,14 +239,20 @@
     </command>
     <command id="test" inLevel="true">
         <description>进行某些测试。</description>
+        <variant subname="spawnenemies">
+            <description>生成一页不同的怪物。</description>
+            <params>
+                <param name="page" type="int" optional="true">可选。怪物页数。</param>
+            </params>
+        </variant>
         <variant subname="armor">
-            <description>生成一排带有特定头盔的不同怪物。</description>
+            <description>使所有怪物戴上盔甲。</description>
             <params>
                 <param name="id" type="id" idType="armor">盔甲ID。</param>
             </params>
         </variant>
         <variant subname="shield">
-            <description>生成一排带有特定盾牌的不同怪物。</description>
+            <description>使所有怪物拿起护盾。</description>
             <params>
                 <param name="id" type="id" idType="armor">盔甲ID。</param>
             </params>

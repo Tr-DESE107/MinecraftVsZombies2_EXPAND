@@ -270,7 +270,7 @@
                 <scale x="1" y="1" z="1" />
             </armor>
             <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-24" y="25" z="0" />
+                <position x="-39" y="25" z="0" />
                 <scale x="1" y="1" z="1" />
             </armor>
         </armors>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-02 02:45+0800\n"
-"PO-Revision-Date: 2026-04-02 14:49+0800\n"
+"POT-Creation-Date: 2026-04-06 02:09+0800\n"
+"PO-Revision-Date: 2026-04-06 14:11+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -5464,11 +5464,23 @@ msgctxt "command.description"
 msgid "进行某些测试。"
 msgstr "Do some tests."
 
+#. Description for command variant "mvz2:test spawnenemies"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "生成一页不同的怪物。"
+msgstr "Spawns a page of different monsters."
+
+#. Description for parameter page of command "mvz2:test spawnenemies"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。怪物页数。"
+msgstr "Optional. The page number of monsters."
+
 #. Description for command variant "mvz2:test armor"
 #: Commands meta file
 msgctxt "command_variant.description"
-msgid "生成一排带有特定头盔的不同怪物。"
-msgstr "Spawns a group of monsters with specific armors."
+msgid "使所有怪物戴上盔甲。"
+msgstr "Equips helmets to all monsters."
 
 #. Description for parameter id of command "mvz2:test armor"
 #: Commands meta file
@@ -5479,8 +5491,8 @@ msgstr "Armor ID."
 #. Description for command variant "mvz2:test shield"
 #: Commands meta file
 msgctxt "command_variant.description"
-msgid "生成一排带有特定盾牌的不同怪物。"
-msgstr "Spawns a group of monsters with specific shields."
+msgid "使所有怪物拿起护盾。"
+msgstr "Equips shields to all monsters."
 
 #. Description for command variant "mvz2:test paratroops"
 #: Commands meta file
@@ -5898,6 +5910,14 @@ msgstr "Credits"
 msgctxt "option.name"
 msgid "导出日志文件"
 msgstr "Export Log Files"
+
+#~ msgctxt "command_variant.description"
+#~ msgid "生成一排带有特定头盔的不同怪物。"
+#~ msgstr "Spawns a group of monsters with specific armors."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "生成一排带有特定盾牌的不同怪物。"
+#~ msgstr "Spawns a group of monsters with specific shields."
 
 # FPS模式
 #~ msgctxt "option.target_framerate"

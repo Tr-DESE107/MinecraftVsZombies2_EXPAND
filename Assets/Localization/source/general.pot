@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-02 02:45+0800\n"
+"POT-Creation-Date: 2026-04-06 02:09+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5187,10 +5187,22 @@ msgctxt "command.description"
 msgid "进行某些测试。"
 msgstr ""
 
+#. Description for command variant "mvz2:test spawnenemies"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "生成一页不同的怪物。"
+msgstr ""
+
+#. Description for parameter page of command "mvz2:test spawnenemies"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。怪物页数。"
+msgstr ""
+
 #. Description for command variant "mvz2:test armor"
 #: Commands meta file
 msgctxt "command_variant.description"
-msgid "生成一排带有特定头盔的不同怪物。"
+msgid "使所有怪物戴上盔甲。"
 msgstr ""
 
 #. Description for parameter id of command "mvz2:test armor"
@@ -5202,7 +5214,7 @@ msgstr ""
 #. Description for command variant "mvz2:test shield"
 #: Commands meta file
 msgctxt "command_variant.description"
-msgid "生成一排带有特定盾牌的不同怪物。"
+msgid "使所有怪物拿起护盾。"
 msgstr ""
 
 #. Description for command variant "mvz2:test paratroops"
