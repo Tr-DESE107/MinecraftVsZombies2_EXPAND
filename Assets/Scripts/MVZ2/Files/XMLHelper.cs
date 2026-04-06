@@ -86,6 +86,15 @@ namespace MVZ2.IO
                 return null;
             return value;
         }
+        public static double? GetAttributeDouble(this XmlNode node, string name)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!ParseHelper.TryParseDouble(attr.Value, out var value))
+                return null;
+            return value;
+        }
         public static Color? GetAttributeColor(this XmlNode node, string name)
         {
             var attr = node.Attributes[name];

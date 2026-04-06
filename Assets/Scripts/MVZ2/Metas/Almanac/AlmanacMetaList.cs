@@ -9,12 +9,14 @@ namespace MVZ2.Metas
     public class AlmanacMetaList
     {
         public AlmanacTagMeta[] tags;
+        public AlmanacVariable[] globalVariables;
         public AlmanacTagEnumMeta[] enums;
         public AlmanacCategory[] categories;
 
-        public AlmanacMetaList(AlmanacTagMeta[] tags, AlmanacTagEnumMeta[] enums, AlmanacCategory[] categories)
+        public AlmanacMetaList(AlmanacTagMeta[] tags, AlmanacVariable[] globalVariables, AlmanacTagEnumMeta[] enums, AlmanacCategory[] categories)
         {
             this.tags = tags;
+            this.globalVariables = globalVariables;
             this.enums = enums;
             this.categories = categories;
         }
@@ -31,6 +33,7 @@ namespace MVZ2.Metas
         public static AlmanacMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
             var tags = new List<AlmanacTagMeta>();
+            var globalVariables = new List<AlmanacVariable>();
             var enums = new List<AlmanacTagEnumMeta>();
             var categories = new List<AlmanacCategory>();
             for (int i = 0; i < node.ChildNodes.Count; i++)
@@ -40,13 +43,17 @@ namespace MVZ2.Metas
                 {
                     LoadTags(childNode, defaultNsp, tags, enums);
                 }
+                else if (childNode.Name == "globalVariables")
+                {
+                    LoadVariables(childNode, defaultNsp, globalVariables);
+                }
                 else
                 {
                     var category = AlmanacCategory.FromXmlNode(childNode, defaultNsp);
                     categories.Add(category);
                 }
             }
-            return new AlmanacMetaList(tags.ToArray(), enums.ToArray(), categories.ToArray());
+            return new AlmanacMetaList(tags.ToArray(), globalVariables.ToArray(), enums.ToArray(), categories.ToArray());
         }
         private static void LoadTags(XmlNode node, string defaultNsp, List<AlmanacTagMeta> tags, List<AlmanacTagEnumMeta> enums)
         {
@@ -67,6 +74,21 @@ namespace MVZ2.Metas
                     if (enumType != null)
                     {
                         enums.Add(enumType);
+                    }
+                }
+            }
+        }
+        private static void LoadVariables(XmlNode node, string defaultNsp, List<AlmanacVariable> variables)
+        {
+            for (int i = 0; i < node.ChildNodes.Count; i++)
+            {
+                var childNode = node.ChildNodes[i];
+                if (childNode.Name == "variable")
+                {
+                    var variable = AlmanacVariable.FromXmlNode(childNode, defaultNsp);
+                    if (variable != null)
+                    {
+                        variables.Add(variable);
                     }
                 }
             }
