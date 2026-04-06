@@ -28,6 +28,10 @@ namespace MVZ2Logic
         {
             return float.TryParse(str, NumberStyles.Float, provider, out parsed);
         }
+        public static bool TryParseDouble(string str, out double parsed)
+        {
+            return double.TryParse(str, NumberStyles.Float, provider, out parsed);
+        }
         public static string[] GetVectorNumberStrings(string str)
         {
             var left = str.IndexOf("[");

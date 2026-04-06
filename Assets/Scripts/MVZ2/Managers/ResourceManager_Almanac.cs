@@ -76,6 +76,15 @@ namespace MVZ2.Managers
                 return null;
             return metaList.tags.FirstOrDefault(e => e.id == id.Path);
         }
+        public AlmanacVariable? GetAlmanacGlobalVariable(NamespaceID? id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return null;
+            var metaList = GetAlmanacMetaList(id.SpaceName);
+            if (metaList == null)
+                return null;
+            return metaList.globalVariables.FirstOrDefault(e => e.name == id.Path);
+        }
         public AlmanacTagEnumMeta? GetAlmanacTagEnumMeta(NamespaceID? id)
         {
             if (!NamespaceID.IsValid(id))
