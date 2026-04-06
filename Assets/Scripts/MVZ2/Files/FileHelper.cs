@@ -23,6 +23,17 @@ namespace MVZ2.IO
                 Directory.CreateDirectory(dir);
             }
         }
+        public static void Move(string src, string dest, bool overwrite = false)
+        {
+            if (overwrite)
+            {
+                if (File.Exists(dest))
+                {
+                    File.Delete(dest);
+                }
+            }
+            File.Move(src, dest);
+        }
         public static void WriteBytes(Stream stream, byte[] bytes)
         {
             stream.Write(bytes, 0, bytes.Length);

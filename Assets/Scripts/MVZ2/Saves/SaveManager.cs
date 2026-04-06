@@ -41,15 +41,71 @@ namespace MVZ2.Saves
         }
         public void SaveModData(int userIndex, string spaceName, long playTimeDelta)
         {
-            var path = GetUserModSaveDataPath(userIndex, spaceName);
-            FileHelper.ValidateDirectory(path);
             var modSaveData = GetModSaveData(spaceName);
             if (modSaveData == null)
                 return;
             UpdatePlayTime(modSaveData, playTimeDelta);
-            var serializable = modSaveData.ToSerializable();
-            var metaJson = serializable.ToBson();
-            Main.FileManager.WriteStringFile(path, metaJson);
+
+            WriteSaveData(userIndex, spaceName, modSaveData);
+        }
+        private void WriteSaveData(int userIndex, string spaceName, ModSaveData modSaveData)
+        {
+            var modInfo = Main.ModManager.GetModInfo(spaceName);
+            if (modInfo == null || modInfo.Logic == null)
+                return;
+
+            lock (_saveLock)
+            {
+                // 1. 将存档写入临时文件。
+                var tempSavePath = GetUserModSaveDataTempPath(userIndex, spaceName);
+                FileHelper.ValidateDirectory(tempSavePath);
+                var serializable = modSaveData.ToSerializable();
+                var metaJson = serializable.ToBson();
+                Main.FileManager.WriteStringFile(tempSavePath, metaJson);
+
+                // 2. 检验临时文件能否正确被读取。如果不能则终止保存并发出警告。
+                try
+                {
+                    var validateString = Main.FileManager.ReadStringFile(tempSavePath);
+                    var validateSerializable = modInfo.Logic.LoadSaveData(validateString);
+                }
+                catch (Exception e)
+                {
+                    Log.LogWarning($"保存用户{userIndex}的Mod{spaceName}的存档文件时发生错误，存档文件验证失败：{e}");
+                    File.Delete(tempSavePath);
+                    return;
+                }
+
+                // 3. 写入临时文件成功后，将备份文件和之前的存档文件写入备份。
+                CycleSaveDataBackups(userIndex, spaceName);
+
+                // 4. 用临时文件替换之前的存档文件。
+                var destPath = GetUserModSaveDataPath(userIndex, spaceName, 0);
+                var backupPath = GetUserModSaveDataPath(userIndex, spaceName, 1);
+                FileHelper.ValidateDirectory(destPath);
+                if (File.Exists(destPath))
+                    File.Replace(tempSavePath, destPath, backupPath);
+                else
+                    File.Move(tempSavePath, destPath);
+            }
+        }
+        private void CycleSaveDataBackups(int userIndex, string spaceName)
+        {
+            for (int i = backupCount; i >= 1; i--)
+            {
+                var savePath = GetUserModSaveDataPath(userIndex, spaceName, i);
+                if (!File.Exists(savePath))
+                    continue;
+                if (i == backupCount)
+                {
+                    File.Delete(savePath);
+                }
+                else
+                {
+                    var targetSavePath = GetUserModSaveDataPath(userIndex, spaceName, i + 1);
+                    FileHelper.Move(savePath, targetSavePath, true);
+                }
+            }
         }
         #endregion
 
@@ -143,17 +199,46 @@ namespace MVZ2.Saves
         {
             if (modInfo == null || modInfo.Logic == null)
                 return;
-            var path = GetUserModSaveDataPath(userIndex, modInfo.Namespace);
-            ModSaveData saveData;
-            if (!File.Exists(path))
+
+            // 加载存档。
+            ModSaveData? saveData = null;
+
+            int i;
+            // 如果目标存档文件不存在，或者加载失败了，那就尝试寻找备份文件。
+            for (i = 0; i <= backupCount; i++)
+            {
+                var path = GetUserModSaveDataPath(userIndex, modInfo.Namespace, i);
+                if (File.Exists(path))
+                {
+                    try
+                    {
+                        var saveDataJson = Main.FileManager.ReadStringFile(path);
+                        saveData = modInfo.Logic.LoadSaveData(saveDataJson);
+                        break;
+                    }
+                    catch (Exception e)
+                    {
+                        Log.LogWarning($"用户{userIndex}的MOD{modInfo.Namespace}的存档的第{i}份备份读取失败：{e}");
+                    }
+                }
+            }
+
+
+            // 如果备份文件都加载失败了或不存在，直接创建一个新存档。
+            if (saveData == null)
             {
                 saveData = modInfo.Logic.CreateSaveData();
+                Log.LogWarning($"无法读取用户{userIndex}的MOD{modInfo.Namespace}的存档或任何备份，创建一个新存档。");
             }
             else
             {
-                var saveDataJson = Main.FileManager.ReadStringFile(path);
-                saveData = modInfo.Logic.LoadSaveData(saveDataJson);
+                if (i > 0)
+                {
+                    Log.LogWarning($"用户{userIndex}的MOD{modInfo.Namespace}的存档将以第{i}份备份开始游戏。");
+                }
             }
+
+
             modSaveDatas.Add(saveData);
         }
         private void PostAllModDataLoaded(int userIndex, ModInfo? modInfo)
@@ -330,9 +415,22 @@ namespace MVZ2.Saves
         {
             return Path.Combine(GetUserSaveDataDirectory(userIndex), spaceName);
         }
-        public string GetUserModSaveDataPath(int userIndex, string spaceName)
+        public string GetUserModSaveDataPath(int userIndex, string spaceName, int backupIndex = 0)
         {
-            return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), $"user.dat");
+            string filename;
+            if (backupIndex <= 0)
+            {
+                filename = "user.dat";
+            }
+            else
+            {
+                filename = $"user.dat.bak{backupIndex}";
+            }
+            return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), filename);
+        }
+        public string GetUserModSaveDataTempPath(int userIndex, string spaceName)
+        {
+            return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), "user.dat.temp");
         }
         #endregion
 
@@ -519,6 +617,7 @@ namespace MVZ2.Saves
 
         #region 属性字段
         public MainManager Main => MainManager.Instance;
+        public int backupCount = 8;
         private SaveDataStatus status = new SaveDataStatus();
         private List<ModSaveData> modSaveDatas = new List<ModSaveData>();
         private List<NamespaceID> unlockedContraptionsCache = new List<NamespaceID>();
@@ -527,6 +626,7 @@ namespace MVZ2.Saves
         private List<NamespaceID> unlockedProductsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedAchievementsCache = new List<NamespaceID>();
         private float lastPlayTime = 0;
+        private object _saveLock = new object();
         #endregion
     }
     public class SaveDataStatus

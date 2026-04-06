@@ -299,11 +299,7 @@ namespace MVZ2.Saves
                 var modSaveData = saveDatas[i];
                 if (modSaveData == null)
                     continue;
-                var path = GetUserModSaveDataPath(i, spaceName);
-                FileHelper.ValidateDirectory(path);
-                var seriUserData = modSaveData.ToSerializable();
-                var userDataJson = seriUserData.ToBson();
-                Main.FileManager.WriteStringFile(path, userDataJson);
+                WriteSaveData(i, spaceName, modSaveData);
             }
         }
         private UserDataList? ImportOldUserList(OldUserList userList)
