@@ -26,6 +26,7 @@ using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using Tools.Mathematics;
 using UnityEngine;
@@ -57,6 +58,7 @@ namespace MVZ2.Almanacs
         }
         private void Awake()
         {
+            propReplacer = new DescriptionPropReplacer(Main);
             ui.OnReturnClick += OnReturnClickCallback;
 
             ui.OnIndexButtonClick += OnIndexButtonClickCallback;
@@ -362,6 +364,11 @@ namespace MVZ2.Almanacs
             {
                 name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(type), entry.name);
             }
+            if (propReplacer != null && entry != null)
+            {
+                var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, contraptionID, entry);
+                description = propReplacer.Replace(description, context);
+            }
 
             int cost = 0;
             string recharge = string.Empty;
@@ -407,6 +414,11 @@ namespace MVZ2.Almanacs
             {
                 name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(type), entry.name);
             }
+            if (propReplacer != null)
+            {
+                var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, enemyID, entry);
+                description = propReplacer.Replace(description, context);
+            }
 
             var encounterCondition = entry.encounterUnlock;
             bool encountered = (encounterCondition != null && encounterCondition.MeetsConditions(Main.SaveManager)) || Main.SaveManager.GetStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
@@ -436,11 +448,19 @@ namespace MVZ2.Almanacs
         {
             if (!NamespaceID.IsValid(artifactID))
                 return;
-
             const string type = VanillaAlmanacCategories.ARTIFACTS;
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, artifactID);
+            if (entry == null)
+                return;
+
 
             activeArtifactEntryID = artifactID;
             GetArtifactAlmanacInfos(artifactID, type, out var sprite, out var name, out var description);
+            if (propReplacer != null)
+            {
+                var context = new AlmanacVariableContext(Main, LogicDefinitionTypes.ARTIFACT, artifactID, entry);
+                description = propReplacer.Replace(description, context);
+            }
 
             Color color = Color.white;
             bool unlocked = Main.SaveManager.IsArtifactUnlocked(artifactID);
@@ -485,6 +505,11 @@ namespace MVZ2.Almanacs
 
             var strings = new string[] { header, properties, flavor }.Where(s => !string.IsNullOrEmpty(s));
             var description = string.Join("\n\n", strings);
+            if (propReplacer != null)
+            {
+                var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, miscID, entry);
+                description = propReplacer.Replace(description, context);
+            }
 
             var picture = entry.picture;
 
@@ -528,18 +553,18 @@ namespace MVZ2.Almanacs
 
             model = definition.GetModelID();
         }
-        private void GetArtifactAlmanacInfos(NamespaceID entityID, string almanacCategory, out Sprite? sprite, out string name, out string description)
+        private void GetArtifactAlmanacInfos(NamespaceID artifactID, string almanacCategory, out Sprite? sprite, out string name, out string description)
         {
             sprite = null;
             name = string.Empty;
             description = string.Empty;
-            if (!NamespaceID.IsValid(entityID))
+            if (!NamespaceID.IsValid(artifactID))
                 return;
-            name = Main.ResourceManager.GetArtifactName(entityID);
-            description = GetAlmanacDescription(entityID, almanacCategory);
+            name = Main.ResourceManager.GetArtifactName(artifactID);
+            description = GetAlmanacDescription(artifactID, almanacCategory);
 
 
-            var definition = Main.Game.GetArtifactDefinition(entityID);
+            var definition = Main.Game.GetArtifactDefinition(artifactID);
             if (definition == null)
                 return;
             var spriteReference = definition.GetSpriteReference();
@@ -855,6 +880,7 @@ namespace MVZ2.Almanacs
 
 
         private MainManager Main => MainManager.Instance;
+        private DescriptionPropReplacer? propReplacer;
         private List<NamespaceID?> contraptionEntries = new List<NamespaceID?>();
         private List<NamespaceID?> enemyEntries = new List<NamespaceID?>();
         private List<NamespaceID?> artifactEntries = new List<NamespaceID?>();

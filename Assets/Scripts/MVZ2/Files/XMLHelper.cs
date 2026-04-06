@@ -86,6 +86,15 @@ namespace MVZ2.IO
                 return null;
             return value;
         }
+        public static double? GetAttributeDouble(this XmlNode node, string name)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!ParseHelper.TryParseDouble(attr.Value, out var value))
+                return null;
+            return value;
+        }
         public static Color? GetAttributeColor(this XmlNode node, string name)
         {
             var attr = node.Attributes[name];
@@ -499,5 +508,42 @@ namespace MVZ2.IO
             propValue = null;
             return false;
         }
+
+        #region 图鉴变量
+        public static AlmanacVariableReference? GetAlmanacVariableReference(XmlNode node, string defaultNsp)
+        {
+            if (node.HasAttribute("constant"))
+            {
+                var constant = node.GetAttributeDouble("constant") ?? 0;
+                return new AlmanacVariableReferenceConstant(constant);
+            }
+            else if (node.HasAttribute("property"))
+            {
+                var propertyName = node.GetAttribute("property");
+                var target = node.GetAttributeNamespaceID("target", defaultNsp);
+                var targetType = node.GetAttribute("targetType");
+
+                if (!string.IsNullOrEmpty(propertyName))
+                    return new AlmanacVariableReferenceProperty(propertyName)
+                    {
+                        target = target,
+                        targetType = targetType
+                    };
+            }
+            else if (node.HasAttribute("global"))
+            {
+                var globalName = node.GetAttributeNamespaceID("global", defaultNsp);
+                if (NamespaceID.IsValid(globalName))
+                    return new AlmanacVariableReferenceGlobal(globalName);
+            }
+            else if (node.HasAttribute("local"))
+            {
+                var localName = node.GetAttribute("local");
+                if (!string.IsNullOrEmpty(localName))
+                    return new AlmanacVariableReferenceLocal(localName);
+            }
+            return null;
+        }
+        #endregion
     }
 }
