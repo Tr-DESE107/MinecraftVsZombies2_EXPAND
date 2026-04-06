@@ -2787,6 +2787,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36953fdfa0b2a134fa0ff50838bb0be7
+    m_Address: mvz2:doom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36b2d82a0eba62b4fa29a20e722ca6a3
     m_Address: mvz2:mobile_blueprint/giant_bowl
     m_ReadOnly: 0

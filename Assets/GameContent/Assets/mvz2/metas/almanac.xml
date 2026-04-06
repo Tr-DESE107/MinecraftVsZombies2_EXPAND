@@ -1166,7 +1166,7 @@
             <properties>
                 <p>伤害：<![CDATA[<color=red>1800</color>]]></p>
                 <p>装载时间：<![CDATA[<color=red>30秒</color>]]></p>
-                <p>特殊：<![CDATA[<color=red>占两格地块</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>占两格地块；被炸死的怪物不会触发死亡效果</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即装载导弹，且下一发导弹会炸出36个火焰弹，每个造成135爆炸伤害</color>]]></p>
             </properties>
             <flavor>

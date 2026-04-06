@@ -4,6 +4,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -30,6 +31,8 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo deathInfo)
         {
             base.PostDeath(entity, deathInfo);
+            if (entity.WillRemoveOnDeath(deathInfo))
+                return;
             entity.Spawn(VanillaEffectID.cursedFireburn, entity.GetCenter());
             entity.Remove();
         }
