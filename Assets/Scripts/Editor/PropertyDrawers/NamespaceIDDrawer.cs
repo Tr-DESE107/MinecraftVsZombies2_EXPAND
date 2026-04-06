@@ -16,21 +16,22 @@ namespace MVZ2.Editor
 
             EditorGUI.BeginProperty(position, label, property);
 
+            // 绘制整体标签并获取剩余矩形区域
             var propertyRect = EditorGUI.PrefixLabel(position, label);
 
-            var spacePosition = propertyRect.position;
-            var spaceSize = propertyRect.size;
-            spaceSize.x *= 0.4f;
-            var spaceRect = new Rect(spacePosition, spaceSize);
-            spacename.stringValue = EditorGUI.TextField(spaceRect, spacename.stringValue);
+            // 计算 spacename 的矩形（占40%宽度）
+            var spaceRect = new Rect(propertyRect.x, propertyRect.y,
+                                     propertyRect.width * 0.4f, propertyRect.height);
+            // 使用 PropertyField 并隐藏标签，自动处理多选
+            EditorGUI.PropertyField(spaceRect, spacename, GUIContent.none);
 
-            var pathPosition = propertyRect.position;
-            pathPosition.x += propertyRect.size.x * 0.4f + 5;
-            var pathSize = propertyRect.size;
-            pathSize.x = propertyRect.max.x - pathPosition.x;
+            // 计算 path 的矩形（剩余宽度，留5像素间距）
+            var pathRect = new Rect(propertyRect.x + propertyRect.width * 0.4f + 5,
+                                    propertyRect.y,
+                                    propertyRect.width - propertyRect.width * 0.4f - 5,
+                                    propertyRect.height);
+            EditorGUI.PropertyField(pathRect, path, GUIContent.none);
 
-            var pathRect = new Rect(pathPosition, pathSize);
-            path.stringValue = EditorGUI.TextField(pathRect, path.stringValue);
             EditorGUI.EndProperty();
         }
     }
