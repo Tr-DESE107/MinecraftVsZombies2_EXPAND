@@ -18,6 +18,7 @@ namespace MVZ2.Metas
         public string name;
         public AlmanacVariableReference reference;
         public AlmanacVariableOperation[] operations;
+        public int decimalPrecision = 2;
 
         public AlmanacVariable(string name, AlmanacVariableReference reference, AlmanacVariableOperation[] operations)
         {
@@ -49,7 +50,11 @@ namespace MVZ2.Metas
                     operations.Add(operation);
                 }
             }
-            return new AlmanacVariable(name, reference, operations.ToArray());
+            int decimalPrecision = node.GetAttributeInt("decimalPrecision") ?? 2;
+            return new AlmanacVariable(name, reference, operations.ToArray())
+            {
+                decimalPrecision = decimalPrecision
+            };
         }
         private static AlmanacVariableOperation? OperationFromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -99,7 +104,8 @@ namespace MVZ2.Metas
             if (Convert.ToDouble(value) is double numericValue)
             {
                 // 根据数值类型格式化（去除不必要的小数尾随零）
-                return numericValue.ToString("0.########");
+                var formatString = new string('#', decimalPrecision);
+                return numericValue.ToString($"0.{formatString}");
             }
             else
             {
