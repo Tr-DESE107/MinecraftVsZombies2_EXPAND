@@ -23,6 +23,7 @@ namespace MVZ2.GameContent.Contraptions
             AddAura(new ProtectExplosionAura());
             evocationDetector = new SphereDetector(100)
             {
+                canDetectInvisible = true,
                 includeSelf = true,
                 factionTarget = FactionTarget.Friendly
             };

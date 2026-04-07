@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Detections
     {
         public HellfireIgniteDetector(float extraHeight)
         {
+            canDetectInvisible = true;
             this.extraHeight = extraHeight;
         }
         protected override Bounds GetDetectionBounds(Entity self)

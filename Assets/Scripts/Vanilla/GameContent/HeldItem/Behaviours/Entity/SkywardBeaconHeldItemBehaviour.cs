@@ -10,12 +10,13 @@ using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
     [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.skywardBeacon)]
-    public class SkywardBeaconHeldItemBehaviour : EntityHeldItemBehaviour
+    public class SkywardBeaconHeldItemBehaviour : EntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         public SkywardBeaconHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.HeldItems
 
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
-            return target is HeldItemTargetGrid targetGrid;
+            return target is HeldItemTargetGrid || target is HeldItemTargetLawn || target is HeldItemTargetBlueprint;
         }
         public override HeldHighlight GetHighlight(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
@@ -48,20 +49,45 @@ namespace MVZ2.GameContent.HeldItems
         {
             if (pointerParams.IsInvalidClickButton() || pointerParams.IsInvalidReleaseAction())
                 return;
-            if (target is not HeldItemTargetGrid targetGrid)
-                return;
-            if (targetGrid.Target == null)
-                return;
-            var level = target.GetLevel();
-            var entity = GetEntity(level, data);
-            if (entity != null)
+            if (target is HeldItemTargetGrid targetGrid)
             {
-                SkywardBeacon.SetTargetColumn(entity, targetGrid.Target.Column);
-                SkywardBeacon.SetTargetLane(entity, targetGrid.Target.Lane);
-                entity.PlaySound(VanillaSoundID.wakeup);
-                WhiteFlashBuff.AddToEntity(entity, 30);
+                if (targetGrid.Target == null)
+                    return;
+                var level = target.GetLevel();
+                var entity = GetEntity(level, data);
+                if (entity != null)
+                {
+                    SkywardBeacon.SetTargetColumn(entity, targetGrid.Target.Column);
+                    SkywardBeacon.SetTargetLane(entity, targetGrid.Target.Lane);
+                    entity.PlaySound(VanillaSoundID.wakeup);
+                    WhiteFlashBuff.AddToEntity(entity, 30);
+                }
+                level.ResetHeldItem();
             }
-            level.ResetHeldItem();
+            else if (target is HeldItemTargetLawn targetLawn)
+            {
+                if (targetLawn.Area != LawnArea.Main)
+                {
+                    if (targetLawn.Level.CancelHeldItem())
+                    {
+                        targetLawn.Level.PlaySound(VanillaSoundID.tap);
+                    }
+                }
+            }
+            else if (target is HeldItemTargetBlueprint targetBlueprint)
+            {
+                var level = target.GetLevel();
+                if (level.CancelHeldItem())
+                {
+                    level.PlaySound(VanillaSoundID.tap);
+                }
+            }
+        }
+
+        public bool ShouldMakeEntityTwinkle(Entity entity, IHeldItemData data)
+        {
+            var current = GetEntity(entity.Level, data);
+            return entity == current;
         }
     }
 }

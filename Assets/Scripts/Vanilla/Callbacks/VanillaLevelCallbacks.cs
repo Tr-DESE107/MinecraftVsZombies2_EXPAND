@@ -274,6 +274,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackType<PostRemoveStatusEffectParams> POST_REMOVE_STATUS_EFFECT = new();
 
         public readonly static CallbackType<EntityCallbackParams> POST_CONTRAPTION_TRIGGER = new();
+        public readonly static CallbackType<EntityCallbackParams> POST_CONTRAPTION_EMPTY_HAND_CLICK = new();
         public readonly static CallbackType<EntityCallbackParams> POST_CONTRAPTION_EVOKE = new();
         public readonly static CallbackType<EntityCallbackParams> POST_CONTRAPTION_DESTROY = new();
         public readonly static CallbackType<EntityCallbackParams> POST_CONTRAPTION_DETONATE = new();

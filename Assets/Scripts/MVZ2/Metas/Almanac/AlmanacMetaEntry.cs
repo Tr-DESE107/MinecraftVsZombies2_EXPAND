@@ -37,14 +37,18 @@ namespace MVZ2.Metas
         // 图标
         public AlmanacEntryTagInfo[] tags;
 
+        // 变量
+        public AlmanacVariable[] localVariables;
+
         // 文本
         public string header = string.Empty;
         public string properties = string.Empty;
         public AlmanacMetaFlavor[] flavors;
 
-        public AlmanacMetaEntry(AlmanacEntryTagInfo[] tags, AlmanacMetaFlavor[] flavors)
+        public AlmanacMetaEntry(AlmanacEntryTagInfo[] tags, AlmanacVariable[] variables, AlmanacMetaFlavor[] flavors)
         {
             this.tags = tags;
+            this.localVariables = variables;
             this.flavors = flavors;
         }
 
@@ -103,6 +107,23 @@ namespace MVZ2.Metas
                     }
                 }
             }
+
+            var variables = new List<AlmanacVariable>();
+            var variablesNode = node["variables"];
+            if (variablesNode != null)
+            {
+                for (int i = 0; i < variablesNode.ChildNodes.Count; i++)
+                {
+                    var child = variablesNode.ChildNodes[i];
+                    if (child.Name == "variable")
+                    {
+                        var variable = AlmanacVariable.FromXmlNode(child, defaultNsp);
+                        if (variable != null)
+                            variables.Add(variable);
+                    }
+                }
+            }
+
             var headerNode = node["header"];
             var propertiesNode = node["properties"];
             var header = headerNode != null ? ConcatNodeParagraphs(headerNode) : string.Empty;
@@ -135,7 +156,7 @@ namespace MVZ2.Metas
             {
                 flavors = Array.Empty<AlmanacMetaFlavor>();
             }
-            return new AlmanacMetaEntry(tags.ToArray(), flavors)
+            return new AlmanacMetaEntry(tags.ToArray(), variables.ToArray(), flavors)
             {
                 id = id,
                 name = name,
@@ -160,6 +181,15 @@ namespace MVZ2.Metas
         public bool IsEmpty()
         {
             return !NamespaceID.IsValid(id);
+        }
+        public AlmanacVariable? GetLocalVariable(string variable)
+        {
+            foreach (var localVariable in localVariables)
+            {
+                if (localVariable.name == variable)
+                    return localVariable;
+            }
+            return null;
         }
         public string[] GetValidFlavors(IGlobalSaveData save)
         {

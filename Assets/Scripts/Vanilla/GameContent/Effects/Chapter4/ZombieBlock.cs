@@ -188,7 +188,7 @@ namespace MVZ2.GameContent.Effects
         public const int MODE_TRANSFORM = 2;
         public const int MODE_SNAKE_FOOD = 3;
 
-        private Detector jumpDetector = new CollisionDetector();
+        private Detector jumpDetector = new CollisionDetector(true);
         private List<IEntityCollider> jumpBuffer = new List<IEntityCollider>();
 
         private static readonly VanillaEntityPropertyMeta<int> PROP_MODE = new VanillaEntityPropertyMeta<int>("Mode");
