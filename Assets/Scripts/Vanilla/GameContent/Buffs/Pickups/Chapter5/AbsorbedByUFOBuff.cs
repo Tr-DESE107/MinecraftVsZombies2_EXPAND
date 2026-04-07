@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Buffs.Pickups
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, 0));
             AddModifier(new BooleanModifier(VanillaPickupProps.NO_COLLECT, true));
+            AddModifier(new BooleanModifier(VanillaPickupProps.NO_LIMIT_IN_SCREEN, true));
         }
         public override void PostUpdate(Buff buff)
         {

@@ -60,24 +60,27 @@ namespace MVZ2.GameContent.Pickups
             }
             else
             {
-                var position = pickup.Position;
-                var velocity = pickup.Velocity;
-                var minZ = GetMinZ(pickup);
-                var maxZ = GetMaxZ(pickup);
-                if ((position.z <= minZ && velocity.z < 0) || (position.z >= maxZ && velocity.z >= 0))
+                if (!pickup.NoLimitInScreen())
                 {
-                    velocity.z *= -1;
+                    var position = pickup.Position;
+                    var velocity = pickup.Velocity;
+                    var minZ = GetMinZ(pickup);
+                    var maxZ = GetMaxZ(pickup);
+                    if ((position.z <= minZ && velocity.z < 0) || (position.z >= maxZ && velocity.z >= 0))
+                    {
+                        velocity.z *= -1;
+                    }
+                    var minX = GetMinX();
+                    var maxX = GetMaxX();
+                    if ((position.x <= minX && velocity.x < 0) || (position.x >= maxX && velocity.x >= 0))
+                    {
+                        velocity.x *= -1;
+                    }
+                    position.x = Mathf.Clamp(position.x, minX, maxX);
+                    position.z = Mathf.Clamp(position.z, minZ, maxZ);
+                    pickup.Position = position;
+                    pickup.Velocity = velocity;
                 }
-                var minX = GetMinX();
-                var maxX = GetMaxX();
-                if ((position.x <= minX && velocity.x < 0) || (position.x >= maxX && velocity.x >= 0))
-                {
-                    velocity.x *= -1;
-                }
-                position.x = Mathf.Clamp(position.x, minX, maxX);
-                position.z = Mathf.Clamp(position.z, minZ, maxZ);
-                pickup.Position = position;
-                pickup.Velocity = velocity;
                 if (!pickup.IsImportantPickup() && pickup.Timeout < 150)
                 {
                     alpha = (Mathf.Cos((1 - pickup.Timeout / 150f) * 10 * 2 * Mathf.PI) + 1) * 0.5f;

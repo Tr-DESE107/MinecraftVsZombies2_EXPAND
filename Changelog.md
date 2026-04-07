@@ -26,6 +26,7 @@
 - Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.
 - Fixed the issue where Pop Captain can knock a lily pad onto land.
 - Fixed the issue where monsters sometimes continue to attack after leaving the attack range when attacking a contraption inside the stone shield during melee attacks.
+- Fixed the issue where starshards at the topmost cannot be stolen by blue UFOs at the topmost.
 
 ---
 

@@ -78,6 +78,11 @@ namespace MVZ2.Vanilla.Pickups
         {
             return pickup.GetProperty<bool>(NO_COLLECT);
         }
+        public static readonly PropertyMeta<bool> NO_LIMIT_IN_SCREEN = Get<bool>("no_limit_in_screen");
+        public static bool NoLimitInScreen(this Entity pickup)
+        {
+            return pickup.GetProperty<bool>(NO_LIMIT_IN_SCREEN);
+        }
         public static readonly PropertyMeta<NamespaceID> CONTENT_ID = Get<NamespaceID>("content_id");
         public static NamespaceID? GetPickupContentID(this Entity pickup)
         {
