@@ -2,6 +2,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
@@ -60,8 +61,9 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void SelfDestruct(Entity enemy)
         {
+            var damage = enemy.GetDamage() * enemy.Level.GetWispFlyDamageMultiplier();
             var explosionDamageEffects = new DamageEffectList(VanillaDamageEffects.FIRE);
-            enemy.Explode(enemy.GetCenter(), EXPLOSION_RADIUS, enemy.GetFaction(), enemy.GetDamage(), explosionDamageEffects);
+            enemy.Explode(enemy.GetCenter(), EXPLOSION_RADIUS, enemy.GetFaction(), damage, explosionDamageEffects);
 
             var selfDamageEffects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.INSTA_KILL);
             enemy.Die(selfDamageEffects, enemy);

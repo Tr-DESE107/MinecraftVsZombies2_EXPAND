@@ -1782,13 +1782,22 @@
             </flavor>
         </entry>
         <entry id="mvz2:wisp_fly">
+            <variables>
+                <variable name="easy_damage" global="mvz2:entity_damage"/>
+                <variable name="normal_damage" global="mvz2:entity_damage">
+                    <multiply constant="1.5" />
+                </variable>
+                <variable name="hard_damage" global="mvz2:entity_damage">
+                    <multiply constant="3" />
+                </variable>
+            </variables>
             <header>
-                <p>鬼火苍蝇会冲向你的器械，并产生一次小型自爆。</p>
+                <p>鬼火苍蝇会冲向你的器械，并产生一次小型自爆，造成<![CDATA[<tag id="mvz2:fire" />]]>火焰伤害。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />点火焰伤害（自爆）</color>]]></p>
+                <p>自爆伤害：<![CDATA[<color=red><var local="easy_damage"/>（简单），<var local="normal_damage"/>（普通），<var local="hard_damage"/>（困难）</color>]]></p>
             </properties>
             <flavor>
                 <p>一：为了解决现实中青蛙吃萤火虫会中毒的问题，我们干脆不加入萤火虫。</p>

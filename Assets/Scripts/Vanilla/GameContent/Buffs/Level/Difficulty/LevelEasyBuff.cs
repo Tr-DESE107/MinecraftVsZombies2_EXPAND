@@ -32,6 +32,7 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REVERSE_SATELLITE_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, -1f));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.SKELETON_HORSE_JUMP_TIMES, IntegerOperator.Add, -1));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.WICKED_HERMIT_ZOMBIE_STUN_TIME, IntegerOperator.Add, 75));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.WISP_FLY_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0.66666666666f));
 
             AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.FRANKENSTEIN_NO_STEEL, true));
 

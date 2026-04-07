@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-07 01:14+0800\n"
+"POT-Creation-Date: 2026-04-07 01:28+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2732,7 +2732,7 @@ msgstr ""
 #. Header for enemies mvz2:wisp_fly
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "鬼火苍蝇会冲向你的器械，并产生一次小型自爆。"
+msgid "鬼火苍蝇会冲向你的器械，并产生一次小型自爆，造成<tag id=\"mvz2:fire\" />火焰伤害。"
 msgstr ""
 
 #. Properties for enemies mvz2:wisp_fly
@@ -2741,7 +2741,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"伤害：<color=red><var id=\"mvz2:entity_damage\" />点火焰伤害（自爆）</color>"
+"自爆伤害：<color=red><var local=\"easy_damage\"/>（简单），<var local=\"normal_damage\"/>（普通），<var local=\"hard_damage\"/>（困难）</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:wisp_fly
