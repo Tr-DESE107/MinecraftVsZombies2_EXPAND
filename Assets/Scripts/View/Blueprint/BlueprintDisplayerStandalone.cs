@@ -43,11 +43,13 @@ namespace MVZ2.UI
             {
                 var page = rect.GetComponent<BlueprintDisplayerStandalonePage>();
                 page.OnBlueprintPointerInteraction += OnBlueprintPointerInteractionCallback;
+                page.OnBlueprintSelect += OnBlueprintSelectCallback;
             },
             rect =>
             {
                 var page = rect.GetComponent<BlueprintDisplayerStandalonePage>();
                 page.OnBlueprintPointerInteraction -= OnBlueprintPointerInteractionCallback;
+                page.OnBlueprintSelect -= OnBlueprintSelectCallback;
             });
             maxPages = pageCount;
             SetCurrentPage(0);
@@ -70,10 +72,11 @@ namespace MVZ2.UI
         {
             var index = pageList.indexOf(page) * maxCountPerPage + indexInPage;
             CallBlueprintPointerInteraction(index, eventData, interaction);
-            if (interaction == PointerInteraction.Down)
-            {
-                CallBlueprintSelect(index, eventData);
-            }
+        }
+        private void OnBlueprintSelectCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData)
+        {
+            var index = pageList.indexOf(page) * maxCountPerPage + indexInPage;
+            CallBlueprintSelect(index, eventData);
         }
         [Header("Standalone")]
         [SerializeField]

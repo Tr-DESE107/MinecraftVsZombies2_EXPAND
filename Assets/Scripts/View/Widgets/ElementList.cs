@@ -32,7 +32,7 @@ namespace MVZ2.UI
                     else // 目前有这个项
                     {
                         item = itemList[i];
-                        if (!item.activeSelf)
+                        if (!item.activeSelf && pooled)
                         {
                             //激活
                             item.SetActive(true);

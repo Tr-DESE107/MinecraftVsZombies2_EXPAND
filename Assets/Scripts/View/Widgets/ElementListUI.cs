@@ -39,7 +39,7 @@ namespace MVZ2.UI
                     else // 目前有这个项
                     {
                         item = _itemList[i];
-                        if (!item.gameObject.activeSelf)
+                        if (!item.gameObject.activeSelf && dontDestroy)
                         {
                             //激活
                             item.gameObject.SetActive(true);
