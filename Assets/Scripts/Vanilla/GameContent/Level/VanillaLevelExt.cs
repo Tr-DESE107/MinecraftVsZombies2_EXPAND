@@ -155,7 +155,7 @@ namespace MVZ2.Vanilla.Level
         public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference source)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
-            var overlapParam = OverlapParams.Friendly(faction, EntityCollisionHelper.MASK_VULNERABLE);
+            var overlapParam = OverlapParams.Hostile(faction, EntityCollisionHelper.MASK_VULNERABLE);
             foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, overlapParam))
             {
                 if (entityCollider == excludeCollider)
