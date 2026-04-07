@@ -30,7 +30,8 @@ namespace MVZ2.GameContent.Contraptions
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            SetProductionTimer(entity, TimerHelper.NewSecondTimer(MAX_PRODUCE_SECONDS));
+            var maxSeconds = entity.GetProperty<float>(PROP_MAX_PRODUCE_TIME);
+            SetProductionTimer(entity, TimerHelper.NewSecondTimer(maxSeconds));
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -58,7 +59,7 @@ namespace MVZ2.GameContent.Contraptions
             var straightID = CheckStraightID(entity);
             if (IsValidPair(diagnoalID, straightID))
             {
-                var multiplier = CalculateProduceSpeedMultiplier(entity.Level, diagnoalID, straightID);
+                var multiplier = CalculateProduceSpeedMultiplier(entity, diagnoalID, straightID);
                 SetProduceSpeedMultiplier(entity, multiplier);
                 if (!IsWorking(entity))
                 {
@@ -117,8 +118,9 @@ namespace MVZ2.GameContent.Contraptions
                 return false;
             return true;
         }
-        private float CalculateProduceSpeedMultiplier(LevelEngine level, NamespaceID id1, NamespaceID id2)
+        private float CalculateProduceSpeedMultiplier(Entity entity, NamespaceID id1, NamespaceID id2)
         {
+            var level = entity.Level;
             var def1 = level.Content.GetEntityDefinition(id1);
             if (def1 == null)
                 return 1;
@@ -137,8 +139,13 @@ namespace MVZ2.GameContent.Contraptions
             var cost2 = def2.GetCost();
             var t1 = cost1 * recharge1.GetQuality();
             var t2 = cost2 * recharge2.GetQuality();
-            var t = (t1 + t2) / MAX_CONTRAPTION_QUALITY;
-            return Mathf.Lerp(MIN_PRODUCE_SPEED_MULTIPLIER, MAX_PRODUCE_SPEED_MULTIPLIER, t);
+            var divisor = entity.GetProperty<float>(PROP_QUALITY_DIVISOR);
+            var t = (t1 + t2) / divisor;
+
+            var minSeconds = entity.GetProperty<float>(PROP_MIN_PRODUCE_TIME);
+            var maxSeconds = entity.GetProperty<float>(PROP_MAX_PRODUCE_TIME);
+            var maxSpeedMultiplier = maxSeconds / minSeconds;
+            return Mathf.Lerp(1, maxSpeedMultiplier, t);
         }
         private void Work(Entity entity)
         {
@@ -157,6 +164,9 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetProduceSpeedMultiplier(Entity entity, float value) => entity.SetProperty(PROP_PRODUCE_SPEED_MULTIPLIER, value);
 
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("production_timer");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_MIN_PRODUCE_TIME = new VanillaEntityPropertyMeta<float>("min_produce_time", 15);
+        public static readonly VanillaEntityPropertyMeta<float> PROP_MAX_PRODUCE_TIME = new VanillaEntityPropertyMeta<float>("max_produce_time", 90);
+        public static readonly VanillaEntityPropertyMeta<float> PROP_QUALITY_DIVISOR = new VanillaEntityPropertyMeta<float>("quality_divisor", 2000);
         public static readonly VanillaEntityPropertyMeta<float> PROP_PRODUCE_SPEED_MULTIPLIER = new VanillaEntityPropertyMeta<float>("production_speed_multiplier", 1);
         public static readonly VanillaEntityPropertyMeta<bool> PROP_WORKING = new VanillaEntityPropertyMeta<bool>("working");
 
@@ -174,10 +184,6 @@ namespace MVZ2.GameContent.Contraptions
             new Vector2Int(1, 0),
             new Vector2Int(0, 1),
         };
-        public const float MAX_CONTRAPTION_QUALITY = 6000f;
-        public const float MIN_PRODUCE_SPEED_MULTIPLIER = 1f;
-        public const float MAX_PRODUCE_SPEED_MULTIPLIER = 10f;
-        public const float MAX_PRODUCE_SECONDS = 300f;
         public const float CHECK_INTERVAL_SECONDS = 1f;
     }
 }

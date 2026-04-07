@@ -1004,6 +1004,10 @@
             </flavor>
         </entry>
         <entry id="mvz2:nether_reactor_core">
+            <variables>
+                <variable name="min_produce_time" property="mvz2:entity_behaviour/nether_reactor_core/min_produce_time"/>
+                <variable name="max_produce_time" property="mvz2:entity_behaviour/nether_reactor_core/max_produce_time"/>
+            </variables>
             <header>
                 <p>如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出星之碎片。</p>
             </header>
@@ -1012,7 +1016,7 @@
                 <p><![CDATA[<color=red>A<color=blue>B</color>A</color>]]></p>
                 <p><![CDATA[<color=blue>B<color=black>X</color>B</color>]]></p>
                 <p><![CDATA[<color=red>A<color=blue>B</color>A</color>]]></p>
-                <p>生产时间：<![CDATA[<color=red>30-300秒（根据器械A和B的花费和充能时间而定）</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red><var local="min_produce_time"/>-<var local="max_produce_time"/>秒（根据器械A和B的花费和充能时间而定）</color>]]></p>
                 <p>技能：<![CDATA[<color=red>召唤4个友方的凋灵骷髅，分别是狂战士、猎手、法师和催眠者</color>]]></p>
             </properties>
             <flavor>
