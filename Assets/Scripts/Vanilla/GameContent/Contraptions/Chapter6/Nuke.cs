@@ -17,6 +17,7 @@ using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
@@ -29,45 +30,66 @@ namespace MVZ2.GameContent.Contraptions
         }
         void IExplodeContraptionBehaviour.Explode(Entity contraption, float range, float damage)
         {
-            Explode(contraption, range, damage);
-        }
-        public static void Explode(Entity entity, float range, float damage)
-        {
-            var smokeSpawnParam = entity.GetSpawnParams(); 
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
-            if (entity.IsEvoked())
+            if (contraption.IsEvoked())
             {
-                smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.25f, 0, 1));
-                smokeSpawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
-                var deathEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
-
-                foreach (var ent in entity.Level.FindEntities(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible()))
-                {
-                    if (ent.Type == EntityTypes.BOSS)
-                    {
-                        ent.TakeDamage(damage, damageEffects, entity);
-                    }
-                    else
-                    {
-                        ent.Die(deathEffects, entity);
-                    }
-                }
+                ExplodeEvoked(contraption, range, damage);
+                ExplodeEffectsEvoked(contraption);
             }
             else
             {
-                smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.5f, 0, 1));
-
-                entity.Explode(entity.GetCenter(), range, entity.GetFaction(), damage, damageEffects);
+                Explode(contraption, range, damage);
+                ExplodeEffects(contraption);
             }
 
-            entity.Spawn(VanillaEffectID.nukeSmoke, entity.Position, smokeSpawnParam);
-            entity.Spawn(VanillaEffectID.nukeFlash, entity.Level.GetLawnCenter(), smokeSpawnParam);
-            entity.PlaySound(VanillaSoundID.nukeblast);
-            entity.Level.ShakeScreen(10, 0, 60);
+            BreakTile(contraption);
 
-            BreakTile(entity);
-
-            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(entity), entity.GetDefinitionID());
+            contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(contraption), contraption.GetDefinitionID());
+        }
+        public static void Explode(Entity entity, float range, float damage)
+        {
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
+            var damageOutputs = entity.Explode(entity.GetCenter(), range, entity.GetFaction(), damage, damageEffects);
+            damageOutputs.ClearExplosionCorpses();
+        }
+        public static void ExplodeEvoked(Entity entity, float range, float damage)
+        {
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
+            var deathEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
+            foreach (var ent in entity.Level.FindEntities(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible()))
+            {
+                if (ent.Type == EntityTypes.BOSS)
+                {
+                    ent.TakeDamage(damage, damageEffects, entity);
+                }
+                else
+                {
+                    ent.DieOrRemove(deathEffects, entity);
+                }
+            }
+        }
+        public static void ExplodeEffects(Entity entity)
+        {
+            var smokeSpawnParam = entity.GetSpawnParams();
+            smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.5f, 0, 1));
+            ExplodeEffects(entity, smokeSpawnParam);
+        }
+        public static void ExplodeEffects(Entity entity, SpawnParams smokeSpawnParam)
+        {
+            ExplodeEffects(entity.Level, entity.Position, entity, smokeSpawnParam);
+        }
+        public static void ExplodeEffects(LevelEngine level, Vector3 position, Entity? spawner, SpawnParams smokeSpawnParam)
+        {
+            level.Spawn(VanillaEffectID.nukeSmoke, position, spawner, smokeSpawnParam);
+            level.Spawn(VanillaEffectID.nukeFlash, level.GetLawnCenter(), spawner, smokeSpawnParam);
+            level.PlaySound(VanillaSoundID.nukeblast, position);
+            level.ShakeScreen(10, 0, 60);
+        }
+        public static void ExplodeEffectsEvoked(Entity entity)
+        {
+            var smokeSpawnParam = entity.GetSpawnParams();
+            smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.25f, 0, 1));
+            smokeSpawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
+            ExplodeEffects(entity, smokeSpawnParam);
         }
         public static void BreakTile(Entity entity)
         {
@@ -84,7 +106,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 if (entity == source)
                     continue;
-                entity.Die(damageEffects, entity);
+                entity.DieOrRemove(damageEffects, entity);
             }
         }
     }

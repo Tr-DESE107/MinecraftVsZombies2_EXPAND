@@ -7,6 +7,7 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
@@ -148,6 +149,7 @@ namespace MVZ2.Vanilla.Level
             }
             return damageOutputs.ToArray();
         }
+
         public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
         {
             return level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, new EntitySourceReference(source));
@@ -167,6 +169,18 @@ namespace MVZ2.Vanilla.Level
                 }
             }
             return damageOutputs.ToArray();
+        }
+        public static void ClearExplosionCorpses(this IEnumerable<DamageOutput> damageOutputs)
+        {
+            // 清理尸体。
+            foreach (var output in damageOutputs)
+            {
+                var ent = output.Entity;
+                if (ent.Type == EntityTypes.ENEMY && ent.IsDead)
+                {
+                    ent.Remove();
+                }
+            }
         }
         #endregion
 

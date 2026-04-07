@@ -1159,6 +1159,17 @@ namespace MVZ2.Vanilla.Entities
             var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS);
             entity.Die(effects, source);
         }
+        public static void DieOrRemove(this Entity entity, DamageEffectList deathEffects, Entity? source)
+        {
+            if (entity.IsDead)
+            {
+                entity.Remove();
+            }
+            else
+            {
+                entity.Die(deathEffects, source);
+            }
+        }
         #endregion
 
         #region 获取指针目标

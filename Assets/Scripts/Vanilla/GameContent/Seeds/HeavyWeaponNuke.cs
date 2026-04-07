@@ -2,10 +2,12 @@
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
@@ -42,16 +44,13 @@ namespace MVZ2.GameContent.Seeds
             foreach (var ent in level.FindEntities(e => e.IsHostileEntity()))
             {
                 ent.RemoveBuffs<RedstoneCarrierBuff>();
-                ent.Die(deathEffects, (Entity?)null);
+                ent.DieOrRemove(deathEffects, null);
             }
 
             var smokeSpawnParam = new SpawnParams();
             smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.5f, 0, 1));
             var position = level.GetLawnCenter();
-            level.Spawn(VanillaEffectID.nukeSmoke, position, null, smokeSpawnParam);
-            level.Spawn(VanillaEffectID.nukeFlash, level.GetLawnCenter(), null, smokeSpawnParam);
-            level.PlaySound(VanillaSoundID.nukeblast);
-            level.ShakeScreen(10, 0, 60);
+            Nuke.ExplodeEffects(level, position, null, smokeSpawnParam);
         }
     }
 }
