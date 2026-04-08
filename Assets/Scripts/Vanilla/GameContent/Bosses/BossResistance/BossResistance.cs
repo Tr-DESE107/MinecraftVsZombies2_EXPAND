@@ -36,19 +36,26 @@ namespace MVZ2.GameContent.Bosses
 
             var max = GetMaxDamageAmount(entity);
             var current = GetCurrentDamageAmount(entity);
+            current = Mathf.Clamp(current, 0, GetMaxDamageAmount(entity));
             var currentDamageLimit = Mathf.Max(0, max - current);
             if (damageInfo.Amount > currentDamageLimit)
             {
                 damageInfo.SetAmount(currentDamageLimit);
             }
-            SetCurrentDamageAmount(entity, current + damageInfo.Amount);
         }
-        public override void PostTakeDamage(DamageOutput result)
+        public override void PostTakeDamage(DamageOutput output)
         {
-            base.PostTakeDamage(result);
-            var entity = result.Entity;
-            var current = GetCurrentDamageAmount(entity);
-            SetCurrentDamageAmount(entity, current + result.GetTotalAmount());
+            base.PostTakeDamage(output);
+            foreach (var result in output.GetAllResults())
+            {
+                bool bypassBossArmor = result.HasEffect(VanillaDamageEffects.BYPASS_BOSS_ARMOR);
+                if (bypassBossArmor)
+                    return;
+                var entity = result.Entity;
+                var amount = GetCurrentDamageAmount(entity);
+                amount += result.Amount;
+                SetCurrentDamageAmount(entity, amount);
+            }
         }
         public static float GetCurrentDamageAmount(Entity entity) => entity.GetBehaviourField<float>(PROP_CURRENT_DAMAGE_AMOUNT);
         public static void SetCurrentDamageAmount(Entity entity, float value) => entity.SetBehaviourField(PROP_CURRENT_DAMAGE_AMOUNT, value);
