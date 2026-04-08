@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Enemies
         }
         private void CollisionStay(Entity enemy, Entity other)
         {
-            if (ValidateMeleeTarget(enemy, other))
+            if (ValidateMeleeTarget(enemy, other) && !enemy.IsAIFrozen())
             {
                 SelfDestruct(enemy);
             }
