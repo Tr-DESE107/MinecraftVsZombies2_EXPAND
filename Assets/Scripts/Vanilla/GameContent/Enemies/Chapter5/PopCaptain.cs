@@ -26,7 +26,8 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             stateMachine.Init(entity);
             stateMachine.StartState(entity, STATE_IDLE);
-            entity.PlaySound(VanillaSoundID.chainsBreak);
+            if (!entity.IsPreviewEnemy())
+                entity.PlaySound(VanillaSoundID.chainsBreak);
         }
         protected override void UpdateAI(Entity entity)
         {

@@ -40,7 +40,8 @@ namespace MVZ2.GameContent.Enemies
             var buff = entity.AddBuff<FlyBuff>();
             buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
 
-            entity.PlaySound(VanillaSoundID.ghastCry);
+            if (!entity.IsPreviewEnemy())
+                entity.PlaySound(VanillaSoundID.ghastCry);
         }
         protected override void UpdateAI(Entity enemy)
         {
