@@ -1453,6 +1453,7 @@
             <spawn id="mvz2:shadow_cell" />
             <spawn id="mvz2:skeleton_statue" />
             <spawn id="mvz2:zombie_cat" />
+            <spawn id="mvz2:necromancer" />
         </spawns>
     </stage>
     <stage id="palace_10" name="地灵殿" dayNumber="10">
