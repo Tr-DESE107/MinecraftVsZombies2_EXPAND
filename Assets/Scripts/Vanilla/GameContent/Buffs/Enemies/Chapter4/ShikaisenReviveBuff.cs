@@ -27,6 +27,11 @@ namespace MVZ2.GameContent.Buffs.Enemies
         private void PreEnemyFaintCallback(EntityCallbackParams param, CallbackResult result)
         {
             var entity = param.entity;
+            var fatalOutput = entity.GetLethalDeathInfo();
+            if (fatalOutput != null && fatalOutput.HasEffect(VanillaDamageEffects.NO_REVIVAL))
+            {
+                return;
+            }
             var level = entity.Level;
             Buff? buff = null;
             Entity? source = null;

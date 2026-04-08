@@ -163,7 +163,7 @@ namespace MVZ2.GameContent.Enemies
                 if (targetGrid == null)
                 {
                     // 如果目标地格不存在，直接秒杀器械。
-                    target.Die(outOfBoundDamageEffects, entity, damageOutput.BodyResult);
+                    target.Die(outOfBoundDamageEffects, entity, damageOutput.BodyResult?.GetValues());
                 }
                 else
                 {

@@ -69,7 +69,8 @@ namespace MVZ2.GameContent.Carts
                     foreach (Entity ent in entity.Level.FindEntities(e => entity.CanCartCrush(e)))
                     {
                         // 碰到小车的僵尸受到伤害。
-                        ent.TakeDamage(VanillaMod.INSTA_DAMAGE_AMOUNT, new DamageEffectList(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE), entity);
+                        var effects = new DamageEffectList(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE, VanillaDamageEffects.INSTA_KILL, VanillaDamageEffects.NO_REVIVAL);
+                        ent.TakeDamage(VanillaMod.INSTA_DAMAGE_AMOUNT, effects, entity);
                         foreach (var behaviour in entity.Definition.GetBehaviours<ICartBehaviour>())
                         {
                             behaviour.PostCrush(entity, ent);

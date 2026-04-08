@@ -21,7 +21,6 @@ using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic;
@@ -44,7 +43,6 @@ using PVZEngine.Shells;
 using Tools;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using GridLayerData = System.Tuple<PVZEngine.Grids.LawnGrid, PVZEngine.NamespaceID>;
 
 namespace MVZ2.Vanilla.Entities
@@ -239,7 +237,7 @@ namespace MVZ2.Vanilla.Entities
 
             if (entity.Health <= 0)
             {
-                entity.Die(info.Effects, info.Source, result);
+                entity.Die(info.Effects, info.Source, result.GetValues());
             }
             if (result.HasDamageAmount())
             {

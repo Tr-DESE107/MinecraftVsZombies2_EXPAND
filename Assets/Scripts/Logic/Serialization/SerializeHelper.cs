@@ -18,6 +18,7 @@ using PVZEngine.BsonSerializers;
 using PVZEngine.Buffs;
 using PVZEngine.Collisions;
 using PVZEngine.Collisions.Level;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -82,6 +83,17 @@ namespace MVZ2Logic.Serialization
             RegisterClass<SerializableConveyorSeedPack>();
             RegisterClass<SerializableConveyorSeedSpendRecords>();
             RegisterClass<SerializableConveyorSeedSendRecordEntry>();
+
+
+            RegisterClass<DamageResultValues>();
+
+            RegisterClass<SerializableDeathInfo>();
+            RegisterClass<SerializableDamageResult>();
+            RegisterClass<SerializableArmorDamageResult>();
+            RegisterClass<SerializableBodyDamageResult>();
+            RegisterClass<SerializableEntitySourceReference>();
+            RegisterClass<SerializableArtifactSourceReference>();
+            RegisterClass<SerializableGridSourceReference>();
 
 
             // MVZ2.Logic

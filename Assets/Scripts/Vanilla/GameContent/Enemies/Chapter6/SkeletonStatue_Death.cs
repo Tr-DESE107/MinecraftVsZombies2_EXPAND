@@ -23,6 +23,8 @@ namespace MVZ2.GameContent.Enemies
             base.PreDeath(entity, deathInfo, result);
             if (deathInfo.HasEffect(VanillaDamageEffects.DROWN) || deathInfo.HasEffect(VanillaDamageEffects.FALL_OFF))
                 return;
+            if (deathInfo.HasEffect(VanillaDamageEffects.NO_REVIVAL))
+                return;
             if (!SkeletonStatue.IsReviving(entity) && !entity.WillRemoveOnDeath(deathInfo))
             {
                 entity.Health = entity.GetMaxHealth();
@@ -44,10 +46,9 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!info.HasEffect(VanillaDamageEffects.DROWN) && !info.HasEffect(VanillaDamageEffects.FALL_OFF))
-            {
-                entity.Remove();
-            }
+            if (info.HasEffect(VanillaDamageEffects.DROWN) || info.HasEffect(VanillaDamageEffects.FALL_OFF))
+                return;
+            entity.Remove();
         }
     }
 }
