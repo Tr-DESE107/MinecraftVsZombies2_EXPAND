@@ -7,9 +7,6 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.GameContent.Buffs.Level;
-using MVZ2.Vanilla.Audios;
-using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -29,9 +26,6 @@ namespace MVZ2.GameContent.Enemies
             var gas = entity.Spawn(VanillaEffectID.mummyGas, entity.Position, param);
             entity.PlaySound(VanillaSoundID.poisonCast);
 
-            var level = entity.Level;
-            level.AddBuff<AncientEgyptBuff>();
-            entity.PlaySound(VanillaSoundID.lowQualityEgypt);
         }
     }
 }

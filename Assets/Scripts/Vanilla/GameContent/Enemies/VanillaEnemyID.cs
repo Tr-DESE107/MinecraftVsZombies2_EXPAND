@@ -151,16 +151,20 @@ namespace MVZ2.GameContent.Enemies
 
         //EXPAND_X
         public const string XCarrierMutant = "XCarrierMutant";
-        public const string TeslaTrooper = "TeslaTrooper";
-        public const string Cobblestone = "Cobblestone";
 
-        //EXPAND RANDOM
+        //EXPAND_RANDOM
         public const string RandomZombie = "RandomZombie";
         public const string RandomMutant = "RandomMutant";
         public const string RandomImp = "RandomImp";
         public const string RandomSkeleton = "RandomSkeleton";
         public const string RandomKingSkeleton = "RandomKingSkeleton";
 
+        //EXPAND_EXP
+        public const string TeslaTrooper = "TeslaTrooper";
+
+        public const string Cobblestone = "Cobblestone";
+
+        public const string LEOLau = "LEOLau";
 
     }
     public static class VanillaEnemyID
@@ -305,15 +309,20 @@ namespace MVZ2.GameContent.Enemies
 
         //EXPAND_X
         public static readonly NamespaceID XCarrierMutant = Get(VanillaEnemyNames.XCarrierMutant);
-        public static readonly NamespaceID TeslaTrooper = Get(VanillaEnemyNames.TeslaTrooper);
-        public static readonly NamespaceID Cobblestone = Get(VanillaEnemyNames.Cobblestone);
 
-        //EXPAND RANDOM
+        //EXPAND_RANDOM
         public static readonly NamespaceID RandomZombie = Get(VanillaEnemyNames.RandomZombie);
         public static readonly NamespaceID RandomMutant = Get(VanillaEnemyNames.RandomMutant);
         public static readonly NamespaceID RandomImp = Get(VanillaEnemyNames.RandomImp);
         public static readonly NamespaceID RandomSkeleton = Get(VanillaEnemyNames.RandomSkeleton);
         public static readonly NamespaceID RandomKingSkeleton = Get(VanillaEnemyNames.RandomKingSkeleton);
+
+        //EXPAND_EXP
+        public static readonly NamespaceID TeslaTrooper = Get(VanillaEnemyNames.TeslaTrooper);
+
+        public static readonly NamespaceID Cobblestone = Get(VanillaEnemyNames.Cobblestone);
+
+        public static readonly NamespaceID LEOLau = Get(VanillaEnemyNames.LEOLau);
 
         private static NamespaceID Get(string name)
         {

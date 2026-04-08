@@ -144,7 +144,7 @@
     <model name="ghost" type="entity" path="mvz2:enemy/halloween/ghost" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="mummy" type="entity" path="mvz2:enemy/EXPAND/LEOLau" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="mummy" type="entity" path="mvz2:enemy/halloween/mummy" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="necromancer" type="entity" path="mvz2:enemy/halloween/necromancer" width="64" height="96" xOffset="10" yOffset="-44">
@@ -263,7 +263,6 @@
     <model name="skeleton_warrior" type="entity" path="mvz2:enemy/mausoleum/skeleton_warrior" width="66" height="86" xOffset="16" yOffset="-50">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-	<!--
     <model name="skeleton_mage" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
@@ -291,7 +290,7 @@
             </parameters>
         </animator>
     </model>
-	-->
+    <!--
     <model name="skeleton_mage" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
@@ -319,6 +318,7 @@
             </parameters>
         </animator>
     </model>
+	-->
     <model name="shikaisen_staff" type="entity" path="mvz2:enemy/mausoleum/shikaisen_staff" width="24" height="64" xOffset="0" yOffset="-26" />
 
     <!--EXPAND Enemies C1-->
@@ -517,6 +517,11 @@
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
 	<model name="RandomKingSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomKingSkeleton" width="64" height="105" xOffset="10" yOffset="-50">
+		<armorconfig>mvz2:humanoid</armorconfig>
+	</model>
+
+	<!--EXPAND EXP-->
+	<model name="LEOLau" type="entity" path="mvz2:enemy/EXPAND/LEOLau" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
 

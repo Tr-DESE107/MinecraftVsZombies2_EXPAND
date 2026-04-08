@@ -3770,6 +3770,24 @@
 			</properties>
 		</Skeleton_Exp>
 
+		<!--EXPAND Enemies EXP-->
+		<Husk_Exp id="LEOLau" name="刘琨" deathMessage="妙趣横生">
+			<unlock>
+				<condition required="mvz2:level.halloween_6" />
+			</unlock>
+			<properties>
+				<float name="mvz2:maxHealth" value="1500" />
+				<id name="mvz2:shell" value="mvz2:grass" />
+				<id name="mvz2:hitSound" value="mvz2:splat" />
+				<id name="mvz2:crySound" value="mvz2:mummy_cry" />
+				<id name="mvz2:deathSound" value="mvz2:mummy_death" />
+				<color name="mvz2:bloodColor" value="#7F000F00" />
+				<color name="mvz2:bloodColorCensored" value="#00007F00" />
+
+				<int name="mvz2:cost" value="75" />
+			</properties>
+		</Husk_Exp>
+
         <!-- Token Enemies-->
         <specialEnemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？">
             <unlock>
