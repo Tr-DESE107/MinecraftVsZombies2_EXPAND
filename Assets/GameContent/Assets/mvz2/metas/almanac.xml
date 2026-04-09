@@ -2163,7 +2163,7 @@
                 <p>从上锁的箱子上掉落的损坏挂锁。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>当器械被摧毁时，立即充能其蓝图（铁镐和自毁除外）</color>]]></p>
+                <p>效果：<![CDATA[<color=red>器械每受到10点伤害，其蓝图冷却时间便减少1秒</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<b>项目编号：</b>]]>MCP-988</p>

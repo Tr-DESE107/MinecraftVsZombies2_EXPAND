@@ -135,7 +135,7 @@
             <condition required="mvz2:level.palace_11" />
         </unlock>
     </artifact>
-    <artifact id="broken_lock" name="损坏的挂锁" tooltip="当器械被摧毁时，立即充能其蓝图（铁镐和自毁除外）" sprite="mvz2:artifacts/broken_lock">
+    <artifact id="broken_lock" name="损坏的挂锁" tooltip="器械每受到10点伤害，其蓝图冷却时间便减少1秒" sprite="mvz2:artifacts/broken_lock">
         <unlock>
             <condition required="mvz2:artifact.broken_lock" />
         </unlock>

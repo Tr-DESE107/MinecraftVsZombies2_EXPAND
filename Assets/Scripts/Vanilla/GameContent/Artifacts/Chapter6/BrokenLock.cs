@@ -3,9 +3,12 @@
 using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Blueprints;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -21,14 +24,19 @@ namespace MVZ2.GameContent.Artifacts
     {
         public BrokenLock(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
+            AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PostContraptionTakeDamageCallback, filter: EntityTypes.PLANT);
         }
-        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        public override void PostUpdate(Artifact artifact)
         {
-            var contraption = param.entity;
+            base.PostUpdate(artifact);
+            artifact.SetGlowing(false);
+        }
+        private void PostContraptionTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult result)
+        {
+            var output = param.output;
+            var contraption = output.Entity;
             var level = contraption.Level;
-            var info = param.deathInfo;
-            if (info.HasEffect(VanillaDamageEffects.PICKAXE) || info.HasEffect(VanillaDamageEffects.NO_BROKEN_LOCK))
+            if (output.BodyResult != null && output.BodyResult.HasEffect(VanillaDamageEffects.NO_BROKEN_LOCK))
                 return;
             if (level.IsConveyorMode())
                 return;
@@ -43,20 +51,23 @@ namespace MVZ2.GameContent.Artifacts
             {
                 commandBlock = contraption.IsImitated();
             }
+            var seedPacks = level.GetAllSeedPacks();
+            var seedPack = seedPacks
+                .OfType<ClassicSeedPack>()
+                .FirstOrDefault(s => s.GetSeedType() == SeedTypes.ENTITY && s.GetSeedEntityID() == entityID && s.IsCommandBlock() == commandBlock && !s.IsCharged());
+            if (seedPack == null)
+                return;
             foreach (var artifact in level.GetArtifacts())
             {
                 if (artifact == null || artifact.Definition != this)
                     continue;
-                var seedPacks = level.GetAllSeedPacks();
-                var seedPack = seedPacks
-                    .OfType<ClassicSeedPack>()
-                    .FirstOrDefault(s => s.GetSeedType() == SeedTypes.ENTITY && s.GetSeedEntityID() == entityID && s.IsCommandBlock() == commandBlock && !s.IsCharged());
-                if (seedPack == null)
-                    continue;
-                seedPack.FullRecharge();
-                artifact.Highlight();
-                break;
+                seedPack.AddRecharge(output.GetTotalAmount() * GetRechargeMultiplier(artifact));
+                artifact.SetGlowing(true);
             }
         }
+
+        public static float GetRechargeMultiplier(Artifact artifact) => artifact.GetProperty<float>(PROP_RECHARGE_MULTIPLIER);
+        public static void SetRechargeMultiplier(Artifact artifact, float value) => artifact.SetProperty(PROP_RECHARGE_MULTIPLIER, value);
+        public static readonly VanillaArtifactPropertyMeta<float> PROP_RECHARGE_MULTIPLIER = new VanillaArtifactPropertyMeta<float>("recharge_multiplier", 3f);
     }
 }
