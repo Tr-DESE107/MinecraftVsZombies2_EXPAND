@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-07 02:54+0800\n"
+"POT-Creation-Date: 2026-04-09 03:35+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1733,7 +1733,7 @@ msgid ""
 "<b>项目等级：</b>Safe\n"
 "<b>特殊收容措施：</b>MCP-531应被保管于一个光亮度可控且无窗户的密闭收容间内。除测试目的外，任何人员不得进入其正面视线范围。任何人员暴露于 MCP-531 正面视线的累计时间不得超过 60 秒。\n"
 "<b>描述：</b>MCP-531是一块边长约1m的暗绿色正方体石块，其材质与玄武岩相近，表面无明显风化或磨损痕迹。石块正面刻有一枚位于菱形轮廓中央的眼睛图案，两个侧面均刻有未知体系的象形文字，初步解读表明其内容为对MCP-531异常性质的警示性说明。\n"
-"当任何有机生命体或衍生有机组织位于MCP-531正面方向直线距离3米以内时，该类对象将逐渐发生物理性质的转变：质地逐渐硬化，密度相应增加，最终在持续暴露3至5分钟后完全转化为与MCP-531材质相同的岩石。此过程伴随对象生物活性的丧失，且转化后的雕塑在形态上会保留转化前一瞬间的视觉特征。\n"
+"当任何有机生命体或衍生有机组织位于MCP-531正面方向直线距离2米以内时，该类对象将逐渐发生物理性质的转变：质地逐渐硬化，密度相应增加，最终在持续暴露3至5分钟后完全转化为与MCP-531材质相同的岩石。此过程伴随对象生物活性的丧失，且转化后的雕塑在形态上会保留转化前一瞬间的视觉特征。\n"
 "该效应在对象完全矿化前为可逆：一旦移出MCP-531的视线作用范围，石化进程将停止并缓慢逆转。恢复原状所需时间与暴露时长呈正相关，观测案例中从数分钟至最长17天不等。多次实验表明，无机物及通过光学滤镜观察MCP-531均不会触发该异常效应。\n"
 "<b>附录 MCP-531-A：</b> 实验记录显示，被部分转化的对象在恢复期间报告有持续的“钝感”及局部麻木现象，但未发现永久性生理损伤。进一步跨文化考古比对工作正在进行，以确认MCP-531与多个神话中“凝视石化”传说的潜在关联。"
 msgstr ""
@@ -3290,7 +3290,7 @@ msgstr ""
 #. Properties for artifacts mvz2:broken_lock
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>当器械被摧毁时，立即充能其蓝图（铁镐和自毁除外）</color>"
+msgid "效果：<color=red>器械每受到10点伤害，其蓝图冷却时间便减少1秒</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:broken_lock
@@ -6717,7 +6717,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:broken_lock
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "当器械被摧毁时，立即充能其蓝图（铁镐和自毁除外）"
+msgid "器械每受到10点伤害，其蓝图冷却时间便减少1秒"
 msgstr ""
 
 #. Name for artifact mvz2:magma_stone
