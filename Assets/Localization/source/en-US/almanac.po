@@ -5687,6 +5687,26 @@ msgstr ""
 "Those saucers are still flying in the sky.\n"
 "How much longer can I hold on...?"
 
+#. Name for misc mvz2:starshard.uranium_235
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "星之碎片：铀-235"
+msgstr "Starshard: Uranium-235"
+
+#. Flavor for misc mvz2:starshard.uranium_235
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"未知人士留下了一些记录。\n"
+"\n"
+"星之记录 其六：\n"
+"（这张纸条上什么也没有写，并且被暴力地扯烂了。）"
+msgstr ""
+"Records left by an anonymous person.\n"
+"\n"
+"Star Record 6:\n"
+"(This note has nothing written on it and has been violently torn.)"
+
 #. Name for almanac group mvz2:important
 #: Almanac meta file
 msgctxt "almanac.group_name"

@@ -3032,6 +3032,21 @@
                     <p>我到底还能撑多久……？</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:starshard.uranium_235" name="星之碎片：铀-235" >
+                <unlock>
+                    <condition required="mvz2:level.palace_1"/>
+                </unlock>
+                <picture model="mvz2:entity.starshard.palace"/>
+                <header>
+                    <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
+                </header>
+                <flavor>
+                    <p>未知人士留下了一些记录。</p>
+                    <p/>
+                    <p>星之记录 其六：</p>
+                    <p>（这张纸条上什么也没有写，并且被暴力地扯烂了。）</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Important Items -->
         <group id="mvz2:important" name="重要物品" order="600">
