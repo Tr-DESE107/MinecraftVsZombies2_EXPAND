@@ -4796,6 +4796,101 @@ msgctxt "misc.description"
 msgid "危险动作，<ref=[enemies]mvz2:imp>小鬼僵尸</ref>请勿轻易尝试。"
 msgstr "Dangerous action. <ref=[enemies]mvz2:imp>Imps</ref> should not attempt this."
 
+#. Name for misc mvz2:corpse_cart
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "尸体推车"
+msgstr "Corpse Cart"
+
+#. Header for misc mvz2:corpse_cart
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "尸体推车在接触到敌人后会碾压一整行的敌怪，并在后方留下数只友方的<ref=[enemies]mvz2:zombie>僵尸</ref>。"
+msgstr ""
+"When an enemy comes in contact with the Corpse Cart, it will activate and trample the entire row of enemies in front of it. "
+"Additionally, it will leave a few ally <ref=[enemies]mvz2:zombie>zombies</ref> at the back of the battlefield."
+
+#. Flavor for misc mvz2:corpse_cart
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"<ref=[enemies]mvz2:rin>火焰猫 燐</ref>用来偷窃并运输尸体的推车，现如今被作为最终防线加入了战场。\n"
+"为什么里面的僵尸是我们这边的？呃，因为车里有张纸条：\n"
+"<align=\"center\">工作帮助</align>\n"
+"    当推车开动的时候，只需要下来然后前进，攻击你遇到的所有怪物，你就赢了。\n"
+"<align=\"right\">——这部分帮助是燐送给你的</align>"
+msgstr ""
+"The cart that <ref=[enemies]mvz2:rin>Rin Kaenbyou</ref> uses to steal and transport corpses, now joins the battle as your final line "
+"of defense.\n"
+"Why are the zombies inside of it friendly? Well, it's because there's a note in the cart:\n"
+"<align=\"center\">Help for working</align>\n"
+"    When the cart starts moving, just get off and move forward, you win the game after attacking all the monsters you encounter.\n"
+"<align=\"right\"><size=75%>-this help section brought to you by Rin</size></align>"
+
+#. Name for misc mvz2:psychic_chains
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "心灵锁链"
+msgstr "Psychic Chains"
+
+#. Header for misc mvz2:psychic_chains
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "心灵锁链会在每一大波怪物到来时出现，封锁你的一部分蓝图。"
+msgstr "Whenever a huge waves of enemies are approaching, Psychic Chains will lock up a portion of your blueprints."
+
+#. Properties for misc mvz2:psychic_chains
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"数量：<color=red>携带的蓝图数量÷3（向下取整）</color>\n"
+"持续时间：<color=red><var local=\"duration\"/>秒</color>"
+msgstr ""
+"Amount: <color=red>Amount of blueprints selected÷3(rounded down)</color>\n"
+"Duration: <color=red><var local=\"duration\"/> Seconds</color>"
+
+#. Flavor for misc mvz2:psychic_chains
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"一张破碎的实验记录中的部分信息：\n"
+"MCP-988-2是目标遭到MCP-988锁定时，间断产生的精神异常，表现为患者暂时失去针对自身手臂器官或义体的部分操控能力，每次持续约30秒。"
+msgstr ""
+"A section of notes written on a piece of a torn lab report:\n"
+"When MCP-988-2 became the target as MCP-988 locked onto it, MCP-988-2 demonstrated intermittent mental instability. The target of "
+"MCP-988 demonstrated a temporary loss of control of their motor functions within their arms or prosthetics, with each paralysis "
+"episode lasting roughly 30 seconds."
+
+#. Name for misc mvz2:snipenser
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "狙击发射器"
+msgstr "Snipenser"
+
+#. Header for misc mvz2:snipenser
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "狙击发射器会朝你指向的位置发射箭矢。"
+msgstr "The Snipenser will fire arrows at the direction you are pointing at."
+
+#. Properties for misc mvz2:snipenser
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"耐久：<color=red><var local=\"hp\"/></color>\n"
+"伤害：<color=red><var local=\"damage\"/></color>\n"
+"射速：<color=red>1支/<var local=\"fire_interval\"/>秒</color>"
+msgstr ""
+"Toughness：<color=red><var local=\"hp\"/></color>\n"
+"Damage：<color=red><var local=\"damage\"/></color>\n"
+"Speed：<color=red>1 arrow /<var local=\"fire_interval\"/> Seconds</color>"
+
+#. Flavor for misc mvz2:snipenser
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "他没有消失。他只是累了，想休息了。"
+msgstr "He never disappeared. He was simply tired, and wanted rest."
+
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -5419,8 +5514,6 @@ msgid ""
 "\n"
 "顺带一提，天花板——哦不，地板上好像有什么东西在微微发光。"
 msgstr ""
-"Shining Needle Castle is where the inchlings reside. It was invaded by wither skeletons one year ago.\n"
-"\n"
 "An upside-down castle hanging in the air, its origin can be traced back far.\n"
 "When the first generation of inchlings—Issun-boushi—came into possession of the Miracle Mallet, he dared not use it as it was the "
 "oni's secret treasure.\n"

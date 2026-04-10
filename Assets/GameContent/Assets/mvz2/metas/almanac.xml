@@ -2525,6 +2525,66 @@
                     <p>危险动作，<![CDATA[<ref=[enemies]mvz2:imp>小鬼僵尸</ref>]]>请勿轻易尝试。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:corpse_cart" name="尸体推车" >
+                <unlock>
+                    <condition required="mvz2:level.palace_1"/>
+                </unlock>
+                <picture model="mvz2:entity.corpse_cart"/>
+                <tags sourceEntity="mvz2:corpse_cart" />
+                <header>
+                    <p>尸体推车在接触到敌人后会碾压一整行的敌怪，并在后方留下数只友方的<![CDATA[<ref=[enemies]mvz2:zombie>僵尸</ref>]]>。</p>
+                </header>
+                <flavor>
+                    <p><![CDATA[<ref=[enemies]mvz2:rin>火焰猫 燐</ref>]]>用来偷窃并运输尸体的推车，现如今被作为最终防线加入了战场。</p>
+                    <p>为什么里面的僵尸是我们这边的？呃，因为车里有张纸条：</p>
+                    <p><![CDATA[<align="center">工作帮助</align>]]></p>
+                    <p>    当推车开动的时候，只需要下来然后前进，攻击你遇到的所有怪物，你就赢了。</p>
+                    <p><![CDATA[<align="right">——这部分帮助是燐送给你的</align>]]></p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:psychic_chains" name="心灵锁链" >
+                <unlock>
+                    <condition required="mvz2:level.palace_1"/>
+                </unlock>
+                <picture sprite="mvz2:icons/blueprint_lock"/>
+                <variables>
+                    <variable name="duration">30</variable>
+                </variables>
+                <header>
+                    <p>心灵锁链会在每一大波怪物到来时出现，封锁你的一部分蓝图。</p>
+                </header>
+                <properties>
+                    <p>数量：<![CDATA[<color=red>携带的蓝图数量÷3（向下取整）</color>]]></p>
+                    <p>持续时间：<![CDATA[<color=red><var local="duration"/>秒</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>一张破碎的实验记录中的部分信息：</p>
+                    <p>MCP-988-2是目标遭到MCP-988锁定时，间断产生的精神异常，表现为患者暂时失去针对自身手臂器官或义体的部分操控能力，每次持续约30秒。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:snipenser" name="狙击发射器" >
+                <unlock>
+                    <condition required="mvz2:level.palace_6"/>
+                </unlock>
+                <tags sourceEntity="mvz2:snipenser" />
+                <variables>
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:snipenser", "entity")</variable>
+                    <variable name="damage">property("mvz2:entity/damage", "mvz2:snipenser", "entity")</variable>
+                    <variable name="fire_interval">property("mvz2:entity/attackSpeed", "mvz2:snipenser", "entity") / 3</variable>
+                </variables>
+                <picture model="mvz2:entity.snipenser"/>
+                <header>
+                    <p>狙击发射器会朝你指向的位置发射箭矢。</p>
+                </header>
+                <properties>
+                    <p>耐久：<![CDATA[<color=red><var local="hp"/></color>]]></p>
+                    <p>伤害：<![CDATA[<color=red><var local="damage"/></color>]]></p>
+                    <p>射速：<![CDATA[<color=red>1支/<var local="fire_interval"/>秒</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>他没有消失。他只是累了，想休息了。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Characters -->
         <group id="mvz2:characters" name="人物" order="300">
