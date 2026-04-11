@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-28 02:07+0800\n"
+"POT-Creation-Date: 2026-04-11 09:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12560,7 +12560,7 @@ msgstr ""
 #. Text for talk sentence 4 in talk group ship_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:ship_11_map"
-msgid "<color=blue>（天上下起了雨，周围的人越来越多，它们看着这头恶龙，和它保持着距离。）</color>"
+msgid "<color=blue>（天上下起了雨，周围的人越来越多，他们看着这头恶龙，和它保持着距离。）</color>"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group ship_11_map's section 0
@@ -12668,7 +12668,7 @@ msgstr ""
 #. Text for talk sentence 22 in talk group ship_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:ship_11_map"
-msgid "其实，我有一事相告。四年前，曾有一位访客曾来到命莲寺。"
+msgid "其实，我有一事相告。四年前，曾有一位访客来到命莲寺。"
 msgstr ""
 
 #. Text for talk sentence 23 in talk group ship_11_map's section 0

@@ -1478,7 +1478,7 @@
         </sentence>
 
         <sentence speaker="mvz2:steve" description="（白莲和史蒂夫来到了红龙坠落的地方）" sounds="mvz2:talk"><![CDATA[<color=blue>（我们来到了红龙坠落的地方，这里就在人类村落的不远处。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（天上下起了雨，周围的人越来越多，它们看着这头恶龙，和它保持着距离。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（天上下起了雨，周围的人越来越多，他们看着这头恶龙，和它保持着距离。）</color>]]></sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（它死不瞑目，身下是早已被从内到外压碎的末地船。）</color>]]></sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">阿弥陀佛。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">因与果，仇与怨，如今在此了结。</sentence>
@@ -1527,7 +1527,7 @@
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">如今，是时候该让真相公之于众了。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">我愧对红龙母子，但这也许会是目前最好的结果了。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk" variant="mvz2:normal">好了。接下来，请让我就您身世的问题，帮您解惑吧。</sentence>
-        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">其实，我有一事相告。四年前，曾有一位访客曾来到命莲寺。</sentence>
+        <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">其实，我有一事相告。四年前，曾有一位访客来到命莲寺。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">那位访客自称灯兰 樱，到访命莲寺有求于我。</sentence>
         <sentence speaker="mvz2:byakuren" sounds="mvz2:talk">而那位访客此行的目的，正是解开一切的钥匙。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……难道？</sentence>
