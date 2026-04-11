@@ -771,12 +771,12 @@ namespace MVZ2.Almanacs
         private AlmanacEntryTagInfo[] GetEntryTags(string category, NamespaceID id)
         {
             List<AlmanacEntryTagInfo> list = new List<AlmanacEntryTagInfo>();
-            var param = new LogicCallbacks.GetAlmanacEntryTagsParams(category, id, list);
-            Global.Game.RunCallbackFiltered(LogicCallbacks.GET_ALMANAC_ENTRY_TAGS, param, category);
-
             var almanacEntry = Main.ResourceManager.GetAlmanacMetaEntry(category, id);
             if (almanacEntry != null)
             {
+                var param = new LogicCallbacks.GetAlmanacEntryTagsParams(category, id, almanacEntry.tagSourceEntity, list);
+                Global.Game.RunCallbackFiltered(LogicCallbacks.GET_ALMANAC_ENTRY_TAGS, param, category);
+
                 list.AddRange(almanacEntry.tags);
             }
             list.Sort(CompareEntryTagInfo);

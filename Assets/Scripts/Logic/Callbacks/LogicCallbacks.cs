@@ -30,12 +30,14 @@ namespace MVZ2Logic.Callbacks
         {
             public string category;
             public NamespaceID entryID;
+            public NamespaceID? sourceEntityID;
             public List<AlmanacEntryTagInfo> tags;
 
-            public GetAlmanacEntryTagsParams(string category, NamespaceID entryID, List<AlmanacEntryTagInfo> tags)
+            public GetAlmanacEntryTagsParams(string category, NamespaceID entryID, NamespaceID? sourceEntityID, List<AlmanacEntryTagInfo> tags)
             {
                 this.category = category;
                 this.entryID = entryID;
+                this.sourceEntityID = sourceEntityID;
                 this.tags = tags;
             }
         }

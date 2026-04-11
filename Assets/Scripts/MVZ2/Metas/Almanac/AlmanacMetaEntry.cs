@@ -34,6 +34,7 @@ namespace MVZ2.Metas
         public bool pictureZoom;
 
         // 图标
+        public NamespaceID? tagSourceEntity;
         public AlmanacEntryTagInfo[] tags;
 
         // 变量
@@ -89,10 +90,12 @@ namespace MVZ2.Metas
                 pictureZoom = pictureNode.GetAttributeBool("zoom") ?? pictureZoom;
             }
 
+            NamespaceID? tagSourceEntity = null;
             var tags = new List<AlmanacEntryTagInfo>();
             var tagsNode = node["tags"];
             if (tagsNode != null)
             {
+                tagSourceEntity = tagsNode.GetAttributeNamespaceID("sourceEntity", defaultNsp);
                 for (int i = 0; i < tagsNode.ChildNodes.Count; i++)
                 {
                     var child = tagsNode.ChildNodes[i];
@@ -171,6 +174,7 @@ namespace MVZ2.Metas
                 pictureFixedSize = pictureFixedSize,
                 pictureZoom = pictureZoom,
 
+                tagSourceEntity = tagSourceEntity,
                 tags = tags.ToArray(),
                 header = header,
                 properties = properties,

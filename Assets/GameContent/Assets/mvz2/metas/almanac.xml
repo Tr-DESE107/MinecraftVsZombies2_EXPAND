@@ -177,6 +177,7 @@
             <value value="mvz2:cloud" name="云" description="受到0.5x冲击或火焰伤害" sprite="mvz2:ui/almanac/shell_tags[11]" backgroundColor="#b67ba6" />
             <value value="mvz2:lightning" name="闪电" description="吸收闪电伤害" sprite="mvz2:ui/almanac/shell_tags[12]" backgroundColor="#b38f47" />
             <value value="mvz2:shadow" name="暗影" description="受到1.5x火焰、闪电和光明伤害" sprite="mvz2:ui/almanac/shell_tags[13]" backgroundColor="#3f3f3f" />
+            <value value="mvz2:normal" name="普通" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[14]" backgroundColor="#6b6b6b" />
         </enum>
     </tags>
     <globalVariables>
@@ -2341,6 +2342,7 @@
         <group id="mvz2:misc_entities" name="杂项实体" order="200">
             <entry id="mvz2:miner" name="矿场">
                 <picture model="mvz2:entity.miner" />
+                <tags sourceEntity="mvz2:miner"/>
                 <header>
                     <p>史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。</p>
                 </header>
@@ -2355,6 +2357,7 @@
             </entry>
             <entry id="mvz2:minecart" name="矿车">
                 <picture model="mvz2:entity.minecart" />
+                <tags sourceEntity="mvz2:minecart"/>
                 <header>
                     <p>史蒂夫家里的最后防线，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
                 </header>
@@ -2366,11 +2369,7 @@
             </entry>
             <entry id="mvz2:gargoyle_statue" name="石像鬼雕像">
                 <picture model="mvz2:entity.gargoyle_statue" />
-                <tags>
-                    <tag id="mvz2:shell" value="mvz2:stone" />
-                    <tag id="mvz2:grid_layer_main" />
-                    <tag id="mvz2:grid_layer_carrier" />
-                </tags>
+                <tags sourceEntity="mvz2:gargoyle_statue"/>
                 <header>
                     <p>石像鬼雕像会在最后一波时变成石像鬼。</p>
                 </header>
@@ -2383,6 +2382,7 @@
             </entry>
             <entry id="mvz2:pumpkin_carriage" name="南瓜马车">
                 <picture model="mvz2:entity.pumpkin_carriage" />
+                <tags sourceEntity="mvz2:pumpkin_carriage"/>
                 <header>
                     <p>永夜沼泽的最后防线，会发出绿色光芒，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
                 </header>
@@ -2395,6 +2395,7 @@
                     <condition required="mvz2:level.halloween_6" />
                 </unlock>
                 <picture model="mvz2:entity.napstablook" />
+                <tags sourceEntity="mvz2:napstablook"/>
                 <header>
                     <p>小幽灵会在你使用铁剑击中它时生气，然后麻痹你的剑。</p>
                 </header>
@@ -2407,6 +2408,7 @@
                     <condition required="mvz2:level.dream_1" />
                 </unlock>
                 <picture model="mvz2:entity.nyan_cat" />
+                <tags sourceEntity="mvz2:nyan_cat"/>
                 <header>
                     <p>彩虹猫能萌死任何接触到的敌人。</p>
                 </header>
@@ -2420,6 +2422,7 @@
                 </unlock>
                 <thumbnail sprite="mvz2:misc/boat_zombie"/>
                 <picture model="mvz2:entity.boat_zombie" />
+                <tags sourceEntity="mvz2:zombie"/>
                 <header>
                     <p>船僵尸能够浮在水上——甚至是云上作战。</p>
                 </header>
@@ -2440,6 +2443,7 @@
                     <condition required="mvz2:level.dream_7" />
                 </unlock>
                 <picture model="mvz2:entity.nyaightmare" />
+                <tags sourceEntity="mvz2:nyan_cat"/>
                 <header>
                     <p>噩梦猫会刺死任何它所恨的人。</p>
                 </header>
@@ -2452,6 +2456,7 @@
                     <condition required="mvz2:level.castle_1" />
                 </unlock>
                 <picture model="mvz2:entity.bowl_chariot" />
+                <tags sourceEntity="mvz2:bowl_chariot"/>
                 <header>
                     <p>碗车在碰到敌人后会冲锋，并把碗里的巨石掉出来二次打击敌人。</p>
                 </header>
@@ -2464,11 +2469,7 @@
                     <condition required="mvz2:level.castle_1" />
                 </unlock>
                 <picture model="mvz2:entity.reverse_satellite" />
-                <tags>
-                    <tag id="mvz2:shell" value="mvz2:metal" />
-                    <tag id="mvz2:flying" />
-                    <tag id="mvz2:not_undead" />
-                </tags>
+                <tags sourceEntity="mvz2:reverse_satellite"/>
                 <variables>
                     <variable name="hp" property="mvz2:entity/maxHealth" target="mvz2:reverse_satellite" targetType="entity" />
                 </variables>
@@ -2490,6 +2491,7 @@
                     <condition required="mvz2:level.mausoleum_1" />
                 </unlock>
                 <picture model="mvz2:entity.ballista" />
+                <tags sourceEntity="mvz2:ballista"/>
                 <header>
                     <p>小型弩车在碰到敌人后会发射致命弩箭，并向前冲锋碾压敌人。</p>
                 </header>
@@ -2505,10 +2507,7 @@
                     <condition required="mvz2:level.mausoleum_2" />
                 </unlock>
                 <picture model="mvz2:entity.monster_spawner" />
-                <tags>
-                    <tag id="mvz2:grid_layer_main" />
-                    <tag id="mvz2:grid_layer_carrier" />
-                </tags>
+                <tags sourceEntity="mvz2:monster_spawner"/>
                 <header>
                     <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的怪物。</p>
                 </header>
@@ -2521,6 +2520,7 @@
                     <condition required="mvz2:level.ship_1"/>
                 </unlock>
                 <picture model="mvz2:entity.unzan_fist"/>
+                <tags sourceEntity="mvz2:unzan_fist"/>
                 <header>
                     <p>云山之拳在碰到敌人后会向前发射，击杀并打飞一行的敌怪。</p>
                 </header>
@@ -2535,9 +2535,7 @@
                     <condition required="mvz2:level.ship_1"/>
                 </unlock>
                 <picture model="mvz2:entity.paratrooper_zombie"/>
-                <tags>
-                    <tag id="mvz2:shell" value="mvz2:flesh"/>
-                    <tag id="mvz2:mass" value="0"/>
+                <tags sourceEntity="mvz2:zombie" >
                     <tag id="mvz2:shell_shield" value="mvz2:leather"/>
                 </tags>
                 <variables>
