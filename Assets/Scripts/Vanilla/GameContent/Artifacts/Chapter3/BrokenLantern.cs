@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Artifacts
             {
                 var level = auraEffect.Source.GetLevel();
                 updateBuffer.Clear();
-                level.FindEntitiesNonAlloc(e => e.IsLightSource() && e.Type == EntityTypes.PLANT, updateBuffer);
+                level.FindEntitiesNonAlloc(e => e.IsLightSource() && e.Type == EntityTypes.PLANT && e.IsFriendlyEntity(), updateBuffer);
                 foreach (var entity in updateBuffer)
                 {
                     results.Add(entity);

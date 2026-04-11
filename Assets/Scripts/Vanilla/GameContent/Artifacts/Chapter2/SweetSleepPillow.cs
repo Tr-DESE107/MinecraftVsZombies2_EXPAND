@@ -3,6 +3,7 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 
@@ -19,11 +20,10 @@ namespace MVZ2.GameContent.Artifacts
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
             var level = artifact.Level;
-            foreach (var contraption in level.GetEntities(EntityTypes.PLANT))
+            foreach (var contraption in level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsFriendlyEntity()))
             {
                 contraption.HealEffects(0.33333333f, contraption);
             }
         }
-        public static readonly NamespaceID ID = VanillaArtifactID.sweetSleepPillow;
     }
 }

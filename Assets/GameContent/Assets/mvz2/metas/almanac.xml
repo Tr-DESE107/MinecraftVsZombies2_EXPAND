@@ -1870,7 +1870,7 @@
                 <p>哆来咪赠予的奇妙枕头，拥有让人安眠的效果。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>器械每秒钟恢复10点耐久</color>]]></p>
+                <p>效果：<![CDATA[<color=red>友方器械每秒钟恢复10点耐久</color>]]></p>
             </properties>
             <flavor>
                 <p>好困啊，先不写趣文了。</p>
@@ -1906,7 +1906,7 @@
                 <p>暗物质是宇宙中大量存在的一种不可见的物质。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>器械生产效率×200%，但怪物隐形</color>]]></p>
+                <p>效果：<![CDATA[<color=red>友方器械生产效率×200%，但怪物隐形</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<color=white>你看不见我</color>]]></p>
@@ -1920,7 +1920,7 @@
                 <p>被装入瓶子中的一个小型黑洞。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>每有一个蓝图空位，器械+10%伤害</color>]]></p>
+                <p>效果：<![CDATA[<color=red>每有一个蓝图空位，友方器械+10%伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>瓶中的火焰，强化你的攻击；</p>
@@ -1957,7 +1957,7 @@
                 <p>针妙丸公主赏赐有功之臣史蒂夫的宝物，万宝槌的仿制品，曾被正邪用于逃离通缉。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>+15%器械伤害</color>]]></p>
+                <p>效果：<![CDATA[<color=red>+15%友方器械伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>万宝槌的仿制品，没有什么魔力，只能普通地造成物理伤害。</p>
@@ -1989,7 +1989,7 @@
                 <p>辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red><tag id="mvz2:light_source" />发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
+                <p>效果：<![CDATA[<color=red><tag id="mvz2:light_source" />发光的友方器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
             </properties>
             <flavor>
                 <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
@@ -2027,7 +2027,7 @@
                 <p>神子赠送的一种武器，在爆炸时会产生炫目的光芒。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>器械自爆时，对所有敌人额外造成等同于该器械能量消耗的伤害</color>]]></p>
+                <p>效果：<![CDATA[<color=red>友方器械自爆时，对所有敌人额外造成等同于该器械能量消耗的伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>神子说，</p>
@@ -2049,7 +2049,7 @@
                 <p>巨人的眼睛。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>器械x250%伤害，但x50%攻击速度</color>]]></p>
+                <p>效果：<![CDATA[<color=red>友方器械x250%伤害，但x50%攻击速度</color>]]></p>
             </properties>
             <flavor>
                 <p>巨人的眼睛盯着你看——它似乎有话想对你说。</p>

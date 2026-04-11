@@ -26,6 +26,8 @@ namespace MVZ2.GameContent.Artifacts
         {
             var contraption = param.entity;
             var level = contraption.Level;
+            if (!contraption.IsFriendlyEntity())
+                return;
             foreach (var artifact in level.GetArtifacts())
             {
                 if (artifact?.Definition != this)

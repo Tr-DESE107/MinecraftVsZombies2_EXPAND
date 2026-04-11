@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Artifacts
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();
-                results.AddRange(level.GetEntities(EntityTypes.PLANT));
+                results.AddRange(level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsFriendlyEntity()));
             }
         }
     }

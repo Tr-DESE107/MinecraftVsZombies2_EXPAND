@@ -21,6 +21,14 @@
   - Material: Stone -> Metal
 - Dark Matter now make monsters invisible instead of making the battlefield dark.
 - The total flag amount of level 1-3 is from 2 -> 1.
+- These artifacts now only work for friendly contraptions:
+  - Sweet Sleep Pillow
+  - Dark Matter
+  - Bottled Blackhold
+  - Miracle Mallet
+  - Broken Lantern
+  - Lightbomb
+  - Eye of the Giant
 
 ## Fixed
 - Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.
