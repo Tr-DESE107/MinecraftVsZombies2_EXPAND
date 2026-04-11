@@ -4122,8 +4122,8 @@ msgstr "A broken padlock that fell off the 从<ref=[misc]mvz2:locked_chest>Locke
 #. Properties for artifacts mvz2:broken_lock
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械每受到10点伤害，其蓝图冷却时间便减少1秒</color>"
-msgstr "Effect: <color=red>For every 10 damage a contraption taken, its blueprint recharge time will be advanced by 1 second</color>"
+msgid "效果：<color=red>器械每受到3点伤害，其蓝图冷却时间便减少1%</color>"
+msgstr "Effect: <color=red>For every 3 damage a contraption has taken, its blueprint recharge time will be decreased by 1%</color>"
 
 #. Flavor for artifacts mvz2:broken_lock
 #: Almanac meta file
@@ -8008,8 +8008,8 @@ msgstr "Broken Lock"
 #. Tooltip for artifact mvz2:broken_lock
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械每受到10点伤害，其蓝图冷却时间便减少1秒"
-msgstr "For every 10 damage a contraption taken, its blueprint recharge time will be advanced by 1 second"
+msgid "器械每受到3点伤害，其蓝图冷却时间便减少1%"
+msgstr "For every 3 damage a contraption has taken, its blueprint recharge time will be decreased by 1%"
 
 #. Name for artifact mvz2:magma_stone
 #: Artifact meta file
