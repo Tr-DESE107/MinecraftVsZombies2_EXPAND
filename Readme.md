@@ -212,6 +212,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - -1 spawned Parasite Terrors from monsters.
 - Skeleton Horses won't jump.
 - Wicked Hermit Zombie is stunned for 7.5 seconds after teleporting.
+- The Self-destruction of Wisp Flies deals 100 damage.
 
 **Bosses**
 
@@ -247,6 +248,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - +1 spawned Parasite Terrors from monsters.
 - Skeleton Horses jump twice.
 - Wicked Hermit Zombie is stunned for 2.5 seconds after teleporting.
+- The Self-destruction of Wisp Flies deals 300 damage.
 
 **Bosses**
 
