@@ -2607,4 +2607,44 @@
             <bool name="autoCollectMoney" value="true" />
         </properties>
     </stage>
+    <stage id="AreUfoScpae" name="&lt;color=red&gt;飞碟是锯子还是景观&lt;/color&gt;" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+        </properties>
+    </stage>
+    <stage id="BlackholeHarbor" name="&lt;color=red&gt;黑洞港湾&lt;/color&gt;" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+        </properties>
+    </stage>
+    <stage id="Chimera" name="&lt;color=red&gt;奇美拉&lt;/color&gt;" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+        </properties>
+    </stage>
+    <stage id="HotRave" name="&lt;color=red&gt;热物钝舞&lt;/color&gt;" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+        </properties>
+    </stage>
+    <stage id="HatTrick" name="&lt;color=red&gt;帽子戏法&lt;/color&gt;" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+        </properties>
+    </stage>
 </stages>

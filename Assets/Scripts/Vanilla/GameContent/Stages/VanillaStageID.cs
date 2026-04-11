@@ -160,6 +160,12 @@ namespace MVZ2.GameContent.Stages
         //EXPAND Puzzle
         public const string puzzleRandomCvsRandomE = "puzzleRandomCvsRandomE";
 
+        public const string AreUfoScpae = "AreUfoScpae";
+        public const string BlackholeHarbor = "BlackholeHarbor";
+        public const string Chimera = "Chimera";
+        public const string HotRave = "HotRave";
+        public const string HatTrick = "HatTrick";
+
     }
     public static class VanillaStageID
     {

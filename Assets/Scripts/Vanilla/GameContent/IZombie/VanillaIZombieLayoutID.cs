@@ -37,6 +37,13 @@ namespace MVZ2.GameContent.Stages
 
         //EXPAND Puzzle
         public const string puzzleRandomCvsRandomE = "puzzleRandomCvsRandomE";
+
+        public const string AreUfoScpae = "AreUfoScpae";
+        public const string BlackholeHarbor = "BlackholeHarbor";
+        public const string Chimera = "Chimera";
+        public const string HotRave = "HotRave";
+        public const string HatTrick = "HatTrick";
+
     }
     public static class VanillaIZombieLayoutID
     {
@@ -70,6 +77,12 @@ namespace MVZ2.GameContent.Stages
 
         //EXPAND Puzzle
         public static readonly NamespaceID puzzleRandomCvsRandomE = Get(VanillaIZombieLayoutNames.puzzleRandomCvsRandomE);
+
+        public static readonly NamespaceID AreUfoScpae = Get(VanillaIZombieLayoutNames.AreUfoScpae);
+        public static readonly NamespaceID BlackholeHarbor = Get(VanillaIZombieLayoutNames.BlackholeHarbor);
+        public static readonly NamespaceID Chimera = Get(VanillaIZombieLayoutNames.Chimera);
+        public static readonly NamespaceID HotRave = Get(VanillaIZombieLayoutNames.HotRave);
+        public static readonly NamespaceID HatTrick = Get(VanillaIZombieLayoutNames.HatTrick);
 
 
         private static NamespaceID Get(string name)

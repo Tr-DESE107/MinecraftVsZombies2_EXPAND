@@ -2159,6 +2159,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 226a3cf89e4a07e4aab3a61a2ba15f3e
+    m_Address: mvz2:mobile_blueprint/KogasaZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 227276bdfee6c7545b14314ef224f18b
     m_Address: mvz2:random/wood3
     m_ReadOnly: 0
@@ -11445,6 +11452,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd617e32bfc8bf446bc300da2ccef3c4
+    m_Address: mvz2:enemy/EXPAND/LEOLau
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd7b2da4545106b46b4afbf8863f9926
     m_Address: mvz2:level/halloween/halloween
     m_ReadOnly: 0
@@ -11587,6 +11601,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0c01de9a3a039d44b91dde68e814643
     m_Address: mvz2:entity/armor/EXPAND_armor/ChiefCannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0e02c96206b419449d126677178c74e
+    m_Address: mvz2:entity/enemy/EXPAND/LGBTMage
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11829,6 +11850,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5167c16588c16a4b8dbc189e1b255b6
+    m_Address: mvz2:enemy/EXPAND/LGBTMage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: mvz2:pick
@@ -15265,6 +15293,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd9ad7c66df138e4089d9de9d50b3639
+    m_Address: mvz2:entity/enemy/EXPAND/LEOLau
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fda78549c8341a5448aef8d58c997a7f
     m_Address: mvz2:entity/contraption/EXPAND_Contraption/Snipenser

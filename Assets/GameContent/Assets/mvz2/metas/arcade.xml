@@ -52,5 +52,10 @@
     
     
     <puzzle id="puzzleRandomCvsRandomE" stage="mvz2:puzzleRandomCvsRandomE" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzleRandomCvsRandomE" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
+    <puzzle id="AreUfoScpae" stage="mvz2:AreUfoScpae" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzleRandomCvsRandomE" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
+    <puzzle id="BlackholeHarbor" stage="mvz2:BlackholeHarbor" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzleRandomCvsRandomE" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
+    <puzzle id="Chimera" stage="mvz2:Chimera" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzleRandomCvsRandomE" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
+    <puzzle id="HotRave" stage="mvz2:HotRave" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzleRandomCvsRandomE" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
+    <puzzle id="HatTrick" stage="mvz2:HatTrick" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzleRandomCvsRandomE" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
 
 </arcade>
