@@ -5,7 +5,9 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -21,6 +23,7 @@ namespace MVZ2.GameContent.Stages
     {
         public HeavyWeaponStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
+            stageDef.AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreContraptionTakeDamageCallback, filter: EntityTypes.PLANT);
             stageDef.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
         }
         public override void Start(LevelEngine level)
@@ -49,6 +52,7 @@ namespace MVZ2.GameContent.Stages
                     level.Spawn(VanillaContraptionID.snipenser, cart.Position, rail, param)?.Let(snipenser =>
                     {
                         snipenser.RideOn(cart);
+                        SetSnipenserReference(level, new EntityID(snipenser));
                     });
                 });
             });
@@ -56,19 +60,48 @@ namespace MVZ2.GameContent.Stages
         public override void Update(LevelEngine level)
         {
             base.Update(level);
-            if (!level.EntityExists(e => e.IsEntityOf(VanillaContraptionID.snipenser) && e.IsFriendlyEntity() && e.ExistsAndAlive()))
+            if (level.CurrentWave >= 1)
             {
-                level.GameOver(GameOverTypes.NO_ENEMY, null, VanillaStrings.DEATH_MESSAGE_SNIPENSER_LOST);
+                var snipenserReference = GetSnipenserReference(level);
+                if (snipenserReference == null || !snipenserReference.Exists(level))
+                {
+                    level.GameOver(GameOverTypes.NO_ENEMY, null, VanillaStrings.DEATH_MESSAGE_SNIPENSER_LOST);
+                }
+            }
+        }
+        private void PreContraptionTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
+        {
+            var input = param.input;
+            var entity = input.Entity;
+            var level = entity.Level;
+            if (level.HasBehaviour(this) && level.IsGodMode())
+            {
+                var snipenserReference = GetSnipenserReference(level);
+                if (snipenserReference != null && snipenserReference.IsEntity(entity))
+                {
+                    result.SetFinalValue(false);
+                }
             }
         }
         private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
-            if (entity.Level.HasBehaviour(this) && entity.IsEntityOf(VanillaContraptionID.snipenser))
+            var level = entity.Level;
+            if (level.HasBehaviour(this))
             {
-                Explosion.Spawn(entity, entity.GetCenter(), 120);
-                entity.PlaySound(VanillaSoundID.largeExplosion);
+                var snipenserReference = GetSnipenserReference(level);
+                if (snipenserReference != null && snipenserReference.IsEntity(entity))
+                {
+                    Explosion.Spawn(entity, entity.GetCenter(), 120);
+                    entity.PlaySound(VanillaSoundID.largeExplosion);
+                }
             }
         }
+
+        public static EntityID? GetSnipenserReference(LevelEngine level) => level.GetProperty<EntityID>(PROP_SNIPENSER_REFERENCE);
+        public static void SetSnipenserReference(LevelEngine level, EntityID? value) => level.SetProperty(PROP_SNIPENSER_REFERENCE, value);
+        private const string PROP_REGION = "heavy_weapon_stage";
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<EntityID> PROP_SNIPENSER_REFERENCE = new VanillaLevelPropertyMeta<EntityID>("snipenser_reference");
     }
 }
