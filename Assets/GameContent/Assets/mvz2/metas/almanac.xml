@@ -260,6 +260,15 @@
 		<variable name="entity_damage" property="mvz2:entity/damage"/>
 		<variable name="entity_speed" property="mvz2:entity/speed"/>
 		<variable name="redstone_value" property="mvz2:entity/energyValue" target="mvz2:redstone" targetType="entity" />
+
+		<variable name="FireInterval" property="mvz2:entity/attackSpeed">
+			<divide constant="1.5" reverse="true" />
+		</variable>
+		<variable name="FireRange" property="mvz2:entity/range">
+			<divide constant="80" />
+		</variable>
+		<variable name="entity_range" property="mvz2:entity/range"/>
+		
 	</globalVariables>
 	<contraptions>
 		<entry id="mvz2:dispenser">
@@ -268,9 +277,9 @@
 			</header>
 			<properties>
 				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
 				<p>特点：<![CDATA[<color=red>1/7概率发射紫箭</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>普通箭矢20，紫箭70+10(穿甲伤害)</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>普通箭矢<var id="mvz2:entity_damage" />，紫箭70+10(穿甲伤害)</color>]]></p>
 				<p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
 			</properties>
 			<flavor>
@@ -284,7 +293,7 @@
 			<properties>
 				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>生产时间：<![CDATA[<color=red>24秒</color>]]></p>
-				<p>提供能量：<![CDATA[<color=red>红石50</color>]]></p>
+				<p>提供能量：<![CDATA[<color=red>红石<var id="mvz2:redstone_value" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>瞬间生成6枚红石</color>]]></p>
 			</properties>
 			<flavor>
@@ -362,8 +371,8 @@
 			<properties>
 				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>准备时间：<![CDATA[<color=red>15秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>1800</color>]]></p>
-				<p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+				<p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>技能：<![CDATA[<color=red>立即准备完毕，并向最前方投掷两个新的地雷TNT</color>]]></p>
 			</properties>
 			<flavor>
@@ -385,7 +394,7 @@
 				<p>蚀毒发射器能发射短距离的毒球。</p>
 			</header>
 			<properties>
-				<p>射程：<![CDATA[<color=red>5格</color>]]></p>
+				<p>射程：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，蚀毒效果30/s，持续5s</color>]]></p>
 				<p>技能：<![CDATA[<color=red>射出一个越滚越大的毒球</color>]]></p>
 			</properties>
@@ -420,7 +429,7 @@
 				<p>荧石发出的光芒能驱散迷雾，并发现周围的幽灵。</p>
 			</header>
 			<properties>
-				<p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>照明半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>技能：<![CDATA[<color=red>眩晕所有敌人5秒，清除器械的精神控制状态</color>]]></p>
 			</properties>
 			<flavor>
@@ -458,7 +467,7 @@
 			</header>
 			<properties>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-				<p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>技能：<![CDATA[<color=red>炸出4个TNT分身</color>]]></p>
 			</properties>
 			<flavor>
@@ -471,12 +480,17 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:soul_furnace">
+			<variables>
+				<variable name="splash_damage" property="mvz2:entity/damage">
+					<multiply constant="0.25" />
+				</variable>
+			</variables>
 			<header>
 				<p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要提供燃料。]]></p>
 			</header>
 			<properties>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-				<p>溅射伤害：<![CDATA[<color=red>20（不伤害直接目标）</color>]]></p>
+				<p>溅射伤害：<![CDATA[<color=red><var local="splash_damage" />（不伤害直接目标）</color>]]></p>
 				<p>特点：<![CDATA[<color=red>需要烧毁本格的器械补充燃料</color>]]></p>
 				<p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
 				<p>技能：<![CDATA[<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球，单次技能时间过长会导致不分敌我的自爆</color>]]></p>
@@ -489,6 +503,11 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:silvenser">
+			<variables>
+				<variable name="flesh_damage" global="mvz2:entity_damage">
+					<multiply constant="2" />
+				</variable>
+			</variables>
 			<header>
 				<p>银制发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
 			</header>
@@ -538,8 +557,8 @@
 				<p>在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>升级上限：<![CDATA[<color=red>5</color>]]></p>
 				<p>技能：<![CDATA[<color=red>发射五支大箭矢</color>]]></p>
 			</properties>
@@ -610,8 +629,8 @@
 				<p>活塞发射器能够伸长自己来攻击高处的敌人。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>特点：<![CDATA[<color=red>能够攻击高处的敌人，尖刺能够穿透3个敌人</color>]]></p>
 				<p>技能：<![CDATA[<color=red>向至多10个敌人发射穿甲的巨型尖刺</color>]]></p>
 			</properties>
@@ -644,7 +663,7 @@
 				<p>图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
 				<p>伤害：<![CDATA[<color=red>15（飞镖），20/秒（火焰），45（毒液球），30/秒（中毒效果）</color>]]></p>
 				<p>特点：<![CDATA[<color=red>1/5概率发射毒液球，飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</color>]]></p>
 				<p>技能：<![CDATA[<color=red>投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹</color>]]></p>
@@ -661,7 +680,7 @@
 				<p>梦境结晶会慢慢地恢复自己的生命。</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>恢复速度：<![CDATA[<color=red>80/秒</color>]]></p>
 				<p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复耐久</color>]]></p>
 			</properties>
@@ -690,8 +709,8 @@
 				<p>木制投掷器向敌人发射滚动的木球。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20，金球40</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，金球40</color>]]></p>
 				<p>技能：<![CDATA[<color=red>立即喷射30颗大型木球，每颗造成80点伤害</color>]]></p>
 			</properties>
 			<flavor>
@@ -709,7 +728,7 @@
 			<properties>
 
 				<p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>]]></p>
 			</properties>
 			<flavor>
@@ -727,7 +746,7 @@
 			</header>
 			<properties>
 
-				<p>发射速度：<![CDATA[<color=red>1秒</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
 				<p>巨石概率：<![CDATA[<color=red>25%</color>]]></p>
 				<p>伤害：<![CDATA[<color=red>10（卵石），40（巨石）</color>]]></p>
 				<p>技能：<![CDATA[<color=red>立即喷射30发巨石</color>]]></p>
@@ -745,7 +764,7 @@
 				<p>石护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>6000</color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>3x3范围内的器械无敌10秒</color>]]></p>
 			</properties>
 			<flavors>
@@ -810,8 +829,9 @@
 				<p>磁暴线圈会电击周围大范围内的敌人。</p>
 			</header>
 			<properties>
-				<p>攻击速度：<![CDATA[<color=red>2秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>80</color>]]></p>
+				<p>攻击速度：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>特殊：<![CDATA[<color=red>不可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>]]></p>
 				<p>技能：<![CDATA[<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>]]></p>
 			</properties>
@@ -846,10 +866,10 @@
 				<p>音符盒发射在自身和敌人间不停反弹的音符，持续造成伤害。</p>
 			</header>
 			<properties>
-				<p>伤害：<![CDATA[<color=red>5</color>]]></p>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
 				<p>音符上限：<![CDATA[<color=red>10</color>]]></p>
-				<p>技能：<![CDATA[<color=red>发生一次1200的爆炸，在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>]]></p>
+				<p>技能：<![CDATA[<color=red>发生一次1200的爆炸，在30秒内x500%伤害，x500%攻击间隔，x200%音符飞行速度</color>]]></p>
 			</properties>
 			<flavor>
 				<p>永远不要试图做音符盒的邻居，别问为什么。</p>
@@ -862,7 +882,7 @@
 				<p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹和爆炸来治疗自己。</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
 				<p>技能：<![CDATA[<color=red>在5秒内吸收所有远程射弹和爆炸伤害并治疗自己，之后将这些伤害返还给所有敌人（最高900）</color>]]></p>
 			</properties>
@@ -880,8 +900,8 @@
 				<p>双向发射器在向前发射箭矢的同时，也会向后方发射一发箭矢和一发飞镖。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1发/1.5秒（前方），2发/1.5秒（后方）</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>箭和飞镖20，小导弹100，大导弹600</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red>1发/<var id="mvz2:FireInterval" />秒（前方），2发/<var id="mvz2:FireInterval" />秒（后方）</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>箭和飞镖<var id="mvz2:entity_damage" />，小导弹100，大导弹600</color>]]></p>
 				<p>技能：<![CDATA[<color=red>快速向前发射60支箭矢，向后发射20发箭矢和8发小导弹，最后向后发射1发大导弹</color>]]></p>
 			</properties>
 			<flavor>
@@ -927,7 +947,7 @@
 				<p>地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。</p>
 			</header>
 			<properties>
-				<p>血量：<![CDATA[<color=red>1500</color>]]></p>
+				<p>血量：<![CDATA[<color=red><var id="mvz2:FireInterval" /></color>]]></p>
 				<p>伤害增幅：<![CDATA[<color=red>+100%火焰伤害，+66%溅射伤害</color>]]></p>
 				<p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>]]></p>
 			</properties>
@@ -942,13 +962,19 @@
 			</flavor>
 		</entry>
 		<entry id="necrotombstone">
+			<variables>
+				<variable name="warrior_hp" property="mvz2:entity/maxHealth" target="mvz2:skeleton_warrior" targetType="entity" />
+				<variable name="helmet_hp" property="mvz2:armor/maxHealth" target="mvz2:skeleton_warrior_helmet" targetType="armor" />
+				<variable name="shield_hp" property="mvz2:armor/maxHealth" target="mvz2:skeleton_warrior_shield" targetType="armor" />
+				<variable name="warrior_speed" property="mvz2:entity/speed" target="mvz2:skeleton_warrior" targetType="entity" />
+			</variables>
 			<header>
 				<p>死灵墓碑会不断召唤友方的骷髅战士，让它们为你而战。</p>
 			</header>
 			<properties>
 				<p>召唤时间：<![CDATA[<color=red>15秒</color>]]></p>
-				<p>骷髅战士生命：<![CDATA[<color=red>200+300（头盔）+300（盾）</color>]]></p>
-				<p>骷髅战士速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>骷髅战士生命：<![CDATA[<color=red><var local="warrior_hp" />+<var local="helmet_hp" />（头盔）+<var local="shield_hp" />（盾）</color>]]></p>
+				<p>骷髅战士速度：<![CDATA[<color=red><var local="warrior_speed" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>召唤3个同种的火焰、冰霜或闪电骷髅法师</color>]]></p>
 				<p>特点：<![CDATA[<color=red>被摧毁时立刻召唤骷髅战士</color>]]></p>
 			</properties>
@@ -962,13 +988,18 @@
 			</flavor>
 		</entry>
 		<entry id="black_hole_bomb">
+			<variables>
+				<variable name="dps" global="mvz2:entity_damage">
+					<multiply constant="0.3" />
+				</variable>
+			</variables>
 			<header>
 				<p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。</p>
 			</header>
 			<properties>
 				<p>持续时间：<![CDATA[<color=red>8秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>30/秒</color>]]></p>
-				<p>半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var local="dps" />/秒</color>]]></p>
+				<p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>技能：<![CDATA[<color=red>产生湮灭领域，直接消灭范围内的所有敌人和敌弹</color>]]></p>
 			</properties>
 			<flavor>
@@ -1007,10 +1038,10 @@
 			</header>
 			<properties>
 				<p>爆炸伤害：<![CDATA[<color=red>100（简单）、150（普通）、300（困难）</color>]]></p>
-				<p>爆炸半径：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>爆炸半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>生产时间：<![CDATA[<color=red>30秒</color>]]></p>
-				<p>提供能量：<![CDATA[<color=red>75</color>]]></p>
-				<p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供125能量，但是会更快爆炸</color>]]></p>
+				<p>提供能量：<![CDATA[<color=red><var local="gunpowder_value" /></color>]]></p>
+				<p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供<var local="furious_gunpowder_value" />能量，但是会更快爆炸</color>]]></p>
 			</properties>
 			<flavor>
 				<p>众所周知，最早的黑火药由三种材料制作：</p>
@@ -1025,7 +1056,7 @@
 				<p>三头发射器一次能发射三行的箭矢。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>3支/1.5秒</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red>3支/<var id="mvz2:FireInterval" />秒</color>]]></p>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>发射三颗缓慢飞行的，互相环绕的星球，穿透并反复打击敌人</color>]]></p>
 			</properties>
@@ -1042,9 +1073,9 @@
 				<p>烟花发射器会发射火焰弹攻击上方高空中的敌人。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1发/1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>150，只攻击空中敌人</color>]]></p>
-				<p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，只攻击空中敌人</color>]]></p>
+				<p>射程：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>技能：<![CDATA[<color=red>射程永久+1格</color>]]></p>
 			</properties>
 			<flavor>
@@ -1057,8 +1088,8 @@
 				<p>连射发射器一次能发射两支箭矢。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>2支/1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20，脉冲箭40，大箭矢600</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red>2支/<var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，脉冲箭40，大箭矢600</color>]]></p>
 				<p>技能：<![CDATA[<color=red>快速发射40支箭矢和8发小导弹，最后发射一支大箭矢</color>]]></p>
 			</properties>
 			<flavor>
@@ -1075,8 +1106,8 @@
 				<p>信标能向前方、后方、后上方、后下方、前上方、前下方六个方向同时发射星星手里剑。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>6发/1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>30</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red>6发/<var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>召唤10颗陨石，打击场上随机位置</color>]]></p>
 			</properties>
 			<flavor>
@@ -1201,7 +1232,7 @@
 				<p>小型发射器能发射短距离的雪球。</p>
 			</header>
 			<properties>
-				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+				<p>射程：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
 			</properties>
@@ -1214,7 +1245,7 @@
 				<p>红石矿打碎后可以获得红石</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>600</color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>特点：<![CDATA[<color=red>打碎后可以获得多个红石</color>]]></p>
 				<p>技能：<![CDATA[<color=red>造成600敌我不分的3*3爆炸伤害，产生红宝石和绿宝石</color>]]></p>
 			</properties>
@@ -1229,7 +1260,7 @@
 				<p>发光的黑曜石的强力装甲能够抵御敌人的攻击，在死亡时会爆炸。</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>伤害：<![CDATA[<color=red>死亡时爆炸1000，龙力爆炸1800</color>]]></p>
 				<p>技能：<![CDATA[<color=red>获得龙力装甲，耐久提高至10000，失去龙力装甲时发生一次伤害更高的爆炸</color>]]></p>
 			</properties>
@@ -1261,9 +1292,9 @@
 				<p>发射器护罩在保护其内部的器械的同时可以发射箭矢</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>900</color>]]></p>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
 			</properties>
 			<flavor>
@@ -1289,7 +1320,7 @@
 				<p>狙击发射器能够全方位发射高速箭。</p>
 			</header>
 			<properties>
-				<p>伤害：<![CDATA[<color=red>60</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>特点：<![CDATA[<color=red>全方位射击</color>]]></p>
 				<p>技能：<![CDATA[<color=red>连续发射多发射弹，发射完毕后发生一次范围3*3，伤害900的爆炸</color>]]></p>
 			</properties>
@@ -1325,8 +1356,8 @@
 				<p>铜制投掷器向敌人发射概率眩晕的铜球和击退敌人的铜矿球，铜球在击中敌人后有概率产生铜锭，并在敌人间反弹。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>铜球40，每次反弹后减半，铜矿球80</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>铜球<var id="mvz2:entity_damage" />，每次反弹后减半，铜矿球80</color>]]></p>
 				<p>概率：<![CDATA[<color=red>铜球25%赋予眩晕，5%掉落铜锭</color>]]></p>
 				<p>技能：<![CDATA[<color=red>立即喷射20发铜球和15发铜矿球</color>]]></p>
 			</properties>
@@ -1367,9 +1398,9 @@
 				<p>超级烟花发射器会发射烟花轰击上方高空中的敌人。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1发/5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>200，只伤害空中敌人</color>]]></p>
-				<p>射程：<![CDATA[<color=red>1.5格</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，只伤害空中敌人</color>]]></p>
+				<p>射程：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>技能：<![CDATA[<color=red>开展烟火大会，射程永久+1格</color>]]></p>
 			</properties>
 			<flavor>
@@ -1387,7 +1418,7 @@
 				<p>钻石矿打碎后可以获得钻石</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>1200</color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>特点：<![CDATA[<color=red>打碎后可以产生3个钻石</color>]]></p>
 				<p>技能：<![CDATA[<color=red>造成1200敌我不分的3*3爆炸伤害，产生3个钻石，并50%掉落一张钻石矿卡片。</color>]]></p>
 			</properties>
@@ -1408,8 +1439,8 @@
 				<p>传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。</p>
 			</header>
 			<properties>
-				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20，蚀毒效果36/s，持续7s</color>]]></p>
+				<p>射程：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，蚀毒效果36/s，持续7s</color>]]></p>
 				<p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
 			</properties>
 			<flavor>
@@ -1440,8 +1471,8 @@
 				<p>金制投掷器向敌人发射金球，金球在击中敌人后有概率产生绿宝石，并在敌人间反弹。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>60，每次反弹后减半</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，每次反弹后减半</color>]]></p>
 				<p>宝石概率：<![CDATA[<color=red>25%</color>]]></p>
 				<p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
 			</properties>
@@ -1457,7 +1488,7 @@
 				<p>御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red>1发/3秒</color>]]></p>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>展开一片星空，将场地临时变为黑夜，空中会掉落总共300颗星星子弹，每颗星星造成55点伤害，持续30秒。</color>]]></p>
 			</properties>
@@ -1487,7 +1518,7 @@
 				<p>高频脉冲发射器一次能发射四支箭矢。</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>4支/1.5秒</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red>4支/<var id="mvz2:FireInterval" />秒</color>]]></p>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>永久改为发射六支箭矢，并<tag id="mvz2:light_source" />发光</color>]]></p>
 			</properties>
@@ -1511,9 +1542,9 @@
 				<p>钻石尖刺会对走在上面的敌人造成双重伤害，并具有更高的耐久。</p>
 			</header>
 			<properties>
-				<p>耐久：<![CDATA[<color=red>5400</color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>攻击频率：<![CDATA[<color=red>0.25秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>]]></p>
 			</properties>
 			<flavor>
@@ -1533,9 +1564,9 @@
 				<p>万象天枢能与其他发射器融合并获取无与伦比的能力。嗯，说是这么说，但还没做好</p>
 			</header>
 			<properties>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>1-6535</color>]]></p>
-				<p>技能：<![CDATA[<color=red>视情况而定</color>]]></p>
+				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>视形态而定</color>]]></p>
+				<p>技能：<![CDATA[<color=red>视形态而定</color>]]></p>
 			</properties>
 			<flavor>
 				<p>有不少人可能好奇他的简称E.X.P.A.N.D.都代表了什么？嗯，E代表Expand，D代表Dispenser，剩下来的四个字母都代表了什么？其实他本人也没想好。</p>
@@ -1551,7 +1582,7 @@
 				<p>寒冰发射器能发射减速敌人的冰锥。</p>
 			</header>
 			<properties>
-				<p>伤害：<![CDATA[<color=red>普通冰锥15，冻结冰锥30</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>普通冰锥<var id="mvz2:entity_damage" />，冻结冰锥30</color>]]></p>
 				<p>特点：<![CDATA[<color=red>1/4概率发射能够冻结敌人150帧的冰锥。</color>]]></p>
 				<p>技能：<![CDATA[<color=red>快速发射60支冰锥</color>]]></p>
 			</properties>
@@ -1565,7 +1596,7 @@
 				<p>永冻冰驱动后能够冰冻全场敌人。</p>
 			</header>
 			<properties>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>特点：<![CDATA[<color=red>驱动后能够冰冻全场敌人</color>]]></p>
 				<p>技能：<![CDATA[<color=red>先对全场被冰冻的敌人造成1000点伤害，后冰冻全场敌人。</color>]]></p>
 			</properties>
@@ -1581,8 +1612,8 @@
 				<p>蓝冰能够冰冻摧毁它的敌人。</p>
 			</header>
 			<properties>
-				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
-				<p>特点：<![CDATA[<color=red>被摧毁后可以冰冻单格敌人</color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁后可以冰冻<var id="mvz2:FireRange" />格敌人</color>]]></p>
 				<p>技能：<![CDATA[<color=red>冰冻全场敌人，而后自毁</color>]]></p>
 			</properties>
 			<flavor>
@@ -1698,14 +1729,16 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:flag_zombie">
+			<variables>
+				<variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:iron_helmet" targetType="armor" />
+			</variables>
 			<header>
 				<p>旗帜僵尸的出现标志着一大波怪物的到来。</p>
 			</header>
 			<properties>
-
-				<p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
-				<p>速度：<![CDATA[<color=red>2</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>200</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 			</properties>
 			<flavor>
 
@@ -1713,23 +1746,29 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:leather_capped_zombie">
+			<variables>
+				<variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:leather_cap" targetType="armor" />
+			</variables>
 			<header>
 				<p>皮帽僵尸拥有能抵抗子弹的皮帽护甲。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+370</color>]]></p>
-				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
 				<p>随着时代的发展，皮帽已经逐渐淡出了人们的视线。但仍有一些僵尸在坚守着皮帽。当问及为什么时，他们总会说：“玩个游戏还BB啥！”</p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:iron_helmetted_zombie">
+			<variables>
+				<variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:starting_armor" targetType="armor" />
+			</variables>
 			<header>
 				<p>铁盔僵尸的铁盔给他提供了极高的防护。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
@@ -1862,7 +1901,7 @@
 				<p>木乃伊会在死后放出能治疗亡灵并伤害器械的毒雾，他们的砂岩头盔能够抵挡一部分伤害。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>250+400</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>弱点：<![CDATA[<color=red>毒雾可以被<tag id="mvz2:fire" />火烧掉</color>]]></p>
 			</properties>
 			<flavor>
@@ -1876,7 +1915,7 @@
 				<p>死灵法师会生成临时的骨墙阻挡子弹。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>300+400</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
@@ -1917,7 +1956,7 @@
 				<p>国王骷髅能够召唤自己的仆从冲向你的防线。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>350+400</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>0.75</color>]]></p>
 			</properties>
 			<flavor>
@@ -1947,7 +1986,7 @@
 				<p>超级红眼僵尸有着难以置信的耐久。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>3200+3200</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>0.4</color>]]></p>
 			</properties>
 			<flavor>
@@ -2233,7 +2272,7 @@
 				<p>皮帽凋零骷髅会作为凋灵帝国的进阶炮灰冲向你。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+370</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
@@ -2247,7 +2286,7 @@
 				<p>铁盔凋零骷髅会作为凋灵帝国的高级炮灰冲向你。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
@@ -2257,12 +2296,18 @@
 		</entry>
 
 		<entry id="mvz2:NetherWarrior">
+			<variables>
+				<variable name="warrior_hp" property="mvz2:entity/maxHealth" target="mvz2:skeleton_warrior" targetType="entity" />
+				<variable name="helmet_hp" property="mvz2:armor/maxHealth" target="mvz2:skeleton_warrior_helmet" targetType="armor" />
+				<variable name="shield_hp" property="mvz2:armor/maxHealth" target="mvz2:skeleton_warrior_shield" targetType="armor" />
+				<variable name="warrior_speed" property="mvz2:entity/speed" target="mvz2:skeleton_warrior" targetType="entity" />
+			</variables>
 			<header>
 				<p>下界战士在攻击时能够额外造成范围伤害。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>400+400+600</color>]]></p>
-				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var local="warrior_hp" />+<var local="helmet_hp" />（头盔）+<var local="shield_hp" />（盾）</color>]]></p>
+				<p>速度：<![CDATA[<color=red><var local="warrior_speed" /></color>]]></p>
 				<p>特点：<![CDATA[<color=red>攻击时持续对小范围内的器械造成伤害，盾牌可抵挡一定高度的子弹。</color>]]></p>
 			</properties>
 			<flavor>
@@ -2276,7 +2321,7 @@
 				<p>又名催眠者，能够精神控制你的器械使其倒戈。杀死它可以解除精神控制。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>300+300</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 				<p>弱点：<![CDATA[<color=red>荧石周围的器械无法被控制</color>]]></p>
 			</properties>
@@ -2293,7 +2338,7 @@
 				<p>下界弓箭手能够发射出带火焰的箭矢。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>400+400</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
@@ -2307,7 +2352,7 @@
 				<p>狂战士在死亡时会产生猛烈的爆炸。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+200</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>2</color>]]></p>
 				<p>爆炸伤害：<![CDATA[<color=red>300</color>]]></p>
 			</properties>
@@ -2448,7 +2493,7 @@
 				<p>愤怒的反逆者能够快速发射出精神球体，杀死催眠者可以解除精神控制。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>600+1200</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 				<p>弱点：<![CDATA[<color=red>荧石周围的器械无法被控制</color>]]></p>
 			</properties>
@@ -2483,7 +2528,7 @@
 				<p>床战士能够制造惊天动地的大爆炸。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>16800+3200</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>2</color>]]></p>
 
 			</properties>
@@ -2572,7 +2617,7 @@
 				<p>反逆者之王能不时召唤凋零骷髅军队，并能发射使器械反叛的精神球体。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>600+1500</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>0.8</color>]]></p>
 
 			</properties>
@@ -2602,7 +2647,7 @@
 				<p>武僧皮帽僵尸拥有能抵抗子弹的皮帽护甲。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>300+370</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
@@ -2614,7 +2659,7 @@
 				<p>武僧铁盔僵尸的铁盔给他提供了极高的防护。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>300+1100</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
@@ -2640,7 +2685,7 @@
 				<p>反射壁僵尸使用反射壁保护自己，并对飞来的子弹作出反击。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+710</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 				<p>特点：<![CDATA[<color=red>子弹击中反射壁并消失后，产生伤害相同的子弹进行回击</color>]]></p>
 			</properties>
@@ -2757,7 +2802,7 @@
 				<p>皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>600+50</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
 				<p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>]]></p>
 			</properties>
@@ -2771,7 +2816,7 @@
 				<p>天子僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>600+100</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
 				<p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方60/s的再生效果。</color>]]></p>
 			</properties>
@@ -2799,7 +2844,7 @@
 				<p>醉醺醺的海盗皮帽僵尸会扑向你的防线。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>250+370</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>0.9</color>]]></p>
 				<p>伤害：<![CDATA[<color=red>150</color>]]></p>
 			</properties>
@@ -2827,7 +2872,7 @@
 				<p>不那么醉醺醺的海盗铁盔骷髅会扑向你的防线。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+1110</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
 				<p>伤害：<![CDATA[<color=red>125</color>]]></p>
 			</properties>
@@ -2883,7 +2928,7 @@
 				<p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+1110（铁炮）</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>0.5，1（失去铁炮后）</color>]]></p>
 				<p>发射间隔：<![CDATA[<color=red>8秒</color>]]></p>
 			</properties>
@@ -2975,7 +3020,7 @@
                 <p>炮长僵尸会使用他的炮长加农炮发射小鬼。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>600+1110</color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red>0.8</color>]]></p>
             </properties>
             <flavor>
@@ -3546,7 +3591,7 @@
 			<properties>
 				<p>效果：<![CDATA[<color=red>星之碎片的效果改为格斗术</color>]]></p>
 				<p>横向拖动：<![CDATA[<color=red>冲拳，对一整行内的敌人造成1200点伤害并将其击飞</color>]]></p>
-				<p>向下拖动：<![CDATA[<color=red>俯冲，对半径1.5格内的敌人造成1800点伤害</color>]]></p>
+				<p>向下拖动：<![CDATA[<color=red>俯冲，对半径<var id="mvz2:FireRange" />格内的敌人造成1800点伤害</color>]]></p>
 				<p>向上拖动：<![CDATA[<color=red>上勾拳，对半径2.5格内的敌人造成400点伤害并将其击飞</color>]]></p>
 			</properties>
 			<flavor>
