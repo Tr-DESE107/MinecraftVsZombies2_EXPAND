@@ -22,7 +22,8 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "NGettext.dll",
-        "Newtonsoft.Json.dll"
+        "Newtonsoft.Json.dll",
+        "Flee.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
