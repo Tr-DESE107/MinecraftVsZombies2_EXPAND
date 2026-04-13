@@ -517,8 +517,10 @@ namespace MVZ2.IO
                 var constant = node.GetAttributeDouble("constant") ?? 0;
                 return new AlmanacVariableReferenceConstant(constant);
             }
-            else if (node.HasAttribute("property"))
+            else if (node.HasAttribute("property") && !node.HasAttribute("indirectProperty"))
             {
+                // 原有的 property 分支（注意加上 !indirectProperty 条件避免冲突，  
+                // 因为 indirectProperty 也需要 property 属性）  
                 var propertyName = node.GetAttribute("property");
                 var target = node.GetAttributeNamespaceID("target", defaultNsp);
                 var targetType = node.GetAttribute("targetType");
@@ -529,6 +531,15 @@ namespace MVZ2.IO
                         target = target,
                         targetType = targetType
                     };
+            }
+            else if (node.HasAttribute("indirectProperty"))
+            {
+                var indirectPropertyName = node.GetAttribute("indirectProperty");
+                var resolveType = node.GetAttribute("resolveType");
+                var propertyName = node.GetAttribute("property");
+
+                if (!string.IsNullOrEmpty(indirectPropertyName) && !string.IsNullOrEmpty(resolveType) && !string.IsNullOrEmpty(propertyName))
+                    return new AlmanacVariableReferenceIndirectProperty(indirectPropertyName, resolveType, propertyName);
             }
             else if (node.HasAttribute("global"))
             {
