@@ -181,12 +181,14 @@
         </enum>
     </tags>
     <globalVariables>
-        <variable name="entity_health" property="mvz2:entity/maxHealth"/>
-        <variable name="entity_damage" property="mvz2:entity/damage"/>
-        <variable name="entity_speed" property="mvz2:entity/speed"/>
+        <variable name="entity_health">property("mvz2:entity/maxHealth")</variable>
+        <variable name="entity_damage">property("mvz2:entity/damage")</variable>
+        <variable name="entity_speed">property("mvz2:entity/speed")</variable>
+        
+        <variable name="redstone_value">property("mvz2:entity/energyValue", "mvz2:redstone", "entity")</variable>
 
-        <variable name="redstone_value" property="mvz2:entity/energyValue" target="mvz2:redstone" targetType="entity" />
-
+        <variable name="armor_hp">property("mvz2:armor/maxHealth", property("mvz2:entity/starting_armor"), "armor")</variable>
+        <variable name="shield_hp">property("mvz2:armor/maxHealth", property("mvz2:entity/starting_shield"), "armor")</variable>
     </globalVariables>
     <contraptions>
         <entry id="mvz2:dispenser">
@@ -339,9 +341,7 @@
         </entry>
         <entry id="mvz2:soul_furnace">
             <variables>
-                <variable name="splash_damage" property="mvz2:entity/damage">
-                    <multiply constant="0.25" />
-                </variable>
+                <variable name="splash_damage">toDouble(global("mvz2:entity_damage")) * 0.25</variable>
             </variables>
             <header>
                 <p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要烧毁前方的器械来补充燃料。]]></p>
@@ -359,9 +359,7 @@
         </entry>
         <entry id="mvz2:silvenser">
             <variables>
-                <variable name="flesh_damage" global="mvz2:entity_damage">
-                    <multiply constant="2" />
-                </variable>
+                <variable name="flesh_damage">toDouble(global("mvz2:entity_damage")) * 2</variable>
             </variables>
             <header>
                 <p>银制发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
@@ -522,9 +520,7 @@
         </entry>
         <entry id="mvz2:stone_dropper">
             <variables>
-                <variable name="boulder_damage" global="mvz2:entity_damage">
-                    <multiply constant="4" />
-                </variable>
+                <variable name="boulder_damage">toDouble(global("mvz2:entity_damage")) * 4</variable>
             </variables>
             <header>
                 <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌方怪物并分裂的巨石。</p>
@@ -692,10 +688,13 @@
         </entry>
         <entry id="necrotombstone">
             <variables>
-                <variable name="warrior_hp" property="mvz2:entity/maxHealth" target="mvz2:skeleton_warrior" targetType="entity" />
-                <variable name="helmet_hp" property="mvz2:armor/maxHealth" target="mvz2:skeleton_warrior_helmet" targetType="armor" />
-                <variable name="shield_hp" property="mvz2:armor/maxHealth" target="mvz2:skeleton_warrior_shield" targetType="armor" />
-                <variable name="warrior_speed" property="mvz2:entity/speed" target="mvz2:skeleton_warrior" targetType="entity" />
+                <variable name="token">"mvz2:skeleton_warrior"</variable>
+                <variable name="warrior_hp">property("mvz2:entity/maxHealth", local("token"), "entity")</variable>
+                <variable name="warrior_speed">property("mvz2:entity/speed", local("token"), "entity")</variable>
+                <variable name="helmet">property("mvz2:entity/starting_armor", local("token"), "entity")</variable>
+                <variable name="shield">property("mvz2:entity/starting_shield", local("token"), "entity")</variable>
+                <variable name="helmet_hp">property("mvz2:armor/maxHealth", local("helmet"), "armor")</variable>
+                <variable name="shield_hp">property("mvz2:armor/maxHealth", local("shield"), "armor")</variable>
             </variables>
             <header>
                 <p>死灵墓碑会不断召唤友方的骷髅战士，让它们为你而战。</p>
@@ -715,9 +714,7 @@
         </entry>
         <entry id="black_hole_bomb">
             <variables>
-                <variable name="dps" global="mvz2:entity_damage">
-                    <multiply constant="0.3" />
-                </variable>
+                <variable name="dps">toDouble(global("mvz2:entity_damage")) * 0.3</variable>
             </variables>
             <header>
                 <p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌方怪物和子弹。</p>
@@ -753,8 +750,8 @@
         <!-- Chapter 5 -->
         <entry id="mvz2:gunpowder_barrel">
             <variables>
-                <variable name="gunpowder_value" property="mvz2:entity/energyValue" target="mvz2:gunpowder" targetType="entity" />
-                <variable name="furious_gunpowder_value" property="mvz2:entity/energyValue" target="mvz2:furious_gunpowder" targetType="entity" />
+                <variable name="gunpowder_value">property("mvz2:entity/energyValue", "mvz2:gunpowder", "entity")</variable>
+                <variable name="furious_gunpowder_value">property("mvz2:entity/energyValue", "mvz2:furious_gunpowder", "entity")</variable>
             </variables>
             <header>
                 <p>火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的友方单位。火药桶在被破坏时也会爆炸。</p>
@@ -890,9 +887,7 @@
         </entry>
         <entry id="mvz2:gravelpult">
             <variables>
-                <variable name="gravel_damage" global="mvz2:entity_damage">
-                    <multiply constant="2" />
-                </variable>
+                <variable name="gravel_damage">toDouble(global("mvz2:entity_damage")) * 2</variable>
             </variables>
             <header>
                 <p>沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身的沙砾。</p>
@@ -1006,8 +1001,8 @@
         </entry>
         <entry id="mvz2:nether_reactor_core">
             <variables>
-                <variable name="min_produce_time" property="mvz2:entity_behaviour/nether_reactor_core/min_produce_time"/>
-                <variable name="max_produce_time" property="mvz2:entity_behaviour/nether_reactor_core/max_produce_time"/>
+                <variable name="min_produce_time">property("mvz2:entity_behaviour/nether_reactor_core/min_produce_time")</variable>
+                <variable name="max_produce_time">property("mvz2:entity_behaviour/nether_reactor_core/max_produce_time")</variable>
             </variables>
             <header>
                 <p>如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出星之碎片。</p>
@@ -1267,14 +1262,11 @@
             </flavor>
         </entry>
         <entry id="mvz2:leather_capped_zombie">
-            <variables>
-                <variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:leather_cap" targetType="armor" />
-            </variables>
             <header>
                 <p>皮帽僵尸拥有能抵抗子弹的皮帽护甲。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
             </properties>
             <flavor>
@@ -1282,14 +1274,11 @@
             </flavor>
         </entry>
         <entry id="mvz2:iron_helmetted_zombie">
-            <variables>
-                <variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:iron_helmet" targetType="armor" />
-            </variables>
             <header>
                 <p>铁盔僵尸的铁盔给他提供了极高的防护。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
             </properties>
             <flavor>
@@ -1297,14 +1286,11 @@
             </flavor>
         </entry>
         <entry id="mvz2:diamond_helmetted_zombie">
-            <variables>
-                <variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:diamond_helmet" targetType="armor" />
-            </variables>
             <header>
                 <p>钻石盔僵尸的钻石盔给他提供了最高的防护。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
             </properties>
             <flavor>
@@ -1363,7 +1349,7 @@
         </entry>
         <entry id="mvz2:necromancer">
             <variables>
-                <variable name="bone_wall_hp" property="mvz2:entity/maxHealth" target="mvz2:bone_wall" />
+                <variable name="bone_wall_hp">property("mvz2:entity/maxHealth", "mvz2:bone_wall", "entity")</variable>
             </variables>
             <header>
                 <p>死灵法师会生成临时的骨墙阻挡子弹。</p>
@@ -1420,9 +1406,7 @@
         </entry>
         <entry id="mvz2:mother_terror">
             <variables>
-                <variable name="laid_speed" global="mvz2:entity_speed">
-                    <multiply constant="0.3" />
-                </variable>
+                <variable name="laid_speed">toDouble(global("mvz2:entity_speed")) * 0.3</variable>
             </variables>
             <header>
                 <p>恐怖之母会向血肉之躯寄生虫卵。</p>
@@ -1450,14 +1434,11 @@
         </entry>
 
         <entry id="mvz2:mesmerizer">
-            <variables>
-                <variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:mesmerizer_crown" targetType="armor" />
-            </variables>
             <header>
                 <p>催眠者能够精神控制你的器械使其倒戈。杀死催眠者可以解除精神控制。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>弱点：<![CDATA[<color=red>荧石周围的器械无法被控制</color>]]></p>
             </properties>
@@ -1468,16 +1449,13 @@
         </entry>
         <entry id="mvz2:berserker">
             <variables>
-                <variable name="explosion_damage" global="mvz2:entity_damage">
-                    <multiply constant="3" />
-                </variable>
-                <variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:berserker_helmet" targetType="armor" />
+                <variable name="explosion_damage">toDouble(global("mvz2:entity_damage")) * 3</variable>
             </variables>
             <header>
                 <p>狂战士在死亡时会产生猛烈的爆炸。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>爆炸伤害：<![CDATA[<color=red><var local="explosion_damage" /></color>]]></p>
             </properties>
@@ -1488,13 +1466,11 @@
         </entry>
         <entry id="mvz2:dullahan">
             <variables>
-                <variable name="horse_hp" property="mvz2:entity/maxHealth" target="mvz2:skeleton_horse" />
-                <variable name="head_hp" property="mvz2:entity/maxHealth" target="mvz2:dullahan_head" />
-                <variable name="horse_speed" property="mvz2:entity/speed" target="mvz2:skeleton_horse" />
-                <variable name="horse_speed_jumped" local="horse_speed">
-                    <multiply constant="0.5" />
-                </variable>
-                <variable name="head_speed" property="mvz2:entity/speed" target="mvz2:dullahan_head" />
+                <variable name="horse_hp">property("mvz2:entity/maxHealth", "mvz2:skeleton_horse", "entity")</variable>
+                <variable name="horse_speed">property("mvz2:entity/speed", "mvz2:skeleton_horse", "entity")</variable>
+                <variable name="horse_speed_jumped">toDouble(local("horse_speed")) * 0.5</variable>
+                <variable name="head_hp">property("mvz2:entity/maxHealth", "mvz2:dullahan_head", "entity")</variable>
+                <variable name="head_speed">property("mvz2:entity/speed", "mvz2:dullahan_head", "entity")</variable>
             </variables>
             <tags>
                 <tag id="mvz2:shell_head" value="mvz2:nether" />
@@ -1533,7 +1509,7 @@
         </entry>
         <entry id="mvz2:anubisand">
             <variables>
-                <variable name="soulsand_hp" property="mvz2:entity/maxHealth" target="mvz2:soulsand" />
+                <variable name="soulsand_hp">property("mvz2:entity/maxHealth", "mvz2:soulsand", "entity")</variable>
             </variables>
             <header>
                 <p>灵魂沙王飞在空中，不时向下方召唤阻挡子弹的灵魂沙。</p>
@@ -1551,14 +1527,11 @@
 
         
         <entry id="mvz2:reflective_barrier_zombie">
-            <variables>
-                <variable name="shield_hp" property="mvz2:armor/maxHealth" target="mvz2:reflective_barrier" targetType="armor" />
-            </variables>
             <header>
                 <p>反射壁僵尸使用反射壁保护自己，并对飞来的子弹作出反击。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="shield_hp" /></color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="shield_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>特点：<![CDATA[<color=red>子弹击中反射壁并消失后，产生伤害相同的子弹进行回击</color>]]></p>
             </properties>
@@ -1571,14 +1544,11 @@
             </flavor>
         </entry>
         <entry id="mvz2:wicked_hermit_zombie">
-            <variables>
-                <variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:wicked_hermit_hat" targetType="armor" />
-            </variables>
             <header>
                 <p>邪仙僵尸出场时会召唤一只灵符僵尸，在灵符僵尸死后会传送到最左侧，反向破坏你的阵型。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>特点：<![CDATA[<color=red>自带灵符僵尸。灵符僵尸死后传送到最左侧，从后方攻击</color>]]></p>
             </properties>
@@ -1605,7 +1575,7 @@
         </entry>
         <entry id="mvz2:shikaisen_zombie">
             <variables>
-                <variable name="staff_hp" property="mvz2:entity/maxHealth" target="mvz2:shikaisen_staff" />
+                <variable name="staff_hp">property("mvz2:entity/maxHealth", "mvz2:shikaisen_staff", "entity")</variable>
             </variables>
             <tags>
                 <tag id="mvz2:shell_staff" value="mvz2:wood" />
@@ -1624,14 +1594,11 @@
             </flavor>
         </entry>
         <entry id="mvz2:emperor_zombie">
-            <variables>
-                <variable name="armor_hp" property="mvz2:armor/maxHealth" target="mvz2:emperor_crown" targetType="armor" />
-            </variables>
             <header>
                 <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="armor_hp" /></color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>施法间隔：<![CDATA[<color=red>5秒</color>]]></p>
                 <p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>]]></p>
             </properties>
@@ -1671,16 +1638,13 @@
         </entry>
         <entry id="mvz2:cannoneer_zombie">
             <variables>
-                <variable name="shield_hp" property="mvz2:armor/maxHealth" target="mvz2:cannon" targetType="armor" />
-                <variable name="cannon_speed" global="mvz2:entity_speed">
-                    <multiply constant="0.5" />
-                </variable>
+                <variable name="cannon_speed">toDouble(global("mvz2:entity_speed")) * 0.5</variable>
             </variables>
             <header>
                 <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var local="shield_hp" />（铁炮）</color>]]></p>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="shield_hp" />（铁炮）</color>]]></p>
                 <p>速度：<![CDATA[<color=red><var local="cannon_speed" />，<var id="mvz2:entity_speed" />（失去铁炮后）</color>]]></p>
                 <p>发射间隔：<![CDATA[<color=red>8秒</color>]]></p>
             </properties>
@@ -1717,9 +1681,7 @@
         </entry>
         <entry id="mvz2:shadow_cell">
             <variables>
-                <variable name="small_hp" global="mvz2:entity_health">
-                    <multiply constant="0.5" />
-                </variable>
+                <variable name="small_hp">toDouble(global("mvz2:entity_health")) * 0.5</variable>
             </variables>
             <header>
                 <p>暗影细胞漂浮在低空中，在被击杀后会向上下两行分裂出两个小型的暗影细胞。</p>
@@ -1788,13 +1750,9 @@
         </entry>
         <entry id="mvz2:wisp_fly">
             <variables>
-                <variable name="easy_damage" global="mvz2:entity_damage"/>
-                <variable name="normal_damage" global="mvz2:entity_damage">
-                    <multiply constant="1.5" />
-                </variable>
-                <variable name="hard_damage" global="mvz2:entity_damage">
-                    <multiply constant="3" />
-                </variable>
+                <variable name="easy_damage">global("mvz2:entity_damage")</variable>
+                <variable name="normal_damage">toDouble(global("mvz2:entity_damage")) * 1.5</variable>
+                <variable name="hard_damage">toDouble(global("mvz2:entity_damage")) * 3</variable>
             </variables>
             <header>
                 <p>鬼火苍蝇会冲向你的器械，并产生一次小型自爆，造成<![CDATA[<tag id="mvz2:fire" />]]>火焰伤害。</p>
@@ -2201,7 +2159,7 @@
                 </unlock>
                 <picture sprite="mvz2:misc/frankenstein" />
                 <variables>
-                    <variable name="hp" property="mvz2:entity/maxHealth" target="mvz2:frankenstein" targetType="entity" />
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:frankenstein", "entity")</variable>
                 </variables>
                 <header>
                     <p>尸块组成的怪物，科幻小说中的杀人魔。</p>
@@ -2221,8 +2179,8 @@
                 </unlock>
                 <picture sprite="mvz2:misc/nightmare_art" />
                 <variables>
-                    <variable name="hp1" property="mvz2:entity/maxHealth" target="mvz2:slenderman" targetType="entity" />
-                    <variable name="hp2" property="mvz2:entity/maxHealth" target="mvz2:nightmareaper" targetType="entity" />
+                    <variable name="hp1">property("mvz2:entity/maxHealth", "mvz2:slenderman", "entity")</variable>
+                    <variable name="hp2">property("mvz2:entity/maxHealth", "mvz2:nightmareaper", "entity")</variable>
                 </variables>
                 <header>
                     <p>梦魇是具有蒙骗感官和腐蚀能力的恐怖魔物，具有无数的化身。</p>
@@ -2246,7 +2204,7 @@
                 </unlock>
                 <picture sprite="mvz2:misc/wither" />
                 <variables>
-                    <variable name="hp" property="mvz2:entity/maxHealth" target="mvz2:wither" targetType="entity" />
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:wither", "entity")</variable>
                 </variables>
                 <header>
                     <p>凋灵代表着死亡和枯萎，它会抹除一切生命的迹象。</p>
@@ -2273,10 +2231,8 @@
                 </unlock>
                 <picture sprite="mvz2:misc/giant_in_mausoleum[4]" />
                 <variables>
-                    <variable name="hp1" property="mvz2:entity/maxHealth" target="mvz2:the_giant" targetType="entity" />
-                    <variable name="hp2" local="hp1">
-                        <multiply constant="0.4" />
-                    </variable>
+                    <variable name="hp1">property("mvz2:entity/maxHealth", "mvz2:the_giant", "entity")</variable>
+                    <variable name="hp2">toDouble(local("hp1")) * 0.4</variable>
                 </variables>
                 <header>
                     <p>巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。</p>
@@ -2307,7 +2263,7 @@
                 </unlock>
                 <picture sprite="mvz2:misc/red_dragon"/>
                 <variables>
-                    <variable name="hp" property="mvz2:entity/maxHealth" target="mvz2:red_dragon" targetType="entity" />
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:red_dragon", "entity")</variable>
                 </variables>
                 <header>
                     <p>红龙是一头喷火的猛兽，为了报杀母之仇，定要摧毁幻想乡的一切。</p>
@@ -2472,7 +2428,7 @@
                 <picture model="mvz2:entity.reverse_satellite" />
                 <tags sourceEntity="mvz2:reverse_satellite"/>
                 <variables>
-                    <variable name="hp" property="mvz2:entity/maxHealth" target="mvz2:reverse_satellite" targetType="entity" />
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:reverse_satellite", "entity")</variable>
                 </variables>
                 <header>
                     <p>反则卫星是在一大波僵尸出现后，在辉针城中出现的可疑飞行物，会将你的视野180度旋转。</p>
@@ -2540,9 +2496,9 @@
                     <tag id="mvz2:shell_shield" value="mvz2:leather"/>
                 </tags>
                 <variables>
-                    <variable name="hp" property="mvz2:entity/maxHealth" target="mvz2:zombie" targetType="entity" />
-                    <variable name="speed" property="mvz2:entity/speed" target="mvz2:zombie" targetType="entity" />
-                    <variable name="shield_hp" property="mvz2:armor/maxHealth" target="mvz2:umbrella_shield" targetType="armor" />
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:zombie", "entity")</variable>
+                    <variable name="speed">property("mvz2:entity/speed", "mvz2:zombie", "entity")</variable>
+                    <variable name="shield_hp">property("mvz2:armor/maxHealth", "mvz2:umbrella_shield", "armor")</variable>
                 </variables>
                 <header>
                     <p>伞兵僵尸会在圣辇船的每一大波怪物到来时从天而降，然后将雨伞作为护盾。</p>
