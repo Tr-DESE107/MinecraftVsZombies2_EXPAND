@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
+using Flee.PublicTypes;
 using MVZ2.Metas;
 using MVZ2Logic;
 using PVZEngine;
@@ -508,42 +509,5 @@ namespace MVZ2.IO
             propValue = null;
             return false;
         }
-
-        #region 图鉴变量
-        public static AlmanacVariableReference? GetAlmanacVariableReference(XmlNode node, string defaultNsp)
-        {
-            if (node.HasAttribute("constant"))
-            {
-                var constant = node.GetAttributeDouble("constant") ?? 0;
-                return new AlmanacVariableReferenceConstant(constant);
-            }
-            else if (node.HasAttribute("property"))
-            {
-                var propertyName = node.GetAttribute("property");
-                var target = node.GetAttributeNamespaceID("target", defaultNsp);
-                var targetType = node.GetAttribute("targetType");
-
-                if (!string.IsNullOrEmpty(propertyName))
-                    return new AlmanacVariableReferenceProperty(propertyName)
-                    {
-                        target = target,
-                        targetType = targetType
-                    };
-            }
-            else if (node.HasAttribute("global"))
-            {
-                var globalName = node.GetAttributeNamespaceID("global", defaultNsp);
-                if (NamespaceID.IsValid(globalName))
-                    return new AlmanacVariableReferenceGlobal(globalName);
-            }
-            else if (node.HasAttribute("local"))
-            {
-                var localName = node.GetAttribute("local");
-                if (!string.IsNullOrEmpty(localName))
-                    return new AlmanacVariableReferenceLocal(localName);
-            }
-            return null;
-        }
-        #endregion
     }
 }

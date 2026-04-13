@@ -3,22 +3,30 @@
 using System;
 using System.Collections.Generic;
 using System.Xml;
+using Flee.PublicTypes;
 using MVZ2.IO;
+using PVZEngine;
 
 namespace MVZ2.Metas
 {
     public class AlmanacVariable
     {
         public string name;
-        public AlmanacVariableReference reference;
-        public AlmanacVariableOperation[] operations;
         public int decimalPrecision = 2;
+        private IDynamicExpression? expression;
+        private static ExpressionContext expressionContext;
 
-        public AlmanacVariable(string name, AlmanacVariableReference reference, AlmanacVariableOperation[] operations)
+        public AlmanacVariable(string name)
         {
             this.name = name;
-            this.reference = reference;
-            this.operations = operations;
+        }
+        static AlmanacVariable()
+        {
+            expressionContext = new ExpressionContext();
+            // 允许字符串、方法调用等
+            expressionContext.Options.ParseCulture = System.Globalization.CultureInfo.InvariantCulture;
+
+            expressionContext.Imports.AddType(typeof(AlmanacVariableFunctions));
         }
         public static AlmanacVariable? FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -28,57 +36,35 @@ namespace MVZ2.Metas
                 Log.LogError($"The {nameof(name)} of an {nameof(AlmanacVariable)} is invalid.");
                 return null;
             }
-            var reference = XMLHelper.GetAlmanacVariableReference(node, defaultNsp);
-            if (reference == null)
-            {
-                Log.LogError($"Cannot load variable reference of {nameof(AlmanacVariable)} {name}.");
-                return null;
-            }
-            var operations = new List<AlmanacVariableOperation>();
-            for (int i = 0; i < node.ChildNodes.Count; i++)
-            {
-                var child = node.ChildNodes[i];
-                var operation = OperationFromXmlNode(child, defaultNsp);
-                if (operation != null)
-                {
-                    operations.Add(operation);
-                }
-            }
             int decimalPrecision = node.GetAttributeInt("decimalPrecision") ?? 2;
-            return new AlmanacVariable(name, reference, operations.ToArray())
+            var expression = LoadExpression(node.InnerText);
+            return new AlmanacVariable(name)
             {
+                expression = expression,
                 decimalPrecision = decimalPrecision
             };
         }
-        private static AlmanacVariableOperation? OperationFromXmlNode(XmlNode node, string defaultNsp)
+        public static IDynamicExpression? LoadExpression(string text)
         {
-            switch (node.Name)
-            {
-                case "plus":
-                    return AlmanacVariableOperationPlus.FromXmlNode(node, defaultNsp);
-                case "subtract":
-                    return AlmanacVariableOperationSubtract.FromXmlNode(node, defaultNsp);
-                case "multiply":
-                    return AlmanacVariableOperationMultiply.FromXmlNode(node, defaultNsp);
-                case "divide":
-                    return AlmanacVariableOperationDivide.FromXmlNode(node, defaultNsp);
-            }
-            return null;
+            return expressionContext.CompileDynamic(text);
         }
+
         public object? GetVariableValue(AlmanacVariableContext context)
         {
-            var rawValue = reference.GetVariableValue(context);
-            if (Convert.ToDouble(rawValue) is double numericValue)
+            if (expression == null)
+                return null;
+            if (!context.callStack.Add(name))
+                throw new Exception($"Cyclic dependency detected: {name}");
+
+            try
             {
-                double resultValue = numericValue;
-                foreach (var operation in operations)
-                {
-                    resultValue = operation.Operate(context, resultValue);
-                }
-                // 根据数值类型格式化（去除不必要的小数尾随零）
-                return resultValue;
+                AlmanacVariableFunctions.context = context;
+                return expression.Evaluate();
             }
-            return reference.GetVariableValue(context);
+            finally
+            {
+                context.callStack.Remove(name);
+            }
         }
         public string GetValueString(AlmanacVariableContext context)
         {
@@ -94,14 +80,16 @@ namespace MVZ2.Metas
                 return $"[ERR: {ex.Message}]";
             }
 
-            // 转换为数值并应用乘数
-            if (Convert.ToDouble(value) is double numericValue)
+            double numericValue;
+            try
             {
+                // 转换为数值并应用乘数
+                numericValue = Convert.ToDouble(value);
                 // 根据数值类型格式化（去除不必要的小数尾随零）
                 var formatString = new string('#', decimalPrecision);
                 return numericValue.ToString($"0.{formatString}");
             }
-            else
+            catch
             {
                 // 非数值属性：直接返回字符串形式
                 return value?.ToString() ?? "";
