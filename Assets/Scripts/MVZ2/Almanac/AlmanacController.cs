@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using MukioI18n;
-using MVZ2.GameContent.Commands;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -29,15 +28,11 @@ using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
 using MVZ2Logic.Saves;
 using PVZEngine;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
-using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools.Mathematics;
-using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Almanacs
 {
@@ -306,37 +301,23 @@ namespace MVZ2.Almanacs
             Main.SoundManager.Play2D(LogicSoundID.tap);
             if (!TryParseDescriptionLinkID(linkID, out string type, out var pageID))
                 return;
+            if (!ValidateDescriptionLink(type, pageID))
+                return;
             switch (type)
             {
-                case "contraptions":
-                    if (pageID == VanillaContraptionID.commandBlock)
-                    {
-                        if (!Main.SaveManager.IsCommandBlockUnlocked())
-                            return;
-                    }
-                    else
-                    {
-                        if (!contraptionEntries.Contains(pageID))
-                            return;
-                    }
+                case HYPERLINK_TYPE_CONTRAPTIONS:
                     ViewContraptions();
                     SetActiveContraptionEntry(pageID);
                     break;
-                case "enemies":
-                    if (!enemyEntries.Contains(pageID))
-                        return;
+                case HYPERLINK_TYPE_ENEMIES:
                     ViewEnemies();
                     SetActiveEnemyEntry(pageID);
                     break;
-                case "artifacts":
-                    if (!artifactEntries.Contains(pageID))
-                        return;
+                case HYPERLINK_TYPE_ARTIFACTS:
                     ViewArtifacts();
                     SetActiveArtifactEntry(pageID);
                     break;
-                case "misc":
-                    if (!miscGroups.Any(g => g.entries.Contains(pageID)))
-                        return;
+                case HYPERLINK_TYPE_MISC:
                     ViewMisc();
                     SetActiveMiscEntry(pageID);
                     break;
@@ -418,7 +399,7 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, contraptionID, entry);
                 description = propReplacer.Replace(description, context);
             }
-            description = ReplaceSuperLinkReferences(description);
+            description = ReplaceHyperlinkReferences(description);
 
             int cost = 0;
             string recharge = string.Empty;
@@ -469,7 +450,7 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, enemyID, entry);
                 description = propReplacer.Replace(description, context);
             }
-            description = ReplaceSuperLinkReferences(description);
+            description = ReplaceHyperlinkReferences(description);
 
             var encounterCondition = entry.encounterUnlock;
             bool encountered = (encounterCondition != null && encounterCondition.MeetsConditions(Main.SaveManager)) || Main.SaveManager.IsEnemyEncountered(enemyID);
@@ -512,7 +493,7 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, LogicDefinitionTypes.ARTIFACT, artifactID, entry);
                 description = propReplacer.Replace(description, context);
             }
-            description = ReplaceSuperLinkReferences(description);
+            description = ReplaceHyperlinkReferences(description);
 
             Color color = Color.white;
             bool unlocked = Main.SaveManager.IsArtifactUnlocked(artifactID);
@@ -562,7 +543,7 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, miscID, entry);
                 description = propReplacer.Replace(description, context);
             }
-            description = ReplaceSuperLinkReferences(description);
+            description = ReplaceHyperlinkReferences(description);
 
             var picture = entry.picture;
 
@@ -646,12 +627,6 @@ namespace MVZ2.Almanacs
                 var strings = new string[] { header, properties, flavor }.Where(s => !string.IsNullOrEmpty(s));
                 return string.Join("\n\n", strings);
             }
-        }
-        private string ReplaceSuperLinkReferences(string description)
-        {
-            description = description.Replace("<ref=", "<color=blue><u><link=");
-            description = description.Replace("</ref>", "</link></u></color>");
-            return description;
         }
         #endregion
 
@@ -901,6 +876,19 @@ namespace MVZ2.Almanacs
         #endregion
 
         #region Description Link
+        private string ReplaceHyperlinkReferences(string description)
+        {
+            return hyperlinkRegex.Replace(description, m =>
+            {
+                var linkID = m.Groups[1].Value;
+                var text = m.Groups[2].Value;
+                if (!TryParseDescriptionLinkID(linkID, out var type, out var pageID))
+                    return m.Value;
+                if (!ValidateDescriptionLink(type, pageID))
+                    return text;
+                return $"<color=blue><u><link={linkID}>{m.Groups[2].Value}</link></u></color>";
+            });
+        }
         private bool TryParseDescriptionLinkID(string linkID, out string type, [NotNullWhen(true)] out NamespaceID? pageID)
         {
             type = string.Empty;
@@ -917,6 +905,37 @@ namespace MVZ2.Almanacs
             string tagIDStr = afterIndex;
             var defaultNsp = Main.BuiltinNamespace;
             return NamespaceID.TryParse(tagIDStr, defaultNsp, out pageID);
+        }
+        private bool ValidateDescriptionLink(string type, NamespaceID? pageID)
+        {
+            switch (type)
+            {
+                case HYPERLINK_TYPE_CONTRAPTIONS:
+                    if (pageID == VanillaContraptionID.commandBlock)
+                    {
+                        if (!Main.SaveManager.IsCommandBlockUnlocked())
+                            return false;
+                    }
+                    else
+                    {
+                        if (!contraptionEntries.Contains(pageID))
+                            return false;
+                    }
+                    break;
+                case HYPERLINK_TYPE_ENEMIES:
+                    if (!enemyEntries.Contains(pageID))
+                        return false;
+                    break;
+                case HYPERLINK_TYPE_ARTIFACTS:
+                    if (!artifactEntries.Contains(pageID))
+                        return false;
+                    break;
+                case HYPERLINK_TYPE_MISC:
+                    if (!miscGroups.Any(g => g.entries.Contains(pageID)))
+                        return false;
+                    break;
+            }
+            return true;
         }
         #endregion
 
@@ -972,6 +991,13 @@ namespace MVZ2.Almanacs
         private string? descriptionTagTooltipLockedTarget;
         private int zoomIndex;
 
+        private const string hyperlinkPattern = @"<ref=([\w\[\]\-\.:]+?)>(.+?)</ref>";
+        private static Regex hyperlinkRegex = new Regex(hyperlinkPattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+        private const string HYPERLINK_TYPE_CONTRAPTIONS = "contraptions";
+        private const string HYPERLINK_TYPE_ENEMIES = "enemies";
+        private const string HYPERLINK_TYPE_ARTIFACTS = "artifacts";
+        private const string HYPERLINK_TYPE_MISC = "misc";
         [SerializeField]
         private Camera almanacCamera = null!;
         [SerializeField]
