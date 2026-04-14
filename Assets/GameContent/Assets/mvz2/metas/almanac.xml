@@ -297,7 +297,7 @@
         </entry>
         <entry id="mvz2:glowstone">
             <header>
-                <p><![CDATA[荧石发出的光芒能驱散迷雾，并发现周围的<ref=[enemies]mvz2:ghost>幽灵</ref></u>。]]></p>
+                <p><![CDATA[荧石发出的光芒能驱散迷雾，并发现周围的<ref=[enemies]mvz2:ghost>幽灵</ref>。]]></p>
             </header>
             <properties>
                 <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
