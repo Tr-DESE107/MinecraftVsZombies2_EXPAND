@@ -4698,6 +4698,44 @@ msgstr ""
 "Yet one cannot help but marvel: since when have these withered fiends possessed such cunning? Such mastery of technology, warping the "
 "very fabric of perception?"
 
+#. Name for misc mvz2:bedserker
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "床战士"
+msgstr "Bedserker"
+
+#. Header for misc mvz2:bedserker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "床战士被<ref=[misc]mvz2:wither>凋灵</ref>召唤，背着床朝你的防线冲去，并在一定时间后自爆。"
+msgstr ""
+"Bedserkers are summoned by the <ref=[misc]mvz2:wither>Wither</ref>, they charge toward your defenses carrying beds and self-destruct "
+"after a certain amount of time."
+
+#. Properties for misc mvz2:bedserker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
+"速度：<color=red><var local=\"speed\"/></color>\n"
+"爆炸时间：<color=red><var local=\"explosion_time\"/>秒</color>\n"
+"爆炸伤害：<color=red><var local=\"explosion_damage\"/></color>\n"
+"特殊：<color=red>自爆也会伤害到友军</color>"
+msgstr ""
+"Health: <color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
+"Speed: <color=red><var local=\"speed\"/></color>\n"
+"Explosion Time: <color=red><var local=\"explosion_time\"/> seconds</color>\n"
+"Explosion Damage: <color=red><var local=\"explosion_damage\"/></color>\n"
+"Special: <color=red>Self-destruct also damages allies</color>"
+
+#. Flavor for misc mvz2:bedserker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一些主世界人向下界走私过很多床，这些床后来也都成为了凋灵骷髅战无不胜的法宝——仅限下界和末地。"
+msgstr ""
+"Many Overworlders smuggled a large number of beds into the Nether. These beds later became the Wither Skeletons' unbeatable secret "
+"weapon — but only in the Nether and The End."
+
 #. Name for misc mvz2:ballista
 #: Almanac meta file
 msgctxt "misc.name"
