@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-06 02:09+0800\n"
-"PO-Revision-Date: 2026-04-06 14:11+0800\n"
+"POT-Creation-Date: 2026-04-14 11:08+0800\n"
+"PO-Revision-Date: 2026-04-14 11:12+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2279,7 +2279,7 @@ msgstr ""
 "The artifacts selected last time contained artifacts that are not unlocked "
 "yet."
 
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:183
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:195
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -2288,15 +2288,15 @@ msgstr ""
 "The progress of this level will be lost."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:185
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:197
 msgid "读取关卡失败，文件可能已损坏。"
 msgstr "Failed to load level. The file may corrupt."
 
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:187
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:199
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:189
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:201
 msgid ""
 "加载关卡失败，存档状态和当前游戏状态不匹配：\n"
 "{0}"
@@ -2306,17 +2306,17 @@ msgstr ""
 "{0}"
 
 # 关卡标识符名称，{0}为命名空间名，{1}为数据版本号
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:191
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:203
 msgid "{0}（版本{1}）"
 msgstr "{0} (version {1})"
 
 # 关卡标识符名称，{0}为命名空间名，{1}为数据版本号，{2}为当前数据版本号
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:193
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:205
 msgid "{0}（版本{1}，当前状态为{2}）"
 msgstr "{0} (version {1}, current {2})"
 
 # 对话框内容，{0}为不匹配的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:195
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:207
 msgid ""
 "版本号不匹配：\n"
 "{0}"
@@ -2325,7 +2325,7 @@ msgstr ""
 "{0}"
 
 # 对话框内容，{0}为丢失的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:197
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:209
 msgid ""
 "丢失的模组：\n"
 "{0}"
@@ -2334,7 +2334,7 @@ msgstr ""
 "{0}"
 
 # 对话框内容，{0}为多出的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:199
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:211
 msgid ""
 "多出的模组：\n"
 "{0}"
@@ -2373,34 +2373,34 @@ msgstr ""
 "Best Streak:\n"
 "{0}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:844
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:875
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:846
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:877
 msgctxt "almanac"
 msgid "充能时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:848
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:879
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr "Scale: {0}"
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:850
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:881
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr "{0}: {1}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:852
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:883
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr "Hold left mouse and drag to move; Scroll to scale"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:854
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:885
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr "Drag with one finger to move; Touch with two fingers to scale"
@@ -2593,186 +2593,204 @@ msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:60
+# 死亡信息-无尽模式模板，{0}为普通死亡信息，{1}为存活了多少轮
+#: Scripts\Logic\Localization\LogicStrings.cs:59
+msgctxt "death_message"
+msgid ""
+"{0}\n"
+"{1}"
+msgstr ""
+"{0}\n"
+"{1}"
+
+# 死亡信息-无尽模式，{0}为存活了多少轮
+#: Scripts\Logic\Localization\LogicStrings.cs:61
+msgctxt "death_message"
+msgid "你存活了{0}轮！"
+msgid_plural "你存活了{0}轮！"
+msgstr[0] "You survived {0} flag!"
+msgstr[1] "You survived {0} flags!"
+
+#: Scripts\Logic\Localization\LogicStrings.cs:64
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:78
+#: Scripts\Logic\Localization\LogicStrings.cs:82
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:80
+#: Scripts\Logic\Localization\LogicStrings.cs:84
 msgctxt "almanac"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:103
+#: Scripts\Logic\Localization\LogicStrings.cs:107
 msgctxt "archive"
 msgid "剧情分支"
 msgstr "Plot Branch"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:105
+#: Scripts\Logic\Localization\LogicStrings.cs:109
 msgctxt "archive"
 msgid "对话结束"
 msgstr "Replay Ended"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:107
+#: Scripts\Logic\Localization\LogicStrings.cs:111
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr "Play again?"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:115
+#: Scripts\Logic\Localization\LogicStrings.cs:119
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:117
+#: Scripts\Logic\Localization\LogicStrings.cs:121
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgid_plural "{0} - 第{1}天"
 msgstr[0] "{0} - Day {1}"
 msgstr[1] "{0} - Day {1}"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:119
+#: Scripts\Logic\Localization\LogicStrings.cs:123
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgid_plural "{0} - 第{1}轮"
 msgstr[0] "{0} - Flag {1}"
 msgstr[1] "{0} - Flag {1}"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:134
+#: Scripts\Logic\Localization\LogicStrings.cs:138
 msgctxt "command.output"
 msgid "命令格式错误"
 msgstr "Wrong command format"
 
 # 命令输出
-#: Scripts\Logic\Localization\LogicStrings.cs:136
+#: Scripts\Logic\Localization\LogicStrings.cs:140
 msgctxt "command.output"
 msgid "该命令只能在关卡中被调用"
 msgstr "This command can only be called in a level."
 
-#: Scripts\Logic\Localization\LogicStrings.cs:138
+#: Scripts\Logic\Localization\LogicStrings.cs:142
 msgctxt "command.output"
 msgid "参数{0}格式错误"
 msgstr "Incorrect format of parameter {0}"
 
 # 命令输出
-#: Scripts\Logic\Localization\LogicStrings.cs:140
+#: Scripts\Logic\Localization\LogicStrings.cs:144
 msgctxt "command.output"
 msgid "参数数量错误"
 msgstr "Incorrect parameter count"
 
 # 命令输出，{0}为参数名
-#: Scripts\Logic\Localization\LogicStrings.cs:142
+#: Scripts\Logic\Localization\LogicStrings.cs:146
 msgctxt "command.output"
 msgid "参数{0}丢失"
 msgstr "Missing parameter {0}"
 
 # 命令输出，{0}为有效参数列表
-#: Scripts\Logic\Localization\LogicStrings.cs:144
+#: Scripts\Logic\Localization\LogicStrings.cs:148
 msgctxt "command.output"
 msgid "参数错误，有效值为{0}"
 msgstr "Incorrect parameter, valid values are {0}"
 
 # 命令输出，{0}为参数名
-#: Scripts\Logic\Localization\LogicStrings.cs:146
+#: Scripts\Logic\Localization\LogicStrings.cs:150
 msgctxt "command.output"
 msgid "参数丢失，有效值为{0}"
 msgstr "Missing parameter, valid values are {0}"
 
 # 命令输出，{0}为命令名
-#: Scripts\Logic\Localization\LogicStrings.cs:148
+#: Scripts\Logic\Localization\LogicStrings.cs:152
 msgctxt "command.output"
 msgid "未找到命令{0}！"
 msgstr "Command {0} not found!"
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:151
+#: Scripts\Logic\Localization\LogicStrings.cs:155
 msgctxt "command_parameter.type"
 msgid "真值"
 msgstr "Boolean"
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:153
+#: Scripts\Logic\Localization\LogicStrings.cs:157
 msgctxt "command_parameter.type"
 msgid "整数"
 msgstr "Integer"
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:155
+#: Scripts\Logic\Localization\LogicStrings.cs:159
 msgctxt "command_parameter.type"
 msgid "实数"
 msgstr "Real"
 
 # 按键名
-#: Scripts\Logic\Localization\LogicStrings.cs:157
+#: Scripts\Logic\Localization\LogicStrings.cs:161
 msgctxt "command_parameter.type"
 msgid "ID"
 msgstr "ID"
 
 # 命令参数类型
-#: Scripts\Logic\Localization\LogicStrings.cs:159
+#: Scripts\Logic\Localization\LogicStrings.cs:163
 msgctxt "command_parameter.type"
 msgid "命令"
 msgstr "Command"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:161
+#: Scripts\Logic\Localization\LogicStrings.cs:165
 msgctxt "command_parameter.type"
 msgid "未知"
 msgstr "Unknown"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:176
+#: Scripts\Logic\Localization\LogicStrings.cs:180
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:200
+#: Scripts\Logic\Localization\LogicStrings.cs:204
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:202
+#: Scripts\Logic\Localization\LogicStrings.cs:206
 msgid "触发器械"
 msgstr "Trigger a contraption"
 
 # 固有蓝图的提示
-#: Scripts\Logic\Localization\LogicStrings.cs:204
+#: Scripts\Logic\Localization\LogicStrings.cs:208
 msgid "固有"
 msgstr "Innate"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:206
+#: Scripts\Logic\Localization\LogicStrings.cs:210
 msgid "不推荐在这关使用"
 msgstr "Not recommended for this level"
 
 # 无法携带提示
-#: Scripts\Logic\Localization\LogicStrings.cs:208
+#: Scripts\Logic\Localization\LogicStrings.cs:212
 msgid "无法模仿此器械"
 msgstr "Cannot imitate this contraption"
 
 # 命令方块蓝图名，{0}为原名称
-#: Scripts\Logic\Localization\LogicStrings.cs:210
+#: Scripts\Logic\Localization\LogicStrings.cs:214
 msgid "[命令方块]{0}"
 msgstr "[Command Block] {0}"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:215
+#: Scripts\Logic\Localization\LogicStrings.cs:219
 msgid "用户名不能为空"
 msgstr "Username cannot be empty"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:217
+#: Scripts\Logic\Localization\LogicStrings.cs:221
 msgid "已经存在该用户名"
 msgstr "This username already exists"
 
 # 输入名称对话框的错误信息
-#: Scripts\Logic\Localization\LogicStrings.cs:219
+#: Scripts\Logic\Localization\LogicStrings.cs:223
 msgid "无法重命名为该用户名"
 msgstr "Cannot rename to this name"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:221
+#: Scripts\Logic\Localization\LogicStrings.cs:225
 msgid "第一次游戏必须输入用户名"
 msgstr "Username must be set when starting the game for the first time"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:223
+#: Scripts\Logic\Localization\LogicStrings.cs:227
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
@@ -2781,11 +2799,11 @@ msgstr ""
 "This user's data will be all deleted!"
 
 # 重命名特殊用户时的警告
-#: Scripts\Logic\Localization\LogicStrings.cs:225
+#: Scripts\Logic\Localization\LogicStrings.cs:229
 msgid "你无法重命名该用户"
 msgstr "Cannot rename this user"
 
-#: Scripts\Logic\Localization\LogicStrings.cs:246
+#: Scripts\Logic\Localization\LogicStrings.cs:250
 msgctxt "advice"
 msgid "点击以继续"
 msgstr "Click to continue"

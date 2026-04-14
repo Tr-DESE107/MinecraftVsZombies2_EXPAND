@@ -56,6 +56,10 @@ namespace MVZ2Logic.Localization
 
         [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_UNKNOWN = "你死了！";
+        [TranslateMsg("死亡信息-无尽模式模板，{0}为普通死亡信息，{1}为存活了多少轮", CONTEXT_DEATH_MESSAGE)]
+        public const string DEATH_MESSAGE_ENDLESS_TEMPLATE = "{0}\n{1}";
+        [TranslateMsg("死亡信息-无尽模式，{0}为存活了多少轮", CONTEXT_DEATH_MESSAGE, selfPlural:true)]
+        public const string DEATH_MESSAGE_ENDLESS = "你存活了{0}轮！";
 
         [TranslateMsg("关卡难度", CONTEXT_DIFFICULTY)]
         public const string DIFFICULTY_UNKNOWN = "未知难度";

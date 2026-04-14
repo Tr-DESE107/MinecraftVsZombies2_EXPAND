@@ -6,6 +6,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.Options;
 using MVZ2.UI.Level;
+using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using Tools;
 using UnityEngine;
@@ -155,17 +156,28 @@ namespace MVZ2.Level
         #region 游戏结束
         private void ShowGameOverDialog()
         {
-            string? message;
+            string? messageKey;
             if (killerID != null)
             {
-                message = Resources.GetEntityDeathMessage(killerID);
+                messageKey = Resources.GetEntityDeathMessage(killerID);
             }
             else
             {
-                message = deathMessage;
+                messageKey = deathMessage;
             }
             ui.SetGameOverDialogActive(true);
-            ui.SetGameOverDialogMessage(Localization._p(LogicStrings.CONTEXT_DEATH_MESSAGE, message));
+            var msg = Localization._p(LogicStrings.CONTEXT_DEATH_MESSAGE, messageKey);
+            string message;
+            if (level.IsEndless())
+            {
+                var roundsMessage = Localization._pn(LogicStrings.CONTEXT_DEATH_MESSAGE, LogicStrings.DEATH_MESSAGE_ENDLESS, level.CurrentFlag, level.CurrentFlag);
+                message = Localization._p(LogicStrings.CONTEXT_DEATH_MESSAGE, LogicStrings.DEATH_MESSAGE_ENDLESS_TEMPLATE, msg, roundsMessage);
+            }
+            else
+            {
+                message = msg;
+            }
+            ui.SetGameOverDialogMessage(message);
         }
         private async void UI_OnGameOverRetryButtonClickedCallback()
         {
