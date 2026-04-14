@@ -222,7 +222,7 @@
                 <p>技能：<![CDATA[<color=red>获得下界合金装甲，耐久提高至10000</color>]]></p>
             </properties>
             <flavor>
-                <p>听说把黑曜石摆成地狱门的形状再放一个熔炉有惊喜。不如试试看？</p>
+                <p><![CDATA[听说把黑曜石摆成地狱门的形状再放一个<ref=[contraptions]mvz2:furnace>熔炉</ref>有惊喜。不如试试看？]]></p>
                 <p />
                 <p />
                 <p />
@@ -297,7 +297,7 @@
         </entry>
         <entry id="mvz2:glowstone">
             <header>
-                <p>荧石发出的光芒能驱散迷雾，并发现周围的幽灵。</p>
+                <p><![CDATA[荧石发出的光芒能驱散迷雾，并发现周围的<ref=[enemies]mvz2:ghost>幽灵</ref></u>。]]></p>
             </header>
             <properties>
                 <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
@@ -369,14 +369,14 @@
         </entry>
         <entry id="mvz2:magichest">
             <header>
-                <p>魔术箱在吞掉前面的僵尸后会变成一个星之碎片。</p>
+                <p><![CDATA[魔术箱在吞掉前面的怪物后会变成一个<ref=[misc]mvz2:starshard.magic_candy>星之碎片</ref>。]]></p>
             </header>
             <properties>
-                <p>技能：<![CDATA[<color=red>召唤一个恶魂，用以纪念我好朋友之前做过的一个游戏</color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤一个<ref=[enemies]mvz2:ghast>恶魂</ref>，用以纪念我好朋友之前做过的一个游戏</color>]]></p>
             </properties>
             <flavor>
                 <p>它只需要挂上一个招牌，写上YMCA，僵尸们就自投罗网了。YMCA是什么意思？当然是“有馍吃啊”。</p>
-                <p>还有，别他妈再吃骨墙了。</p>
+                <p><![CDATA[还有，别他妈再吃<ref=[enemies]mvz2:necromancer>骨墙</ref>了。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:lily_pad">
@@ -412,12 +412,12 @@
                 <p>技能：<![CDATA[<color=red>铁砧从天而降，砸伤敌人并阻挡怪物们前进</color>]]></p>
             </properties>
             <flavor>
-                <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
+                <p><![CDATA[从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个<ref=[contraptions]mvz2:golden_apple>金苹果</ref>。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:vortex_hopper">
             <header>
-                <p>漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。</p>
+                <p>漩涡漏斗在旋转时会把接近它的所有怪物拖入水底。</p>
             </header>
             <properties>
                 <p>技能：<![CDATA[<color=red>将更大范围的敌方怪物拉入水底</color>]]></p>
@@ -448,7 +448,7 @@
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>15（飞镖），20/秒（火焰）</color>]]></p>
-                <p>特点：<![CDATA[<color=red>飞镖上的箭毒会让僵尸肌肉松弛而无法造成伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>飞镖上的箭毒会让<tag id="mvz2:shell" enum="mvz2:flesh" />怪物肌肉松弛而无法造成伤害</color>]]></p>
                 <p>技能：<![CDATA[<color=red>投出穿透敌人的长矛，并留下使敌人虚弱的毒雾轨迹</color>]]></p>
             </properties>
             <flavor>
@@ -471,7 +471,7 @@
         </entry>
         <entry id="mvz2:dream_silk">
             <header>
-                <p>美梦丝能够让一个器械陷入沉睡，醒来后出现一个星之碎片。</p>
+                <p><![CDATA[美梦丝能够让一个器械陷入沉睡，醒来后出现一个<ref=[misc]mvz2:starshard.lucid_dream>星之碎片</ref>。]]></p>
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>一次性使用</color>]]></p>
@@ -526,7 +526,7 @@
                 <p>技能：<![CDATA[<color=red>立即喷射30发巨石</color>]]></p>
             </properties>
             <flavor>
-                <p>它本来想学木制投掷器玩一个磊磊磊磊磊磊磊磊磊磊制投掷器的笑话的，但是不幸的是木制投掷器为这个笑话申请了专利。</p>
+                <p><![CDATA[它本来想学<ref=[contraptions]mvz2:wooden_dropper>木制投掷器</ref>玩一个磊磊磊磊磊磊磊磊磊磊制投掷器的笑话的，但是不幸的是木制投掷器为这个笑话申请了专利。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:stone_shield">
@@ -552,7 +552,7 @@
             </properties>
             <flavor>
                 <p>金苹果对于砸伤重力方块这件事情感到很抱歉，所以它赔了重力方块自己的一块金皮。</p>
-                <p>这就是为什么重力板是紫色的。</p>
+                <p><![CDATA[这就是为什么<ref=[contraptions]mvz2:gravity_pad>重力板</ref>是紫色的。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:thunder_drum">
@@ -584,7 +584,7 @@
         </entry>
         <entry id="mvz2:giant_bowl">
             <header>
-                <p>巨碗能够缓慢生产并存储星之碎片，这些星之碎片只能通过摧毁巨碗取出。</p>
+                <p><![CDATA[巨碗能够缓慢生产并存储<ref=[misc]mvz2:starshard.miracle_mallet>星之碎片</ref>，这些星之碎片只能通过摧毁巨碗取出。]]></p>
             </header>
             <properties>
                 <p>生产时间：<![CDATA[<color=red>60秒</color>]]></p>
@@ -622,7 +622,7 @@
                 <p>技能：<![CDATA[<color=red>在5秒内吸收所有伤害并治疗自己，之后将这些伤害返还给所有敌人（最高1800）</color>]]></p>
             </properties>
             <flavor>
-                <p>它就是音符盒的邻居。</p>
+                <p><![CDATA[它就是<ref=[contraptions]mvz2:note_block>音符盒</ref>的邻居。]]></p>
                 <p>天哪！还好它能吸收掉那些噪音……</p>
             </flavor>
         </entry>
@@ -644,12 +644,12 @@
                 <p>“我发射更快，理应当哥哥！”</p>
                 <p>“那大部分时候还是我把前面的敌人干掉的嘞！”</p>
                 <p>……</p>
-                <p>幸好他邻居是闪电之珠，不然就又有人要来投诉了。</p>
+                <p><![CDATA[幸好他邻居是<ref=[contraptions]mvz2:lightning_orb>闪电之珠</ref>，不然就又有人要来投诉了。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:devourer">
             <header>
-                <p>吞噬者可以用于消除刷怪笼，或者用于将器械变回一张蓝图掉落物。</p>
+                <p><![CDATA[吞噬者可以用于消除<ref=[misc]mvz2:monster_spawner>刷怪笼</ref>，或者用于将器械变回一张蓝图掉落物。]]></p>
             </header>
             <properties>
                 <p>技能：<![CDATA[<color=red>变成吃豆人中的小幽灵！</color>]]></p>
@@ -727,7 +727,7 @@
         </entry>
         <entry id="desire_pot">
             <header>
-                <p>欲望壶会从怪物身上复制其携带的星之碎片，每个欲望壶最多复制三个。</p>
+                <p><![CDATA[欲望壶会从怪物身上复制其携带的<ref=[misc]mvz2:starshard.shinrei>星之碎片</ref>，每个欲望壶最多复制三个。]]></p>
             </header>
             <properties>
                 <p>技能：<![CDATA[<color=red>将最后方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>]]></p>
@@ -803,8 +803,8 @@
                 <p>技能：<![CDATA[<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>]]></p>
             </properties>
             <flavor>
-                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
-                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
+                <p><![CDATA[它没能有幸加入<ref=[contraptions]mvz2:high_frequency_pulse_dispenser>高频脉冲发射器</ref>的士兵队伍，因为它每次说话都要说两遍。]]></p>
+                <p><![CDATA[它没能有幸加入<ref=[contraptions]mvz2:high_frequency_pulse_dispenser>高频脉冲发射器</ref>的士兵队伍，因为它每次说话都要说两遍。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:beacon">
@@ -817,7 +817,7 @@
                 <p>技能：<![CDATA[<color=red>召唤10颗陨石，打击场上随机位置</color>]]></p>
             </properties>
             <flavor>
-                <p>它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。</p>
+                <p><![CDATA[它其实不是用<ref=[artifacts]mvz2:nether_star>下界之星</ref>做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:wooden_fan">
@@ -848,7 +848,7 @@
         </entry>
         <entry id="mvz2:jeweled_pagoda">
             <header>
-                <p>珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产星之碎片后消失。</p>
+                <p><![CDATA[珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产<ref=[misc]mvz2:starshard.ufo_fragment>星之碎片</ref>后消失。]]></p>
             </header>
             <properties>
                 <p>禁用时长：<![CDATA[<color=red>4分钟</color>]]></p>
@@ -979,7 +979,7 @@
                 <p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
             </properties>
             <flavor>
-                <p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
+                <p>它把<![CDATA[<ref=[contraptions]wooden_dropper>木制投掷器</ref>]]>的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
             </flavor>
         </entry>
         <entry id="mvz2:skyward_beacon">
@@ -997,7 +997,7 @@
             <flavor>
                 <p>御天信标一直都是器械界的一位大歌星——我没在开双关玩笑，它是真的很有人气。</p>
                 <p>在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。</p>
-                <p>它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和石制投掷器算是不错的朋友，但它也非常讨厌骷髅头。</p>
+                <p><![CDATA[它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和<ref=[contraptions]mvz2:stone_dropper>石制投掷器</ref>算是不错的朋友，但它也非常讨厌骷髅头。]]></p>
                 <p>不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）</p>
             </flavor>
         </entry>
@@ -1500,7 +1500,7 @@
     <artifacts>
         <entry id="mvz2:almanac">
             <header>
-                <p>欧兰特曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。</p>
+                <p><![CDATA[<ref=[misc]mvz2:orant>欧兰特</ref>曾经拥有的一本魔法图鉴，会自动记录遇到的所有事物。]]></p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>战斗开始时，本场战斗每出现2种怪物，获得25能量</color>]]></p>
@@ -1524,7 +1524,7 @@
         </entry>
         <entry id="mvz2:dream_key">
             <header>
-                <p>欧兰特持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。</p>
+                <p><![CDATA[<ref=[misc]mvz2:orant>欧兰特</ref>持有的能够进入其他世界的梦境的钥匙，用于开启一道通往那里的大门。]]></p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>对器械使用星之碎片会为其恢复所有耐久，并在此期间无敌</color>]]></p>
@@ -1541,7 +1541,7 @@
         </entry>
         <entry id="mvz2:the_creatures_heart">
             <header>
-                <p>科学怪人的怪物的心脏。</p>
+                <p><![CDATA[<ref=[misc]mvz2:frankenstein>科学怪人的怪物</ref>的心脏。]]></p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>场上每有一个同类器械，该器械的能量消耗减少5</color>]]></p>
@@ -1553,7 +1553,7 @@
         <entry />
         <entry id="mvz2:sweet_sleep_pillow">
             <header>
-                <p>哆来咪赠予的奇妙枕头，拥有让人安眠的效果。</p>
+                <p><![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>赠予的奇妙枕头，拥有让人安眠的效果。]]></p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>器械每秒钟恢复10点耐久</color>]]></p>
@@ -1617,7 +1617,7 @@
         </entry>
         <entry id="mvz2:smart_phone">
             <header>
-                <p>从外界流落到香霖堂的无主智能手机，必要时可以和朱鹭子通话。</p>
+                <p>从外界流落到香霖堂的无主智能手机，必要时可以和<![CDATA[<ref=[misc]mvz2:tokiko>朱鹭子</ref>]]>通话。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>你在最后一波开始前每有10能量，关卡结束时便获得10金钱</color>]]></p>
@@ -1640,7 +1640,7 @@
         </entry>
         <entry id="mvz2:miracle_mallet_replica">
             <header>
-                <p>针妙丸公主赏赐有功之臣史蒂夫的宝物，万宝槌的仿制品，曾被正邪用于逃离通缉。</p>
+                <p><![CDATA[<ref=[misc]mvz2:shinmyoumaru>针妙丸</ref>公主赏赐有功之臣史蒂夫的宝物，万宝槌的仿制品，曾被<ref=[misc]mvz2:seija>正邪</ref>用于逃离通缉。]]></p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>+15%器械伤害</color>]]></p>
@@ -1648,8 +1648,8 @@
             <flavor>
                 <p>万宝槌的仿制品，没有什么魔力，只能普通地造成物理伤害。</p>
                 <p />
-                <p>却说那小人参见小人，图谋以小搏大。蚍蜉欲撼参天木，终作金靴踏下尘。</p>
-                <p>小人遭缚，小人遁形。小人间彼此算计，最终却成了知己。</p>
+                <p><![CDATA[却说那<ref=[misc]mvz2:seija>小人</ref>参见<ref=[misc]mvz2:shinmyoumaru>小人</ref>，图谋以小搏大。蚍蜉欲撼参天木，终作金靴踏下尘。]]></p>
+                <p><![CDATA[<ref=[misc]mvz2:shinmyoumaru>小人</ref>遭缚，<ref=[misc]mvz2:seija>小人</ref>遁形。小人间彼此算计，最终却成了知己。]]></p>
                 <p>然族民百姓叫苦不迭，城内苍生忧心忡忡。</p>
                 <p>亡者之劫已解，天下信任尽失。</p>
                 <p>一城之君，怎会落得这般下场？</p>
@@ -1657,13 +1657,13 @@
         </entry>
         <entry id="mvz2:nether_star">
             <header>
-                <p>凋灵的掉落物，闪亮的星形物体。</p>
+                <p><![CDATA[<ref=[misc]mvz2:wither>凋灵</ref>]]>的掉落物，闪亮的星形物体。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>每有4个星之碎片被使用，生成一个星之碎片</color>]]></p>
             </properties>
             <flavor>
-                <p>看上去似乎是星之碎片的完整版，但是这两者的成分似乎完全不一样。</p>
+                <p><![CDATA[看上去似乎是<ref=[misc]mvz2:starshard.miracle_mallet>星之碎片</ref>的完整版，但是这两者的成分似乎完全不一样。]]></p>
                 <p>那么星之碎片到底是什么东西……？</p>
             </flavor>
         </entry>
@@ -1683,18 +1683,18 @@
                 <condition required="mvz2:level.castle_11" />
             </silhouette>
             <header>
-                <p>辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
+                <p><![CDATA[<ref=[misc]mvz2:shining_needle_castle>辉针城</ref>]]>内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red><tag id="mvz2:light_source" />发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
             </properties>
             <flavor>
-                <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
+                <p><![CDATA[呃，还是别告诉<ref=[misc]mvz2:shinmyoumaru>针妙丸</ref>了吧，她可能会生气的。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:manipulative_talismans">
             <header>
-                <p>青娥赠送的一叠符箓，据说可以控制僵尸。</p>
+                <p><![CDATA[<ref=[misc]mvz2:seiga>青娥</ref>]]>赠送的一叠符箓，据说可以控制僵尸。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>敌方怪物死亡并倒下时，有10%的概率复活并变为友方</color>]]></p>
@@ -1721,7 +1721,7 @@
         </entry>
         <entry id="mvz2:lightbomb">
             <header>
-                <p>神子赠送的一种武器，在爆炸时会产生炫目的光芒。</p>
+                <p><![CDATA[<ref=[misc]mvz2:miko>神子</ref>]]>赠送的一种武器，在爆炸时会产生炫目的光芒。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>器械自爆时，对所有敌人额外造成等同于该器械能量消耗的伤害</color>]]></p>
@@ -1743,7 +1743,7 @@
         </entry>
         <entry id="mvz2:eye_of_the_giant">
             <header>
-                <p>巨人的眼睛。</p>
+                <p><![CDATA[<ref=[misc]mvz2:the_giant>巨人</ref>]]>的眼睛。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>器械x250%伤害，但x50%攻击速度</color>]]></p>
@@ -1751,7 +1751,7 @@
             <flavor>
                 <p>巨人的眼睛盯着你看——它似乎有话想对你说。</p>
                 <p />
-                <p>“朋友啊，你觉得，像青娥那样的家伙，在经历了这种事情过后，会悔过自新，选择当一个好人吗？”</p>
+                <p>“朋友啊，你觉得，像<![CDATA[<ref=[misc]mvz2:seiga>青娥</ref>]]>那样的家伙，在经历了这种事情过后，会悔过自新，选择当一个好人吗？”</p>
                 <p>“会？呵呵，那你就错了。”</p>
                 <p>“只要利益足够诱人，这种人就只会愈发、愈发的贪婪——”</p>
                 <p><![CDATA[<color=red>“然后，永无止境地<b>贪婪</b>下去！！！”</color>]]></p>
@@ -1791,7 +1791,7 @@
         </entry>
         <entry id="mvz2:sorcerers_scroll">
             <header>
-                <p>白莲赠送的魔法物品，通过咏唱来强化人的肉体。</p>
+                <p><![CDATA[<ref=[misc]mvz2:byakuren>白莲</ref>]]>赠送的魔法物品，通过咏唱来强化人的肉体。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>星之碎片的效果改为格斗术</color>]]></p>
@@ -1808,7 +1808,7 @@
         </entry>
         <entry id="mvz2:dragon_tooth">
             <header>
-                <p>红龙在打斗中掉下来的一颗牙齿。</p>
+                <p><![CDATA[<ref=[misc]mvz2:red_dragon>红龙</ref>]]>在打斗中掉下来的一颗牙齿。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>生命值为50%或以下的敌人受到的伤害x200%</color>]]></p>
