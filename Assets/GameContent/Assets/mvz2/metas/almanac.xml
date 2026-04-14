@@ -1312,7 +1312,7 @@
         </entry>
         <entry id="mvz2:hell_chariot">
             <header>
-                <p>地狱战车会碾压行进路上的所有器械，并在被摧毁后放出棺材中的灵魂沙王。</p>
+                <p>地狱战车会碾压行进路上的所有器械，并在被摧毁后放出棺材中的<![CDATA[<ref=[enemies]mvz2:anubisand>灵魂沙王</ref>]]>。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />，低于200时每秒失去60生命</color>]]></p>
@@ -1363,7 +1363,7 @@
         </entry>
         <entry id="mvz2:wicked_hermit_zombie">
             <header>
-                <p>邪仙僵尸出场时会召唤一只灵符僵尸，在灵符僵尸死后会传送到最左侧，反向破坏你的阵型。</p>
+                <p>邪仙僵尸出场时会召唤一只<![CDATA[<ref=[enemies]mvz2:talisman_zombie>灵符僵尸</ref>]]>，在灵符僵尸死后会传送到最左侧，反向破坏你的阵型。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
@@ -1458,7 +1458,7 @@
                 <variable name="cannon_speed">toDouble(global("mvz2:entity_speed")) * 0.5</variable>
             </variables>
             <header>
-                <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。</p>
+                <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只<![CDATA[<ref=[enemies]mvz2:cannonball_zombie>炮弹僵尸</ref>]]>。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="shield_hp" />（铁炮）</color>]]></p>
@@ -1490,7 +1490,7 @@
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />（冲击）</color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特殊：<![CDATA[<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁。</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁</color>]]></p>
             </properties>
             <flavor>
                 <p>他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。</p>
@@ -1516,7 +1516,7 @@
                 <p>农具。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>每场战斗中，击杀最先出场的僵尸</color>]]></p>
+                <p>效果：<![CDATA[<color=red>每场战斗中，击杀最先出场的怪物</color>]]></p>
             </properties>
             <flavor>
                 <p>踩到了的话被打一下很痛。真的。</p>
@@ -1617,7 +1617,7 @@
         </entry>
         <entry id="mvz2:smart_phone">
             <header>
-                <p>从外界流落到香霖堂的无主智能手机，必要时可以和<![CDATA[<ref=[misc]mvz2:tokiko>朱鹭子</ref>]]>通话。</p>
+                <p>从外界流落到<![CDATA[<ref=[misc]mvz2:kourindou>香霖堂</ref>]]>的无主智能手机，必要时可以和<![CDATA[<ref=[misc]mvz2:tokiko>朱鹭子</ref>]]>通话。</p>
             </header>
             <properties>
                 <p>效果：<![CDATA[<color=red>你在最后一波开始前每有10能量，关卡结束时便获得10金钱</color>]]></p>
@@ -1837,10 +1837,10 @@
                 </header>
                 <properties>
                     <p>生命：<![CDATA[<color=red><var local="hp" /></color>]]></p>
-                    <p>特殊：<![CDATA[<color=red>放电攻击总是瞄准TNT；钢铁身躯反弹特定子弹</color>]]></p>
+                    <p>特殊：<![CDATA[<color=red>放电攻击总是瞄准<ref=[contraptions]mvz2:tnt>TNT</ref>；钢铁身躯反弹特定子弹</color>]]></p>
                 </properties>
                 <flavor>
-                    <p>由于欧兰特设置了权限，本条目的部分内容不予显示。</p>
+                    <p>由于<![CDATA[<ref=[misc]mvz2:orant>欧兰特</ref>]]>设置了权限，本条目的部分内容不予显示。</p>
                     <p>她的过去与你无关。</p>
                 </flavor>
             </entry>
@@ -1883,7 +1883,7 @@
                 <properties>
                     <p>生命：<![CDATA[<color=red><var local="hp" />，每秒恢复15</color>]]></p>
                     <p>阶段1：<![CDATA[<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>]]></p>
-                    <p>阶段2：<![CDATA[<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤“床战士”</color>]]></p>
+                    <p>阶段2：<![CDATA[<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤<ref=[misc]mvz2:bedserker>床战士</ref></color>]]></p>
                 </properties>
                 <flavor>
                     <p>单枪匹马对付众多的怪物并不是个好主意，骑士打算去招募一些帮手。</p>
@@ -1985,7 +1985,7 @@
             <entry id="mvz2:minecart" name="矿车">
                 <picture model="mvz2:entity.minecart" />
                 <header>
-                    <p>史蒂夫家里的最后防线，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
+                    <p>史蒂夫家里的最后防线，当怪物突破器械阵线后会碾压前方一行的敌人。</p>
                 </header>
                 <flavor>
                     <p>“爷爷，这个上面有个熔炉的矿车是什么啊？”</p>
@@ -2007,13 +2007,13 @@
                     <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 </properties>
                 <flavor>
-                    <p>永夜沼泽的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变成活物。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:eternal_night_swamp>永夜沼泽</ref>]]>的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变成活物。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:pumpkin_carriage" name="南瓜马车">
                 <picture model="mvz2:entity.pumpkin_carriage" />
                 <header>
-                    <p>永夜沼泽的最后防线，会发出绿色光芒，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:eternal_night_swamp>永夜沼泽</ref>]]>的最后防线，会发出绿色光芒，当怪物突破器械阵线后会碾压前方一行的敌人。</p>
                 </header>
                 <flavor>
                     <p>南瓜中的永恒火焰无法被水浇灭，被风吹灭或者被其他化学反应影响。如果你想藏身的话最好把它扔了——这玩意真的关不掉。</p>
@@ -2102,7 +2102,7 @@
                     <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:reverse_satellite", "entity")</variable>
                 </variables>
                 <header>
-                    <p>反则卫星是在一大波僵尸出现后，在辉针城中出现的可疑飞行物，会将你的视野180度旋转。</p>
+                    <p>反则卫星是在一大波怪物出现后，在<![CDATA[<ref=[misc]mvz2:shining_needle_castle>辉针城</ref>]]>中出现的可疑飞行物，会将你的视野180度旋转。</p>
                 </header>
                 <properties>
                     <p>生命：<![CDATA[<color=red><var local="hp" /></color>]]></p>
@@ -2139,7 +2139,7 @@
                     <tag id="mvz2:grid_layer_carrier" />
                 </tags>
                 <header>
-                    <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的怪物。</p>
+                    <p>刷怪笼会在一大波怪物来临时召唤一只其内部的怪物。</p>
                 </header>
                 <flavor>
                     <p>我的水桶、告示牌和灵魂沙呢？</p>
@@ -2182,7 +2182,7 @@
                     <p>速度：<![CDATA[<color=red><var local="speed"/></color>]]></p>
                 </properties>
                 <flavor>
-                    <p>危险动作，小鬼僵尸请勿轻易尝试。</p>
+                    <p>危险动作，<![CDATA[<ref=[enemies]mvz2:imp>小鬼僵尸</ref>]]>请勿轻易尝试。</p>
                 </flavor>
             </entry>
         </group>
@@ -2227,7 +2227,7 @@
                 </properties>
                 <flavor>
                     <p>看管着梦境世界的貘妖怪，能够观察、改变或吞食人的梦境。</p>
-                    <p>被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。</p>
+                    <p>被真身前来的史蒂夫和<![CDATA[<ref=[misc]mvz2:villager>村民</ref>]]>两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:tokiko" name="朱鹭子">
@@ -2236,7 +2236,7 @@
                 </unlock>
                 <picture character="mvz2:tokiko" />
                 <header>
-                    <p>常在香霖堂附近活动的读书妖怪，在霖之助失踪后成为了香霖堂的店主。</p>
+                    <p>常在<![CDATA[<ref=[misc]mvz2:kourindou>香霖堂</ref>]]>附近活动的读书妖怪，在<![CDATA[<ref=[misc]mvz2:rinnosuke>霖之助</ref>]]>失踪后成为了香霖堂的店主。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>Cuerzor58</color>]]></p>
@@ -2254,7 +2254,7 @@
                 </unlock>
                 <picture character="mvz2:seija" />
                 <header>
-                    <p>一名天邪鬼，曾利用了针妙丸，妄图使用万宝槌的力量颠覆幻想乡的强弱规则。</p>
+                    <p>一名天邪鬼，曾利用了<![CDATA[<ref=[misc]mvz2:shinmyoumaru>针妙丸</ref>]]>，妄图使用万宝槌的力量颠覆幻想乡的强弱规则。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>Cuerzor58</color>]]></p>
@@ -2270,8 +2270,8 @@
                         <conditions>
                             <condition required="mvz2:level.ship_7"/>
                         </conditions>
-                        <p>在史蒂夫从圣辇船坠落之后，似乎是她救了史蒂夫。</p>
-                        <p>然而此举并不是出于好心，而是盯上了史蒂夫身上的星之碎片。</p>
+                        <p>在史蒂夫从<![CDATA[<ref=[misc]mvz2:palanquin_ship>圣辇船</ref>]]>坠落之后，似乎是她救了史蒂夫。</p>
+                        <p>然而此举并不是出于好心，而是盯上了史蒂夫身上的<![CDATA[<ref=[misc]mvz2:starshard.ufo_fragment>星之碎片</ref>]]>。</p>
                         <p>“只要拥有这些星之碎片，说不定就能恢复针妙丸的地位，再颠覆整个幻想乡。”</p>
                         <p>她这样想着。</p>
                     </flavor>
@@ -2290,7 +2290,7 @@
                 </properties>
                 <flavor>
                     <p>针妙丸是第一位小人族——一寸法师的后代。</p>
-                    <p>曾因为听信了天邪鬼——鬼人正邪的谗言，使用了万宝槌的力量给幻想乡造成了混乱，因此曾被前来解决异变的一众人俘获。</p>
+                    <p>曾因为听信了天邪鬼——<![CDATA[<ref=[misc]mvz2:seija>鬼人 正邪</ref>]]>的谗言，使用了万宝槌的力量给幻想乡造成了混乱，因此曾被前来解决异变的一众人俘获。</p>
                     <p>后来参与了针对鬼人正邪的围剿，但在之后，两人还是成为了朋友。</p>
                     <p>曾也有小人族的先祖遗忘一寸法师的祖训，试图利用万宝槌的力量改变一切，但是却付出了惨痛的代价。如今针妙丸也遗忘了这段历史，重蹈覆辙。</p>
                     <p>不过，至少在她这一代，这些教训是再也忘不掉的了。</p>
@@ -2302,7 +2302,7 @@
                 </unlock>
                 <picture character="mvz2:futo" />
                 <header>
-                    <p>日本古代大氏族物部氏的后人，丰聪耳神子的手下。</p>
+                    <p>日本古代大氏族物部氏的后人，<![CDATA[<ref=[misc]mvz2:miko>丰聪耳 神子</ref>]]>的手下。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
@@ -2319,7 +2319,7 @@
                 </unlock>
                 <picture character="mvz2:marisa" />
                 <header>
-                    <p>一位普通的魔法使，也是森近 霖之助曾经的好友。</p>
+                    <p>一位普通的魔法使，也是<![CDATA[<ref=[misc]mvz2:rinnosuke>森近 霖之助</ref>]]>曾经的好友。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
@@ -2343,7 +2343,7 @@
                 </properties>
                 <flavor>
                     <p>千年以前，神子诞生在这世界上。年幼的她能听懂所有人的倾诉，并给出一针见血的见解，她自己也因这个传言而被人们奉为圣人。</p>
-                    <p>后来她开始惧怕、不满人类的有限寿命，听从了青娥的建议，表面推崇佛教，背地里通过道教手段而达到不死的目的。之后她和物部布都、苏我屠自古一起通过尸解的方法陷入长眠。</p>
+                    <p>后来她开始惧怕、不满人类的有限寿命，听从了<![CDATA[<ref=[misc]mvz2:seiga>青娥</ref>]]>的建议，表面推崇佛教，背地里通过道教手段而达到不死的目的。之后她和<![CDATA[<ref=[misc]mvz2:futo>物部 布都</ref>]]>、苏我 屠自古一起通过尸解的方法陷入长眠。</p>
                     <p>之后在幻想乡又和佛教徒产生了矛盾，被干扰了复活。但随着事态发展，两派之间的关系也有所缓和。</p>
                     <p>而这次，她们两者达成合作，一起抵御来自幻想乡外的巨物威胁。</p>
                 </flavor>
@@ -2363,7 +2363,7 @@
                     <p>她本是一位中国古代的普通人类女性，自幼便深深受道教吸引。</p>
                     <p>后来她成了婚，却又因为想要成仙而郁郁寡欢。那之后她使用假死的法术欺骗了家人，离开了自己的家。</p>
                     <p>最终她也确实成为了仙人，但是她性格邪恶，路途不正，最后成为的是一名邪仙。</p>
-                    <p>那之后她向神子建议了道教，让她信奉了道教，神子一行人也成为了尸解仙。</p>
+                    <p>那之后她向<![CDATA[<ref=[misc]mvz2:miko>神子</ref>]]>建议了道教，让她信奉了道教，神子一行人也成为了尸解仙。</p>
                     <p>据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。</p>
                 </flavor>
             </entry>
@@ -2373,7 +2373,7 @@
                 </unlock>
                 <picture character="mvz2:hologram" />
                 <header>
-                    <p>出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。</p>
+                    <p>出现在被僵尸包围的<![CDATA[<ref=[misc]mvz2:kourindou>香霖堂</ref>]]>的神秘影像，它对史蒂夫发出了威胁。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>Cuerzor58</color>]]></p>
@@ -2388,7 +2388,7 @@
                 </unlock>
                 <picture character="mvz2:shou"/>
                 <header>
-                    <p>被圣白莲选中的虎妖怪，毘沙门天的弟子。</p>
+                    <p>被<![CDATA[<ref=[misc]mvz2:byakuren>圣 白莲</ref>]]>选中的虎妖怪，毘沙门天的弟子。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
@@ -2398,7 +2398,7 @@
                     <p>她和白莲的关系说起来比较复杂。白莲供奉毘沙门天，而她又选择了星作为弟子，也作为毘沙门天的化身。因此白莲实际上也在供奉她自己的弟子。</p>
                     <p>星在工作上十分优秀，表面看上去十分冷静而威严，然而其实是个很感性的家伙。</p>
                     <p/>
-                    <p>红龙出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的末地船，之后便和村纱（船长）以及史蒂夫踏上了寻找白莲的旅途。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:red_dragon>红龙</ref>]]>出现后，白莲失去了消息，于是星和命莲寺众僧侣商议过后，找到了史蒂夫用来对付空中的<![CDATA[<ref=[misc]mvz2:end_ship>末地船</ref>]]>，之后便和村纱（船长）以及史蒂夫踏上了寻找白莲的旅途。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:nue" name="封兽 鵺" >
@@ -2436,7 +2436,7 @@
                     <p>赤蛮奇伪装成普通人类而居住在人类村庄，在这里过着平凡的生活。</p>
                     <p>拥有身首分离，并让头飞行的能力，据说还有非常多的其他头颅可用。</p>
                     <p/>
-                    <p>在史蒂夫坠船并离开一座废弃的房屋后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。</p>
+                    <p>在史蒂夫坠船并离开一座<![CDATA[<ref=[misc]mvz2:abandoned_house>废弃的房屋</ref>]]>后，她发现了史蒂夫，并质问史蒂夫为什么会从这间屋子里走出来，然而她却没有透露询问这件事的原因。</p>
                     <p>人类村庄发生过什么吗？</p>
                 </flavor>
             </entry>
@@ -2456,7 +2456,7 @@
                     <p>因此白莲开始恐惧死亡，她作为一名研习佛法的僧人，最后竟靠着妖怪的力量达成了不老，成为了一名“妖僧”。</p>
                     <p>就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。</p>
                     <p/>
-                    <p>三年前，巨人和红龙同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。</p>
+                    <p>三年前，<![CDATA[<ref=[misc]mvz2:the_giant>巨人</ref>]]>和<![CDATA[<ref=[misc]mvz2:red_dragon>红龙</ref>]]>同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。</p>
                 </flavor>
             </entry>
         </group>
@@ -2465,7 +2465,7 @@
             <entry id="mvz2:steves_house" name="史蒂夫的家">
                 <picture sprite="mvz2:misc/steves_house" />
                 <header>
-                    <p>这里是史蒂夫和坑爹村民住的地方。</p>
+                    <p>这里是史蒂夫和<![CDATA[<ref=[misc]mvz2:villager>村民</ref>]]>住的地方。</p>
                 </header>
                 <flavor>
                     <p>史蒂夫不受村庄中的其他人欢迎，于是他们搬到了公路附近的一片广阔平原上，开始了两人独居的生活。</p>
@@ -2474,7 +2474,7 @@
             <entry id="mvz2:eternal_night_swamp" name="永夜沼泽">
                 <picture sprite="mvz2:misc/eternal_night_swamp" />
                 <header>
-                    <p>时间停在万圣夜的被诅咒的沼泽，灵魂术士欧兰特居住于此。</p>
+                    <p>时间停在万圣夜的被诅咒的沼泽，灵魂术士<![CDATA[<ref=[misc]mvz2:orant>欧兰特</ref>]]>居住于此。</p>
                 </header>
                 <flavors>
                     <flavor>
@@ -2496,7 +2496,7 @@
                 <flavor>
                     <p>所有生物的梦境都互相连通，而梦境世界就是这些梦境所处的地方。</p>
                     <p>哆来咪监视并管理着梦境世界，阻止任何企图利用梦境世界干扰现实世界，并破坏梦境世界秩序的人。</p>
-                    <p>史蒂夫和村民来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。</p>
+                    <p>史蒂夫和<![CDATA[<ref=[misc]mvz2:villager>村民</ref>]]>来到梦境世界后，这里呈现出了水池和草坪的模样，而这里就是他们的主战场。</p>
                     <p />
                     <p>这里和宇宙相通，某些宇宙中的天体在这里可能会产生奇特的反应。</p>
                 </flavor>
@@ -2507,10 +2507,10 @@
                 </unlock>
                 <picture sprite="mvz2:misc/nightmare" />
                 <header>
-                    <p>噩梦世界是被梦魇所腐化的梦境世界。</p>
+                    <p>噩梦世界是被<![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>所腐化的<![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>。</p>
                 </header>
                 <flavor>
-                    <p>哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>]]>曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:kourindou" name="香霖堂">
@@ -2522,12 +2522,12 @@
                     <p>香霖堂是幻想乡中的一处商店，专门售卖一些外界来的稀奇物品。</p>
                 </header>
                 <flavor>
-                    <p>香霖堂的原主人名为森近 霖之助，现主人为一位无名的读书妖怪，也称朱鹭子。</p>
+                    <p>香霖堂的原主人名为<![CDATA[<ref=[misc]mvz2:rinnosuke>森近 霖之助</ref>]]>，现主人为一位无名的读书妖怪，也称<![CDATA[<ref=[misc]mvz2:tokiko>朱鹭子</ref>]]>。</p>
                     <p>这里常卖一些幻想乡里少见的，被遗忘的外界物品，比如手机、平板电脑、游戏机什么的。</p>
                     <p>霖之助本人是知道这些东西能产生什么作用的，但是他个人并不知道如何正确使用它们，这些东西多半也只能用来当切菜板什么的来使用。</p>
                     <p>如今这家店被朱鹭子接替，这些东西的用途估计已经没人知道了。</p>
                     <p />
-                    <p>史蒂夫和村民来到了这里，并把这里改造成了他们的作战基地。</p>
+                    <p>史蒂夫和<![CDATA[<ref=[misc]mvz2:villager>村民</ref>]]>来到了这里，并把这里改造成了他们的作战基地。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:shining_needle_castle" name="辉针城">
@@ -2542,7 +2542,7 @@
                     <p>一座倒挂在天上的城池，其来源相当悠久。</p>
                     <p>第一代小人族——一寸法师，从鬼手中夺来万宝槌后，因为它是鬼的秘宝，所以一直不敢过多使用。</p>
                     <p>后来小人族的后裔遗忘了这一祖训，过量使用了万宝槌的魔力，导致了这座倒城的出现，小人族也被囚禁在了这里。</p>
-                    <p>再然后，小人族的末裔——少名针妙丸又受到了天邪鬼的蛊惑，用万宝槌在幻想乡惹出了大乱子。</p>
+                    <p>再然后，小人族的末裔——<![CDATA[<ref=[misc]mvz2:shinmyoumaru>少名 针妙丸</ref>]]>又受到了<![CDATA[<ref=[misc]mvz2:seija>天邪鬼</ref>]]>的蛊惑，用万宝槌在幻想乡惹出了大乱子。</p>
                     <p>不知道多少年过去之后，小人们会再次遗忘之前的惨痛教训呢？</p>
                     <p />
                     <p>顺带一提，天花板——哦不，地板上好像有什么东西在微微发光。</p>
@@ -2554,12 +2554,12 @@
                 </unlock>
                 <picture sprite="mvz2:misc/mausoleum" />
                 <header>
-                    <p>物部 布都和丰聪耳 神子曾复活于幻想乡的地点。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:futo>物部 布都</ref>]]>和<![CDATA[<ref=[misc]mvz2:miko>丰聪耳 神子</ref>]]>曾复活于幻想乡的地点。</p>
                 </header>
                 <flavor>
                     <p>这地方位于命莲寺地下——这并非神子有意为之，佛教徒们为了防止她的复活，故意将命莲寺建在了它的上方。</p>
                     <p>如今神子已经复活，她又将梦殿大祀庙搬到了仙界，而这里则成为了遗址。众多欲望的化身——小神灵仍然徘徊在这里，点缀着这里的黑暗。</p>
-                    <p>如今，这地方又再次被使用，作为封印巨人的囚笼。</p>
+                    <p>如今，这地方又再次被使用，作为封印<![CDATA[<ref=[misc]mvz2:the_giant>巨人</ref>]]>的囚笼。</p>
                     <p />
                     <p>远处似乎有什么金属工具深深嵌在了墙壁上。</p>
                 </flavor>
@@ -2589,7 +2589,7 @@
                     <p>一艘飞翔于天空中的巨大船只。</p>
                 </header>
                 <flavor>
-                    <p>圣辇船共有两艘。第一艘圣辇船由圣 白莲使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，需要乘船去往。倘若随意变换寺庙，会造成一些不便。</p>
+                    <p>圣辇船共有两艘。第一艘圣辇船由<![CDATA[<ref=[misc]mvz2:byakuren>圣 白莲</ref>]]>使用法力创造，现如今落地变成了命莲寺。虽说仍然可以再变回船的样子，但有一部分人存在去往魔界的需求，需要乘船去往。倘若随意变换寺庙，会造成一些不便。</p>
                     <p>因此白莲又用法力创造了第二艘用于在幻想乡和魔界中来往的圣辇船，作为专门的交通工具。</p>
                     <p>如今白莲杳无音讯，星和命莲寺众人商讨后，登上圣辇船，踏上了寻找白莲的路途。</p>
                     <p/>
@@ -2701,7 +2701,7 @@
                 </unlock>
                 <picture model="mvz2:entity.ender_chest" />
                 <header>
-                    <p>末影箱可以将村民的存货取出来，并让他重新开张商店。</p>
+                    <p>末影箱可以将<![CDATA[<ref=[misc]mvz2:villager>村民</ref>]]>的存货取出来，并让他重新开张商店。</p>
                 </header>
                 <flavor>
                     <p>“打怪就能拿到的末影箱？你从哪儿拿来的？”</p>
@@ -2714,7 +2714,7 @@
                 </unlock>
                 <picture sprite="mvz2:map/dream/nightmare_box" fixedSize="true" zoom="false" />
                 <header>
-                    <p>梦魇魔盒是将梦魇的黑魔法收集起来制作而成，并可以使梦境世界变成噩梦世界的容器。</p>
+                    <p>梦魇魔盒是将<![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>的黑魔法收集起来制作而成，并可以使<![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>变成<![CDATA[<ref=[misc]mvz2:nightmare_world>噩梦世界</ref>]]>的容器。</p>
                 </header>
                 <flavor>
                     <p>梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。</p>
@@ -2726,7 +2726,7 @@
                 </unlock>
                 <picture sprite="mvz2:map/gensokyo/map" />
                 <header>
-                    <p>坑爹村民绘制的幻想乡地图。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:villager>村民</ref>]]>绘制的幻想乡地图。</p>
                 </header>
                 <flavor>
                     <p>没有比例尺，没有方向标，只靠图例和注记找路的地图。</p>
@@ -2759,7 +2759,7 @@
                 </unlock>
                 <picture sprite="mvz2:note/dream" />
                 <header>
-                    <p>梦境世界捡到的一张纸条，因为身处梦境的原因，无法查看其内容。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>捡到的一张纸条，因为身处梦境的原因，无法查看其内容。</p>
                 </header>
                 <flavors>
                     <flavor>
@@ -2772,7 +2772,7 @@
                         <conditions>
                             <condition required="mvz2:kourindou_visited_mausoleum_1" />
                         </conditions>
-                        <p>在辉针城结束后的香霖堂，村民曾将这张纸条拿出去看了一眼，然而却又把它慌张地收了起来。</p>
+                        <p><![CDATA[在<ref=[misc]mvz2:shining_needle_castle>辉针城</ref>结束后的<ref=[misc]mvz2:kourindou>香霖堂</ref>，<ref=[misc]mvz2:villager>村民</ref>曾将这张纸条拿出去看了一眼，然而却又把它慌张地收了起来。]]></p>
                     </flavor>
                 </flavors>
             </entry>
@@ -2782,10 +2782,10 @@
                 </unlock>
                 <picture sprite="mvz2:misc/grave_in_dream" fixedSize="true" zoom="false" />
                 <header>
-                    <p>哆来咪提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:kourindou>哆来咪</ref>]]>提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
                 </header>
                 <flavor>
-                    <p>史蒂夫从一开始便没有父母，他不知不觉中被转移到村庄，被戴夫所抚养。</p>
+                    <p>史蒂夫从一开始便没有父母，他不知不觉中被转移到村庄，被<![CDATA[<ref=[misc]mvz2:villager>戴夫</ref>]]>所抚养。</p>
                     <p>史蒂夫并不是和村民一样的方块生物，因此常常受到歧视和嘲笑，史蒂夫也因此特别想知道自己的父母是谁。</p>
                     <p>似乎，这个谜就要从这场冒险中解开了。</p>
                 </flavor>
@@ -2799,8 +2799,8 @@
                     <p>在三年前，幻想乡内曾经发生过一起巨大的爆炸。</p>
                 </header>
                 <flavor>
-                    <p>根据针妙丸所说，三年前，城下面的某处似乎发生过爆炸，然后这些方块怪物就开始慢慢出现了。</p>
-                    <p>后来辉针城内产生的凋灵骷髅可能也是这件事所导致的。</p>
+                    <p>根据<![CDATA[<ref=[misc]mvz2:shinmyoumaru>针妙丸</ref>]]>所说，三年前，城下面的某处似乎发生过爆炸，然后这些方块怪物就开始慢慢出现了。</p>
+                    <p>后来<![CDATA[<ref=[misc]mvz2:shining_needle_castle>辉针城</ref>]]>内产生的凋灵骷髅可能也是这件事所导致的。</p>
                 </flavor>
             </entry>
             <entry id="mvz2:two_travelers" name="两位旅人">
@@ -2827,7 +2827,7 @@
                 </header>
                 <flavors>
                     <flavor>
-                        <p>布都无意间透露了这件事。</p>
+                        <p><![CDATA[<ref=[misc]mvz2:futo>布都</ref>]]>无意间透露了这件事。</p>
                     </flavor>
                     <flavor>
                         <p>细节尚不知情。</p>
@@ -2844,8 +2844,8 @@
                 </header>
                 <flavors>
                     <flavor>
-                        <p>史蒂夫从圣辇船中坠落时，被鬼人 正邪救到了这处房屋中。</p>
-                        <p>在他出来之后，遭到了赤蛮奇的质问，问他为什么会从这间屋子里出来。</p>
+                        <p>史蒂夫从<![CDATA[<ref=[misc]mvz2:palanquin_ship>圣辇船</ref>中坠落时，被<ref=[misc]mvz2:seija>鬼人 正邪</ref>]]>救到了这处房屋中。</p>
+                        <p>在他出来之后，遭到了<![CDATA[<ref=[misc]mvz2:sekibanki>赤蛮奇</ref>]]>的质问，问他为什么会从这间屋子里出来。</p>
                         <p>然而具体发生了什么，史蒂夫并不知情。</p>
                         <p>这间屋子发生过什么事情吗？</p>
                     </flavor>
@@ -2857,11 +2857,11 @@
                 </unlock>
                 <picture sprite="mvz2:misc/visitor_which_finding_child"/>
                 <header>
-                    <p>白莲透露，四年前，曾有一位访客来访，寻找自己的孩子。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:byakuren>白莲</ref>]]>透露，四年前，曾有一位访客来访，寻找自己的孩子。</p>
                 </header>
                 <flavors>
                     <flavor>
-                        <p>史蒂夫解决掉红龙的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。</p>
+                        <p>史蒂夫解决掉<![CDATA[<ref=[misc]mvz2:red_dragon>红龙</ref>]]>的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。</p>
                         <p>那位访客自称灯兰 樱，为了寻找自己的孩子而来。</p>
                         <p>在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。</p>
                     </flavor>
