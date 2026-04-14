@@ -80,6 +80,7 @@ namespace MVZ2.Almanacs
             ui.OnDescriptionIconEnter += OnDescriptionIconEnterCallback;
             ui.OnDescriptionIconExit += OnDescriptionIconExitCallback;
             ui.OnDescriptionIconDown += OnDescriptionIconDownCallback;
+            ui.OnDescriptionLinkClick += OnDescriptionLinkClickCallback;
             ui.OnTagIconEnter += OnTagIconEnterCallback;
             ui.OnTagIconExit += OnTagIconExitCallback;
             ui.OnTagIconDown += OnTagIconDownCallback;
@@ -273,7 +274,7 @@ namespace MVZ2.Almanacs
             var icon = ui.GetDescriptionIcon(page, linkID);
             if (!icon.Exists())
                 return;
-            if (!TryParseLinkID(linkID, out var index, out var tagID, out var enumValueID))
+            if (!TryParseTagLinkID(linkID, out var index, out var tagID, out var enumValueID))
                 return;
             var viewData = GetTagTooltipViewData(tagID, enumValueID);
             Main.Scene.ShowTooltip(new SimpleTooltipSource(almanacCamera, icon, viewData));
@@ -299,6 +300,47 @@ namespace MVZ2.Almanacs
                 LockTooltipDescription(linkID);
             }
             Main.SoundManager.Play2D(LogicSoundID.tap);
+        }
+        private void OnDescriptionLinkClickCallback(AlmanacPageType page, string linkID)
+        {
+            Main.SoundManager.Play2D(LogicSoundID.tap);
+            if (!TryParseDescriptionLinkID(linkID, out string type, out var pageID))
+                return;
+            switch (type)
+            {
+                case "contraptions":
+                    if (pageID == VanillaContraptionID.commandBlock)
+                    {
+                        if (!Main.SaveManager.IsCommandBlockUnlocked())
+                            return;
+                    }
+                    else
+                    {
+                        if (!contraptionEntries.Contains(pageID))
+                            return;
+                    }
+                    ViewContraptions();
+                    SetActiveContraptionEntry(pageID);
+                    break;
+                case "enemies":
+                    if (!enemyEntries.Contains(pageID))
+                        return;
+                    ViewEnemies();
+                    SetActiveEnemyEntry(pageID);
+                    break;
+                case "artifacts":
+                    if (!artifactEntries.Contains(pageID))
+                        return;
+                    ViewArtifacts();
+                    SetActiveArtifactEntry(pageID);
+                    break;
+                case "misc":
+                    if (!miscGroups.Any(g => g.entries.Contains(pageID)))
+                        return;
+                    ViewMisc();
+                    SetActiveMiscEntry(pageID);
+                    break;
+            }
         }
         #endregion
 
@@ -376,6 +418,7 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, contraptionID, entry);
                 description = propReplacer.Replace(description, context);
             }
+            description = ReplaceSuperLinkReferences(description);
 
             int cost = 0;
             string recharge = string.Empty;
@@ -426,6 +469,7 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, enemyID, entry);
                 description = propReplacer.Replace(description, context);
             }
+            description = ReplaceSuperLinkReferences(description);
 
             var encounterCondition = entry.encounterUnlock;
             bool encountered = (encounterCondition != null && encounterCondition.MeetsConditions(Main.SaveManager)) || Main.SaveManager.IsEnemyEncountered(enemyID);
@@ -468,6 +512,7 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, LogicDefinitionTypes.ARTIFACT, artifactID, entry);
                 description = propReplacer.Replace(description, context);
             }
+            description = ReplaceSuperLinkReferences(description);
 
             Color color = Color.white;
             bool unlocked = Main.SaveManager.IsArtifactUnlocked(artifactID);
@@ -517,6 +562,7 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, miscID, entry);
                 description = propReplacer.Replace(description, context);
             }
+            description = ReplaceSuperLinkReferences(description);
 
             var picture = entry.picture;
 
@@ -601,10 +647,16 @@ namespace MVZ2.Almanacs
                 return string.Join("\n\n", strings);
             }
         }
+        private string ReplaceSuperLinkReferences(string description)
+        {
+            description = description.Replace("<ref=", "<color=blue><u><link=");
+            description = description.Replace("</ref>", "</link></u></color>");
+            return description;
+        }
         #endregion
 
         #region Description Tag
-        private bool TryParseLinkID(string linkID, out int index, [NotNullWhen(true)] out NamespaceID? tagID, out string enumValue)
+        private bool TryParseTagLinkID(string linkID, out int index, [NotNullWhen(true)] out NamespaceID? tagID, out string enumValue)
         {
             index = -1;
             tagID = null;
@@ -845,6 +897,26 @@ namespace MVZ2.Almanacs
                     backgroundColor = valueMeta.backgroundColor;
                 }
             }
+        }
+        #endregion
+
+        #region Description Link
+        private bool TryParseDescriptionLinkID(string linkID, out string type, [NotNullWhen(true)] out NamespaceID? pageID)
+        {
+            type = string.Empty;
+            pageID = null;
+            var typeStart = linkID.IndexOf('[');
+            var typeEnd = linkID.IndexOf(']');
+            if (typeStart < 0 || typeEnd < 0)
+            {
+                return false;
+            }
+            type = linkID.Substring(typeStart + 1, typeEnd - typeStart - 1);
+
+            var afterIndex = linkID.Substring(typeEnd + 1);
+            string tagIDStr = afterIndex;
+            var defaultNsp = Main.BuiltinNamespace;
+            return NamespaceID.TryParse(tagIDStr, defaultNsp, out pageID);
         }
         #endregion
 
