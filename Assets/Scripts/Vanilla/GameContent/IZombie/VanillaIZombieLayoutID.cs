@@ -33,6 +33,14 @@ namespace MVZ2.GameContent.Stages
         public const string izeFire = "ize_fire";
         public const string izeAwards = "ize_awards";
         public const string izeError = "ize_error";
+
+        public const string izeComposite2 = "ize_composite_2";
+        public const string izeControl2 = "ize_control_2";
+        public const string izeInstakill2 = "ize_instakill_2";
+        public const string izeDispensers2 = "ize_dispensers_2";
+        public const string izeFire2 = "ize_fire_2";
+        public const string izeSpectral = "ize_spectral";
+        public const string izeGunpowder = "ize_gunpowder";
     }
     public static class VanillaIZombieLayoutID
     {
@@ -62,6 +70,14 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID izeFire = Get(VanillaIZombieLayoutNames.izeFire);
         public static readonly NamespaceID izeAwards = Get(VanillaIZombieLayoutNames.izeAwards);
         public static readonly NamespaceID izeError = Get(VanillaIZombieLayoutNames.izeError);
+
+        public static readonly NamespaceID izeComposite2 = Get(VanillaIZombieLayoutNames.izeComposite2);
+        public static readonly NamespaceID izeControl2 = Get(VanillaIZombieLayoutNames.izeControl2);
+        public static readonly NamespaceID izeInstakill2 = Get(VanillaIZombieLayoutNames.izeInstakill2);
+        public static readonly NamespaceID izeDispensers2 = Get(VanillaIZombieLayoutNames.izeDispensers2);
+        public static readonly NamespaceID izeFire2 = Get(VanillaIZombieLayoutNames.izeFire2);
+        public static readonly NamespaceID izeSpectral = Get(VanillaIZombieLayoutNames.izeSpectral);
+        public static readonly NamespaceID izeGunpowder = Get(VanillaIZombieLayoutNames.izeGunpowder);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

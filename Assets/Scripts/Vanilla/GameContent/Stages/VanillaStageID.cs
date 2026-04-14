@@ -119,6 +119,7 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
         public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
         public const string puzzleIZombieEndless = "puzzle_i_zombie_endless";
+        public const string puzzleIZombieEndless2 = "puzzle_i_zombie_endless_2";
 
         public const string iZombieDebug = "i_zombie_debug";
     }

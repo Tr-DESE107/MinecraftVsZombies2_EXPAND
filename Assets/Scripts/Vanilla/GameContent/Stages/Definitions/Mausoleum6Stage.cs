@@ -12,8 +12,6 @@ namespace MVZ2.GameContent.Stages
         public Mausoleum6Stage(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(new Mausoleum6Behaviour(this));
-
-            this.SetIZombie(true);
         }
     }
 }

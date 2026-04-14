@@ -898,6 +898,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="mausoleum_7" name="梦殿大祀庙" dayNumber="7">
@@ -1723,6 +1724,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_i_skeleton" name="我是骷髅" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
@@ -1734,6 +1736,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_can_you_pass_it" name="你能穿过它吗？" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
@@ -1745,6 +1748,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_absolute_defense" name="绝对防御" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
@@ -1756,6 +1760,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_dead_balloon" name="死亡热气球" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
@@ -1767,6 +1772,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_unbreakable" name="牢不可破" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
@@ -1778,6 +1784,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_mineclear" name="扫雷" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
@@ -1789,6 +1796,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_fire_in_the_hole" name="火在洞里" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
@@ -1800,6 +1808,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_all_your_observes_are_belong_to_us" name="你们的侦测所有是被属于我们" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
@@ -1811,6 +1820,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
         </properties>
     </stage>
     <stage id="puzzle_i_zombie_endless" name="我是僵尸无尽" needBlueprints="false" type="puzzle_endless" startEnergy="150" music="mvz2:puzzle">
@@ -1823,6 +1833,22 @@
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
             <bool name="endless" value="true" />
+            <bool name="iZombie" value="true" />
+            <int name="pickaxeCountLimit" value="3" />
+        </properties>
+    </stage>
+    <stage id="puzzle_i_zombie_endless_2" name="我是僵尸无尽2" needBlueprints="false" type="puzzle_endless" startEnergy="150" music="mvz2:puzzle">
+        <unlock>
+            <condition required="mvz2:level.puzzle_all_your_observes_are_belong_to_us mvz2:level.palace_9" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+            <bool name="endless" value="true" />
+            <bool name="iZombie" value="true" />
+            <int name="pickaxeCountLimit" value="3" />
         </properties>
     </stage>
 </stages>

@@ -318,6 +318,20 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 无视红线放置
+        
+        public static readonly PropertyMeta<bool> IGNORE_REDLINE_PLACEMENT = Get<bool>("ignore_redline_placement");
+        public static bool IgnoreRedlinePlacement(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(IGNORE_REDLINE_PLACEMENT);
+        }
+        public static bool IgnoreRedlinePlacement(this Entity entity)
+        {
+            return entity.GetProperty<bool>(IGNORE_REDLINE_PLACEMENT);
+        }
+
+        #endregion
+
         public static readonly PropertyMeta<bool> CAN_DEACTIVE = Get<bool>("canDeactive");
         public static bool CanDeactive(this EntityDefinition definition)
         {
@@ -327,6 +341,11 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<bool>(CAN_DEACTIVE);
         }
+        public static void SetCanDeactive(this Entity entity, bool value)
+        {
+            entity.SetProperty<bool>(CAN_DEACTIVE, value);
+        }
+
 
         public static readonly PropertyMeta<bool> NO_HELD_TARGET = Get<bool>("noHeldTarget");
         public static bool NoHeldTarget(this Entity entity)

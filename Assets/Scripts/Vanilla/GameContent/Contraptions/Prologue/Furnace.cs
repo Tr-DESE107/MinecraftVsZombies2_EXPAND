@@ -36,6 +36,11 @@ namespace MVZ2.GameContent.Contraptions
 
             var evocationTimer = new FrameTimer(EVOCATION_DURATION);
             SetEvocationTimer(entity, evocationTimer);
+
+            if (entity.Level.IsIZombie())
+            {
+                entity.SetCanDeactive(false);
+            }
         }
         protected override void UpdateAI(Entity entity)
         {

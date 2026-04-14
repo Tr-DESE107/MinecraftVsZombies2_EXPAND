@@ -37,6 +37,11 @@ namespace MVZ2.GameContent.Contraptions
 
             var productionTimer = new FrameTimer(entity.RNG.Next(PRODUCTION_TIME_START_MIN, PRODUCTION_TIME_START_MAX));
             SetProductionTimer(entity, productionTimer);
+
+            if (entity.Level.IsIZombie())
+            {
+                entity.SetCanDeactive(false);
+            }
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -54,6 +59,11 @@ namespace MVZ2.GameContent.Contraptions
         public void DeathEffects(Entity entity, DeathInfo deathInfo)
         {
             var damage = entity.GetDamage() * entity.Level.GetGunpowderDamageMultiplier();
+
+            if (entity.Level.IsIZombie())
+            {
+                damage = entity.GetDamage() * I_ZOMBIE_EXPLOSION_DAMAGE_MULTIPLIER;
+            }
             var range = entity.GetRange();
             var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
             entity.ExplodeAgainstFriendly(entity.GetCenter(), range, entity.GetFaction(), damage, effects);
@@ -131,6 +141,7 @@ namespace MVZ2.GameContent.Contraptions
         public const int PRODUCTION_TIME_START_MIN = 90;
         public const int PRODUCTION_TIME_START_MAX = 360;
         public const int PRODUCTION_TIME = 1080;
+        public const float I_ZOMBIE_EXPLOSION_DAMAGE_MULTIPLIER = 3;
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FURIOUS = new VanillaEntityPropertyMeta<bool>("fury");
         private static readonly VanillaEntityPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaEntityPropertyMeta<Color>("color_offset");

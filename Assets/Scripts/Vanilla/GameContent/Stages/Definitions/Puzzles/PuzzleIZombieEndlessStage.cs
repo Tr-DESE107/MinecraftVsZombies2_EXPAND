@@ -12,8 +12,6 @@ namespace MVZ2.GameContent.Stages
         public PuzzleIZombieEndlessStage(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(new IZombieEndlessBehaviour(this));
-
-            this.SetIZombie(true);
         }
     }
 }
