@@ -24,7 +24,8 @@
     "precompiledReferences": [
         "NGettext.dll",
         "Newtonsoft.Json.dll",
-        "Flee.dll"
+        "NCalc.Sync.dll",
+        "NCalc.Core.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

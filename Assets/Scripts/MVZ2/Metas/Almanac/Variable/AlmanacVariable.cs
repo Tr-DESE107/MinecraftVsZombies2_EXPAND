@@ -2,8 +2,8 @@
 
 using System;
 using System.Xml;
-using Flee.PublicTypes;
 using MVZ2.IO;
+using NCalc;
 
 namespace MVZ2.Metas
 {
@@ -11,20 +11,11 @@ namespace MVZ2.Metas
     {
         public string name;
         public int decimalPrecision = 2;
-        private IDynamicExpression? expression;
-        private static ExpressionContext expressionContext;
+        public string? expressionText;
 
         public AlmanacVariable(string name)
         {
             this.name = name;
-        }
-        static AlmanacVariable()
-        {
-            expressionContext = new ExpressionContext();
-            // 允许字符串、方法调用等
-            expressionContext.Options.ParseCulture = System.Globalization.CultureInfo.InvariantCulture;
-
-            expressionContext.Imports.AddType(typeof(AlmanacVariableFunctions));
         }
         public static AlmanacVariable? FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -35,31 +26,28 @@ namespace MVZ2.Metas
                 return null;
             }
             int decimalPrecision = node.GetAttributeInt("decimalPrecision") ?? 2;
-            var expression = LoadExpression(node.InnerText);
+            var expression = node.InnerText;
             return new AlmanacVariable(name)
             {
-                expression = expression,
+                expressionText = expression,
                 decimalPrecision = decimalPrecision
             };
-        }
-        public static IDynamicExpression? LoadExpression(string text)
-        {
-            try
-            {
-                return expressionContext.CompileDynamic(text);
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"Failed to load almanac variable expression {text}: {e}");
-            }
         }
 
         public object? GetVariableValue(AlmanacVariableContext context)
         {
-            if (expression == null)
+            if (expressionText == null)
                 return null;
-            AlmanacVariableFunctions.context = context;
-            return expression.Evaluate();
+            var exp = new Expression(expressionText);
+            exp.EvaluateFunction += (n, a) => AlmanacVariableFunctions.EvaluateFunctions(context, n, a);
+            try
+            {
+                return exp.Evaluate();
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Failed to execute almanac variable expression {expressionText}: {e}");
+            }
         }
         public string GetValueString(AlmanacVariableContext context)
         {
