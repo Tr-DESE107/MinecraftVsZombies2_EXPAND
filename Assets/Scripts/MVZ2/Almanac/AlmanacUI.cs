@@ -185,6 +185,7 @@ namespace MVZ2.Almanacs
                     bookPage.OnDescriptionIconEnter += id => OnDescriptionIconEnter?.Invoke(type, id);
                     bookPage.OnDescriptionIconExit += id => OnDescriptionIconExit?.Invoke(type, id);
                     bookPage.OnDescriptionIconDown += id => OnDescriptionIconDown?.Invoke(type, id);
+                    bookPage.OnDescriptionLinkClick += id => OnDescriptionLinkClick?.Invoke(type, id);
                     bookPage.OnTagIconEnter += id => OnTagIconEnter?.Invoke(type, id);
                     bookPage.OnTagIconExit += id => OnTagIconExit?.Invoke(type, id);
                     bookPage.OnTagIconDown += id => OnTagIconDown?.Invoke(type, id);
@@ -218,6 +219,7 @@ namespace MVZ2.Almanacs
         public event Action<AlmanacPageType, string>? OnDescriptionIconEnter;
         public event Action<AlmanacPageType, string>? OnDescriptionIconExit;
         public event Action<AlmanacPageType, string>? OnDescriptionIconDown;
+        public event Action<AlmanacPageType, string>? OnDescriptionLinkClick;
         public event Action<AlmanacPageType, int>? OnTagIconEnter;
         public event Action<AlmanacPageType, int>? OnTagIconExit;
         public event Action<AlmanacPageType, int>? OnTagIconDown;
