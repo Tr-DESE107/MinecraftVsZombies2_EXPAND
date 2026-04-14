@@ -2,8 +2,8 @@
 
 using System;
 using System.Xml;
+using ExpressionEvaluator;
 using MVZ2.IO;
-using NCalc;
 
 namespace MVZ2.Metas
 {
@@ -11,7 +11,7 @@ namespace MVZ2.Metas
     {
         public string name;
         public int decimalPrecision = 2;
-        public string? expressionText;
+        public CompiledExpression? expression;
 
         public AlmanacVariable(string name)
         {
@@ -26,27 +26,25 @@ namespace MVZ2.Metas
                 return null;
             }
             int decimalPrecision = node.GetAttributeInt("decimalPrecision") ?? 2;
-            var expression = node.InnerText;
+            var expression = ExpressionEngine.Compile(node.InnerText);
             return new AlmanacVariable(name)
             {
-                expressionText = expression,
+                expression = expression,
                 decimalPrecision = decimalPrecision
             };
         }
 
         public object? GetVariableValue(AlmanacVariableContext context)
         {
-            if (expressionText == null)
+            if (expression == null)
                 return null;
-            var exp = new Expression(expressionText);
-            exp.EvaluateFunction += (n, a) => AlmanacVariableFunctions.EvaluateFunctions(context, n, a);
             try
             {
-                return exp.Evaluate();
+                return expression.Evaluate(context);
             }
             catch (Exception e)
             {
-                throw new Exception($"Failed to execute almanac variable expression {expressionText}: {e}");
+                throw new Exception($"Failed to execute almanac variable expression {expression.ExpressionString}: {e}");
             }
         }
         public string GetValueString(AlmanacVariableContext context)

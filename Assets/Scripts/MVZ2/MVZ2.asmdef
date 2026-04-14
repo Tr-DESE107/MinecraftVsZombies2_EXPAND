@@ -15,7 +15,8 @@
         "GUID:a500fcf6a5ab95240b1d3ee4a01864a3",
         "GUID:b909776c58320594c9b98a4ec4826dd6",
         "GUID:230e021ac0e7411449d34b8d1faf10a3",
-        "GUID:250e096504da3aa4f851a4df12262950"
+        "GUID:250e096504da3aa4f851a4df12262950",
+        "GUID:7458863501f02024fa8505c4f01ea783"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -23,9 +24,7 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "NGettext.dll",
-        "Newtonsoft.Json.dll",
-        "NCalc.Sync.dll",
-        "NCalc.Core.dll"
+        "Newtonsoft.Json.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
