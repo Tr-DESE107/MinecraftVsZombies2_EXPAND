@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine;
@@ -60,8 +61,23 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void FindAndHack(Entity enemy)
         {
-            var facingDirection = enemy.GetFacingDirection();
-            var target = detector.DetectEntityWithTheMost(enemy, t => Vector3.Dot(t.Position - enemy.Position, facingDirection));
+            var facingX = enemy.GetFacingX();
+            var column = enemy.GetColumn();
+            var target = detector.DetectEntityWithTheMost(enemy, t => 
+            {
+                var value = (t.GetColumn() - column) * facingX * 100;
+                var grid = t.GetGrid();
+                if (grid != null)
+                {
+                    if (t.IsTakingGridLayer(grid, VanillaGridLayers.protector))
+                        value += 1;
+                    else if (t.IsTakingGridLayer(grid, VanillaGridLayers.main))
+                        value += 0;
+                    else if (t.IsTakingGridLayer(grid, VanillaGridLayers.carrier))
+                        value += -1;
+                }
+                return value;
+            });
             if (target == null)
                 return;
             Hack(enemy, target);
