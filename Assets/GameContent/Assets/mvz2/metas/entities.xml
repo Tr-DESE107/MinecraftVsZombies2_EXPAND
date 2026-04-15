@@ -2142,7 +2142,7 @@
                 <int name="mvz2:waterInteraction" value="3" />
                 <vector3 name="mvz2:starting_position_offset" x="0" y="20" z="0" />
 
-                <int name="mvz2:cost" value="100" />
+                <int name="mvz2:cost" value="125" />
             </properties>
         </enemy>
         <humanoid id="skeleton_statue" name="骷髅雕像" deathMessage="*咔嚓*">
