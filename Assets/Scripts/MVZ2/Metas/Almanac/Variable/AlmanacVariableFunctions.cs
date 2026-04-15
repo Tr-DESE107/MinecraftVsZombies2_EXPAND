@@ -18,20 +18,6 @@ namespace MVZ2.Metas
                     return local(context, args);
                 case "property":
                     return property(context, args);
-                case "toBoolean":
-                    return toBoolean(context, args);
-                case "toShort":
-                    return toShort(context, args);
-                case "toInt":
-                    return toInt(context, args);
-                case "toLong":
-                    return toLong(context, args);
-                case "toFloat":
-                    return toFloat(context, args);
-                case "toDouble":
-                    return toDouble(context, args);
-                case "toID":
-                    return toID(context, args);
             }
             return null;
         }
@@ -126,39 +112,6 @@ namespace MVZ2.Metas
                 }
             }
             throw new Exception($"Cannot find property of key {key} in variable of almanac entry {context.currentAlmanacEntry.name}.");
-        }
-        public static bool toBoolean(AlmanacVariableContext context, object?[] args)
-        {
-            return Convert.ToBoolean(args[0]);
-        }
-        public static short toShort(AlmanacVariableContext context, object?[] args)
-        {
-            return Convert.ToInt16(args[0]);
-        }
-        public static int toInt(AlmanacVariableContext context, object?[] args)
-        {
-            return Convert.ToInt32(args[0]);
-        }
-        public static long toLong(AlmanacVariableContext context, object?[] args)
-        {
-            return Convert.ToInt64(args[0]);
-        }
-        public static float toFloat(AlmanacVariableContext context, object?[] args)
-        {
-            return Convert.ToSingle(args[0]);
-        }
-        public static double toDouble(AlmanacVariableContext context, object?[] args)
-        {
-            return Convert.ToDouble(args[0]);
-        }
-        public static NamespaceID? toID(AlmanacVariableContext context, object?[] args)
-        {
-            var arg0 = args[0];
-            if (arg0 is NamespaceID id)
-                return id;
-            if (arg0 == null)
-                return null;
-            return NamespaceID.Parse(arg0.ToString(), context.main.BuiltinNamespace);
         }
     }
 }

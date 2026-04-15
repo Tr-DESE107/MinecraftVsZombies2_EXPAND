@@ -341,7 +341,7 @@
         </entry>
         <entry id="mvz2:soul_furnace">
             <variables>
-                <variable name="splash_damage">toDouble(global("mvz2:entity_damage")) * 0.25</variable>
+                <variable name="splash_damage">global("mvz2:entity_damage") * 0.25</variable>
             </variables>
             <header>
                 <p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要烧毁前方的器械来补充燃料。]]></p>
@@ -359,7 +359,7 @@
         </entry>
         <entry id="mvz2:silvenser">
             <variables>
-                <variable name="flesh_damage">toDouble(global("mvz2:entity_damage")) * 2</variable>
+                <variable name="flesh_damage">global("mvz2:entity_damage") * 2</variable>
             </variables>
             <header>
                 <p>银制发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
@@ -520,7 +520,7 @@
         </entry>
         <entry id="mvz2:stone_dropper">
             <variables>
-                <variable name="boulder_damage">toDouble(global("mvz2:entity_damage")) * 4</variable>
+                <variable name="boulder_damage">global("mvz2:entity_damage") * 4</variable>
             </variables>
             <header>
                 <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌方怪物并分裂的巨石。</p>
@@ -714,7 +714,7 @@
         </entry>
         <entry id="black_hole_bomb">
             <variables>
-                <variable name="dps">toDouble(global("mvz2:entity_damage")) * 0.3</variable>
+                <variable name="dps">global("mvz2:entity_damage") * 0.3</variable>
             </variables>
             <header>
                 <p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌方怪物和子弹。</p>
@@ -887,7 +887,7 @@
         </entry>
         <entry id="mvz2:gravelpult">
             <variables>
-                <variable name="gravel_damage">toDouble(global("mvz2:entity_damage")) * 2</variable>
+                <variable name="gravel_damage">global("mvz2:entity_damage") * 2</variable>
             </variables>
             <header>
                 <p>沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身的沙砾。</p>
@@ -1406,7 +1406,7 @@
         </entry>
         <entry id="mvz2:mother_terror">
             <variables>
-                <variable name="laid_speed">toDouble(global("mvz2:entity_speed")) * 0.3</variable>
+                <variable name="laid_speed">global("mvz2:entity_speed") * 0.3</variable>
             </variables>
             <header>
                 <p>恐怖之母会向血肉之躯寄生虫卵。</p>
@@ -1449,7 +1449,7 @@
         </entry>
         <entry id="mvz2:berserker">
             <variables>
-                <variable name="explosion_damage">toDouble(global("mvz2:entity_damage")) * 3</variable>
+                <variable name="explosion_damage">global("mvz2:entity_damage") * 3</variable>
             </variables>
             <header>
                 <p>狂战士在死亡时会产生猛烈的爆炸。</p>
@@ -1468,7 +1468,7 @@
             <variables>
                 <variable name="horse_hp">property("mvz2:entity/maxHealth", "mvz2:skeleton_horse", "entity")</variable>
                 <variable name="horse_speed">property("mvz2:entity/speed", "mvz2:skeleton_horse", "entity")</variable>
-                <variable name="horse_speed_jumped">toDouble(local("horse_speed")) * 0.5</variable>
+                <variable name="horse_speed_jumped">local("horse_speed") * 0.5</variable>
                 <variable name="head_hp">property("mvz2:entity/maxHealth", "mvz2:dullahan_head", "entity")</variable>
                 <variable name="head_speed">property("mvz2:entity/speed", "mvz2:dullahan_head", "entity")</variable>
             </variables>
@@ -1638,7 +1638,7 @@
         </entry>
         <entry id="mvz2:cannoneer_zombie">
             <variables>
-                <variable name="cannon_speed">toDouble(global("mvz2:entity_speed")) * 0.5</variable>
+                <variable name="cannon_speed">global("mvz2:entity_speed") * 0.5</variable>
             </variables>
             <header>
                 <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。</p>
@@ -1681,7 +1681,7 @@
         </entry>
         <entry id="mvz2:shadow_cell">
             <variables>
-                <variable name="small_hp">toDouble(global("mvz2:entity_health")) * 0.5</variable>
+                <variable name="small_hp">global("mvz2:entity_health") * 0.5</variable>
             </variables>
             <header>
                 <p>暗影细胞漂浮在低空中，在被击杀后会向上下两行分裂出两个小型的暗影细胞。</p>
@@ -1751,8 +1751,8 @@
         <entry id="mvz2:wisp_fly">
             <variables>
                 <variable name="easy_damage">global("mvz2:entity_damage")</variable>
-                <variable name="normal_damage">toDouble(global("mvz2:entity_damage")) * 1.5</variable>
-                <variable name="hard_damage">toDouble(global("mvz2:entity_damage")) * 3</variable>
+                <variable name="normal_damage">global("mvz2:entity_damage") * 1.5</variable>
+                <variable name="hard_damage">global("mvz2:entity_damage") * 3</variable>
             </variables>
             <header>
                 <p>鬼火苍蝇会冲向你的器械，并产生一次小型自爆，造成<![CDATA[<tag id="mvz2:fire" />]]>火焰伤害。</p>
@@ -2232,7 +2232,7 @@
                 <picture sprite="mvz2:misc/giant_in_mausoleum[4]" />
                 <variables>
                     <variable name="hp1">property("mvz2:entity/maxHealth", "mvz2:the_giant", "entity")</variable>
-                    <variable name="hp2">toDouble(local("hp1")) * 0.4</variable>
+                    <variable name="hp2">local("hp1") * 0.4</variable>
                 </variables>
                 <header>
                     <p>巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。</p>
