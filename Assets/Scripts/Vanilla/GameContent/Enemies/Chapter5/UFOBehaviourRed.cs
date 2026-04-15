@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
@@ -78,7 +79,15 @@ namespace MVZ2.GameContent.Enemies
             timer.Run();
             if (timer.PassedFrameFromMax(RELEASE_ZOMBIE_TIME))
             {
-                var enemyID = enemyPool.Random(enemy.RNG);
+                NamespaceID enemyID;
+                if (enemy.Level.IsIZombie())
+                {
+                    enemyID = VanillaEnemyID.zombie;
+                }
+                else
+                {
+                    enemyID = enemyPool.Random(enemy.RNG);
+                }
                 var param = enemy.GetSpawnParams();
                 param.OnApply += (e) =>
                 {

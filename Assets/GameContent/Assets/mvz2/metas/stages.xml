@@ -1837,9 +1837,59 @@
             <int name="pickaxeCountLimit" value="3" />
         </properties>
     </stage>
+
+    
+    <stage id="puzzle_among_us" name="在我们之中" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
+        <unlock>
+            <condition required="mvz2:level.puzzle_dead_balloon mvz2:level.ship_5" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
+        </properties>
+    </stage>
+    <stage id="puzzle_im_in_charge_now" name="轮到我上场了" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
+        <unlock>
+            <condition required="mvz2:level.puzzle_among_us mvz2:level.ship_9" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
+        </properties>
+    </stage>
+    <stage id="puzzle_break_apart" name="四分五裂" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
+        <unlock>
+            <condition required="mvz2:level.puzzle_im_in_charge_now mvz2:level.palace_5" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
+        </properties>
+    </stage>
+    <stage id="puzzle_catzomware" name="僵尸猫病毒" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
+        <unlock>
+            <condition required="mvz2:level.puzzle_break_apart mvz2:level.palace_9" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <camera position="lawn" transition="instant" />
+        <properties>
+            <bool name="autoCollectEnergy" value="true" />
+            <bool name="autoCollectMoney" value="true" />
+            <bool name="iZombie" value="true" />
+        </properties>
+    </stage>
     <stage id="puzzle_i_zombie_endless_2" name="我是僵尸无尽2" needBlueprints="false" type="puzzle_endless" startEnergy="150" music="mvz2:puzzle">
         <unlock>
-            <condition required="mvz2:level.puzzle_all_your_observes_are_belong_to_us mvz2:level.palace_9" />
+            <condition required="mvz2:level.puzzle_catzomware mvz2:level.palace_9" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <camera position="lawn" transition="instant" />

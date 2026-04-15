@@ -59,6 +59,15 @@ namespace MVZ2Logic.IZombie
                 Insert(map, grid, entityID);
             }
         }
+        public void FillLane(IIZombieMap map, int lane, NamespaceID entityID)
+        {
+            var allGrids = map.GetAllGridPositions();
+            var grids = allGrids.Where(g => g.y == lane && map.CanInsert(g, entityID)).ToArray();
+            foreach (var grid in grids)
+            {
+                Insert(map, grid, entityID);
+            }
+        }
         public void Insert(IIZombieMap map, int x, int y, NamespaceID entityID)
         {
             map.InsertEntity(x, y, entityID);

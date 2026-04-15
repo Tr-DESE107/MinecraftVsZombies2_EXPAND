@@ -22,6 +22,11 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
         public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
 
+        public const string puzzleAmongUs = "puzzle_among_us";
+        public const string puzzleImInChargeNow = "puzzle_im_in_charge_now";
+        public const string puzzleBreakApart = "puzzle_break_apart";
+        public const string puzzleCatzomware = "puzzle_catzomware";
+
         public const string iZombieDebug = "i_zombie_debug";
 
         public const string izeComposite = "ize_composite";
@@ -59,6 +64,11 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID puzzleMineclear = Get(VanillaIZombieLayoutNames.puzzleMineclear);
         public static readonly NamespaceID puzzleFireInTheHole = Get(VanillaIZombieLayoutNames.puzzleFireInTheHole);
         public static readonly NamespaceID puzzleAllYourObservesAreBelongToUs = Get(VanillaIZombieLayoutNames.puzzleAllYourObservesAreBelongToUs);
+
+        public static readonly NamespaceID puzzleAmongUs = Get(VanillaIZombieLayoutNames.puzzleAmongUs);
+        public static readonly NamespaceID puzzleImInChargeNow = Get(VanillaIZombieLayoutNames.puzzleImInChargeNow);
+        public static readonly NamespaceID puzzleBreakApart = Get(VanillaIZombieLayoutNames.puzzleBreakApart);
+        public static readonly NamespaceID puzzleCatzomware = Get(VanillaIZombieLayoutNames.puzzleCatzomware);
 
         public static readonly NamespaceID iZombieDebug = Get(VanillaIZombieLayoutNames.iZombieDebug);
 
