@@ -24,7 +24,8 @@ namespace MVZ2.GameContent.IZombie
             RandomFill(map, VanillaContraptionID.triplenser, 1, rng);
             RandomFill(map, VanillaContraptionID.repeatenser, 1, rng);
             RandomFill(map, VanillaContraptionID.transfenser, 1, rng);
-            RandomFill(map, VanillaContraptionID.woodenDropper, 3, rng);
+            RandomFill(map, VanillaContraptionID.woodenDropper, 2, rng);
+            RandomFill(map, VanillaContraptionID.pistenser, 1, rng);
 
             RandomFill(map, VanillaContraptionID.stoneDropper, 1, rng);
             RandomFill(map, VanillaContraptionID.gravelpult, 2, rng);

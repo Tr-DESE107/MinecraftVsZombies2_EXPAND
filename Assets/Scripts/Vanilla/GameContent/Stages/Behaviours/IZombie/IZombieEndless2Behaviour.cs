@@ -18,12 +18,12 @@ namespace MVZ2.GameContent.Stages
         {
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeComposite2, 1.5f);
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeControl2, 1.5f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill2);
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill2, 1f);
 
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes, 0.2f);
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes2, 0.2f);
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers2, 0.2f);
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire, 0.2f);
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire2, 0.2f);
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpectral, 0.2f);
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f);
         }
@@ -42,11 +42,11 @@ namespace MVZ2.GameContent.Stages
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.imp);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonStatue);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.zombieCloud);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.hacker);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.shadowCell);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.zombieCat);
-            yield return VanillaBlueprintID.ufoGreen;
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.cannoneerZombie);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.popCaptain);
         }
