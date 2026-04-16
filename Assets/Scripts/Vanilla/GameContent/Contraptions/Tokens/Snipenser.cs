@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 var levelPosition = entity.Level.ScreenToLawnPositionByY(screenPosition, entity.Position.y);
                 var distanceVector = new Vector2(levelPosition.x - entity.Position.x, levelPosition.z - entity.Position.z);
-                var angle = (Vector2.SignedAngle(distanceVector, Vector2.right) + 360f) % 360f;
+                var angle = Mathf.Repeat(Vector2.SignedAngle(distanceVector, Vector2.right), 360f);
                 SetDirection(entity, angle);
             }
 
@@ -65,7 +65,16 @@ namespace MVZ2.GameContent.Contraptions
             float headSpritePercentage = 0;
             var headOffset = GetHeadOffset(entity);
             var direction = GetDirection(entity);
-            headSpritePercentage = ((direction - SPRITE_ANGLE_OFFSET) % 360f) / 360f;
+            var spriteDirection = direction;
+            if (entity.IsFacingLeft())
+            {
+                spriteDirection = 180f - direction - SPRITE_ANGLE_OFFSET;
+            }
+            else
+            {
+                spriteDirection = direction - SPRITE_ANGLE_OFFSET;
+            }
+            headSpritePercentage = Mathf.Repeat(spriteDirection, 360) / 360f;
             entity.SetAnimationFloat("HeadOffsetX", headOffset.x);
             entity.SetAnimationFloat("HeadOffsetY", headOffset.y);
             entity.SetAnimationFloat("HeadSprite", headSpritePercentage);

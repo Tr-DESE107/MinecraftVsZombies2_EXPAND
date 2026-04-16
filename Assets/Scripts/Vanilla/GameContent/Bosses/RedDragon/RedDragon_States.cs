@@ -1892,7 +1892,7 @@ namespace MVZ2.GameContent.Bosses
             public override void OnExit(EntityStateMachine machine, Entity entity)
             {
                 base.OnExit(machine, entity);
-                SetRotation(entity, (GetRotation(entity) + 180) % 360);
+                SetRotation(entity, Mathf.Repeat(GetRotation(entity), 360));
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {

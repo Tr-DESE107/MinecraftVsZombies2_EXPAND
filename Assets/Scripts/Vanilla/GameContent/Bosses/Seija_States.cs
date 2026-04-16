@@ -181,11 +181,11 @@ namespace MVZ2.GameContent.Bosses
                     {
                         case SUBSTATE_ROTATE_1:
                         case SUBSTATE_ROTATE_3:
-                            bulletAngle = (bulletAngle + 5) % 360;
+                            bulletAngle = Mathf.Repeat(bulletAngle + 5, 360);
                             break;
                         case SUBSTATE_ROTATE_2:
                             color = Color.blue;
-                            bulletAngle = (bulletAngle - 5) % 360;
+                            bulletAngle = Mathf.Repeat(bulletAngle - 5, 360);
                             break;
                     }
                     for (int i = 0; i < 6; i++)

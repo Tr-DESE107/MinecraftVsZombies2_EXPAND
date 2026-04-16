@@ -260,7 +260,7 @@ namespace MVZ2.GameContent.Bosses
                         angle -= HEAD_ROTATE_SPEED;
                     }
                 }
-                angle = (angle + 360) % 360;
+                angle = Mathf.Repeat(angle, 360);
                 headAngles[head] = angle;
 
                 switch (head)
