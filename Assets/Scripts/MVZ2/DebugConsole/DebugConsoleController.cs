@@ -21,6 +21,8 @@ namespace MVZ2.DebugConsole
         public void Hide()
         {
             gameObject.SetActive(false);
+            historyIndex = -1;
+            ui.SetCommand(string.Empty);
         }
         public bool IsActive()
         {
