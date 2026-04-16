@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Contraptions
                 for (int y = lane - 1; y <= lane + 1; y++)
                 {
                     var grid = level.GetGrid(x, y);
-                    if (grid == null || !grid.IsWater() || !grid.IsEmpty())
+                    if (grid == null || !grid.IsWater() || !grid.IsEmpty() || grid.IsDisabled())
                         continue;
                     level.Spawn(VanillaContraptionID.lilyPad, grid.GetEntityPosition(), entity)?.Let(e =>
                     {
