@@ -75,7 +75,7 @@ namespace MVZ2.GameContent.Contraptions
                 }
             }
             var groups = grids.GroupBy(g => g.Column).OrderByDescending(g => g.Key).Take(2);
-            var selectedGrids = groups.SelectMany(g => g.Shuffle(entity.RNG)).Take(2);
+            var selectedGrids = groups.SelectMany(g => g.Randomize(entity.RNG)).Take(2);
             foreach (var grid in selectedGrids)
             {
                 FireSeed(entity, grid);

@@ -316,7 +316,7 @@ namespace MVZ2.GameContent.Bosses
                             {
                                 int column = GetZombieBlockStartColumn(entity, x, atLeft);
                                 int columnEnd = GetZombieBlockEndColumn(entity, x, atLeft);
-                                var lanesPool = validLanes.Shuffle(rng);
+                                var lanesPool = validLanes.Randomize(rng);
                                 for (int y = 0; y < lanes; y++)
                                 {
                                     var i = y + x * lanes;

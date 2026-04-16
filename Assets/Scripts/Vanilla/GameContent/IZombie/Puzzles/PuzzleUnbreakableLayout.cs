@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.IZombie
             {
                 oddLanes[i] = i;
             }
-            var shuffledOddLanes = oddLanes.Shuffle(rng);
+            var shuffledOddLanes = oddLanes.Randomize(rng);
             for (int lane = 0; lane < map.Lanes; lane++)
             {
                 bool odd = lane % 2 == 0;
