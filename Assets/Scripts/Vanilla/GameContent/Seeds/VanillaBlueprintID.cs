@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Seeds
         public const string returnPearl = "return_pearl";
         public const string lengthenBoard = "lengthen_board";
         public const string addPearl = "add_pearl";
+        public const string heavyWeaponFlashbang = "heavy_weapon_flashbang";
         public const string heavyWeaponNuke = "heavy_weapon_nuke";
         public const string heavyWeaponSpread = "heavy_weapon_spread";
         public const string heavyWeaponRapid = "heavy_weapon_rapid";
@@ -32,6 +33,7 @@ namespace MVZ2.GameContent.Seeds
         public static readonly NamespaceID returnPearl = Get(VanillaBlueprintNames.returnPearl);
         public static readonly NamespaceID lengthenBoard = Get(VanillaBlueprintNames.lengthenBoard);
         public static readonly NamespaceID addPearl = Get(VanillaBlueprintNames.addPearl);
+        public static readonly NamespaceID heavyWeaponFlashbang = Get(VanillaBlueprintNames.heavyWeaponFlashbang);
         public static readonly NamespaceID heavyWeaponNuke = Get(VanillaBlueprintNames.heavyWeaponNuke);
         public static readonly NamespaceID heavyWeaponSpread = Get(VanillaBlueprintNames.heavyWeaponSpread);
         public static readonly NamespaceID heavyWeaponRapid = Get(VanillaBlueprintNames.heavyWeaponRapid);

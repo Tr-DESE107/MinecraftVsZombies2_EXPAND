@@ -29,13 +29,6 @@ namespace MVZ2.GameContent.Stages
         public override void Start(LevelEngine level)
         {
             base.Start(level);
-            level.SetSeedSlotCount(3);
-            level.FillSeedPacks(new NamespaceID[3]
-            {
-                VanillaBlueprintID.heavyWeaponNuke,
-                VanillaBlueprintID.heavyWeaponRapid,
-                VanillaBlueprintID.heavyWeaponSpread,
-            });
             level.SetPickaxeActive(false);
             level.SetStarshardActive(false);
             level.SetTriggerActive(false);
@@ -63,7 +56,8 @@ namespace MVZ2.GameContent.Stages
             if (level.CurrentWave >= 1)
             {
                 var snipenserReference = GetSnipenserReference(level);
-                if (snipenserReference == null || !snipenserReference.Exists(level))
+                var snipenser = snipenserReference?.GetEntity(level);
+                if (!snipenser.ExistsAndAlive() || !snipenser.IsFriendlyEntity())
                 {
                     level.GameOver(GameOverTypes.NO_ENEMY, null, VanillaStrings.DEATH_MESSAGE_SNIPENSER_LOST);
                 }

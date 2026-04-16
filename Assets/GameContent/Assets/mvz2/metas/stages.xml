@@ -1610,6 +1610,34 @@
             <bool name="noEnergy" value="true" />
         </properties>
     </stage>
+    <stage id="heavy_weapon" name="重装兵器" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.palace_9" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="3" pointsPower="1.2" pointsMultiplier="2" pointsAddition="1">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:necromancer" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:reflective_barrier_zombie" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:shikaisen_zombie" />
+            <spawn id="mvz2:cannoneer_zombie" />
+            <spawn id="mvz2:zombie_cat" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <bool name="autoCollectAll" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
+    </stage>
 
     <!-- Bosses' Revenge -->
     <stage id="frankensteins_revenge" name="科学怪人的复仇" type="minigame" music="mvz2:ultimate_battle" >

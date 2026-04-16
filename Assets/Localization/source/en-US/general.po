@@ -3021,6 +3021,12 @@ msgctxt "levelname"
 msgid "飞碟闪电战"
 msgstr "UFO Blitz"
 
+#. Name for stage mvz2:heavy_weapon
+#: Stage meta file
+msgctxt "levelname"
+msgid "重装兵器"
+msgstr "Heavy Weapon"
+
 #. Name for stage mvz2:frankensteins_revenge
 #: Stage meta file
 msgctxt "levelname"

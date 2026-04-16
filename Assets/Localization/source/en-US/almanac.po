@@ -8075,6 +8075,12 @@ msgctxt "blueprint_option.name"
 msgid "消灭敌人"
 msgstr "Nuke"
 
+#. Name for blueprint option heavy_weapon_flashbang
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "眩晕敌人"
+msgstr "Flashbang"
+
 #. Name for blueprint option heavy_weapon_rapid
 #: Blueprints meta file
 msgctxt "blueprint_option.name"

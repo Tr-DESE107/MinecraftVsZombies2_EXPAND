@@ -47,6 +47,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b0de64e2af2016c45ae16c1d0b361591, type: 3}
   - name: arcade/frankensteins_revenge
     sprite: {fileID: 21300000, guid: 47bb6e3e6595451449c147cdca10b84c, type: 3}
+  - name: arcade/heavy_weapon
+    sprite: {fileID: 21300000, guid: ff7053569e162c6489dce24f636dd305, type: 3}
   - name: arcade/i_zombie
     sprite: {fileID: 21300000, guid: 954f4a9aadd5d0141a70086f5aaedcc5, type: 3}
   - name: arcade/locked
@@ -347,6 +349,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c7c2c17e30f15d84fa48bd11657b600a, type: 3}
   - name: mobile_blueprint/hacker
     sprite: {fileID: 21300000, guid: 259d5765d58e26d40bcd0e31330e9195, type: 3}
+  - name: mobile_blueprint/heavy_weapon_flashbang
+    sprite: {fileID: 21300000, guid: 17c098ee993d42047b94d6e31b6fe77b, type: 3}
   - name: mobile_blueprint/heavy_weapon_nuke
     sprite: {fileID: 21300000, guid: 6f03c87f9ae558d46b68a9fb3b0a0c3d, type: 3}
   - name: mobile_blueprint/heavy_weapon_rapid
@@ -567,6 +571,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: df7c136338ab89e43af4d789fbcbfa52, type: 3}
   - name: options/add_pearl
     sprite: {fileID: 21300000, guid: 7fe15cf03f7a8c64cb0f6007db72398c, type: 3}
+  - name: options/heavy_weapon_flashbang
+    sprite: {fileID: 21300000, guid: 5ed7b76c963151d47a1c3bf49aa4af1f, type: 3}
   - name: options/heavy_weapon_nuke
     sprite: {fileID: 21300000, guid: f8e1af0de3d03d143b01fe266b03435b, type: 3}
   - name: options/heavy_weapon_rapid
