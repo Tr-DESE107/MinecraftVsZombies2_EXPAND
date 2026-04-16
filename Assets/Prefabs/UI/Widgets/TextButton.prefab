@@ -68,7 +68,7 @@ MonoBehaviour:
   m_text: "\u83DC\u5355"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3271dde185726664f9327d84700c9c21, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 036a05fc904e71c4ca297d9fa77bc5ef, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 3ffcd0d5a258fee40a459a6ccb1316de, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
