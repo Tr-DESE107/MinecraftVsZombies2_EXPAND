@@ -290,11 +290,9 @@ namespace MVZ2.DebugConsole
         }
         private void AddToHistory(string command)
         {
-            // 避免添加重复的连续命令
-            if (commandHistory.Count == 0 || commandHistory.First() != command)
-            {
-                commandHistory.Insert(0, command);
-            }
+            // 避免添加重复的命令
+            commandHistory.Remove(command);
+            commandHistory.Insert(0, command);
 
             // 限制历史记录大小
             while (commandHistory.Count > maxHistorySize)
