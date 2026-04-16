@@ -81,7 +81,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             var output = param.output;
             var hellfire = output.Entity;
-            if (IsExtinguished(hellfire))
+            if (hellfire.HasBehaviour(this) && IsExtinguished(hellfire))
             {
                 if (output.BodyResult != null && output.BodyResult.HasEffect(VanillaDamageEffects.FIRE))
                 {
