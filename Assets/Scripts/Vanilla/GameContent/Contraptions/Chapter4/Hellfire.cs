@@ -2,18 +2,22 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
+using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
@@ -23,19 +27,35 @@ namespace MVZ2.GameContent.Contraptions
     {
         public Hellfire(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(new BooleanModifier(VanillaEntityProps.IS_FIRE, BooleanOperator.SetNot, PROP_EXTINGUISHED));
+            AddModifier(new BooleanModifier(LogicEntityProps.IS_LIGHT_SOURCE, BooleanOperator.SetNot, PROP_EXTINGUISHED));
+            AddTrigger(VanillaLevelCallbacks.APPLY_DAMAGE_SPECIAL_EFFECTS, ApplyDamageSpecialEffectsCallback, filter: EntityTypes.PLANT);
             detector = new HellfireIgniteDetector(32)
             {
                 factionTarget = FactionTarget.Friendly,
                 mask = EntityCollisionHelper.MASK_PROJECTILE,
+            };
+            rekindleDetector = new HellfireIgniteDetector(32)
+            {
+                factionTarget = FactionTarget.Any,
+                mask = EntityCollisionHelper.MASK_ALL,
             };
         }
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
 
-            UpdateIgnite(entity);
+            if (!IsExtinguished(entity))
+            {
+                UpdateIgnite(entity);
+            }
+            else
+            {
+                UpdateExtinguished(entity);
+            }
 
             entity.SetAnimationBool("Evoked", IsCursed(entity));
+            entity.SetModelProperty("Extinguished", IsExtinguished(entity));
         }
         public override bool CanEvoke(Entity entity)
         {
@@ -57,6 +77,18 @@ namespace MVZ2.GameContent.Contraptions
                 e.PlaySound(VanillaSoundID.bombFalling);
             });
         }
+        private void ApplyDamageSpecialEffectsCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult result)
+        {
+            var output = param.output;
+            var hellfire = output.Entity;
+            if (IsExtinguished(hellfire))
+            {
+                if (output.BodyResult != null && output.BodyResult.HasEffect(VanillaDamageEffects.FIRE))
+                {
+                    Rekindle(hellfire);
+                }
+            }
+        }
         private void UpdateIgnite(Entity hellfire)
         {
             bool cursed = IsCursed(hellfire);
@@ -67,6 +99,33 @@ namespace MVZ2.GameContent.Contraptions
                 target.HellfireIgnite(hellfire, cursed);
             }
         }
+        private void UpdateExtinguished(Entity hellfire)
+        {
+            igniteBuffer.Clear();
+            rekindleDetector.DetectEntities(hellfire, igniteBuffer);
+            foreach (Entity target in igniteBuffer)
+            {
+                if (target != hellfire && target.IsFire())
+                {
+                    Rekindle(hellfire);
+                    return;
+                }
+            }
+        }
+        public static void Extinguish(Entity entity)
+        {
+            if (IsExtinguished(entity))
+                return;
+            SetExtinguished(entity, true);
+            entity.PlaySound(VanillaSoundID.fizz);
+        }
+        public static void Rekindle(Entity entity)
+        {
+            if (!IsExtinguished(entity))
+                return;
+            SetExtinguished(entity, false);
+            entity.PlaySound(VanillaSoundID.fire);
+        }
         public static void Curse(Entity entity)
         {
             SetCursed(entity, true);
@@ -74,11 +133,15 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static void SetCursed(Entity entity, bool value) => entity.SetProperty(PROP_CURSED, value);
         public static bool IsCursed(Entity entity) => entity.GetProperty<bool>(PROP_CURSED);
+        public static void SetExtinguished(Entity entity, bool value) => entity.SetProperty(PROP_EXTINGUISHED, value);
+        public static bool IsExtinguished(Entity entity) => entity.GetProperty<bool>(PROP_EXTINGUISHED);
         public static void SetMeteor(Entity entity, EntityID value) => entity.SetProperty(PROP_METEOR, value);
         public static EntityID? GetMeteor(Entity entity) => entity.GetProperty<EntityID>(PROP_METEOR);
         public static readonly VanillaBuffPropertyMeta<bool> PROP_CURSED = new VanillaBuffPropertyMeta<bool>("cursed");
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_EXTINGUISHED = new VanillaBuffPropertyMeta<bool>("extinguished");
         public static readonly VanillaBuffPropertyMeta<EntityID> PROP_METEOR = new VanillaBuffPropertyMeta<EntityID>("meteor");
         private Detector detector;
+        private Detector rekindleDetector;
         private List<Entity> igniteBuffer = new List<Entity>();
     }
     public interface IHellfireIgniteBehaviour

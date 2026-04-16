@@ -29,10 +29,18 @@ namespace MVZ2.GameContent.Contraptions
             {
                 var layers = grid.GetLayers();
                 var orderedLayers = VanillaGridLayers.coolingCellLayers;
+                bool cooled = false;
                 foreach (var layer in orderedLayers)
                 {
                     var entity = grid.GetLayerEntity(layer);
                     if (entity == null || !CanCool(entity))
+                        continue;
+                    if (entity.HasBehaviour<Hellfire>() && !Hellfire.IsCursed(entity))
+                    {
+                        Hellfire.Extinguish(entity);
+                    }
+
+                    if (cooled)
                         continue;
                     var targetSeedPack = GetCoolTargetBlueprint(entity);
                     if (targetSeedPack == null)
@@ -40,7 +48,7 @@ namespace MVZ2.GameContent.Contraptions
                     var recharge = targetSeedPack.GetRecharge();
                     recharge = Mathf.Min(targetSeedPack.GetMaxRecharge(), recharge + RECHARGE_VALUE);
                     targetSeedPack.SetRecharge(recharge);
-                    break;
+                    cooled = true;
                 }
             }
         }

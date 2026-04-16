@@ -31,6 +31,7 @@ namespace MVZ2.GameContent.Effects
             if (parent.ExistsAndAlive() && parent.IsEntityOf(VanillaContraptionID.hellfire))
             {
                 Hellfire.Curse(parent);
+                Hellfire.SetExtinguished(parent, false);
             }
             var range = entity.GetRange();
             var effects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
