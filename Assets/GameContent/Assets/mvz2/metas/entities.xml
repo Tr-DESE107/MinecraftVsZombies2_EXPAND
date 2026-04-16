@@ -2066,7 +2066,7 @@
             <unlock>
                 <condition required="mvz2:level.ship_6" />
             </unlock>
-            <behaviours includeSelf="false">
+            <behaviours>
                 <behaviour operator="add" id="mvz2:boated_enemy" />
             </behaviours>
             <properties>
