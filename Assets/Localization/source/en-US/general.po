@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-14 11:08+0800\n"
-"PO-Revision-Date: 2026-04-14 11:12+0800\n"
+"POT-Creation-Date: 2026-04-16 05:29+0800\n"
+"PO-Revision-Date: 2026-04-16 17:30+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3205,6 +3205,30 @@ msgstr "Midas Touchdown"
 msgctxt "achievement"
 msgid "在不使用重力的情况下，使一只无头骑士被地板杀死。"
 msgstr "Kill a Dullahan using the floor but without using gravity."
+
+#. Name for achievement mvz2:sculpting_strike
+#: Achievements meta file
+msgctxt "achievement"
+msgid "雕琢打击"
+msgstr "Sculpting Strike"
+
+#. Description for achievement mvz2:sculpting_strike
+#: Achievements meta file
+msgctxt "achievement"
+msgid "用铁镐挖掉一个石像鬼。"
+msgstr "Destroy a Gargoyle using the Pickaxe."
+
+#. Name for achievement mvz2:let_them_eat_cake
+#: Achievements meta file
+msgctxt "achievement"
+msgid "何不食肉糜"
+msgstr "Let them eat cake"
+
+#. Description for achievement mvz2:let_them_eat_cake
+#: Achievements meta file
+msgctxt "achievement"
+msgid "让皇帝僵尸吃下一块蛋糕。"
+msgstr "Let an Emperor Zombie eat a piece of cake."
 
 #. Name for music mvz2:mainmenu
 #: Music meta file

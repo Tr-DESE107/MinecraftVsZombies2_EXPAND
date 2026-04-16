@@ -2,9 +2,12 @@
 
 using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Unlocks;
+using MVZ2Logic;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
@@ -41,16 +44,23 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             if (target.IsAIFrozen())
                 return;
-            var evokedMultiplier = target.IsEvoked() ? 2 : 1;
+            bool evoked = target.IsEvoked();
+            var evokedMultiplier = evoked ? 2 : 1;
             var buff = enemy.NewBuff<CursedCandleBuff>();
             CursedCandleBuff.SetFireDamage(buff, target.GetDamage());
             CursedCandleBuff.SetExplosionDamage(buff, target.GetDamage() * EXPLOSION_DAMAGE_MULTIPLIER * evokedMultiplier);
             CursedCandleBuff.SetExplosionRange(buff, target.GetRange() * evokedMultiplier);
-            CursedCandleBuff.SetEvoked(buff, target.IsEvoked());
+            CursedCandleBuff.SetEvoked(buff, evoked);
             enemy.AddBuff(buff);
             enemy.Spawn(VanillaEffectID.cursedFireParticles, enemy.GetCenter());
             target.PlaySound(VanillaSoundID.odd);
             target.PlaySound(VanillaSoundID.biohazard);
+
+            if (enemy.IsEntityOf(VanillaEnemyID.emperorZombie) && evoked)
+            {
+                Global.Saves.Unlock(VanillaUnlockID.letThemEatCake);
+            }
+
             target.Remove();
         }
         public const float EXPLOSION_DAMAGE_MULTIPLIER = 45;
