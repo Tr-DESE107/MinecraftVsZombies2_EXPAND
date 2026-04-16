@@ -42,7 +42,7 @@ namespace MVZ2.Managers
                 return;
             foreach (var meta in resource.ArcadeMetaList.metas)
             {
-                AddUnlocks(meta.HiddenUntil);
+                AddConditionListUnlocks(meta.HiddenUntil);
             }
         }
         private List<NamespaceID> arcadeCache = new List<NamespaceID>();

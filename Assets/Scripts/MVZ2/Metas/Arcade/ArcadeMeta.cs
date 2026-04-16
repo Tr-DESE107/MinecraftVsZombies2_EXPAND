@@ -15,7 +15,7 @@ namespace MVZ2.Metas
         public NamespaceID? AreaID { get; private set; }
         public NamespaceID? StageID { get; private set; }
         public SpriteReference? Icon { get; private set; }
-        public NamespaceID[]? HiddenUntil { get; private set; }
+        public XMLConditionList? HiddenUntil { get; private set; }
 
         public static ArcadeMeta? FromXmlNode(XmlNode node, string defaultNsp, int index)
         {
@@ -24,7 +24,20 @@ namespace MVZ2.Metas
             var area = node.GetAttributeNamespaceID("area", defaultNsp);
             var stage = node.GetAttributeNamespaceID("stage", defaultNsp);
             var icon = node.GetAttributeSpriteReference("icon", defaultNsp);
-            var hiddenUntil = node.GetAttributeNamespaceIDArray("hiddenUntil", defaultNsp);
+            XMLConditionList? hiddenUntil = null;
+            var hiddenUntilNode = node["hiddenUntil"];
+            if (hiddenUntilNode != null)
+            {
+                hiddenUntil = XMLConditionList.FromXmlNode(hiddenUntilNode, defaultNsp);
+            }
+            else
+            {
+                var hiddenUntilArray = node.GetAttributeNamespaceIDArray("hiddenUntil", defaultNsp);
+                if (hiddenUntilArray != null)
+                {
+                    hiddenUntil = XMLConditionList.FromMultiple(hiddenUntilArray);
+                }
+            }
 
             return new ArcadeMeta()
             {
