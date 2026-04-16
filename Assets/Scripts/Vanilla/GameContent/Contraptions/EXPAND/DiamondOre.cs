@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.Level.ShakeScreen(10, 0, 15);
             entity.Remove();
 
-            if (entity.RNG.Next(1) == 0) 
+            if (entity.RNG.Next(2) == 0) 
             { 
             var spawnParams = new SpawnParams();
             var blueprintID = VanillaContraptionID.DiamondOre;
