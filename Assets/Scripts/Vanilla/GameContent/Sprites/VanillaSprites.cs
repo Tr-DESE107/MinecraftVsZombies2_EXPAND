@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Sprites
     {
         public static readonly SpriteReference starshardDefault = Get("starshards/default");
         public static readonly SpriteReference combat = Get("ui/combat");
+        public static readonly SpriteReference snipenserLife = Get("ui/snipenser_life");
         private static SpriteReference Get(string name)
         {
             var id = new NamespaceID(VanillaMod.spaceName, name);
