@@ -5659,6 +5659,41 @@ msgstr ""
 "There are rumors that aliens have visited the skies above Gensokyo. It seems that certain teleportation signals might be able to draw "
 "them out."
 
+#. Name for misc mvz2:chireiden
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "地灵殿"
+msgstr "Palace of the Earth Spirits"
+
+#. Header for misc mvz2:chireiden
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一座位于地下深处的巨大西洋别墅。"
+msgstr "A massive Western-styled mansion situated deep in the Underworld."
+
+#. Flavor for misc mvz2:chireiden
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"地灵殿位于旧地狱街道中心，它的主人是<ref=[misc]mvz2:satori>古明地 觉</ref>。\n"
+"其下方是灼热地狱遗址，遗址最深处是核聚变炉。自从旧地狱被废弃后，觉被委托在这里管理遗留下来的怨灵和核聚变炉。\n"
+"觉饲养了大量的宠物，并用它们来管理地灵殿和遗迹。其中<ref=[misc]mvz2:rin>火焰猫 燐</ref>负责管理这里的怨灵，<ref=[misc]mvz2:utsuho>灵乌"
+"路 空</ref>则负责调节灼热地狱的火力。\n"
+"曾经热闹非凡的旧地狱街道，如今也因为异变的原因变得冷清了许多。\n"
+"\n"
+"这里如果发生地震……好吧。"
+msgstr ""
+"The Palace of the Earth Spirits is located in the center of Old Hell, with the mistress of the mansion being <ref=[misc]mvz2:"
+"satori>Satori Komeiji</ref>.\n"
+"Beneath it lies the Remains of Blazing Hell, with the Nuclear Furnace located at its deepest point. Ever since Old Hell was abandoned, "
+"Satori was entrusted with managing the vengeful spirits lingering here and the Nuclear Furnace.\n"
+"Satori keeps a large number of pets that assist her in managing the mansion and the Remains of Blazing Hell. Among such pets are "
+"<ref=[misc]mvz2:rin>Rin Kaenbyou</ref>, who is responsible for managing the vengeful spirits here, and <ref=[misc]mvz2:utsuho>Utsuho "
+"Reiuji</ref>, who is responsible for regulating the heat in the Remains of Blazing Hell.\n"
+"The once bustling streets of Former Capital had become much quieter due to the incident.\n"
+"\n"
+"If an earthquake were to occur here… well…"
+
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
 msgctxt "almanac.group_name"

@@ -3023,6 +3023,23 @@
                     <p>据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:chireiden" name="地灵殿" >
+                <unlock>
+                    <condition required="mvz2:level.palace_1"/>
+                </unlock>
+                <picture sprite="mvz2:misc/palace"/>
+                <header>
+                    <p>一座位于地下深处的巨大西洋别墅。</p>
+                </header>
+                <flavor>
+                    <p>地灵殿位于旧地狱街道中心，它的主人是<![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>。</p>
+                    <p>其下方是灼热地狱遗址，遗址最深处是核聚变炉。自从旧地狱被废弃后，觉被委托在这里管理遗留下来的怨灵和核聚变炉。</p>
+                    <p>觉饲养了大量的宠物，并用它们来管理地灵殿和遗迹。其中<![CDATA[<ref=[misc]mvz2:rin>火焰猫 燐</ref>]]>负责管理这里的怨灵，<![CDATA[<ref=[misc]mvz2:utsuho>灵乌路 空</ref>]]>则负责调节灼热地狱的火力。</p>
+                    <p>曾经热闹非凡的旧地狱街道，如今也因为异变的原因变得冷清了许多。</p>
+                    <p/>
+                    <p>这里如果发生地震……好吧。</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Starshards -->
         <group id="mvz2:starshards" name="星之碎片" order="500">
