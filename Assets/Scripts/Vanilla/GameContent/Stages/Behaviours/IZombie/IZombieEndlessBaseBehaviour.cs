@@ -30,9 +30,9 @@ namespace MVZ2.GameContent.Stages
             base.Start(level);
             level.SetPickaxeRemainCount(START_PICKAXE_COUNT);
         }
-        protected override void NextRound(LevelEngine level)
+        public override void NextRound(LevelEngine level, NamespaceID layoutID)
         {
-            base.NextRound(level);
+            base.NextRound(level, layoutID);
             if (level.CurrentFlag % ROUNDS_PER_PICKAXE == 0 && level.IsPickaxeCountLimited())
             {
                 var pickaxeCount = level.GetPickaxeRemainCount();

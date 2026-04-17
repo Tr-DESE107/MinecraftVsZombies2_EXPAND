@@ -107,6 +107,9 @@ namespace MVZ2.Vanilla.Localization
         public const string COMMAND_UNLOCK_NONE_SUCCESS = "已重新锁定游戏状态：\n{0}";
         [TranslateMsg("命令输出-unlock", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_UNLOCK_NONE_FAILED_NOTHING_UNLOCKED = "无法重新锁定游戏状态：无游戏状态可重新锁定";
+        [TranslateMsg("命令输出-izombie", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_NOT_IN_I_ZOMBIE_LEVEL = "当前关卡不是“我是僵尸”模式";
+
 
         [TranslateMsg("作弊命令名称", CONTEXT_COMMAND_CHEAT_NAME)]
         public const string CHEAT_NAME_GODMODE = "上帝模式";

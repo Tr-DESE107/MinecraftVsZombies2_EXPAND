@@ -6,6 +6,7 @@ using MVZ2Logic;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -52,6 +53,11 @@ namespace MVZ2.GameContent.Commands
             {
                 var count = ParseHelper.ParseInt(parameters[1]);
                 level.CurrentWave = count;
+            }
+            else if (parameters[0] == "flags")
+            {
+                level.CurrentFlag = ParseHelper.ParseInt(parameters[1]);
+                level.UpdateLevelName();
             }
         }
         private void SpawnEnemies(LevelEngine level, int page)

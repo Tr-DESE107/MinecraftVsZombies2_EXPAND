@@ -15,14 +15,17 @@ namespace MVZ2.GameContent.Stages
         }
         protected override IEnumerable<IZELayoutItem> GetNormalLayouts()
         {
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes, 0.2f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers, 0.2f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire, 0.2f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f);
+            // A¿‡’Û
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f); // ◊€∫œ
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f); // øÿ÷∆
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill, 1f); // º¥À¿
+
+            // B¿‡’Û
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes, 0.2f); // ƒæÕ∂º‚¥Ã
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers, 0.2f); // ∑¢…‰∆˜
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f); // ±¨’®
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire, 0.2f); // ª—Ê
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f); // ª÷∏¥
         }
         protected override IEnumerable<IZELayoutItem> GetAwardLayouts()
         {

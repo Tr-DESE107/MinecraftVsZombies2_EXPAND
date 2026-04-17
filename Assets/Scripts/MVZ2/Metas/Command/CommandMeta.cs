@@ -6,7 +6,9 @@ using System.Xml;
 using MVZ2.Debugs;
 using MVZ2.IO;
 using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Localization;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Metas
 {
@@ -154,14 +156,18 @@ namespace MVZ2.Metas
         public const string TYPE_FLOAT = "float";
         public const string TYPE_COMMAND = "command";
         public const string TYPE_ID = "id";
-        public const string ID_TYPE_ENTITY = "entity";
-        public const string ID_TYPE_BLUEPRINT = "blueprint";
-        public const string ID_TYPE_ARTIFACT = "artifact";
-        public const string ID_TYPE_ARMOR = "armor";
-        public const string ID_TYPE_ARMOR_SLOT = "armor_slot";
+
+        public const string ID_TYPE_ENTITY = EngineDefinitionTypes.ENTITY;
+        public const string ID_TYPE_SEED = EngineDefinitionTypes.SEED;
+        public const string ID_TYPE_ARMOR = EngineDefinitionTypes.ARMOR;
+        public const string ID_TYPE_STAGE = EngineDefinitionTypes.STAGE;
+        public const string ID_TYPE_AREA = EngineDefinitionTypes.AREA;
+
+        public const string ID_TYPE_ARMOR_SLOT = LogicDefinitionTypes.ARMOR_SLOT;
+        public const string ID_TYPE_ARTIFACT = LogicDefinitionTypes.ARTIFACT;
+        public const string ID_TYPE_I_ZOMBIE_LAYOUT = LogicDefinitionTypes.I_ZOMBIE_LAYOUT;
+
         public const string ID_TYPE_UNLOCK = "unlock";
-        public const string ID_TYPE_STAGE = "stage";
-        public const string ID_TYPE_AREA = "area";
         public const string ID_TYPE_CHAPTER_TRANSITION = "chapter_transition";
     }
 }

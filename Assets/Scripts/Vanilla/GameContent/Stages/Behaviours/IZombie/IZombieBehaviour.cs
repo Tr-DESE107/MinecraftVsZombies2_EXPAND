@@ -75,6 +75,16 @@ namespace MVZ2.GameContent.Stages
                 if (level.FindEntities(VanillaEffectID.izObserver).All(e => IZObserver.IsPass(e)))
                 {
                     level.CurrentFlag++;
+
+                    // 写入统计。
+                    if (level.IsEndless())
+                    {
+                        if (Global.Saves.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
+                        {
+                            Global.Saves.SetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
+                        }
+                    }
+
                     var maxRound = GetMaxRounds();
                     var currentRound = level.CurrentFlag;
 
@@ -138,7 +148,12 @@ namespace MVZ2.GameContent.Stages
         protected virtual int GetMaxRounds() => 1;
         protected abstract void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout);
         protected abstract NamespaceID GetNewLayout(int round, RandomGenerator rng);
-        protected virtual void NextRound(LevelEngine level)
+        public void NextRound(LevelEngine level)
+        {
+            var layoutID = GetNewLayout(level.CurrentFlag, level.GetRoundRNG());
+            NextRound(level, layoutID);
+        }
+        public virtual void NextRound(LevelEngine level, NamespaceID layoutID)
         {
             foreach (var ent in level.GetEntities())
             {
@@ -148,7 +163,6 @@ namespace MVZ2.GameContent.Stages
             scene.SetScreenCoverColor(Color.white);
             scene.FadeScreenCoverColor(new Color(1, 1, 1, 0), 0.25f);
             level.PlaySound(VanillaSoundID.hugeWave);
-            var layoutID = GetNewLayout(level.CurrentFlag, level.GetRoundRNG());
             SetCurrentLayout(level, layoutID);
             var layout = level.Content.GetIZombieLayoutDefinition(layoutID);
             if (layout != null)
@@ -157,14 +171,6 @@ namespace MVZ2.GameContent.Stages
                 ReplaceBlueprints(level, layout);
             }
             level.WaveState = STATE_NORMAL;
-
-            if (level.IsEndless())
-            {
-                if (Global.Saves.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
-                {
-                    Global.Saves.SetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
-                }
-            }
         }
         private void GenerateMap(LevelEngine level, IZombieLayoutDefinition layout)
         {

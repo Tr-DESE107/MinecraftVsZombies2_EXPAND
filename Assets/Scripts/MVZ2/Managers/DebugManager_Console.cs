@@ -8,13 +8,17 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Metas;
+using MVZ2.UI.Level;
 using MVZ2Logic;
+using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
 using PVZEngine;
+using PVZEngine.Armors;
+using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.SeedPacks;
@@ -26,55 +30,50 @@ namespace MVZ2.Debugs
     {
         public void LoadCommandParameterSuggestions()
         {
-            entityIDSet.Clear();
-            blueprintIDSet.Clear();
-            artifactIDSet.Clear();
             commandIDSet.Clear();
-            armorIDSet.Clear();
-            armorSlotIDSet.Clear();
-            unlockIDSet.Clear();
-            stageIDSet.Clear();
-            areaIDSet.Clear();
-            chapterTransitionIDSet.Clear();
-            foreach (var def in Main.Game.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
-            {
-                entityIDSet.Add(def.GetID().ToString());
-            }
-            foreach (var def in Main.Game.GetDefinitions<SeedDefinition>(EngineDefinitionTypes.SEED))
-            {
-                blueprintIDSet.Add(def.GetID().ToString());
-            }
-            foreach (var def in Main.Game.GetDefinitions<ArtifactDefinition>(LogicDefinitionTypes.ARTIFACT))
-            {
-                artifactIDSet.Add(def.GetID().ToString());
-            }
             foreach (var def in Main.Game.GetAllCommandDefinitions())
             {
                 commandIDSet.Add(def.GetID());
             }
-            foreach (var def in Main.Game.GetAllArmorDefinitions())
+
+            foreach (var set in idSetDictionary.Values)
             {
-                armorIDSet.Add(def.GetID().ToString());
+                set.Clear();
             }
-            foreach (var def in Main.Game.GetAllArmorSlotDefinitions())
-            {
-                armorSlotIDSet.Add(def.GetID().ToString());
-            }
+            RegisterIDSets();
+
             foreach (var unlock in Main.ResourceManager.GetAllUnlockConditions())
             {
-                unlockIDSet.Add(unlock.ToString());
+                var defType = CommandMetaParam.ID_TYPE_UNLOCK;
+                if (!idSetDictionary.TryGetValue(defType, out var set))
+                {
+                    set = new HashSet<string>();
+                    idSetDictionary.Add(defType, set);
+                }
+                set.Add(unlock.ToString());
             }
-            foreach (var def in Main.Game.GetAllStageDefinitions())
+        }
+        private void RegisterIDSets()
+        {
+            foreach (var def in Main.Game.GetDefinitions())
             {
-                stageIDSet.Add(def.GetID().ToString());
+                var defType = def.GetDefinitionType();
+                if (!idSetDictionary.TryGetValue(defType, out var set))
+                {
+                    set = new HashSet<string>();
+                    idSetDictionary.Add(defType, set);
+                }
+                set.Add(def.GetID().ToString());
             }
-            foreach (var def in Main.Game.GetAllAreaDefinitions())
-            {
-                areaIDSet.Add(def.GetID().ToString());
-            }
+            var chapterTransitionType = CommandMetaParam.ID_TYPE_CHAPTER_TRANSITION;
             foreach (var id in Main.ResourceManager.GetAllChapterTransitions())
             {
-                chapterTransitionIDSet.Add(id.ToString());
+                if (!idSetDictionary.TryGetValue(chapterTransitionType, out var set))
+                {
+                    set = new HashSet<string>();
+                    idSetDictionary.Add(chapterTransitionType, set);
+                }
+                set.Add(id.ToString());
             }
         }
         public bool IsConsoleActive()
@@ -289,7 +288,7 @@ namespace MVZ2.Debugs
                     {
                         return Main.Game.GetEntityDefinition(id) != null;
                     }
-                case CommandMetaParam.ID_TYPE_BLUEPRINT:
+                case CommandMetaParam.ID_TYPE_SEED:
                     {
                         return Main.Game.GetSeedDefinition(id) != null;
                     }
@@ -416,80 +415,12 @@ namespace MVZ2.Debugs
                     break;
                 case CommandMetaParam.TYPE_ID:
                     {
-                        switch (param.IDType)
+                        if (idSetDictionary.TryGetValue(param.IDType, out var set))
                         {
-                            case CommandMetaParam.ID_TYPE_ENTITY:
-                                {
-                                    foreach (var sug in entityIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_BLUEPRINT:
-                                {
-                                    foreach (var sug in blueprintIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_ARTIFACT:
-                                {
-                                    foreach (var sug in artifactIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_ARMOR:
-                                {
-                                    foreach (var sug in armorIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_ARMOR_SLOT:
-                                {
-                                    foreach (var sug in armorSlotIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_UNLOCK:
-                                {
-                                    foreach (var sug in unlockIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_STAGE:
-                                {
-                                    foreach (var sug in stageIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_AREA:
-                                {
-                                    foreach (var sug in areaIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_CHAPTER_TRANSITION:
-                                {
-                                    foreach (var sug in chapterTransitionIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
+                            foreach (var sug in set)
+                            {
+                                yield return sug;
+                            }
                         }
                     }
                     break;
@@ -589,15 +520,7 @@ namespace MVZ2.Debugs
 
         [SerializeField]
         private string commandHistoryFileName = "commands.txt";
-        private HashSet<string> entityIDSet = new HashSet<string>();
-        private HashSet<string> blueprintIDSet = new HashSet<string>();
-        private HashSet<string> artifactIDSet = new HashSet<string>();
-        private HashSet<string> armorIDSet = new HashSet<string>();
-        private HashSet<string> armorSlotIDSet = new HashSet<string>();
-        private HashSet<string> unlockIDSet = new HashSet<string>();
-        private HashSet<string> stageIDSet = new HashSet<string>();
-        private HashSet<string> areaIDSet = new HashSet<string>();
-        private HashSet<string> chapterTransitionIDSet = new HashSet<string>();
+        private Dictionary<string, HashSet<string>> idSetDictionary = new Dictionary<string, HashSet<string>>();
         private HashSet<NamespaceID> commandIDSet = new HashSet<NamespaceID>();
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;
