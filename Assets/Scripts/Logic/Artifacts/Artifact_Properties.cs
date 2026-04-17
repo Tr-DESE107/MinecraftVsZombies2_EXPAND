@@ -20,7 +20,7 @@ namespace MVZ2Logic.Artifacts
         }
         private void InitPropertiesFromSerializable(SerializableArtifact seri)
         {
-            propertyDict = PropertyDictionary.FromSerializable(seri.propertyDict);
+            propertyDict.LoadFromSerializable(seri.propertyDict);
         }
         #endregion
 
