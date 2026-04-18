@@ -11,6 +11,13 @@ namespace MVZ2.Vanilla.Grids
         public static readonly NamespaceID protector = Get("protector");
         public static readonly NamespaceID tool = Get("tool");
 
+        public static NamespaceID[] normalLayerOrders = new NamespaceID[]
+        {
+            tool,
+            protector,
+            main,
+            carrier
+        };
         public static NamespaceID[] protectedLayers = new NamespaceID[]
         {
             tool,
