@@ -167,7 +167,7 @@
     <!-- Palace -->
     <entry id="shadow_cell">
         <entity id="mvz2:shadow_cell" />
-        <spawn level="2" minWave="5" />
+        <spawn level="3" minWave="5" />
         <terrain excludedTags="mvz2:day" water="true" />
         <weight base="3000" />
     </entry>
