@@ -34,8 +34,20 @@ namespace MVZ2.GameContent.Commands
                     var msg = Global.Localization.GetTextParticular(VanillaStrings.COMMAND_NOT_IN_I_ZOMBIE_LEVEL, LogicStrings.CONTEXT_COMMAND_OUTPUT);
                     throw new ArgumentException(msg);
                 }
-                var layoutID = NamespaceID.Parse(parameters[1], Global.BuiltinNamespace);
-                behaviour.NextRound(level, layoutID);
+                NamespaceID? layoutID = null;
+                if (parameters.Length > 1)
+                {
+                    layoutID = CommandUtility.ParseOptionalNamespaceID(parameters[1], Global.BuiltinNamespace, null);
+                }
+                if (layoutID == null)
+                {
+                    behaviour.NextRound(level);
+                }
+                else
+                {
+
+                    behaviour.NextRound(level, layoutID);
+                }
                 level.UpdateLevelName();
             }
             else if (parameters[0] == "pickaxe")

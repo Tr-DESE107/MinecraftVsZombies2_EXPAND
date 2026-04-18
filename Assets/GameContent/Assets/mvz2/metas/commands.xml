@@ -278,7 +278,7 @@
         <variant subname="layout">
             <description>以特定布局刷新当前场地。</description>
             <params>
-                <param name="id" type="id" idType="i_zombie_layout">我是僵尸布局ID。</param>
+                <param name="id" type="id" idType="i_zombie_layout" optional="true">可选。我是僵尸布局ID。默认为随机布局。</param>
             </params>
         </variant>
         <variant subname="pickaxe">
