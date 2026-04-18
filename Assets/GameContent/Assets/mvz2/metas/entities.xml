@@ -2065,7 +2065,7 @@
                 <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
                 <vector3 name="mvz2:size" x="64" y="44" z="64" />
 
-                <int name="mvz2:cost" value="100" />
+                <int name="mvz2:cost" value="150" />
             </properties>
         </enemy>
         <zombie id="cannoneer_zombie" name="炮手僵尸" deathMessage="炮决！">
@@ -2077,7 +2077,7 @@
             </behaviours>
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:cannon" />
-                <int name="mvz2:cost" value="150" />
+                <int name="mvz2:cost" value="125" />
             </properties>
         </zombie>
         <enemy id="cannonball_zombie" name="炮弹僵尸" deathMessage="-1up">
@@ -2163,7 +2163,7 @@
                 <idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
                 <bool name="mvz2:undead" value="false" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="100" />
             </properties>
         </humanoid>
         <witherSkeleton id="hacker" name="黑客" deathMessage="G4M3 0V3R">
@@ -2208,7 +2208,7 @@
                 <id name="mvz2:deathSound" value="mvz2:zombie_cat_death" />
                 <id name="mvz2:shape" value="mvz2:cat" />
 
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="150" />
             </properties>
         </enemy>
         <enemy id="wisp_fly" name="鬼火苍蝇" deathMessage="嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡">
