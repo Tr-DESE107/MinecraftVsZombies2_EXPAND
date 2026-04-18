@@ -19,14 +19,14 @@ namespace MVZ2.GameContent.Stages
             // A¿‡’Û
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeComposite2, 1.5f); // ◊€∫œ
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeControl2, 1.5f); // øÿ÷∆
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill2, 1f); // º¥À¿
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpectral, 1f); // π‚¡È£®”–1ª“©Õ∞£©
 
             // B¿‡’Û
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes2, 0.2f); // «„–±
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers2, 0.2f); // ∑¢…‰∆˜£®”–ª“©Õ∞£©
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers2, 0.2f); // ∑¢…‰∆˜£®”–2ª“©Õ∞£©
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f); // ±¨’®
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill2, 0.2f); // º¥À¿
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire2, 0.2f); // ª—Ê
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpectral, 0.2f); // π‚¡È£®”–ª“©Õ∞£©
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f); // ª÷∏¥
         }
         protected override IEnumerable<IZELayoutItem> GetAwardLayouts()
@@ -44,12 +44,12 @@ namespace MVZ2.GameContent.Stages
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.imp);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonStatue);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.zombieCloud);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.hacker);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.shadowCell);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.zombieCat);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.cannoneerZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.shadowCell);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.zombieCat);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.zombieCloud);
             yield return LogicBlueprintID.FromEntity(VanillaEnemyID.popCaptain);
         }
     }
