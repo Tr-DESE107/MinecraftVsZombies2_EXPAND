@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Stages
 
             // B¿‡’Û
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes2, 0.4f); // «„–±
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers2, 0.4f); // ∑¢…‰∆˜£®”–2ª“©Õ∞£©
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers2, 0.4f); // ∑¢…‰∆˜£®”–1ª“©Õ∞£©
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill2, 0.4f); // º¥À¿
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire2, 0.4f); // ª—Ê
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f); // ª÷∏¥
