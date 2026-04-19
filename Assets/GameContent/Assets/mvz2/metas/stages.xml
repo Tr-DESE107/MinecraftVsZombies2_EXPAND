@@ -1714,7 +1714,7 @@
 	</stage>
 	<stage id="ship_12" name="圣辇船" dayNumber="12">
 		<unlock>
-			<condition required="mvz2:level.ship_114" />
+			<condition required="mvz2:level.ship_11" />
 		</unlock>
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gunpowder_barrel" />
 		<spawns flags="3" wavesPerFlag="8">

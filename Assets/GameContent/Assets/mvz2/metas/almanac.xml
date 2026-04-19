@@ -822,7 +822,7 @@
 				<p>攻击速度：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
 				<p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-				<p>特殊：<![CDATA[<color=red>被攻击的敌人会停顿1秒；常规状态下不可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>]]></p>
+				<p>特殊：<![CDATA[<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害</color>]]></p>
 				<p>技能：<![CDATA[<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>]]></p>
 			</properties>
 			<flavors>
@@ -2889,7 +2889,7 @@
 				<p>僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 			</properties>
 			<flavor>
 				<p>至少这朵云没有对你竖中指。</p>
@@ -2904,7 +2904,7 @@
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>他在海盗选美大赛上获得了第二名，输给了火枪手僵尸，原因是因为他脸上有疤（恼）</p>
+				<p>他在海盗选美大赛上获得了第二名，输给了<![CDATA[<ref=[enemies]mvz2:MusketeerZombie>火枪手僵尸</ref>]]>，原因是因为他脸上有疤（恼）</p>
 				<p />
 				<p>大概是因为他长得太丑了所以没有小鬼愿意爬他身上，他于是选择拿炮弹的弹药当投掷的小鬼。</p>
 				<p>还好他们没有意识到炮管里该装正经TNT。</p>
@@ -2926,7 +2926,7 @@
 		</entry>
 		<entry id="mvz2:cannonball_zombie">
 			<header>
-				<p>炮弹僵尸由炮手僵尸发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。</p>
+				<p>炮弹僵尸由<![CDATA[<ref=[enemies]mvz2:cannoneer_zombie>炮手僵尸</ref>]]>发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
@@ -2946,12 +2946,12 @@
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>水手僵尸和海盗团里的小崽子们关系很好，他经常和小鬼们玩出海游戏：</p>
+				<p>水手僵尸和海盗团里的<![CDATA[<ref=[enemies]mvz2:PirateIMP>小崽子们</ref>]]>关系很好，他经常和<![CDATA[<ref=[enemies]mvz2:PirateIMP>小鬼们</ref>]]>玩出海游戏：</p>
 				<p>Are ya ready, kids?（小鬼们，都准备好了吗？）</p>
 				<p>Aye-aye, Captain!（是——的，船长！）</p>
 				<p>I can't hear you!（我听不见！）</p>
 				<p>AYE-AYE, CAPTAIN!（是——的，船长！）</p>
-				<p>Oooooohhhhh————AHHHHH！ I'm sorry,Pop-Captain! I was wrong!（船长我没错）</p>
+				<p>Oooooohhhhh————AHHHHH！ I'm sorry,Pop-Captain! I was wrong!（<![CDATA[<ref=[enemies]mvz2:pop_captain>船长</ref>]]>我没错）</p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:MusketeerZombie">
@@ -2964,13 +2964,20 @@
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>特点：<![CDATA[<color=red>有10发火枪弹药，每次发射一发，射击完毕后会正常近战攻击</color>]]></p>
 			</properties>
-			<flavor>
-				<p>火枪手僵尸宣称自己脸上的疤是在一次牛仔决斗时受的伤，并称自己是狂野西部最强的快枪手。可惜这里是海盗港湾，他不是最强的。</p>
-				<p>其实，他脸上的疤是他在玩枪斗术时给自己弄伤的。</p>
-				<!--似乎就是这家伙卖给小鬼们枪支的-->
-				<p/>
-				<p><![CDATA[<color=grey>不知道为什么，有人管他叫马斯克僵尸。</color>]]></p>
-			</flavor>
+			<flavors>
+				<flavor>
+					<p>火枪手僵尸宣称自己脸上的疤是在一次牛仔决斗时受的伤，并称自己是狂野西部最强的快枪手。可惜这里是海盗港湾，他不是最强的。</p>
+					<p>其实，他脸上的疤是他在玩枪斗术时给自己弄伤的。</p>
+					<p/>
+					<p><![CDATA[<color=grey>不知道为什么，有人管他叫马斯克僵尸。</color>]]></p>
+				</flavor>
+				<flavor>
+					<conditions>
+						<condition required="mvz2:level.ship_12"/>
+					</conditions>
+					<p>似乎就是这家伙卖给小鬼们枪支的。</p>
+				</flavor>
+			</flavors>
 		</entry>
 		<entry id="mvz2:pop_captain">
 			<header>
@@ -2984,10 +2991,9 @@
 			</properties>
 			<flavor>
 				<p>他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。</p>
+				<p>此外我强调一下，他是一艘船的船长，是艾弗瑞的手下，不是整个莱伯塔利亚的船长，那是艾弗瑞。</p>
 			</flavor>
 		</entry>
-
-
 		<entry id="mvz2:Endermite">
 			<header>
 				<p>末影螨能够躲过大部分子弹。</p>
@@ -3002,7 +3008,6 @@
 			</flavor>
 		</entry>
 
-		<!--
         <entry id="mvz2:ChiefCannoneerZombie">
             <header>
                 <p>炮长僵尸会使用他的炮长加农炮发射小鬼。</p>
@@ -3012,8 +3017,8 @@
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
             </properties>
             <flavor>
-                <p>炮长僵尸是所有炮手僵尸的老大，他的职责包括但不限于叫其他炮手僵尸干活、叫小鬼僵尸进炮筒里干活、叫木桶骷髅从桶里出来干活、叫重炮手丢点正常的东西并干活、被水渍滑倒并叫水手干活、讨好船长....这个可不敢叫他干活。</p>
-                <p>炮长僵尸可不是每个僵尸都能当的，想在船上混到这个职位需要熟练掌握加农炮的使用和维修技巧、熟练清理死在里面的小鬼。还有不那么重要的因素——得到船长的好感。</p>
+                <p><![CDATA[炮长僵尸是所有<ref=[enemies]mvz2:cannoneer_zombie>炮手僵尸</ref>的老大，他的职责包括但不限于叫其他<ref=[enemies]mvz2:cannoneer_zombie>炮手僵尸</ref>干活、叫<ref=[enemies]mvz2:PirateIMP>海盗小鬼僵尸</ref>进炮筒里干活、叫<ref=[enemies]mvz2:PirateBucketSkeleton>海盗木桶骷髅</ref>从桶里出来干活、叫<ref=[enemies]mvz2:HeavyGutant>重炮手</ref>丢点正常的东西并干活、被水渍滑倒并叫<ref=[enemies]mvz2:SailorZombie>水手</ref>干活、讨好<ref=[enemies]mvz2:pop_captain>船长</ref>....这个可不敢叫他干活。]]></p>
+                <p>炮长僵尸可不是每个僵尸都能当的，想在船上混到这个职位需要熟练掌握加农炮的使用和维修技巧、熟练清理死在里面的<![CDATA[<ref=[enemies]mvz2:PirateIMP>小鬼</ref>]]>。还有不那么重要的因素——得到<![CDATA[<ref=[enemies]mvz2:pop_captain>船长</ref>]]>的好感。</p>
             </flavor>
         </entry>
         <entry id="mvz2:PirateIMP">
@@ -3032,39 +3037,19 @@
         </entry>
         <entry id="mvz2:KogasaZombie">
             <header>
-                <p>小伞僵尸会空降至战场上。</p>
+                <p>小伞僵尸会空降至战场上，并吓晕被攻击的实体。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>240</color>]]></p>
-                <p>速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>150</color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>被攻击的实体会眩晕5s</color>]]></p>
             </properties>
             <flavor>
                 <p>啊呀，骇死我力！</p>
             </flavor>
         </entry>
-        <entry id="mvz2:TeslaTrooper">
-            <header>
-                <p>磁爆步兵会电击他的敌人。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red>240</color>]]></p>
-                <p>速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>150</color>]]></p>
-            </properties>
-            <flavor>
-                <p>这些穿戴特殊作业设备的骷髅，能够在稍远一些的距离操纵电力攻击它的敌人。被电击的对象一般有以下几种反应：</p>
-                <p>1.因强电而晕眩或是失去原有能力</p>
-				<p>2.吸收电能并强化自身</p>
-                <p>3.做一次X光并变成灰烬</p>
-				<p><![CDATA[<s>4.问能不能换一个最小的电</s>]]></p>
-				<p/>
-				<p>我为什么会觉得这些家伙是库尔咒训练的。</p>
-            </flavor>
-        </entry>
-        -->
-
-
+        
 		<entry id="mvz2:mega_mutant_zombie">
 			<header>
 				<p>超级突变僵尸可以粉碎你的器械，并在血量低至一半时投掷小鬼僵尸</p>
@@ -3083,6 +3068,26 @@
 			</flavor>
 		</entry>
 
+		<entry id="mvz2:TeslaTrooper">
+			<header>
+				<p>磁暴步兵会电击他的敌人。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>特殊：<![CDATA[<color=red>被攻击的器械会短路5秒，被攻击的怪物会停顿1秒；电击水域会对周围水域也造成伤害</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这些穿戴特殊作业设备的骷髅，能够在稍远一些的距离操纵电力攻击它的敌人。被电击的对象一般有以下几种反应：</p>
+				<p>1.因强电而晕眩或是失去原有能力</p>
+				<p>2.吸收电能并强化自身</p>
+				<p>3.做一次X光并变成灰烬</p>
+				<p><![CDATA[<s>4.问能不能换一个最小的电</s>]]></p>
+				<p/>
+				<p>我为什么会觉得这些家伙是库尔咒训练的。</p>
+			</flavor>
+		</entry>
+
 
 		<!--Villager EXPAND -->
 		<entry id="mvz2:MutantVillager">
@@ -3094,7 +3099,7 @@
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>或许这是戴夫带着幼年史蒂夫出去玩的珍贵录像。</p>
+				<p>或许这是<![CDATA[<ref=[misc]mvz2:villager>戴夫</ref>]]>带着幼年<![CDATA[<ref=[misc]mvz2:steve>史蒂夫</ref>]]>出去玩的珍贵录像。</p>
 				<p />
 				<p>就经验而言，一般只有僵尸种族有自然生成的突变体型，你现在所见到的突变村民虽然伤害到了你的眼睛，但他本身也是一位受害者</p>
 				<p>你未来可能需要保护他们。</p>
@@ -3110,7 +3115,7 @@
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>或许这是哲学家戴夫带着幼年史蒂夫去两个街区以外的皮衣俱乐部玩的珍贵录像。</p>
+				<p>或许这是哲学家<![CDATA[<ref=[misc]mvz2:villager>戴夫</ref>]]>带着幼年<![CDATA[<ref=[misc]mvz2:steve>史蒂夫</ref>]]>去两个街区以外的皮衣俱乐部玩的珍贵录像。</p>
 				<p />
 				<p>讲正经的，你所能看到的有血肉的突变怪物大多和<![CDATA[<color=#8B008B>拉恩</color>]]>脱不开关系</p>
 			</flavor>
@@ -3137,14 +3142,14 @@
 
 		<entry id="mvz2:Mannequin">
 			<header>
-				<p>玩家模型会在受到一定伤害时释放自己的器械，死亡时放置玩家模型TNT。</p>
+				<p>玩家模型会在受到一定伤害时释放自己的器械，死亡时放置<![CDATA[<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>]]>。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>不知为何长得和史蒂夫很像的...实体，能够在受到伤害时释放自己的器械，死后还会立刻放出点燃的...劣质tnt</p>
+				<p>不知为何长得和<![CDATA[<ref=[misc]mvz2:steve>史蒂夫</ref>]]>很像的...实体，能够在受到伤害时释放自己的器械，死后还会立刻放出点燃的...<![CDATA[<ref=[enemies]mvz2:MannequinTNT>劣质tnt</ref>]]></p>
 				<p>凭什么它们的器械可以重叠放置啊？</p>
 				<p />
 				<p><![CDATA[<color=blue>我没记错的话，城里的学者说我的种族是人类，而我是他多年以来看到的唯一一个人类</color>]]></p>
@@ -3154,14 +3159,14 @@
 
 		<entry id="mvz2:MutantMannequin">
 			<header>
-				<p>突变玩家模型可以粉碎你的器械，会在受到一定伤害时释放自己的器械，并在血量低至一半时投掷小鬼玩家模型</p>
+				<p>突变玩家模型可以粉碎你的器械，会在受到一定伤害时释放自己的器械，并在血量低至一半时投掷<![CDATA[<ref=[enemies]mvz2:ImpMannequin>小鬼玩家模型</ref>]]></p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>不知为何和史蒂夫、突变僵尸长得很像的实体，看来人类和僵尸之间确实是有亲缘？</p>
+				<p>不知为何和<![CDATA[<ref=[misc]mvz2:steve>史蒂夫</ref>]]>、突变僵尸长得很像的实体，看来人类和僵尸之间确实是有亲缘？</p>
 				<p />
 				<p><![CDATA[<color=grey>我没见过这种体型的玩家，也不知道这种体型的玩家是怎么来的</color>]]></p>
 				<p><![CDATA[<color=grey>他们看起来不像普通玩家模型突变而来的。</color>]]></p>
@@ -3172,21 +3177,21 @@
 
 		<entry id="mvz2:ImpMannequin">
 			<header>
-				<p>快速移动的小鬼玩家模型可以被突变怪物丢到战场当中，会在受到一定伤害时释放自己的器械，死亡时放置玩家模型TNT。</p>
+				<p>快速移动的小鬼玩家模型可以被突变怪物丢到战场当中，会在受到一定伤害时释放自己的器械，死亡时放置<![CDATA[<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>]]>。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>不知为何和史蒂夫小时候长得很像的实体。<![CDATA[<color=blue>(这不是我！！！)</color>]]></p>
+				<p>不知为何和<![CDATA[<ref=[misc]mvz2:steve>史蒂夫</ref>]]>小时候长得很像的实体。<![CDATA[<color=blue>(这不是我！！！)</color>]]></p>
 				<p>和其他同类型实体相比能放置的器械少了一些，或许高级器械都有未成年限制不能玩？</p>
 			</flavor>
 		</entry>
 
 		<entry id="mvz2:MegaImpMannequin">
 			<header>
-				<p>快速移动的超级小鬼玩家模型可以被突变僵尸丢到战场当中，会在受到一定伤害时释放自己的高级器械，死亡时放置玩家模型TNT。</p>
+				<p>快速移动的超级小鬼玩家模型可以被突变怪物丢到战场当中，会在受到一定伤害时释放自己的高级器械，死亡时放置<![CDATA[<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>]]>。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
@@ -3199,7 +3204,7 @@
 
 		<entry id="mvz2:MannequinTNT">
 			<header>
-				<p>玩家模型TNT会由玩家模型放置并爆炸造成伤害</p>
+				<p>玩家模型TNT会由玩家模型们放置并爆炸造成伤害</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
@@ -3281,7 +3286,7 @@
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>不同于其他穷鬼骷髅国王，随机国王骷髅真的很有钱，他能给自己整一套金衣服，不是镀金，而是纯金！</p>
+				<p>不同于其他穷鬼<![CDATA[<ref=[enemies]mvz2:KingSkeleton>骷髅国王</ref>]]>，随机国王骷髅真的很有钱，他能给自己整一套金衣服，不是镀金，而是纯金！</p>
 				<p>这让你打破他的衣服时，他会变得更加愤怒，以至于骷髅种类都有可能改变</p>
 			</flavor>
 		</entry>

@@ -10522,7 +10522,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae1e2db8aa13ecf4a9b0cda23c626481
-    m_Address: mvz2:enemy/ship/IronPirateSkeleton
+    m_Address: mvz2:enemy/ship/PirateBucketSkeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
