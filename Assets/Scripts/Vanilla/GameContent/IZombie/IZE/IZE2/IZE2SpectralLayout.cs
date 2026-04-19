@@ -8,10 +8,10 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.izeSpectral)]
-    public class IZESpectralLayout : IZELayout
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.ize2Spectral)]
+    public class IZE2SpectralLayout : IZELayout
     {
-        public IZESpectralLayout(string nsp, string name) : base(nsp, name)
+        public IZE2SpectralLayout(string nsp, string name) : base(nsp, name)
         {
         }
         protected override void FillEndlessContraptions(IIZombieMap map, RandomGenerator rng)

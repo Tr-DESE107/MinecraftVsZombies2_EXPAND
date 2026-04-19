@@ -8,10 +8,10 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.izeGunpowder)]
-    public class IZEGunpowdersLayout : IZELayout
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.ize2Gunpowder)]
+    public class IZE2GunpowdersLayout : IZELayout
     {
-        public IZEGunpowdersLayout(string nsp, string name) : base(nsp, name)
+        public IZE2GunpowdersLayout(string nsp, string name) : base(nsp, name)
         {
         }
         protected override void FillEndlessContraptions(IIZombieMap map, RandomGenerator rng)

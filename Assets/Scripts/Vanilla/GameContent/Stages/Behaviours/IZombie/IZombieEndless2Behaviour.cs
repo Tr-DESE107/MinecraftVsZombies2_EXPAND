@@ -17,26 +17,27 @@ namespace MVZ2.GameContent.Stages
         protected override IEnumerable<IZELayoutItem> GetNormalLayouts()
         {
             // A¿‡’Û
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeComposite2, 1.2f); // ◊€∫œ
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeControl2, 1.2f); // øÿ÷∆
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpectral, 0.8f); // π‚¡È£®”–1ª“©Õ∞£©
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Composite, 1.2f); // ◊€∫œ
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Control, 1.2f); // øÿ÷∆
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Spectral, 0.8f); // π‚¡È£®”–1ª“©Õ∞£©
 
             // B¿‡’Û
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes2, 0.4f); // «„–±
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers2, 0.4f); // ∑¢…‰∆˜£®”–1ª“©Õ∞£©
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill2, 0.4f); // º¥À¿
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire2, 0.4f); // ª—Ê
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Spikes, 0.4f); // «„–±
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Dispensers, 0.4f); // ∑¢…‰∆˜£®”–1ª“©Õ∞£©
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Defense, 0.4f); // ∑¿”˘
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Fire, 0.4f); // ª—Ê
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Instakill, 0.2f); // º¥À¿
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f); // ª÷∏¥
         }
         protected override IEnumerable<IZELayoutItem> GetAwardLayouts()
         {
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards);
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeError, 0.2f);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeGunpowder, 0.2f);
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Gunpowder, 0.2f);
         }
         protected override NamespaceID GetFirstLayoutID()
         {
-            return VanillaIZombieLayoutID.izeComposite2;
+            return VanillaIZombieLayoutID.ize2Composite;
         }
         protected override IEnumerable<NamespaceID> GetBlueprints()
         {

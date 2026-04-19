@@ -8,10 +8,10 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.izeInstakill2)]
-    public class IZEInstakill2Layout : IZELayout
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.ize2Instakill)]
+    public class IZE2InstakillLayout : IZELayout
     {
-        public IZEInstakill2Layout(string nsp, string name) : base(nsp, name)
+        public IZE2InstakillLayout(string nsp, string name) : base(nsp, name)
         {
         }
         protected override void FillEndlessContraptions(IIZombieMap map, RandomGenerator rng)
