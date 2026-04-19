@@ -1319,6 +1319,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17c098ee993d42047b94d6e31b6fe77b
+    m_Address: mvz2:mobile_blueprint/heavy_weapon_flashbang
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 17f5395d50f99fb4db1fd94d850e5eba
     m_Address: mvz2:damage/small_hit2
     m_ReadOnly: 0
@@ -3003,6 +3010,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38bfad2b886a15d4f8de762e006761d1
+    m_Address: mvz2:mobile_blueprint/snipenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38f39658893e90548a7455a7585c6c63
     m_Address: mvz2:mausoleum_map
@@ -5160,6 +5174,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ed7b76c963151d47a1c3bf49aa4af1f
+    m_Address: mvz2:options/heavy_weapon_flashbang
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ed8b824db31b8142833c5c37faecd59
     m_Address: mvz2:effect/explosion
     m_ReadOnly: 0
@@ -6519,6 +6540,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b5b04fa7d4703a48867a2ec9b7c31f6
     m_Address: mvz2:entity/armor/berserker_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b77566262542ea459cba42fe15d4825
+    m_Address: mvz2:ui/snipenser_life
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13214,6 +13242,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff7053569e162c6489dce24f636dd305
+    m_Address: mvz2:arcade/heavy_weapon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffb9065a06ea7a345978dc5d8d0d0bea
     m_Address: mvz2:entity/projectiles/hell_planets

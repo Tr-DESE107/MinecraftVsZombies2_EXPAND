@@ -477,6 +477,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9c37df297dc5c5a47a8448c48eba0204, type: 3}
   - name: mobile_blueprint/small_dispenser
     sprite: {fileID: 21300000, guid: df4339844dabc79468b681d3c124227f, type: 3}
+  - name: mobile_blueprint/snipenser
+    sprite: {fileID: 21300000, guid: 38bfad2b886a15d4f8de762e006761d1, type: 3}
   - name: mobile_blueprint/soulsand
     sprite: {fileID: 21300000, guid: ee236b9bf29256844b94ea76798c4239, type: 3}
   - name: mobile_blueprint/soul_furnace
@@ -667,6 +669,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d7ad17d08589c04459d3a3030abbf9f5, type: 3}
   - name: ui/refresh
     sprite: {fileID: 21300000, guid: 92e692ae88b62a541bef812a89e2bac3, type: 3}
+  - name: ui/snipenser_life
+    sprite: {fileID: 21300000, guid: 7b77566262542ea459cba42fe15d4825, type: 3}
   - name: ui/sword
     sprite: {fileID: 21300000, guid: 6bfc7d9706121e5458ed36aa87ece92c, type: 3}
   - name: entity/armor/bedserker_helmet

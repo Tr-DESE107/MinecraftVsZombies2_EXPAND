@@ -6,15 +6,18 @@ using MVZ2.GameContent.Commands;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Sprites;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modifiers;
 using PVZEngine;
@@ -138,6 +141,19 @@ namespace MVZ2.GameContent.Stages
                 var snipenserReference = GetSnipenserReference(level);
                 if (snipenserReference != null && snipenserReference.IsEntity(entity))
                 {
+                    var rapidUpgrade = Snipenser.GetRapidLevel(entity);
+                    var spreadUpgrade = Snipenser.GetSpreadLevel(entity);
+                    var rapidCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponRapid)?.GetCost() ?? 0;
+                    var spreadCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponSpread)?.GetCost() ?? 0;
+                    var rapidRedStones = Mathf.Max(0, rapidCost - 25) / 25;
+                    var spreadRedstones = Mathf.Max(0, spreadCost - 25) / 25;
+                    var totalRedstones = rapidUpgrade * rapidRedStones + spreadUpgrade * spreadRedstones;
+
+                    for (int i = 0; i < totalRedstones; i++)
+                    {
+                        entity.Produce(VanillaPickupID.redstone);
+                    }
+
                     Explosion.Spawn(entity, entity.GetCenter(), 120);
                     entity.PlaySound(VanillaSoundID.largeExplosion);
                 }
