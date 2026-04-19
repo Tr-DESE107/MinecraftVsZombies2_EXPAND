@@ -2006,7 +2006,7 @@
 			<flavor>
 				<p>"或许是下界某次战役堆起来的京观。"</p>
 				<p>"你觉得是哪次战役？"</p>
-				<p>"我不知道，将军堡和猪灵打的那场？或是在扭曲之心和末影人打的？"</p>
+				<p>"我不知道，将军堡和<![CDATA[<ref=[enemies]mvz2:Piglin>猪灵</ref>]]>打的那场？或是在扭曲之心和<![CDATA[<ref=[enemies]mvz2:Enderman>末影人</ref>]]>打的？"</p>
 				<p>"有没有可能是平叛心灵军团的？"</p>
 				<p>"更有可能是和远方亲戚打的那场。"</p>
 			</flavor>
@@ -2154,7 +2154,7 @@
 				<p>特点：<![CDATA[<color=red>碰到的<tag id="mvz2:shell" enum="mvz2:flesh" />血肉之躯会被寄生</color>]]></p>
 			</properties>
 			<flavor>
-				<p>恐怖之母总是对每种事物的名字耿耿于怀，她为自己的名字想了好半天，以前就想过好多好多名字例如“冥河夜叉”、“异形虫母”、“血肉复生者”、“怪诞魔”之类的，后来她终于定下来个名字——这还是她第114514个孩子替她想出来的。</p>
+				<p>恐怖之母总是对每种事物的名字耿耿于怀，她为自己的名字想了好半天，以前就想过好多好多名字例如“冥河夜叉”、“异形虫母”、“血肉复生者”、“怪诞魔”之类的，后来她终于定下来个名字——这还是她第65535个<![CDATA[<ref=[enemies]mvz2:parasite_terror>孩子</ref>]]>替她想出来的。</p>
 				<p />
 				<p>一看就很擅长在网络文件中捆绑流氓软件和BUG。</p>
 			</flavor>
@@ -2191,12 +2191,12 @@
 		</entry>
 		<entry id="mvz2:HostMutant">
 			<header>
-				<p>宿主突变僵尸能够慢速回复生命，可以粉碎遇到的的器械，并在血量低至一半时投掷宿主小鬼僵尸</p>
+				<p>宿主突变僵尸能够慢速回复生命，可以粉碎遇到的的器械，并在血量低至一半时投掷<![CDATA[<ref=[enemies]mvz2:HostIMP>宿主小鬼僵尸</ref>]]></p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-				<p>特点：<![CDATA[<color=red>以30/s的速度回血，血量每下降800点便会生成一个宿主僵尸。</color>]]></p>
+				<p>特点：<![CDATA[<color=red>以30/s的速度回血，血量每下降800点便会生成一个<ref=[enemies]mvz2:HostZombie>宿主僵尸</ref>。</color>]]></p>
 			</properties>
 			<flavor>
 				<p>这是我们目前所能观察到的最强大瘟疫体，它庞大而臃肿的躯体不断再生着无休止的血肉，被剥离下的肉块也能不断再生并形成自我的意志，它的存在本身便是对生物科学的亵渎。</p>
@@ -2218,7 +2218,7 @@
 			</properties>
 			<flavor>
 				<p>年幼的血肉在病原体的催生下疯狂的增长，他的再生速度难以置信。</p>
-				<p>好在宿主突变僵尸一般情况下会把他丢到水池里，但要他单独出现呢？</p>
+				<p>好在<![CDATA[<ref=[enemies]mvz2:HostMutant>宿主突变僵尸</ref>]]>一般情况下会把他丢到水池里，但要他单独出现呢？</p>
 			</flavor>
 		</entry>
 
@@ -2233,8 +2233,8 @@
 				<p>弱点：<![CDATA[<color=red>射弹无法赋予器械死亡标记。</color>]]></p>
 			</properties>
 			<flavor>
-				<p>梦魇的存在本身是一个大大的谜团，梦魇的这些追随者是如何诞生的也是一个大大的谜团。这些骷髅虽然拥有和梦魇相近的力量，但经法术学分析，我们基本可以排除其为梦魇实际创造物的可能性。</p>
-				<p>梦魇追随者会被梦魇所召唤，被召唤的追随者们带有一种强烈的狂热性，这份狂热使得他们刀枪不入。追随者们还可以使用暗魔法凝聚的射弹，被击中的生物会在痛苦下迅速逝去。</p>
+				<p><![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>的存在本身是一个大大的谜团，<![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>的这些追随者是如何诞生的也是一个大大的谜团。这些骷髅虽然拥有和<![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>相近的力量，但经法术学分析，我们基本可以排除其为<![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>实际创造物的可能性。</p>
+				<p>梦魇追随者会被<![CDATA[<ref=[misc]mvz2:nightmare>梦魇</ref>]]>所召唤，被召唤的追随者们带有一种强烈的狂热性，这份狂热使得他们刀枪不入。追随者们还可以使用暗魔法凝聚的射弹，被击中的生物会在痛苦下迅速逝去。</p>
 			</flavor>
 		</entry>
 
@@ -2249,7 +2249,7 @@
 			</properties>
 			<flavor>
 				<p>看来地狱的凋零骷髅并非都经过了严格的军事训练，这些凋零骷髅没有任何装备就冲上了战场。像这种没有能力，一股脑死冲的怪物我们一般称为炮灰。</p>
-				<p>某人严厉表示鼓动这些未受训练的骷髅上战场的野心家绝对要上法庭。</p>
+				<p><![CDATA[<ref=[misc]mvz2:Cuerzor>某人</ref>]]>严厉表示鼓动这些未受训练的骷髅上战场的野心家绝对要上法庭。</p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:LeatherWitherSkeleton">
@@ -2261,7 +2261,7 @@
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>和普通凋零骷髅相比有点脑子，但不多，他们做皮帽的皮革或许来源于猪灵和疣猪兽。</p>
+				<p>和<![CDATA[<ref=[enemies]mvz2:WitherSkeleton>普通凋零骷髅</ref>]]>相比有点脑子，但不多，他们做皮帽的皮革或许来源于猪灵和疣猪兽。</p>
 				<p>...所以都会做帽子了为什么还没意识到一股脑送死是愚蠢的？</p>
 				<p>还有为什么不用更容易获取的金锭做帽子？</p>
 			</flavor>
@@ -2275,7 +2275,7 @@
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 			</properties>
 			<flavor>
-				<p>比皮帽和普通凋零骷髅更有脑子，但还是不多</p>
+				<p>比<![CDATA[<ref=[enemies]mvz2:LeatherWitherSkeleton>皮帽</ref>]]>和<![CDATA[<ref=[enemies]mvz2:WitherSkeleton>普通凋零骷髅</ref>]]>更有脑子，但还是不多</p>
 				<p>...喂，他们哪来的铁啊？</p>
 			</flavor>
 		</entry>
@@ -2372,7 +2372,7 @@
 				<tag id="mvz2:mass_horse" value="0" />
 			</tags>
 			<header>
-				<p>无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的怪物。</p>
+				<p>无头骑士伴随着一匹<![CDATA[<ref=[enemies]mvz2:skeleton_horse>骷髅马</ref>]]>出现，能够跳过器械并留下它的<![CDATA[<ref=[enemies]mvz2:dullahan_head>头颅</ref>]]>，最终变成三个不同的怪物。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var local="horse_hp" />（马），<var id="mvz2:entity_health" />（身体），<var local="head_hp" />（头）</color>]]></p>
@@ -2532,8 +2532,8 @@
 				<p>特点：<![CDATA[<color=red>跳跃时能够持续对小范围内的器械造成伤害。</color>]]></p>
 			</properties>
 			<flavor>
-				<p>足够好运的冒险家能够在雷雨天见到骷髅马，而这种生物则是许多冒险家穷其一生也闻所未闻的。</p>
-				<p>凋零骷髅马又被称为绝命马，它们在跳跃时能够展开凋零气息并杀伤越过的目标。与骷髅马不同，凋零骷髅马一般性格极为暴戾，稍有不慎就会引发它的情绪爆发，并带来死亡的结局。</p>
+				<p>足够好运的冒险家能够在雷雨天见到<![CDATA[<ref=[enemies]mvz2:skeleton_horse>骷髅马</ref>]]>，而这种生物则是许多冒险家穷其一生也闻所未闻的。</p>
+				<p>凋零骷髅马又被称为绝命马，它们在跳跃时能够展开凋零气息并杀伤越过的目标。与<![CDATA[<ref=[enemies]mvz2:skeleton_horse>骷髅马</ref>]]>不同，凋零骷髅马一般性格极为暴戾，稍有不慎就会引发它的情绪爆发，并带来死亡的结局。</p>
 				<p>近些年来，因猪灵领地的扩大和凋灵骷髅的再征服运动，不熄的战火让凋零骷髅马在下界野外灭绝，现存少量个体只存在于一些重要的下界要塞。</p>
 				<p />
 				<p><![CDATA[<color=grey>这次方块异变中也有他们的身影，但...我不认为他们这个数量是濒危的程度。</color>]]></p>
@@ -2556,7 +2556,7 @@
 				<p>特点：<![CDATA[<color=red>身体攻击时持续对小范围内的器械造成伤害。</color>]]></p>
 			</properties>
 			<flavor>
-				<p>无头强袭骑士是精英中的精英，他们胯下的战马是稀有的绝命马，他的攻击时展开的领域能够杀伤一切贫弱的实体，纵使身体倒下，头颅也会传播死亡。他们死亡后能够爆炸的头颅能给人挥之不去的梦魇。每一位见到无头骑士的愚者都会付出生命的代价。</p>
+				<p>无头强袭骑士是精英中的精英，他们胯下的战马是稀有的<![CDATA[<ref=[enemies]mvz2:WitherSkeletonHorse>凋零骷髅马</ref>]]>，他的攻击时展开的领域能够杀伤一切贫弱的实体，纵使身体倒下，<![CDATA[<ref=[enemies]mvz2:BerserkerHead>头颅</ref>]]>也会传播死亡。他们死亡后能够爆炸的<![CDATA[<ref=[enemies]mvz2:BerserkerHead>头颅</ref>]]>能给人挥之不去的梦魇。每一位见到强袭骑士的愚者都会付出生命的代价。</p>
 				<p>不过因为诸多原因，该类军队现已停止训练。</p>
 				<p />
 				<p><![CDATA[<color=grey>——这段话信息来源不明，而我仍能在XXX看到他们。</color>]]></p>
@@ -2573,7 +2573,7 @@
 				<p>伤害：<![CDATA[<color=red>100，爆炸伤害600</color>]]></p>
 			</properties>
 			<flavor>
-				<p>爆裂头颅正如其名，是会爆裂的头颅。许多人一见到爆裂头颅便会不自觉的认为他们是狂战士的头颅——其实不全是。部分凋零骷髅使用了一些邪术，让自己的头颅变得易爆。另一些凋零骷髅用不起邪术，买了些tnt塞在自己的头颅里。</p>
+				<p>爆裂头颅正如其名，是会爆裂的头颅。许多人一见到爆裂头颅便会不自觉的认为他们是<![CDATA[<ref=[enemies]mvz2:berserker>狂战士</ref>]]>的头颅——其实不全是。部分凋零骷髅使用了一些邪术，让自己的头颅变得易爆。另一些凋零骷髅用不起邪术，买了些tnt塞在自己的头颅里。</p>
 				<p>反正结果都差不多</p>
 			</flavor>
 		</entry>
@@ -2659,7 +2659,7 @@
 			</properties>
 			<flavor>
 				<p>和大部分僵尸不一样，功夫火把僵尸有智力控制自己的胳膊放下，虽然没有血液循环，但他觉得这样对自己的胳膊好。</p>
-				<p>听说功夫火把僵尸算是探险家僵尸的远亲...但是探险家僵尸是什么僵尸啊？</p>
+				<p>听说功夫火把僵尸算是<![CDATA[<ref=[enemies]mvz2:ExplorerZombie>探险家僵尸</ref>]]>的远亲...但是<![CDATA[<ref=[enemies]mvz2:ExplorerZombie>探险家僵尸</ref>]]>是什么僵尸啊？</p>
 			</flavor>
 		</entry>
 
@@ -2680,6 +2680,7 @@
 				<p>“再弹！”</p>
 				<p />
 				<p>不知为什么，有生物称呼他们为反射"壁王"</p>
+				<p>此外，虽然他们搞到了一套武僧的衣服，但他们实际上武功不强、不是功夫僵尸，只能算是编外弟子。</p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:wicked_hermit_zombie">
@@ -2729,7 +2730,10 @@
 				<p>弱点：<![CDATA[<color=red>火焰会直接烧掉竹杖</color>]]></p>
 			</properties>
 			<flavor>
-				<p>非常擅长做仰卧起坐。</p>
+				<p>尸解仙指的是将自己的灵魂转移到某样物品，并且在等到某个合适的时机重塑肉身而复活的修仙方式。</p>
+				<p>也就是说这些倒霉蛋本来应该是能成仙的。</p>
+				<p/>
+				<p>此外，他们非常擅长做仰卧起坐。</p>
 			</flavor>
 		</entry>
 
@@ -2798,7 +2802,7 @@
 				<p>天子僵尸使用手中的圣剑来给予周围的友方单位再生效果，使它们每秒回复60点血。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
 				<p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
 				<p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方60/s的再生效果。</color>]]></p>
@@ -2850,9 +2854,9 @@
 				<p>骷髅明明没有胃，他们喝酒是图什么呢？</p>
 			</flavor>
 		</entry>
-		<entry id="mvz2:IronPirateSkeleton">
+		<entry id="mvz2:PirateBucketSkeleton">
 			<header>
-				<p>不那么醉醺醺的海盗铁盔骷髅会扑向你的防线。</p>
+				<p>不那么醉醺醺的海盗木桶骷髅会扑向你的防线。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>

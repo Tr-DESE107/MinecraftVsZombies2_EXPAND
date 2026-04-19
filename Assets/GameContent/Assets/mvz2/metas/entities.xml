@@ -3252,7 +3252,7 @@
 				<float name="mvz2:speed" value="1.25" />
 			</properties>
 		</Skeleton_Exp>
-		<Skeleton_Exp id="IronPirateSkeleton" name="海盗铁盔骷髅" deathMessage="你怎么能有脑子呢?">
+		<Skeleton_Exp id="PirateBucketSkeleton" name="海盗木桶骷髅" deathMessage="你怎么能有脑子呢?">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>

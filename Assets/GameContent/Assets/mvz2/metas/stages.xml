@@ -1463,7 +1463,7 @@
 		<spawns flags="1">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:Endermite" />
 		</spawns>
 		<time firstWave="60" />
@@ -1482,7 +1482,7 @@
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:PirateSkeleton" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:skeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:Endermite" />
@@ -1501,7 +1501,7 @@
 		<spawns flags="2">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:spider" />
 			<spawn id="mvz2:Endermite" />
@@ -1520,7 +1520,7 @@
 		<spawns flags="2">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
 		</spawns>
@@ -1538,7 +1538,7 @@
 		<spawns flags="3">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:dullahan" />
@@ -1591,7 +1591,7 @@
 		<spawns flags="2">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:HeavyGutant" />
@@ -1611,7 +1611,7 @@
 		<spawns flags="3">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:cannoneer_zombie" />
@@ -1634,7 +1634,7 @@
 		<spawns flags="3">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:cannoneer_zombie" />
@@ -1657,7 +1657,7 @@
 		<spawns flags="3">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:cannoneer_zombie" />
@@ -1693,7 +1693,7 @@
 		<spawns flags="2" pointsMultiplier="3">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:cannoneer_zombie" />
@@ -1720,7 +1720,7 @@
 		<spawns flags="3" wavesPerFlag="8">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:undead_flying_object" />
 			<spawn id="mvz2:zombie_cloud" />
 			<spawn id="mvz2:cannoneer_zombie" />
@@ -2387,7 +2387,7 @@
 			<spawn id="mvz2:ghost" />
 			<spawn id="mvz2:zombie" />
 			<spawn id="mvz2:berserker" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:anubisand" />
 			
 		</spawns>
@@ -2398,7 +2398,7 @@
 		<spawns flags="4" wavesPerFlag="9" pointsMultiplier="2.5">
 			<spawn id="mvz2:MonkZombie" />
 			<spawn id="mvz2:LeatherMonkZombie" />
-			<spawn id="mvz2:IronPirateSkeleton" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
 			<spawn id="mvz2:Hemperor" />
 			<spawn id="mvz2:TorchKongfuZombie" />
 			<spawn id="mvz2:SailorZombie" />
