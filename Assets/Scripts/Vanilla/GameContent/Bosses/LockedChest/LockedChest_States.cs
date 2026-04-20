@@ -3,12 +3,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
+using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.StateMachine;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -21,14 +27,15 @@ namespace MVZ2.GameContent.Bosses
     public partial class LockedChest
     {
         #region 状态机
-        private class RedDragonStateMachine : EntityStateMachine
+        private class LockedChestStateMachine : EntityStateMachine
         {
-            public RedDragonStateMachine()
+            public LockedChestStateMachine()
             {
                 AddState(new IdleState());
                 AddState(new JumpState());
                 AddState(new ChargeState());
                 AddState(new SpitTrashState());
+                AddState(new SpitZombieBlueprintState());
                 AddState(new StunnedState());
                 AddState(new DeathState());
             }
@@ -270,7 +277,7 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        #region 冲刺
+        #region 吐垃圾
         private class SpitTrashState : EntityStateMachineState
         {
             public SpitTrashState() : base(STATE_SPIT_TRASH, ANIMATION_STATE_OPEN_CHEST) { }
@@ -337,6 +344,85 @@ namespace MVZ2.GameContent.Bosses
                 param.damage = entity.GetDamage() * 0.2f;
                 param.spawnParam.SetProperty(LogicEntityProps.VARIANT, LockedChestTrash.RandomVariant(rng));
                 entity.ShootProjectile(param);
+            }
+            public const int SUBSTATE_READY = 0;
+            public const int SUBSTATE_SPIT = 1;
+            public const int SUBSTATE_END = 2;
+
+            public const int ANIMATION_SUBSTATE_OPEN = 0;
+            public const int ANIMATION_SUBSTATE_CLOSE = 1;
+        }
+        #endregion
+
+        #region 吐僵尸蓝图
+        private class SpitZombieBlueprintState : EntityStateMachineState
+        {
+            public SpitZombieBlueprintState() : base(STATE_SPIT_ZOMBIE_BLUEPRINTS, ANIMATION_STATE_OPEN_CHEST) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                if (substate == SUBSTATE_END)
+                {
+                    return ANIMATION_SUBSTATE_CLOSE;
+                }
+                return ANIMATION_SUBSTATE_OPEN;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.SetSeconds(1f);
+                entity.PlaySound(VanillaSoundID.chestOpen);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_READY:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_SPIT);
+                            timer.ResetSeconds(1f);
+                        }
+                        break;
+                    case SUBSTATE_SPIT:
+                        {
+                            SpitBlueprint(entity);
+                            if (timer.Expired)
+                            {
+                                entity.PlaySound(VanillaSoundID.chestClose);
+                                stateMachine.StartSubState(entity, SUBSTATE_END);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            private void SpitBlueprint(Entity entity)
+            {
+                entity.PlaySound(VanillaSoundID.bow);
+                var rng = entity.RNG;
+                var x = rng.NextFloat() * 20 - 10;
+                var y = rng.NextFloat() * 10 + 10;
+                var z = rng.NextFloat() * 20 - 10;
+                var velocity = new Vector3(x * entity.GetFacingX(), y, z);
+
+                var blueprintID = entity.Level.GetLockedChestSpitBlueprintID();
+                var shotPosition = entity.Position + entity.GetShotOffset();
+                var param = entity.GetSpawnParams();
+                param.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
+                entity.Spawn(VanillaPickupID.blueprintPickup, shotPosition, param)?.Let(b =>
+                {
+                    b.Velocity = velocity;
+                });
             }
             public const int SUBSTATE_READY = 0;
             public const int SUBSTATE_SPIT = 1;
@@ -464,7 +550,7 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        private static EntityStateMachine stateMachine = new RedDragonStateMachine();
+        private static EntityStateMachine stateMachine = new LockedChestStateMachine();
         private static int[] statePoolPhase1 = new int[]
         {
             STATE_JUMP,
@@ -493,7 +579,7 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            STATE_SPIT_TRASH,
+            //STATE_SPIT_TRASH,
             //STATE_SPECIAL_ATTACK,
             //STATE_JUMP,
             //STATE_JUMP,
@@ -502,7 +588,7 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            //STATE_SPIT_ZOMBIE_BLUEPRINTS,
+            STATE_SPIT_ZOMBIE_BLUEPRINTS,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,

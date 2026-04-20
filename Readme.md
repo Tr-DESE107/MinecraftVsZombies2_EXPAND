@@ -221,6 +221,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Nightmareaper's Crushing Wall closes slower.
 - Nightmareaper's time limit is 2 minutes.
 - Wither won't regenerate health.
+- The blueprints spitted by the Locked Chest are Zombies.
 
 **Misc**
 
@@ -263,6 +264,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - The Red Dragon will summon three tornados in phase 1.
 - The Red Dragon's giant fire ball in phase 2 flies and explodes faster.
 - The radius of the flame explosion caused by the Red Dragon's flying in phase 2 is doubled.
+- The blueprints spitted by the Locked Chest are Iron Helmet Zombies.
 
 **Misc**
 

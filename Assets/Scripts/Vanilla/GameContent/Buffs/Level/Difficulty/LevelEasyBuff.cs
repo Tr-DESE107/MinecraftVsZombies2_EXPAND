@@ -3,7 +3,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Level;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
@@ -44,6 +46,8 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.NIGHTMAREAPER_TIMEOUT, IntegerOperator.Add, 900));
 
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.WITHER_REGENERATION, NumberOperator.Set, 0));
+
+            AddModifier(new NamespaceIDModifier(VanillaDifficultyLevelProps.LOCKED_CHEST_SPIT_BLUEPRINT_ID, SetOperator.Set, LogicBlueprintID.FromEntity(VanillaEnemyID.zombie)));
 
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.STARSHARD_CARRIER_COUNTER_INCREAMENT, NumberOperator.Multiply, 2f));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REDSTONE_CARRIER_COUNTER_INCREAMENT, NumberOperator.Multiply, 2f));

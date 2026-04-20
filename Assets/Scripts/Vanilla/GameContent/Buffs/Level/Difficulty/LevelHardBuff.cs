@@ -2,6 +2,8 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Enemies;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -48,6 +50,8 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.RED_DRAGON_FIRE_EXPLOSION_RADIUS, NumberOperator.Multiply, 2f));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.RED_DRAGON_GIANT_FIREBALL_SPEED, NumberOperator.Multiply, 3f));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.RED_DRAGON_TORNADO_COUNT, IntegerOperator.Set, 3));
+
+            AddModifier(new NamespaceIDModifier(VanillaDifficultyLevelProps.LOCKED_CHEST_SPIT_BLUEPRINT_ID, SetOperator.Set, LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie)));
             AddAura(new EnemyAura());
         }
 
