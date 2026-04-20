@@ -12467,6 +12467,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f71eb0e1e75bcc2438b043c1ac572368
+    m_Address: mvz2:projectile/locked_chest_trash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7218f246a9df254899e2d3bc60c755b
     m_Address: mvz2:enemy/mausoleum/shikaisen_staff
     m_ReadOnly: 0

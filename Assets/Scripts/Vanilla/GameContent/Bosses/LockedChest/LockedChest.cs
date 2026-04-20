@@ -33,6 +33,7 @@ namespace MVZ2.GameContent.Bosses
         public override void Init(Entity boss)
         {
             base.Init(boss);
+            SetPhase(boss, PHASE_2);
             stateMachine.Init(boss);
             stateMachine.StartState(boss, STATE_IDLE);
         }
@@ -45,6 +46,10 @@ namespace MVZ2.GameContent.Bosses
         {
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
+
+            var phase = GetPhase(entity);
+            entity.SetAnimationInt("Phase", phase);
+            entity.SetModelProperty("Phase", phase);
         }
         #endregion 事件
 
@@ -77,6 +82,7 @@ namespace MVZ2.GameContent.Bosses
 
         public const int ANIMATION_STATE_JUMP = 10000;
         public const int ANIMATION_STATE_SMASH = 10001;
+        public const int ANIMATION_STATE_OPEN_CHEST = 10002;
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;

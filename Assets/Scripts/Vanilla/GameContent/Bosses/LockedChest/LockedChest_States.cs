@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
@@ -27,6 +28,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new IdleState());
                 AddState(new JumpState());
                 AddState(new ChargeState());
+                AddState(new SpitTrashState());
                 AddState(new StunnedState());
                 AddState(new DeathState());
             }
@@ -52,8 +54,7 @@ namespace MVZ2.GameContent.Bosses
         {
             switch (state)
             {
-                case STATE_JUMP:
-                case STATE_CHARGE:
+                default:
                     {
                         stateMachine.StartState(entity, state);
                     }
@@ -68,8 +69,6 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.ResetSeconds(0.5f);
-
-                entity.TriggerAnimation("IdleTrigger");
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -222,11 +221,6 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 StartJump(entity, jumpFlyingSeconds, GetNewJumpTarget(entity));
             }
-            public override void OnExit(EntityStateMachine machine, Entity entity)
-            {
-                base.OnExit(machine, entity);
-                entity.TriggerAnimation("ActionFinishTrigger");
-            }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -273,6 +267,83 @@ namespace MVZ2.GameContent.Bosses
             public const int ANIMATION_SUBSTATE_LAND = 1;
 
             public const float jumpFlyingSeconds = 0.5f;
+        }
+        #endregion
+
+        #region 冲刺
+        private class SpitTrashState : EntityStateMachineState
+        {
+            public SpitTrashState() : base(STATE_SPIT_TRASH, ANIMATION_STATE_OPEN_CHEST) { }
+            public override int GetAnimationSubstate(int substate)
+            {
+                if (substate == SUBSTATE_END)
+                {
+                    return ANIMATION_SUBSTATE_CLOSE;
+                }
+                return ANIMATION_SUBSTATE_OPEN;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.SetSeconds(1f);
+                entity.PlaySound(VanillaSoundID.chestOpen);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_READY:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_SPIT);
+                            timer.ResetSeconds(5f);
+                        }
+                        break;
+                    case SUBSTATE_SPIT:
+                        {
+                            SpitProjectile(entity);
+                            if (timer.Expired)
+                            {
+                                entity.PlaySound(VanillaSoundID.chestClose);
+                                stateMachine.StartSubState(entity, SUBSTATE_END);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            private void SpitProjectile(Entity entity)
+            {
+                entity.PlaySound(VanillaSoundID.bow);
+                var rng = entity.RNG;
+                var x = rng.NextFloat() * 10 + 10;
+                var y = rng.NextFloat() * 10 + 10;
+                var z = rng.NextFloat() * 5 - 2.5f;
+                var velocity = new Vector3(x * entity.GetFacingX(), y, z);
+
+                var param = entity.GetShootParams();
+                param.projectileID = VanillaProjectileID.lockedChestTrash;
+                param.velocity = velocity;
+                param.damage = entity.GetDamage() * 0.2f;
+                param.spawnParam.SetProperty(LogicEntityProps.VARIANT, LockedChestTrash.RandomVariant(rng));
+                entity.ShootProjectile(param);
+            }
+            public const int SUBSTATE_READY = 0;
+            public const int SUBSTATE_SPIT = 1;
+            public const int SUBSTATE_END = 2;
+
+            public const int ANIMATION_SUBSTATE_OPEN = 0;
+            public const int ANIMATION_SUBSTATE_CLOSE = 1;
         }
         #endregion
 
@@ -415,27 +486,27 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CHARGE,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CHARGE,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
             STATE_SPIT_TRASH,
-            STATE_SPECIAL_ATTACK,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CAMERA,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_SPIT_ZOMBIE_BLUEPRINTS,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_PAY_TO_WIN,
+            //STATE_SPECIAL_ATTACK,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CAMERA,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_SPIT_ZOMBIE_BLUEPRINTS,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_PAY_TO_WIN,
         };
     }
 }

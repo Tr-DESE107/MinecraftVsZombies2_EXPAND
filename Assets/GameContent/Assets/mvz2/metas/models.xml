@@ -538,6 +538,7 @@
     <model name="flint" type="entity" path="mvz2:projectile/flint" width="16" height="16" xOffset="0" yOffset="0" />
     <model name="gravel" type="entity" path="mvz2:projectile/gravel" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="cannon_missile" type="entity" path="mvz2:projectile/cannon_missile" width="112" height="24" xOffset="0" yOffset="0" />
+    <model name="locked_chest_trash" type="entity" path="mvz2:projectile/locked_chest_trash" width="64" height="64" xOffset="0" yOffset="0" />
 
 
     <!-- Armors -->

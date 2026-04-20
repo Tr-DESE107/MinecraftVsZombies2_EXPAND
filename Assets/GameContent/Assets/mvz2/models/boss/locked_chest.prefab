@@ -316,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5225368651818509260}
-  - component: {fileID: 8359706410150848786}
+  - component: {fileID: 5726326294345984603}
   m_Layer: 0
   m_Name: Chains
   m_TagString: Untagged
@@ -340,7 +340,7 @@ Transform:
   - {fileID: 7389177350562710556}
   m_Father: {fileID: 2165696215592903071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8359706410150848786
+--- !u!114 &5726326294345984603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,11 +349,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1512385994914869029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 10a4407acc345ea468fbde474c86e7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whenFalse: 1
-  propertyName: NoChains
+  propertyName: Phase
+  comparer: 0
+  constValue: 0
 --- !u!1 &2001205710127972132
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5121803061269999264}
-  - component: {fileID: 1184743999317454270}
+  - component: {fileID: 9169748310383287862}
   m_Layer: 0
   m_Name: Chains
   m_TagString: Untagged
@@ -930,7 +931,7 @@ Transform:
   - {fileID: 8181975502603816588}
   m_Father: {fileID: 7296839422268345401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1184743999317454270
+--- !u!114 &9169748310383287862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -939,11 +940,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7314745136272401017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 10a4407acc345ea468fbde474c86e7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whenFalse: 1
-  propertyName: NoChains
+  propertyName: Phase
+  comparer: 2
+  constValue: 0
 --- !u!1 &8792739595147392433
 GameObject:
   m_ObjectHideFlags: 0
