@@ -808,6 +808,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 103c5d2ba5cab4749ab48c91a1fd44e6
+    m_Address: mvz2:entity/projectiles/locked_chest_trashes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1079a49f80f854c4a8d3e1107ea9cf7d
     m_Address: mvz2:effect/stun_stars
     m_ReadOnly: 0
@@ -3003,6 +3010,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a54d5bb3b16e9e4fa22639a67ef8836
+    m_Address: mvz2:entity/boss/locked_chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a637e8cf3701f147b8222a2c63f0e9b
     m_Address: mvz2:projectile/fireball
@@ -6027,6 +6041,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76808beab2e486a4eaa2209fb9fed33f
+    m_Address: mvz2:boss/locked_chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7688971d75bbf484e9d029945a5b0a38
     m_Address: mvz2:entity/gargoyle/gargoyle_death
     m_ReadOnly: 0
@@ -6923,6 +6944,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86f1fb229d7285b4f965d653bd48d85b
+    m_Address: mvz2:achievements/sculpting_strike
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 870eee8567c7c8948aa1357afdc15d62
     m_Address: mvz2:starshards/dream
     m_ReadOnly: 0
@@ -7646,6 +7674,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 940eb15b5d256ad4fb1eb9e59a010c53
     m_Address: mvz2:entity/enemies/skeleton_face_light
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9434fba9801d2cf498f5cb99a0cf8980
+    m_Address: mvz2:achievements/let_them_eat_cake
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9561,6 +9596,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc5a3188e1dc04a46a66afd4a30e671b
+    m_Address: mvz2:mobile_blueprint/locked_chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc7ffee90482abe4a9cfce689fa0ac4a
     m_Address: mvz2:effect/master_spark

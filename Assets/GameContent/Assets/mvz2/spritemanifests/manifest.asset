@@ -371,6 +371,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a5efa495de93d644a90de2fa44e1cf16, type: 3}
   - name: mobile_blueprint/lily_pad
     sprite: {fileID: 21300000, guid: d502efd9e6fce1543ae6919e926b244c, type: 3}
+  - name: mobile_blueprint/locked_chest
+    sprite: {fileID: 21300000, guid: bc5a3188e1dc04a46a66afd4a30e671b, type: 3}
   - name: mobile_blueprint/magichest
     sprite: {fileID: 21300000, guid: 2f3ddf82a6251b743b3e647d2f839e64, type: 3}
   - name: mobile_blueprint/mega_mutant_zombie
@@ -1733,6 +1735,19 @@ MonoBehaviour:
     - {fileID: 5442776467709350791, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
     - {fileID: 8849250387669684591, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
     - {fileID: 6238587927403159039, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
+  - name: entity/boss/locked_chest
+    spritesheet:
+    - {fileID: 1311043861, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 244456174, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 556626312, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 1771207860, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 38766023, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: -1608747267, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: -885912997, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 1941100176, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: -494778744, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 506175747, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 2137721841, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
   - name: entity/boss/nightmareaper
     spritesheet:
     - {fileID: 8620300422851923600, guid: 9b42d523d4b6eae419bc6d9e83b028f1, type: 3}
@@ -2697,6 +2712,28 @@ MonoBehaviour:
     - {fileID: -1577602235, guid: ffb9065a06ea7a345978dc5d8d0d0bea, type: 3}
     - {fileID: -1189650076, guid: ffb9065a06ea7a345978dc5d8d0d0bea, type: 3}
     - {fileID: 1674706288, guid: ffb9065a06ea7a345978dc5d8d0d0bea, type: 3}
+  - name: entity/projectiles/locked_chest_trashes
+    spritesheet:
+    - {fileID: 1574318898, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -1375633744, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 1890165663, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -766799731, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 8301440, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -240288821, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 195843752, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 1328982041, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 517571875, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -561379176, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 201582888, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -1080545305, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 109826215, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 1797001497, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -667960514, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -160571931, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -2056033448, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 1684139146, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: 1504826748, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
+    - {fileID: -1022046964, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
   - name: level/grids/broken_tile
     spritesheet:
     - {fileID: -1056659739, guid: 3bb835826f0becf4fbca23d9d96b230a, type: 3}

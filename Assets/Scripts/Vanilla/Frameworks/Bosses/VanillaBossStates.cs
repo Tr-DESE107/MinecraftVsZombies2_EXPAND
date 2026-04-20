@@ -57,6 +57,17 @@ namespace MVZ2.Vanilla.Bosses
         public const int RED_DRAGON_DEATH_ROAR = PRIVATE_NUMBER + 10;
         public const int RED_DRAGON_DEATH_FLY = PRIVATE_NUMBER + 11;
 
+        public const int LOCKED_CHEST_JUMP = PRIVATE_NUMBER + 0;
+        public const int LOCKED_CHEST_CHARGE = PRIVATE_NUMBER + 1;
+        public const int LOCKED_CHEST_SMASH = PRIVATE_NUMBER + 2;
+        public const int LOCKED_CHEST_LOCK = PRIVATE_NUMBER + 3;
+        public const int LOCKED_CHEST_CRUSH_LOCK = PRIVATE_NUMBER + 4;
+        public const int LOCKED_CHEST_SPIT_TRASH = PRIVATE_NUMBER + 5;
+        public const int LOCKED_CHEST_SPECIAL_ATTACK = PRIVATE_NUMBER + 6;
+        public const int LOCKED_CHEST_CAMERA = PRIVATE_NUMBER + 7;
+        public const int LOCKED_CHEST_SPIT_ZOMBIE_BLUEPRINTS = PRIVATE_NUMBER + 8;
+        public const int LOCKED_CHEST_PAY_TO_WIN = PRIVATE_NUMBER + 9;
+
 
         private const int PRIVATE_NUMBER = 10000;
     }

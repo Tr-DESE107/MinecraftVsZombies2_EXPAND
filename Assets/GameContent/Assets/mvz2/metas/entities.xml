@@ -2705,6 +2705,18 @@
                 <color name="mvz2:bloodColorCensored" value="#00007FFF" />
             </properties>
         </boss>
+        <boss id="locked_chest" name="上锁的箱子">
+            <properties>
+                <int name="mvz2:waterInteraction" value="1" />
+                <float name="mvz2:maxHealth" value="50000" />
+                <float name="mvz2:gravity" value="2" />
+                <id name="mvz2:shell" value="mvz2:wood" />
+                <vector3 name="mvz2:size" x="48" y="56" z="72" />
+                <vector3 name="mvz2:shadowScale" x="1.5" y="1.5" z="1.5" />
+                <color name="mvz2:bloodColor" value="#000000FF" />
+                <color name="mvz2:bloodColorCensored" value="#000000FF" />
+            </properties>
+        </boss>
 
         <!-- Carts -->
         <cart id="minecart" name="矿车" />
