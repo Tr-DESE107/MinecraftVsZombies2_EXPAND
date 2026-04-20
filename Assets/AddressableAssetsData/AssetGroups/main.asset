@@ -12083,7 +12083,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8f1fa08173678e4592663889b58ac6f
-    m_Address: mvz2:mobile_blueprint/IronPirateSkeleton
+    m_Address: mvz2:mobile_blueprint/PirateBucketSkeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

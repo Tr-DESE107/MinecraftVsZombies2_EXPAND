@@ -481,17 +481,17 @@
     <model name="VillagerGhast" type="entity" path="mvz2:enemy/EXPAND/VillagerGhast" width="64" height="64" xOffset="0" yOffset="-28" />
 
     <!--EXPAND Enemies Mannequin-->
-    <model name="Mannequin" type="entity" path="mvz2:enemy/EXPAND/DESE107" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="Mannequin" type="entity" path="mvz2:enemy/EXPAND/Mannequin" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="ImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpDESE107" width="48" height="56" xOffset="0" yOffset="-28">
+    <model name="ImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="MegaImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpDESE107" width="48" height="56" xOffset="0" yOffset="-28">
+    <model name="MegaImpMannequin" type="entity" path="mvz2:enemy/EXPAND/MegaImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 
-    <model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantDESE107" width="200" height="180" xOffset="0" yOffset="-90" />
+    <model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantMannequin" width="200" height="180" xOffset="0" yOffset="-90" />
     <model name="MannequinTNT" type="entity" path="mvz2:enemy/EXPAND/MannequinTNT" width="64" height="64" xOffset="0" yOffset="-28" />
 	
 	<model name="CannoneerMannequin" type="entity" path="mvz2:enemy/EXPAND/CannoneerMannequin" width="85" height="92" xOffset="22" yOffset="-41">

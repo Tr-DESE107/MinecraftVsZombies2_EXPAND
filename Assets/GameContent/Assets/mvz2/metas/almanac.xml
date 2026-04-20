@@ -264,8 +264,9 @@
         <variable name="armor_hp">property("mvz2:armor/maxHealth", property("mvz2:entity/starting_armor"), "armor")</variable>
         <variable name="shield_hp">property("mvz2:armor/maxHealth", property("mvz2:entity/starting_shield"), "armor")</variable>
 
-		<variable name="FireInterval">1.5 / toDouble(property("mvz2:entity/attackSpeed"))</variable>
-		<variable name="FireRange">toDouble(property("mvz2:entity/range")) / 80</variable>
+		<variable name="helmet_hp">property("mvz2:armor/maxHealth", property("mvz2:entity/starting_armor"), "armor")</variable>
+		<variable name="FireInterval">1.5 / property("mvz2:entity/attackSpeed")</variable>
+		<variable name="FireRange">property("mvz2:entity/range") / 80</variable>
 	</globalVariables>
 	<contraptions>
 		<entry id="mvz2:dispenser">
@@ -477,7 +478,9 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:soul_furnace">
-                <variable name="splash_damage">toDouble(global("mvz2:entity_damage")) * 0.25</variable>
+			<variables>
+				<variable name="splash_damage">toDouble(global("mvz2:entity_damage")) * 0.25</variable>
+			</variables>
 			<header>
 				<p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要提供燃料。]]></p>
 			</header>
@@ -496,7 +499,9 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:silvenser">
-                <variable name="flesh_damage">toDouble(global("mvz2:entity_damage")) * 2</variable>
+			<variables>
+				<variable name="flesh_damage">toDouble(global("mvz2:entity_damage")) * 2</variable>
+			</variables>
 			<header>
 				<p>银制发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
 			</header>
@@ -567,7 +572,7 @@
 			</properties>
 			<flavors>
 				<flavor>
-					<p>重力方块喜欢坐在苹果树下并分析为什么这个世界完全不尊重重力。</p>
+					<p>重力板喜欢坐在苹果树下并分析为什么这个世界完全不尊重重力。</p>
 				</flavor>
 				<flavor>
 					<conditions>
@@ -960,19 +965,21 @@
 			</flavor>
 		</entry>
 		<entry id="necrotombstone">
-                <variable name="token">"mvz2:skeleton_warrior"</variable>
-                <variable name="warrior_hp">property("mvz2:entity/maxHealth", local("token"), "entity")</variable>
-                <variable name="warrior_speed">property("mvz2:entity/speed", local("token"), "entity")</variable>
-                <variable name="helmet">property("mvz2:entity/starting_armor", local("token"), "entity")</variable>
-                <variable name="shield">property("mvz2:entity/starting_shield", local("token"), "entity")</variable>
-                <variable name="helmet_hp">property("mvz2:armor/maxHealth", local("helmet"), "armor")</variable>
-                <variable name="shield_hp">property("mvz2:armor/maxHealth", local("shield"), "armor")</variable>
+			<variables>
+				<variable name="token">"mvz2:skeleton_warrior"</variable>
+				<variable name="warrior_hp">property("mvz2:entity/maxHealth", local("token"), "entity")</variable>
+				<variable name="warrior_speed">property("mvz2:entity/speed", local("token"), "entity")</variable>
+				<variable name="helmet">property("mvz2:entity/starting_armor", local("token"), "entity")</variable>
+				<variable name="shield">property("mvz2:entity/starting_shield", local("token"), "entity")</variable>
+				<variable name="helmet_hp">property("mvz2:armor/maxHealth", local("helmet"), "armor")</variable>
+				<variable name="shield_hp">property("mvz2:armor/maxHealth", local("shield"), "armor")</variable>
+			</variables>
 			<header>
 				<p>死灵墓碑会不断召唤友方的<![CDATA[<ref=[enemies]mvz2:skeleton_warrior>骷髅战士</ref>]]>，让它们为你而战。</p>
 			</header>
 			<properties>
 				<p>召唤时间：<![CDATA[<color=red>15秒</color>]]></p>
-				<p>骷髅战士生命：<![CDATA[<color=red><var local="warrior_hp" />+<var local="helmet_hp" />（头盔）+<var id="shield_hp" />（盾）</color>]]></p>
+				<p>骷髅战士生命：<![CDATA[<color=red><var local="warrior_hp" />+<var local="helmet_hp" />（头盔）+<var local="shield_hp" />（盾）</color>]]></p>
 				<p>骷髅战士速度：<![CDATA[<color=red><var local="warrior_speed" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>召唤3个同种的火焰、冰霜或闪电<ref=[enemies]mvz2:skeleton_mage>骷髅法师</ref></color>]]></p>
 				<p>特点：<![CDATA[<color=red>被摧毁时立刻召唤<ref=[enemies]mvz2:skeleton_warrior>骷髅战士</ref></color>]]></p>
@@ -987,7 +994,9 @@
 			</flavor>
 		</entry>
 		<entry id="black_hole_bomb">
-                <variable name="dps">toDouble(global("mvz2:entity_damage")) * 0.3</variable>
+			<variables>
+				<variable name="dps">toDouble(global("mvz2:entity_damage")) * 0.3</variable>
+			</variables>
 			<header>
 				<p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。</p>
 			</header>
@@ -1110,6 +1119,9 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:wooden_fan">
+			<tags>
+				<tag id="mvz2:antifly"/>
+			</tags>
 			<header>
 				<p>木风扇在触发后会将一整行内的敌方怪物吹回原地。如果怪物较轻，还会直接将其吹出战场。</p>
 			</header>
@@ -1289,7 +1301,7 @@
 				<p>攻击间隔：<![CDATA[<color=red><var id="mvz2:FireInterval" />秒</color>]]></p>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
-				<p>特点：<![CDATA[<color=red>能够复制主要位器械发射的子弹</color>]]></p>
+				<p>特点：<![CDATA[<color=red>能够复制<tag id="grid_layer_main" />主要位器械发射的子弹</color>]]></p>
 			</properties>
 			<flavor>
 				<p>发射器护罩是怎么来的？我们用博人眼球的方式表述，那就是：那晚，<![CDATA[<ref=[contraptions]mvz2:dispenser>发射器</ref>]]>和<![CDATA[<ref=[contraptions]mvz2:stone_shield>石护罩</ref>]]>喝醉了。</p>
@@ -1869,7 +1881,7 @@
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>速度：<![CDATA[<color=red>1，奔跑时2</color>]]></p>
 				<p>特点：<![CDATA[<color=red>能够跳过大部分器械，高难度下可以跳两次</color>]]></p>
-				<p>弱点：<![CDATA[<color=red>重力方块或高器械</color>]]></p>
+				<p>弱点：<![CDATA[<color=red>重力板或高器械</color>]]></p>
 			</properties>
 			<flavor>
 				<p>骷髅马梦想找到一名主人；</p>
@@ -2360,11 +2372,13 @@
 		</entry>
 
 		<entry id="mvz2:dullahan">
-                <variable name="horse_hp">property("mvz2:entity/maxHealth", "mvz2:skeleton_horse", "entity")</variable>
-                <variable name="horse_speed">property("mvz2:entity/speed", "mvz2:skeleton_horse", "entity")</variable>
-                <variable name="horse_speed_jumped">toDouble(local("horse_speed")) * 0.5</variable>
-                <variable name="head_hp">property("mvz2:entity/maxHealth", "mvz2:dullahan_head", "entity")</variable>
-                <variable name="head_speed">property("mvz2:entity/speed", "mvz2:dullahan_head", "entity")</variable>
+			<variables>
+				<variable name="horse_hp">property("mvz2:entity/maxHealth", "mvz2:skeleton_horse", "entity")</variable>
+				<variable name="horse_speed">property("mvz2:entity/speed", "mvz2:skeleton_horse", "entity")</variable>
+				<variable name="horse_speed_jumped">toDouble(local("horse_speed")) * 0.5</variable>
+				<variable name="head_hp">property("mvz2:entity/maxHealth", "mvz2:dullahan_head", "entity")</variable>
+				<variable name="head_speed">property("mvz2:entity/speed", "mvz2:dullahan_head", "entity")</variable>
+			</variables>
 			<tags>
 				<tag id="mvz2:shell_head" value="mvz2:nether" />
 				<tag id="mvz2:shell_horse" value="mvz2:bone" />
@@ -4767,7 +4781,20 @@
 				</flavors>
 			</entry>
 		</group>
-		<group id="mvz2:ithinkiam" name="我觉得我是" order="1000">
-		</group>
+		<!--
+		<group id="mvz2:background_forces" name="背景势力" order="800">
+			<entry id="mvz2:NetherArcher" name="某势力名称">
+				<unlock>
+					<condition required="mvz2:level.ship_1" />
+				</unlock>
+				<picture sprite="mvz2:misc/某图片" />
+				<header>
+					<p>这是一段简介。</p>
+				</header>
+				<flavor>
+					<p>这是一段详细描述。</p>
+				</flavor>
+			</entry>
+		</group>-->
 	</misc>
 </almanac>

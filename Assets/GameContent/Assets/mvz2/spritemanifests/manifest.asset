@@ -441,8 +441,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7ad59fee145905345a3241aca0804d48, type: 3}
   - name: mobile_blueprint/IronMonkZombie
     sprite: {fileID: 21300000, guid: e90a610262d11394bac4d441f4aa728d, type: 3}
-  - name: mobile_blueprint/IronPirateSkeleton
-    sprite: {fileID: 21300000, guid: c8f1fa08173678e4592663889b58ac6f, type: 3}
   - name: mobile_blueprint/IronWitherSkeleton
     sprite: {fileID: 21300000, guid: dffcc3fc6bd2e83478dd86ec84ef8eb0, type: 3}
   - name: mobile_blueprint/iron_helmetted_zombie
@@ -547,6 +545,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2bb72792699c5fa4eb479776078c6604, type: 3}
   - name: mobile_blueprint/PhaseSpider
     sprite: {fileID: 21300000, guid: aecbbe965ff38bb418d77b709df81eb3, type: 3}
+  - name: mobile_blueprint/PirateBucketSkeleton
+    sprite: {fileID: 21300000, guid: c8f1fa08173678e4592663889b58ac6f, type: 3}
   - name: mobile_blueprint/PirateIMP
     sprite: {fileID: 21300000, guid: 00fe738c912ea7440a7622ee4060499d, type: 3}
   - name: mobile_blueprint/PirateSkeleton

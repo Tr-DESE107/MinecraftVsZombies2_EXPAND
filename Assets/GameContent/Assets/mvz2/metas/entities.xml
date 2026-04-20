@@ -1937,6 +1937,7 @@
                 <int name="mvz2:cost" value="300" />
                 <float name="mvz2:damage" value="200" />
                 <float name="mvz2:speed" value="1.5" />
+				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
             </properties>
         </zombie>
 
@@ -2361,6 +2362,8 @@
                 <color name="mvz2:lightColor" value="#FFFF00" />
 
                 <int name="mvz2:cost" value="150" />
+
+				<id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
             </properties>
         </enemy>
         <enemy id="zombie_cloud" name="僵尸云" deathMessage="你就云吧">
@@ -2386,6 +2389,7 @@
                 <vector3 name="mvz2:size" x="64" y="44" z="64" />
 
                 <int name="mvz2:cost" value="100" />
+				<id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
             </properties>
         </enemy>
         <zombie id="cannoneer_zombie" name="炮手僵尸" deathMessage="炮决！">
@@ -3282,6 +3286,8 @@
 				<bool name="mvz2:low_enemy" value="true" />
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
 				<vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
+
+				<id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
 			</properties>
 		</enemy>
 
@@ -3612,7 +3618,7 @@
 			</properties>
 		</Mannequin_Exp>
 
-		<enemy id="TeslaTrooper" name="磁暴步兵" deathMessage="电力不足">
+		<WitherSkeleton_Exp id="TeslaTrooper" name="磁暴步兵" deathMessage="电力不足">
 			<behaviours>
 				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
 			</behaviours>
@@ -3630,7 +3636,7 @@
 
 				<int name="mvz2:cost" value="200" />
 			</properties>
-		</enemy>
+		</WitherSkeleton_Exp>
 
 		<!-- EXPAND Enemies X -->
 		<mutantZombie id="XCarrierMutant" name="X物质携带者宿主" deathMessage="高危物质携带体！！！">
