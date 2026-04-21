@@ -24,15 +24,27 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
             AddModifier(new BooleanModifier(VanillaEntityProps.ETHEREAL, PROP_ETHEREAL));
+            var hpbarModifier = new IntModifier(LogicEntityProps.HP_BAR_VISIBILITY, IntegerOperator.Set, PROP_HP_BAR_VISIBLITY)
+            {
+                Condition = m => m == HPBarVisibility.HIDDEN
+            };
+            AddModifier(hpbarModifier);
             AddModifier(new FloatModifier(LogicEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback, priority: VanillaCallbackPriorities.MULTIPLY);
+        }
+        public override void OnCreate(Buff buff)
+        {
+            base.OnCreate(buff);
+            buff.SetProperty(PROP_ETHEREAL, true);
+            buff.SetProperty(PROP_SHADOW_ALPHA, SHADOW_ALPHA_MIN);
         }
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
+            bool totallyInvisible = buff.Level.StageDefinition.HasBehaviour<WhackAGhostBehaviour>();
+            SetTotallyInvisible(buff, totallyInvisible);
+            buff.SetProperty(PROP_HP_BAR_VISIBLITY, totallyInvisible ? HPBarVisibility.HIDDEN : HPBarVisibility.NORMAL);
             buff.SetProperty(PROP_TINT_MULTIPLIER, new Color(1, 1, 1, GetMinAlpha(buff)));
-            buff.SetProperty(PROP_ETHEREAL, true);
-            buff.SetProperty(PROP_SHADOW_ALPHA, SHADOW_ALPHA_MIN);
             UpdateIllumination(buff);
         }
         public override void PostUpdate(Buff buff)
@@ -108,12 +120,14 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         private static float GetMinAlpha(Buff buff)
         {
-            if (buff.Level.StageDefinition.HasBehaviour<WhackAGhostBehaviour>())
+            if (IsTotallyInvisible(buff))
             {
                 return 0;
             }
             return TINT_ALPHA_MIN;
         }
+        private static bool IsTotallyInvisible(Buff buff) => buff.GetProperty<bool>(PROP_TOTALLY_INVISIBLE);
+        private static void SetTotallyInvisible(Buff buff, bool value) => buff.SetProperty(PROP_TOTALLY_INVISIBLE, value);
         public static void SetEverIlluminated(Buff buff, bool value)
         {
             buff.SetProperty(PROP_EVER_ILLUMINATED, value);
@@ -135,6 +149,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
             return false;
         }
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_TOTALLY_INVISIBLE = new VanillaBuffPropertyMeta<bool>("totally_invisible");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_HP_BAR_VISIBLITY = new VanillaBuffPropertyMeta<int>("hp_bar_visiblity");
         public static readonly VanillaBuffPropertyMeta<bool> PROP_EVER_ILLUMINATED = new VanillaBuffPropertyMeta<bool>("EverIlluminated");
         public static readonly VanillaBuffPropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("TintMultiplier");
         public static readonly VanillaBuffPropertyMeta<float> PROP_SHADOW_ALPHA = new VanillaBuffPropertyMeta<float>("ShadowAlpha");
