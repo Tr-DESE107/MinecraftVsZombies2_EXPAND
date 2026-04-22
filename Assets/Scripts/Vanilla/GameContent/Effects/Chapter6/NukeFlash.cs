@@ -15,18 +15,14 @@ namespace MVZ2.GameContent.Effects
         public NukeFlash(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR_OFFSET));
-            AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT));
         }
         public override void Update(Entity entity)
         {
             base.Update(entity);
             var timeout = (float)entity.Timeout / entity.GetMaxTimeout();
             var colorOffset = new Color(1, 1, 1, timeout);
-            var tint = new Color(1, 1, 1, timeout);
             entity.SetProperty(PROP_COLOR_OFFSET, colorOffset);
-            entity.SetProperty(PROP_TINT, tint);
         }
         public static readonly VanillaEntityPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaEntityPropertyMeta<Color>("color_offset", Color.white);
-        public static readonly VanillaEntityPropertyMeta<Color> PROP_TINT = new VanillaEntityPropertyMeta<Color>("tint", Color.white);
     }
 }

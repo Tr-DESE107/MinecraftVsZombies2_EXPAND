@@ -20,20 +20,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.Timeout = entity.GetMaxTimeout();
             entity.PlaySound(VanillaSoundID.boneWallBuild);
-        }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            if (entity.Timeout >= 0)
-            {
-                entity.Timeout--;
-                if (entity.Timeout <= 0)
-                {
-                    entity.Die(entity);
-                }
-            }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

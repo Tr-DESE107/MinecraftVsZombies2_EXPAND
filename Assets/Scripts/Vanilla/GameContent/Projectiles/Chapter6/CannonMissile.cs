@@ -24,7 +24,6 @@ namespace MVZ2.GameContent.Projectiles
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            entity.SetModelProperty("Variant", entity.GetVariant());
             if (IsFalling(entity))
                 return;
             var timer = GetTimer(entity);

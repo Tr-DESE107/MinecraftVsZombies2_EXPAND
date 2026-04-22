@@ -50,7 +50,6 @@ namespace MVZ2.GameContent.Effects
         {
             var variant = entity.GetVariant();
             entity.SetProperty(PROP_IS_LIGHT_SOURCE, variant == VARIANT_FIRE);
-            entity.SetModelProperty("Variant", variant);
         }
         public override void PostCollision(EntityCollision collision, int state)
         {

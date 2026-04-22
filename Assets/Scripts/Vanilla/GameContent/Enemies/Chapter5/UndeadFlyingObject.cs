@@ -48,7 +48,6 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.PlaySound(VanillaSoundID.ufo, volume: 0.5f);
             }
-            entity.SetAnimationInt("Variant", entity.GetVariant());
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -67,7 +66,6 @@ namespace MVZ2.GameContent.Enemies
                 var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE);
                 entity.Die(effects, entity);
             }
-            entity.SetAnimationInt("Variant", entity.GetVariant());
             entity.SetAnimationBool("SpotlightOn", entity.State == STATE_ACT);
             var variant = entity.GetVariant();
             if (behaviours.TryGetValue(variant, out var behaviour))

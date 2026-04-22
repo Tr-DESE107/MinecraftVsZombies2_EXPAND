@@ -84,9 +84,9 @@ namespace MVZ2.GameContent.Spawns
                 }
                 if (level.AreaID == VanillaAreaID.ship)
                 {
-                    var x = rng.Next(UFOBackground.MIN_X, UFOBackground.MAX_X);
-                    var z = rng.Next(UFOBackground.MIN_Z, UFOBackground.MAX_Z);
-                    var y = rng.Next(UFOBackground.MIN_Y, UFOBackground.MAX_Y);
+                    var x = rng.Next(BACKGROUND_MIN_X, BACKGROUND_MAX_X);
+                    var z = rng.Next(BACKGROUND_MIN_Z, BACKGROUND_MAX_Z);
+                    var y = rng.Next(BACKGROUND_MIN_Y, BACKGROUND_MAX_Y);
                     var pos = new Vector3(x, y, z);
                     var background = level.Spawn(VanillaEffectID.ufoBackground, pos, null);
                     float speedMultiplier = 1;
@@ -98,7 +98,7 @@ namespace MVZ2.GameContent.Spawns
                     }
                     if (background != null)
                     {
-                        var velocity = UFOBackground.FLY_DIRECTION * rng.Next(UFOBackground.MIN_SPEED, UFOBackground.MAX_SPEED) * speedMultiplier;
+                        var velocity = BACKGROUND_FLY_DIRECTION * rng.Next(BACKGROUND_MIN_SPEED, BACKGROUND_MAX_SPEED) * speedMultiplier;
                         background.Velocity = velocity;
                         background.SetVariant(variant);
                     }
@@ -114,6 +114,17 @@ namespace MVZ2.GameContent.Spawns
         public bool CanSpawnInLevel(SpawnDefinition definition, LevelEngine level) => false;
         public int GetWeight(SpawnDefinition definition, LevelEngine level) => 0;
         public const float TARGET_BACKGROUND_TIME = 6f;
+
+        public const float BACKGROUND_MIN_X = 520;
+        public const float BACKGROUND_MAX_X = 720;
+        public const float BACKGROUND_MIN_Y = -160;
+        public const float BACKGROUND_MAX_Y = -120;
+        public const float BACKGROUND_MIN_Z = 40;
+        public const float BACKGROUND_MAX_Z = 80;
+        public const float BACKGROUND_MAX_SPEED = BACKGROUND_MIN_SPEED * 1.25f;
+        public const float BACKGROUND_MIN_SPEED = (600 - (BACKGROUND_MIN_Y + BACKGROUND_MIN_Z)) / BACKGROUND_TIMEOUT;
+        public const int BACKGROUND_TIMEOUT = 120;
+        public static readonly Vector3 BACKGROUND_FLY_DIRECTION = new Vector3(0.2f, 0, 1);
         public int IntervalWaves { get; }
         public int MaxCount { get; }
     }

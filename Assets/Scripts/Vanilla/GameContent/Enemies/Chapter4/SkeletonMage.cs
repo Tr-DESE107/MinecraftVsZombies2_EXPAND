@@ -34,7 +34,6 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.SetVariant(mageVariants.Random(entity.RNG));
             }
-            entity.SetAnimationInt("Variant", entity.GetVariant());
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -51,11 +50,6 @@ namespace MVZ2.GameContent.Enemies
                     UpdateStateAttack(entity);
                     break;
             }
-        }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetAnimationInt("Variant", entity.GetVariant());
         }
         private void UpdateStateWalk(Entity enemy)
         {

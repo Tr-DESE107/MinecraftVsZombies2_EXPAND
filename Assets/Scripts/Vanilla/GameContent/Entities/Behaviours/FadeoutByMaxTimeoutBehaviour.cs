@@ -19,9 +19,23 @@ namespace MVZ2.GameContent.Entities
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            var alpha = entity.Timeout < 0 ? 1 : Mathf.Clamp01(entity.Timeout / (float)entity.GetMaxTimeout());
+            float alpha;
+            if (entity.Timeout < 0)
+            {
+                alpha = 1;
+            }
+            else
+            {
+                var alphaMax = entity.GetProperty<float>(PROP_ALPHA_MAX);
+                var alphaMin = entity.GetProperty<float>(PROP_ALPHA_MIN);
+                var t = entity.Timeout / (float)entity.GetMaxTimeout();
+                t = t * (alphaMax - alphaMin) + alphaMin;
+                alpha = Mathf.Clamp01(t);
+            }
             entity.SetProperty(PROP_TINT_MULTIPLIER, new Color(1, 1, 1, alpha));
         }
         public static readonly VanillaEntityPropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaEntityPropertyMeta<Color>("tint_multiplier", Color.white);
+        public static readonly VanillaEntityPropertyMeta<float> PROP_ALPHA_MAX = new VanillaEntityPropertyMeta<float>("alpha_max", 1);
+        public static readonly VanillaEntityPropertyMeta<float> PROP_ALPHA_MIN = new VanillaEntityPropertyMeta<float>("alpha_min", 0);
     }
 }

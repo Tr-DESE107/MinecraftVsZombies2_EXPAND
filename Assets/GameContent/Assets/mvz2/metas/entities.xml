@@ -633,7 +633,8 @@
                 <condition requiredGroups="mvz2:contraption.dream_silk" />
             </unlock>
             <behaviours>
-                <behaviour operator="add" id="mvz2:contraption_timeout_fade" />
+                <behaviour operator="add" id="mvz2:timeout_remove" />
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout" />
             </behaviours>
             <properties>
                 <bool name="mvz2:cannotDig" value="true" />
@@ -1218,7 +1219,8 @@
                 <condition requiredGroups="mvz2:contraption.cooling_cell" />
             </unlock>
             <behaviours>
-                <behaviour operator="add" id="mvz2:contraption_timeout_fade" />
+                <behaviour operator="add" id="mvz2:timeout_remove" />
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout" />
             </behaviours>
             <properties>
                 <bool name="mvz2:cannotDig" value="true" />
@@ -2015,6 +2017,7 @@
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:undead_flying_object/state" />
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
+                <behaviour operator="add" id="mvz2:set_animation_variant" />
             </behaviours>
             <properties>
                 <id name="mvz2:modelId" value="mvz2:entity.undead_flying_object_red" />
@@ -2044,6 +2047,7 @@
             </unlock>
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
+                <behaviour operator="add" id="mvz2:set_model_property_variant" />
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
@@ -2265,6 +2269,9 @@
             <unlock>
                 <condition required="mvz2:level.halloween_8" />
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:timeout_death" />
+            </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -2466,6 +2473,7 @@
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state" />
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
+                <behaviour operator="add" id="mvz2:set_animation_variant" />
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />
@@ -3221,8 +3229,9 @@
             </properties>
         </projectile>
         <projectile id="beacon_meteor">
-            <behaviours>
+            <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:projectile_explode_meteor" />
+                <behaviour operator="add" id="mvz2:set_model_property_variant" />
             </behaviours>
             <properties>
                 <bool name="mvz2:isFire" value="true" />
@@ -3331,6 +3340,7 @@
         <projectile id="cannon_missile">
             <behaviours>
                 <behaviour operator="add" id="mvz2:projectile_explode_cannon_missile" />
+                <behaviour operator="add" id="mvz2:set_model_property_variant" />
             </behaviours>
             <properties>
                 <bool name="mvz2:noDestroyOutsideLawn" value="true" />
@@ -3514,6 +3524,12 @@
             </properties>
         </effect>
         <effect id="frankenstein_jump_trail">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:fadeout_by_max_timeout"/>
+                <properties behaviour="mvz2:fadeout_by_max_timeout">
+                    <float name="alpha_max" value="0.5"/>
+                </properties>
+            </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="30" />
             </properties>
@@ -3597,7 +3613,6 @@
             <properties>
                 <bool name="mvz2:decorative" value="false" />
                 <bool name="mvz2:shadowHidden" value="false" />
-                <float name="mvz2:collisionSampleLength" value="16" />
                 <vector3 name="mvz2:size" x="32" y="64" z="160" />
                 <vector3 name="mvz2:shadowScale" x="1" y="5" z="1" />
             </properties>
@@ -3904,6 +3919,9 @@
             </properties>
         </effect>
         <effect id="ufo_background">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:set_animation_variant" />
+            </behaviours>
             <properties>
                 <float name="mvz2:groundLimitOffset" value="-1000" />
                 <string name="mvz2:sortingLayer" value="Background" />
@@ -4053,6 +4071,7 @@
         <effect id="tornado">
             <behaviours>
                 <behaviour operator="add" id="mvz2:fadeout_by_timeout" />
+                <behaviour operator="add" id="mvz2:set_model_property_variant" />
             </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="150"/>
@@ -4064,6 +4083,7 @@
         <effect id="dragon_fire_breath">
             <behaviours>
                 <behaviour operator="add" id="mvz2:light_fadeout"/>
+                <behaviour operator="add" id="mvz2:set_model_property_variant" />
             </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="60"/>
@@ -4119,6 +4139,9 @@
             </properties>
         </effect>
         <effect id="nuke_flash">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
+            </behaviours>
             <properties>
                 <color name="mvz2:tint" value="#7F007F" />
                 <string name="mvz2:sortingLayer" value="Foreground" />

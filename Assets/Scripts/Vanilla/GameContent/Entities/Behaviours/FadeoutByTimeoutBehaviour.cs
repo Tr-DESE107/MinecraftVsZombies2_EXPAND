@@ -22,10 +22,24 @@ namespace MVZ2.GameContent.Entities
             base.Update(entity);
             var fadeSeconds = entity.GetProperty<float>(PROP_FADE_TIMEOUT);
             var timeoutSeconds = Ticks.ToSeconds(entity.Timeout);
-            var alpha = entity.Timeout < 0 ? 1 : Mathf.Clamp01(timeoutSeconds / fadeSeconds);
+            float alpha;
+            if (entity.Timeout < 0)
+            {
+                alpha = 1;
+            }
+            else
+            {
+                var alphaMax = entity.GetProperty<float>(PROP_ALPHA_MAX);
+                var alphaMin = entity.GetProperty<float>(PROP_ALPHA_MIN);
+                var t = timeoutSeconds / fadeSeconds;
+                t = t * (alphaMax - alphaMin) + alphaMin;
+                alpha = Mathf.Clamp01(t);
+            }
             entity.SetProperty(PROP_TINT_MULTIPLIER, new Color(1, 1, 1, alpha));
         }
         public static readonly VanillaEntityPropertyMeta<float> PROP_FADE_TIMEOUT = new VanillaEntityPropertyMeta<float>("fade_timeout", 0.5f);
         public static readonly VanillaEntityPropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaEntityPropertyMeta<Color>("tint_multiplier", Color.white);
+        public static readonly VanillaEntityPropertyMeta<float> PROP_ALPHA_MAX = new VanillaEntityPropertyMeta<float>("alpha_max", 1);
+        public static readonly VanillaEntityPropertyMeta<float> PROP_ALPHA_MIN = new VanillaEntityPropertyMeta<float>("alpha_min", 0);
     }
 }

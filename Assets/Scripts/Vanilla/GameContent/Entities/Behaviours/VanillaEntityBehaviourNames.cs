@@ -6,9 +6,14 @@ namespace MVZ2.Vanilla.Entities
     {
         public const string faction = "faction";
         public const string entityPhysics = "entity_physics";
+
+        public const string setModelPropertyVariant = "set_model_property_variant";
+        public const string setAnimationVariant = "set_animation_variant";
+
         public const string timeoutDeath = "timeout_death";
         public const string timeoutRemove = "timeout_remove";
         public const string timeoutRemoveWithoutParent = "timeout_remove_without_parent";
+
         public const string removeWithoutParent = "remove_without_parent";
         public const string lightFadeout = "light_fadeout";
         public const string followParent = "follow_parent";
@@ -25,7 +30,6 @@ namespace MVZ2.Vanilla.Entities
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
-        public const string contraptionTimeoutFade = "contraption_timeout_fade";
         public const string contraptionShooterFireworkDispenser = "contraption_shooter_firework_dispenser";
         public const string contraptionEvokeFireworkDispenser = "contraption_evoke_firework_dispenser";
 

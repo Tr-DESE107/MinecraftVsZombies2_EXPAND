@@ -46,7 +46,6 @@ namespace MVZ2.GameContent.Effects
             var variant = entity.GetVariant();
             var lightColor = GetLightColorByVariant(variant);
             entity.SetProperty(PROP_LIGHT_COLOR, lightColor);
-            entity.SetModelProperty("Variant", variant);
         }
         private void UpdateGridFire(Entity entity)
         {
