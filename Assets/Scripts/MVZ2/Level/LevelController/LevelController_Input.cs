@@ -223,6 +223,10 @@ namespace MVZ2.Level
             {
                 OnCommandBlockTestKey();
             }
+            if (Input.GetKeyDown(KeyCode.F7))
+            {
+                OnAdvancedPauseKey();
+            }
         }
         private void OnFastKillKey()
         {
@@ -274,6 +278,10 @@ namespace MVZ2.Level
                 var spawnParams = CommandBlock.GetImitateSpawnParams(contraption);
                 var command = grid.SpawnPlacedEntity(VanillaContraptionID.commandBlock, spawnParams);
             }
+        }
+        private void OnAdvancedPauseKey()
+        {
+            SwitchAdvancedPause();
         }
         #endregion
     }

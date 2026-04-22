@@ -21,6 +21,8 @@ namespace MVZ2.Level
         {
             if (IsConsoleActive())
                 return 0;
+            if (advancedPause)
+                return 0;
             return speedUp && !isGameOver ? Main.OptionsManager.GetFastForwardMultiplier() : 1;
         }
         private bool IsConsoleActive()
@@ -32,6 +34,11 @@ namespace MVZ2.Level
             speedUp = !speedUp;
             GetUIPreset().SetSpeedUp(speedUp);
             level.PlaySound(speedUp ? LogicSoundID.fastForward : LogicSoundID.slowDown);
+        }
+        private void SwitchAdvancedPause()
+        {
+            advancedPause = !advancedPause;
+            level.PlaySound(advancedPause ? LogicSoundID.pause : LogicSoundID.click);
         }
 
         #region 逻辑更新
@@ -327,6 +334,7 @@ namespace MVZ2.Level
 
         #region 属性字段
         private bool speedUp;
+        private bool advancedPause;
         private float gameRunTimeModular;
         #endregion
     }

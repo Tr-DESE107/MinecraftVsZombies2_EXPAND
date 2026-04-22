@@ -133,7 +133,7 @@ namespace MVZ2.Options
                     break;
                 case SliderType.FastForward:
                     {
-                        var multi = ValueToFastForwardMultiplier(value);
+                        var multi = ValueToFastForwardMultiplier(GetFastwoardMultiplierStart(), value);
                         Main.OptionsManager.SetFastForwardMultiplier(multi);
                         UpdateFastforwardSlider(multi);
                     }
@@ -363,21 +363,32 @@ namespace MVZ2.Options
         }
         protected void UpdateFastforwardSlider(float multi)
         {
-            float value = FastForwardMultiplierToValue(multi);
+            var sliderMultiplierEnd = FASTFORWARD_MULTIPLIER_END;
+            var sliderMultiplierStart = GetFastwoardMultiplierStart();
+            var sliderMultiplierRange = sliderMultiplierEnd - sliderMultiplierStart;
+
+            float value = FastForwardMultiplierToValue(sliderMultiplierStart, multi);
 
             var valueText = LogicMain.GetFloatPercentageText(multi);
             var text = Main.LanguageManager._(OPTION_FASTFORWARD_MULTIPLIER, valueText);
-            ui.Main.SetSliderRange(SliderType.FastForward, FASTFORWARD_SLIDER_START, FASTFORWARD_SLIDER_END, true);
+
+            var sliderStart = 0;
+            var sliderEnd = Mathf.RoundToInt(sliderMultiplierRange / FASTFORWARD_STEP);
+            ui.Main.SetSliderRange(SliderType.FastForward, sliderStart, sliderEnd, true);
             ui.Main.SetSliderValue(SliderType.FastForward, value);
             ui.Main.SetSliderText(SliderType.FastForward, text);
         }
-        protected float ValueToFastForwardMultiplier(float value)
+        protected float ValueToFastForwardMultiplier(float startMultiplier, float value)
         {
-            return FASTFORWARD_MULTIPLIER_START + FASTFORWARD_STEP * value;
+            return startMultiplier + FASTFORWARD_STEP * value;
         }
-        protected float FastForwardMultiplierToValue(float multi)
+        protected float FastForwardMultiplierToValue(float startMultiplier, float multi)
         {
-            return Mathf.RoundToInt((multi - FASTFORWARD_MULTIPLIER_START) / FASTFORWARD_STEP);
+            return Mathf.RoundToInt((multi - startMultiplier) / FASTFORWARD_STEP);
+        }
+        private float GetFastwoardMultiplierStart()
+        {
+            return FASTFORWARD_MULTIPLIER_START;
         }
         private float ValueToAnimationFrequency(float value)
         {
@@ -566,13 +577,9 @@ namespace MVZ2.Options
         #endregion
 
         #region 常量
-        public const int FASTFORWARD_STEP_COUNT = 20;
-        public const float FASTFORWARD_SLIDER_START = 1;
-        public const float FASTFORWARD_SLIDER_END = FASTFORWARD_STEP_COUNT;
-        public const float FASTFORWARD_MULTIPLIER_START = 1;
+        public const float FASTFORWARD_STEP = 0.05f;
+        public const float FASTFORWARD_MULTIPLIER_START = 1.1f;
         public const float FASTFORWARD_MULTIPLIER_END = 3;
-        public const float FASTFORWARD_MULTIPLIER_RANGE = FASTFORWARD_MULTIPLIER_END - FASTFORWARD_MULTIPLIER_START;
-        public const float FASTFORWARD_STEP = FASTFORWARD_MULTIPLIER_RANGE / FASTFORWARD_STEP_COUNT;
         #endregion
 
         #region 翻译文本

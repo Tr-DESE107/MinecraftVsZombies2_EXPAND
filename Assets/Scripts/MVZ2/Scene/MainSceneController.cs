@@ -472,7 +472,7 @@ namespace MVZ2.Scenes
         {
             if (!CanPageUseDebugConsole())
                 return false;
-            return Application.isEditor || main.SaveManager.IsDebugUserName(username);
+            return main.DebugManager.CanUseDebugFeatures(username);
         }
         private bool CanPageUseDebugConsole()
         {

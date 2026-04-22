@@ -5,12 +5,21 @@ using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using UnityEngine;
 
 namespace MVZ2.Debugs
 {
     public partial class DebugManager : MonoBehaviour
     {
+        public bool CanUseDebugFeatures()
+        {
+            return CanUseDebugFeatures(Main.SaveManager.GetCurrentUserName());
+        }
+        public bool CanUseDebugFeatures(string? username)
+        {
+            return Application.isEditor || Main.SaveManager.IsDebugUserName(username);
+        }
         public async void ExportLogFiles()
         {
             bool success = false;
