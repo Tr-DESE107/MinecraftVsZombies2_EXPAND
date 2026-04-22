@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propertyName: Phase
-  comparer: 2
+  comparer: 0
   constValue: 0
 --- !u!1 &8433231341249739223
 GameObject:

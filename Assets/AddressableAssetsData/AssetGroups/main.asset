@@ -2710,6 +2710,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35224fc3c60463c4397ef3bba4d8e083
+    m_Address: mvz2:effect/stab_effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 357d5de4018192146ba66f747ecde434
     m_Address: mvz2:touhou_laser
     m_ReadOnly: 0
@@ -3451,6 +3458,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4175d1cd95a29964e8dd2f8d9b513873
+    m_Address: mvz2:effect/aim_target
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41dcf35c43418054cb6d7b6eb542f543
     m_Address: mvz2:maps
@@ -4348,6 +4362,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5345666fc10857d4fb6add0c8d05971f
+    m_Address: mvz2:entity/locked_chest/giggles2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5361472b4d206f44eba9f43295606ec2
     m_Address: mvz2:tesla_construction
     m_ReadOnly: 0
@@ -4712,6 +4733,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59c98b1247330114fa8bed20e52d9374
+    m_Address: mvz2:entity/locked_chest/giggles3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59cb47d1535f5964b8f9d2b91beb5175
     m_Address: mvz2:spider_cry3
     m_ReadOnly: 0
@@ -4802,6 +4830,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b975c43b84e6514c8ae7059764e02e1
+    m_Address: mvz2:entity/locked_chest/death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b9f7b131257acb4cb4372a72490c422
     m_Address: mvz2:entity/zombie_cat/death1
@@ -5419,6 +5454,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 683ec0a501b9a2a49a96e6348d257cc2
+    m_Address: mvz2:entity/locked_chest/giggles1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 684ec7aa8b558924d9d579d222e0eac5
     m_Address: mvz2:entity/obstacle/gargoyle_statue
     m_ReadOnly: 0
@@ -5918,6 +5960,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 739f986fceaca924fb0d75cce588e6b8
     m_Address: mvz2:damage/shield/shield_hit2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73c9520d6726e9e40abc84d731616a01
+    m_Address: mvz2:entity/locked_chest/ouch
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7819,13 +7868,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 968ab73f272d096439cf327d3f944084
-    m_Address: mvz2:entities.xml
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Meta
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9696331d07114754fbccc29acd1b4846
     m_Address: mvz2:map/gensokyo/pins/castle
     m_ReadOnly: 0
@@ -8539,6 +8581,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5bfcffb5577f264d8ee8708c5b0f355
+    m_Address: mvz2:entity/effect/stab_effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5c1e4e7edb774e48a12ea382df65f15
     m_Address: mvz2:entity/projectiles/missile
@@ -11769,6 +11818,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9ab803f0d271bd48b365bc8766feb6b
     m_Address: mvz2:map/gensokyo/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9e2d13662f474a4d9ee76c4eaa53bae
+    m_Address: mvz2:entity/effects/aim_target
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

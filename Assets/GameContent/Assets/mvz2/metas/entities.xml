@@ -4253,5 +4253,18 @@
                 <int name="mvz2:maxTimeout" value="15" />
             </properties>
         </effect>
+        <effect id="aim_target">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:remove_without_parent" />
+            </behaviours>
+            <properties>
+                <int name="mvz2:sortingOrder" value="1000" />
+            </properties>
+        </effect>
+        <effect id="stab_effect">
+            <properties>
+                <int name="mvz2:maxTimeout" value="15" />
+            </properties>
+        </effect>
     </entries>
 </entities>

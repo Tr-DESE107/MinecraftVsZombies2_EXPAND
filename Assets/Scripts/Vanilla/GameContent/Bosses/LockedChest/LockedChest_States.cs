@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
@@ -39,6 +40,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new IdleState());
                 AddState(new JumpState());
                 AddState(new ChargeState());
+                AddState(new HighJumpState());
                 AddState(new SpitTrashState());
                 AddState(new SpitZombieBlueprintState());
                 AddState(new StunnedState());
@@ -47,11 +49,38 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        private static int GetShadowVariant(Entity entity, bool smash)
+        {
+            int variant = 0;
+            if (GetPhase(entity) == PHASE_2)
+            {
+                variant |= 1;
+            }
+            if (smash)
+            {
+                variant |= 2;
+            }
+            return variant;
+        }
+        private static void SpawnShadow(Entity entity, bool smash = false)
+        {
+            var param = entity.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.DISPLAY_SCALE, entity.GetDisplayScale());
+            param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFlipX());
+            param.SetProperty(LogicEntityProps.VARIANT, GetShadowVariant(entity, smash));
+            entity.Spawn(VanillaEffectID.lockedChestShadow, entity.Position, param);
+        }
+        private static void SetShake(Entity entity, bool value)
+        {
+            entity.SetAnimationBool("Shake", value);
+        }
         #region 待命
         private static bool CanSwitchStatePhase1(Entity entity, int state)
         {
             switch (state)
             {
+                case STATE_SMASH:
+                    return FindHighJumpSmashTargetEntity(entity) != null;
             }
             return true;
         }
@@ -59,6 +88,8 @@ namespace MVZ2.GameContent.Bosses
         {
             switch (state)
             {
+                case STATE_SMASH:
+                    return FindHighJumpSmashTargetEntity(entity) != null;
             }
             return true;
         }
@@ -228,27 +259,6 @@ namespace MVZ2.GameContent.Bosses
             offset.x += Math.Sign(offset.x) * 3;
             return entity.Level.GetEntityGridPosition(entity.GetColumn() + offset.x, entity.GetLane() + offset.y);
         }
-        private static int GetShadowVariant(Entity entity, bool smash)
-        {
-            int variant = 0;
-            if (GetPhase(entity) == PHASE_2)
-            {
-                variant |= 1;
-            }
-            if (smash)
-            {
-                variant |= 2;
-            }
-            return variant;
-        }
-        private static void SpawnShadow(Entity entity, bool smash = false)
-        {
-            var param = entity.GetSpawnParams();
-            param.SetProperty(EngineEntityProps.DISPLAY_SCALE, entity.GetDisplayScale());
-            param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFlipX());
-            param.SetProperty(LogicEntityProps.VARIANT, GetShadowVariant(entity, smash));
-            entity.Spawn(VanillaEffectID.lockedChestShadow, entity.Position, param);
-        }
         private static void ChargeCrush(Entity entity)
         {
             var level = entity.Level;
@@ -291,12 +301,12 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 var timer = stateMachine.GetSubStateTimer(entity);
                 timer.ResetSeconds(1);
-                entity.SetAnimationBool("Shake", true);
+                SetShake(entity, true);
             }
             public override void OnExit(EntityStateMachine machine, Entity entity)
             {
                 base.OnExit(machine, entity);
-                entity.SetAnimationBool("Shake", false);
+                SetShake(entity, false);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -311,7 +321,7 @@ namespace MVZ2.GameContent.Bosses
                         {
                             StartJump(entity, jumpFlyingSeconds, GetNewChargeTarget(entity));
                             stateMachine.StartSubState(entity, SUBSTATE_CHARGE1);
-                            entity.SetAnimationBool("Shake", false);
+                            SetShake(entity, false);
                         }
                         break;
                     case SUBSTATE_CHARGE1:
@@ -359,6 +369,186 @@ namespace MVZ2.GameContent.Bosses
             public const float jumpFlyingSeconds = 0.5f;
         }
         #endregion
+
+        #region 高跳
+        private static Entity? FindHighJumpSmashTargetEntity(Entity entity)
+        {
+            bool haveBeenPricked = HaveBeenPricked(entity);
+
+            IEnumerable<Entity> validEntities;
+            highJumpSearchBuffer.Clear();
+            if (!haveBeenPricked)
+            {
+                entity.Level.FindEntitiesNonAlloc(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible(), highJumpSearchBuffer);
+                validEntities = highJumpSearchBuffer.Where(e => e.IsEntityOf(VanillaContraptionID.amethystPylon));
+                if (validEntities.Count() <= 0)
+                {
+                    validEntities = highJumpSearchBuffer;
+                }
+            }
+            else
+            {
+                entity.Level.FindEntitiesNonAlloc(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible() && !e.IsEntityOf(VanillaContraptionID.amethystPylon), highJumpSearchBuffer);
+                validEntities = highJumpSearchBuffer;
+            }
+            if (validEntities.Count() <= 0)
+                return null;
+            return validEntities.Random(entity.RNG);
+        }
+        private static Vector3 FindHighJumpSmashTarget(Entity entity)
+        {
+            var target = FindHighJumpSmashTargetEntity(entity);
+            Vector3 position;
+            if (target == null)
+            {
+                position = entity.Position;
+            }
+            else
+            {
+                position = target.Position;
+            }
+            position.y = entity.Level.GetGroundY(position.x, position.z);
+            return position;
+        }
+        public static void PrickHighJump(Entity entity, Entity source)
+        {
+            if (stateMachine.GetStateNumber(entity) != STATE_SMASH)
+                return;
+            entity.TakeDamage(600, new DamageEffectList(VanillaDamageEffects.SLICE), source);
+            stateMachine.StartSubState(entity, HighJumpState.SUBSTATE_PRICKED);
+            SetHaveBeenPricked(entity, true);
+            var timer = stateMachine.GetSubStateTimer(entity);
+            timer.ResetSeconds(1);
+            SetShake(entity, true);
+
+            RemoveSmashTarget(entity);
+
+            var pos = entity.Position;
+            var vel = entity.Velocity;
+            pos.y = source.GetBounds().max.y;
+            vel.y = 0;
+            entity.Position = pos; 
+            entity.Velocity = vel;
+            entity.Spawn(VanillaEffectID.stabEffect, (entity.Position + source.Position) / 2);
+            entity.SetProperty(PROP_GRAVITY_MULTIPLIER, 0f);
+
+            entity.PlaySound(VanillaSoundID.shieldHit);
+            entity.PlaySound(VanillaSoundID.lockedChestOuch);
+        }
+        private class HighJumpState : EntityStateMachineState
+        {
+            public HighJumpState() : base(STATE_SMASH, ANIMATION_STATE_SMASH) { }
+            public override int GetAnimationState(int substate)
+            {
+                if (substate == SUBSTATE_SHAKE)
+                {
+                    return ANIMATION_STATE_IDLE;
+                }
+                return base.GetAnimationState(substate);
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                if (substate == SUBSTATE_FALL || substate == SUBSTATE_END)
+                {
+                    return ANIMATION_SUBSTATE_FALL;
+                }
+                return ANIMATION_SUBSTATE_JUMP;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(1);
+                SetShake(entity, true);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetShake(entity, false);
+
+                RemoveSmashTarget(entity);
+                entity.SetProperty(PROP_GRAVITY_MULTIPLIER, 1f);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_SHAKE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_JUMP);
+                            timer.ResetSeconds(1);
+                            SetShake(entity, false);
+                            var position = FindHighJumpSmashTarget(entity);
+                            SetTargetPosition(entity, position);
+                            SpawnSmashTarget(entity, position);
+
+                            entity.PlaySound(VanillaSoundID.launch);
+                        }
+                        break;
+                    case SUBSTATE_JUMP:
+                        {
+                            entity.Velocity = Vector3.up * 100;
+                            SpawnShadow(entity);
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_FALL);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_FALL:
+                        {
+                            var targetPosition = GetTargetPosition(entity);
+                            var velocity = (targetPosition - entity.Position) * 0.8f;
+                            velocity.y = -50;
+                            entity.Velocity = velocity;
+
+                            SpawnShadow(entity, true);
+                            if (entity.IsOnGround)
+                            {
+                                entity.PlaySound(VanillaSoundID.smash);
+                                entity.Level.ShakeScreen(10, 0, 15);
+                                float radius = 120;
+                                float damage = entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER;
+                                Explosion.Spawn(entity, entity.Position, radius);
+                                entity.Explode(entity.Position, radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.IGNORE_ARMOR));
+                                RemoveSmashTarget(entity);
+                                stateMachine.StartSubState(entity, SUBSTATE_END);
+                                timer.ResetSeconds(1);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                    case SUBSTATE_PRICKED:
+                        entity.Velocity = Vector3.zero;
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public const int SUBSTATE_SHAKE = 0;
+            public const int SUBSTATE_JUMP = 1;
+            public const int SUBSTATE_FALL = 2;
+            public const int SUBSTATE_END = 3;
+            public const int SUBSTATE_PRICKED = 4;
+
+            public const int ANIMATION_SUBSTATE_JUMP = 0;
+            public const int ANIMATION_SUBSTATE_FALL = 1;
+        }
+        #endregion
+
+
 
         #region 吐垃圾
         private class SpitTrashState : EntityStateMachineState
@@ -636,24 +826,25 @@ namespace MVZ2.GameContent.Bosses
         private static EntityStateMachine stateMachine = new LockedChestStateMachine();
         private static CollisionDetector crushDetector = new CollisionDetector(true);
         private static List<IEntityCollider> crushBuffer = new List<IEntityCollider>();
+        private static List<Entity> highJumpSearchBuffer = new List<Entity>();
         private static int[] statePoolPhase1 = new int[]
         {
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CHARGE,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CHARGE,
             STATE_JUMP,
             STATE_JUMP,
             STATE_JUMP,
             STATE_SMASH,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_LOCK,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CRUSH_LOCK,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_LOCK,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CRUSH_LOCK,
         };
         private static int[] statePoolPhase2 = new int[]
         {

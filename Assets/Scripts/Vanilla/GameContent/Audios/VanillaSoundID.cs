@@ -136,6 +136,9 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID lightbeam = Get("lightbeam");
         public readonly static NamespaceID lightningAttack = Get("lightning_attack");
         public readonly static NamespaceID locked = Get("locked");
+        public readonly static NamespaceID lockedChestGiggles = Get("locked_chest_giggles");
+        public readonly static NamespaceID lockedChestOuch = Get("locked_chest_ouch");
+        public readonly static NamespaceID lockedChestDeath = Get("locked_chest_death");
         public readonly static NamespaceID lowQualityEgypt = Get("low_quality_egypt");
         public readonly static NamespaceID lurker = Get("lurker");
         public readonly static NamespaceID magical = Get("magical");
