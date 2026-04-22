@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Root/Center/Main/FrontView
+    path: Root/Center/Main/Chest/FrontView
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -55,7 +55,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -124,7 +124,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Root/Center/Main/FrontView
+    path: Root/Center/Main/Chest/FrontView
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -145,7 +145,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
     classID: 1
     script: {fileID: 0}
     flags: 0

@@ -43,7 +43,9 @@ namespace MVZ2.GameContent.Enemies
             var animatorInterface = entity.GetAnimatorInterface(VanillaAnimatorKeys.main);
             if (animatorInterface != null)
             {
-                bool holdingAnchor = !NoAnchor(entity) && stateMachine.GetAnimationState(stateMachine.GetStateNumber(entity)) <= 2;
+                var stateNumber = stateMachine.GetStateNumber(entity);
+                var substate = stateMachine.GetSubState(entity);
+                bool holdingAnchor = !NoAnchor(entity) && stateMachine.GetAnimationState(stateNumber, substate) <= 2;
                 var targetWeight = holdingAnchor ? 1f : 0f;
                 var weight = animatorInterface.GetLayerWeight("AnchorArm");
                 weight = weight * 0.5f + targetWeight * 0.5f;

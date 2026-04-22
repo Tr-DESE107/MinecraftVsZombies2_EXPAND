@@ -115,6 +115,7 @@ namespace MVZ2.GameContent.Effects
         public const string masterSpark = "master_spark";
         public const string minecartRail = "minecart_rail";
         public const string minecartRideable = "minecart_rideable";
+        public const string lockedChestShadow = "locked_chest_shadow";
     }
     public static class VanillaEffectID
     {
@@ -226,6 +227,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID masterSpark = Get(VanillaEffectNames.masterSpark);
         public static readonly NamespaceID minecartRail = Get(VanillaEffectNames.minecartRail);
         public static readonly NamespaceID minecartRideable = Get(VanillaEffectNames.minecartRideable);
+        public static readonly NamespaceID lockedChestShadow = Get(VanillaEffectNames.lockedChestShadow);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -38,7 +38,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves:
@@ -68,7 +68,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: index
-    path: Root/Center/Main/SideView/Top/Sprite
+    path: Root/Center/Main/Chest/SideView/Top/Sprite
     classID: 114
     script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
     flags: 0
@@ -146,7 +146,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
     classID: 4
     script: {fileID: 0}
     flags: 16
@@ -176,7 +176,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
     classID: 4
     script: {fileID: 0}
     flags: 16
@@ -206,7 +206,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
     classID: 4
     script: {fileID: 0}
     flags: 16
@@ -236,7 +236,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: index
-    path: Root/Center/Main/SideView/Top/Sprite
+    path: Root/Center/Main/Chest/SideView/Top/Sprite
     classID: 114
     script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
     flags: 0
@@ -249,7 +249,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -261,7 +261,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -273,7 +273,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Root/Center/Main/SideView
+    path: Root/Center/Main/Chest/SideView
     classID: 4
     script: {fileID: 0}
     flags: 0

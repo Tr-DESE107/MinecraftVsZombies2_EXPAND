@@ -2340,6 +2340,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2df51b7c63d3eaa49b56d152fe6d6562
+    m_Address: mvz2:effect/locked_chest_shadow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2dfedcec3d1897541a307c6e344bced5
     m_Address: mvz2:mainmenu/view/dream
     m_ReadOnly: 0
@@ -6153,6 +6160,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78d2df784ddbd3c499324ac0f5a31020
+    m_Address: mvz2:entity/effect/locked_chest_shadow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79171aca3bcf918459cf2160bda1f9f2
     m_Address: mvz2:entity/effects/nightmareaper_shadow
     m_ReadOnly: 0
@@ -7804,6 +7818,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 968ab73f272d096439cf327d3f944084
+    m_Address: mvz2:entities.xml
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9696331d07114754fbccc29acd1b4846
     m_Address: mvz2:map/gensokyo/pins/castle

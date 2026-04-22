@@ -77,7 +77,7 @@ namespace MVZ2.Vanilla.StateMachine
 
             entity.SetAnimationInt("State", stateNum);
             entity.SetAnimationInt("SubState", 0);
-            entity.SetAnimationInt("AnimationState", state.animationState);
+            entity.SetAnimationInt("AnimationState", state.GetAnimationState(0));
             entity.SetAnimationInt("AnimationSubstate", state.GetAnimationSubstate(0));
 
             state.OnEnter(this, entity);
@@ -149,15 +149,16 @@ namespace MVZ2.Vanilla.StateMachine
             var state = GetState(GetStateNumber(entity));
             if (state != null)
             {
+                entity.SetAnimationInt("AnimationState", state.GetAnimationState(substate));
                 entity.SetAnimationInt("AnimationSubstate", state.GetAnimationSubstate(substate));
             }
         }
-        public int GetAnimationState(int stateNum)
+        public int GetAnimationState(int stateNum, int substate)
         {
             var state = GetState(stateNum);
             if (state == null)
                 return 0;
-            return state.animationState;
+            return state.GetAnimationState(substate);
         }
         #endregion
 

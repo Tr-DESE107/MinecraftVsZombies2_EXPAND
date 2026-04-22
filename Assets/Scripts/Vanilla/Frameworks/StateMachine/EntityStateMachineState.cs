@@ -20,6 +20,7 @@ namespace MVZ2.Vanilla.StateMachine
         public virtual void OnUpdateAI(EntityStateMachine machine, Entity entity) { }
         public virtual void OnUpdateLogic(EntityStateMachine machine, Entity entity) { }
         public virtual void OnExit(EntityStateMachine machine, Entity entity) { }
+        public virtual int GetAnimationState(int substate) { return animationState; }
         public virtual int GetAnimationSubstate(int substate) { return 0; }
     }
 }
