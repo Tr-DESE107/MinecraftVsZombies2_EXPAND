@@ -87,6 +87,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02ca0605cd3b9ee4780201d36a424d5f
+    m_Address: mvz2:entity/enemies/stone_model
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 02d02d3206dc8484c8e80a0aa53c8725
     m_Address: mvz2:mobile_blueprint/berserker
     m_ReadOnly: 0
@@ -5216,6 +5223,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6160c1714d820684e97058d3939b3a7f
+    m_Address: mvz2:entity/enemies/oak_wood_model
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 61b14cad219541948a6115b847dd946b
     m_Address: mvz2:soul_sand3
     m_ReadOnly: 0
@@ -5505,6 +5519,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68a485f25ba85d145b16d0d125b5eb2f
     m_Address: mvz2:projectile/gravel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68d8ddab7ad59834db9984302f72046b
+    m_Address: mvz2:enemy/palace/rolling_wood
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6827,6 +6848,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81dd671c4a73dc1439c7e4394a95e1c0
     m_Address: mvz2:enemy/ship/undead_flying_object
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81deb87c798a87f43b53d09d90a1dccd
+    m_Address: mvz2:enemy/palace/rolling_stone
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9590,6 +9618,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9c2c876f101bfd469c054d4022821da
+    m_Address: mvz2:bones/rolling_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9c3569bc9db04742bb9c7225ea56870
     m_Address: mvz2:effect/amplified_roar
     m_ReadOnly: 0
@@ -11621,7 +11656,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e42bc5d20b830a14881649237e6f6723
-    m_Address: mvz2:enemy/palace/hay_bale
+    m_Address: mvz2:enemy/palace/rolling_hay_bale
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -94,9 +94,12 @@ namespace MVZ2.GameContent.Bosses
         public static void SetSmashTargetID(Entity entity, EntityID? value) => entity.SetProperty(PROP_SMASH_TARGET_ID, value);
         public static int GetCoughType(Entity entity) => entity.GetProperty<int>(PROP_COUGH_TYPE);
         public static void SetCoughType(Entity entity, int value) => entity.SetProperty(PROP_COUGH_TYPE, value);
+        public static int GetUsedCoughType(Entity entity) => entity.GetProperty<int>(PROP_USED_COUGH_TYPES);
+        public static void SetUsedCoughType(Entity entity, int value) => entity.SetProperty(PROP_USED_COUGH_TYPES, value);
 
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
         private static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_USED_COUGH_TYPES = new VanillaEntityPropertyMeta<int>("used_cough_types");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("flip_x");
         private static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1f);
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");

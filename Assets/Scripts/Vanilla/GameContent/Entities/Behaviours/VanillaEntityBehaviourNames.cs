@@ -27,7 +27,9 @@ namespace MVZ2.Vanilla.Entities
         public const string ignitable_Trigger = "ignitable/trigger";
         public const string ignitable_Evoke = "ignitable/evoke";
 
+        public const string instakillByWind = "instakill_by_wind";
         public const string instakillByFire = "instakill_by_fire";
+        public const string instakillByImpact = "instakill_by_impact";
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
@@ -92,6 +94,7 @@ namespace MVZ2.Vanilla.Entities
         public const string zombieCat_Model = "zombie_cat/model";
         public const string wispFly_SelfDestruct = "wisp_fly/self_destruct";
         public const string crusherBall = "crusher_ball";
+        public const string rollingGiantBlock = "rolling_giant_block";
         #endregion
 
         #region Obstacles

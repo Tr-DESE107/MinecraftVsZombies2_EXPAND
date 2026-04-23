@@ -887,9 +887,32 @@ namespace MVZ2.GameContent.Bosses
         #region 吐垃圾
         private static int GetNextCoughType(Entity entity)
         {
-            var coughType = GetCoughType(entity);
-            coughType++;
-            coughType %= COUGH_TYPE_COUNT;
+            var usedCoughType = GetUsedCoughType(entity);
+
+            if ((usedCoughType & COUGH_TYPE_MASK) == COUGH_TYPE_MASK)
+            {
+                usedCoughType = 0;
+            }
+
+            List<int> unusedCoughTypes = new List<int>();
+            for (int i = 0; i < COUGH_TYPE_COUNT; i++)
+            {
+                if ((usedCoughType & (1 << i)) != 0)
+                    continue;
+                unusedCoughTypes.Add(i);
+            }
+            int coughType;
+            if (unusedCoughTypes.Count <= 0)
+            {
+                coughType = COUGH_TYPE_PISTENSER;
+            }
+            else
+            {
+                coughType = unusedCoughTypes.Random(entity.RNG);
+            }
+
+            usedCoughType |= 1 << coughType;
+            SetUsedCoughType(entity, usedCoughType);
             return coughType;
         }
         private class CoughState : EntityStateMachineState
@@ -1172,9 +1195,11 @@ namespace MVZ2.GameContent.Bosses
 
 
         public const int COUGH_TYPE_PUNCHTON = 0;
-        public const int COUGH_TYPE_SOUL_FURNACE = 1;
-        public const int COUGH_TYPE_PISTENSER = 2;
-        public const int COUGH_TYPE_COUNT = 3;
+        public const int COUGH_TYPE_WOODEN_FAN = 1;
+        public const int COUGH_TYPE_SOUL_FURNACE = 2;
+        public const int COUGH_TYPE_PISTENSER = 3;
+        public const int COUGH_TYPE_COUNT = 4;
+        public const int COUGH_TYPE_MASK = (1 << COUGH_TYPE_COUNT) - 1;
         private static EntityStateMachine stateMachine = new LockedChestStateMachine();
         private static Detector crushDetector = new CollisionDetector(true);
         private static Detector highJumpDetector = new BoxDetector(new Vector3(200, 40, 60), new Vector3(0, 20, 0), true);
@@ -1185,6 +1210,7 @@ namespace MVZ2.GameContent.Bosses
 
         private static NamespaceID[] coughBlueprintIDFirst = new NamespaceID[]
         {
+            LogicBlueprintID.FromEntity(VanillaContraptionID.woodenFan),
             LogicBlueprintID.FromEntity(VanillaContraptionID.punchton),
             LogicBlueprintID.FromEntity(VanillaContraptionID.soulFurnace),
             LogicBlueprintID.FromEntity(VanillaContraptionID.pistenser),

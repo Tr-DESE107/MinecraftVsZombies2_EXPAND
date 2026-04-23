@@ -386,7 +386,7 @@
             <key hex="#dfd8d1" time="1" />
         </colorKeys>
     </fragment>
-    <fragment name="hay_bale">
+    <fragment name="rolling_hay_bale">
         <colorKeys>
             <key hex="#cbb630" time="0.5" />
             <key hex="#bfab31" time="1" />

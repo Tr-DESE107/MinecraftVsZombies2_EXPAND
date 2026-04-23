@@ -2565,16 +2565,18 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>
-        <specialEnemy id="hay_bale" name="干草捆" deathMessage="？">
+        <specialEnemy id="rolling_hay_bale" name="滚干草捆" deathMessage="？">
             <unlock>
-                <condition required="mvz2:level.castle_9" />
+                <condition required="mvz2:level.palace_11" />
             </unlock>
-            <behaviours>
+            <behaviours includeSelf="true">
                 <behaviour operator="add" id="mvz2:enemy_state" />
                 <behaviour operator="add" id="mvz2:enemy_walk" />
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:crusher_ball" />
+                <behaviour operator="add" id="mvz2:rolling_giant_block" />
                 <behaviour operator="add" id="mvz2:instakill_by_fire" />
+                <behaviour operator="add" id="mvz2:instakill_by_wind" />
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
@@ -2587,8 +2589,77 @@
                 <id name="mvz2:shape" value="mvz2:block" />
                 <id name="mvz2:crySound" null="true" />
                 <id name="mvz2:deathSound" value="mvz2:grass" />
-                <float name="mvz2:maxHealth" value="32768" />
+                <float name="mvz2:maxHealth" value="3000" />
                 <float name="mvz2:mass" value="1" />
+                <float name="mvz2:speed" value="2" />
+                <vector3 name="mvz2:size" x="100" y="100" z="40" />
+                <vector3 name="mvz2:shadowScale" x="4" y="4" z="4" />
+                <int name="mvz2:hp_bar_visibility" value="-1" />
+
+                <int name="mvz2:cost" value="300" />
+            </properties>
+        </specialEnemy>
+        <specialEnemy id="rolling_wood" name="滚木" deathMessage="？">
+            <unlock>
+                <condition required="mvz2:level.palace_11" />
+            </unlock>
+            <behaviours includeSelf="true">
+                <behaviour operator="add" id="mvz2:enemy_state" />
+                <behaviour operator="add" id="mvz2:enemy_walk" />
+                <behaviour operator="add" id="mvz2:fragmented" />
+                <behaviour operator="add" id="mvz2:crusher_ball" />
+                <behaviour operator="add" id="mvz2:rolling_giant_block" />
+                <behaviour operator="add" id="mvz2:instakill_by_fire" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:harmless" value="true" />
+                <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:immune_slowing" value="true" />
+                <float name="mvz2:fallResistance" value="10000" />
+                <id name="mvz2:shell" value="mvz2:wood" />
+                <id name="mvz2:shape" value="mvz2:block" />
+                <id name="mvz2:fragmentId" value="mvz2:wooden_dropper" />
+                <id name="mvz2:crySound" null="true" />
+                <id name="mvz2:deathSound" value="mvz2:wood" />
+                <float name="mvz2:maxHealth" value="3000" />
+                <float name="mvz2:mass" value="2" />
+                <float name="mvz2:speed" value="2" />
+                <vector3 name="mvz2:size" x="100" y="100" z="40" />
+                <vector3 name="mvz2:shadowScale" x="4" y="4" z="4" />
+                <int name="mvz2:hp_bar_visibility" value="-1" />
+
+                <int name="mvz2:cost" value="300" />
+            </properties>
+        </specialEnemy>
+        <specialEnemy id="rolling_stone" name="滚石" deathMessage="？">
+            <unlock>
+                <condition required="mvz2:level.palace_11" />
+            </unlock>
+            <behaviours includeSelf="true">
+                <behaviour operator="add" id="mvz2:enemy_state" />
+                <behaviour operator="add" id="mvz2:enemy_walk" />
+                <behaviour operator="add" id="mvz2:fragmented" />
+                <behaviour operator="add" id="mvz2:crusher_ball" />
+                <behaviour operator="add" id="mvz2:rolling_giant_block" />
+                <behaviour operator="add" id="mvz2:instakill_by_impact" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:harmless" value="true" />
+                <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:immune_slowing" value="true" />
+                <float name="mvz2:fallResistance" value="10000" />
+                <id name="mvz2:shell" value="mvz2:stone" />
+                <id name="mvz2:shape" value="mvz2:block" />
+                <id name="mvz2:fragmentId" value="mvz2:furnace" />
+                <id name="mvz2:crySound" null="true" />
+                <id name="mvz2:deathSound" value="mvz2:stone" />
+                <float name="mvz2:maxHealth" value="3000" />
+                <float name="mvz2:mass" value="2" />
+                <float name="mvz2:speed" value="2" />
                 <vector3 name="mvz2:size" x="100" y="100" z="40" />
                 <vector3 name="mvz2:shadowScale" x="4" y="4" z="4" />
                 <int name="mvz2:hp_bar_visibility" value="-1" />

@@ -320,7 +320,9 @@
             </parameters>
         </animator>
     </model>
-    <model name="hay_bale" type="entity" path="mvz2:enemy/palace/hay_bale" width="100" height="140" xOffset="0" yOffset="-48"/>
+    <model name="rolling_hay_bale" type="entity" path="mvz2:enemy/palace/rolling_hay_bale" width="100" height="140" xOffset="0" yOffset="-48"/>
+    <model name="rolling_wood" type="entity" path="mvz2:enemy/palace/rolling_wood" width="100" height="140" xOffset="0" yOffset="-48"/>
+    <model name="rolling_stone" type="entity" path="mvz2:enemy/palace/rolling_stone" width="100" height="140" xOffset="0" yOffset="-48"/>
 
 
     <!-- Obstacles -->

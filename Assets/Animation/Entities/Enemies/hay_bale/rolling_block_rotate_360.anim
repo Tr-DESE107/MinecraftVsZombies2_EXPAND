@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hay_bale_rotate_360
+  m_Name: rolling_block_rotate_360
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0

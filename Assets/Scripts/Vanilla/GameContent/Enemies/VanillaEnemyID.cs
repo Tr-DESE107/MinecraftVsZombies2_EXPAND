@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.Enemies
         public const string shikaisenStaff = "shikaisen_staff";
         public const string netherHunter = "nether_hunter";
         public const string netherMage = "nether_mage";
-        public const string hayBale = "hay_bale";
+        public const string rollingHayBale = "rolling_hay_bale";
 
     }
     public static class VanillaEnemyID
@@ -132,7 +132,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID shikaisenStaff = Get(VanillaEnemyNames.shikaisenStaff);
         public static readonly NamespaceID netherHunter = Get(VanillaEnemyNames.netherHunter);
         public static readonly NamespaceID netherMage = Get(VanillaEnemyNames.netherMage);
-        public static readonly NamespaceID hayBale = Get(VanillaEnemyNames.hayBale);
+        public static readonly NamespaceID rollingHayBale = Get(VanillaEnemyNames.rollingHayBale);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
