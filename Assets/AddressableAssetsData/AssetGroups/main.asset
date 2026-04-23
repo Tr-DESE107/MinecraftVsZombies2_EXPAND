@@ -7672,6 +7672,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92c38217e084470499178a44014b451c
+    m_Address: mvz2:entity/enemies/balloon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92c4dbf29f435db47a77583bbca3cfd6
     m_Address: mvz2:impact
     m_ReadOnly: 0
@@ -9333,6 +9340,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4afc6a6c73738d48818d19fcc98eab8
     m_Address: mvz2:icons/z
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4bcd83773a2fd64dac5dca5973eaf59
+    m_Address: mvz2:entity/enemies/hay_block_model
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11452,6 +11466,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0957be7d04f36d4588796e5d2440ccc
+    m_Address: mvz2:entity/locked_chest/cough
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0c7697228ff843469a11a3a633766bb
     m_Address: mvz2:ui/gear
     m_ReadOnly: 0
@@ -11598,6 +11619,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e42bc5d20b830a14881649237e6f6723
+    m_Address: mvz2:enemy/palace/hay_bale
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4338c72026e47949a5e8edc50e80692
     m_Address: mvz2:ui/level/imbued_icon

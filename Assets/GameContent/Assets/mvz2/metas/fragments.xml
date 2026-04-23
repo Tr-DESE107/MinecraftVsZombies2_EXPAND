@@ -386,4 +386,18 @@
             <key hex="#dfd8d1" time="1" />
         </colorKeys>
     </fragment>
+    <fragment name="hay_bale">
+        <colorKeys>
+            <key hex="#cbb630" time="0.5" />
+            <key hex="#bfab31" time="1" />
+        </colorKeys>
+    </fragment>
+
+    <fragment name="corpse_cart">
+        <colorKeys>
+            <key hex="#cdcdcd" time="0.5" />
+            <key hex="#604f37" time="1" />
+        </colorKeys>
+    </fragment>
+    
 </fragments>
