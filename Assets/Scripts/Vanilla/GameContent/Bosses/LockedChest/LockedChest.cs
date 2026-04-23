@@ -25,6 +25,7 @@ namespace MVZ2.GameContent.Bosses
         public override void Init(Entity boss)
         {
             base.Init(boss);
+            SetPhase(boss, PHASE_2);
             stateMachine.Init(boss);
             stateMachine.StartState(boss, STATE_IDLE);
             boss.CollisionMaskHostile |= EntityCollisionHelper.MASK_PLANT;
@@ -91,8 +92,11 @@ namespace MVZ2.GameContent.Bosses
         public static void SetTargetPosition(Entity entity, Vector3 value) => entity.SetProperty(PROP_TARGET_POSITION, value);
         public static EntityID? GetSmashTargetID(Entity entity) => entity.GetProperty<EntityID>(PROP_SMASH_TARGET_ID);
         public static void SetSmashTargetID(Entity entity, EntityID? value) => entity.SetProperty(PROP_SMASH_TARGET_ID, value);
+        public static int GetCoughType(Entity entity) => entity.GetProperty<int>(PROP_COUGH_TYPE);
+        public static void SetCoughType(Entity entity, int value) => entity.SetProperty(PROP_COUGH_TYPE, value);
 
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("flip_x");
         private static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1f);
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
@@ -115,6 +119,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_CAMERA = VanillaBossStates.LOCKED_CHEST_CAMERA;
         public const int STATE_SPIT_ZOMBIE_BLUEPRINTS = VanillaBossStates.LOCKED_CHEST_SPIT_ZOMBIE_BLUEPRINTS;
         public const int STATE_PAY_TO_WIN = VanillaBossStates.LOCKED_CHEST_PAY_TO_WIN;
+        public const int STATE_COUGH = VanillaBossStates.LOCKED_CHEST_COUGH;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_STUNNED = 2;

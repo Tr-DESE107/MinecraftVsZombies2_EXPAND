@@ -490,6 +490,9 @@
     <sound name="locked" priority="0">
         <sample path="mvz2:locked" weight="1" />
     </sound>
+    <sound name="locked_chest_cough">
+        <sample path="mvz2:entity/locked_chest/cough" weight="1" />
+    </sound>
     <sound name="locked_chest_giggles">
         <sample path="mvz2:entity/locked_chest/giggles1" weight="1" />
         <sample path="mvz2:entity/locked_chest/giggles2" weight="1" />

@@ -48,6 +48,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new CrushingLockState());
 
                 AddState(new SpitTrashState());
+                AddState(new CoughState());
                 AddState(new SpitZombieBlueprintState());
                 AddState(new StunnedState());
                 AddState(new DeathState());
@@ -708,25 +709,7 @@ namespace MVZ2.GameContent.Bosses
             }
 
             // 找出存活植物中 neighborCounts 最大的那个
-            List<int> bestTargetIndexes = new List<int>();
-            int maxNeighbors = -1;
-            for (int idx = 0; idx < maxIndex; idx++)
-            {
-                var hasContraption = contraptions[idx];
-                var neighbors = neighborCounts[idx];
-                if (neighbors > maxNeighbors)
-                {
-                    maxNeighbors = neighborCounts[idx];
-                    bestTargetIndexes.Clear();
-                    bestTargetIndexes.Add(idx);
-                }
-                else if (neighbors == maxNeighbors)
-                {
-                    bestTargetIndexes.Add(idx);
-                }
-            }
-
-            return bestTargetIndexes;
+            return neighborCounts.GetMostOnes(c => c);
         }
         public static IEnumerable<SeedPack> GetPossibleRequiredContraptionID(LevelEngine level)
         {
@@ -838,10 +821,6 @@ namespace MVZ2.GameContent.Bosses
             public SpitTrashState() : base(STATE_SPIT_TRASH, ANIMATION_STATE_OPEN_CHEST) { }
             public override int GetAnimationSubstate(int substate)
             {
-                if (substate == SUBSTATE_END)
-                {
-                    return ANIMATION_SUBSTATE_CLOSE;
-                }
                 return ANIMATION_SUBSTATE_OPEN;
             }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
@@ -871,15 +850,8 @@ namespace MVZ2.GameContent.Bosses
                             SpitProjectile(entity);
                             if (timer.Expired)
                             {
-                                entity.PlaySound(VanillaSoundID.chestClose);
-                                stateMachine.StartSubState(entity, SUBSTATE_END);
+                                stateMachine.StartState(entity, STATE_COUGH);
                             }
-                        }
-                        break;
-                    case SUBSTATE_END:
-                        if (timer.Expired)
-                        {
-                            stateMachine.StartState(entity, STATE_IDLE);
                         }
                         break;
                 }
@@ -902,10 +874,103 @@ namespace MVZ2.GameContent.Bosses
             }
             public const int SUBSTATE_READY = 0;
             public const int SUBSTATE_SPIT = 1;
-            public const int SUBSTATE_END = 2;
+            public const int SUBSTATE_COUGH1 = 2;
+            public const int SUBSTATE_COUGH2 = 3;
+            public const int SUBSTATE_COUGH3 = 4;
 
             public const int ANIMATION_SUBSTATE_OPEN = 0;
             public const int ANIMATION_SUBSTATE_CLOSE = 1;
+        }
+        #endregion
+
+
+        #region 吐垃圾
+        private static int GetNextCoughType(Entity entity)
+        {
+            var coughType = GetCoughType(entity);
+            coughType++;
+            coughType %= COUGH_TYPE_COUNT;
+            return coughType;
+        }
+        private class CoughState : EntityStateMachineState
+        {
+            public CoughState() : base(STATE_COUGH, ANIMATION_STATE_IDLE) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                SetCoughType(entity, GetNextCoughType(entity));
+
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.SetSeconds(0.5f);
+
+                Cough(entity, true);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_COUGH1:
+                    case SUBSTATE_COUGH2:
+                        {
+                            if (timer.Expired)
+                            {
+                                timer.ResetSeconds(0.5f);
+                                Cough(entity, false);
+                                stateMachine.StartSubState(entity, substate + 1);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_COUGH3:
+                        {
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartState(entity, STATE_IDLE);
+                            }
+                        }
+                        break;
+                }
+            }
+            private NamespaceID GetRandomCoughBlueprintID(RandomGenerator rng)
+            {
+                return coughBlueprintPool.Random(rng);
+            }
+            private NamespaceID GetCoughBlueprintID(Entity entity, bool first)
+            {
+                var coughType = GetCoughType(entity);
+                if (first)
+                {
+                    return coughBlueprintIDFirst[coughType];
+                }
+                return GetRandomCoughBlueprintID(entity.RNG);
+            }
+            private void Cough(Entity entity, bool first)
+            {
+                var rng = entity.RNG;
+                var x = rng.NextFloat() * 10 + 10;
+                var y = rng.NextFloat() * 5 + 5;
+                var z = rng.NextFloat() * 20 - 10;
+                var velocity = new Vector3(x * entity.GetFacingX(), y, z);
+
+                var blueprintID = GetCoughBlueprintID(entity, first);
+                var shotPosition = entity.Position + entity.GetShotOffset();
+
+                var param = entity.GetSpawnParams();
+                param.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
+                entity.Spawn(VanillaPickupID.blueprintPickup, shotPosition, param)?.Let(b =>
+                {
+                    b.Velocity = velocity;
+                });
+
+                entity.TriggerAnimation("CoughTrigger");
+                entity.PlaySound(VanillaSoundID.lockedChestCough, rng.NextFloat() * 0.5f + 0.75f);
+            }
+            public const int SUBSTATE_COUGH1 = 0;
+            public const int SUBSTATE_COUGH2 = 1;
+            public const int SUBSTATE_COUGH3 = 2;
         }
         #endregion
 
@@ -1105,12 +1170,34 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+
+        public const int COUGH_TYPE_PUNCHTON = 0;
+        public const int COUGH_TYPE_SOUL_FURNACE = 1;
+        public const int COUGH_TYPE_PISTENSER = 2;
+        public const int COUGH_TYPE_COUNT = 3;
         private static EntityStateMachine stateMachine = new LockedChestStateMachine();
         private static Detector crushDetector = new CollisionDetector(true);
         private static Detector highJumpDetector = new BoxDetector(new Vector3(200, 40, 60), new Vector3(0, 20, 0), true);
         private static List<IEntityCollider> crushBuffer = new List<IEntityCollider>();
         private static List<Entity> highJumpSearchBuffer = new List<Entity>();
         private static List<IEntityCollider> highJumpDamageBuffer = new List<IEntityCollider>();
+
+
+        private static NamespaceID[] coughBlueprintIDFirst = new NamespaceID[]
+        {
+            LogicBlueprintID.FromEntity(VanillaContraptionID.punchton),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.soulFurnace),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.pistenser),
+        };
+        private static NamespaceID[] coughBlueprintPool = new NamespaceID[]
+        {
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dispenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.silvenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.tnt),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.magichest),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.glowstone),
+        };
         private static int[] statePoolPhase1 = new int[]
         {
             //STATE_JUMP,
@@ -1132,10 +1219,10 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CHARGE,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CHARGE,
             STATE_JUMP,
             STATE_JUMP,
             STATE_JUMP,
@@ -1145,10 +1232,10 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_CAMERA,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_SPIT_ZOMBIE_BLUEPRINTS,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_SPIT_ZOMBIE_BLUEPRINTS,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,

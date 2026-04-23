@@ -6007,6 +6007,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73fed7dd6cafb2f42a1d1cc6f6bcd1f6
+    m_Address: mvz2:icon/shackled
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 745188df3d02ed44e92b2101700416b2
     m_Address: mvz2:contraption/prologue/obsidian
     m_ReadOnly: 0
