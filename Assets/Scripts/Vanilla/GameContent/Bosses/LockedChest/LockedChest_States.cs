@@ -3,20 +3,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.StateMachine;
@@ -28,6 +26,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
@@ -46,6 +45,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new ChargeState());
                 AddState(new HighJumpState());
                 AddState(new LockState());
+                AddState(new CrushingLockState());
 
                 AddState(new SpitTrashState());
                 AddState(new SpitZombieBlueprintState());
@@ -87,6 +87,10 @@ namespace MVZ2.GameContent.Bosses
             {
                 case STATE_SMASH:
                     return FindHighJumpSmashTargetEntity(entity) != null;
+                case STATE_LOCK:
+                    return CanSwitchToLockState(entity);
+                case STATE_CRUSHING_LOCK:
+                    return CanSwitchToCrushingLockState(entity);
             }
             return true;
         }
@@ -433,7 +437,7 @@ namespace MVZ2.GameContent.Bosses
             var vel = entity.Velocity;
             pos.y = source.GetBounds().max.y;
             vel.y = 0;
-            entity.Position = pos; 
+            entity.Position = pos;
             entity.Velocity = vel;
             entity.Spawn(VanillaEffectID.stabEffect, (entity.Position + source.Position) / 2);
             entity.SetProperty(PROP_GRAVITY_MULTIPLIER, 0f);
@@ -564,6 +568,39 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 封锁
+        private static bool CanSwitchToLockState(Entity entity)
+        {
+            var level = entity.Level;
+            var seedPacks = GetBlueprintsToLock(level);
+            if (seedPacks.Count() <= 0)
+                return false;
+            return true;
+        }
+        public static IEnumerable<SeedPack> GetBlueprintsToLock(LevelEngine level)
+        {
+            if (level.IsConveyorMode())
+            {
+                return level.GetAllConveyorSeedPacks();
+            }
+            else
+            {
+                return level.GetAllSeedPacks().OfType<SeedPack>();
+            }
+        }
+        public static void LockRandomBlueprint(Entity entity, int count)
+        {
+            var level = entity.Level;
+            var seedPacks = GetBlueprintsToLock(level);
+            if (seedPacks.Count() <= 0)
+                return;
+            var selected = seedPacks.RandomTake(count, entity.RNG);
+            if (selected == null)
+                return;
+            foreach (var seedPack in selected)
+            {
+                seedPack.AddBuff<BlueprintLockBuff>();
+            }
+        }
         private class LockState : EntityStateMachineState
         {
             public LockState() : base(STATE_LOCK, ANIMATION_STATE_IDLE) { }
@@ -609,26 +646,185 @@ namespace MVZ2.GameContent.Bosses
                         break;
                 }
             }
-            public void LockRandomBlueprint(Entity entity, int count)
+            public const int SUBSTATE_SHAKE = 0;
+            public const int SUBSTATE_LOCK = 1;
+        }
+        #endregion
+
+        #region 粉碎之锁
+        private static bool CanSwitchToCrushingLockState(Entity entity)
+        {
+            return FindCrushingLockTargetGridIndexes(entity).Count() >= 0 && GetPossibleRequiredContraptionID(entity.Level).Count() > 0;
+        }
+        public static IEnumerable<int> FindCrushingLockTargetGridIndexes(Entity entity)
+        {
+            var level = entity.Level;
+            int columnCount = level.GetMaxColumnCount();
+            int laneCount = level.GetMaxLaneCount();
+            int maxIndex = columnCount * laneCount;
+
+            // 使用数组代替字典，内存连续、访问更快（索引范围已知）
+            var contraptions = new bool[maxIndex];
+            var neighborCounts = new int[maxIndex];
+
+            // 先记录所有植物的位置
+            foreach (var contraption in level.FindEntities(e => e.Type == EntityTypes.PLANT))
             {
-                var level = entity.Level;
-                IEnumerable<SeedPack> seedPacks;
-                if (level.IsConveyorMode())
+                int idx = contraption.GetGridIndex();
+                if ((uint)idx < (uint)maxIndex)   // 边界检查的惯用高效写法
+                    contraptions[idx] = true;
+            }
+
+            // 统计每个格子周围 8 格的植物数量
+            for (int idx = 0; idx < maxIndex; idx++)
+            {
+                if (!contraptions[idx])
+                    continue;
+
+                int x = level.GetGridColumnByIndex(idx);
+                int y = level.GetGridLaneByIndex(idx);
+
+                int count = 0;
+                for (int dx = -1; dx <= 1; dx++)
                 {
-                    seedPacks = level.GetAllConveyorSeedPacks();
+                    int nx = x + dx;
+                    if ((uint)nx >= (uint)columnCount)
+                        continue;
+                    for (int dy = -1; dy <= 1; dy++)
+                    {
+                        if (dx == 0 && dy == 0)
+                            continue;
+                        int ny = y + dy;
+                        if ((uint)ny >= (uint)laneCount)
+                            continue;
+                        int neighborIdx = ny * columnCount + nx; // 直接计算，避免方法调用
+                                                                 // 相邻格子只要有植物（或未来可能有机关）就算一次
+                                                                 // 此处简单起见，有植物就算一次“包围”
+                        if (contraptions[neighborIdx])
+                            count++;
+                    }
                 }
-                else
+                neighborCounts[idx] = count;
+            }
+
+            // 找出存活植物中 neighborCounts 最大的那个
+            List<int> bestTargetIndexes = new List<int>();
+            int maxNeighbors = -1;
+            for (int idx = 0; idx < maxIndex; idx++)
+            {
+                var hasContraption = contraptions[idx];
+                var neighbors = neighborCounts[idx];
+                if (neighbors > maxNeighbors)
                 {
-                    seedPacks = level.GetAllSeedPacks().OfType<SeedPack>();
+                    maxNeighbors = neighborCounts[idx];
+                    bestTargetIndexes.Clear();
+                    bestTargetIndexes.Add(idx);
                 }
-                if (seedPacks.Count() <= 0)
-                    return;
-                var selected = seedPacks.RandomTake(count, entity.RNG);
-                if (selected == null)
-                    return;
-                foreach (var seedPack in selected)
+                else if (neighbors == maxNeighbors)
                 {
-                    seedPack.AddBuff<BlueprintLockBuff>();
+                    bestTargetIndexes.Add(idx);
+                }
+            }
+
+            return bestTargetIndexes;
+        }
+        public static IEnumerable<SeedPack> GetPossibleRequiredContraptionID(LevelEngine level)
+        {
+            IEnumerable<SeedPack> seedPacks;
+            if (level.IsConveyorMode())
+            {
+                seedPacks = level.GetAllConveyorSeedPacks();
+            }
+            else
+            {
+                seedPacks = level.GetAllSeedPacks().OfType<SeedPack>();
+            }
+            return seedPacks.Where(s =>
+            {
+                if (s.IsUpgradeBlueprint() || s.CanInstantTrigger() || s.GetSeedType() != SeedTypes.ENTITY)
+                    return false;
+                var entityID = s.GetSeedEntityID();
+                var entityDef = level.Content.GetEntityDefinition(entityID);
+                if (entityDef == null)
+                    return false;
+                var gridLayers = entityDef.GetGridLayersToTake();
+                if (gridLayers == null || !gridLayers.Contains(VanillaGridLayers.main))
+                    return false;
+                return true;
+            });
+        }
+        public static NamespaceID? GetRandomRequiredContraptionID(LevelEngine level, RandomGenerator rng)
+        {
+            var validSeedPacks = GetPossibleRequiredContraptionID(level);
+            if (validSeedPacks.Count() <= 0)
+                return null;
+            return validSeedPacks.Random(rng).GetSeedEntityID();
+        }
+        public static void CrushingLock(Entity entity)
+        {
+            var gridIndexes = FindCrushingLockTargetGridIndexes(entity);
+            if (gridIndexes.Count() < 0)
+                return;
+            var rng = entity.RNG;
+            var gridIndex = gridIndexes.Random(rng);
+            var grid = entity.Level.GetGrid(gridIndex);
+            if (grid == null)
+                return;
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL);
+            foreach (var ent in grid.GetEntities())
+            {
+                ent.Die(damageEffects, entity);
+            }
+            var requiredID = GetRandomRequiredContraptionID(entity.Level, rng);
+            if (requiredID != null)
+            {
+                PsychicShackle.Spawn(entity.Level, grid.GetEntityPosition(), requiredID, entity);
+            }
+        }
+        private class CrushingLockState : EntityStateMachineState
+        {
+            public CrushingLockState() : base(STATE_CRUSHING_LOCK, ANIMATION_STATE_IDLE) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(1);
+                SetShake(entity, true);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetShake(entity, false);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_SHAKE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_LOCK);
+                            timer.ResetSeconds(1);
+
+                            CrushingLock(entity);
+                            entity.Spawn(VanillaEffectID.lockSigil, entity.GetCenter());
+
+                            entity.Level.ShakeScreen(10, 0, 15);
+                            entity.PlaySound(VanillaSoundID.locked);
+                            entity.PlaySound(VanillaSoundID.smash);
+                            SetShake(entity, false);
+                        }
+                        break;
+                    case SUBSTATE_LOCK:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
                 }
             }
             public const int SUBSTATE_SHAKE = 0;
@@ -925,14 +1121,14 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_SMASH,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_LOCK,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            //STATE_CRUSH_LOCK,
+            //STATE_LOCK,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_CRUSHING_LOCK,
         };
         private static int[] statePoolPhase2 = new int[]
         {

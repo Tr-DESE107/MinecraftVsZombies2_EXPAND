@@ -491,6 +491,7 @@
     <model name="aim_target" type="entity" path="mvz2:effect/aim_target" shot="false" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="stab_effect" type="entity" path="mvz2:effect/stab_effect" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="lock_sigil" type="entity" path="mvz2:effect/lock_sigil" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+    <model name="psychic_shackle" type="entity" path="mvz2:effect/psychic_shackle" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />
@@ -593,6 +594,7 @@
     <model name="gravel_on_face" type="icon" path="mvz2:icon/gravel_on_face" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="candle_cursed" type="icon" path="mvz2:icon/candle_cursed" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="petrified_feet" type="icon" path="mvz2:icon/petrified_feet" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+    <model name="shackled" type="icon" path="mvz2:icon/shackled" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="blueprint_lock" type="ui" path="mvz2:ui/blueprint_lock" shot="false" width="64" height="64" xOffset="0" yOffset="0" />

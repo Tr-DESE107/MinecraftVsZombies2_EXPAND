@@ -1431,6 +1431,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b82b7d34692bad4eb891394918059df
+    m_Address: mvz2:icons/shackled
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ba7c61782ebbf647b2d8b1a7f6b78b4
     m_Address: mvz2:points
     m_ReadOnly: 0
@@ -3242,6 +3249,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3da1c352d3e1f2e439cc74a0125894b0
+    m_Address: mvz2:effect/psychic_shackle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3db4f008109ea604880fe630ab6bd92a
     m_Address: mvz2:units/colliders/small_spider
     m_ReadOnly: 0
@@ -4119,6 +4133,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
     m_Address: mvz2:ui/map/map_drag_mark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d3d29d16a0b1324cb4ae241a835c361
+    m_Address: mvz2:entity/effects/psychic_shackle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

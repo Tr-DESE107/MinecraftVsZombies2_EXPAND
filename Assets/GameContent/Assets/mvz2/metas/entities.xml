@@ -4090,6 +4090,7 @@
                 <int name="mvz2:sortingOrder" value="9999" />
                 <int name="mvz2:maxTimeout" value="900" />
                 <float name="mvz2:damage" value="55" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
         <effect id="tornado">
@@ -4141,6 +4142,7 @@
                 <float name="mvz2:gravity" value="1"/>
                 <float name="mvz2:groundLimitOffset" value="-2000"/>
                 <int name="mvz2:maxTimeout" value="90" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
         <effect id="mega_glowing_laser">
@@ -4160,6 +4162,7 @@
             <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="90" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
         <effect id="nuke_flash">
@@ -4173,12 +4176,14 @@
                 <bool name="mvz2:updateBeforeGame" value="true" />
                 <bool name="mvz2:updateAfterGameOver" value="true" />
                 <int name="mvz2:maxTimeout" value="30" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
         <effect id="petrified_shards">
             <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="15" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
         <effect id="petrify_laser">
@@ -4251,24 +4256,36 @@
             </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="15" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
         <effect id="aim_target">
+            <behaviours includeSelf="false"/>
             <behaviours>
                 <behaviour operator="add" id="mvz2:remove_without_parent" />
             </behaviours>
             <properties>
                 <int name="mvz2:sortingOrder" value="1000" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
         <effect id="stab_effect">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="15" />
+                <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
         <effect id="lock_sigil">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="30" />
+                <bool name="mvz2:decorative" value="true" />
+            </properties>
+        </effect>
+        <effect id="psychic_shackle">
+            <properties>
+                <int name="mvz2:maxTimeout" value="900" />
             </properties>
         </effect>
     </entries>

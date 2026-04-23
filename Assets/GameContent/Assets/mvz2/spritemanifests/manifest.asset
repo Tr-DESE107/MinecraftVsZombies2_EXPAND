@@ -171,6 +171,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 536be77b316de444c86963d500ad1922, type: 3}
   - name: icons/petrified
     sprite: {fileID: 21300000, guid: 5388781fbbfc0eb4a81b878677ee7ac0, type: 3}
+  - name: icons/shackled
+    sprite: {fileID: 21300000, guid: 1b82b7d34692bad4eb891394918059df, type: 3}
   - name: icons/short_circuited
     sprite: {fileID: 21300000, guid: ef8e70ac08eeb9a4aa57ec0abfff3b47, type: 3}
   - name: icons/sleeping
@@ -783,6 +785,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9ff472ab3deed244c8552a2bd5d7c949, type: 3}
   - name: entity/effects/absorb_line
     sprite: {fileID: 21300000, guid: 73ddfc766e9b88f43bb441a689469065, type: 3}
+  - name: entity/effects/aim_target
+    sprite: {fileID: 21300000, guid: e9e2d13662f474a4d9ee76c4eaa53bae, type: 3}
   - name: entity/effects/aura
     sprite: {fileID: 21300000, guid: 3948499a4aba6874da51b8a013304ee0, type: 3}
   - name: entity/effects/blackhole_core
@@ -829,6 +833,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7fb8f9b8ab883a64887b34f86731c9b9, type: 3}
   - name: entity/effects/gas_diffusion
     sprite: {fileID: 21300000, guid: e5e566d19ad3e024c8c3e91f928d8be1, type: 3}
+  - name: entity/effects/lock_sigil
+    sprite: {fileID: 21300000, guid: 415fd322dbcf5fa4882d851c6a5717ab, type: 3}
   - name: entity/effects/magic_star
     sprite: {fileID: 21300000, guid: 6a6baf812492dec40ba2154d360755bb, type: 3}
   - name: entity/effects/mega_glowing_laser
@@ -855,6 +861,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 63abeb6d055623e498bc8080744c6d37, type: 3}
   - name: entity/effects/pow
     sprite: {fileID: 21300000, guid: 8bf802c92af01e14ab7d98dedcdb86a1, type: 3}
+  - name: entity/effects/psychic_shackle
+    sprite: {fileID: 21300000, guid: 4d3d29d16a0b1324cb4ae241a835c361, type: 3}
   - name: entity/effects/rail
     sprite: {fileID: 21300000, guid: 2d2a403402d787f4899dc5408d294318, type: 3}
   - name: entity/effects/rain
@@ -2246,6 +2254,8 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -1607643510, guid: 78d2df784ddbd3c499324ac0f5a31020, type: 3}
     - {fileID: 1792002898, guid: 78d2df784ddbd3c499324ac0f5a31020, type: 3}
+    - {fileID: 947640459, guid: 78d2df784ddbd3c499324ac0f5a31020, type: 3}
+    - {fileID: 373907532, guid: 78d2df784ddbd3c499324ac0f5a31020, type: 3}
   - name: entity/effect/master_spark
     spritesheet:
     - {fileID: 1121898550, guid: 0dbb7eec752b56740a4fc2bd819739f7, type: 3}
@@ -2302,6 +2312,13 @@ MonoBehaviour:
     - {fileID: 21300010, guid: ef0c4e33486bc0b44bd32da3f6b7c34f, type: 3}
     - {fileID: 21300012, guid: ef0c4e33486bc0b44bd32da3f6b7c34f, type: 3}
     - {fileID: 21300014, guid: ef0c4e33486bc0b44bd32da3f6b7c34f, type: 3}
+  - name: entity/effect/stab_effect
+    spritesheet:
+    - {fileID: 1358550242, guid: a5bfcffb5577f264d8ee8708c5b0f355, type: 3}
+    - {fileID: 1711483222, guid: a5bfcffb5577f264d8ee8708c5b0f355, type: 3}
+    - {fileID: -2133428556, guid: a5bfcffb5577f264d8ee8708c5b0f355, type: 3}
+    - {fileID: 1772007845, guid: a5bfcffb5577f264d8ee8708c5b0f355, type: 3}
+    - {fileID: 1034683258, guid: a5bfcffb5577f264d8ee8708c5b0f355, type: 3}
   - name: entity/effect/static
     spritesheet:
     - {fileID: -5668886188446535631, guid: 0d4ebeebf58039f44b54ff10434c99d4, type: 3}
