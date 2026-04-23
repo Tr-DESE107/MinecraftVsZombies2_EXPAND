@@ -207,7 +207,6 @@ namespace MVZ2.Vanilla.Detections
         public int mask = EntityCollisionHelper.MASK_VULNERABLE;
         public FactionTarget factionTarget = FactionTarget.Hostile;
         public bool canDetectInvisible;
-        public bool ignoreBoss;
         public bool includeSelf;
         public bool includeOverlapDisabled;
         private List<IEntityCollider> resultsBuffer = new List<IEntityCollider>();

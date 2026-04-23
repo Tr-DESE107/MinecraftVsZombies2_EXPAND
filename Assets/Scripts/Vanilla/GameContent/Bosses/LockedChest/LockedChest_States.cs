@@ -14,6 +14,7 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Projectiles;
@@ -510,15 +511,15 @@ namespace MVZ2.GameContent.Bosses
                             SpawnShadow(entity, true);
                             if (entity.IsOnGround)
                             {
-                                entity.PlaySound(VanillaSoundID.smash);
-                                entity.Level.ShakeScreen(10, 0, 15);
-                                float radius = 120;
                                 float damage = entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER;
-                                Explosion.Spawn(entity, entity.Position, radius);
-                                entity.Explode(entity.Position, radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.IGNORE_ARMOR));
-                                RemoveSmashTarget(entity);
+                                HighJumpSmash(entity, damage);
+
                                 stateMachine.StartSubState(entity, SUBSTATE_END);
                                 timer.ResetSeconds(1);
+
+                                RemoveSmashTarget(entity);
+                                entity.PlaySound(VanillaSoundID.smash);
+                                entity.Level.ShakeScreen(10, 0, 15);
                             }
                         }
                         break;
@@ -537,6 +538,15 @@ namespace MVZ2.GameContent.Bosses
                         break;
                 }
             }
+            public static void HighJumpSmash(Entity entity, float damage)
+            {
+                highJumpDamageBuffer.Clear();
+                highJumpDetector.DetectMultiple(entity, highJumpDamageBuffer);
+                foreach (var target in highJumpDamageBuffer)
+                {
+                    target.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.IGNORE_ARMOR), entity);
+                }
+            }
             public const int SUBSTATE_SHAKE = 0;
             public const int SUBSTATE_JUMP = 1;
             public const int SUBSTATE_FALL = 2;
@@ -547,8 +557,6 @@ namespace MVZ2.GameContent.Bosses
             public const int ANIMATION_SUBSTATE_FALL = 1;
         }
         #endregion
-
-
 
         #region 吐垃圾
         private class SpitTrashState : EntityStateMachineState
@@ -824,9 +832,11 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         private static EntityStateMachine stateMachine = new LockedChestStateMachine();
-        private static CollisionDetector crushDetector = new CollisionDetector(true);
+        private static Detector crushDetector = new CollisionDetector(true);
+        private static Detector highJumpDetector = new BoxDetector(new Vector3(200, 40, 60), new Vector3(0, 20, 0), true);
         private static List<IEntityCollider> crushBuffer = new List<IEntityCollider>();
         private static List<Entity> highJumpSearchBuffer = new List<Entity>();
+        private static List<IEntityCollider> highJumpDamageBuffer = new List<IEntityCollider>();
         private static int[] statePoolPhase1 = new int[]
         {
             //STATE_JUMP,

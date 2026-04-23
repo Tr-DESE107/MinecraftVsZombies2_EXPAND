@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Enemies
         {
             detector = new DispenserDetector()
             {
-                ignoreBoss = true,
+                mask = EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE,
                 ignoreHighEnemy = false,
                 ignoreLowEnemy = false,
                 colliderFilter = (p, c) => ColliderFilter(p.entity, c)
