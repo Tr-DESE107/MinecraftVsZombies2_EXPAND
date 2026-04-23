@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
@@ -23,9 +24,11 @@ using MVZ2Logic.Blueprints;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
 
@@ -42,6 +45,8 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new JumpState());
                 AddState(new ChargeState());
                 AddState(new HighJumpState());
+                AddState(new LockState());
+
                 AddState(new SpitTrashState());
                 AddState(new SpitZombieBlueprintState());
                 AddState(new StunnedState());
@@ -558,6 +563,79 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 封锁
+        private class LockState : EntityStateMachineState
+        {
+            public LockState() : base(STATE_LOCK, ANIMATION_STATE_IDLE) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(1);
+                SetShake(entity, true);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetShake(entity, false);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_SHAKE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_LOCK);
+                            timer.ResetSeconds(1);
+
+                            LockRandomBlueprint(entity, 1);
+                            entity.Spawn(VanillaEffectID.lockSigil, entity.GetCenter());
+
+                            entity.Level.ShakeScreen(10, 0, 15);
+                            entity.PlaySound(VanillaSoundID.locked);
+                            SetShake(entity, false);
+                        }
+                        break;
+                    case SUBSTATE_LOCK:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public void LockRandomBlueprint(Entity entity, int count)
+            {
+                var level = entity.Level;
+                IEnumerable<SeedPack> seedPacks;
+                if (level.IsConveyorMode())
+                {
+                    seedPacks = level.GetAllConveyorSeedPacks();
+                }
+                else
+                {
+                    seedPacks = level.GetAllSeedPacks().OfType<SeedPack>();
+                }
+                if (seedPacks.Count() <= 0)
+                    return;
+                var selected = seedPacks.RandomTake(count, entity.RNG);
+                if (selected == null)
+                    return;
+                foreach (var seedPack in selected)
+                {
+                    seedPack.AddBuff<BlueprintLockBuff>();
+                }
+            }
+            public const int SUBSTATE_SHAKE = 0;
+            public const int SUBSTATE_LOCK = 1;
+        }
+        #endregion
+
         #region 吐垃圾
         private class SpitTrashState : EntityStateMachineState
         {
@@ -843,14 +921,14 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_CHARGE,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_SMASH,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            //STATE_LOCK,
+            //STATE_SMASH,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_LOCK,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,

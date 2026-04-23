@@ -3459,6 +3459,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 415fd322dbcf5fa4882d851c6a5717ab
+    m_Address: mvz2:entity/effects/lock_sigil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4175d1cd95a29964e8dd2f8d9b513873
     m_Address: mvz2:effect/aim_target
     m_ReadOnly: 0
@@ -9253,6 +9260,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b42640559a1869f4b9c76bfdbf5e6706
+    m_Address: mvz2:effect/lock_sigil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b43c7c77cd3ff54418daebbaccf227db
     m_Address: mvz2:archive/castle_note

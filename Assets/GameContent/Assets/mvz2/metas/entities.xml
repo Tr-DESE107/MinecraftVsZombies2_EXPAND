@@ -4266,5 +4266,10 @@
                 <int name="mvz2:maxTimeout" value="15" />
             </properties>
         </effect>
+        <effect id="lock_sigil">
+            <properties>
+                <int name="mvz2:maxTimeout" value="30" />
+            </properties>
+        </effect>
     </entries>
 </entities>

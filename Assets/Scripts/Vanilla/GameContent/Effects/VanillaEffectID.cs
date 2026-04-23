@@ -118,6 +118,7 @@ namespace MVZ2.GameContent.Effects
         public const string lockedChestShadow = "locked_chest_shadow";
         public const string aimTarget = "aim_target";
         public const string stabEffect = "stab_effect";
+        public const string lockSigil = "lock_sigil";
     }
     public static class VanillaEffectID
     {
@@ -232,6 +233,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID lockedChestShadow = Get(VanillaEffectNames.lockedChestShadow);
         public static readonly NamespaceID aimTarget = Get(VanillaEffectNames.aimTarget);
         public static readonly NamespaceID stabEffect = Get(VanillaEffectNames.stabEffect);
+        public static readonly NamespaceID lockSigil = Get(VanillaEffectNames.lockSigil);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
