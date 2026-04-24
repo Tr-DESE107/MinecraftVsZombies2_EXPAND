@@ -123,7 +123,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_SPIT_ZOMBIE_BLUEPRINTS = VanillaBossStates.LOCKED_CHEST_SPIT_ZOMBIE_BLUEPRINTS;
         public const int STATE_PAY_TO_WIN = VanillaBossStates.LOCKED_CHEST_PAY_TO_WIN;
         public const int STATE_COUGH = VanillaBossStates.LOCKED_CHEST_COUGH;
-        public const int STATE_BALLOON = VanillaBossStates.LOCKED_CHEST_BALLOON;
+        public const int STATE_RELEASE_SPECIAL_ATTACK = VanillaBossStates.LOCKED_CHEST_RELEASE_SPECIAL_ATTACK;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_STUNNED = 2;

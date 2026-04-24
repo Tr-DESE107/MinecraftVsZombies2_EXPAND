@@ -53,7 +53,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new SpitTrashState());
                 AddState(new CoughState());
                 AddState(new SpecialAttackState());
-                AddState(new BalloonState());
+                AddState(new ReleaseSpecialAttackState());
 
 
                 AddState(new SpitZombieBlueprintState());
@@ -1026,7 +1026,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_JUMP3:
                         if (entity.IsOnGround)
                         {
-                            stateMachine.StartState(entity, STATE_BALLOON);
+                            stateMachine.StartState(entity, STATE_RELEASE_SPECIAL_ATTACK);
                         }
                         break;
                 }
@@ -1041,10 +1041,10 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        #region 气球
-        private class BalloonState : EntityStateMachineState
+        #region 释放特殊攻击
+        private class ReleaseSpecialAttackState : EntityStateMachineState
         {
-            public BalloonState() : base(STATE_BALLOON, ANIMATION_STATE_OPEN_CHEST) { }
+            public ReleaseSpecialAttackState() : base(STATE_RELEASE_SPECIAL_ATTACK, ANIMATION_STATE_OPEN_CHEST) { }
             public override int GetAnimationSubstate(int substate)
             {
                 switch (substate)
@@ -1078,7 +1078,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_RELEASE:
                         if (timer.Expired)
                         {
-                            ReleaseBalloon(entity);
+                            Release(entity);
                             stateMachine.StartSubState(entity, SUBSTATE_RELEASED);
                             timer.ResetSeconds(0.5f);
                         }
@@ -1099,6 +1099,25 @@ namespace MVZ2.GameContent.Bosses
                         break;
                 }
             }
+            public static void Release(Entity entity)
+            {
+                switch (GetCoughType(entity))
+                {
+                    case COUGH_TYPE_PISTENSER:
+                    default:
+                        ReleaseBalloon(entity);
+                        break;
+                    case COUGH_TYPE_WOODEN_FAN:
+                        ReleaseRollingBlock(entity, VanillaEnemyID.rollingHayBale);
+                        break;
+                    case COUGH_TYPE_SOUL_FURNACE:
+                        ReleaseRollingBlock(entity, VanillaEnemyID.rollingWood);
+                        break;
+                    case COUGH_TYPE_PUNCHTON:
+                        ReleaseRollingBlock(entity, VanillaEnemyID.rollingStone);
+                        break;
+                }
+            }
             public static Entity? ReleaseBalloon(Entity entity)
             {
                 var helmetZombie = entity.SpawnWithParams(VanillaEnemyID.ironHelmettedZombie, entity.GetCenter());
@@ -1110,6 +1129,14 @@ namespace MVZ2.GameContent.Bosses
                     b.AddBuff<ReleasedFromLockedChestBuff>();
                     b.SetParent(helmetZombie);
                     b.PlaySound(VanillaSoundID.balloonInflate);
+                });
+            }
+            public static Entity? ReleaseRollingBlock(Entity entity, NamespaceID id)
+            {
+                return entity.SpawnWithParams(id, entity.GetCenter())?.Let(b =>
+                {
+                    b.AddBuff<ReleasedFromLockedChestBuff>();
+                    b.PlaySound(VanillaSoundID.dragonBreath);
                 });
             }
             public const int SUBSTATE_RELEASE = 0;
@@ -1304,8 +1331,8 @@ namespace MVZ2.GameContent.Bosses
 
         private static NamespaceID[] coughBlueprintIDFirst = new NamespaceID[]
         {
-            LogicBlueprintID.FromEntity(VanillaContraptionID.woodenFan),
             LogicBlueprintID.FromEntity(VanillaContraptionID.punchton),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.woodenFan),
             LogicBlueprintID.FromEntity(VanillaContraptionID.soulFurnace),
             LogicBlueprintID.FromEntity(VanillaContraptionID.pistenser),
         };
@@ -1346,7 +1373,7 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            //STATE_SPIT_TRASH,
+            STATE_SPIT_TRASH,
             STATE_SPECIAL_ATTACK,
             //STATE_JUMP,
             //STATE_JUMP,
