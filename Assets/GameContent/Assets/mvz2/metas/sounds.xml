@@ -670,6 +670,9 @@
     <sound name="poison_gas" maxCount="1">
         <sample path="mvz2:poison_gas" weight="1" />
     </sound>
+    <sound name="pop" maxCount="1">
+        <sample path="mvz2:pop" weight="1" />
+    </sound>
     <sound name="pot_break">
         <sample path="mvz2:entity/pot/pot_break1" weight="1" />
         <sample path="mvz2:entity/pot/pot_break2" weight="1" />

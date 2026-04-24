@@ -69,6 +69,7 @@ namespace MVZ2.Vanilla.Bosses
         public const int LOCKED_CHEST_PAY_TO_WIN = PRIVATE_NUMBER + 9;
         public const int LOCKED_CHEST_COUGH = PRIVATE_NUMBER + 10;
         public const int LOCKED_CHEST_RELEASE_SPECIAL_ATTACK = PRIVATE_NUMBER + 11;
+        public const int LOCKED_CHEST_SUMMON_WITHER = PRIVATE_NUMBER + 12;
 
 
         private const int PRIVATE_NUMBER = 10000;

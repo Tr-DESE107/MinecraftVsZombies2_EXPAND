@@ -2,8 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
@@ -32,6 +33,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
+using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -60,6 +62,9 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new SpitZombieBlueprintState());
                 AddState(new StunnedState());
                 AddState(new DeathState());
+
+
+                AddState(new SummonWitherState());
             }
         }
         #endregion
@@ -88,6 +93,10 @@ namespace MVZ2.GameContent.Bosses
         private static void SetShake(Entity entity, bool value)
         {
             entity.SetAnimationBool("Shake", value);
+        }
+        private static void SetEmote(Entity entity, int value)
+        {
+            entity.SetAnimationInt("Emote", value);
         }
         #region 待命
         private static bool CanSwitchStatePhase1(Entity entity, int state)
@@ -225,9 +234,9 @@ namespace MVZ2.GameContent.Bosses
             {
                 if (substate == SUBSTATE_END)
                 {
-                    return ANIMATION_SUBSTATE_LAND;
+                    return ANIMATION_SUBSTATE_JUMP_LAND;
                 }
-                return ANIMATION_SUBSTATE_JUMP;
+                return ANIMATION_SUBSTATE_JUMP_JUMP;
             }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
@@ -264,8 +273,6 @@ namespace MVZ2.GameContent.Bosses
             }
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_END = 1;
-            public const int ANIMATION_SUBSTATE_JUMP = 0;
-            public const int ANIMATION_SUBSTATE_LAND = 1;
 
             public const float jumpFlyingSeconds = 0.5f;
         }
@@ -1407,6 +1414,177 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
 
+        #region 召唤凋灵
+        private class SummonWitherState : EntityStateMachineState
+        {
+            public SummonWitherState() : base(STATE_SUMMON_WITHER, ANIMATION_STATE_IDLE) { }
+            public override int GetAnimationState(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_SKULL1:
+                    case SUBSTATE_SKULL2:
+                    case SUBSTATE_SKULL3:
+                    case SUBSTATE_JUMP1:
+                    case SUBSTATE_JUMP2:
+                    case SUBSTATE_JUMP3:
+                        return ANIMATION_STATE_JUMP;
+                    default:
+                        return base.GetAnimationState(substate);
+                }
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_SKULL1:
+                    case SUBSTATE_SKULL2:
+                    case SUBSTATE_SKULL3:
+                    case SUBSTATE_JUMP1:
+                    case SUBSTATE_JUMP2:
+                    case SUBSTATE_JUMP3:
+                        return ANIMATION_SUBSTATE_JUMP_JUMP;
+                    default:
+                        return base.GetAnimationSubstate(substate);
+                }
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                SetFlipX(entity, false);
+                entity.AddBuff<LockedChestInvincibleBuff>();
+                var stateTimer = stateMachine.GetSubStateTimer(entity);
+                stateTimer.ResetSeconds(0.5f);
+
+                entity.SpawnWithParams(VanillaEffectID.witherSummoningBlocks, entity.Position + entity.GetFacingDirection() * 80)?.Let(b =>
+                {
+                    SetFoolsTargetID(entity, new EntityID(b));
+                    b.PlaySound(VanillaSoundID.soulSand);
+                });
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                entity.RemoveBuffs<LockedChestInvincibleBuff>();
+
+                SetEmote(entity, EMOTE_NONE);
+                var blocks = GetBlocks(entity); 
+                if (blocks.ExistsAndAlive()) 
+                {
+                    blocks.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL), entity);
+                }
+                SetFoolsTargetID(entity, null);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_SOULSAND1:
+                    case SUBSTATE_SOULSAND2:
+                    case SUBSTATE_SOULSAND3:
+                        if (timer.Expired)
+                        {
+                            BuildBlock(entity, substate + 1, VanillaSoundID.soulSand);
+                            stateMachine.StartSubState(entity, substate + 1);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_SOULSAND4:
+                    case SUBSTATE_SKULL1:
+                    case SUBSTATE_SKULL2:
+                        if (entity.IsOnGround)
+                        {
+                            Jump(entity);
+                            stateMachine.StartSubState(entity, substate + 1);
+                        }
+                        break;
+                    case SUBSTATE_SKULL3:
+                        if (entity.IsOnGround)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_DUMB);
+                            timer.SetSeconds(5f);
+                        }
+                        break;
+                    case SUBSTATE_JUMP1:
+                    case SUBSTATE_JUMP2:
+                        if (entity.Velocity.y < 0)
+                        {
+                            var progress = substate / 2 + 2;
+                            BuildBlock(entity, progress, VanillaSoundID.stone);
+                            stateMachine.StartSubState(entity, substate + 1);
+                        }
+                        break;
+                    case SUBSTATE_JUMP3:
+                        if (entity.Velocity.y < 0)
+                        {
+                            var blocks = GetBlocks(entity);
+                            if (blocks.ExistsAndAlive())
+                            {
+                                blocks.PlaySound(VanillaSoundID.stone);
+                                blocks.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL), entity);
+                                blocks.Spawn(VanillaBossID.pinkWither, blocks.Position);
+                                SetFoolsTargetID(entity, null);
+                            }
+                            stateMachine.StartSubState(entity, SUBSTATE_SKULL3);
+                        }
+                        break;
+                    case SUBSTATE_DUMB:
+                        if (timer.Expired)
+                        {
+                            SetEmote(entity, EMOTE_QUESTION);
+                            stateMachine.StartSubState(entity, SUBSTATE_END);
+                            timer.SetSeconds(1f);
+                            entity.PlaySound(VanillaSoundID.pop);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public static Entity? GetBlocks(Entity entity)
+            {
+                return GetFoolsTargetID(entity)?.GetEntity(entity.Level);
+            }
+            public static void Jump(Entity entity)
+            {
+                entity.Velocity += Vector3.up * 20;
+            }
+            public static void BuildBlock(Entity entity, int progress, NamespaceID soundID)
+            {
+                var blocks = GetBlocks(entity);
+                if (blocks.ExistsAndAlive())
+                {
+                    blocks.SetModelProperty("Progress", progress);
+                    blocks.PlaySound(soundID);
+                }
+                else
+                {
+                    stateMachine.StartState(entity, STATE_IDLE);
+                }
+            }
+            public const int SUBSTATE_SOULSAND1 = 0;
+            public const int SUBSTATE_SOULSAND2 = 1;
+            public const int SUBSTATE_SOULSAND3 = 2;
+            public const int SUBSTATE_SOULSAND4 = 3;
+            public const int SUBSTATE_JUMP1 = 4;
+            public const int SUBSTATE_SKULL1 = 5;
+            public const int SUBSTATE_JUMP2 = 6;
+            public const int SUBSTATE_SKULL2 = 7;
+            public const int SUBSTATE_JUMP3 = 8;
+            public const int SUBSTATE_SKULL3 = 9;
+            public const int SUBSTATE_DUMB = 10;
+            public const int SUBSTATE_END = 11;
+        }
+        #endregion
+
         public const int COUGH_TYPE_PUNCHTON = 0;
         public const int COUGH_TYPE_WOODEN_FAN = 1;
         public const int COUGH_TYPE_SOUL_FURNACE = 2;
@@ -1470,7 +1648,7 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            STATE_CAMERA,
+            //STATE_CAMERA,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
@@ -1479,6 +1657,11 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_PAY_TO_WIN,
+            
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SUMMON_WITHER,
         };
     }
 }

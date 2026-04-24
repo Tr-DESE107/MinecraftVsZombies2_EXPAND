@@ -92,6 +92,8 @@ namespace MVZ2.GameContent.Bosses
         public static void SetTargetPosition(Entity entity, Vector3 value) => entity.SetProperty(PROP_TARGET_POSITION, value);
         public static EntityID? GetSmashTargetID(Entity entity) => entity.GetProperty<EntityID>(PROP_SMASH_TARGET_ID);
         public static void SetSmashTargetID(Entity entity, EntityID? value) => entity.SetProperty(PROP_SMASH_TARGET_ID, value);
+        public static EntityID? GetFoolsTargetID(Entity entity) => entity.GetProperty<EntityID>(PROP_FOOLS_TARGET_ID);
+        public static void SetFoolsTargetID(Entity entity, EntityID? value) => entity.SetProperty(PROP_FOOLS_TARGET_ID, value);
         public static int GetCoughType(Entity entity) => entity.GetProperty<int>(PROP_COUGH_TYPE);
         public static void SetCoughType(Entity entity, int value) => entity.SetProperty(PROP_COUGH_TYPE, value);
         public static int GetUsedCoughType(Entity entity) => entity.GetProperty<int>(PROP_USED_COUGH_TYPES);
@@ -105,6 +107,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_TARGET_POSITION = new VanillaEntityPropertyMeta<Vector3>("target_position");
         private static readonly VanillaEntityPropertyMeta<EntityID> PROP_SMASH_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("smash_target_id");
+        private static readonly VanillaEntityPropertyMeta<EntityID> PROP_FOOLS_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("fools_target_id");
 
         public const float SMASH_DAMAGE_MULTIPLIER = 3;
         public const int STATE_IDLE = VanillaBossStates.IDLE;
@@ -124,6 +127,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_PAY_TO_WIN = VanillaBossStates.LOCKED_CHEST_PAY_TO_WIN;
         public const int STATE_COUGH = VanillaBossStates.LOCKED_CHEST_COUGH;
         public const int STATE_RELEASE_SPECIAL_ATTACK = VanillaBossStates.LOCKED_CHEST_RELEASE_SPECIAL_ATTACK;
+        public const int STATE_SUMMON_WITHER = VanillaBossStates.LOCKED_CHEST_SUMMON_WITHER; 
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_STUNNED = 2;
@@ -133,11 +137,20 @@ namespace MVZ2.GameContent.Bosses
         public const int ANIMATION_STATE_SMASH = 10001;
         public const int ANIMATION_STATE_OPEN_CHEST = 10002;
 
+
+        public const int ANIMATION_SUBSTATE_JUMP_JUMP = 0;
+        public const int ANIMATION_SUBSTATE_JUMP_LAND = 1;
+
         public const int ANIMATION_SUBSTATE_OPEN_CHEST_OPEN = 0;
         public const int ANIMATION_SUBSTATE_OPEN_CHEST_CLOSE = 1;
 
         public const int ANIMATION_SUBSTATE_SMASH_JUMP = 0;
         public const int ANIMATION_SUBSTATE_SMASH_FALL = 1;
+
+        public const int EMOTE_NONE = 0;
+        public const int EMOTE_QUESTION = 1;
+        public const int EMOTE_WARNING = 2;
+        public const int EMOTE_EMERALD = 3;
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;

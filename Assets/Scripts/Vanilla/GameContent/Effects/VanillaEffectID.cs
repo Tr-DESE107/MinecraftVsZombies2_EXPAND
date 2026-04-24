@@ -120,6 +120,7 @@ namespace MVZ2.GameContent.Effects
         public const string stabEffect = "stab_effect";
         public const string lockSigil = "lock_sigil";
         public const string psychicShackle = "psychic_shackle";
+        public const string witherSummoningBlocks = "wither_summoning_blocks";
     }
     public static class VanillaEffectID
     {
@@ -236,6 +237,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID stabEffect = Get(VanillaEffectNames.stabEffect);
         public static readonly NamespaceID lockSigil = Get(VanillaEffectNames.lockSigil);
         public static readonly NamespaceID psychicShackle = Get(VanillaEffectNames.psychicShackle);
+        public static readonly NamespaceID witherSummoningBlocks = Get(VanillaEffectNames.witherSummoningBlocks);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

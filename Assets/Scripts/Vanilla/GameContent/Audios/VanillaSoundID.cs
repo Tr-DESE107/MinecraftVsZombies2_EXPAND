@@ -184,6 +184,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID points = Get("points");
         public readonly static NamespaceID poisonCast = Get("poison_cast");
         public readonly static NamespaceID poisonGas = Get("poison_gas");
+        public readonly static NamespaceID pop = Get("pop");
         public readonly static NamespaceID potion = Get("potion");
         public readonly static NamespaceID powerOff = Get("power_off");
         public readonly static NamespaceID powerOn = Get("power_on");
@@ -213,6 +214,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID smallHit = Get("small_hit");
         public readonly static NamespaceID smash = Get("smash");
         public readonly static NamespaceID snow = Get("snow");
+        public readonly static NamespaceID soulSand = Get("soul_sand");
         public readonly static NamespaceID sparkle = Get("sparkle");
         public readonly static NamespaceID spellCard = Get("spell_card");
         public readonly static NamespaceID splash = Get("splash");

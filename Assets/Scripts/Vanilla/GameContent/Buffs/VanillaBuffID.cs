@@ -285,6 +285,9 @@ namespace MVZ2.GameContent.Buffs
             public const string theGiantPacmanKilled = "the_giant_pacman_killed";
             public const string theGiantSnake = "the_giant_snake";
             public const string theGiantPhase3 = "the_giant_phase3";
+
+            // Chapter 6
+            public const string lockedChestInvincible = "locked_chest_invincible";
         }
         public static class Cart
         {

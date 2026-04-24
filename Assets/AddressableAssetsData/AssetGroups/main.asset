@@ -4215,6 +4215,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e1141260188e85429a267f1d9938564
+    m_Address: mvz2:effect/wither_summoning_blocks
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e3cd9bca2bf19f41a4dabfa8af2d5ae
     m_Address: mvz2:spider_cry2
     m_ReadOnly: 0
@@ -11391,6 +11398,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dce15c317b704d949a0d980b190d97be
     m_Address: mvz2:entity/contraption/brick_cannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd04b8c5c11ca914da142856e975b76c
+    m_Address: mvz2:entity/effect/wither_summoning_blocks
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
