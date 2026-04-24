@@ -738,26 +738,15 @@ namespace MVZ2.Mainmenu
 
                 var title = main.LanguageManager._p(LogicStrings.CONTEXT_STAT_CATEGORY, metaName);
 
-                // 大类数字显示。
-                string categoryNumberString = string.Empty;
                 long categoryNumber = 0;
-                switch (metaOperation)
-                {
-                    case StatOperation.Sum:
-                        categoryNumber = category.GetSum();
-                        break;
-                    case StatOperation.Max:
-                        categoryNumber = category.GetMax();
-                        break;
-                }
-                categoryNumberString = categoryNumber.ToString();
-
                 // 子项。
                 var entries = category.GetAllEntries();
                 var entriesViewData = new List<StatEntryViewData>();
                 for (int j = 0; j < entries.Length; j++)
                 {
                     var entry = entries[j];
+                    if (!main.ResourceManager.ShouldStatEntryDisplay(entry.ID, metaType))
+                        continue;
                     var name = main.ResourceManager.GetStatEntryName(entry.ID, metaType);
                     var count = entry.Value;
                     entriesViewData.Add(new StatEntryViewData()
@@ -765,7 +754,19 @@ namespace MVZ2.Mainmenu
                         name = name,
                         count = count
                     });
+                    switch (metaOperation)
+                    {
+                        case StatOperation.Sum:
+                            categoryNumber += count;
+                            break;
+                        case StatOperation.Max:
+                            categoryNumber = Math.Max(categoryNumber, count);
+                            break;
+                    }
                 }
+                // 大类数字显示。
+                string categoryNumberString = categoryNumber.ToString();
+
                 categoriesViewData[i] = new StatCategoryViewData()
                 {
                     entries = entriesViewData.OrderByDescending(e => e.count).ToArray(),

@@ -2,6 +2,9 @@
 
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
+using MVZ2Logic.Saves;
 using PVZEngine;
 using UnityEngine;
 
@@ -44,6 +47,31 @@ namespace MVZ2.Managers
             if (stageMetalist == null)
                 return null;
             return stageMetalist.entries.FirstOrDefault(m => m.ID == entryID.Path);
+        }
+        public bool ShouldStatEntryDisplay(NamespaceID entryID, StatCategoryType type)
+        {
+            switch (type)
+            {
+                case StatCategoryType.Entity:
+                    {
+                        var entityDef = Main.Game.GetEntityDefinition(entryID);
+                        if (entityDef == null)
+                            return false;
+                        if (entityDef.HideInStats())
+                            return false;
+                        return true;
+                    }
+                case StatCategoryType.Stage:
+                    {
+                        var stageDef = Main.Game.GetStageDefinition(entryID);
+                        if (stageDef == null)
+                            return false;
+                        if (stageDef.HideInStats())
+                            return false;
+                        return true;
+                    }
+            }
+            return false;
         }
     }
 }

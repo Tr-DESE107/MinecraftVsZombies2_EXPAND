@@ -390,5 +390,13 @@ namespace MVZ2Logic.Entities
             entity.SetProperty(GRID_LAYERS, value);
         }
         #endregion
+
+        #region 统计
+        public static readonly PropertyMeta<bool> HIDE_IN_STATS = Get<bool>("hide_in_stats");
+        public static bool HideInStats(this EntityDefinition entityDef)
+        {
+            return entityDef.GetProperty<bool>(HIDE_IN_STATS);
+        }
+        #endregion
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using MVZ2Logic.Conditions;
 using PVZEngine;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2Logic.Level
@@ -266,6 +267,14 @@ namespace MVZ2Logic.Level
         public static NamespaceID? GetClearSound(this LevelEngine level)
         {
             return level.GetProperty<NamespaceID>(CLEAR_SOUND);
+        }
+        #endregion
+
+        #region 统计
+        public static readonly PropertyMeta<bool> HIDE_IN_STATS = Get<bool>("hide_in_stats");
+        public static bool HideInStats(this StageDefinition entityDef)
+        {
+            return entityDef.GetProperty<bool>(HIDE_IN_STATS);
         }
         #endregion
     }
