@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Bosses
         public const string theGiantSnakeTail = "the_giant_snake_tail";
         public const string redDragon = "red_dragon";
         public const string lockedChest = "locked_chest";
+        public const string pinkWither = "pink_wither";
     }
     public static class VanillaBossID
     {
@@ -28,6 +29,7 @@ namespace MVZ2.GameContent.Bosses
         public static readonly NamespaceID theGiantSnakeTail = Get(VanillaBossNames.theGiantSnakeTail);
         public static readonly NamespaceID redDragon = Get(VanillaBossNames.redDragon);
         public static readonly NamespaceID lockedChest = Get(VanillaBossNames.lockedChest);
+        public static readonly NamespaceID pinkWither = Get(VanillaBossNames.pinkWither);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

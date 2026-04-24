@@ -1459,6 +1459,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bd6770921b59a545a33b610d50aef19
+    m_Address: mvz2:entity/effects/pink_wither
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bf54b349ebb4ae48b1cee1197c7c2ae
     m_Address: mvz2:entity/enemy/zombie
     m_ReadOnly: 0
@@ -2922,6 +2929,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37f86b3303d939c448ba79cca9b2ab60
     m_Address: mvz2:icon/vulnerable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3847d450b03229144ba7c63f7ea7f3c0
+    m_Address: mvz2:boss/pink_wither
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5278,6 +5292,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6231c9f6780bd5a44b2186e256c6fcb5
+    m_Address: mvz2:units/stun_stars
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6255f755251c3b04ea24eab5a0800695
     m_Address: mvz2:entity/enemy/necromancer
@@ -13039,6 +13060,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe713e5300f7e974ba913b9c644552c4
+    m_Address: mvz2:entity/effects/heart_particle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe83ffae5970de14a9a107d4947b87b0
     m_Address: mvz2:ui/level/conveyor_belt_part_mobile

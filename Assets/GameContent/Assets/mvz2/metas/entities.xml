@@ -2858,6 +2858,24 @@
                 <color name="mvz2:bloodColorCensored" value="#000000FF" />
             </properties>
         </boss>
+        <boss id="pink_wither" name="粉红凋灵">
+            <properties>
+                <bool name="mvz2:invincible" value="true" />
+                <bool name="mvz2:invisible" value="true" />
+                <int name="mvz2:collisionDetection" value="3" />
+                <bool name="mvz2:dont_count_boss_hp" value="true" />
+                <bool name="mvz2:undead" value="true" />
+                <int name="mvz2:waterInteraction" value="1" />
+                <float name="mvz2:maxHealth" value="12000" />
+                <float name="mvz2:gravity" value="0" />
+                <id name="mvz2:shell" value="mvz2:nether" />
+                <id name="mvz2:hitSound" value="mvz2:bone_hit" />
+                <vector3 name="mvz2:size" x="64" y="160" z="64" />
+                <vector3 name="mvz2:shadowScale" x="2" y="2" z="2" />
+                <color name="mvz2:bloodColor" value="#00000000" />
+                <color name="mvz2:bloodColorCensored" value="#00000000" />
+            </properties>
+        </boss>
 
         <!-- Carts -->
         <cart id="minecart" name="矿车" />
