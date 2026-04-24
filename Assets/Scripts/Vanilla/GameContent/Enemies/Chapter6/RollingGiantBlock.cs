@@ -26,11 +26,6 @@ namespace MVZ2.GameContent.Enemies
 
             entity.SetAnimationFloat("Rotation", rotation);
         }
-        public override void PostDeath(Entity entity, DeathInfo deathInfo)
-        {
-            base.PostDeath(entity, deathInfo);
-            entity.Remove();
-        }
         public static float GetRotation(Entity entity) => entity.GetProperty<float>(PROP_ROTATION);
         public static void SetRotation(Entity entity, float value) => entity.SetProperty(PROP_ROTATION, value);
         public static readonly VanillaEntityPropertyMeta<float> PROP_ROTATION = new VanillaEntityPropertyMeta<float>("rotation");

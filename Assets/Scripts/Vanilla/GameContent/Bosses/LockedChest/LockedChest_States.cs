@@ -3,12 +3,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
@@ -49,6 +52,10 @@ namespace MVZ2.GameContent.Bosses
 
                 AddState(new SpitTrashState());
                 AddState(new CoughState());
+                AddState(new SpecialAttackState());
+                AddState(new BalloonState());
+
+
                 AddState(new SpitZombieBlueprintState());
                 AddState(new StunnedState());
                 AddState(new DeathState());
@@ -56,25 +63,25 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        private static int GetShadowVariant(Entity entity, bool smash)
+        private static int GetShadowVariant(Entity entity, bool front)
         {
             int variant = 0;
             if (GetPhase(entity) == PHASE_2)
             {
                 variant |= 1;
             }
-            if (smash)
+            if (front)
             {
                 variant |= 2;
             }
             return variant;
         }
-        private static void SpawnShadow(Entity entity, bool smash = false)
+        private static void SpawnShadow(Entity entity, bool front = false)
         {
             var param = entity.GetSpawnParams();
             param.SetProperty(EngineEntityProps.DISPLAY_SCALE, entity.GetDisplayScale());
             param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFlipX());
-            param.SetProperty(LogicEntityProps.VARIANT, GetShadowVariant(entity, smash));
+            param.SetProperty(LogicEntityProps.VARIANT, GetShadowVariant(entity, front));
             entity.Spawn(VanillaEffectID.lockedChestShadow, entity.Position, param);
         }
         private static void SetShake(Entity entity, bool value)
@@ -461,9 +468,9 @@ namespace MVZ2.GameContent.Bosses
             {
                 if (substate == SUBSTATE_FALL || substate == SUBSTATE_END)
                 {
-                    return ANIMATION_SUBSTATE_FALL;
+                    return ANIMATION_SUBSTATE_SMASH_FALL;
                 }
-                return ANIMATION_SUBSTATE_JUMP;
+                return ANIMATION_SUBSTATE_SMASH_JUMP;
             }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
@@ -562,9 +569,6 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_FALL = 2;
             public const int SUBSTATE_END = 3;
             public const int SUBSTATE_PRICKED = 4;
-
-            public const int ANIMATION_SUBSTATE_JUMP = 0;
-            public const int ANIMATION_SUBSTATE_FALL = 1;
         }
         #endregion
 
@@ -821,7 +825,7 @@ namespace MVZ2.GameContent.Bosses
             public SpitTrashState() : base(STATE_SPIT_TRASH, ANIMATION_STATE_OPEN_CHEST) { }
             public override int GetAnimationSubstate(int substate)
             {
-                return ANIMATION_SUBSTATE_OPEN;
+                return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
             }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
@@ -878,13 +882,10 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_COUGH2 = 3;
             public const int SUBSTATE_COUGH3 = 4;
 
-            public const int ANIMATION_SUBSTATE_OPEN = 0;
-            public const int ANIMATION_SUBSTATE_CLOSE = 1;
         }
         #endregion
 
-
-        #region 吐垃圾
+        #region 咳嗽
         private static int GetNextCoughType(Entity entity)
         {
             var usedCoughType = GetUsedCoughType(entity);
@@ -997,6 +998,193 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 特殊攻击
+        private class SpecialAttackState : EntityStateMachineState
+        {
+            public SpecialAttackState() : base(STATE_SPECIAL_ATTACK, ANIMATION_STATE_IDLE) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                entity.PlaySound(VanillaSoundID.lockedChestGiggles);
+                Jump(entity);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                switch (substate)
+                {
+                    case SUBSTATE_JUMP1:
+                    case SUBSTATE_JUMP2:
+                        if (entity.IsOnGround)
+                        {
+                            Jump(entity);
+                            entity.PlaySound(VanillaSoundID.wood);
+                            stateMachine.StartSubState(entity, substate + 1);
+                        }
+                        break;
+                    case SUBSTATE_JUMP3:
+                        if (entity.IsOnGround)
+                        {
+                            stateMachine.StartState(entity, STATE_BALLOON);
+                        }
+                        break;
+                }
+            }
+            private void Jump(Entity entity)
+            {
+                entity.Velocity += Vector3.up * 10;
+            }
+            public const int SUBSTATE_JUMP1 = 0;
+            public const int SUBSTATE_JUMP2 = 1;
+            public const int SUBSTATE_JUMP3 = 2;
+        }
+        #endregion
+
+        #region 气球
+        private class BalloonState : EntityStateMachineState
+        {
+            public BalloonState() : base(STATE_BALLOON, ANIMATION_STATE_IDLE) { }
+            public override int GetAnimationState(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_RELEASE:
+                    case SUBSTATE_RELEASED:
+                    case SUBSTATE_CLOSE:
+                        return ANIMATION_STATE_OPEN_CHEST;
+                    case SUBSTATE_SMASH:
+                    case SUBSTATE_LAND:
+                        return ANIMATION_STATE_SMASH;
+                    default:
+                        return base.GetAnimationState(substate);
+                }
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    // Open Chest
+                    case SUBSTATE_RELEASE:
+                    case SUBSTATE_RELEASED:
+                        return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
+                    case SUBSTATE_CLOSE:
+                        return ANIMATION_SUBSTATE_OPEN_CHEST_CLOSE;
+
+                    // Smash
+                    case SUBSTATE_SMASH:
+                    case SUBSTATE_LAND:
+                        return ANIMATION_SUBSTATE_SMASH_FALL;
+                    default:
+                        return base.GetAnimationSubstate(substate);
+                }
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.SetSeconds(1f);
+
+                entity.PlaySound(VanillaSoundID.chestOpen);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_RELEASE:
+                        if (timer.Expired)
+                        {
+                            ReleaseBalloon(entity);
+                            stateMachine.StartSubState(entity, SUBSTATE_RELEASED);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_RELEASED:
+                        if (timer.Expired)
+                        {
+                            entity.PlaySound(VanillaSoundID.chestClose);
+                            stateMachine.StartSubState(entity, SUBSTATE_CLOSE);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_CLOSE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_FLY);
+                            timer.ResetSeconds(5f);
+                        }
+                        break;
+                    case SUBSTATE_FLY:
+                        var currentXLine = entity.Level.GetEntityColumnX(entity.GetColumn());
+                        var minXLine = entity.Level.GetEntityColumnX(1);
+                        if ((timer.Expired && Mathf.Abs(entity.Position.x - currentXLine) < 10) || entity.Position.x <= minXLine)
+                        {
+                            FallFromBalloon(entity);
+                            entity.Velocity += Vector3.up * 20;
+                            stateMachine.StartSubState(entity, SUBSTATE_SMASH);
+                        }
+                        break;
+                    case SUBSTATE_SMASH:
+                        {
+                            SpawnShadow(entity, true);
+                            if (entity.IsOnGround)
+                            {
+                                Smash(entity);
+                                stateMachine.StartSubState(entity, SUBSTATE_LAND);
+                                timer.ResetSeconds(1f);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_LAND:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public static Entity? ReleaseBalloon(Entity entity)
+            {
+                return entity.SpawnWithParams(VanillaEnemyID.lockedChestBalloon, entity.GetCenter())?.Let(b =>
+                {
+                    b.AddBuff<ReleasedFromLockedChestBuff>();
+                    b.SetParent(entity);
+                    SetBalloonID(entity, new EntityID(b));
+                    b.PlaySound(VanillaSoundID.balloonInflate);
+                });
+            }
+            public static void FallFromBalloon(Entity entity)
+            {
+                var balloonID = GetBalloonID(entity);
+                var balloon = balloonID?.GetEntity(entity.Level);
+                if (!balloon.ExistsAndAlive())
+                    return;
+                balloon.SetParent(null);
+                SetBalloonID(entity, null);
+                balloon.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL), entity);
+            }
+            public static void Smash(Entity entity)
+            {
+                var damage = entity.GetDamage() * 3;
+                var radius = 120;
+                var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION);
+                entity.Explode(entity.Position, radius, entity.GetFaction(), damage, effects);
+                entity.PlaySound(VanillaSoundID.smash);
+                entity.Level.ShakeScreen(10, 0, 15);
+            }
+            public const int SUBSTATE_RELEASE = 0;
+            public const int SUBSTATE_RELEASED = 1;
+            public const int SUBSTATE_CLOSE = 2;
+            public const int SUBSTATE_FLY = 3;
+            public const int SUBSTATE_SMASH = 4;
+            public const int SUBSTATE_LAND = 5;
+        }
+        #endregion
+
         #region 吐僵尸蓝图
         private class SpitZombieBlueprintState : EntityStateMachineState
         {
@@ -1005,9 +1193,9 @@ namespace MVZ2.GameContent.Bosses
             {
                 if (substate == SUBSTATE_END)
                 {
-                    return ANIMATION_SUBSTATE_CLOSE;
+                    return ANIMATION_SUBSTATE_OPEN_CHEST_CLOSE;
                 }
-                return ANIMATION_SUBSTATE_OPEN;
+                return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
             }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
@@ -1070,22 +1258,16 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_READY = 0;
             public const int SUBSTATE_SPIT = 1;
             public const int SUBSTATE_END = 2;
-
-            public const int ANIMATION_SUBSTATE_OPEN = 0;
-            public const int ANIMATION_SUBSTATE_CLOSE = 1;
         }
         #endregion
 
         #region 眩晕
-        public static void Stun(Entity dragon, float seconds)
+        public static void Stun(Entity chest, float seconds)
         {
-            stateMachine.StartState(dragon, STATE_STUNNED);
-            var timer = stateMachine.GetSubStateTimer(dragon);
+            stateMachine.StartState(chest, STATE_STUNNED);
+            var timer = stateMachine.GetStateTimer(chest);
             timer.ResetSeconds(seconds);
-            Explosion.Spawn(dragon, dragon.GetCenter(), 200f);
-            dragon.PlaySound(VanillaSoundID.explosion);
-            dragon.PlaySound(VanillaSoundID.meteorLand);
-            dragon.Level.ShakeScreen(20, 0, 30);
+            chest.PlaySound(VanillaSoundID.stunned);
         }
         private class StunnedState : EntityStateMachineState
         {
@@ -1097,41 +1279,20 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
-                var substateTimer = stateMachine.GetSubStateTimer(entity);
-                substateTimer.ResetSeconds(2f);
-                entity.TriggerAnimation("Stunned");
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.ResetSeconds(5f);
             }
-            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {
-                base.OnUpdateAI(stateMachine, entity);
+                base.OnUpdateLogic(stateMachine, entity);
                 var substate = stateMachine.GetSubState(entity);
-                var timer = stateMachine.GetSubStateTimer(entity);
+                var timer = stateMachine.GetStateTimer(entity);
                 timer.Run(stateMachine.GetSpeed(entity));
-                switch (substate)
+                if (timer.Expired)
                 {
-                    case SUBSTATE_START:
-                        // 倒地
-                        if (timer.PassedSecondsFromMax(5 / 6f))
-                        {
-                            entity.PlaySound(VanillaSoundID.thump);
-                            entity.Level.ShakeScreen(10, 0, 15);
-                        }
-                        if (timer.Expired)
-                        {
-                            stateMachine.StartSubState(entity, SUBSTATE_END);
-                            timer.ResetSeconds(2f);
-                        }
-                        break;
-                    case SUBSTATE_END:
-                        if (timer.Expired)
-                        {
-                            stateMachine.StartState(entity, STATE_IDLE);
-                        }
-                        break;
+                    stateMachine.StartState(entity, STATE_IDLE);
                 }
             }
-            public const int SUBSTATE_START = 0;
-            public const int SUBSTATE_END = 1;
         }
         #endregion
 

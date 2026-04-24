@@ -23,7 +23,6 @@ namespace MVZ2.GameContent.Enemies
             {
                 Global.Saves.Unlock(VanillaUnlockID.sculptingStrike);
             }
-            entity.Remove();
         }
     }
 }

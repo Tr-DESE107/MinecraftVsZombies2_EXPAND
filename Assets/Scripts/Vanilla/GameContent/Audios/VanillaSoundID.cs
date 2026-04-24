@@ -32,6 +32,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID arcaneIntellect = Get("arcane_intellect");
         public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");
+        public readonly static NamespaceID balloonInflate = Get("balloon_inflate");
+        public readonly static NamespaceID balloonPop = Get("balloon_pop");
         public readonly static NamespaceID bash = Get("bash");
         public readonly static NamespaceID bigChomp = Get("big_chomp");
         public readonly static NamespaceID biohazard = Get("biohazard");

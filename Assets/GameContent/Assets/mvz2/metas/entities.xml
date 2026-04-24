@@ -1651,6 +1651,7 @@
         <humanoid id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
+                <behaviour operator="add" id="mvz2:remove_on_death" />
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="1" />
@@ -2565,11 +2566,44 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>
+        <specialEnemy id="locked_chest_balloon" name="上锁箱子的气球" deathMessage="？">
+            <unlock>
+                <condition required="mvz2:level.palace_11" />
+            </unlock>
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:balloon" />
+                <behaviour operator="add" id="mvz2:fragmented" />
+                <behaviour operator="add" id="mvz2:enemy_state" />
+                <behaviour operator="add" id="mvz2:enemy_walk" />
+                <behaviour operator="add" id="mvz2:crusher_ball" />
+                <behaviour operator="add" id="mvz2:remove_on_death" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:harmless" value="true" />
+                <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:immune_slowing" value="true" />
+                <float name="mvz2:fallResistance" value="10000" />
+                <id name="mvz2:shell" value="mvz2:leather" />
+                <id name="mvz2:shape" value="mvz2:block" />
+                <id name="mvz2:crySound" null="true" />
+                <id name="mvz2:deathSound" value="mvz2:balloon_pop" />
+                <float name="mvz2:maxHealth" value="1" />
+                <float name="mvz2:mass" value="-2" />
+                <float name="mvz2:speed" value="2" />
+                <vector3 name="mvz2:size" x="40" y="48" z="40" />
+                <vector3 name="mvz2:bounds_offset" x="0" y="72" z="0" />
+                <int name="mvz2:hp_bar_visibility" value="-1" />
+
+                <int name="mvz2:cost" value="0" />
+            </properties>
+        </specialEnemy>
         <specialEnemy id="rolling_hay_bale" name="滚干草捆" deathMessage="？">
             <unlock>
                 <condition required="mvz2:level.palace_11" />
             </unlock>
-            <behaviours includeSelf="true">
+            <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:enemy_state" />
                 <behaviour operator="add" id="mvz2:enemy_walk" />
                 <behaviour operator="add" id="mvz2:fragmented" />
@@ -2577,6 +2611,7 @@
                 <behaviour operator="add" id="mvz2:rolling_giant_block" />
                 <behaviour operator="add" id="mvz2:instakill_by_fire" />
                 <behaviour operator="add" id="mvz2:instakill_by_wind" />
+                <behaviour operator="add" id="mvz2:remove_on_death" />
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
@@ -2603,13 +2638,14 @@
             <unlock>
                 <condition required="mvz2:level.palace_11" />
             </unlock>
-            <behaviours includeSelf="true">
+            <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:enemy_state" />
                 <behaviour operator="add" id="mvz2:enemy_walk" />
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:crusher_ball" />
                 <behaviour operator="add" id="mvz2:rolling_giant_block" />
                 <behaviour operator="add" id="mvz2:instakill_by_fire" />
+                <behaviour operator="add" id="mvz2:remove_on_death" />
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
@@ -2637,13 +2673,14 @@
             <unlock>
                 <condition required="mvz2:level.palace_11" />
             </unlock>
-            <behaviours includeSelf="true">
+            <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:enemy_state" />
                 <behaviour operator="add" id="mvz2:enemy_walk" />
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:crusher_ball" />
                 <behaviour operator="add" id="mvz2:rolling_giant_block" />
                 <behaviour operator="add" id="mvz2:instakill_by_impact" />
+                <behaviour operator="add" id="mvz2:remove_on_death" />
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
@@ -2675,6 +2712,7 @@
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:obstacle_destroy_contraption" />
                 <behaviour operator="add" id="mvz2:model_damage_percent" />
+                <behaviour operator="add" id="mvz2:remove_on_death" />
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="1800" />

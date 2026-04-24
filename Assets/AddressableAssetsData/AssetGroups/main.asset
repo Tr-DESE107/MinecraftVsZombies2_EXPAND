@@ -640,6 +640,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cf670f563be72447bc4c4f6d5e3c161
+    m_Address: mvz2:balloon_inflate
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d1eecefbebaead49b85fb2324fde531
     m_Address: mvz2:entity/projectiles/cursed_fireball
     m_ReadOnly: 0
@@ -4172,6 +4179,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dc2fdf799a905a46bb8afcbb7109b27
+    m_Address: mvz2:enemy/palace/locked_chest_balloon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4dce52e9fb4e43b4a9bf9a9af890bcf9
     m_Address: mvz2:characters/byakuren
@@ -9561,6 +9575,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b842a8a8ee671f345b9ccaa7c03e83a6
+    m_Address: mvz2:balloon_pop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8b94582569820d4ea902e962c410bd0
     m_Address: mvz2:archive/halloween_note

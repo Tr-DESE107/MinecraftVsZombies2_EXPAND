@@ -68,6 +68,7 @@ namespace MVZ2.Vanilla.Bosses
         public const int LOCKED_CHEST_SPIT_ZOMBIE_BLUEPRINTS = PRIVATE_NUMBER + 8;
         public const int LOCKED_CHEST_PAY_TO_WIN = PRIVATE_NUMBER + 9;
         public const int LOCKED_CHEST_COUGH = PRIVATE_NUMBER + 10;
+        public const int LOCKED_CHEST_BALLOON = PRIVATE_NUMBER + 11;
 
 
         private const int PRIVATE_NUMBER = 10000;

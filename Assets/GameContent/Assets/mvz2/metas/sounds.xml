@@ -21,6 +21,12 @@
     <sound name="awooga">
         <sample path="mvz2:awooga" weight="1" />
     </sound>
+    <sound name="balloon_inflate">
+        <sample path="mvz2:balloon_inflate" weight="1" />
+    </sound>
+    <sound name="balloon_pop">
+        <sample path="mvz2:balloon_pop" weight="1" />
+    </sound>
     <sound name="bash">
         <sample path="mvz2:bash" weight="1" />
     </sound>

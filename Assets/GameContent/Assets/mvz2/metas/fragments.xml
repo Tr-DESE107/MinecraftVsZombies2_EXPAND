@@ -386,6 +386,11 @@
             <key hex="#dfd8d1" time="1" />
         </colorKeys>
     </fragment>
+    <fragment name="locked_chest_balloon">
+        <colorKeys>
+            <key hex="#c83232" time="1" />
+        </colorKeys>
+    </fragment>
     <fragment name="rolling_hay_bale">
         <colorKeys>
             <key hex="#cbb630" time="0.5" />

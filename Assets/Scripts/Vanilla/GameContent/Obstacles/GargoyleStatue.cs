@@ -24,10 +24,5 @@ namespace MVZ2.GameContent.Obstacles
             entity.TriggerAnimation("Rise");
             entity.PlaySound(VanillaSoundID.dirtRise);
         }
-        public override void PostDeath(Entity entity, DeathInfo damageInfo)
-        {
-            base.PostDeath(entity, damageInfo);
-            entity.Remove();
-        }
     }
 }

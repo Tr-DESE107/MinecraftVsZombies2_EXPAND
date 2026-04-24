@@ -13,6 +13,7 @@ namespace MVZ2.Vanilla.Entities
         public const string timeoutDeath = "timeout_death";
         public const string timeoutRemove = "timeout_remove";
         public const string timeoutRemoveWithoutParent = "timeout_remove_without_parent";
+        public const string removeOnDeath = "remove_on_death";
 
         public const string removeWithoutParent = "remove_without_parent";
         public const string lightFadeout = "light_fadeout";
@@ -30,6 +31,8 @@ namespace MVZ2.Vanilla.Entities
         public const string instakillByWind = "instakill_by_wind";
         public const string instakillByFire = "instakill_by_fire";
         public const string instakillByImpact = "instakill_by_impact";
+
+        public const string balloon = "balloon";
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";

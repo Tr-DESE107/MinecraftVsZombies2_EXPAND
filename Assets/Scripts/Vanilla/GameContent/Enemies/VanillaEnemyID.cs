@@ -68,7 +68,9 @@ namespace MVZ2.GameContent.Enemies
         public const string netherHunter = "nether_hunter";
         public const string netherMage = "nether_mage";
         public const string rollingHayBale = "rolling_hay_bale";
-
+        public const string rollingWood = "rolling_wood";
+        public const string rollingStone = "rolling_stone";
+        public const string lockedChestBalloon = "locked_chest_balloon";
     }
     public static class VanillaEnemyID
     {
@@ -133,6 +135,9 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID netherHunter = Get(VanillaEnemyNames.netherHunter);
         public static readonly NamespaceID netherMage = Get(VanillaEnemyNames.netherMage);
         public static readonly NamespaceID rollingHayBale = Get(VanillaEnemyNames.rollingHayBale);
+        public static readonly NamespaceID rollingWood = Get(VanillaEnemyNames.rollingWood);
+        public static readonly NamespaceID rollingStone = Get(VanillaEnemyNames.rollingStone);
+        public static readonly NamespaceID lockedChestBalloon = Get(VanillaEnemyNames.lockedChestBalloon);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
