@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
+        y: 97
         width: 80
         height: 80
       alignment: 9
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 80
-        y: 88
+        y: 97
         width: 80
         height: 80
       alignment: 9
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 88
+        y: 97
         width: 80
         height: 80
       alignment: 9
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 88
+        y: 97
         width: 80
         height: 80
       alignment: 9
@@ -211,7 +211,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 88
+        y: 97
         width: 80
         height: 80
       alignment: 9
@@ -232,11 +232,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 15
+        y: 24
         width: 55
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,11 +253,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 56
-        y: 14
+        y: 23
         width: 44
         height: 73
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,11 +274,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 23
+        y: 32
         width: 59
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: locked_chest_8
       rect:
         serializedVersion: 2
-        x: 161
-        y: 34
+        x: 221
+        y: 43
         width: 92
         height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: locked_chest_9
       rect:
         serializedVersion: 2
-        x: 254
-        y: 45
+        x: 221
+        y: 0
         width: 92
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,12 +336,12 @@ TextureImporter:
       name: locked_chest_10
       rect:
         serializedVersion: 2
-        x: 254
-        y: 0
+        x: 314
+        y: 52
         width: 70
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,6 +349,69 @@ TextureImporter:
       bones: []
       spriteID: 375516e3df25086458d3b484a8a07b62
       internalID: 2137721841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: locked_chest_11
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 32
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8f75ad77df85b4599821e7feb1dea7
+      internalID: -1623549264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: locked_chest_12
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 13
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03212b0c0e8d9e4eb68bb85811a36ca
+      internalID: 1711184861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: locked_chest_13
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 15
+        width: 4
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a889a68f63c7a2249b5e6f2fbac00ec9
+      internalID: 125702994
       vertices: []
       indices: 
       edges: []
@@ -367,6 +430,9 @@ TextureImporter:
       locked_chest_0: 1311043861
       locked_chest_1: 244456174
       locked_chest_10: 2137721841
+      locked_chest_11: -1623549264
+      locked_chest_12: 1711184861
+      locked_chest_13: 125702994
       locked_chest_2: 556626312
       locked_chest_3: 1771207860
       locked_chest_4: 38766023

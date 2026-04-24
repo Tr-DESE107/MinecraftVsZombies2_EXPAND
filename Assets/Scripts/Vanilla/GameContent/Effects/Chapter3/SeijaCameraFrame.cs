@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -33,11 +34,30 @@ namespace MVZ2.GameContent.Effects
                     {
                         if (target.CanDeactive())
                         {
-                            target.ShortCircuit(300, new EntitySourceReference(entity));
-                            if (!soundPlayed)
+                            switch (entity.GetVariant())
                             {
-                                target.PlaySound(VanillaSoundID.powerOff);
-                                soundPlayed = true;
+                                case VARIANT_DISABLE:
+                                    target.ShortCircuit(300, new EntitySourceReference(entity));
+                                    if (!soundPlayed)
+                                    {
+                                        target.PlaySound(VanillaSoundID.powerOff);
+                                        soundPlayed = true;
+                                    }
+                                    break;
+                                case VARIANT_PETRIFY:
+                                    target.InflictPetrified(900, new EntitySourceReference(entity));
+
+                                    var spawnParams = target.GetSpawnParams();
+                                    spawnParams.SetProperty(EngineEntityProps.TINT, Color.gray);
+                                    target.Spawn(VanillaEffectID.smokeCluster, target.GetCenter(), spawnParams);
+
+                                    if (!soundPlayed)
+                                    {
+                                        target.PlaySound(VanillaSoundID.petrified);
+                                        target.PlaySound(VanillaSoundID.giantSpike);
+                                        soundPlayed = true;
+                                    }
+                                    break;
                             }
                         }
                     }
@@ -51,6 +71,9 @@ namespace MVZ2.GameContent.Effects
             }
         }
         #endregion
+
+        public const int VARIANT_DISABLE = 0;
+        public const int VARIANT_PETRIFY = 1;
 
         private List<Entity> detectBuffer = new List<Entity>();
         private Detector flashDetector;

@@ -55,6 +55,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new SpecialAttackState());
                 AddState(new ReleaseSpecialAttackState());
 
+                AddState(new CameraState());
 
                 AddState(new SpitZombieBlueprintState());
                 AddState(new StunnedState());
@@ -1145,6 +1146,97 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 相机
+        private static void SetHasCamera(Entity entity, bool value)
+        {
+            entity.SetAnimationBool("HasCamera", value);
+        }
+        private class CameraState : EntityStateMachineState
+        {
+            public CameraState() : base(STATE_CAMERA, ANIMATION_STATE_IDLE) { }
+            public override int GetAnimationState(int substate)
+            {
+                if (substate == SUBSTATE_OPEN || substate == SUBSTATE_CLOSE)
+                {
+                    return ANIMATION_STATE_OPEN_CHEST;
+                }
+                return base.GetAnimationState(substate);
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                if (substate == SUBSTATE_OPEN)
+                {
+                    return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
+                }
+                if (substate == SUBSTATE_CLOSE)
+                {
+                    return ANIMATION_SUBSTATE_OPEN_CHEST_CLOSE;
+                }
+                return base.GetAnimationSubstate(substate);
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(1);
+                SetShake(entity, true);
+                SetHasCamera(entity, true);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetShake(entity, false);
+                SetHasCamera(entity, false);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_SHAKE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_OPEN);
+                            timer.ResetSeconds(1);
+                            SetShake(entity, false);
+                            entity.PlaySound(VanillaSoundID.chestOpen);
+
+                            var pos = entity.Position;
+                            pos.x += entity.GetFacingX() * 80;
+                            pos.y = entity.Level.GetGroundY(pos);
+                            var param = entity.GetSpawnParams();
+                            param.SetProperty(LogicEntityProps.VARIANT, SeijaCameraFrame.VARIANT_PETRIFY);
+                            entity.Spawn(VanillaEffectID.seijaCameraFrame, pos, param)?.Let(e =>
+                            {
+                                e.Velocity = new Vector3(entity.GetFacingX() * 30, 0, 0);
+                            });
+                        }
+                        break;
+                    case SUBSTATE_OPEN:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_CLOSE);
+                            timer.ResetSeconds(1);
+                            entity.PlaySound(VanillaSoundID.chestClose);
+                        }
+                        break;
+                    case SUBSTATE_CLOSE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public const int SUBSTATE_SHAKE = 0;
+            public const int SUBSTATE_OPEN = 1;
+            public const int SUBSTATE_CLOSE = 2;
+        }
+        #endregion
+
         #region 吐僵尸蓝图
         private class SpitZombieBlueprintState : EntityStateMachineState
         {
@@ -1373,12 +1465,12 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            STATE_SPIT_TRASH,
-            STATE_SPECIAL_ATTACK,
+            //STATE_SPIT_TRASH,
+            //STATE_SPECIAL_ATTACK,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            //STATE_CAMERA,
+            STATE_CAMERA,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
