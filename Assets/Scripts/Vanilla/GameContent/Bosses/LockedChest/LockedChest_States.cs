@@ -1044,22 +1044,7 @@ namespace MVZ2.GameContent.Bosses
         #region 气球
         private class BalloonState : EntityStateMachineState
         {
-            public BalloonState() : base(STATE_BALLOON, ANIMATION_STATE_IDLE) { }
-            public override int GetAnimationState(int substate)
-            {
-                switch (substate)
-                {
-                    case SUBSTATE_RELEASE:
-                    case SUBSTATE_RELEASED:
-                    case SUBSTATE_CLOSE:
-                        return ANIMATION_STATE_OPEN_CHEST;
-                    case SUBSTATE_SMASH:
-                    case SUBSTATE_LAND:
-                        return ANIMATION_STATE_SMASH;
-                    default:
-                        return base.GetAnimationState(substate);
-                }
-            }
+            public BalloonState() : base(STATE_BALLOON, ANIMATION_STATE_OPEN_CHEST) { }
             public override int GetAnimationSubstate(int substate)
             {
                 switch (substate)
@@ -1070,11 +1055,6 @@ namespace MVZ2.GameContent.Bosses
                         return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
                     case SUBSTATE_CLOSE:
                         return ANIMATION_SUBSTATE_OPEN_CHEST_CLOSE;
-
-                    // Smash
-                    case SUBSTATE_SMASH:
-                    case SUBSTATE_LAND:
-                        return ANIMATION_SUBSTATE_SMASH_FALL;
                     default:
                         return base.GetAnimationSubstate(substate);
                 }
@@ -1114,34 +1094,6 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_CLOSE:
                         if (timer.Expired)
                         {
-                            stateMachine.StartSubState(entity, SUBSTATE_FLY);
-                            timer.ResetSeconds(5f);
-                        }
-                        break;
-                    case SUBSTATE_FLY:
-                        var currentXLine = entity.Level.GetEntityColumnX(entity.GetColumn());
-                        var minXLine = entity.Level.GetEntityColumnX(1);
-                        if ((timer.Expired && Mathf.Abs(entity.Position.x - currentXLine) < 10) || entity.Position.x <= minXLine)
-                        {
-                            FallFromBalloon(entity);
-                            entity.Velocity += Vector3.up * 20;
-                            stateMachine.StartSubState(entity, SUBSTATE_SMASH);
-                        }
-                        break;
-                    case SUBSTATE_SMASH:
-                        {
-                            SpawnShadow(entity, true);
-                            if (entity.IsOnGround)
-                            {
-                                Smash(entity);
-                                stateMachine.StartSubState(entity, SUBSTATE_LAND);
-                                timer.ResetSeconds(1f);
-                            }
-                        }
-                        break;
-                    case SUBSTATE_LAND:
-                        if (timer.Expired)
-                        {
                             stateMachine.StartState(entity, STATE_IDLE);
                         }
                         break;
@@ -1149,39 +1101,20 @@ namespace MVZ2.GameContent.Bosses
             }
             public static Entity? ReleaseBalloon(Entity entity)
             {
+                var helmetZombie = entity.SpawnWithParams(VanillaEnemyID.ironHelmettedZombie, entity.GetCenter());
+                if (helmetZombie == null)
+                    return null;
+                helmetZombie.AddBuff<ReleasedFromLockedChestBuff>();
                 return entity.SpawnWithParams(VanillaEnemyID.lockedChestBalloon, entity.GetCenter())?.Let(b =>
                 {
                     b.AddBuff<ReleasedFromLockedChestBuff>();
-                    b.SetParent(entity);
-                    SetBalloonID(entity, new EntityID(b));
+                    b.SetParent(helmetZombie);
                     b.PlaySound(VanillaSoundID.balloonInflate);
                 });
-            }
-            public static void FallFromBalloon(Entity entity)
-            {
-                var balloonID = GetBalloonID(entity);
-                var balloon = balloonID?.GetEntity(entity.Level);
-                if (!balloon.ExistsAndAlive())
-                    return;
-                balloon.SetParent(null);
-                SetBalloonID(entity, null);
-                balloon.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL), entity);
-            }
-            public static void Smash(Entity entity)
-            {
-                var damage = entity.GetDamage() * 3;
-                var radius = 120;
-                var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION);
-                entity.Explode(entity.Position, radius, entity.GetFaction(), damage, effects);
-                entity.PlaySound(VanillaSoundID.smash);
-                entity.Level.ShakeScreen(10, 0, 15);
             }
             public const int SUBSTATE_RELEASE = 0;
             public const int SUBSTATE_RELEASED = 1;
             public const int SUBSTATE_CLOSE = 2;
-            public const int SUBSTATE_FLY = 3;
-            public const int SUBSTATE_SMASH = 4;
-            public const int SUBSTATE_LAND = 5;
         }
         #endregion
 

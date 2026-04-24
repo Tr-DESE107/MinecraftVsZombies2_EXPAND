@@ -96,8 +96,6 @@ namespace MVZ2.GameContent.Bosses
         public static void SetCoughType(Entity entity, int value) => entity.SetProperty(PROP_COUGH_TYPE, value);
         public static int GetUsedCoughType(Entity entity) => entity.GetProperty<int>(PROP_USED_COUGH_TYPES);
         public static void SetUsedCoughType(Entity entity, int value) => entity.SetProperty(PROP_USED_COUGH_TYPES, value);
-        public static EntityID? GetBalloonID(Entity entity) => entity.GetProperty<EntityID>(PROP_BALLOON_ID);
-        public static void SetBalloonID(Entity entity, EntityID? value) => entity.SetProperty(PROP_BALLOON_ID, value);
 
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
         private static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
@@ -107,7 +105,6 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_TARGET_POSITION = new VanillaEntityPropertyMeta<Vector3>("target_position");
         private static readonly VanillaEntityPropertyMeta<EntityID> PROP_SMASH_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("smash_target_id");
-        private static readonly VanillaEntityPropertyMeta<EntityID> PROP_BALLOON_ID = new VanillaEntityPropertyMeta<EntityID>("balloon_id");
 
         public const float SMASH_DAMAGE_MULTIPLIER = 3;
         public const int STATE_IDLE = VanillaBossStates.IDLE;
