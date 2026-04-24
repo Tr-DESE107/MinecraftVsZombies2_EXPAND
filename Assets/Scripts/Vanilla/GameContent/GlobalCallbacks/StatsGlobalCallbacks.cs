@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
@@ -80,6 +81,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var entity = param.entity;
             if (!entity.Level.IsIZombie())
             {
+                if (entity.IsFriendlyEntity())
+                    return;
                 Global.Saves.AddStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, entity.GetDefinitionID(), 1);
             }
         }
