@@ -172,6 +172,10 @@ namespace MVZ2.Collisions
         }
 
         #region 检测
+        public bool CheckBox(Vector3 center, Vector3 size)
+        {
+            return boxCollider.bounds.IntersectsOptimized(new Bounds(center, size));
+        }
         public bool CheckSphere(Vector3 center, float radius)
         {
             var closest = boxCollider.ClosestPoint(center);

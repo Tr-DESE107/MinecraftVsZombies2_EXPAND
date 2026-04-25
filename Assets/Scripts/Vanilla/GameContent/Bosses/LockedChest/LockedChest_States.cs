@@ -2148,7 +2148,7 @@ namespace MVZ2.GameContent.Bosses
         {
             mask = EntityCollisionHelper.MASK_PLANT
         };
-        private static Detector highJumpDetector = new BoxDetector(new Vector3(200, 40, 60), new Vector3(0, 20, 0), true);
+        private static Detector highJumpDetector = new LockedChestDetector(LockedChestDetector.MODE_SMASH, true);
         private static List<IEntityCollider> crushBuffer = new List<IEntityCollider>();
         private static List<Entity> highJumpSearchBuffer = new List<Entity>();
         private static List<IEntityCollider> highJumpDamageBuffer = new List<IEntityCollider>();

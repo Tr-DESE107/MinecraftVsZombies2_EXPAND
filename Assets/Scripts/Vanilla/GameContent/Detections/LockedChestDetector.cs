@@ -10,9 +10,10 @@ namespace MVZ2.GameContent.Detections
 {
     public class LockedChestDetector : Detector
     {
-        public LockedChestDetector(int mode)
+        public LockedChestDetector(int mode, bool canDetectInvisible = false)
         {
             this.mode = mode;
+            this.canDetectInvisible = canDetectInvisible;
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
@@ -25,6 +26,16 @@ namespace MVZ2.GameContent.Detections
             float centerZ = source.z;
             switch (mode)
             {
+                case MODE_SMASH:
+                    {
+                        sizeX = 200;
+                        sizeY = 40;
+                        sizeZ = 200;
+                        centerX = source.x;
+                        centerZ = source.z;
+                        centerY = source.y + 20;
+                    }
+                    break;
                 case MODE_CAMERA:
                     {
                         sizeX = 160;
@@ -50,17 +61,34 @@ namespace MVZ2.GameContent.Detections
         }
         protected override bool ValidateCollider(DetectionParams param, IEntityCollider collider)
         {
-            if (mode == MODE_CAMERA)
+            switch (mode)
             {
-                var target = collider.Entity;
-                if (!target.CanDeactive())
-                    return false;
-                if (target.IsAIFrozen())
-                    return false;
+                case MODE_CAMERA:
+                    {
+                        var target = collider.Entity;
+                        if (!target.CanDeactive())
+                            return false;
+                        if (target.IsAIFrozen())
+                            return false;
+                    }
+                    break;
+
+                case MODE_SMASH:
+                    {
+                        var center = param.entity.Position;
+                        center += Vector3.up * 20;
+                        float sizeX = 200;
+                        float sizeY = 40;
+                        float sizeZ = 40;
+                        if (!collider.CheckBox(center, new Vector3(sizeX, sizeY, sizeZ)) && !collider.CheckBox(center, new Vector3(sizeZ, sizeY, sizeX)))
+                            return false;
+                    }
+                    break;
             }
             return base.ValidateCollider(param, collider);
         }
         private int mode;
         public const int MODE_CAMERA = 0;
+        public const int MODE_SMASH = 1;
     }
 }
