@@ -124,7 +124,7 @@ namespace MVZ2.Vanilla.Localization
 
         [TranslateMsg("上锁的箱子信息标题", CONTEXT_LOCKED_CHEST_MESSAGE)]
         public const string LOCKED_CHEST_MESSAGE_TITLE = "勒索弹窗";
-        [TranslateMsg("上锁的箱子信息描述，{0}为需求1，{1}为需求2，{2}为招式名称", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
+        [TranslateMsg("上锁的箱子信息描述，{0}为需求1，{1}为需求2，{2}为招式名称", CONTEXT_LOCKED_CHEST_MESSAGE)]
         public const string LOCKED_CHEST_MESSAGE_DESCRIPTION = "立刻给我{0}或{1}，否则我就要发动我的终极绝招“{2}”了！";
 
         [TranslateMsg("上锁的箱子信息标题", CONTEXT_LOCKED_CHEST_MESSAGE)]

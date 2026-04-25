@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-27 07:27+0800\n"
-"PO-Revision-Date: 2026-04-27 19:28+0800\n"
+"POT-Creation-Date: 2026-04-27 08:14+0800\n"
+"PO-Revision-Date: 2026-04-27 20:18+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4131,7 +4131,7 @@ msgid ""
 "<b>项目等级：</b>Keter\n"
 "<b>特殊收容措施：</b>由于MCP-988“瞬移”区域十分广阔，收容是不可能的。MCP-988已被埋入███区域地下██米，█国政府已经批准建立一个对外宣称是军"
 "事行动区的区域来阻止人员靠近这些区域。\n"
-"<b>描述：</b>MCP-988是一个长1.2米，宽2米，高1.7米的木制箱子，其边缘部分由未知的紫色金属条固定。一般情况下的MCP-988被铁链和一块坚固的锁"
+"<b>描述：</b>MCP-988是一个长0.85米，宽1.7米，高1米的木制箱子，其边缘部分由未知的紫色金属条固定。一般情况下的MCP-988被铁链和一块坚固的锁"
 "头（下称MCP-988-1）锁住。\n"
 "每隔约2小时，MCP-988会随机锁定最近约150米，最远约200米范围内的一名落单的人员作为其狩猎目标并瞬间移动至其附近。一旦目标从MCP-988身上转移"
 "注意力并远离时，MCP-988会以高速跃起并砸向目标的头部。\n"
@@ -4147,7 +4147,7 @@ msgstr ""
 "<b>Special Containment Procedures:</b> Due to the extremely wide range of MCP-988's \"teleportation\", containment is impossible. "
 "MCP-988 has been buried ██ meters underground in the ██████ region. The government of the country ███████ has authorized the "
 "establishment of an area publicly claimed as a military operations area to prevent anybody from approaching these areas.\n"
-"<b>Description:</b> MCP-988 is a wooden box measuring 1.2m x 2m x 1.7m, with its edges secured by unknown purple metal strips. Under "
+"<b>Description:</b> MCP-988 is a wooden box measuring 0.85m x 1.7m x 1m, with its edges secured by unknown purple metal strips. Under "
 "normal conditions, MCP-988 is bound by iron chains and secured with a sturdy lock (hereafter referred to as MCP-988-1).\n"
 "Approximately every two hours, MCP-988 will randomly lock onto a lone individual within a range of 150 meters to a maximum of 200 "
 "meters as its hunting target and instantly teleport to their location. Once the target diverts their attention away from MCP-988 and "
@@ -7385,6 +7385,30 @@ msgctxt "death_message"
 msgid "我已启动"
 msgstr "I have started"
 
+#. Name for entity mvz2:locked_chest_balloon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "上锁箱子的气球"
+msgstr "Locked Chest's Balloon"
+
+#. Name for entity mvz2:rolling_hay_bale
+#: Entity meta file
+msgctxt "entity.name"
+msgid "滚干草捆"
+msgstr "Rolling Hay Bale"
+
+#. Name for entity mvz2:rolling_wood
+#: Entity meta file
+msgctxt "entity.name"
+msgid "滚木"
+msgstr "Rolling Wood"
+
+#. Name for entity mvz2:rolling_stone
+#: Entity meta file
+msgctxt "entity.name"
+msgid "滚石"
+msgstr "Rolling Stone"
+
 #. Name for entity mvz2:gargoyle_statue
 #: Entity meta file
 msgctxt "entity.name"
@@ -7444,6 +7468,18 @@ msgstr "The Giant Snake Tail"
 msgctxt "entity.name"
 msgid "红龙"
 msgstr "The Red Dragon"
+
+#. Name for entity mvz2:locked_chest
+#: Entity meta file
+msgctxt "entity.name"
+msgid "上锁的箱子"
+msgstr "Locked Chest"
+
+#. Name for entity mvz2:pink_wither
+#: Entity meta file
+msgctxt "entity.name"
+msgid "粉红凋灵"
+msgstr "Pink Wither"
 
 #. Name for entity mvz2:minecart
 #: Entity meta file
@@ -7552,6 +7588,12 @@ msgstr "Starshard"
 msgctxt "entity.name"
 msgid "蓝图掉落物"
 msgstr "Blueprint Pickup"
+
+#. Name for entity mvz2:locked_chest_pickup
+#: Entity meta file
+msgctxt "entity.name"
+msgid "上锁的箱子掉落物"
+msgstr "Locked Chest Pickup"
 
 #. Name for entity mvz2:crushing_walls
 #: Entity meta file
