@@ -987,7 +987,7 @@ namespace MVZ2.GameContent.Bosses
                 var param = entity.GetShootParams();
                 param.projectileID = VanillaProjectileID.lockedChestTrash;
                 param.velocity = velocity;
-                param.damage = entity.GetDamage() * 0.2f;
+                param.damage = entity.GetDamage() * SPIT_TRASH_DAMAGE_MULTIPLIER;
                 param.spawnParam.SetProperty(LogicEntityProps.VARIANT, LockedChestTrash.RandomVariant(rng));
                 entity.ShootProjectile(param);
             }
