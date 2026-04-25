@@ -3536,6 +3536,15 @@
                 <float name="mvz2:gravity" value="1" />
             </properties>
         </projectile>
+        <projectile id="explosive_soul">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:projectile_explode" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:range" value="120" />
+                <vector3 name="mvz2:size" x="24" y="24" z="24" />
+            </properties>
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">

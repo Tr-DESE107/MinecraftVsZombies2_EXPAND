@@ -65,6 +65,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new PayToWinState());
                 AddState(new FiveSmashesState());
                 AddState(new HyperbeamState());
+                AddState(new FourSoulsState());
 
                 AddState(new StunnedState());
                 AddState(new DeathState());
@@ -1412,10 +1413,6 @@ namespace MVZ2.GameContent.Bosses
         {
             return CanSwitchToFiveSmashesState(entity) || CanSwitchToHyperbeamState(entity) || CanSwitchToFourSoulsState(entity);
         }
-        private static bool CanSwitchToFourSoulsState(Entity entity)
-        {
-            return HasAnyEnemy(entity);
-        }
         private static PayToWinAction GetRandomPayToWinAction(Entity entity)
         {
             return payToWinActionPool.Where(a => a.CanUse(entity)).Random(entity.RNG);
@@ -1489,7 +1486,7 @@ namespace MVZ2.GameContent.Bosses
                                         break;
                                     case RANSOM_OPTION_REJECT:
                                         action.Use(entity);
-                                        entity.PlaySound(VanillaSoundID.growBig);
+                                        entity.PlaySound(VanillaSoundID.lockedChestGiggles);
                                         break;
                                 }
                                 entity.Level.ResumeGameDelayed(100);
@@ -1781,6 +1778,115 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 爆破四魂
+        private static bool CanSwitchToFourSoulsState(Entity entity)
+        {
+            return HasAnyEnemy(entity);
+        }
+        private class FourSoulsState : EntityStateMachineState
+        {
+            public FourSoulsState() : base(STATE_FOUR_SOULS, ANIMATION_STATE_OPEN_CHEST) { }
+            public override int GetAnimationState(int substate)
+            {
+                if (substate == SUBSTATE_SHAKE)
+                {
+                    return ANIMATION_STATE_IDLE;
+                }
+                return base.GetAnimationState(substate);
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                if (substate == SUBSTATE_SHAKE)
+                {
+                    return 0;
+                }
+                return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(0.5f);
+                SetShake(entity, true);
+                UpdateFlipX(entity);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetShake(entity, false);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_SHAKE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_OPEN);
+                            timer.ResetSeconds(0.5f);
+                            SetShake(entity, false);
+
+                            entity.PlaySound(VanillaSoundID.chestOpen);
+                        }
+                        break;
+                    case SUBSTATE_OPEN:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_FIRED);
+                            timer.ResetSeconds(1f);
+
+                            ShootSouls(entity);
+                            entity.PlaySound(VanillaSoundID.nyaightmareScream);
+                            entity.PlaySound(VanillaSoundID.fireCharge);
+                        }
+                        break;
+                    case SUBSTATE_FIRED:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_CLOSE);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_CLOSE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public static void ShootSouls(Entity entity)
+            {
+                var rng = entity.RNG;
+                for (int i = 0; i < 4; i++)
+                {
+                    var param = entity.GetShootParams();
+                    var velX = (rng.NextFloat() * 10 + 10) * -entity.GetFacingX();
+                    var velZ = (rng.NextFloat() * 8 - 4);
+                    param.projectileID = VanillaProjectileID.explosiveSoul;
+                    param.damage = entity.GetDamage() * 1.5f;
+                    param.velocity = new Vector3(velX, 0, velZ);
+                    param.spawnParam.SetProperty(EngineEntityProps.FLIP_X, entity.IsFacingLeft());
+                    entity.ShootProjectile(param);
+                }
+            }
+            public static Vector3 GetLaserPosition(Entity entity)
+            {
+                var offset = entity.GetShotOffset();
+                offset.x *= entity.GetFacingX();
+                return entity.Position + offset;
+            }
+            public const int SUBSTATE_SHAKE = 0;
+            public const int SUBSTATE_OPEN = 1;
+            public const int SUBSTATE_FIRED = 2;
+            public const int SUBSTATE_CLOSE = 3;
+        }
+        #endregion
+
         #region 眩晕
         public static void Stun(Entity chest, float seconds)
         {
@@ -2064,8 +2170,8 @@ namespace MVZ2.GameContent.Bosses
         private static PayToWinAction[] payToWinActionPool = new PayToWinAction[]
         {
             //new FiveSmashesAction(VanillaStrings.LOCKED_CHEST_ACTION_FIVE_SMASHES),
-            new HyperbeamAction(VanillaStrings.LOCKED_CHEST_ACTION_HYPERBEAM),
-            //new FourSoulsAction(VanillaStrings.LOCKED_CHEST_ACTION_FOUR_SOULS),
+            //new HyperbeamAction(VanillaStrings.LOCKED_CHEST_ACTION_HYPERBEAM),
+            new FourSoulsAction(VanillaStrings.LOCKED_CHEST_ACTION_FOUR_SOULS),
         };
 
 

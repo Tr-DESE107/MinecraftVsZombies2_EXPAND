@@ -60,6 +60,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string gravel = "gravel";
         public const string cannonMissile = "cannon_missile";
         public const string lockedChestTrash = "locked_chest_trash";
+        public const string explosiveSoul = "explosive_soul";
     }
     public static class VanillaProjectileID
     {
@@ -115,6 +116,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID flint = Get(VanillaProjectileNames.flint);
         public static readonly NamespaceID gravel = Get(VanillaProjectileNames.gravel);
         public static readonly NamespaceID lockedChestTrash = Get(VanillaProjectileNames.lockedChestTrash);
+        public static readonly NamespaceID explosiveSoul = Get(VanillaProjectileNames.explosiveSoul);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
