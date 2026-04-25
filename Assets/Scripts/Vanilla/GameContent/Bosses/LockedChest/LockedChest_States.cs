@@ -2169,8 +2169,8 @@ namespace MVZ2.GameContent.Bosses
         private static List<IEntityCollider> highJumpDamageBuffer = new List<IEntityCollider>();
         private static PayToWinAction[] payToWinActionPool = new PayToWinAction[]
         {
-            //new FiveSmashesAction(VanillaStrings.LOCKED_CHEST_ACTION_FIVE_SMASHES),
-            //new HyperbeamAction(VanillaStrings.LOCKED_CHEST_ACTION_HYPERBEAM),
+            new FiveSmashesAction(VanillaStrings.LOCKED_CHEST_ACTION_FIVE_SMASHES),
+            new HyperbeamAction(VanillaStrings.LOCKED_CHEST_ACTION_HYPERBEAM),
             new FourSoulsAction(VanillaStrings.LOCKED_CHEST_ACTION_FOUR_SOULS),
         };
 
