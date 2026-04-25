@@ -1780,8 +1780,8 @@ namespace MVZ2.GameContent.Bosses
                 var sourcePosition = GetLaserPosition(entity);
                 var param = entity.GetSpawnParams();
                 param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFacingLeft());
-                param.SetProperty(EngineEntityProps.DISPLAY_SCALE, new Vector3(1, 0.333333f, 1));
-                param.SetProperty(EngineEntityProps.SCALE, new Vector3(1, 0.333333f, 0.333333f));
+                param.SetProperty(EngineEntityProps.DISPLAY_SCALE, new Vector3(1, HYPERBEAM_SCALE, HYPERBEAM_SCALE));
+                param.SetProperty(EngineEntityProps.SCALE, new Vector3(1, HYPERBEAM_SCALE, HYPERBEAM_SCALE));
 
                 return entity.Spawn(VanillaEffectID.masterSpark, sourcePosition, param)?.Let(l =>
                 {
