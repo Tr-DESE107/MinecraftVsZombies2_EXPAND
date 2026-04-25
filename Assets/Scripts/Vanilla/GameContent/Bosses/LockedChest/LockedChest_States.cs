@@ -15,6 +15,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
@@ -615,7 +616,7 @@ namespace MVZ2.GameContent.Bosses
                             SpawnShadow(entity, true);
                             if (entity.IsOnGround)
                             {
-                                float damage = entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER;
+                                float damage = VanillaMod.INSTA_DAMAGE_AMOUNT;
                                 HighJumpSmash(entity, damage);
 
                                 stateMachine.StartSubState(entity, SUBSTATE_END);
@@ -722,7 +723,7 @@ namespace MVZ2.GameContent.Bosses
                             stateMachine.StartSubState(entity, SUBSTATE_LOCK);
                             timer.ResetSeconds(1);
 
-                            LockRandomBlueprint(entity, 1);
+                            LockRandomBlueprint(entity, LOCK_BLUEPRINT_COUNT);
                             entity.Spawn(VanillaEffectID.lockSigil, entity.GetCenter());
 
                             entity.Level.ShakeScreen(10, 0, 15);
@@ -836,6 +837,8 @@ namespace MVZ2.GameContent.Bosses
             return seedPacks.Where(s =>
             {
                 if (s.IsUpgradeBlueprint() || s.CanInstantTrigger() || s.GetSeedType() != SeedTypes.ENTITY)
+                    return false;
+                if (s.IsDisabled())
                     return false;
                 var entityID = s.GetSeedEntityID();
                 var entityDef = level.Content.GetEntityDefinition(entityID);
@@ -1637,8 +1640,7 @@ namespace MVZ2.GameContent.Bosses
                             SpawnShadow(entity, true);
                             if (entity.IsOnGround)
                             {
-                                float damage = entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER;
-                                UltimateSmash(entity, damage);
+                                UltimateSmash(entity);
 
                                 RemoveSmashTarget(entity);
                                 entity.PlaySound(VanillaSoundID.smash);
@@ -1672,7 +1674,7 @@ namespace MVZ2.GameContent.Bosses
                         break;
                 }
             }
-            public static void UltimateSmash(Entity entity, float damage)
+            public static void UltimateSmash(Entity entity)
             {
                 var grid = entity.GetGrid();
                 if (grid == null)
@@ -2168,26 +2170,32 @@ namespace MVZ2.GameContent.Bosses
         private static NamespaceID[] coughBlueprintPool = new NamespaceID[]
         {
             LogicBlueprintID.FromEntity(VanillaContraptionID.dispenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.smallDispenser),
             LogicBlueprintID.FromEntity(VanillaContraptionID.silvenser),
-            LogicBlueprintID.FromEntity(VanillaContraptionID.tnt),
-            LogicBlueprintID.FromEntity(VanillaContraptionID.magichest),
             LogicBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
-            LogicBlueprintID.FromEntity(VanillaContraptionID.glowstone),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.woodenDropper),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.spikeBlock),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.stoneDropper),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.goldenApple),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.thunderDrum),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.splitenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.repeatenser),
         };
         private static int[] statePoolPhase1 = new int[]
         {
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_CHARGE,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_SMASH,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_LOCK,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_CHARGE,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SMASH,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_LOCK,
             STATE_JUMP,
             STATE_JUMP,
             STATE_JUMP,
@@ -2195,27 +2203,32 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_CHARGE,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_SPIT_TRASH,
-            //STATE_SPECIAL_ATTACK,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_CHARGE,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SMASH,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_CHARGE,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SPIT_TRASH,
+            STATE_SPECIAL_ATTACK,
             STATE_CAMERA,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_SPIT_ZOMBIE_BLUEPRINTS,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_PAY_TO_WIN,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SPIT_ZOMBIE_BLUEPRINTS,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_PAY_TO_WIN,
         };
         private abstract class PayToWinAction
         {

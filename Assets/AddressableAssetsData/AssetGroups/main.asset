@@ -360,6 +360,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 072da67d8c8b39e4cb7d61844a5ef0cf
+    m_Address: mvz2:palace_boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 073caa400cee98e4f9adafc78fdd521a
     m_Address: mvz2:entity/contraption/tesla_coil
     m_ReadOnly: 0
@@ -1038,6 +1045,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 139c35b04942dec4a9d97f86067f8e1e
+    m_Address: mvz2:palace_final
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13b6d5b3963809543b2c3ae66757af81
     m_Address: mvz2:damage/hit3
@@ -5895,6 +5909,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f3005b429b67674fb729744f0f2a46e
+    m_Address: mvz2:projectile/explosive_soul
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f3e5c2859c6f054e8a645a5a27e25a2
     m_Address: mvz2:bones/skeleton
     m_ReadOnly: 0
@@ -7097,6 +7118,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 866b86d6fcb5fff4d8a3cda6be16944a
+    m_Address: mvz2:entity/effects/evil_soul
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86a0b0aabb4ceca42a409ee8c656695a
     m_Address: mvz2:entity/contraption/obsidian

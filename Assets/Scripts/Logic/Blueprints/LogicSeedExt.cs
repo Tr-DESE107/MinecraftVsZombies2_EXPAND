@@ -28,27 +28,26 @@ namespace MVZ2Logic.Blueprints
         }
         public static NamespaceID? GetPickError(this SeedPack seed)
         {
-            NamespaceID? error = null;
             if (seed == null)
             {
-                error = LogicBlueprintErrors.invalid;
+                return LogicBlueprintErrors.invalid;
             }
             else if (seed is ClassicSeedPack)
             {
                 if (!seed.IsCharged())
                 {
-                    error = LogicBlueprintErrors.recharging;
+                    return LogicBlueprintErrors.recharging;
                 }
                 else if (seed.Level.Energy < seed.GetCost())
                 {
-                    error = LogicBlueprintErrors.notEnoughEnergy;
-                }
-                else if (seed.IsDisabled())
-                {
-                    error = seed.GetDisableID();
+                    return LogicBlueprintErrors.notEnoughEnergy;
                 }
             }
-            return error;
+            if (seed.IsDisabled())
+            {
+                return seed.GetDisableID();
+            }
+            return null;
         }
         public static bool CanInstantTrigger(this SeedPack seedPack)
         {

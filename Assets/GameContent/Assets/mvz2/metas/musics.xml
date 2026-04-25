@@ -441,4 +441,28 @@
             <p>======乐评施工中======</p>
         </description>
     </music>
+    <music id="palace_final" name="Last Remote">
+        <unlock>
+            <condition required="mvz2:level.palace_11" />
+        </unlock>
+        <track main="mvz2:palace_final" />
+        <source>东方地灵殿</source>
+        <description>
+            <p>地灵殿最终关的音乐。</p>
+            <p>是《东方星莲船》中Extra关的音乐。</p>
+            <p>======乐评施工中======</p>
+        </description>
+    </music>
+    <music id="palace_boss" name="Boss 2">
+        <unlock>
+            <condition required="mvz2:level.palace_11" />
+        </unlock>
+        <track main="mvz2:palace_boss" />
+        <source>泰拉瑞亚</source>
+        <description>
+            <p>上锁的箱子的音乐。</p>
+            <p>是游戏《泰拉瑞亚》中Boss血肉之墙的音乐。</p>
+            <p>======乐评施工中======</p>
+        </description>
+    </music>
 </musics>

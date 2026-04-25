@@ -133,7 +133,6 @@ namespace MVZ2.GameContent.Bosses
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_SMASH_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("smash_target_id");
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_STATE_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("state_target_id");
 
-        public const float SMASH_DAMAGE_MULTIPLIER = 3;
         public const int STATE_IDLE = VanillaBossStates.IDLE;
         public const int STATE_STUNNED = VanillaBossStates.STUNNED;
         public const int STATE_DEATH = VanillaBossStates.DEATH;
@@ -174,6 +173,7 @@ namespace MVZ2.GameContent.Bosses
         public const int ANIMATION_SUBSTATE_SMASH_JUMP = 0;
         public const int ANIMATION_SUBSTATE_SMASH_FALL = 1;
 
+        public const int LOCK_BLUEPRINT_COUNT = 2;
         public const int ULTIMATE_SMASH_TIMES = 5;
 
         public const int EMOTE_NONE = 0;

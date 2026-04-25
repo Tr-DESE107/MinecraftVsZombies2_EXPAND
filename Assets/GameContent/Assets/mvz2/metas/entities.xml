@@ -2848,7 +2848,7 @@
         <boss id="locked_chest" name="上锁的箱子">
             <properties>
                 <int name="mvz2:waterInteraction" value="1" />
-                <float name="mvz2:maxHealth" value="10000" />
+                <float name="mvz2:maxHealth" value="20000" />
                 <float name="mvz2:gravity" value="2" />
                 <id name="mvz2:shell" value="mvz2:wood" />
                 <vector3 name="mvz2:size" x="48" y="56" z="72" />
