@@ -2,9 +2,14 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Fragments;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
+using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
+using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
@@ -25,7 +30,6 @@ namespace MVZ2.GameContent.Bosses
         public override void Init(Entity boss)
         {
             base.Init(boss);
-            SetPhase(boss, PHASE_2);
             stateMachine.Init(boss);
             stateMachine.StartState(boss, STATE_IDLE);
             boss.CollisionMaskHostile |= EntityCollisionHelper.MASK_PLANT;
@@ -39,6 +43,15 @@ namespace MVZ2.GameContent.Bosses
         {
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
+
+            if (GetPhase(entity) == PHASE_1 && entity.Health / (float)entity.GetMaxHealth() < PHASE_2_THRESOLD)
+            {
+                Stun(entity, 5);
+                entity.CreateFragmentAndPlay(VanillaFragmentID.furnace);
+                entity.PlaySound(VanillaSoundID.chainsBreak);
+                SetPhase(entity, PHASE_2);
+                stateMachine.SetNextStateIndex(entity, 1);
+            }
 
             var phase = GetPhase(entity);
             entity.SetAnimationInt("Phase", phase);
@@ -59,6 +72,11 @@ namespace MVZ2.GameContent.Bosses
                     }
                 }
             }
+        }
+        public override void PostDeath(Entity entity, DeathInfo deathInfo)
+        {
+            base.PostDeath(entity, deathInfo);
+            stateMachine.StartState(entity, STATE_DEATH);
         }
         #endregion 事件
 
@@ -103,17 +121,17 @@ namespace MVZ2.GameContent.Bosses
         public static int GetRemainedUltimateSmashTimes(Entity entity) => entity.GetProperty<int>(PROP_REMAINED_ULTIMATE_SMASH_TIMES);
         public static void SetRemainedUltimateSmashTimes(Entity entity, int value) => entity.SetProperty(PROP_REMAINED_ULTIMATE_SMASH_TIMES, value);
 
-        private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
-        private static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
-        private static readonly VanillaEntityPropertyMeta<int> PROP_USED_COUGH_TYPES = new VanillaEntityPropertyMeta<int>("used_cough_types");
-        private static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_JUMP_STATE = new VanillaEntityPropertyMeta<int>("next_jump_state");
-        private static readonly VanillaEntityPropertyMeta<int> PROP_REMAINED_ULTIMATE_SMASH_TIMES = new VanillaEntityPropertyMeta<int>("remained_ultimate_smash_times");
-        private static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("flip_x");
-        private static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1f);
-        private static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
-        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("next_jump_target");
-        private static readonly VanillaEntityPropertyMeta<EntityID> PROP_SMASH_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("smash_target_id");
-        private static readonly VanillaEntityPropertyMeta<EntityID> PROP_STATE_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("state_target_id");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_USED_COUGH_TYPES = new VanillaEntityPropertyMeta<int>("used_cough_types");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_JUMP_STATE = new VanillaEntityPropertyMeta<int>("next_jump_state");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_REMAINED_ULTIMATE_SMASH_TIMES = new VanillaEntityPropertyMeta<int>("remained_ultimate_smash_times");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("flip_x");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1f);
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("next_jump_target");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_SMASH_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("smash_target_id");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_STATE_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("state_target_id");
 
         public const float SMASH_DAMAGE_MULTIPLIER = 3;
         public const int STATE_IDLE = VanillaBossStates.IDLE;
@@ -165,5 +183,6 @@ namespace MVZ2.GameContent.Bosses
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;
+        public const float PHASE_2_THRESOLD = 0.75f;
     }
 }

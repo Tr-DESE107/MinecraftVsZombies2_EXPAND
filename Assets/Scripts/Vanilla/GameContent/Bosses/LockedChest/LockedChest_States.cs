@@ -36,6 +36,7 @@ using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -745,7 +746,7 @@ namespace MVZ2.GameContent.Bosses
         #region 粉碎之锁
         private static bool CanSwitchToCrushingLockState(Entity entity)
         {
-            return FindCrushingLockTargetGridIndexes(entity).Count() >= 0 && GetPossibleRequiredContraptionID(entity.Level).Count() > 0;
+            return FindCrushingLockTargetGridIndexes(entity).Count() > 0 && GetPossibleRequiredContraptionID(entity.Level).Count() > 0;
         }
         public static IEnumerable<int> FindCrushingLockTargetGridIndexes(Entity entity)
         {
@@ -799,7 +800,27 @@ namespace MVZ2.GameContent.Bosses
             }
 
             // 找出存活植物中 neighborCounts 最大的那个
-            return neighborCounts.GetMostOnes(c => c);
+            List<int> bestItems = new List<int>();
+            float maxCount = 0;
+
+            for (int i = 0; i < maxIndex; i++)
+            {
+                if (!contraptions[i])
+                    continue;
+                var count = neighborCounts[i];
+                if (count > maxCount)
+                {
+                    maxCount = count;
+                    bestItems.Clear();
+                    bestItems.Add(i);
+                }
+                else if (count == maxCount)
+                {
+                    bestItems.Add(i);
+                }
+            }
+
+            return bestItems;
         }
         public static IEnumerable<SeedPack> GetPossibleRequiredContraptionID(LevelEngine level)
         {
@@ -836,7 +857,7 @@ namespace MVZ2.GameContent.Bosses
         public static void CrushingLock(Entity entity)
         {
             var gridIndexes = FindCrushingLockTargetGridIndexes(entity);
-            if (gridIndexes.Count() < 0)
+            if (gridIndexes.Count() <= 0)
                 return;
             var rng = entity.RNG;
             var gridIndex = gridIndexes.Random(rng);
@@ -1929,10 +1950,8 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
-                var substateTimer = stateMachine.GetSubStateTimer(entity);
-                substateTimer.ResetSeconds(2f);
-
-                entity.TriggerAnimation("DeathTrigger");
+                entity.Remove();
+                entity.PlaySound(VanillaSoundID.lockedChestDeath);
             }
             public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {
@@ -1940,43 +1959,7 @@ namespace MVZ2.GameContent.Bosses
                 var substate = stateMachine.GetSubState(entity);
                 var timer = stateMachine.GetSubStateTimer(entity);
                 timer.Run(stateMachine.GetSpeed(entity));
-                switch (substate)
-                {
-                    case SUBSTATE_START:
-                        // 倒地
-                        if (timer.PassedSecondsFromMax(5 / 6f))
-                        {
-                            entity.PlaySound(VanillaSoundID.thump);
-                            entity.Level.ShakeScreen(10, 0, 15);
-                        }
-                        if (timer.Expired)
-                        {
-                            stateMachine.StartSubState(entity, SUBSTATE_FADE);
-                            timer.ResetSeconds(2f);
-                        }
-                        break;
-                    case SUBSTATE_FADE:
-                        {
-                            if (timer.Expired)
-                            {
-                                stateMachine.StartSubState(entity, SUBSTATE_DISAPPEAR);
-                                timer.ResetSeconds(1f);
-                            }
-                        }
-                        break;
-                    case SUBSTATE_DISAPPEAR:
-                        {
-                            if (timer.Expired)
-                            {
-                                entity.Remove();
-                            }
-                        }
-                        break;
-                }
             }
-            public const int SUBSTATE_START = 0;
-            public const int SUBSTATE_FADE = 1;
-            public const int SUBSTATE_DISAPPEAR = 2;
         }
         #endregion
 
@@ -2224,15 +2207,15 @@ namespace MVZ2.GameContent.Bosses
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
-            //STATE_CAMERA,
+            STATE_CAMERA,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_JUMP,
             //STATE_SPIT_ZOMBIE_BLUEPRINTS,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_PAY_TO_WIN,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_PAY_TO_WIN,
         };
         private abstract class PayToWinAction
         {

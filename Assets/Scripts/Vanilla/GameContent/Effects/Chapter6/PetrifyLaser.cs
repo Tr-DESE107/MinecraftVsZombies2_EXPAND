@@ -5,6 +5,7 @@ using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -30,8 +31,13 @@ namespace MVZ2.GameContent.Effects
             bool soundPlayed = false;
             foreach (var target in detectBuffer)
             {
-                if (!target.CanDeactive() || target.Type == EntityTypes.BOSS)
-                    continue;
+                if (!entity.GetProperty<bool>(PROP_ULTIMATE))
+                {
+                    if (!target.CanDeactive())
+                        continue;
+                    if (target.Type == EntityTypes.BOSS)
+                        continue;
+                }
                 target.InflictPetrified(duration, new EntitySourceReference(entity));
                 var spawnParams = target.GetSpawnParams();
                 spawnParams.SetProperty(EngineEntityProps.TINT, Color.gray);
@@ -46,6 +52,7 @@ namespace MVZ2.GameContent.Effects
         }
         public const float PETRIFY_DURATION_SECONDS = 10f;
         public static Detector laserDetector = new CollisionDetector(true);
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_ULTIMATE = new VanillaEntityPropertyMeta<bool>("ultimate");
         public List<Entity> detectBuffer = new List<Entity>();
     }
 }

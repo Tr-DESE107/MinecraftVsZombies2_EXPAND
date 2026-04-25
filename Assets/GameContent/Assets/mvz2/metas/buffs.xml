@@ -208,7 +208,7 @@
     <buff id="dragged_by_balloon" polarity="none" level="5000" target="entity" />
     <buff id="released_from_locked_chest" polarity="none" level="5000" target="entity" />
     <buff id="locked_chest_invincible" polarity="none" level="5000" target="boss" />
-    
+    <buff id="stone_eye_charged" polarity="positive" level="0" target="contraption" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />
