@@ -18,10 +18,11 @@ namespace MVZ2.GameContent.Pickups
         public override void Update(Entity pickup)
         {
             base.Update(pickup);
-            if (!pickup.IsCollected())
+            if (!pickup.IsCollected() && !pickup.NoLimitInScreen())
             {
                 Vector3 pos = pickup.Position;
                 pos.x = Mathf.Clamp(pos.x, LevelPositions.GetPickupBorderX(false), LevelPositions.GetPickupBorderX(true));
+                pos.z = Mathf.Clamp(pos.z, LevelPositions.GetPickupBorderZ(false), LevelPositions.GetPickupBorderZ(true));
                 pickup.Position = pos;
             }
         }

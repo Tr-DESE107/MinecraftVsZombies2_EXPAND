@@ -3032,6 +3032,7 @@
         <pickup id="starshard" name="星之碎片">
             <behaviours>
                 <behaviour operator="add" id="mvz2:pickup_collect_starshard" />
+                <behaviour operator="remove" id="mvz2:pickup_limit_position" />
             </behaviours>
             <properties>
                 <int name="mvz2:sortingOrder" value="9999" />
