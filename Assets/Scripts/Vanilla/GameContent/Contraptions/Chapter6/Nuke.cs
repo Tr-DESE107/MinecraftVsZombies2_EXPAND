@@ -97,7 +97,7 @@ namespace MVZ2.GameContent.Contraptions
             if (grid == null)
                 return;
             DestroyEntitiesInGrid(grid, entity);
-            grid.AddBuff<BrokenTileBuff>();
+            BrokenTileBuff.Break(grid);
         }
         public static void DestroyEntitiesInGrid(LawnGrid grid, Entity source)
         {

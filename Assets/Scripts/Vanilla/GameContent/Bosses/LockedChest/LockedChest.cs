@@ -100,11 +100,14 @@ namespace MVZ2.GameContent.Bosses
         public static void SetCoughType(Entity entity, int value) => entity.SetProperty(PROP_COUGH_TYPE, value);
         public static int GetUsedCoughType(Entity entity) => entity.GetProperty<int>(PROP_USED_COUGH_TYPES);
         public static void SetUsedCoughType(Entity entity, int value) => entity.SetProperty(PROP_USED_COUGH_TYPES, value);
+        public static int GetRemainedUltimateSmashTimes(Entity entity) => entity.GetProperty<int>(PROP_REMAINED_ULTIMATE_SMASH_TIMES);
+        public static void SetRemainedUltimateSmashTimes(Entity entity, int value) => entity.SetProperty(PROP_REMAINED_ULTIMATE_SMASH_TIMES, value);
 
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
         private static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
         private static readonly VanillaEntityPropertyMeta<int> PROP_USED_COUGH_TYPES = new VanillaEntityPropertyMeta<int>("used_cough_types");
         private static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_JUMP_STATE = new VanillaEntityPropertyMeta<int>("next_jump_state");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_REMAINED_ULTIMATE_SMASH_TIMES = new VanillaEntityPropertyMeta<int>("remained_ultimate_smash_times");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("flip_x");
         private static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1f);
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
@@ -124,12 +127,15 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_CRUSHING_LOCK = VanillaBossStates.LOCKED_CHEST_CRUSH_LOCK;
 
         public const int STATE_SPIT_TRASH = VanillaBossStates.LOCKED_CHEST_SPIT_TRASH;
+        public const int STATE_COUGH = VanillaBossStates.LOCKED_CHEST_COUGH;
         public const int STATE_SPECIAL_ATTACK = VanillaBossStates.LOCKED_CHEST_SPECIAL_ATTACK;
+        public const int STATE_RELEASE_SPECIAL_ATTACK = VanillaBossStates.LOCKED_CHEST_RELEASE_SPECIAL_ATTACK;
         public const int STATE_CAMERA = VanillaBossStates.LOCKED_CHEST_CAMERA;
         public const int STATE_SPIT_ZOMBIE_BLUEPRINTS = VanillaBossStates.LOCKED_CHEST_SPIT_ZOMBIE_BLUEPRINTS;
         public const int STATE_PAY_TO_WIN = VanillaBossStates.LOCKED_CHEST_PAY_TO_WIN;
-        public const int STATE_COUGH = VanillaBossStates.LOCKED_CHEST_COUGH;
-        public const int STATE_RELEASE_SPECIAL_ATTACK = VanillaBossStates.LOCKED_CHEST_RELEASE_SPECIAL_ATTACK;
+        public const int STATE_FIVE_SMASHES = VanillaBossStates.LOCKED_CHEST_FIVE_SMASHES;
+        public const int STATE_HYPERBEAM = VanillaBossStates.LOCKED_CHEST_HYPERBEAM;
+        public const int STATE_FOUR_SOULS = VanillaBossStates.LOCKED_CHEST_FOUR_SOULS;
         public const int STATE_SUMMON_WITHER = VanillaBossStates.LOCKED_CHEST_SUMMON_WITHER;
 
         public const int ANIMATION_STATE_IDLE = 0;
@@ -149,6 +155,8 @@ namespace MVZ2.GameContent.Bosses
 
         public const int ANIMATION_SUBSTATE_SMASH_JUMP = 0;
         public const int ANIMATION_SUBSTATE_SMASH_FALL = 1;
+
+        public const int ULTIMATE_SMASH_TIMES = 5;
 
         public const int EMOTE_NONE = 0;
         public const int EMOTE_QUESTION = 1;

@@ -120,5 +120,27 @@ namespace MVZ2.Vanilla.Localization
 
         public const string CONTEXT_COMMAND_CHEAT_NAME = "command.cheat_name";
         public const string CONTEXT_RANDOM_CHINA_EVENT_NAME = "random_china.event_name";
+
+
+        [TranslateMsg("上锁的箱子信息标题", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_MESSAGE_TITLE = "勒索弹窗";
+        [TranslateMsg("上锁的箱子信息描述，{0}为花费的宝石量，{1}为招式名称", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
+        public const string LOCKED_CHEST_MESSAGE_DESCRIPTION = "立刻给我{0}宝石或1个星之碎片，否则我就要发动我的终极绝招“{1}”了！";
+        [TranslateMsg("上锁的箱子选项名，{0}为花费的宝石量", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
+
+        public const string LOCKED_CHEST_OPTION_MONEY = "支付{0}宝石";
+        [TranslateMsg("上锁的箱子选项名", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_OPTION_STARSHARD = "支付星之碎片";
+        [TranslateMsg("上锁的箱子选项名", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_OPTION_REJECT = "拒绝";
+
+        [TranslateMsg("上锁的箱子招式名", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_ACTION_FIVE_SMASHES = "终极重压";
+        [TranslateMsg("上锁的箱子招式名", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_ACTION_HYPERBEAM = "超能光束";
+        [TranslateMsg("上锁的箱子招式名", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_ACTION_FOUR_SOULS = "爆破四魂";
+
+        public const string CONTEXT_LOCKED_CHEST_MESSAGE = "locked_chest_message";
     }
 }

@@ -63,13 +63,20 @@ namespace MVZ2.Vanilla.Bosses
         public const int LOCKED_CHEST_LOCK = PRIVATE_NUMBER + 3;
         public const int LOCKED_CHEST_CRUSH_LOCK = PRIVATE_NUMBER + 4;
         public const int LOCKED_CHEST_SPIT_TRASH = PRIVATE_NUMBER + 5;
-        public const int LOCKED_CHEST_SPECIAL_ATTACK = PRIVATE_NUMBER + 6;
-        public const int LOCKED_CHEST_CAMERA = PRIVATE_NUMBER + 7;
-        public const int LOCKED_CHEST_SPIT_ZOMBIE_BLUEPRINTS = PRIVATE_NUMBER + 8;
-        public const int LOCKED_CHEST_PAY_TO_WIN = PRIVATE_NUMBER + 9;
-        public const int LOCKED_CHEST_COUGH = PRIVATE_NUMBER + 10;
-        public const int LOCKED_CHEST_RELEASE_SPECIAL_ATTACK = PRIVATE_NUMBER + 11;
-        public const int LOCKED_CHEST_SUMMON_WITHER = PRIVATE_NUMBER + 12;
+        public const int LOCKED_CHEST_COUGH = PRIVATE_NUMBER + 6;
+        public const int LOCKED_CHEST_SPECIAL_ATTACK = PRIVATE_NUMBER + 7;
+        public const int LOCKED_CHEST_RELEASE_SPECIAL_ATTACK = PRIVATE_NUMBER + 8;
+        public const int LOCKED_CHEST_CAMERA = PRIVATE_NUMBER + 9;
+        public const int LOCKED_CHEST_SPIT_ZOMBIE_BLUEPRINTS = PRIVATE_NUMBER + 10;
+        public const int LOCKED_CHEST_PAY_TO_WIN = PRIVATE_NUMBER + 11;
+        public const int LOCKED_CHEST_FIVE_SMASHES = PRIVATE_NUMBER + 12;
+        public const int LOCKED_CHEST_HYPERBEAM = PRIVATE_NUMBER + 13;
+        public const int LOCKED_CHEST_FOUR_SOULS = PRIVATE_NUMBER + 14;
+
+        public const int LOCKED_CHEST_BOMBARD = PRIVATE_NUMBER + 15;
+        public const int LOCKED_CHEST_SUMMON_WITHER = PRIVATE_NUMBER + 17;
+        public const int LOCKED_CHEST_GIANTIZE = PRIVATE_NUMBER + 18;
+        public const int LOCKED_CHEST_FIREBREATH = PRIVATE_NUMBER + 19;
 
 
         private const int PRIVATE_NUMBER = 10000;

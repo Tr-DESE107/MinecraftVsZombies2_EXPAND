@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Buffs.Entities;
+using MVZ2.GameContent.Buffs.Grids;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
@@ -18,9 +19,11 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.StateMachine;
+using MVZ2Logic;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -58,6 +61,10 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new CameraState());
 
                 AddState(new SpitZombieBlueprintState());
+
+                AddState(new PayToWinState());
+                AddState(new FiveSmashesState());
+
                 AddState(new StunnedState());
                 AddState(new DeathState());
 
@@ -115,6 +122,10 @@ namespace MVZ2.GameContent.Bosses
         private static void UpdateFlipX(Entity entity)
         {
             SetFlipX(entity, entity.Position.x < entity.Level.GetLawnCenterX());
+        }
+        private static void Hop(Entity entity)
+        {
+            entity.Velocity = Vector3.up * 10;
         }
         #region 待命
         private static bool CanSwitchStatePhase1(Entity entity, int state)
@@ -1088,7 +1099,7 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 entity.PlaySound(VanillaSoundID.lockedChestGiggles);
                 UpdateFlipX(entity);
-                Jump(entity);
+                Hop(entity);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -1100,7 +1111,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_JUMP2:
                         if (entity.IsOnGround)
                         {
-                            Jump(entity);
+                            Hop(entity);
                             entity.PlaySound(VanillaSoundID.wood);
                             stateMachine.StartSubState(entity, substate + 1);
                         }
@@ -1112,10 +1123,6 @@ namespace MVZ2.GameContent.Bosses
                         }
                         break;
                 }
-            }
-            private void Jump(Entity entity)
-            {
-                entity.Velocity += Vector3.up * 10;
             }
             public const int SUBSTATE_JUMP1 = 0;
             public const int SUBSTATE_JUMP2 = 1;
@@ -1403,10 +1410,6 @@ namespace MVZ2.GameContent.Bosses
         {
             return CanSwitchToFiveSmashesState(entity) || CanSwitchToHyperbeamState(entity) || CanSwitchToFourSoulsState(entity);
         }
-        private static bool CanSwitchToFiveSmashesState(Entity entity)
-        {
-            return HasAnyEnemy(entity);
-        }
         private static bool CanSwitchToHyperbeamState(Entity entity)
         {
             return HasAnyEnemy(entity);
@@ -1414,6 +1417,262 @@ namespace MVZ2.GameContent.Bosses
         private static bool CanSwitchToFourSoulsState(Entity entity)
         {
             return HasAnyEnemy(entity);
+        }
+        private static PayToWinAction GetRandomPayToWinAction(Entity entity)
+        {
+            return payToWinActionPool.Where(a => a.CanUse(entity)).Random(entity.RNG);
+        }
+        private class PayToWinState : EntityStateMachineState
+        {
+            public PayToWinState() : base(STATE_PAY_TO_WIN, ANIMATION_STATE_IDLE) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                entity.PlaySound(VanillaSoundID.lockedChestGiggles);
+                UpdateFlipX(entity);
+                SetEmote(entity, EMOTE_EMERALD);
+                Hop(entity);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetEmote(entity, EMOTE_NONE);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                switch (substate)
+                {
+                    case SUBSTATE_JUMP1:
+                    case SUBSTATE_JUMP2:
+                        if (entity.IsOnGround)
+                        {
+                            Hop(entity);
+                            entity.PlaySound(VanillaSoundID.wood);
+                            stateMachine.StartSubState(entity, substate + 1);
+                        }
+                        break;
+                    case SUBSTATE_JUMP3:
+                        if (entity.IsOnGround)
+                        {
+                            entity.Level.PauseGame(100);
+
+                            var action = GetRandomPayToWinAction(entity);
+                            var actionNameKey = action.NameKey;
+                            var actionName = Global.Localization.GetTextParticular(actionNameKey, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+
+                            var title = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_MESSAGE_TITLE, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+                            var desc = Global.Localization.GetTextPluralParticular(
+                                VanillaStrings.LOCKED_CHEST_MESSAGE_DESCRIPTION,
+                                VanillaStrings.LOCKED_CHEST_MESSAGE_DESCRIPTION,
+                                MONEY_COST,
+                                VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE,
+                                MONEY_COST,
+                                actionName);
+
+                            var optionList = new List<int>();
+                            FillRansomOptionList(entity, optionList);
+                            var optionNames = optionList.Select(o => GetRansomOptionName(o)).ToArray();
+                            entity.Level.ShowDialog(title, desc, optionNames, (index) =>
+                            {
+                                var option = optionList[index];
+                                switch (option)
+                                {
+                                    case RANSOM_OPTION_MONEY:
+                                        entity.Level.AddMoney(-MONEY_COST);
+                                        stateMachine.StartState(entity, STATE_IDLE);
+                                        entity.PlaySound(VanillaSoundID.cashRegister);
+                                        break;
+                                    case RANSOM_OPTION_STARSHARD:
+                                        entity.Level.AddStarshardCount(-1);
+                                        stateMachine.StartState(entity, STATE_IDLE);
+                                        entity.PlaySound(VanillaSoundID.starshardUse);
+                                        break;
+                                    case RANSOM_OPTION_REJECT:
+                                        action.Use(entity);
+                                        entity.PlaySound(VanillaSoundID.growBig);
+                                        break;
+                                }
+                                entity.Level.ResumeGameDelayed(100);
+                            });
+                        }
+                        break;
+                }
+            }
+            public void FillRansomOptionList(Entity entity, List<int> options)
+            {
+                if (entity.Level.GetMoney() >= MONEY_COST)
+                {
+                    options.Add(RANSOM_OPTION_MONEY);
+                }
+                if (entity.Level.GetStarshardCount() >= 1)
+                {
+                    options.Add(RANSOM_OPTION_STARSHARD);
+                }
+                options.Add(RANSOM_OPTION_REJECT);
+            }
+            public string GetRansomOptionName(int option)
+            {
+                switch (option)
+                {
+                    case RANSOM_OPTION_MONEY:
+                        return Global.Localization.GetTextPluralParticular(
+                                VanillaStrings.LOCKED_CHEST_OPTION_MONEY,
+                                VanillaStrings.LOCKED_CHEST_OPTION_MONEY,
+                                MONEY_COST,
+                                VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE,
+                                MONEY_COST);
+                    case RANSOM_OPTION_STARSHARD:
+                        return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_STARSHARD,VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+                    case RANSOM_OPTION_REJECT:
+                        return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_REJECT, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+                }
+                return string.Empty;
+            }
+            public const int SUBSTATE_JUMP1 = 0;
+            public const int SUBSTATE_JUMP2 = 1;
+            public const int SUBSTATE_JUMP3 = 2;
+
+            public const int MONEY_COST = 2000;
+            public const int RANSOM_OPTION_MONEY = 0;
+            public const int RANSOM_OPTION_STARSHARD = 1;
+            public const int RANSOM_OPTION_REJECT = 2;
+        }
+        #endregion
+
+        #region 终极重压
+        private static bool CanSwitchToFiveSmashesState(Entity entity)
+        {
+            return HasAnyEnemy(entity);
+        }
+        private class FiveSmashesState : EntityStateMachineState
+        {
+            public FiveSmashesState() : base(STATE_FIVE_SMASHES, ANIMATION_STATE_SMASH) { }
+            public override int GetAnimationState(int substate)
+            {
+                if (substate == SUBSTATE_SHAKE)
+                {
+                    return ANIMATION_STATE_IDLE;
+                }
+                return base.GetAnimationState(substate);
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                if (substate == SUBSTATE_FALL || substate == SUBSTATE_END)
+                {
+                    return ANIMATION_SUBSTATE_SMASH_FALL;
+                }
+                return ANIMATION_SUBSTATE_SMASH_JUMP;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(0.5f);
+                SetShake(entity, true);
+                SetRemainedUltimateSmashTimes(entity, ULTIMATE_SMASH_TIMES - 1);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetShake(entity, false);
+
+                RemoveSmashTarget(entity);
+                entity.SetProperty(PROP_GRAVITY_MULTIPLIER, 1f);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_SHAKE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_JUMP);
+                            timer.ResetSeconds(0.5f);
+                            SetShake(entity, false);
+                            var position = FindHighJumpSmashTarget(entity);
+                            SetNextJumpTarget(entity, position);
+                            SpawnSmashTarget(entity, position);
+
+                            entity.PlaySound(VanillaSoundID.launch);
+                        }
+                        break;
+                    case SUBSTATE_JUMP:
+                        {
+                            entity.Velocity = Vector3.up * 100;
+                            SpawnShadow(entity);
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_FALL);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_FALL:
+                        {
+                            var targetPosition = GetNextJumpTarget(entity);
+                            var velocity = (targetPosition - entity.Position) * 0.8f;
+                            velocity.y = -50;
+                            entity.Velocity = velocity;
+
+                            SpawnShadow(entity, true);
+                            if (entity.IsOnGround)
+                            {
+                                float damage = entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER;
+                                UltimateSmash(entity, damage);
+
+                                RemoveSmashTarget(entity);
+                                entity.PlaySound(VanillaSoundID.smash);
+                                entity.Level.ShakeScreen(10, 0, 15);
+
+                                var times = GetRemainedUltimateSmashTimes(entity);
+                                if (times > 0)
+                                {
+                                    var position = FindHighJumpSmashTarget(entity);
+                                    SetNextJumpTarget(entity, position);
+                                    SpawnSmashTarget(entity, position);
+                                    entity.PlaySound(VanillaSoundID.launch);
+
+                                    stateMachine.StartSubState(entity, SUBSTATE_JUMP);
+                                    timer.ResetSeconds(0.5f);
+                                    SetRemainedUltimateSmashTimes(entity, times - 1);
+                                }
+                                else
+                                {
+                                    stateMachine.StartSubState(entity, SUBSTATE_END);
+                                    timer.ResetSeconds(1);
+                                }
+                            }
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            public static void UltimateSmash(Entity entity, float damage)
+            {
+                var grid = entity.GetGrid();
+                if (grid == null)
+                    return;
+                var damageEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL);
+                foreach (var ent in grid.GetEntities())
+                {
+                    ent.Die(damageEffects, entity);
+                }
+                BrokenTileBuff.Break(grid);
+            }
+            public const int SUBSTATE_SHAKE = 0;
+            public const int SUBSTATE_JUMP = 1;
+            public const int SUBSTATE_FALL = 2;
+            public const int SUBSTATE_END = 3;
         }
         #endregion
 
@@ -1509,7 +1768,6 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_DISAPPEAR = 2;
         }
         #endregion
-
 
         #region 召唤凋灵
         private class SummonWitherState : EntityStateMachineState
@@ -1698,6 +1956,12 @@ namespace MVZ2.GameContent.Bosses
         private static List<IEntityCollider> crushBuffer = new List<IEntityCollider>();
         private static List<Entity> highJumpSearchBuffer = new List<Entity>();
         private static List<IEntityCollider> highJumpDamageBuffer = new List<IEntityCollider>();
+        private static PayToWinAction[] payToWinActionPool = new PayToWinAction[]
+        {
+            new FiveSmashesAction(VanillaStrings.LOCKED_CHEST_ACTION_FIVE_SMASHES),
+            //new HyperbeamAction(VanillaStrings.LOCKED_CHEST_ACTION_HYPERBEAM),
+            //new FourSoulsAction(VanillaStrings.LOCKED_CHEST_ACTION_FOUR_SOULS),
+        };
 
 
         private static NamespaceID[] coughBlueprintIDFirst = new NamespaceID[]
@@ -1737,27 +2001,83 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CHARGE,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_SPIT_TRASH,
-            STATE_SPECIAL_ATTACK,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CAMERA,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_SPIT_ZOMBIE_BLUEPRINTS,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CHARGE,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_SPIT_TRASH,
+            //STATE_SPECIAL_ATTACK,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CAMERA,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_SPIT_ZOMBIE_BLUEPRINTS,
             STATE_JUMP,
             STATE_JUMP,
             STATE_JUMP,
             STATE_PAY_TO_WIN,
         };
+        private abstract class PayToWinAction
+        {
+            protected PayToWinAction(string nameKey)
+            {
+                NameKey = nameKey;
+            }
+
+            public abstract bool CanUse(Entity entity);
+            public abstract void Use(Entity entity);
+            public string NameKey { get; }
+        }
+        private class FiveSmashesAction : PayToWinAction
+        {
+            public FiveSmashesAction(string nameKey) : base(nameKey)
+            {
+            }
+
+            public override bool CanUse(Entity entity)
+            {
+                return CanSwitchToFiveSmashesState(entity);
+            }
+            public override void Use(Entity entity)
+            {
+                stateMachine.StartState(entity, STATE_FIVE_SMASHES);
+            }
+        }
+        private class HyperbeamAction : PayToWinAction
+        {
+            public HyperbeamAction(string nameKey) : base(nameKey)
+            {
+            }
+
+            public override bool CanUse(Entity entity)
+            {
+                return CanSwitchToFiveSmashesState(entity);
+            }
+            public override void Use(Entity entity)
+            {
+                JumpTo(entity, GetStateJumpTarget(entity, STATE_HYPERBEAM), STATE_HYPERBEAM);
+            }
+        }
+        private class FourSoulsAction : PayToWinAction
+        {
+            public FourSoulsAction(string nameKey) : base(nameKey)
+            {
+            }
+
+            public override bool CanUse(Entity entity)
+            {
+                return CanSwitchToFourSoulsState(entity);
+            }
+            public override void Use(Entity entity)
+            {
+                stateMachine.StartState(entity, STATE_FOUR_SOULS);
+            }
+        }
     }
 }

@@ -59,6 +59,19 @@ namespace MVZ2.GameContent.Buffs.Grids
                 model.SortingOrder = 100;
             }
         }
+        public static void Break(LawnGrid grid)
+        {
+            var buff = grid.GetFirstBuff<BrokenTileBuff>();
+            if (buff == null)
+            {
+                grid.AddBuff<BrokenTileBuff>();
+            }
+            else
+            {
+                var timeoutTimer = buff.GetProperty<FrameTimer>(PROP_TIMEOUT_TIMER);
+                timeoutTimer?.Reset();
+            }
+        }
         public const float MAX_TIMEOUT_SECONDS = 180;
         public static readonly NamespaceID MODEL_KEY = VanillaModelKeys.brokenTile;
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMEOUT_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timeout_timer");
