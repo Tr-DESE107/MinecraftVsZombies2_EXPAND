@@ -58,6 +58,10 @@ namespace MVZ2Logic.Level
         {
             return right ? PICKUP_RIGHT_BORDER : PICKUP_LEFT_BORDER;
         }
+        public static float GetPickupBorderZ(bool top)
+        {
+            return top ? PICKUP_TOP_BORDER : PICKUP_BOTTOM_BORDER;
+        }
         public static float GetEnemyRightBorderX()
         {
             return ENEMY_RIGHT_BORDER;
@@ -90,6 +94,8 @@ namespace MVZ2Logic.Level
 
         public const float PICKUP_LEFT_BORDER = LEFT_BORDER + 50;
         public const float PICKUP_RIGHT_BORDER = RIGHT_BORDER - 50;
+        public const float PICKUP_TOP_BORDER = 460;
+        public const float PICKUP_BOTTOM_BORDER = 0;
         public const float ATTACK_LEFT_BORDER = LEFT_BORDER;
         public const float ATTACK_RIGHT_BORDER = RIGHT_BORDER;
 

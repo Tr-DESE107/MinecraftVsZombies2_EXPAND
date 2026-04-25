@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Buffs.Entities;
@@ -33,7 +32,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
-using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -98,6 +96,26 @@ namespace MVZ2.GameContent.Bosses
         {
             entity.SetAnimationInt("Emote", value);
         }
+        private static bool IsValidAttackTarget(Entity chest, Entity target)
+        {
+            return chest.IsHostile(target) && target.IsVulnerableEntity() && !target.IsInvincible();
+        }
+        private static bool HasAnyEnemy(Entity entity)
+        {
+            var level = entity.Level;
+            return level.EntityExists(e => IsValidAttackTarget(entity, e));
+        }
+        private static int FindRandomLaneWithEnemies(Entity entity)
+        {
+            var level = entity.Level;
+            var contraptions = level.FindEntities(e => IsValidAttackTarget(entity, e));
+            var groups = contraptions.GroupBy(c => c.GetLane());
+            return groups.Random(entity.RNG).Key;
+        }
+        private static void UpdateFlipX(Entity entity)
+        {
+            SetFlipX(entity, entity.Position.x < entity.Level.GetLawnCenterX());
+        }
         #region 待命
         private static bool CanSwitchStatePhase1(Entity entity, int state)
         {
@@ -118,6 +136,14 @@ namespace MVZ2.GameContent.Bosses
             {
                 case STATE_SMASH:
                     return FindHighJumpSmashTargetEntity(entity) != null;
+                case STATE_SPIT_TRASH:
+                    return CanSwitchToSpitTrashState(entity);
+                case STATE_SPECIAL_ATTACK:
+                    return CanSwitchToSpecialAttackState(entity);
+                case STATE_CAMERA:
+                    return CanSwitchToCameraState(entity);
+                case STATE_PAY_TO_WIN:
+                    return CanSwitchToPayToWinState(entity);
             }
             return true;
         }
@@ -125,6 +151,17 @@ namespace MVZ2.GameContent.Bosses
         {
             switch (state)
             {
+                case STATE_SPIT_TRASH:
+                case STATE_PAY_TO_WIN:
+                    {
+                        JumpTo(entity, GetStateJumpTarget(entity, state), state);
+                    }
+                    break;
+                case STATE_JUMP:
+                    {
+                        JumpTo(entity, GetNewJumpTarget(entity), STATE_IDLE);
+                    }
+                    break;
                 default:
                     {
                         stateMachine.StartState(entity, state);
@@ -180,6 +217,25 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 跳跃
+        private static Vector3 GetStateJumpTarget(Entity entity, int state)
+        {
+            switch (state)
+            {
+                case STATE_SPIT_TRASH:
+                    {
+                        var column = 8;
+                        var lane = FindRandomLaneWithEnemies(entity);
+                        return entity.Level.GetEntityGridPosition(column, lane);
+                    }
+                case STATE_PAY_TO_WIN:
+                    {
+                        var column = 8;
+                        var lane = 2;
+                        return entity.Level.GetEntityGridPosition(column, lane);
+                    }
+            }
+            return GetNewJumpTarget(entity);
+        }
         private static Vector2Int GetNewJumpTargetGridOffset(Entity entity)
         {
             var column = entity.GetColumn();
@@ -220,6 +276,12 @@ namespace MVZ2.GameContent.Bosses
             var offset = GetNewJumpTargetGridOffset(entity);
             return entity.Level.GetEntityGridPosition(entity.GetColumn() + offset.x, entity.GetLane() + offset.y);
         }
+        private static void JumpTo(Entity boss, Vector3 targetPosition, int state)
+        {
+            SetNextJumpTarget(boss, targetPosition);
+            SetNextJumpState(boss, state);
+            stateMachine.StartState(boss, STATE_JUMP);
+        }
         private static void StartJump(Entity boss, float inAirSeconds, Vector3 targetPosition)
         {
             var inAirTicks = Ticks.FromSeconds(inAirSeconds);
@@ -241,7 +303,7 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
-                StartJump(entity, jumpFlyingSeconds, GetNewJumpTarget(entity));
+                StartJump(entity, jumpFlyingSeconds, GetNextJumpTarget(entity));
             }
             public override void OnExit(EntityStateMachine machine, Entity entity)
             {
@@ -266,7 +328,9 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_END:
                         if (timer.Expired)
                         {
-                            stateMachine.StartState(entity, STATE_IDLE);
+                            var nextState = GetNextJumpState(entity);
+                            SetNextJumpState(entity, STATE_IDLE);
+                            stateMachine.StartState(entity, nextState);
                         }
                         break;
                 }
@@ -405,7 +469,7 @@ namespace MVZ2.GameContent.Bosses
             highJumpSearchBuffer.Clear();
             if (!haveBeenPricked)
             {
-                entity.Level.FindEntitiesNonAlloc(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible(), highJumpSearchBuffer);
+                entity.Level.FindEntitiesNonAlloc(e => IsValidAttackTarget(entity, e), highJumpSearchBuffer);
                 validEntities = highJumpSearchBuffer.Where(e => e.IsEntityOf(VanillaContraptionID.amethystPylon));
                 if (validEntities.Count() <= 0)
                 {
@@ -414,7 +478,7 @@ namespace MVZ2.GameContent.Bosses
             }
             else
             {
-                entity.Level.FindEntitiesNonAlloc(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible() && !e.IsEntityOf(VanillaContraptionID.amethystPylon), highJumpSearchBuffer);
+                entity.Level.FindEntitiesNonAlloc(e => IsValidAttackTarget(entity, e) && !e.IsEntityOf(VanillaContraptionID.amethystPylon), highJumpSearchBuffer);
                 validEntities = highJumpSearchBuffer;
             }
             if (validEntities.Count() <= 0)
@@ -510,7 +574,7 @@ namespace MVZ2.GameContent.Bosses
                             timer.ResetSeconds(1);
                             SetShake(entity, false);
                             var position = FindHighJumpSmashTarget(entity);
-                            SetTargetPosition(entity, position);
+                            SetNextJumpTarget(entity, position);
                             SpawnSmashTarget(entity, position);
 
                             entity.PlaySound(VanillaSoundID.launch);
@@ -528,7 +592,7 @@ namespace MVZ2.GameContent.Bosses
                         break;
                     case SUBSTATE_FALL:
                         {
-                            var targetPosition = GetTargetPosition(entity);
+                            var targetPosition = GetNextJumpTarget(entity);
                             var velocity = (targetPosition - entity.Position) * 0.8f;
                             velocity.y = -50;
                             entity.Velocity = velocity;
@@ -828,6 +892,10 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 吐垃圾
+        private static bool CanSwitchToSpitTrashState(Entity entity)
+        {
+            return HasAnyEnemy(entity);
+        }
         private class SpitTrashState : EntityStateMachineState
         {
             public SpitTrashState() : base(STATE_SPIT_TRASH, ANIMATION_STATE_OPEN_CHEST) { }
@@ -841,6 +909,7 @@ namespace MVZ2.GameContent.Bosses
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.SetSeconds(1f);
                 entity.PlaySound(VanillaSoundID.chestOpen);
+                UpdateFlipX(entity);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -1007,6 +1076,10 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 特殊攻击
+        private static bool CanSwitchToSpecialAttackState(Entity entity)
+        {
+            return HasAnyEnemy(entity);
+        }
         private class SpecialAttackState : EntityStateMachineState
         {
             public SpecialAttackState() : base(STATE_SPECIAL_ATTACK, ANIMATION_STATE_IDLE) { }
@@ -1014,6 +1087,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnEnter(stateMachine, entity);
                 entity.PlaySound(VanillaSoundID.lockedChestGiggles);
+                UpdateFlipX(entity);
                 Jump(entity);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
@@ -1154,6 +1228,10 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 相机
+        private static bool CanSwitchToCameraState(Entity entity)
+        {
+            return cameraDetector.DetectExists(entity);
+        }
         private static void SetHasCamera(Entity entity, bool value)
         {
             entity.SetAnimationBool("HasCamera", value);
@@ -1320,6 +1398,25 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 付费招式
+        private static bool CanSwitchToPayToWinState(Entity entity)
+        {
+            return CanSwitchToFiveSmashesState(entity) || CanSwitchToHyperbeamState(entity) || CanSwitchToFourSoulsState(entity);
+        }
+        private static bool CanSwitchToFiveSmashesState(Entity entity)
+        {
+            return HasAnyEnemy(entity);
+        }
+        private static bool CanSwitchToHyperbeamState(Entity entity)
+        {
+            return HasAnyEnemy(entity);
+        }
+        private static bool CanSwitchToFourSoulsState(Entity entity)
+        {
+            return HasAnyEnemy(entity);
+        }
+        #endregion
+
         #region 眩晕
         public static void Stun(Entity chest, float seconds)
         {
@@ -1468,8 +1565,8 @@ namespace MVZ2.GameContent.Bosses
                 entity.RemoveBuffs<LockedChestInvincibleBuff>();
 
                 SetEmote(entity, EMOTE_NONE);
-                var blocks = GetBlocks(entity); 
-                if (blocks.ExistsAndAlive()) 
+                var blocks = GetBlocks(entity);
+                if (blocks.ExistsAndAlive())
                 {
                     blocks.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL), entity);
                 }
@@ -1593,6 +1690,10 @@ namespace MVZ2.GameContent.Bosses
         public const int COUGH_TYPE_MASK = (1 << COUGH_TYPE_COUNT) - 1;
         private static EntityStateMachine stateMachine = new LockedChestStateMachine();
         private static Detector crushDetector = new CollisionDetector(true);
+        private static Detector cameraDetector = new LockedChestDetector(LockedChestDetector.MODE_CAMERA)
+        {
+            mask = EntityCollisionHelper.MASK_PLANT
+        };
         private static Detector highJumpDetector = new BoxDetector(new Vector3(200, 40, 60), new Vector3(0, 20, 0), true);
         private static List<IEntityCollider> crushBuffer = new List<IEntityCollider>();
         private static List<Entity> highJumpSearchBuffer = new List<Entity>();
@@ -1636,32 +1737,27 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_CHARGE,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_SPIT_TRASH,
-            //STATE_SPECIAL_ATTACK,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_CAMERA,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_SPIT_ZOMBIE_BLUEPRINTS,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_PAY_TO_WIN,
-            
             STATE_JUMP,
             STATE_JUMP,
             STATE_JUMP,
-            STATE_SUMMON_WITHER,
+            STATE_CHARGE,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SPIT_TRASH,
+            STATE_SPECIAL_ATTACK,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_CAMERA,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SPIT_ZOMBIE_BLUEPRINTS,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_PAY_TO_WIN,
         };
     }
 }

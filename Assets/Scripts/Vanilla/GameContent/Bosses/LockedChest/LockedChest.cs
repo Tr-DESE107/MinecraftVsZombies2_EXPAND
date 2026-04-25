@@ -88,8 +88,10 @@ namespace MVZ2.GameContent.Bosses
         public static void SetFlipX(Entity entity, bool value) => entity.SetProperty(PROP_FLIP_X, value);
         public static bool HaveBeenPricked(Entity entity) => entity.GetProperty<bool>(PROP_HAVE_BEEN_PRICKED);
         public static void SetHaveBeenPricked(Entity entity, bool value) => entity.SetProperty(PROP_HAVE_BEEN_PRICKED, value);
-        public static Vector3 GetTargetPosition(Entity entity) => entity.GetProperty<Vector3>(PROP_TARGET_POSITION);
-        public static void SetTargetPosition(Entity entity, Vector3 value) => entity.SetProperty(PROP_TARGET_POSITION, value);
+        public static int GetNextJumpState(Entity entity) => entity.GetProperty<int>(PROP_NEXT_JUMP_STATE);
+        public static void SetNextJumpState(Entity entity, int value) => entity.SetProperty(PROP_NEXT_JUMP_STATE, value);
+        public static Vector3 GetNextJumpTarget(Entity entity) => entity.GetProperty<Vector3>(PROP_NEXT_JUMP_TARGET);
+        public static void SetNextJumpTarget(Entity entity, Vector3 value) => entity.SetProperty(PROP_NEXT_JUMP_TARGET, value);
         public static EntityID? GetSmashTargetID(Entity entity) => entity.GetProperty<EntityID>(PROP_SMASH_TARGET_ID);
         public static void SetSmashTargetID(Entity entity, EntityID? value) => entity.SetProperty(PROP_SMASH_TARGET_ID, value);
         public static EntityID? GetFoolsTargetID(Entity entity) => entity.GetProperty<EntityID>(PROP_FOOLS_TARGET_ID);
@@ -102,10 +104,11 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
         private static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
         private static readonly VanillaEntityPropertyMeta<int> PROP_USED_COUGH_TYPES = new VanillaEntityPropertyMeta<int>("used_cough_types");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_JUMP_STATE = new VanillaEntityPropertyMeta<int>("next_jump_state");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("flip_x");
         private static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1f);
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
-        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_TARGET_POSITION = new VanillaEntityPropertyMeta<Vector3>("target_position");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("next_jump_target");
         private static readonly VanillaEntityPropertyMeta<EntityID> PROP_SMASH_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("smash_target_id");
         private static readonly VanillaEntityPropertyMeta<EntityID> PROP_FOOLS_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("fools_target_id");
 
@@ -127,7 +130,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_PAY_TO_WIN = VanillaBossStates.LOCKED_CHEST_PAY_TO_WIN;
         public const int STATE_COUGH = VanillaBossStates.LOCKED_CHEST_COUGH;
         public const int STATE_RELEASE_SPECIAL_ATTACK = VanillaBossStates.LOCKED_CHEST_RELEASE_SPECIAL_ATTACK;
-        public const int STATE_SUMMON_WITHER = VanillaBossStates.LOCKED_CHEST_SUMMON_WITHER; 
+        public const int STATE_SUMMON_WITHER = VanillaBossStates.LOCKED_CHEST_SUMMON_WITHER;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_STUNNED = 2;
