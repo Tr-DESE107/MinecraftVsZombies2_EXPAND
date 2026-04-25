@@ -64,6 +64,7 @@ namespace MVZ2.GameContent.Bosses
 
                 AddState(new PayToWinState());
                 AddState(new FiveSmashesState());
+                AddState(new HyperbeamState());
 
                 AddState(new StunnedState());
                 AddState(new DeathState());
@@ -233,6 +234,7 @@ namespace MVZ2.GameContent.Bosses
             switch (state)
             {
                 case STATE_SPIT_TRASH:
+                case STATE_HYPERBEAM:
                     {
                         var column = 8;
                         var lane = FindRandomLaneWithEnemies(entity);
@@ -1410,10 +1412,6 @@ namespace MVZ2.GameContent.Bosses
         {
             return CanSwitchToFiveSmashesState(entity) || CanSwitchToHyperbeamState(entity) || CanSwitchToFourSoulsState(entity);
         }
-        private static bool CanSwitchToHyperbeamState(Entity entity)
-        {
-            return HasAnyEnemy(entity);
-        }
         private static bool CanSwitchToFourSoulsState(Entity entity)
         {
             return HasAnyEnemy(entity);
@@ -1524,7 +1522,7 @@ namespace MVZ2.GameContent.Bosses
                                 VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE,
                                 MONEY_COST);
                     case RANSOM_OPTION_STARSHARD:
-                        return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_STARSHARD,VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+                        return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_STARSHARD, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
                     case RANSOM_OPTION_REJECT:
                         return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_REJECT, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
                 }
@@ -1579,7 +1577,6 @@ namespace MVZ2.GameContent.Bosses
                 SetShake(entity, false);
 
                 RemoveSmashTarget(entity);
-                entity.SetProperty(PROP_GRAVITY_MULTIPLIER, 1f);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -1673,6 +1670,114 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_JUMP = 1;
             public const int SUBSTATE_FALL = 2;
             public const int SUBSTATE_END = 3;
+        }
+        #endregion
+
+        #region 超能光束
+        private static bool CanSwitchToHyperbeamState(Entity entity)
+        {
+            return HasAnyEnemy(entity);
+        }
+        private class HyperbeamState : EntityStateMachineState
+        {
+            public HyperbeamState() : base(STATE_HYPERBEAM, ANIMATION_STATE_OPEN_CHEST) { }
+            public override int GetAnimationState(int substate)
+            {
+                if (substate == SUBSTATE_SHAKE)
+                {
+                    return ANIMATION_STATE_IDLE;
+                }
+                return base.GetAnimationState(substate);
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                if (substate == SUBSTATE_SHAKE)
+                {
+                    return 0;
+                }
+                return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(0.5f);
+                SetShake(entity, true);
+                UpdateFlipX(entity);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                SetShake(entity, false);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_SHAKE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_OPEN);
+                            timer.ResetSeconds(0.5f);
+                            SetShake(entity, false);
+
+                            entity.PlaySound(VanillaSoundID.chestOpen);
+                        }
+                        break;
+                    case SUBSTATE_OPEN:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_FIRE);
+                            FireLaser(entity);
+                        }
+                        break;
+                    case SUBSTATE_FIRE:
+                        {
+                            var masterSparkID = GetStateTargetID(entity);
+                            var masterSpark = masterSparkID?.GetEntity(entity.Level);
+                            if (!masterSpark.ExistsAndAlive() || !masterSpark.IsEntityOf(VanillaEffectID.masterSpark) || MasterSpark.IsShrinking(masterSpark))
+                            {
+                                SetStateTargetID(entity, null);
+                                Stun(entity, 10);
+                            }
+                            else
+                            {
+                                var sourcePosition = GetLaserPosition(entity);
+                                masterSpark.Position = sourcePosition;
+                                masterSpark.SetFlipX(entity.IsFacingLeft());
+                                masterSpark.SetFaction(entity.GetFaction());
+                            }
+                        }
+                        break;
+                }
+            }
+            public static Entity? FireLaser(Entity entity)
+            {
+                var sourcePosition = GetLaserPosition(entity);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFacingLeft());
+                param.SetProperty(EngineEntityProps.DISPLAY_SCALE, new Vector3(1, 0.333333f, 1));
+                param.SetProperty(EngineEntityProps.SCALE, new Vector3(1, 0.333333f, 0.333333f));
+
+                return entity.Spawn(VanillaEffectID.masterSpark, sourcePosition, param)?.Let(l =>
+                {
+                    SetStateTargetID(entity, new EntityID(l));
+                    l.SetParent(entity);
+                });
+            }
+            public static Vector3 GetLaserPosition(Entity entity)
+            {
+                var offset = entity.GetShotOffset();
+                offset.x *= entity.GetFacingX();
+                return entity.Position + offset;
+            }
+            public const int SUBSTATE_SHAKE = 0;
+            public const int SUBSTATE_OPEN = 1;
+            public const int SUBSTATE_FIRE = 2;
         }
         #endregion
 
@@ -1813,7 +1918,7 @@ namespace MVZ2.GameContent.Bosses
 
                 entity.SpawnWithParams(VanillaEffectID.witherSummoningBlocks, entity.Position + entity.GetFacingDirection() * 80)?.Let(b =>
                 {
-                    SetFoolsTargetID(entity, new EntityID(b));
+                    SetStateTargetID(entity, new EntityID(b));
                     b.PlaySound(VanillaSoundID.soulSand);
                 });
             }
@@ -1828,7 +1933,7 @@ namespace MVZ2.GameContent.Bosses
                 {
                     blocks.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL), entity);
                 }
-                SetFoolsTargetID(entity, null);
+                SetStateTargetID(entity, null);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -1882,7 +1987,7 @@ namespace MVZ2.GameContent.Bosses
                                 blocks.PlaySound(VanillaSoundID.stone);
                                 blocks.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL), entity);
                                 blocks.Spawn(VanillaBossID.pinkWither, blocks.Position);
-                                SetFoolsTargetID(entity, null);
+                                SetStateTargetID(entity, null);
                             }
                             stateMachine.StartSubState(entity, SUBSTATE_SKULL3);
                         }
@@ -1906,7 +2011,7 @@ namespace MVZ2.GameContent.Bosses
             }
             public static Entity? GetBlocks(Entity entity)
             {
-                return GetFoolsTargetID(entity)?.GetEntity(entity.Level);
+                return GetStateTargetID(entity)?.GetEntity(entity.Level);
             }
             public static void Jump(Entity entity)
             {
@@ -1958,8 +2063,8 @@ namespace MVZ2.GameContent.Bosses
         private static List<IEntityCollider> highJumpDamageBuffer = new List<IEntityCollider>();
         private static PayToWinAction[] payToWinActionPool = new PayToWinAction[]
         {
-            new FiveSmashesAction(VanillaStrings.LOCKED_CHEST_ACTION_FIVE_SMASHES),
-            //new HyperbeamAction(VanillaStrings.LOCKED_CHEST_ACTION_HYPERBEAM),
+            //new FiveSmashesAction(VanillaStrings.LOCKED_CHEST_ACTION_FIVE_SMASHES),
+            new HyperbeamAction(VanillaStrings.LOCKED_CHEST_ACTION_HYPERBEAM),
             //new FourSoulsAction(VanillaStrings.LOCKED_CHEST_ACTION_FOUR_SOULS),
         };
 

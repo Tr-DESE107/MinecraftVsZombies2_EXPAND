@@ -94,8 +94,8 @@ namespace MVZ2.GameContent.Bosses
         public static void SetNextJumpTarget(Entity entity, Vector3 value) => entity.SetProperty(PROP_NEXT_JUMP_TARGET, value);
         public static EntityID? GetSmashTargetID(Entity entity) => entity.GetProperty<EntityID>(PROP_SMASH_TARGET_ID);
         public static void SetSmashTargetID(Entity entity, EntityID? value) => entity.SetProperty(PROP_SMASH_TARGET_ID, value);
-        public static EntityID? GetFoolsTargetID(Entity entity) => entity.GetProperty<EntityID>(PROP_FOOLS_TARGET_ID);
-        public static void SetFoolsTargetID(Entity entity, EntityID? value) => entity.SetProperty(PROP_FOOLS_TARGET_ID, value);
+        public static EntityID? GetStateTargetID(Entity entity) => entity.GetProperty<EntityID>(PROP_STATE_TARGET_ID);
+        public static void SetStateTargetID(Entity entity, EntityID? value) => entity.SetProperty(PROP_STATE_TARGET_ID, value);
         public static int GetCoughType(Entity entity) => entity.GetProperty<int>(PROP_COUGH_TYPE);
         public static void SetCoughType(Entity entity, int value) => entity.SetProperty(PROP_COUGH_TYPE, value);
         public static int GetUsedCoughType(Entity entity) => entity.GetProperty<int>(PROP_USED_COUGH_TYPES);
@@ -113,7 +113,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("next_jump_target");
         private static readonly VanillaEntityPropertyMeta<EntityID> PROP_SMASH_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("smash_target_id");
-        private static readonly VanillaEntityPropertyMeta<EntityID> PROP_FOOLS_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("fools_target_id");
+        private static readonly VanillaEntityPropertyMeta<EntityID> PROP_STATE_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("state_target_id");
 
         public const float SMASH_DAMAGE_MULTIPLIER = 3;
         public const int STATE_IDLE = VanillaBossStates.IDLE;

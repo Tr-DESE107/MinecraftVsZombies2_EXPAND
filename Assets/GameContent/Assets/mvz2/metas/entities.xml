@@ -4449,7 +4449,7 @@
             </properties>
         </effect>
         <effect id="wither_summoning_blocks">
-            <behaviours>
+            <behaviours includeSelf="false">
                 <behaviour operator="replace" source="mvz2:timeout_remove" id="mvz2:timeout_death" />
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:remove_on_death" />
