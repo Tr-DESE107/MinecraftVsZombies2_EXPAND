@@ -1891,7 +1891,7 @@ namespace MVZ2.GameContent.Bosses
                     var velX = (rng.NextFloat() * 10 + 10) * -entity.GetFacingX();
                     var velZ = (rng.NextFloat() * 8 - 4);
                     param.projectileID = VanillaProjectileID.explosiveSoul;
-                    param.damage = entity.GetDamage() * 1.5f;
+                    param.damage = entity.GetDamage() * EXPLOSIVE_SOUL_MULTIPLIER;
                     param.velocity = new Vector3(velX, 0, velZ);
                     param.spawnParam.SetProperty(EngineEntityProps.FLIP_X, entity.IsFacingLeft());
                     entity.ShootProjectile(param);

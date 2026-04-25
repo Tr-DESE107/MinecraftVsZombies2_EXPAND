@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly VanillaDifficultyPropertyMeta<float> RED_DRAGON_GIANT_FIREBALL_SPEED = Get<float>("red_dragon_giant_fireball_speed", 1f);
         public static readonly VanillaDifficultyPropertyMeta<int> RED_DRAGON_TORNADO_COUNT = Get<int>("red_dragon_tornado_count", 1);
         public static readonly VanillaDifficultyPropertyMeta<NamespaceID> LOCKED_CHEST_SPIT_BLUEPRINT_ID = Get<NamespaceID>("locked_chest_spit_blueprint_id", LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie));
-       
+
         public static bool FrankensteinNoSteelPhase(this LevelEngine level) => level.GetProperty<bool>(FRANKENSTEIN_NO_STEEL);
         public static bool FrankensteinInstantSteelPhase(this LevelEngine level) => level.GetProperty<bool>(FRANKENSTEIN_INSTANT_STEEL);
         public static float GetFrankensteinSpeed(this LevelEngine level) => level.GetProperty<float>(FRANKENSTEIN_SPEED);

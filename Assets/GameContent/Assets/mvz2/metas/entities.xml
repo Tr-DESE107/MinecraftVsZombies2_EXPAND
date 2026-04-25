@@ -3541,7 +3541,7 @@
                 <behaviour operator="add" id="mvz2:projectile_explode" />
             </behaviours>
             <properties>
-                <float name="mvz2:range" value="120" />
+                <float name="mvz2:range" value="200" />
                 <vector3 name="mvz2:size" x="24" y="24" z="24" />
             </properties>
         </projectile>

@@ -174,6 +174,7 @@ namespace MVZ2.GameContent.Bosses
         public const int ANIMATION_SUBSTATE_SMASH_FALL = 1;
 
         public const float SPIT_TRASH_DAMAGE_MULTIPLIER = 0.5f;
+        public const float EXPLOSIVE_SOUL_MULTIPLIER = 1f;
         public const float HYPERBEAM_SCALE = 1f;
         public const int LOCK_BLUEPRINT_COUNT = 2;
         public const int ULTIMATE_SMASH_TIMES = 5;
