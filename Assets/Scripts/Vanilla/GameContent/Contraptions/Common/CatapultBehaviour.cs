@@ -120,6 +120,11 @@ namespace MVZ2.GameContent.Contraptions
                 targetPosition = bounds.center;
                 targetPosition.y = bounds.max.y;
                 targetPosition += throwTarget.Velocity * flyTime;
+
+                GetLimitTargetPositionX(entity, out var minX, out var maxX);
+                GetLimitTargetPositionZ(entity, out var minZ, out var maxZ);
+                targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
+                targetPosition.z = Mathf.Clamp(targetPosition.z, minZ, maxZ);
             }
             else
             {
@@ -153,6 +158,24 @@ namespace MVZ2.GameContent.Contraptions
                 priority += 100000;
             }
             return priority;
+        }
+        public virtual void GetLimitTargetPositionX(Entity entity, out float min, out float max)
+        {
+            if (entity.IsFacingLeft())
+            {
+                min = entity.Position.x - entity.GetRange();
+                max = entity.Position.x;
+            }
+            else
+            {
+                min = entity.Position.x;
+                max = entity.Position.x + entity.GetRange();
+            }
+        }
+        public virtual void GetLimitTargetPositionZ(Entity entity, out float min, out float max)
+        {
+            min = entity.Position.z - 20;
+            max = entity.Position.z + 20;
         }
         protected virtual void PreModifyShootParameters(Entity entity, ref ShootParams param)
         {
