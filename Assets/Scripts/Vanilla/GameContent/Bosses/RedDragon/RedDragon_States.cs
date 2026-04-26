@@ -67,10 +67,14 @@ namespace MVZ2.GameContent.Bosses
             var lane = entity.GetLane();
             return entity.Level.EntityExists(e => e.GetLane() == lane && entity.IsHostile(e) && e.IsVulnerableEntity());
         }
-        private static void Roar(Entity entity)
+        public static void Roar(Entity entity)
+        {
+            var position = GetSpitSourcePosition(entity);
+            Roar(entity, position);
+        }
+        public static void Roar(Entity entity, Vector3 position)
         {
             var param = entity.GetSpawnParams();
-            var position = GetSpitSourcePosition(entity);
             entity.Spawn(VanillaEffectID.amplifiedRoar, position, param);
             var time = Ticks.FromSeconds(ROAR_SECONDS);
             entity.Level.ShakeScreen(15, 0, time);

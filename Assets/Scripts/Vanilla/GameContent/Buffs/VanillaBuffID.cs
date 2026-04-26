@@ -114,6 +114,7 @@ namespace MVZ2.GameContent.Buffs
             public const string petrified = "petrified";
             public const string draggedByBalloon = "dragged_by_balloon";
             public const string releasedfromLockedChest = "released_from_locked_chest";
+            public const string burning = "burning";
 
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
@@ -447,6 +448,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID stoneEyeSlowing = Get(VanillaBuffNames.Entity.stoneEyeSlowing);
             public static readonly NamespaceID petrified = Get(VanillaBuffNames.Entity.petrified);
             public static readonly NamespaceID draggedByBalloon = Get(VanillaBuffNames.Entity.draggedByBalloon);
+            public static readonly NamespaceID burning = Get(VanillaBuffNames.Entity.burning);
 
             // Random China
             public static readonly NamespaceID worldwideCelebration = Get(VanillaBuffNames.Entity.worldwideCelebration);

@@ -977,6 +977,20 @@ namespace MVZ2.Vanilla.Entities
             var param = new VanillaLevelCallbacks.PostRemoveStatusEffectParams(entity, definition, source);
             entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_REMOVE_STATUS_EFFECT, param, definition.GetID());
         }
+        public static void InflictBurning(this Entity entity, int time, ILevelSourceReference? source, float damage = 20f)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.burning);
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            BurningBuff.MaxTime(buff, time);
+            BurningBuff.MaxDamage(buff, damage);
+            PostApplyStatusEffect(entity, buff, source);
+        }
         public static void InflictWither(this Entity entity, int time, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.withered);

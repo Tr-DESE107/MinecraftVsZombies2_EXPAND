@@ -2312,6 +2312,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Scene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ced4536040c56f41a9f7f54ac377a36
+    m_Address: mvz2:ui/level/progress_bar/locked_chest_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cf19462984a14b4cbd808d15638e9bd
     m_Address: mvz2:arcade/arcade_category_puzzle
     m_ReadOnly: 0
@@ -2975,6 +2982,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 389413e978891c948a7072bfef505563
+    m_Address: mvz2:ui/level/progress_bar/locked_chest_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 389663d0aad9d4b46bf2873962bdd3d8
     m_Address: mvz2:entity/skeleton_horse/skeleton_horse_death
@@ -8658,6 +8672,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a44c8b2e1cfea4a4bb9c74b2e109c6c9
+    m_Address: mvz2:shrink
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a4dea0edb3164a64a84a57821e191087
     m_Address: mvz2:random/gravel/hit4

@@ -166,6 +166,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_BOMBARD = VanillaBossStates.LOCKED_CHEST_BOMBARD;
         public const int STATE_SUMMON_WITHER = VanillaBossStates.LOCKED_CHEST_SUMMON_WITHER;
         public const int STATE_GIANTIZE = VanillaBossStates.LOCKED_CHEST_GIANTIZE;
+        public const int STATE_FIREBREATH = VanillaBossStates.LOCKED_CHEST_FIREBREATH;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_STUNNED = 2;
@@ -190,6 +191,7 @@ namespace MVZ2.GameContent.Bosses
         public const int MUSHROOM_ANIMATION_STATE_HOLD = 1;
         public const int MUSHROOM_ANIMATION_STATE_EAT = 2;
 
+        public const float FIRE_BREATH_DAMAGE_MULTIPLIER = 0.01f;
         public const float SPIT_TRASH_DAMAGE_MULTIPLIER = 0.5f;
         public const float EXPLOSIVE_SOUL_MULTIPLIER = 1f;
         public const float BOMBARD_DAMAGE_MULTIPLIER = 18f;
@@ -197,6 +199,9 @@ namespace MVZ2.GameContent.Bosses
         public const int LOCK_BLUEPRINT_COUNT = 2;
         public const int ULTIMATE_SMASH_TIMES = 5;
         public const float BOMBARD_RADIUS = 200f;
+        public const float FIRE_BREATH_SPEED = 20f;
+        public const float FIRE_BREATH_ANGLE_START = -30;
+        public const float FIRE_BREATH_ANGLE_END = 30;
 
         public const int EMOTE_NONE = 0;
         public const int EMOTE_QUESTION = 1;
