@@ -32,7 +32,6 @@ namespace MVZ2.GameContent.Stages
         protected override IEnumerable<IZELayoutItem> GetAwardLayouts()
         {
             yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards);
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeError, 0.2f);
             yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Gunpowder, 0.2f);
         }
         protected override NamespaceID GetFirstLayoutID()
