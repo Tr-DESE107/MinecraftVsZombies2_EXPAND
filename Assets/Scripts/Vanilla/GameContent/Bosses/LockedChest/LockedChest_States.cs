@@ -256,6 +256,7 @@ namespace MVZ2.GameContent.Bosses
                     }
                 case STATE_PAY_TO_WIN:
                 case STATE_BOMBARD:
+                case STATE_SUMMON_WITHER:
                 case STATE_GIANTIZE:
                 case STATE_FIREBREATH:
                     {
