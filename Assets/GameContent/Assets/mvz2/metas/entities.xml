@@ -2575,7 +2575,6 @@
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:enemy_state" />
                 <behaviour operator="add" id="mvz2:enemy_walk" />
-                <behaviour operator="add" id="mvz2:crusher_ball" />
                 <behaviour operator="add" id="mvz2:remove_on_death" />
             </behaviours>
             <properties>
