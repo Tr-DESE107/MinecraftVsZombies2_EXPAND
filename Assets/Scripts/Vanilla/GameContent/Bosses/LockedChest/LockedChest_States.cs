@@ -36,7 +36,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
-using UnityEditor.Localization.Editor;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -128,9 +127,9 @@ namespace MVZ2.GameContent.Bosses
         {
             SetFlipX(entity, entity.Position.x < entity.Level.GetLawnCenterX());
         }
-        private static void Hop(Entity entity)
+        private static void Hop(Entity entity, float speed = 10)
         {
-            entity.Velocity = Vector3.up * 10;
+            entity.Velocity = Vector3.up * speed;
         }
         #region 待命
         private static bool CanSwitchStatePhase1(Entity entity, int state)
@@ -198,7 +197,14 @@ namespace MVZ2.GameContent.Bosses
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
-                UpdateStateSwitch(stateMachine, entity);
+                if (ShouldTriggerNextJoke(entity))
+                {
+                    TriggerNextJoke(entity);
+                }
+                else
+                {
+                    UpdateStateSwitch(stateMachine, entity);
+                }
             }
             private void UpdateStateSwitch(EntityStateMachine stateMachine, Entity entity)
             {
@@ -2005,6 +2011,38 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 玩笑
+        public static bool ShouldTriggerNextJoke(Entity entity)
+        {
+            var joke = GetNextJoke(entity);
+            if (joke >= JOKE_COUNT)
+                return false;
+            var phase2HP = entity.GetMaxHealth() * PHASE_2_THRESOLD;
+            var phase2HPPercentage = entity.Health / phase2HP;
+            var stages = JOKE_COUNT + 2;
+            var nextHPLoss = phase2HP * (joke + 1) / stages;
+            var nextHPThresold = phase2HP - nextHPLoss;
+            return entity.Health < nextHPThresold;
+        }
+        public static void TriggerNextJoke(Entity entity)
+        {
+            var joke = GetNextJoke(entity);
+            switch (joke)
+            {
+                case JOKE_BOMBARD:
+                    SwitchState(entity, STATE_BOMBARD);
+                    break;
+                case JOKE_CHOOSE_YOUR_FATE:
+                    ChooseYourFate(entity);
+                    break;
+                case JOKE_SUMMON_WITHER:
+                    SwitchState(entity, STATE_SUMMON_WITHER);
+                    break;
+            }
+            SetNextJoke(entity, joke + 1);
+        }
+        #endregion
+
         #region 轰炸
         private class BombardState : EntityStateMachineState
         {
@@ -2056,12 +2094,14 @@ namespace MVZ2.GameContent.Bosses
                         if (entity.IsOnGround)
                         {
                             Hop(entity);
+                            entity.PlaySound(VanillaSoundID.wood);
                             stateMachine.StartSubState(entity, substate + 1);
                         }
                         break;
                     case SUBSTATE_HOP3:
                         if (entity.IsOnGround)
                         {
+                            entity.PlaySound(VanillaSoundID.wood);
                             stateMachine.StartSubState(entity, SUBSTATE_BOMB_FALL);
                             timer.SetSeconds(5f);
                             SummonBombs(entity);
@@ -2101,7 +2141,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 var spawnParams = entity.GetSpawnParams();
                 spawnParams.SetProperty(TNT.PROP_DUMB, true);
-                spawnParams.SetProperty<NamespaceID[]>(LogicEntityProps.GRID_LAYERS, null);
+                spawnParams.SetProperty(LogicEntityProps.GRID_LAYERS, Array.Empty<NamespaceID>());
                 spawnParams.SetProperty(VanillaEntityProps.FALL_RESISTANCE, 10000f);
                 spawnParams.SetProperty(VanillaEntityProps.INVISIBLE, true);
                 spawnParams.SetProperty(EngineEntityProps.INVINCIBLE, true);
@@ -2144,6 +2184,24 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_JUMP = 5;
 
             public const float jumpFlyingSeconds = 0.5f;
+        }
+        #endregion
+
+        #region 选择命运
+        public static void ChooseYourFate(Entity entity)
+        {
+            SlenderMan.ChooseFate(entity, entity.RNG, (i) =>
+            {
+                var title = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_MESSAGE_SORRY, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+                var desc = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_MESSAGE_YOU_CHOOSE_NOTHING, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+                var options = new string[] { Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_QUESTION, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE) };
+                entity.Level.ShowDialog(title, desc, options, (i) =>
+                {
+                    SlenderMan.Biohazard(entity);
+                    // 用Delayed，防止当前手持僵尸时点击按钮后直接把僵尸放在地上
+                    entity.Level.ResumeGameDelayed(100);
+                });
+            });
         }
         #endregion
 
@@ -2231,7 +2289,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_SKULL2:
                         if (entity.IsOnGround)
                         {
-                            Hop(entity);
+                            Hop(entity, 20);
                             stateMachine.StartSubState(entity, substate + 1);
                         }
                         break;
@@ -2381,33 +2439,32 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            STATE_BOMBARD
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_CHARGE,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_SMASH,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_CHARGE,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_SPIT_TRASH,
-            //STATE_SPECIAL_ATTACK,
-            //STATE_CAMERA,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_SPIT_ZOMBIE_BLUEPRINTS,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_JUMP,
-            //STATE_PAY_TO_WIN,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_CHARGE,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SMASH,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_CHARGE,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SPIT_TRASH,
+            STATE_SPECIAL_ATTACK,
+            STATE_CAMERA,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_SPIT_ZOMBIE_BLUEPRINTS,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_JUMP,
+            STATE_PAY_TO_WIN,
         };
         private abstract class PayToWinAction
         {

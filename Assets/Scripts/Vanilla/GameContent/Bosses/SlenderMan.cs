@@ -221,7 +221,7 @@ namespace MVZ2.GameContent.Bosses
                 entity.PlaySound(VanillaSoundID.nightmarePortal);
             }
         }
-        private Entity? SpawnPortal(Entity boss, Vector3 position, NamespaceID enemyID)
+        public static Entity? SpawnPortal(Entity boss, Vector3 position, NamespaceID enemyID)
         {
             return boss.SpawnWithParams(VanillaEffectID.nightmarePortal, position)?.Let(e =>
             {
@@ -271,21 +271,28 @@ namespace MVZ2.GameContent.Bosses
         #region Fate Choose
         private void ChooseFate(Entity entity)
         {
+            var rng = GetFateOptionRNG(entity);
+            ChooseFate(entity, rng, (option) =>
+            {
+                DoFate(entity, option);
+                // 用Delayed，防止当前手持僵尸时点击按钮后直接把僵尸放在地上
+                entity.Level.ResumeGameDelayed(100);
+            });
+        }
+        public static void ChooseFate(Entity entity, RandomGenerator? rng, Action<int> onSelect)
+        {
             var level = entity.Level;
             level.PauseGame(100);
             var title = Global.Localization.GetText(CHOOSE_FATE_TITLE);
             var desc = Global.Localization.GetText(CHOOSE_FATE_DESCRIPTION);
 
             int count = level.GetSlendermanFateChoiceCount();
-            var rng = GetFateOptionRNG(entity);
             var selected = rng != null ? fateOptions.RandomTake(count, rng).ToArray() : fateOptions.Take(count).ToArray();
             var options = selected.Select(i => GetFateOptionText(i)).ToArray();
             level.ShowDialog(title, desc, options, (i) =>
             {
                 var option = selected[i];
-                DoFate(entity, option);
-                // 用Delayed，防止当前手持僵尸时点击按钮后直接把僵尸放在地上
-                level.ResumeGameDelayed(100);
+                onSelect?.Invoke(option);
             });
         }
         private void DoFate(Entity boss, int option)
@@ -347,7 +354,7 @@ namespace MVZ2.GameContent.Bosses
                 contraption.UpdateTakenGrids();
             }
         }
-        private void Biohazard(Entity boss)
+        public static void Biohazard(Entity boss)
         {
             boss.PlaySound(VanillaSoundID.biohazard);
             boss.PlaySound(VanillaSoundID.nightmarePortal);

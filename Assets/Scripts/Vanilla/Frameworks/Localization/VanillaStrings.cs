@@ -127,6 +127,11 @@ namespace MVZ2.Vanilla.Localization
         [TranslateMsg("上锁的箱子信息描述，{0}为需求1，{1}为需求2，{2}为招式名称", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
         public const string LOCKED_CHEST_MESSAGE_DESCRIPTION = "立刻给我{0}或{1}，否则我就要发动我的终极绝招“{2}”了！";
 
+        [TranslateMsg("上锁的箱子信息标题", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_MESSAGE_SORRY = "哦不好意思";
+        [TranslateMsg("上锁的箱子信息描述", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_MESSAGE_YOU_CHOOSE_NOTHING = "我忘说了，你选什么都没用。";
+
         [TranslateMsg("上锁的箱子需求，{0}为花费的宝石量", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
         public const string LOCKED_CHEST_REQUIREMENT_MONEY = "{0}宝石";
         [TranslateMsg("上锁的箱子需求，{0}为花费的星之碎片量", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
@@ -136,6 +141,8 @@ namespace MVZ2.Vanilla.Localization
         public const string LOCKED_CHEST_OPTION_PAY = "支付{0}";
         [TranslateMsg("上锁的箱子选项名", CONTEXT_LOCKED_CHEST_MESSAGE)]
         public const string LOCKED_CHEST_OPTION_REJECT = "拒绝";
+        [TranslateMsg("上锁的箱子选项名", CONTEXT_LOCKED_CHEST_MESSAGE)]
+        public const string LOCKED_CHEST_OPTION_QUESTION = "？";
 
         [TranslateMsg("上锁的箱子招式名", CONTEXT_LOCKED_CHEST_MESSAGE)]
         public const string LOCKED_CHEST_ACTION_FIVE_SMASHES = "终极重压";

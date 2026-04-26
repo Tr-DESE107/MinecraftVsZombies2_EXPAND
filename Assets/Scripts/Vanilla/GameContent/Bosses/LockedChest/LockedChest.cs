@@ -120,12 +120,15 @@ namespace MVZ2.GameContent.Bosses
         public static void SetUsedCoughType(Entity entity, int value) => entity.SetProperty(PROP_USED_COUGH_TYPES, value);
         public static int GetRemainedUltimateSmashTimes(Entity entity) => entity.GetProperty<int>(PROP_REMAINED_ULTIMATE_SMASH_TIMES);
         public static void SetRemainedUltimateSmashTimes(Entity entity, int value) => entity.SetProperty(PROP_REMAINED_ULTIMATE_SMASH_TIMES, value);
+        public static int GetNextJoke(Entity entity) => entity.GetProperty<int>(PROP_NEXT_JOKE);
+        public static void SetNextJoke(Entity entity, int value) => entity.SetProperty(PROP_NEXT_JOKE, value);
 
         public static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
         public static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
         public static readonly VanillaEntityPropertyMeta<int> PROP_USED_COUGH_TYPES = new VanillaEntityPropertyMeta<int>("used_cough_types");
         public static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_JUMP_STATE = new VanillaEntityPropertyMeta<int>("next_jump_state");
         public static readonly VanillaEntityPropertyMeta<int> PROP_REMAINED_ULTIMATE_SMASH_TIMES = new VanillaEntityPropertyMeta<int>("remained_ultimate_smash_times");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_JOKE = new VanillaEntityPropertyMeta<int>("next_joke");
         public static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("flip_x");
         public static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1f);
         public static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
@@ -187,6 +190,13 @@ namespace MVZ2.GameContent.Bosses
         public const int EMOTE_QUESTION = 1;
         public const int EMOTE_WARNING = 2;
         public const int EMOTE_EMERALD = 3;
+
+        public const int JOKE_BOMBARD = 0;
+        public const int JOKE_CHOOSE_YOUR_FATE = 1;
+        public const int JOKE_SUMMON_WITHER = 2;
+        public const int JOKE_GIANTIZE = 3;
+        public const int JOKE_FIRE_BREATH = 4;
+        public const int JOKE_COUNT = 5;
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;
