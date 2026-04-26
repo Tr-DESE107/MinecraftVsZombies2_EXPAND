@@ -36,8 +36,8 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
+using UnityEditor.Localization.Editor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -1479,32 +1479,45 @@ namespace MVZ2.GameContent.Bosses
 
                             var action = GetRandomPayToWinAction(entity);
                             var actionNameKey = action.NameKey;
-                            var actionName = Global.Localization.GetTextParticular(actionNameKey, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
 
-                            var title = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_MESSAGE_TITLE, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
-                            var desc = Global.Localization.GetTextPluralParticular(
-                                VanillaStrings.LOCKED_CHEST_MESSAGE_DESCRIPTION,
-                                VanillaStrings.LOCKED_CHEST_MESSAGE_DESCRIPTION,
-                                MONEY_COST,
+                            int moneyCost = MONEY_COST;
+                            int starshardCost = entity.Level.GetLockedChestRequiredStarshards();
+                            var localization = Global.Localization;
+                            var actionName = localization.GetTextParticular(actionNameKey, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+
+                            var title = localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_MESSAGE_TITLE, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+                            var gemRequirement = localization.GetTextPluralParticular(
+                                VanillaStrings.LOCKED_CHEST_REQUIREMENT_MONEY,
+                                VanillaStrings.LOCKED_CHEST_REQUIREMENT_MONEY,
+                                moneyCost,
                                 VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE,
-                                MONEY_COST,
-                                actionName);
+                                moneyCost);
+                            var starshardRequirement = localization.GetTextPluralParticular(
+                                VanillaStrings.LOCKED_CHEST_REQUIREMENT_STARSHARD,
+                                VanillaStrings.LOCKED_CHEST_REQUIREMENT_STARSHARD,
+                                starshardCost,
+                                VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE,
+                                starshardCost);
+                            var desc = localization.GetTextParticular(
+                                VanillaStrings.LOCKED_CHEST_MESSAGE_DESCRIPTION,
+                                VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE,
+                                gemRequirement, starshardRequirement, actionName);
 
                             var optionList = new List<int>();
                             FillRansomOptionList(entity, optionList);
-                            var optionNames = optionList.Select(o => GetRansomOptionName(o)).ToArray();
+                            var optionNames = optionList.Select(o => GetRansomOptionName(entity, o)).ToArray();
                             entity.Level.ShowDialog(title, desc, optionNames, (index) =>
                             {
                                 var option = optionList[index];
                                 switch (option)
                                 {
                                     case RANSOM_OPTION_MONEY:
-                                        entity.Level.AddMoney(-MONEY_COST);
+                                        entity.Level.AddMoney(-moneyCost);
                                         stateMachine.StartState(entity, STATE_IDLE);
                                         entity.PlaySound(VanillaSoundID.cashRegister);
                                         break;
                                     case RANSOM_OPTION_STARSHARD:
-                                        entity.Level.AddStarshardCount(-1);
+                                        entity.Level.AddStarshardCount(-starshardCost);
                                         stateMachine.StartState(entity, STATE_IDLE);
                                         entity.PlaySound(VanillaSoundID.starshardUse);
                                         break;
@@ -1521,29 +1534,45 @@ namespace MVZ2.GameContent.Bosses
             }
             public void FillRansomOptionList(Entity entity, List<int> options)
             {
-                if (entity.Level.GetMoney() >= MONEY_COST)
+                int moneyCost = MONEY_COST;
+                int starshardCost = entity.Level.GetLockedChestRequiredStarshards();
+                if (entity.Level.GetMoney() >= moneyCost)
                 {
                     options.Add(RANSOM_OPTION_MONEY);
                 }
-                if (entity.Level.GetStarshardCount() >= 1)
+                if (entity.Level.GetStarshardCount() >= starshardCost)
                 {
                     options.Add(RANSOM_OPTION_STARSHARD);
                 }
                 options.Add(RANSOM_OPTION_REJECT);
             }
-            public string GetRansomOptionName(int option)
+            public string GetRansomOptionName(Entity entity, int option)
             {
+                var localization = Global.Localization;
                 switch (option)
                 {
                     case RANSOM_OPTION_MONEY:
-                        return Global.Localization.GetTextPluralParticular(
-                                VanillaStrings.LOCKED_CHEST_OPTION_MONEY,
-                                VanillaStrings.LOCKED_CHEST_OPTION_MONEY,
-                                MONEY_COST,
+                        {
+                            int moneyCost = MONEY_COST;
+                            var gemRequirement = localization.GetTextPluralParticular(
+                                VanillaStrings.LOCKED_CHEST_REQUIREMENT_MONEY,
+                                VanillaStrings.LOCKED_CHEST_REQUIREMENT_MONEY,
+                                moneyCost,
                                 VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE,
-                                MONEY_COST);
+                                moneyCost);
+                            return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_PAY, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE, gemRequirement);
+                        }
                     case RANSOM_OPTION_STARSHARD:
-                        return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_STARSHARD, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
+                        {
+                            int starshardCost = entity.Level.GetLockedChestRequiredStarshards();
+                            var starshardRequirement = localization.GetTextPluralParticular(
+                                VanillaStrings.LOCKED_CHEST_REQUIREMENT_STARSHARD,
+                                VanillaStrings.LOCKED_CHEST_REQUIREMENT_STARSHARD,
+                                starshardCost,
+                                VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE,
+                                starshardCost);
+                            return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_PAY, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE, starshardRequirement);
+                        }
                     case RANSOM_OPTION_REJECT:
                         return Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_OPTION_REJECT, VanillaStrings.CONTEXT_LOCKED_CHEST_MESSAGE);
                 }

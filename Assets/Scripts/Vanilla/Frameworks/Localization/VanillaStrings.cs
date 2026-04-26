@@ -124,13 +124,16 @@ namespace MVZ2.Vanilla.Localization
 
         [TranslateMsg("上锁的箱子信息标题", CONTEXT_LOCKED_CHEST_MESSAGE)]
         public const string LOCKED_CHEST_MESSAGE_TITLE = "勒索弹窗";
-        [TranslateMsg("上锁的箱子信息描述，{0}为花费的宝石量，{1}为招式名称", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
-        public const string LOCKED_CHEST_MESSAGE_DESCRIPTION = "立刻给我{0}宝石或1个星之碎片，否则我就要发动我的终极绝招“{1}”了！";
-        [TranslateMsg("上锁的箱子选项名，{0}为花费的宝石量", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
+        [TranslateMsg("上锁的箱子信息描述，{0}为需求1，{1}为需求2，{2}为招式名称", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
+        public const string LOCKED_CHEST_MESSAGE_DESCRIPTION = "立刻给我{0}或{1}，否则我就要发动我的终极绝招“{2}”了！";
 
-        public const string LOCKED_CHEST_OPTION_MONEY = "支付{0}宝石";
+        [TranslateMsg("上锁的箱子需求，{0}为花费的宝石量", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
+        public const string LOCKED_CHEST_REQUIREMENT_MONEY = "{0}宝石";
+        [TranslateMsg("上锁的箱子需求，{0}为花费的星之碎片量", CONTEXT_LOCKED_CHEST_MESSAGE, selfPlural: true)]
+        public const string LOCKED_CHEST_REQUIREMENT_STARSHARD = "{0}星之碎片";
+
         [TranslateMsg("上锁的箱子选项名", CONTEXT_LOCKED_CHEST_MESSAGE)]
-        public const string LOCKED_CHEST_OPTION_STARSHARD = "支付星之碎片";
+        public const string LOCKED_CHEST_OPTION_PAY = "支付{0}";
         [TranslateMsg("上锁的箱子选项名", CONTEXT_LOCKED_CHEST_MESSAGE)]
         public const string LOCKED_CHEST_OPTION_REJECT = "拒绝";
 
