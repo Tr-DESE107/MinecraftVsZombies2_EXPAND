@@ -4,6 +4,7 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Fragments;
 using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
@@ -173,6 +174,7 @@ namespace MVZ2.GameContent.Pickups
 
                 LockedChest.SmashAppear(level, position, pickup, param)?.Let(e =>
                 {
+                    e.ApplyBuffForBossRevenge();
                     if (revival)
                     {
                         e.Health = e.GetMaxHealth() * LockedChest.REVIVAL_HEALTH_PERCENTAGE;
