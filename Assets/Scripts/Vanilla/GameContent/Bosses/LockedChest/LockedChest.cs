@@ -57,6 +57,12 @@ namespace MVZ2.GameContent.Bosses
                 stateMachine.SetNextStateIndex(entity, 1);
             }
 
+
+            if (entity.IsDead && stateMachine.GetStateNumber(entity) != STATE_DEATH)
+            {
+                stateMachine.StartState(entity, STATE_DEATH);
+            }
+
             var phase = GetPhase(entity);
             entity.SetAnimationInt("Phase", phase);
             entity.SetModelProperty("Phase", phase);

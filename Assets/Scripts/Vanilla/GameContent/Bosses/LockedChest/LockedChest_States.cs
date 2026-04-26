@@ -543,7 +543,6 @@ namespace MVZ2.GameContent.Bosses
         {
             if (stateMachine.GetStateNumber(entity) != STATE_SMASH)
                 return;
-            entity.TakeDamage(600, new DamageEffectList(VanillaDamageEffects.SLICE), source);
             stateMachine.StartSubState(entity, HighJumpState.SUBSTATE_PRICKED);
             SetHaveBeenPricked(entity, true);
             var timer = stateMachine.GetSubStateTimer(entity);
@@ -558,8 +557,13 @@ namespace MVZ2.GameContent.Bosses
             vel.y = 0;
             entity.Position = pos;
             entity.Velocity = vel;
+
+            // 伤害放最后，让死亡状态最后触发。
+            entity.TakeDamage(600, new DamageEffectList(VanillaDamageEffects.SLICE), source);
+
             entity.Spawn(VanillaEffectID.stabEffect, (entity.Position + source.Position) / 2);
             entity.SetProperty(PROP_GRAVITY_MULTIPLIER, 0f);
+
 
             entity.PlaySound(VanillaSoundID.shieldHit);
             entity.PlaySound(VanillaSoundID.lockedChestOuch);
