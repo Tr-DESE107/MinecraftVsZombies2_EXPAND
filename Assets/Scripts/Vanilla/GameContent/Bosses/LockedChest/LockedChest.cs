@@ -24,6 +24,9 @@ namespace MVZ2.GameContent.Bosses
         {
             AddModifier(new BooleanModifier(EngineEntityProps.FLIP_X, PROP_FLIP_X, VanillaModifierPriorities.FORCE));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, PROP_GRAVITY_MULTIPLIER));
+            AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_SCALE_MULTIPLIER));
+            AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, PROP_SCALE_MULTIPLIER));
+            AddModifier(new Vector3Modifier(LogicEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_SCALE_MULTIPLIER));
         }
 
         #region 回调
@@ -122,6 +125,8 @@ namespace MVZ2.GameContent.Bosses
         public static void SetRemainedUltimateSmashTimes(Entity entity, int value) => entity.SetProperty(PROP_REMAINED_ULTIMATE_SMASH_TIMES, value);
         public static int GetNextJoke(Entity entity) => entity.GetProperty<int>(PROP_NEXT_JOKE);
         public static void SetNextJoke(Entity entity, int value) => entity.SetProperty(PROP_NEXT_JOKE, value);
+        public static Vector3 GetScaleMultiplier(Entity entity) => entity.GetProperty<Vector3>(PROP_SCALE_MULTIPLIER);
+        public static void SetScaleMultiplier(Entity entity, Vector3 value) => entity.SetProperty(PROP_SCALE_MULTIPLIER, value);
 
         public static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
         public static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
@@ -131,6 +136,7 @@ namespace MVZ2.GameContent.Bosses
         public static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_JOKE = new VanillaEntityPropertyMeta<int>("next_joke");
         public static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("flip_x");
         public static readonly VanillaEntityPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaEntityPropertyMeta<float>("gravity_multiplier", 1f);
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_SCALE_MULTIPLIER = new VanillaEntityPropertyMeta<Vector3>("scale_multiplier", Vector3.one);
         public static readonly VanillaEntityPropertyMeta<bool> PROP_HAVE_BEEN_PRICKED = new VanillaEntityPropertyMeta<bool>("have_been_pricked");
         public static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("next_jump_target");
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_SMASH_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("smash_target_id");
@@ -159,6 +165,7 @@ namespace MVZ2.GameContent.Bosses
 
         public const int STATE_BOMBARD = VanillaBossStates.LOCKED_CHEST_BOMBARD;
         public const int STATE_SUMMON_WITHER = VanillaBossStates.LOCKED_CHEST_SUMMON_WITHER;
+        public const int STATE_GIANTIZE = VanillaBossStates.LOCKED_CHEST_GIANTIZE;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_STUNNED = 2;
@@ -177,6 +184,11 @@ namespace MVZ2.GameContent.Bosses
 
         public const int ANIMATION_SUBSTATE_SMASH_JUMP = 0;
         public const int ANIMATION_SUBSTATE_SMASH_FALL = 1;
+
+
+        public const int MUSHROOM_ANIMATION_STATE_NONE = 0;
+        public const int MUSHROOM_ANIMATION_STATE_HOLD = 1;
+        public const int MUSHROOM_ANIMATION_STATE_EAT = 2;
 
         public const float SPIT_TRASH_DAMAGE_MULTIPLIER = 0.5f;
         public const float EXPLOSIVE_SOUL_MULTIPLIER = 1f;

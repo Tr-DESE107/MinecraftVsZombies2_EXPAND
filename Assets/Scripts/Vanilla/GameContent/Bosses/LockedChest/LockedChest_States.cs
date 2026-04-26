@@ -74,6 +74,7 @@ namespace MVZ2.GameContent.Bosses
 
                 AddState(new BombardState());
                 AddState(new SummonWitherState());
+                AddState(new GiantizeState());
             }
         }
         #endregion
@@ -169,6 +170,7 @@ namespace MVZ2.GameContent.Bosses
                 case STATE_SPIT_TRASH:
                 case STATE_PAY_TO_WIN:
                 case STATE_BOMBARD:
+                case STATE_GIANTIZE:
                     {
                         JumpTo(entity, GetStateJumpTarget(entity, state), state);
                     }
@@ -253,6 +255,7 @@ namespace MVZ2.GameContent.Bosses
                     }
                 case STATE_PAY_TO_WIN:
                 case STATE_BOMBARD:
+                case STATE_GIANTIZE:
                     {
                         var column = 8;
                         var lane = 2;
@@ -2038,6 +2041,9 @@ namespace MVZ2.GameContent.Bosses
                 case JOKE_SUMMON_WITHER:
                     SwitchState(entity, STATE_SUMMON_WITHER);
                     break;
+                case JOKE_GIANTIZE:
+                    SwitchState(entity, STATE_GIANTIZE);
+                    break;
             }
             SetNextJoke(entity, joke + 1);
         }
@@ -2103,7 +2109,7 @@ namespace MVZ2.GameContent.Bosses
                         {
                             entity.PlaySound(VanillaSoundID.wood);
                             stateMachine.StartSubState(entity, SUBSTATE_BOMB_FALL);
-                            timer.SetSeconds(5f);
+                            timer.ResetSeconds(5f);
                             SummonBombs(entity);
                             SpawnBombText(entity);
                         }
@@ -2112,7 +2118,7 @@ namespace MVZ2.GameContent.Bosses
                         if (timer.Expired)
                         {
                             stateMachine.StartSubState(entity, SUBSTATE_BOMB_DISAPPEARED);
-                            timer.SetSeconds(1f);
+                            timer.ResetSeconds(1f);
                             entity.PlaySound(VanillaSoundID.lockedChestGiggles);
                             SpawnBombDisappearedText(entity);
                         }
@@ -2297,7 +2303,7 @@ namespace MVZ2.GameContent.Bosses
                         if (entity.IsOnGround)
                         {
                             stateMachine.StartSubState(entity, SUBSTATE_DUMB);
-                            timer.SetSeconds(5f);
+                            timer.ResetSeconds(5f);
                         }
                         break;
                     case SUBSTATE_JUMP1:
@@ -2328,7 +2334,7 @@ namespace MVZ2.GameContent.Bosses
                         {
                             SetEmote(entity, EMOTE_QUESTION);
                             stateMachine.StartSubState(entity, SUBSTATE_END);
-                            timer.SetSeconds(1f);
+                            timer.ResetSeconds(1f);
                             entity.PlaySound(VanillaSoundID.pop);
                         }
                         break;
@@ -2369,6 +2375,238 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_SKULL3 = 9;
             public const int SUBSTATE_DUMB = 10;
             public const int SUBSTATE_END = 11;
+        }
+        #endregion
+
+        #region 巨化
+        public static void SetMushroomState(Entity entity, int value)
+        {
+            entity.SetAnimationInt("MushroomState", value);
+        }
+        private class GiantizeState : EntityStateMachineState
+        {
+            public GiantizeState() : base(STATE_GIANTIZE, ANIMATION_STATE_IDLE) { }
+            public override int GetAnimationState(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_EAT:
+                    case SUBSTATE_CLOSE:
+                        return ANIMATION_STATE_OPEN_CHEST;
+                    default:
+                        return base.GetAnimationState(substate);
+                }
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_EAT:
+                        return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
+                    case SUBSTATE_CLOSE:
+                        return ANIMATION_SUBSTATE_OPEN_CHEST_CLOSE;
+                    default:
+                        return base.GetAnimationSubstate(substate);
+                }
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                SetFlipX(entity, false);
+                entity.AddBuff<LockedChestInvincibleBuff>();
+
+                entity.PlaySound(VanillaSoundID.lockedChestGiggles);
+                Hop(entity);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                entity.RemoveBuffs<LockedChestInvincibleBuff>();
+                SetMushroomState(entity, MUSHROOM_ANIMATION_STATE_NONE);
+                SetScaleMultiplier(entity, Vector3.one);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_HOP1:
+                    case SUBSTATE_HOP2:
+                        if (entity.IsOnGround)
+                        {
+                            Hop(entity);
+                            entity.PlaySound(VanillaSoundID.wood);
+                            stateMachine.StartSubState(entity, substate + 1);
+                        }
+                        break;
+                    case SUBSTATE_HOP3:
+                        if (entity.IsOnGround)
+                        {
+                            entity.PlaySound(VanillaSoundID.wood);
+                            stateMachine.StartSubState(entity, SUBSTATE_HOLD);
+                            timer.ResetSeconds(1f);
+
+                            SetMushroomState(entity, MUSHROOM_ANIMATION_STATE_HOLD);
+                            entity.PlaySound(VanillaSoundID.pop);
+                        }
+                        break;
+                    case SUBSTATE_HOLD:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_EAT);
+                            timer.ResetSeconds(0.6f);
+                            SetMushroomState(entity, MUSHROOM_ANIMATION_STATE_EAT);
+                            entity.PlaySound(VanillaSoundID.chestOpen);
+                        }
+                        break;
+                    case SUBSTATE_EAT:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_CLOSE);
+                            timer.ResetSeconds(1f);
+                            entity.PlaySound(VanillaSoundID.chestClose);
+                        }
+                        break;
+                    case SUBSTATE_CLOSE:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_GROW);
+                            SetMushroomState(entity, MUSHROOM_ANIMATION_STATE_NONE);
+                            timer.ResetSeconds(0.5f);
+                            entity.PlaySound(VanillaSoundID.growBig);
+                        }
+                        break;
+                    case SUBSTATE_GROW:
+                        {
+                            SetScaleMultiplier(entity, Vector3.one * (1 + timer.GetPassedPercentage() * (MAX_SCALE - 1)));
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_JUMP);
+                                timer.ResetSeconds(1f);
+                                entity.PlaySound(VanillaSoundID.launch, 0.5f);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_JUMP:
+                        {
+                            entity.Velocity = Vector3.up * 100;
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_FALL);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_FALL:
+                        {
+                            var targetPosition = GetJumpTargetPosition(entity);
+                            var vel = (targetPosition - entity.Position) * 0.8f;
+                            vel.y = -100;
+                            entity.Velocity = vel;
+                            if (entity.IsOnGround)
+                            {
+                                entity.Velocity = Vector3.zero;
+                                Smash(entity);
+                                entity.Level.PlaySound(VanillaSoundID.doom, 0.5f);
+                                entity.Level.ShakeScreen(45, 0, 30);
+                                stateMachine.StartSubState(entity, SUBSTATE_LAND);
+                                timer.ResetSeconds(1f);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_LAND:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_SHRINK);
+                            timer.ResetSeconds(0.5f);
+                            entity.PlaySound(VanillaSoundID.shrink);
+                        }
+                        break;
+                    case SUBSTATE_SHRINK:
+                        {
+                            SetScaleMultiplier(entity, Vector3.one * (1 + timer.GetTimeoutPercentage() * (MAX_SCALE - 1)));
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartState(entity, STATE_IDLE);
+                            }
+                        }
+                        break;
+                }
+            }
+            public void SummonBombs(Entity entity)
+            {
+                var spawnParams = entity.GetSpawnParams();
+                spawnParams.SetProperty(TNT.PROP_DUMB, true);
+                spawnParams.SetProperty(LogicEntityProps.GRID_LAYERS, Array.Empty<NamespaceID>());
+                spawnParams.SetProperty(VanillaEntityProps.FALL_RESISTANCE, 10000f);
+                spawnParams.SetProperty(VanillaEntityProps.INVISIBLE, true);
+                spawnParams.SetProperty(EngineEntityProps.INVINCIBLE, true);
+                spawnParams.SetProperty(EngineEntityProps.COLLISION_DETECTION, EntityCollisionHelper.DETECTION_DISABLED);
+
+                var grids = entity.Level.GetAllGrids();
+                foreach (var grid in grids)
+                {
+                    entity.Spawn(VanillaContraptionID.tnt, grid.GetEntityPosition() + Vector3.up * 1000, spawnParams)?.Let(tnt =>
+                    {
+                        IgnitableBehaviour.Ignite(tnt);
+                        var timer = IgnitableBehaviour.GetExplosionTimer(tnt);
+                        timer?.ResetSeconds(3f);
+                    });
+                }
+            }
+            public void SpawnBombText(Entity entity)
+            {
+                var value = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_TEXT_BOMBS_ON_THE_WAY, VanillaStrings.CONTEXT_LOCKED_CHEST_TEXT);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(FloatingText.PROP_TEXT, value);
+                entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
+            }
+            public void SpawnBombDisappearedText(Entity entity)
+            {
+                var value = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_TEXT_IM_THE_BOMB, VanillaStrings.CONTEXT_LOCKED_CHEST_TEXT);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(FloatingText.PROP_TEXT, value);
+                entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
+            }
+            public Vector3 GetJumpTargetPosition(Entity entity)
+            {
+                var pos = entity.Position;
+                pos.x = entity.Level.GetEntityColumnX(7);
+                pos.z = entity.Level.GetEntityLaneZ(3);
+                return pos;
+            }
+            public void Smash(Entity entity)
+            {
+                var level = entity.Level;
+                crushBuffer.Clear();
+                crushDetector.DetectMultiple(entity, crushBuffer);
+                foreach (IEntityCollider collider in crushBuffer)
+                {
+                    var ent = collider.Entity;
+                    var damageOutput = collider.TakeDamage(ent.GetTakenCrushDamage(), new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.IGNORE_ARMOR), entity);
+                    if (ent.Type == EntityTypes.PLANT)
+                    {
+                        if (damageOutput?.BodyResult?.Fatal ?? false)
+                        {
+                            entity.PlaySound(VanillaSoundID.smash);
+                        }
+                    }
+                }
+            }
+            public const int SUBSTATE_HOP1 = 0;
+            public const int SUBSTATE_HOP2 = 1;
+            public const int SUBSTATE_HOP3 = 2;
+            public const int SUBSTATE_HOLD = 3;
+            public const int SUBSTATE_EAT = 4;
+            public const int SUBSTATE_CLOSE = 5;
+            public const int SUBSTATE_GROW = 6;
+            public const int SUBSTATE_JUMP = 7;
+            public const int SUBSTATE_FALL = 8;
+            public const int SUBSTATE_LAND = 9;
+            public const int SUBSTATE_SHRINK = 10;
+            public const float MAX_SCALE = 8;
         }
         #endregion
 
