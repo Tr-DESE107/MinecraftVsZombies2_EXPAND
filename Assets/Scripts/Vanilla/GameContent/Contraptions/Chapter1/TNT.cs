@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Projectiles;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
@@ -38,7 +39,18 @@ namespace MVZ2.GameContent.Contraptions
                 Charge(result.Entity);
             }
         }
-        void IExplodeContraptionBehaviour.Explode(Entity entity, float range, float damage) => Explode(entity, range, damage);
+        void IExplodeContraptionBehaviour.Explode(Entity entity, float range, float damage)
+        {
+            if (IsDumb(entity))
+            {
+                entity.Remove();
+                entity.PlaySound(VanillaSoundID.pop);
+            }
+            else
+            {
+                Explode(entity, range, damage);
+            }
+        }
         public static DamageOutput[] Explode(Entity entity, float range, float damage)
         {
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
@@ -131,5 +143,8 @@ namespace MVZ2.GameContent.Contraptions
             }
             entity.PlaySound(VanillaSoundID.thunder);
         }
+        public static bool IsDumb(Entity entity) => entity.GetProperty<bool>(PROP_DUMB);
+        public static void SetDumb(Entity entity, bool value) => entity.SetProperty(PROP_DUMB, value);
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_DUMB = new VanillaEntityPropertyMeta<bool>("dumb");
     }
 }

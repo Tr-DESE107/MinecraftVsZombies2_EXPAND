@@ -73,6 +73,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new DeathState());
 
 
+                AddState(new BombardState());
                 AddState(new SummonWitherState());
             }
         }
@@ -109,7 +110,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private static bool IsValidAttackTarget(Entity chest, Entity target)
         {
-            return chest.IsHostile(target) && target.IsVulnerableEntity() && !target.IsInvincible();
+            return chest.IsHostile(target) && target.IsVulnerableEntity() && !target.IsInvincible() && !target.IsInvisible();
         }
         private static bool HasAnyEnemy(Entity entity)
         {
@@ -168,6 +169,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 case STATE_SPIT_TRASH:
                 case STATE_PAY_TO_WIN:
+                case STATE_BOMBARD:
                     {
                         JumpTo(entity, GetStateJumpTarget(entity, state), state);
                     }
@@ -244,6 +246,7 @@ namespace MVZ2.GameContent.Bosses
                         return entity.Level.GetEntityGridPosition(column, lane);
                     }
                 case STATE_PAY_TO_WIN:
+                case STATE_BOMBARD:
                     {
                         var column = 8;
                         var lane = 2;
@@ -2002,6 +2005,148 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 轰炸
+        private class BombardState : EntityStateMachineState
+        {
+            public BombardState() : base(STATE_BOMBARD, ANIMATION_STATE_IDLE) { }
+            public override int GetAnimationState(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_JUMP:
+                        return ANIMATION_STATE_JUMP;
+                    default:
+                        return base.GetAnimationState(substate);
+                }
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_JUMP:
+                        return ANIMATION_SUBSTATE_JUMP_JUMP;
+                    default:
+                        return base.GetAnimationSubstate(substate);
+                }
+            }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                SetFlipX(entity, false);
+                entity.AddBuff<LockedChestInvincibleBuff>();
+
+                entity.PlaySound(VanillaSoundID.lockedChestGiggles);
+                Hop(entity);
+            }
+            public override void OnExit(EntityStateMachine machine, Entity entity)
+            {
+                base.OnExit(machine, entity);
+                entity.RemoveBuffs<LockedChestInvincibleBuff>();
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_HOP1:
+                    case SUBSTATE_HOP2:
+                        if (entity.IsOnGround)
+                        {
+                            Hop(entity);
+                            stateMachine.StartSubState(entity, substate + 1);
+                        }
+                        break;
+                    case SUBSTATE_HOP3:
+                        if (entity.IsOnGround)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_BOMB_FALL);
+                            timer.SetSeconds(5f);
+                            SummonBombs(entity);
+                            SpawnBombText(entity);
+                        }
+                        break;
+                    case SUBSTATE_BOMB_FALL:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_BOMB_DISAPPEARED);
+                            timer.SetSeconds(1f);
+                            entity.PlaySound(VanillaSoundID.lockedChestGiggles);
+                            SpawnBombDisappearedText(entity);
+                        }
+                        break;
+                    case SUBSTATE_BOMB_DISAPPEARED:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_JUMP);
+                            StartJump(entity, jumpFlyingSeconds, GetJumpTarget(entity));
+                        }
+                        break;
+                    case SUBSTATE_JUMP:
+                        {
+                            SpawnShadow(entity);
+                            if (entity.IsOnGround)
+                            {
+                                Nuke.Explode(entity, BOMBARD_RADIUS, entity.GetDamage() * BOMBARD_DAMAGE_MULTIPLIER);
+                                Nuke.ExplodeEffects(entity);
+                                stateMachine.StartState(entity, STATE_IDLE);
+                            }
+                        }
+                        break;
+                }
+            }
+            public void SummonBombs(Entity entity)
+            {
+                var spawnParams = entity.GetSpawnParams();
+                spawnParams.SetProperty(TNT.PROP_DUMB, true);
+                spawnParams.SetProperty<NamespaceID[]>(LogicEntityProps.GRID_LAYERS, null);
+                spawnParams.SetProperty(VanillaEntityProps.FALL_RESISTANCE, 10000f);
+                spawnParams.SetProperty(VanillaEntityProps.INVISIBLE, true);
+                spawnParams.SetProperty(EngineEntityProps.INVINCIBLE, true);
+                spawnParams.SetProperty(EngineEntityProps.COLLISION_DETECTION, EntityCollisionHelper.DETECTION_DISABLED);
+
+                var grids = entity.Level.GetAllGrids();
+                foreach (var grid in grids)
+                {
+                    entity.Spawn(VanillaContraptionID.tnt, grid.GetEntityPosition() + Vector3.up * 1000, spawnParams)?.Let(tnt =>
+                    {
+                        IgnitableBehaviour.Ignite(tnt);
+                        var timer = IgnitableBehaviour.GetExplosionTimer(tnt);
+                        timer?.ResetSeconds(3f);
+                    });
+                }
+            }
+            public void SpawnBombText(Entity entity)
+            {
+                var value = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_TEXT_BOMBS_ON_THE_WAY, VanillaStrings.CONTEXT_LOCKED_CHEST_TEXT);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(FloatingText.PROP_TEXT, value);
+                entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
+            }
+            public void SpawnBombDisappearedText(Entity entity)
+            {
+                var value = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_TEXT_IM_THE_BOMB, VanillaStrings.CONTEXT_LOCKED_CHEST_TEXT);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(FloatingText.PROP_TEXT, value);
+                entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
+            }
+            public Vector3 GetJumpTarget(Entity entity)
+            {
+                return entity.Level.GetLawnCenter();
+            }
+            public const int SUBSTATE_HOP1 = 0;
+            public const int SUBSTATE_HOP2 = 1;
+            public const int SUBSTATE_HOP3 = 2;
+            public const int SUBSTATE_BOMB_FALL = 3;
+            public const int SUBSTATE_BOMB_DISAPPEARED = 4;
+            public const int SUBSTATE_JUMP = 5;
+
+            public const float jumpFlyingSeconds = 0.5f;
+        }
+        #endregion
+
         #region 召唤凋灵
         private class SummonWitherState : EntityStateMachineState
         {
@@ -2086,7 +2231,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_SKULL2:
                         if (entity.IsOnGround)
                         {
-                            Jump(entity);
+                            Hop(entity);
                             stateMachine.StartSubState(entity, substate + 1);
                         }
                         break;
@@ -2140,10 +2285,6 @@ namespace MVZ2.GameContent.Bosses
             public static Entity? GetBlocks(Entity entity)
             {
                 return GetStateTargetID(entity)?.GetEntity(entity.Level);
-            }
-            public static void Jump(Entity entity)
-            {
-                entity.Velocity += Vector3.up * 20;
             }
             public static void BuildBlock(Entity entity, int progress, NamespaceID soundID)
             {
@@ -2240,32 +2381,33 @@ namespace MVZ2.GameContent.Bosses
         };
         private static int[] statePoolPhase2 = new int[]
         {
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CHARGE,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_SMASH,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_CHARGE,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_SPIT_TRASH,
-            STATE_SPECIAL_ATTACK,
-            STATE_CAMERA,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_SPIT_ZOMBIE_BLUEPRINTS,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_JUMP,
-            STATE_PAY_TO_WIN,
+            STATE_BOMBARD
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CHARGE,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_SMASH,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_CHARGE,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_SPIT_TRASH,
+            //STATE_SPECIAL_ATTACK,
+            //STATE_CAMERA,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_SPIT_ZOMBIE_BLUEPRINTS,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_JUMP,
+            //STATE_PAY_TO_WIN,
         };
         private abstract class PayToWinAction
         {

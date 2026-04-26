@@ -153,6 +153,8 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_FIVE_SMASHES = VanillaBossStates.LOCKED_CHEST_FIVE_SMASHES;
         public const int STATE_HYPERBEAM = VanillaBossStates.LOCKED_CHEST_HYPERBEAM;
         public const int STATE_FOUR_SOULS = VanillaBossStates.LOCKED_CHEST_FOUR_SOULS;
+
+        public const int STATE_BOMBARD = VanillaBossStates.LOCKED_CHEST_BOMBARD;
         public const int STATE_SUMMON_WITHER = VanillaBossStates.LOCKED_CHEST_SUMMON_WITHER;
 
         public const int ANIMATION_STATE_IDLE = 0;
@@ -175,9 +177,11 @@ namespace MVZ2.GameContent.Bosses
 
         public const float SPIT_TRASH_DAMAGE_MULTIPLIER = 0.5f;
         public const float EXPLOSIVE_SOUL_MULTIPLIER = 1f;
+        public const float BOMBARD_DAMAGE_MULTIPLIER = 18f;
         public const float HYPERBEAM_SCALE = 1f;
         public const int LOCK_BLUEPRINT_COUNT = 2;
         public const int ULTIMATE_SMASH_TIMES = 5;
+        public const float BOMBARD_RADIUS = 200f;
 
         public const int EMOTE_NONE = 0;
         public const int EMOTE_QUESTION = 1;

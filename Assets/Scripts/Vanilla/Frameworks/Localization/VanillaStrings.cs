@@ -145,5 +145,14 @@ namespace MVZ2.Vanilla.Localization
         public const string LOCKED_CHEST_ACTION_FOUR_SOULS = "爆破四魂";
 
         public const string CONTEXT_LOCKED_CHEST_MESSAGE = "locked_chest_message";
+
+
+
+        [TranslateMsg("上锁的箱子文本", CONTEXT_LOCKED_CHEST_TEXT)]
+        public const string LOCKED_CHEST_TEXT_BOMBS_ON_THE_WAY = "炸弹来咯！";
+        [TranslateMsg("上锁的箱子文本", CONTEXT_LOCKED_CHEST_TEXT)]
+        public const string LOCKED_CHEST_TEXT_IM_THE_BOMB = "我才是炸弹！";
+
+        public const string CONTEXT_LOCKED_CHEST_TEXT = "locked_chest_text";
     }
 }
