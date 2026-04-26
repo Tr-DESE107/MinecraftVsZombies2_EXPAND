@@ -821,6 +821,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c278e895010ef2449998e67c90983780, type: 3}
   - name: entity/effects/diamond_spike_particles
     sprite: {fileID: 21300000, guid: 832e7d1ecf7d7eb42a2921e2909679f6, type: 3}
+  - name: entity/effects/evil_soul
+    sprite: {fileID: 21300000, guid: 866b86d6fcb5fff4d8a3cda6be16944a, type: 3}
   - name: entity/effects/evocation_star
     sprite: {fileID: 21300000, guid: 8b93445b685c42440938fc5154ea419c, type: 3}
   - name: entity/effects/fire_particle
@@ -833,6 +835,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7fb8f9b8ab883a64887b34f86731c9b9, type: 3}
   - name: entity/effects/gas_diffusion
     sprite: {fileID: 21300000, guid: e5e566d19ad3e024c8c3e91f928d8be1, type: 3}
+  - name: entity/effects/heart_particle
+    sprite: {fileID: 21300000, guid: fe713e5300f7e974ba913b9c644552c4, type: 3}
   - name: entity/effects/lock_sigil
     sprite: {fileID: 21300000, guid: 415fd322dbcf5fa4882d851c6a5717ab, type: 3}
   - name: entity/effects/magic_star
@@ -859,6 +863,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 047996c4841327442a24b5f86e763852, type: 3}
   - name: entity/effects/petrified_shard
     sprite: {fileID: 21300000, guid: 63abeb6d055623e498bc8080744c6d37, type: 3}
+  - name: entity/effects/pink_wither
+    sprite: {fileID: 21300000, guid: 1bd6770921b59a545a33b610d50aef19, type: 3}
   - name: entity/effects/pow
     sprite: {fileID: 21300000, guid: 8bf802c92af01e14ab7d98dedcdb86a1, type: 3}
   - name: entity/effects/psychic_shackle
@@ -911,6 +917,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0ffb8f5c07b9abc459cc588c2b0efab6, type: 3}
   - name: entity/effects/zombie_block
     sprite: {fileID: 21300000, guid: dd81e2f5e01461d4c9186fe9648f2c1f, type: 3}
+  - name: entity/enemies/balloon
+    sprite: {fileID: 21300000, guid: 92c38217e084470499178a44014b451c, type: 3}
   - name: entity/enemies/bedserker_bed
     sprite: {fileID: 21300000, guid: 4ac894cccf343c44e81c86c063ac4d75, type: 3}
   - name: entity/enemies/bedserker_face_light
@@ -935,6 +943,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8b9310b7e61da30448b5d9b66c4cf9f3, type: 3}
   - name: entity/enemies/golden_axe
     sprite: {fileID: 21300000, guid: ffc82409076aa3e4481bb54a1438d1db, type: 3}
+  - name: entity/enemies/hay_block_model
+    sprite: {fileID: 21300000, guid: b4bcd83773a2fd64dac5dca5973eaf59, type: 3}
   - name: entity/enemies/holy_sword
     sprite: {fileID: 21300000, guid: 1774c2ed9635c694080b89ce4c6e09bf, type: 3}
   - name: entity/enemies/iron_shovel
@@ -947,8 +957,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: daacd6431b68345418543c8d8f49fa95, type: 3}
   - name: entity/enemies/nether_mage_head
     sprite: {fileID: 21300000, guid: bf13519ae2dc4d14d863408fe29d69be, type: 3}
+  - name: entity/enemies/oak_wood_model
+    sprite: {fileID: 21300000, guid: 6160c1714d820684e97058d3939b3a7f, type: 3}
   - name: entity/enemies/skeleton_face_light
     sprite: {fileID: 21300000, guid: 940eb15b5d256ad4fb1eb9e59a010c53, type: 3}
+  - name: entity/enemies/stone_model
+    sprite: {fileID: 21300000, guid: 02ca0605cd3b9ee4780201d36a424d5f, type: 3}
   - name: entity/enemies/stone_sword
     sprite: {fileID: 21300000, guid: 53ae426afe3ebb8438ab6c1165ed0448, type: 3}
   - name: entity/enemies/ufo_spotlight
@@ -1313,6 +1327,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b34bc915055138f4b98fddeb34062934, type: 3}
   - name: ui/level/progress_bar/level_progress_icon
     sprite: {fileID: 21300000, guid: 24d902c61d41892478d085a513cc421a, type: 3}
+  - name: ui/level/progress_bar/locked_chest_background
+    sprite: {fileID: 21300000, guid: 2ced4536040c56f41a9f7f54ac377a36, type: 3}
+  - name: ui/level/progress_bar/locked_chest_bar
+    sprite: {fileID: 21300000, guid: 389413e978891c948a7072bfef505563, type: 3}
   - name: ui/level/progress_bar/nightmare
     sprite: {fileID: 21300000, guid: 476d29f782ced5045aee9c4a94e69cad, type: 3}
   - name: ui/level/progress_bar/nightmare_background
@@ -1756,6 +1774,13 @@ MonoBehaviour:
     - {fileID: -494778744, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
     - {fileID: 506175747, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
     - {fileID: 2137721841, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: -1623549264, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 1711184861, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 125702994, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 1375463849, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: -15166297, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: -1843165124, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
+    - {fileID: 647350883, guid: 3a54d5bb3b16e9e4fa22639a67ef8836, type: 3}
   - name: entity/boss/nightmareaper
     spritesheet:
     - {fileID: 8620300422851923600, guid: 9b42d523d4b6eae419bc6d9e83b028f1, type: 3}
@@ -2330,6 +2355,10 @@ MonoBehaviour:
     - {fileID: 1815208976, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
     - {fileID: 894312570, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
     - {fileID: 1446467554, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
+  - name: entity/effect/wither_summoning_blocks
+    spritesheet:
+    - {fileID: 677818173, guid: dd04b8c5c11ca914da142856e975b76c, type: 3}
+    - {fileID: 927736357, guid: dd04b8c5c11ca914da142856e975b76c, type: 3}
   - name: entity/enemy/anubisand
     spritesheet:
     - {fileID: 728664072, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}

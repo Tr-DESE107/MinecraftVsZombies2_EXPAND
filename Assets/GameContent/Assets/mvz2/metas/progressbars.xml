@@ -36,4 +36,10 @@
         <padding left="17" right="17" top="22" bottom="4" />
         <text yOffset="-9"/>
     </bar>
+    <bar id="locked_chest" type="boss" width="124" height="24">
+        <background sprite="mvz2:ui/level/progress_bar/locked_chest_background" />
+        <bar sprite="mvz2:ui/level/progress_bar/locked_chest_bar" fromLeft="true" mode="filled" />
+        <padding left="5" right="5" top="7" bottom="7" />
+        <text yOffset="0"/>
+    </bar>
 </bars>

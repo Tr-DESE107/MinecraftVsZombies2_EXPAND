@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Stages
             ClassicStart(level);
             //ConveyorStart(level);
             level.LevelProgressVisible = true;
-            level.SetProgressBarToBoss(VanillaProgressBarID.redDragon);
+            level.SetProgressBarToBoss(VanillaProgressBarID.lockedChest);
             level.SetTriggerActive(true);
             level.SetStarshardSlotCount(5);
             level.RefreshCarts();

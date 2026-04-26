@@ -48,7 +48,7 @@ namespace MVZ2.GameContent.Stages
             level.PlayMusic(VanillaMusicID.palaceBoss);
             level.SetMusicVolume(1);
             level.SetSubtrackWeight(0);
-            level.SetProgressBarToBoss(VanillaProgressBarID.redDragon);
+            level.SetProgressBarToBoss(VanillaProgressBarID.lockedChest);
 
             level.Spawn(VanillaBossID.lockedChest, level.GetEntityGridPosition(9, 2), null);
             level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
