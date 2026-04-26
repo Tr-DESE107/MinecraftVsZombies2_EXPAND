@@ -13,11 +13,13 @@ using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Fragments;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Localization;
@@ -76,6 +78,8 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new SummonWitherState());
                 AddState(new GiantizeState());
                 AddState(new FireBreathState());
+
+                AddState(new TiredState());
             }
         }
         #endregion
@@ -200,7 +204,11 @@ namespace MVZ2.GameContent.Bosses
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
-                if (ShouldTriggerNextJoke(entity))
+                if (GetRevivedTimes(entity) >= MAX_REVIVE_TIMES)
+                {
+                    SwitchState(entity, STATE_TIRED);
+                }
+                else if (ShouldTriggerNextJoke(entity))
                 {
                     TriggerNextJoke(entity);
                 }
@@ -2011,7 +2019,15 @@ namespace MVZ2.GameContent.Bosses
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
+                if (entity.Level.IsAdventure() && !entity.Level.IsRerun)
+                {
+                    var param = entity.GetSpawnParams();
+                    param.SetProperty(LogicEntityProps.VARIANT, GetRevivedTimes(entity) + 1);
+                    LockedChestPickup.Produce(entity.Level, entity.Position, entity, param);
+                }
+                entity.CreateFragmentAndPlay(VanillaFragmentID.woodenDropper);
                 entity.Remove();
+                entity.PlaySound(VanillaSoundID.wood);
                 entity.PlaySound(VanillaSoundID.lockedChestDeath);
             }
             public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
@@ -2021,6 +2037,56 @@ namespace MVZ2.GameContent.Bosses
                 var timer = stateMachine.GetSubStateTimer(entity);
                 timer.Run(stateMachine.GetSpeed(entity));
             }
+        }
+        #endregion
+
+        #region 厌烦
+        private class TiredState : EntityStateMachineState
+        {
+            public TiredState() : base(STATE_TIRED, ANIMATION_STATE_IDLE) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                entity.AddBuff<LockedChestInvincibleBuff>();
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(2f);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substate = stateMachine.GetSubState(entity);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate)
+                {
+                    case SUBSTATE_STAND:
+                        if (timer.Expired)
+                        {
+                            entity.PlaySound(VanillaSoundID.pop);
+                            SpawnText(entity);
+                            stateMachine.StartSubState(entity, SUBSTATE_SPOKE);
+                            timer.ResetSeconds(2f);
+                        }
+                        break;
+                    case SUBSTATE_SPOKE:
+                        if (timer.Expired)
+                        {
+                            entity.CreateFragmentAndPlay(VanillaFragmentID.woodenDropper);
+                            entity.Remove();
+                            entity.PlaySound(VanillaSoundID.wood);
+                        }
+                        break;
+                }
+            }
+            public void SpawnText(Entity entity)
+            {
+                var value = Global.Localization.GetTextParticular(VanillaStrings.LOCKED_CHEST_TEXT_STOP, VanillaStrings.CONTEXT_LOCKED_CHEST_TEXT);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(FloatingText.PROP_TEXT, value);
+                entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
+            }
+            public const int SUBSTATE_STAND = 0;
+            public const int SUBSTATE_SPOKE = 1;
         }
         #endregion
 

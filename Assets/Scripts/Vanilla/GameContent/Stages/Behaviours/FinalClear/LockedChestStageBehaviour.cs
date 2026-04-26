@@ -84,46 +84,51 @@ namespace MVZ2.GameContent.Stages
             {
                 level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
                 level.StopMusic();
-                //if (!level.IsRerun && level.IsAdventure())
-                //{
-                //    // 隐藏UI，关闭输入
-                //    level.ResetHeldItem();
-                //    level.SetUIAndInputDisabled(true);
-                //}
-                //else
-                //{
-                // 生成通关掉落物。
-                var boss = level.FindFirstEntity(VanillaBossID.lockedChest);
-                Vector3 position;
-                if (boss != null)
+
+                if (level.IsRerun || !level.IsAdventure())
                 {
-                    position = boss.Position;
+                    // 生成通关掉落物。
+                    var boss = level.FindFirstEntity(VanillaBossID.lockedChest);
+                    Vector3 position;
+                    if (boss != null)
+                    {
+                        position = boss.Position;
+                    }
+                    else
+                    {
+                        var x = level.GetLawnCenterX();
+                        var z = level.GetLawnCenterZ();
+                        var y = level.GetGroundY(x, z);
+                        position = new Vector3(x, y, z);
+                    }
+                    ClearPickup.Produce(level, position);
                 }
-                else
-                {
-                    var x = level.GetLawnCenterX();
-                    var z = level.GetLawnCenterZ();
-                    var y = level.GetGroundY(x, z);
-                    position = new Vector3(x, y, z);
-                }
-                ClearPickup.Produce(level, position);
-                //}
             }
         }
         protected override void AfterBossWaveUpdate(LevelEngine level)
         {
             base.AfterBossWaveUpdate(level);
             ClearEnemies(level);
-            //if (!level.IsRerun && level.IsAdventure())
-            //{
-            //    if (!level.IsCleared && !level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
-            //    {
-            //        if (!level.HasBuff<RedDragonClearedBuff>())
-            //        {
-            //            level.AddBuff<RedDragonClearedBuff>();
-            //        }
-            //    }
-            //}
+
+
+            if (!level.IsAdventure() || level.IsRerun)
+                return;
+            if (level.IsCleared)
+                return;
+
+            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
+            {
+                // BOSS回来则重新进入boss战。
+                level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
+                return;
+            }
+            // 有上锁的箱子的掉落物也不结束。
+            if (level.EntityExists(VanillaPickupID.lockedChestPickup))
+                return;
+            // 隐藏UI，关闭输入
+            level.ResetHeldItem();
+            level.SetUIAndInputDisabled(true);
+            level.Clear();
         }
     }
 }

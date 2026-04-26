@@ -117,6 +117,8 @@ namespace MVZ2.GameContent.Bosses
 
         public static int GetPhase(Entity entity) => entity.GetProperty<int>(PROP_PHASE);
         public static void SetPhase(Entity entity, int value) => entity.SetProperty(PROP_PHASE, value);
+        public static int GetRevivedTimes(Entity entity) => entity.GetProperty<int>(PROP_REVIVED_TIMES);
+        public static void SetRevivedTimes(Entity entity, int value) => entity.SetProperty(PROP_REVIVED_TIMES, value);
         public static bool IsFlipX(Entity entity) => entity.GetProperty<bool>(PROP_FLIP_X);
         public static void SetFlipX(Entity entity, bool value) => entity.SetProperty(PROP_FLIP_X, value);
         public static bool HaveBeenPricked(Entity entity) => entity.GetProperty<bool>(PROP_HAVE_BEEN_PRICKED);
@@ -141,6 +143,7 @@ namespace MVZ2.GameContent.Bosses
         public static void SetScaleMultiplier(Entity entity, Vector3 value) => entity.SetProperty(PROP_SCALE_MULTIPLIER, value);
 
         public static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("phase");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_REVIVED_TIMES = new VanillaEntityPropertyMeta<int>("revived_times");
         public static readonly VanillaEntityPropertyMeta<int> PROP_COUGH_TYPE = new VanillaEntityPropertyMeta<int>("cough_type");
         public static readonly VanillaEntityPropertyMeta<int> PROP_USED_COUGH_TYPES = new VanillaEntityPropertyMeta<int>("used_cough_types");
         public static readonly VanillaEntityPropertyMeta<int> PROP_NEXT_JUMP_STATE = new VanillaEntityPropertyMeta<int>("next_jump_state");
@@ -179,6 +182,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_SUMMON_WITHER = VanillaBossStates.LOCKED_CHEST_SUMMON_WITHER;
         public const int STATE_GIANTIZE = VanillaBossStates.LOCKED_CHEST_GIANTIZE;
         public const int STATE_FIREBREATH = VanillaBossStates.LOCKED_CHEST_FIREBREATH;
+        public const int STATE_TIRED = VanillaBossStates.LOCKED_CHEST_TIRED;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_STUNNED = 2;
@@ -203,6 +207,8 @@ namespace MVZ2.GameContent.Bosses
         public const int MUSHROOM_ANIMATION_STATE_HOLD = 1;
         public const int MUSHROOM_ANIMATION_STATE_EAT = 2;
 
+        public const int MAX_REVIVE_TIMES = 3;
+        public const float REVIVAL_HEALTH_PERCENTAGE = 0.1f;
         public const float FIRE_BREATH_DAMAGE_MULTIPLIER = 0.01f;
         public const float SPIT_TRASH_DAMAGE_MULTIPLIER = 0.5f;
         public const float EXPLOSIVE_SOUL_MULTIPLIER = 1f;

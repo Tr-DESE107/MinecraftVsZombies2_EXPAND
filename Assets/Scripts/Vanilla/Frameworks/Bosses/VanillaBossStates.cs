@@ -77,6 +77,7 @@ namespace MVZ2.Vanilla.Bosses
         public const int LOCKED_CHEST_SUMMON_WITHER = PRIVATE_NUMBER + 17;
         public const int LOCKED_CHEST_GIANTIZE = PRIVATE_NUMBER + 18;
         public const int LOCKED_CHEST_FIREBREATH = PRIVATE_NUMBER + 19;
+        public const int LOCKED_CHEST_TIRED = PRIVATE_NUMBER + 20;
 
 
         private const int PRIVATE_NUMBER = 10000;

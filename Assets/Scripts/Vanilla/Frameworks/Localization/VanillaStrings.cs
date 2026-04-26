@@ -159,6 +159,8 @@ namespace MVZ2.Vanilla.Localization
         public const string LOCKED_CHEST_TEXT_BOMBS_ON_THE_WAY = "炸弹来咯！";
         [TranslateMsg("上锁的箱子文本", CONTEXT_LOCKED_CHEST_TEXT)]
         public const string LOCKED_CHEST_TEXT_IM_THE_BOMB = "我才是炸弹！";
+        [TranslateMsg("上锁的箱子文本", CONTEXT_LOCKED_CHEST_TEXT)]
+        public const string LOCKED_CHEST_TEXT_STOP = "你有完没完？";
 
         public const string CONTEXT_LOCKED_CHEST_TEXT = "locked_chest_text";
     }

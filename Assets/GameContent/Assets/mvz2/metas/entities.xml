@@ -3060,10 +3060,12 @@
             <behaviours>
                 <behaviour operator="add" id="mvz2:pickup_collect_locked_chest" />
                 <behaviour operator="add" id="mvz2:pickup_stop_on_land" />
+                <behaviour operator="add" id="mvz2:set_model_property_variant" />
             </behaviours>
             <properties>
                 <bool name="mvz2:important" value="true" />
                 <id name="mvz2:collectSound" value="mvz2:tap" />
+                <int name="mvz2:maxTimeout" value="150" />
             </properties>
         </pickup>
 
