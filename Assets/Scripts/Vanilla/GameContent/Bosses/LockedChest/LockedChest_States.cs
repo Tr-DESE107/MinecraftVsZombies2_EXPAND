@@ -1435,11 +1435,14 @@ namespace MVZ2.GameContent.Bosses
         #region 付费招式
         private static bool CanSwitchToPayToWinState(Entity entity)
         {
-            return CanSwitchToFiveSmashesState(entity) || CanSwitchToHyperbeamState(entity) || CanSwitchToFourSoulsState(entity);
+            return payToWinActionPool.Where(a => a.CanUse(entity)).Count() > 0;
         }
-        private static PayToWinAction GetRandomPayToWinAction(Entity entity)
+        private static PayToWinAction? GetRandomPayToWinAction(Entity entity)
         {
-            return payToWinActionPool.Where(a => a.CanUse(entity)).Random(entity.RNG);
+            var valid = payToWinActionPool.Where(a => a.CanUse(entity));
+            if (valid.Count() <= 0)
+                return null;
+            return valid.Random(entity.RNG);
         }
         private class PayToWinState : EntityStateMachineState
         {
@@ -1475,9 +1478,14 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_JUMP3:
                         if (entity.IsOnGround)
                         {
+                            var action = GetRandomPayToWinAction(entity);
+                            if (action == null)
+                            {
+                                stateMachine.StartState(entity, STATE_IDLE);
+                                break;
+                            }
                             entity.Level.PauseGame(100);
 
-                            var action = GetRandomPayToWinAction(entity);
                             var actionNameKey = action.NameKey;
 
                             int moneyCost = MONEY_COST;
