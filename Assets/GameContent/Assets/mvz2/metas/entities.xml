@@ -3056,6 +3056,16 @@
                 <id name="mvz2:collectSound" value="mvz2:pick" />
             </properties>
         </pickup>
+        <pickup id="locked_chest_pickup" name="上锁的箱子掉落物">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:pickup_collect_locked_chest" />
+                <behaviour operator="add" id="mvz2:pickup_stop_on_land" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:important" value="true" />
+                <id name="mvz2:collectSound" value="mvz2:tap" />
+            </properties>
+        </pickup>
 
         <!-- Projectiles -->
         <projectile id="arrow">

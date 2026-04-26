@@ -133,6 +133,7 @@ namespace MVZ2.Vanilla.Entities
         public const string pickupCollectClear = "pickup_collect_clear";
         public const string pickupCollectStarshard = "pickup_collect_starshard";
         public const string pickupCollectValue = "pickup_collect_value";
+        public const string pickupCollectLockedChest = "pickup_collect_locked_chest";
         public const string pickupMotion = "pickup_motion";
         public const string pickupVanish = "pickup_vanish";
         public const string pickupStopOnLand = "pickup_stop_on_land";

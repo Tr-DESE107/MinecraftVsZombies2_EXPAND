@@ -36,7 +36,10 @@ namespace MVZ2.Talk
         {
             var group = Main.ResourceManager.GetTalkGroup(groupId);
             if (group == null)
-                throw new ArgumentException($"Could not find talk group with id {groupId}.");
+            {
+                Log.LogWarning($"Could not find talk group with id {groupId}.");
+                return;
+            }
             if (IsTalking)
                 return;
             tcs = new TaskCompletionSource<object?>();

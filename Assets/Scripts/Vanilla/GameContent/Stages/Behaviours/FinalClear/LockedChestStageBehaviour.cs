@@ -28,6 +28,15 @@ namespace MVZ2.GameContent.Stages
             //    level.AddBuff<RedDragonStageBuff>();
             //}
         }
+        protected override void FinalWaveUpdate(LevelEngine level)
+        {
+            base.FinalWaveUpdate(level);
+            var lastEnemy = level.GetFirstAliveEnemy();
+            if (lastEnemy != null)
+            {
+                level.SetLastEnemyPosition(lastEnemy.Position);
+            }
+        }
         protected override void AfterFinalWaveUpdate(LevelEngine level)
         {
             base.AfterFinalWaveUpdate(level);
@@ -35,23 +44,31 @@ namespace MVZ2.GameContent.Stages
         }
         private void TransitionUpdate(LevelEngine level)
         {
-            //if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead && e.State == LockedChest.STATE_IDLE))
-            //{
-            //    // 红龙出现
-            //    level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
-            //    return;
-            //}
-            //if (!level.HasBuff<LockedChestTransitionBuff>())
-            //{
-            //    level.AddBuff<LockedChestTransitionBuff>();
-            //}
-            level.PlayMusic(VanillaMusicID.palaceBoss);
-            level.SetMusicVolume(1);
-            level.SetSubtrackWeight(0);
-            level.SetProgressBarToBoss(VanillaProgressBarID.lockedChest);
+            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
+            {
+                // Boss出现
+                level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
+                level.SetProgressBarToBoss(VanillaProgressBarID.lockedChest);
+                return;
+            }
 
-            level.Spawn(VanillaBossID.lockedChest, level.GetEntityGridPosition(9, 2), null);
-            level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
+            if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.lockedChestPickup)))
+            {
+                var lastEnemyPosition = level.GetLastEnemyPosition();
+                Vector3 position;
+                if (lastEnemyPosition.x <= LevelPositions.GetBorderX(false))
+                {
+                    var x = level.GetEnemySpawnX();
+                    var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
+                    var y = level.GetGroundY(x, z);
+                    position = new Vector3(x, y, z);
+                }
+                else
+                {
+                    position = lastEnemyPosition;
+                }
+                LockedChestPickup.Produce(level, position);
+            }
         }
         protected override void BossFightWaveUpdate(LevelEngine level)
         {

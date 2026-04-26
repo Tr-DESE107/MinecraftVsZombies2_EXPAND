@@ -12,6 +12,7 @@ using MVZ2Logic.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
@@ -82,6 +83,17 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.StartState(entity, STATE_DEATH);
         }
         #endregion 事件
+
+
+        public static Entity? SmashAppear(LevelEngine level, Vector3 position, Entity? spawner, SpawnParams param)
+        {
+            return level.Spawn(VanillaBossID.lockedChest, position, spawner, param)?.Let(e =>
+            {
+                SetNextJumpTarget(e, position);
+                stateMachine.StartState(e, STATE_SMASH);
+                stateMachine.StartSubState(e, HighJumpState.SUBSTATE_FALL);
+            });
+        }
 
         public static Entity? SpawnSmashTarget(Entity entity, Vector3 position)
         {
