@@ -122,6 +122,9 @@ namespace MVZ2.GameContent.Stages
                 level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
                 return;
             }
+            // 有未死亡的BOSS时不结束。
+            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && e.IsDead))
+                return;
             // 有上锁的箱子的掉落物也不结束。
             if (level.EntityExists(VanillaPickupID.lockedChestPickup))
                 return;

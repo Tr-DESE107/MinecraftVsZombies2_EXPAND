@@ -2015,20 +2015,38 @@ namespace MVZ2.GameContent.Bosses
         #region 死亡
         private class DeathState : EntityStateMachineState
         {
-            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_DEATH) { }
+            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_IDLE) { }
+            public override int GetAnimationState(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_TWITCH:
+                        return ANIMATION_STATE_JUMP;
+                    case SUBSTATE_OPEN:
+                    case SUBSTATE_CLOSE:
+                        return ANIMATION_STATE_OPEN_CHEST;
+                }
+                return base.GetAnimationState(substate);
+            }
+            public override int GetAnimationSubstate(int substate)
+            {
+                switch (substate)
+                {
+                    case SUBSTATE_TWITCH:
+                        return ANIMATION_SUBSTATE_JUMP_JUMP;
+                    case SUBSTATE_OPEN:
+                        return ANIMATION_SUBSTATE_OPEN_CHEST_OPEN;
+                    case SUBSTATE_CLOSE:
+                        return ANIMATION_SUBSTATE_OPEN_CHEST_CLOSE;
+                }
+                return base.GetAnimationSubstate(substate);
+            }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
-                if (entity.Level.IsAdventure() && !entity.Level.IsRerun)
-                {
-                    var param = entity.GetSpawnParams();
-                    param.SetProperty(LogicEntityProps.VARIANT, GetRevivedTimes(entity) + 1);
-                    LockedChestPickup.Produce(entity.Level, entity.Position, entity, param);
-                }
-                entity.CreateFragmentAndPlay(VanillaFragmentID.woodenDropper);
-                entity.Remove();
-                entity.PlaySound(VanillaSoundID.wood);
-                entity.PlaySound(VanillaSoundID.lockedChestDeath);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(2f);
+                entity.PlaySound(VanillaSoundID.lockedChestOuch);
             }
             public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {
@@ -2036,7 +2054,60 @@ namespace MVZ2.GameContent.Bosses
                 var substate = stateMachine.GetSubState(entity);
                 var timer = stateMachine.GetSubStateTimer(entity);
                 timer.Run(stateMachine.GetSpeed(entity));
+                switch (substate) 
+                {
+                    case SUBSTATE_TWITCH:
+                        {
+                            SetFlipX(entity, !IsFlipX(entity));
+                            if (entity.IsOnGround)
+                            {
+                                Hop(entity);
+                            }
+                            if (timer.Expired)
+                            {
+                                stateMachine.StartSubState(entity, SUBSTATE_CALM);
+                                timer.ResetSeconds(1f);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_CALM:
+                        if (timer.Expired)
+                        {
+                            entity.PlaySound(VanillaSoundID.lockedChestDeath);
+                            stateMachine.StartSubState(entity, SUBSTATE_OPEN);
+                            timer.ResetSeconds(1.5f);
+                        }
+                        break;
+                    case SUBSTATE_OPEN:
+                        if (timer.Expired)
+                        {
+                            stateMachine.StartSubState(entity, SUBSTATE_CLOSE);
+                            timer.ResetSeconds(0.5f);
+                        }
+                        break;
+                    case SUBSTATE_CLOSE:
+                        if (timer.Expired)
+                        {
+                            if (entity.Level.IsAdventure() && !entity.Level.IsRerun)
+                            {
+                                var param = entity.GetSpawnParams();
+                                param.SetProperty(LogicEntityProps.VARIANT, GetRevivedTimes(entity) + 1);
+                                LockedChestPickup.Produce(entity.Level, entity.Position, entity, param);
+                            }
+                            else
+                            {
+                                entity.CreateFragmentAndPlay(VanillaFragmentID.woodenDropper);
+                                entity.PlaySound(VanillaSoundID.wood);
+                            }
+                            entity.Remove();
+                        }
+                        break;
+                }
             }
+            public const int SUBSTATE_TWITCH = 0;
+            public const int SUBSTATE_CALM = 1;
+            public const int SUBSTATE_OPEN = 2;
+            public const int SUBSTATE_CLOSE = 3;
         }
         #endregion
 
