@@ -27,18 +27,22 @@ namespace MVZ2.GameContent.IZombie
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            Insert(map, 1, 3, VanillaContraptionID.gunpowderBarrel);
-            Insert(map, 3, 2, VanillaContraptionID.gunpowderBarrel);
+            FillColumn(map, 0, VanillaContraptionID.stoneShield);
+            FillColumn(map, 0, VanillaContraptionID.furnace);
+            FillColumn(map, 4, VanillaContraptionID.dreamCrystal);
 
-            RandomFillAtLane(map, 0, VanillaContraptionID.furnace, 3, rng);
-            RandomFillAtLane(map, 0, VanillaContraptionID.smallDispenser, 2, rng);
+            Insert(map, 2, 0, VanillaContraptionID.gunpowderBarrel);
+            Insert(map, 2, 2, VanillaContraptionID.gunpowderBarrel);
 
-            RandomFill(map, VanillaContraptionID.dispenser, 2, rng);
+            for (int lane = 0; lane < map.Lanes; lane++)
+            {
+                RandomFillAtLane(map, lane, VanillaContraptionID.splitenser, 1, rng);
+            }
+
             RandomFill(map, VanillaContraptionID.repeatenser, 2, rng);
             RandomFill(map, VanillaContraptionID.triplenser, 3, rng);
 
-            RandomFill(map, VanillaContraptionID.furnace, 6, rng);
-            RandomFill(map, VanillaContraptionID.smallDispenser, 5, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 3, rng);
         }
     }
 }
