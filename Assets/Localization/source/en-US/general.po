@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-27 08:18+0800\n"
-"PO-Revision-Date: 2026-04-27 20:18+0800\n"
+"POT-Creation-Date: 2026-04-28 11:43+0800\n"
+"PO-Revision-Date: 2026-04-28 11:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1027,62 +1027,68 @@ msgctxt "command.output"
 msgid "无法重新锁定游戏状态：无游戏状态可重新锁定"
 msgstr "Cannot relock game states: No states can be relocked"
 
+# 命令输出-izombie
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:110
+msgctxt "command.output"
+msgid "当前关卡不是“我是僵尸”模式"
+msgstr "The current level is not in \"I, Zombie\" mode"
+
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:114
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr "Godmode"
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:116
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr "Infinite Energy"
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:118
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr "Instant Recharge"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:117
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:120
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr "Infinite Starshards"
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:125
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:128
 msgctxt "locked_chest_message"
 msgid "勒索弹窗"
 msgstr "Ransom Pop-up"
 
 # 上锁的箱子信息描述，{0}为花费的宝石量，{1}为招式名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:127
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:130
 msgctxt "locked_chest_message"
 msgid "立刻给我{0}或{1}，否则我就要发动我的终极绝招“{2}”了！"
 msgstr "Pay me {0} or {1}, or I will use my ultimate '{2}'!"
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:130
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:133
 msgctxt "locked_chest_message"
 msgid "哦不好意思"
 msgstr "Oh Sorry"
 
 # 上锁的箱子信息描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:132
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:135
 msgctxt "locked_chest_message"
 msgid "我忘说了，你选什么都没用。"
 msgstr "I forgot that it doesn't matter what you choose."
 
 # 上锁的箱子选项名，{0}为花费的宝石量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:135
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:138
 msgctxt "locked_chest_message"
 msgid "{0}宝石"
 msgid_plural "{0}宝石"
 msgstr[0] "{0} gem"
 msgstr[1] "{0} gems"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:137
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:140
 msgctxt "locked_chest_message"
 msgid "{0}星之碎片"
 msgid_plural "{0}星之碎片"
@@ -1090,55 +1096,55 @@ msgstr[0] "{0} starshard"
 msgstr[1] "{0} starshards"
 
 # 上锁的箱子选项名，{0}为花费的宝石量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:140
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:143
 msgctxt "locked_chest_message"
 msgid "支付{0}"
 msgstr "Pay {0}"
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:142
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:145
 msgctxt "locked_chest_message"
 msgid "拒绝"
 msgstr "Reject"
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:144
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:147
 msgctxt "locked_chest_message"
 msgid "？"
 msgstr "?"
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:147
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:150
 msgctxt "locked_chest_message"
 msgid "终极重压"
 msgstr "Ultimate Smash"
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:149
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:152
 msgctxt "locked_chest_message"
 msgid "超能光束"
 msgstr "Hyperbeam"
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:151
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:154
 msgctxt "locked_chest_message"
 msgid "爆破四魂"
 msgstr "Four Souls Blast"
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:158
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:161
 msgctxt "locked_chest_text"
 msgid "炸弹来咯！"
 msgstr "Here come the BOMBS!"
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:160
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:163
 msgctxt "locked_chest_text"
 msgid "我才是炸弹！"
 msgstr "I AM THE BOMB!"
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:162
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:165
 msgctxt "locked_chest_text"
 msgid "你有完没完？"
 msgstr "Will you just stop already?"
@@ -2336,12 +2342,12 @@ msgstr "Failed to export logs."
 msgid "日志已导出至{0}。"
 msgstr "The log files have been successfully exported to {0}."
 
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:591
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:528
 msgctxt "command.output"
 msgid "<color=red>命令不存在：{0}</color>"
 msgstr "<color=red>Command not found: {0}</color>"
 
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:593
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:530
 msgctxt "command.output"
 msgid "<color=red>错误：{0}</color>"
 msgstr "<color=red>Error: {0}</color>"
@@ -5725,6 +5731,48 @@ msgctxt "command_parameter.description"
 msgid "要设置的波数。"
 msgstr "Wave number to set."
 
+#. Description for command variant "mvz2:test flags"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "设置当前轮数。"
+msgstr "Sets the current flags."
+
+#. Description for parameter flags of command "mvz2:test flags"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "要设置的轮数。"
+msgstr "Flags to set."
+
+#. Description for command "mvz2:izombie"
+#: Commands meta file
+msgctxt "command.description"
+msgid "针对“我是僵尸”关卡进行操作。"
+msgstr "Operate on the \"I, Zombie\" level."
+
+#. Description for command variant "mvz2:izombie layout"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "以特定布局刷新当前场地。"
+msgstr "Refreshes current battlefield with a specific layout."
+
+#. Description for parameter id of command "mvz2:izombie layout"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。我是僵尸布局ID。默认为随机布局。"
+msgstr "Optional. I, Zombie layout ID. The default a random layout."
+
+#. Description for command variant "mvz2:izombie pickaxe"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "设置铁镐可使用次数。"
+msgstr "Sets the usage time of the Pickaxe."
+
+#. Description for parameter count of command "mvz2:izombie pickaxe"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可使用次数。"
+msgstr "Usage times."
+
 #. Description for command "mvz2:gotolevel"
 #: Commands meta file
 msgctxt "command.description"
@@ -5748,6 +5796,30 @@ msgstr "Stage ID to enter."
 msgctxt "command_parameter.description"
 msgid "要进入的场地ID。"
 msgstr "Area ID to enter."
+
+#. Description for command "mvz2:chaptertransition"
+#: Commands meta file
+msgctxt "command.description"
+msgid "播放一段章节过渡动画。"
+msgstr "Plays a chapter transition animation."
+
+#. Description for command variant "mvz2:chaptertransition start"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "播放章节开始动画。"
+msgstr "Plays the chapter start transition."
+
+#. Description for parameter stage of command "mvz2:chaptertransition start"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "章节过渡动画ID。"
+msgstr "Chapter transition ID."
+
+#. Description for command variant "mvz2:chaptertransition end"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "播放章节结束动画。"
+msgstr "Plays the chapter end transition."
 
 #. Name for difficulty 简单
 #: Difficulty meta file

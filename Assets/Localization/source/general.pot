@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-27 08:18+0800\n"
+"POT-Creation-Date: 2026-04-28 11:43+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1064,56 +1064,62 @@ msgctxt "command.output"
 msgid "无法重新锁定游戏状态：无游戏状态可重新锁定"
 msgstr ""
 
+# 命令输出-izombie
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:110
+msgctxt "command.output"
+msgid "当前关卡不是“我是僵尸”模式"
+msgstr ""
+
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:114
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:116
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:118
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:117
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:120
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:125
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:128
 msgctxt "locked_chest_message"
 msgid "勒索弹窗"
 msgstr ""
 
 # 上锁的箱子信息描述，{0}为需求1，{1}为需求2，{2}为招式名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:127
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:130
 msgctxt "locked_chest_message"
 msgid "立刻给我{0}或{1}，否则我就要发动我的终极绝招“{2}”了！"
 msgstr ""
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:130
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:133
 msgctxt "locked_chest_message"
 msgid "哦不好意思"
 msgstr ""
 
 # 上锁的箱子信息描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:132
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:135
 msgctxt "locked_chest_message"
 msgid "我忘说了，你选什么都没用。"
 msgstr ""
 
 # 上锁的箱子需求，{0}为花费的宝石量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:135
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:138
 msgctxt "locked_chest_message"
 msgid "{0}宝石"
 msgid_plural "{0}宝石"
@@ -1121,7 +1127,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 上锁的箱子需求，{0}为花费的星之碎片量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:137
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:140
 msgctxt "locked_chest_message"
 msgid "{0}星之碎片"
 msgid_plural "{0}星之碎片"
@@ -1129,55 +1135,55 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:140
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:143
 msgctxt "locked_chest_message"
 msgid "支付{0}"
 msgstr ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:142
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:145
 msgctxt "locked_chest_message"
 msgid "拒绝"
 msgstr ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:144
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:147
 msgctxt "locked_chest_message"
 msgid "？"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:147
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:150
 msgctxt "locked_chest_message"
 msgid "终极重压"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:149
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:152
 msgctxt "locked_chest_message"
 msgid "超能光束"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:151
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:154
 msgctxt "locked_chest_message"
 msgid "爆破四魂"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:158
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:161
 msgctxt "locked_chest_text"
 msgid "炸弹来咯！"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:160
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:163
 msgctxt "locked_chest_text"
 msgid "我才是炸弹！"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:162
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:165
 msgctxt "locked_chest_text"
 msgid "你有完没完？"
 msgstr ""
@@ -2402,13 +2408,13 @@ msgid "日志已导出至{0}。"
 msgstr ""
 
 # 命令输出，{0}为命令名
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:591
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:528
 msgctxt "command.output"
 msgid "<color=red>命令不存在：{0}</color>"
 msgstr ""
 
 # 命令输出，{0}为错误
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:593
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:530
 msgctxt "command.output"
 msgid "<color=red>错误：{0}</color>"
 msgstr ""
@@ -3205,6 +3211,36 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "我是僵尸无尽"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_among_us
+#: Stage meta file
+msgctxt "levelname"
+msgid "在我们之中"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_im_in_charge_now
+#: Stage meta file
+msgctxt "levelname"
+msgid "轮到我上场了"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_break_apart
+#: Stage meta file
+msgctxt "levelname"
+msgid "四分五裂"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_catzomware
+#: Stage meta file
+msgctxt "levelname"
+msgid "僵尸猫病毒"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_i_zombie_endless_2
+#: Stage meta file
+msgctxt "levelname"
+msgid "我是僵尸无尽2"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place
@@ -5417,6 +5453,48 @@ msgctxt "command_parameter.description"
 msgid "要设置的波数。"
 msgstr ""
 
+#. Description for command variant "mvz2:test flags"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "设置当前轮数。"
+msgstr ""
+
+#. Description for parameter flags of command "mvz2:test flags"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "要设置的轮数。"
+msgstr ""
+
+#. Description for command "mvz2:izombie"
+#: Commands meta file
+msgctxt "command.description"
+msgid "针对“我是僵尸”关卡进行操作。"
+msgstr ""
+
+#. Description for command variant "mvz2:izombie layout"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "以特定布局刷新当前场地。"
+msgstr ""
+
+#. Description for parameter id of command "mvz2:izombie layout"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。我是僵尸布局ID。默认为随机布局。"
+msgstr ""
+
+#. Description for command variant "mvz2:izombie pickaxe"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "设置铁镐可使用次数。"
+msgstr ""
+
+#. Description for parameter count of command "mvz2:izombie pickaxe"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可使用次数。"
+msgstr ""
+
 #. Description for command "mvz2:gotolevel"
 #: Commands meta file
 msgctxt "command.description"
@@ -5439,6 +5517,30 @@ msgstr ""
 #: Commands meta file
 msgctxt "command_parameter.description"
 msgid "要进入的场地ID。"
+msgstr ""
+
+#. Description for command "mvz2:chaptertransition"
+#: Commands meta file
+msgctxt "command.description"
+msgid "播放一段章节过渡动画。"
+msgstr ""
+
+#. Description for command variant "mvz2:chaptertransition start"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "播放章节开始动画。"
+msgstr ""
+
+#. Description for parameter stage of command "mvz2:chaptertransition start"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "章节过渡动画ID。"
+msgstr ""
+
+#. Description for command variant "mvz2:chaptertransition end"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "播放章节结束动画。"
 msgstr ""
 
 #. Name for difficulty 简单
