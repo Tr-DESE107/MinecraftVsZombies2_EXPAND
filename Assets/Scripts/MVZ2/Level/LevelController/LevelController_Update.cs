@@ -165,6 +165,9 @@ namespace MVZ2.Level
             // 更新UI。
             UpdateFrameUI(deltaTime, gameSpeed);
 
+            // 更新血条。
+            UpdateHPBars(deltaTime);
+
             // 更新网格。
             UpdateGridsFrame(deltaTime, gameSpeed);
             UpdateHeldHighlight();

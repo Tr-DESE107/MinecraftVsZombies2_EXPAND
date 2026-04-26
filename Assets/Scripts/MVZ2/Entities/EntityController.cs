@@ -55,7 +55,7 @@ namespace MVZ2.Entities
             entity.OnEquipArmor += OnArmorEquipCallback;
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
-            hpBars.SetCamera(level.GetCamera());
+            Level.AddHPBarSource(hpBarSource);
             holdStreakHandler.ResetData();
             RemoveCursorSource();
 
@@ -80,6 +80,7 @@ namespace MVZ2.Entities
             Entity.OnEquipArmor -= OnArmorEquipCallback;
             Entity.OnRemoveArmor -= OnArmorRemoveCallback;
             Entity.SetModelInterface(null);
+            Level.RemoveHPBarSource(hpBarSource);
         }
 
         #region 模型
@@ -139,7 +140,6 @@ namespace MVZ2.Entities
             transform.position = Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
             UpdateShadow();
             UpdateHeightIndicator();
-            UpdateHPBar();
             lastPosition = transform.position;
 
             var shouldTwinkle = ShouldTwinkle();
@@ -259,6 +259,7 @@ namespace MVZ2.Entities
         {
             holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
             bodyModelInterface = new BodyModelInterface(this);
+            hpBarSource = new EntityHPBarSource(this);
         }
         private void Update()
         {
@@ -608,30 +609,33 @@ namespace MVZ2.Entities
         #endregion
 
         #region 血条
-        public bool ShouldShowHPBarOnEntity()
-        {
-            if (Entity.Type == EntityTypes.ENEMY)
-                return true;
-            if (Entity.Type == EntityTypes.PLANT || Entity.Type == EntityTypes.OBSTACLE)
-            {
-                if (!Entity.HasTakenGrid())
-                    return true;
-            }
-            return false; ;
-        }
         public bool IsHPBarHovered()
         {
             var hoverDisplayRange = Main.OptionsManager.GetHPBarHoverDisplayRange();
             if (hoverDisplayRange > 0)
             {
+                var entity = Entity;
+                var level = Level;
                 var pointerScreenPos = Main.InputManager.GetPointerScreenPosition();
-                var pointerPos = Level.ScreenToLawnPositionByY(pointerScreenPos, Entity.Position.y);
-                if ((pointerPos - Entity.Position).sqrMagnitude <= hoverDisplayRange * hoverDisplayRange)
+                var pointerPos = level.ScreenToLawnPositionByY(pointerScreenPos, entity.Position.y);
+                if ((pointerPos - entity.Position).sqrMagnitude <= hoverDisplayRange * hoverDisplayRange)
                 {
                     return true;
                 }
             }
             return false;
+        }
+        public bool ShouldShowHPBarOnEntity()
+        {
+            var entity = Entity;
+            if (entity.Type == EntityTypes.ENEMY)
+                return true;
+            if (entity.Type == EntityTypes.PLANT || entity.Type == EntityTypes.OBSTACLE)
+            {
+                if (!entity.HasTakenGrid())
+                    return true;
+            }
+            return false; ;
         }
         public bool ShouldShowMainHPBar()
         {
@@ -641,7 +645,8 @@ namespace MVZ2.Entities
             }
             if (Main.OptionsManager.IsHPBarAutoHide())
             {
-                if (Mathf.Abs(Entity.GetMaxHealth() - Entity.Health) <= 0.01f)
+                var entity = Entity;
+                if (Mathf.Abs(entity.GetMaxHealth() - entity.Health) <= 0.01f)
                 {
                     // 满血
                     return false;
@@ -675,8 +680,9 @@ namespace MVZ2.Entities
         }
         public float GetMainHPBarAmount()
         {
-            var health = Entity.Health;
-            var maxHealth = Entity.GetMaxHealth();
+            var entity = Entity;
+            var health = entity.Health;
+            var maxHealth = entity.GetMaxHealth();
             return health / maxHealth;
         }
         public float GetArmorHPBarAmount(Armor armor)
@@ -687,12 +693,13 @@ namespace MVZ2.Entities
         }
         public string GetMainHPBarText(int amountMode)
         {
+            var entity = Entity;
             var text = string.Empty;
-            if (Entity.IsDead)
+            if (entity.IsDead)
             {
                 return Main.LanguageManager._(HP_BAR_TEXT_DEATH);
             }
-            return GetHPBarText(Entity.Health, Entity.GetMaxHealth(), amountMode);
+            return GetHPBarText(entity.Health, entity.GetMaxHealth(), amountMode);
         }
         public string GetArmorHPBarText(Armor armor, int amountMode)
         {
@@ -716,65 +723,6 @@ namespace MVZ2.Entities
                     break;
             }
             return text;
-        }
-        private void UpdateHPBar()
-        {
-            if (!Entity.IsPreviewEnemy())
-            {
-                var visibility = Entity.GetHPBarVisibility();
-                bool shouldShow = visibility == HPBarVisibility.FORCE || (Level.ShouldShowHPBars() && visibility != HPBarVisibility.HIDDEN);
-                if (shouldShow && ShouldShowHPBarOnEntity())
-                {
-                    ShowHPBar();
-                    return;
-                }
-            }
-            hpBars.SetActive(false);
-        }
-        private void ShowHPBar()
-        {
-            hpBars.SetActive(true);
-            var amountMode = Main.OptionsManager.GetHPBarAmountMode();
-
-            hpBarBuffer.Clear();
-            if (ShouldShowMainHPBar())
-            {
-                var mainViewData = new HPBarViewData()
-                {
-                    barAmount = GetMainHPBarAmount(),
-                    barColor = Color.red,
-                    text = GetMainHPBarText(amountMode),
-                    icon = null
-                };
-                hpBarBuffer.Add(mainViewData);
-            }
-
-            foreach (var armorSlot in Entity.GetActiveArmorSlots())
-            {
-                var armor = Entity.GetArmorAtSlot(armorSlot);
-                if (!Armor.Exists(armor))
-                    continue;
-                var armorSlotDefinition = Level.Game.GetArmorSlotDefinition(armorSlot);
-                if (armorSlotDefinition == null)
-                    continue;
-                if (!ShouldShowArmorHPBar(armor))
-                    continue;
-
-                var icon = Main.GetFinalSprite(armorSlotDefinition.HPBarIcon);
-                var viewData = new HPBarViewData()
-                {
-                    barAmount = GetArmorHPBarAmount(armor),
-                    barColor = armorSlotDefinition.HPBarColor,
-                    text = GetArmorHPBarText(armor, amountMode),
-                    icon = icon
-                };
-                hpBarBuffer.Add(viewData);
-            }
-            hpBars.SetBarCount(hpBarBuffer.Count);
-            for (int i = 0; i < hpBarBuffer.Count; i++)
-            {
-                hpBars.UpdateBar(i, hpBarBuffer[i]);
-            }
         }
         #endregion
 
@@ -806,14 +754,6 @@ namespace MVZ2.Entities
         #endregion
 
         #region 属性字段
-        [TranslateMsg("血条的文字")]
-        public const string HP_BAR_TEXT_DEATH = "死亡";
-        [TranslateMsg("血条的文字")]
-        public const string HP_BAR_TEXT_DESTROYED = "摧毁";
-        [TranslateMsg("血条的文字模板")]
-        public const string HP_BAR_TEXT_TEMPLATE = "{0}";
-        [TranslateMsg("血条的文字模板")]
-        public const string HP_BAR_TEXT_TEMPLATE_WITH_MAX = "{0}/{1}";
         public const float HEIGHT_INDICATOR_MIN_HEIGHT = 40;
         public const float HEIGHT_INDICATOR_FADE_MIN_HEIGHT = 300;
         public const float HEIGHT_INDICATOR_FADE_MAX_HEIGHT = 500;
@@ -831,6 +771,14 @@ namespace MVZ2.Entities
             { EntityTypes.EFFECT, 6 },
             { EntityTypes.PICKUP, 7 },
         };
+        [TranslateMsg("血条的文字")]
+        public const string HP_BAR_TEXT_DEATH = "死亡";
+        [TranslateMsg("血条的文字")]
+        public const string HP_BAR_TEXT_DESTROYED = "摧毁";
+        [TranslateMsg("血条的文字模板")]
+        public const string HP_BAR_TEXT_TEMPLATE = "{0}";
+        [TranslateMsg("血条的文字模板")]
+        public const string HP_BAR_TEXT_TEMPLATE_WITH_MAX = "{0}/{1}";
         public MainManager Main => MainManager.Instance;
         public EntityModel? Model { get; private set; }
         public ShadowController Shadow => shadow;
@@ -842,15 +790,13 @@ namespace MVZ2.Entities
         private EntityCursorSource? _cursorSource;
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface = null!;
+        private IHPBarSource hpBarSource = null!;
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
-        private List<HPBarViewData> hpBarBuffer = new List<HPBarViewData>();
         private List<Animator> animatorBuffer = new List<Animator>();
         [SerializeField]
         private ShadowController shadow = null!;
         [SerializeField]
         private HeightIndicatorController heightIndicator = null!;
-        [SerializeField]
-        private HPBarViewList hpBars = null!;
         [SerializeField]
         private TooltipAnchor tooltipAnchor = null!;
         [SerializeField]

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MVZ2.UI.Level
 {
-    public class HPBarViewList : MonoBehaviour
+    public class HPBarList : MonoBehaviour
     {
         public void SetActive(bool value)
         {

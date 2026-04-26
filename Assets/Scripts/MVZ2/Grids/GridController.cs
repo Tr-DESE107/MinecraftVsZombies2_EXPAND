@@ -29,17 +29,19 @@ namespace MVZ2.Grids
         private void Awake()
         {
             view.OnPointerInteraction += (view, pointer, interaction) => OnPointerInteraction?.Invoke(this, pointer, interaction);
+            hpBarSource = new GridHPBarSource(this);
         }
         public void Init(GridInitData data)
         {
             Level = data.levelController;
             grid = data.grid;
             view.BuildModel(data.modelBuilder);
-            hpBarView.SetCamera(Level.GetCamera());
 
             grid.OnModelInsertionAdded += OnModelInsertionAddedCallback;
             grid.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
             UpdateModelInsertions();
+
+            Level.AddHPBarSource(hpBarSource);
         }
         public LawnGrid? GetLawnGrid()
         {
@@ -52,7 +54,6 @@ namespace MVZ2.Grids
         public void UpdateFrame(float deltaTime)
         {
             view.UpdateFrame(deltaTime);
-            UpdateHPBars();
 
             if (grid != null)
             {
@@ -173,82 +174,6 @@ namespace MVZ2.Grids
         }
         #endregion
 
-        #region 血条
-        public void SetHPBarCount(int count)
-        {
-            hpBarView.SetBarCount(count);
-        }
-        public void UpdateHPBar(int index, HPBarViewData viewData)
-        {
-            hpBarView.UpdateBar(index, viewData);
-        }
-
-        #region 血条
-        private void UpdateHPBars()
-        {
-            if (Level != null)
-            {
-                if (grid != null)
-                {
-                    ShowGridHPBars(grid);
-                    return;
-                }
-            }
-        }
-        private void ShowGridHPBars(LawnGrid grid)
-        {
-            var amountMode = Main.OptionsManager.GetHPBarAmountMode();
-            gridHPBarEntityBuffer.Clear();
-            gridHPBarBuffer.Clear();
-            bool shouldShow = Level?.ShouldShowHPBars() ?? false;
-            var layers = grid.GetLayers().OrderBy(l => Array.IndexOf(VanillaGridLayers.normalLayerOrders, l));
-            foreach (var layer in layers)
-            {
-                var layerDefinition = Main.Game.GetGridLayerDefinition(layer);
-                var entities = grid.GetLayerEntities(layer);
-                foreach (var entity in entities)
-                {
-                    if (!entity.Exists())
-                        continue;
-                    var visibility = entity.GetHPBarVisibility();
-                    if (visibility == HPBarVisibility.HIDDEN)
-                        continue;
-                    if (!shouldShow && visibility != HPBarVisibility.FORCE)
-                        continue;
-                    if (entity.GetGrid() != grid)
-                        continue;
-                    if (gridHPBarEntityBuffer.Contains(entity))
-                        continue;
-                    var entityCtrl = Level?.GetEntityController(entity);
-                    if (!entityCtrl.Exists() || !entityCtrl.ShouldShowMainHPBar() || entityCtrl.ShouldShowHPBarOnEntity())
-                        continue;
-                    var barColor = layerDefinition?.HPBarColor ?? Color.red;
-                    var amount = entityCtrl.GetMainHPBarAmount();
-                    var text = entityCtrl.GetMainHPBarText(amountMode);
-                    Sprite? icon = Main.GetFinalSprite(layerDefinition?.HPBarIcon);
-                    gridHPBarBuffer.Add(new HPBarViewData()
-                    {
-                        barColor = barColor,
-                        barAmount = amount,
-                        text = text,
-                        icon = icon
-                    });
-                    gridHPBarEntityBuffer.Add(entity);
-                }
-            }
-            SetHPBarCount(gridHPBarBuffer.Count);
-            for (int i = 0; i < gridHPBarBuffer.Count; i++)
-            {
-                UpdateHPBar(i, gridHPBarBuffer[i]);
-            }
-            bool visible = gridHPBarBuffer.Count > 0;
-            if (visible != hpBarView.IsActiveSelf())
-            {
-                hpBarView.SetActive(visible);
-            }
-        }
-        #endregion
-        #endregion
 
         public event Action<GridController, PointerEventData, PointerInteraction>? OnPointerInteraction;
 
@@ -258,12 +183,9 @@ namespace MVZ2.Grids
         public int Column { get; set; }
         public float BevelHeight { get; private set; }
         private LawnGrid? grid;
-        private HashSet<Entity> gridHPBarEntityBuffer = new HashSet<Entity>();
-        private List<HPBarViewData> gridHPBarBuffer = new List<HPBarViewData>();
+        private IHPBarSource hpBarSource = null!;
         [SerializeField]
         private GridView view = null!;
-        [SerializeField]
-        private HPBarViewList hpBarView = null!;
         [SerializeField]
         private Vector2 size;
     }
@@ -282,5 +204,92 @@ namespace MVZ2.Grids
     public class SerializableGridController
     {
         public SerializableModelData? model;
+    }
+
+    public class GridHPBarSource : IHPBarSource
+    {
+        public GridHPBarSource(GridController controller)
+        {
+            Controller = controller;
+        }
+
+        public bool IsActive()
+        {
+            if (!Controller.Exists())
+                return false;
+            if (Controller.Level == null)
+                return false;
+            if (Controller.GetLawnGrid() == null)
+                return false;
+            return true;
+        }
+        public Vector3 GetPosition()
+        {
+            return Controller.transform.position;
+        }
+        public void UpdateHPBarList(HPBarList list)
+        {
+            list.gameObject.name = Controller.gameObject.name;
+
+            gridHPBarEntityBuffer.Clear();
+            gridHPBarBuffer.Clear();
+            GetHPBarViewDatas();
+
+            list.SetBarCount(gridHPBarBuffer.Count);
+            for (int i = 0; i < gridHPBarBuffer.Count; i++)
+            {
+                list.UpdateBar(i, gridHPBarBuffer[i]);
+            }
+        }
+        private void GetHPBarViewDatas()
+        {
+            var level = Controller.Level;
+            var grid = Controller.GetLawnGrid();
+            if (grid == null)
+                return;
+
+            var amountMode = Main.OptionsManager.GetHPBarAmountMode();
+
+            bool shouldShow = level?.ShouldShowHPBars() ?? false;
+            var layers = grid.GetLayers().OrderBy(l => Array.IndexOf(VanillaGridLayers.normalLayerOrders, l));
+            foreach (var layer in layers)
+            {
+                var layerDefinition = Main.Game.GetGridLayerDefinition(layer);
+                var entities = grid.GetLayerEntities(layer);
+                foreach (var entity in entities)
+                {
+                    if (!entity.Exists())
+                        continue;
+                    var visibility = entity.GetHPBarVisibility();
+                    if (visibility == HPBarVisibility.HIDDEN)
+                        continue;
+                    if (!shouldShow && visibility != HPBarVisibility.FORCE)
+                        continue;
+                    if (entity.GetGrid() != grid)
+                        continue;
+                    if (gridHPBarEntityBuffer.Contains(entity))
+                        continue;
+                    var entityCtrl = level?.GetEntityController(entity);
+                    if (!entityCtrl.Exists() || !entityCtrl.ShouldShowMainHPBar() || entityCtrl.ShouldShowHPBarOnEntity())
+                        continue;
+                    var barColor = layerDefinition?.HPBarColor ?? Color.red;
+                    var amount = entityCtrl.GetMainHPBarAmount();
+                    var text = entityCtrl.GetMainHPBarText(amountMode);
+                    Sprite? icon = Main.GetFinalSprite(layerDefinition?.HPBarIcon);
+                    gridHPBarBuffer.Add(new HPBarViewData()
+                    {
+                        barColor = barColor,
+                        barAmount = amount,
+                        text = text,
+                        icon = icon
+                    });
+                    gridHPBarEntityBuffer.Add(entity);
+                }
+            }
+        }
+        public MainManager Main => MainManager.Instance;
+        public GridController Controller { get; }
+        private HashSet<Entity> gridHPBarEntityBuffer = new HashSet<Entity>();
+        private List<HPBarViewData> gridHPBarBuffer = new List<HPBarViewData>();
     }
 }
