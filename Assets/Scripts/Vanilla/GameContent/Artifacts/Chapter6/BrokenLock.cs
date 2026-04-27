@@ -15,6 +15,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -56,19 +57,25 @@ namespace MVZ2.GameContent.Artifacts
                 .FirstOrDefault(s => s.GetSeedType() == SeedTypes.ENTITY && s.GetSeedEntityID() == entityID && s.IsCommandBlock() == commandBlock && !s.IsCharged());
             if (seedPack == null)
                 return;
+
+            var maxRecharge = seedPack.GetMaxRecharge();
+            var totalAmount = output.GetTotalAmount();
+            var hp = contraption.Health;
+            totalAmount = Mathf.Min(hp, totalAmount);
+            var amountPercentage = totalAmount / contraption.GetMaxHealth();
+
             foreach (var artifact in level.GetArtifacts())
             {
                 if (artifact == null || artifact.Definition != this)
                     continue;
-                var maxRecharge = seedPack.GetMaxRecharge();
-                var percentage = output.GetTotalAmount() * GetRechargeMultiplier(artifact);
-                seedPack.AddRecharge(maxRecharge * percentage * 0.01f);
+                var percentage = amountPercentage * GetRechargeMultiplier(artifact);
+                seedPack.AddRecharge(maxRecharge * percentage);
                 artifact.SetGlowing(true);
             }
         }
 
         public static float GetRechargeMultiplier(Artifact artifact) => artifact.GetProperty<float>(PROP_RECHARGE_MULTIPLIER);
         public static void SetRechargeMultiplier(Artifact artifact, float value) => artifact.SetProperty(PROP_RECHARGE_MULTIPLIER, value);
-        public static readonly VanillaArtifactPropertyMeta<float> PROP_RECHARGE_MULTIPLIER = new VanillaArtifactPropertyMeta<float>("recharge_multiplier", 0.333333333f);
+        public static readonly VanillaArtifactPropertyMeta<float> PROP_RECHARGE_MULTIPLIER = new VanillaArtifactPropertyMeta<float>("recharge_multiplier", 1f);
     }
 }
