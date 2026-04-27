@@ -9,6 +9,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
+using static MVZ2.Supporters.SponsorPlans;
 
 namespace MVZ2.Level
 {
@@ -47,33 +48,30 @@ namespace MVZ2.Level
             var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.FURNACE);
             if (names.Length <= 0)
                 return;
-            furnace.Spawn(VanillaEffectID.floatingText, furnace.GetCenter(), rng.Next())?.Let(e =>
-            {
-                var name = names.Random(e.RNG);
-                FloatingText.SetText(e, name);
-            });
+            var name = names.Random(rng);
+            var param = new SpawnParams();
+            param.SetProperty(FloatingText.PROP_TEXT, name);
+            furnace.Spawn(VanillaEffectID.floatingText, furnace.GetCenter(), param);
         }
         private void ShowMoonlightSensorSponsorName(Entity sensor)
         {
             var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Sensor.TYPE, SponsorPlans.Sensor.MOONLIGHT_SENSOR);
             if (names.Length <= 0)
                 return;
-            sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), rng.Next())?.Let(e =>
-            {
-                var name = names.Random(e.RNG);
-                FloatingText.SetText(e, name);
-            });
+            var name = names.Random(rng);
+            var param = new SpawnParams();
+            param.SetProperty(FloatingText.PROP_TEXT, name);
+            sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), param);
         }
-        private void ShowGunpowderBarrelSensorSponsorName(Entity sensor)
+        private void ShowGunpowderBarrelSensorSponsorName(Entity barrel)
         {
             var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.GUNPOWDER_BARREL);
             if (names.Length <= 0)
                 return;
-            sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), rng.Next())?.Let(e =>
-            {
-                var name = names.Random(e.RNG);
-                FloatingText.SetText(e, name);
-            });
+            var name = names.Random(rng);
+            var param = new SpawnParams();
+            param.SetProperty(FloatingText.PROP_TEXT, name);
+            barrel.Spawn(VanillaEffectID.floatingText, barrel.GetCenter(), param);
         }
     }
 }

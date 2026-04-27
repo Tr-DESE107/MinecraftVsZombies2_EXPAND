@@ -7,9 +7,18 @@ namespace MVZ2.Models
 {
     public class FloatingTextModel : ModelComponent
     {
+        public override void Init()
+        {
+            base.Init();
+            UpdateText();
+        }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
+            UpdateText();
+        }
+        private void UpdateText()
+        {
             text.text = Model.GetProperty<string>("Text");
             text.color = Model.GetProperty<Color>("Color");
         }
