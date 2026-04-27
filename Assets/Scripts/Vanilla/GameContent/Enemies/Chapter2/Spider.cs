@@ -137,7 +137,7 @@ namespace MVZ2.GameContent.Enemies
         }
         protected virtual bool ValidateClimbTarget(Entity enemy, Entity target)
         {
-            return CanClimb(enemy, target) && !enemy.IsAIFrozen() && !enemy.IsDead && Detection.IsInFrontOf(enemy, target, -enemy.GetScaledSize().x * 0.25f);
+            return CanClimb(enemy, target) && !enemy.IsAIFrozen() && !enemy.IsDead && target.IsAheadOf(enemy, -enemy.GetScaledSize().x * 0.25f);
         }
 
         public static Entity? GetClimbTarget(Entity spider)

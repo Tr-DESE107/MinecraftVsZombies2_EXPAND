@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -54,14 +55,8 @@ namespace MVZ2.GameContent.Detections
                         sizeX = 240;
                         sizeY = 240;
                         sizeZ = 240;
-                        if (self.IsFacingLeft())
-                        {
-                            centerX = self.Level.GetEntityColumnX(1);
-                        }
-                        else
-                        {
-                            centerX = self.Level.GetEntityColumnX(self.Level.GetMaxColumnCount() - 2);
-                        }
+                        var column = self.GetMirroredColumn(1, false);
+                        centerX = self.Level.GetEntityColumnX(column);
                         centerZ = source.z;
                         centerY = self.Level.GetGroundY(centerX, centerZ);
                     }

@@ -144,13 +144,13 @@ namespace MVZ2.GameContent.Bosses
         {
             if (!target.IsVulnerableEntity())
                 return false;
-            return boss.IsHostile(target) && Detection.IsInFrontOf(boss, target, 20, 80) && target.GetLane() == boss.GetLane();
+            return boss.IsHostile(target) && target.IsAheadOfRange(boss, 20, 80) && target.GetLane() == boss.GetLane();
         }
         private static bool IsShockable(Entity boss, Entity target)
         {
             if (target.IsEntityOf(VanillaContraptionID.tnt))
                 return true;
-            return target.Type == EntityTypes.PLANT && boss.IsHostile(target) && Detection.IsInFrontOf(boss, target, 20) && target.CanDeactive();
+            return target.Type == EntityTypes.PLANT && boss.IsHostile(target) && target.IsAheadOf(boss, 20) && target.CanDeactive();
         }
 
         public static void DoTransformationEffects(Entity boss)

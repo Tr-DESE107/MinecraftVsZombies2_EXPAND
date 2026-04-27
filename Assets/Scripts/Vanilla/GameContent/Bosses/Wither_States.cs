@@ -146,7 +146,7 @@ namespace MVZ2.GameContent.Bosses
                         if (target.ExistsAndAlive())
                         {
                             var level = entity.Level;
-                            var targetColumn = level.GetMaxColumnCount() - 2;
+                            var targetColumn = entity.GetMirroredColumn(1, true);
                             targetPos = new Vector2(level.GetEntityColumnX(targetColumn), target.Position.z);
                         }
                     }
@@ -154,7 +154,7 @@ namespace MVZ2.GameContent.Bosses
                 else
                 {
                     var level = entity.Level;
-                    var targetColumn = level.GetMaxColumnCount() - 2;
+                    var targetColumn = entity.GetMirroredColumn(1, true);
                     var targetLane = level.GetMaxLaneCount() / 2;
                     targetPos = new Vector2(level.GetEntityColumnX(targetColumn), level.GetEntityLaneZ(targetLane));
                 }
@@ -311,7 +311,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_MOVE:
                         {
                             //移动
-                            var column = entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0;
+                            var column = entity.GetMirroredColumn(0, true);
                             var targetX = level.GetEntityColumnX(column);
                             var targetZ = level.GetEntityLaneZ(GetTargetLane(entity));
                             var targetY = level.GetGroundY(targetX, targetZ);
@@ -353,19 +353,9 @@ namespace MVZ2.GameContent.Bosses
                             vel.x += entity.GetFacingX() * (substateTimer.MaxFrame - substateTimer.Frame) * 0.5f;
 
                             bool reachEnd = false;
-                            float endX = 0;
-                            if (entity.IsFacingLeft())
-                            {
-                                var column = 0;
-                                endX = level.GetEntityColumnX(column);
-                                reachEnd = pos.x + vel.x <= endX;
-                            }
-                            else
-                            {
-                                var column = level.GetMaxColumnCount() - 1;
-                                endX = level.GetEntityColumnX(column);
-                                reachEnd = pos.x + vel.x >= endX;
-                            }
+                            var column = entity.GetMirroredColumn(0, false);
+                            float endX = level.GetEntityColumnX(column);
+                            reachEnd = endX.IsInTheRearOf(pos.x + vel.x, entity.IsFacingLeft());
                             if (reachEnd)
                             {
                                 pos.x = endX;
@@ -421,7 +411,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_MOVE:
                         {
                             //移动
-                            var column = entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0;
+                            var column = entity.GetMirroredColumn(0, true);
                             var targetX = level.GetEntityColumnX(column);
                             var targetZ = level.GetEntityLaneZ(GetTargetLane(entity));
                             var targetY = level.GetGroundY(targetX, targetZ);
@@ -503,19 +493,9 @@ namespace MVZ2.GameContent.Bosses
                             vel.x -= entity.GetFacingX() * (substateTimer.MaxFrame - substateTimer.Frame) * 0.5f;
 
                             bool reachEnd = false;
-                            float endX = 0;
-                            if (entity.IsFacingLeft())
-                            {
-                                var column = level.GetMaxColumnCount() - 1;
-                                endX = level.GetEntityColumnX(column);
-                                reachEnd = pos.x + vel.x >= endX;
-                            }
-                            else
-                            {
-                                var column = 0;
-                                endX = level.GetEntityColumnX(column);
-                                reachEnd = pos.x + vel.x <= endX;
-                            }
+                            var column = entity.GetMirroredColumn(0, true);
+                            float endX = level.GetEntityColumnX(column);
+                            reachEnd = endX.IsInTheFrontOf(pos.x + vel.x, entity.IsFacingLeft());
                             if (reachEnd)
                             {
                                 pos.x = endX;
@@ -610,7 +590,7 @@ namespace MVZ2.GameContent.Bosses
             private float GetTargetX(Entity entity)
             {
                 var level = entity.Level;
-                var targetColumn = level.GetMaxColumnCount() - 2;
+                var targetColumn = entity.GetMirroredColumn(1, true);
                 return level.GetEntityColumnX(targetColumn);
             }
             private float GetTargetZ(Entity entity)
@@ -645,7 +625,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_MOVE:
                         {
                             //移动
-                            var column = entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0;
+                            var column = entity.GetMirroredColumn(0, true);
                             var lane = level.GetMaxLaneCount() / 2;
                             var targetX = level.GetEntityColumnX(column);
                             var targetZ = level.GetEntityLaneZ(lane);

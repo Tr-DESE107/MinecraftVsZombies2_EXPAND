@@ -733,14 +733,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private static float GetJumpBorderX(Entity boss)
         {
-            if (boss.IsFacingLeft())
-            {
-                return LevelPositions.RIGHT_BORDER + 80;
-            }
-            else
-            {
-                return LevelPositions.LEFT_BORDER - 80;
-            }
+            return boss.GetMirroredX(LevelPositions.RIGHT_BORDER + 80, false);
         }
         private static Vector3 GetJumpBorderPositionByLane(Entity boss, int lane)
         {
@@ -1952,7 +1945,7 @@ namespace MVZ2.GameContent.Bosses
                 var level = entity.Level;
                 var column = entity.GetColumn();
                 var lane = entity.GetLane();
-                var columnDirection = entity.IsFacingLeft() ? -1 : 1;
+                var columnDirection = entity.GetFacingX();
                 var column2 = column + columnDirection * TAIL_SWIPE_COLUMN_RANGE;
                 var minColumn = Mathf.Min(column, column2);
                 var maxColumn = Mathf.Max(column, column2);

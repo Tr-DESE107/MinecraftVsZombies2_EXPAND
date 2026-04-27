@@ -30,37 +30,165 @@ namespace MVZ2.Vanilla.Detections
             return !entity.IsInvisible();
         }
 
+        #region X前方
+        public static bool IsInTheFrontOf(this float x1, float x2, bool x2FaceLeft)
+        {
+            if (x2FaceLeft)
+            {
+                return x1 < x2;
+            }
+            else
+            {
+                return x1 > x2;
+            }
+        }
+        public static bool IsInTheFrontOf(this Entity entity, float x)
+        {
+            if (entity.IsFacingLeft())
+            {
+                return entity.Position.x < x;
+            }
+            else
+            {
+                return entity.Position.x > x;
+            }
+        }
+        public static bool IsInTheFrontOfRange(this Entity entity, float x, float length)
+        {
+            if (entity.IsFacingLeft())
+            {
+                return entity.Position.x < x && entity.Position.x > x + length;
+            }
+            else
+            {
+                return entity.Position.x > x && entity.Position.x < x + length;
+            }
+        }
+        #endregion
+
+        #region 实体前方
+        public static bool IsAheadOf(this Entity entity, Entity target, float minDistance = 0)
+        {
+            if (target.IsFacingLeft())
+            {
+                return entity.Position.x < target.Position.x - minDistance;
+            }
+            else
+            {
+                return entity.Position.x > target.Position.x + minDistance;
+            }
+        }
+        public static bool IsAheadOfRange(this Entity entity, Entity target, float minDistance, float maxDistance)
+        {
+            if (target.IsFacingLeft())
+            {
+                return entity.Position.x < target.Position.x - minDistance && entity.Position.x > target.Position.x - maxDistance;
+            }
+            else
+            {
+                return entity.Position.x > target.Position.x + minDistance && entity.Position.x < target.Position.x + maxDistance;
+            }
+        }
+        #endregion
+
+        #region 列前方
+        public static bool IsAheadOfColumn(this Entity entity, int column)
+        {
+            if (entity.IsFacingLeft())
+            {
+                return entity.GetColumn() < column;
+            }
+            else
+            {
+                return entity.GetColumn() > column;
+            }
+        }
+        public static bool IsAheadOfOrAtColumn(this Entity entity, int column)
+        {
+            return !entity.IsBehindOfColumn(column);
+        }
+        #endregion
+
+        #region X后方
+        public static bool IsInTheRearOf(this float x1, float x2, bool x2FaceLeft)
+        {
+            if (x2FaceLeft)
+            {
+                return x1 > x2;
+            }
+            else
+            {
+                return x1 < x2;
+            }
+        }
+        public static bool IsInTheRearOf(this Entity entity, float x)
+        {
+            if (entity.IsFacingLeft())
+            {
+                return entity.Position.x > x;
+            }
+            else
+            {
+                return entity.Position.x < x;
+            }
+        }
+        public static bool IsInTheRearOfRange(this Entity entity, float x, float length)
+        {
+            if (entity.IsFacingLeft())
+            {
+                return entity.Position.x > x && entity.Position.x < x + length;
+            }
+            else
+            {
+                return entity.Position.x < x && entity.Position.x > x + length;
+            }
+        }
+        #endregion
+
+        #region 实体后方
+        public static bool IsBehindOf(this Entity entity, Entity target, float minDistance = 0)
+        {
+            if (target.IsFacingLeft())
+            {
+                return entity.Position.x > target.Position.x - minDistance;
+            }
+            else
+            {
+                return entity.Position.x < target.Position.x + minDistance;
+            }
+        }
+        public static bool IsBehindOfRange(this Entity entity, Entity target, float minDistance, float maxDistance)
+        {
+            if (target.IsFacingLeft())
+            {
+                return entity.Position.x > target.Position.x - minDistance && entity.Position.x < target.Position.x - maxDistance;
+            }
+            else
+            {
+                return entity.Position.x < target.Position.x + minDistance && entity.Position.x > target.Position.x + maxDistance;
+            }
+        }
+        #endregion
+
+        #region 列后方
+        public static bool IsBehindOfColumn(this Entity entity, int column)
+        {
+            if (entity.IsFacingLeft())
+            {
+                return entity.GetColumn() > column;
+            }
+            else
+            {
+                return entity.GetColumn() < column;
+            }
+        }
+        public static bool IsBehindOfOrAtColumn(this Entity entity, int column)
+        {
+            return !entity.IsAheadOfColumn(column);
+        }
+        #endregion
+
         #region X related
-        public static bool IsInFrontOf(Entity self, float x, float rangeStart = 0)
-        {
-            if (self.IsFacingLeft())
-            {
-                return x <= self.Position.x - rangeStart;
-            }
-            else
-            {
-                return x >= self.Position.x + rangeStart;
-            }
-        }
-        public static bool IsInFrontOf(Entity self, Entity other, float rangeStart, float rangeLength)
-        {
-            float nearRange = rangeStart;
-            float farRange = rangeStart + rangeLength;
-            if (self.IsFacingLeft())
-            {
-                return other.Position.x <= self.Position.x - nearRange && other.Position.x > self.Position.x - farRange;
-            }
-            else
-            {
-                return other.Position.x >= self.Position.x + nearRange && other.Position.x < self.Position.x + farRange;
-            }
-        }
-
-        public static bool IsInFrontOf(Entity self, Entity other, float rangeStart = 0)
-        {
-            return IsInFrontOf(self, other.Position.x, rangeStart);
-        }
-
         public static bool IsXCoincide(float x1, float xLength1, float x2, float xLength2)
         {
             float extent1 = xLength1 / 2;

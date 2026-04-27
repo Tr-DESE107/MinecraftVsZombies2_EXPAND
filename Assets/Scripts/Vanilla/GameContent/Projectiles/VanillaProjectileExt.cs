@@ -67,10 +67,7 @@ namespace MVZ2.Vanilla.Projectiles
         public static ShootParams GetShootParams(this Entity entity)
         {
             var velocity = entity.GetShotVelocity();
-            if (entity.IsFacingLeft())
-            {
-                velocity.x *= -1;
-            }
+            velocity.x *= entity.GetFacingX();
             return new ShootParams()
             {
                 projectileID = entity.GetProjectileID(),
@@ -85,10 +82,7 @@ namespace MVZ2.Vanilla.Projectiles
         }
         public static Vector3 ModifyShotOffset(this Entity entity, Vector3 offset)
         {
-            if (entity.IsFacingLeft())
-            {
-                offset.x *= -1;
-            }
+            offset.x *= entity.GetFacingX();
             return offset;
         }
         public static Vector3 GetShootPoint(this Entity entity)

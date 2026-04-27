@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Detections
             if (target.IsFloor())
                 return false;
             var bounds = collider.GetBoundingBox();
-            if (!Detection.IsInFrontOf(param.entity, bounds.center.x))
+            if (param.entity.IsInTheFrontOf(bounds.center.x))
                 return false;
             return true;
         }

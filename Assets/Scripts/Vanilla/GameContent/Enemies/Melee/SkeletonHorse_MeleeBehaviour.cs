@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Enemies
         {
             if (!base.ValidateMeleeTarget(enemy, target))
                 return false;
-            if (!Detection.IsInFrontOf(enemy, target))
+            if (!target.IsAheadOf(enemy))
                 return false;
             return true;
         }

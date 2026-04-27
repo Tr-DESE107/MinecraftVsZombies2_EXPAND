@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.StateMachine;
@@ -178,11 +179,7 @@ namespace MVZ2.GameContent.Enemies
                 return false;
             var level = zombie.Level;
             var midColumn = level.GetMaxColumnCount() / 2 + 1;
-            if (zombie.IsFacingLeft())
-            {
-                return zombie.Position.x > level.GetColumnX(midColumn);
-            }
-            return zombie.Position.x < level.GetColumnX(midColumn);
+            return zombie.IsInTheRearOf(level.GetColumnX(midColumn));
         }
         public class ThrowState : EntityStateMachineState
         {

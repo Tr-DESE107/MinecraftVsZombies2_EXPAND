@@ -47,11 +47,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             var velocity = Vector3.right * 3;
-            if (entity.IsFacingLeft())
-            {
-                velocity.x *= -1;
-            }
-            entity.ShootProjectile(VanillaProjectileID.largeSnowball, velocity);
+            velocity.x *= entity.GetFacingX();
+
+            var shootParams = entity.GetShootParams();
+            shootParams.projectileID = VanillaProjectileID.largeSnowball;
+            shootParams.velocity = velocity;
+            entity.ShootProjectile(shootParams);
             entity.PlaySound(VanillaSoundID.odd);
         }
     }

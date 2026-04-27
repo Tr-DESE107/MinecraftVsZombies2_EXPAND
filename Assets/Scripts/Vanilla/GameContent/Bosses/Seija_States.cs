@@ -347,7 +347,7 @@ namespace MVZ2.GameContent.Bosses
                             substateTimer.ResetTime(12);
                             var level = entity.Level;
                             var pos = entity.Position;
-                            pos.x = entity.IsFacingLeft() ? LevelPositions.LEFT_BORDER + 40 : LevelPositions.RIGHT_BORDER - 40;
+                            pos.x = entity.GetMirroredX(LevelPositions.LEFT_BORDER + 40, false);
                             pos.y = entity.Level.GetGroundY(pos.x, pos.z);
                             entity.Position = pos;
                             entity.PlaySound(VanillaSoundID.gapWarp);
@@ -379,7 +379,7 @@ namespace MVZ2.GameContent.Bosses
                             stateMachine.StartSubState(entity, SUBSTATE_RETURN);
                             substateTimer.ResetTime(23);
                             var pos = entity.Position;
-                            pos.x = level.GetEntityColumnX(entity.IsFacingLeft() ? level.GetMaxColumnCount() - 1 : 0);
+                            pos.x = level.GetEntityColumnX(entity.GetMirroredColumn(0, true));
                             var lane = entity.RNG.Next(level.GetMaxLaneCount());
                             pos.z = level.GetEntityLaneZ(lane);
                             pos.y = level.GetGroundY(pos.x, pos.z);

@@ -157,37 +157,28 @@ namespace MVZ2.GameContent.Bosses
         }
         public static bool ShouldGapBomb(Entity boss)
         {
-            if (boss.IsFacingLeft())
-            {
-                if (boss.GetColumn() < boss.Level.GetMaxColumnCount() - 1)
-                    return false;
-            }
-            else
-            {
-                if (boss.GetColumn() > 0)
-                    return false;
-            }
+            var column = boss.GetMirroredColumn(0, true);
+            if (boss.IsAheadOfColumn(column))
+                return false;
             return gapBombDetector.DetectEntityCount(boss) >= GAP_BOMB_ENEMY_COUNT;
         }
         public static bool ShouldFrontFlip(Entity boss)
         {
-            var level = boss.Level;
-            return boss.IsFacingLeft() ? boss.GetColumn() > level.GetMaxColumnCount() / 2 : boss.GetColumn() < level.GetMaxColumnCount() / 2;
+            return boss.IsBehindOfColumn(boss.Level.GetMaxColumnCount() / 2);
         }
         public static bool ShouldBackflip(Entity boss)
         {
-            var level = boss.Level;
-            return boss.IsFacingLeft() ? boss.GetColumn() <= level.GetMaxColumnCount() / 2 : boss.GetColumn() >= level.GetMaxColumnCount() / 2;
+            return boss.IsAheadOfOrAtColumn(boss.Level.GetMaxColumnCount() / 2);
         }
         public static bool CanFrontflip(Entity boss)
         {
-            var level = boss.Level;
-            return boss.IsFacingLeft() ? boss.GetColumn() > 1 : boss.GetColumn() < level.GetMaxColumnCount() - 2;
+            var column = boss.GetMirroredColumn(1, false);
+            return boss.IsBehindOfColumn(column);
         }
         public static bool CanBackflip(Entity boss)
         {
-            var level = boss.Level;
-            return boss.IsFacingLeft() ? boss.GetColumn() < level.GetMaxColumnCount() - 2 : boss.GetColumn() > 1;
+            var column = boss.GetMirroredColumn(1, true);
+            return boss.IsAheadOfColumn(column);
         }
         public static Entity? FindHammerTarget(Entity boss)
         {

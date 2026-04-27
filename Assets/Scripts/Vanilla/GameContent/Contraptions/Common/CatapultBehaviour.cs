@@ -144,15 +144,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         public virtual float GetTargetPriority(Entity target, Entity entity)
         {
-            float priority = 0;
-            if (entity.IsFacingLeft())
-            {
-                priority += entity.GetCenter().x - target.GetCenter().x;
-            }
-            else
-            {
-                priority += target.GetCenter().x - entity.GetCenter().x;
-            }
+            float priority = (target.GetCenter().x - entity.GetCenter().x) * entity.GetFacingX();
             if (target.Type == EntityTypes.OBSTACLE)
             {
                 priority += 100000;

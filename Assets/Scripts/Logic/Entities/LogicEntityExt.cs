@@ -147,6 +147,25 @@ namespace MVZ2Logic.Entities
         }
         #endregion
 
+        #region 镜像列
+        public static int GetMirroredColumn(this Entity entity, int column, bool whenFaceRight)
+        {
+            if (entity.IsFacingLeft() == whenFaceRight)
+            {
+                return entity.Level.GetMaxColumnCount() - column - 1;
+            }
+            return column;
+        }
+        public static float GetMirroredX(this Entity entity, float x, bool whenFaceRight)
+        {
+            if (entity.IsFacingLeft() == whenFaceRight)
+            {
+                return entity.Level.GetLawnCenterX() * 2 - x;
+            }
+            return x;
+        }
+        #endregion
+
         public static void UpdateAnimationParameters(this Entity entity, int state)
         {
             var behaviour = entity.Definition.GetBehaviour<IEnemyAnimationBehaviour>();
