@@ -12,11 +12,24 @@ namespace MVZ2.Models
             if (name == "ShowLine" && value is bool boolValue)
             {
                 sourceTransform.gameObject.SetActive(boolValue);
+                if (boolValue)
+                {
+                    UpdateLine();
+                }
             }
+        }
+        public override void Init()
+        {
+            base.Init();
+            UpdateLine();
         }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
+            UpdateLine();
+        }
+        private void UpdateLine()
+        {
             if (!sourceTransform.gameObject.activeInHierarchy)
                 return;
             var source = sourceTransform.position;

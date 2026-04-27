@@ -60,10 +60,9 @@ namespace MVZ2.GameContent.Contraptions
                 var position = strikeGrid.GetEntityPosition();
                 if (!target.ExistsAndAlive())
                 {
-                    target = entity.Spawn(VanillaEffectID.skywardBeaconTarget, position)?.Let(e =>
-                    {
-                        e.SetParent(entity);
-                    });
+                    var param = entity.GetSpawnParams();
+                    param.EntityParent = entity;
+                    target = entity.Spawn(VanillaEffectID.skywardBeaconTarget, position, param);
                     SetTargetEntity(entity, new EntityID(target));
                 }
                 else

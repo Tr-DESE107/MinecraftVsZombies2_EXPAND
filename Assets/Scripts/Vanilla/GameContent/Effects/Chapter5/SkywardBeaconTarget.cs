@@ -11,6 +11,11 @@ namespace MVZ2.GameContent.Effects
         public SkywardBeaconTarget(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            UpdateModel(entity);
+        }
         public override void Update(Entity entity)
         {
             base.Update(entity);
