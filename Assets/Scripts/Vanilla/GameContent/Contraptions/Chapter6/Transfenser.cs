@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Entities;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
@@ -15,6 +16,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using Tools;
@@ -27,7 +29,6 @@ namespace MVZ2.GameContent.Contraptions
     {
         public Transfenser(string nsp, string name) : base(nsp, name)
         {
-            AddAura(new AimerAura());
         }
 
         public override void Init(Entity entity)
@@ -47,6 +48,10 @@ namespace MVZ2.GameContent.Contraptions
                 if (IsShooterMode(entity))
                 {
                     ShootTick(entity);
+                }
+                else if (IsAimerMode(entity))
+                {
+                    AimerUpdate(entity);
                 }
                 else if (IsTransforming(entity))
                 {
@@ -72,6 +77,18 @@ namespace MVZ2.GameContent.Contraptions
                 return ATTACK_INTERVAL_MAX;
             }
             return entity.RNG.Next(ATTACK_INTERVAL_MIN, ATTACK_INTERVAL_MAX + 1);
+        }
+        private void AimerUpdate(Entity entity)
+        {
+            laserTargetBuffer.Clear();
+            laserDetector.DetectEntities(entity, laserTargetBuffer);
+            var damage = entity.GetDamage() * LASER_DPS_MULTIPLIER / Ticks.GetTPS();
+            var effects = new DamageEffectList(VanillaDamageEffects.LIGHT, VanillaDamageEffects.MUTE);
+            foreach (var target in laserTargetBuffer)
+            {
+                target.InflictGlowing(3, new EntitySourceReference(entity));
+                target.TakeDamage(damage, effects, entity);
+            }
         }
 
         #region ´¥·¢
@@ -110,7 +127,9 @@ namespace MVZ2.GameContent.Contraptions
                 var sourcePosition = entity.Position + offset;
 
                 var laserID = VanillaEffectID.megaGlowingLaser;
-                entity.SpawnWithParams(laserID, sourcePosition);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * EVOCATION_LASER_DAMAGE_MULTIPLIER);
+                entity.Spawn(laserID, sourcePosition, param);
             }
             else if (IsShooterMode(entity))
             {
@@ -128,7 +147,7 @@ namespace MVZ2.GameContent.Contraptions
                 SetEvocationTimer(entity, evocationTimer);
             }
             evocationTimer.Run();
-            if (evocationTimer.PassedInterval(3))
+            if (evocationTimer.PassedInterval(2))
             {
                 var projectile = Shoot(entity);
                 if (projectile != null)
@@ -175,11 +194,6 @@ namespace MVZ2.GameContent.Contraptions
             if (entity.State == STATE_TO_AIMER)
             {
                 entity.State = STATE_AIMER;
-                var aura = entity.GetAuraEffect<AimerAura>();
-                if (aura != null)
-                {
-                    aura.UpdateAura();
-                }
                 UpdateAimerAnimation(entity);
             }
             else
@@ -207,18 +221,7 @@ namespace MVZ2.GameContent.Contraptions
         #region ¶¯»­Æ÷
         private void UpdateAimerAnimation(Entity entity)
         {
-            var aura = entity.GetAuraEffect<AimerAura>();
-            if (aura != null)
-            {
-                float range = MAX_LASER_RANGE;
-                var target = aura.GetFirstTarget();
-                if (target != null && target.GetEntity() is Entity targetEntity)
-                {
-                    var direction = targetEntity.GetCenter() - entity.GetCenter();
-                    range = Vector3.Dot(direction, entity.GetFacingDirection());
-                }
-                entity.SetAnimationFloat("LaserLength", range);
-            }
+            entity.SetAnimationFloat("LaserLength", MAX_LASER_RANGE);
         }
         public static int GetAnimationTransformState(Entity entity)
         {
@@ -251,12 +254,19 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("evocation_timer");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_TRANSFORM_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("transform_timer");
 
+        public static Detector laserDetector = new TransfenserLaserDetector(SHOOT_OFFSET, MAX_LASER_RANGE)
+        {
+            canDetectInvisible = true
+        };
+
         public static readonly Vector3 SHOOT_OFFSET = new Vector3(12, 40, 0);
-        public const int ATTACK_INTERVAL_MIN = 67;
-        public const int ATTACK_INTERVAL_MAX = 75;
+        public const int ATTACK_INTERVAL_MIN = 40;
+        public const int ATTACK_INTERVAL_MAX = 45;
         public const int MAX_LASER_RANGE = 2000;
+        public const float LASER_DPS_MULTIPLIER = 0.5f;
         public const float TRANSFORM_TIME_SECONDS = 1f;
         public const float EVOCATION_DURATION_SECONDS = 4f;
+        public const float EVOCATION_LASER_DAMAGE_MULTIPLIER = 10f;
 
         public const int STATE_SHOOTER = VanillaContraptionStates.IDLE;
         public const int STATE_TO_AIMER = VanillaContraptionStates.TRANSFENSER_TO_AIMER;
@@ -268,35 +278,6 @@ namespace MVZ2.GameContent.Contraptions
         public const int TRANSFORM_STATE_AIMER = 2;
         public const int TRANSFORM_STATE_TO_SHOOTER = 3;
 
-
-        public class AimerAura : AuraEffectDefinition
-        {
-            public AimerAura() : base(VanillaBuffID.Entity.transfenserGlowing, 2)
-            {
-            }
-
-            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
-            {
-                var entity = auraEffect.Source.GetEntity();
-                if (entity == null)
-                    return;
-                if (entity.IsAIFrozen() || !Transfenser.IsAimerMode(entity))
-                    return;
-                var facingX = entity.GetFacingX();
-                var target = laserDetector.DetectEntityWithTheLeast(entity, (target) => (target.Position - entity.Position).x * facingX);
-                if (target == null)
-                    return;
-                results.Add(target);
-            }
-            public override void UpdateTargetBuff(AuraEffect effect, IBuffTarget target, Buff buff)
-            {
-                base.UpdateTargetBuff(effect, target, buff);
-                TransfenserGlowingBuff.MaxTime(buff, 3);
-            }
-            public static Detector laserDetector = new TransfenserLaserDetector(SHOOT_OFFSET, MAX_LASER_RANGE)
-            {
-                canDetectInvisible = true
-            };
-        }
+        private static List<Entity> laserTargetBuffer = new List<Entity>();
     }
 }

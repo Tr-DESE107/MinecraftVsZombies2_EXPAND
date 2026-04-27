@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-17 11:22+0800\n"
+"POT-Creation-Date: 2026-04-27 12:32+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1625,18 +1625,23 @@ msgstr ""
 #. Header for contraptions mvz2:transfenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为瞄准模式，用激光持续让前方的第一个敌人发光。"
+msgid "变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为激光模式，用激光持续让前方的所有敌人发光并持续受到伤害。"
 msgstr ""
 
 #. Properties for contraptions mvz2:transfenser
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"发射间隔：<color=red>2.5秒</color>\n"
-"发光时长：<color=red>5秒（光灵箭），瞬间（瞄准光线）</color>\n"
-"特点：<color=red>发光的敌人额外受到50%伤害</color>\n"
-"技能：<color=red>在射击模式下射出40支光灵箭；或在瞄准模式下使前方的所有敌人发光30秒</color>"
+"特点：<color=red>发光的敌人额外受到<var local=\"glowing_damage_addition\" />%伤害</color>\n"
+"射击模式：\n"
+"  伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"  发射间隔：<color=red><var local=\"fire_interval\" />秒</color>\n"
+"  发光时长：<color=red><var local=\"glowing_duration\" />秒</color>\n"
+"  技能：<color=red>射出<var local=\"evocation_arrow_count\" />支光灵箭</color>\n"
+"激光模式：\n"
+"  伤害：<color=red><var local=\"laser_dps\" />/秒</color>\n"
+"  发光时长：<color=red>瞬间</color>\n"
+"  技能：<color=red>对前方的所有敌人造成<var local=\"evocation_laser_damage\" />点伤害并使其发光<var local=\"evocation_glowing_duration\" />秒</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:transfenser

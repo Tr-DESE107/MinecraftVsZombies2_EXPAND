@@ -75,7 +75,7 @@ namespace MVZ2.GameContent.Buffs.Entities
                 input.Multiply(DAMAGE_MULTIPLIER);
             }
         }
-        public const float DEFAULT_SECONDS = 10f;
+        public const float DEFAULT_SECONDS = 0f;
         public const float DAMAGE_MULTIPLIER = 1.5f;
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
     }

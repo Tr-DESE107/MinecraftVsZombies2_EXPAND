@@ -870,15 +870,29 @@
 
         <!-- Chapter 6 -->
         <entry id="mvz2:transfenser">
+            <variables>
+                <variable name="laser_dps">global("mvz2:entity_damage") * 0.5</variable>
+                <variable name="fire_interval">1.5</variable>
+                <variable name="glowing_duration">5</variable>
+                <variable name="glowing_damage_addition">50</variable>
+                <variable name="evocation_arrow_count">60</variable>
+                <variable name="evocation_laser_damage">global("mvz2:entity_damage") * 10</variable>
+                <variable name="evocation_glowing_duration">30</variable>
+            </variables>
             <header>
-                <p>变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为瞄准模式，用激光持续让前方的第一个敌人发光。</p>
+                <p>变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为激光模式，用激光持续让前方的所有敌人发光并持续受到伤害。</p>
             </header>
             <properties>
-                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>发射间隔：<![CDATA[<color=red>2.5秒</color>]]></p>
-                <p>发光时长：<![CDATA[<color=red>5秒（光灵箭），瞬间（瞄准光线）</color>]]></p>
-                <p>特点：<![CDATA[<color=red>发光的敌人额外受到50%伤害</color>]]></p>
-                <p>技能：<![CDATA[<color=red>在射击模式下射出40支光灵箭；或在瞄准模式下使前方的所有敌人发光30秒</color>]]></p>
+                <p>特点：<![CDATA[<color=red>发光的敌人额外受到<var local="glowing_damage_addition" />%伤害</color>]]></p>
+                <p>射击模式：</p>
+                <p>  伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>  发射间隔：<![CDATA[<color=red><var local="fire_interval" />秒</color>]]></p>
+                <p>  发光时长：<![CDATA[<color=red><var local="glowing_duration" />秒</color>]]></p>
+                <p>  技能：<![CDATA[<color=red>射出<var local="evocation_arrow_count" />支光灵箭</color>]]></p>
+                <p>激光模式：</p>
+                <p>  伤害：<![CDATA[<color=red><var local="laser_dps" />/秒</color>]]></p>
+                <p>  发光时长：<![CDATA[<color=red>瞬间</color>]]></p>
+                <p>  技能：<![CDATA[<color=red>对前方的所有敌人造成<var local="evocation_laser_damage" />点伤害并使其发光<var local="evocation_glowing_duration" />秒</color>]]></p>
             </properties>
             <flavor>
                 <p>相比其他器械，变形发射器算是比较富裕的了。其实只要去它家看看就明白，这些钱都是它自己日积月累省出来的。它家连一盏灯都没有——毕竟它自己就是一个超大瓦的灯泡。</p>
