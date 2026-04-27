@@ -41,7 +41,14 @@ namespace MVZ2.UI.Level
             foreach (var source in updateBuffer)
             {
                 if (!source.IsActive())
+                {
+                    if (activeHPBarItems.TryGetValue(source, out var bar) && bar.Exists())
+                    {
+                        barItemPool.Release(bar);
+                        activeHPBarItems[source] = null;
+                    }
                     continue;
+                }
                 if (!activeHPBarItems.TryGetValue(source, out var hpBar) || !hpBar.Exists())
                 {
                     hpBar = barItemPool.Get();
