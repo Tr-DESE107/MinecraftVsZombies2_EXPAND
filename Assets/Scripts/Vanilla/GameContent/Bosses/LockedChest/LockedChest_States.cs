@@ -2404,14 +2404,9 @@ namespace MVZ2.GameContent.Bosses
                 base.OnEnter(stateMachine, entity);
                 SetFlipX(entity, false);
                 entity.AddBuff<LockedChestInvincibleBuff>();
-                var stateTimer = stateMachine.GetSubStateTimer(entity);
-                stateTimer.ResetSeconds(0.5f);
 
-                entity.SpawnWithParams(VanillaEffectID.witherSummoningBlocks, entity.Position + entity.GetFacingDirection() * 80)?.Let(b =>
-                {
-                    SetStateTargetID(entity, new EntityID(b));
-                    b.PlaySound(VanillaSoundID.soulSand);
-                });
+                entity.PlaySound(VanillaSoundID.lockedChestGiggles);
+                Hop(entity);
             }
             public override void OnExit(EntityStateMachine machine, Entity entity)
             {
@@ -2434,12 +2429,40 @@ namespace MVZ2.GameContent.Bosses
                 timer.Run(stateMachine.GetSpeed(entity));
                 switch (substate)
                 {
+                    case SUBSTATE_HOP1:
+                    case SUBSTATE_HOP2:
+                        if (entity.IsOnGround)
+                        {
+                            Hop(entity);
+                            entity.PlaySound(VanillaSoundID.wood);
+                            stateMachine.StartSubState(entity, substate + 1);
+                        }
+                        break;
+                    case SUBSTATE_HOP3:
+                        if (entity.IsOnGround)
+                        {
+                            entity.PlaySound(VanillaSoundID.wood);
+
+                            stateMachine.StartSubState(entity, SUBSTATE_SOULSAND1);
+                            timer.ResetSeconds(0.5f);
+
+                            entity.SpawnWithParams(VanillaEffectID.witherSummoningBlocks, entity.Position + entity.GetFacingDirection() * 80)?.Let(b =>
+                            {
+                                SetStateTargetID(entity, new EntityID(b));
+                                b.PlaySound(VanillaSoundID.soulSand);
+                            });
+                        }
+                        break;
+
                     case SUBSTATE_SOULSAND1:
                     case SUBSTATE_SOULSAND2:
                     case SUBSTATE_SOULSAND3:
                         if (timer.Expired)
                         {
-                            BuildBlock(entity, substate + 1, VanillaSoundID.soulSand);
+                            if (substateProgresses.TryGetValue(substate, out var progress))
+                            {
+                                BuildBlock(entity, progress, VanillaSoundID.soulSand);
+                            }
                             stateMachine.StartSubState(entity, substate + 1);
                             timer.ResetSeconds(0.5f);
                         }
@@ -2464,8 +2487,10 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_JUMP2:
                         if (entity.Velocity.y < 0)
                         {
-                            var progress = substate / 2 + 2;
-                            BuildBlock(entity, progress, VanillaSoundID.stone);
+                            if (substateProgresses.TryGetValue(substate, out var progress))
+                            {
+                                BuildBlock(entity, progress, VanillaSoundID.stone);
+                            }
                             stateMachine.StartSubState(entity, substate + 1);
                         }
                         break;
@@ -2517,18 +2542,30 @@ namespace MVZ2.GameContent.Bosses
                     stateMachine.StartState(entity, STATE_IDLE);
                 }
             }
-            public const int SUBSTATE_SOULSAND1 = 0;
-            public const int SUBSTATE_SOULSAND2 = 1;
-            public const int SUBSTATE_SOULSAND3 = 2;
-            public const int SUBSTATE_SOULSAND4 = 3;
-            public const int SUBSTATE_JUMP1 = 4;
-            public const int SUBSTATE_SKULL1 = 5;
-            public const int SUBSTATE_JUMP2 = 6;
-            public const int SUBSTATE_SKULL2 = 7;
-            public const int SUBSTATE_JUMP3 = 8;
-            public const int SUBSTATE_SKULL3 = 9;
-            public const int SUBSTATE_DUMB = 10;
-            public const int SUBSTATE_END = 11;
+            public const int SUBSTATE_HOP1 = 0;
+            public const int SUBSTATE_HOP2 = 1;
+            public const int SUBSTATE_HOP3 = 2;
+            public const int SUBSTATE_SOULSAND1 = 3;
+            public const int SUBSTATE_SOULSAND2 = 4;
+            public const int SUBSTATE_SOULSAND3 = 5;
+            public const int SUBSTATE_SOULSAND4 = 6;
+            public const int SUBSTATE_JUMP1 = 7;
+            public const int SUBSTATE_SKULL1 = 8;
+            public const int SUBSTATE_JUMP2 = 9;
+            public const int SUBSTATE_SKULL2 = 10;
+            public const int SUBSTATE_JUMP3 = 11;
+            public const int SUBSTATE_SKULL3 = 12;
+            public const int SUBSTATE_DUMB = 13;
+            public const int SUBSTATE_END = 14;
+
+            public static Dictionary<int, int> substateProgresses = new Dictionary<int, int>()
+            {
+                { SUBSTATE_SOULSAND1, 1 },
+                { SUBSTATE_SOULSAND2, 2 },
+                { SUBSTATE_SOULSAND3, 3 },
+                { SUBSTATE_JUMP1, 4 },
+                { SUBSTATE_JUMP2, 5 },
+            };
         }
         #endregion
 
