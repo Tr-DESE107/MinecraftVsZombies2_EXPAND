@@ -2735,7 +2735,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 var level = entity.Level;
                 crushBuffer.Clear();
-                crushDetector.DetectMultiple(entity, crushBuffer);
+                collisionDetector.DetectMultiple(entity, crushBuffer);
                 foreach (IEntityCollider collider in crushBuffer)
                 {
                     var ent = collider.Entity;
@@ -2878,7 +2878,8 @@ namespace MVZ2.GameContent.Bosses
         public const int COUGH_TYPE_COUNT = 4;
         public const int COUGH_TYPE_MASK = (1 << COUGH_TYPE_COUNT) - 1;
         private static EntityStateMachine stateMachine = new LockedChestStateMachine();
-        private static Detector crushDetector = new CollisionDetector(true);
+        private static Detector crushDetector = new GridDetector(true);
+        private static Detector collisionDetector = new CollisionDetector(true);
         private static Detector cameraDetector = new LockedChestDetector(LockedChestDetector.MODE_CAMERA)
         {
             mask = EntityCollisionHelper.MASK_PLANT
