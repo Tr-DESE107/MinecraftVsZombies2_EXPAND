@@ -122,7 +122,7 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(entity);
             if (IsAimerMode(entity))
             {
-                var offset = SHOOT_OFFSET;
+                var offset = LASER_SHOOT_OFFSET;
                 offset.x *= entity.GetFacingX();
                 var sourcePosition = entity.Position + offset;
 
@@ -254,12 +254,12 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("evocation_timer");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_TRANSFORM_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("transform_timer");
 
-        public static Detector laserDetector = new TransfenserLaserDetector(SHOOT_OFFSET, MAX_LASER_RANGE)
+        public static readonly Vector3 LASER_SHOOT_OFFSET = new Vector3(12, 40, 0);
+        public static Detector laserDetector = new TransfenserLaserDetector(LASER_SHOOT_OFFSET, MAX_LASER_RANGE)
         {
             canDetectInvisible = true
         };
 
-        public static readonly Vector3 SHOOT_OFFSET = new Vector3(12, 40, 0);
         public const int ATTACK_INTERVAL_MIN = 40;
         public const int ATTACK_INTERVAL_MAX = 45;
         public const int MAX_LASER_RANGE = 2000;
