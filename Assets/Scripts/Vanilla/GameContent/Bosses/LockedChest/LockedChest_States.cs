@@ -2092,7 +2092,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_CLOSE:
                         if (timer.Expired)
                         {
-                            if (entity.Level.IsAdventure() && !entity.Level.IsRerun)
+                            if (entity.Level.IsFirstAdventure())
                             {
                                 var param = entity.GetSpawnParams();
                                 param.SetProperty(LogicEntityProps.VARIANT, GetRevivedTimes(entity) + 1);

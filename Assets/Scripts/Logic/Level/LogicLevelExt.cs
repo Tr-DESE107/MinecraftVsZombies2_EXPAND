@@ -591,6 +591,13 @@ namespace MVZ2Logic.Level
             return level.ConveyRandomSeedPack(pool);
         }
         #endregion
+
+        #region 首次冒险模式
+        public static bool IsFirstAdventure(this LevelEngine level)
+        {
+            return level.IsAdventure() && !level.IsRerun;
+        }
+        #endregion
     }
     public class LevelSpawnPointParams
     {

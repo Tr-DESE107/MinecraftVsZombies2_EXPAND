@@ -3,9 +3,7 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
@@ -34,20 +32,7 @@ namespace MVZ2.GameContent.Stages
         protected override void AfterFinalWaveUpdate(LevelEngine level)
         {
             base.AfterFinalWaveUpdate(level);
-            TransitionUpdate(level);
-        }
-        private void TransitionUpdate(LevelEngine level)
-        {
-            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
-            {
-                // 瘦长鬼影出现
-                level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
-                return;
-            }
-            if (!level.HasBuff<TheGiantTransitionBuff>())
-            {
-                level.AddBuff<TheGiantTransitionBuff>();
-            }
+            StartBossTransitionUpdate<TheGiantTransitionBuff>(level);
         }
         protected override void BossFightWaveUpdate(LevelEngine level)
         {
@@ -71,19 +56,18 @@ namespace MVZ2.GameContent.Stages
             // 巨人1、2阶段战斗
             // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
             // 如果有Boss存活，不停生成怪物。
-            var phase1Boss = level.EntityExists(e => e.IsEntityOf(VanillaBossID.theGiant) && e.IsHostileEntity() && !e.IsDead && TheGiant.GetPhase(e) == TheGiant.PHASE_1);
             var phase2Boss = level.EntityExists(e => e.IsEntityOf(VanillaBossID.theGiant) && e.IsHostileEntity() && !e.IsDead && TheGiant.GetPhase(e) == TheGiant.PHASE_2);
+
             WaveStageBehaviour.SetHighWave(level, phase2Boss);
-            if (!phase1Boss && !phase2Boss)
-            {
-                SetBossState(level, BOSS_STATE_PHASE3_TRANSITION);
-                // 隐藏UI，关闭输入
-                level.StopMusic();
-            }
-            else
+            if (level.EntityExists(IsAliveHostileBoss))
             {
                 RunBossWave(level);
+                return;
             }
+
+            level.StopMusic();
+
+            SetBossState(level, BOSS_STATE_PHASE3_TRANSITION);
         }
         private void TheGiantPhase3TransitionUpdate(LevelEngine level)
         {
@@ -98,56 +82,28 @@ namespace MVZ2.GameContent.Stages
         }
         private void TheGiantPhase3Update(LevelEngine level)
         {
-            // 梦魇收割者战斗
-            // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
-            // 如果有Boss存活，不停生成怪物。
-            if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
-            {
-                level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
-                level.StopMusic();
-                if (!level.IsRerun && level.IsAdventure())
-                {
-                    // 隐藏UI，关闭输入
-                    level.ResetHeldItem();
-                    level.SetUIAndInputDisabled(true);
-                }
-                else
-                {
-                    var giant = level.FindFirstEntity(VanillaBossID.theGiant);
-                    Vector3 position;
-                    if (giant != null)
-                    {
-                        position = giant.Position;
-                    }
-                    else
-                    {
-                        var x = level.GetLawnCenterX();
-                        var z = level.GetLawnCenterZ();
-                        var y = level.GetGroundY(x, z);
-                        position = new Vector3(x, y, z);
-                    }
-                    ClearPickup.Produce(level, position);
-                }
-            }
-            else
+            if (level.EntityExists(IsAliveHostileBoss))
             {
                 RunBossWave(level);
+                return;
             }
+
+            StartAfterBossState(level, VanillaBossID.theGiant);
         }
         protected override void AfterBossWaveUpdate(LevelEngine level)
         {
             base.AfterBossWaveUpdate(level);
             ClearEnemies(level);
-            if (!level.IsRerun && level.IsAdventure())
-            {
-                if (!level.IsCleared && !level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
-                {
-                    if (!level.HasBuff<TheGiantClearedBuff>())
-                    {
-                        level.AddBuff<TheGiantClearedBuff>();
-                    }
-                }
-            }
+
+            if (!level.IsFirstAdventure())
+                return;
+            if (level.IsCleared)
+                return;
+            if (level.HasBuff<TheGiantClearedBuff>())
+                return;
+            if (level.EntityExists(IsAliveHostileBoss))
+                return;
+            level.AddBuff<TheGiantClearedBuff>();
         }
 
         public const int BOSS_STATE_PHASE1_2 = 0;

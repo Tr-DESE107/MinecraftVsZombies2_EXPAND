@@ -68,7 +68,6 @@ namespace MVZ2.GameContent.Buffs.Level
                     if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
                     {
                         // 凋灵出现
-                        level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
                         level.SetProgressBarToBoss(VanillaProgressBarID.wither);
                         level.ShakeScreen(30, 0, 30);
 

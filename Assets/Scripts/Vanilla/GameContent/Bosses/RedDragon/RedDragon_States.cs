@@ -448,7 +448,7 @@ namespace MVZ2.GameContent.Bosses
                         }
                         if (timer.Expired)
                         {
-                            if (entity.Level.AreaID == VanillaAreaID.ship && !entity.Level.IsRerun && entity.Level.IsAdventure())
+                            if (entity.Level.AreaID == VanillaAreaID.ship && entity.Level.IsFirstAdventure())
                             {
                                 stateMachine.StartSubState(entity, SUBSTATE_SPECIAL);
                                 timer.ResetSeconds(2f);

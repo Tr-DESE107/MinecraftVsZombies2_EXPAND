@@ -3,7 +3,6 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.ProgressBars;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -44,7 +43,7 @@ namespace MVZ2.GameContent.Stages
         }
         private void TransitionUpdate(LevelEngine level)
         {
-            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
+            if (level.EntityExists(IsAliveHostileBoss))
             {
                 // Boss出现
                 level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
@@ -76,33 +75,19 @@ namespace MVZ2.GameContent.Stages
             // Boss战斗
             // 如果有Boss存活，不停生成怪物。
             // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
-            if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
+            if (level.EntityExists(IsAliveHostileBoss))
             {
                 RunBossWave(level);
+                return;
             }
-            else
-            {
-                level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
-                level.StopMusic();
 
-                if (level.IsRerun || !level.IsAdventure())
-                {
-                    // 生成通关掉落物。
-                    var boss = level.FindFirstEntity(VanillaBossID.lockedChest);
-                    Vector3 position;
-                    if (boss != null)
-                    {
-                        position = boss.Position;
-                    }
-                    else
-                    {
-                        var x = level.GetLawnCenterX();
-                        var z = level.GetLawnCenterZ();
-                        var y = level.GetGroundY(x, z);
-                        position = new Vector3(x, y, z);
-                    }
-                    ClearPickup.Produce(level, position);
-                }
+            level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
+            level.StopMusic();
+            if (!level.IsFirstAdventure())
+            {
+                // 生成通关掉落物。
+                var boss = level.FindFirstEntity(VanillaBossID.lockedChest);
+                SpawnClearPickup(level, boss);
             }
         }
         protected override void AfterBossWaveUpdate(LevelEngine level)
@@ -111,7 +96,7 @@ namespace MVZ2.GameContent.Stages
             ClearEnemies(level);
 
 
-            if (!level.IsAdventure() || level.IsRerun)
+            if (!level.IsFirstAdventure())
                 return;
             if (level.IsCleared)
                 return;

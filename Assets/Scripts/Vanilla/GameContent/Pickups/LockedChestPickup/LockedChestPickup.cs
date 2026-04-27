@@ -103,7 +103,7 @@ namespace MVZ2.GameContent.Pickups
             var timer = GetOrInitStateTimer(pickup);
             if (timer.RunToExpired())
             {
-                if (pickup.Level.IsAdventure() && !pickup.Level.IsRerun && pickup.GetVariant() == VARIANT_FIRST_TIME)
+                if (pickup.Level.IsFirstAdventure() && pickup.GetVariant() == VARIANT_FIRST_TIME)
                 {
                     SetPickupState(pickup, STATE_TALK_STARTED);
                     pickup.Level.SimpleStartTalk(VanillaTalkID.lockedChestAppear, 0, onSkipped: () =>
