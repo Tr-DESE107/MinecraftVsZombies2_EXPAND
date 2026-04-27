@@ -265,6 +265,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - The Red Dragon's giant fire ball in phase 2 flies and explodes faster.
 - The radius of the flame explosion caused by the Red Dragon's flying in phase 2 is doubled.
 - The blueprints spitted by the Locked Chest are Iron Helmet Zombies.
+- Locked Chest will ask for 2 starshards in the ransom pop-up.
 
 **Misc**
 
