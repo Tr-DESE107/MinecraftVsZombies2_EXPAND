@@ -2097,13 +2097,12 @@ namespace MVZ2.GameContent.Bosses
                                 var param = entity.GetSpawnParams();
                                 param.SetProperty(LogicEntityProps.VARIANT, GetRevivedTimes(entity) + 1);
                                 LockedChestPickup.Produce(entity.Level, entity.Position, entity, param);
+                                entity.Remove();
                             }
                             else
                             {
-                                entity.CreateFragmentAndPlay(VanillaFragmentID.woodenDropper);
-                                entity.PlaySound(VanillaSoundID.wood);
+                                ReallyDestroy(entity);
                             }
-                            entity.Remove();
                         }
                         break;
                 }
@@ -2146,9 +2145,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_SPOKE:
                         if (timer.Expired)
                         {
-                            entity.CreateFragmentAndPlay(VanillaFragmentID.woodenDropper);
-                            entity.Remove();
-                            entity.PlaySound(VanillaSoundID.wood);
+                            ReallyDestroy(entity);
                         }
                         break;
                 }

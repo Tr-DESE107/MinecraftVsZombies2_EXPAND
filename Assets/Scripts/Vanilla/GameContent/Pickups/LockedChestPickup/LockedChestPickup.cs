@@ -53,9 +53,7 @@ namespace MVZ2.GameContent.Pickups
                     pickup.Timeout--;
                     if (pickup.Timeout <= 0)
                     {
-                        pickup.PlaySound(VanillaSoundID.wood);
-                        pickup.CreateFragmentAndPlay(VanillaFragmentID.woodenDropper);
-                        pickup.Remove();
+                        LockedChest.ReallyDestroy(pickup);
                     }
                 }
                 else if (pickup.GetEntityTime() > Ticks.FromSeconds(10f))

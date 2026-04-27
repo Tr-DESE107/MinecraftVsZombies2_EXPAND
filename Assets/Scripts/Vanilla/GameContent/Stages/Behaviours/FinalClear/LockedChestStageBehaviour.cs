@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Stages
         public override void PostWave(LevelEngine level, int wave)
         {
             base.PostWave(level, wave);
-            if (wave <= 10)
+            if (wave <= 10 || wave >= level.GetTotalWaveCount())
                 return;
             if (!level.HasBuff<LockedChestStageBuff>())
             {

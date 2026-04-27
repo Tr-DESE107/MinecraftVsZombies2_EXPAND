@@ -6,14 +6,18 @@ using MVZ2.GameContent.Fragments;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Effects;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -119,6 +123,31 @@ namespace MVZ2.GameContent.Bosses
                 target.Remove();
             }
             SetSmashTargetID(entity, null);
+        }
+
+
+        public static void ReallyDestroy(Entity entity)
+        {
+            entity.CreateFragmentAndPlay(VanillaFragmentID.woodenDropper);
+            Explosion.Spawn(entity, entity.GetCenter(), 120);
+            entity.PlaySound(VanillaSoundID.explosion);
+            entity.Level.ShakeScreen(15, 0, 10);
+            for (int i = 0; i < 20; i++)
+            {
+                var rng = entity.RNG;
+                var x = rng.Next(-10, 10f);
+                var y = rng.Next(-10, 10f);
+                var z = rng.Next(-10, 10f);
+                var vel = new Vector3(x, y, z);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(EngineEntityProps.GRAVITY, -1f);
+                entity.Spawn(VanillaEffectID.soulEffect, entity.GetCenter(), param)?.Let(e =>
+                {
+                    e.Velocity = vel;
+                });
+            }
+            entity.PlaySound(VanillaSoundID.wood);
+            entity.Remove();
         }
 
         public static int GetPhase(Entity entity) => entity.GetProperty<int>(PROP_PHASE);
