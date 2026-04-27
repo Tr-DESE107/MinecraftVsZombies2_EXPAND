@@ -33,6 +33,7 @@ namespace MVZ2.Vanilla.Entities
         public const string instakillByImpact = "instakill_by_impact";
 
         public const string balloon = "balloon";
+        public const string randomChangeVelocity = "random_change_velocity";
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";

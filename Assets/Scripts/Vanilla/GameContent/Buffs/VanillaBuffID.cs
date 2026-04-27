@@ -63,6 +63,9 @@ namespace MVZ2.GameContent.Buffs
             public const string redDragonTransition = "red_dragon_transition";
             public const string redDragonCleared = "red_dragon_cleared";
 
+            // Chapter 6
+            public const string lockedChestStage = "locked_chest_stage";
+
             // Random China
             public const string greedyVacuum = "greedy_vacuum";
             public const string superRecharge = "super_recharge";

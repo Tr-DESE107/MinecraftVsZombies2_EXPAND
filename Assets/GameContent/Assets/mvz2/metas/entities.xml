@@ -4481,5 +4481,15 @@
                 <bool name="mvz2:shadowHidden" value="false" />
             </properties>
         </effect>
+        <effect id="soul_effect">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout"/>
+                <behaviour operator="add" id="mvz2:random_change_velocity"/>
+            </behaviours>
+            <properties>
+                <int name="mvz2:maxTimeout" value="150" />
+                <bool name="mvz2:decorative" value="true" />
+            </properties>
+        </effect>
     </entries>
 </entities>

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8284457740926043369}
   - component: {fileID: 7092485240484802208}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: Soul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 866b86d6fcb5fff4d8a3cda6be16944a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6593d9123fd3ed40b97b320a74e5da3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -175,29 +175,29 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Positions:
-  - {x: 0, y: 0.12, z: 0}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
-  - {x: 0, y: 0.12, z: 1}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.24
+    widthMultiplier: 0.04
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -224,8 +224,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 0}
+      key0: {r: 0, g: 0.6666665, b: 1, a: 0.49803922}
+      key1: {r: 0, g: 0.6666665, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 8495915886035218315}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
-      value: explosive_soul
+      value: soul_effect
       objectReference: {fileID: 0}
     - target: {fileID: 6999929167464410214, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_LocalPosition.x
@@ -406,7 +406,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1383896143148391348, guid: 20878af0986885c4793b4099d7815082, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3693395534727488135, guid: 20878af0986885c4793b4099d7815082, type: 3}
       propertyPath: m_LocalPosition.x
@@ -457,10 +457,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8845140610999988400, guid: 20878af0986885c4793b4099d7815082, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6202040637354339719}
+      addedObject: {fileID: 7139966125330119402}
     - targetCorrespondingSourceObject: {fileID: 8845140610999988400, guid: 20878af0986885c4793b4099d7815082, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7139966125330119402}
+      addedObject: {fileID: 6202040637354339719}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20878af0986885c4793b4099d7815082, type: 3}
 --- !u!4 &212946911294564994 stripped
