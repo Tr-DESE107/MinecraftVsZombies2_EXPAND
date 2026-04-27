@@ -1263,6 +1263,7 @@
             <bool name="noEnergy" value="true" />
             <bool name="mvz2:adventure" value="true"/>
             <id name="clearSound" value="mvz2:final_item" />
+            <float name="boss_spawn_points_multiplier" value="1.5" />
         </properties>
     </stage>
     <stage id="ship_endless" name="圣辇船无尽" type="endless">
@@ -1509,6 +1510,7 @@
             <bool name="noEnergy" value="true" />
             <bool name="mvz2:adventure" value="true"/>
             <id name="clearSound" value="mvz2:final_item" />
+            <float name="boss_spawn_points_multiplier" value="1.5" />
         </properties>
     </stage>
     <stage id="palace_endless" name="地灵殿无尽" type="endless">

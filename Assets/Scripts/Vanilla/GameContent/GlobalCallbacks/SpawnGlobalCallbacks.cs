@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 var totalWave = level.GetTotalFlags() * level.GetWavesPerFlag();
                 output.basePoints = Mathf.FloorToInt(totalWave * 0.8f) / 2 + 1;
-                output.multiplier = 1;
+                output.multiplier = level.GetBossSpawnPointMultiplier();
             }
             else
             {

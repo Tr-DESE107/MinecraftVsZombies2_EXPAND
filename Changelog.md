@@ -30,6 +30,7 @@
   - Broken Lantern
   - Lightbomb
   - Eye of the Giant
+- The spawn rate of monsters during the boss battle in level 5-11 has been increased to 150% of the original rate.
 
 ## Fixed
 - Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.

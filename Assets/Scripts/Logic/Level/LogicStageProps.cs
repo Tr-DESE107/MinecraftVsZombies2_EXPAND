@@ -276,5 +276,6 @@ namespace MVZ2Logic.Level
             return entityDef.GetProperty<bool>(HIDE_IN_STATS);
         }
         #endregion
+
     }
 }

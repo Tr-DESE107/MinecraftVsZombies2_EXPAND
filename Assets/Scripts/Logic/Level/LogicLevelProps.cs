@@ -254,6 +254,7 @@ namespace MVZ2Logic.Level
         public static readonly PropertyMeta<float> SPAWN_POINTS_POWER = Get<float>("spawnPointsPower");
         public static readonly PropertyMeta<float> SPAWN_POINTS_MUTLIPLIER = Get<float>("spawnPointsMultiplier");
         public static readonly PropertyMeta<float> SPAWN_POINTS_ADDITION = Get<float>("spawnPointsAddition");
+        public static readonly PropertyMeta<float> BOSS_SPAWN_POINTS_MULTIPLIER = Get<float>("boss_spawn_points_multiplier");
         public static float GetSpawnPointPower(this LevelEngine level)
         {
             return level.GetProperty<float>(SPAWN_POINTS_POWER);
@@ -277,6 +278,14 @@ namespace MVZ2Logic.Level
         public static void SetSpawnPointAddition(this StageDefinition stageDef, float value)
         {
             stageDef.SetProperty(SPAWN_POINTS_ADDITION, value);
+        }
+        public static float GetBossSpawnPointMultiplier(this StageDefinition entityDef)
+        {
+            return entityDef.GetProperty<float>(BOSS_SPAWN_POINTS_MULTIPLIER);
+        }
+        public static float GetBossSpawnPointMultiplier(this LevelEngine level)
+        {
+            return level.GetProperty<float>(BOSS_SPAWN_POINTS_MULTIPLIER);
         }
         #endregion
 
