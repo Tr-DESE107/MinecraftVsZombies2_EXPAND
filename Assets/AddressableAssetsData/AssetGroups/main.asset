@@ -4747,6 +4747,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 583169e4c3795c444bb2eff0e41f0dde
+    m_Address: mvz2:arcade/locked_chests_revenge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5859370b9183b04458753312682a75a8
     m_Address: mvz2:effect/spirit_universe
     m_ReadOnly: 0
@@ -5236,6 +5243,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 604ec57123d82f544bede82e78c969fe
+    m_Address: mvz2:pickup/locked_chest_pickup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 60633e1a26a217243907f2b4b182b4d1
     m_Address: mvz2:contraption/ship/beacon

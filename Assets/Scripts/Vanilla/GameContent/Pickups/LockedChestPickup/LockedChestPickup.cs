@@ -58,6 +58,10 @@ namespace MVZ2.GameContent.Pickups
                         pickup.Remove();
                     }
                 }
+                else if (pickup.GetEntityTime() > Ticks.FromSeconds(10f))
+                {
+                    pickup.Collect();
+                }
             }
             pickup.SetShadowAlpha(shadowAlpha);
             pickup.SetGravity(gravity);
