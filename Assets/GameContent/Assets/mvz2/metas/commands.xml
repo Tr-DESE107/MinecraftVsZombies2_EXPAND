@@ -260,6 +260,12 @@
         <variant subname="paratroops">
             <description>生成一队伞兵僵尸。</description>
         </variant>
+        <variant subname="wave">
+            <description>设置当前关卡波数。</description>
+            <params>
+                <param name="wave" type="int">要设置的波数。</param>
+            </params>
+        </variant>
     </command>
     <command id="gotolevel">
         <description>进入一个指定的关卡。</description>

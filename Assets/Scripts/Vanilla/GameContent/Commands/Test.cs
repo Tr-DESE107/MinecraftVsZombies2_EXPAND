@@ -48,6 +48,11 @@ namespace MVZ2.GameContent.Commands
             {
                 Ship.SpawnParatroops(level, 3);
             }
+            else if (parameters[0] == "wave")
+            {
+                var count = ParseHelper.ParseInt(parameters[1]);
+                level.CurrentWave = count;
+            }
         }
         private void SpawnEnemies(LevelEngine level, int page)
         {
