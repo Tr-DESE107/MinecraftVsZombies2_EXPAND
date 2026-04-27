@@ -76,14 +76,17 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void AimerUpdate(Entity entity)
         {
-            laserTargetBuffer.Clear();
-            laserDetector.DetectEntities(entity, laserTargetBuffer);
-            var damage = entity.GetDamage() * LASER_DPS_MULTIPLIER / Ticks.GetTPS();
-            var effects = new DamageEffectList(VanillaDamageEffects.LIGHT, VanillaDamageEffects.MUTE);
-            foreach (var target in laserTargetBuffer)
+            if (entity.IsTimeInterval(LASER_EFFECT_INTERVAL))
             {
-                target.InflictGlowing(3, new EntitySourceReference(entity));
-                target.TakeDamage(damage, effects, entity);
+                laserTargetBuffer.Clear();
+                laserDetector.DetectEntities(entity, laserTargetBuffer);
+                var damage = entity.GetDamage() * LASER_EFFECT_INTERVAL * LASER_DPS_MULTIPLIER / Ticks.GetTPS();
+                var effects = new DamageEffectList(VanillaDamageEffects.LIGHT, VanillaDamageEffects.MUTE);
+                foreach (var target in laserTargetBuffer)
+                {
+                    target.InflictGlowing(LASER_EFFECT_INTERVAL + 1, new EntitySourceReference(entity));
+                    target.TakeDamage(damage, effects, entity);
+                }
             }
         }
 
@@ -259,7 +262,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int ATTACK_INTERVAL_MIN = 40;
         public const int ATTACK_INTERVAL_MAX = 45;
         public const int MAX_LASER_RANGE = 2000;
-        public const float LASER_DPS_MULTIPLIER = 0.5f;
+        public const int LASER_EFFECT_INTERVAL = 3;
+        public const float LASER_DPS_MULTIPLIER = 0.25f;
         public const float TRANSFORM_TIME_SECONDS = 1f;
         public const float EVOCATION_DURATION_SECONDS = 4f;
         public const float EVOCATION_LASER_DAMAGE_MULTIPLIER = 10f;

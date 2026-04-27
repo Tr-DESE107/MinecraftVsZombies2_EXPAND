@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-27 12:32+0800\n"
+"POT-Creation-Date: 2026-04-27 07:27+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1625,7 +1625,7 @@ msgstr ""
 #. Header for contraptions mvz2:transfenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为激光模式，用激光持续让前方的所有敌人发光并持续受到伤害。"
+msgid "变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为激光模式，用激光持续对前方的所有敌人造成伤害并使其发光。"
 msgstr ""
 
 #. Properties for contraptions mvz2:transfenser
