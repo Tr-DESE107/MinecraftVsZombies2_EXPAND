@@ -8,7 +8,6 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Blueprints;
-using MVZ2Logic.Callbacks;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine;

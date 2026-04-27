@@ -8,7 +8,6 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Localization;
-using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;

@@ -9,7 +9,6 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
-using static MVZ2.Supporters.SponsorPlans;
 
 namespace MVZ2.Level
 {

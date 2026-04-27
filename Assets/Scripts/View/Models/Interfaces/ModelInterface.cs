@@ -128,9 +128,9 @@ namespace MVZ2.Models
             return child.GetParentModelInterface();
         }
         protected abstract Model? GetModel();
-        public string SortingLayer 
-        { 
-            get 
+        public string SortingLayer
+        {
+            get
             {
                 var model = GetModel();
                 if (!model.Exists() || model is not EntityModel entityModel)

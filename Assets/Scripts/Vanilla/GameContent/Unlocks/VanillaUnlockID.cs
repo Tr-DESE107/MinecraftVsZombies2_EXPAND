@@ -69,7 +69,7 @@ namespace MVZ2.Vanilla.Unlocks
         public static readonly NamespaceID midasTouchdown = Get(VanillaUnlockNames.midasTouchdown);
         public static readonly NamespaceID sculptingStrike = Get(VanillaUnlockNames.sculptingStrike);
         public static readonly NamespaceID letThemEatCake = Get(VanillaUnlockNames.letThemEatCake);
-        
+
 
         public static readonly NamespaceID brokenLantern = Get(VanillaUnlockNames.brokenLantern);
         public static readonly NamespaceID bottledBlackhole = Get(VanillaUnlockNames.bottledBlackhole);

@@ -38,7 +38,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.Update(entity);
             if (!entity.Parent.ExistsAndAlive() || entity.Parent.IsAIFrozen())
-            { 
+            {
                 entity.Remove();
                 return;
             }

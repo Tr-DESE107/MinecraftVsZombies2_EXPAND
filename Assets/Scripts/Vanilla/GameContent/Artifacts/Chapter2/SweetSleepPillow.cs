@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
-using PVZEngine;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts

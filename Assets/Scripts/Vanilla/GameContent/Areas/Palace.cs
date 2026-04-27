@@ -10,7 +10,6 @@ using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {

@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Buffs.Entities
             if (evoked)
             {
                 var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
-                
+
                 var damageOutputs = entity.ExplodeAgainstFriendly(center, range, entity.GetFaction(), damage, damageEffects);
                 damageOutputs.ClearExplosionCorpses();
 

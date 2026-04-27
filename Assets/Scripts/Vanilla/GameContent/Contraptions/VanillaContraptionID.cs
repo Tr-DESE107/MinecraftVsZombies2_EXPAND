@@ -141,7 +141,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID coolingCell = Get(VanillaContraptionNames.coolingCell);
         public static readonly NamespaceID amethystPylon = Get(VanillaContraptionNames.amethystPylon);
         public static readonly NamespaceID nuke = Get(VanillaContraptionNames.nuke);
-        public static readonly NamespaceID netherReactorCore = Get(VanillaContraptionNames.netherReactorCore); 
+        public static readonly NamespaceID netherReactorCore = Get(VanillaContraptionNames.netherReactorCore);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);
