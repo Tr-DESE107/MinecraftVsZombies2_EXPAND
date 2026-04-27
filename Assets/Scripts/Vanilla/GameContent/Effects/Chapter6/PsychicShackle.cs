@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Resources;
@@ -85,6 +86,8 @@ namespace MVZ2.GameContent.Effects
                 detector.DetectEntities(source, detectBuffer);
                 foreach (var other in detectBuffer)
                 {
+                    if (!other.CanDeactive())
+                        continue;
                     results.Add(other);
                 }
             }
