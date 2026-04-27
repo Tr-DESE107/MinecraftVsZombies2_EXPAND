@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Detections
                     {
                         sizeX = 200;
                         sizeY = 40;
-                        sizeZ = 200;
+                        sizeZ = 40;
                         centerX = source.x;
                         centerZ = source.z;
                         centerY = source.y + 20;
@@ -69,18 +69,6 @@ namespace MVZ2.GameContent.Detections
                         if (!target.CanDeactive())
                             return false;
                         if (target.IsAIFrozen())
-                            return false;
-                    }
-                    break;
-
-                case MODE_SMASH:
-                    {
-                        var center = param.entity.Position;
-                        center += Vector3.up * 20;
-                        float sizeX = 200;
-                        float sizeY = 40;
-                        float sizeZ = 40;
-                        if (!collider.CheckBox(center, new Vector3(sizeX, sizeY, sizeZ)) && !collider.CheckBox(center, new Vector3(sizeZ, sizeY, sizeX)))
                             return false;
                     }
                     break;
