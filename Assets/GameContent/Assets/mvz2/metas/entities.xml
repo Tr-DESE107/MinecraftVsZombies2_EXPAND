@@ -4491,5 +4491,14 @@
                 <bool name="mvz2:decorative" value="true" />
             </properties>
         </effect>
+        <effect id="soul_storm">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:fadeout_by_timeout" />
+            </behaviours>
+            <properties>
+                <int name="mvz2:sortingOrder" value="9999" />
+                <bool name="mvz2:decorative" value="true" />
+            </properties>
+        </effect>
     </entries>
 </entities>

@@ -10941,6 +10941,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d09577e2d8466434da1b489c8a2aee1d
+    m_Address: mvz2:effect/soul_effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0f0436e148be3b43995b8ca69c828be
     m_Address: mvz2:starshard_appear
     m_ReadOnly: 0
@@ -12921,6 +12928,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f90491afea3a6344399e911db8b39ab6
+    m_Address: mvz2:effect/soul_storm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f997f16a236d16f44a380a07a0235df6
     m_Address: mvz2:talk/dialog_flashback

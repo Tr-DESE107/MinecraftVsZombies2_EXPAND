@@ -20,13 +20,13 @@ namespace MVZ2.GameContent.Entities
         {
             base.Update(entity);
             float alpha;
+            var alphaMax = entity.GetProperty<float>(PROP_ALPHA_MAX);
             if (entity.Timeout < 0)
             {
-                alpha = 1;
+                alpha = alphaMax;
             }
             else
             {
-                var alphaMax = entity.GetProperty<float>(PROP_ALPHA_MAX);
                 var alphaMin = entity.GetProperty<float>(PROP_ALPHA_MIN);
                 var t = entity.Timeout / (float)entity.GetMaxTimeout();
                 t = t * (alphaMax - alphaMin) + alphaMin;

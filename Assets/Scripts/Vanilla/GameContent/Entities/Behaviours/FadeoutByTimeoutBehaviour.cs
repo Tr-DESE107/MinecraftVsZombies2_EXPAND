@@ -22,14 +22,14 @@ namespace MVZ2.GameContent.Entities
             base.Update(entity);
             var fadeSeconds = entity.GetProperty<float>(PROP_FADE_TIMEOUT);
             var timeoutSeconds = Ticks.ToSeconds(entity.Timeout);
+            var alphaMax = entity.GetProperty<float>(PROP_ALPHA_MAX);
             float alpha;
             if (entity.Timeout < 0)
             {
-                alpha = 1;
+                alpha = alphaMax;
             }
             else
             {
-                var alphaMax = entity.GetProperty<float>(PROP_ALPHA_MAX);
                 var alphaMin = entity.GetProperty<float>(PROP_ALPHA_MIN);
                 var t = timeoutSeconds / fadeSeconds;
                 t = t * (alphaMax - alphaMin) + alphaMin;

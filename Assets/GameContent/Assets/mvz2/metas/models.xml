@@ -500,6 +500,7 @@
     <model name="psychic_shackle" type="entity" path="mvz2:effect/psychic_shackle" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="wither_summoning_blocks" type="entity" path="mvz2:effect/wither_summoning_blocks" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     <model name="soul_effect" type="entity" path="mvz2:effect/soul_effect" width="16" height="16" xOffset="0" yOffset="-4" />
+    <model name="soul_storm" type="entity" path="mvz2:effect/soul_storm" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />

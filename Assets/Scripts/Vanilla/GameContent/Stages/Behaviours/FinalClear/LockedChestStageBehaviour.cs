@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Level;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Level;
@@ -24,9 +25,11 @@ namespace MVZ2.GameContent.Stages
             base.PostWave(level, wave);
             if (wave <= 10 || wave >= level.GetTotalWaveCount())
                 return;
-            if (!level.HasBuff<LockedChestStageBuff>())
+            if (!level.EntityExists(VanillaEffectID.soulStorm))
             {
-                level.AddBuff<LockedChestStageBuff>();
+                var pos = level.GetLawnCenter();
+                pos.x = 0;
+                level.Spawn(VanillaEffectID.soulStorm, pos, null);
             }
         }
         protected override void FinalWaveUpdate(LevelEngine level)
@@ -41,9 +44,12 @@ namespace MVZ2.GameContent.Stages
         protected override void AfterFinalWaveUpdate(LevelEngine level)
         {
             base.AfterFinalWaveUpdate(level);
-            if (level.HasBuff<LockedChestStageBuff>())
+            foreach (var storm in level.FindEntities(VanillaEffectID.soulStorm))
             {
-                level.RemoveBuffs<LockedChestStageBuff>();
+                if (storm.Timeout < 0)
+                {
+                    storm.Timeout = 30;
+                }
             }
             TransitionUpdate(level);
         }

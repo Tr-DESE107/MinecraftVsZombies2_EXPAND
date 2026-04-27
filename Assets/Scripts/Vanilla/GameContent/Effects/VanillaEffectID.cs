@@ -122,6 +122,7 @@ namespace MVZ2.GameContent.Effects
         public const string psychicShackle = "psychic_shackle";
         public const string witherSummoningBlocks = "wither_summoning_blocks";
         public const string soulEffect = "soul_effect";
+        public const string soulStorm = "soul_storm";
     }
     public static class VanillaEffectID
     {
@@ -240,6 +241,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID psychicShackle = Get(VanillaEffectNames.psychicShackle);
         public static readonly NamespaceID witherSummoningBlocks = Get(VanillaEffectNames.witherSummoningBlocks);
         public static readonly NamespaceID soulEffect = Get(VanillaEffectNames.soulEffect);
+        public static readonly NamespaceID soulStorm = Get(VanillaEffectNames.soulStorm);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
