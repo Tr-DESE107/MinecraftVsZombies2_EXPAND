@@ -2409,6 +2409,35 @@
                     </flavor>
                 </flavors>
             </entry>
+            <entry id="mvz2:tainted_sun" name="受污染的太阳" >
+                <unlock>
+                    <condition required="mvz2:level.dream_1"/>
+                </unlock>
+                <picture sprite="mvz2:misc/dream_darkness"/>
+                <variables>
+                    <variable name="duration">10</variable>
+                </variables>
+                <header>
+                    <p>在梦境世界中的一大波怪物来临时，太阳突然异常消失，产生黑暗。</p>
+                </header>
+                <properties>
+                    <p>持续时间：<![CDATA[<color=red><var local="duration"/>秒</color>]]></p>
+                </properties>
+                <flavors>
+                    <flavor>
+                        <conditions>
+                            <condition requiredNot="mvz2:level.dream_7"/>
+                        </conditions>
+                        <p>原因暂不明确。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.dream_7"/>
+                        </conditions>
+                        <p>梦魇来到梦境世界之后，开始对梦境世界进行污染，并将整个世界伪装成什么都没有发生过的样子，然而这受污染的太阳便是它唯一的疏忽。</p>
+                    </flavor>
+                </flavors>
+            </entry>
             <entry id="mvz2:nyaightmare" name="噩梦猫">
                 <unlock>
                     <condition required="mvz2:level.dream_7" />
