@@ -14,6 +14,7 @@ namespace MVZ2.Vanilla.ChapterTransitions
         public readonly static NamespaceID castle = Get("castle");
         public readonly static NamespaceID mausoleum = Get("mausoleum");
         public readonly static NamespaceID ship = Get("ship");
+        public readonly static NamespaceID palace = Get("palace");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
@@ -50,13 +51,13 @@ namespace MVZ2.Vanilla.ChapterTransitions
             level.InitLevel(areaID, stageID, 1);
             scene.HideChapterTransition();
         }
-        public static IEnumerator TransitionEndToMap(NamespaceID transition, NamespaceID mapID)
+        public static IEnumerator TransitionToMap(NamespaceID transition, NamespaceID mapID, bool end)
         {
             var music = Global.Music;
             var scene = Global.Scene;
             scene.SetScreenCoverColor(new Color(0, 0, 0, 1));
             scene.FadeScreenCoverColor(new Color(0, 0, 0, 0), 0.5f);
-            yield return scene.GotoChapterTransitionCoroutine(transition, true);
+            yield return scene.GotoChapterTransitionCoroutine(transition, end);
 
             music.StartFade(0, 1);
             yield return new WaitForSeconds(2);

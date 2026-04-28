@@ -271,4 +271,19 @@
             </params>
         </variant>
     </command>
+    <command id="chaptertransition">
+        <description>播放一段章节过渡动画。</description>
+        <variant subname="start">
+            <description>播放章节开始动画。</description>
+            <params>
+                <param name="stage" type="id" idType="chapter_transition">章节过渡动画ID。</param>
+            </params>
+        </variant>
+        <variant subname="end">
+            <description>播放章节结束动画。</description>
+            <params>
+                <param name="stage" type="id" idType="chapter_transition">章节过渡动画ID。</param>
+            </params>
+        </variant>
+    </command>
 </commands>

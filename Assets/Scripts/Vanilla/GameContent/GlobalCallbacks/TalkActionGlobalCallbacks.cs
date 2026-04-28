@@ -235,16 +235,24 @@ namespace MVZ2.GameContent.GlobalCallbacks
                         saves.SaveToFile(); // 进入圣辇船过渡时保存游戏
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.ship, VanillaAreaID.ship, VanillaStageID.ship1));
                         break;
+                    case "goto_palace":
+                        saves.SetLastMapID(VanillaMapID.ship);
+                        saves.SaveToFile(); // 进入地灵殿过渡时保存游戏
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.palace, VanillaAreaID.palace, VanillaStageID.palace1));
+                        break;
                     case "chapter_3_finish":
-                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo, true));
                         break;
                     case "chapter_4_finish":
-                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo));
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo, true));
                         break;
                     case "chapter_5_finish":
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionToMap(VanillaChapterTransitions.ship, VanillaMapID.gensokyo, true));
+                        break;
+                    case "chapter_6_finish":
                         IEnumerator coroutineFunc()
                         {
-                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.ship, VanillaMapID.gensokyo);
+                            yield return VanillaChapterTransitions.TransitionToMap(VanillaChapterTransitions.palace, VanillaMapID.gensokyo, true);
                             var title = Global.Localization.GetText(VanillaStrings.UI_GAME_CLEARED);
                             var desc = Global.Localization.GetText(VanillaStrings.UI_COMING_SOON);
                             var options = new string[] { Global.Localization.GetText(LogicStrings.CONFIRM) };

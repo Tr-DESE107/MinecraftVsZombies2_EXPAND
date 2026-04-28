@@ -25,6 +25,7 @@ namespace MVZ2.GameContent.Commands
         public const string test = "test";
         public const string unlock = "unlock";
         public const string gotolevel = "gotolevel";
+        public const string chapterTransition = "chaptertransition";
     }
     public static class VanillaCommandID
     {

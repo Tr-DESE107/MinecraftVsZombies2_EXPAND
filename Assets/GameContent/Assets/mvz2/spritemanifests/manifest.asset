@@ -143,6 +143,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: aa82843b9b0ef4c43a15446e94370464, type: 3}
   - name: chapter_transition/title_mausoleum
     sprite: {fileID: 21300000, guid: e67606b0e90b7e940844495857add1f7, type: 3}
+  - name: chapter_transition/title_palace
+    sprite: {fileID: 21300000, guid: 23c593eab5a6c084f8279e3507114199, type: 3}
   - name: chapter_transition/title_ship
     sprite: {fileID: 21300000, guid: 6b2ac3f4f375c3e4c9ae0837f95feb18, type: 3}
   - name: characters/armor_stand
@@ -2225,6 +2227,10 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -816891172, guid: 3dbdc96cab9eea847bf295ab52b4a5de, type: 3}
     - {fileID: -1768560323, guid: 3dbdc96cab9eea847bf295ab52b4a5de, type: 3}
+  - name: entity/effect/locked_chest_shadow
+    spritesheet:
+    - {fileID: -1607643510, guid: 78d2df784ddbd3c499324ac0f5a31020, type: 3}
+    - {fileID: 1792002898, guid: 78d2df784ddbd3c499324ac0f5a31020, type: 3}
   - name: entity/effect/master_spark
     spritesheet:
     - {fileID: 1121898550, guid: 0dbb7eec752b56740a4fc2bd819739f7, type: 3}

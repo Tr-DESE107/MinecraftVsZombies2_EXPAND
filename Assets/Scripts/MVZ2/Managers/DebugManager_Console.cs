@@ -35,6 +35,7 @@ namespace MVZ2.Debugs
             unlockIDSet.Clear();
             stageIDSet.Clear();
             areaIDSet.Clear();
+            chapterTransitionIDSet.Clear();
             foreach (var def in Main.Game.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
             {
                 entityIDSet.Add(def.GetID().ToString());
@@ -70,6 +71,10 @@ namespace MVZ2.Debugs
             foreach (var def in Main.Game.GetAllAreaDefinitions())
             {
                 areaIDSet.Add(def.GetID().ToString());
+            }
+            foreach (var id in Main.ResourceManager.GetAllChapterTransitions())
+            {
+                chapterTransitionIDSet.Add(id.ToString());
             }
         }
         public bool IsConsoleActive()
@@ -477,6 +482,14 @@ namespace MVZ2.Debugs
                                     }
                                 }
                                 break;
+                            case CommandMetaParam.ID_TYPE_CHAPTER_TRANSITION:
+                                {
+                                    foreach (var sug in chapterTransitionIDSet)
+                                    {
+                                        yield return sug;
+                                    }
+                                }
+                                break;
                         }
                     }
                     break;
@@ -584,6 +597,7 @@ namespace MVZ2.Debugs
         private HashSet<string> unlockIDSet = new HashSet<string>();
         private HashSet<string> stageIDSet = new HashSet<string>();
         private HashSet<string> areaIDSet = new HashSet<string>();
+        private HashSet<string> chapterTransitionIDSet = new HashSet<string>();
         private HashSet<NamespaceID> commandIDSet = new HashSet<NamespaceID>();
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;
