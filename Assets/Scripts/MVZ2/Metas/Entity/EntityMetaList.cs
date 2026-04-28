@@ -2,8 +2,6 @@
 
 using System.Collections.Generic;
 using System.Xml;
-using MVZ2.IO;
-using PVZEngine;
 
 namespace MVZ2.Metas
 {
@@ -48,67 +46,6 @@ namespace MVZ2.Metas
                 }
             }
             return new EntityMetaList(counters.ToArray(), entries.ToArray());
-        }
-    }
-    public class EntityMetaTemplate
-    {
-        public int id;
-        public string name;
-        public List<NamespaceID> behaviours;
-        public Dictionary<string, object?> properties;
-
-        public EntityMetaTemplate(int id, string name, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
-        {
-            this.name = name;
-            this.id = id;
-            this.behaviours = behaviours;
-            this.properties = properties;
-        }
-
-        private static EntityMetaTemplate? LoadTemplate(XmlNode node, string defaultNsp, XmlNode rootNode)
-        {
-            var id = node.GetAttributeInt("id") ?? -1;
-            var name = node.Name;
-            var behaviours = new List<NamespaceID>();
-            var properties = new Dictionary<string, object?>();
-            LoadTemplatePropertiesFromNode(node, defaultNsp, rootNode, behaviours, properties);
-
-            return new EntityMetaTemplate(id, node.Name, behaviours, properties);
-        }
-        private static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
-        {
-            var parent = node.GetAttribute("parent");
-            if (!string.IsNullOrEmpty(parent))
-            {
-                var parentNode = rootNode[parent];
-                if (parentNode != null)
-                {
-                    LoadTemplatePropertiesFromNode(parentNode, defaultNsp, rootNode, behaviours, properties);
-                }
-            }
-            var behavioursNode = node["behaviours"];
-            behavioursNode.ModifyEntityBehaviours(behaviours, properties, defaultNsp);
-
-            var propsNode = node["properties"];
-            var props = propsNode.ToPropertyDictionary(defaultNsp);
-            foreach (var prop in props)
-            {
-                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.entity);
-                properties[fullName] = prop.Value;
-            }
-        }
-        public static EntityMetaTemplate[] LoadTemplates(XmlNode node, string defaultNsp)
-        {
-            List<EntityMetaTemplate> templates = new List<EntityMetaTemplate>();
-            for (int i = 0; i < node.ChildNodes.Count; i++)
-            {
-                var templateNode = node.ChildNodes[i];
-                var template = EntityMetaTemplate.LoadTemplate(templateNode, defaultNsp, node);
-                if (template == null)
-                    continue;
-                templates.Add(template);
-            }
-            return templates.ToArray();
         }
     }
 }

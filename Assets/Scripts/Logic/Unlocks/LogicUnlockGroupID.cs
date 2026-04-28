@@ -9,9 +9,8 @@ namespace MVZ2Logic.Unlocks
         public static readonly NamespaceID starshard = Get("starshard");
         public static readonly NamespaceID almanac = Get("almanac");
         public static readonly NamespaceID trigger = Get("trigger");
-        public static readonly NamespaceID chapterFinished_Halloween = Get("chapter_finished.halloween"); // TODO: 在自定义地图元素功能出来后移除
 
-        public static readonly NamespaceID chapter_Dream = Get("chapter.dream"); // TODO: 在自定义地图元素功能出来后移除
+        public static readonly NamespaceID chapter_Dream = Get("chapter.dream");
         public static readonly NamespaceID store = Get("store");
         public static readonly NamespaceID gensokyo = Get("gensokyo");
 

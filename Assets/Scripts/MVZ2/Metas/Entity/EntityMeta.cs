@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -75,7 +76,7 @@ namespace MVZ2.Metas
                     properties.Add(prop.Key, prop.Value);
                 }
             }
-            behavioursNode?.ModifyEntityBehaviours(behaviours, properties, defaultNsp);
+            behavioursNode?.ModifyBehavioursAndProperties(behaviours, properties, EngineDefinitionTypes.ENTITY_BEHAVIOUR, defaultNsp);
             if (includeSelfBehaviour)
             {
                 behaviours.Add(new NamespaceID(nsp, id));

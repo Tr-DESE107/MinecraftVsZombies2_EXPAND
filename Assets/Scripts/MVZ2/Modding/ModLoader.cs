@@ -19,6 +19,7 @@ using MVZ2Logic.Errors;
 using MVZ2Logic.Games;
 using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
+using MVZ2Logic.Maps;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Notes;
 using MVZ2Logic.Options;
@@ -131,6 +132,8 @@ namespace MVZ2.Modding
             LoadBlueprintErrorMetas(mod);
             // 加载所有增益信息。
             LoadBuffMetas(mod);
+            // 加载所有地图元素信息。
+            LoadMapElementMetas(mod);
         }
         private void LoadEntityMetas(Mod mod)
         {
@@ -415,6 +418,30 @@ namespace MVZ2.Modding
 
                 buffDefinition.SetProperty<int>(EngineBuffProps.POLARITY, polarity);
                 buffDefinition.SetProperty<int>(EngineBuffProps.BUFF_LEVEL, level);
+            }
+        }
+        private void LoadMapElementMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (var meta in res.GetModMapElementMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.id;
+                var def = new DefaultMapElement(nsp, name);
+                var entityID = def.GetID();
+
+                def.SetProperty<IConditionList>(LogicMapElementProps.UNLOCK_CONDITIONS, meta.unlockConditions);
+
+                foreach (var pair in meta.properties)
+                {
+                    def.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
+                }
+                foreach (var behaviourID in meta.behaviours)
+                {
+                    def.AddBehaviourID(behaviourID);
+                }
+                mod.AddDefinition(def);
             }
         }
         #endregion

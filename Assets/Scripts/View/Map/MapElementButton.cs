@@ -18,16 +18,8 @@ namespace MVZ2.UI.Map
             // Not left mouse nor first touch.
             if (eventData.pointerId != -1 && eventData.pointerId != 0)
                 return;
-            OnClick?.Invoke(id.Get());
+            OnClick?.Invoke(this);
         }
-        public void SetArrowVisible(bool visible)
-        {
-            arrow.SetActive(visible);
-        }
-        public event Action<NamespaceID>? OnClick;
-        [SerializeField]
-        private NamespaceIDReference id = null!;
-        [SerializeField]
-        private GameObject arrow = null!;
+        public event Action<MapElementButton>? OnClick;
     }
 }

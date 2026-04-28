@@ -52,4 +52,16 @@ namespace MVZ2Logic.Definitions
         {
         }
     }
+    public class AutoMapElementDefinitionAttribute : DefinitionAttribute
+    {
+        public AutoMapElementDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.MAP_ELEMENT)
+        {
+        }
+    }
+    public class AutoMapElementBehaviourDefinitionAttribute : DefinitionAttribute
+    {
+        public AutoMapElementBehaviourDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR)
+        {
+        }
+    }
 }

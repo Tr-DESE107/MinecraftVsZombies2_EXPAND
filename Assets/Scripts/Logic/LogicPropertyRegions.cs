@@ -9,5 +9,6 @@ namespace MVZ2Logic
         public const string command = "command";
         public const string heldItem = "held_item";
         public const string optionWidget = "option_widget";
+        public const string mapElement = "map_element";
     }
 }

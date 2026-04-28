@@ -201,7 +201,7 @@ namespace MVZ2.IO
             var time = node.GetAttributeFloat("time") ?? 0;
             return new GradientAlphaKey(alpha, time);
         }
-        public static void ModifyEntityBehaviours(this XmlNode node, List<NamespaceID> behaviours, Dictionary<string, object?> properties, string defaultNsp)
+        public static void ModifyBehavioursAndProperties(this XmlNode node, List<NamespaceID> behaviours, Dictionary<string, object?> properties, string propertyRegion, string defaultNsp)
         {
             if (node == null)
                 return;
@@ -214,7 +214,7 @@ namespace MVZ2.IO
                 }
                 else if (childNode.Name == "properties")
                 {
-                    childNode.FillBehaviourProperties(properties, defaultNsp);
+                    childNode.FillBehaviourProperties(properties, propertyRegion, defaultNsp);
                 }
             }
         }
@@ -261,7 +261,7 @@ namespace MVZ2.IO
                     break;
             }
         }
-        public static void FillBehaviourProperties(this XmlNode node, Dictionary<string, object?> properties, string defaultNsp)
+        public static void FillBehaviourProperties(this XmlNode node, Dictionary<string, object?> properties, string propertyRegion, string defaultNsp)
         {
             var propertyTargetBehaviourID = node.GetAttributeNamespaceID("behaviour", defaultNsp);
             if (!NamespaceID.IsValid(propertyTargetBehaviourID))
@@ -269,7 +269,7 @@ namespace MVZ2.IO
             var propDict = node.ToPropertyDictionary(defaultNsp);
             foreach (var pair in propDict)
             {
-                var fullName = PropertyKeyHelper.CombineFullName(propertyTargetBehaviourID.SpaceName, EngineDefinitionTypes.ENTITY_BEHAVIOUR, propertyTargetBehaviourID.Path, pair.Key);
+                var fullName = PropertyKeyHelper.CombineFullName(propertyTargetBehaviourID.SpaceName, propertyRegion, propertyTargetBehaviourID.Path, pair.Key);
                 properties.Add(fullName, pair.Value);
             }
         }

@@ -10,6 +10,7 @@ using MVZ2Logic.Errors;
 using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.IZombie;
+using MVZ2Logic.Maps;
 using MVZ2Logic.Notes;
 using MVZ2Logic.Options;
 using MVZ2Logic.Shapes;
@@ -102,6 +103,22 @@ namespace MVZ2Logic.Games
         public static OptionWidgetDefinition[] GetAllOptionWidgetDefinitions(this IGameContent provider)
         {
             return provider.GetDefinitions<OptionWidgetDefinition>(LogicDefinitionTypes.OPTION_WIDGET);
+        }
+        public static MapElementDefinition? GetMapElementDefinition(this IGameContent provider, NamespaceID? id)
+        {
+            return provider.GetDefinition<MapElementDefinition>(LogicDefinitionTypes.MAP_ELEMENT, id);
+        }
+        public static MapElementDefinition[] GetAllMapElementDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<MapElementDefinition>(LogicDefinitionTypes.MAP_ELEMENT);
+        }
+        public static MapElementBehaviourDefinition? GetMapElementBehaviourDefinition(this IGameContent provider, NamespaceID? id)
+        {
+            return provider.GetDefinition<MapElementBehaviourDefinition>(LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, id);
+        }
+        public static MapElementBehaviourDefinition[] GetAllMapElementBehaviourDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<MapElementBehaviourDefinition>(LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR);
         }
     }
 }

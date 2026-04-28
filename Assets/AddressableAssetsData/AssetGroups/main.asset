@@ -451,13 +451,6 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 08aa6367ea055db4f9821346c863494d
-    m_Address: mvz2:mausoleum
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - MapModel
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09351709b15db8e4ba5f671be2d087d7
     m_Address: mvz2:horse_angry
     m_ReadOnly: 0
@@ -1746,6 +1739,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 214014eeb70e8bf46bfa88f6dbbfdc7a
+    m_Address: mvz2:mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2144539b9ee0718458cb1aa68cdfd6a0
     m_Address: mvz2:talk/dialog_cut
     m_ReadOnly: 0
@@ -1759,6 +1759,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 218220d75baaf434292e436170380c25
+    m_Address: mvz2:ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 21b4e022322b9bd44bb63fe7b9c40027
     m_Address: mvz2:projectile/golden_ball
@@ -3781,13 +3788,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 459c5842f9a23624aa9868fd0f0a353a
-    m_Address: mvz2:nightmare
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - MapModel
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45bd5e18c8a90ab47ab4eb0c7f131186
     m_Address: mvz2:entity/zombie/zombie_cry1
     m_ReadOnly: 0
@@ -5006,13 +5006,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5c5027fb3c5657e43b4b4ba9d36deefe
-    m_Address: mvz2:halloween
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - MapModel
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ca362fac41be824dbf32d58fb7bb26c
     m_Address: mvz2:entity/terror/terror_cry3
     m_ReadOnly: 0
@@ -5096,6 +5089,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d39da0a586e4ea4c8ad20711d904d06
+    m_Address: mvz2:map_contraption
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d3cf3664e1b8304f90a615e9b1e27af
     m_Address: mvz2:talk/villager/villager_extra_long3
@@ -6328,6 +6327,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7753b953f8af51c478a14ad5d5541171
+    m_Address: mvz2:palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 779caaadbdd68fb40b71d160c2305c1c
     m_Address: mvz2:entity/projectiles/reflection_bullet
     m_ReadOnly: 0
@@ -7385,6 +7391,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a98ce5a0ec1d394ab60ac2afaf9d9ec
+    m_Address: mvz2:dream_base
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8aed62c87bd530a44ac53df8b4ede2b0
     m_Address: mvz2:steve_roar1
     m_ReadOnly: 0
@@ -7503,6 +7516,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d53a16d384cfaf4a9e5272761176424
+    m_Address: mvz2:gensokyo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d55b7a649c53f34c914877ea928893e
     m_Address: mvz2:entity/ghast/ghast_death
@@ -7734,6 +7754,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90c0fa4be16ba714f86976375e8f842e
+    m_Address: mvz2:dream_key
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90cdf51226cc1614bbad8b8d4c8c8b6c
     m_Address: mvz2:entity/terror/terror_death
@@ -7993,13 +8019,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94f2e4ecd6b77ab49ba575570f0518d5
-    m_Address: mvz2:gensokyo
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9540e590034049d4386f13245727f885
     m_Address: mvz2:armor/bedserker_helmet
@@ -8322,13 +8341,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9c2a11f870f75a04c85b933d52c9090a
-    m_Address: mvz2:palace
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c2ffe9b1f0c11c4e8e821a591f6f10a
     m_Address: mvz2:map/gensokyo/pins/mausoleum
@@ -9632,6 +9644,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b61c2d911fc3c0445a3fa234ef06449c
+    m_Address: mvz2:nightmare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6265be12c87a324eae9c9efa6f6735d
     m_Address: mvz2:mainmenu/options
     m_ReadOnly: 0
@@ -9687,13 +9706,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b71e8718063e89145bbb9f65653a6fcb
-    m_Address: mvz2:castle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b72151badb68c8846ac8c796bf412fa4
     m_Address: mvz2:mobile_blueprint/gargoyle
@@ -9883,6 +9895,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb88000284cdad5439414fe64c476bc4
+    m_Address: mvz2:nightmare_box
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb9cb8c96cd65034d97163c167129eb9
     m_Address: mvz2:entity/enemy/anubisand
@@ -11312,6 +11330,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d88084ece95cdca4a9bef20ce29345f8
+    m_Address: mvz2:castle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d89d131147847e74f971f991d5baa0ab
     m_Address: mvz2:enemy/castle/reverse_satellite
     m_ReadOnly: 0
@@ -11431,13 +11456,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dac1586e39e4041458440f57f1c2bca6
-    m_Address: mvz2:ship
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - MapModel
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dadd7d630cd112f4e8151abc45659e12
     m_Address: mvz2:contraption/palace/amethyst_pylon
     m_ReadOnly: 0
@@ -11479,6 +11497,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db7fc6350e9dd8641b1e9b222c33a5dd
+    m_Address: mvz2:halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc158f8a14c1b36448838afc1a3bfa51
     m_Address: mvz2:entity/zombie/zombie_cry2
@@ -12165,6 +12190,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eaa1c826d2a2024409ad6edfb40aeb11
+    m_Address: mvz2:map_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eac3297eb77eaa9469a14df4d15e1125
     m_Address: mvz2:random/crystal/crystal_place4

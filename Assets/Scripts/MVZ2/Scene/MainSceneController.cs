@@ -420,6 +420,10 @@ namespace MVZ2.Scenes
         {
             DisplayMap(mapID);
         }
+        void IGlobalScene.GotoStore(Action backAction, bool showTalks)
+        {
+            DisplayStore(backAction, showTalks);
+        }
         Coroutine IGlobalScene.GotoLevelCoroutine()
         {
             return main.CoroutineManager.ToCoroutine(GotoLevelSceneAsync());

@@ -1,4 +1,163 @@
 <maps>
+    <elementTemplates>
+        <template id="contraption" />
+        <template id="pin">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:pin" />
+            </behaviours>
+        </template>
+    </elementTemplates>
+    <elements>
+        <element id="dream_key">
+            <unlock>
+                <condition requiredGroups="mvz2:chapter_finished.halloween"/>
+            </unlock>
+            <behaviours>
+                <behaviour id="mvz2:dream_key" />
+            </behaviours>
+        </element>
+        <element id="dream_key_arrow" >
+            <unlock>
+                <condition requiredGroups="mvz2:chapter_finished.halloween" requiredNotGroups="mvz2:chapter.dream"/>
+            </unlock>
+        </element>
+
+        <element id="nightmare_box" >
+            <unlock>
+                <condition requiredGroups="mvz2:chapter_finished.dream"/>
+            </unlock>
+            <behaviours>
+                <behaviour id="mvz2:nightmare_box" />
+            </behaviours>
+        </element>
+
+        <!-- Pins -->
+        <element id="pin_halloween" template="pin" >
+            <behaviours>
+                <properties behaviour="mvz2:pin">
+                    <id name="target_map_id" value="mvz2:halloween"/>
+                </properties>
+            </behaviours>
+        </element>
+        <element id="pin_dream" template="pin" >
+            <behaviours>
+                <properties behaviour="mvz2:pin">
+                    <id name="target_map_id" value="mvz2:dream"/>
+                </properties>
+            </behaviours>
+        </element>
+        <element id="pin_kourindou" template="pin" >
+            <unlock>
+                <condition requiredGroups="mvz2:store"/>
+            </unlock>
+            <behaviours>
+                <properties behaviour="mvz2:pin">
+                    <bool name="to_store" value="true"/>
+                </properties>
+            </behaviours>
+        </element>
+        <element id="pin_castle" template="pin" >
+            <unlock>
+                <condition requiredGroups="mvz2:chapter.castle"/>
+            </unlock>
+            <behaviours>
+                <properties behaviour="mvz2:pin">
+                    <id name="target_map_id" value="mvz2:castle"/>
+                </properties>
+            </behaviours>
+        </element>
+        <element id="pin_mausoleum" template="pin" >
+            <unlock>
+                <condition requiredGroups="mvz2:chapter.mausoleum"/>
+            </unlock>
+            <behaviours>
+                <properties behaviour="mvz2:pin">
+                    <id name="target_map_id" value="mvz2:mausoleum"/>
+                </properties>
+            </behaviours>
+        </element>
+        <element id="pin_ship" template="pin" >
+            <unlock>
+                <condition requiredGroups="mvz2:chapter.ship"/>
+            </unlock>
+            <behaviours>
+                <properties behaviour="mvz2:pin">
+                    <id name="target_map_id" value="mvz2:ship"/>
+                </properties>
+            </behaviours>
+        </element>
+        <element id="pin_palace" template="pin" >
+            <unlock>
+                <condition requiredGroups="mvz2:chapter.palace"/>
+            </unlock>
+            <behaviours>
+                <properties behaviour="mvz2:pin">
+                    <id name="target_map_id" value="mvz2:palace"/>
+                </properties>
+            </behaviours>
+        </element>
+        
+        <!-- Halloween Contraptions -->
+        <element id="small_dispenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.small_dispenser"/></unlock></element>
+        <element id="moonlight_sensor" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.moonlight_sensor"/></unlock></element>
+        <element id="glowstone" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.glowstone"/></unlock></element>
+        <element id="punchton" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.punchton"/></unlock></element>
+        <element id="tnt" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.tnt"/></unlock></element>
+        <element id="soul_furnace" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.soul_furnace"/></unlock></element>
+        <element id="silvenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.silvenser"/></unlock></element>
+        <element id="magichest" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.magichest"/></unlock></element>
+        
+        <!-- Dream Contraptions -->
+        <element id="lily_pad" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.lily_pad"/></unlock></element>
+        <element id="drivenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.drivenser"/></unlock></element>
+        <element id="gravity_pad" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.gravity_pad"/></unlock></element>
+        <element id="vortex_hopper" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.vortex_hopper"/></unlock></element>
+        <element id="pistenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.pistenser"/></unlock></element>
+        <element id="totenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.totenser"/></unlock></element>
+        <element id="dream_crystal" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.dream_crystal"/></unlock></element>
+        <element id="dream_silk" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.dream_silk"/></unlock></element>
+
+        <!-- Castle Contraptions -->
+        <element id="wooden_dropper" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.wooden_dropper"/></unlock></element>
+        <element id="spike_block" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.spike_block"/></unlock></element>
+        <element id="stone_dropper" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.stone_dropper"/></unlock></element>
+        <element id="stone_shield" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.stone_shield"/></unlock></element>
+        <element id="golden_apple" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.golden_apple"/></unlock></element>
+        <element id="thunder_drum" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.thunder_drum"/></unlock></element>
+        <element id="tesla_coil" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.tesla_coil"/></unlock></element>
+        <element id="giant_bowl" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.giant_bowl"/></unlock></element>
+
+        <!-- Mausoleum Contraptions -->
+        <element id="note_block" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.note_block"/></unlock></element>
+        <element id="lightning_orb" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.lightning_orb"/></unlock></element>
+        <element id="splitenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.splitenser"/></unlock></element>
+        <element id="devourer" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.devourer"/></unlock></element>
+        <element id="hellfire" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.hellfire"/></unlock></element>
+        <element id="necrotombstone" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.necrotombstone"/></unlock></element>
+        <element id="black_hole_bomb" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.black_hole_bomb"/></unlock></element>
+        <element id="desire_pot" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.desire_pot"/></unlock></element>
+
+        <!-- Ship Contraptions -->
+        <element id="gunpowder_barrel" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.gunpowder_barrel"/></unlock></element>
+        <element id="triplenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.triplenser"/></unlock></element>
+        <element id="firework_dispenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.firework_dispenser"/></unlock></element>
+        <element id="repeatenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.repeatenser"/></unlock></element>
+        <element id="beacon" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.beacon"/></unlock></element>
+        <element id="wooden_fan" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.wooden_fan"/></unlock></element>
+        <element id="elastic_cloud" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.elastic_cloud"/></unlock></element>
+        <element id="jeweled_pagoda" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.jeweled_pagoda"/></unlock></element>
+
+        <!-- Palace Contraptions -->
+        <element id="transfenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.transfenser"/></unlock></element>
+        <element id="gravelpult" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.gravelpult"/></unlock></element>
+        <element id="cursed_candle" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.cursed_candle"/></unlock></element>
+        <element id="stone_eye" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.stone_eye"/></unlock></element>
+        <element id="cooling_cell" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.cooling_cell"/></unlock></element>
+        <element id="amethyst_pylon" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.amethyst_pylon"/></unlock></element>
+        <element id="nuke" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.nuke"/></unlock></element>
+        <element id="nether_reactor_core" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.nether_reactor_core"/></unlock></element>
+    </elements>
+    
     <map id="halloween" area="mvz2:halloween">
         <presets>
             <preset id="mvz2:halloween" model="mvz2:halloween" backgroundColor="#00001A" music="mvz2:halloween_map" />
