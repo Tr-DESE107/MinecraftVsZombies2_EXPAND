@@ -1493,7 +1493,7 @@
             <entry id="mvz2:stone_eye" count="6" />
             <entry id="mvz2:amethyst_pylon" count="9" />
             <entry id="mvz2:nuke" count="2" minCount="0" />
-            <entry id="mvz2:spike_block" count="9" />
+            <entry id="mvz2:spike_block" count="6" />
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest" />
         <spawns flags="2" pointsMultiplier="3">
