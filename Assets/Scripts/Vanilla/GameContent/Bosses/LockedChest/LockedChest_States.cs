@@ -544,10 +544,11 @@ namespace MVZ2.GameContent.Bosses
             if (stateMachine.GetStateNumber(entity) != STATE_SMASH)
                 return;
             stateMachine.StartSubState(entity, HighJumpState.SUBSTATE_PRICKED);
-            SetHaveBeenPricked(entity, true);
+            entity.SetProperty(PROP_GRAVITY_MULTIPLIER, 0f);
             var timer = stateMachine.GetSubStateTimer(entity);
             timer.ResetSeconds(1);
             SetShake(entity, true);
+            SetHaveBeenPricked(entity, true);
 
             RemoveSmashTarget(entity);
 
@@ -562,7 +563,6 @@ namespace MVZ2.GameContent.Bosses
             entity.TakeDamage(600, new DamageEffectList(VanillaDamageEffects.SLICE), source);
 
             entity.Spawn(VanillaEffectID.stabEffect, (entity.Position + source.Position) / 2);
-            entity.SetProperty(PROP_GRAVITY_MULTIPLIER, 0f);
 
 
             entity.PlaySound(VanillaSoundID.shieldHit);
