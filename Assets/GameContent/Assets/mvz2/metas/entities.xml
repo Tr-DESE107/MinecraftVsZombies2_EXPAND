@@ -3732,7 +3732,7 @@
             </properties>
         </Imp_Exp>
 
-		<Skeleton_Exp id="RandomSkeleton" name="随机骷髅" deathMessage="被射成刺猬了！">
+		<Skeleton_Exp id="RandomSkeleton" name="随机骷髅" deathMessage="是哪种骷髅打死了你啊？">
 			<unlock>
 				<condition required="mvz2:level.vsRandomZombie" />
 			</unlock>
@@ -3757,7 +3757,7 @@
 				<id name="mvz2:fragmentId" value="mvz2:Santa" />
 			</properties>
 		</Skeleton_Exp>
-		<Skeleton_Exp id="RandomKingSkeleton" name="随机国王骷髅" deathMessage="你挂了\n死亡带走了12450金币和经验值">
+		<Skeleton_Exp id="RandomKingSkeleton" name="随机国王骷髅" deathMessage="是哪种骷髅打死了你啊？">
 			<unlock>
 				<condition required="mvz2:level.vsRandomZombie" />
 			</unlock>
