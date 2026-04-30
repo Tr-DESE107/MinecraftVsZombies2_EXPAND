@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-12-28 02:07+0800\n"
-"PO-Revision-Date: 2025-12-28 14:07+0800\n"
+"POT-Creation-Date: 2026-04-30 01:56+0800\n"
+"PO-Revision-Date: 2026-04-30 18:37+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Language: en-US\n"
 "X-Crowdin-File: /crowdin/talk.pot\n"
 "X-Crowdin-File-ID: 22\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Archive name for talk group castle_1
 #: Talk meta file
@@ -5373,6 +5373,12 @@ msgstr "So there's no more energy for the energy generator to generate energy."
 #. Text for talk sentence 8 in talk group halloween_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_1"
+msgid "哈哈，开心吗？"
+msgstr "Haha"
+
+#. Text for talk sentence 9 in talk group halloween_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_1"
 msgid "靠着你的熔炉活过今晚吧！"
 msgstr "Rely on your Furnaces to survive this night!"
 
@@ -6223,10 +6229,10 @@ msgstr ""
 #. Text for talk sentence 2 in talk group halloween_7_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_7_over"
-msgid "但代价是什么？它需要牺牲前方的器械来当作它的燃料！"
+msgid "但代价是什么？它需要本格的其他器械来当作它的燃料！"
 msgstr ""
-"But at what cost? It needs the contraption in front of it sacrificed as its "
-"fuel!"
+"But what's the cost? It needs other contraptions on its own tile to serve as "
+"its fuel!"
 
 #. Text for talk sentence 3 in talk group halloween_7_over's section 0
 #: Talk meta file
@@ -6507,8 +6513,8 @@ msgstr ""
 msgctxt "talk-mvz2:halloween_11"
 msgid "并且据我所知，TNT可以吸收闪电，并且在那之后会变得非常……危险。"
 msgstr ""
-"From what I’ve seen, TNTs have the ability to absorb lightning and become..."
-"dangerous."
+"From what I’ve seen, TNTs have the ability to absorb lightning and "
+"become...dangerous."
 
 #. Text for talk sentence 5 in talk group halloween_11's section 0
 #: Talk meta file
@@ -9031,6 +9037,30 @@ msgctxt "talk-mvz2:mausoleum_9"
 msgid "但要注意，皇帝这种职位，尤其能够强化他的人民！"
 msgstr ""
 "But beware, an emperor particularly excels at strengthening his people!"
+
+#. Text for talk sentence 6 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "还有个像是气功仙人的家伙。"
+msgstr "There's also this guy who looks like some kind of Qigong master."
+
+#. Text for talk sentence 7 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "我觉得该使用黑洞炸弹对付他。"
+msgstr "I think we should use the Black Hole Bomb against him."
+
+#. Text for talk sentence 8 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "有什么依据吗？"
+msgstr "What makes you say that?"
+
+#. Text for talk sentence 10 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "...行，那就使用黑洞炸弹对付他。"
+msgstr "...Alright, let's use the Black Hole Bomb on him then."
 
 #. Archive name for talk group mausoleum_9_over
 #: Talk meta file
@@ -11709,6 +11739,14 @@ msgstr "What's going on? How could there be so many?"
 msgctxt "talk-mvz2:ship_6"
 msgid "不好！那些飞碟飞过来了！"
 msgstr "Oh no! Those UFOs are coming!"
+
+#. Text for talk sentence 3 in talk group ship_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6"
+msgid "正好我有一些没做好的器械需要测试，邻居，接好了！"
+msgstr ""
+"I just happen to have some unfinished contraptions that need testing. Here "
+"they come, neighbor!"
 
 #. Archive name for talk group ship_6_over
 #: Talk meta file

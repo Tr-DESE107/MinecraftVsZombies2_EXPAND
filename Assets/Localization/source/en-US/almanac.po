@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2026-04-30 01:56+0800\n"
-"PO-Revision-Date: 2026-04-30 01:57+0800\n"
+"PO-Revision-Date: 2026-04-30 19:41+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -7026,7 +7026,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "<color=red><size=300%><b>    面对我</b></size></color>"
-msgstr "<color=red><size=300%><b>    FACE ME</b></size></color>"
+msgstr "<color=red><size=300%><b>   FACE ME</b></size></color>"
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file

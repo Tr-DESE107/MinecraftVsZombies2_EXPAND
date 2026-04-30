@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-30 01:56+0800\n"
+"POT-Creation-Date: 2026-04-30 07:34+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5653,10 +5653,10 @@ msgctxt "command_variant.description"
 msgid "生成一队伞兵僵尸。"
 msgstr ""
 
-#. Name for difficulty EXP|简单
+#. Name for difficulty <color=green>EXP|简单</color>
 #: Difficulty meta file
 msgctxt "difficulty"
-msgid "EXP|简单"
+msgid "<color=green>EXP|简单</color>"
 msgstr ""
 
 #. Name for difficulty EXP|普通
@@ -5665,15 +5665,15 @@ msgctxt "difficulty"
 msgid "EXP|普通"
 msgstr ""
 
-#. Name for difficulty EXP|困难
+#. Name for difficulty <color=yellow>EXP|困难</color>
 #: Difficulty meta file
 msgctxt "difficulty"
-msgid "EXP|困难"
+msgid "<color=yellow>EXP|困难</color>"
 msgstr ""
 
-#. Name for difficulty EXPAND
+#. Name for difficulty <color=red>EXPAND</color>
 #: Difficulty meta file
 msgctxt "difficulty"
-msgid "EXPAND"
+msgid "<color=red>EXPAND</color>"
 msgstr ""
 
