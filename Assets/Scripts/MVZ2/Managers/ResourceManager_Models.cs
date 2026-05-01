@@ -103,7 +103,7 @@ namespace MVZ2.Managers
             {
                 var meta = metas[i];
 
-                var modelID = meta.Path;
+                var modelID = meta.GetEffectivePath();
                 var metaPath = EngineModelID.ConcatName(meta.Type, meta.Name);
                 var metaID = new NamespaceID(modNamespace, metaPath);
                 if (NamespaceID.IsValid(modelID))

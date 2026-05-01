@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2.Models;
@@ -71,6 +72,19 @@ namespace MVZ2.Metas
                     }
                 }
             }
+            // 新增：解析 <override> 节点  
+            var overrides = new List<ModelOverride>();
+            for (int i = 0; i < node.ChildNodes.Count; i++)
+            {
+                var child = node.ChildNodes[i];
+                if (child.Name == "override")
+                {
+                    var ov = ModelOverride.FromXmlNode(child, defaultNsp);
+                    if (ov != null)
+                        overrides.Add(ov);
+                }
+            }
+
             var modelProperties = node["properties"].ToPropertyDictionary(defaultNsp);
             return new ModelMeta(animatorParameters.ToArray(), modelProperties)
             {
@@ -83,9 +97,29 @@ namespace MVZ2.Metas
                 XOffset = xOffset,
                 YOffset = yOffset,
                 ArmorConfigID = armorConfigID,
-                UpdateAnimatorOnShot = updateAnimatorOnShot
+                UpdateAnimatorOnShot = updateAnimatorOnShot,
+
+                Overrides = overrides.ToArray()  // 新增 
             };
         }
+
+        public ModelOverride[] Overrides { get; private set; } = Array.Empty<ModelOverride>();
+
+        /// <summary>  
+        /// 返回当前生效的预制体路径。  
+        /// 遍历 Overrides，返回第一个满足条件的 path；都不满足则返回默认 Path。  
+        /// </summary>  
+        public NamespaceID? GetEffectivePath()
+        {
+            foreach (var ov in Overrides)
+            {
+                if (ov.IsActive())
+                    return ov.Path;
+            }
+            return Path;
+        }
+
+
         public override string ToString()
         {
             return Name;
@@ -157,6 +191,72 @@ namespace MVZ2.Metas
                     model.SetAnimatorFloat(Name, FloatValue);
                     break;
             }
+        }
+    }
+    // 模型条件接口  
+    public interface IModelCondition
+    {
+        bool Evaluate();
+    }
+
+    // 日期条件：匹配月+日  
+    public class DateModelCondition : IModelCondition
+    {
+        public int Month { get; set; }
+        public int Day { get; set; }
+
+        public bool Evaluate()
+        {
+            var now = DateTime.Now;
+            return now.Month == Month && now.Day == Day;
+        }
+
+        public static DateModelCondition? FromXmlNode(XmlNode node)
+        {
+            var month = node.GetAttributeInt("month");
+            var day = node.GetAttributeInt("day");
+            if (month == null || day == null)
+                return null;
+            return new DateModelCondition { Month = month.Value, Day = day.Value };
+        }
+    }
+
+    // 模型覆盖定义  
+    public class ModelOverride
+    {
+        public NamespaceID? Path { get; set; }
+        public IModelCondition[] Conditions { get; set; } = Array.Empty<IModelCondition>();
+
+        public bool IsActive()
+        {
+            return Conditions.Length > 0 && Conditions.All(c => c.Evaluate());
+        }
+
+        public static ModelOverride? FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var path = node.GetAttributeNamespaceID("path", defaultNsp);
+            if (!NamespaceID.IsValid(path))
+                return null;
+
+            var conditions = new List<IModelCondition>();
+            for (int i = 0; i < node.ChildNodes.Count; i++)
+            {
+                var child = node.ChildNodes[i];
+                switch (child.Name)
+                {
+                    case "date":
+                        var dateCond = DateModelCondition.FromXmlNode(child);
+                        if (dateCond != null)
+                            conditions.Add(dateCond);
+                        break;
+                        // 未来可扩展其他条件类型  
+                }
+            }
+            return new ModelOverride
+            {
+                Path = path,
+                Conditions = conditions.ToArray()
+            };
         }
     }
 }
