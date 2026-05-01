@@ -1716,7 +1716,7 @@
 		<unlock>
 			<condition required="mvz2:level.ship_11" />
 		</unlock>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gunpowder_barrel" />
+		<clear pickupModel="mvz2:entity.money_chest" />
 		<spawns flags="3" wavesPerFlag="8">
 			<spawn id="mvz2:PirateZombie" />
 			<spawn id="mvz2:LeatherPirateZombie" />

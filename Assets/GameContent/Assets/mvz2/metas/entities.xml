@@ -2744,20 +2744,20 @@
 		
 		<zombie id="EnragedHostZombie" name="狂暴宿主僵尸" deathMessage="二 人 幸 终">
 			<unlock>
-				<condition required="mvz2:level.dream_12" />
+				<condition required="mvz2:level.dream_11" />
 			</unlock>
 			<properties>
-				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:cost" value="400" />
 				<int name="mvz2:waterInteraction" value="2" />
 				<float name="mvz2:maxHealth" value="2000" />
 				<float name="mvz2:damage" value="300" />
-				<float name="mvz2:speed" value="1.5" />
+				<float name="mvz2:speed" value="4" />
 			</properties>
 		</zombie>
 
 		<enemy id="AngryGhast" name="愤怒恶魂" deathMessage="这是真恶魂！">
 			<unlock>
-				<condition required="mvz2:level.dream_6" />
+				<condition required="mvz2:level.dream_11" />
 			</unlock>
 			<behaviours>
 				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:ghast/state" />
@@ -2790,7 +2790,7 @@
 		</enemy>
 		<smallSpider id="PhaseSpider" name="相位蜘蛛" deathMessage="闪现当被动怎么打？">
 			<unlock>
-				<condition required="mvz2:level.dream_3" />
+				<condition required="mvz2:level.dream_11" />
 			</unlock>
 			<properties>
 				<float name="mvz2:mass" value="-1" />
@@ -3305,7 +3305,7 @@
 				<condition required="mvz2:level.TrueAndFalseSteve" />
 			</unlock>
 			<properties>
-
+				<bool name="mvz2:harmless" value="true" />
 				<bool name="mvz2:notActiveEnemy" value="true" />
 				<float name="mvz2:damage" value="1800" />
 				<float name="mvz2:range" value="120" />
@@ -3360,6 +3360,7 @@
 				<condition required="mvz2:level.ship_12" />
 			</unlock>
 			<properties>
+				<float name="mvz2:maxHealth" value="500" />
 				<id name="mvz2:starting_armor" value="mvz2:ChiefCap" />
 				<id name="mvz2:starting_shield" value="mvz2:ChiefCannon" />
 				<int name="mvz2:cost" value="500" />

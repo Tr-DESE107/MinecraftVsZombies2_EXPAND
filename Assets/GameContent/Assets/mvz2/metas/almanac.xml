@@ -736,7 +736,9 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:stone_dropper">
+			<variables>
                 <variable name="boulder_damage">toDouble(global("mvz2:entity_damage")) * 4</variable>
+		    </variables>
 			<header>
 				<p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
 			</header>
@@ -1907,7 +1909,9 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:necromancer">
+			<variables>
                 <variable name="bone_wall_hp">property("mvz2:entity/maxHealth", "mvz2:bone_wall", "entity")</variable>
+			</variables>
 			<header>
 				<p>死灵法师会生成临时的骨墙阻挡子弹。</p>
 			</header>
@@ -2157,7 +2161,9 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:mother_terror">
+			<variables>
                 <variable name="laid_speed">toDouble(global("mvz2:entity_speed")) * 0.3</variable>
+			</variables>
 			<header>
 				<p>恐怖之母会向血肉之躯寄生虫卵。</p>
 			</header>
@@ -2251,6 +2257,55 @@
 			</flavor>
 		</entry>
 
+		<entry id="mvz2:PhaseSpider">
+			<header>
+				<p>相位蜘蛛能够向随机方向瞬移，受到伤害时同样有概率瞬移。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>特点：<![CDATA[<color=red>能够每8秒向随机方向瞬移，受到伤害时同样有概率瞬移。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>相位蜘蛛是一种极具科技感的、全身青黑色带绿眼睛的蜘蛛，体型和<![CDATA[<ref=[enemies]mvz2:cave_spider>洞穴蜘蛛</ref>]]>一样，非常危险。</p>
+				<p>虽然这种蜘蛛不会让你中毒，但它会像<![CDATA[<ref=[enemies]mvz2:Enderman>末影人</ref>]]>一样通过瞬移来闪避攻击这让近战的冒险家们尤为恼火，几乎每次抽剑攻击相位蜘蛛时都只能打到空气。</p>
+				<p>使用远程手段的射手们更为愤怒，这种蜘蛛未受到攻击时也会不时瞬移，这种毫无节制的瞬移使得射手们难以瞄准并击中。</p>
+				<p>遇到这种蜘蛛的冒险家无不谴责，可谓有口皆碑。</p>
+			</flavor>
+		</entry>
+		
+		<entry id="mvz2:EnragedHostZombie">
+			<header>
+				<p>狂暴宿主僵尸会在死亡之前疯狂的冲向你的阵线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>特点：<![CDATA[<color=red>拥有特殊的"再生"效果，以60/s的速度损失血量</color>]]></p>
+			</properties>
+			<flavor>
+				<p>虽然看起来可怕，但他的生命已如风中残烛，放着不管就会死掉....？</p>
+				<p>前提是，他没看到还活着的生物，看到后，它将榨干全身最后一滴力气冲向目标，持续撕咬，直到目标不再动弹。</p>
+			</flavor>
+		</entry>
+		
+		<entry id="mvz2:AngryGhast">
+			<header>
+				<p>愤怒恶魂会发射更为可怕的火焰弹，并在每发射两发后连续发射三发，死亡后还会爆炸。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>特点：<![CDATA[<color=red>每发射两发后连续发射三发大火焰弹，死亡后会爆炸。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>从外观上就能看出其与常规恶魂的区别——尤其是其发射时的骇人面孔。</p>
+				<p>这种恶魂能够连续发射多发威力惊人的火球，打中一颗火焰弹还算简单，不失误的打中多颗则是很有挑战性的行为。我们建议诸位不要尝试和他打棒球，你打不过的。</p>
+				<p/>
+				<p>据说这种恶魂曾经在地狱里非常常见。</p>
+			</flavor>
+		</entry>
+
 
 		<entry id="mvz2:WitherSkeleton">
 			<header>
@@ -2340,7 +2395,9 @@
 		</entry>
 
 		<entry id="mvz2:berserker">
+			<variables>
                 <variable name="explosion_damage">toDouble(global("mvz2:entity_damage")) * 3</variable>
+			</variables>
 			<header>
 				<p>狂战士在死亡时会产生猛烈的爆炸。</p>
 			</header>
@@ -2926,7 +2983,9 @@
 			</flavor>
 		</entry>
 		<entry id="mvz2:cannoneer_zombie">
+			<variables>
                 <variable name="cannon_speed">toDouble(global("mvz2:entity_speed")) * 0.5</variable>
+			</variables>
 			<header>
                 <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只<![CDATA[<ref=[enemies]mvz2:cannonball_zombie>炮弹僵尸</ref>]]>。</p>
 			</header>

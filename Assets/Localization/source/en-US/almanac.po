@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-30 01:56+0800\n"
-"PO-Revision-Date: 2026-04-30 19:41+0800\n"
+"POT-Creation-Date: 2026-05-01 04:01+0800\n"
+"PO-Revision-Date: 2026-05-01 16:02+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3322,7 +3322,7 @@ msgid ""
 "特点：<color=red>1/4概率发射能够冻结敌人150帧的冰锥。</color>\n"
 "技能：<color=red>快速发射60支冰锥</color>"
 msgstr ""
-"Damage: <color=red>Regular icicle: <var id=\"mvz2:entity_damage\" />, Freezing icicle: 30</color>\n"
+"Damage: <color=red>Regular Icebolt: <var id=\"mvz2:entity_damage\" />, Freezing Icebolt: 30</color>\n"
 "Special: <color=red>1/4 chance to fire an icicle that freezes enemies for 150 frames</color>\n"
 "Evocation: <color=red>Rapidly fires 60 icicles</color>"
 
@@ -4475,6 +4475,110 @@ msgstr ""
 "fanaticism that renders them impervious to blades and arrows. The Disciples can also fire projectiles condensed from dark magic — any "
 "creature struck by them withers away in agony."
 
+#. Header for enemies mvz2:PhaseSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "相位蜘蛛能够向随机方向瞬移，受到伤害时同样有概率瞬移。"
+msgstr "Phase Spiders can teleport in a random direction and may also teleport when damaged."
+
+#. Properties for enemies mvz2:PhaseSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>能够每8秒向随机方向瞬移，受到伤害时同样有概率瞬移。</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Teleports in a random direction every 8 seconds, with a chance to also teleport when damaged.</color>"
+
+#. Flavor for enemies mvz2:PhaseSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"相位蜘蛛是一种极具科技感的、全身青黑色带绿眼睛的蜘蛛，体型和<ref=[enemies]mvz2:cave_spider>洞穴蜘蛛</ref>一样，非常危险。\n"
+"虽然这种蜘蛛不会让你中毒，但它会像<ref=[enemies]mvz2:Enderman>末影人</ref>一样通过瞬移来闪避攻击这让近战的冒险家们尤为恼火，几乎每次抽"
+"剑攻击相位蜘蛛时都只能打到空气。\n"
+"使用远程手段的射手们更为愤怒，这种蜘蛛未受到攻击时也会不时瞬移，这种毫无节制的瞬移使得射手们难以瞄准并击中。\n"
+"遇到这种蜘蛛的冒险家无不谴责，可谓有口皆碑。"
+msgstr ""
+"Phase Spiders are highly technological-looking spiders with a dark blue-green body and green eyes. They are the same size as "
+"<ref=[enemies]mvz2:cave_spider>cave spiders</ref> and are very dangerous.\n"
+"\n"
+"Although these spiders won't poison you, they teleport to evade attacks just like <ref=[enemies]mvz2:Enderman>Endermen</ref> — which "
+"melee adventurers find especially infuriating, as they often end up swinging at nothing.\n"
+"\n"
+"Ranged fighters are even more frustrated. These spiders will teleport occasionally even when not under attack. Their constant, erratic "
+"teleporting makes them nearly impossible to track and hit.\n"
+"\n"
+"Every adventurer who has encountered these spiders condemns them — they're universally hated."
+
+#. Header for enemies mvz2:EnragedHostZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "狂暴宿主僵尸会在死亡之前疯狂的冲向你的阵线。"
+msgstr "Enraged Host Zombie will charge wildly toward your defenses before dying."
+
+#. Properties for enemies mvz2:EnragedHostZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>拥有特殊的\"再生\"效果，以60/s的速度损失血量</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Has a special \"Regeneration\" effect that drains 60 health per second.</color>"
+
+#. Flavor for enemies mvz2:EnragedHostZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"虽然看起来可怕，但他的生命已如风中残烛，放着不管就会死掉....？\n"
+"前提是，他没看到还活着的生物，看到后，它将榨干全身最后一滴力气冲向目标，持续撕咬，直到目标不再动弹。"
+msgstr ""
+"Although it looks terrifying, its life is already hanging by a thread — if left alone, will it simply die out...?\n"
+"\n"
+"The catch is: it only self-destructs when it can't see any living creature. The moment it spots one, it will drain the last ounce of "
+"its strength and charge straight at its target, biting relentlessly until that target stops moving."
+
+#. Header for enemies mvz2:AngryGhast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "愤怒恶魂会发射更为可怕的火焰弹，并在每发射两发后连续发射三发，死亡后还会爆炸。"
+msgstr "Angry Ghast fires even more terrifying fireballs. After every two shots, it fires three in a row. It also explodes upon death."
+
+#. Properties for enemies mvz2:AngryGhast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>每发射两发后连续发射三发大火焰弹，死亡后会爆炸。</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Fires three large fireballs in a row after every two shots. Explodes upon death.</color>"
+
+#. Flavor for enemies mvz2:AngryGhast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"从外观上就能看出其与常规恶魂的区别——尤其是其发射时的骇人面孔。\n"
+"这种恶魂能够连续发射多发威力惊人的火球，打中一颗火焰弹还算简单，不失误的打中多颗则是很有挑战性的行为。我们建议诸位不要尝试和他打棒球，"
+"你打不过的。\n"
+"\n"
+"据说这种恶魂曾经在地狱里非常常见。"
+msgstr ""
+"You can tell it apart from a regular ghast just by looking at it — especially the terrifying face it makes when firing.\n"
+"\n"
+"This type of ghast can fire multiple devastating fireballs in a row. Hitting one fireball is simple enough, but landing multiple "
+"consecutive hits without missing is a real challenge. Our advice? Don't try to play baseball with it. You won't win.\n"
+"\n"
+"Legend has it that this kind of ghast used to be very common in the Nether."
+
 #. Header for enemies mvz2:WitherSkeleton
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -5414,7 +5518,7 @@ msgid ""
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"Damage: <color=red>Icicle: 20, Lightning Orb: 20, Fireball: 80</color>"
+"Damage: <color=red>Icebolt: 20, Chargedbolt: 20, Fireball: 80</color>"
 
 #. Flavor for enemies mvz2:skeleton_mage
 #: Almanac meta file
@@ -5853,7 +5957,7 @@ msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"shield_hp\" /></color>\n"
 "速度：<color=red><var id=\"mvz2:entity_speed\" /></color>"
 msgstr ""
-"Toughness: <color=red><var id=\"mvz2:entity_health\" />+<var id=\"armor_hp\" /></color>\n"
+"Toughness: <color=red><var id=\"mvz2:entity_health\" />+<var id=\"shield_hp\" /></color>\n"
 "Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>"
 
 #. Flavor for enemies mvz2:ChiefCannoneerZombie
@@ -9571,7 +9675,7 @@ msgstr "Freezenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "射出能够减速和冻结敌人的冰锥"
-msgstr "Fires icicles that slow and freeze enemies."
+msgstr "Fires icebolt that slow and freeze enemies."
 
 #. Name for entity mvz2:PermanentIce
 #: Entity meta file

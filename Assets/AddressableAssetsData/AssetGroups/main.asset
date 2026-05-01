@@ -4999,6 +4999,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fcc7532dcc38f54cb1f0e40c2648c03
+    m_Address: mvz2:effect/MannequinBlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ff75407048ce3c47b747375afd920ff
     m_Address: mvz2:projectile/RedKnife
     m_ReadOnly: 0
@@ -5488,6 +5495,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57bcad3c37a161a45b97385454b69845
+    m_Address: mvz2:entity/ghast/ghast_affectionate_scream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 580a757d547930b41a026df31631b7c9
     m_Address: mvz2:entity/enemies/mesmerizer_head
@@ -13698,6 +13712,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4708c974b7260543b7ffd9c3ae41480
+    m_Address: mvz2:entity/effects/MannequinBlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e498e83d5e200f1458935ef93fd50a6b
     m_Address: mvz2:enemy/EXPAND/XCarrierMutant

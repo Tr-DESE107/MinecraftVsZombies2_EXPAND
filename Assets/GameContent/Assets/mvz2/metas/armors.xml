@@ -427,7 +427,7 @@
 			<props>
 				<bool name="mvz2:noDiscard" value="true" />
 				<id name="mvz2:shell" value="mvz2:metal" />
-				<float name="mvz2:maxHealth" value="1110" />
+				<float name="mvz2:maxHealth" value="1500" />
 			</props>
 		</entry>
     </entries>

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-30 07:34+0800\n"
+"POT-Creation-Date: 2026-05-01 04:01+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3500,6 +3500,79 @@ msgctxt "enemies.description"
 msgid ""
 "<ref=[misc]mvz2:nightmare>梦魇</ref>的存在本身是一个大大的谜团，<ref=[misc]mvz2:nightmare>梦魇</ref>的这些追随者是如何诞生的也是一个大大的谜团。这些骷髅虽然拥有和<ref=[misc]mvz2:nightmare>梦魇</ref>相近的力量，但经法术学分析，我们基本可以排除其为<ref=[misc]mvz2:nightmare>梦魇</ref>实际创造物的可能性。\n"
 "梦魇追随者会被<ref=[misc]mvz2:nightmare>梦魇</ref>所召唤，被召唤的追随者们带有一种强烈的狂热性，这份狂热使得他们刀枪不入。追随者们还可以使用暗魔法凝聚的射弹，被击中的生物会在痛苦下迅速逝去。"
+msgstr ""
+
+#. Header for enemies mvz2:PhaseSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "相位蜘蛛能够向随机方向瞬移，受到伤害时同样有概率瞬移。"
+msgstr ""
+
+#. Properties for enemies mvz2:PhaseSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>能够每8秒向随机方向瞬移，受到伤害时同样有概率瞬移。</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:PhaseSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"相位蜘蛛是一种极具科技感的、全身青黑色带绿眼睛的蜘蛛，体型和<ref=[enemies]mvz2:cave_spider>洞穴蜘蛛</ref>一样，非常危险。\n"
+"虽然这种蜘蛛不会让你中毒，但它会像<ref=[enemies]mvz2:Enderman>末影人</ref>一样通过瞬移来闪避攻击这让近战的冒险家们尤为恼火，几乎每次抽剑攻击相位蜘蛛时都只能打到空气。\n"
+"使用远程手段的射手们更为愤怒，这种蜘蛛未受到攻击时也会不时瞬移，这种毫无节制的瞬移使得射手们难以瞄准并击中。\n"
+"遇到这种蜘蛛的冒险家无不谴责，可谓有口皆碑。"
+msgstr ""
+
+#. Header for enemies mvz2:EnragedHostZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "狂暴宿主僵尸会在死亡之前疯狂的冲向你的阵线。"
+msgstr ""
+
+#. Properties for enemies mvz2:EnragedHostZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>拥有特殊的\"再生\"效果，以60/s的速度损失血量</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:EnragedHostZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"虽然看起来可怕，但他的生命已如风中残烛，放着不管就会死掉....？\n"
+"前提是，他没看到还活着的生物，看到后，它将榨干全身最后一滴力气冲向目标，持续撕咬，直到目标不再动弹。"
+msgstr ""
+
+#. Header for enemies mvz2:AngryGhast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "愤怒恶魂会发射更为可怕的火焰弹，并在每发射两发后连续发射三发，死亡后还会爆炸。"
+msgstr ""
+
+#. Properties for enemies mvz2:AngryGhast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>每发射两发后连续发射三发大火焰弹，死亡后会爆炸。</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:AngryGhast
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"从外观上就能看出其与常规恶魂的区别——尤其是其发射时的骇人面孔。\n"
+"这种恶魂能够连续发射多发威力惊人的火球，打中一颗火焰弹还算简单，不失误的打中多颗则是很有挑战性的行为。我们建议诸位不要尝试和他打棒球，你打不过的。\n"
+"\n"
+"据说这种恶魂曾经在地狱里非常常见。"
 msgstr ""
 
 #. Header for enemies mvz2:WitherSkeleton
