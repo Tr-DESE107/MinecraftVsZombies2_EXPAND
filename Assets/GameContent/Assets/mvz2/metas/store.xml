@@ -129,8 +129,8 @@
 
         <product id="Snipenser" blueprintId="mvz2:Snipenser">
             <talks>
-                <talk character="mvz2:crazy_villager">把狙击发射器放在发射器上，让其能够向四面八分发射骇人的子弹！</talk>
-                <talk character="mvz2:tokiko">狙击发射器能升级发射器，可以向四面八分发射高级的子弹！</talk>
+                <talk character="mvz2:crazy_villager">把狙击发射器放在发射器上，让其能够向四面八方发射骇人的子弹！</talk>
+                <talk character="mvz2:tokiko">狙击发射器能升级发射器，可以向四面八方发射高级的子弹！</talk>
             </talks>
             <stages>
                 <stage price="5000" unlocks="mvz2:contraption.Snipenser" />

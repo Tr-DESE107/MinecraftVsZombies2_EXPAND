@@ -22,6 +22,7 @@ namespace MVZ2.GameContent.Enemies
         {
             absorbDetector = new SphereDetector(ABSORB_RADIUS)
             {
+                canDetectInvisible = true,
                 mask = EntityCollisionHelper.MASK_PROJECTILE,
             };
         }

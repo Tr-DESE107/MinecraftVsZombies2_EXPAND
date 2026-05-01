@@ -18,6 +18,7 @@ namespace MVZ2Logic.HeldItems
         Pickup = 1 << 5,
         Projectile = 1 << 6,
         Effect = 1 << 7,
+        All = (1 << 8) - 1
     }
     public static class HeldTargetFlagHelper
     {

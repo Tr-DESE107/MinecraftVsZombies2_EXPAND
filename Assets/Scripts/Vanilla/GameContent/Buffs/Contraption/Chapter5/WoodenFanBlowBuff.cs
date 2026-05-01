@@ -73,11 +73,13 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 {
                     mask = EntityCollisionHelper.MASK_ENEMY,
                     factionTarget = FactionTarget.Hostile,
+                    canDetectInvisible = true,
                 };
                 evokedDetector = new WoodenFanDetector(true)
                 {
                     mask = EntityCollisionHelper.MASK_ENEMY,
                     factionTarget = FactionTarget.Hostile,
+                    canDetectInvisible = true,
                 };
             }
 

@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Detections
     {
         public CameraFlashDetector()
         {
+            canDetectInvisible = true;
             mask = EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_PROJECTILE;
         }
         protected override Bounds GetDetectionBounds(Entity self)

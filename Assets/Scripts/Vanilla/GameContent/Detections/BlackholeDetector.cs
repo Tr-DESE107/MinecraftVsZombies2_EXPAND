@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Detections
     {
         public BlackholeDetector()
         {
+            canDetectInvisible = true;
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {

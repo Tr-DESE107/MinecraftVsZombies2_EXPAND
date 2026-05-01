@@ -197,6 +197,14 @@ namespace MVZ2.Map
             cameraScaleSpeed *= 0.8f;
             mapCameraShakeRoot.localPosition = (Vector3)Main.ShakeManager.GetShake2D();
         }
+        private void OnApplicationFocus(bool focus)
+        {
+            if (!focus && draggingView)
+            {
+                draggingView = false;
+                ui.SetDragRootVisible(false);
+            }
+        }
         #endregion
 
         #region 事件回调

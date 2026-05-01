@@ -147,7 +147,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaEntityPropertyMeta<Color>("tint_multiplier", Color.white);
         private static readonly VanillaEntityPropertyMeta<List<NamespaceID>> PROP_EATEN_ENTITIES = new VanillaEntityPropertyMeta<List<NamespaceID>>("eaten_entities");
 
-        private static CollisionDetector landDetector = new CollisionDetector();
+        private static CollisionDetector landDetector = new CollisionDetector(true);
         private static List<IEntityCollider> landBuffer = new List<IEntityCollider>();
 
         public const int STATE_IDLE = VanillaBossStates.IDLE;

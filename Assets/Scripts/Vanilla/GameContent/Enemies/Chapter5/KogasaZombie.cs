@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
-            // 在近战攻击状态时，对目标施加蚀毒  
+            // 在近战攻击状态时，对目标施加晕眩
             if (entity.State == STATE_MELEE_ATTACK)
             {
                 var targetID = EnemyMeleeBehaviour.GetMeleeTarget(entity);

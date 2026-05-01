@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-12-29 03:09+0800\n"
+"POT-Creation-Date: 2026-05-01 04:01+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,9 @@ msgstr ""
 
 #. 初始界面的作者标识
 #: /MainGame/MainScene/Init/Splash/Canvas/Creator
-msgid "Cuerzor制作"
+msgid ""
+"<color=yellow>Cuerzor</color>制作\n"
+"<color=yellow>EXPAND</color>由<color=yellow>新概念论士/DESE107</color>修改&制作"
 msgstr ""
 
 #. 菜单对话框的标题
@@ -296,6 +298,11 @@ msgstr ""
 #. 图鉴按钮
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewMiscRegion/Button/Text
 msgid "查看杂项"
+msgstr ""
+
+#. 图鉴按钮
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/Index/Center/Root/Right/Regions/ViewMiscRegion/Button (1)/Text
+msgid "查看Wiki"
 msgstr ""
 
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/ContraptionsStandalone/Center/BlueprintList/TitleRegion/Title
@@ -889,48 +896,88 @@ msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
 
 # 梦魇对话框标题
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:41
 msgid "选择你的命运"
 msgstr ""
 
 # 梦魇对话框文本
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:43
 msgid "选吧。"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
-msgid "潘多拉的魔盒"
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:46
+msgid "失能"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
-msgid "尸潮"
-msgstr ""
-
-# 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
-msgid "衰老"
-msgstr ""
-
-# 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:502
-msgid "疯狂"
-msgstr ""
-
-# 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:504
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:48
 msgid "成真"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:506
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:50
+msgid "潘多拉的魔盒"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:52
+msgid "疯狂"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:54
+msgid "衰老"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:56
+msgid "尸潮"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:58
 msgid "深潜者"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:508
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:60
 msgid "黑太阳"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:62
+msgid "宿主降临"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:64
+msgid "BIGBANG"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:66
+msgid "截肢"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:68
+msgid "骨堆"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:70
+msgid "新生"
+msgstr ""
+
+# 梦魇选项
+#: Scripts\Vanilla\GameContent\Bosses\BossFateActions.cs:72
+msgid "逐影"
+msgstr ""
+
+# 警告
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:947
+msgid "<color=red>你当真打算与我为敌？</color>"
 msgstr ""
 
 # 教程无法使用提示
@@ -1108,102 +1155,108 @@ msgstr ""
 # 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:80
 msgctxt "recharge_time"
-msgid "长"
+msgid "中"
 msgstr ""
 
 # 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:82
 msgctxt "recharge_time"
+msgid "长"
+msgstr ""
+
+# 冷却时间
+#: Scripts\Vanilla\VanillaStrings.cs:84
+msgctxt "recharge_time"
 msgid "很长"
 msgstr ""
 
 # 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:86
+#: Scripts\Vanilla\VanillaStrings.cs:88
 msgctxt "archive"
 msgid "剧情分支"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:88
+#: Scripts\Vanilla\VanillaStrings.cs:90
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr ""
 
 # 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:90
+#: Scripts\Vanilla\VanillaStrings.cs:92
 msgctxt "archive"
 msgid "对话结束"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:92
+#: Scripts\Vanilla\VanillaStrings.cs:94
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr ""
 
 # 通用的是
-#: Scripts\Vanilla\VanillaStrings.cs:96
+#: Scripts\Vanilla\VanillaStrings.cs:98
 msgid "是"
 msgstr ""
 
 # 通用的否
-#: Scripts\Vanilla\VanillaStrings.cs:98
+#: Scripts\Vanilla\VanillaStrings.cs:100
 msgid "否"
 msgstr ""
 
 # 通用的开
-#: Scripts\Vanilla\VanillaStrings.cs:100
+#: Scripts\Vanilla\VanillaStrings.cs:102
 msgid "开"
 msgstr ""
 
 # 通用的关
-#: Scripts\Vanilla\VanillaStrings.cs:102
+#: Scripts\Vanilla\VanillaStrings.cs:104
 msgid "关"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:108
+#: Scripts\Vanilla\VanillaStrings.cs:110
 msgid "返回地图"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:110
+#: Scripts\Vanilla\VanillaStrings.cs:112
 msgid "返回主菜单"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:114
+#: Scripts\Vanilla\VanillaStrings.cs:116
 msgid "警告"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:116
+#: Scripts\Vanilla\VanillaStrings.cs:118
 msgid "提示"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:118
+#: Scripts\Vanilla\VanillaStrings.cs:120
 msgid "退出"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:125
+#: Scripts\Vanilla\VanillaStrings.cs:127
 msgid "挖掉器械"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:127
+#: Scripts\Vanilla\VanillaStrings.cs:129
 msgid "触发器械"
 msgstr ""
 
 # 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:132
+#: Scripts\Vanilla\VanillaStrings.cs:134
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Vanilla\VanillaStrings.cs:134
+#: Scripts\Vanilla\VanillaStrings.cs:136
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgid_plural "{0} - 第{1}天"
@@ -1211,7 +1264,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 关卡名称，{0}为关卡名，{1}为无尽模式轮数
-#: Scripts\Vanilla\VanillaStrings.cs:136
+#: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgid_plural "{0} - 第{1}轮"
@@ -1219,211 +1272,211 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 死亡信息-梦魇碾压墙
-#: Scripts\Vanilla\VanillaStrings.cs:139
+#: Scripts\Vanilla\VanillaStrings.cs:141
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr ""
 
 # 死亡信息-我是僵尸
-#: Scripts\Vanilla\VanillaStrings.cs:141
+#: Scripts\Vanilla\VanillaStrings.cs:143
 msgctxt "death_message"
 msgid "你失去了所有能量！"
 msgstr ""
 
 # 怪物说明-还没有遇到
-#: Scripts\Vanilla\VanillaStrings.cs:145
+#: Scripts\Vanilla\VanillaStrings.cs:147
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr ""
 
 # 图鉴说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:147
+#: Scripts\Vanilla\VanillaStrings.cs:149
 msgctxt "almanac"
 msgid "？？？"
 msgstr ""
 
 # 音乐名-无
-#: Scripts\Vanilla\VanillaStrings.cs:151
+#: Scripts\Vanilla\VanillaStrings.cs:153
 msgctxt "music.name"
 msgid "无"
 msgstr ""
 
 # 命令输出，{0}为命令名
-#: Scripts\Vanilla\VanillaStrings.cs:154
+#: Scripts\Vanilla\VanillaStrings.cs:156
 msgctxt "command.output"
 msgid "未找到命令{0}！"
 msgstr ""
 
 # 命令输出-help，{0}为命令名，{1}为命令描述
-#: Scripts\Vanilla\VanillaStrings.cs:156
+#: Scripts\Vanilla\VanillaStrings.cs:158
 msgctxt "command.output"
 msgid "/{0} - {1}"
 msgstr ""
 
 # 命令输出-help
-#: Scripts\Vanilla\VanillaStrings.cs:158
+#: Scripts\Vanilla\VanillaStrings.cs:160
 msgctxt "command.output"
 msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
 msgstr ""
 
 # 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
-#: Scripts\Vanilla\VanillaStrings.cs:160
+#: Scripts\Vanilla\VanillaStrings.cs:162
 msgctxt "command.output"
 msgid "{0}: [{1}] {2}"
 msgstr ""
 
 # 命令输出-blueprint，{0}为参数
-#: Scripts\Vanilla\VanillaStrings.cs:162
+#: Scripts\Vanilla\VanillaStrings.cs:164
 msgctxt "command.output"
 msgid "蓝图槽位参数{0}超出范围"
 msgstr ""
 
 # 命令输出-cheat，{0}为参数
-#: Scripts\Vanilla\VanillaStrings.cs:164
+#: Scripts\Vanilla\VanillaStrings.cs:166
 msgctxt "command.output"
 msgid "未找到作弊命令{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\VanillaStrings.cs:166
+#: Scripts\Vanilla\VanillaStrings.cs:168
 msgctxt "command.output"
 msgid "已启用{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\VanillaStrings.cs:168
+#: Scripts\Vanilla\VanillaStrings.cs:170
 msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr ""
 
 # 命令输出-save
-#: Scripts\Vanilla\VanillaStrings.cs:170
+#: Scripts\Vanilla\VanillaStrings.cs:172
 msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:172
+#: Scripts\Vanilla\VanillaStrings.cs:174
 msgctxt "command.output"
 msgid "已解锁游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:174
+#: Scripts\Vanilla\VanillaStrings.cs:176
 msgctxt "command.output"
 msgid "无法解锁游戏状态{0}：该状态已被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:176
+#: Scripts\Vanilla\VanillaStrings.cs:178
 msgctxt "command.output"
 msgid "已重新锁定游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\VanillaStrings.cs:178
+#: Scripts\Vanilla\VanillaStrings.cs:180
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr ""
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:180
+#: Scripts\Vanilla\VanillaStrings.cs:182
 msgctxt "command.output"
 msgid "命令格式错误"
 msgstr ""
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:182
+#: Scripts\Vanilla\VanillaStrings.cs:184
 msgctxt "command.output"
 msgid "该命令只能在关卡中被调用"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:184
+#: Scripts\Vanilla\VanillaStrings.cs:186
 msgctxt "command.output"
 msgid "参数{0}格式错误"
 msgstr ""
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:186
+#: Scripts\Vanilla\VanillaStrings.cs:188
 msgctxt "command.output"
 msgid "参数数量错误"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:188
+#: Scripts\Vanilla\VanillaStrings.cs:190
 msgctxt "command.output"
 msgid "参数{0}丢失"
 msgstr ""
 
 # 命令输出，{0}为有效参数列表
-#: Scripts\Vanilla\VanillaStrings.cs:190
+#: Scripts\Vanilla\VanillaStrings.cs:192
 msgctxt "command.output"
 msgid "参数错误，有效值为{0}"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:192
+#: Scripts\Vanilla\VanillaStrings.cs:194
 msgctxt "command.output"
 msgid "参数丢失，有效值为{0}"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:195
+#: Scripts\Vanilla\VanillaStrings.cs:197
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:197
+#: Scripts\Vanilla\VanillaStrings.cs:199
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:199
+#: Scripts\Vanilla\VanillaStrings.cs:201
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:201
+#: Scripts\Vanilla\VanillaStrings.cs:203
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:204
+#: Scripts\Vanilla\VanillaStrings.cs:206
 msgctxt "command_parameter.type"
 msgid "真值"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:206
+#: Scripts\Vanilla\VanillaStrings.cs:208
 msgctxt "command_parameter.type"
 msgid "整数"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:208
+#: Scripts\Vanilla\VanillaStrings.cs:210
 msgctxt "command_parameter.type"
 msgid "实数"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:210
+#: Scripts\Vanilla\VanillaStrings.cs:212
 msgctxt "command_parameter.type"
 msgid "ID"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:212
+#: Scripts\Vanilla\VanillaStrings.cs:214
 msgctxt "command_parameter.type"
 msgid "命令"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:214
+#: Scripts\Vanilla\VanillaStrings.cs:216
 msgctxt "command_parameter.type"
 msgid "未知"
 msgstr ""
@@ -1802,38 +1855,38 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:732
+#: Scripts\MVZ2\Map\MapController.cs:740
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:734
+#: Scripts\MVZ2\Map\MapController.cs:742
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:736
+#: Scripts\MVZ2\Map\MapController.cs:744
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:738
+#: Scripts\MVZ2\Map\MapController.cs:746
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:740
+#: Scripts\MVZ2\Map\MapController.cs:748
 msgid "目标地点{0}不存在。"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:742
+#: Scripts\MVZ2\Map\MapController.cs:750
 msgid "目标关卡{0}不存在。"
 msgstr ""
 
@@ -2685,47 +2738,47 @@ msgid "FPS: {0}"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:828
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:832
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:830
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:834
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:832
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:836
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:834
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:838
 msgid "确认要退出吗？"
 msgstr ""
 
 # 存档导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:836
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:840
 msgid "导出存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:838
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
 msgid "导入存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:840
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:842
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:846
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
 # 存档导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:844
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:848
 msgid "存档已导出至{0}。"
 msgstr ""
 
@@ -2851,37 +2904,37 @@ msgid ""
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:843
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:972
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:845
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:974
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:847
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:976
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr ""
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:849
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:978
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:851
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:980
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:853
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:982
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr ""
@@ -3096,6 +3149,156 @@ msgctxt "levelname"
 msgid "红龙的复仇"
 msgstr ""
 
+#. Name for stage mvz2:a_tooth_for_a_tooth
+#: Stage meta file
+msgctxt "levelname"
+msgid "以牙还牙"
+msgstr ""
+
+#. Name for stage mvz2:Do_Magic_Tricks
+#: Stage meta file
+msgctxt "levelname"
+msgid "变魔术"
+msgstr ""
+
+#. Name for stage mvz2:MutantCrisis
+#: Stage meta file
+msgctxt "levelname"
+msgid "巨人危机"
+msgstr ""
+
+#. Name for stage mvz2:ContraptionDevourer
+#: Stage meta file
+msgctxt "levelname"
+msgid "器械吞噬者"
+msgstr ""
+
+#. Name for stage mvz2:RandomChinaAndPot
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=yellow>随机瓷器与欲望壶</color>"
+msgstr ""
+
+#. Name for stage mvz2:PerformanceArt
+#: Stage meta file
+msgctxt "levelname"
+msgid "行为艺术"
+msgstr ""
+
+#. Name for stage mvz2:WhackASkeleton
+#: Stage meta file
+msgctxt "levelname"
+msgid "锤骷髅"
+msgstr ""
+
+#. Name for stage mvz2:MutantCrisis_2
+#: Stage meta file
+msgctxt "levelname"
+msgid "巨人危机2"
+msgstr ""
+
+#. Name for stage mvz2:VillagerNews
+#: Stage meta file
+msgctxt "levelname"
+msgid "村民新闻"
+msgstr ""
+
+#. Name for stage mvz2:TrueAndFalseSteve
+#: Stage meta file
+msgctxt "levelname"
+msgid "真假史蒂夫"
+msgstr ""
+
+#. Name for stage mvz2:ContraptionDevourer_2
+#: Stage meta file
+msgctxt "levelname"
+msgid "器械吞噬者2"
+msgstr ""
+
+#. Name for stage mvz2:RandomChinaDevourer
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=yellow>随机瓷器吞噬者</color>"
+msgstr ""
+
+#. Name for stage mvz2:vsRandomZombie
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=yellow>对战随机僵尸</color>"
+msgstr ""
+
+#. Name for stage mvz2:MortalZombat
+#: Stage meta file
+msgctxt "levelname"
+msgid "真尸快打"
+msgstr ""
+
+#. Name for stage mvz2:LigneMaginot
+#: Stage meta file
+msgctxt "levelname"
+msgid "马奇诺防线"
+msgstr ""
+
+#. Name for stage mvz2:AnotherPrologue
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>另一个序章</color>"
+msgstr ""
+
+#. Name for stage mvz2:ArmorParty
+#: Stage meta file
+msgctxt "levelname"
+msgid "盔甲派对"
+msgstr ""
+
+#. Name for stage mvz2:big_trouble_and_little_zombie_2
+#: Stage meta file
+msgctxt "levelname"
+msgid "小僵尸和大麻烦2"
+msgstr ""
+
+#. Name for stage mvz2:GiantCrisis
+#: Stage meta file
+msgctxt "levelname"
+msgid "真·巨人危机"
+msgstr ""
+
+#. Name for stage mvz2:DowsingNote
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=yellow>探宝笔记</color>"
+msgstr ""
+
+#. Name for stage mvz2:FeedFeast
+#: Stage meta file
+msgctxt "levelname"
+msgid "狂宴"
+msgstr ""
+
+#. Name for stage mvz2:ZombiesTide
+#: Stage meta file
+msgctxt "levelname"
+msgid "尸海战术"
+msgstr ""
+
+#. Name for stage mvz2:WarThunder
+#: Stage meta file
+msgctxt "levelname"
+msgid "战争雷霆"
+msgstr ""
+
+#. Name for stage mvz2:ZombieNimbleZombieQuick
+#: Stage meta file
+msgctxt "levelname"
+msgid "僵尸快跑"
+msgstr ""
+
+#. Name for stage mvz2:OpticalIllusion
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>视错觉</color>"
+msgstr ""
+
 #. Name for stage mvz2:puzzle_i_zombie
 #: Stage meta file
 msgctxt "levelname"
@@ -3154,6 +3357,12 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "我是僵尸无尽"
+msgstr ""
+
+#. Name for stage mvz2:puzzleRandomCvsRandomE
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=yellow>随机器械vs随机怪物</color>"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place
@@ -3419,7 +3628,7 @@ msgstr ""
 #: Music meta file
 msgctxt "music.description"
 msgid ""
-"万圣夜关卡的音乐。\n"
+"永夜沼泽关卡的音乐。\n"
 "出自宝开之前的另一款佳作《书虫大冒险》，制作十分精良，可惜人气实在太低，并且由于强绑定英文而无法走向世界。\n"
 "实在是太可惜了。"
 msgstr ""
@@ -3434,7 +3643,7 @@ msgstr ""
 #: Music meta file
 msgctxt "music.description"
 msgid ""
-"万圣夜地图的音乐。\n"
+"永夜沼泽地图的音乐。\n"
 "那么这系列音乐原来使用在什么地方呢？\n"
 "《书虫大冒险》的主角Lex是一只书虫，负责管理大图书馆中的书籍。它先后穿梭于希腊神话、埃及神话，以及欧洲鬼怪故事这三本书中。\n"
 "而这首音乐则来自于第三本书——欧洲鬼怪故事中。其游戏内的名称即为《莱克死灵之书》，是Lex的名字和《死灵之书》的组合词。"
@@ -3464,8 +3673,8 @@ msgstr ""
 #: Music meta file
 msgctxt "music.description"
 msgid ""
-"万圣夜最终关的音乐。\n"
-"原来是大部分传送带关卡都会播放的音乐，在这里只用于万圣夜。"
+"永夜沼泽最终关的音乐。\n"
+"原来是大部分传送带关卡都会播放的音乐，在这里只用于永夜沼泽。"
 msgstr ""
 
 #. Name for music mvz2:halloween_boss
@@ -3483,6 +3692,28 @@ msgid ""
 "《科学怪人》是一本知名的科幻恐怖小说，书中的科学怪人弗兰肯斯坦创造了一个尸块怪物，在它活过来之后，却因为对它恐惧而逃离了他。\n"
 "怪物最初并不邪恶，但在接连的敌意和冷漠下逐渐扭曲了自己的心。它最终发狂，和它的创造者弗兰肯斯坦同归于尽。\n"
 "呵呵，你可否想到自己？史蒂夫？"
+msgstr ""
+
+#. Name for music mvz2:thread
+#: Music meta file
+msgctxt "music.name"
+msgid "thread(沉思)"
+msgstr ""
+
+#. Source for music mvz2:thread
+#: Music meta file
+msgctxt "music.source"
+msgid "暮色森林"
+msgstr ""
+
+#. Description for music mvz2:thread
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"永夜沼泽拓展关的音乐。\n"
+"EXPAND gms2版本的永夜沼泽分波音乐也选用了这首曲子。\n"
+"初听没什么意思，听着听着就听出了韵味，我脑中也不时会响起这首曲子。\n"
+"听上去像是一个神秘的法师在他的花园中闲庭漫步，思考着符文与法术。"
 msgstr ""
 
 #. Name for music mvz2:dream_level
@@ -3633,6 +3864,23 @@ msgid ""
 "是《东方绀珠传》的Extra关Boss——赫卡提亚的音乐的后半段。\n"
 "虽然这首音乐已经不再是《以撒的结合》的音乐了，不过其实有个冷知识：\n"
 "梦魇收割者的一部分设计来源于《以撒的结合：忏悔》中的教条。"
+msgstr ""
+
+#. Name for music mvz2:Sacrificial
+#: Music meta file
+msgctxt "music.name"
+msgid "Sacrificial(牺牲)"
+msgstr ""
+
+#. Description for music mvz2:Sacrificial
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"噩梦世界拓展Boss战的道中音乐，也是mvz2_gms2版本噩梦世界最终关的道中音乐，老玩家们应该都听懂了\n"
+"来源以撒的结合的地下室层音乐。\n"
+"冰与冷知识时间到\n"
+"很早就玩b站看pvz视频的朋友们可能知道有个叫做超级滑稽的up主，他制作的诅咒系列当时，在圈内可是大有名气，甚至掀起过其他人跟风模仿的自制诅咒关卡实况。\n"
+"当时超级滑稽视频配乐就多用这个bgm，这大概也是因为他是一位MVZ2爱好者。"
 msgstr ""
 
 #. Name for music mvz2:gensokyo_map
@@ -3832,6 +4080,27 @@ msgid ""
 "之前提到过《书虫大冒险 Vol.2》中Lex的故事，我们先跳过第五本书，讲一讲第六本书。\n"
 "Lex穿越的第六本书，也是最后一本书，它叫做《惊疑星球》，包括了大量的科幻小说内容。飞船、机器人、变异、时空穿梭……不过，我已经不能再说了。\n"
 "因为老大哥在看着我。"
+msgstr ""
+
+#. Name for music mvz2:Dungeon
+#: Music meta file
+msgctxt "music.name"
+msgid "Dungeon"
+msgstr ""
+
+#. Source for music mvz2:Dungeon
+#: Music meta file
+msgctxt "music.source"
+msgid "泰拉瑞亚"
+msgstr ""
+
+#. Description for music mvz2:Dungeon
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"辉针城拓展关的音乐。\n"
+"相当刺激和有意思的歌，敲击的鼓点仿佛是骷髅们用肋骨制成的，愤怒的骷髅一波一波的袭来，地牢的探险旅程充满着惊奇。\n"
+"有趣的是，这歌曾是gms2旧版辉针城关卡的配乐，现在在EXPAND里重现天日，令人欣喜"
 msgstr ""
 
 #. Name for music mvz2:mausoleum_map
@@ -4047,6 +4316,47 @@ msgid ""
 "在《书虫大冒险 Vol.2》中，主角Lex在《美猴王》这本书中击败了强大的敌人，得到了许多珍贵的宝物，结识了黄飞鸿和美猴王这两位同伴，并最终击败了四大天王和二郎神，到达了天庭。\n"
 "玉皇大帝告诉他，Lex的旅程尚未结束，他们发现了一种威胁，一种威胁到所有书中世界的威胁。Lex觉得这是邪恶Lex所为，但玉皇大帝却认为，Lex无法击败邪恶Lex。\n"
 "最终，Lex离开了这本书，再次回到了图书馆。"
+msgstr ""
+
+#. Name for music mvz2:Lava_Chicken
+#: Music meta file
+msgctxt "music.name"
+msgid "岩浆烤鸡歌"
+msgstr ""
+
+#. Description for music mvz2:Lava_Chicken
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"玩家/村民相关小游戏的音乐。\n"
+"希望诸位在听到这首曲子时能想起被史蒂夫和村民支配的恐惧\n"
+"\n"
+"La-la-la-lava, ch-ch-ch-chicken\n"
+"Steve's Lava Chicken, yeah, it's tasty as hell\n"
+"Ooh, mamacita, now you're ringing the bell\n"
+"Crispy and juicy, now you're having a snack\n"
+"Ooh, super spicy, it's a lava attack"
+msgstr ""
+
+#. Name for music mvz2:DoubleTime(Tumble)
+#: Music meta file
+msgctxt "music.name"
+msgid "倍速翻滚"
+msgstr ""
+
+#. Source for music mvz2:DoubleTime(Tumble)
+#: Music meta file
+msgctxt "music.source"
+msgid "Minecraft: Battle/Tumble (Original Soundtrack)"
+msgstr ""
+
+#. Description for music mvz2:DoubleTime(Tumble)
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"小游戏的音乐。\n"
+"我很喜欢的一首曲子\n"
+"\n"
 msgstr ""
 
 #. Name for archive tag mvz2:prologue
@@ -4383,6 +4693,30 @@ msgctxt "store_talk"
 msgid "修复器械们的神奇技术！可以在防御性器械上再放一个同样的器械，来把它完全修好！"
 msgstr ""
 
+#. Store item description of mvz2:Snipenser by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "把狙击发射器放在发射器上，让其能够向四面八方发射骇人的子弹！"
+msgstr ""
+
+#. Store item description of mvz2:Snipenser by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "狙击发射器能升级发射器，可以向四面八方发射高级的子弹！"
+msgstr ""
+
+#. Store item description of mvz2:AntiGravityPad by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "把反重力板放在重力板上，其能够吹飞上方怪物，驱动时还可使受它影响的怪物的装备极大受损。"
+msgstr ""
+
+#. Store item description of mvz2:AntiGravityPad by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "反重力板能升级重力板，能够吹飞上方怪物，驱动时还可使受它影响的怪物的装备极大受损，很方便！"
+msgstr ""
+
 #. Store item description of mvz2:infectenser by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -4419,6 +4753,18 @@ msgctxt "store_talk"
 msgid "金制投掷器能升级木制投掷器，能发出不停弹来弹去，并且可以赚钱的金球！"
 msgstr ""
 
+#. Store item description of mvz2:Eviltombstone by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "把邪灵墓碑放在死灵墓碑上！他就可以召唤下界军团征服世界！"
+msgstr ""
+
+#. Store item description of mvz2:Eviltombstone by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "好邪恶的墓碑！这位是邪灵墓碑！把他放在死灵墓碑先生上面，然后他就可以产出可怕的下界军队啦！"
+msgstr ""
+
 #. Store item description of mvz2:skyward_beacon by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -4429,6 +4775,18 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid "御天信标能升级信标，发射从天而降的光束，打击你想要的任意位置！"
+msgstr ""
+
+#. Store item description of mvz2:SuperFireworkDispenser by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "把超级烟花发射器放在烟花发射器上，和我一起欣赏美丽的烟火大会！"
+msgstr ""
+
+#. Store item description of mvz2:SuperFireworkDispenser by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "超级烟花发射器先生可以放在烟花发射器先生身上，并对来袭的空中敌人发射烟花！"
 msgstr ""
 
 #. Store item description of mvz2:hoe by character mvz2:crazy_villager
@@ -4551,6 +4909,24 @@ msgctxt "store_talk"
 msgid "红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到更多的伤害！"
 msgstr ""
 
+#. Store item description of mvz2:DiamondOre by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "我们老旧的钻石矿在赚钱性能上已经完全超越了金制投掷器，将他放在红石矿上，挖掉并把掉落物带回给我！"
+msgstr ""
+
+#. Store item description of mvz2:DiamondOre by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "戴夫先生说这个器械他一般不卖的，现在赔本大甩卖，将钻石矿放在红石矿上，挖掉就能获得钻石！"
+msgstr ""
+
+#. Store item description of mvz2:EXPANDGiftPack by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！"
+msgstr ""
+
 #. Store item description of mvz2:cake by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -4621,36 +4997,6 @@ msgstr ""
 #: Credits meta file
 msgctxt "staff_name"
 msgid "Minecraft幻想乡地图-TouhouCraft团队"
-msgstr ""
-
-#. Name for credits category 地图背景-圣辇船
-#: Credits meta file
-msgctxt "credits_category"
-msgid "地图背景-圣辇船"
-msgstr ""
-
-#. Name for credit staff 地图背景-圣辇船
-#: Credits meta file
-msgctxt "staff_name"
-msgid "传说中的金色小丑鱼"
-msgstr ""
-
-#. Name for credit staff 地图背景-圣辇船
-#: Credits meta file
-msgctxt "staff_name"
-msgid "琉"
-msgstr ""
-
-#. Name for credit staff 地图背景-圣辇船
-#: Credits meta file
-msgctxt "staff_name"
-msgid "creator"
-msgstr ""
-
-#. Name for credit staff 地图背景-圣辇船
-#: Credits meta file
-msgctxt "staff_name"
-msgid "修瞑"
 msgstr ""
 
 #. Name for credits category 音乐
@@ -4729,6 +5075,132 @@ msgstr ""
 #: Credits meta file
 msgctxt "staff_name"
 msgid "正邪の老鼠"
+msgstr ""
+
+#. Name for credits category EXPAND版本作者/协助者
+#: Credits meta file
+msgctxt "credits_category"
+msgid "EXPAND版本作者/协助者"
+msgstr ""
+
+#. Name for credit staff EXPAND版本作者/协助者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "芙兰酱喜欢吃饭(GMS2)"
+msgstr ""
+
+#. Name for credit staff EXPAND版本作者/协助者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Reverser(GMS2)"
+msgstr ""
+
+#. Name for credits category EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "credits_category"
+msgid "EXPAND画师/贴图提供者"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "e7cd79"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "布都喵"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "1997最佳推销员"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "炎之妖精琪露诺"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Cokusa不是口苦撒"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "柠檬精红茶"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "modest_qianxu"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "kezela233_"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "我想喝柠檬水"
+msgstr ""
+
+#. Name for credit staff EXPAND画师/贴图提供者
+#: Credits meta file
+msgctxt "staff_name"
+msgid "telecripers"
+msgstr ""
+
+#. Name for credits category EXPANDwiki特别感谢
+#: Credits meta file
+msgctxt "credits_category"
+msgid "EXPANDwiki特别感谢"
+msgstr ""
+
+#. Name for credit staff EXPANDwiki特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "STGargoyle"
+msgstr ""
+
+#. Name for credit staff EXPANDwiki特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Reverser"
+msgstr ""
+
+#. Name for credit staff EXPANDwiki特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "JWKQS"
+msgstr ""
+
+#. Name for credit staff EXPANDwiki特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "自拍猫狗"
+msgstr ""
+
+#. Name for credit staff EXPANDwiki特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "起个名真难"
+msgstr ""
+
+#. Name for credit staff EXPANDwiki特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Ximlar"
 msgstr ""
 
 #. Description for command "mvz2:help"
@@ -4965,6 +5437,12 @@ msgctxt "command_variant.description"
 msgid "不会游戏结束。"
 msgstr ""
 
+#. Description for command variant "mvz2:cheat all"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "全部作弊效果。"
+msgstr ""
+
 #. Description for command "mvz2:repeat"
 #: Commands meta file
 msgctxt "command.description"
@@ -5175,21 +5653,27 @@ msgctxt "command_variant.description"
 msgid "生成一队伞兵僵尸。"
 msgstr ""
 
-#. Name for difficulty 简单
+#. Name for difficulty <color=green>EXP|简单</color>
 #: Difficulty meta file
 msgctxt "difficulty"
-msgid "简单"
+msgid "<color=green>EXP|简单</color>"
 msgstr ""
 
-#. Name for difficulty 普通
+#. Name for difficulty EXP|普通
 #: Difficulty meta file
 msgctxt "difficulty"
-msgid "普通"
+msgid "EXP|普通"
 msgstr ""
 
-#. Name for difficulty 困难
+#. Name for difficulty <color=yellow>EXP|困难</color>
 #: Difficulty meta file
 msgctxt "difficulty"
-msgid "困难"
+msgid "<color=yellow>EXP|困难</color>"
+msgstr ""
+
+#. Name for difficulty <color=red>EXPAND</color>
+#: Difficulty meta file
+msgctxt "difficulty"
+msgid "<color=red>EXPAND</color>"
 msgstr ""
 

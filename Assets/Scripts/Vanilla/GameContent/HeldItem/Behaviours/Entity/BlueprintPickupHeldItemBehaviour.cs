@@ -106,10 +106,11 @@ namespace MVZ2.GameContent.HeldItems
                 {
                     if (seedDef.GetSeedType() == SeedTypes.ENTITY)
                     {
+                        var type = data.Type;
                         var commandBlock = IsCommandBlock(entity);
                         entity.Remove();
                         grid.UseEntityBlueprintDefinition(seedDef, data, commandBlock);
-                        level.ResetHeldItem();
+                        ResetHeldItemIfType(level, type);
                         return;
                     }
                 }

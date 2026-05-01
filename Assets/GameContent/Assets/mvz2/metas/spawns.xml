@@ -402,7 +402,7 @@
 		<terrain water="true" air="true" />
 		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="150" />
 	</entry>
-	<entry id="IronPirateSkeleton" entity="mvz2:IronPirateSkeleton">
+	<entry id="PirateBucketSkeleton" entity="mvz2:PirateBucketSkeleton">
 		<spawn level="4" />
 		<weight base="3000" />
 	</entry>

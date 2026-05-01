@@ -59,9 +59,12 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     foreach (var layer in grid.GetLayers())
                     {
-                        var other = grid.GetLayerEntity(layer);
-                        if (other != null && other != sourceEnt)
-                            results.Add(other);
+                        var others = grid.GetLayerEntities(layer);
+                        foreach (var other in others)
+                        {
+                            if (other != null && other != sourceEnt)
+                                results.Add(other);
+                        }
                     }
                 }
             }

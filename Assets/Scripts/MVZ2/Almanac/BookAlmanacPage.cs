@@ -2,6 +2,7 @@
 
 using System;
 using MVZ2.UI;
+using MVZ2.UI.Almanac;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -57,6 +58,8 @@ namespace MVZ2.Almanacs
             descriptionIconUpdater.OnIconEnter += id => OnDescriptionIconEnter?.Invoke(id);
             descriptionIconUpdater.OnIconExit += id => OnDescriptionIconExit?.Invoke(id);
             descriptionIconUpdater.OnIconDown += id => OnDescriptionIconDown?.Invoke(id);
+
+            descriptionLinkHandler.OnLinkClick += id => OnDescriptionLinkClick?.Invoke(id);
         }
         private void OnTagPointerEnterCallback(AlmanacTagIcon icon)
         {
@@ -73,6 +76,7 @@ namespace MVZ2.Almanacs
         public event Action<string>? OnDescriptionIconEnter;
         public event Action<string>? OnDescriptionIconExit;
         public event Action<string>? OnDescriptionIconDown;
+        public event Action<string>? OnDescriptionLinkClick;
         public event Action<int>? OnTagIconEnter;
         public event Action<int>? OnTagIconExit;
         public event Action<int>? OnTagIconDown;
@@ -86,5 +90,7 @@ namespace MVZ2.Almanacs
         private ElementList entryTags = null!;
         [SerializeField]
         private AlmanacTaggedDescription descriptionIconUpdater = null!;
+        [SerializeField]
+        private AlmanacDescriptionLinkHandler descriptionLinkHandler = null!;
     }
 }

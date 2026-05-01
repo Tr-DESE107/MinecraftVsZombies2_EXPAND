@@ -339,6 +339,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05418e9e1caea104aa460e7f57f30df4
+    m_Address: mvz2:mobile_blueprint/AngryGhast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 05483d8d75986e7458c19808a913db2f
     m_Address: mvz2:arcade/DowsingNote
     m_ReadOnly: 0
@@ -576,6 +583,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 088b8032f2c71a04eb13658b093c1433
+    m_Address: mvz2:mobile_blueprint/EnragedHostZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08aa6367ea055db4f9821346c863494d
     m_Address: mvz2:mausoleum
@@ -2158,6 +2172,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 226a3cf89e4a07e4aab3a61a2ba15f3e
+    m_Address: mvz2:mobile_blueprint/KogasaZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 227276bdfee6c7545b14314ef224f18b
     m_Address: mvz2:random/wood3
@@ -4992,6 +5013,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fcc7532dcc38f54cb1f0e40c2648c03
+    m_Address: mvz2:effect/MannequinBlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ff75407048ce3c47b747375afd920ff
     m_Address: mvz2:projectile/RedKnife
     m_ReadOnly: 0
@@ -5481,6 +5509,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57bcad3c37a161a45b97385454b69845
+    m_Address: mvz2:entity/ghast/ghast_affectionate_scream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 580a757d547930b41a026df31631b7c9
     m_Address: mvz2:entity/enemies/mesmerizer_head
@@ -10515,7 +10550,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae1e2db8aa13ecf4a9b0cda23c626481
-    m_Address: mvz2:enemy/ship/IronPirateSkeleton
+    m_Address: mvz2:enemy/ship/PirateBucketSkeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11445,6 +11480,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd617e32bfc8bf446bc300da2ccef3c4
+    m_Address: mvz2:enemy/EXPAND/LEOLau
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd7b2da4545106b46b4afbf8863f9926
     m_Address: mvz2:level/halloween/halloween
     m_ReadOnly: 0
@@ -11587,6 +11629,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0c01de9a3a039d44b91dde68e814643
     m_Address: mvz2:entity/armor/EXPAND_armor/ChiefCannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0e02c96206b419449d126677178c74e
+    m_Address: mvz2:entity/enemy/EXPAND/LGBTMage
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11830,6 +11879,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5167c16588c16a4b8dbc189e1b255b6
+    m_Address: mvz2:enemy/EXPAND/LGBTMage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: mvz2:pick
     m_ReadOnly: 0
@@ -12055,7 +12111,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8f1fa08173678e4592663889b58ac6f
-    m_Address: mvz2:mobile_blueprint/IronPirateSkeleton
+    m_Address: mvz2:mobile_blueprint/PirateBucketSkeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13671,6 +13727,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4708c974b7260543b7ffd9c3ae41480
+    m_Address: mvz2:entity/effects/MannequinBlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e498e83d5e200f1458935ef93fd50a6b
     m_Address: mvz2:enemy/EXPAND/XCarrierMutant
     m_ReadOnly: 0
@@ -15265,6 +15328,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd9ad7c66df138e4089d9de9d50b3639
+    m_Address: mvz2:entity/enemy/EXPAND/LEOLau
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fda78549c8341a5448aef8d58c997a7f
     m_Address: mvz2:entity/contraption/EXPAND_Contraption/Snipenser
