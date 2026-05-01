@@ -339,6 +339,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05418e9e1caea104aa460e7f57f30df4
+    m_Address: mvz2:mobile_blueprint/AngryGhast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 05483d8d75986e7458c19808a913db2f
     m_Address: mvz2:arcade/DowsingNote
     m_ReadOnly: 0
@@ -576,6 +583,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 088b8032f2c71a04eb13658b093c1433
+    m_Address: mvz2:mobile_blueprint/EnragedHostZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08aa6367ea055db4f9821346c863494d
     m_Address: mvz2:mausoleum

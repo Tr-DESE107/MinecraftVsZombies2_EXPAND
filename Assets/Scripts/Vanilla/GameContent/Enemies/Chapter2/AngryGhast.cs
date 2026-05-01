@@ -163,7 +163,7 @@ namespace MVZ2.GameContent.Enemies
         {
             var scale = entity.GetFinalScale();
             var scaleX = Mathf.Abs(scale.x);
-            var range = 80 * scaleX;
+            var range = 70 * scaleX;
             entity.Explode(entity.GetCenter(), range, faction, damage, effects);
 
             Explosion.Spawn(entity, entity.GetCenter(), range);

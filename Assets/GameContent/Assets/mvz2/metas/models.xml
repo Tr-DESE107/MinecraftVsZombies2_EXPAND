@@ -691,7 +691,7 @@
     <model name="zombie_block" type="entity" path="mvz2:effect/zombie_block" width="80" height="80" xOffset="0" yOffset="-40" >
 		<override path="mvz2:effect/MannequinBlock">
 			<conditions>
-				<condition date="5/1" />
+				<condition date="4/1" />
 			</conditions>
 		</override>
 	</model>
