@@ -263,61 +263,53 @@
     <model name="skeleton_warrior" type="entity" path="mvz2:enemy/mausoleum/skeleton_warrior" width="66" height="86" xOffset="16" yOffset="-50">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="skeleton_mage" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
-        <armorconfig>mvz2:humanoid</armorconfig>
-    </model>
-    <model name="skeleton_mage_fire" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
-        <armorconfig>mvz2:humanoid</armorconfig>
-        <animator updateOnShot="true">
-            <parameters>
-                <int name="Variant" value="1" />
-            </parameters>
-        </animator>
-    </model>
-    <model name="skeleton_mage_frost" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
-        <armorconfig>mvz2:humanoid</armorconfig>
-        <animator updateOnShot="true">
-            <parameters>
-                <int name="Variant" value="2" />
-            </parameters>
-        </animator>
-    </model>
-    <model name="skeleton_mage_lightning" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
-        <armorconfig>mvz2:humanoid</armorconfig>
-        <animator updateOnShot="true">
-            <parameters>
-                <int name="Variant" value="3" />
-            </parameters>
-        </animator>
-    </model>
-    <!--
-    <model name="skeleton_mage" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
-        <armorconfig>mvz2:humanoid</armorconfig>
-    </model>
-    <model name="skeleton_mage_fire" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
-        <armorconfig>mvz2:humanoid</armorconfig>
-        <animator updateOnShot="true">
-            <parameters>
-                <int name="Variant" value="1" />
-            </parameters>
-        </animator>
-    </model>
-    <model name="skeleton_mage_frost" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
-        <armorconfig>mvz2:humanoid</armorconfig>
-        <animator updateOnShot="true">
-            <parameters>
-                <int name="Variant" value="2" />
-            </parameters>
-        </animator>
-    </model>
-    <model name="skeleton_mage_lightning" type="entity" path="mvz2:enemy/EXPAND/LGBTMage" width="64" height="96" xOffset="10" yOffset="-44">
-        <armorconfig>mvz2:humanoid</armorconfig>
-        <animator updateOnShot="true">
-            <parameters>
-                <int name="Variant" value="3" />
-            </parameters>
-        </animator>
-    </model>
+	<model name="skeleton_mage" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+		<override path="mvz2:enemy/EXPAND/LGBTMage">
+			<conditions>
+				<condition date="4/1" />
+			</conditions>
+		</override>
+	</model>
+	<model name="skeleton_mage_fire" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+		<animator updateOnShot="true">
+			<parameters>
+				<int name="Variant" value="1" />
+			</parameters>
+		</animator>
+		<override path="mvz2:enemy/EXPAND/LGBTMage">
+			<conditions>
+				<condition date="4/1" />
+			</conditions>
+		</override>
+	</model>
+	<model name="skeleton_mage_frost" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+		<animator updateOnShot="true">
+			<parameters>
+				<int name="Variant" value="2" />
+			</parameters>
+		</animator>
+		<override path="mvz2:enemy/EXPAND/LGBTMage">
+			<conditions>
+				<condition date="4/1" />
+			</conditions>
+		</override>
+	</model>
+	<model name="skeleton_mage_lightning" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44">
+		<armorconfig>mvz2:humanoid</armorconfig>
+		<animator updateOnShot="true">
+			<parameters>
+				<int name="Variant" value="3" />
+			</parameters>
+		</animator>
+		<override path="mvz2:enemy/EXPAND/LGBTMage">
+			<conditions>
+				<condition date="4/1" />
+			</conditions>
+		</override>
+	</model>
 	-->
     <model name="shikaisen_staff" type="entity" path="mvz2:enemy/mausoleum/shikaisen_staff" width="24" height="64" xOffset="0" yOffset="-26" />
 
@@ -483,15 +475,36 @@
     <!--EXPAND Enemies Mannequin-->
     <model name="Mannequin" type="entity" path="mvz2:enemy/EXPAND/Mannequin" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
+		<override path="mvz2:enemy/EXPAND/DESE107">
+			<conditions>
+				<condition date="4/1 8/27" />
+			</conditions>
+		</override>
     </model>
     <model name="ImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
+		<override path="mvz2:enemy/EXPAND/ImpDESE107">
+			<conditions>
+				<condition date="4/1 8/27" />
+			</conditions>
+		</override>
     </model>
     <model name="MegaImpMannequin" type="entity" path="mvz2:enemy/EXPAND/MegaImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
+		<override path="mvz2:enemy/EXPAND/ImpDESE107">
+			<conditions>
+				<condition date="4/1 8/27" />
+			</conditions>
+		</override>
     </model>
-
-    <model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantMannequin" width="200" height="180" xOffset="0" yOffset="-90" />
+	<model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantMannequin" width="200" height="180" xOffset="0" yOffset="-90">
+		<override path="mvz2:enemy/EXPAND/ImpDESE107">
+			<conditions>
+				<condition date="4/1 8/27" />
+			</conditions>
+		</override>
+	</model>
+	
     <model name="MannequinTNT" type="entity" path="mvz2:enemy/EXPAND/MannequinTNT" width="64" height="64" xOffset="0" yOffset="-28" />
 	
 	<model name="CannoneerMannequin" type="entity" path="mvz2:enemy/EXPAND/CannoneerMannequin" width="85" height="92" xOffset="22" yOffset="-41">
@@ -535,8 +548,20 @@
     <model name="nightmareaper" type="entity" path="mvz2:boss/nightmareaper" width="240" height="200" xOffset="0" yOffset="-15" />
     <model name="seija" type="entity" path="mvz2:boss/seija" width="30" height="88" xOffset="0" yOffset="-44" />
     <model name="wither" type="entity" path="mvz2:boss/wither" width="112" height="168" xOffset="6" yOffset="-84" />
-    <model name="the_giant" type="entity" path="mvz2:boss/the_giant" width="256" height="332" xOffset="0" yOffset="-40" />
-    <model name="the_giant_snake_tail" type="entity" path="mvz2:boss/the_giant_snake_tail" width="80" height="80" xOffset="0" yOffset="-40" />
+	<model name="the_giant" type="entity" path="mvz2:boss/the_giant" width="256" height="332" xOffset="0" yOffset="-40">
+		<override path="mvz2:boss/SteveGiant">
+			<conditions>
+				<condition date="4/1" />
+			</conditions>
+		</override>
+	</model>
+    <model name="the_giant_snake_tail" type="entity" path="mvz2:boss/the_giant_snake_tail" width="80" height="80" xOffset="0" yOffset="-40">
+		<override path="mvz2:boss/SteveGiantSnakeTail">
+			<conditions>
+				<condition date="4/1" />
+			</conditions>
+		</override>
+	</model>
     <model name="red_dragon" type="entity" path="mvz2:boss/red_dragon" width="840" height="510" xOffset="-93" yOffset="-170"/>
 
     <!-- Carts -->
@@ -663,7 +688,13 @@
     <model name="redline" type="entity" path="mvz2:effect/redline" width="80" height="80" xOffset="0" yOffset="0" />
     <model name="iz_observer" type="entity" path="mvz2:effect/iz_observer" width="80" height="80" xOffset="0" yOffset="0" />
     <model name="spirit_universe" type="entity" path="mvz2:effect/spirit_universe" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
-    <model name="zombie_block" type="entity" path="mvz2:effect/zombie_block" width="80" height="80" xOffset="0" yOffset="-40" />
+    <model name="zombie_block" type="entity" path="mvz2:effect/zombie_block" width="80" height="80" xOffset="0" yOffset="-40" >
+		<override path="mvz2:effect/MannequinBlock">
+			<conditions>
+				<condition date="5/1" />
+			</conditions>
+		</override>
+	</model>
     <model name="dark_hole" type="entity" path="mvz2:effect/dark_hole" shot="false" width="120" height="120" xOffset="0" yOffset="0" />
     <model name="amplified_roar" type="entity" path="mvz2:effect/amplified_roar" shot="false" width="120" height="120" xOffset="0" yOffset="0" />
     <model name="ufo_background" type="entity" path="mvz2:effect/ufo_background" width="40" height="28" xOffset="0" yOffset="-12" />
