@@ -184,9 +184,9 @@ namespace MVZ2.Vanilla.Detections
         }
         protected Vector3 GetProjectileSize(Entity entity, Vector3 defaultValue)
         {
-            return GetProjectileSize(entity.GetProjectileID(), defaultValue);
+            return GetEntitySize(entity.GetProjectileID(), defaultValue);
         }
-        protected Vector3 GetProjectileSize(NamespaceID? projectileID, Vector3 defaultValue)
+        protected Vector3 GetEntitySize(NamespaceID? projectileID, Vector3 defaultValue)
         {
             if (NamespaceID.IsValid(projectileID))
             {

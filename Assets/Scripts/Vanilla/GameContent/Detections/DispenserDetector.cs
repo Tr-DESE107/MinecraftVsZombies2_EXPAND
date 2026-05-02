@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Detections
             var source = self.Position + shootOffset;
 
             var projID = projectileID ?? self.GetProjectileID();
-            var projectileSize = GetProjectileSize(projID, Vector3.one * 32);
+            var projectileSize = GetEntitySize(projID, Vector3.one * 32);
             var range = self.GetRange();
 
             var sizeX = range < 0 ? 800 : range;

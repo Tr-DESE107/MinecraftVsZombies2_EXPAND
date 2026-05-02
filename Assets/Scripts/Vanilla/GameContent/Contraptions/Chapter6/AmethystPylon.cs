@@ -113,9 +113,12 @@ namespace MVZ2.GameContent.Contraptions
         public static void Attack(Entity entity)
         {
             var sourcePosition = GetLaserPosition(entity);
+            var laserScale = GetLaserScale(entity);
             var param = entity.GetSpawnParams();
             param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
             param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFacingLeft());
+            param.SetProperty(EngineEntityProps.DISPLAY_SCALE, laserScale);
+            param.SetProperty(EngineEntityProps.SCALE, laserScale);
 
             entity.Spawn(VanillaEffectID.amethystPylonLaser, sourcePosition, param);
         }
@@ -131,11 +134,15 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetStateTimer(Entity entity, FrameTimer? timer) => entity.SetBehaviourField(PROP_STATE_TIMER, timer);
         public static float GetCrystalAlpha(Entity entity) => entity.GetBehaviourField<float>(PROP_CRYSTAL_ALPHA);
         public static void SetCrystalAlpha(Entity entity, float value) => entity.SetBehaviourField(PROP_CRYSTAL_ALPHA, value);
+        public static Vector3 GetLaserScale(Entity entity) => Mathf.Clamp(entity.GetDamage() / LASER_DAMAGE_SCALE_1, LASER_SCALE_MIN, LASER_SCALE_MAX) * Vector3.one;
 
         public const float ATTACK_COOLDOWN_SECONDS = 65 / 30f;
         public const float ATTACK_CHARGE_SECONDS = 25 / 30f;
         public const float ATTACK_RECHECK_SECONDS = 7 / 30f;
         public const float EVOCATION_DISABLE_SECONDS = 30f;
+        public const float LASER_DAMAGE_SCALE_1 = 20f;
+        public const float LASER_SCALE_MIN = 0.5f;
+        public const float LASER_SCALE_MAX = 4;
         public const int STATE_IDLE = VanillaContraptionStates.IDLE;
         public const int STATE_ATTACK = VanillaContraptionStates.AMETHYST_PYLON_ATTACK;
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_MASTER_SPARK_ID = new VanillaEntityPropertyMeta<EntityID>("master_spark_id");
