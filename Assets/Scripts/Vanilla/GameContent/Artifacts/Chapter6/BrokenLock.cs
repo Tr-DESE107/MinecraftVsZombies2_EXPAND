@@ -60,9 +60,7 @@ namespace MVZ2.GameContent.Artifacts
 
             var maxRecharge = seedPack.GetMaxRecharge();
             var totalAmount = output.GetTotalAmount();
-            var hp = contraption.Health;
-            totalAmount = Mathf.Min(hp, totalAmount);
-            var amountPercentage = totalAmount / contraption.GetMaxHealth();
+            var amountPercentage = Mathf.Clamp01(totalAmount / contraption.GetMaxHealth());
 
             foreach (var artifact in level.GetArtifacts())
             {
