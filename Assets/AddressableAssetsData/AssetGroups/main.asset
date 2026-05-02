@@ -3494,6 +3494,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37f351b1e07c1854b9b13f99010d532b
+    m_Address: mvz2:entity/enemy/EXPAND/VampireBat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37f86b3303d939c448ba79cca9b2ab60
     m_Address: mvz2:icon/vulnerable
     m_ReadOnly: 0
@@ -3636,6 +3643,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39ff6994398f0dd40a4b04168abccb9e
     m_Address: mvz2:entity/armor/EXPAND_armor/NetheriteHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a18f9da53bf64140936205ef3c8c2c6
+    m_Address: mvz2:entity/contraption/EXPAND_Skin/SmoothStoneShield
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4837,6 +4851,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cf1ee1bd43204d448d02a94aef39d44
+    m_Address: mvz2:enemy/library/Vampire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
     m_Address: mvz2:ui/map/map_drag_mark
@@ -9317,6 +9338,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9882d1787bbe2ba4c8577e34f6706a6e
+    m_Address: mvz2:enemy/library/VampireBat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 98ad9b42c55992240a72acfab51a43c9
     m_Address: mvz2:effect/skyward_beam
     m_ReadOnly: 0
@@ -9365,6 +9393,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99922579875e5484a9060a6a44afba78
+    m_Address: mvz2:entity/enemy/EXPAND/Heads_EXPAND
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9994cdef8f77dc64c8b87ec562fcc3cb
     m_Address: mvz2:entity/enemy/MonkZombie
@@ -11038,6 +11073,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b59de1a585020644590d514251641b14
+    m_Address: mvz2:entity/enemy/EXPAND/Vampire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5bea0ef6d58f2d47ad694ab28830cba
     m_Address: mvz2:ui/level/level_progress_back

@@ -3973,6 +3973,12 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
     - {fileID: 59550891, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
+  - name: entity/contraption/EXPAND_Skin/SmoothStoneShield
+    spritesheet:
+    - {fileID: -465856548, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
+    - {fileID: -264196577, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
+    - {fileID: -459734040, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
+    - {fileID: -919118041, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
   - name: entity/contraption/EXPAND_Skin/YorigamiJyoon
     spritesheet:
     - {fileID: 37738219, guid: b46994409ab2cee45b41269de891afbd, type: 3}
@@ -4037,6 +4043,20 @@ MonoBehaviour:
     - {fileID: 622527520, guid: 933250d176c80344e81129e139acc3cd, type: 3}
     - {fileID: -264404787, guid: 933250d176c80344e81129e139acc3cd, type: 3}
     - {fileID: -1340100964, guid: 933250d176c80344e81129e139acc3cd, type: 3}
+  - name: entity/enemy/EXPAND/Heads_EXPAND
+    spritesheet:
+    - {fileID: 720236074, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: 903630718, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: 791202792, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: -2087686129, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: -1565482465, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: 260217610, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: -258705627, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: -315056755, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: -476541425, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: -1184669195, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: 143345660, guid: 99922579875e5484a9060a6a44afba78, type: 3}
+    - {fileID: -1474655904, guid: 99922579875e5484a9060a6a44afba78, type: 3}
   - name: entity/enemy/EXPAND/KogasaZombie
     spritesheet:
     - {fileID: -1815941701, guid: 12086666cd792fe46b418bbd1c7340b8, type: 3}
@@ -4166,6 +4186,24 @@ MonoBehaviour:
   - name: entity/enemy/EXPAND/TorchKongfuZombie_qianxu
     spritesheet:
     - {fileID: 21300000, guid: 03795254d93bb494ab75f39799726b7b, type: 3}
+  - name: entity/enemy/EXPAND/Vampire
+    spritesheet:
+    - {fileID: -1157410471, guid: b59de1a585020644590d514251641b14, type: 3}
+    - {fileID: 771664838, guid: b59de1a585020644590d514251641b14, type: 3}
+    - {fileID: 1220920150, guid: b59de1a585020644590d514251641b14, type: 3}
+    - {fileID: 1074056681, guid: b59de1a585020644590d514251641b14, type: 3}
+    - {fileID: -362670461, guid: b59de1a585020644590d514251641b14, type: 3}
+    - {fileID: -1746355557, guid: b59de1a585020644590d514251641b14, type: 3}
+    - {fileID: 2056975239, guid: b59de1a585020644590d514251641b14, type: 3}
+    - {fileID: 146410174, guid: b59de1a585020644590d514251641b14, type: 3}
+  - name: entity/enemy/EXPAND/VampireBat
+    spritesheet:
+    - {fileID: 1094902241, guid: 37f351b1e07c1854b9b13f99010d532b, type: 3}
+    - {fileID: 1296851934, guid: 37f351b1e07c1854b9b13f99010d532b, type: 3}
+    - {fileID: 1931378136, guid: 37f351b1e07c1854b9b13f99010d532b, type: 3}
+    - {fileID: 82450155, guid: 37f351b1e07c1854b9b13f99010d532b, type: 3}
+    - {fileID: -598590514, guid: 37f351b1e07c1854b9b13f99010d532b, type: 3}
+    - {fileID: 2122873249, guid: 37f351b1e07c1854b9b13f99010d532b, type: 3}
   - name: entity/enemy/EXPAND/XCarrierMutant
     spritesheet:
     - {fileID: -503077080, guid: b4023026b7e35b34cb5b9364eb3c3238, type: 3}
