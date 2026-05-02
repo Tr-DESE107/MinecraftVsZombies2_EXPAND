@@ -856,17 +856,25 @@ namespace MVZ2.Vanilla.Entities
             var level = entity.Level;
             var targetGridPosition = level.GetEntityGridPositionByIndex(targetGridIndex);
             var targetGridDistance = targetGridPosition - entity.Position;
-            if (targetGridDistance.magnitude <= speed)
+            var distance2D = new Vector2(targetGridDistance.x, targetGridDistance.z);
+
+            var position = entity.Position;
+            if (distance2D.magnitude <= speed)
             {
                 // 更新目标。
-                entity.Position = targetGridPosition;
+                position.x = targetGridPosition.x;
+                position.z = targetGridPosition.z;
+                entity.Position = position;
                 return true;
             }
             else
             {
-                entity.Position += targetGridDistance.normalized * speed;
+                var velocity = distance2D.normalized * speed;
+                position.x += velocity.x;
+                position.z += velocity.y;
+                entity.Position = position;
+                return false;
             }
-            return false;
         }
         public static LawnGrid? GetChaseTargetGrid(this Entity entity, Entity? target, Func<Entity, Vector2Int, bool> gridValidator)
         {

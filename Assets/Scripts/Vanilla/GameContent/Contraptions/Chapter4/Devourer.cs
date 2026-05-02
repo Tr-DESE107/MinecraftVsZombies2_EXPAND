@@ -131,6 +131,15 @@ namespace MVZ2.GameContent.Contraptions
 
             var targetGridIndex = GetTargetGridIndex(devourer);
             var reached = devourer.MoveOrthogonally(targetGridIndex, EVOKED_MOVE_SPEED);
+
+            // 垂直移动。
+            var vel = devourer.Velocity;
+            var groundY = devourer.GetGroundY();
+            var yDistance = Mathf.Abs(groundY - devourer.Position.y);
+            var yDirection = Mathf.Sign(groundY - devourer.Position.y);
+            vel.y = yDirection * Mathf.Min(EVOKED_MOVE_SPEED, yDistance);
+            devourer.Velocity = vel;
+
             if (reached)
             {
                 FindPacmanGhostTarget(devourer);
