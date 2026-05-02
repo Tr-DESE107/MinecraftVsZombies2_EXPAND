@@ -48,6 +48,7 @@ float4 _Color;
 half4 _ColorOffset;
 float3 _HSVOffset;
 int _Grayscale;
+int _GrayscaleMaterial;
 half3 _GrayscaleFactor;
 
 // Burn
@@ -94,7 +95,7 @@ half4 EntityFrag(v2f_entity i) : SV_Target
     
     half4 col = tex2D(_MainTex, i.uv);
     col *= i.color;
-    if (_Grayscale > 0)
+    if (_Grayscale > 0 || _GrayscaleMaterial > 0)
     {
         col = Grayscale(col, _GrayscaleFactor);
     }

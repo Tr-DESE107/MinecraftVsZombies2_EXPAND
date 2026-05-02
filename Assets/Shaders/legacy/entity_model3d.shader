@@ -6,7 +6,7 @@ Shader "MinecraftVSZombies2/Legacy/Model"
         _Color ("Tint", Color) = (1,1,1,1)
         _ColorOffset ("Color Offset", Color) = (1,1,1,1)
 		[Toggle]
-		_Grayscale("Grayscale", Int) = 0
+		_GrayscaleMaterial("Grayscale", Int) = 0
 		_GrayscaleFactor("Grayscale Factor", Vector) = (0.5,0.5,0.5,0)
         
 		[Header(Lighting)]
