@@ -2594,6 +2594,7 @@
 				<vector3 name="mvz2:size" x="32" y="22" z="32" />
 				<int name="mvz2:cost" value="50" />
 				<int name="mvz2:waterInteraction" value="2" />
+				<vector3 name="mvz2:shadowScale" x="0.8" y="0.8" z="0.8" />
 			</properties>
 		</Head_Exp>
 
@@ -2614,6 +2615,7 @@
 				<float name="mvz2:maxAttackHeight" value="30" />
 				<bool name="mvz2:low_enemy" value="true" />
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
+				<vector3 name="mvz2:shadowScale" x="0.8" y="0.8" z="0.8" />
 			</properties>
 		</Head_Exp>
 
@@ -2633,6 +2635,7 @@
 				<int name="mvz2:waterInteraction" value="2" />
 				<bool name="mvz2:low_enemy" value="true" />
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
+				<vector3 name="mvz2:shadowScale" x="0.8" y="0.8" z="0.8" />
 			</properties>
 		</Head_Exp>
 
@@ -2676,6 +2679,7 @@
 				<int name="mvz2:waterInteraction" value="2" />
 				<bool name="mvz2:low_enemy" value="true" />
 				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
+				<vector3 name="mvz2:shadowScale" x="0.8" y="0.8" z="0.8" />
 			</properties>
 		</Head_Exp>
 		<mutantZombie id="HostMutant" name="宿主突变僵尸" deathMessage="房子被挤满了">
@@ -3029,6 +3033,7 @@
 				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 				<id name="mvz2:shape" value="mvz2:dullahan_head" />
+				<vector3 name="mvz2:shadowScale" x="0.8" y="0.8" z="0.8" />
 
 
 				<int name="mvz2:cost" value="100" />
@@ -3906,6 +3911,7 @@
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
                 <id name="mvz2:shape" value="mvz2:dullahan_head" />
+				<vector3 name="mvz2:shadowScale" x="0.8" y="0.8" z="0.8" />
 
 
                 <int name="mvz2:cost" value="50" />
