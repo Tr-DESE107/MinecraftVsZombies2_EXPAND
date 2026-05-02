@@ -41,7 +41,10 @@ namespace MVZ2.GameContent.Contraptions
                 ExplodeEffects(contraption);
             }
 
-            BreakTile(contraption);
+            if (contraption.HasTakenGrid())
+            {
+                BreakTile(contraption);
+            }
 
             contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(contraption), contraption.GetDefinitionID());
         }
