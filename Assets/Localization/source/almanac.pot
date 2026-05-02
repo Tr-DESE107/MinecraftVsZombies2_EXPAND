@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-04-28 11:43+0800\n"
+"POT-Creation-Date: 2026-05-02 09:04+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1819,7 +1819,7 @@ msgstr ""
 #. Header for contraptions mvz2:nether_reactor_core
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出星之碎片。"
+msgid "如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出<ref=[misc]mvz2:starshard.uranium_235>星之碎片</ref>。"
 msgstr ""
 
 #. Properties for contraptions mvz2:nether_reactor_core
@@ -2138,7 +2138,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"弱点：<color=red>冲击活塞</color>"
+"弱点：<color=red><ref=[contraptions]mvz2:punchton>冲击活塞</ref></color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:gargoyle
@@ -2607,7 +2607,7 @@ msgstr ""
 #. Header for enemies mvz2:cannonball_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "炮弹僵尸由炮手僵尸发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。"
+msgid "炮弹僵尸由<ref=[enemies]mvz2:cannoneer_zombie>炮手僵尸</ref>发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。"
 msgstr ""
 
 #. Flavor for enemies mvz2:cannonball_zombie
@@ -3585,7 +3585,7 @@ msgstr ""
 #. Header for misc mvz2:gargoyle_statue
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "石像鬼雕像会在最后一波时变成石像鬼。"
+msgid "石像鬼雕像会在最后一波时变成<ref=[enemies]mvz2:gargoyle>石像鬼</ref>。"
 msgstr ""
 
 #. Properties for misc mvz2:gargoyle_statue
@@ -6838,6 +6838,12 @@ msgstr ""
 #: Blueprints meta file
 msgctxt "blueprint_option.name"
 msgid "消灭敌人"
+msgstr ""
+
+#. Name for blueprint option heavy_weapon_flashbang
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "眩晕敌人"
 msgstr ""
 
 #. Name for blueprint option heavy_weapon_rapid

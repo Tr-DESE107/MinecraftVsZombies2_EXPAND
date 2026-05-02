@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-28 11:43+0800\n"
-"PO-Revision-Date: 2026-04-28 11:44+0800\n"
+"POT-Creation-Date: 2026-05-02 09:04+0800\n"
+"PO-Revision-Date: 2026-05-02 21:06+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2225,9 +2225,10 @@ msgstr ""
 #. Header for contraptions mvz2:nether_reactor_core
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出星之碎片。"
+msgid "如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出<ref=[misc]mvz2:starshard.uranium_235>星之碎片</ref>。"
 msgstr ""
-"If a Nether Reactor Core is placed at the center of a special structure made of contraptions, it will continuously produce starshards."
+"If a Nether Reactor Core is placed at the center of a special structure made of contraptions, it will continuously produce "
+"<ref=[misc]mvz2:starshard.uranium_235>starshards</ref>."
 
 #. Properties for contraptions mvz2:nether_reactor_core
 #: Almanac meta file
@@ -2658,10 +2659,10 @@ msgstr "Gargoyles will be revived from statues when the final wave comes."
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"弱点：<color=red>冲击活塞</color>"
+"弱点：<color=red><ref=[contraptions]mvz2:punchton>冲击活塞</ref></color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Weakness: <color=red>Punchtons</color>"
+"Weakness: <color=red><ref=[contraptions]mvz2:punchton>Punchtons</ref></color>"
 
 #. Flavor for enemies mvz2:gargoyle
 #: Almanac meta file
@@ -3247,9 +3248,10 @@ msgstr "Had once developed a mobile game, but unfortunately, that game was shut 
 #. Header for enemies mvz2:cannonball_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "炮弹僵尸由炮手僵尸发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。"
+msgid "炮弹僵尸由<ref=[enemies]mvz2:cannoneer_zombie>炮手僵尸</ref>发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。"
 msgstr ""
-"Zombie Cannonballs are launched into the battlefield by Cannoneer Zombies. They levitate in the air and attack like regular zombies."
+"Zombie Cannonballs are launched into the battlefield by <ref=[enemies]mvz2:cannoneer_zombie>Cannoneer Zombies</ref>. They levitate in "
+"the air and attack like regular zombies."
 
 #. Flavor for enemies mvz2:cannonball_zombie
 #: Almanac meta file
@@ -4517,8 +4519,8 @@ msgstr "Gargoyle Statue"
 #. Header for misc mvz2:gargoyle_statue
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "石像鬼雕像会在最后一波时变成石像鬼。"
-msgstr "Gargoyles will be revived from statues when the final wave comes."
+msgid "石像鬼雕像会在最后一波时变成<ref=[enemies]mvz2:gargoyle>石像鬼</ref>。"
+msgstr "<ref=[enemies]mvz2:gargoyle>Gargoyles</ref> will be revived from statues when the final wave comes."
 
 #. Properties for misc mvz2:gargoyle_statue
 #: Almanac meta file
