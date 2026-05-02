@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flag_zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 7324147147550593578, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6785545812457648638, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
     - {fileID: 8080526330840780163, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
