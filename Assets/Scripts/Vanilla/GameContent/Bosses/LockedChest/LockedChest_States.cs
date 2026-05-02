@@ -2458,12 +2458,12 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_SOULSAND3:
                         if (timer.Expired)
                         {
+                            stateMachine.StartSubState(entity, substate + 1);
+                            timer.ResetSeconds(0.5f);
                             if (substateProgresses.TryGetValue(substate, out var progress))
                             {
                                 BuildBlock(entity, progress, VanillaSoundID.soulSand);
                             }
-                            stateMachine.StartSubState(entity, substate + 1);
-                            timer.ResetSeconds(0.5f);
                         }
                         break;
                     case SUBSTATE_SOULSAND4:
@@ -2486,11 +2486,11 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_JUMP2:
                         if (entity.Velocity.y < 0)
                         {
+                            stateMachine.StartSubState(entity, substate + 1);
                             if (substateProgresses.TryGetValue(substate, out var progress))
                             {
                                 BuildBlock(entity, progress, VanillaSoundID.stone);
                             }
-                            stateMachine.StartSubState(entity, substate + 1);
                         }
                         break;
                     case SUBSTATE_JUMP3:
@@ -2510,10 +2510,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_DUMB:
                         if (timer.Expired)
                         {
-                            SetEmote(entity, EMOTE_QUESTION);
-                            stateMachine.StartSubState(entity, SUBSTATE_END);
-                            timer.ResetSeconds(1f);
-                            entity.PlaySound(VanillaSoundID.pop);
+                            ShowQuestion(entity);
                         }
                         break;
                     case SUBSTATE_END:
@@ -2528,6 +2525,14 @@ namespace MVZ2.GameContent.Bosses
             {
                 return GetStateTargetID(entity)?.GetEntity(entity.Level);
             }
+            public static void ShowQuestion(Entity entity)
+            {
+                SetEmote(entity, EMOTE_QUESTION);
+                stateMachine.StartSubState(entity, SUBSTATE_END);
+                var timer = stateMachine.GetSubStateTimer(entity);
+                timer.ResetSeconds(1f);
+                entity.PlaySound(VanillaSoundID.pop);
+            }
             public static void BuildBlock(Entity entity, int progress, NamespaceID soundID)
             {
                 var blocks = GetBlocks(entity);
@@ -2538,7 +2543,7 @@ namespace MVZ2.GameContent.Bosses
                 }
                 else
                 {
-                    stateMachine.StartState(entity, STATE_IDLE);
+                    ShowQuestion(entity);
                 }
             }
             public const int SUBSTATE_HOP1 = 0;
