@@ -791,6 +791,8 @@ namespace MVZ2.GameContent.Bosses
             foreach (var contraption in level.FindEntities(e => e.Type == EntityTypes.PLANT))
             {
                 int idx = contraption.GetGridIndex();
+                if (!contraption.CanDeactive())
+                    continue;
                 if ((uint)idx < (uint)maxIndex)   // 边界检查的惯用高效写法
                     contraptions[idx] = true;
             }
