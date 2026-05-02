@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e50630d78a2fedb438493ddc59a2208d
+guid: bdd43ff2f7e3bcc47ad9202d737d70fd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,43 +123,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RaiderSkull_0
+      name: TyrantBedserker_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 35
+        x: 0
+        y: 35
+        width: 32
         height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47c55a0d2b6aa5246bae8bece69f76ce
-      internalID: 163012262
+      spriteID: d0a8f9471172f194eaef0b6836e9dd63
+      internalID: 1231249821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaiderSkull_1
+      name: TyrantBedserker_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 1
-        width: 35
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 46
+        y: 22
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 295531a5471517042b81876ac4137bc4
-      internalID: 519991784
+      spriteID: 3b55cd0e83fe76048a8b8e972673359e
+      internalID: 400421293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TyrantBedserker_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 22
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9aad38f7dd500d469f0c1a3f357ab2f
+      internalID: 606511193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TyrantBedserker_3
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 22
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80baa10f344f7594b87edb4f2ca8a3f4
+      internalID: 266468118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TyrantBedserker_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 32
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758883ae2ae15fd4fa0b3593b6ad6be4
+      internalID: -1897262663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TyrantBedserker_5
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 8
+        height: 34
+      alignment: 9
+      pivot: {x: 0.375, y: 0.91}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a693f79c5fc877343a7c2b347196bd6d
+      internalID: -186537985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TyrantBedserker_6
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 6
+        width: 39
+        height: 12
+      alignment: 9
+      pivot: {x: 0.92, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ccac01e3e6ddc142af406227a259a98
+      internalID: 959559250
       vertices: []
       indices: 
       edges: []
@@ -175,8 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RaiderSkull_0: 163012262
-      RaiderSkull_1: 519991784
+      TyrantBedserker_0: 1231249821
+      TyrantBedserker_1: 400421293
+      TyrantBedserker_2: 606511193
+      TyrantBedserker_3: 266468118
+      TyrantBedserker_4: -1897262663
+      TyrantBedserker_5: -186537985
+      TyrantBedserker_6: 959559250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
