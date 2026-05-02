@@ -58,10 +58,7 @@ namespace MVZ2.Mainmenu
             }
             ui.SetVersion(Application.version);
             var name = main.SaveManager.GetCurrentUserName() ?? string.Empty;
-            bool isSpecialName = main.Game.IsSpecialUserName(name);
-            ui.SetUserName(name);
-            ui.SetUserNameColor(isSpecialName ? Color.red : Color.black);
-            ui.SetUserNameGold(!isSpecialName && main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
+            SetUserName(name);
             animatorBlendStart = mainmenuBlend;
             animatorBlendEnd = mainmenuBlend;
         }
@@ -552,8 +549,7 @@ namespace MVZ2.Mainmenu
             var currentUserIndex = main.SaveManager.GetCurrentUserIndex();
             if (userIndex == currentUserIndex)
             {
-                ui.SetUserName(name);
-                ui.SetUserNameGold(main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
+                SetUserName(name);
             }
         }
         private void SwitchUser(int userIndex)
@@ -688,6 +684,13 @@ namespace MVZ2.Mainmenu
                 }
             }
             ui.SetWindowViewSprite(sprite);
+        }
+        private void SetUserName(string name)
+        {
+            bool isSpecialName = main.Game.IsSpecialUserName(name);
+            ui.SetUserName(name);
+            ui.SetUserNameColor(isSpecialName ? Color.red : Color.black);
+            ui.SetUserNameGold(!isSpecialName && main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
         }
 
         #region 统计
