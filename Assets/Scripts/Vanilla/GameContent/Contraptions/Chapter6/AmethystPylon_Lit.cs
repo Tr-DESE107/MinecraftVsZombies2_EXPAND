@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Contraptions
                 foreach (var source in lightSourceBuffer)
                 {
                     var sourceEntity = entity.Level.FindEntityByID(source);
-                    if (sourceEntity.ExistsAndAlive() && sourceEntity.IsVulnerableEntity())
+                    if (sourceEntity.ExistsAndAlive() && (sourceEntity.IsVulnerableEntity() || sourceEntity.Type == EntityTypes.CART))
                     {
                         count++;
                         if (count >= MAX_LIGHT_SOURCE_COUNT)
