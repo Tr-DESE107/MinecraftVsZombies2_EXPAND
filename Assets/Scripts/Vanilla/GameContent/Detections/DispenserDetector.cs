@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -21,7 +22,9 @@ namespace MVZ2.GameContent.Detections
             shootOffset = self.ModifyShotOffset(shootOffset);
             shootOffset.x *= direction;
             var source = self.Position + shootOffset;
-            var projectileSize = GetProjectileSize(self, Vector3.one * 32);
+
+            var projID = projectileID ?? self.GetProjectileID();
+            var projectileSize = GetProjectileSize(projID, Vector3.one * 32);
             var range = self.GetRange();
 
             var sizeX = range < 0 ? 800 : range;
@@ -82,6 +85,7 @@ namespace MVZ2.GameContent.Detections
         public bool reversed;
         public int innerLaneExpansion;
         public int outerLaneExpansion;
+        public NamespaceID? projectileID;
         public Func<DetectionParams, IEntityCollider, bool>? colliderFilter;
     }
 }

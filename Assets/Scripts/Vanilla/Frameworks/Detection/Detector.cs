@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Base;
@@ -169,11 +170,11 @@ namespace MVZ2.Vanilla.Detections
         {
             return x > LevelPositions.GetAttackBorderX(false) && x < LevelPositions.GetAttackBorderX(true);
         }
-        protected EntityDefinition? GetEntityDefinition(LevelEngine level, NamespaceID entityID)
+        protected EntityDefinition? GetEntityDefinition(NamespaceID entityID)
         {
             if (!definitionCaches.TryGetValue(entityID, out var cache))
             {
-                cache = level.Content.GetEntityDefinition(entityID);
+                cache = Global.Game.GetEntityDefinition(entityID);
                 if (cache != null)
                 {
                     definitionCaches.Add(entityID, cache);
@@ -183,10 +184,13 @@ namespace MVZ2.Vanilla.Detections
         }
         protected Vector3 GetProjectileSize(Entity entity, Vector3 defaultValue)
         {
-            var projectileID = entity.GetProjectileID();
+            return GetProjectileSize(entity.GetProjectileID(), defaultValue);
+        }
+        protected Vector3 GetProjectileSize(NamespaceID? projectileID, Vector3 defaultValue)
+        {
             if (NamespaceID.IsValid(projectileID))
             {
-                var projectileDef = GetEntityDefinition(entity.Level, projectileID);
+                var projectileDef = GetEntityDefinition(projectileID);
                 if (projectileDef != null)
                     return projectileDef.GetSize();
             }

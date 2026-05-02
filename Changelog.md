@@ -15,6 +15,8 @@
   - Material: Stone -> Wood
 - Spike Block
   - Now can destroy multiple Hell Chariots at once.
+- Stone Dropper
+  - When making attack checks, use the volume of boulders instead of the volume of pebbles.
 - Jeweled Pagoda
   - Recharge time: Very Long -> Short
   - Tile disabling duration: 4 minutes -> 2 minutes

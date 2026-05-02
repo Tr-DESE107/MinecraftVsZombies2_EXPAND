@@ -13,7 +13,7 @@ namespace MVZ2.GameContent.Detections
         protected override Bounds GetDetectionBounds(Entity self)
         {
             var targetPosition = SkywardBeacon.GetStrikePosition(self);
-            var beamDef = GetEntityDefinition(self.Level, VanillaEffectID.skywardBeam);
+            var beamDef = GetEntityDefinition(VanillaEffectID.skywardBeam);
             var size = beamDef?.GetSize() ?? new Vector3(64, 800, 64);
             var center = targetPosition;
             center.y = size.y * 0.5f;

@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Detections
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
-            var fireBreathDef = GetEntityDefinition(self.Level, fireBreathID);
+            var fireBreathDef = GetEntityDefinition(fireBreathID);
             if (fireBreathDef == null)
                 return new Bounds(Vector3.zero, Vector3.zero);
             var fireSize = fireBreathDef.GetSize();
