@@ -19,9 +19,8 @@ namespace MVZ2.GameContent.Artifacts
             AddTrigger(LogicLevelCallbacks.POST_WAVE_ENEMY_SPAWN, PostWaveEnemySpawnCallback);
         }
 
-        private void PostWaveEnemySpawnCallback(
-            VanillaLevelCallbacks.WaveEnemySpawnParams param,
-            CallbackResult result)
+        // 修改这里：使用 LogicLevelCallbacks.WaveEnemySpawnParams 而不是 VanillaLevelCallbacks.WaveEnemySpawnParams
+        private void PostWaveEnemySpawnCallback(LogicLevelCallbacks.WaveEnemySpawnParams param, CallbackResult result)
         {
             var level = param.level;
             var wave = param.wave;
@@ -34,7 +33,7 @@ namespace MVZ2.GameContent.Artifacts
                 var rng = artifact.RNG;
                 if (rng.Next(10) < 7)
                 {
-                    // ����������ɶ������
+                    // 根据随机数生成不同类型的敌人
                     switch (rng.Next(4))
                     {
                         case 0:
@@ -51,7 +50,7 @@ namespace MVZ2.GameContent.Artifacts
                             level.SpawnEnemyAtRandomLane(VanillaEnemyID.MutantMannequin);
                             break;
                     }
-                    
+
                     artifact.Highlight();
                 }
             }

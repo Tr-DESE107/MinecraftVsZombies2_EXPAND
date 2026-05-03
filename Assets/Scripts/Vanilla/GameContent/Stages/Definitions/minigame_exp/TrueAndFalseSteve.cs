@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.TrueAndFalseSteve)]
+    [AutoStageDefinition(VanillaStageNames.TrueAndFalseSteve)]
 
     public partial class TrueAndFalseSteve : StageDefinition
     {

@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.a_tooth_for_a_tooth)]
+    [AutoStageDefinition(VanillaStageNames.a_tooth_for_a_tooth)]
 
     public partial class AToothForAToothStage : StageDefinition
     {

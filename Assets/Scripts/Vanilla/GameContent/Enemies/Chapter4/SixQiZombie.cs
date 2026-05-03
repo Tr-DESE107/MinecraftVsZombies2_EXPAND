@@ -5,11 +5,14 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+
+using MVZ2Logic.Entities;
+
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -55,6 +58,6 @@ namespace MVZ2.GameContent.Enemies
 
 
         }
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
     }
 }

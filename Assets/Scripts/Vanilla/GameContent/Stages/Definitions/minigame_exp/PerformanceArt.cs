@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.PerformanceArt)]
+    [AutoStageDefinition(VanillaStageNames.PerformanceArt)]
 
     public partial class PerformanceArt : StageDefinition
     {

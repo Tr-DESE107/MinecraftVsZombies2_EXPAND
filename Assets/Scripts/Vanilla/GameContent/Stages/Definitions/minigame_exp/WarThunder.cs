@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.WarThunder)]
+    [AutoStageDefinition(VanillaStageNames.WarThunder)]
 
     public partial class WarThunder : StageDefinition
     {

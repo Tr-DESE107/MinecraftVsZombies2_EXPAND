@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.ZombiesTide)]
+    [AutoStageDefinition(VanillaStageNames.ZombiesTide)]
 
     public partial class ZombiesTide : StageDefinition
     {

@@ -5,11 +5,10 @@ using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.puzzleRandomCvsRandomE)]
+    [AutoStageDefinition(VanillaStageNames.puzzleRandomCvsRandomE)]
     public class PuzzleRandomCvsRandomEStage : IZombiePuzzleStage
     {
         public PuzzleRandomCvsRandomEStage(string nsp, string name) : base(nsp, name, VanillaIZombieLayoutID.puzzleRandomCvsRandomE)

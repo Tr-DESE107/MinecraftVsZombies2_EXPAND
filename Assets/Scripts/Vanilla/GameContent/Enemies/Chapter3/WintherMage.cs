@@ -5,13 +5,12 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
-using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
 
@@ -168,9 +167,9 @@ namespace MVZ2.GameContent.Enemies
 
         private int shoot_times = 0;
 
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_CAST = VanillaEnemyStates.CAST;
-        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_CAST = LogicEnemyStates.CAST;
+        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
 
         public const int ATTACK_STATE_CAST = 0;
         public const int ATTACK_STATE_FIRE = 1;

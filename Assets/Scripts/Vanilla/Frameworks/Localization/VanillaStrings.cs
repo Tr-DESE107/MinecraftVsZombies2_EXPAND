@@ -54,6 +54,8 @@ namespace MVZ2.Vanilla.Localization
         [TranslateMsg("充能时间", LogicStrings.CONTEXT_RECHARGE_TIME)]
         public const string RECHARGE_SHORT = "短";
         [TranslateMsg("充能时间", LogicStrings.CONTEXT_RECHARGE_TIME)]
+        public const string RECHARGE_MEDIUM = "中";
+        [TranslateMsg("充能时间", LogicStrings.CONTEXT_RECHARGE_TIME)]
         public const string RECHARGE_LONG = "长";
         [TranslateMsg("充能时间", LogicStrings.CONTEXT_RECHARGE_TIME)]
         public const string RECHARGE_VERY_LONG = "很长";

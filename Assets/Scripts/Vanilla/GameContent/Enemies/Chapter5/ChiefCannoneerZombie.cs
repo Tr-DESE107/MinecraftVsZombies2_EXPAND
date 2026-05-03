@@ -4,21 +4,18 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.ChiefCannoneerZombie)]
-    public class ChiefCannoneerZombie : AIEntityBehaviour
+    public class ChiefCannoneerZombie : BoatedEnemyBehaviour
     {
         public ChiefCannoneerZombie(string nsp, string name) : base(nsp, name)
         {
@@ -26,13 +23,6 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            var level = entity.Level;
-            var lane = entity.GetLane();
-            if (level.IsWaterLane(lane) || level.IsAirLane(lane))
-            {
-                entity.AddBuff<BoatBuff>();
-                entity.SetModelProperty("HasBoat", true);
-            }
         }
         protected override void UpdateLogic(Entity entity)
         {

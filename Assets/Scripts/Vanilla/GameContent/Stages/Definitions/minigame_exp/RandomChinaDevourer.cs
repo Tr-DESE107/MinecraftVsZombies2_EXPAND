@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.RandomChinaDevourer)]
+    [AutoStageDefinition(VanillaStageNames.RandomChinaDevourer)]
     public partial class RandomChinaDevourer : StageDefinition
     {
         public RandomChinaDevourer(string nsp, string name) : base(nsp, name)

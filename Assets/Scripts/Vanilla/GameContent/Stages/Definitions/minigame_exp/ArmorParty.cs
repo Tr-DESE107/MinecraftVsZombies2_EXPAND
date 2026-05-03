@@ -20,7 +20,7 @@ using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.ArmorParty)]
+    [AutoStageDefinition(VanillaStageNames.ArmorParty)]
     public partial class ArmorParty : StageDefinition
     {
         public ArmorParty(string nsp, string name) : base(nsp, name)

@@ -25,7 +25,7 @@ using MVZ2.Vanilla.Audios;
 
 namespace MVZ2.GameContent.Stages  
 {  
-    [StageDefinition(VanillaStageNames.OpticalIllusion)]  
+    [AutoStageDefinition(VanillaStageNames.OpticalIllusion)]  
     public partial class OpticalIllusion : StageDefinition  
     {  
         public OpticalIllusion(string nsp, string name) : base(nsp, name)  

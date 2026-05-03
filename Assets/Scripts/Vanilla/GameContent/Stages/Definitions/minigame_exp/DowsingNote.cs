@@ -14,7 +14,7 @@ using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.DowsingNote)]
+    [AutoStageDefinition(VanillaStageNames.DowsingNote)]
     public partial class DowsingNote : StageDefinition
     {
         public DowsingNote(string nsp, string name) : base(nsp, name)

@@ -13,7 +13,7 @@ using UnityEngine;
   
 namespace MVZ2.GameContent.Stages    
 {    
-    [StageDefinition(VanillaStageNames.ZombieNimbleZombieQuick)]    
+    [AutoStageDefinition(VanillaStageNames.ZombieNimbleZombieQuick)]    
     public partial class ZombieNimbleZombieQuickStage : StageDefinition    
     {    
         public ZombieNimbleZombieQuickStage(string nsp, string name) : base(nsp, name)    

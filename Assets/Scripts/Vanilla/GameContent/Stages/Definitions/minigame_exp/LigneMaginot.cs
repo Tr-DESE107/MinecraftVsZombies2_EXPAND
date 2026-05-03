@@ -13,7 +13,7 @@ using MVZ2.Vanilla.Grids;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.LigneMaginot)]
+    [AutoStageDefinition(VanillaStageNames.LigneMaginot)]
     public partial class LigneMaginot : StageDefinition
     {
         public LigneMaginot(string nsp, string name) : base(nsp, name)

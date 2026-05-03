@@ -15,7 +15,7 @@ using PVZEngine.Definitions;
 namespace MVZ2.GameContent.Enemies
 {
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.FlagMonkZombie)]
-    public class FlagMonkZombie : Zombie
+    public class FlagMonkZombie : BoatedEnemyBehaviour
     {
         public FlagMonkZombie(string nsp, string name) : base(nsp, name)
         {

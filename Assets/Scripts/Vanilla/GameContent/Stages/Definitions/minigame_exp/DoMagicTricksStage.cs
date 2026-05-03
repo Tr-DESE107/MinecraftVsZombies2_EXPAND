@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.Do_Magic_Tricks)]
+    [AutoStageDefinition(VanillaStageNames.Do_Magic_Tricks)]
 
     public partial class Do_Magic_Tricks : StageDefinition
     {

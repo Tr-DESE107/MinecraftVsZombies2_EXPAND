@@ -18,7 +18,7 @@ using MVZ2.Vanilla.Grids;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.FeedFeast)]
+    [AutoStageDefinition(VanillaStageNames.FeedFeast)]
     public partial class FeedFeast : StageDefinition
     {
         public FeedFeast(string nsp, string name) : base(nsp, name)

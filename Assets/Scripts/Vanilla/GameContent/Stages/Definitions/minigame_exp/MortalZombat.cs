@@ -15,7 +15,7 @@ using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.MortalZombat)]
+    [AutoStageDefinition(VanillaStageNames.MortalZombat)]
     public partial class MortalZombat : StageDefinition
     {
         public MortalZombat(string nsp, string name) : base(nsp, name)

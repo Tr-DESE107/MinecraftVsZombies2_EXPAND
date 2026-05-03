@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.MutantCrisis_2)]
+    [AutoStageDefinition(VanillaStageNames.MutantCrisis_2)]
 
     public partial class MutantCrisis_2 : StageDefinition
     {

@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.RandomChinaAndPot)]
+    [AutoStageDefinition(VanillaStageNames.RandomChinaAndPot)]
 
     public partial class RandomChinaAndPot : StageDefinition
     {

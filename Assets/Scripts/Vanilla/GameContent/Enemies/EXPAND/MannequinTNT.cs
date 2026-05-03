@@ -7,18 +7,18 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
 
@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Enemies
     {
         public MannequinTNT(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback, filter: EntityTypes.PLANT);
+            //AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback, filter: EntityTypes.PLANT);
         }
         public override void Init(Entity entity)
         {
@@ -79,21 +79,21 @@ namespace MVZ2.GameContent.Enemies
         //    entity.SetEvoked(true);
         //    Ignite(entity);
         //}
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
-        {
-            var entity = param.entity;
-            var info = param.deathInfo;
-            if (!entity.IsEntityOf(VanillaEnemyID.MannequinTNT))
-                return;
-            if (!info.HasEffect(VanillaDamageEffects.SACRIFICE) &&
-                !info.HasEffect(VanillaDamageEffects.FIRE) &&
-                !info.HasEffect(VanillaDamageEffects.EXPLOSION))
-                return;
-            var range = entity.GetRange();
-            var damage = entity.GetDamage();
-            Explode(entity, range, damage);
-            entity.Remove();
-        }
+        //private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        //{
+        //    var entity = param.entity;
+        //    var info = param.deathInfo;
+        //    if (!entity.IsEntityOf(VanillaEnemyID.MannequinTNT))
+        //        return;
+        //    if (!info.HasEffect(VanillaDamageEffects.SACRIFICE) &&
+        //        !info.HasEffect(VanillaDamageEffects.FIRE) &&
+        //        !info.HasEffect(VanillaDamageEffects.EXPLOSION))
+        //        return;
+        //    var range = entity.GetRange();
+        //    var damage = entity.GetDamage();
+        //    Explode(entity, range, damage);
+        //    entity.Remove();
+        //}
         public static void Ignite(Entity entity)
         {
             entity.PlaySound(VanillaSoundID.fuse);
@@ -165,25 +165,7 @@ namespace MVZ2.GameContent.Enemies
                 var range = entity.GetRange();
                 var damage = entity.GetDamage();
                 Explode(entity, range, damage);
-                if (entity.IsEvoked())
-                {
-                    for (int i = 0; i < 4; i++)
-                    {
-                        var direction = Quaternion.Euler(0, i * 90, 0) * Vector3.right * 10;
-                        var velocity = direction;
-                        velocity.y = 10;
-                        var projectile = entity.ShootProjectile(VanillaProjectileID.flyingTNT, velocity);
-                        if (projectile != null)
-                        {
-                            projectile.SetDamage(damage);
-                            projectile.SetRange(range);
-                            if (IsCharged(entity))
-                            {
-                                Charge(projectile);
-                            }
-                        }
-                    }
-                }
+                
                 entity.Remove();
             }
         }

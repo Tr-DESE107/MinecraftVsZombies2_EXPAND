@@ -2,20 +2,21 @@
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
@@ -65,7 +66,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+            if (!entity.WillRemoveOnDeath(info))
                 return;
             Explode(entity, entity.GetDamage() * 6, entity.GetFaction());
             entity.Remove();

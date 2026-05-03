@@ -14,7 +14,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.big_trouble_and_little_zombie_2)]
+    [AutoStageDefinition(VanillaStageNames.big_trouble_and_little_zombie_2)]
     public partial class LittleZombieStage2 : StageDefinition
     {
         public LittleZombieStage2(string nsp, string name) : base(nsp, name)

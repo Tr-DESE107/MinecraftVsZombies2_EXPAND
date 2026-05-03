@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.ContraptionDevourer)]
+    [AutoStageDefinition(VanillaStageNames.ContraptionDevourer)]
     public partial class ContraptionDevourer : StageDefinition
     {
         public ContraptionDevourer(string nsp, string name) : base(nsp, name)

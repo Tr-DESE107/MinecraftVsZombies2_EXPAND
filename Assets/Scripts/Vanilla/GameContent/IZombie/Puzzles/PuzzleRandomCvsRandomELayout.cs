@@ -3,14 +3,14 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Stages;
-using MVZ2Logic;
 using MVZ2Logic.IZombie;
 using PVZEngine;
 using Tools;
+using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleRandomCvsRandomE)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleRandomCvsRandomE)]
     public class PuzzleRandomCvsRandomELayout : IZombieLayoutDefinition
     {
         public PuzzleRandomCvsRandomELayout(string nsp, string name) : base(nsp, name, 8)

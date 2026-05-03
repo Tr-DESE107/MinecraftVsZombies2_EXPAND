@@ -22,7 +22,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.GiantCrisis)]
+    [AutoStageDefinition(VanillaStageNames.GiantCrisis)]
     public partial class GiantCrisis : StageDefinition
     {
         public GiantCrisis(string nsp, string name) : base(nsp, name)

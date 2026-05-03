@@ -6,7 +6,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.VillagerNews)]
+    [AutoStageDefinition(VanillaStageNames.VillagerNews)]
 
     public partial class VillagerNews : StageDefinition
     {

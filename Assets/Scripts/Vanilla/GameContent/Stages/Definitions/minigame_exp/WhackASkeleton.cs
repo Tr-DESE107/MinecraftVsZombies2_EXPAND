@@ -10,7 +10,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.WhackASkeleton)]
+    [AutoStageDefinition(VanillaStageNames.WhackASkeleton)]
     public partial class WhackASkeleton : StageDefinition
     {
         public WhackASkeleton(string nsp, string name) : base(nsp, name)
