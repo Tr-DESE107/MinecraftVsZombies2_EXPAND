@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.GameContent.Buffs.SeedPacks;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -18,7 +17,7 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.FrankensteinBrain)]
+    [AutoArtifactDefinition(VanillaArtifactNames.FrankensteinBrain)]
     public class FrankensteinBrain : ArtifactDefinition
     {
         public FrankensteinBrain(string nsp, string name) : base(nsp, name)
@@ -130,7 +129,7 @@ namespace MVZ2.GameContent.Artifacts
                         continue;
                     if (seedDef.GetSeedType() != SeedTypes.ENTITY)
                         continue;
-                    var entityID = seedDef?.GetSeedEntityID();
+                    var entityID = seedDef.GetSeedEntityID();
                     if (!NamespaceID.IsValid(entityID))
                         continue;
                     var entityDef = level.Content.GetEntityDefinition(entityID);

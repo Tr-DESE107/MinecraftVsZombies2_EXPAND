@@ -4,21 +4,23 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.GameContent.Pickups;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.VillagerGhast)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.VillagerGhast)]
     public class VillagerGhast : AIEntityBehaviour
     {
         public VillagerGhast(string nsp, string name) : base(nsp, name)
@@ -81,11 +83,6 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            for (var i = 0; i < 11; i++)
-            {
-                entity.Spawn(VanillaPickupID.emerald, entity.Position);
-                entity.Spawn(VanillaPickupID.ruby, entity.Position);
-            }
         }
         public static FrameTimer? GetStateTimer(Entity enemy)
         {
@@ -133,7 +130,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         public const int SHOOT_COOLDOWN = 135;
         public const int SHOOT_DURATION = 15;
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
     }
 }

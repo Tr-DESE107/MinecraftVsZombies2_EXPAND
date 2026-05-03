@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -13,7 +14,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.MutantMannequin)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.MutantMannequin)]
     public class MutantMannequin : MutantZombieBase
     {
         public MutantMannequin(string nsp, string name) : base(nsp, name)

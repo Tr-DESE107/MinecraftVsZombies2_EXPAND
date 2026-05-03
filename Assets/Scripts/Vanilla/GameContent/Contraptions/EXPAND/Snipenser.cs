@@ -22,7 +22,7 @@ using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.Snipenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.Snipenser)]
     public class Snipenser : ContraptionBehaviour
     {
         public Snipenser(string nsp, string name) : base(nsp, name)

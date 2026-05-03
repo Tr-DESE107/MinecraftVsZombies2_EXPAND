@@ -552,6 +552,7 @@ namespace MVZ2.GameContent.Bosses
             boss.Level.AddBuff<NightmareDecrepifyBuff>();
         }
 
+        private void Biohazard(Entity boss)
         {
             //尸潮：额外加入其他类僵尸
             boss.PlaySound(VanillaSoundID.biohazard);
@@ -1053,7 +1054,7 @@ namespace MVZ2.GameContent.Bosses
             LogicBlueprintID.FromEntity(VanillaContraptionID.pistenser),
             LogicBlueprintID.FromEntity(VanillaContraptionID.totenser),
             LogicBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.glowstone),
             LogicBlueprintID.FromEntity(VanillaContraptionID.dreamSilk)
         };
         private static NamespaceID[] hardMindSwapPool = new NamespaceID[]
@@ -1066,10 +1067,10 @@ namespace MVZ2.GameContent.Bosses
             LogicBlueprintID.FromEntity(VanillaContraptionID.totenser),
             LogicBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
             LogicBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.ghast)
+            LogicBlueprintID.FromEntity(VanillaContraptionID.glowstone),
+            LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+            LogicBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
+            LogicBlueprintID.FromEntity(VanillaEnemyID.ghast)
 
         };
         #endregion 常量

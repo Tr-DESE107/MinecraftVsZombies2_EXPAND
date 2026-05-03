@@ -25,9 +25,21 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             entity.PlaySound(VanillaSoundID.boneWallBuild);
         }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            if (entity.Timeout >= 0)
+            {
+                entity.Timeout--;
+                if (entity.Timeout <= 0)
+                {
+                    entity.Die(entity);
                     var randomID = GetRandomSkeletonID(entity.RNG);
 
                     entity.SpawnWithParams(randomID, entity.Position);
+                }
+            }
+        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);

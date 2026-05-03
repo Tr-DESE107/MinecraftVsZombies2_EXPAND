@@ -48,7 +48,66 @@ namespace MVZ2.GameContent.Stages
         }
         protected override NamespaceID GetFirstLayoutID()
         {
-            // ����������ĵ��   
+            return VanillaIZombieLayoutID.izeComposite;
+        }
+
+        //protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
+        //{
+        //    level.FillSeedPacks(new NamespaceID[]
+        //    {
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.SkeletonHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ZombieHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.RedEyeZombieHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.FlagSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.KingSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.MeleeSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.MegaZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.SuperMegaZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.EvilMage),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.WitherBoneWall),
+
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.WitherBoneWall),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.MegaZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.SuperMegaZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.KingSkeleton),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.RandomZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.ZombieHead),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.BloodlustHostZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.KingofReverser),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.Mannequin),
+        //    });
+        //}
+        public const int ROUNDS_PER_PICKAXE = 1;
+        public const int MAX_PICKAXE_COUNT = 99;
+        
+        protected override IEnumerable<NamespaceID> GetBlueprints()
+        {
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.imp);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.ghost);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.gargoyle);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.dullahan);
+        }
+
+        /*
+         // ����������ĵ��   
             var unlockedEnemies = Global.Saves.GetUnlockedEnemies();
 
             // ������Ч�Ľ�ʬ    
@@ -93,61 +152,7 @@ namespace MVZ2.GameContent.Stages
                 .ToArray();
 
             level.FillSeedPacks(selectedEnemies);
-        }
+         */
 
-        //protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
-        //{
-        //    level.FillSeedPacks(new NamespaceID[]
-        //    {
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.SkeletonHead),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ZombieHead),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.RedEyeZombieHead),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.FlagSkeleton),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.KingSkeleton),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.MeleeSkeleton),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.MegaZombie),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.SuperMegaZombie),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.EvilMage),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.WitherBoneWall),
-
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
-        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
-
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.WitherBoneWall),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.MegaZombie),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.SuperMegaZombie),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.KingSkeleton),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.RandomZombie),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.ZombieHead),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.BloodlustHostZombie),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.KingofReverser),
-        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.Mannequin),
-        //    });
-        //}
-        public const int ROUNDS_PER_PICKAXE = 1;
-        public const int MAX_PICKAXE_COUNT = 99;
-        }
-        protected override IEnumerable<NamespaceID> GetBlueprints()
-        {
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.imp);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.ghost);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.gargoyle);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior);
-            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.dullahan);
-        }
     }
 }

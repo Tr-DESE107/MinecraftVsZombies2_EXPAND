@@ -16,10 +16,10 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [AutoEntityBehaviourDefinition(VanillaContraptionNames.snipenser)]
-    public class Snipenser : AIEntityBehaviour
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.MegaSnipenser)]
+    public class MegaSnipenser : AIEntityBehaviour
     {
-        public Snipenser(string nsp, string name) : base(nsp, name)
+        public MegaSnipenser(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.AddMultiple, PROP_ATTACK_SPEED_ADDITION));
         }

@@ -38,5 +38,6 @@ namespace MVZ2.Vanilla.Game
         {
             "debug",
             "DESE107",
+        };
     }
 }

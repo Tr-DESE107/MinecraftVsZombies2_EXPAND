@@ -7,8 +7,8 @@ namespace MVZ2Logic.Localization
 {
     public static class LogicStrings
     {
-        public const string RECHARGE_MEDIUM = "中";
         [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
+        public const string RECHARGE_MEDIUM = "中";
         [TranslateMsg("通用的是")]
         public const string YES = "是";
         [TranslateMsg("通用的否")]

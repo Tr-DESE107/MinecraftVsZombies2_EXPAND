@@ -173,16 +173,17 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.controlImmunity));
             }
         }
-        private void GetContraptionEntryTags(EntityDefinition def, List<AlmanacEntryTagInfo> tags)
-        //种族
+
         private void GetCategoryAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
+            //种族
             var category = entityDef.GetCategory();
             if (NamespaceID.IsValid(category))
             {
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.Category, category.ToString()));
             }
         }
+        private void GetContraptionEntryTags(EntityDefinition def, List<AlmanacEntryTagInfo> tags)
         {
             var game = Global.Game;
 
