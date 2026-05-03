@@ -13,22 +13,29 @@ namespace MVZ2.GameContent.IZombie
     [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleMineclear)]
     public class PuzzleMineclearLayout : IZombieLayoutDefinition
     {
-        public PuzzleMineclearLayout(string nsp, string name) : base(nsp, name, 5)
+        public PuzzleMineclearLayout(string nsp, string name) : base(nsp, name, 7)
         {
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.imp,
-                VanillaEnemyID.ghost,
+                VanillaEnemyID.anubisand,
+                VanillaEnemyID.necromancer,
+                VanillaEnemyID.KingSkeleton,
+                VanillaEnemyID.EvilMage,
+                VanillaEnemyID.KingofReverser,
+                VanillaEnemyID.SixQiZombie,
                 VanillaEnemyID.emperorZombie,
-                VanillaEnemyID.necromancer
+                VanillaEnemyID.shikaisenZombie,
+                VanillaEnemyID.HeavyGutant,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            RandomFill(map, VanillaContraptionID.mineTNT, 9, rng);
-            RandomFill(map, VanillaContraptionID.spikeBlock, 3, rng);
-            RandomFill(map, VanillaContraptionID.punchton, 5, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 8, rng);
+            RandomFill(map, VanillaContraptionID.mineTNT, 10, rng);
+            RandomFill(map, VanillaContraptionID.spikeBlock, 5, rng);
+            RandomFill(map, VanillaContraptionID.punchton, 6, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 10, rng);
+            RandomFill(map, VanillaContraptionID.hellfire, 4, rng);
         }
     }
 }

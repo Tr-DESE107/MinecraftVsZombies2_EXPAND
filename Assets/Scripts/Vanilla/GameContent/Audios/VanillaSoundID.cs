@@ -262,6 +262,18 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID zombieCry = Get("zombie_cry");
         public readonly static NamespaceID zombieHurt = Get("zombie_hurt");
         public readonly static NamespaceID zombieDeath = Get("zombie_death");
+
+
+        //EXPAND
+        public readonly static NamespaceID Villager_death = Get("Villager_death");
+        public readonly static NamespaceID Villager_idle = Get("Villager_idle");
+        public readonly static NamespaceID Villager_hit = Get("Villager_hit");
+        public readonly static NamespaceID Player_death = Get("Player_death");
+        public readonly static NamespaceID Player_death_Old = Get("Player_death_Old");
+        public readonly static NamespaceID TeslaTrooperAttack = Get("TeslaTrooperAttack");
+        public readonly static NamespaceID EndermanTeleport = Get("EndermanTeleport");
+        public readonly static NamespaceID ghast_affectionate_scream = Get("ghast_affectionate_scream");
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

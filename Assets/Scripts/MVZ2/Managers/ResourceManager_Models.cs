@@ -103,7 +103,7 @@ namespace MVZ2.Managers
             {
                 var meta = metas[i];
 
-                var modelID = meta.Path;
+                var modelID = meta.GetEffectivePath(main.SaveManager);
                 var metaPath = EngineModelID.ConcatName(meta.Type, meta.Name);
                 var metaID = new NamespaceID(modNamespace, metaPath);
                 var spritePath = $"model_icon/{metaPath}";

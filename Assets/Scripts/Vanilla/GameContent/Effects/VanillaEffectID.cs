@@ -28,6 +28,7 @@ namespace MVZ2.GameContent.Effects
         public const string burningGas = "burning_gas";
         public const string healParticles = "heal_particles";
         public const string boneParticles = "bone_particles";
+        public const string wither_bone_particles = "wither_bone_particles";
         public const string bloodParticles = "blood_particles";
         public const string smokeCluster = "smoke_cluster";
         public const string electricArc = "electric_arc";
@@ -106,6 +107,9 @@ namespace MVZ2.GameContent.Effects
         public const string gridFire = "grid_fire";
         public const string fallenEndShip = "fallen_end_ship";
 
+        //EXPAND
+        public const string SoulFreeze = "SoulFreeze";
+        
         public const string megaGlowingLaser = "mega_glowing_laser";
         public const string nukeSmoke = "nuke_smoke";
         public const string nukeFlash = "nuke_flash";
@@ -147,6 +151,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID burningGas = Get(VanillaEffectNames.burningGas);
         public static readonly NamespaceID healParticles = Get(VanillaEffectNames.healParticles);
         public static readonly NamespaceID boneParticles = Get(VanillaEffectNames.boneParticles);
+        public static readonly NamespaceID wither_bone_particles = Get(VanillaEffectNames.wither_bone_particles);
         public static readonly NamespaceID bloodParticles = Get(VanillaEffectNames.bloodParticles);
         public static readonly NamespaceID smokeCluster = Get(VanillaEffectNames.smokeCluster);
         public static readonly NamespaceID electricArc = Get(VanillaEffectNames.electricArc);
@@ -225,6 +230,9 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID gridFire = Get(VanillaEffectNames.gridFire);
         public static readonly NamespaceID fallenEndShip = Get(VanillaEffectNames.fallenEndShip);
 
+        //EXPAND
+        public static readonly NamespaceID SoulFreeze = Get(VanillaEffectNames.SoulFreeze);
+        
         public static readonly NamespaceID megaGlowingLaser = Get(VanillaEffectNames.megaGlowingLaser);
         public static readonly NamespaceID nukeSmoke = Get(VanillaEffectNames.nukeSmoke);
         public static readonly NamespaceID nukeFlash = Get(VanillaEffectNames.nukeFlash);

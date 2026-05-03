@@ -159,6 +159,8 @@ namespace MVZ2.GameContent.Enemies
                         else if (other.Type == EntityTypes.ENEMY)
                         {
                             other.PlaySound(VanillaSoundID.grind);
+                var SkeletonHead = entity.SpawnWithParams(VanillaEnemyID.SkeletonHead, entity.Position + anubisandOffset);
+                var mesmerizer = entity.SpawnWithParams(VanillaEnemyID.mesmerizer, entity.Position + anubisandOffset);
                         }
                     }
                 });

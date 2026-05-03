@@ -21,9 +21,12 @@ namespace MVZ2.Models
             if (!NamespaceID.IsValid(id))
                 return null;
             var modelMeta = res.GetModelMeta(id);
-            if (modelMeta == null || modelMeta.Path == null)
+            if (modelMeta == null)
                 return null;
-            var prefab = res.GetModel(modelMeta.Path);
+            var effectivePath = modelMeta.GetEffectivePath(mainManager.SaveManager);
+            if (effectivePath == null)
+                return null;
+            var prefab = res.GetModel(effectivePath);
             if (!prefab.Exists())
                 return null;
             var model = GameObject.Instantiate(prefab, parent).GetComponent<Model>();

@@ -23,5 +23,20 @@ namespace MVZ2.Vanilla.Game
             "RandomChina",
             "RandmChina",
         };
+        public static bool IsDebugUser(this IGlobalSaveData saves)
+        {
+            var userName = saves.GetCurrentUserName();
+            return saves.IsDebugUserName(userName);
+        }
+        public static bool IsDebugUserName(this IGlobalSaveData saves, string? name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return false;
+            return debugUserNames.Any(n => n.Equals(name, System.StringComparison.OrdinalIgnoreCase));
+        }
+        public static readonly string[] debugUserNames = new string[]
+        {
+            "debug",
+            "DESE107",
     }
 }

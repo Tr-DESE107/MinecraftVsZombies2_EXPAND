@@ -545,6 +545,7 @@ namespace MVZ2.Modding
                 stageDef.SetProperty(LogicStageProps.START_TRANSITION, meta.StartTransition);
 
                 stageDef.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
+                stageDef.SetProperty(EngineStageProps.WAVES_PER_FLAG, meta.WavesPerFlag);
                 stageDef.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
                 stageDef.SetProperty(EngineStageProps.CONTINUED_FIRST_WAVE_TIME, meta.EndlessFirstWaveTime);
                 stageDef.SetProperty(LogicStageProps.WAVE_MAX_TIME, meta.MaxWaveTime);

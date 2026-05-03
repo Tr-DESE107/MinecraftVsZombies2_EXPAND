@@ -21,6 +21,7 @@ using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
+using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -37,6 +38,8 @@ namespace MVZ2.GameContent.Contraptions
 
             var productionTimer = new FrameTimer(entity.RNG.Next(PRODUCTION_TIME_START_MIN, PRODUCTION_TIME_START_MAX));
             SetProductionTimer(entity, productionTimer);
+            var buff = entity.AddBuff<ExplosionProtection>();
+            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
 
             if (entity.Level.IsIZombie())
             {
@@ -66,7 +69,8 @@ namespace MVZ2.GameContent.Contraptions
             }
             var range = entity.GetRange();
             var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
-            entity.ExplodeAgainstFriendly(entity.GetCenter(), range, entity.GetFaction(), damage, effects);
+            entity.Explode(entity.GetCenter(), range, VanillaFactions.NEUTRAL, damage, effects);
+            //entity.ExplodeAgainstFriendly(entity.GetCenter(), range, entity.GetFaction(), damage, effects);
 
             Explosion.Spawn(entity, entity.GetCenter(), range);
 
@@ -140,7 +144,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         public const int PRODUCTION_TIME_START_MIN = 90;
         public const int PRODUCTION_TIME_START_MAX = 360;
-        public const int PRODUCTION_TIME = 1080;
+        public const int PRODUCTION_TIME = 900;
         public const float I_ZOMBIE_EXPLOSION_DAMAGE_MULTIPLIER = 3;
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FURIOUS = new VanillaEntityPropertyMeta<bool>("fury");

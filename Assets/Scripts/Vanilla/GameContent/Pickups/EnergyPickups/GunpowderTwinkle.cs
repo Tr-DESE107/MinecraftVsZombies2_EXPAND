@@ -45,7 +45,8 @@ namespace MVZ2.GameContent.Pickups
                 var damage = pickup.GetDamage() * pickup.Level.GetGunpowderDamageMultiplier();
                 var range = pickup.GetRange();
                 var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
-                pickup.ExplodeAgainstFriendly(pickup.GetCenter(), range, pickup.GetFaction(), damage, effects);
+                pickup.Explode(pickup.GetCenter(), range, VanillaFactions.NEUTRAL, damage, effects);
+                //pickup.ExplodeAgainstFriendly(pickup.GetCenter(), range, pickup.GetFaction(), damage, effects);
 
                 Explosion.Spawn(pickup, pickup.GetCenter(), range);
 

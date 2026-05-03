@@ -71,6 +71,113 @@ namespace MVZ2.GameContent.Enemies
         public const string rollingWood = "rolling_wood";
         public const string rollingStone = "rolling_stone";
         public const string lockedChestBalloon = "locked_chest_balloon";
+
+
+        //EXPAND_C1
+        public const string SkeletonHead = "SkeletonHead";
+        public const string ZombieHead = "ZombieHead";
+        public const string RedEyeZombieHead = "RedEyeZombieHead";
+        public const string KingSkeleton = "KingSkeleton";
+        public const string MeleeSkeleton = "MeleeSkeleton";
+
+        public const string MegaZombie = "MegaZombie";
+        public const string SuperMegaZombie = "SuperMegaZombie";
+        public const string EvilMage = "EvilMage";
+        public const string WitherBoneWall = "WitherBoneWall";
+
+        public const string FlagSkeleton = "FlagSkeleton"; //todo
+
+        //EXPAND_C2
+        public const string HostZombie = "HostZombie";
+        public const string BloodlustHostZombie = "BloodlustHostZombie";
+        public const string HostHead = "HostHead";
+        public const string HostMutant = "HostMutant";
+        public const string HostIMP = "HostIMP";
+        public const string NightmareDisciple = "NightmareDisciple";
+
+        public const string EnragedHostZombie = "EnragedHostZombie";
+        public const string AngryGhast = "AngryGhast";
+        public const string PhaseSpider = "PhaseSpider";
+
+        public const string SpiderQueen = "SpiderQueen"; //todo
+
+        //EXPAND_C3
+        public const string WitherSkeleton = "WitherSkeleton";
+        public const string LeatherWitherSkeleton = "LeatherWitherSkeleton";
+        public const string IronWitherSkeleton = "IronWitherSkeleton";
+        public const string FlagWitherSkeleton = "FlagWitherSkeleton"; //todo
+
+        public const string NetherWarrior = "NetherWarrior";
+        public const string NetherArcher = "NetherArcher";
+        public const string NetherVanguard = "NetherVanguard";
+        public const string AngryReverser = "AngryReverser";
+        public const string RaiderSkull = "RaiderSkull";
+        public const string Anubiskull = "Anubiskull";
+        public const string WitherSkeletonHorse = "WitherSkeletonHorse";//tofix
+        public const string AssaultDullahan = "AssaultDullahan";//tofix
+        public const string BerserkerHead = "BerserkerHead";
+        public const string WintherMage = "WintherMage";//tofix
+        public const string KingofReverser = "KingofReverser";//tofix
+        public const string NetherTroopCarrier = "NetherTroopCarrier";
+
+        //EXPAND_C4
+        public const string MonkZombie = "MonkZombie";
+        public const string LeatherMonkZombie = "LeatherMonkZombie";
+        public const string IronMonkZombie = "IronMonkZombie";
+        public const string FlagMonkZombie = "FlagMonkZombie";//todo
+        public const string SixQiZombie = "SixQiZombie";
+        public const string TorchKongfuZombie = "TorchKongfuZombie";
+        public const string DrunkardMonkZombie = "DrunkardMonkZombie";
+        public const string Hemperor = "Hemperor";
+
+        //EXPAND_C5
+        public const string PirateZombie = "PirateZombie";
+        public const string LeatherPirateZombie = "LeatherPirateZombie";
+        public const string PirateSkeleton = "PirateSkeleton";
+        public const string PirateBucketSkeleton = "PirateBucketSkeleton";
+        public const string FlagPirateSkeleton = "FlagPirateSkeleton";
+
+        public const string HeavyGutant = "HeavyGutant";
+        public const string PirateBomb = "PirateBomb";
+        public const string Endermite = "Endermite";//todo
+        public const string KogasaZombie = "KogasaZombie";
+        public const string PirateIMP = "PirateIMP";
+        public const string ChiefCannoneerZombie = "ChiefCannoneerZombie";
+        public const string MusketeerZombie = "MusketeerZombie";
+        public const string SailorZombie = "SailorZombie";
+
+        //EXPAND_Villager
+        public const string MegaMutantVillager = "MegaMutantVillager";
+        public const string MutantVillager = "MutantVillager";
+        public const string VillagerGhast = "VillagerGhast";
+
+        //EXPAND_Mannequin
+        public const string Mannequin = "Mannequin";
+        public const string ImpMannequin = "ImpMannequin";
+        public const string MegaImpMannequin = "MegaImpMannequin";
+        public const string HerobrineMannequin = "HerobrineMannequin";
+        public const string ImpHerobrineMannequin = "ImpHerobrineMannequin";
+        public const string MutantMannequin = "MutantMannequin";
+        public const string MannequinTNT = "MannequinTNT";
+        public const string CannoneerMannequin = "CannoneerMannequin";
+
+        //EXPAND_X
+        public const string XCarrierMutant = "XCarrierMutant";
+
+        //EXPAND_RANDOM
+        public const string RandomZombie = "RandomZombie";
+        public const string RandomMutant = "RandomMutant";
+        public const string RandomImp = "RandomImp";
+        public const string RandomSkeleton = "RandomSkeleton";
+        public const string RandomKingSkeleton = "RandomKingSkeleton";
+
+        //EXPAND_EXP
+        public const string TeslaTrooper = "TeslaTrooper";
+
+        public const string Cobblestone = "Cobblestone";
+
+        public const string LEOLau = "LEOLau";
+
     }
     public static class VanillaEnemyID
     {
@@ -138,6 +245,110 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID rollingWood = Get(VanillaEnemyNames.rollingWood);
         public static readonly NamespaceID rollingStone = Get(VanillaEnemyNames.rollingStone);
         public static readonly NamespaceID lockedChestBalloon = Get(VanillaEnemyNames.lockedChestBalloon);
+
+        //EXPAND_C1
+        public static readonly NamespaceID SkeletonHead = Get(VanillaEnemyNames.SkeletonHead);
+        public static readonly NamespaceID ZombieHead = Get(VanillaEnemyNames.ZombieHead);
+        public static readonly NamespaceID RedEyeZombieHead = Get(VanillaEnemyNames.RedEyeZombieHead);
+        public static readonly NamespaceID FlagSkeleton = Get(VanillaEnemyNames.FlagSkeleton);
+        public static readonly NamespaceID MeleeSkeleton = Get(VanillaEnemyNames.MeleeSkeleton);
+
+        public static readonly NamespaceID EvilMage = Get(VanillaEnemyNames.EvilMage);
+        public static readonly NamespaceID WitherBoneWall = Get(VanillaEnemyNames.WitherBoneWall);
+        public static readonly NamespaceID KingSkeleton = Get(VanillaEnemyNames.KingSkeleton);
+        public static readonly NamespaceID MegaZombie = Get(VanillaEnemyNames.MegaZombie);
+        public static readonly NamespaceID SuperMegaZombie = Get(VanillaEnemyNames.SuperMegaZombie);
+
+        //EXPAND_C2
+        public static readonly NamespaceID HostHead = Get(VanillaEnemyNames.HostHead);
+        public static readonly NamespaceID HostZombie = Get(VanillaEnemyNames.HostZombie);
+        public static readonly NamespaceID BloodlustHostZombie = Get(VanillaEnemyNames.BloodlustHostZombie);
+        public static readonly NamespaceID SpiderQueen = Get(VanillaEnemyNames.SpiderQueen);
+        public static readonly NamespaceID HostMutant = Get(VanillaEnemyNames.HostMutant);
+        public static readonly NamespaceID HostIMP = Get(VanillaEnemyNames.HostIMP);
+        public static readonly NamespaceID NightmareDisciple = Get(VanillaEnemyNames.NightmareDisciple);
+
+        public static readonly NamespaceID EnragedHostZombie = Get(VanillaEnemyNames.EnragedHostZombie);
+        public static readonly NamespaceID AngryGhast = Get(VanillaEnemyNames.AngryGhast);
+        public static readonly NamespaceID PhaseSpider = Get(VanillaEnemyNames.PhaseSpider);
+
+        //EXPAND_C3
+        public static readonly NamespaceID WitherSkeleton = Get(VanillaEnemyNames.WitherSkeleton);
+        public static readonly NamespaceID LeatherWitherSkeleton = Get(VanillaEnemyNames.LeatherWitherSkeleton);
+        public static readonly NamespaceID IronWitherSkeleton = Get(VanillaEnemyNames.IronWitherSkeleton);
+        public static readonly NamespaceID FlagWitherSkeleton = Get(VanillaEnemyNames.FlagWitherSkeleton);
+
+        public static readonly NamespaceID NetherWarrior = Get(VanillaEnemyNames.NetherWarrior);
+        public static readonly NamespaceID NetherArcher = Get(VanillaEnemyNames.NetherArcher);
+        public static readonly NamespaceID NetherVanguard = Get(VanillaEnemyNames.NetherVanguard);
+        public static readonly NamespaceID AngryReverser = Get(VanillaEnemyNames.AngryReverser);
+        public static readonly NamespaceID RaiderSkull = Get(VanillaEnemyNames.RaiderSkull);
+        public static readonly NamespaceID Anubiskull = Get(VanillaEnemyNames.Anubiskull);
+        public static readonly NamespaceID WitherSkeletonHorse = Get(VanillaEnemyNames.WitherSkeletonHorse);
+        public static readonly NamespaceID AssaultDullahan = Get(VanillaEnemyNames.AssaultDullahan);
+        public static readonly NamespaceID BerserkerHead = Get(VanillaEnemyNames.BerserkerHead);
+        public static readonly NamespaceID WintherMage = Get(VanillaEnemyNames.WintherMage);
+        public static readonly NamespaceID KingofReverser = Get(VanillaEnemyNames.KingofReverser);
+        public static readonly NamespaceID NetherTroopCarrier = Get(VanillaEnemyNames.NetherTroopCarrier);
+
+        //EXPAND_C4
+        public static readonly NamespaceID MonkZombie = Get(VanillaEnemyNames.MonkZombie);
+        public static readonly NamespaceID LeatherMonkZombie = Get(VanillaEnemyNames.LeatherMonkZombie);
+        public static readonly NamespaceID IronMonkZombie = Get(VanillaEnemyNames.IronMonkZombie);
+        public static readonly NamespaceID FlagMonkZombie = Get(VanillaEnemyNames.FlagMonkZombie);
+        public static readonly NamespaceID SixQiZombie = Get(VanillaEnemyNames.SixQiZombie);
+        public static readonly NamespaceID TorchKongfuZombie = Get(VanillaEnemyNames.TorchKongfuZombie);
+        public static readonly NamespaceID DrunkardMonkZombie = Get(VanillaEnemyNames.DrunkardMonkZombie);
+        public static readonly NamespaceID Hemperor = Get(VanillaEnemyNames.Hemperor);
+
+        //EXPAND_C5
+        public static readonly NamespaceID PirateZombie = Get(VanillaEnemyNames.PirateZombie);
+        public static readonly NamespaceID LeatherPirateZombie = Get(VanillaEnemyNames.LeatherPirateZombie);
+        public static readonly NamespaceID PirateSkeleton = Get(VanillaEnemyNames.PirateSkeleton);
+        public static readonly NamespaceID PirateBucketSkeleton = Get(VanillaEnemyNames.PirateBucketSkeleton);
+        public static readonly NamespaceID FlagPirateSkeleton = Get(VanillaEnemyNames.FlagPirateSkeleton);
+
+        public static readonly NamespaceID HeavyGutant = Get(VanillaEnemyNames.HeavyGutant);
+        public static readonly NamespaceID PirateBomb = Get(VanillaEnemyNames.PirateBomb);
+        public static readonly NamespaceID Endermite = Get(VanillaEnemyNames.Endermite);
+        public static readonly NamespaceID KogasaZombie = Get(VanillaEnemyNames.KogasaZombie);
+        public static readonly NamespaceID PirateIMP = Get(VanillaEnemyNames.PirateIMP);
+        public static readonly NamespaceID ChiefCannoneerZombie = Get(VanillaEnemyNames.ChiefCannoneerZombie);
+        public static readonly NamespaceID MusketeerZombie = Get(VanillaEnemyNames.MusketeerZombie);
+        public static readonly NamespaceID SailorZombie = Get(VanillaEnemyNames.SailorZombie);
+        
+        //EXPAND_Villager
+        public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);
+        public static readonly NamespaceID MutantVillager = Get(VanillaEnemyNames.MutantVillager);
+        public static readonly NamespaceID VillagerGhast = Get(VanillaEnemyNames.VillagerGhast);
+
+        //EXPAND_Mannequin
+        public static readonly NamespaceID Mannequin = Get(VanillaEnemyNames.Mannequin);
+        public static readonly NamespaceID ImpMannequin = Get(VanillaEnemyNames.ImpMannequin);
+        public static readonly NamespaceID MegaImpMannequin = Get(VanillaEnemyNames.MegaImpMannequin);
+        public static readonly NamespaceID HerobrineMannequin = Get(VanillaEnemyNames.HerobrineMannequin);
+        public static readonly NamespaceID ImpHerobrineMannequin = Get(VanillaEnemyNames.ImpHerobrineMannequin);
+        public static readonly NamespaceID MutantMannequin = Get(VanillaEnemyNames.MutantMannequin);
+        public static readonly NamespaceID MannequinTNT = Get(VanillaEnemyNames.MannequinTNT);
+        public static readonly NamespaceID CannoneerMannequin = Get(VanillaEnemyNames.CannoneerMannequin);
+
+        //EXPAND_X
+        public static readonly NamespaceID XCarrierMutant = Get(VanillaEnemyNames.XCarrierMutant);
+
+        //EXPAND_RANDOM
+        public static readonly NamespaceID RandomZombie = Get(VanillaEnemyNames.RandomZombie);
+        public static readonly NamespaceID RandomMutant = Get(VanillaEnemyNames.RandomMutant);
+        public static readonly NamespaceID RandomImp = Get(VanillaEnemyNames.RandomImp);
+        public static readonly NamespaceID RandomSkeleton = Get(VanillaEnemyNames.RandomSkeleton);
+        public static readonly NamespaceID RandomKingSkeleton = Get(VanillaEnemyNames.RandomKingSkeleton);
+
+        //EXPAND_EXP
+        public static readonly NamespaceID TeslaTrooper = Get(VanillaEnemyNames.TeslaTrooper);
+
+        public static readonly NamespaceID Cobblestone = Get(VanillaEnemyNames.Cobblestone);
+
+        public static readonly NamespaceID LEOLau = Get(VanillaEnemyNames.LEOLau);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

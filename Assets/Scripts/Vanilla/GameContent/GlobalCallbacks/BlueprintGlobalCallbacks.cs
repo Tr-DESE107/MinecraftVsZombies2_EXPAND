@@ -66,6 +66,14 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 result.SetValue(LogicBlueprintStyles.commandBlock);
             }
+            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.forcePad)|| seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.EXPANDispenser) || seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.Randombstone))
+            {
+                result.SetValue(LogicBlueprintStyles.GoldCard);
+            }
+            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.Bedrock) || seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.errorBlock) || seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.Barrier))
+            {
+                result.SetValue(LogicBlueprintStyles.BlackCard);
+            }
             else if (definition.IsUpgradeBlueprint())
             {
                 result.SetValue(LogicBlueprintStyles.upgrade);

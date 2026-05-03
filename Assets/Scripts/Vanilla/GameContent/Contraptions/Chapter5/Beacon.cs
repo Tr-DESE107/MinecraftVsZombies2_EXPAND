@@ -137,11 +137,17 @@ namespace MVZ2.GameContent.Contraptions
 
         public static Vector3[] shootDirections = new Vector3[]
         {
-            new Vector3(-1, 0, 0), // Back
-            new Vector3(0, 0, 1), // Up
-            new Vector3(0, 0, -1), // Down
-            new Vector3(0.866025f, 0, 0.5f).normalized, // Front-Up
-            new Vector3(0.866025f, 0, -0.5f).normalized, // Front-Down
+            new Vector3(1, 0, 0),   // 向前  
+            new Vector3(-1, 0, 0),  // 向后  
+            new Vector3(-0.5f, 0, 0.866f).normalized,   // 向左上  
+            new Vector3(0.5f, 0, 0.866f).normalized,    // 向右上  
+            new Vector3(-0.5f, 0, -0.866f).normalized,  // 向左下  
+            new Vector3(0.5f, 0, -0.866f).normalized,   // 向右下  
+            //new Vector3(-1, 0, 0), // Back
+            //new Vector3(0, 0, 1), // Up
+            //new Vector3(0, 0, -1), // Down
+            //new Vector3(0.866025f, 0, 0.5f).normalized, // Front-Up
+            //new Vector3(0.866025f, 0, -0.5f).normalized, // Front-Down
         };
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_SHOOT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("shoot_timer");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("evocation_timer");

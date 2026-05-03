@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public FireworkDispenserEvokedBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(VanillaEntityProps.RANGE, NumberOperator.Add, 80));
-            AddModifier(new NamespaceIDModifier(VanillaEntityProps.PROJECTILE_ID, SetOperator.Set, VanillaProjectileID.fireworkBig));
+            //AddModifier(new NamespaceIDModifier(VanillaEntityProps.PROJECTILE_ID, SetOperator.Set, VanillaProjectileID.fireworkBig));
         }
     }
 }

@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Recharges
     {
         public const string none = "none";
         public const string shortTime = "short";
+        public const string mediumTime = "medium";
         public const string longTime = "long";
         public const string veryLongTime = "very_long";
     }
@@ -16,6 +17,7 @@ namespace MVZ2.GameContent.Recharges
     {
         public static readonly NamespaceID none = Get(VanillaRechargeNames.none);
         public static readonly NamespaceID shortTime = Get(VanillaRechargeNames.shortTime);
+        public static readonly NamespaceID mediumTime = Get(VanillaRechargeNames.mediumTime);
         public static readonly NamespaceID longTime = Get(VanillaRechargeNames.longTime);
         public static readonly NamespaceID veryLongTime = Get(VanillaRechargeNames.veryLongTime);
         private static NamespaceID Get(string name)

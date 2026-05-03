@@ -36,21 +36,24 @@
             </props>
         </entry>
         <entry id="mesmerizer_crown" type="mvz2:helmet">
+            <behaviours>
+                <behaviour id="mvz2:damage_state_3" />
+            </behaviours>
             <props>
                 <id name="mvz2:shell" value="mvz2:metal" />
-                <float name="mvz2:maxHealth" value="100" />
+                <float name="mvz2:maxHealth" value="300" />
             </props>
         </entry>
         <entry id="berserker_helmet" type="mvz2:helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:stone" />
-                <float name="mvz2:maxHealth" value="100" />
+                <float name="mvz2:maxHealth" value="200" />
             </props>
         </entry>
         <entry id="bedserker_helmet" type="mvz2:helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:stone" />
-                <float name="mvz2:maxHealth" value="10000" />
+                <float name="mvz2:maxHealth" value="3200" />
             </props>
         </entry>
         <entry id="wicked_hermit_hat" type="mvz2:helmet">
@@ -83,6 +86,241 @@
                 <float name="mvz2:maxHealth" value="50" />
             </props>
         </entry>
+        
+		<!--EXPAND Helmet-->
+		<entry id="SandstoneHelmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
+		<entry id="necromancer_helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
+		<entry id="KingSkeletonCrown">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
+		<entry id="bone_helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<float name="mvz2:maxHealth" value="200" />
+			</props>
+		</entry>
+		<entry id="HostHelmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:flesh" />
+				<float name="mvz2:maxHealth" value="200" />
+			</props>
+		</entry>
+		<entry id="AngryReverserCrown">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1200" />
+			</props>
+		</entry>
+		<entry id="KingofReverserCrown">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1500" />
+			</props>
+		</entry>
+		<entry id="nether_helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
+		<entry id="NetherVanguardHelmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="600" />
+			</props>
+		</entry>
+		<entry id="HemperorCrown" type="mvz2:helmet">
+			<props>
+				<id name="mvz2:shell" value="mvz2:wood" />
+				<float name="mvz2:maxHealth" value="100" />
+			</props>
+		</entry>
+		<entry id="SantaHat" type="mvz2:helmet" ignored="true">
+			<behaviours>
+				<behaviour id="mvz2:destroy_after_half_hp" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:grass" />
+				<float name="mvz2:maxHealth" value="3" />
+			</props>
+		</entry>
+		<entry id="WealthHat" type="mvz2:helmet" ignored="true">
+			<behaviours>
+				<behaviour id="mvz2:destroy_after_half_hp" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="3" />
+			</props>
+		</entry>
+		<entry id="PirateBucket" type="mvz2:PirateBucket">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:wood" />
+				<float name="mvz2:maxHealth" value="1110" />
+			</props>
+		</entry>
+		<entry id="PirateLeatherCap" type="mvz2:PirateLeatherCap">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:leather" />
+				<float name="mvz2:maxHealth" value="370" />
+			</props>
+		</entry>
+
+		
+		<entry id="GoldenHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="518" />
+			</props>
+		</entry>
+		
+		<entry id="RustedIronHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="740" />
+			</props>
+		</entry>
+		
+		<entry id="CopperHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="814" />
+			</props>
+		</entry>
+		
+		<entry id="ChainmailHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1110" />
+			</props>
+		</entry>
+		
+		<entry id="AncientMetalHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1480" />
+			</props>
+		</entry>
+		
+		<entry id="DiamondHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:diamond" />
+				<float name="mvz2:maxHealth" value="2442" />
+			</props>
+		</entry>
+		
+		<entry id="NetheriteHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="2738" />
+			</props>
+		</entry>
+		
+		<entry id="BedrockHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<float name="mvz2:maxHealth" value="2147483647" />
+			</props>
+		</entry>
+		
+		<entry id="BarrierHelmet" type="mvz2:helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<float name="mvz2:maxHealth" value="2147483647" />
+			</props>
+		</entry>
+
+		<entry id="ChiefCap" type="mvz2:helmet" ignored="true">
+			<behaviours>
+				<behaviour id="mvz2:destroy_after_half_hp" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:leather" />
+				<float name="mvz2:maxHealth" value="50" />
+			</props>
+		</entry>
+		<entry id="SailorHat">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:grass" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
 
         <!-- Shields -->
         <entry id="reflective_barrier" type="mvz2:large_shield">
@@ -115,7 +353,7 @@
             </colliders>
             <props>
                 <id name="mvz2:shell" value="mvz2:metal" />
-                <float name="mvz2:maxHealth" value="200" />
+                <float name="mvz2:maxHealth" value="300" />
             </props>
         </entry>
         <entry id="umbrella_shield" type="mvz2:handheld">
@@ -154,5 +392,56 @@
                 <float name="mvz2:maxHealth" value="1110" />
             </props>
         </entry>
+		<!--EXPAND shield-->
+		<entry id="nether_vanguard_shield" type="mvz2:small_shield">
+			<colliders>
+				<collider name="main">
+					<offset x="0" y="0" z="0" />
+					<size x="10" y="40" z="20" />
+					<pivot x="0.5" y="0.5" z="0.5" />
+				</collider>
+			</colliders>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="600" />
+			</props>
+		</entry>
+		<entry id="MannequinCannon" type="mvz2:handheld">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+				<behaviour id="mvz2:MannequinCannon" />
+			</behaviours>
+			<colliders>
+				<collider name="main">
+					<offset x="-5" y="-7" z="0" />
+					<size x="61" y="36" z="18" />
+					<pivot x="0.5" y="0.5" z="0.5" />
+				</collider>
+			</colliders>
+			<props>
+				<bool name="mvz2:noDiscard" value="true" />
+				<id name="mvz2:shell" value="mvz2:flesh" />
+				<float name="mvz2:maxHealth" value="1110" />
+			</props>
+		</entry>
+		
+		<entry id="ChiefCannon" type="mvz2:handheld">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+				<behaviour id="mvz2:ChiefCannon" />
+			</behaviours>
+			<colliders>
+				<collider name="main">
+					<offset x="-5" y="-7" z="0" />
+					<size x="61" y="36" z="18" />
+					<pivot x="0.5" y="0.5" z="0.5" />
+				</collider>
+			</colliders>
+			<props>
+				<bool name="mvz2:noDiscard" value="true" />
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1500" />
+			</props>
+		</entry>
     </entries>
 </armors>

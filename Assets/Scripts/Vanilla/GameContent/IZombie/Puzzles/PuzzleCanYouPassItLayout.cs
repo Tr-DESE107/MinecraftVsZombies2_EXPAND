@@ -13,28 +13,33 @@ namespace MVZ2.GameContent.IZombie
     [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleCanYouPassIt)]
     public class PuzzleCanYouPassItLayout : IZombieLayoutDefinition
     {
-        public PuzzleCanYouPassItLayout(string nsp, string name) : base(nsp, name, 4)
+        public PuzzleCanYouPassItLayout(string nsp, string name) : base(nsp, name, 6)
         {
             Blueprints = new NamespaceID[]
             {
-                VanillaEnemyID.zombie,
                 VanillaEnemyID.ironHelmettedZombie,
-                VanillaEnemyID.wickedHermitZombie
+                VanillaEnemyID.motherTerror,
+                VanillaEnemyID.wickedHermitZombie,
+                VanillaEnemyID.RaiderSkull,
+                VanillaEnemyID.dullahanHead,
+                VanillaEnemyID.SkeletonHead,
+                VanillaEnemyID.ZombieHead,
+                VanillaEnemyID.RedEyeZombieHead,
+                VanillaEnemyID.HostHead,
+                VanillaEnemyID.BerserkerHead,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            RandomFillAtColumn(map, 0, VanillaContraptionID.splitenser, 1, rng);
-            RandomFillAtColumn(map, 0, VanillaContraptionID.magichest, 1, rng);
-            RandomFillAtColumn(map, 0, VanillaContraptionID.punchton, 1, rng);
-            RandomFillAtColumn(map, 0, VanillaContraptionID.totenser, 1, rng);
-            RandomFillAtColumn(map, 0, VanillaContraptionID.furnace, 1, rng);
-
-            RandomFill(map, VanillaContraptionID.splitenser, 2, rng);
-            RandomFill(map, VanillaContraptionID.magichest, 2, rng);
-            RandomFill(map, VanillaContraptionID.punchton, 2, rng);
-            RandomFill(map, VanillaContraptionID.totenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 6, rng);
+            RandomFill(map, VanillaContraptionID.drivenser, 6, rng);
+            RandomFill(map, VanillaContraptionID.silvenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.mineTNT, 3, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 8, rng);
+            RandomFill(map, VanillaContraptionID.smallDispenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.spikeBlock, 3, rng);
+            RandomFill(map, VanillaContraptionID.obsidian, 3, rng);
+            RandomFill(map, VanillaContraptionID.gravityPad, 3, rng);
+            RandomFill(map, VanillaContraptionID.diamondSpikes, 2, rng);
         }
     }
 }

@@ -9,6 +9,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 
@@ -82,6 +83,21 @@ namespace MVZ2.GameContent.Contraptions
                     productionTimer.ResetTime(SPAWN_INTERVAL);
                 }
             }
+        }
+
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+
+            var pos = entity.Position;
+            pos.y = entity.GetGroundY() - 100;
+            entity.SpawnWithParams(VanillaEnemyID.skeletonWarrior, pos)?.Let(e =>
+            {
+                e.AddBuff<NecrotombstoneRisingBuff>();
+                e.UpdateModel();
+                e.PlaySound(VanillaSoundID.dirtRise);
+            });
+
         }
         private bool SkeletonOutOfLimit(Entity entity)
         {

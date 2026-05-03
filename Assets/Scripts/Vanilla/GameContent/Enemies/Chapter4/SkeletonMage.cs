@@ -72,7 +72,7 @@ namespace MVZ2.GameContent.Enemies
                 timer.ResetTime(ATTACK_FIRE_TIME);
             }
         }
-        private void UpdateStateAttack(Entity enemy)
+        protected virtual void UpdateStateAttack(Entity enemy)
         {
             var timer = GetStateTimer(enemy);
             if (timer == null)
@@ -110,7 +110,7 @@ namespace MVZ2.GameContent.Enemies
                 enemy.Target = null;
             }
         }
-        private void Shoot(Entity enemy)
+        protected virtual void Shoot(Entity enemy)
         {
             var enemyClass = enemy.GetVariant();
             switch (enemyClass)

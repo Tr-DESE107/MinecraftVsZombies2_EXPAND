@@ -29,6 +29,15 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID brokenTile = Get("broken_tile");
         public static readonly NamespaceID psychicShackled = Get("psychic_shackled");
         public static readonly NamespaceID burning = Get("burning");
+        //EXPAND
+        public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles");
+        public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles");
+        public static readonly NamespaceID ShockStaticParticles = Get("ShockStaticParticles");
+        public static readonly NamespaceID DeathMarkParticles = Get("DeathMarkParticles");
+        public static readonly NamespaceID EightDiagram = Get("EightDiagram");
+        public static readonly NamespaceID ResistanceShield = Get("ResistanceShield");
+        public static readonly NamespaceID VanguardResistanceShield = Get("VanguardResistanceShield");
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

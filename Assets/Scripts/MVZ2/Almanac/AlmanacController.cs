@@ -111,6 +111,9 @@ namespace MVZ2.Almanacs
                 case IndexAlmanacPage.ButtonType.ViewMisc:
                     ViewMisc();
                     break;
+                case IndexAlmanacPage.ButtonType.ViewWiki:
+                    ViewWiki();
+                    break;
             }
         }
         private void OnCommandBlockClickCallback(PointerEventData eventData)
@@ -323,6 +326,33 @@ namespace MVZ2.Almanacs
                     break;
             }
         }
+        private void OnDescriptionLinkClickCallback(AlmanacPageType page, string linkID)
+        {
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            if (!TryParseDescriptionLinkID(linkID, out string type, out var pageID))
+                return;
+            if (!ValidateDescriptionLink(type, pageID))
+                return;
+            switch (type)
+            {
+                case HYPERLINK_TYPE_CONTRAPTIONS:
+                    ViewContraptions();
+                    SetActiveContraptionEntry(pageID);
+                    break;
+                case HYPERLINK_TYPE_ENEMIES:
+                    ViewEnemies();
+                    SetActiveEnemyEntry(pageID);
+                    break;
+                case HYPERLINK_TYPE_ARTIFACTS:
+                    ViewArtifacts();
+                    SetActiveArtifactEntry(pageID);
+                    break;
+                case HYPERLINK_TYPE_MISC:
+                    ViewMisc();
+                    SetActiveMiscEntry(pageID);
+                    break;
+            }
+        }
         #endregion
 
         #region 查看某分类
@@ -378,6 +408,11 @@ namespace MVZ2.Almanacs
             var entry = miscGroups.FirstOrDefault()?.entries?.FirstOrDefault(e => e != null);
             if (entry != null)
                 SetActiveMiscEntry(entry);
+        }
+        private void ViewWiki()
+        {
+            Application.OpenURL("https://mvz2expand.wiki.gg/zh/");
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         #endregion
 
@@ -450,6 +485,11 @@ namespace MVZ2.Almanacs
                 var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, enemyID, entry);
                 description = propReplacer.Replace(description, context);
             }
+            if (propReplacer != null)
+            {
+                var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, enemyID, entry);
+                description = propReplacer.Replace(description, context);
+            }
             description = ReplaceHyperlinkReferences(description);
 
             var encounterCondition = entry.encounterUnlock;
@@ -481,6 +521,9 @@ namespace MVZ2.Almanacs
             if (!NamespaceID.IsValid(artifactID))
                 return;
             const string type = LogicAlmanacCategories.ARTIFACTS;
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, artifactID);
+            if (entry == null)
+                return;
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, artifactID);
             if (entry == null)
                 return;

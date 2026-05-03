@@ -61,6 +61,20 @@ namespace MVZ2.GameContent.Projectiles
         public const string cannonMissile = "cannon_missile";
         public const string lockedChestTrash = "locked_chest_trash";
         public const string explosiveSoul = "explosive_soul";
+        //EXPAND
+        public const string purpleArrow = "purpleArrow";
+        public const string ObsidianShard = "ObsidianShard";
+        public const string Poisonball = "Poisonball";
+        public const string largePoisonball = "largePoisonball";
+        public const string RedKnife = "RedKnife";
+        public const string CopperBall = "CopperBall";
+        public const string CopperOreBall = "CopperOreBall";
+        public const string PulseArrow = "PulseArrow";
+        public const string NightmareBall = "NightmareBall";
+        public const string IcedBolt = "IcedBolt";
+        public const string BloodBolt = "BloodBolt";
+        public const string BigFireCharge = "BigFireCharge";
+        public const string SmallRocket = "SmallRocket";
     }
     public static class VanillaProjectileID
     {
@@ -72,6 +86,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID soulfireBall = Get(VanillaProjectileNames.soulfireBall);
         public static readonly NamespaceID spiceGas = Get(VanillaProjectileNames.spiceGas);
         public static readonly NamespaceID knife = Get(VanillaProjectileNames.knife);
+
         public static readonly NamespaceID bullet = Get(VanillaProjectileNames.bullet);
         public static readonly NamespaceID missile = Get(VanillaProjectileNames.missile);
 
@@ -117,6 +132,21 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID gravel = Get(VanillaProjectileNames.gravel);
         public static readonly NamespaceID lockedChestTrash = Get(VanillaProjectileNames.lockedChestTrash);
         public static readonly NamespaceID explosiveSoul = Get(VanillaProjectileNames.explosiveSoul);
+        //EXPAND
+        public static readonly NamespaceID purpleArrow = Get(VanillaProjectileNames.purpleArrow);
+        public static readonly NamespaceID ObsidianShard = Get(VanillaProjectileNames.ObsidianShard);
+        public static readonly NamespaceID RedKnife = Get(VanillaProjectileNames.RedKnife);
+        public static readonly NamespaceID Poisonball = Get(VanillaProjectileNames.Poisonball);
+        public static readonly NamespaceID largePoisonball = Get(VanillaProjectileNames.largePoisonball);
+        public static readonly NamespaceID CopperBall = Get(VanillaProjectileNames.CopperBall);
+        public static readonly NamespaceID CopperOreBall = Get(VanillaProjectileNames.CopperOreBall);
+        public static readonly NamespaceID PulseArrow = Get(VanillaProjectileNames.PulseArrow);
+        public static readonly NamespaceID NightmareBall = Get(VanillaProjectileNames.NightmareBall);
+        public static readonly NamespaceID IcedBolt = Get(VanillaProjectileNames.IcedBolt);
+        public static readonly NamespaceID BloodBolt = Get(VanillaProjectileNames.BloodBolt);
+        public static readonly NamespaceID BigFireCharge = Get(VanillaProjectileNames.BigFireCharge);
+        public static readonly NamespaceID SmallRocket = Get(VanillaProjectileNames.SmallRocket);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

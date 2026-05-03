@@ -21,7 +21,11 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly VanillaDifficultyPropertyMeta<float> ELASTIC_CLOUD_BOUNCE_DAMAGE_MULTIPLIER = Get<float>("elastic_cloud_bounce_damage", 1);
         public static float GetElasticCloudBounceDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(ELASTIC_CLOUD_BOUNCE_DAMAGE_MULTIPLIER);
 
+        public static readonly VanillaDifficultyPropertyMeta<int> REDSTONE_ORE_DROP_COUNT = Get<int>("redstoneOreDropCount", 10);
+        public static int GetRedstoneOreDropCount(this LevelEngine level) => level.GetProperty<int>(REDSTONE_ORE_DROP_COUNT);
+
         // Enemies
+        public static readonly VanillaDifficultyPropertyMeta<float> GHOST_TAKEN_DAMAGE_MULTIPLIER = Get<float>("ghostDamageMultiplier", 0.1f);
         public static readonly VanillaDifficultyPropertyMeta<int> NAPSTABLOOK_PARALYSIS_TIME = Get<int>("napstablookParalysisTime", 45);
         public static readonly VanillaDifficultyPropertyMeta<float> GHAST_DAMAGE_MULTIPLIER = Get<float>("ghastDamageMultiplier", 1f);
         public static readonly VanillaDifficultyPropertyMeta<int> MOTHER_TERROR_EGG_COUNT = Get<int>("motherTerrorEggCount", 1);
@@ -29,6 +33,7 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly VanillaDifficultyPropertyMeta<float> REVERSE_SATELLITE_DAMAGE_MULTIPLIER = Get<float>("reverseSatelliteDamageMultiplier", 1f);
         public static readonly VanillaDifficultyPropertyMeta<int> SKELETON_HORSE_JUMP_TIMES = Get<int>("skeletonHorseJumpTimes", 1);
         public static readonly VanillaDifficultyPropertyMeta<int> WICKED_HERMIT_ZOMBIE_STUN_TIME = Get<int>("wickedHermitZombieStunTime", 150);
+        public static float GetGhostTakenDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(GHOST_TAKEN_DAMAGE_MULTIPLIER);
         public static readonly VanillaDifficultyPropertyMeta<float> WISP_FLY_DAMAGE_MULTIPLIER = Get<float>("wisp_fly_damage_multiplier", 1.5f);
         public static int GetNapstablookParalysisTime(this LevelEngine level) => level.GetProperty<int>(NAPSTABLOOK_PARALYSIS_TIME);
         public static float GetGhastDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(GHAST_DAMAGE_MULTIPLIER);
@@ -45,16 +50,16 @@ namespace MVZ2.GameContent.Difficulties
         public static readonly VanillaDifficultyPropertyMeta<float> FRANKENSTEIN_SPEED = Get<float>("frankensteinSpeed", 1f);
         public static readonly VanillaDifficultyPropertyMeta<bool> SLENDERMAN_MIND_SWAP_ZOMBIES = Get<bool>("slendermanMindSwapZombies");
         public static readonly VanillaDifficultyPropertyMeta<int> SLENDERMAN_FATE_CHOICE_COUNT = Get<int>("slendermanFateChoiceCount", 3);
-        public static readonly VanillaDifficultyPropertyMeta<int> SLENDERMAN_MAX_FATE_TIMES = Get<int>("slendermanMaxFateTimes", 4);
+        public static readonly VanillaDifficultyPropertyMeta<int> SLENDERMAN_MAX_FATE_TIMES = Get<int>("slendermanMaxFateTimes", 6);
         public static readonly VanillaDifficultyPropertyMeta<float> CRUSHING_WALLS_SPEED = Get<float>("crushingWallsSpeed", 4f);
         public static readonly VanillaDifficultyPropertyMeta<float> NIGHTMAREAPER_SPIN_DAMAGE = Get<float>("nightmareaperSpinDamage", 15f);
-        public static readonly VanillaDifficultyPropertyMeta<int> NIGHTMAREAPER_TIMEOUT = Get<int>("nightmareaperTimeout", 2700);
-        public static readonly VanillaDifficultyPropertyMeta<float> WITHER_REGENERATION = Get<float>("witherRegeneration", 0.5f);
+        public static readonly VanillaDifficultyPropertyMeta<int> NIGHTMAREAPER_TIMEOUT = Get<int>("nightmareaperTimeout", 3750);
+        public static readonly VanillaDifficultyPropertyMeta<float> WITHER_REGENERATION = Get<float>("witherRegeneration", 1);
         public static readonly VanillaDifficultyPropertyMeta<bool> WITHER_SKULL_WITHERS_TARGET = Get<bool>("witherSkullWithersTarget");
         public static readonly VanillaDifficultyPropertyMeta<bool> THE_GIANT_IS_MALLEABLE = Get<bool>("theGiantIsMalleable");
         public static readonly VanillaDifficultyPropertyMeta<float> RED_DRAGON_FIRE_EXPLOSION_RADIUS = Get<float>("red_dragon_fire_explosion_radius", 32f);
         public static readonly VanillaDifficultyPropertyMeta<float> RED_DRAGON_GIANT_FIREBALL_SPEED = Get<float>("red_dragon_giant_fireball_speed", 1f);
-        public static readonly VanillaDifficultyPropertyMeta<int> RED_DRAGON_TORNADO_COUNT = Get<int>("red_dragon_tornado_count", 1);
+        public static readonly VanillaDifficultyPropertyMeta<int> RED_DRAGON_TORNADO_COUNT = Get<int>("red_dragon_tornado_count", 3);
         public static readonly VanillaDifficultyPropertyMeta<NamespaceID> LOCKED_CHEST_SPIT_BLUEPRINT_ID = Get<NamespaceID>("locked_chest_spit_blueprint_id", LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie));
         public static readonly VanillaDifficultyPropertyMeta<int> LOCKED_CHEST_REQUIRED_STARSHARDS = Get<int>("locked_chest_required_starshards", 1);
 
@@ -77,11 +82,11 @@ namespace MVZ2.GameContent.Difficulties
         public static int GetLockedChestRequiredStarshards(this LevelEngine level) => level.GetProperty<int>(LOCKED_CHEST_REQUIRED_STARSHARDS);
 
         // Level
-        public static readonly VanillaDifficultyPropertyMeta<float> STARSHARD_CARRIER_COUNTER_INCREAMENT = Get<float>("starshardCarrierCounterIncreament", 1f);
-        public static readonly VanillaDifficultyPropertyMeta<float> REDSTONE_CARRIER_COUNTER_INCREAMENT = Get<float>("redstoneCarrierCounterIncreament", 10f);
-        public static readonly VanillaDifficultyPropertyMeta<int> IZ_FURNACE_REDSTONE_COUNT = Get<int>("izFurnaceRedstoneCount", 8);
-        public static float GetStarshardCarrierCounterIncreament(this LevelEngine level) => level.GetProperty<float>(STARSHARD_CARRIER_COUNTER_INCREAMENT);
-        public static float GetRedstoneCarrierCounterIncreament(this LevelEngine level) => level.GetProperty<float>(REDSTONE_CARRIER_COUNTER_INCREAMENT);
+        public static readonly VanillaDifficultyPropertyMeta<float> STARSHARD_CARRIER_CHANCE_INCREAMENT = Get<float>("starshardCarrierChanceIncreament", 10f);
+        public static readonly VanillaDifficultyPropertyMeta<float> REDSTONE_CARRIER_CHANCE_INCREAMENT = Get<float>("redstoneCarrierChanceIncreament", 10f);
+        public static readonly VanillaDifficultyPropertyMeta<int> IZ_FURNACE_REDSTONE_COUNT = Get<int>("izFurnaceRedstoneCount", 7);
+        public static float GetStarshardCarrierChanceIncreament(this LevelEngine level) => level.GetProperty<float>(STARSHARD_CARRIER_CHANCE_INCREAMENT);
+        public static float GetRedstoneCarrierChanceIncreament(this LevelEngine level) => level.GetProperty<float>(REDSTONE_CARRIER_CHANCE_INCREAMENT);
         public static int GetIZFurnaceRedstoneCount(this LevelEngine level) => level.GetProperty<int>(IZ_FURNACE_REDSTONE_COUNT);
     }
 }

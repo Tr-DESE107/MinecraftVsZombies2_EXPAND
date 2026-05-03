@@ -44,7 +44,12 @@ namespace MVZ2Logic.Saves
         }
         public void SetMoney(int value)
         {
-            money = Math.Clamp(value, 0, 999990);
+            int maxMoney = 1071070;
+            if (IsUnlocked("goods.EXPAND_Completed"))
+            {
+                maxMoney = 99999990;
+            }
+            money = Math.Clamp(value, 0, maxMoney);
         }
         public int GetBlueprintSlots()
         {

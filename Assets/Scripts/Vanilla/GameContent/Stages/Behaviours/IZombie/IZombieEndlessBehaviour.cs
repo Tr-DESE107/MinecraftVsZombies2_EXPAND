@@ -5,6 +5,20 @@ using MVZ2.GameContent.Enemies;
 using MVZ2Logic.Blueprints;
 using PVZEngine;
 using PVZEngine.Level;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Entities;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using System.Linq;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Grids;
+using MVZ2Logic;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -15,17 +29,17 @@ namespace MVZ2.GameContent.Stages
         }
         protected override IEnumerable<IZELayoutItem> GetNormalLayouts()
         {
-            // AÀàÕó
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f); // ×ÛºÏ
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f); // ¿ØÖÆ
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill, 1f); // ¼´ËÀ
+            // Aï¿½ï¿½ï¿½
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f); // ï¿½ï¿½ï¿½
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f); // ï¿½ï¿½ï¿½
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill, 1f); // ï¿½ï¿½ï¿½
 
-            // BÀàÕó
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes, 0.2f); // Ä¾Í¶¼â´Ì
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers, 0.2f); // ·¢ÉäÆ÷
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f); // ±¬Õ¨
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire, 0.2f); // »ðÑæ
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f); // »Ö¸´
+            // Bï¿½ï¿½ï¿½
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes, 0.2f); // Ä¾Í¶ï¿½ï¿½
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers, 0.2f); // ï¿½ï¿½ï¿½ï¿½
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f); // ï¿½ï¿½Õ¨
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire, 0.2f); // ï¿½ï¿½ï¿½
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f); // ï¿½Ö¸ï¿½
         }
         protected override IEnumerable<IZELayoutItem> GetAwardLayouts()
         {
@@ -34,7 +48,93 @@ namespace MVZ2.GameContent.Stages
         }
         protected override NamespaceID GetFirstLayoutID()
         {
-            return VanillaIZombieLayoutID.izeComposite;
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½   
+            var unlockedEnemies = Global.Saves.GetUnlockedEnemies();
+
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½Ä½ï¿½Ê¬    
+            var validEnemies = unlockedEnemies.Where(id =>
+            {
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    
+                if (!Global.Almanac.IsEnemyInAlmanac(id))
+                    return false;
+
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½    
+                var entityDef = Global.Game.GetEntityDefinition(id);
+                if (entityDef == null)
+                    return false;
+
+                // Ê¹ï¿½Typeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+                return entityDef.Type == EntityTypes.ENEMY;
+            });
+
+            if (validEnemies.Count() <= 0)
+            {
+                // ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ð§ï¿½ï¿½Ë£ï¿½Ê¹ï¿½Ä¬ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à·½ï¿½ï¿½ï¿½ï¿½  
+                level.FillSeedPacks(new NamespaceID[]
+                {
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+                });
+                return;
+            }
+
+            // ï¿½ï¿½ï¿½Ñ¡ï¿½10ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    
+            var selectedEnemies = validEnemies
+                .RandomTake(10, level.GetRoundRNG())
+                .Select(id => VanillaBlueprintID.FromEntity(id))
+                .ToArray();
+
+            level.FillSeedPacks(selectedEnemies);
+        }
+
+        //protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
+        //{
+        //    level.FillSeedPacks(new NamespaceID[]
+        //    {
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.SkeletonHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ZombieHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.RedEyeZombieHead),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.FlagSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.KingSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.MeleeSkeleton),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.MegaZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.SuperMegaZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.EvilMage),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.WitherBoneWall),
+
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
+        //        //VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.WitherBoneWall),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.MegaZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.SuperMegaZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.KingSkeleton),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.RandomZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.ZombieHead),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.BloodlustHostZombie),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.KingofReverser),
+        //        VanillaBlueprintID.FromEntity(VanillaEnemyID.Mannequin),
+        //    });
+        //}
+        public const int ROUNDS_PER_PICKAXE = 1;
+        public const int MAX_PICKAXE_COUNT = 99;
         }
         protected override IEnumerable<NamespaceID> GetBlueprints()
         {

@@ -208,11 +208,15 @@ namespace MVZ2.GameContent.Enemies
 
                                 var impPos = entity.Position + new Vector3(entity.GetFacingX() * 24, 155, 0);
                                 var impVel = new Vector3(entity.GetFacingX() * 20, 0, 0);
-                                entity.SpawnWithParams(VanillaEnemyID.imp, impPos)?.Let(e =>
+                                var impID = GetImpID(entity);
+                                if (impID != null)
                                 {
-                                    e.PlaySound(VanillaSoundID.impLaugh);
-                                    e.Velocity = impVel;
-                                });
+                                    entity.SpawnWithParams(impID, impPos)?.Let(e =>
+                                    {
+                                        e.PlaySound(VanillaSoundID.impLaugh);
+                                        e.Velocity = impVel;
+                                    });
+                                }
 
                                 subStateTimer.ResetTime(10);
                                 stateMachine.StartSubState(entity, SUBSTATE_THROWN);

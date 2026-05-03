@@ -507,6 +507,19 @@ namespace MVZ2.Vanilla.Entities
             }
             StunBuff.SetStunTime(buff, timeout);
         }
+        public static void SoulFreeze(this Entity entity, int timeout)
+        {
+            if (entity.ImmuneSlowing())
+                return;
+            if (entity == null)
+                return;
+            var buff = entity.GetFirstBuff<SoulFreezeBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<SoulFreezeBuff>();
+            }
+            SoulFreezeBuff.SetFreezeTime(buff, timeout);
+        }
 
         #region 阻挡火焰
         public static bool WillDamageBlockFire(this DamageOutput damage)
@@ -1102,10 +1115,71 @@ namespace MVZ2.Vanilla.Entities
         public static void Unfreeze(this Entity entity, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
-            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+            var SoulFreeze = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.SoulFreeze);
+            if (buffDefinition == null || SoulFreeze == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
                 return;
             entity.RemoveBuffs(buffDefinition);
+            entity.RemoveBuffs(SoulFreeze);
             PostRemoveStatusEffect(entity, buffDefinition, source);
+        }
+
+        public static void InflictRegenerationBuff(this Entity entity, float Heal, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.Regeneration);
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            buff.SetProperty(RegenerationBuff.PROP_HEAL_AMOUNT, Heal);
+            buff.SetProperty(RegenerationBuff.PROP_TIMEOUT, time);
+        }
+
+        public static void InflictCorropoisonBuff(this Entity entity, float damage, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.Corropoison);
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            buff.SetProperty(CorropoisonBuff.PROP_DAMAGE_AMOUNT, damage);
+            buff.SetProperty(CorropoisonBuff.PROP_TIMEOUT, time);
+        }
+
+        public static void InflictDeathMarkBuff(this Entity entity, float damage, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.DeathMark);
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            buff.SetProperty(DeathMarkBuff.PROP_DAMAGE_AMOUNT, damage);
+            buff.SetProperty(DeathMarkBuff.PROP_TIMEOUT, time);
+        }
+
+        public static void InflictShock(this Entity entity, int time, ILevelSourceReference? source)
+        {
+            if (entity.ImmuneSlowing())
+                return;
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.Shock);
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            var buff = entity.GetFirstBuff(buffDefinition);
+            if (buff == null)
+            {
+                entity.PlaySound(VanillaSoundID.zap);
+                buff = entity.AddBuff(buffDefinition);
+            }
+            ShockBuff.SetTimeout(buff, time);
+            PostApplyStatusEffect(entity, buff, source);
         }
         #region 魅惑
         public static void CharmPermanent(this Entity entity, int faction, ILevelSourceReference? source)

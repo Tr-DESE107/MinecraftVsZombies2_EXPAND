@@ -28,6 +28,15 @@ namespace MVZ2.GameContent.Contraptions
     {
         public TNT(string nsp, string name) : base(nsp, name)
         {
+            if (entity.IsHostile(0))
+            {
+                Ignite(entity);
+            }
+            if (entity.HasBuff<FrankensteinShockedBuff>())
+            {
+                entity.RemoveBuffs<FrankensteinShockedBuff>();
+                return;
+            }
         }
         public override void PostTakeDamage(DamageOutput result)
         {

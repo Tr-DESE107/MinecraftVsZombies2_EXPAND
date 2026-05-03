@@ -13,22 +13,31 @@ namespace MVZ2.GameContent.IZombie
     [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleIZombie)]
     public class PuzzleIZombieLayout : IZombieLayoutDefinition
     {
-        public PuzzleIZombieLayout(string nsp, string name) : base(nsp, name, 4)
+        public PuzzleIZombieLayout(string nsp, string name) : base(nsp, name, 5)
         {
             Blueprints = new NamespaceID[]
             {
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.leatherCappedZombie,
+                VanillaEnemyID.MonkZombie,
+                VanillaEnemyID.MegaZombie,
+                VanillaEnemyID.ZombieHead,
                 VanillaEnemyID.ironHelmettedZombie,
-                VanillaEnemyID.flagZombie
+                VanillaEnemyID.flagZombie,
+                VanillaEnemyID.imp,
+                VanillaEnemyID.HostIMP,
+                VanillaEnemyID.mutantZombie,
+                VanillaEnemyID.SixQiZombie,
+                
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
             RandomFill(map, VanillaContraptionID.silvenser, 2, rng);
-            RandomFill(map, VanillaContraptionID.dispenser, 7, rng);
+            RandomFill(map, VanillaContraptionID.dispenser, 6, rng);
             RandomFill(map, VanillaContraptionID.mineTNT, 3, rng);
             RandomFill(map, VanillaContraptionID.furnace, 8, rng);
+            RandomFill(map, VanillaContraptionID.spikeBlock, 3, rng);
+            RandomFill(map, VanillaContraptionID.stoneDropper, 3, rng);
         }
     }
 }

@@ -39,6 +39,10 @@ namespace MVZ2.GameContent.Stages
         public const string izeAwards = "ize_awards";
         public const string izeError = "ize_error";
 
+
+        //EXPAND Puzzle
+        public const string puzzleRandomCvsRandomE = "puzzleRandomCvsRandomE";
+        
         public const string ize2Composite = "ize2_composite";
         public const string ize2Control = "ize2_control";
         public const string ize2Defense = "ize2_defense";
@@ -82,6 +86,11 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID izeFire = Get(VanillaIZombieLayoutNames.izeFire);
         public static readonly NamespaceID izeAwards = Get(VanillaIZombieLayoutNames.izeAwards);
         public static readonly NamespaceID izeError = Get(VanillaIZombieLayoutNames.izeError);
+
+
+        //EXPAND Puzzle
+        public static readonly NamespaceID puzzleRandomCvsRandomE = Get(VanillaIZombieLayoutNames.puzzleRandomCvsRandomE);
+
 
         public static readonly NamespaceID ize2Composite = Get(VanillaIZombieLayoutNames.ize2Composite);
         public static readonly NamespaceID ize2Control = Get(VanillaIZombieLayoutNames.ize2Control);

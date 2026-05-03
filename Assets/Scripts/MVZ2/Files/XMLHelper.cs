@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Flee.PublicTypes;
 using MVZ2.Metas;
 using MVZ2Logic;
 using MVZ2Logic.Resources;

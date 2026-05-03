@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-11 09:19+0800\n"
-"PO-Revision-Date: 2026-04-11 21:20+0800\n"
+"POT-Creation-Date: 2026-04-30 01:56+0800\n"
+"PO-Revision-Date: 2026-04-30 18:37+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Language: en-US\n"
 "X-Crowdin-File: /crowdin/talk.pot\n"
 "X-Crowdin-File-ID: 22\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Archive name for talk group castle_1
 #: Talk meta file
@@ -5373,6 +5373,12 @@ msgstr "So there's no more energy for the energy generator to generate energy."
 #. Text for talk sentence 8 in talk group halloween_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_1"
+msgid "哈哈，开心吗？"
+msgstr "Haha"
+
+#. Text for talk sentence 9 in talk group halloween_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_1"
 msgid "靠着你的熔炉活过今晚吧！"
 msgstr "Rely on your Furnaces to survive this night!"
 
@@ -6223,10 +6229,10 @@ msgstr ""
 #. Text for talk sentence 2 in talk group halloween_7_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_7_over"
-msgid "但代价是什么？它需要牺牲前方的器械来当作它的燃料！"
+msgid "但代价是什么？它需要本格的其他器械来当作它的燃料！"
 msgstr ""
-"But at what cost? It needs the contraption in front of it sacrificed as its "
-"fuel!"
+"But what's the cost? It needs other contraptions on its own tile to serve as "
+"its fuel!"
 
 #. Text for talk sentence 3 in talk group halloween_7_over's section 0
 #: Talk meta file
@@ -6507,8 +6513,8 @@ msgstr ""
 msgctxt "talk-mvz2:halloween_11"
 msgid "并且据我所知，TNT可以吸收闪电，并且在那之后会变得非常……危险。"
 msgstr ""
-"From what I’ve seen, TNTs have the ability to absorb lightning and become..."
-"dangerous."
+"From what I’ve seen, TNTs have the ability to absorb lightning and "
+"become...dangerous."
 
 #. Text for talk sentence 5 in talk group halloween_11's section 0
 #: Talk meta file
@@ -9031,6 +9037,30 @@ msgctxt "talk-mvz2:mausoleum_9"
 msgid "但要注意，皇帝这种职位，尤其能够强化他的人民！"
 msgstr ""
 "But beware, an emperor particularly excels at strengthening his people!"
+
+#. Text for talk sentence 6 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "还有个像是气功仙人的家伙。"
+msgstr "There's also this guy who looks like some kind of Qigong master."
+
+#. Text for talk sentence 7 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "我觉得该使用黑洞炸弹对付他。"
+msgstr "I think we should use the Black Hole Bomb against him."
+
+#. Text for talk sentence 8 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "有什么依据吗？"
+msgstr "What makes you say that?"
+
+#. Text for talk sentence 10 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "...行，那就使用黑洞炸弹对付他。"
+msgstr "...Alright, let's use the Black Hole Bomb on him then."
 
 #. Archive name for talk group mausoleum_9_over
 #: Talk meta file
@@ -11710,6 +11740,14 @@ msgctxt "talk-mvz2:ship_6"
 msgid "不好！那些飞碟飞过来了！"
 msgstr "Oh no! Those UFOs are coming!"
 
+#. Text for talk sentence 3 in talk group ship_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:ship_6"
+msgid "正好我有一些没做好的器械需要测试，邻居，接好了！"
+msgstr ""
+"I just happen to have some unfinished contraptions that need testing. Here "
+"they come, neighbor!"
+
 #. Archive name for talk group ship_6_over
 #: Talk meta file
 msgctxt "archive"
@@ -13693,7 +13731,7 @@ msgstr "(Byakuren and Steve arrived at the location where the Red Dragon fell)"
 #: Talk meta file
 msgctxt "talk-mvz2:ship_11_map"
 msgid ""
-"<color=blue>（天上下起了雨，周围的人越来越多，他们看着这头恶龙，和它保持着距"
+"<color=blue>（天上下起了雨，周围的人越来越多，它们看着这头恶龙，和它保持着距"
 "离。）</color>"
 msgstr ""
 "<color=blue>(More and more people began gathering around as rain began to "
@@ -13823,7 +13861,7 @@ msgstr ""
 #. Text for talk sentence 22 in talk group ship_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:ship_11_map"
-msgid "其实，我有一事相告。四年前，曾有一位访客来到命莲寺。"
+msgid "其实，我有一事相告。四年前，曾有一位访客曾来到命莲寺。"
 msgstr ""
 "I have something I must tell you. Four years ago, there was a visitor who "
 "came to Myouren Temple."
@@ -13833,7 +13871,7 @@ msgstr ""
 msgctxt "talk-mvz2:ship_11_map"
 msgid "那位访客自称灯兰 樱，到访命莲寺有求于我。"
 msgstr ""
-"That visitor called herself Sakura Touran. She came to the temple with a "
+"That visitor called herself Touran Sakura. She came to the temple with a "
 "request for me."
 
 #. Text for talk sentence 24 in talk group ship_11_map's section 0

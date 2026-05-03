@@ -27,6 +27,11 @@ namespace MVZ2.GameContent.Stages
         public const string halloween11 = "halloween_11";
         public const string halloweenEndless = "halloween_endless";
 
+        public const string halloween12 = "halloween_12";
+        public const string halloween13 = "halloween_13";
+        public const string halloween14 = "halloween_14";
+        public const string halloween15 = "halloween_15";
+
         public const string dream1 = "dream_1";
         public const string dream2 = "dream_2";
         public const string dream3 = "dream_3";
@@ -38,6 +43,10 @@ namespace MVZ2.GameContent.Stages
         public const string dream9 = "dream_9";
         public const string dream10 = "dream_10";
         public const string dream11 = "dream_11";
+        public const string dream12 = "dream_12";
+        public const string dream13 = "dream_13";
+        public const string dream14 = "dream_14";
+        public const string dream15 = "dream_15";
         public const string dreamEndless = "dream_endless";
 
         public const string castle1 = "castle_1";
@@ -51,6 +60,10 @@ namespace MVZ2.GameContent.Stages
         public const string castle9 = "castle_9";
         public const string castle10 = "castle_10";
         public const string castle11 = "castle_11";
+        public const string castle12 = "castle_12";
+        public const string castle13 = "castle_13";
+        public const string castle14 = "castle_14";
+        public const string castle15 = "castle_15";
         public const string castleEndless = "castle_endless";
 
         public const string mausoleum1 = "mausoleum_1";
@@ -64,6 +77,10 @@ namespace MVZ2.GameContent.Stages
         public const string mausoleum9 = "mausoleum_9";
         public const string mausoleum10 = "mausoleum_10";
         public const string mausoleum11 = "mausoleum_11";
+        public const string mausoleum12 = "mausoleum_12";
+        public const string mausoleum13 = "mausoleum_13";
+        public const string mausoleum14 = "mausoleum_14";
+        public const string mausoleum15 = "mausoleum_15";
         public const string mausoleumEndless = "mausoleum_endless";
 
 
@@ -78,6 +95,10 @@ namespace MVZ2.GameContent.Stages
         public const string ship9 = "ship_9";
         public const string ship10 = "ship_10";
         public const string ship11 = "ship_11";
+        public const string ship12 = "ship_12";
+        public const string ship13 = "ship_13";
+        public const string ship14 = "ship_14";
+        public const string ship15 = "ship_15";
         public const string shipEndless = "ship_endless";
 
 
@@ -108,6 +129,36 @@ namespace MVZ2.GameContent.Stages
         public const string redDragonsRevenge = "red_dragons_revenge";
         public const string lockedChestsRevenge = "locked_chests_revenge";
 
+        //EXPAND Minigames
+        public const string a_tooth_for_a_tooth = "a_tooth_for_a_tooth";
+        public const string Do_Magic_Tricks = "Do_Magic_Tricks";
+        public const string MutantCrisis = "MutantCrisis";
+        public const string ContraptionDevourer = "ContraptionDevourer";
+        public const string RandomChinaAndPot = "RandomChinaAndPot";
+        public const string PerformanceArt = "PerformanceArt";
+        public const string WhackASkeleton = "WhackASkeleton";
+
+        public const string MutantCrisis_2 = "MutantCrisis_2";
+        public const string VillagerNews = "VillagerNews";
+        public const string TrueAndFalseSteve = "TrueAndFalseSteve";
+        public const string ContraptionDevourer_2 = "ContraptionDevourer_2";
+        public const string RandomChinaDevourer = "RandomChinaDevourer";
+        public const string vsRandomZombie = "vsRandomZombie";
+        public const string MortalZombat = "MortalZombat";
+        public const string LigneMaginot = "LigneMaginot";
+
+        public const string AnotherPrologue = "AnotherPrologue";
+        public const string ArmorParty = "ArmorParty";
+        public const string big_trouble_and_little_zombie_2 = "big_trouble_and_little_zombie_2";
+        public const string GiantCrisis = "GiantCrisis";
+        public const string DowsingNote = "DowsingNote";
+
+        public const string FeedFeast = "FeedFeast";
+        public const string ZombiesTide = "ZombiesTide";
+        public const string WarThunder = "WarThunder";
+        public const string ZombieNimbleZombieQuick = "ZombieNimbleZombieQuick";
+        public const string OpticalIllusion = "OpticalIllusion";
+
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
         public const string puzzleISkeleton = "puzzle_i_skeleton";
@@ -127,6 +178,10 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleIZombieEndless2 = "puzzle_i_zombie_endless_2";
 
         public const string iZombieDebug = "i_zombie_debug";
+
+        //EXPAND Puzzle
+        public const string puzzleRandomCvsRandomE = "puzzleRandomCvsRandomE";
+
     }
     public static class VanillaStageID
     {

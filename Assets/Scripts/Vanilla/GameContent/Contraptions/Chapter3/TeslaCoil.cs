@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Collisions;
 using PVZEngine.Collisions.Level;
@@ -20,6 +21,13 @@ using PVZEngine.Entities;
 using PVZEngine.Grids;
 using Tools;
 using UnityEngine;
+using MVZ2.Vanilla.Callbacks;
+using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
+using MVZ2.GameContent.Buffs.Contraption;
+using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -29,6 +37,27 @@ namespace MVZ2.GameContent.Contraptions
         public TeslaCoil(string nsp, string name) : base(nsp, name)
         {
             detector = new TeslaCoilDetector(ATTACK_HEIGHT);
+            AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
+        }
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
+        {
+            var damageInfo = param.input;
+            var entity = damageInfo.Entity;
+
+            if (entity == null)
+                return;
+
+            if (!entity.IsEntityOf(VanillaContraptionID.teslaCoil))
+                return;
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.LIGHTNING))
+            {
+                damageInfo.Multiply(0);
+                if (!entity.HasBuff<TeslaCoilOvercharge>()) 
+                { 
+                    entity.AddBuff<TeslaCoilOvercharge>();
+                }
+            }
+
         }
         public override void Init(Entity entity)
         {
@@ -96,6 +125,10 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetAnimationBool("Attacking", entity.State == STATE_ATTACK);
             entity.SetAnimationBool("ShowArc", entity.State != STATE_ATTACK && !entity.IsAIFrozen());
             entity.SetAnimationFloat("AttackSpeed", entity.GetAttackSpeed());
+            if (entity.HasBuff<FrankensteinShockedBuff>())
+            {
+                entity.RemoveBuffs<FrankensteinShockedBuff>();
+            }
         }
         private float GetTargetPriority(Entity self, Entity target)
         {
@@ -103,10 +136,6 @@ namespace MVZ2.GameContent.Contraptions
             target2Self.y = 0;
             var distance = target2Self.magnitude;
             var priority = -distance;
-            if (target.Position.y > self.Position.y + 40)
-            {
-                priority += 300;
-            }
             return priority;
         }
         public static void Shock(Entity source, float damage, int faction, float shockRadius, Vector3 targetPosition, DamageEffectList? damageEffects = null)
@@ -133,7 +162,33 @@ namespace MVZ2.GameContent.Contraptions
             }
             foreach (var collider in detectBuffer)
             {
+                var entity = collider.Entity;
+
                 collider.TakeDamage(damage, damageEffects, source);
+
+                // 只对器械类型的实体使用短路  
+                if (entity.Type == EntityTypes.PLANT)
+                {
+                    //entity.ShortCircuit(150);
+                    entity.ShortCircuit(150, new EntitySourceReference(entity));
+                }
+                if (entity.Type == EntityTypes.ENEMY)
+                {
+                    //entity.ShortCircuit(150);
+                    entity.InflictShock(30, new EntitySourceReference(entity));
+                    if (entity.HasBuff<FlyBuff>())
+                    {
+                        if (entity.RNG.Next(4) == 0)
+                        {
+                            entity.RemoveBuffs<FlyBuff>();
+                            entity.Stun(60);
+                        }
+                        if (entity.RNG.Next(2) == 0)
+                        {
+                            entity.Stun(30);
+                        }
+                    }
+                }
             }
         }
         public static void CreateArc(Entity source, Vector3 sourcePosition, Vector3 targetPosition)

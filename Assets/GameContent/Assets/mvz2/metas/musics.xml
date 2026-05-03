@@ -29,7 +29,7 @@
         <track main="mvz2:halloween" />
         <source>书虫大冒险</source>
         <description>
-            <p>万圣夜关卡的音乐。</p>
+            <p>永夜沼泽关卡的音乐。</p>
             <p>出自宝开之前的另一款佳作《书虫大冒险》，制作十分精良，可惜人气实在太低，并且由于强绑定英文而无法走向世界。</p>
             <p>实在是太可惜了。</p>
         </description>
@@ -38,7 +38,7 @@
         <track main="mvz2:halloween_map" />
         <source>书虫大冒险</source>
         <description>
-            <p>万圣夜地图的音乐。</p>
+            <p>永夜沼泽地图的音乐。</p>
             <p>那么这系列音乐原来使用在什么地方呢？</p>
             <p>《书虫大冒险》的主角Lex是一只书虫，负责管理大图书馆中的书籍。它先后穿梭于希腊神话、埃及神话，以及欧洲鬼怪故事这三本书中。</p>
             <p>而这首音乐则来自于第三本书——欧洲鬼怪故事中。其游戏内的名称即为《莱克死灵之书》，是Lex的名字和《死灵之书》的组合词。</p>
@@ -56,8 +56,8 @@
         <track main="mvz2:ultimate_battle" />
         <source>植物大战僵尸</source>
         <description>
-            <p>万圣夜最终关的音乐。</p>
-            <p>原来是大部分传送带关卡都会播放的音乐，在这里只用于万圣夜。</p>
+            <p>永夜沼泽最终关的音乐。</p>
+            <p>原来是大部分传送带关卡都会播放的音乐，在这里只用于永夜沼泽。</p>
         </description>
     </music>
     <music id="halloween_boss" name="莱克死灵之书-头目">
@@ -71,7 +71,17 @@
             <p>呵呵，你可否想到自己？史蒂夫？</p>
         </description>
     </music>
-
+    <music id="thread" name="thread(沉思)">
+        <track main="mvz2:thread" />
+        <source>暮色森林</source>
+        <description>
+            <p>永夜沼泽拓展关的音乐。</p>
+            <p>EXPAND gms2版本的永夜沼泽分波音乐也选用了这首曲子。</p>
+            <p>初听没什么意思，听着听着就听出了韵味，我脑中也不时会响起这首曲子。</p>
+            <p>听上去像是一个神秘的法师在他的花园中闲庭漫步，思考着符文与法术。</p>
+        </description>
+    </music>
+    
     <music id="dream_level" name="破碎的童话-关卡">
         <track main="mvz2:dream_level" />
         <source>书虫大冒险 Vol.2</source>
@@ -150,6 +160,17 @@
             <p>梦魇收割者的一部分设计来源于《以撒的结合：忏悔》中的教条。</p>
         </description>
     </music>
+	<music id="Sacrificial" name="Sacrificial(牺牲)">
+		<track main="mvz2:Sacrificial" />
+		<source>以撒的结合</source>
+		<description>
+			<p>噩梦世界拓展Boss战的道中音乐，也是mvz2_gms2版本噩梦世界最终关的道中音乐，老玩家们应该都听懂了</p>
+			<p>来源以撒的结合的地下室层音乐。</p>
+			<p>冰与冷知识时间到</p>
+			<p>很早就玩b站看pvz视频的朋友们可能知道有个叫做超级滑稽的up主，他制作的诅咒系列当时，在圈内可是大有名气，甚至掀起过其他人跟风模仿的自制诅咒关卡实况。</p>
+			<p>当时超级滑稽视频配乐就多用这个bgm，这大概也是因为他是一位MVZ2爱好者。</p>
+		</description>
+	</music>
 
     <music id="gensokyo_map" name="青空之影">
         <track main="mvz2:gensokyo_map" />
@@ -267,6 +288,15 @@
             <p>因为老大哥在看着我。</p>
         </description>
     </music>
+    <music id="Dungeon" name="Dungeon" unlock="mvz2:level.castle_12">
+        <track main="mvz2:Dungeon" />
+        <source>泰拉瑞亚</source>
+        <description>
+            <p>辉针城拓展关的音乐。</p>
+            <p>相当刺激和有意思的歌，敲击的鼓点仿佛是骷髅们用肋骨制成的，愤怒的骷髅一波一波的袭来，地牢的探险旅程充满着惊奇。</p>
+            <p>有趣的是，这歌曾是gms2旧版辉针城关卡的配乐，现在在EXPAND里重现天日，令人欣喜</p>
+        </description>
+    </music>
 
     <music id="mausoleum_map" name="游魂的夜樱">
         <unlock>
@@ -356,9 +386,8 @@
             <p>而最后，这压迫感会将你推向深渊。</p>
         </description>
     </music>
+    <music id="ship_map" name="美猴王-地图" unlock="mvz2:level.ship_1">
 
-
-    <music id="ship_map" name="美猴王-地图">
         <unlock>
             <condition required="mvz2:level.ship_1" />
         </unlock>
@@ -412,6 +441,31 @@
             <p>在《书虫大冒险 Vol.2》中，主角Lex在《美猴王》这本书中击败了强大的敌人，得到了许多珍贵的宝物，结识了黄飞鸿和美猴王这两位同伴，并最终击败了四大天王和二郎神，到达了天庭。</p>
             <p>玉皇大帝告诉他，Lex的旅程尚未结束，他们发现了一种威胁，一种威胁到所有书中世界的威胁。Lex觉得这是邪恶Lex所为，但玉皇大帝却认为，Lex无法击败邪恶Lex。</p>
             <p>最终，Lex离开了这本书，再次回到了图书馆。</p>
+        </description>
+	</music>
+        <music id="Lava_Chicken" name="岩浆烤鸡歌">
+        <track main="mvz2:Lava_Chicken" />
+        <source>Minecraft</source>
+        <description>
+            <p>玩家/村民相关小游戏的音乐。</p>
+            <p>希望诸位在听到这首曲子时能想起被史蒂夫和村民支配的恐惧</p>
+            <p />
+            <p>La-la-la-lava, ch-ch-ch-chicken</p>
+            <p>Steve's Lava Chicken, yeah, it's tasty as hell</p>
+            <p>Ooh, mamacita, now you're ringing the bell</p>
+            <p>Crispy and juicy, now you're having a snack</p>
+            <p>Ooh, super spicy, it's a lava attack</p>
+            
+        </description>
+    </music>
+        <music id="DoubleTime(Tumble)" name="倍速翻滚">
+        <track main="mvz2:DoubleTime(Tumble)" />
+        <source>Minecraft: Battle/Tumble (Original Soundtrack)</source>
+        <description>
+            <p>小游戏的音乐。</p>
+            <p>我很喜欢的一首曲子</p>
+            <p />
+            <p></p>
         </description>
     </music>
 

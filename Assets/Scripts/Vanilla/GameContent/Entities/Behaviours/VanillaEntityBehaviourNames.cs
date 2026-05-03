@@ -100,6 +100,8 @@ namespace MVZ2.Vanilla.Entities
         public const string crusherBall = "crusher_ball";
         public const string rollingGiantBlock = "rolling_giant_block";
         #endregion
+        //EXPAND
+        public const string NightmareDisciple_State = "NightmareDisciple_State";
 
         #region Obstacles
         public const string obstacleCommon = "obstacle_common";

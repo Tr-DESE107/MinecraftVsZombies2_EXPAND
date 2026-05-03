@@ -12,6 +12,7 @@ using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using Tools;
+using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -84,6 +85,40 @@ namespace MVZ2.GameContent.Contraptions
             entity.TriggerAnimation("ShootBack");
 
             var param = entity.GetShootParams();
+            if (entity.Level.IsIZombie()) 
+            { 
+                if (entity.RNG.Next(3) == 0)
+                {
+                param.projectileID = VanillaProjectileID.dart;
+                }
+            }
+            else 
+            { 
+                // 根据剩余发射次数决定抛射物类型  
+                int repeatCount = GetRepeatCount(entity);
+                if (repeatCount == 1)  //第二发发射飞镖
+                {
+                param.projectileID = VanillaProjectileID.dart;
+                }
+            }
+            var offset = entity.GetShotOffset();
+            offset.x *= -1;
+            offset = entity.ModifyShotOffset(offset);
+            param.position = entity.Position + offset;
+
+            var vel = param.velocity;
+            vel.x *= -1;
+            param.velocity = vel;
+
+            return entity.ShootProjectile(param);
+        }
+        public Entity? ShootSmallMissileBack(Entity entity)
+        {
+            entity.TriggerAnimation("ShootBack");
+
+            var param = entity.GetShootParams();
+            param.projectileID = VanillaProjectileID.SmallRocket;
+            param.damage = entity.GetDamage() * 5;
 
             var offset = entity.GetShotOffset();
             offset.x *= -1;
@@ -111,7 +146,7 @@ namespace MVZ2.GameContent.Contraptions
             vel.x *= -1;
             param.velocity = vel.normalized;
 
-            param.projectileID = VanillaProjectileID.largeArrow;
+            param.projectileID = VanillaProjectileID.missile;
             param.damage = entity.GetDamage() * 30;
             param.soundID = VanillaSoundID.spellCard;
 
@@ -149,16 +184,26 @@ namespace MVZ2.GameContent.Contraptions
             if (evocationTimer == null)
                 return;
             evocationTimer.Run();
+
+            // 前方每2帧发射,后方每6帧发射  
             if (evocationTimer.PassedInterval(2))
             {
                 var frontProjectile = ShootFront(entity);
                 if (frontProjectile != null)
                     frontProjectile.Velocity *= 2;
-
+            }
+            if (evocationTimer.PassedInterval(6))
+            {
                 var backProjectile = ShootBack(entity);
                 if (backProjectile != null)
                     backProjectile.Velocity *= 2;
             }
+            // 每15帧向后发射小导弹  
+            if (evocationTimer.PassedInterval(15))
+            {
+                ShootSmallMissileBack(entity);
+            }
+
             if (evocationTimer.Expired)
             {
                 ShootLargeArrowBack(entity);

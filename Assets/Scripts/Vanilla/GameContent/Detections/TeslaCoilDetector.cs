@@ -5,6 +5,9 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
+using MVZ2.GameContent.Buffs.Contraption;
+using MVZ2.GameContent.Buffs.Contraptions;
+using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Detections
 {
@@ -30,11 +33,15 @@ namespace MVZ2.GameContent.Detections
             if (!base.ValidateCollider(param, collider))
                 return false;
             var self = param.entity;
-
             var range = self.GetRange();
             var center = self.GetCenter();
+            var target = collider.Entity;
 
-            return collider.CheckSphere(center, range);
+            // 有 Overcharge buff 时不限制高度  
+            bool hasOvercharge = self.HasBuff<TeslaCoilOvercharge>();
+            bool heightValid = hasOvercharge || target.Position.y <= self.Position.y + 40;
+
+            return heightValid && collider.CheckSphere(center, range);
         }
         private float attackHeight;
     }

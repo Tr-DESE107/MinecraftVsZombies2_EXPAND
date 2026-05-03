@@ -56,6 +56,9 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID NO_BROKEN_LOCK = Get("no_broken_lock");
         public static readonly NamespaceID NO_REVIVAL = Get("no_revival");
 
+        public static readonly NamespaceID SoulColdFire = Get("SoulColdFire");
+        public static readonly NamespaceID WITHER = Get("WITHER");
+        public static readonly NamespaceID VOID = Get("VOID");
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

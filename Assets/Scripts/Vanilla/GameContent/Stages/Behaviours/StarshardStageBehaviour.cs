@@ -10,6 +10,8 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -18,13 +20,17 @@ namespace MVZ2.GameContent.Stages
         public StarshardStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
         }
+        public override void Start(LevelEngine level)
+        {
+            base.Start(level);
+            SetStarshardRNG(level, level.CreateRNG());
+            SetStarshardChance(level, MIN_STARSHARD_CHANCE);
+        }
         public override void PostWave(LevelEngine level, int wave)
         {
             base.PostWave(level, wave);
-            var increament = level.GetStarshardCarrierCounterIncreament();
-            var counter = GetStarshardCounter(level);
-            counter += increament;
-            SetStarshardCounter(level, counter);
+            var increament = level.GetStarshardCarrierChanceIncreament();
+            AddStarshardChance(level, increament);
         }
         public override void PostEnemySpawned(Entity entity)
         {
@@ -34,31 +40,54 @@ namespace MVZ2.GameContent.Stages
             if (entity.HasNoReward())
                 return;
             var level = entity.Level;
-            var counter = GetStarshardCounter(level);
-            if (counter >= COUNTER_PER_STARSHARD - 1)
+            var chance = GetStarshardChance(level);
+            var rng = GetOrCreateStarshardRNG(level);
+            var value = rng.Next(100);
+            if (value < chance)
             {
                 entity.AddBuff<StarshardCarrierBuff>();
-                counter -= COUNTER_PER_STARSHARD;
-                SetStarshardCounter(level, counter);
+                chance = Mathf.Max(MIN_STARSHARD_CHANCE, chance + STARSHARD_REDUCTION);
+                SetStarshardChance(level, chance);
             }
         }
-        public static float GetStarshardCounter(LevelEngine level)
+        public static RandomGenerator GetOrCreateStarshardRNG(LevelEngine level)
         {
-            return level.GetProperty<float>(PROP_STARSHARD_COUNTER);
+            var rng = GetStarshardRNG(level);
+            if (rng == null)
+            {
+                rng = level.CreateRNG();
+                SetStarshardRNG(level, rng);
+            }
+            return rng;
         }
-        public static void SetStarshardCounter(LevelEngine level, float value)
+        public static RandomGenerator? GetStarshardRNG(LevelEngine level)
         {
-            level.SetProperty(PROP_STARSHARD_COUNTER, value);
+            return level.GetProperty<RandomGenerator>(PROP_STARSHARD_RNG);
         }
-        public static void AddStarshardCounter(LevelEngine level, float value)
+        public static void SetStarshardRNG(LevelEngine level, RandomGenerator value)
         {
-            SetStarshardCounter(level, GetStarshardCounter(level) + value);
+            level.SetProperty(PROP_STARSHARD_RNG, value);
+        }
+        public static float GetStarshardChance(LevelEngine level)
+        {
+            return level.GetProperty<float>(PROP_STARSHARD_CHANCE);
+        }
+        public static void SetStarshardChance(LevelEngine level, float value)
+        {
+            level.SetProperty(PROP_STARSHARD_CHANCE, value);
+        }
+        public static void AddStarshardChance(LevelEngine level, float value)
+        {
+            SetStarshardChance(level, GetStarshardChance(level) + value);
         }
 
         private const string PROP_REGION = "starshard_drop_stage";
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta<float> PROP_STARSHARD_COUNTER = new VanillaLevelPropertyMeta<float>("starshard_counter", DEFAULT_STARSHARD_COUNTER);
-        public const int COUNTER_PER_STARSHARD = 6;
-        public const int DEFAULT_STARSHARD_COUNTER = 3;
+        public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_STARSHARD_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("StarshardRNG");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<float> PROP_STARSHARD_CHANCE = new VanillaLevelPropertyMeta<float>("StarshardChance");
+        public const int MIN_STARSHARD_CHANCE = -15;
+        public const int STARSHARD_INCREAMENT = 10;
+        public const int STARSHARD_REDUCTION = -125;
     }
 }

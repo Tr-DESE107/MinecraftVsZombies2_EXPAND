@@ -9,11 +9,14 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
@@ -24,6 +27,18 @@ namespace MVZ2.GameContent.Contraptions
     [AutoEntityBehaviourDefinition(VanillaContraptionNames.hellfire)]
     public class Hellfire : ContraptionBehaviour
     {
+        // 存储“上次触发时的血量”的字段名
+        private static readonly VanillaEntityPropertyMeta<float> PROP_LAST_TRIGGER_HEALTH = new VanillaEntityPropertyMeta<float>("LastTriggerHealth");
+
+        private static float GetLastTriggerHealth(Entity entity) =>
+            entity.GetBehaviourField<float>(ID, PROP_LAST_TRIGGER_HEALTH);
+
+        private static void SetLastTriggerHealth(Entity entity, float hp) =>
+            entity.SetBehaviourField(ID, PROP_LAST_TRIGGER_HEALTH, hp);
+
+        // 当前实体的ID（用于字段访问）
+        private static readonly NamespaceID ID = VanillaContraptionID.hellfire;
+
         public Hellfire(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new BooleanModifier(VanillaEntityProps.IS_FIRE, BooleanOperator.SetNot, PROP_EXTINGUISHED));
@@ -40,6 +55,14 @@ namespace MVZ2.GameContent.Contraptions
                 mask = EntityCollisionHelper.MASK_ALL,
             };
         }
+
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+
+            SetLastTriggerHealth(entity, entity.Health);
+        }
+
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
@@ -53,9 +76,55 @@ namespace MVZ2.GameContent.Contraptions
                 UpdateExtinguished(entity);
             }
 
+            CheckHealthLossTrigger(entity);
+
             entity.SetAnimationBool("Evoked", IsCursed(entity));
             entity.SetModelProperty("Extinguished", IsExtinguished(entity));
         }
+
+        private void CheckHealthLossTrigger(Entity entity)
+        {
+            float lastHP = GetLastTriggerHealth(entity);
+            float currHP = entity.Health;
+
+            // 每掉落一定血量（例如 100 点）触发一次事件
+            int triggerCount = (int)((lastHP - currHP) / 100f);
+            triggerCount = Mathf.Min(triggerCount, 2);
+            if (triggerCount > 0)
+            {
+                for (int i = 0; i < triggerCount; i++)
+                {
+                    FireAOE(entity, 50f, entity.GetFaction());
+                    entity.Level.PlaySound(VanillaSoundID.fire);
+                }
+
+                // 更新记录的血量
+                SetLastTriggerHealth(entity, currHP);
+            }
+        }
+
+        public static void FireAOE(Entity entity, float damage, int faction)
+        {
+
+            var range = 40;
+            entity.Explode(
+                entity.GetCenter(),
+                range,
+                faction,
+                damage,
+                new DamageEffectList(VanillaDamageEffects.FIRE, VanillaDamageEffects.MUTE)
+            );
+
+            for (int i = 0; i < 5; i++)
+            {
+                float offsetX = UnityEngine.Random.Range(-20f, 20f);
+                float offsetY = UnityEngine.Random.Range(-20f, 20f);
+                Vector3 spawnPos = entity.Position + new Vector3(offsetX, offsetY, 0);
+
+                entity.Spawn(VanillaEffectID.fireburn, spawnPos);
+            }
+        }
+
         public override bool CanEvoke(Entity entity)
         {
             if (IsCursed(entity))
@@ -147,4 +216,5 @@ namespace MVZ2.GameContent.Contraptions
     {
         void Ignite(Entity entity, Entity hellfire, bool cursed);
     }
+
 }

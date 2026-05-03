@@ -28,6 +28,8 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             entity.PlaySound(VanillaSoundID.glowstone);
             entity.UpdateShineRing();
+
+            Flash(entity, 100, false);
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -37,6 +39,10 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
+            Flash(entity, 210, true);
+        }
+        private void Flash(Entity entity, int stunDuration, bool clearMindcontrol)
+        {
             entity.AddBuff<GlowstoneEvokeBuff>();
             entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
             bool stunned = false;
@@ -44,10 +50,10 @@ namespace MVZ2.GameContent.Contraptions
             {
                 if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
                 {
-                    target.Stun(150);
+                    target.Stun(stunDuration);
                     stunned = true;
                 }
-                else if (target.Type == EntityTypes.PLANT && target.IsCharmed())
+                else if (target.Type == EntityTypes.PLANT && target.IsCharmed() && clearMindcontrol)
                 {
                     target.RemoveCharm(new EntitySourceReference(entity));
                     target.PlaySound(VanillaSoundID.mindClear);

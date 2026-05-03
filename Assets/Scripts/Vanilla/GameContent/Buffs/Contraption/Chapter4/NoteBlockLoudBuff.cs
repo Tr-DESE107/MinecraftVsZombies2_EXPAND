@@ -18,7 +18,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.Multiply, 5));
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHOT_VELOCITY, NumberOperator.Multiply, Vector3.one * 2f));
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.Multiply, 5));
-            AddModifier(new FloatModifier(VanillaEntityProps.RANGE, NumberOperator.Add, 800));
         }
         public override void PostAdd(Buff buff)
         {
