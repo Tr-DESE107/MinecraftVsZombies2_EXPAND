@@ -31,7 +31,7 @@ namespace MVZ2.Metas
             }
 
             var templatesNode = node["templates"];
-            var metaTemplates = EntityMetaTemplate.LoadTemplates(templatesNode, defaultNsp);
+            var metaTemplates = EntityMetaTemplate.LoadChildrenTemplates(templatesNode, defaultNsp);
 
             var entriesNode = node["entries"];
             var entries = new List<EntityMeta>();

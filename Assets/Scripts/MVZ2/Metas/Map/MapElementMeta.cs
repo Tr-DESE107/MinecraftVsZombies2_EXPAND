@@ -40,36 +40,21 @@ namespace MVZ2.Metas
             }
 
 
+            // 加载地图元素行为与属性。
+            var templateID = node.GetAttribute("template");
+            var template = templates.FirstOrDefault(t => t.id == templateID);
+
             var behaviours = new List<NamespaceID>();
             Dictionary<string, object?> properties = new Dictionary<string, object?>();
 
-            var templateID = node.GetAttribute("template");
-            MapElementMetaTemplate? template = null;
-            if (!string.IsNullOrEmpty(templateID))
-            {
-                template = templates.FirstOrDefault(t => t.id == templateID);
-            }
             var behavioursNode = node["behaviours"];
             var propertyNode = node["properties"];
-            var entityProps = propertyNode.ToPropertyDictionary(defaultNsp);
-            foreach (var prop in entityProps)
-            {
-                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, LogicPropertyRegions.mapElement);
-                properties.Add(fullName, prop.Value);
-            }
-
+            propertyNode?.LoadPropertiesFromNode(defaultNsp, LogicPropertyRegions.mapElement, properties);
             if (template != null)
             {
-                behaviours.AddRange(template.behaviours);
-
-                foreach (var prop in template.properties)
-                {
-                    if (properties.ContainsKey(prop.Key))
-                        continue;
-                    properties.Add(prop.Key, prop.Value);
-                }
+                XMLHelper.LoadBehavioursAndPropertiesFromTemplate(defaultNsp, LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, template, behaviours, properties);
             }
-            behavioursNode?.ModifyBehavioursAndProperties(behaviours, properties, LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, defaultNsp);
+            behavioursNode?.LoadBehavioursFromNode(defaultNsp, LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, behaviours, properties);
 
             return new MapElementMeta(id, properties, behaviours.ToArray())
             {

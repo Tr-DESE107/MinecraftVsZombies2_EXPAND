@@ -9,7 +9,7 @@ using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class MapElementMetaTemplate
+    public class MapElementMetaTemplate : IMetaTemplate
     {
         public string id;
         public List<NamespaceID> behaviours;
@@ -22,6 +22,8 @@ namespace MVZ2.Metas
             this.properties = properties;
         }
 
+        public IEnumerable<NamespaceID> GetBehaviours() => behaviours;
+        public Dictionary<string, object?> GetProperties() => properties;
         public static MapElementMetaTemplate[] LoadTemplates(XmlNode node, string defaultNsp)
         {
             List<MapElementMetaTemplate> templates = new List<MapElementMetaTemplate>();
@@ -37,39 +39,12 @@ namespace MVZ2.Metas
         }
         private static MapElementMetaTemplate? LoadTemplate(XmlNode node, string defaultNsp, XmlNode rootNode)
         {
-            var id = node.GetAttribute("id");
-            if (string.IsNullOrEmpty(id))
-            {
-                Log.LogError($"The {nameof(id)} of a {nameof(MapElementMetaTemplate)} is invalid.");
-                return null;
-            }
+            var id = node.Name;
             var behaviours = new List<NamespaceID>();
             var properties = new Dictionary<string, object?>();
-            LoadTemplatePropertiesFromNode(node, defaultNsp, rootNode, behaviours, properties);
+            XMLHelper.LoadTemplatePropertiesFromNode(node, defaultNsp, rootNode, LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, LogicPropertyRegions.mapElement, behaviours, properties);
 
             return new MapElementMetaTemplate(id, behaviours, properties);
-        }
-        private static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
-        {
-            var parent = node.GetAttribute("parent");
-            if (!string.IsNullOrEmpty(parent))
-            {
-                var parentNode = rootNode[parent];
-                if (parentNode != null)
-                {
-                    LoadTemplatePropertiesFromNode(parentNode, defaultNsp, rootNode, behaviours, properties);
-                }
-            }
-            var behavioursNode = node["behaviours"];
-            behavioursNode.ModifyBehavioursAndProperties(behaviours, properties, LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, defaultNsp);
-
-            var propsNode = node["properties"];
-            var props = propsNode.ToPropertyDictionary(defaultNsp);
-            foreach (var prop in props)
-            {
-                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, LogicPropertyRegions.mapElement);
-                properties[fullName] = prop.Value;
-            }
         }
     }
 }

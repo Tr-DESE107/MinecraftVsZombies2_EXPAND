@@ -1,11 +1,11 @@
 <maps>
     <elementTemplates>
-        <template id="contraption" />
-        <template id="pin">
+        <contraption />
+        <pin>
             <behaviours>
                 <behaviour operator="add" id="mvz2:pin" />
             </behaviours>
-        </template>
+        </pin>
     </elementTemplates>
     <elements>
         <element id="dream_key">

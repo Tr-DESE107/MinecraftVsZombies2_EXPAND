@@ -10,7 +10,6 @@ using MVZ2.Metas;
 using MVZ2Logic;
 using MVZ2Logic.Resources;
 using PVZEngine;
-using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.IO
@@ -201,7 +200,58 @@ namespace MVZ2.IO
             var time = node.GetAttributeFloat("time") ?? 0;
             return new GradientAlphaKey(alpha, time);
         }
-        public static void ModifyBehavioursAndProperties(this XmlNode node, List<NamespaceID> behaviours, Dictionary<string, object?> properties, string propertyRegion, string defaultNsp)
+
+        #region 行为 & 属性
+        public static void LoadPropertiesFromNode(this XmlNode propsNode, string defaultNsp, string propertyRegion, Dictionary<string, object?> properties)
+        {
+            var props = propsNode.ToPropertyDictionary(defaultNsp);
+            foreach (var prop in props)
+            {
+                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, propertyRegion);
+                properties[fullName] = prop.Value;
+            }
+        }
+        public static void LoadBehaviourProperties(this XmlNode node, Dictionary<string, object?> properties, string propertyRegion, string defaultNsp)
+        {
+            var propertyTargetBehaviourID = node.GetAttributeNamespaceID("behaviour", defaultNsp);
+            if (!NamespaceID.IsValid(propertyTargetBehaviourID))
+                return;
+            var propDict = node.ToPropertyDictionary(defaultNsp);
+            foreach (var pair in propDict)
+            {
+                var fullName = PropertyKeyHelper.CombineFullName(propertyTargetBehaviourID.SpaceName, propertyRegion, propertyTargetBehaviourID.Path, pair.Key);
+                properties[fullName] = pair.Value;
+            }
+        }
+        public static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, string behaviourPropertyRegion, string propertyRegion, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
+        {
+            var parent = node.GetAttribute("parent");
+            if (!string.IsNullOrEmpty(parent))
+            {
+                var parentNode = rootNode[parent];
+                if (parentNode != null)
+                {
+                    LoadTemplatePropertiesFromNode(parentNode, defaultNsp, rootNode, behaviourPropertyRegion, propertyRegion, behaviours, properties);
+                }
+            }
+            var behavioursNode = node["behaviours"];
+            behavioursNode.LoadBehavioursFromNode(defaultNsp, behaviourPropertyRegion, behaviours, properties);
+
+            var propsNode = node["properties"];
+            propsNode.LoadPropertiesFromNode(defaultNsp, propertyRegion, properties);
+        }
+        public static void LoadBehavioursAndPropertiesFromTemplate(string defaultNsp, string behaviourPropertyRegion, IMetaTemplate template, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
+        {
+            behaviours.AddRange(template.GetBehaviours());
+
+            foreach (var prop in template.GetProperties())
+            {
+                if (properties.ContainsKey(prop.Key))
+                    continue;
+                properties.Add(prop.Key, prop.Value);
+            }
+        }
+        public static void LoadBehavioursFromNode(this XmlNode node, string defaultNsp, string propertyRegion, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
         {
             if (node == null)
                 return;
@@ -214,7 +264,7 @@ namespace MVZ2.IO
                 }
                 else if (childNode.Name == "properties")
                 {
-                    childNode.FillBehaviourProperties(properties, propertyRegion, defaultNsp);
+                    childNode.LoadBehaviourProperties(properties, propertyRegion, defaultNsp);
                 }
             }
         }
@@ -261,18 +311,7 @@ namespace MVZ2.IO
                     break;
             }
         }
-        public static void FillBehaviourProperties(this XmlNode node, Dictionary<string, object?> properties, string propertyRegion, string defaultNsp)
-        {
-            var propertyTargetBehaviourID = node.GetAttributeNamespaceID("behaviour", defaultNsp);
-            if (!NamespaceID.IsValid(propertyTargetBehaviourID))
-                return;
-            var propDict = node.ToPropertyDictionary(defaultNsp);
-            foreach (var pair in propDict)
-            {
-                var fullName = PropertyKeyHelper.CombineFullName(propertyTargetBehaviourID.SpaceName, propertyRegion, propertyTargetBehaviourID.Path, pair.Key);
-                properties.Add(fullName, pair.Value);
-            }
-        }
+        #endregion
         public static Dictionary<string, object?> ToPropertyDictionary(this XmlNode node, string defaultNsp)
         {
             var properties = new Dictionary<string, object?>();
