@@ -3303,10 +3303,18 @@
                 <header>
                     <p>在三年前，幻想乡内曾经发生过一起巨大的爆炸。</p>
                 </header>
-                <flavor>
-                    <p>根据<![CDATA[<ref=[misc]mvz2:shinmyoumaru>针妙丸</ref>]]>所说，三年前，城下面的某处似乎发生过爆炸，然后这些方块怪物就开始慢慢出现了。</p>
-                    <p>后来<![CDATA[<ref=[misc]mvz2:shining_needle_castle>辉针城</ref>]]>内产生的凋灵骷髅可能也是这件事所导致的。</p>
-                </flavor>
+                <flavors>
+                    <flavor>
+                        <p>根据<![CDATA[<ref=[misc]mvz2:shinmyoumaru>针妙丸</ref>]]>所说，三年前，城下面的某处似乎发生过爆炸，然后这些方块怪物就开始慢慢出现了。</p>
+                        <p>后来<![CDATA[<ref=[misc]mvz2:shining_needle_castle>辉针城</ref>]]>内产生的凋灵骷髅可能也是这件事所导致的。</p>
+                    </flavor>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:level.palace_4"/>
+                        </conditions>
+                        <p>根据<![CDATA[<ref=[misc]mvz2:satori>觉</ref>]]>所说，三年前爆炸的位置位于妖怪之山上，大概是河童基地的位置。</p>
+                    </flavor>
+                </flavors>
             </entry>
             <entry id="mvz2:two_travelers" name="两位旅人">
                 <unlock>

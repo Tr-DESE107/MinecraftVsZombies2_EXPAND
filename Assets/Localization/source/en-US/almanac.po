@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-03 04:00+0800\n"
-"PO-Revision-Date: 2026-05-03 16:05+0800\n"
+"POT-Creation-Date: 2026-05-03 04:11+0800\n"
+"PO-Revision-Date: 2026-05-03 16:13+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -6127,6 +6127,14 @@ msgstr ""
 "blocky monsters started to appear.\n"
 "This incident may also cause the wither skeletons that appeared in <ref=[misc]mvz2:shining_needle_castle>Shining Needle Castle</ref> "
 "later."
+
+#. Flavor for misc mvz2:explosion_before_3_years
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "根据<ref=[misc]mvz2:satori>觉</ref>所说，三年前爆炸的位置位于妖怪之山上，大概是河童基地的位置。"
+msgstr ""
+"According to <ref=[misc]mvz2:satori>Satori</ref>, the location of the explosion three years ago was on the Youkai Mountain, presumably "
+"at the Kappa base."
 
 #. Name for misc mvz2:two_travelers
 #: Almanac meta file
