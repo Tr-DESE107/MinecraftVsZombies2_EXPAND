@@ -3,19 +3,21 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
-using PVZEngine.Damages;
+using PVZEngine.Entities;
+using MVZ2Logic.Entities;
 
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.IcedBolt)]
-    public class IcedBolt : ProjectileBehaviour, IHellfireIgniteBehaviour
+    public class IcedBolt : EntityBehaviourDefinition, IHellfireIgniteBehaviour
     {
         public IcedBolt(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
         }
         public void Ignite(Entity entity, Entity hellfire, bool cursed)
         {
@@ -25,9 +27,12 @@ namespace MVZ2.GameContent.Projectiles
             entity.Die();
             entity.PlaySound(VanillaSoundID.fizz);
         }
-        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput? damage)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
-            base.PostHitEntity(hitResult, damage);
+            var hitResult = param.hit;
+            var projectile = hitResult.Projectile;
+            if (!projectile.Definition.HasBehaviour(this))
+                return;
             var enemy = hitResult.Other;
             if (enemy.Type != EntityTypes.ENEMY)
                 return;

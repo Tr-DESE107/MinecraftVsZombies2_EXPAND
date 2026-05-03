@@ -1,8 +1,11 @@
-using MVZ2.Vanilla.Entities;
 using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
+
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
-using PVZEngine.Level;
 using PVZEngine.Definitions;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
@@ -11,20 +14,21 @@ namespace MVZ2.GameContent.Projectiles
     {
         public ObsidianShard(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
         }
-
-        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
-            base.PostHitEntity(hitResult, damage);
+            var hitResult = param.hit;
+            var projectile = hitResult.Projectile;
+            if (!projectile.Definition.HasBehaviour(this))
+                return;
 
             var target = hitResult.Other;
-            var projectile = hitResult.Projectile;
-
-            // ���1�㴩���˺�    
+            // 造成10点穿甲伤害  
             if (target != null && target.Exists() && !target.IsDead)
             {
                 var armorPiercingDamage = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR);
-                target.TakeDamage(1, armorPiercingDamage, projectile);
+                target.TakeDamage(10, armorPiercingDamage, projectile);
             }
         }
     }

@@ -2,20 +2,24 @@
 
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using MVZ2.Vanilla.Pickups;
+using MVZ2.Vanilla.Projectiles;
+using MVZ2Logic.Entities;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
     [AutoEntityBehaviourDefinition(VanillaProjectileNames.CopperOreBall)]
-    public class CopperOreBall : ProjectileBehaviour
+    public class CopperOreBall : EntityBehaviourDefinition
     {
         public CopperOreBall(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
         }
         public override void Update(Entity projectile)
         {
@@ -23,10 +27,12 @@ namespace MVZ2.GameContent.Projectiles
             float angleSpeed = -projectile.Velocity.x * 2.5f;
             projectile.RenderRotation += Vector3.forward * angleSpeed;
         }
-        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput? damage)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
-            base.PostHitEntity(hitResult, damage);
+            var hitResult = param.hit;
             var projectile = hitResult.Projectile;
+            if (!projectile.Definition.HasBehaviour(this))
+                return;
             var other = hitResult.Other;
             if (other.Type == EntityTypes.ENEMY)
             {
@@ -50,7 +56,7 @@ namespace MVZ2.GameContent.Projectiles
                     var zspeed = rng.Next(-1.5f, 1.5f);
                     var yspeed = rng.Next(10f);
 
-                    var param = new ShootParams()
+                    var shootParams = new ShootParams()
                     {
                         damage = projectile.GetDamage() * 0.25f,
                         faction = projectile.GetFaction(),
@@ -58,7 +64,7 @@ namespace MVZ2.GameContent.Projectiles
                         projectileID = VanillaProjectileID.cobble,
                         velocity = new Vector3(xspeed, yspeed, zspeed),
                     };
-                    projectile.ShootProjectile(param);
+                    projectile.ShootProjectile(shootParams);
                     projectile.Produce(VanillaPickupID.CopperNugget);
                 }
                 projectile.PlaySound(VanillaSoundID.stone);
