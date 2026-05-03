@@ -3372,6 +3372,18 @@
                     </flavor>
                 </flavors>
             </entry>
+            <entry id="mvz2:mysterious_hacker" name="神秘黑客">
+                <unlock>
+                    <condition required="mvz2:level.palace_9" />
+                </unlock>
+                <picture sprite="mvz2:misc/mysterious_hacker" />
+                <header>
+                    <p>在<![CDATA[<ref=[misc]mvz2:chireiden>地灵殿</ref>]]>中出现过的特殊的神秘黑客。</p>
+                </header>
+                <flavor>
+                    <p>据<![CDATA[<ref=[misc]mvz2:rin>燐</ref>]]>和<![CDATA[<ref=[misc]mvz2:tokiko>朱鹭子</ref>]]>称，地灵殿中曾出现过一位特殊的凋灵骷髅黑客，它控制了燐和朱鹭子。</p>
+                </flavor>
+            </entry>
         </group>
     </misc>
 </almanac>

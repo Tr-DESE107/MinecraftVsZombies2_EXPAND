@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-02 09:04+0800\n"
+"POT-Creation-Date: 2026-05-03 04:00+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3301,7 +3301,7 @@ msgstr ""
 #. Properties for artifacts mvz2:broken_lock
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械每受到10点伤害，其蓝图冷却时间便减少1秒</color>"
+msgid "效果：<color=red>器械每受到1%伤害，其蓝图冷却时间便减少1%</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:broken_lock
@@ -3678,6 +3678,36 @@ msgctxt "misc.description"
 msgid "它是怎么浮在空中的？我的朋友，你都已经在天上乘船了，船僵尸能浮在空中又怎么样呢？"
 msgstr ""
 
+#. Name for misc mvz2:tainted_sun
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "受污染的太阳"
+msgstr ""
+
+#. Header for misc mvz2:tainted_sun
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "在梦境世界中的一大波怪物来临时，太阳突然异常消失，产生黑暗。"
+msgstr ""
+
+#. Properties for misc mvz2:tainted_sun
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "持续时间：<color=red><var local=\"duration\"/>秒</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:tainted_sun
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "原因暂不明确。"
+msgstr ""
+
+#. Flavor for misc mvz2:tainted_sun
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "梦魇来到梦境世界之后，开始对梦境世界进行污染，并将整个世界伪装成什么都没有发生过的样子，然而这受污染的太阳便是它唯一的疏忽。"
+msgstr ""
+
 #. Name for misc mvz2:nyaightmare
 #: Almanac meta file
 msgctxt "misc.name"
@@ -3741,6 +3771,35 @@ msgid ""
 "这些卫星似乎是城内的凋灵骷髅根据辉针城的魔力制成的武器，用于干扰敌人的判断。\n"
 "……不过话说回来，凋灵骷髅们居然有这种智慧？这种科技水平？\n"
 "……甚至还可以影响人们的认知？"
+msgstr ""
+
+#. Name for misc mvz2:bedserker
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "床战士"
+msgstr ""
+
+#. Header for misc mvz2:bedserker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "床战士被<ref=[misc]mvz2:wither>凋灵</ref>召唤，背着床朝你的防线冲去，并在一定时间后自爆。"
+msgstr ""
+
+#. Properties for misc mvz2:bedserker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
+"速度：<color=red><var local=\"speed\"/></color>\n"
+"爆炸时间：<color=red><var local=\"explosion_time\"/>秒</color>\n"
+"爆炸伤害：<color=red><var local=\"explosion_damage\"/></color>\n"
+"特殊：<color=red>自爆也会伤害到友军</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:bedserker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一些主世界人向下界走私过很多床，这些床后来也都成为了凋灵骷髅战无不胜的法宝——仅限下界和末地。"
 msgstr ""
 
 #. Name for misc mvz2:ballista
@@ -3830,6 +3889,84 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "危险动作，<ref=[enemies]mvz2:imp>小鬼僵尸</ref>请勿轻易尝试。"
+msgstr ""
+
+#. Name for misc mvz2:corpse_cart
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "尸体推车"
+msgstr ""
+
+#. Header for misc mvz2:corpse_cart
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "尸体推车在接触到敌人后会碾压一整行的敌怪，并在后方留下数只友方的<ref=[enemies]mvz2:zombie>僵尸</ref>。"
+msgstr ""
+
+#. Flavor for misc mvz2:corpse_cart
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"<ref=[enemies]mvz2:rin>火焰猫 燐</ref>用来偷窃并运输尸体的推车，现如今被作为最终防线加入了战场。\n"
+"为什么里面的僵尸是我们这边的？呃，因为车里有张纸条：\n"
+"<align=\"center\">工作帮助</align>\n"
+"    当推车开动的时候，只需要下来然后前进，攻击你遇到的所有怪物，你就赢了。\n"
+"<align=\"right\">——这部分帮助是燐送给你的</align>"
+msgstr ""
+
+#. Name for misc mvz2:psychic_chains
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "心灵锁链"
+msgstr ""
+
+#. Header for misc mvz2:psychic_chains
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "心灵锁链会在每一大波怪物到来时出现，封锁你的一部分蓝图。"
+msgstr ""
+
+#. Properties for misc mvz2:psychic_chains
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"数量：<color=red>携带的蓝图数量÷3（向下取整）</color>\n"
+"持续时间：<color=red><var local=\"duration\"/>秒</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:psychic_chains
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"一张破碎的实验记录中的部分信息：\n"
+"MCP-988-2是目标遭到MCP-988锁定时，间断产生的精神异常，表现为患者暂时失去针对自身手臂器官或义体的部分操控能力，每次持续约30秒。"
+msgstr ""
+
+#. Name for misc mvz2:snipenser
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "狙击发射器"
+msgstr ""
+
+#. Header for misc mvz2:snipenser
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "狙击发射器会朝你指向的位置发射箭矢。"
+msgstr ""
+
+#. Properties for misc mvz2:snipenser
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"耐久：<color=red><var local=\"hp\"/></color>\n"
+"伤害：<color=red><var local=\"damage\"/></color>\n"
+"射速：<color=red>1支/<var local=\"fire_interval\"/>秒</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:snipenser
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "他没有消失。他只是累了，想休息了。"
 msgstr ""
 
 #. Name for almanac group mvz2:characters
@@ -4398,6 +4535,30 @@ msgid ""
 "据说幻想乡的高空中有外星人来过的传闻。似乎某些传送信号能把它们引出来？"
 msgstr ""
 
+#. Name for misc mvz2:chireiden
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "地灵殿"
+msgstr ""
+
+#. Header for misc mvz2:chireiden
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一座位于地下深处的巨大西洋别墅。"
+msgstr ""
+
+#. Flavor for misc mvz2:chireiden
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"地灵殿位于旧地狱街道中心，它的主人是<ref=[misc]mvz2:satori>古明地 觉</ref>。\n"
+"其下方是灼热地狱遗址，遗址最深处是核聚变炉。自从旧地狱被废弃后，觉被委托在这里管理遗留下来的怨灵和核聚变炉。\n"
+"觉饲养了大量的宠物，并用它们来管理地灵殿和遗迹。其中<ref=[misc]mvz2:rin>火焰猫 燐</ref>负责管理这里的怨灵，<ref=[misc]mvz2:utsuho>灵乌路 空</ref>则负责调节灼热地狱的火力。\n"
+"曾经热闹非凡的旧地狱街道，如今也因为异变的原因变得冷清了许多。\n"
+"\n"
+"这里如果发生地震……好吧。"
+msgstr ""
+
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -4509,6 +4670,22 @@ msgid ""
 "我看到了本不应看到的东西，然后那幻觉又立即消失了。\n"
 "那些飞碟还在天上飞着。\n"
 "我到底还能撑多久……？"
+msgstr ""
+
+#. Name for misc mvz2:starshard.uranium_235
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "星之碎片：铀-235"
+msgstr ""
+
+#. Flavor for misc mvz2:starshard.uranium_235
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"未知人士留下了一些记录。\n"
+"\n"
+"星之记录 其六：\n"
+"（这张纸条上什么也没有写，并且被暴力地扯烂了。）"
 msgstr ""
 
 #. Name for almanac group mvz2:important
@@ -4786,6 +4963,24 @@ msgid ""
 "史蒂夫解决掉<ref=[misc]mvz2:red_dragon>红龙</ref>的问题后，白莲告诉他，四年前曾有一位访客来访命莲寺。\n"
 "那位访客自称灯兰 樱，为了寻找自己的孩子而来。\n"
 "在寻子无果后，那位访客便再也没有出现过。不过白莲对于这位访客的存在却仍然抱有乐观态度。"
+msgstr ""
+
+#. Name for misc mvz2:mysterious_hacker
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "神秘黑客"
+msgstr ""
+
+#. Header for misc mvz2:mysterious_hacker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "在<ref=[misc]mvz2:chireiden>地灵殿</ref>中出现过的特殊的神秘黑客。"
+msgstr ""
+
+#. Flavor for misc mvz2:mysterious_hacker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "据<ref=[misc]mvz2:rin>燐</ref>和<ref=[misc]mvz2:tokiko>朱鹭子</ref>称，地灵殿中曾出现过一位特殊的凋灵骷髅黑客，它控制了燐和朱鹭子。"
 msgstr ""
 
 #. Name for entity counter mvz2:low_enemy
@@ -6771,7 +6966,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:broken_lock
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械每受到10点伤害，其蓝图冷却时间便减少1秒"
+msgid "器械每受到1%伤害，其蓝图冷却时间便减少1%"
 msgstr ""
 
 #. Name for artifact mvz2:magma_stone

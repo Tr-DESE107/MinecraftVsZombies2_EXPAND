@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-02 09:04+0800\n"
-"PO-Revision-Date: 2026-05-02 21:06+0800\n"
+"POT-Creation-Date: 2026-05-03 04:00+0800\n"
+"PO-Revision-Date: 2026-05-03 16:05+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -6228,6 +6228,27 @@ msgstr ""
 "The visitor claimed to be Sakura Touran and had come in search of the visitor's child.\n"
 "After failing to find the child, the visitor never appeared again. However, Byakuren remained optimistic about the presence of this "
 "visitor."
+
+#. Name for misc mvz2:mysterious_hacker
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "神秘黑客"
+msgstr "Mysterious Hacker"
+
+#. Header for misc mvz2:mysterious_hacker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "在<ref=[misc]mvz2:chireiden>地灵殿</ref>中出现过的特殊的神秘黑客。"
+msgstr "A special mysterious hacker who appeared in the <ref=[misc]mvz2:chireiden>Palace of the Earth Spirits</ref>."
+
+#. Flavor for misc mvz2:mysterious_hacker
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"据<ref=[misc]mvz2:rin>燐</ref>和<ref=[misc]mvz2:tokiko>朱鹭子</ref>称，地灵殿中曾出现过一位特殊的凋灵骷髅黑客，它控制了燐和朱鹭子。"
+msgstr ""
+"According to <ref=[misc]mvz2:rin>Rin</ref> and <ref=[misc]mvz2:tokiko>Tokiko</ref>, a special Wither Skeleton hacker once appeared in "
+"the Palace of the Earth Spirits, it controlled Rin and Tokiko."
 
 #. Name for entity counter mvz2:low_enemy
 #: Entity meta file
