@@ -11,6 +11,8 @@ using MVZ2.UI;
 using MVZ2.UI.Level;
 using MVZ2.View.Level;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Cursor;
 using MVZ2Logic.Entities;

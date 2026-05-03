@@ -7,6 +7,7 @@ using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Entities;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;

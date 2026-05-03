@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;

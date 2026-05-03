@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
@@ -14,8 +15,11 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
@@ -553,7 +557,7 @@ namespace MVZ2.GameContent.Bosses
             boss.Level.AddBuff<NightmareDecrepifyBuff>();
         }
 
-        private void Biohazard(Entity boss)
+        public static void Biohazard(Entity boss)
         {
             //尸潮：额外加入其他类僵尸
             boss.PlaySound(VanillaSoundID.biohazard);

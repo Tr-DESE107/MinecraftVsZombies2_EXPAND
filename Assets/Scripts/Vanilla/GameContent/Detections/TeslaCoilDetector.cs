@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -37,7 +38,7 @@ namespace MVZ2.GameContent.Detections
             var center = self.GetCenter();
             var target = collider.Entity;
 
-            // 有 Overcharge buff 时不限制高度  
+            // 锟斤拷 Overcharge buff 时锟斤拷锟斤拷锟狡高讹拷  
             bool hasOvercharge = self.HasBuff<TeslaCoilOvercharge>();
             bool heightValid = hasOvercharge || target.Position.y <= self.Position.y + 40;
 

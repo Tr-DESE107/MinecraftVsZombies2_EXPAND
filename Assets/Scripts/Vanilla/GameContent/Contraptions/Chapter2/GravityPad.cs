@@ -5,9 +5,11 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Unlocks;
 using PVZEngine.Auras;
@@ -52,7 +54,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.SpawnUnlockArtifactPickup(VanillaAreaID.castle, VanillaUnlockID.brokenLantern, VanillaArtifactID.brokenLantern, pos + Vector3.up * 100);
             var anvil = entity.SpawnWithParams(VanillaContraptionID.anvil, pos);
 
-            foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
+            foreach (var e in entity.Level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
             {
                 if (e.HasBuff<FlyBuff>())
                 {

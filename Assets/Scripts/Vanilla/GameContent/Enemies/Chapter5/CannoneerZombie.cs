@@ -4,6 +4,8 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;

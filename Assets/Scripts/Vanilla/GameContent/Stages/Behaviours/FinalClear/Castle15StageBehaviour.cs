@@ -5,14 +5,19 @@ using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
+
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
@@ -44,7 +49,8 @@ namespace MVZ2.GameContent.Stages
 
             if (!level.GetProperty<bool>(FIELD_SEIJA_SPAWNED))
             {
-                var x = VanillaLevelExt.ENEMY_RIGHT_BORDER;
+                //var x = VanillaLevelExt.ENEMY_RIGHT_BORDER;
+                var x = 80;
                 var z = level.GetEntityLaneZ(level.GetMaxLaneCount() / 2);
                 var y = level.GetGroundY(x, z);
                 level.Spawn(VanillaBossID.seija, new Vector3(x, y, z), null)?.Let(seija =>

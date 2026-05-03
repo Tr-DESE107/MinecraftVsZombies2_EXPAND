@@ -3,6 +3,8 @@
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;

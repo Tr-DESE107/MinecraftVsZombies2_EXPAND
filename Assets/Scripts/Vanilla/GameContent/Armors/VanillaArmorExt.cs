@@ -4,6 +4,7 @@ using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;

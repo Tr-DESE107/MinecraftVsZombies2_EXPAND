@@ -4,13 +4,17 @@ using System.Linq;
 
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Entities;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;

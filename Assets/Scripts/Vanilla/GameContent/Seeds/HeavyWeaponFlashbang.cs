@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
@@ -9,6 +10,7 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;

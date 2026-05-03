@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Armors;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;

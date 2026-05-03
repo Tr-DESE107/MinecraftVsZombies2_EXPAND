@@ -8,17 +8,16 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.GameContent.Sprites;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
-using MVZ2Logic.Games;
-using MVZ2Logic.Level;
 using MVZ2Logic.Modifiers;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -26,7 +25,6 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
@@ -111,13 +109,13 @@ namespace MVZ2.GameContent.Stages
         }
         private Entity? SpawnOrFindSnipenser(LevelEngine level, Entity cart)
         {
-            var snipenser = level.FindFirstEntity(VanillaContraptionID.snipenser);
+            var snipenser = level.FindFirstEntity(VanillaContraptionID.MegaSnipenser);
             if (snipenser.ExistsAndAlive())
                 return snipenser;
             var param = new SpawnParams();
             param.SetProperty(LogicEntityProps.GRID_LAYERS, Array.Empty<NamespaceID>());
             param.SetProperty(LogicEntityProps.HP_BAR_VISIBILITY, HPBarVisibility.FORCE);
-            return level.Spawn(VanillaContraptionID.snipenser, cart.Position, cart, param);
+            return level.Spawn(VanillaContraptionID.MegaSnipenser, cart.Position, cart, param);
         }
         private void PreContraptionTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
         {
@@ -142,8 +140,8 @@ namespace MVZ2.GameContent.Stages
                 var snipenserReference = GetSnipenserReference(level);
                 if (snipenserReference != null && snipenserReference.IsEntity(entity))
                 {
-                    var rapidUpgrade = Snipenser.GetRapidLevel(entity);
-                    var spreadUpgrade = Snipenser.GetSpreadLevel(entity);
+                    var rapidUpgrade = MegaSnipenser.GetRapidLevel(entity);
+                    var spreadUpgrade = MegaSnipenser.GetSpreadLevel(entity);
                     var rapidCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponRapid)?.GetCost() ?? 0;
                     var spreadCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponSpread)?.GetCost() ?? 0;
                     var rapidRedStones = Mathf.Max(0, rapidCost - 25) / 25;

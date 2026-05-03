@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Audios;

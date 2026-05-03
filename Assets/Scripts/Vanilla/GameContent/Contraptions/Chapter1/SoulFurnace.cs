@@ -9,10 +9,14 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -235,7 +239,7 @@ namespace MVZ2.GameContent.Contraptions
         public static DamageOutput[] Explode(Entity entity, float range, float damage)
         {
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
-            var damageOutputs = entity.Level.Explode(entity.Position, range, VanillaFactions.NEUTRAL, damage, damageEffects, entity);
+            var damageOutputs = entity.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects);
             foreach (var output in damageOutputs)
             {
                 if (output == null)

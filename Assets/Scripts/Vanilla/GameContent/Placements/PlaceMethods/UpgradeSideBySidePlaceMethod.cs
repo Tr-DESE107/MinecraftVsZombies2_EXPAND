@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Placements;

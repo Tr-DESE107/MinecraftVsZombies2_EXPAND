@@ -2,6 +2,8 @@
 
 using MVZ2.GameContent.Pickups;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Definitions;
 using UnityEngine;

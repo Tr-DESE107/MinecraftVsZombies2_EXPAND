@@ -3,6 +3,7 @@
 using System.Linq;
 using MVZ2.GameContent.Obstacles;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
 using PVZEngine;

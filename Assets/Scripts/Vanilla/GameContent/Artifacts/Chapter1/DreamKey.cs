@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;

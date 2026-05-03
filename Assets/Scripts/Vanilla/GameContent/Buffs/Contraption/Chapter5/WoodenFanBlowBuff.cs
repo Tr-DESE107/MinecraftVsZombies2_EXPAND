@@ -2,9 +2,11 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -43,7 +45,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             bool evoked = IsEvoked(buff);
             var level = sourceEntity.Level;
 
-            // ´µ¸ÉË®¼£
+            // ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½
             var det = evoked ? evokedDetector : detector;
             List<Entity> results = new List<Entity>();
             det.DetectEntities(sourceEntity, results);

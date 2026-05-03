@@ -2,8 +2,10 @@
   
 using MVZ2.GameContent.Effects;  
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.GameContent.Enemies;  // ��  
-using MVZ2.Vanilla.Grids;  
+using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;  
 using MVZ2Logic.Level;
 using MVZ2.Vanilla.Level;  
 using PVZEngine;  

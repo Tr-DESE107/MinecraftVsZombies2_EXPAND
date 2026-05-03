@@ -4,6 +4,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Collisions;
 using PVZEngine.Collisions.Level;
@@ -49,7 +50,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                     }
                     else if (target.Type == EntityTypes.PROJECTILE)
                     {
-                        // µ¯»ØÉäµ¯£¬²¢½«ÕóÓª¸ÄÎª¸ÃÊµÌåµÄÕóÓª¡£
+                        // ï¿½ï¿½ï¿½ï¿½ï¿½äµ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óªï¿½ï¿½Îªï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½Óªï¿½ï¿½
                         var velocity = target.GetFacingDirection() * target.Velocity.magnitude;
                         target.Velocity = velocity;
                         target.SetFaction(entity.GetFaction());

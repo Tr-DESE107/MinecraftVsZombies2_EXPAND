@@ -8,6 +8,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Definitions;
+using MVZ2.Vanilla.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {

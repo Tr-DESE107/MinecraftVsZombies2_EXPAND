@@ -5,6 +5,8 @@ using System.Linq;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using PVZEngine;
 using UnityEngine;
 

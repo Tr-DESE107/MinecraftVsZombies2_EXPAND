@@ -3,6 +3,7 @@
 using MukioI18n;
 using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Localization;

@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Grids;

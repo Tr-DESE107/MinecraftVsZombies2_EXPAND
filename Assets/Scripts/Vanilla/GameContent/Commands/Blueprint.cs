@@ -3,6 +3,8 @@
 using System;
 using MVZ2.Vanilla.Localization;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;

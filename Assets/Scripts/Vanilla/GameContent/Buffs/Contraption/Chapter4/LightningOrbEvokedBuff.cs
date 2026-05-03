@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Base;
@@ -16,10 +17,10 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Collisions;
 using PVZEngine.Damages;
-using PVZEngine.Definitions;
+using PVZEngine.Entities;
+using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
-using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {

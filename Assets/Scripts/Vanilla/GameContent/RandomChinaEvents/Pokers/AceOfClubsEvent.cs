@@ -5,6 +5,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic.Blueprints;

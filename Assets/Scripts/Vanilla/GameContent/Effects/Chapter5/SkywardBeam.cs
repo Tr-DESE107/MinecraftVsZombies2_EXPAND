@@ -5,6 +5,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Collisions;
 using PVZEngine.Collisions.Level;
 using PVZEngine.Damages;

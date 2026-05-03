@@ -1,20 +1,28 @@
 #nullable enable  
   
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;  
+using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;  
 using MVZ2.Vanilla.Contraptions;  
-using MVZ2.Vanilla.Entities;  
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;  
+
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Entities;  
 using MVZ2Logic.Level;  
+using MVZ2Logic.Level;
+
 using PVZEngine;  
+using PVZEngine.Definitions;  
 using PVZEngine.Entities;  
 using PVZEngine.Level;
-using PVZEngine.Definitions;  
 using PVZEngine.Modifiers;  
+
 using Tools;  
+
 using UnityEngine;
-using MVZ2.GameContent.Seeds;
-using MVZ2.GameContent.Enemies;
 
 namespace MVZ2.GameContent.Contraptions  
 {  
@@ -23,8 +31,8 @@ namespace MVZ2.GameContent.Contraptions
     {  
         public StoneGenerator(string nsp, string name) : base(nsp, name)  
         {  
-            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR_OFFSET));  
-            AddModifier(new BooleanModifier(VanillaEntityProps.IS_LIGHT_SOURCE, BooleanOperator.And, PROP_BURNING));  
+            AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR_OFFSET));
+            AddModifier(new BooleanModifier(LogicEntityProps.IS_LIGHT_SOURCE, BooleanOperator.And, PROP_BURNING));
         }  
   
         public override void Init(Entity entity)  
@@ -95,7 +103,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             var index = entity.RNG.WeightedRandom(stonePoolWeights);
             var chosen = stonePool[index];
-            var blueprintID = VanillaBlueprintID.FromEntity(chosen);
+            var blueprintID = LogicBlueprintID.FromEntity(chosen);
 
             var spawnParams = entity.GetSpawnParams();
             spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);

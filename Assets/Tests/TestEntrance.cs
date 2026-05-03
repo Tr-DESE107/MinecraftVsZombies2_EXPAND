@@ -4,6 +4,8 @@ using MVZ2.Managers;
 using MVZ2.Modding;
 using MVZ2.Vanilla;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Definitions;
 using PVZEngine;
 using PVZEngine.Level;

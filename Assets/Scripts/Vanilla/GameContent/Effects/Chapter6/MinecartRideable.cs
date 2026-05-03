@@ -2,6 +2,8 @@
 
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;

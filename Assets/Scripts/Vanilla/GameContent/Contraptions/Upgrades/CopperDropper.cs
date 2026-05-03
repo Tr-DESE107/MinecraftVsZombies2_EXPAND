@@ -2,11 +2,11 @@
 
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using MVZ2.Vanilla.Projectiles;
+using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions

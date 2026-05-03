@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 

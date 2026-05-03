@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
@@ -29,7 +30,7 @@ namespace MVZ2.GameContent.Enemies
             // �����������ο� AngryReverser
             detector = new DispenserDetector()
             {
-                ignoreBoss = true,
+                mask = EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE,
                 ignoreHighEnemy = false,
                 ignoreLowEnemy = false,
                 colliderFilter = (p, c) => ColliderFilter(p.entity, c)

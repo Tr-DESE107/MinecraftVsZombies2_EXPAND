@@ -9,6 +9,8 @@ using MVZ2.Vanilla.ChapterTransitions;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Archive;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Grids;

@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic.Grids;
+using MVZ2Logic.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;

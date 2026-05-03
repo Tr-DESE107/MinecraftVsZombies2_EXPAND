@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Entities;

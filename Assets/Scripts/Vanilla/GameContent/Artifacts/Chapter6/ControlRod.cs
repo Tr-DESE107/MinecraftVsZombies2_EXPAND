@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
@@ -11,6 +12,8 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Artifacts
 {

@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -26,7 +27,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = param.entity;
             if (!entity.HasBuff<BoatBuff>())
                 return;
-            // µôÂäËé´¬µôÂäÎï
+            // ï¿½ï¿½ï¿½ï¿½ï¿½é´¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity)?.Let(e =>
             {
                 e.Velocity = new Vector3(e.RNG.NextFloat() * 20 - 10, 5, 0);

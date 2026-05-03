@@ -5,6 +5,7 @@ using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
@@ -97,7 +98,7 @@ namespace MVZ2.GameContent.Contraptions
             timer?.Reset();
 
 
-            // ×ª»¯ËùÓÐµÐ¶ÔµÄÔÉÊ¯Buff¡£
+            // ×ªï¿½ï¿½ï¿½ï¿½ï¿½ÐµÐ¶Ôµï¿½ï¿½ï¿½Ê¯Buffï¿½ï¿½
             var faction = entity.GetFaction();
             foreach (var enemyBuff in entity.Level.GetBuffs<BeaconMeteorBuff>())
             {
@@ -109,7 +110,7 @@ namespace MVZ2.GameContent.Contraptions
                 BeaconMeteorBuff.SetVariant(enemyBuff, BeaconMeteorBuff.VARIANT_DEFAULT);
             }
 
-            // Ìí¼ÓÔÉÊ¯BUFF¡£
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¯BUFFï¿½ï¿½
             var buff = entity.Level.NewBuff<BeaconMeteorBuff>();
             BeaconMeteorBuff.SetFaction(buff, faction);
             BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
@@ -137,12 +138,12 @@ namespace MVZ2.GameContent.Contraptions
 
         public static Vector3[] shootDirections = new Vector3[]
         {
-            new Vector3(1, 0, 0),   // ÏòÇ°  
-            new Vector3(-1, 0, 0),  // Ïòºó  
-            new Vector3(-0.5f, 0, 0.866f).normalized,   // Ïò×óÉÏ  
-            new Vector3(0.5f, 0, 0.866f).normalized,    // ÏòÓÒÉÏ  
-            new Vector3(-0.5f, 0, -0.866f).normalized,  // Ïò×óÏÂ  
-            new Vector3(0.5f, 0, -0.866f).normalized,   // ÏòÓÒÏÂ  
+            new Vector3(1, 0, 0),   // ï¿½ï¿½Ç°  
+            new Vector3(-1, 0, 0),  // ï¿½ï¿½ï¿½  
+            new Vector3(-0.5f, 0, 0.866f).normalized,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+            new Vector3(0.5f, 0, 0.866f).normalized,    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+            new Vector3(-0.5f, 0, -0.866f).normalized,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+            new Vector3(0.5f, 0, -0.866f).normalized,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
             //new Vector3(-1, 0, 0), // Back
             //new Vector3(0, 0, 1), // Up
             //new Vector3(0, 0, -1), // Down

@@ -2,6 +2,8 @@
 
 using System.Xml;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using PVZEngine;
 
 namespace MVZ2.Metas

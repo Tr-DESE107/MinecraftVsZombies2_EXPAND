@@ -9,14 +9,14 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Localization;
-using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Blueprints;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using PVZEngine;
@@ -25,7 +25,6 @@ using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
@@ -163,7 +162,7 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+            if (!entity.WillRemoveOnDeath(damageInfo))
                 return;
 
             var grid = entity.GetGrid();

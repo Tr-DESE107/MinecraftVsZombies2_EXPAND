@@ -26,6 +26,8 @@ using MVZ2.Scenes;
 using MVZ2.Store;
 using MVZ2.Supporters;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Options;
 using MVZ2Logic.Resources;

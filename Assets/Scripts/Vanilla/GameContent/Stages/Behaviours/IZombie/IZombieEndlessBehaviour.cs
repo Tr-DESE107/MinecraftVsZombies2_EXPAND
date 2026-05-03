@@ -7,10 +7,12 @@ using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Definitions;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -18,7 +20,10 @@ using System.Linq;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages

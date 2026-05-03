@@ -8,6 +8,8 @@ using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Games;
@@ -71,7 +73,7 @@ namespace MVZ2.Options
             ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
         }
 
-        #region ÊÂ¼þ»Øµ÷
+        #region ï¿½Â¼ï¿½ï¿½Øµï¿½
         private void OnResolutionChangedCallback(int width, int height)
         {
             RefreshResolutionDropdown();
@@ -305,7 +307,7 @@ namespace MVZ2.Options
         {
             Main.OptionsManager.SaveOptions();
         }
-        #region Ö÷½çÃæ
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private void UpdateMainPageWidgets()
         {
             // Main
@@ -435,7 +437,7 @@ namespace MVZ2.Options
         }
         #endregion
 
-        #region ¸ü¶àÑ¡Ïî
+        #region ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½
         private void UpdateMoreOptionsPageWidgets()
         {
             if (context == null)
@@ -546,7 +548,7 @@ namespace MVZ2.Options
         }
         #endregion
 
-        #region ×é¼þ¸üÐÂ
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         protected string GetValueText(bool value)
         {
             return Main.LanguageManager._(value ? LogicStrings.YES : LogicStrings.NO);
@@ -576,39 +578,39 @@ namespace MVZ2.Options
         }
         #endregion
 
-        #region ³£Á¿
+        #region ï¿½ï¿½ï¿½ï¿½
         public const float FASTFORWARD_STEP = 0.05f;
         public const float FASTFORWARD_MULTIPLIER_START = 1.1f;
         public const float FASTFORWARD_MULTIPLIER_END = 3;
         #endregion
 
-        #region ·­ÒëÎÄ±¾
-        [TranslateMsg("Ñ¡Ïî")]
-        public const string OPTION_SWAP_TRIGGER = "½»»»´¥·¢";
-        [TranslateMsg("Ñ¡Ïî")]
-        public const string OPTION_FULLSCREEN = "È«ÆÁ";
-        [TranslateMsg("Ñ¡Ïî")]
-        public const string OPTION_VIBRATION = "Éè±¸Õð¶¯";
-        [TranslateMsg("Ñ¡Ïî")]
-        public const string OPTION_PAUSE_ON_FOCUS_LOST = "ºóÌ¨ÔÝÍ£";
-        [TranslateMsg("Ñ¡Ïî")]
-        public const string OPTION_MORE_OPTIONS = "¸ü¶àÑ¡Ïî";
-        [TranslateMsg("Ñ¡Ïî£¬{0}ÎªÄÑ¶È")]
-        public const string OPTION_DIFFICULTY = "ÄÑ¶È£º{0}";
-        [TranslateMsg("Ñ¡Ïî")]
-        public const string OPTION_RESTART = "ÖØÐÂ¿ªÊ¼";
-        [TranslateMsg("Ñ¡Ïî")]
-        public const string OPTION_BACK = "·µ»Ø";
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½
+        [TranslateMsg("Ñ¡ï¿½ï¿½")]
+        public const string OPTION_SWAP_TRIGGER = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+        [TranslateMsg("Ñ¡ï¿½ï¿½")]
+        public const string OPTION_FULLSCREEN = "È«ï¿½ï¿½";
+        [TranslateMsg("Ñ¡ï¿½ï¿½")]
+        public const string OPTION_VIBRATION = "ï¿½è±¸ï¿½ï¿½";
+        [TranslateMsg("Ñ¡ï¿½ï¿½")]
+        public const string OPTION_PAUSE_ON_FOCUS_LOST = "ï¿½ï¿½Ì¨ï¿½ï¿½Í£";
+        [TranslateMsg("Ñ¡ï¿½ï¿½")]
+        public const string OPTION_MORE_OPTIONS = "ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½";
+        [TranslateMsg("Ñ¡ï¿½î£¬{0}Îªï¿½Ñ¶ï¿½")]
+        public const string OPTION_DIFFICULTY = "ï¿½Ñ¶È£ï¿½{0}";
+        [TranslateMsg("Ñ¡ï¿½ï¿½")]
+        public const string OPTION_RESTART = "ï¿½ï¿½ï¿½Â¿ï¿½Ê¼";
+        [TranslateMsg("Ñ¡ï¿½ï¿½")]
+        public const string OPTION_BACK = "ï¿½ï¿½ï¿½ï¿½";
 
 
-        [TranslateMsg("Ñ¡Ïî£¬{0}ÎªÁ¿")]
-        public const string OPTION_MUSIC = "ÒôÀÖÒôÁ¿£º{0}";
-        [TranslateMsg("Ñ¡Ïî£¬{0}ÎªÁ¿")]
-        public const string OPTION_SOUND = "ÒôÐ§ÒôÁ¿£º{0}";
-        [TranslateMsg("Ñ¡Ïî£¬{0}ÎªÁ¿")]
-        public const string OPTION_FASTFORWARD_MULTIPLIER = "¼ÓËÙ±¶ÂÊ£º{0}";
-        [TranslateMsg("¶Ô»°¿òÄÚÈÝ")]
-        public const string DIALOG_DESC_LEAVE_LEVEL = "È·ÈÏÒª·µ»ØÂð£¿\nÄãµÄ½ø¶È»á±»±£´æ¡£";
+        [TranslateMsg("Ñ¡ï¿½î£¬{0}Îªï¿½ï¿½")]
+        public const string OPTION_MUSIC = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{0}";
+        [TranslateMsg("Ñ¡ï¿½î£¬{0}Îªï¿½ï¿½")]
+        public const string OPTION_SOUND = "ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{0}";
+        [TranslateMsg("Ñ¡ï¿½î£¬{0}Îªï¿½ï¿½")]
+        public const string OPTION_FASTFORWARD_MULTIPLIER = "ï¿½ï¿½ï¿½Ù±ï¿½ï¿½Ê£ï¿½{0}";
+        [TranslateMsg("ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+        public const string DIALOG_DESC_LEAVE_LEVEL = "È·ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½Ä½ï¿½ï¿½È»á±»ï¿½ï¿½ï¿½æ¡£";
         #endregion
 
         public event Action<bool>? OnClose;

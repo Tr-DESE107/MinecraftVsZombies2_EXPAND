@@ -3,6 +3,8 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.GameContent.Stages;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;

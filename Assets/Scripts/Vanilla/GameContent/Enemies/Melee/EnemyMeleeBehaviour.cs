@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.Enemies
         {
         }
 
-        #region ¸üÐÂ
+        #region ï¿½ï¿½ï¿½ï¿½
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
@@ -42,7 +43,7 @@ namespace MVZ2.GameContent.Enemies
         }
         #endregion
 
-        #region Åö×²
+        #region ï¿½ï¿½×²
         public override void PostCollision(EntityCollision collision, int state)
         {
             base.PostCollision(collision, state);
@@ -81,7 +82,7 @@ namespace MVZ2.GameContent.Enemies
         }
         #endregion
 
-        #region ¼ìÑéÄ¿±ê
+        #region ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
         protected virtual bool ValidateMeleeTarget(Entity enemy, [NotNullWhen(true)] Entity? target)
         {
             if (target == null || !target.Exists() || target.IsDead)
@@ -104,7 +105,7 @@ namespace MVZ2.GameContent.Enemies
         }
         #endregion
 
-        #region ¹¥»÷
+        #region ï¿½ï¿½ï¿½ï¿½
         public virtual bool MeleeEnabled(Entity entity)
         {
             return true;
@@ -141,7 +142,7 @@ namespace MVZ2.GameContent.Enemies
         }
         #endregion
 
-        #region ÊôÐÔ
+        #region ï¿½ï¿½ï¿½ï¿½
         public static EntityID? GetMeleeTarget(Entity entity) => entity.GetProperty<EntityID>(PROP_MELEE_TARGET);
         public static void SetMeleeTarget(Entity entity, EntityID? value) => entity.SetProperty(PROP_MELEE_TARGET, value);
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_MELEE_TARGET = new VanillaEntityPropertyMeta<EntityID>("melee_target");

@@ -2,11 +2,14 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -36,10 +39,10 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(4);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.GlowingObsidian),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.tnt),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.glowstone),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.GlowingObsidian),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.tnt),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
             });
         }
 

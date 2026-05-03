@@ -2,26 +2,24 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Projectiles;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Entities;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
-using MVZ2.Vanilla.Unlocks;
-
-using MVZ2Logic;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
-
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-
+using MVZ2.Vanilla.Level;
+using UnityEngine;
 using Tools;
 
 namespace MVZ2.GameContent.Enemies  
@@ -154,7 +152,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+            if (!entity.WillRemoveOnDeath(info))
                 return;
             Explode(entity, entity.GetDamage() * 3, entity.GetFaction());
             entity.Remove();
@@ -166,12 +164,16 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void Explode(Entity entity, float damage, DamageEffectList effects, int faction)
         {
+            Explode(entity, damage, entity.GetRange(), effects, faction);
+        }
+        public static void Explode(Entity entity, float damage, float range, DamageEffectList effects, int faction)
+        {
             var scale = entity.GetFinalScale();
             var scaleX = Mathf.Abs(scale.x);
-            var range = 70 * scaleX;
-            entity.Explode(entity.GetCenter(), range, faction, damage, effects);
+            var radius = range * scaleX;
+            entity.Explode(entity.GetCenter(), radius, faction, damage, effects);
 
-            Explosion.Spawn(entity, entity.GetCenter(), range);
+            Explosion.Spawn(entity, entity.GetCenter(), radius);
 
             entity.PlaySound(VanillaSoundID.explosion, scaleX == 0 ? 1000 : 1 / (scaleX));
         }

@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Modding;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;

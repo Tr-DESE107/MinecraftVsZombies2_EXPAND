@@ -3,6 +3,7 @@
 using System.Diagnostics.CodeAnalysis;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 

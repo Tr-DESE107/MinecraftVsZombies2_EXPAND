@@ -2,6 +2,8 @@
 
 using MVZ2.GameContent.Models;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;

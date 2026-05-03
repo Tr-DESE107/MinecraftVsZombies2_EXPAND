@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;

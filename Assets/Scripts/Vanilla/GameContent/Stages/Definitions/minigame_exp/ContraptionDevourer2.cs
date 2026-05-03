@@ -3,6 +3,8 @@
 using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -80,16 +82,16 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.lightningOrb),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.tnt),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.punchton),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.magichest),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.blackHoleBomb),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.mineTNT),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.lightningOrb),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.tnt),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.punchton),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.magichest),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.blackHoleBomb),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.mineTNT),
             });
             //level.SetPickaxeActive(false);
             level.SetEnergy(8000);

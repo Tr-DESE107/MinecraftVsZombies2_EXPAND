@@ -5,6 +5,8 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Grids;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -15,6 +17,7 @@ using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 
 namespace MVZ2.GameContent.Stages
 {

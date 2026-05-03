@@ -2,6 +2,8 @@
 
 using System.Collections;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using PVZEngine;
 using UnityEngine;
 

@@ -4,6 +4,8 @@ using MVZ2.GameContent.Areas;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;

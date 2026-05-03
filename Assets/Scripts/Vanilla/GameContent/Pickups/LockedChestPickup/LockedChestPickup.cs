@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;

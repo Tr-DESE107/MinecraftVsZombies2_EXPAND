@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
@@ -63,9 +64,9 @@ namespace MVZ2.GameContent.Contraptions
 
         public static Vector3[] shootDirections = new Vector3[]
         {
-            new Vector3(1, 0, 0),   // ÏòÇ°  
-            new Vector3(0.5f, 0, 0.25f).normalized,   // Ïò×óÉÏ  
-            new Vector3(0.5f, 0, -0.25f).normalized,    // ÏòÓÒÉÏ  
+            new Vector3(1, 0, 0),   // ï¿½ï¿½Ç°  
+            new Vector3(0.5f, 0, 0.25f).normalized,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+            new Vector3(0.5f, 0, -0.25f).normalized,    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
             //new Vector3(-1, 0, 0), // Back
             //new Vector3(0, 0, 1), // Up
             //new Vector3(0, 0, -1), // Down

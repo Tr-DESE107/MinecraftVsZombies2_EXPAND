@@ -7,6 +7,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -102,6 +103,8 @@ namespace MVZ2.GameContent.Enemies
             var anubisandOffset = ANUBISAND_OFFSET;
             anubisandOffset.x *= entity.GetFacingX();
             var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
+            var SkeletonHead = entity.SpawnWithParams(VanillaEnemyID.SkeletonHead, entity.Position + anubisandOffset);
+            var mesmerizer = entity.SpawnWithParams(VanillaEnemyID.mesmerizer, entity.Position + anubisandOffset);
             entity.Remove();
         }
         #endregion
@@ -159,8 +162,6 @@ namespace MVZ2.GameContent.Enemies
                         else if (other.Type == EntityTypes.ENEMY)
                         {
                             other.PlaySound(VanillaSoundID.grind);
-                var SkeletonHead = entity.SpawnWithParams(VanillaEnemyID.SkeletonHead, entity.Position + anubisandOffset);
-                var mesmerizer = entity.SpawnWithParams(VanillaEnemyID.mesmerizer, entity.Position + anubisandOffset);
                         }
                     }
                 });

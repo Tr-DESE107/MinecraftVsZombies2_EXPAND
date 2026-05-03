@@ -9,6 +9,8 @@ using System.Xml;
 using Flee.PublicTypes;
 using MVZ2.Metas;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Resources;
 using PVZEngine;
 using PVZEngine.Definitions;

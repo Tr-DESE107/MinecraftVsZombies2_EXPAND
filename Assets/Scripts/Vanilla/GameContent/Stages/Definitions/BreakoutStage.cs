@@ -3,6 +3,8 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;

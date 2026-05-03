@@ -5,14 +5,14 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using Tools;
-using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -85,7 +85,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.TriggerAnimation("ShootBack");
 
             var param = entity.GetShootParams();
-            if (entity.Level.IsIZombie()) 
+            if (entity.Level.IsIZombie())
             { 
                 if (entity.RNG.Next(3) == 0)
                 {
@@ -94,9 +94,9 @@ namespace MVZ2.GameContent.Contraptions
             }
             else 
             { 
-                // ¸ù¾ÝÊ£Óà·¢Éä´ÎÊý¾ö¶¨Å×ÉäÎïÀàÐÍ  
+                // ï¿½ï¿½ï¿½ï¿½Ê£ï¿½à·¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
                 int repeatCount = GetRepeatCount(entity);
-                if (repeatCount == 1)  //µÚ¶þ·¢·¢Éä·ÉïÚ
+                if (repeatCount == 1)  //ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 {
                 param.projectileID = VanillaProjectileID.dart;
                 }
@@ -185,7 +185,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             evocationTimer.Run();
 
-            // Ç°·½Ã¿2Ö¡·¢Éä,ºó·½Ã¿6Ö¡·¢Éä  
+            // Ç°ï¿½ï¿½Ã¿2Ö¡ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ã¿6Ö¡ï¿½ï¿½ï¿½ï¿½  
             if (evocationTimer.PassedInterval(2))
             {
                 var frontProjectile = ShootFront(entity);
@@ -198,7 +198,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (backProjectile != null)
                     backProjectile.Velocity *= 2;
             }
-            // Ã¿15Ö¡Ïòºó·¢ÉäÐ¡µ¼µ¯  
+            // Ã¿15Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½  
             if (evocationTimer.PassedInterval(15))
             {
                 ShootSmallMissileBack(entity);

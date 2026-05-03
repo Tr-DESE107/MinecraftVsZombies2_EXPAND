@@ -6,7 +6,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+
 using MukioI18n;
+
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -15,23 +17,30 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.UI;
 using MVZ2.UI.Almanac;
+using MVZ2.Vanilla.Audios;
+
 using MVZ2Logic;
 using MVZ2Logic.Almanac;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
 using MVZ2Logic.Saves;
+
 using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
 using PVZEngine.Definitions;
+using PVZEngine.Level;
+
 using Tools.Mathematics;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -327,33 +336,6 @@ namespace MVZ2.Almanacs
                     break;
             }
         }
-        private void OnDescriptionLinkClickCallback(AlmanacPageType page, string linkID)
-        {
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
-            if (!TryParseDescriptionLinkID(linkID, out string type, out var pageID))
-                return;
-            if (!ValidateDescriptionLink(type, pageID))
-                return;
-            switch (type)
-            {
-                case HYPERLINK_TYPE_CONTRAPTIONS:
-                    ViewContraptions();
-                    SetActiveContraptionEntry(pageID);
-                    break;
-                case HYPERLINK_TYPE_ENEMIES:
-                    ViewEnemies();
-                    SetActiveEnemyEntry(pageID);
-                    break;
-                case HYPERLINK_TYPE_ARTIFACTS:
-                    ViewArtifacts();
-                    SetActiveArtifactEntry(pageID);
-                    break;
-                case HYPERLINK_TYPE_MISC:
-                    ViewMisc();
-                    SetActiveMiscEntry(pageID);
-                    break;
-            }
-        }
         #endregion
 
         #region 查看某分类
@@ -522,9 +504,6 @@ namespace MVZ2.Almanacs
             if (!NamespaceID.IsValid(artifactID))
                 return;
             const string type = LogicAlmanacCategories.ARTIFACTS;
-            var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, artifactID);
-            if (entry == null)
-                return;
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, artifactID);
             if (entry == null)
                 return;

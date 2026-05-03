@@ -2,11 +2,13 @@
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
@@ -113,7 +115,7 @@ namespace MVZ2.GameContent.Enemies
                     e.SetDisplayScale(entity.GetDisplayScale());
                 });
             }
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+            if (!entity.WillRemoveOnDeath(info))
                 return;
             entity.SpawnWithParams(VanillaContraptionID.tnt, entity.Position);
         }

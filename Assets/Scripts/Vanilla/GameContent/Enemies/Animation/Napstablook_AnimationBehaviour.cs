@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies

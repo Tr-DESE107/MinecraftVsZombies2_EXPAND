@@ -8,6 +8,7 @@ using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.UI.Level;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Grids;

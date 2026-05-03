@@ -3,6 +3,8 @@
 using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -49,15 +51,15 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(9);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.magichest),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.giantBowl),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.desirePot),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.jeweledPagoda),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.RedStoneOre),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.lightningOrb),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.magichest),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.giantBowl),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.desirePot),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.jeweledPagoda),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.RedStoneOre),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.lightningOrb),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.glowstone),
             });
             //level.SetPickaxeActive(false);
             level.SetEnergy(4000);

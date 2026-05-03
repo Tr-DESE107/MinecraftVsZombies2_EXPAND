@@ -2,9 +2,12 @@
 
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine;

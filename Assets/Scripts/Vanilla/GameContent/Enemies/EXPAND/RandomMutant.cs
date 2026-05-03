@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

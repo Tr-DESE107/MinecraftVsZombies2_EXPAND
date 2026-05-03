@@ -6,6 +6,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -89,7 +90,7 @@ namespace MVZ2.GameContent.Projectiles
             var level = entity.Level;
             var position = entity.GetCenter();
             var range = entity.GetRange();
-            // Ôì³ÉÉËº¦
+            // ï¿½ï¿½ï¿½ï¿½Ëºï¿½
             var effects = new DamageEffectList(VanillaDamageEffects.FIRE, VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
             var damageOutputs = entity.Explode(position, range, entity.GetFaction(), entity.GetDamage(), effects);
             foreach (var output in damageOutputs)
@@ -104,7 +105,7 @@ namespace MVZ2.GameContent.Projectiles
                 }
             }
 
-            // ÁôÏÂ»ðÑæ
+            // ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½
             var column = entity.GetColumn();
             var lane = entity.GetLane();
             for (int x = column - 1; x <= column + 1; x++)
@@ -118,14 +119,14 @@ namespace MVZ2.GameContent.Projectiles
                     GridFire.Spawn(grid, entity, param);
                 }
             }
-            // ´´½¨ÌØÐ§
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
             Explosion.Spawn(entity, position, range)?.Let(e =>
             {
                 e.SetTint(new Color(1, 0.2f, 0, 1));
             });
             level.ShakeScreen(20, 0, 30);
             entity.PlaySound(VanillaSoundID.meteorLand);
-            // ÒÆ³ý
+            // ï¿½Æ³ï¿½
             entity.Remove();
         }
         public void BeBlown(Entity entity, Entity source)

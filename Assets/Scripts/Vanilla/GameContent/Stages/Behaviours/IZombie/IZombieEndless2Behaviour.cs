@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
 using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
+using MVZ2Logic.Blueprints;
 using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Definitions;

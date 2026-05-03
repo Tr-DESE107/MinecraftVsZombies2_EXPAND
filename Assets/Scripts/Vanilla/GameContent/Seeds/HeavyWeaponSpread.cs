@@ -38,12 +38,12 @@ namespace MVZ2.GameContent.Seeds
             var target = FindTargetEntity(level);
             if (target == null)
                 return;
-            Snipenser.UpgradeSpread(target);
+            MegaSnipenser.UpgradeSpread(target);
             target.PlaySound(VanillaSoundID.gunReload);
         }
         private Entity? FindTargetEntity(LevelEngine level)
         {
-            return level.FindFirstEntity(e => e.IsEntityOf(VanillaContraptionID.snipenser) && Snipenser.CanUpgradeSpread(e));
+            return level.FindFirstEntity(e => e.IsEntityOf(VanillaContraptionID.MegaSnipenser) && MegaSnipenser.CanUpgradeSpread(e));
         }
         private bool IsValid(SeedPack seedPack)
         {

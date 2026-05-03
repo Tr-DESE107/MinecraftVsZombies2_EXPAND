@@ -3,6 +3,7 @@
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Contraptions

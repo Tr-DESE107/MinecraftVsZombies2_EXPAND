@@ -4,6 +4,8 @@ using System;
 using System.Linq;
 using System.Reflection;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
 using MVZ2.Metas;

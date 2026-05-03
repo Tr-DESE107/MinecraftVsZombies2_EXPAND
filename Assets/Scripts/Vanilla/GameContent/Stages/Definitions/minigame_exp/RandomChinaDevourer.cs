@@ -3,6 +3,8 @@
 using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -109,12 +111,12 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(6);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.randomChina),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.randomChina),
             });
             //level.SetPickaxeActive(false);
             level.SetEnergy(8000);

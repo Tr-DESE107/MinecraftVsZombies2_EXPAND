@@ -3,6 +3,8 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.GameContent.Stages;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
@@ -26,9 +28,9 @@ namespace MVZ2.GameContent.IZombie
                 LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
                 LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
                 LogicBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.RaiderSkull),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.necromancer),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.RaiderSkull),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.necromancer),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.dullahan),
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)

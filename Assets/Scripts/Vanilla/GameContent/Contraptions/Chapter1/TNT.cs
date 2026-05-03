@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
@@ -28,15 +29,6 @@ namespace MVZ2.GameContent.Contraptions
     {
         public TNT(string nsp, string name) : base(nsp, name)
         {
-            if (entity.IsHostile(0))
-            {
-                Ignite(entity);
-            }
-            if (entity.HasBuff<FrankensteinShockedBuff>())
-            {
-                entity.RemoveBuffs<FrankensteinShockedBuff>();
-                return;
-            }
         }
         public override void PostTakeDamage(DamageOutput result)
         {

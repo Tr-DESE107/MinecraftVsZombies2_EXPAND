@@ -3,6 +3,8 @@
 using MVZ2.Options;
 using MVZ2.UI.Level;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;

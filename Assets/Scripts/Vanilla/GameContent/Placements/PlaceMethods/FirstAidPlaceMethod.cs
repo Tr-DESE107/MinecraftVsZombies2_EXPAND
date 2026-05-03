@@ -3,8 +3,11 @@
 using System.Linq;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;

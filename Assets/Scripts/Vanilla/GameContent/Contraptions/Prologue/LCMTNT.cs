@@ -9,18 +9,19 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level;
-using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
@@ -74,7 +75,7 @@ namespace MVZ2.GameContent.Contraptions
                 }
             }
             var groups = grids.GroupBy(g => g.Column).OrderByDescending(g => g.Key).Take(2);
-            var selectedGrids = groups.SelectMany(g => g.Shuffle(entity.RNG)).Take(2);
+            var selectedGrids = groups.SelectMany(g => g.Randomize(entity.RNG)).Take(2);
             foreach (var grid in selectedGrids)
             {
                 FireSeed(entity, grid);

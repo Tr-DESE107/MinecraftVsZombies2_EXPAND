@@ -3,6 +3,8 @@
 using MVZ2.Vanilla.Stats;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Games;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;

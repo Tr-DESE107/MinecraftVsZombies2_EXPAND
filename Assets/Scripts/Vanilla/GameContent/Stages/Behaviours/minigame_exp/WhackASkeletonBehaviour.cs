@@ -2,6 +2,7 @@
 
 // ������Ϸ�߼���������������ռ�
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic.HeldItems;
@@ -36,9 +37,9 @@ namespace MVZ2.GameContent.Stages
         public override void Update(LevelEngine level)
         {
             // �����ǰδ������Ʒ�������ҷ�һ�ѽ�
-            if (level.GetHeldItemType() == BuiltinHeldTypes.none)
+            if (level.GetHeldItemType() == LogicHeldTypes.none)
             {
-                var builder = new HeldItemBuilder(VanillaHeldTypes.sword);
+                var builder = new HeldItemBuilder(LogicHeldTypes.sword);
                 builder.SetCannotCancel(true);
                 level.SetHeldItem(builder);
             }

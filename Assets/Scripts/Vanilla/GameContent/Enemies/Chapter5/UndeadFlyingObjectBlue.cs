@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;

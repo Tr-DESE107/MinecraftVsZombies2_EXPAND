@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
@@ -12,6 +13,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Shells;
 using MVZ2.Vanilla.StateMachine;
 using MVZ2Logic.Entities;
@@ -392,8 +394,8 @@ namespace MVZ2.GameContent.Bosses
                                 {
                                     ChargeDamage(entity);
                                 }
-                                float leftX = VanillaLevelExt.LEFT_BORDER;
-                                float rightX = VanillaLevelExt.RIGHT_BORDER;
+                                float leftX = LevelPositions.LEFT_BORDER;
+                                float rightX = LevelPositions.RIGHT_BORDER;
                                 float topZ = entity.Level.GetGridTopZ();
                                 float bottomZ = entity.Level.GetGridBottomZ();
                                 bool hitEdge = false;
@@ -446,7 +448,7 @@ namespace MVZ2.GameContent.Bosses
                                     entity.Position += centerDir * 15f * stateMachine.GetSpeed(entity) * 0.02f;
                                     if (substateTimer.Expired)
                                     {
-                                        entity.Position = new Vector3(Mathf.Clamp(entity.Position.x, VanillaLevelExt.LEFT_BORDER + 50, VanillaLevelExt.RIGHT_BORDER - 50),
+                                        entity.Position = new Vector3(Mathf.Clamp(entity.Position.x, LevelPositions.LEFT_BORDER + 50, LevelPositions.RIGHT_BORDER - 50),
                                             entity.Position.y,
                                             Mathf.Clamp(entity.Position.z, entity.Level.GetGridBottomZ() + 50, entity.Level.GetGridTopZ() - 50));
                                         stateMachine.StartSubState(entity, SUBSTATE_CHARGE_END);
@@ -572,7 +574,8 @@ namespace MVZ2.GameContent.Bosses
 
                 var point0 = entity.GetCenter() + Vector3.up * SPIN_HEIGHT * 0.5f;
                 var point1 = entity.GetCenter() + Vector3.down * SPIN_HEIGHT * 0.5f;
-                level.OverlapCapsuleNonAlloc(point0, point1, SPIN_RADIUS * 0.8f, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0, detectBuffer);
+                var overlapParam = OverlapParams.Hostile(entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE);
+                level.OverlapCapsuleNonAlloc(point0, point1, SPIN_RADIUS, overlapParam, detectBuffer);
                 foreach (IEntityCollider collider in detectBuffer)
                 {
                     var damage = level.GetNightmareaperSpinDamage();

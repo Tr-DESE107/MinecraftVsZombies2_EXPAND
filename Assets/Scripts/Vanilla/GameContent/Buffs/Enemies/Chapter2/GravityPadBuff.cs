@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Modifiers;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;

@@ -3,6 +3,8 @@
 using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
@@ -15,10 +17,14 @@ using PVZEngine.Entities;
 using MVZ2.GameContent.Armors;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 
 namespace MVZ2.GameContent.Stages
 {

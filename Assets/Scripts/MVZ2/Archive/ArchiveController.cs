@@ -10,6 +10,8 @@ using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.UI.Archive;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Archive;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;

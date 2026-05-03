@@ -5,6 +5,7 @@ using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine;

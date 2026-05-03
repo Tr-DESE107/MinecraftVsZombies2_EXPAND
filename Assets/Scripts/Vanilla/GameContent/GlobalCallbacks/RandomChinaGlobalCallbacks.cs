@@ -3,6 +3,8 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Game;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;

@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;

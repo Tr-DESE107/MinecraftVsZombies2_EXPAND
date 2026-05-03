@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
@@ -21,11 +22,11 @@ namespace MVZ2.GameContent.Contraptions
             var hit = param.hit;
             var proj = hit.Projectile;
             var target = hit.Other;
-            if (!target.Definition.HasBehaviour(this)) // ±»»÷ÖÐµÄÊµÌå±ØÐëÓÐ¸ÃBehaviour
+            if (!target.Definition.HasBehaviour(this)) // ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½Behaviour
                 return;
-            if (!target.IsHostile(proj)) // ÊµÌåºÍÉäµ¯±ØÐëÊÇµÐ¶ÔµÄ
+            if (!target.IsHostile(proj)) // Êµï¿½ï¿½ï¿½ï¿½äµ¯ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÐ¶Ôµï¿½
                 return;
-            // µ¯»ØÉäµ¯£¬²¢½«ÕóÓª¸ÄÎª¸ÃÊµÌåµÄÕóÓª¡£
+            // ï¿½ï¿½ï¿½ï¿½ï¿½äµ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óªï¿½ï¿½Îªï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½Óªï¿½ï¿½
             var velocity = target.GetFacingDirection() * proj.Velocity.magnitude;
             proj.Velocity = velocity;
             proj.SetFaction(target.GetFaction());

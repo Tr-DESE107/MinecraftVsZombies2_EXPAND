@@ -2,6 +2,8 @@
 
 using System;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;

@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
@@ -39,7 +40,7 @@ namespace MVZ2.GameContent.Contraptions
                 var spawnParam = entity.GetSpawnParams();
                 spawnParam.SetProperty(EngineEntityProps.SCALE, Vector3.one * 2);
                 spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
-                spawnParam.SetProperty(VanillaEntityProps.SHADOW_SCALE, Vector3.one * 2);
+                spawnParam.SetProperty(LogicEntityProps.SHADOW_SCALE, Vector3.one * 2);
 
                 var param = entity.GetShootParams();
                 param.damage *= 4;

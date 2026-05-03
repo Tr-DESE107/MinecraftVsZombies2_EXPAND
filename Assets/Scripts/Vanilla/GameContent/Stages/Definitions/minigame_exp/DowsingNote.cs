@@ -3,6 +3,8 @@
 using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -48,15 +50,15 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(9);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.furnace),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.gunpowderBarrel),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.obsidian),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.desirePot),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.randomChina),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.devourer),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.mineTNT),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.tnt),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.woodenFan),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.furnace),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.gunpowderBarrel),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.obsidian),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.desirePot),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.randomChina),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.devourer),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.mineTNT),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.tnt),
+                LogicBlueprintID.FromEntity(VanillaContraptionID.woodenFan),
             });
             //level.SetPickaxeActive(false);
             level.SetArtifactSlotCount(3);

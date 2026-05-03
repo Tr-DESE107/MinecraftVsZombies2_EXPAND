@@ -3,6 +3,8 @@
 using MVZ2.UI;
 using MVZ2.UI.Level;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;

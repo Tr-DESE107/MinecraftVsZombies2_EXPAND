@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;

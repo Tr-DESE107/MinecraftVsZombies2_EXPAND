@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;

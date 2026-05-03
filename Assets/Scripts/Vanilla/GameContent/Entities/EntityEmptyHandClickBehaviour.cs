@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Inputs;
 using PVZEngine.Entities;
 

@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
@@ -49,7 +50,7 @@ namespace MVZ2.GameContent.Effects
         }
         private void UpdateGridFire(Entity entity)
         {
-            if (entity.GetRelativeY() > 20) // ¾àÀëµØÃæ¹ý¸ß
+            if (entity.GetRelativeY() > 20) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 return;
             var grid = entity.GetGrid();
             if (grid == null)

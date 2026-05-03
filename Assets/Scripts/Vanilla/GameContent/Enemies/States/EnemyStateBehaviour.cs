@@ -3,6 +3,7 @@
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 
@@ -35,7 +36,7 @@ namespace MVZ2.GameContent.Enemies
                 entity.State = GetActiveState(entity);
                 return;
             }
-            if (entity.State == STATE_DEATH && !entity.IsDead) // ¸´»îºóÖØÖÃ×´Ì¬
+            if (entity.State == STATE_DEATH && !entity.IsDead) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
             {
                 entity.State = GetActiveState(entity);
                 return;

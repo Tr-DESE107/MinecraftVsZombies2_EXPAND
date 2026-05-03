@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
@@ -90,7 +91,7 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
 
-        #region ´¥·¢
+        #region ï¿½ï¿½ï¿½ï¿½
         public override bool CanTrigger(Entity entity)
         {
             if (Transfenser.IsTransforming(entity) || entity.IsEvoked())
@@ -107,7 +108,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         #endregion
 
-        #region ¼¤·¢
+        #region ï¿½ï¿½ï¿½ï¿½
         public override bool CanEvoke(Entity entity)
         {
             if (Transfenser.IsTransforming(entity))
@@ -161,7 +162,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         #endregion
 
-        #region ±äÐÎ
+        #region ï¿½ï¿½ï¿½ï¿½
         private void UpdateTransforming(Entity entity)
         {
             var timer = GetTransformTimer(entity);
@@ -202,7 +203,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         #endregion
 
-        #region Ä£Ê½ÅÐ¶Ï
+        #region Ä£Ê½ï¿½Ð¶ï¿½
         public static bool IsShooterMode(Entity entity)
         {
             return entity.State == STATE_SHOOTER;
@@ -217,7 +218,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         #endregion
 
-        #region ¶¯»­Æ÷
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private void UpdateAimerAnimation(Entity entity)
         {
             entity.SetAnimationFloat("LaserLength", MAX_LASER_RANGE);
@@ -237,7 +238,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         #endregion
 
-        #region ÊôÐÔ
+        #region ï¿½ï¿½ï¿½ï¿½
         public static FrameTimer? GetTransformTimer(Entity entity)
         {
             return entity.GetProperty<FrameTimer>(PROP_TRANSFORM_TIMER);

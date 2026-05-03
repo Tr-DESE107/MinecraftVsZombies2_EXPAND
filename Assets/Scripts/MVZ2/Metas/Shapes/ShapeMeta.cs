@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Blueprints;
 using PVZEngine;

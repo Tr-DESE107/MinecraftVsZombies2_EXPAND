@@ -2,7 +2,8 @@
 #nullable enable  
   
 using MVZ2.GameContent.Enemies;  
-using MVZ2.Vanilla.Grids;  
+using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;  
 using MVZ2.Vanilla.Level;  
 using PVZEngine;  
 using PVZEngine.Definitions;  
@@ -11,13 +12,15 @@ using PVZEngine.Level;
 using PVZEngine.Definitions;  
 using UnityEngine;
 using MVZ2Logic.Level;
-using MVZ2.GameContent.Buffs.Enemies;  // BoatBuff  
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Entities;  // BoatBuff  
 using PVZEngine.Buffs;                 // AddBuff  
 using PVZEngine.Callbacks;             // LevelCallbacks, EntityCallbackParams, CallbackResult  
 using PVZEngine.Entities;              // EntityTypes
 using PVZEngine.Entities;       // EntityTypes, Entity  
 using PVZEngine.Callbacks;       // LevelCallbacks, EntityCallbackParams, CallbackResult  
-using MVZ2.Vanilla.Entities;     // IsInWater ��չ����
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;     // IsInWater ��չ����
 using MVZ2.GameContent.Areas;           // Dream  
 using MVZ2.GameContent.Buffs.Level;     // SkywardNightBuff, BloodMoonBuff  
 using MVZ2.Vanilla.Level;               // VanillaLevelExt (StartRain, Thunder)  
@@ -158,12 +161,12 @@ namespace MVZ2.GameContent.Stages
                     if (originallyWater)  
                     {  
                         // ԭˮ�� �� ��½��  
-                        grid.SetProperty(VanillaGridProps.IS_WATER, false);  
+                        grid.SetProperty(LogicGridProps.IS_WATER, false);  
                     }  
                     else  
                     {  
                         // ԭ½�� �� ��ˮ��  
-                        grid.SetProperty(VanillaGridProps.IS_WATER, true);  
+                        grid.SetProperty(LogicGridProps.IS_WATER, true);  
                     }  
                 }  
             }  
@@ -190,8 +193,8 @@ namespace MVZ2.GameContent.Stages
                     if (originallyWater)  
                     {  
                         // ½�� �� ��·  
-                        grid.SetProperty(VanillaGridProps.IS_WATER, false);  
-                        grid.SetProperty(VanillaGridProps.IS_AIR, true);  
+                        grid.SetProperty(LogicGridProps.IS_WATER, false);  
+                        grid.SetProperty(LogicGridProps.IS_AIR, true);  
                     }  
                 }  
             }  

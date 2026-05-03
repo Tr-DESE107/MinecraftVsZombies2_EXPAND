@@ -5,6 +5,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Armors;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
