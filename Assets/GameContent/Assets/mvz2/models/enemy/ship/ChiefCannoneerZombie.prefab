@@ -540,6 +540,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2895403948795379505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1646916243730723918, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
+  m_PrefabInstance: {fileID: 4536689516166368127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2939786014697690621 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1601514389400346242, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
@@ -655,6 +666,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7091065672319747514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6673500928957484741, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
+  m_PrefabInstance: {fileID: 4536689516166368127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7225254029476608115 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6534948829198578444, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
@@ -742,7 +764,7 @@ PrefabInstance:
       objectReference: {fileID: 3079893424511626006}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: particles.Array.data[0]
@@ -825,8 +847,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3616355966381162827}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 7091065672319747514}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -840,6 +866,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[2]
       value: 
       objectReference: {fileID: 3003806068672021048}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[3]
+      value: 
+      objectReference: {fileID: 2895403948795379505}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: ChiefCannoneerZombie

@@ -111,7 +111,7 @@ PrefabInstance:
       objectReference: {fileID: 8929234395195044357}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: renderers.Array.data[0]
@@ -174,8 +174,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7687290631398186057}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[7]
+      value: 
+      objectReference: {fileID: 5215824395608840028}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -189,6 +193,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[2]
       value: 
       objectReference: {fileID: 6119893262640057684}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[3]
+      value: 
+      objectReference: {fileID: 154345605084687831}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: WitherSkeletonHorse
@@ -354,6 +362,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c220236ea4022ae4fac6743e5c4821cc, type: 3}
+--- !u!114 &154345605084687831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4873918148385252551, guid: c220236ea4022ae4fac6743e5c4821cc, type: 3}
+  m_PrefabInstance: {fileID: 4722017857198754064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &234967677474086293 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4811322019442889861, guid: c220236ea4022ae4fac6743e5c4821cc, type: 3}
@@ -456,6 +475,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ece6b23bd9e6d34fb2f43db6e9819a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5215824395608840028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 713168110684134988, guid: c220236ea4022ae4fac6743e5c4821cc, type: 3}
+  m_PrefabInstance: {fileID: 4722017857198754064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5600926911039573744 stripped

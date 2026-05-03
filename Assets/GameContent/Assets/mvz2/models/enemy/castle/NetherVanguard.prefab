@@ -354,6 +354,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1527377521301338175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 988491493495656197, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+  m_PrefabInstance: {fileID: 1766965788307683130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1627470814618802101 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1013439729497251983, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
@@ -488,6 +499,17 @@ MonoBehaviour:
 --- !u!114 &6842510310006013885 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5075834794915645575, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+  m_PrefabInstance: {fileID: 1766965788307683130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6878221378629583540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5184170812297328014, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
   m_PrefabInstance: {fileID: 1766965788307683130}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -778,7 +800,7 @@ PrefabInstance:
       objectReference: {fileID: 6766422782324725395}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: particles.Array.data[0]
@@ -865,8 +887,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5004963720917646542}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 1527377521301338175}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -880,6 +906,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[2]
       value: 
       objectReference: {fileID: 6842510310006013885}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[3]
+      value: 
+      objectReference: {fileID: 6878221378629583540}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: NetherVanguard

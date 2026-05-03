@@ -207,6 +207,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
+--- !u!114 &19375863713481855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1768839755505265757, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
+  m_PrefabInstance: {fileID: 1785950326719850530}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &604890696636739596 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1201890171148671022, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
@@ -370,6 +381,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5333064720229875444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5965618346620163798, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
+  m_PrefabInstance: {fileID: 1785950326719850530}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5495994556055575662 stripped
@@ -598,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 1810655562352369216}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: renderers.Array.data[0]
@@ -673,8 +695,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 604890696636739596}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 19375863713481855}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -696,6 +722,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[4]
       value: 
       objectReference: {fileID: 3901670358878675217}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[5]
+      value: 
+      objectReference: {fileID: 5333064720229875444}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: AquaticSpider

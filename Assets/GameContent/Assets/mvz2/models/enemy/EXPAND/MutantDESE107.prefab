@@ -389,6 +389,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1121907552361086098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6668599643596452323, guid: 5b197e2b4a8161c4e8f1808052883a63, type: 3}
+  m_PrefabInstance: {fileID: 5988222842457787761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1544566304422628903 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5076988533495137110, guid: 5b197e2b4a8161c4e8f1808052883a63, type: 3}
@@ -557,6 +568,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5032733946831210009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1643158756613098344, guid: 5b197e2b4a8161c4e8f1808052883a63, type: 3}
+  m_PrefabInstance: {fileID: 5988222842457787761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5075155691862306779 stripped
@@ -817,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 8209437241376055689}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: renderers.Array.data[0]
@@ -944,8 +966,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6964951972566044613}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 1121907552361086098}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -963,6 +989,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[3]
       value: 
       objectReference: {fileID: 6838995911632117464}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[4]
+      value: 
+      objectReference: {fileID: 5032733946831210009}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: MutantDESE107

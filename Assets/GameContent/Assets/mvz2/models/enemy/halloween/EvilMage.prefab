@@ -519,6 +519,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2674925758738691492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7633558785157749487, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+  m_PrefabInstance: {fileID: 5544185727413825355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2774798834301678597 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7670465098111163214, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
@@ -673,6 +684,17 @@ MonoBehaviour:
 --- !u!114 &7987153536790524454 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2461488061115915629, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+  m_PrefabInstance: {fileID: 5544185727413825355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8023500198293180207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2569819674808164452, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
   m_PrefabInstance: {fileID: 5544185727413825355}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -863,7 +885,7 @@ PrefabInstance:
       objectReference: {fileID: 7911208980015160072}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: particles.Array.data[0]
@@ -962,8 +984,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8455606096160043349}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 2674925758738691492}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -977,6 +1003,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[2]
       value: 
       objectReference: {fileID: 7987153536790524454}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[3]
+      value: 
+      objectReference: {fileID: 8023500198293180207}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: EvilMage

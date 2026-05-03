@@ -1724,7 +1724,7 @@
 				<p>……哈哈，怎么可能会有这种荒唐的事情呢？</p>
 			</flavor>
 		</entry>
-		<entry />
+		<entry id="mvz2:brick_cannon">
             <tags>
                 <tag id="mvz2:placement_two_gravelpults" />
             </tags>
@@ -4036,6 +4036,12 @@
                 <p>都说了不要在地下引发地震！！！</p>
             </flavor>
         </entry>
+		<entry id="mvz2:WitherHeartShield">
+			<header>
+				<p>凋灵护心盾。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>使敌方非飞行怪物常态减少受到的75%伤害，但在攻击时额外受到25%的伤害，使我方怪物额外受到75%的伤害。</color>]]></p>
 			</properties>
 			<flavor>
 				<p>这面盾牌以不公平的形式护卫着凋灵的"心脏"。</p>

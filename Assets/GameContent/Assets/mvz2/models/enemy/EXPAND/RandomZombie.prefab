@@ -349,6 +349,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2637360193155669910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1646916243730723918, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
+  m_PrefabInstance: {fileID: 3621681927392553944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2673143828740924063 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1682699881460664647, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
@@ -508,6 +519,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ece6b23bd9e6d34fb2f43db6e9819a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7989321120995042589 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6673500928957484741, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
+  m_PrefabInstance: {fileID: 3621681927392553944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4185502821784533397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -619,7 +641,7 @@ PrefabInstance:
       objectReference: {fileID: 2741207085900958641}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: particles.Array.data[0]
@@ -702,8 +724,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4510534268907758060}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 7989321120995042589}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -717,6 +743,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[2]
       value: 
       objectReference: {fileID: 2673143828740924063}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[3]
+      value: 
+      objectReference: {fileID: 2637360193155669910}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: RandomZombie

@@ -305,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 6247359131519398902}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: particles.Array.data[0]
@@ -400,8 +400,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5629796748182526379}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 2190553096810650970}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -418,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[3]
       value: 
-      objectReference: {fileID: 6170291526703897304}
+      objectReference: {fileID: 6061955371082459089}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: MeleeSkeleton
@@ -608,6 +612,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2190553096810650970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7633558785157749487, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+  m_PrefabInstance: {fileID: 8613610557014280117}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2393412131824211144 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6250620855439201149, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
@@ -666,6 +681,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6061955371082459089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2569819674808164452, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+  m_PrefabInstance: {fileID: 8613610557014280117}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6107682680854646045 stripped

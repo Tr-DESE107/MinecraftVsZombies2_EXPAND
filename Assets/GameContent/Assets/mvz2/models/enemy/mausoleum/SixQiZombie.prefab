@@ -248,6 +248,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2295912762077356655 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1646916243730723918, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
+  m_PrefabInstance: {fileID: 650697471962109473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2459150809452124381 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3109477462242348796, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
@@ -317,6 +328,17 @@ MonoBehaviour:
 --- !u!114 &6032414131887777069 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6534948829198578444, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
+  m_PrefabInstance: {fileID: 650697471962109473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6168440944959674596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6673500928957484741, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
   m_PrefabInstance: {fileID: 650697471962109473}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -546,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 2112126872867157576}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: particles.Array.data[0]
@@ -633,8 +655,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 422725268967103509}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 6168440944959674596}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -648,6 +674,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[2]
       value: 
       objectReference: {fileID: 2188075724332982118}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[3]
+      value: 
+      objectReference: {fileID: 2295912762077356655}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: SixQiZombie

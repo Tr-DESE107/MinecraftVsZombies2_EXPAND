@@ -237,6 +237,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &661566092296485273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2569819674808164452, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+  m_PrefabInstance: {fileID: 3064576108579412477}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &706193882119394133 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2543240918362852008, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
@@ -371,6 +382,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4857227850033758994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7633558785157749487, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+  m_PrefabInstance: {fileID: 3064576108579412477}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4959708836647217249 stripped
@@ -719,7 +741,7 @@ PrefabInstance:
       objectReference: {fileID: 3567113490429441321}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: particles.Array.data[0]
@@ -806,8 +828,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1382377217361954787}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 4857227850033758994}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -824,7 +850,7 @@ PrefabInstance:
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[3]
       value: 
-      objectReference: {fileID: 6170291526703897304, guid: 74e16a1bfe361c845b13b27252c2a5e0, type: 3}
+      objectReference: {fileID: 661566092296485273}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: TeslaTrooper

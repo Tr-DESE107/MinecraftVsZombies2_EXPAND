@@ -529,6 +529,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7790980546157148641, guid: f57e21459d32585419d277b8883f7426, type: 3}
   m_PrefabInstance: {fileID: 6724673409734471235}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4061947545216762375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7281257452011957316, guid: f57e21459d32585419d277b8883f7426, type: 3}
+  m_PrefabInstance: {fileID: 6724673409734471235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4416914204323754276 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6926218225128890215, guid: f57e21459d32585419d277b8883f7426, type: 3}
@@ -617,6 +628,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8221571674538621068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3407594576485373647, guid: f57e21459d32585419d277b8883f7426, type: 3}
+  m_PrefabInstance: {fileID: 6724673409734471235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8388465268721427374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -651,7 +673,7 @@ PrefabInstance:
       objectReference: {fileID: 3102304083178631308}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: renderers.Array.data[0]
@@ -714,8 +736,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4199646674227470016}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 8221571674538621068}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -729,6 +755,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[2]
       value: 
       objectReference: {fileID: 290658099975442397}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[3]
+      value: 
+      objectReference: {fileID: 4061947545216762375}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: Anubiskull

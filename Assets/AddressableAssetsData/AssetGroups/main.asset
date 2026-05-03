@@ -11837,13 +11837,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c37ae568963b3c141804d263bfe68ffd
-    m_Address: mvz2:artifacts/wither_skeleton_skull
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c382f6ef6a4cfc54e81d2ebfbc75de10
     m_Address: mvz2:talk/dialog_item_show
     m_ReadOnly: 0
