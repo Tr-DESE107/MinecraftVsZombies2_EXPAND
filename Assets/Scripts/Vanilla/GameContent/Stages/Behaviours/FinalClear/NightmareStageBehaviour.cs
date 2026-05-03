@@ -6,6 +6,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages

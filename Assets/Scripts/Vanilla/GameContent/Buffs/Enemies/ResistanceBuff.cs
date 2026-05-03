@@ -6,13 +6,14 @@ using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
     /// <summary>
     /// ResistanceBuff��ֻ�ṩ�˺�����Ч�����������κ��Ӿ����黯����
     /// </summary>
-    [BuffDefinition(VanillaBuffNames.Entity.Resistance)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.Resistance)]
     public class ResistanceBuff : BuffDefinition
     {
         public ResistanceBuff(string nsp, string name) : base(nsp, name)

@@ -4,6 +4,7 @@ using MVZ2Logic.Serialization;
 using NUnit.Framework;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;

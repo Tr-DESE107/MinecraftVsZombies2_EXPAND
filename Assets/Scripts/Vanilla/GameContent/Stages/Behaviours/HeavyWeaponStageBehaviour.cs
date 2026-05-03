@@ -26,6 +26,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 

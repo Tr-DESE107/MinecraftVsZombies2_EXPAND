@@ -5,6 +5,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {

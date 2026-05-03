@@ -17,12 +17,13 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.PirateBomb)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.PirateBomb)]
     public class PirateBomb : EnemyBehaviour
     {
         public PirateBomb(string nsp, string name) : base(nsp, name)

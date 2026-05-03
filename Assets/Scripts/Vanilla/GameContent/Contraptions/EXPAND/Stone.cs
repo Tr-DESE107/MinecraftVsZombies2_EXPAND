@@ -2,11 +2,12 @@
   
 using MVZ2.Vanilla.Entities;  
 using PVZEngine.Entities;  
-using PVZEngine.Level;  
+using PVZEngine.Level;
+using PVZEngine.Definitions;  
   
 namespace MVZ2.GameContent.Contraptions  
 {  
-    [EntityBehaviourDefinition(VanillaContraptionNames.Stone)]  
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.Stone)]  
     public class Stone : ContraptionBehaviour  
     {  
         public Stone(string nsp, string name) : base(nsp, name) { }  
@@ -19,11 +20,11 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity contraption)  
         {  
             base.UpdateLogic(contraption);  
-            // ¸ù¾ÝÑªÁ¿¸üÐÂÊÜËð¶¯»­  
+            // ï¿½ï¿½ï¿½ï¿½Ñªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ð¶¯»ï¿½  
             contraption.SetModelDamagePercent();  
         }  
   
-        // ²»ÄÜ±»´óÕÐÇ¿»¯  
+        // ï¿½ï¿½ï¿½Ü±ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½  
         public override bool CanEvoke(Entity entity)  
         {  
             return false;  

@@ -9,6 +9,7 @@ using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using System.Collections.Generic;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Callbacks;
@@ -16,7 +17,7 @@ using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Entity.DeathMark)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.DeathMark)]
     public class DeathMarkBuff : BuffDefinition
     {
         public DeathMarkBuff(string nsp, string name) : base(nsp, name)

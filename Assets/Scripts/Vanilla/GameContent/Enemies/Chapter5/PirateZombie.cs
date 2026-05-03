@@ -2,10 +2,11 @@
 
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.PirateZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.PirateZombie)]
     public class PirateZombie : Zombie
     {
         public PirateZombie(string nsp, string name) : base(nsp, name)

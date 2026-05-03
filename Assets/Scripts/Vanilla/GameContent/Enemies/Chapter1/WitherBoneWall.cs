@@ -2,19 +2,21 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
+using MVZ2Logic.Entities;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.WitherBoneWall)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.WitherBoneWall)]
     public class WitherBoneWall : AIEntityBehaviour
     {
         public WitherBoneWall(string nsp, string name) : base(nsp, name)
@@ -45,7 +47,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (entity.WillRemoveOnDeath(info))
                 return;
             entity.Level.Spawn(VanillaEffectID.wither_bone_particles, entity.GetCenter(), entity);
             entity.Remove();

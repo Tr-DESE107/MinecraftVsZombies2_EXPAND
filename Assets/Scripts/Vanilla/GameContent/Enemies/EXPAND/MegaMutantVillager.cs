@@ -2,10 +2,11 @@
 
 using MVZ2.GameContent.Enemies;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Vanilla.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.MutantVillager)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.MutantVillager)]
     public class MutantVillager : MutantZombieBase
     {
         public MutantVillager(string nsp, string name) : base(nsp, name)

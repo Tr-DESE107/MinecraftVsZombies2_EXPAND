@@ -6,10 +6,11 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.FlagWitherSkeleton)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.FlagWitherSkeleton)]
     public class FlagWitherSkeleton : WitherSkeleton
     {
         public FlagWitherSkeleton(string nsp, string name) : base(nsp, name)

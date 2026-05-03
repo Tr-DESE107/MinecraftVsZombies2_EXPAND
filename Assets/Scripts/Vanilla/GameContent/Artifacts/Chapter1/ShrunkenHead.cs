@@ -7,10 +7,11 @@ using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.ShrunkenHead)]
+    [AutoArtifactDefinition(VanillaArtifactNames.ShrunkenHead)]
     public class ShrunkenHead : ArtifactDefinition
     {
         private float timer = 0f;  // 计时器当前值

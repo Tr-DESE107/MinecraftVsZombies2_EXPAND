@@ -15,11 +15,12 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.BerserkerHead)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.BerserkerHead)]
     public class BerserkerHead : AIEntityBehaviour
     {
         public BerserkerHead(string nsp, string name) : base(nsp, name)

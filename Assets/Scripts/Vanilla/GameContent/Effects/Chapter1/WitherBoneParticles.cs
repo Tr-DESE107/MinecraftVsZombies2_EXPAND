@@ -2,10 +2,11 @@
 
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.wither_bone_particles)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.wither_bone_particles)]
     public class WitherBoneParticles : EffectBehaviour
     {
 

@@ -8,11 +8,12 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.Vanilla.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.RandomImp)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.RandomImp)]
     public class RandomImp : Imp
     {
         public RandomImp(string nsp, string name) : base(nsp, name)

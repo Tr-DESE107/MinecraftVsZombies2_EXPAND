@@ -12,10 +12,11 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.AssaultDullahan)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.AssaultDullahan)]
     public class AssaultDullahan : MeleeEnemy
     {
         public AssaultDullahan(string nsp, string name) : base(nsp, name)

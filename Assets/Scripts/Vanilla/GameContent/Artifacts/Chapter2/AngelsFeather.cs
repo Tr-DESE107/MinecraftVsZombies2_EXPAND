@@ -5,10 +5,11 @@ using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
+using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.AngelsFeather)]
+    [AutoArtifactDefinition(VanillaArtifactNames.AngelsFeather)]
     public class AngelsFeather : ArtifactDefinition
     {
         private float timer = 0f;  // ��ʱ����ǰֵ

@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Spawns;
 
 namespace MVZ2Logic.Spawns

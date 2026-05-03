@@ -9,10 +9,11 @@ using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Entity.Corropoison)]  // ע����������� Corropoison �� Buff����
+    [AutoBuffDefinition(VanillaBuffNames.Entity.Corropoison)]  // ע����������� Corropoison �� Buff����
     public class CorropoisonBuff : BuffDefinition
     {
         public CorropoisonBuff(string nsp, string name) : base(nsp, name)

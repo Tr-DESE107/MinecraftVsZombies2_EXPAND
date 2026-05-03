@@ -2,6 +2,7 @@
 
 using MVZ2Logic.Level;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.Level

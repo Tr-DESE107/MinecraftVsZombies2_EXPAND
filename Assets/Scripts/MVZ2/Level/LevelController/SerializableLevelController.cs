@@ -8,6 +8,7 @@ using MVZ2.Models;
 using MVZ2.UI.Level;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.Level

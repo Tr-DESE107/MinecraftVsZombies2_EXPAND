@@ -2,10 +2,11 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [PVZEngine.Level.BuffDefinition(VanillaBuffNames.Enemy.AttackSpeed)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.AttackSpeed)]
     public class AttackSpeedBuff : BuffDefinition
     {
         public AttackSpeedBuff(string nsp, string name) : base(nsp, name)

@@ -5,6 +5,7 @@ using MVZ2.Cameras;
 using MVZ2.Rendering;
 using MVZ2Logic.Level;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Level

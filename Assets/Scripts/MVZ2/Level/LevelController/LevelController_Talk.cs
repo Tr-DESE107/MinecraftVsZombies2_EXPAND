@@ -12,6 +12,7 @@ using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Level

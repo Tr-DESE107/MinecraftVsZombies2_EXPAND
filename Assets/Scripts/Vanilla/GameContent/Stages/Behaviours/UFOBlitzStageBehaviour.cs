@@ -5,6 +5,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2Logic.Spawns;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {

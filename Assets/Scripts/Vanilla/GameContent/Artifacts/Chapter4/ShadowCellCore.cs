@@ -12,10 +12,11 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using Tools;
+using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.ShadowCellCore)]
+    [AutoArtifactDefinition(VanillaArtifactNames.ShadowCellCore)]
     public class ShadowCellCore : ArtifactDefinition
     {
         public ShadowCellCore(string nsp, string name) : base(nsp, name)

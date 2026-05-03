@@ -13,11 +13,13 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.Hemperor)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.Hemperor)]
     public class Hemperor : AIEntityBehaviour
     {
         public Hemperor(string nsp, string name) : base(nsp, name)
@@ -97,7 +99,7 @@ namespace MVZ2.GameContent.Enemies
                 target.InflictRegenerationBuff(2f, 300, new EntitySourceReference(entity));
             }
         }
-        #region ³£Á¿
+        #region ï¿½ï¿½ï¿½ï¿½
         public const int STATE_WALK = VanillaEnemyStates.WALK;
         public const int STATE_CAST = VanillaEnemyStates.CAST;
         public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
@@ -109,6 +111,6 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         private Detector shieldDetector;
         private List<Entity> detectBuffer = new List<Entity>();
-        #endregion ³£Á¿
+        #endregion ï¿½ï¿½ï¿½ï¿½
     }
 }

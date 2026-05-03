@@ -15,6 +15,7 @@ using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 using UnityEngine;
 

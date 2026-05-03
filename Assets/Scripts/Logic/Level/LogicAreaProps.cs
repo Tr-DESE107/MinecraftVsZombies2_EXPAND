@@ -3,6 +3,7 @@
 using MVZ2Logic.Resources;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2Logic.Level
@@ -15,7 +16,7 @@ namespace MVZ2Logic.Level
             return new PropertyMeta<T>(name, defaultValue);
         }
 
-        #region Ä£ÐÍID
+        #region Ä£ï¿½ï¿½ID
         public static readonly PropertyMeta<NamespaceID> MODEL_ID = Get<NamespaceID>("modelID");
         public static NamespaceID? GetModelID(this LevelEngine game)
         {
@@ -27,7 +28,7 @@ namespace MVZ2Logic.Level
         }
         #endregion
 
-        #region ÐÇÖ®ËéÆ¬Í¼±ê
+        #region ï¿½ï¿½Ö®ï¿½ï¿½Æ¬Í¼ï¿½ï¿½
         public static readonly PropertyMeta<SpriteReference> STARSHARD_ICON = Get<SpriteReference>("starshardIcon");
         public static SpriteReference? GetStarshardIcon(this LevelEngine game)
         {
@@ -35,7 +36,7 @@ namespace MVZ2Logic.Level
         }
         #endregion
 
-        #region ¹âÕÕ
+        #region ï¿½ï¿½ï¿½ï¿½
         public static readonly PropertyMeta<Color> BACKGROUND_LIGHT = Get("backgroundLight", Color.white);
         public static readonly PropertyMeta<Color> GLOBAL_LIGHT = Get("globalLight", Color.white);
         public static Color GetBackgroundLight(this LevelEngine level)
@@ -53,7 +54,7 @@ namespace MVZ2Logic.Level
         }
         #endregion
 
-        #region ÃÅÎ»ÖÃ
+        #region ï¿½ï¿½Î»ï¿½ï¿½
         public static readonly PropertyMeta<float> DOOR_Z = Get<float>("doorZ");
         public static float GetDoorZ(this LevelEngine game)
         {

@@ -6,6 +6,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2Logic.Entities

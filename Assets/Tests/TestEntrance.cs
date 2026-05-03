@@ -7,6 +7,7 @@ using MVZ2Logic;
 using MVZ2Logic.Definitions;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Tests

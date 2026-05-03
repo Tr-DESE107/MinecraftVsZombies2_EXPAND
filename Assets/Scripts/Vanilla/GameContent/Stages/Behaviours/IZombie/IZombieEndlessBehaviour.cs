@@ -5,6 +5,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2Logic.Blueprints;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;

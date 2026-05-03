@@ -7,11 +7,12 @@ using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.levellunatic)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.levellunatic)]
     public class LevelLunaticBuff : BuffDefinition
     {
         public LevelLunaticBuff(string nsp, string name) : base(nsp, name)

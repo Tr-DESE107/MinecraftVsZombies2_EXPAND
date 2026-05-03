@@ -7,11 +7,12 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.Vanilla.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.RandomMutant)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.RandomMutant)]
     public class RandomMutant : MutantZombieBase
     {
         public RandomMutant(string nsp, string name) : base(nsp, name)

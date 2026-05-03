@@ -12,11 +12,12 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.Randombstone)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.Randombstone)]
     public class Randombstone : ContraptionBehaviour
     {
         public Randombstone(string nsp, string name) : base(nsp, name)

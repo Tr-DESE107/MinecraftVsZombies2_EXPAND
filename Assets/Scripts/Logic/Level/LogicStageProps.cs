@@ -5,6 +5,7 @@ using System.Linq;
 using MVZ2Logic.Conditions;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2Logic.Level
 {

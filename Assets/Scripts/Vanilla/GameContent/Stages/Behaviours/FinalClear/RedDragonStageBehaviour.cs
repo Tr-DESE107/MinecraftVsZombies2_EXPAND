@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {

@@ -36,6 +36,7 @@ using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;

@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -41,7 +42,7 @@ namespace MVZ2.GameContent.Stages
                 return;
 
 
-            // ¶¨Òå¿ø¼×ÁÐ±í  
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½  
             var helmetOptions = new NamespaceID[]
             {
         VanillaArmorID.leatherCap,
@@ -77,11 +78,11 @@ namespace MVZ2.GameContent.Stages
         //VanillaArmorID.cannon,
             };
 
-            // Ê¹ÓÃÊµÌåµÄËæ»úÊýÉú³ÉÆ÷Ëæ»úÑ¡ÔñÒ»¸ö¿ø¼×  
+            // Ê¹ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
             var randomHelmet = helmetOptions[entity.RNG.Next(0, helmetOptions.Length)];
             var randomShield = ShieldOptions[entity.RNG.Next(0, ShieldOptions.Length)];
 
-            // ×°±¸Ñ¡ÖÐµÄ¿ø¼×  
+            // ×°ï¿½ï¿½Ñ¡ï¿½ÐµÄ¿ï¿½ï¿½ï¿½  
             entity.EquipMainArmor(randomHelmet);
 
             if (entity.IsEntityOf(VanillaEnemyID.cannoneerZombie))

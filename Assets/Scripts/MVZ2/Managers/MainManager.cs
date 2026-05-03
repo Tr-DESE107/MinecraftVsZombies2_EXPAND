@@ -32,6 +32,7 @@ using MVZ2Logic.Resources;
 using MVZ2Logic.Serialization;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEditor;
 using UnityEngine;
 

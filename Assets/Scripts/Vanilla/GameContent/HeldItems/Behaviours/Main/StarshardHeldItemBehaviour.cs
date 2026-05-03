@@ -13,6 +13,7 @@ using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.HeldItems
 {

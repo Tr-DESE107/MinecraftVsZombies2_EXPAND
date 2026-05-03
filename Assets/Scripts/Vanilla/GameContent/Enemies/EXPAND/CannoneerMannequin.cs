@@ -12,11 +12,12 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.CannoneerMannequin)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.CannoneerMannequin)]
     public class CannoneerMannequin : AIEntityBehaviour
     {
         public CannoneerMannequin(string nsp, string name) : base(nsp, name)
@@ -44,7 +45,7 @@ namespace MVZ2.GameContent.Enemies
             if (entity.HasBuff<BoatBuff>())
             {
                 entity.RemoveBuffs<BoatBuff>();
-                // µôÂäËé´¬µôÂäÎï
+                // ï¿½ï¿½ï¿½ï¿½ï¿½é´¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity)?.Let(e =>
                 {
                     e.Velocity = new Vector3(e.RNG.NextFloat() * 20 - 10, 5, 0);

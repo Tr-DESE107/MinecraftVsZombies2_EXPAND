@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
@@ -14,7 +15,7 @@ using MVZ2Logic.Models;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.Shock)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.Shock)]
     public class ShockBuff : BuffDefinition
     {
         public ShockBuff(string nsp, string name) : base(nsp, name)

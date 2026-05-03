@@ -4,10 +4,11 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.GameContent.Damages;
 using PVZEngine.Damages;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.purpleArrow)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.purpleArrow)]
     public class purpleArrow : ProjectileBehaviour
     {
         public purpleArrow(string nsp, string name) : base(nsp, name)

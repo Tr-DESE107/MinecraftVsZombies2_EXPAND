@@ -5,7 +5,6 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Fragments;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
@@ -14,13 +13,14 @@ using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
+using MVZ2.Vanilla.Effects;
 
 namespace MVZ2.GameContent.Armors
 {
-    [ArmorBehaviourDefinition(VanillaArmorBehaviourNames.ChiefCannon)]
+    [AutoArmorBehaviourDefinition(VanillaArmorBehaviourNames.ChiefCannon)]
     public class ChiefCannon : ArmorBehaviourDefinition
     {
         public ChiefCannon(string nsp, string name) : base(nsp, name)
@@ -69,8 +69,8 @@ namespace MVZ2.GameContent.Armors
         public static FrameTimer? GetTimer(Armor armor) => armor.GetProperty<FrameTimer>(PROP_TIMER);
         public static void SetTimer(Armor armor, FrameTimer value) => armor.SetProperty(PROP_TIMER, value);
         public const int SHOOT_INTERVAL = 240;
-        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_IDLE = LogicEnemyStates.IDLE;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
 
         public static readonly VanillaArmorPropertyMeta<FrameTimer> PROP_TIMER = new VanillaArmorPropertyMeta<FrameTimer>("timer");
 

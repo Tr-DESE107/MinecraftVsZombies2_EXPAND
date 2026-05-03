@@ -6,10 +6,11 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.FlagSkeleton)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.FlagSkeleton)]
     public class FlagSkeleton : MeleeSkeleton
     {
         public FlagSkeleton(string nsp, string name) : base(nsp, name)

@@ -10,20 +10,24 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
+using PVZEngine.Collisions;
+using MVZ2Logic.Entities;
+using MVZ2.GameContent.Entities;
+using MVZ2.Vanilla.Projectiles;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.AngryReverser)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.AngryReverser)]
     public class AngryReverser : AIEntityBehaviour
     {
         public AngryReverser(string nsp, string name) : base(nsp, name)
         {
             detector = new DispenserDetector()
             {
-                ignoreBoss = true,
+                mask = EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE,
                 ignoreHighEnemy = false,
                 ignoreLowEnemy = false,
                 colliderFilter = (p, c) => ColliderFilter(p.entity, c)
@@ -105,17 +109,17 @@ namespace MVZ2.GameContent.Enemies
         public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
         public static FrameTimer? GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
 
-        #region ³£Á¿
+        #region ï¿½ï¿½ï¿½ï¿½
         private const int CAST_COOLDOWN = 150;
         private const int CONTROL_DETECT_TIME = 30;
 
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
-        public const int STATE_CAST = VanillaEnemyStates.CAST;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
+        public const int STATE_CAST = LogicEnemyStates.CAST;
         private Detector detector;
         public static readonly NamespaceID ID = VanillaEnemyID.AngryReverser;
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_ORB = new VanillaEntityPropertyMeta<EntityID>("Orb");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
-        #endregion ³£Á¿
+        #endregion ï¿½ï¿½ï¿½ï¿½
     }
 }

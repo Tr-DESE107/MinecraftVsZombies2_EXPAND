@@ -10,11 +10,12 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.HostIMP)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.HostIMP)]
     public class HostIMP : Imp
     {
         public HostIMP(string nsp, string name) : base(nsp, name)

@@ -4,6 +4,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2Logic.HeldItems

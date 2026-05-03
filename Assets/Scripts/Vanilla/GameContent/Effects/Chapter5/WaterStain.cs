@@ -16,6 +16,7 @@ using PVZEngine.Collisions.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
@@ -157,7 +158,7 @@ namespace MVZ2.GameContent.Effects
                         continue;
                     if (other.GetGravity() <= 0 || !other.IsOnGround)
                         continue;
-                    if (other.GetMass() >= VanillaMass.VERY_HEAVY) // ²»Ó°Ïì¼«ÖØµÐÈË¡£
+                    if (other.GetMass() >= VanillaMass.VERY_HEAVY) // ï¿½ï¿½Ó°ï¿½ì¼«ï¿½Øµï¿½ï¿½Ë¡ï¿½
                         continue;
                     results.Add(other);
                 }

@@ -9,12 +9,13 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.EXPANDispenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.EXPANDispenser)]
     public class EXPANDispenser : DispenserFamily
     {
         public EXPANDispenser(string nsp, string name) : base(nsp, name)

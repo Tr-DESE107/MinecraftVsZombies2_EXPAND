@@ -20,6 +20,7 @@ using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.GlobalCallbacks

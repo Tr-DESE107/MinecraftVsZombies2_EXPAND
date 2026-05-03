@@ -15,12 +15,13 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.ImpMannequin)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.ImpMannequin)]
     public class ImpMannequin : Imp
     {
         public ImpMannequin(string nsp, string name) : base(nsp, name)

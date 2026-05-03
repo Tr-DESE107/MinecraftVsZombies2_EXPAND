@@ -12,11 +12,12 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.Eviltombstone)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.Eviltombstone)]
     public class Eviltombstone : ContraptionBehaviour
     {
         public Eviltombstone(string nsp, string name) : base(nsp, name)

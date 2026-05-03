@@ -4,16 +4,19 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Entities;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.EvilMage)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.EvilMage)]
     public class EvilMage : AIEntityBehaviour
     {
         public EvilMage(string nsp, string name) : base(nsp, name)
@@ -119,15 +122,15 @@ namespace MVZ2.GameContent.Enemies
                 entity.SpawnWithParams(VanillaEnemyID.WitherBoneWall, wallPos);
             }
         }
-        #region ³£Á¿
+        #region ï¿½ï¿½ï¿½ï¿½
         private const int CAST_COOLDOWN = 300;
         private const int CAST_TIME = 30;
         private const int BUILD_DETECT_TIME = 30;
         private const int MAX_BONE_WALL_COUNT = 15;
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
-        public const int STATE_CAST = VanillaEnemyStates.CAST;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
+        public const int STATE_CAST = LogicEnemyStates.CAST;
         public static readonly NamespaceID ID = VanillaEnemyID.EvilMage;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
-        #endregion ³£Á¿
+        #endregion ï¿½ï¿½ï¿½ï¿½
     }
 }

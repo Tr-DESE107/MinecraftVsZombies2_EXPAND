@@ -14,6 +14,7 @@ using MVZ2Logic.Stats;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 

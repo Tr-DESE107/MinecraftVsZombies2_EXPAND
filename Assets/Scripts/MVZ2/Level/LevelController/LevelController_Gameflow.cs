@@ -15,6 +15,7 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 using static MVZ2.UI.Level.LevelUIPreset;

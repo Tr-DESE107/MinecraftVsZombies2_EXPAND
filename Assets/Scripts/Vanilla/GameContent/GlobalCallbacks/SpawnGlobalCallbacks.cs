@@ -6,6 +6,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.GlobalCallbacks

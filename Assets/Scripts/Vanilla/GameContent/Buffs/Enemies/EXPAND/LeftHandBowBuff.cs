@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
@@ -14,7 +15,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     /// LeftHandBowBuff��
     /// ֻ�ṩ�˺�����Ч�����ҵ����ﴦ�ڹ���״̬ʱ������
     /// </summary>
-    [BuffDefinition(VanillaBuffNames.Enemy.LeftHandBowBuff)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.LeftHandBowBuff)]
     public class LeftHandBowBuff : BuffDefinition
     {
         public LeftHandBowBuff(string nsp, string name) : base(nsp, name)

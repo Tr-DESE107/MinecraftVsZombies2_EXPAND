@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;

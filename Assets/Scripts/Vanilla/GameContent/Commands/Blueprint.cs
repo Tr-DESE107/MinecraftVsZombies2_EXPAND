@@ -9,6 +9,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Commands
 {

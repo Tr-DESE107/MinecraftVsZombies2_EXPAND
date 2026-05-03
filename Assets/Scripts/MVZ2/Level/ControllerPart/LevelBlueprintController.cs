@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using MVZ2.UI;
 using MVZ2Logic.Level;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Level

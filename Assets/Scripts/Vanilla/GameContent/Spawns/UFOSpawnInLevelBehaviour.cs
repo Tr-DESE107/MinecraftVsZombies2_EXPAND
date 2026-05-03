@@ -10,6 +10,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Spawns;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Spawns;
 using Tools;
 using UnityEngine;
@@ -90,7 +91,7 @@ namespace MVZ2.GameContent.Spawns
                     var pos = new Vector3(x, y, z);
                     var background = level.Spawn(VanillaEffectID.ufoBackground, pos, null);
                     float speedMultiplier = 1;
-                    // Èç¹û¹Ø¿¨ÔËÐÐ½Ú×à¼«¿ì£¬Ôò±³¾°µÄUFOÒ²»á¼ÓËÙ¡£
+                    // ï¿½ï¿½ï¿½ï¿½Ø¿ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½à¼«ï¿½ì£¬ï¿½ò±³¾ï¿½ï¿½ï¿½UFOÒ²ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½
                     var minLevelTime = Mathf.Min(level.GetWaveMaxSeconds(), level.GetWaveAdvanceSeconds());
                     if (minLevelTime <= TARGET_BACKGROUND_TIME)
                     {

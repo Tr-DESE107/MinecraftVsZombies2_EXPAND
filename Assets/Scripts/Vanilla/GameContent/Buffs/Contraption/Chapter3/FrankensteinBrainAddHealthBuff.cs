@@ -2,11 +2,12 @@
 
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Armors
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.FrankensteinBrainAddHealthBuff)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.FrankensteinBrainAddHealthBuff)]
     public class FrankensteinBrainAddHealthBuff : BuffDefinition
     {
         public FrankensteinBrainAddHealthBuff(string nsp, string name) : base(nsp, name)

@@ -11,6 +11,7 @@ using MVZ2Logic.Localization;
 using MVZ2Logic.Options;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 using UnityEngine;
 using UnityEngine.EventSystems;

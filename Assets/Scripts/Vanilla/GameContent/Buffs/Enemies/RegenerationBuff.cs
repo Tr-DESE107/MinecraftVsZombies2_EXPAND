@@ -9,10 +9,11 @@ using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Entity.Regeneration)]  // ע����������� Regeneration �� Buff����
+    [AutoBuffDefinition(VanillaBuffNames.Entity.Regeneration)]  // ע����������� Regeneration �� Buff����
     public class RegenerationBuff : BuffDefinition
     {
         public RegenerationBuff(string nsp, string name) : base(nsp, name)

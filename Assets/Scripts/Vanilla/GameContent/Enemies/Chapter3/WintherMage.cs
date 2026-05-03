@@ -11,12 +11,13 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.WintherMage)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.WintherMage)]
     public class WintherMage : SkeletonMage
     {
         public WintherMage(string nsp, string name) : base(nsp, name)
@@ -122,21 +123,21 @@ namespace MVZ2.GameContent.Enemies
             if (shoot_times != 4)
             {
                 var param = enemy.GetShootParams();
-                param.damage = enemy.GetDamage() * 4f;          // ¹¥»÷ÉËº¦
-                param.projectileID = VanillaProjectileID.witherSkull; // Í¶ÉäÎï£ºµòÁãÍ·Â­
-                param.soundID = VanillaSoundID.fire;           // ÒôÐ§£º»ðÑæ
+                param.damage = enemy.GetDamage() * 4f;          // ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
+                param.projectileID = VanillaProjectileID.witherSkull; // Í¶ï¿½ï¿½ï¿½ï£ºï¿½ï¿½ï¿½ï¿½Í·Â­
+                param.soundID = VanillaSoundID.fire;           // ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 enemy.ShootProjectile(param);
 
-                // ¼ÆÊý£ºÁ¬ÐøÉä»÷´ÎÊý
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 shoot_times += 1;
             }
-            // Ã¿ 4 ´ÎÉä»÷ ¡ú ÕÙ»½Ò»´ÎÔÉÊ¯
+            // Ã¿ 4 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù»ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê¯
             if (shoot_times >= 4)
             {
                 var target = FindTarget(enemy);
                 if (target != null)
                 {
-                    var pos = target.GetCenter() + new Vector3(0, 1280, 0); // ÔÉÊ¯´Ó¸ß¿ÕÔÒÏÂ
+                    var pos = target.GetCenter() + new Vector3(0, 1280, 0); // ï¿½ï¿½Ê¯ï¿½Ó¸ß¿ï¿½ï¿½ï¿½ï¿½ï¿½
                     enemy.SpawnWithParams(VanillaEffectID.cursedMeteor, pos)?.Let(meteor =>
                     {
                         meteor.SetParent(enemy);

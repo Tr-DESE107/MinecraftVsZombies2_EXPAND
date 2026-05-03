@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.EnragedHostZombie)]
-    public class EnragedHostZombie : Zombie
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.EnragedHostZombie)]
+    public class EnragedHostZombie : BoatedEnemyBehaviour
     {
         public EnragedHostZombie(string nsp, string name) : base(nsp, name)
         {

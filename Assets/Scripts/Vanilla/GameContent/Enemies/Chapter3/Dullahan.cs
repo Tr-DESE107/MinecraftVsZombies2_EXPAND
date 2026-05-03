@@ -6,7 +6,6 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Entities;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Unlocks;
@@ -137,6 +136,6 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<EntityID> FIELD_HEAD = new VanillaEntityPropertyMeta<EntityID>("Head");
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta<bool>("HeadDropped");
         private static readonly NamespaceID ID = VanillaEnemyID.dullahan;
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
     }
 }

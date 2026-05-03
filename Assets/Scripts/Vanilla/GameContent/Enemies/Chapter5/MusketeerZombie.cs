@@ -8,12 +8,13 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using MVZ2.Vanilla.Audios;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.MusketeerZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.MusketeerZombie)]
     public class MusketeerZombie : Zombie
     {
         public MusketeerZombie(string nsp, string name) : base(nsp, name)

@@ -6,11 +6,12 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.CopperBall)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.CopperBall)]
     public class CopperBall : ProjectileBehaviour
     {
         public CopperBall(string nsp, string name) : base(nsp, name)

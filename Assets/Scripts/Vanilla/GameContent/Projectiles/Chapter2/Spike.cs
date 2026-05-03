@@ -6,10 +6,11 @@ using MVZ2.Vanilla.Shells;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.spike)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.spike)]
     public class Spike : ProjectileBehaviour
     {
         public Spike(string nsp, string name) : base(nsp, name)

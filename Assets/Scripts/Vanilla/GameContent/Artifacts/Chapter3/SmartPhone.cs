@@ -6,6 +6,7 @@ using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Artifacts
 {

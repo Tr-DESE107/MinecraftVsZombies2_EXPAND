@@ -6,11 +6,12 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.CopperOreBall)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.CopperOreBall)]
     public class CopperOreBall : ProjectileBehaviour
     {
         public CopperOreBall(string nsp, string name) : base(nsp, name)

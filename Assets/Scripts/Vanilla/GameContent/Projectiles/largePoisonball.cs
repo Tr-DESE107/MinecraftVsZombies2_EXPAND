@@ -12,11 +12,12 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.largePoisonball)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.largePoisonball)]
     public class LargePoisonball : ProjectileBehaviour
     {
         public LargePoisonball(string nsp, string name) : base(nsp, name)

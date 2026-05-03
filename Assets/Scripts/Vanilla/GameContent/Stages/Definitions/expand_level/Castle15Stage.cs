@@ -2,14 +2,14 @@
 
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.castle15)]
+    [AutoStageDefinition(VanillaStageNames.castle15)]
     public partial class Castle15Stage : StageDefinition
     {
         public Castle15Stage(string nsp, string name) : base(nsp, name)
@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Stages
                 return;
             if (!level.EntityExists(VanillaEffectID.castleTwilight))
             {
-                var pos = new Vector3((VanillaLevelExt.LEFT_BORDER + VanillaLevelExt.RIGHT_BORDER) * 0.5f, 0, VanillaLevelExt.LAWN_HEIGHT * 0.5f);
+                var pos = new Vector3((LevelPositions.LEFT_BORDER + LevelPositions.RIGHT_BORDER) * 0.5f, 0, LevelPositions.LAWN_HEIGHT * 0.5f);
                 level.Spawn(VanillaEffectID.castleTwilight, pos, null);
             }
         }

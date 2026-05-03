@@ -10,10 +10,11 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.NetherVanguard)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.NetherVanguard)]
     public class NetherVanguard : AIEntityBehaviour
     {
         public NetherVanguard(string nsp, string name) : base(nsp, name)

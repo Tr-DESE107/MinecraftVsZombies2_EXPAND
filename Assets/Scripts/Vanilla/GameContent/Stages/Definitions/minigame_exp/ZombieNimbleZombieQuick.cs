@@ -7,7 +7,8 @@ using PVZEngine;
 using PVZEngine.Buffs;    
 using PVZEngine.Definitions;    
 using PVZEngine.Entities;    
-using PVZEngine.Level;    
+using PVZEngine.Level;
+using PVZEngine.Definitions;    
 using UnityEngine;    
   
 namespace MVZ2.GameContent.Stages    
@@ -27,7 +28,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.OnUpdate(level);
 
-            // Ã¿3Ãë¼ì²éÒ»´Î£¬Î¬³ÖÈ«ÆÁ±ùÃæ  
+            // Ã¿3ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î£ï¿½Î¬ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
             if (!level.IsTimeInterval(Ticks.FromSeconds(3f)))
                 return;
 
@@ -46,7 +47,7 @@ namespace MVZ2.GameContent.Stages
                     var stain = WaterStain.UpdateStain(level, pos, null!);
                     if (stain != null)
                     {
-                        // ¶³½áË®¼££¬Ê¹Æä±äÎª±ùÃæ  
+                        // ï¿½ï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½  
                         WaterStain.FreezeStain(stain);
                     }
                 }

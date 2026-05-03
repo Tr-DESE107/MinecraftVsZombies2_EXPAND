@@ -4,11 +4,12 @@ using MVZ2.GameContent.Fragments;
 using MVZ2.Vanilla.Contraptions;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.GlowingObsidianArmorBuff)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.GlowingObsidianArmorBuff)]
     public class GlowingObsidianArmorBuff : BuffDefinition
     {
         public GlowingObsidianArmorBuff(string nsp, string name) : base(nsp, name)

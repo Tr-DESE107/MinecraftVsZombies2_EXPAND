@@ -2,10 +2,11 @@
 
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.PirateBucketSkeleton)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.PirateBucketSkeleton)]
     public class PirateBucketSkeleton : PirateSkeleton
     {
         public PirateBucketSkeleton(string nsp, string name) : base(nsp, name)

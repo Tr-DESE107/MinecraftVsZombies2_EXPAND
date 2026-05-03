@@ -8,7 +8,8 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;  
 using PVZEngine;  
 using PVZEngine.Entities;  
-using PVZEngine.Level;  
+using PVZEngine.Level;
+using PVZEngine.Definitions;  
 using PVZEngine.Modifiers;  
 using Tools;  
 using UnityEngine;
@@ -17,7 +18,7 @@ using MVZ2.GameContent.Enemies;
 
 namespace MVZ2.GameContent.Contraptions  
 {  
-    [EntityBehaviourDefinition(VanillaContraptionNames.StoneGenerator)]  
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.StoneGenerator)]  
     public class StoneGenerator : ContraptionBehaviour  
     {  
         public StoneGenerator(string nsp, string name) : base(nsp, name)  
@@ -77,7 +78,7 @@ namespace MVZ2.GameContent.Contraptions
         /// <summary>  
         /// Helper: produce a blueprint pickup for a random stone contraption.  
         /// </summary>  
-        // 池和权重数组（一一对应）  
+        // 锟截猴拷权锟斤拷锟斤拷锟介（一一锟斤拷应锟斤拷  
         private static readonly NamespaceID[] stonePool = new NamespaceID[]
         {
         VanillaContraptionID.Stone,

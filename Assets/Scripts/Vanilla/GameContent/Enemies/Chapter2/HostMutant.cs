@@ -5,14 +5,16 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.HostMutant)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.HostMutant)]
     public class HostMutant : MutantZombieBase
     {
         public HostMutant(string nsp, string name) : base(nsp, name)

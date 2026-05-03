@@ -4,6 +4,7 @@ using MVZ2Logic;
 using MVZ2Logic.Options;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Level
@@ -16,7 +17,7 @@ namespace MVZ2.Vanilla.Level
             return new PropertyMeta<T>(name, defaultValue);
         }
 
-        #region 水颜色
+        #region 水锟斤拷色
         public static readonly PropertyMeta<Color> WATER_COLOR = Get<Color>("waterColor");
         public static readonly PropertyMeta<Color> WATER_COLOR_CENSORED = Get<Color>("waterColorCensored");
         public static Color GetWaterColorNormal(this LevelEngine game)

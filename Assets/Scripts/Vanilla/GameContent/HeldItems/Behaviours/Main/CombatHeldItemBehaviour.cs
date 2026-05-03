@@ -16,6 +16,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.HeldItems

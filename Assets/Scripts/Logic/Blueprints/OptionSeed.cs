@@ -4,6 +4,7 @@ using MVZ2Logic.Blueprints;
 using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2Logic.Seeds

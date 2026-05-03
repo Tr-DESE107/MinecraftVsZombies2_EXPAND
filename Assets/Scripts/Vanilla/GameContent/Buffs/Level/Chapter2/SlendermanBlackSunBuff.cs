@@ -4,12 +4,13 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.slendermanBlackSun)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.slendermanBlackSun)]
     public class SlendermanBlackSunBuff : BuffDefinition
     {
         public SlendermanBlackSunBuff(string nsp, string name) : base(nsp, name)

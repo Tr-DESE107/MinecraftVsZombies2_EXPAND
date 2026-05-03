@@ -11,6 +11,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 using MVZ2.GameContent.Buffs;
@@ -55,7 +56,7 @@ namespace MVZ2.GameContent.Contraptions
                     var target = detector.DetectEntityWithTheMost(entity, t => GetTargetPriority(entity, t));
                     if (target != null)
                     {
-                        // ¼ÆËãÖ±Ïß·½ÏòºÍËÙ¶È  
+                        // ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½  
                         var direction = (target.GetCenter() - entity.GetShootPoint()).normalized;
                         var speed = entity.GetShotVelocity().magnitude * 1.5f;
                         var velocity = direction * speed;
@@ -110,7 +111,7 @@ namespace MVZ2.GameContent.Contraptions
                 damage = damage,
                 soundID = entity.GetShootSound(),
                 velocity = velocity,
-            })?.Let(e => e.SetGravity(0)); // ÒÆ³ýÖØÁ¦£¬Ê¹ÓÃÖ±Ïß·ÉÐÐ  
+            })?.Let(e => e.SetGravity(0)); // ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ö±ï¿½ß·ï¿½ï¿½ï¿½  
         }
         private void EvokedUpdate(Entity entity)
         {

@@ -7,11 +7,12 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.Eradicator)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.Eradicator)]
     public class Eradicator : DispenserFamily
     {
         public Eradicator(string nsp, string name) : base(nsp, name)
@@ -37,7 +38,7 @@ namespace MVZ2.GameContent.Contraptions
             EvokedUpdate(entity);
         }
 
-        // ºËÐÄÐÞ¸Ä£ºÌí¼ÓËæ»ú·¢ÉäÂß¼­
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
         public override Entity? Shoot(Entity entity)
         {
             if (entity.RNG.Next(6) == 0)
@@ -60,7 +61,7 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Run();
             if (evocationTimer.PassedInterval(2))
             {
-                // Ö±½Óµ÷ÓÃ»ùÀà·½·¨
+                // Ö±ï¿½Óµï¿½ï¿½Ã»ï¿½ï¿½à·½ï¿½ï¿½
                 var projectile = Shoot(entity);
                 if (projectile != null)
                     projectile.Velocity *= 2;

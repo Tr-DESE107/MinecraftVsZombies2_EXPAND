@@ -3,21 +3,23 @@
 using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Entities;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.NetherArcher)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.NetherArcher)]
     public class NetherArcher : AIEntityBehaviour
     {
         public NetherArcher(string nsp, string name) : base(nsp, name)
@@ -177,8 +179,8 @@ namespace MVZ2.GameContent.Enemies
         private static readonly NamespaceID ID = VanillaEnemyID.NetherArcher;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_BOW_FIRED = new VanillaEntityPropertyMeta<bool>("bowFired");
         public static readonly VanillaEntityPropertyMeta<int> PROP_BOW_POWER = new VanillaEntityPropertyMeta<int>("bowPower");
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
         public const int BOW_POWER_PULL_SPEED = 100;
         public const int BOW_POWER_RESTORE_SPEED = 1000;
         public const int BOW_POWER_MAX = 10000;

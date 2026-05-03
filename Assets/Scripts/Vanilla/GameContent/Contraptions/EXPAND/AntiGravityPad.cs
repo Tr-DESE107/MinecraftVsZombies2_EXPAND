@@ -15,11 +15,12 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.AntiGravityPad)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.AntiGravityPad)]
     public class AntiGravityPad : ContraptionBehaviour
     {
         public AntiGravityPad(string nsp, string name) : base(nsp, name)

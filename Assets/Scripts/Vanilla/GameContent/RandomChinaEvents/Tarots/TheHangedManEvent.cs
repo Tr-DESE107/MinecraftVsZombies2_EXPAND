@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.RandomChina;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 

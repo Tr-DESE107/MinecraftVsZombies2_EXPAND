@@ -6,6 +6,7 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.IZombie;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.IZombie

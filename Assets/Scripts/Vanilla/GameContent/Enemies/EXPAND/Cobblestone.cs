@@ -4,11 +4,12 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.Cobblestone)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.Cobblestone)]
     public class Cobblestone : EnemyBehaviour
     {
         public Cobblestone(string nsp, string name) : base(nsp, name)

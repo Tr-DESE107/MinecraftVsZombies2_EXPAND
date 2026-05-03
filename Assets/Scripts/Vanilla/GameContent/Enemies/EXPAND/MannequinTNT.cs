@@ -18,12 +18,13 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.MannequinTNT)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.MannequinTNT)]
     public class MannequinTNT : EnemyBehaviour
     {
         public MannequinTNT(string nsp, string name) : base(nsp, name)

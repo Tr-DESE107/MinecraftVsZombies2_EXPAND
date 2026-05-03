@@ -11,6 +11,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 using MVZ2.GameContent.Buffs;
@@ -18,7 +19,7 @@ using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.SuperFireworkDispenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.SuperFireworkDispenser)]
     public class SuperFireworkDispenser : ContraptionBehaviour
     {
         public SuperFireworkDispenser(string nsp, string name) : base(nsp, name)

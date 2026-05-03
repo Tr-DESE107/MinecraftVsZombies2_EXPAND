@@ -14,6 +14,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.Areas

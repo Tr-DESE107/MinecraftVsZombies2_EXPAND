@@ -7,6 +7,7 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Vanilla.HeldItems
 {

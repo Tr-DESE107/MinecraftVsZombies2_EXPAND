@@ -6,10 +6,27 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
+using PVZEngine.Collisions;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
+using PVZEngine.Definitions;
+using MVZ2.GameContent.Entities;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
+using PVZEngine;
+using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
+using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.HostHead)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.HostHead)]
     public class HostHead : AIEntityBehaviour
     {
         public HostHead(string nsp, string name) : base(nsp, name)

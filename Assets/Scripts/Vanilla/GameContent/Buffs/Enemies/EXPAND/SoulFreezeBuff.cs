@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
@@ -13,7 +14,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.SoulFreeze)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.SoulFreeze)]
     public class SoulFreezeBuff : BuffDefinition
     {
         public SoulFreezeBuff(string nsp, string name) : base(nsp, name)
@@ -76,7 +77,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 var spawnPos = entity.Position;
                 stars = entity.Spawn(VanillaEffectID.SoulFreeze, spawnPos)?.Let(e =>
                 {
-                    e.SetParent(entity);  // ¹Ø¼ü£ºÉèÖÃ¸¸ÊµÌå  
+                    e.SetParent(entity);  // ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½Êµï¿½ï¿½  
                     SetFreezeStars(buff, new EntityID(e));
                 });
             }

@@ -11,12 +11,13 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.NetherTroopCarrier)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.NetherTroopCarrier)]
     public class NetherTroopCarrier : AIEntityBehaviour
     {
         public NetherTroopCarrier(string nsp, string name) : base(nsp, name)
@@ -194,14 +195,14 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (!entity.WillRemoveOnDeath(info))
             {
                 var param = entity.GetSpawnParams();
                 param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
                 var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
             }
 
-            if (!info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+            if (!entity.WillRemoveOnDeath(info))
             {
                 var anubisandOffset = ANUBISAND_OFFSET;
                 anubisandOffset.x *= entity.GetFacingX();

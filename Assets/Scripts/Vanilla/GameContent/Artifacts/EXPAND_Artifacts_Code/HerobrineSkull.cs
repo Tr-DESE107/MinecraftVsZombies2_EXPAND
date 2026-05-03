@@ -6,16 +6,17 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using MVZ2.GameContent.Enemies;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Callbacks;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.HerobrineSkull)]
+    [AutoArtifactDefinition(VanillaArtifactNames.HerobrineSkull)]
     public class HerobrineSkull : ArtifactDefinition
     {
         public HerobrineSkull(string nsp, string name) : base(nsp, name)
         {
-            // ×¢²á POST_WAVE_ENEMY_SPAWN »Øµ÷  
-            AddTrigger(VanillaLevelCallbacks.POST_WAVE_ENEMY_SPAWN, PostWaveEnemySpawnCallback);
+            AddTrigger(LogicLevelCallbacks.POST_WAVE_ENEMY_SPAWN, PostWaveEnemySpawnCallback);
         }
 
         private void PostWaveEnemySpawnCallback(
@@ -33,7 +34,7 @@ namespace MVZ2.GameContent.Artifacts
                 var rng = artifact.RNG;
                 if (rng.Next(10) < 7)
                 {
-                    // ÔÚËæ»úÐÐÉú³É¶îÍâµÐÈË
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     switch (rng.Next(4))
                     {
                         case 0:

@@ -11,12 +11,13 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.GlowingObsidian)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.GlowingObsidian)]
     public class GlowingObsidian : ContraptionBehaviour
     {
         public GlowingObsidian(string nsp, string name) : base(nsp, name) { }

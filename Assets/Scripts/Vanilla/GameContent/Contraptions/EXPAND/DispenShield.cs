@@ -8,13 +8,14 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;  
 using PVZEngine;  
 using PVZEngine.Entities;  
-using PVZEngine.Level;  
+using PVZEngine.Level;
+using PVZEngine.Definitions;  
 using Tools;  
 using UnityEngine;  
   
 namespace MVZ2.GameContent.Contraptions  
 {  
-    [EntityBehaviourDefinition(VanillaContraptionNames.DispenShield)]  
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.DispenShield)]  
     public class DispenShield : DispenserFamily  
     {  
         public DispenShield(string nsp, string name) : base(nsp, name)  

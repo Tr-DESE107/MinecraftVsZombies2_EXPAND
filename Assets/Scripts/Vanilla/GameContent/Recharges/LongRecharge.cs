@@ -3,6 +3,7 @@
 using MVZ2.Vanilla.Localization;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Recharges

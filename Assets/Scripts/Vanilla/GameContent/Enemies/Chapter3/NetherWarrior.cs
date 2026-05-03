@@ -8,10 +8,11 @@ using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.NetherWarrior)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.NetherWarrior)]
     public class NetherWarrior : AIEntityBehaviour
     {
         public NetherWarrior(string nsp, string name) : base(nsp, name)

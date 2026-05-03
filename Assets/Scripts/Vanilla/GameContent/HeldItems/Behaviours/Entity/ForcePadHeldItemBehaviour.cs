@@ -11,6 +11,7 @@ using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.HeldItems
 {

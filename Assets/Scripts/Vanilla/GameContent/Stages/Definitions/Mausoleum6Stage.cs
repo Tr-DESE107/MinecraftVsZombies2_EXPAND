@@ -3,6 +3,7 @@
 using MVZ2Logic.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {

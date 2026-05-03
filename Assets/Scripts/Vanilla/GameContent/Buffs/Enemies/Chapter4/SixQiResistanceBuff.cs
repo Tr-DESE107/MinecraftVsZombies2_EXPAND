@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
@@ -17,7 +18,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     /// ֻ�ṩ�˺�����Ч�����ҵ����ﴦ�ڹ���״̬ʱ������
     /// �������κ��Ӿ����黯����
     /// </summary>
-    [BuffDefinition(VanillaBuffNames.Enemy.SixQiResistanceBuff)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.SixQiResistanceBuff)]
     public class SixQiResistanceBuff : BuffDefinition
     {
         public SixQiResistanceBuff(string nsp, string name) : base(nsp, name)

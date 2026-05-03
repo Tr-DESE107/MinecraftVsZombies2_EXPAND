@@ -6,10 +6,11 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [BuffDefinition(VanillaBuffNames.Entity.ExplosionProtection)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.ExplosionProtection)]
     public class ExplosionProtection : BuffDefinition
     {
         public ExplosionProtection(string nsp, string name) : base(nsp, name)

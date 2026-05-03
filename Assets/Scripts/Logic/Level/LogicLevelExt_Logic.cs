@@ -3,6 +3,7 @@
 using System.Threading.Tasks;
 using MVZ2Logic.Level.Components;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2Logic.Level
 {

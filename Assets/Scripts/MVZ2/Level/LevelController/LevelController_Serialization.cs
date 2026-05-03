@@ -8,6 +8,7 @@ using MVZ2.UI.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 

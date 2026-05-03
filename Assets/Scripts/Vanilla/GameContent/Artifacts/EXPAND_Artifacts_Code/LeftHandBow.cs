@@ -9,11 +9,12 @@ using PVZEngine.Auras;             // �⻷��Aura��ϵͳ
 using PVZEngine.Buffs;             // Buff ϵͳ
 using PVZEngine.Callbacks;         // �ص�����ϵͳ
 using PVZEngine.Entities;          // ʵ��ϵͳ������ֲ���ʬ����е�ȣ�
+using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Artifacts
 {
     // ������Ϊ LeftHandBow ��������Artifact��������Ϊ������֮�桱
-    [ArtifactDefinition(VanillaArtifactNames.LeftHandBow)]
+    [AutoArtifactDefinition(VanillaArtifactNames.LeftHandBow)]
     public class LeftHandBow : ArtifactDefinition
     {
         // ���캯����ע��⻷Ч���ͳ�ʼ����Ļص�

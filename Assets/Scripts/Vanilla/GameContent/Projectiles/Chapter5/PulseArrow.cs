@@ -4,11 +4,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.GameContent.Damages;
 using PVZEngine.Damages;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.PulseArrow)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.PulseArrow)]
     public class PulseArrow : ProjectileBehaviour
     {
         public PulseArrow(string nsp, string name) : base(nsp, name)
@@ -22,7 +23,7 @@ namespace MVZ2.GameContent.Projectiles
             var target = hitResult.Other;
             var projectile = hitResult.Projectile;
 
-            // Ôì³É1µã´©¼×ÉËº¦  
+            // ï¿½ï¿½ï¿½1ï¿½ã´©ï¿½ï¿½ï¿½Ëºï¿½  
             if (target != null && target.Exists() && !target.IsDead)
             {
                 var armorPiercingDamage = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR);

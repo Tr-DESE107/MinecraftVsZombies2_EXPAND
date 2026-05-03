@@ -6,6 +6,7 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

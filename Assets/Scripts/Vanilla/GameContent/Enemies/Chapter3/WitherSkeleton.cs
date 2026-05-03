@@ -13,47 +13,19 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.WitherSkeleton)]
-    public class WitherSkeleton : AIEntityBehaviour
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.WitherSkeleton)]
+    public class WitherSkeleton : BoatedEnemyBehaviour
     {
         public WitherSkeleton(string nsp, string name) : base(nsp, name)
         {
         }
         public override void Init(Entity entity)
         {
-            base.Init(entity);
-            var level = entity.Level;
-            if (level.IsWaterLane(entity.GetLane()))
-            {
-                entity.AddBuff<BoatBuff>();
-                entity.SetAnimationBool("HasBoat", true);
-            }
-
-        }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
-            entity.SetAnimationBool("HasBoat", entity.HasBuff<BoatBuff>());
-        }
-        public override void PostDeath(Entity entity, DeathInfo info)
-        {
-            base.PostDeath(entity, info);
-            if (entity.HasBuff<BoatBuff>())
-            {
-                entity.RemoveBuffs<BoatBuff>();
-                // 掉落碎船掉落物
-                entity.Level.Spawn(VanillaEffectID.brokenArmor, entity.GetCenter(), entity)?.Let(effect =>
-                {
-                    effect.Velocity = new Vector3(effect.RNG.NextFloat() * 20 - 10, 5, 0);
-                    effect.ChangeModel(VanillaModelID.boatItem);
-                    effect.SetDisplayScale(entity.GetDisplayScale());
-                });
-            }
         }
     }
 }

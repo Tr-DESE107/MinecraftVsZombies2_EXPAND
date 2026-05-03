@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
@@ -14,7 +15,7 @@ using MVZ2Logic.Models;
 
 namespace MVZ2.GameContent.Buffs.Contraption
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.TeslaCoilOvercharge)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.TeslaCoilOvercharge)]
     public class TeslaCoilOvercharge : BuffDefinition
     {
         public TeslaCoilOvercharge(string nsp, string name) : base(nsp, name)

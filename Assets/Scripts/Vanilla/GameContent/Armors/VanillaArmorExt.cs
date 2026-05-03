@@ -10,6 +10,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Armors
@@ -117,7 +118,7 @@ namespace MVZ2.Vanilla.Armors
         {
             return VanillaEntityExt.Heal(new HealInput(amount, armor.Owner, armor, source));
         }
-        #region ±»¼â´Ì´Ý»Ù
+        #region ï¿½ï¿½ï¿½ï¿½Ì´Ý»ï¿½
         public static bool TryDestroyBySpikes(this Armor armor, Entity source)
         {
             bool destroyed = false;

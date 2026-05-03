@@ -6,11 +6,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Damages;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.BloodBolt)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.BloodBolt)]
     public class BloodBolt : ProjectileBehaviour, IHellfireIgniteBehaviour
     {
         public BloodBolt(string nsp, string name) : base(nsp, name)

@@ -2,10 +2,11 @@
 
 using MVZ2.GameContent.Enemies;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Vanilla.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.XCarrierMutant)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.XCarrierMutant)]
     public class XCarrierMutant : MutantZombieBase
     {
         public XCarrierMutant(string nsp, string name) : base(nsp, name)

@@ -8,6 +8,7 @@ using PVZEngine.Base;
 using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using Tools.Geometrical;
 using UnityEngine;

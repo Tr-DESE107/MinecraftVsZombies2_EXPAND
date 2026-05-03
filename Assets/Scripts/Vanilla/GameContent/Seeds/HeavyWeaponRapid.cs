@@ -7,6 +7,7 @@ using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Seeds

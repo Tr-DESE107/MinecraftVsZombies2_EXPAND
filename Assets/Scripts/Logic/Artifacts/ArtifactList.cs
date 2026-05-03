@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2Logic.Artifacts
 {

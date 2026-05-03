@@ -2,20 +2,21 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
+using MVZ2Logic.Entities;
+using MVZ2.GameContent.Entities;
 
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.Anubiskull)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.Anubiskull)]
     public class Anubiskull : AIEntityBehaviour
     {
         public Anubiskull(string nsp, string name) : base(nsp, name)

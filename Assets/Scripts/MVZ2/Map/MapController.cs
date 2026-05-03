@@ -28,6 +28,7 @@ using MVZ2Logic.Talk;
 using MVZ2Logic.Unlocks;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

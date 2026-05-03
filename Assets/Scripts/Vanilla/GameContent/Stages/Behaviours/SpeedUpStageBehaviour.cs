@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Stages
 {

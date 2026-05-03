@@ -6,6 +6,7 @@ using PVZEngine.Collisions;
 using PVZEngine.Collisions.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools.Geometrical;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ namespace MVZ2.Vanilla.Detections
             return !entity.IsInvisible();
         }
 
-        #region XÇ°·½
+        #region XÇ°ï¿½ï¿½
         public static bool IsInTheFrontOf(this float x1, float x2, bool x2FaceLeft)
         {
             if (x2FaceLeft)
@@ -66,7 +67,7 @@ namespace MVZ2.Vanilla.Detections
         }
         #endregion
 
-        #region ÊµÌåÇ°·½
+        #region Êµï¿½ï¿½Ç°ï¿½ï¿½
         public static bool IsAheadOf(this Entity entity, Entity target, float minDistance = 0)
         {
             if (target.IsFacingLeft())
@@ -91,7 +92,7 @@ namespace MVZ2.Vanilla.Detections
         }
         #endregion
 
-        #region ÁÐÇ°·½
+        #region ï¿½ï¿½Ç°ï¿½ï¿½
         public static bool IsAheadOfColumn(this Entity entity, int column)
         {
             if (entity.IsFacingLeft())
@@ -109,7 +110,7 @@ namespace MVZ2.Vanilla.Detections
         }
         #endregion
 
-        #region Xºó·½
+        #region Xï¿½ï¿½
         public static bool IsInTheRearOf(this float x1, float x2, bool x2FaceLeft)
         {
             if (x2FaceLeft)
@@ -145,7 +146,7 @@ namespace MVZ2.Vanilla.Detections
         }
         #endregion
 
-        #region ÊµÌåºó·½
+        #region Êµï¿½ï¿½ï¿½
         public static bool IsBehindOf(this Entity entity, Entity target, float minDistance = 0)
         {
             if (target.IsFacingLeft())
@@ -170,7 +171,7 @@ namespace MVZ2.Vanilla.Detections
         }
         #endregion
 
-        #region ÁÐºó·½
+        #region ï¿½Ðºï¿½
         public static bool IsBehindOfColumn(this Entity entity, int column)
         {
             if (entity.IsFacingLeft())

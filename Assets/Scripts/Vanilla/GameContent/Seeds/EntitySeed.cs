@@ -10,6 +10,7 @@ using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Seeds

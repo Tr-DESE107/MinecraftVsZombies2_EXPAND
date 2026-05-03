@@ -9,6 +9,7 @@ using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Models;
 
 namespace MVZ2.Level.Components

@@ -4,10 +4,11 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.Poisonball)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.Poisonball)]
     public class Poisonball : ProjectileBehaviour
     {
         public Poisonball(string nsp, string name) : base(nsp, name)

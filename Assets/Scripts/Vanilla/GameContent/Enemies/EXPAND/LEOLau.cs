@@ -7,12 +7,13 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using MVZ2.GameContent.Buffs.Level;
 using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.LEOLau)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.LEOLau)]
     public class LEOLau : AIEntityBehaviour
     {
         public LEOLau(string nsp, string name) : base(nsp, name)

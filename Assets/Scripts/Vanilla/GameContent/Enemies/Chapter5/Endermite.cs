@@ -3,11 +3,12 @@
 using MVZ2.Vanilla.Enemies;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using MVZ2.Vanilla.Entities;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.Endermite)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.Endermite)]
     public class Endermite : AIEntityBehaviour
     {
         public Endermite(string nsp, string name) : base(nsp, name)

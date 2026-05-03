@@ -7,11 +7,12 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.Poisonser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.Poisonser)]
     public class Poisonser : DispenserFamily
     {
         public Poisonser(string nsp, string name) : base(nsp, name)

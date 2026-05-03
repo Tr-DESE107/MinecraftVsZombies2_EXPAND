@@ -11,12 +11,13 @@ using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 using MVZ2.GameContent.Seeds;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.DiamondOre)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.DiamondOre)]
     public class DiamondOre : ContraptionBehaviour
     {
         public DiamondOre(string nsp, string name) : base(nsp, name)

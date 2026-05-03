@@ -14,6 +14,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
@@ -134,7 +135,7 @@ namespace MVZ2.GameContent.Effects
 
                 var level = entity.Level;
 
-                // ÒÆ¶¯¼¤¹âÕÕÉäÇøÓò¡£
+                // ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 var speed = Mathf.Lerp(10, 40, timer.GetPassedPercentage());
                 var startDestination = GetDestination(entity);
                 var destination = startDestination;
@@ -144,7 +145,7 @@ namespace MVZ2.GameContent.Effects
                 destination.y = level.GetGroundY(destination.x, destination.z);
                 SetDestination(entity, destination);
 
-                // µã½ðµØ¸ñ¡£
+                // ï¿½ï¿½ï¿½Ø¸ï¿½
                 var column = level.GetColumn(destination.x);
                 var lane = level.GetLane(destination.z);
                 var grid = level.GetGrid(column, lane);

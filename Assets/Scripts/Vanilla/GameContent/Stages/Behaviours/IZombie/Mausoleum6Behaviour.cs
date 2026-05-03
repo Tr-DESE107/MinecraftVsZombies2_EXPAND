@@ -4,6 +4,7 @@ using MVZ2Logic.IZombie;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.Stages

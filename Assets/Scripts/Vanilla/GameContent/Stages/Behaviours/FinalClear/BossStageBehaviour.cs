@@ -14,6 +14,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
@@ -137,7 +138,7 @@ namespace MVZ2.GameContent.Stages
             level.StopMusic();
             if (level.IsFirstAdventure())
             {
-                // Òþ²ØUI£¬¹Ø±ÕÊäÈë
+                // ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½
                 DisableUIAndInput(level);
             }
             else

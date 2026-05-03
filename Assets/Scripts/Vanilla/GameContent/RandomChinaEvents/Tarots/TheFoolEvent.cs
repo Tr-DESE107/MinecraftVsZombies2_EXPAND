@@ -8,6 +8,7 @@ using MVZ2.Vanilla.RandomChina;
 using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.RandomChinaEvents

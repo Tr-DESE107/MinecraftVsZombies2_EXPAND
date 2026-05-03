@@ -8,6 +8,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages

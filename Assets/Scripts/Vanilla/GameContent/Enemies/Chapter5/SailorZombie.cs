@@ -14,11 +14,12 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.SailorZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.SailorZombie)]
     public class SailorZombie : AIEntityBehaviour
     {
         public SailorZombie(string nsp, string name) : base(nsp, name)

@@ -6,6 +6,7 @@ using MVZ2Logic.Archive;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Talk;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Talk
 {

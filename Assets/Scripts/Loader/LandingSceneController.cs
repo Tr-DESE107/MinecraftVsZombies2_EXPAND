@@ -6,6 +6,7 @@ using MVZ2Logic;
 using MVZ2Logic.Definitions;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;

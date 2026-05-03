@@ -6,11 +6,12 @@ using MVZ2.GameContent.Damages;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using MVZ2.Vanilla.Enemies;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.KogasaZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.KogasaZombie)]
     public class KogasaZombie : Zombie
     {
         public KogasaZombie(string nsp, string name) : base(nsp, name)

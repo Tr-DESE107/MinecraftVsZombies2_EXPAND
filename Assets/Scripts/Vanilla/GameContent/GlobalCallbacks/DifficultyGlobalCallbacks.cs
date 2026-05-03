@@ -9,6 +9,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.GlobalCallbacks
 {

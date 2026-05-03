@@ -20,12 +20,13 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.LCMTNT)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.LCMTNT)]
     public class LCMTNT : ContraptionBehaviour
     {
         public LCMTNT(string nsp, string name) : base(nsp, name)
@@ -133,7 +134,7 @@ namespace MVZ2.GameContent.Contraptions
                 VanillaDamageEffects.EXPLOSION
             );
 
-            // »ñÈ¡±¬Õ¨·¶Î§²¢Ö´ÐÐ±¬Õ¨
+            // ï¿½ï¿½È¡ï¿½ï¿½Õ¨ï¿½ï¿½Î§ï¿½ï¿½Ö´ï¿½Ð±ï¿½Õ¨
             float range = self.GetRange();
             var damageOutputs = self.Explode(
                 self.Position,
@@ -143,7 +144,7 @@ namespace MVZ2.GameContent.Contraptions
                 damageEffects
             );
 
-            // ÒÆÖ²TNTµÄ»÷·ÉÂß¼­
+            // ï¿½ï¿½Ö²TNTï¿½Ä»ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
             foreach (var output in damageOutputs)
             {
                 if (output == null)
@@ -158,12 +159,12 @@ namespace MVZ2.GameContent.Contraptions
                 }
             }
 
-            // Í¬²½TNTÌØÐ§
+            // Í¬ï¿½ï¿½TNTï¿½ï¿½Ð§
             Explosion.Spawn(self, self.GetCenter(), range);
 
             self.Level.Spawn(VanillaEffectID.mineDebris, self.Position, self);
             self.Remove();
-            self.PlaySound(VanillaSoundID.explosion); // Ê¹ÓÃTNT±¬Õ¨ÒôÐ§
+            self.PlaySound(VanillaSoundID.explosion); // Ê¹ï¿½ï¿½TNTï¿½ï¿½Õ¨ï¿½ï¿½Ð§
             self.Level.ShakeScreen(10, 0, 15);
             self.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(self), self.GetDefinitionID());
         }

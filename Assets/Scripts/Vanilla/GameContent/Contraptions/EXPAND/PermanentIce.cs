@@ -18,6 +18,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 using MVZ2.GameContent.Buffs;
@@ -25,7 +26,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.PermanentIce)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.PermanentIce)]
     public class PermanentIce : ContraptionBehaviour
     {
         public PermanentIce(string nsp, string name) : base(nsp, name)

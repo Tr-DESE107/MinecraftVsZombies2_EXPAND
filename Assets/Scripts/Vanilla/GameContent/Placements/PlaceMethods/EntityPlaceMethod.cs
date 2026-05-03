@@ -8,6 +8,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Placements;
 
 namespace MVZ2.GameContent.Placements

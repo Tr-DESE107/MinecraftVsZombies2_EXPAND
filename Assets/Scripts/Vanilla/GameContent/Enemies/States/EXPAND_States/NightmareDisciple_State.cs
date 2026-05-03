@@ -4,10 +4,11 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.NightmareDisciple_State)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.NightmareDisciple_State)]
     public class NightmareDisciple_State : EnemyStateBehaviour
     {
         public NightmareDisciple_State(string nsp, string name) : base(nsp, name)
