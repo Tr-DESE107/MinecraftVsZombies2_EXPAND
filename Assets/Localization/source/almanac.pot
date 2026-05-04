@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-04 11:27+0800\n"
+"POT-Creation-Date: 2026-05-04 03:01+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3955,7 +3955,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"<ref=[enemies]mvz2:rin>火焰猫 燐</ref>用来偷窃并运输尸体的推车，现如今被作为最终防线加入了战场。\n"
+"<ref=[misc]mvz2:rin>火焰猫 燐</ref>用来偷窃并运输尸体的推车，现如今被作为最终防线加入了战场。\n"
 "为什么里面的僵尸是我们这边的？呃，因为车里有张纸条：\n"
 "<align=\"center\">工作帮助</align>\n"
 "    当推车开动的时候，只需要下来然后前进，攻击你遇到的所有怪物，你就赢了。\n"
@@ -4374,6 +4374,115 @@ msgid ""
 "就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。\n"
 "\n"
 "三年前，<ref=[misc]mvz2:the_giant>巨人</ref>和<ref=[misc]mvz2:red_dragon>红龙</ref>同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。"
+msgstr ""
+
+#. Name for misc mvz2:eirin
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "八意 永琳"
+msgstr ""
+
+#. Header for misc mvz2:eirin
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "永远亭的医师。"
+msgstr ""
+
+#. Flavor for misc mvz2:eirin
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"永远亭的医师，在幻想乡中行医，并进行药物研究。\n"
+"来自月球，曾是月之都的贤者之一，是个天才，智力极其之高。"
+msgstr ""
+
+#. Name for misc mvz2:satori
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "古明地 觉"
+msgstr ""
+
+#. Header for misc mvz2:satori
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "居住于地下的觉妖怪，<ref=[misc]mvz2:chireiden>地灵殿</ref>的主人。"
+msgstr ""
+
+#. Flavor for misc mvz2:satori
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"居住于地灵殿的觉妖怪，被委托管理旧地狱-灼热地狱遗址的怨灵。\n"
+"性格老实、和蔼，有些内向。然而因为拥有读取他人内心想法的能力，且可以施展催眠术，因此被绝大多数人和妖怪畏惧并排斥。\n"
+"喜爱动物，养了非常多的宠物，并且可以使用自身的能力与它们进行交流，很受动物欢迎。\n"
+"\n"
+"在调查最近发生的一些连环袭击事件。"
+msgstr ""
+
+#. Name for misc mvz2:rin
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "火焰猫 燐"
+msgstr ""
+
+#. Header for misc mvz2:rin
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "<ref=[misc]mvz2:satori>古明地 觉</ref>的宠物之一，偷尸体的火车妖怪。"
+msgstr ""
+
+#. Flavor for misc mvz2:rin
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"栖息于火焰中的火车妖怪，性格开朗。\n"
+"对尸体极其感兴趣，但已经下葬的尸体除外，也不会主动去杀人。身上有着腐臭的味道。\n"
+"收集的尸体会给<ref=[misc]mvz2:utsuho>空</ref>用于调节灼热地狱遗迹的火力。\n"
+"她也可以和尸体以及灵体对话，或者捕捉并操纵她们。\n"
+"\n"
+"她并不喜欢那些由异变产生的、方形的僵尸。"
+msgstr ""
+
+#. Name for misc mvz2:utsuho
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "灵乌路 空"
+msgstr ""
+
+#. Header for misc mvz2:utsuho
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "<ref=[misc]mvz2:satori>古明地 觉</ref>的宠物之一，能够操纵核能的地狱鸦。"
+msgstr ""
+
+#. Flavor for misc mvz2:utsuho
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"空原先只是个普通的地狱鸦，鸟脑袋，傻里傻气，十分健忘。\n"
+"之后她的体内寄宿了神明八咫乌，因此获得了操控核聚变的力量。\n"
+"同时负责着排除核聚变炉中的异物，以及调节灼热地狱遗址的火力这两件事情。"
+msgstr ""
+
+#. Name for misc mvz2:koishi
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "古明地 恋"
+msgstr ""
+
+#. Header for misc mvz2:koishi
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "<ref=[misc]mvz2:chireiden>古明地觉</ref>的妹妹。"
+msgstr ""
+
+#. Flavor for misc mvz2:koishi
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"恋是自主封闭了自己的第三只眼的觉妖怪，她因此失去了读心的能力，并获得了操纵无意识的能力。\n"
+"因此她会长期陷入无意识状态，自己也不知道自己接下来的行动会是什么，无欲无求，没有任何目的，内心十分空洞。\n"
+"周围的人也会因为她的能力而难以察觉她的存在。觉能够感知到她的存在，但是无法读取她的内心。"
 msgstr ""
 
 #. Name for almanac group mvz2:areas
@@ -6709,6 +6818,36 @@ msgstr ""
 #: Character meta file
 msgctxt "character.name"
 msgid "白莲"
+msgstr ""
+
+#. Name for character mvz2:eirin
+#: Character meta file
+msgctxt "character.name"
+msgid "永琳"
+msgstr ""
+
+#. Name for character mvz2:satori
+#: Character meta file
+msgctxt "character.name"
+msgid "觉"
+msgstr ""
+
+#. Name for character mvz2:koishi
+#: Character meta file
+msgctxt "character.name"
+msgid "恋"
+msgstr ""
+
+#. Name for character mvz2:rin
+#: Character meta file
+msgctxt "character.name"
+msgid "燐"
+msgstr ""
+
+#. Name for character mvz2:utsuho
+#: Character meta file
+msgctxt "character.name"
+msgid "空"
 msgstr ""
 
 #. Name for artifact mvz2:almanac

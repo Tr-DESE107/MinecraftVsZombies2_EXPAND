@@ -490,4 +490,29 @@
             <layer sprite="mvz2:characters/byakuren[3]" positionX="176" positionY="208" />
         </variant>
     </character>
+    <character id="eirin" name="永琳">
+        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/armor_stand" />
+        </variant>
+    </character>
+    <character id="satori" name="觉">
+        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/armor_stand" />
+        </variant>
+    </character>
+    <character id="koishi" name="恋">
+        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/armor_stand" />
+        </variant>
+    </character>
+    <character id="rin" name="燐">
+        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/armor_stand" />
+        </variant>
+    </character>
+    <character id="utsuho" name="空">
+        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/armor_stand" />
+        </variant>
+    </character>
 </characters>

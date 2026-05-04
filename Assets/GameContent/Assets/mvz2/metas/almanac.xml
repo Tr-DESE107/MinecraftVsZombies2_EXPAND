@@ -2631,7 +2631,7 @@
                     <p>尸体推车在接触到敌人后会碾压一整行的敌怪，并在后方留下数只友方的<![CDATA[<ref=[enemies]mvz2:zombie>僵尸</ref>]]>。</p>
                 </header>
                 <flavor>
-                    <p><![CDATA[<ref=[enemies]mvz2:rin>火焰猫 燐</ref>]]>用来偷窃并运输尸体的推车，现如今被作为最终防线加入了战场。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:rin>火焰猫 燐</ref>]]>用来偷窃并运输尸体的推车，现如今被作为最终防线加入了战场。</p>
                     <p>为什么里面的僵尸是我们这边的？呃，因为车里有张纸条：</p>
                     <p><![CDATA[<align="center">工作帮助</align>]]></p>
                     <p>    当推车开动的时候，只需要下来然后前进，攻击你遇到的所有怪物，你就赢了。</p>
@@ -2953,6 +2953,95 @@
                     <p>就这样，白莲成为了一位矛盾的存在。然而，即便被人类发现她与妖怪的秘密，即便遭到封印，她还是一如既往地崇敬着佛法，拯救着众生。</p>
                     <p/>
                     <p>三年前，<![CDATA[<ref=[misc]mvz2:the_giant>巨人</ref>]]>和<![CDATA[<ref=[misc]mvz2:red_dragon>红龙</ref>]]>同时出现，她被请去除掉红龙。然而却也因此陷入因果，在这三年中被缚上了枷锁。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:eirin" name="八意 永琳" >
+                <unlock>
+                    <condition required="mvz2:entered_palace"/>
+                </unlock>
+                <picture character="mvz2:eirin"/>
+                <header>
+                    <p>永远亭的医师。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>永远亭的医师，在幻想乡中行医，并进行药物研究。</p>
+                    <p>来自月球，曾是月之都的贤者之一，是个天才，智力极其之高。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:satori" name="古明地 觉" >
+                <unlock>
+                    <condition required="mvz2:level.palace_1"/>
+                </unlock>
+                <picture character="mvz2:satori"/>
+                <header>
+                    <p>居住于地下的觉妖怪，<![CDATA[<ref=[misc]mvz2:chireiden>地灵殿</ref>]]>的主人。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>居住于地灵殿的觉妖怪，被委托管理旧地狱-灼热地狱遗址的怨灵。</p>
+                    <p>性格老实、和蔼，有些内向。然而因为拥有读取他人内心想法的能力，且可以施展催眠术，因此被绝大多数人和妖怪畏惧并排斥。</p>
+                    <p>喜爱动物，养了非常多的宠物，并且可以使用自身的能力与它们进行交流，很受动物欢迎。</p>
+                    <p/>
+                    <p>在调查最近发生的一些连环袭击事件。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:rin" name="火焰猫 燐" >
+                <unlock>
+                    <condition required="mvz2:level.palace_2"/>
+                </unlock>
+                <picture character="mvz2:rin"/>
+                <header>
+                    <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的宠物之一，偷尸体的火车妖怪。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>栖息于火焰中的火车妖怪，性格开朗。</p>
+                    <p>对尸体极其感兴趣，但已经下葬的尸体除外，也不会主动去杀人。身上有着腐臭的味道。</p>
+                    <p>收集的尸体会给<![CDATA[<ref=[misc]mvz2:utsuho>空</ref>]]>用于调节灼热地狱遗迹的火力。</p>
+                    <p>她也可以和尸体以及灵体对话，或者捕捉并操纵她们。</p>
+                    <p/>
+                    <p>她并不喜欢那些由异变产生的、方形的僵尸。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:utsuho" name="灵乌路 空" >
+                <unlock>
+                    <condition required="mvz2:level.palace_2"/>
+                </unlock>
+                <picture character="mvz2:utsuho"/>
+                <header>
+                    <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的宠物之一，能够操纵核能的地狱鸦。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>空原先只是个普通的地狱鸦，鸟脑袋，傻里傻气，十分健忘。</p>
+                    <p>之后她的体内寄宿了神明八咫乌，因此获得了操控核聚变的力量。</p>
+                    <p>同时负责着排除核聚变炉中的异物，以及调节灼热地狱遗址的火力这两件事情。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:koishi" name="古明地 恋" >
+                <unlock>
+                    <condition required="mvz2:level.palace_2"/>
+                </unlock>
+                <picture character="mvz2:koishi"/>
+                <header>
+                    <p><![CDATA[<ref=[misc]mvz2:chireiden>古明地 觉</ref>]]>的妹妹。</p>
+                </header>
+                <properties>
+                    <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>恋是自主封闭了自己的第三只眼的觉妖怪，她因此失去了读心的能力，并获得了操纵无意识的能力。</p>
+                    <p>因此她会长期陷入无意识状态，自己也不知道自己接下来的行动会是什么，无欲无求，没有任何目的，内心十分空洞。</p>
+                    <p>周围的人也会因为她的能力而难以察觉她的存在。觉能够感知到她的存在，但是无法读取她的内心。</p>
                 </flavor>
             </entry>
         </group>
