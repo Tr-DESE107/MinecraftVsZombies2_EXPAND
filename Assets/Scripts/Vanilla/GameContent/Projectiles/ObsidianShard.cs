@@ -25,11 +25,11 @@ namespace MVZ2.GameContent.Projectiles
                 return;
 
             var target = hitResult.Other;
-            // 造成10点穿甲伤害  
+            // 造成1点穿甲伤害  
             if (target != null && target.Exists() && !target.IsDead)
             {
                 var armorPiercingDamage = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR);
-                target.TakeDamage(10, armorPiercingDamage, projectile);
+                target.TakeDamage(1, armorPiercingDamage, projectile);
             }
         }
     }

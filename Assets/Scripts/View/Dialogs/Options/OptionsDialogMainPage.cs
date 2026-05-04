@@ -88,60 +88,95 @@ namespace MVZ2.UI
 
         #region 生命周期
         private void Awake()
-        {
-            sliderDict.Add(SliderType.Music, musicSlider);
-            sliderDict.Add(SliderType.Sound, soundSlider);
-            sliderDict.Add(SliderType.FastForward, fastForwardSlider);
+{
+    // 滑动条
+    if (musicSlider != null) sliderDict.Add(SliderType.Music, musicSlider);
+    if (soundSlider != null) sliderDict.Add(SliderType.Sound, soundSlider);
+    if (fastForwardSlider != null) sliderDict.Add(SliderType.FastForward, fastForwardSlider);
 
-            // 1-1
-            toggleDict.Add(ToggleType.SwapTrigger, swapTriggerToggle);
+    // 切换开关
+    if (swapTriggerToggle != null) toggleDict.Add(ToggleType.SwapTrigger, swapTriggerToggle);
+    if (pauseOnFocusLostToggle != null) toggleDict.Add(ToggleType.PauseOnFocusLost, pauseOnFocusLostToggle);
 
-            // 1-2
-            toggleDict.Add(ToggleType.PauseOnFocusLost, pauseOnFocusLostToggle);
-
-            // 2-1
-            textButtonDict.Add(TextButtonType.MoreOptions, moreOptionsButton);
+    // 文本按钮
+    if (moreOptionsButton != null)
+    {
+        textButtonDict.Add(TextButtonType.MoreOptions, moreOptionsButton);
+        if (moreOptionsButton.Button != null)
             buttonDict.Add(ButtonType.MoreOptions, moreOptionsButton.Button);
+    }
 
-            // 2-2
-            textButtonDict.Add(TextButtonType.Difficulty, diffcultyButton);
-            textButtonDict.Add(TextButtonType.Restart, restartButton);
+    if (diffcultyButton != null)
+    {
+        textButtonDict.Add(TextButtonType.Difficulty, diffcultyButton);
+        if (diffcultyButton.Button != null)
             buttonDict.Add(ButtonType.Difficulty, diffcultyButton.Button);
+    }
+
+    if (restartButton != null)
+    {
+        textButtonDict.Add(TextButtonType.Restart, restartButton);
+        if (restartButton.Button != null)
             buttonDict.Add(ButtonType.Restart, restartButton.Button);
+    }
 
-            // 3-1
-            textButtonDict.Add(TextButtonType.LeaveLevel, leaveLevelButton);
+    if (leaveLevelButton != null)
+    {
+        textButtonDict.Add(TextButtonType.LeaveLevel, leaveLevelButton);
+        if (leaveLevelButton.Button != null)
             buttonDict.Add(ButtonType.LeaveLevel, leaveLevelButton.Button);
+    }
 
-            // 3-2
-            textButtonDict.Add(TextButtonType.Back, backButton);
+    if (backButton != null)
+    {
+        textButtonDict.Add(TextButtonType.Back, backButton);
+        if (backButton.Button != null)
             buttonDict.Add(ButtonType.Back, backButton.Button);
+    }
 
-            foreach (var pair in sliderDict)
-            {
-                var type = pair.Key;
-                var slider = pair.Value;
-                slider.Slider.onValueChanged.AddListener(value => OnSliderValueChanged?.Invoke(type, value));
-                if (slider.EndHandler.Exists())
-                    slider.EndHandler.OnEnd += value => OnSliderEnd?.Invoke(type, slider.Slider.value);
-            }
-            foreach (var pair in buttonDict)
-            {
-                var type = pair.Key;
-                pair.Value.onClick.AddListener(() => OnButtonClick?.Invoke(type));
-            }
-            foreach (var pair in toggleDict)
-            {
-                var type = pair.Key;
-                pair.Value.Toggle.onValueChanged.AddListener((v) => OnToggleValueChanged?.Invoke(type, v));
-            }
-            var tooltipHandlers = gameObject.GetComponentsInChildren<TooltipHandler>(true);
-            foreach (var handler in tooltipHandlers)
+    // 添加事件监听器时也要检查
+    foreach (var pair in sliderDict)
+    {
+        var type = pair.Key;
+        var slider = pair.Value;
+        if (slider != null && slider.Slider != null)
+        {
+            slider.Slider.onValueChanged.AddListener(value => OnSliderValueChanged?.Invoke(type, value));
+            if (slider.EndHandler.Exists())
+                slider.EndHandler.OnEnd += value => OnSliderEnd?.Invoke(type, slider.Slider.value);
+        }
+    }
+    
+    foreach (var pair in buttonDict)
+    {
+        var type = pair.Key;
+        var button = pair.Value;
+        if (button != null)
+            button.onClick.AddListener(() => OnButtonClick?.Invoke(type));
+    }
+    
+    foreach (var pair in toggleDict)
+    {
+        var type = pair.Key;
+        var toggle = pair.Value;
+        if (toggle != null && toggle.Toggle != null)
+            toggle.Toggle.onValueChanged.AddListener((v) => OnToggleValueChanged?.Invoke(type, v));
+    }
+    
+    // tooltip handlers 处理
+    if (gameObject != null)
+    {
+        var tooltipHandlers = gameObject.GetComponentsInChildren<TooltipHandler>(true);
+        foreach (var handler in tooltipHandlers)
+        {
+            if (handler != null)
             {
                 handler.OnPointerEnter += OnTooltipHandlerPointerEnterCallback;
                 handler.OnPointerExit += OnTooltipHandlerPointerExitCallback;
             }
         }
+    }
+}
         #endregion
 
         #region 事件回调

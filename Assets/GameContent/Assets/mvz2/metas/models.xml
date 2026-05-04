@@ -104,7 +104,7 @@
     <model name="anvil" type="entity" path="mvz2:contraption/dream/anvil" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="random_china" type="entity" path="mvz2:contraption/prologue/random_china" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="error_block" type="entity" path="mvz2:contraption/upgrade/error_block" width="64" height="64" xOffset="0" yOffset="-28" />
-    <model name="snipenser" type="entity" path="mvz2:contraption/palace/snipenser" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="MegaSnipenser" type="entity" path="mvz2:contraption/palace/MegaSnipenser" width="64" height="64" xOffset="0" yOffset="-28" />
     
     <!--EXPAND Contraption-->
     <model name="Poisonser" type="entity" path="mvz2:contraption/halloween/Poisonser" width="64" height="64" xOffset="0" yOffset="-28" />
