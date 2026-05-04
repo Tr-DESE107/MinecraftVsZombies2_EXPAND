@@ -8702,7 +8702,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e6034adad83ad445b3e83b5d27cc173
-    m_Address: mvz2:contraption/palace/snipenser
+    m_Address: mvz2:contraption/palace/MegaSnipenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

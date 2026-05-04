@@ -3,14 +3,11 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Buffs.Entities;
-using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -19,7 +16,6 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
-using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 
 namespace MVZ2.GameContent.Enemies
@@ -29,23 +25,16 @@ namespace MVZ2.GameContent.Enemies
     {
         public NightmareDisciple(string nsp, string name) : base(nsp, name)
         {
-            detector = new DispenserDetector()
-            {
-                ignoreHighEnemy = true,
-                ignoreLowEnemy = true
-            };
+            // 继承父类的 detector 即可
         }
+
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            SetStateTimer(entity, new FrameTimer(ATTACK_CAST_TIME));
-            if (entity.GetVariant() == VARIANT_RANDOM)
-            {
-                entity.SetVariant(mageVariants.Random(entity.RNG));
-            }
             entity.SetAnimationInt("Variant", entity.GetVariant());
             entity.SetBehaviourField(ID, PROP_PORTAL_TIMER, new FrameTimer(PORTAL_COOLDOWN));
 
+            // 检查是否存活 Boss，添加 Buff
             var level = entity.Level;
             var hasAliveBoss = entity.Level.EntityExists(e => e != entity && (e.IsEntityOf(VanillaBossID.slenderman) || e.IsEntityOf(VanillaBossID.nightmareaper)) && !e.IsDead);
 
@@ -56,57 +45,42 @@ namespace MVZ2.GameContent.Enemies
                     entity.AddBuff<VanguardResistanceBuff>();
                 }
             }
-
-
         }
+
         protected override void UpdateAI(Entity entity)
         {
-            base.UpdateAI(entity);
-            switch (entity.State)
-            {
-                case STATE_WALK:
-                    UpdateStateWalk(entity);
-                    break;
-                case STATE_CAST:
-                    UpdateStateCast(entity);
-                    break;
-                case STATE_RANGED_ATTACK:
-                    UpdateStateAttack(entity);
-                    break;
-            }
-            PortalUpdate(entity);
+            base.UpdateAI(entity); // 这里会调用父类的基础状态机
+            PortalUpdate(entity);  // 加上你的专属 Portal 逻辑
         }
+
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
             entity.SetAnimationInt("Variant", entity.GetVariant());
         }
-        private void UpdateStateWalk(Entity enemy)
+
+        private void UpdateTarget(Entity enemy)
         {
-            UpdateTarget(enemy);
-            var timer = GetStateTimer(enemy);
-            if (timer != null)
+            if (CanShoot(enemy))
             {
-                timer.ResetTime(ATTACK_CAST_TIME);
+                if (enemy.Target != null && !ValidateTarget(enemy, enemy.Target))
+                {
+                    enemy.Target = null;
+                }
+                enemy.Target = FindTarget(enemy);
+            }
+            else
+            {
+                enemy.Target = null;
             }
         }
-        private void UpdateStateCast(Entity enemy)
+        // 重点：为了让你的 ATTACK_RESTORE_TIME_OWN 生效，必须重写这个方法并修改计时器
+        protected override void UpdateStateAttack(Entity enemy)
         {
             var timer = GetStateTimer(enemy);
             if (timer == null)
                 return;
-            timer.Run(enemy.GetAttackSpeed());
-            if (timer.Expired)
-            {
-                SetAttackState(enemy, ATTACK_STATE_FIRE);
-                timer.ResetTime(ATTACK_FIRE_TIME);
-            }
-        }
-        private void UpdateStateAttack(Entity enemy)
-        {
-            var timer = GetStateTimer(enemy);
-            if (timer == null)
-                return;
+
             timer.Run(enemy.GetAttackSpeed());
             if (timer.Expired)
             {
@@ -125,21 +99,7 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        private void UpdateTarget(Entity enemy)
-        {
-            if (CanShoot(enemy))
-            {
-                if (enemy.Target != null && !ValidateTarget(enemy, enemy.Target))
-                {
-                    enemy.Target = null;
-                }
-                enemy.Target = FindTarget(enemy);
-            }
-            else
-            {
-                enemy.Target = null;
-            }
-        }
+
         protected override void Shoot(Entity enemy)
         {
             var enemyClass = enemy.GetVariant();
@@ -155,19 +115,6 @@ namespace MVZ2.GameContent.Enemies
                         enemy.ShootProjectile(param);
                     }
                     break;
-                //case VARIANT_LIGHTNING:
-                //    {
-                //        var param = enemy.GetShootParams();
-                //        param.damage = enemy.GetDamage() * 0.2f;
-                //        param.projectileID = VanillaProjectileID.chargedBolt;
-                //        param.soundID = null;
-                //        param.velocity *= 0.4f;
-                //        for (int i = 0; i < 3; i++)
-                //        {
-                //            enemy.ShootProjectile(param);
-                //        }
-                //    }
-                //    break;
                 default:
                     {
                         var param = enemy.GetShootParams();
@@ -177,7 +124,6 @@ namespace MVZ2.GameContent.Enemies
                         enemy.ShootProjectile(param);
                     }
                     break;
-
             }
         }
 
@@ -259,45 +205,9 @@ namespace MVZ2.GameContent.Enemies
         #endregion
 
 
-        public static void SetStateTimer(Entity enemy, FrameTimer value) => enemy.SetBehaviourField(PROP_STATE_TIMER, value);
-        public static FrameTimer? GetStateTimer(Entity enemy) => enemy.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
-        public static void SetAttackState(Entity enemy, int value) => enemy.SetBehaviourField(PROP_ATTACK_STATE, value);
-        public static int GetAttackState(Entity enemy) => enemy.GetBehaviourField<int>(PROP_ATTACK_STATE);
-        protected virtual bool CanShoot(Entity enemy)
-        {
-            return enemy.Position.x <= enemy.Level.GetEntityColumnX(enemy.Level.GetMaxColumnCount() - 1);
-        }
-        protected virtual Entity? FindTarget(Entity entity)
-        {
-            var collider = detector.Detect(entity);
-            return collider?.Entity;
-        }
-        protected virtual bool ValidateTarget(Entity entity, Entity target)
-        {
-            return detector.ValidateTarget(entity, target);
-        }
-
         public static FrameTimer? GetPortalTimer(Entity boss) => boss.GetBehaviourField<FrameTimer>(ID, PROP_PORTAL_TIMER);
 
-        private Detector detector;
-        public const int STATE_WALK = LogicEnemyStates.WALK;
-        public const int STATE_CAST = LogicEnemyStates.CAST;
-        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
-
-        public const int ATTACK_STATE_CAST = 0;
-        public const int ATTACK_STATE_FIRE = 1;
-        public const int ATTACK_STATE_RESTORE = 2;
-
-        public const int ATTACK_CAST_TIME = 5;
-        public const int ATTACK_FIRE_TIME = 5;
-        public const int ATTACK_RESTORE_TIME_OWN = 600;
-
-        public const int VARIANT_RANDOM = 0;
-        public const int VARIANT_FIRE = 1;
-        public const int VARIANT_FROST = 2;
-        public const int VARIANT_LIGHTNING = 3;
-        public static readonly VanillaEntityPropertyMeta<int> PROP_ATTACK_STATE = new VanillaEntityPropertyMeta<int>("attackState");
-        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("attackTimer");
+        public const int ATTACK_RESTORE_TIME_OWN = 20; // 你自定义的攻击间隔
 
         private static readonly NamespaceID ID = VanillaEnemyID.NightmareDisciple;
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PORTAL_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("PortalTimer");
