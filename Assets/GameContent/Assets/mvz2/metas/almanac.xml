@@ -2959,7 +2959,7 @@
                 <unlock>
                     <condition required="mvz2:entered_palace"/>
                 </unlock>
-                <picture character="mvz2:eirin"/>
+                <picture sprite="mvz2:characters/armor_stand" character="mvz2:eirin"/>
                 <header>
                     <p>永远亭的医师。</p>
                 </header>
@@ -2975,7 +2975,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_1"/>
                 </unlock>
-                <picture character="mvz2:satori"/>
+                <picture sprite="mvz2:characters/armor_stand" character="mvz2:satori"/>
                 <header>
                     <p>居住于地下的觉妖怪，<![CDATA[<ref=[misc]mvz2:chireiden>地灵殿</ref>]]>的主人。</p>
                 </header>
@@ -2994,7 +2994,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture character="mvz2:rin"/>
+                <picture sprite="mvz2:characters/armor_stand" character="mvz2:rin"/>
                 <header>
                     <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的宠物之一，偷尸体的火车妖怪。</p>
                 </header>
@@ -3014,7 +3014,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture character="mvz2:utsuho"/>
+                <picture sprite="mvz2:characters/armor_stand" character="mvz2:utsuho"/>
                 <header>
                     <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的宠物之一，能够操纵核能的地狱鸦。</p>
                 </header>
@@ -3031,7 +3031,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture character="mvz2:koishi"/>
+                <picture sprite="mvz2:characters/armor_stand" character="mvz2:koishi"/>
                 <header>
                     <p><![CDATA[<ref=[misc]mvz2:chireiden>古明地 觉</ref>]]>的妹妹。</p>
                 </header>
@@ -3439,7 +3439,7 @@
                     </flavor>
                     <flavor>
                         <conditions>
-                            <condition required="mvz2:level.palace_4"/>
+                            <condition required="mvz2:level.palace_5"/>
                         </conditions>
                         <p>根据<![CDATA[<ref=[misc]mvz2:satori>觉</ref>]]>所说，三年前爆炸的位置位于妖怪之山上，大概是河童基地的位置。</p>
                     </flavor>
