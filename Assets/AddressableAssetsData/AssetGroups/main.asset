@@ -1907,6 +1907,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23c593eab5a6c084f8279e3507114199
+    m_Address: mvz2:chapter_transition/title_palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2440037b2007e8048a8817eab8c62e4c
     m_Address: mvz2:entity/contraptions/stone_eye_ray
     m_ReadOnly: 0
@@ -3556,6 +3563,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41b8b1da0aae7ce4ca2f884df9b30083
+    m_Address: mvz2:note/note_palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41dcf35c43418054cb6d7b6eb542f543
     m_Address: mvz2:maps
@@ -5239,6 +5253,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fe877b614795e144996e5d0ede65e81
     m_Address: mvz2:starshards/default
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fe8cc97fa275b24c8696a7ff5c984fa
+    m_Address: mvz2:note/background_palace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11010,6 +11031,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d17d37c1a790e63419fc44c2c577189a
+    m_Address: mvz2:archive/palace_note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1bf852fe2722b54e9735417e907a23c
     m_Address: mvz2:mobile_blueprint/necrotombstone

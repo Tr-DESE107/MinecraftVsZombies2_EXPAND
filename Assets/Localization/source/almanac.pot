@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-03 04:11+0800\n"
+"POT-Creation-Date: 2026-05-04 11:27+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3519,6 +3519,54 @@ msgid ""
 "红龙就这样闭上了眼睛。\n"
 "龙巢的火熄灭了。同伴们将龙的尸体分解，把它的牙、眼、爪、骨、鳞、和心脏作为战利品收集了起来。\n"
 "骑士默默看着他们兴奋的样子，最后却什么也没要。"
+msgstr ""
+
+#. Name for misc mvz2:locked_chest
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "上锁的箱子"
+msgstr ""
+
+#. Header for misc mvz2:locked_chest
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "上锁的箱子通过引诱、击晕他人，并将其吞下的方式，狩猎他人的灵魂。"
+msgstr ""
+
+#. Properties for misc mvz2:locked_chest
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red><var local=\"hp\" /></color>\n"
+"阶段1：<color=red>冲刺、高跳、封锁、粉碎之锁</color>\n"
+"阶段2：<color=red>冲刺、高跳、喷吐废物、召唤气球铁盔僵尸/滚干草/滚木/滚石、石化相机、喷吐僵尸蓝图、付费招式、愚人节玩笑</color>"
+msgstr ""
+
+#. Flavor for misc mvz2:locked_chest
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"这天，骑士单独出行，像往常一样探索着周围的地牢和洞穴，这时他看到了一个形状奇特的宝箱。\n"
+"宝箱上挂着一把坚固的锁，骑士又劈又砸，然而宝箱纹丝不动。骑士只能作罢，便准备回头。\n"
+"这时，他突然感到背后有一阵寒意，连忙躲闪。在这之后的一瞬间，那宝箱便重重地砸到了他原先的位置。\n"
+"“咯咯咯咯，你身手还挺不错的嘛咯咯咯咯”\n"
+"宝箱发出了诡异的笑声。\n"
+"“别见外，我只是饿了好几天而已。”\n"
+"“我知道你是来干什么的，受国王之命铲除怪物的吧？”\n"
+"“可是你有没有想过，真正的怪物到底在哪里呢？”\n"
+"宝箱快速地进行着致命的跳跃，骑士的剑却无法伤及其钢铁的外壳。\n"
+"就在穷途末路之际，宝箱的一次跳跃让它重重砸到了墙壁之上，它面前的锁因此破碎，而后它打开自己，露出了里面的血肉。\n"
+"就在这时，骑士看准时机，将剑刺入了它内部的血肉。\n"
+"“哎呀，真是不听人讲话啊咯咯咯”\n"
+"宝箱受了致命伤，只能瘫在地上。\n"
+"“我说啊，你就没有怀疑过，自古以来这些怪物都存在，为什么偏偏这个时候危害到你们王国了？”\n"
+"“你的那老国王，他的噩梦真的会是怪物们造成的吗？”\n"
+"骑士怒道：“你是怪物，又怎能了解我们人类的事情？”\n"
+"“咯咯咯，实话告诉你，其实我之前就在给那老国王卖命。结果那家伙就因为几条罪名就打算把我杀了，真是无聊咯咯咯。”\n"
+"“幸好我还留了几手变成了这模样，不然今天杀掉我的可不是你了咯咯咯”\n"
+"“是啊，你怎么知道你的后面不会有人准备对你动手呢？”\n"
+"箱子最后还在咯咯地笑着，那之后便散架了。\n"
+"骑士沉思了。"
 msgstr ""
 
 #. Name for almanac group mvz2:misc_entities
