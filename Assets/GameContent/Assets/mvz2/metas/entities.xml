@@ -3417,6 +3417,7 @@
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
 			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:skeleton_horse/animation" />
 				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_horse/state" />
 				<behaviour operator="replace" source="mvz2:enemy_melee" id="mvz2:skeleton_horse/melee" />
 			</behaviours>
@@ -3519,6 +3520,7 @@
 				<condition required="mvz2:level.castle_12" />
 			</unlock>
 			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:skeleton_mage/animation" />
 				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state" />
 				<behaviour operator="remove" id="mvz2:enemy_melee" />
 			</behaviours>
