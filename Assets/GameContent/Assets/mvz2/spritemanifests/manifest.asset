@@ -213,12 +213,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
   - name: misc/dead_red_dragon
     sprite: {fileID: 21300000, guid: 0da8ea7b3ec83e94793e912ac5ea6c81, type: 3}
+  - name: misc/downed_tokiko
+    sprite: {fileID: 21300000, guid: afa886669857a1e418b0316c139ebcc2, type: 3}
   - name: misc/dragon_fallen_place
     sprite: {fileID: 21300000, guid: 4793d226f42daea46946880a3e168402, type: 3}
   - name: misc/dream
     sprite: {fileID: 21300000, guid: 8826f776dff1c6a4d8d72030535a150e, type: 3}
   - name: misc/dream_darkness
     sprite: {fileID: 21300000, guid: ea1dc867602a6da4cac4f2bc72dd4f5e, type: 3}
+  - name: misc/eientei_inside
+    sprite: {fileID: 21300000, guid: 7115796f746855040a8dba6478a983f0, type: 3}
   - name: misc/end_ship
     sprite: {fileID: 21300000, guid: 7e371a692db43054c88eb8560c9ebd74, type: 3}
   - name: misc/eternal_night_swamp
@@ -1557,6 +1561,7 @@ MonoBehaviour:
     - {fileID: -79018707, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -2106919776, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -900475582, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
+    - {fileID: 734534095, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
   - name: icons/parasitized_icon
     spritesheet:
     - {fileID: -1697089634, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}

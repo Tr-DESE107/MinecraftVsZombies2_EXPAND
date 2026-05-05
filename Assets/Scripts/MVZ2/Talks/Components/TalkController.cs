@@ -230,10 +230,6 @@ namespace MVZ2.Talk
                     NextSentence();
                     break;
 
-                case "section":
-                    StartSection(ParseArgumentInt(args[0]));
-                    break;
-
                 case "sentence":
                     SetSentence(ParseArgumentInt(args[0]));
                     break;
@@ -614,6 +610,9 @@ namespace MVZ2.Talk
             var args = script.arguments;
             switch (script.function)
             {
+                case "section":
+                    await StartSection(ParseArgumentInt(args[0]));
+                    break;
                 case "delay":
                     canClick = false;
                     await Main.CoroutineManager.DelaySeconds(ParseArgumentFloat(args[0]));
@@ -672,10 +671,15 @@ namespace MVZ2.Talk
         /// <summary>
         /// 开始区间。
         /// </summary>
-        public void StartSection(int index)
+        public async Task StartSection(int index)
         {
             sectionIndex = index;
             sentenceIndex = 0;
+            var section = GetTalkSection();
+            if (section?.startScripts != null)
+            {
+                await ExecuteScriptsAsync(section.startScripts);
+            }
             StartSentence();
         }
 
@@ -969,10 +973,20 @@ namespace MVZ2.Talk
             ui.SetSpeechBubbleShowing(false);
             ui.SetRaycastReceiverActive(false);
 
-            ui.StartBackcolorFade(Color.clear, 1);
-            ui.StartForecolorFade(Color.clear, 1);
-            ui.StartBackgroundFade(0, 1);
-            ui.StartForegroundFade(0, 1);
+            if (ui.gameObject.activeInHierarchy)
+            {
+                ui.StartBackcolorFade(Color.clear, 1);
+                ui.StartForecolorFade(Color.clear, 1);
+                ui.StartBackgroundFade(0, 1);
+                ui.StartForegroundFade(0, 1);
+            }
+            else
+            {
+                ui.SetBackcolor(Color.clear);
+                ui.SetForecolor(Color.clear);
+                ui.SetBackgroundAlpha(0);
+                ui.SetForegroundAlpha(0);
+            }
 
             ui.SetBlockerActive(false);
             ui.SetSkipButtonActive(false);

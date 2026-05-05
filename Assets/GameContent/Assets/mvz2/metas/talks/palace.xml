@@ -10,12 +10,13 @@
     <section>
       <!--分段开始脚本-->
       <onStart>
+        <script>background alpha 1</script>
         <script>background change mvz2:misc/kourindou_front</script>
       </onStart>
       <!--分段自动跳过脚本-->
       <onAutoSkip>
+        <script>background alpha 1</script>
         <script>background change mvz2:misc/eientei_inside</script>
-
         <script>unlock mvz2:entered_palace</script>
         <script>music fade 0</script>
         <script>bubble hide</script>
@@ -27,6 +28,8 @@
       </onAutoSkip>
       <!--分段跳过脚本-->
       <onSkip>
+        <script>character leave mvz2:crazy_villager</script>
+        <script>character leave mvz2:marisa</script>
         <script>foreground alpha 0</script>
         <script>forecolor set #000F</script>
         <script>music fade 0</script>
@@ -40,7 +43,7 @@
       <!--语句列表-->
       <sentences>
         <!--语句0-->
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream">
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
           <text>啊，久违的香霖堂，又回来了啊。</text>
         </sentence>
         <!--语句1-->
@@ -59,7 +62,7 @@
           <text>……</text>
         </sentence>
         <!--语句4-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_question">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
           <text>……？朱鹭子？</text>
         </sentence>
         <!--语句5-->
@@ -69,14 +72,19 @@
         <!--语句6-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">
           <text>朱鹭子？你在吗？</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（进去看看吧。）</color>]]></text>
           <onClick>
             <script>bubble hide</script>
             <script>forecolor fade #0000 #000F 1</script>
             <script>delay 2</script>
 
             <script>forecolor fade #000F #FFFF 0.5</script>
+            <script>playsound mvz2:dialog_wipe</script>
             <script>delay 1</script>
 
+            <script>foreground alpha 1</script>
             <script>foreground change mvz2:misc/downed_tokiko</script>
             <script>background change mvz2:store/background_kourindou</script>
             <script>forecolor set #0000</script>
@@ -103,6 +111,12 @@
           </onStart>
           <text>怎怎怎怎么回事？！</text>
         </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut">
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text><![CDATA[<color=red>（血、血！！！）</color>]]></text>
+        </sentence>
         <!--语句9-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat">
           <onStart>
@@ -114,7 +128,6 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_explosive">
           <onStart>
             <script>shake</script>
-            <script>foreground alpha 0</script>
           </onStart>
           <text>香霖堂不是有器械保护着吗，怎么会发生这种事！</text>
         </sentence>
@@ -127,6 +140,10 @@
             <script>shake</script>
           </onStart>
           <text>该死，呼吸越来越弱了！</text>
+          <onClick>
+            <script>foreground alpha 0</script>
+            <script>next</script>
+          </onClick>
         </sentence>
         <!--语句12-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_beat">
@@ -143,7 +160,7 @@
           <text>但是，永远亭离这里太远了啊！恐怕不到那里就……</text>
         </sentence>
         <!--语句14-->
-        <sentence speaker="mvz2:marisa" speakerName="？？？" sounds="mvz2:dialog_question">
+        <sentence speaker="mvz2:marisa" speakerName="？？？" sounds="mvz2:dialog_weird">
           <text>怎、怎么回事？发生什么事了？</text>
           <onClick>
             <script>bubble hide</script>
@@ -190,7 +207,7 @@
           <text>……</text>
         </sentence>
         <!--语句21-->
-        <sentence speaker="mvz2:marisa" sounds="mvz2:dialog_question">
+        <sentence speaker="mvz2:marisa" sounds="mvz2:dialog_weird">
           <text>要我，送她？</text>
         </sentence>
         <!--语句22-->
@@ -201,7 +218,7 @@
           <text>我知道你和她之间有些不合，但是这是唯一的希望！</text>
         </sentence>
         <!--语句23-->
-        <sentence speaker="mvz2:marisa" sounds="mvz2:talk">
+        <sentence speaker="mvz2:marisa" variant="mvz2:sad" sounds="mvz2:talk">
           <onStart>
             <script>shake</script>
           </onStart>
@@ -222,7 +239,7 @@
           <text>……</text>
         </sentence>
         <!--语句26-->
-        <sentence speaker="mvz2:marisa" variant="mvz2:sad" sounds="mvz2:talk">
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk">
           <text>霖之助……</text>
         </sentence>
         <!--语句27-->
@@ -264,6 +281,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>明白了！</text>
           <onClick>
+            <script>bubble hide</script>
             <script>character leave mvz2:crazy_villager</script>
             <script>music fade 0</script>
             <script>forecolor fade #0000 #000F 1</script>
@@ -275,10 +293,27 @@
       </sentences>
     </section>
     <section>
+      <!--分段开始脚本-->
+      <onStart>
+        <script>bubble hide</script>
+        <script>character create mvz2:marisa left mvz2:sad</script>
+        <script>delay 0.5</script>
+        <script>foreground alpha 0</script>
+        <script>background alpha 1</script>
+        <script>background change mvz2:misc/eientei_inside</script>
+        <script>forecolor fade #000F #0000 2</script>
+        <script>delay 3</script>
+
+        <script>character create mvz2:eirin right</script>
+        <script>delay 0.5</script>
+
+      </onStart>
       <!--分段跳过脚本-->
       <onSkip>
         <script>forecolor set #000F</script>
-        <script>character leaveall</script>
+        <script>character leave mvz2:marisa</script>
+        <script>character leave mvz2:crazy_villager</script>
+        <script>character leave mvz2:eirin</script>
         <script>section 2</script>
       </onSkip>
       <!--对话档案文本-->
@@ -286,27 +321,15 @@
       <!--角色列表-->
       <characters>
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:marisa" side="left" />
-        <character id="mvz2:eirin" side="right" />
       </characters>
       <sentences>
         <!--语句33-->
         <sentence speaker="mvz2:eirin" sounds="mvz2:talk">
-          <onStart>
-            <script>bubble hide</script>
-            <script>delay 2</script>
-            <script>foreground alpha 0</script>
-            <script>background alpha 1</script>
-            <script>background change mvz2:misc/eientei_inside</script>
-            <script>forecolor fade #000F #0000 2</script>
-            <script>delay 3</script>
-            <script>bubble show</script>
-          </onStart>
           <text>病人已经脱离危险了。</text>
         </sentence>
         <!--语句34-->
         <sentence speaker="mvz2:eirin" sounds="mvz2:talk">
-          <text>头部遭人重击，失去了意识，并带有出血。好在经过治疗之后已经没事了。</text>
+          <text>头部遭人重击，失去意识，并被边角击中，带有头皮裂伤以及出血。好在经过治疗之后已经没事了。</text>
         </sentence>
         <!--语句35-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
@@ -316,6 +339,7 @@
         <sentence speaker="mvz2:eirin" sounds="mvz2:talk">
           <text>我去看看其他病人了。</text>
           <onClick>
+            <script>bubble hide</script>
             <script>character leave mvz2:eirin</script>
             <script>delay 1</script>
             <script>next</script>
@@ -342,7 +366,7 @@
           <text>……</text>
         </sentence>
         <!--语句42-->
-        <sentence speaker="mvz2:marisa" sounds="mvz2:dialog_question">
+        <sentence speaker="mvz2:marisa" sounds="mvz2:dialog_weird">
           <text>其实我现在、有些愧疚。</text>
         </sentence>
         <!--语句43-->
@@ -397,6 +421,7 @@
         <sentence speaker="mvz2:marisa" sounds="mvz2:talk">
           <text>再见。</text>
           <onClick>
+            <script>bubble hide</script>
             <script>character leave mvz2:marisa</script>
             <script>delay 2</script>
             <script>next</script>
@@ -404,8 +429,9 @@
         </sentence>
         <!--语句56-->
         <sentence speaker="mvz2:steve" description="（魔理沙离开）" sounds="mvz2:talk">
-          <text>（香霖堂到底发生了什么……）</text>
+          <text><![CDATA[<color=blue>（香霖堂到底发生了什么……）</color>]]></text>
           <onClick>
+            <script>bubble hide</script>
             <script>character create mvz2:crazy_villager left</script>
             <script>delay 0.5</script>
             <script>playsound mvz2:dialog_surprised</script>
@@ -423,15 +449,17 @@
           <text>我检查了一遍，香霖堂没有任何物品丢失。</text>
         </sentence>
         <!--语句59-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_question">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
           <text>诶？那犯人为什么——</text>
         </sentence>
         <!--语句60-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
           <text>不知道啊。总之先去问问朱鹭子吧。</text>
           <onClick>
+            <script>bubble hide</script>
             <script>forecolor fade #0000 #000F 1</script>
-            <script>delay 2</script>
+            <script>delay 1</script>
+            <script>character leave mvz2:crazy_villager</script>
 
             <script>section 2</script>
           </onClick>
@@ -439,6 +467,18 @@
       </sentences>
     </section>
     <section>
+      <onStart>
+        <script>bubble hide</script>
+        <script>character create mvz2:crazy_villager left</script>
+        <script>character create mvz2:tokiko right mvz2:worried_wounded</script>
+        <script>delay 0.5</script>
+        <script>foreground alpha 0</script>
+        <script>background alpha 1</script>
+        <script>background change mvz2:misc/eientei_inside</script>
+        <script>forecolor fade #000F #0000 2</script>
+        <script>delay 3</script>
+        <script>bubble show</script>
+      </onStart>
       <!--分段跳过脚本-->
       <onSkip>
         <script>unlock mvz2:entered_palace</script>
@@ -460,16 +500,6 @@
       <sentences>
         <!--语句61-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
-          <onStart>
-            <script>bubble hide</script>
-            <script>delay 2</script>
-            <script>foreground alpha 0</script>
-            <script>background alpha 1</script>
-            <script>background change mvz2:misc/eientei_inside</script>
-            <script>forecolor fade #000F #0000 2</script>
-            <script>delay 3</script>
-            <script>bubble show</script>
-          </onStart>
           <text>……？</text>
         </sentence>
         <!--语句62-->
@@ -501,7 +531,7 @@
           <text>那个，不好意思。</text>
         </sentence>
         <!--语句69-->
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_question">
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_weird">
           <text>你们是哪位？</text>
         </sentence>
         <!--语句70-->
@@ -512,7 +542,7 @@
           <text>！</text>
         </sentence>
         <!--语句71-->
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_question">
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_weird">
           <text>还有，我是……？</text>
         </sentence>
         <!--语句72-->
@@ -557,7 +587,7 @@
           <text>是，最近非常多。</text>
         </sentence>
         <!--语句79-->
-        <sentence speaker="mvz2:eirin" sounds="mvz2:dialog_question">
+        <sentence speaker="mvz2:eirin" sounds="mvz2:dialog_weird">
           <text>不过，找回她的记忆的话，我倒是有个两全其美的办法。</text>
         </sentence>
         <!--语句80-->
@@ -1629,7 +1659,7 @@
         </sentence>
         <!--语句30-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>（怎么……会这样……）</text>
+          <text><![CDATA[<color=blue>（怎么……会这样……）</color>]]></text>
         </sentence>
         <!--语句31-->
         <sentence speaker="mvz2:rin" speakerName="？？？" sounds="mvz2:talk">
