@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-04 03:01+0800\n"
-"PO-Revision-Date: 2026-05-04 20:37+0800\n"
+"POT-Creation-Date: 2026-05-05 12:46+0800\n"
+"PO-Revision-Date: 2026-05-05 12:47+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -5514,7 +5514,7 @@ msgstr "Eirin Yagokoro"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "永远亭的医师。"
-msgstr ""
+msgstr "The physician of Eientei."
 
 #. Flavor for misc mvz2:eirin
 #: Almanac meta file
@@ -5523,6 +5523,8 @@ msgid ""
 "永远亭的医师，在幻想乡中行医，并进行药物研究。\n"
 "来自月球，曾是月之都的贤者之一，是个天才，智力极其之高。"
 msgstr ""
+"She practices medicine while also conducting pharmaceutical research within Gensokyo.\n"
+"Originally from the Moon, she was once one of the sages of the Lunar Capital—a true genius with extraordinarily high intelligence."
 
 #. Name for misc mvz2:satori
 #: Almanac meta file
@@ -5534,7 +5536,7 @@ msgstr "Satori Komeiji"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "居住于地下的觉妖怪，<ref=[misc]mvz2:chireiden>地灵殿</ref>的主人。"
-msgstr ""
+msgstr "A satori youkai who lives underground, and the mistress of the <ref=[misc]mvz2:chireiden>Palace of the Earth Spirits</ref>."
 
 #. Flavor for misc mvz2:satori
 #: Almanac meta file
@@ -5546,6 +5548,14 @@ msgid ""
 "\n"
 "在调查最近发生的一些连环袭击事件。"
 msgstr ""
+"Residing in the Palace of the Earth Spirits, she has been entrusted with managing the vengeful spirits of Old Hell—specifically, "
+"Remains of Blazing Hell.\n"
+"She is honest and gentle, though somewhat introverted. However, because she possesses the ability to read the thoughts of others—and "
+"can even employ hypnosis—she is feared and shunned by most humans and youkai.\n"
+"She loves animals and keeps a great many pets. Using her abilities, she can communicate with them, and is well loved by animals in "
+"return.\n"
+"\n"
+"She is currently investigating a series of recent attacks."
 
 #. Name for misc mvz2:rin
 #: Almanac meta file
@@ -5557,7 +5567,7 @@ msgstr "Rin Kaenbyou"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "<ref=[misc]mvz2:satori>古明地 觉</ref>的宠物之一，偷尸体的火车妖怪。"
-msgstr ""
+msgstr "One of <ref=[misc]mvz2:satori>Satori Komeiji</ref>'s pets—a corpse-stealing kasha youkai."
 
 #. Flavor for misc mvz2:rin
 #: Almanac meta file
@@ -5570,6 +5580,13 @@ msgid ""
 "\n"
 "她并不喜欢那些由异变产生的、方形的僵尸。"
 msgstr ""
+"A kasha youkai that dwells within flames, with a cheerful personality.\n"
+"She is extremely interested in corpses, though she avoids those that have already been buried and does not actively kill people. Her "
+"body carries the stench of decay.\n"
+"The corpses she collects are given to <ref=[misc]mvz2:utsuho>Utsuho</ref> to help regulate the heat of Remains of Blazing Hell.\n"
+"She can also communicate with corpses and spirits, or can capture and control them.\n"
+"\n"
+"She dislikes those blocky zombies created by The Incident."
 
 #. Name for misc mvz2:utsuho
 #: Almanac meta file
@@ -5581,7 +5598,7 @@ msgstr "Utsuho Reiuji"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "<ref=[misc]mvz2:satori>古明地 觉</ref>的宠物之一，能够操纵核能的地狱鸦。"
-msgstr ""
+msgstr "One of <ref=[misc]mvz2:satori>Satori Komeiji</ref>'s pets—a hell raven capable of controlling nuclear energy."
 
 #. Flavor for misc mvz2:utsuho
 #: Almanac meta file
@@ -5591,6 +5608,10 @@ msgid ""
 "之后她的体内寄宿了神明八咫乌，因此获得了操控核聚变的力量。\n"
 "同时负责着排除核聚变炉中的异物，以及调节灼热地狱遗址的火力这两件事情。"
 msgstr ""
+"Utsuho was originally just an ordinary hell raven—birdbrained, airheaded, and extremely forgetful.\n"
+"The god Yatagarasu came to reside within her body afterwards, thus granting her the power to manipulate nuclear fusion.\n"
+"She is also responsible for two tasks: removing foreign matter from the Nuclear Furnace and regulating the fires of Remains of Blazing "
+"Hell."
 
 #. Name for misc mvz2:koishi
 #: Almanac meta file
@@ -5601,8 +5622,8 @@ msgstr "Koishi Komeiji"
 #. Header for misc mvz2:koishi
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "<ref=[misc]mvz2:chireiden>古明地觉</ref>的妹妹。"
-msgstr ""
+msgid "<ref=[misc]mvz2:chireiden>古明地 觉</ref>的妹妹。"
+msgstr "<ref=[misc]mvz2:satori>Satori Komeiji</ref>'s younger sister."
 
 #. Flavor for misc mvz2:koishi
 #: Almanac meta file
@@ -5612,6 +5633,12 @@ msgid ""
 "因此她会长期陷入无意识状态，自己也不知道自己接下来的行动会是什么，无欲无求，没有任何目的，内心十分空洞。\n"
 "周围的人也会因为她的能力而难以察觉她的存在。觉能够感知到她的存在，但是无法读取她的内心。"
 msgstr ""
+"Koishi is a satori youkai who voluntarily sealed her own third eye. As a result, she lost her ability to read minds and instead gained "
+"the power to manipulate the unconscious.\n"
+"Because of this, she remains in a prolonged unconscious state—unaware even of her own future actions. She is without desires or "
+"attachments, acts without purpose, and her inner self is profoundly hollow.\n"
+"Those around her also find it difficult to perceive her presence due to her ability. Satori can sense that she is there but cannot "
+"read her thoughts."
 
 #. Name for almanac group mvz2:areas
 #: Almanac meta file

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-04 03:01+0800\n"
+"POT-Creation-Date: 2026-05-05 12:46+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4473,7 +4473,7 @@ msgstr ""
 #. Header for misc mvz2:koishi
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "<ref=[misc]mvz2:chireiden>古明地觉</ref>的妹妹。"
+msgid "<ref=[misc]mvz2:chireiden>古明地 觉</ref>的妹妹。"
 msgstr ""
 
 #. Flavor for misc mvz2:koishi
