@@ -13,5 +13,6 @@ namespace MVZ2Logic.Games
         bool IsPointerDown(int type, int button);
         bool IsPointerHolding(int type, int button);
         bool IsPointerUp(int type, int button);
+        int GetActivePointerType();
     }
 }
