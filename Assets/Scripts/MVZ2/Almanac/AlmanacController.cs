@@ -15,6 +15,7 @@ using MVZ2.Metas;
 using MVZ2.Models;
 using MVZ2.Saves;
 using MVZ2.Scenes;
+using MVZ2.Talk;
 using MVZ2.UI;
 using MVZ2.UI.Almanac;
 using MVZ2.Vanilla.Audios;
@@ -174,42 +175,35 @@ namespace MVZ2.Almanacs
             if (page != AlmanacPageType.Miscs)
                 return;
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(LogicAlmanacCategories.MISC, activeMiscEntryID);
-            Sprite? sprite = null;
-            if (entry != null)
-            {
-                sprite = Main.AlmanacManager.GetEntryPictureSprite(entry);
-            }
-            if (sprite.Exists())
-            {
-                bool canSwitchPage = false;
-                var picture = entry?.picture;
-                var characterID = picture?.character;
-                var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
-                if (characterMeta != null)
-                {
-                    var unlockedVariants = characterMeta.variants.Where(v => v.unlock.IsNullOrMeetsConditions(Main.SaveManager));
-                    if (unlockedVariants.Count() > 1)
-                    {
-                        canSwitchPage = true;
-                    }
-                }
 
-                var textKey = Main.InputManager.GetActivePointerType() == PointerTypes.TOUCH ? ZOOM_HINT_TOUCH : ZOOM_HINT_MOUSE;
-                var hintText = Main.LanguageManager._p(LogicStrings.CONTEXT_ALMANAC, textKey);
-                ui.SetZoomHintText(hintText);
-                ui.SetZoomPageButtonsActive(canSwitchPage);
-                ui.SetZoomSprite(sprite);
-                ui.StartZoom();
-                zoomIndex = 0;
+            var picture = entry?.picture;
+            var characterID = picture?.character;
+            if (NamespaceID.IsValid(characterID)) 
+            {
+                ShowCharacterZoom(characterID);
+            }
+            else
+            {
+                Sprite? sprite = null;
+                if (entry != null)
+                {
+                    sprite = Main.AlmanacManager.GetEntryPictureSprite(entry);
+                }
+                if (sprite.Exists())
+                {
+                    ShowSpriteZoom(sprite, false);
+                }
             }
             Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private void OnZoomReturnClickCallback()
         {
-            ui.StopZoom();
+            StopZoom();
         }
         private void OnZoomPageButtonClickCallback(bool next)
         {
+            if (zoomPortrait == null)
+                return;
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(LogicAlmanacCategories.MISC, activeMiscEntryID);
             var picture = entry?.picture;
             if (picture == null)
@@ -223,27 +217,20 @@ namespace MVZ2.Almanacs
                 if (variants.Count <= 0)
                     return;
                 int cycleCount = 0;
-                Sprite? sprite = null;
                 do
                 {
                     zoomIndex = MathTool.CycleOffset(zoomIndex, offset, variants.Count);
                     var variant = variants[zoomIndex];
                     if (variant.unlock.IsNullOrMeetsConditions(Main.SaveManager))
                     {
-                        sprite = Main.ResourceManager.GetCharacterSprite(characterID, variant.id);
-                        if (sprite.Exists())
-                        {
-                            break;
-                        }
+                        var viewData = Main.TalkManager.GetPortraitViewData(variant);
+                        zoomPortrait.ChangeVariant(viewData);
+                        ui.SetZoomSprite(zoomPortrait.GetSprite());
+                        break;
                     }
                     cycleCount++;
                 }
                 while (cycleCount < variants.Count);
-
-                if (sprite != null)
-                {
-                    ui.SetZoomSprite(sprite);
-                }
             }
         }
         #endregion
@@ -962,6 +949,47 @@ namespace MVZ2.Almanacs
         }
         #endregion
 
+        #region 放大镜
+        private void ShowCharacterZoom(NamespaceID characterID)
+        {
+            bool canSwitchPage = false;
+            var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
+            if (characterMeta == null)
+                return;
+            var unlockedVariants = characterMeta.variants.Where(v => v.unlock.IsNullOrMeetsConditions(Main.SaveManager));
+            int variantCount = unlockedVariants.Count();
+            if (variantCount <= 0)
+                return;
+            if (variantCount > 1)
+            {
+                canSwitchPage = true;
+            }
+
+            var variant = unlockedVariants.First();
+            zoomPortrait = Main.TalkManager.CreateCharacterPortrait(variant);
+            ShowSpriteZoom(zoomPortrait.GetSprite(), canSwitchPage);
+        }
+        private void ShowSpriteZoom(Sprite sprite, bool canSwitchPage)
+        {
+            var textKey = Main.InputManager.GetActivePointerType() == PointerTypes.TOUCH ? ZOOM_HINT_TOUCH : ZOOM_HINT_MOUSE;
+            var hintText = Main.LanguageManager._p(LogicStrings.CONTEXT_ALMANAC, textKey);
+            ui.SetZoomHintText(hintText);
+            ui.SetZoomPageButtonsActive(canSwitchPage);
+            ui.SetZoomSprite(sprite);
+            ui.StartZoom();
+            zoomIndex = 0;
+        }
+        private void StopZoom()
+        {
+            ui.StopZoom();
+            if (zoomPortrait != null)
+            {
+                zoomPortrait.Dispose();
+                zoomPortrait = null;
+            }
+        }
+        #endregion
+
         private void LockTooltipEntryTag(int entryTagIndex)
         {
             tagTooltipLockedTarget = entryTagIndex;
@@ -1013,6 +1041,7 @@ namespace MVZ2.Almanacs
         private int tagTooltipLockedTarget;
         private string? descriptionTagTooltipLockedTarget;
         private int zoomIndex;
+        private CharacterPortrait? zoomPortrait;
 
         private const string hyperlinkPattern = @"<ref=([\w\[\]\-\.:]+?)>(.+?)</ref>";
         private static Regex hyperlinkRegex = new Regex(hyperlinkPattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);

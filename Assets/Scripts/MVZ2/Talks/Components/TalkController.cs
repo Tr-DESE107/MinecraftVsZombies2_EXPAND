@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Managers;
@@ -17,6 +18,7 @@ using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace MVZ2.Talk
 {
@@ -115,6 +117,7 @@ namespace MVZ2.Talk
         #region 生命周期
         private void Awake()
         {
+            characterTemplate.gameObject.SetActive(false);
             ui.OnSkipClick += OnSkipClickedCallback;
             ui.OnClick += OnClickCallback;
         }
@@ -260,30 +263,18 @@ namespace MVZ2.Talk
                                         break;
                                     var variant = ParseArgumentNamespaceID(args[2]);
 
-                                    var sprite = Main.ResourceManager.GetCharacterSprite(targetCharacter, variant);
-                                    if (sprite.Exists())
-                                    {
-                                        var meta = Main.ResourceManager.GetCharacterMeta(targetCharacter);
-                                        var variantMeta = meta?.variants?.FirstOrDefault(v => v.id == variant);
-                                        Vector2 widthExtend = Vector2.zero;
-                                        if (variantMeta != null)
-                                        {
-                                            widthExtend = variantMeta.widthExtend;
-                                        }
-                                        ui.SetCharacterSprite(characterIndex, sprite);
-                                        ui.SetCharacterWidthExtend(characterIndex, widthExtend);
-                                    }
+                                    SetCharacterVariant(characterIndex, targetCharacter, variant);
                                 }
                                 break;
                             case "leave":
                                 {
                                     var characterId = ParseArgumentNamespaceID(args[1]);
-                                    LeaveCharacter(characterId);
+                                    CharacterLeave(characterId);
                                 }
                                 break;
                             case "leaveall":
                                 {
-                                    LeaveAllCharacters();
+                                    AllCharactersLeave();
                                 }
                                 break;
                             case "faint":
@@ -294,7 +285,11 @@ namespace MVZ2.Talk
                                     {
                                         duration = ParseArgumentFloat(args[2]);
                                     }
-                                    FaintCharacter(characterId, duration);
+                                    var characterIndex = GetCharacterIndex(characterId);
+                                    if (characterIndex < 0)
+                                        break;
+
+                                    CharacterFaint(characterIndex, duration);
                                 }
                                 break;
                         }
@@ -714,10 +709,12 @@ namespace MVZ2.Talk
             {
                 var characterData = characterList[i];
                 bool isSpeaker = speakerID == characterData.id;
-                ui.SetCharacterSpeaking(i, isSpeaker);
+
+                var controller = characterData.controller;
+                controller.SetSpeaking(isSpeaker);
                 if (isSpeaker)
                 {
-                    ui.SetCharacterToTheFirstLayer(i);
+                    controller.SetToTheFirstLayer(i);
                 }
             }
 
@@ -725,8 +722,7 @@ namespace MVZ2.Talk
             var speakerIndex = GetCharacterIndex(speakerID);
             if (speakerIndex >= 0 && NamespaceID.IsValid(sentence.variant))
             {
-                var sprite = Main.ResourceManager.GetCharacterSprite(speakerID, sentence.variant);
-                ui.SetCharacterSprite(speakerIndex, sprite);
+                SetCharacterVariant(speakerIndex, speakerID!, sentence.variant);
             }
 
             var textKey = sentence.text;
@@ -797,75 +793,120 @@ namespace MVZ2.Talk
             }
         }
         #endregion
-        public void ExampleMethod(int i)
-        {
-            if (i != 0)
-            {
-                return;
-            }
-            // 当 i 为 0 时，下面的条件 i != 0 将始终为 false
-            if (i != 0) // 这里应该触发 CA1508 警告
-            {
-                // 死代码
-            }
-        }
+
+
+        #region 角色
         private int GetCharacterIndex(NamespaceID? id)
         {
             return characterList.FindIndex(d => d.id == id);
         }
+        private TalkCharacterController? GetCharacter(int index)
+        {
+            if (index < 0 || index >= characterList.Count)
+                return null;
+            return characterList[index].controller;
+        }
+
+
         public void CreateCharacter(NamespaceID characterId, NamespaceID? variant, CharacterSide side)
         {
-            var viewData = Main.ResourceManager.GetCharacterViewData(characterId, variant, side);
-            ui.CreateCharacter(viewData);
-            characterList.Add(new CharacterData(characterId, side));
+            var chr = Instantiate(characterTemplate, characterRoot).GetComponent<TalkCharacterController>();
+            chr.gameObject.SetActive(true);
+            chr.SetVariant(characterId, variant);
+            chr.SetSide(side);
+            characterList.Add(new CharacterData(characterId, side, chr));
         }
+
+
         public bool RemoveCharacter(NamespaceID characterID)
         {
             var index = GetCharacterIndex(characterID);
             if (index < 0)
                 return false;
-            characterList.RemoveAt(index);
-            ui.RemoveCharacterAt(index);
+            RemoveCharacterAt(index);
             return true;
         }
-        private void LeaveCharacter(NamespaceID id)
+        public void RemoveCharacterAt(int index)
         {
-            var index = GetCharacterIndex(id);
-            if (index < 0)
-                return;
             characterList.RemoveAt(index);
-            ui.LeaveCharacterAt(index);
         }
-        private void LeaveAllCharacters()
-        {
-            for (int i = characterList.Count - 1; i >= 0; i--)
-            {
-                var characterData = characterList[i];
-                LeaveCharacter(characterData.id);
-            }
-        }
-        private void FaintCharacter(NamespaceID id, float duration)
-        {
-            var index = GetCharacterIndex(id);
-            if (index < 0)
-                return;
-            characterList.RemoveAt(index);
-            ui.CharacterDisappear(index, 1 / duration);
-        }
+
+
         public bool DestroyCharacter(NamespaceID characterID)
         {
             var index = GetCharacterIndex(characterID);
             if (index < 0)
                 return false;
-            characterList.RemoveAt(index);
-            ui.DestroyCharacterAt(index);
+            DestroyCharacterAt(index);
             return true;
         }
+        public void DestroyCharacterAt(int index)
+        {
+            var chr = GetCharacter(index);
+            if (chr.Exists())
+                Destroy(chr.gameObject);
+            RemoveCharacterAt(index);
+        }
+
+
         public void ClearCharacters()
         {
-            ui.ClearCharacters();
+            foreach (var data in characterList)
+            {
+                Destroy(data.controller.gameObject);
+            }
             characterList.Clear();
         }
+
+        public void SetCharacterVariant(int index, NamespaceID characterId, NamespaceID variantId)
+        {
+            var speaker = GetCharacter(index);
+            if (speaker.Exists())
+            {
+                speaker.SetVariant(characterId, variantId);
+            }
+        }
+
+        public void CharacterDisappear(int index, float disappearSpeed)
+        {
+            var character = GetCharacter(index);
+            if (character.Exists())
+            {
+                character.SetDisappear(true);
+                character.SetDisappearSpeed(disappearSpeed);
+                RemoveCharacterAt(index);
+            }
+        }
+        private void CharacterLeave(NamespaceID id)
+        {
+            var index = GetCharacterIndex(id);
+            if (index < 0)
+                return;
+            CharacterLeaveAt(index);
+        }
+        public void CharacterLeaveAt(int index)
+        {
+            var chr = GetCharacter(index);
+            if (chr.Exists())
+            {
+                chr.SetLeaving(true);
+                RemoveCharacterAt(index);
+            }
+        }
+        private void AllCharactersLeave()
+        {
+            for (int i = characterList.Count - 1; i >= 0; i--)
+            {
+                CharacterLeaveAt(i);
+            }
+        }
+        private void CharacterFaint(int index, float duration)
+        {
+            CharacterDisappear(index, 1 / duration);
+        }
+
+        #endregion
+
         private SpeechBubbleDirection GetSpeechBubbleDirectionBySide(CharacterSide side)
         {
             switch (side)
@@ -930,7 +971,7 @@ namespace MVZ2.Talk
             ui.SetBlockerActive(false);
             ui.SetSkipButtonActive(false);
 
-            LeaveAllCharacters();
+            AllCharactersLeave();
         }
 
         #endregion
@@ -954,23 +995,29 @@ namespace MVZ2.Talk
         private int sectionIndex = 0;
         private int sentenceIndex = 0;
         private NamespaceID? groupID;
-        private List<CharacterData> characterList = new List<CharacterData>();
         private TaskCompletionSource<object?>? tcs;
+        private List<CharacterData> characterList = new List<CharacterData>();
         [SerializeField]
         private TalkUI ui = null!;
         [SerializeField]
         private bool canUnlock = true;
+        [SerializeField]
+        private GameObject characterTemplate = null!;
+        [SerializeField]
+        private Transform characterRoot = null!;
         #endregion 属性
 
         public class CharacterData
         {
             public NamespaceID id;
             public CharacterSide side;
+            public TalkCharacterController controller;
 
-            public CharacterData(NamespaceID id, CharacterSide side)
+            public CharacterData(NamespaceID id, CharacterSide side, TalkCharacterController controller)
             {
                 this.id = id;
                 this.side = side;
+                this.controller = controller;
             }
         }
     }

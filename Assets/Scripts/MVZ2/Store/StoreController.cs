@@ -37,6 +37,8 @@ namespace MVZ2.Store
             ResetChatTimeout();
             UpdateMoney();
             ui.Display();
+            character.SetSpeaking(true);
+            character.ResetMotion();
 
 
             var presets = Main.ResourceManager.GetAllStorePresets();
@@ -76,12 +78,13 @@ namespace MVZ2.Store
             var backgroundSprite = Main.GetFinalSprite(preset.Background);
             ui.SetBackground(backgroundSprite);
 
-            var character = preset.Character;
-            if (character != null)
+            var characterID = preset.Character;
+            if (characterID != null)
             {
-                characterId = character;
-                var viewData = Main.ResourceManager.GetCharacterViewData(characterId, null, CharacterSide.Left);
-                ui.SetCharacter(viewData);
+                characterId = characterID;
+
+                character.SetVariant(characterID, null);
+                character.SetSide(CharacterSide.Left);
             }
 
             if (preset.Music != null && !Main.MusicManager.IsPlaying(preset.Music))
@@ -318,6 +321,8 @@ namespace MVZ2.Store
         private StoreUI ui = null!;
         [SerializeField]
         private TalkController talkController = null!;
+        [SerializeField]
+        private TalkCharacterController character = null!;
         [SerializeField]
         private int productsPerRow = 4;
         [SerializeField]

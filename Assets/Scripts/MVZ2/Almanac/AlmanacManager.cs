@@ -269,8 +269,6 @@ namespace MVZ2.Almanacs
             if (sprite)
                 return sprite;
 
-            if (picture.character != null)
-                sprite = Main.ResourceManager.GetCharacterSprite(picture.character);
             return sprite;
         }
         #endregion

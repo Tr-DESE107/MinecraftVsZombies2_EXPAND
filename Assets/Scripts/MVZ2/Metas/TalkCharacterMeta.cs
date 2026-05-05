@@ -42,6 +42,10 @@ namespace MVZ2.Metas
             this.id = id;
         }
 
+        public TalkCharacterVariant GetFirstVariant()
+        {
+            return variants.FirstOrDefault();
+        }
         public TalkCharacterVariant GetVariant(NamespaceID id)
         {
             return variants.FirstOrDefault(v => v.id == id);

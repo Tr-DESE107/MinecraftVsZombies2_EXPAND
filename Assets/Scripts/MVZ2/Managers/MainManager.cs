@@ -370,6 +370,7 @@ namespace MVZ2.Managers
         public DebugManager DebugManager => debugManager;
         public MainSceneController Scene => scene;
         public PerformanceManager PerformanceManager => performanceManager;
+        public TalkManager TalkManager => talkManager;
 
         private Task? initTask;
         private TaskPipeline? loadPipeline;
@@ -429,6 +430,8 @@ namespace MVZ2.Managers
         private DebugManager debugManager = null!;
         [SerializeField]
         private PerformanceManager performanceManager = null!;
+        [SerializeField]
+        private TalkManager talkManager = null!;
         [SerializeField]
         private MainSceneController scene = null!;
         public enum PlatformMode

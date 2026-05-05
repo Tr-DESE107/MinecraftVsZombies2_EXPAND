@@ -12,74 +12,6 @@ namespace MVZ2.UI.Talk
     {
         #region 公有方法
 
-        #region 角色
-        public void CreateCharacter(TalkCharacterViewData viewData)
-        {
-            var chr = Instantiate(characterTemplate, characterRoot).GetComponent<TalkCharacterController>();
-            chr.gameObject.SetActive(true);
-            chr.UpdateCharacter(viewData);
-            characters.Add(chr);
-        }
-        public void RemoveCharacterAt(int index)
-        {
-            characters.RemoveAt(index);
-        }
-        public void LeaveCharacterAt(int index)
-        {
-            var chr = GetCharacter(index);
-            RemoveCharacterAt(index);
-            chr.SetLeaving(true);
-        }
-        public void DestroyCharacterAt(int index)
-        {
-            var chr = GetCharacter(index);
-            RemoveCharacterAt(index);
-            Destroy(chr.gameObject);
-        }
-        public void SetCharacterSprite(int index, Sprite? sprite)
-        {
-            var character = GetCharacter(index);
-            character.SetCharacter(sprite);
-        }
-        public void SetCharacterWidthExtend(int index, Vector2 extend)
-        {
-            var character = GetCharacter(index);
-            character.SetWidthExtend(extend);
-        }
-        public void SetCharacterSpeaking(int index, bool value)
-        {
-            var character = GetCharacter(index);
-            character.SetSpeaking(value);
-        }
-        public void SetCharacterToTheFirstLayer(int index)
-        {
-            var character = GetCharacter(index);
-            character.transform.SetAsLastSibling();
-        }
-        public void CharacterDisappear(int index, float disappearSpeed)
-        {
-            var character = GetCharacter(index);
-            character.SetDisappear(true);
-            character.SetDisappearSpeed(disappearSpeed);
-            RemoveCharacterAt(index);
-        }
-        public void StopCharacterDisappear(int index)
-        {
-            var character = GetCharacter(index);
-            character.SetDisappear(false);
-            character.SetDisappearSpeed(1);
-        }
-        public void ClearCharacters()
-        {
-            foreach (var chr in characters)
-            {
-                Destroy(chr.gameObject);
-            }
-            characters.Clear();
-        }
-        #endregion
-
-
         #region 对话气泡
         public void SetSpeechBubbleShowing(bool value)
         {
@@ -202,7 +134,6 @@ namespace MVZ2.UI.Talk
         #region 生命周期
         private void Awake()
         {
-            characterTemplate.gameObject.SetActive(false);
             skipButton.gameObject.SetActive(false);
             blockerObject.SetActive(false);
             raycastReceiver.gameObject.SetActive(false);
@@ -250,10 +181,6 @@ namespace MVZ2.UI.Talk
         }
         #endregion
 
-        private TalkCharacterController GetCharacter(int index)
-        {
-            return characters[index];
-        }
 
         #endregion
 
@@ -264,11 +191,7 @@ namespace MVZ2.UI.Talk
 
         #region 属性字段
         [SerializeField]
-        private GameObject characterTemplate = null!;
-        [SerializeField]
         private TalkItem talkItem = null!;
-        [SerializeField]
-        private Transform characterRoot = null!;
         [SerializeField]
         private SpeechBubble speechBubble = null!;
         [SerializeField]
@@ -303,7 +226,6 @@ namespace MVZ2.UI.Talk
         private ColorFader backcolorFader = null!;
         [SerializeField]
         private Transform[] shakeRoots = null!;
-        private List<TalkCharacterController> characters = new List<TalkCharacterController>();
         #endregion 属性
     }
 }

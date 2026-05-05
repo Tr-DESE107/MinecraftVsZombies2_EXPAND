@@ -883,6 +883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 3890889062314327334}
   canUnlock: 1
+  characterTemplate: {fileID: 6118960760530396046}
+  characterRoot: {fileID: 5127972757061456310}
 --- !u!114 &3890889062314327334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,10 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670a5206d1cc7904c82ab54a9630a7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 2123900138864289957}
-  characterTemplate: {fileID: 6118960760530396046}
   talkItem: {fileID: 7631345221417899157}
-  characterRoot: {fileID: 5127972757061456310}
   speechBubble: {fileID: 301830664417264965}
   skipButton: {fileID: 9140636767159794115}
   raycastReceiver: {fileID: 5333661403492931636}

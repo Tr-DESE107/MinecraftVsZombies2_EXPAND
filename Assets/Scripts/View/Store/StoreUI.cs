@@ -13,8 +13,6 @@ namespace MVZ2.UI.Store
         public void Display()
         {
             speechBubble.SetDirection(SpeechBubbleDirection.Left);
-            character.SetSpeaking(true);
-            character.ResetMotion();
         }
         public void SetStoreUIVisible(bool visible)
         {
@@ -56,10 +54,6 @@ namespace MVZ2.UI.Store
             prevPageButton.interactable = prev;
             nextPageButton.interactable = next;
         }
-        public void SetCharacter(TalkCharacterViewData viewData)
-        {
-            character.UpdateCharacter(viewData);
-        }
         public void SetBackground(Sprite? sprite)
         {
             background.sprite = sprite;
@@ -100,8 +94,6 @@ namespace MVZ2.UI.Store
         private GameObject storeUIRoot = null!;
         [SerializeField]
         private SpriteRenderer background = null!;
-        [SerializeField]
-        private TalkCharacterController character = null!;
         [SerializeField]
         private SpeechBubble speechBubble = null!;
         [SerializeField]
