@@ -130,6 +130,22 @@ namespace MVZ2.GameContent.Contraptions
                 });
             }
         }
+        protected override void UpdateAI(Entity entity)
+        {
+            base.UpdateAI(entity);
+            if (entity.IsHostile(0))
+            {
+                var damage0 = entity.GetDamage();
+                var range0 = entity.GetRange();
+                Explode(entity, range0, damage0);
+                entity.Remove();
+            }
+            if (entity.HasBuff<FrankensteinShockedBuff>())
+            {
+                entity.RemoveBuffs<FrankensteinShockedBuff>();
+                return;
+            }
+        }
         private static void ChargedExplode(Entity entity)
         {
             ExplodeArcs(entity, entity.Position);

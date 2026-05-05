@@ -99,7 +99,7 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!entity.WillRemoveOnDeath(info))
+            if (entity.WillRemoveOnDeath(info))
                 return;
             var pos = entity.Position;
             pos.y = entity.GetGroundY() - 100;

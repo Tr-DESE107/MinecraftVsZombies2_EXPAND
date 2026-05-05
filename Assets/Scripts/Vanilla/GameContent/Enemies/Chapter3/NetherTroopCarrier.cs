@@ -161,7 +161,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!entity.WillRemoveOnDeath(info))
+            if (entity.WillRemoveOnDeath(info))
             {
                 Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
             }

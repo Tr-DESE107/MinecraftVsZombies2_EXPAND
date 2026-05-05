@@ -533,11 +533,7 @@
     <!--EXPAND Enemies Mannequin-->
     <model name="Mannequin" type="entity" path="mvz2:enemy/EXPAND/Mannequin" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
-		<override path="mvz2:enemy/EXPAND/DESE107">
-			<conditions>
-				<condition date="4/1 8/27" />
-			</conditions>
-		</override>
+		
     </model>
     <model name="ImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>

@@ -115,7 +115,7 @@ namespace MVZ2.GameContent.Enemies
                     e.SetDisplayScale(entity.GetDisplayScale());
                 });
             }
-            if (!entity.WillRemoveOnDeath(info))
+            if (entity.WillRemoveOnDeath(info))
                 return;
             entity.SpawnWithParams(VanillaContraptionID.tnt, entity.Position);
         }

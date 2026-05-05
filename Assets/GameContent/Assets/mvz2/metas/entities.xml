@@ -2920,6 +2920,9 @@
 			<unlock>
 				<condition required="mvz2:level.halloween_12" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="175" />
 				<float name="mvz2:maxHealth" value="3200" />
@@ -2930,6 +2933,9 @@
 			<unlock>
 				<condition required="mvz2:level.halloween_12" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="300" />
 				<float name="mvz2:maxHealth" value="3200" />
@@ -2955,6 +2961,9 @@
 			<unlock>
 				<condition required="mvz2:level.halloween_12" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="50" />
 				<int name="mvz2:waterInteraction" value="2" />
@@ -3079,6 +3088,9 @@
 			<unlock>
 				<condition required="mvz2:level.halloween_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="125" />
 				<int name="mvz2:waterInteraction" value="2" />
@@ -3090,6 +3102,9 @@
 			<unlock>
 				<condition required="mvz2:level.dream_9" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="200" />
 				<int name="mvz2:waterInteraction" value="2" />
@@ -3145,6 +3160,13 @@
 			<unlock>
 				<condition required="mvz2:level.dream_10" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+				<properties behaviour="mvz2:boated_enemy">
+					<bool name="spawn_with_boat" value="false" />
+				</properties>
+			</behaviours>
 			<properties>
 				<float name="mvz2:mass" value="-1" />
 				<float name="mvz2:fallResistance" value="18" />
@@ -3185,6 +3207,9 @@
 			<unlock>
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="400" />
 				<int name="mvz2:waterInteraction" value="2" />
@@ -3259,6 +3284,9 @@
 			<unlock>
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="50" />
 				<int name="mvz2:waterInteraction" value="2" />
@@ -3272,6 +3300,9 @@
 			<unlock>
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:leather_cap" />
 				<int name="mvz2:cost" value="75" />
@@ -3286,6 +3317,9 @@
 			<unlock>
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
 				<int name="mvz2:cost" value="125" />
@@ -3300,6 +3334,9 @@
 			<unlock>
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="300" />
 				<int name="mvz2:waterInteraction" value="2" />
@@ -3578,6 +3615,9 @@
 			<unlock>
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="50" />
 				<float name="mvz2:maxHealth" value="300" />
@@ -3588,6 +3628,9 @@
 			<unlock>
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:leather_cap" />
 				<float name="mvz2:maxHealth" value="300" />
@@ -3598,6 +3641,9 @@
 			<unlock>
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
 				<float name="mvz2:maxHealth" value="300" />
@@ -3608,6 +3654,9 @@
 			<unlock>
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="300" />
 				<float name="mvz2:maxHealth" value="300" />
@@ -3668,6 +3717,9 @@
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="50" />
 				<float name="mvz2:damage" value="150" />
@@ -3680,6 +3732,9 @@
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:PirateLeatherCap" />
 				<float name="mvz2:damage" value="150" />
@@ -3692,6 +3747,9 @@
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="50" />
 				<int name="mvz2:waterInteraction" value="2" />
@@ -3703,6 +3761,9 @@
 			<unlock>
 				<condition required="mvz2:level.mausoleum_11" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:PirateBucket" />
 				<int name="mvz2:cost" value="125" />
@@ -3766,6 +3827,9 @@
 			<unlock>
 				<condition required="mvz2:level.ship_12" />
 			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
 			<properties>
 				<id name="mvz2:starting_shield" value="mvz2:umbrella_shield" />
 				<float name="mvz2:damage" value="200" />
@@ -3779,6 +3843,11 @@
 				<condition required="mvz2:level.ship_12" />
 			</unlock>
 			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+				<properties behaviour="mvz2:boated_enemy">
+					<bool name="spawn_with_boat" value="false" />
+				</properties>
 				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
 			</behaviours>
 			<properties>
@@ -3930,6 +3999,13 @@
             <unlock>
                 <condition required="mvz2:level.TrueAndFalseSteve" />
             </unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+				<properties behaviour="mvz2:boated_enemy">
+					<bool name="spawn_with_boat" value="false" />
+				</properties>
+			</behaviours>
             <properties>
                 <bool name="mvz2:undead" value="false" />
                 <float name="mvz2:mass" value="-1" />
@@ -3951,6 +4027,13 @@
             <unlock>
                 <condition required="mvz2:level.TrueAndFalseSteve" />
             </unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+				<properties behaviour="mvz2:boated_enemy">
+					<bool name="spawn_with_boat" value="false" />
+				</properties>
+			</behaviours>
             <properties>
                 <bool name="mvz2:undead" value="false" />
                 <float name="mvz2:mass" value="-1" />
@@ -3972,6 +4055,13 @@
             <unlock>
                 <condition required="mvz2:level.dream_10" />
             </unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+				<properties behaviour="mvz2:boated_enemy">
+					<bool name="spawn_with_boat" value="false" />
+				</properties>
+			</behaviours>
             <properties>
                 <bool name="mvz2:undead" value="false" />
                 <float name="mvz2:mass" value="-1" />
@@ -4021,6 +4111,10 @@
             <unlock>
                 <condition required="mvz2:level.TrueAndFalseSteve" />
             </unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+			</behaviours>
             <properties>
                 <int name="mvz2:cost" value="200" />
                 <bool name="mvz2:undead" value="false" />
@@ -4157,6 +4251,11 @@
                 <condition required="mvz2:level.vsRandomZombie" />
             </unlock>
 			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+				<behaviour operator="add" id="mvz2:boated_enemy" />
+				<properties behaviour="mvz2:boated_enemy">
+					<bool name="spawn_with_boat" value="false" />
+				</properties>
 				<behaviour operator="add" id="mvz2:fragmented" />
 			</behaviours>
             <properties>

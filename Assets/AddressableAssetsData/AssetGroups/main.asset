@@ -2733,6 +2733,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 269ed251673b583439f3b4b3a16dd319
+    m_Address: mvz2:artifacts/WitherSkeletonSkull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26b14da8d6f023d4883737d21390b55f
     m_Address: mvz2:enemy/EXPAND/DESE107
     m_ReadOnly: 0
@@ -4602,6 +4609,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41a760a36af78b04bbd4a92e834375b7
     m_Address: mvz2:entity/contraptions/Randombstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41b8b1da0aae7ce4ca2f884df9b30083
+    m_Address: mvz2:note/palace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6758,6 +6772,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fe877b614795e144996e5d0ede65e81
     m_Address: mvz2:starshards/default
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fe8cc97fa275b24c8696a7ff5c984fa
+    m_Address: mvz2:note/background_palace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8960,6 +8981,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 818e76b0cd6f54946a21d1606f6dd246
+    m_Address: mvz2:enemy/EXPAND/Mannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81dd671c4a73dc1439c7e4394a95e1c0
     m_Address: mvz2:enemy/ship/undead_flying_object
     m_ReadOnly: 0
@@ -10192,13 +10220,6 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94d9e3c30c3043e4089c03229e2d326d
-    m_Address: mvz2:enemy/EXPAND/Mannequin
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94f2e4ecd6b77ab49ba575570f0518d5
     m_Address: mvz2:gensokyo
     m_ReadOnly: 0
@@ -11207,6 +11228,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5915bbae8a80114c8cdfa95740c5d8a
+    m_Address: mvz2:misc/locked_chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5a4db0e76add6146b289d8c83fb9907
     m_Address: mvz2:entity/armor/ChiefCap
     m_ReadOnly: 0
@@ -11398,6 +11426,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a830dd92c72591848834371853163210
     m_Address: mvz2:mobile_blueprint/Poisonser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a834091dfc5d3884cb48abf3ecb36da3
+    m_Address: mvz2:misc/palace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -12662,6 +12697,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bae54dd42f53f3647bb2d151a04d3d1d
+    m_Address: mvz2:misc/mysterious_hacker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bafd8d60319920d40a5881b8a2776d56
     m_Address: mvz2:entity/contraption/force_pad_evoking
@@ -14238,6 +14280,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d17d37c1a790e63419fc44c2c577189a
+    m_Address: mvz2:archive/palace_note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1a7c525972e9d64b98d6d1779d84282
     m_Address: mvz2:entity/armor/EXPAND_armor/HemperorCrown
     m_ReadOnly: 0
@@ -15651,6 +15700,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea1dc867602a6da4cac4f2bc72dd4f5e
+    m_Address: mvz2:misc/dream_darkness
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea4c0b7c8c4abc444bbed3969cda9a5e
     m_Address: mvz2:projectile/arrow
