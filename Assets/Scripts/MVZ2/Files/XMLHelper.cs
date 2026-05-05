@@ -40,6 +40,30 @@ namespace MVZ2.IO
             document.Load(xmlReader);
             return document;
         }
+        public static void CreateTextOrCDataNode(this XmlDocument document, XmlNode node, string name, string text)
+        {
+            XmlNode textNode;
+            if (text.IndexOfAny(xmlSpecialChars) != -1)
+            {
+                textNode = document.CreateElement(name);
+                var section = document.CreateCDataSection(text);
+                textNode.AppendChild(section);
+            }
+            else
+            {
+                textNode = document.CreateElement(name);
+                textNode.InnerText = text;
+            }
+            node.AppendChild(textNode);
+        }
+        public static void AddComment(this XmlDocument document, XmlNode node, string? comment)
+        {
+            if (!string.IsNullOrEmpty(comment))
+            {
+                var commentNode = document.CreateComment(comment);
+                node.AppendChild(commentNode);
+            }
+        }
         public static bool HasAttribute(this XmlNode node, string name)
         {
             return node.Attributes[name] != null;
@@ -709,5 +733,6 @@ namespace MVZ2.IO
             }
             return sb.ToString();
         }
+        public static readonly char[] xmlSpecialChars = { '<', '>', '&', '\'', '"' };
     }
 }

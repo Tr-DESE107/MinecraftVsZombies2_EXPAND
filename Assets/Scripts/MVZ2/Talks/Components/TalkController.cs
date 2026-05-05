@@ -51,7 +51,10 @@ namespace MVZ2.Talk
 
             // 执行开始指令。
             var section = group.sections[startingSection];
-            await ExecuteScriptsAsync(section.startScripts);
+            if (section.startScripts != null)
+            {
+                await ExecuteScriptsAsync(section.startScripts);
+            }
 
             // 延迟。
             if (delay > 0)
@@ -103,7 +106,8 @@ namespace MVZ2.Talk
             }
             var section = group.sections[startSection];
             // 执行开始指令。
-            await ExecuteScriptsAsync(section.autoSkipScripts ?? section.skipScripts);
+            var skipScripts = section.autoSkipScripts ?? section.skipScripts ?? GetDefaultSectionSkipScripts();
+            await ExecuteScriptsAsync(skipScripts);
         }
         public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)
         {
@@ -142,7 +146,8 @@ namespace MVZ2.Talk
                 NextSentence();
                 return;
             }
-            _ = ExecuteScriptsAsync(sentence.clickScripts);
+            var scripts = sentence.clickScripts ?? GetDefaultSentenceClickScripts();
+            _ = ExecuteScriptsAsync(scripts);
         }
         private void OnSkipClickedCallback()
         {
@@ -152,7 +157,8 @@ namespace MVZ2.Talk
                 EndTalk();
                 return;
             }
-            _ = ExecuteScriptsAsync(section.skipScripts);
+            var skipScripts = section.skipScripts ?? GetDefaultSectionSkipScripts();
+            _ = ExecuteScriptsAsync(skipScripts);
         }
         #endregion
 
@@ -777,7 +783,8 @@ namespace MVZ2.Talk
             }
 
             // 执行脚本组。
-            _ = ExecuteScriptsAsync(sentence.startScripts);
+            var scripts = sentence.startScripts ?? GetDefaultSentenceStartScripts();
+            _ = ExecuteScriptsAsync(scripts);
         }
 
         private void EndTalk()
@@ -973,6 +980,10 @@ namespace MVZ2.Talk
             AllCharactersLeave();
         }
 
+        private static TalkScript[] GetDefaultSectionStartScripts() => emptyScripts;
+        private static TalkScript[] GetDefaultSectionSkipScripts() => defaultSectionSkipScripts;
+        private static TalkScript[] GetDefaultSentenceStartScripts() => emptyScripts;
+        private static TalkScript[] GetDefaultSentenceClickScripts() => defaultSentenceClickScripts;
         #endregion
 
         #region 事件
@@ -987,6 +998,15 @@ namespace MVZ2.Talk
         public int RunningScriptCount { get; private set; }
         public bool IsTalking { get; private set; }
         public readonly static NamespaceID DEFAULT_VARIANT_ID = new NamespaceID("mvz2", "normal");
+        private readonly static TalkScript[] emptyScripts = new TalkScript[0];
+        private readonly static TalkScript[] defaultSectionSkipScripts = new TalkScript[]
+        {
+            new TalkScript("end")
+        };
+        private readonly static TalkScript[] defaultSentenceClickScripts = new TalkScript[]
+        {
+            new TalkScript("next")
+        };
         private MainManager Main => MainManager.Instance;
 
         private bool showingTalkItem = false;

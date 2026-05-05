@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2.Managers;
+using MVZ2.Talk;
 using PVZEngine;
 
 namespace MVZ2.TalkData
@@ -17,10 +18,10 @@ namespace MVZ2.TalkData
         public string? speakerName;
         public NamespaceID[] sounds;
         public NamespaceID? variant;
-        public TalkScript[] startScripts;
-        public TalkScript[] clickScripts;
+        public TalkScript[]? startScripts;
+        public TalkScript[]? clickScripts;
 
-        private TalkSentence(string text, NamespaceID[] sounds, TalkScript[] startScripts, TalkScript[] clickScripts)
+        private TalkSentence(string text, NamespaceID[] sounds, TalkScript[]? startScripts, TalkScript[]? clickScripts)
         {
             this.text = text;
             this.sounds = sounds;
@@ -31,8 +32,6 @@ namespace MVZ2.TalkData
         public XmlNode ToXmlNode(XmlDocument document)
         {
             XmlNode node = document.CreateElement("sentence");
-            var textNode = document.CreateTextNode(text);
-            node.AppendChild(textNode);
             if (NamespaceID.IsValid(speaker))
                 node.CreateAttribute("speaker", speaker.ToString());
             if (!string.IsNullOrEmpty(speakerName))
@@ -43,10 +42,14 @@ namespace MVZ2.TalkData
                 node.CreateAttribute("sounds", string.Join(";", sounds.Select(s => s.ToString())));
             if (NamespaceID.IsValid(variant))
                 node.CreateAttribute("variant", variant.ToString());
-            if (startScripts.Length > 0)
-                node.CreateAttribute("onStart", string.Join(";", startScripts.Where(s => s != null).Select(s => s.ToString())));
-            if (clickScripts.Length > 0)
-                node.CreateAttribute("onClick", string.Join(";", clickScripts.Where(s => s != null).Select(s => s.ToString())));
+
+
+            document.CreateTalkScriptNodes(node, "onStart", startScripts, "语句开始脚本");
+
+            document.CreateTextOrCDataNode(node, "text", text);
+
+            document.CreateTalkScriptNodes(node, "onClick", clickScripts, "语句点击脚本");
+
             return node;
         }
         public static TalkSentence FromXmlNode(XmlNode node, string defaultNsp)
@@ -63,12 +66,12 @@ namespace MVZ2.TalkData
             if (textNode != null)
             {
                 text = textNode.InnerText;
-                var startScriptNode = node["start"];
+                var startScriptNode = node["onStart"] ?? node["start"];
                 if (startScriptNode != null)
                 {
                     startScripts = TalkScript.FromArrayXmlNode(startScriptNode);
                 }
-                var clickScriptNode = node["click"];
+                var clickScriptNode = node["onClick"] ?? node["click"];
                 if (clickScriptNode != null)
                 {
                     clickScripts = TalkScript.FromArrayXmlNode(clickScriptNode);
@@ -89,7 +92,7 @@ namespace MVZ2.TalkData
                 }
             }
 
-            return new TalkSentence(text, sounds ?? Array.Empty<NamespaceID>(), startScripts ?? GetDefaultStartScripts(), clickScripts ?? GetDefaultClickScripts())
+            return new TalkSentence(text, sounds ?? Array.Empty<NamespaceID>(), startScripts, clickScripts)
             {
                 speaker = speaker,
                 speakerName = speakerName,
@@ -109,10 +112,5 @@ namespace MVZ2.TalkData
             }
 
         }
-        private static TalkScript[] GetDefaultStartScripts() => Array.Empty<TalkScript>();
-        private static TalkScript[] GetDefaultClickScripts() => new TalkScript[]
-        {
-            new TalkScript("next")
-        };
     }
 }

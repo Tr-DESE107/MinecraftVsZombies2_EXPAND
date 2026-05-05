@@ -38,6 +38,8 @@ namespace MVZ2.TalkData
                 node.AppendChild(archiveNode);
                 foreach (var section in sections)
                 {
+                    document.AddComment(node, section.archiveText);
+
                     var child = section.ToXmlNode(document);
                     node.AppendChild(child);
                 }

@@ -7,6 +7,7 @@
         <tag id="castle" name="辉针城" priority="3" />
         <tag id="mausoleum" name="梦殿大祀庙" priority="4" />
         <tag id="ship" name="圣辇船" priority="5" />
+        <tag id="palace" name="地灵殿" priority="6" />
         <tag id="tutorial" name="教程" priority="1000" />
         <tag id="note" name="纸条" priority="1000" />
         <tag id="special" name="特殊" priority="1000" />

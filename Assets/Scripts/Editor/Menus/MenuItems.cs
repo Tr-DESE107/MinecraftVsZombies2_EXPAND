@@ -71,6 +71,11 @@ namespace MVZ2.Editor
         {
             SpriteMenu.RenameSprites();
         }
+        [MenuItem("MVZ2/Assets/Talk/Format Talk Datas", priority = 6000, secondaryPriority = 0)]
+        public static void FormatTalkDatas()
+        {
+            TalkMenu.FormatTalkDatas();
+        }
         [MenuItem("MVZ2/Save Data/Decompress", priority = 10000, secondaryPriority = 0)]
         public static void DecompressSaveData()
         {

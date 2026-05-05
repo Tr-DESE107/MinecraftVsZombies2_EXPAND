@@ -22,6 +22,8 @@ namespace MVZ2.TalkData
             node.CreateAttribute("order", order.ToString());
             foreach (var group in groups)
             {
+                document.AddComment(node, group.archive?.name);
+
                 var child = group.ToXmlNode(document);
                 node.AppendChild(child);
             }

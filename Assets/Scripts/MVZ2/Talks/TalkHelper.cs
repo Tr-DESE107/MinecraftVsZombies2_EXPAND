@@ -2,6 +2,9 @@
 
 using System;
 using System.Threading.Tasks;
+using System.Xml;
+using MVZ2.IO;
+using MVZ2.TalkData;
 using PVZEngine;
 
 namespace MVZ2.Talk
@@ -35,6 +38,23 @@ namespace MVZ2.Talk
             onStarted?.Invoke();
             await controller.StartTalkAsync(groupId, section, delay);
             return TalkResult.Started;
+        }
+
+        public static void CreateTalkScriptNodes(this XmlDocument document, XmlNode node, string name, TalkScript[]? scripts, string? comment = null)
+        {
+            if (scripts != null && scripts.Length > 0)
+            {
+                document.AddComment(node, comment);
+
+                var scriptsNode = document.CreateElement(name);
+                foreach (var script in scripts)
+                {
+                    var scriptNode = document.CreateElement("script");
+                    scriptNode.InnerText = script.ToString();
+                    scriptsNode.AppendChild(scriptNode);
+                }
+                node.AppendChild(scriptsNode);
+            }
         }
     }
     public enum TalkResult

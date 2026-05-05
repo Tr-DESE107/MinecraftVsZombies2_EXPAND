@@ -1,27 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <talks order="3000">
-  <!-- Day 1 -->
+  <!--辉针城第1天入场-->
   <group id="castle_1" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第1天入场" music="mvz2:mainmenu" background="mvz2:misc/castle">
+    <archive name="辉针城第1天入场" background="mvz2:misc/castle" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.castle_1" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">我们到了！这里就是辉针城！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">好高的地方啊，我都有点怕了。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">总感觉很安静呢，房子里也没有僵尸，和下面真不一样。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">是吗？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" onClick="end">嘿，等等！刚说完，就有僵尸攻过来了！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>我们到了！这里就是辉针城！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>好高的地方啊，我都有点怕了。</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>总感觉很安静呢，房子里也没有僵尸，和下面真不一样。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>是吗？</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>嘿，等等！刚说完，就有僵尸攻过来了！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第1天结束-->
   <group id="castle_1_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第1天结束" background="mvz2:misc/castle">
       <unlock>
@@ -29,120 +54,270 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是木制投掷器！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能投出木球，木球能从斜坡上滚下去，打击下方的僵尸！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">感受物理学的力量吧！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>这是木制投掷器！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>它能投出木球，木球能从斜坡上滚下去，打击下方的僵尸！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>感受物理学的力量吧！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第1天地图-->
   <group id="castle_1_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第1天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第1天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_1" />
       </unlock>
     </archive>
-    <section onSkip="music fade 1;end">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>music fade 1</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">清理完毕，现在已经安全了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">说起来，我们此行的目的是找到针妙丸吧？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">不知道。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">从一开始我就有点在意，这些瓶瓶罐罐是什么？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">可能是用来装空气用的！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……行。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">说起来，这座城里真的很安静，一个活着的人都没见到过。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">而且啊，还有——</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>清理完毕，现在已经安全了。</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>说起来，我们此行的目的是找到针妙丸吧？</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>不知道。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>从一开始我就有点在意，这些瓶瓶罐罐是什么？</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>可能是用来装空气用的！</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……行。</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>说起来，这座城里真的很安静，一个活着的人都没见到过。</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">
+          <text>而且啊，还有——</text>
+        </sentence>
+        <!--语句9-->
         <sentence speaker="mvz2:seija" speakerName="？？？" sounds="mvz2:dialog_beat">
-          <start>
+          <!--语句开始脚本-->
+          <onStart>
             <script>music volume 0</script>
             <script>shake</script>
-          </start>
-          <click>
+          </onStart>
+          <text>看招！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>forecolor fade #FFF0 white 0.25</script>
             <script>playsound mvz2:dialog_flashback</script>
             <script>delay 0.5</script>
-
             <script>character faint mvz2:crazy_villager 0.25</script>
             <script>character create mvz2:seija right</script>
             <script>playsound mvz2:dialog_explosive</script>
             <script>shake</script>
             <script>delay 0.5</script>
-
             <script>playsound mvz2:dialog_beat</script>
             <script>shake</script>
             <script>delay 0.5</script>
             <script>next</script>
-          </click>
-          <text>看招！</text>
+          </onClick>
         </sentence>
+        <!--语句10-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut">
-          <start>
+          <!--语句开始脚本-->
+          <onStart>
             <script>shake</script>
-          </start>
-          <click>
+          </onStart>
+          <text>哇啊！搞、搞什么啊！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>forecolor fade white #FFF0 1</script>
             <script>delay 1.5</script>
-
             <script>playsound mvz2:dialog_weird</script>
             <script>forecolor fade white #FFF0 0.1</script>
             <script>delay 1</script>
-
             <script>next</script>
-          </click>
-          <text>哇啊！搞、搞什么啊！</text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:seija" speakerName="？？？" description="（正邪出场）" sounds="mvz2:talk">你们这群看起来很闲的家伙是谁啊？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">你、你是——</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（……戴夫完全被这家伙踩在脚下了。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">你是——鬼人正邪吧？</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_beat" onStart="shake">哇！居然直呼我的名字，你好大的胆子啊。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk">你们这些家伙是来干什么的？这里可没有人类居住吧？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">就、就是针妙丸啊，针妙丸。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_weird">……针妙丸？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我们找到了一封针妙丸写下的求助信，所以就——</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk">那家伙还写了那东西吗？真是胆小鬼呢。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:pride">不过我可以告诉你们，这里绝对没你们的份。那家伙，我自己一个人来就够了，用不着你们。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:normal">哎呀，我干嘛要跟一介人类说这么多呢？</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_beat" variant="mvz2:laugh" onStart="shake" onClick="bubble hide;character leave mvz2:seija;playsound mvz2:dialog_flashback;delay 1;next">再见，废物们，哈哈哈哈哈哈哈哈！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">真的，如同想象中的一般，是个怪人。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_weird">我还没死呢……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake" onClick="music fade 1;end">哇啊！</sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:seija" speakerName="？？？" description="（正邪出场）" sounds="mvz2:talk">
+          <text>你们这群看起来很闲的家伙是谁啊？</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>你、你是——</text>
+        </sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（……戴夫完全被这家伙踩在脚下了。）</color>]]></text>
+        </sentence>
+        <!--语句14-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>你是——鬼人正邪吧？</text>
+        </sentence>
+        <!--语句15-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>哇！居然直呼我的名字，你好大的胆子啊。</text>
+        </sentence>
+        <!--语句16-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <text>你们这些家伙是来干什么的？这里可没有人类居住吧？</text>
+        </sentence>
+        <!--语句17-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>就、就是针妙丸啊，针妙丸。</text>
+        </sentence>
+        <!--语句18-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_weird">
+          <text>……针妙丸？</text>
+        </sentence>
+        <!--语句19-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我们找到了一封针妙丸写下的求助信，所以就——</text>
+        </sentence>
+        <!--语句20-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <text>那家伙还写了那东西吗？真是胆小鬼呢。</text>
+        </sentence>
+        <!--语句21-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:pride">
+          <text>不过我可以告诉你们，这里绝对没你们的份。那家伙，我自己一个人来就够了，用不着你们。</text>
+        </sentence>
+        <!--语句22-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:normal">
+          <text>哎呀，我干嘛要跟一介人类说这么多呢？</text>
+        </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_beat" variant="mvz2:laugh">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>再见，废物们，哈哈哈哈哈哈哈哈！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>bubble hide</script>
+            <script>character leave mvz2:seija</script>
+            <script>playsound mvz2:dialog_flashback</script>
+            <script>delay 1</script>
+            <script>next</script>
+          </onClick>
+        </sentence>
+        <!--语句24-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句25-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>真的，如同想象中的一般，是个怪人。</text>
+        </sentence>
+        <!--语句26-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_weird">
+          <text>我还没死呢……</text>
+        </sentence>
+        <!--语句27-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>哇啊！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>music fade 1</script>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-
-  <!-- Day 2 -->
+  <!--辉针城第2天入场-->
   <group id="castle_2" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第2天入场" music="mvz2:mainmenu" background="mvz2:misc/castle">
+    <archive name="辉针城第2天入场" background="mvz2:misc/castle" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.castle_2" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……嗯？这个凋灵骷髅是？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">头上戴着个金制头冠，手里拿着法杖。是干什么的呢？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">我也不知道啊，不过我有一种预感！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">你会用到荧石的，邻居！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……嗯？这个凋灵骷髅是？</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>头上戴着个金制头冠，手里拿着法杖。是干什么的呢？</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>我也不知道啊，不过我有一种预感！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>你会用到荧石的，邻居！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第2天结束-->
   <group id="castle_2_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第2天结束" background="mvz2:misc/castle">
       <unlock>
@@ -150,95 +325,214 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是尖刺方块！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能对走在它上面的怪物造成伤害！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">还能破坏敌人的车辆！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">让战场上洒满钉子吧！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>这是尖刺方块！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>它能对走在它上面的怪物造成伤害！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>还能破坏敌人的车辆！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>让战场上洒满钉子吧！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第2天地图-->
   <group id="castle_2_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第2天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第2天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_2" />
       </unlock>
     </archive>
-    <section onSkip="music fade 1;end">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>music fade 1</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这么多瓶瓶罐罐，到底怎么回事？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">……嗯？好像有动静？有人在敲玻璃？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" speakerName="？？？" sounds="mvz2:dialog_beat" onStart="shake;music volume 0">这里！这里！过来！过来！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>这么多瓶瓶罐罐，到底怎么回事？</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>……嗯？好像有动静？有人在敲玻璃？</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:shinmyoumaru" speakerName="？？？" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+            <script>music volume 0</script>
+          </onStart>
+          <text>这里！这里！过来！过来！</text>
+        </sentence>
+        <!--语句3-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">
-          <click>
+          <text>！是瓶子里的小人族！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>delay 0.5</script>
-            
             <script>shake</script>
             <script>playsound mvz2:bow</script>
             <script>delay 1</script>
-
             <script>character create mvz2:shinmyoumaru right mvz2:bottle_relax</script>
             <script>delay 0.5</script>
-
             <script>playsound mvz2:dialog_surprised</script>
             <script>forecolor fade white #FFF0 0.1</script>
             <script>delay 1</script>
-
             <script>music fade 1</script>
             <script>next</script>
-          </click>
-          <text>！是瓶子里的小人族！</text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:shinmyoumaru" speakerName="？？？" description="（史蒂夫打开了瓶子）" sounds="mvz2:talk">呼——啊~终于从这该死的瓶子里出来了！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" speakerName="？？？" variant="mvz2:bottle_normal" sounds="mvz2:talk">感谢你们来救我，请问你们是？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">我是坑爹村民！这位是我的邻居！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我们看到了你从城中扔下的信，所以才来到这里查看情况。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" speakerName="？？？" variant="mvz2:bottle_relax" sounds="mvz2:talk">喔，那封信居然真的有人看到了！谢天谢地！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:bottle_normal" sounds="mvz2:talk">我是少名针妙丸，辉针城的城主，也是小人族的公主。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">原来您就是城主啊。听您在信中说，这里被黑色骷髅入侵了？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:bottle_normal" sounds="mvz2:talk">是的。一年前，辉针城突然遭到了这些黑色骷髅的入侵。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:bottle_worried" sounds="mvz2:talk">我们不知道它们是从哪儿来的，只能不停抵抗。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">然后我们就败下阵来，最终被它们俘虏了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">它们把我和我的同胞们装进了这些瓶子里。我好不容易逃了出去，结果却还是在这里中了它们的陷阱。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">所以，我想请求你们，救救我的其他同胞们，可以吗？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">当然了，我们就是为此而来的。</sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:shinmyoumaru" speakerName="？？？" description="（史蒂夫打开了瓶子）" sounds="mvz2:talk">
+          <text>呼——啊~终于从这该死的瓶子里出来了！</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:shinmyoumaru" speakerName="？？？" sounds="mvz2:talk" variant="mvz2:bottle_normal">
+          <text>感谢你们来救我，请问你们是？</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>我是坑爹村民！这位是我的邻居！</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我们看到了你从城中扔下的信，所以才来到这里查看情况。</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:shinmyoumaru" speakerName="？？？" sounds="mvz2:talk" variant="mvz2:bottle_relax">
+          <text>喔，那封信居然真的有人看到了！谢天谢地！</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:bottle_normal">
+          <text>我是少名针妙丸，辉针城的城主，也是小人族的公主。</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>原来您就是城主啊。听您在信中说，这里被黑色骷髅入侵了？</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:bottle_normal">
+          <text>是的。一年前，辉针城突然遭到了这些黑色骷髅的入侵。</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:bottle_worried">
+          <text>我们不知道它们是从哪儿来的，只能不停抵抗。</text>
+        </sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>然后我们就败下阵来，最终被它们俘虏了。</text>
+        </sentence>
+        <!--语句14-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>它们把我和我的同胞们装进了这些瓶子里。我好不容易逃了出去，结果却还是在这里中了它们的陷阱。</text>
+        </sentence>
+        <!--语句15-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>所以，我想请求你们，救救我的其他同胞们，可以吗？</text>
+        </sentence>
+        <!--语句16-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>当然了，我们就是为此而来的。</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-  
-  <!-- Day 3 -->
+  <!--辉针城第3天入场-->
   <group id="castle_3" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第3天入场" music="mvz2:mainmenu" background="mvz2:misc/castle">
+    <archive name="辉针城第3天入场" background="mvz2:misc/castle" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.castle_3" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">啊，那些戴金冠的骷髅！一定要小心！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_beat" onStart="shake">它们能控制人的神智！我们好多场败仗都是拜这些家伙所赐！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">不过，荧石的光能够防止周围的器械被它们控制。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird">诶，有这种事？荧石是什么？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">就是一种发光的石头。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_surprised">啊，原来如此！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:worried" sounds="mvz2:dialog_beat" onStart="shake">早知道我就在城里多放点灯笼了！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">这俩不一样吧……</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>啊，那些戴金冠的骷髅！一定要小心！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>它们能控制人的神智！我们好多场败仗都是拜这些家伙所赐！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>不过，荧石的光能够防止周围的器械被它们控制。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird">
+          <text>诶，有这种事？荧石是什么？</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>就是一种发光的石头。</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_surprised">
+          <text>啊，原来如此！</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_beat" variant="mvz2:worried">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>早知道我就在城里多放点灯笼了！</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>这俩不一样吧……</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第3天结束-->
   <group id="castle_3_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第3天结束" background="mvz2:misc/castle">
       <unlock>
@@ -246,95 +540,224 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这个是石制投掷器！它能弹射出微小的石子！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">不过，有时候它也能射出能击退怪物并且分裂的巨石！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">在洞穴中，你最好当心脚下的踏板！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>这个是石制投掷器！它能弹射出微小的石子！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>不过，有时候它也能射出能击退怪物并且分裂的巨石！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>在洞穴中，你最好当心脚下的踏板！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第3天地图-->
   <group id="castle_3_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第3天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第3天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_3" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:happy" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_beat" onStart="shake">你们真的好厉害！那些黑骷髅在你们的器械面前简直就是溃不成军！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">当然，谁让我是坑爹村民呢！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（谁问你了……）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">你的同胞还在更远的地方吗？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:worried" sounds="mvz2:talk">是的，我离开那里之后其实还跑了挺远的……都快累死了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（……还真能跑。）</color>]]></sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……其实我稍微有些顾虑。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">在我们被抓进去之前，同胞们，似乎对我有些——怎么说呢。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird">他们好像不相信我了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">怎么说？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">好几年前，我因为被天邪鬼灌输了虚假的历史，导致了一场范围浩大的混乱。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我搞出了乱子，最后也必须为这件事负责。从那之后，小人族的地位就有些——下降。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">大家常常有时抬不起头。实际上，我确实也没为大家做出过什么贡献……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">别这么想，你还是在乎你的子民们的，对吧？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">你为了他们抵御外敌，还写下那封信请求帮忙，最后也没有放弃他们。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我想，他们应该也会理解您的。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">嗯……</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onStart="character variant mvz2:shinmyoumaru mvz2:normal">话说您刚才说天邪鬼？我们之前还在这座城里见过她。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1;mvz2:dialog_beat" onStart="shake">还狠狠地踩了我的背！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:cringe" sounds="mvz2:talk">……那真是抱歉了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:normal" sounds="mvz2:talk">其实，在那次事件之后，我和那位天邪鬼反而成为了朋友。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onClick="end">她来，其实应该是来救我的。</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>你们真的好厉害！那些黑骷髅在你们的器械面前简直就是溃不成军！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>当然，谁让我是坑爹村民呢！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（谁问你了……）</color>]]></text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>你的同胞还在更远的地方吗？</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:worried">
+          <text>是的，我离开那里之后其实还跑了挺远的……都快累死了。</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（……还真能跑。）</color>]]></text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>……其实我稍微有些顾虑。</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>在我们被抓进去之前，同胞们，似乎对我有些——怎么说呢。</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird">
+          <text>他们好像不相信我了。</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>怎么说？</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>好几年前，我因为被天邪鬼灌输了虚假的历史，导致了一场范围浩大的混乱。</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我搞出了乱子，最后也必须为这件事负责。从那之后，小人族的地位就有些——下降。</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>大家常常有时抬不起头。实际上，我确实也没为大家做出过什么贡献……</text>
+        </sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>别这么想，你还是在乎你的子民们的，对吧？</text>
+        </sentence>
+        <!--语句14-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>你为了他们抵御外敌，还写下那封信请求帮忙，最后也没有放弃他们。</text>
+        </sentence>
+        <!--语句15-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我想，他们应该也会理解您的。</text>
+        </sentence>
+        <!--语句16-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>嗯……</text>
+        </sentence>
+        <!--语句17-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>character variant mvz2:shinmyoumaru mvz2:normal</script>
+          </onStart>
+          <text>话说您刚才说天邪鬼？我们之前还在这座城里见过她。</text>
+        </sentence>
+        <!--语句18-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1;mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>还狠狠地踩了我的背！</text>
+        </sentence>
+        <!--语句19-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:cringe">
+          <text>……那真是抱歉了。</text>
+        </sentence>
+        <!--语句20-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:normal">
+          <text>其实，在那次事件之后，我和那位天邪鬼反而成为了朋友。</text>
+        </sentence>
+        <!--语句21-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>她来，其实应该是来救我的。</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-  
-  <!-- Day 4 -->
+  <!--辉针城第4天入场-->
   <group id="castle_4" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第4天入场" music="mvz2:mainmenu" background="mvz2:misc/castle">
+    <archive name="辉针城第4天入场" background="mvz2:misc/castle" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.castle_4" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">史蒂夫，这里出现了相当有危险的敌人。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_beat" onStart="shake">看到那些拿着金斧子的骷髅了嘛？他们会在死掉的时候爆炸！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" onStart="shake">就像身上绑着炸弹一样！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>史蒂夫，这里出现了相当有危险的敌人。</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>看到那些拿着金斧子的骷髅了嘛？他们会在死掉的时候爆炸！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>就像身上绑着炸弹一样！</text>
+        </sentence>
+        <!--语句3-->
         <sentence speaker="mvz2:shinmyoumaru">
-          <start>
+          <!--语句开始脚本-->
+          <onStart>
             <script>playsound mvz2:dialog_beat</script>
             <script>shake</script>
             <script>delay 0.5</script>
-
             <script>playsound mvz2:dialog_cut</script>
             <script>shake</script>
             <script>delay 0.5</script>
-
             <script>playsound mvz2:dialog_bang</script>
             <script>shake</script>
             <script>delay 0.5</script>
-
             <script>playsound mvz2:dialog_explosive</script>
             <script>shake</script>
-          </start>
+          </onStart>
           <text>一定、千万、绝对、必须要注意！</text>
         </sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake" onClick="end">我知道了我知道了……</sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>我知道了我知道了……</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第4天结束-->
   <group id="castle_4_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第4天结束" background="mvz2:misc/castle">
       <unlock>
@@ -342,50 +765,119 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这个是石护罩！他能和普通的器械重叠放置！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它的硬度能够保护它里面的器械不受伤害！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">有个小技巧，如果你拿着铁镐，并且瞄准它的下部，就会挖掉石护罩！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">如果你瞄准上部，则会挖掉里面的器械！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">当然，星之碎片也是同理的！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>这个是石护罩！他能和普通的器械重叠放置！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>它的硬度能够保护它里面的器械不受伤害！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">
+          <text>有个小技巧，如果你拿着铁镐，并且瞄准它的下部，就会挖掉石护罩！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>如果你瞄准上部，则会挖掉里面的器械！</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>当然，星之碎片也是同理的！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第4天地图-->
   <group id="castle_4_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第4天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第4天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_4" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:shinmyoumaru" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸，关于这场入侵的原因，你有什么想法吗？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:think">嗯……有。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">这场入侵的怪物全部都是方块吧？我听说幻想乡内地也出现了大量的方块怪物。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">首次出现这些方块怪物的时间，我听别人说是三年前。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">而在这三年前，幻想乡发生了一件奇怪的事情。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">什么事情？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird"><![CDATA[某个地方<color=red>爆炸</color>了。]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">啊？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">那时我还在辉针城里，下方突然传来一声巨响，我往外看了一眼，但是并没有看到是哪里。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">后来听说，似乎有一处地方发生了爆炸。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">那件事跟我没什么关系，所以我也就只了解了这些了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:worried">没想到，结果却会影响到我们辉针城……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（爆炸，是吗？）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end"><![CDATA[<color=blue>（会和这场异变有关系吗？）</color>]]></sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>针妙丸，关于这场入侵的原因，你有什么想法吗？</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:think">
+          <text>嗯……有。</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>这场入侵的怪物全部都是方块吧？我听说幻想乡内地也出现了大量的方块怪物。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>首次出现这些方块怪物的时间，我听别人说是三年前。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>而在这三年前，幻想乡发生了一件奇怪的事情。</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>什么事情？</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird">
+          <text><![CDATA[某个地方<color=red>爆炸</color>了。]]></text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>啊？</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>那时我还在辉针城里，下方突然传来一声巨响，我往外看了一眼，但是并没有看到是哪里。</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>后来听说，似乎有一处地方发生了爆炸。</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>那件事跟我没什么关系，所以我也就只了解了这些了。</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:worried">
+          <text>没想到，结果却会影响到我们辉针城……</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（爆炸，是吗？）</color>]]></text>
+        </sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（会和这场异变有关系吗？）</color>]]></text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-  
-  <!-- Day 5 -->
+  <!--辉针城第5天结束-->
   <group id="castle_5_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第5天结束" background="mvz2:misc/castle">
       <unlock>
@@ -393,72 +885,163 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">钻石尖刺回来了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能够放置在尖刺方块上把它升级！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">升级过后的钻石尖刺耐久更高，并且会连续扎两次！ </sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">欢迎我们的老朋友！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>钻石尖刺回来了！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>它能够放置在尖刺方块上把它升级！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>升级过后的钻石尖刺耐久更高，并且会连续扎两次！ </text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy">
+          <text>欢迎我们的老朋友！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第5天地图-->
   <group id="castle_5_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第5天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第5天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_5" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">对了，关于那位天邪鬼，鬼人正邪。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那家伙在我们眼前出现，而且说要自己一个人解决这座城中的异变。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">还狠狠的踩了我。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我们已经好多天都没看见她了，也不知道她去哪儿了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:worried" sounds="mvz2:talk">我挺担心她的……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">怎么了？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">其实我被困的时候见过她。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">她一眼就看到了我，要把我的瓶子撬开。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">但是她突然就倒下了，我的瓶子就这样滚到一边去，我也陷入了昏迷，之后的事情就不知道了。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">可能只是想把瓶子摔碎吧！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">你能不要说话了么……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">你还记得那些会控制他人精神的骷髅么？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我怕她被那群家伙精神控制了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">以前和它们作战期间，被俘虏的小人们全部都被精神控制，转而攻击我们，无一例外。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onClick="end">如果她变成我们的敌人，那就……太糟了。</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>对了，关于那位天邪鬼，鬼人正邪。</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>那家伙在我们眼前出现，而且说要自己一个人解决这座城中的异变。</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>还狠狠的踩了我。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我们已经好多天都没看见她了，也不知道她去哪儿了。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:worried">
+          <text>我挺担心她的……</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>怎么了？</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>其实我被困的时候见过她。</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>她一眼就看到了我，要把我的瓶子撬开。</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>但是她突然就倒下了，我的瓶子就这样滚到一边去，我也陷入了昏迷，之后的事情就不知道了。</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>可能只是想把瓶子摔碎吧！</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>你能不要说话了么……</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>你还记得那些会控制他人精神的骷髅么？</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我怕她被那群家伙精神控制了。</text>
+        </sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>以前和它们作战期间，被俘虏的小人们全部都被精神控制，转而攻击我们，无一例外。</text>
+        </sentence>
+        <!--语句14-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>如果她变成我们的敌人，那就……太糟了。</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-
-  <!-- Day 6 -->
+  <!--辉针城第6天入场-->
   <group id="castle_6" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第6天入场" music="mvz2:mainmenu" background="mvz2:misc/castle">
+    <archive name="辉针城第6天入场" background="mvz2:misc/castle" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.castle_6" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">不知道怎么回事，僵尸的体型受到了影响！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">他们突然之间变得非常小了！而且数量非常多！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">诶，怎么回事？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">小僵尸是吗？我来试试解决他们！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">当然，好像也不止是小……</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>不知道怎么回事，僵尸的体型受到了影响！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">
+          <text>他们突然之间变得非常小了！而且数量非常多！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>诶，怎么回事？</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>小僵尸是吗？我来试试解决他们！</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>当然，好像也不止是小……</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第6天结束-->
   <group id="castle_6_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第6天结束" background="mvz2:misc/castle">
       <unlock>
@@ -466,146 +1049,417 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">这是金苹果！不过它可不是用来回血的！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">实际上它是一个魅惑果实，能魅惑第一个攻击它的怪物！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">然后！这个怪物就会为你作战！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">不过，要注意它也是只能在晚上用的！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>这是金苹果！不过它可不是用来回血的！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>实际上它是一个魅惑果实，能魅惑第一个攻击它的怪物！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>然后！这个怪物就会为你作战！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>不过，要注意它也是只能在晚上用的！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第6天地图-->
   <group id="castle_6_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第6天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第6天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_6" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">话说，该回香霖堂一趟了吧！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">我又有东西要卖你了！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">所以你为什么要把东西卖我？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">因为只要有了这些东西你才能变强啊！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">不，我的意思是，你为什么不直接给我……</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">因为只有充钱才能变强啊！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake" onClick="end"><![CDATA[<color=blue>（完全听不懂！）</color>]]></sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>话说，该回香霖堂一趟了吧！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>我又有东西要卖你了！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>所以你为什么要把东西卖我？</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>因为只要有了这些东西你才能变强啊！</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>不，我的意思是，你为什么不直接给我……</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>因为只有充钱才能变强啊！</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text><![CDATA[<color=blue>（完全听不懂！）</color>]]></text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--访问香霖堂-辉针城-->
   <group id="kourindou_visit_castle" tags="mvz2:castle;mvz2:store">
-    <archive name="访问香霖堂-辉针城" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou">
+    <archive name="访问香霖堂-辉针城" background="mvz2:store/background_kourindou" music="mvz2:gensokyo_map">
       <unlock>
         <condition required="mvz2:kourindou_visited_castle" />
       </unlock>
     </archive>
-    <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_castle;item hide;end">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>music volume 1</script>
+        <script>music play mvz2:gensokyo_map</script>
+        <script>unlock mvz2:kourindou_visited_castle</script>
+        <script>item hide</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_weird" onClick="bubble hide;character create mvz2:tokiko right mvz2:normal;delay 0.5;next;">难道是乘法吗？3，4，12……也不对啊。</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">诶，你们回来了啊！</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">进展怎么样了？找到那个小人族公主了吗？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">已经找到了，现在她很安全，估计不久辉针城就能解放了。</sentence>
-        <sentence speaker="mvz2:tokiko" variant="mvz2:happy" sounds="mvz2:talk">哇，你们好厉害啊！居然这么快就做到了！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">您过奖了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">不过，朱鹭子，刚才看你在玩什么东西？</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" variant="mvz2:normal" onStart="item show mvz2:artifacts/smart_phone">啊，刚才啊，是我在香霖堂里找到的数字谜题哦！我一直在尝试破解它！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">……这个，不是电话吗？</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_surprised">电……话？哦！是可以让你说的话带电嘛？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">不是。这是个远程通讯工具，不是什么谜题。我来教你怎么用吧。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">点开这个，然后输入对应我们的数字，再按这个按钮，一会就可以在里面听到电话那头的声音了。</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_weird">
+          <text>难道是乘法吗？3，4，12……也不对啊。</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>bubble hide</script>
+            <script>character create mvz2:tokiko right mvz2:normal</script>
+            <script>delay 0.5</script>
+            <script>next</script>
+            <script></script>
+          </onClick>
+        </sentence>
+        <!--语句1-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
-          <click>
+          <text>诶，你们回来了啊！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
+          <text>进展怎么样了？找到那个小人族公主了吗？</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>已经找到了，现在她很安全，估计不久辉针城就能解放了。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" variant="mvz2:happy">
+          <text>哇，你们好厉害啊！居然这么快就做到了！</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>您过奖了。</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>不过，朱鹭子，刚才看你在玩什么东西？</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" variant="mvz2:normal">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>item show mvz2:artifacts/smart_phone</script>
+          </onStart>
+          <text>啊，刚才啊，是我在香霖堂里找到的数字谜题哦！我一直在尝试破解它！</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>……这个，不是电话吗？</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_surprised">
+          <text>电……话？哦！是可以让你说的话带电嘛？</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>不是。这是个远程通讯工具，不是什么谜题。我来教你怎么用吧。</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>点开这个，然后输入对应我们的数字，再按这个按钮，一会就可以在里面听到电话那头的声音了。</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
+          <text>是吗？我试试……</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>music fade 0 0.5</script>
             <script>character leave mvz2:tokiko</script>
             <script>delay 1</script>
             <script>next</script>
-          </click>
-          <text>是吗？我试试……</text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:none" speakerName="手机" description="（朱鹭子离场）" onStart="music volume 1;music play mvz2:phone_ring">叮铃铃铃……</sentence>
-        <sentence speaker="mvz2:none" speakerName="手机" sounds="mvz2:tap" onStart="music stop">哔。</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">是史蒂夫吗？</sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:none" speakerName="手机" description="（朱鹭子离场）">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>music volume 1</script>
+            <script>music play mvz2:phone_ring</script>
+          </onStart>
+          <text>叮铃铃铃……</text>
+        </sentence>
+        <!--语句14-->
+        <sentence speaker="mvz2:none" speakerName="手机" sounds="mvz2:tap">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>music stop</script>
+          </onStart>
+          <text>哔。</text>
+        </sentence>
+        <!--语句15-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
+          <text>是史蒂夫吗？</text>
+        </sentence>
+        <!--语句16-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <click>
+          <text>喂，这里是史蒂夫，你好！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>character create mvz2:tokiko right mvz2:happy</script>
             <script>delay 0.5</script>
             <script>next</script>
-          </click>
-          <text>喂，这里是史蒂夫，你好！</text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_surprised" description="（朱鹭子回来）" onStart="shake;music play mvz2:gensokyo_map">真的诶，居然是这么神奇的东西！</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">你们的知识真的很渊博呢！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">如果想跟我们说话的话，你随时可以用它打过来！</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">知道了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onStart="item hide;character variant mvz2:tokiko mvz2:normal">啊，对了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">我在这几天里我找到了一个新的器械，还闪闪发着光呢！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">接下来，让你看看吧！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">当然，得买！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="unlock mvz2:kourindou_visited_castle;end">你从来没让我失望过……</sentence>
+        <!--语句17-->
+        <sentence speaker="mvz2:tokiko" description="（朱鹭子回来）" sounds="mvz2:dialog_surprised">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+            <script>music play mvz2:gensokyo_map</script>
+          </onStart>
+          <text>真的诶，居然是这么神奇的东西！</text>
+        </sentence>
+        <!--语句18-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
+          <text>你们的知识真的很渊博呢！</text>
+        </sentence>
+        <!--语句19-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>如果想跟我们说话的话，你随时可以用它打过来！</text>
+        </sentence>
+        <!--语句20-->
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
+          <text>知道了！</text>
+        </sentence>
+        <!--语句21-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>item hide</script>
+            <script>character variant mvz2:tokiko mvz2:normal</script>
+          </onStart>
+          <text>啊，对了！</text>
+        </sentence>
+        <!--语句22-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>我在这几天里我找到了一个新的器械，还闪闪发着光呢！</text>
+        </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>接下来，让你看看吧！</text>
+        </sentence>
+        <!--语句24-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">
+          <text>当然，得买！</text>
+        </sentence>
+        <!--语句25-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>你从来没让我失望过……</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>unlock mvz2:kourindou_visited_castle</script>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-
-  <!-- Day 7 -->
+  <!--辉针城第7天入场-->
   <group id="castle_7" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第7天入场" music="mvz2:mainmenu" background="mvz2:misc/castle">
+    <archive name="辉针城第7天入场" background="mvz2:misc/castle" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.castle_7" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">看！那些是无头骑士！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">那些家伙骑着马，跳过一般的障碍对他们来说不是什么难事！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">而且不知道为什么，他们砍下自己的脑袋还不会死的！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我不知道他们是怎么砍下自己的脑袋的。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">但我知道不能让他们砍下我们的脑袋！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>看！那些是无头骑士！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>那些家伙骑着马，跳过一般的障碍对他们来说不是什么难事！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>而且不知道为什么，他们砍下自己的脑袋还不会死的！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我不知道他们是怎么砍下自己的脑袋的。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>但我知道不能让他们砍下我们的脑袋！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第7天头目-->
   <group id="castle_7_boss" tags="mvz2:castle;mvz2:special">
     <archive name="辉针城第7天头目" background="mvz2:misc/castle">
       <unlock>
         <condition required="mvz2:level.castle_7" />
       </unlock>
     </archive>
-    <section onSkip="music volume 1;end">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>music volume 1</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:surprised" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="music fade 0" onClick="bubble hide;character create mvz2:seija right mvz2:mind_controlled;delay 0.5;next">等等，好像有人过来了？</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk">消灭生命……凋零万物……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" onStart="shake">正邪——！！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:worried" sounds="mvz2:dialog_beat" onStart="shake">你听得到我吗！正邪！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">果然，她被控制了！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="shake">拜托了，史蒂夫，帮帮她！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="shake">你应该有办法解除精神控制的！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸……！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（一般这种情况下，只要把控制她的催眠者杀死就可以了。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（但是，我没有看到任何的催眠者。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake" onClick="music volume 1;end"><![CDATA[<color=blue>（可恶，到底在哪儿？）</color>]]></sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>music fade 0</script>
+          </onStart>
+          <text>等等，好像有人过来了？</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>bubble hide</script>
+            <script>character create mvz2:seija right mvz2:mind_controlled</script>
+            <script>delay 0.5</script>
+            <script>next</script>
+          </onClick>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <text>消灭生命……凋零万物……</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>正邪——！！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_beat" variant="mvz2:worried">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>你听得到我吗！正邪！</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>果然，她被控制了！</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>拜托了，史蒂夫，帮帮她！</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>你应该有办法解除精神控制的！</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>针妙丸……！</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（一般这种情况下，只要把控制她的催眠者杀死就可以了。）</color>]]></text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（但是，我没有看到任何的催眠者。）</color>]]></text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text><![CDATA[<color=blue>（可恶，到底在哪儿？）</color>]]></text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>music volume 1</script>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第7天结束-->
   <group id="castle_7_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第7天结束" background="mvz2:misc/castle">
       <unlock>
@@ -613,137 +1467,313 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:worried" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" onStart="shake">正、正邪！你没事吧！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">刚、刚才她倒下的时候，有个催眠者从天花板上掉下来了！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">原来如此，它利用了正邪的能力反转了自己的重力，让自己处在我们的视线盲区内！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">她好像只是昏过去了，应该没事，等她醒吧！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">另外，这个器械是雷鼓！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这玩意可以让地面震动起来，然后把僵尸击退，顺便把它们送到不同的行！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1" onClick="end">当心地震！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>正、正邪！你没事吧！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>刚、刚才她倒下的时候，有个催眠者从天花板上掉下来了！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>原来如此，它利用了正邪的能力反转了自己的重力，让自己处在我们的视线盲区内！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>她好像只是昏过去了，应该没事，等她醒吧！</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>另外，这个器械是雷鼓！</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>这玩意可以让地面震动起来，然后把僵尸击退，顺便把它们送到不同的行！</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">
+          <text>当心地震！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第7天地图-->
   <group id="castle_7_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第7天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第7天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_7" />
       </unlock>
     </archive>
-    <section onSkip="music volume 1;item hide;end">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>music volume 1</script>
+        <script>item hide</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" side="left" />
         <character id="mvz2:seija" variant="mvz2:stunned" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk" onStart="shake">……可恶，我在哪儿？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">你醒了啊，正邪。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:silence">针、针妙丸？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">看起来她没有大碍，太好了！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>……可恶，我在哪儿？</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>你醒了啊，正邪。</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:silence">
+          <text>针、针妙丸？</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>看起来她没有大碍，太好了！</text>
+        </sentence>
+        <!--语句4-->
         <sentence speaker="mvz2:seija" sounds="mvz2:dialog_surprised" variant="mvz2:surprised">
-          <start>
+          <!--语句开始脚本-->
+          <onStart>
             <script>character variant mvz2:shinmyoumaru mvz2:surprised</script>
             <script>forecolor fade white #FFF0 0.1</script>
             <script>music fade 0</script>
-          </start>
-          <click>
+          </onStart>
+          <text>！是你们！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>character leave mvz2:seija</script>
             <script>playsound mvz2:dialog_flashback</script>
             <script>delay 1</script>
             <script>next</script>
-          </click>
-          <text>！是你们！</text>
+          </onClick>
         </sentence>
+        <!--语句5-->
         <sentence speaker="mvz2:shinmyoumaru" description="（正邪离场）" sounds="mvz2:dialog_beat">
-          <start>
+          <!--语句开始脚本-->
+          <onStart>
             <script>shake</script>
-          </start>
-          <click>
+          </onStart>
+          <text>等等！正邪！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>character create mvz2:seija right mvz2:close_eye_silence</script>
             <script>delay 1</script>
             <script>next</script>
-          </click>
-          <text>等等！正邪！</text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:seija" description="（正邪回来了）" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk">你找我这个背叛者有事情？</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk">上次那起异变我为了完成自己的目的，欺骗并利用了你。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:silence">这次，我甚至还在你们族人处在危难时期时来这里搅局。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk">这对你们普通人来说，应该早就是不可原谅的程度了吧？</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:close_eye_silence">甚至还被那群怪物控制，然后被你们这些人类打败，可真是耻辱啊。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:worried">……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird">正邪，你走吧。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_surprised" variant="mvz2:silence">！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我不想和你多说什么，小人族还处在危机之中。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我们还有更大的敌人要面对，我不希望有人再来这里干扰我们了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">所以，请你给我离开这里。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:close_eye_silence">……</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_weird">凋灵。</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk">那群家伙的老大叫凋灵。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:surprised">凋灵？</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_beat" variant="mvz2:angry" onStart="shake">就是你们一直在打的那些黑骷髅的首领！这都听不懂吗！</sentence>
-        <sentence speaker="mvz2:seija" sounds="mvz2:talk" onStart="shake">
-          <click>
+        <!--语句6-->
+        <sentence speaker="mvz2:seija" description="（正邪回来了）" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <text>你找我这个背叛者有事情？</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <text>上次那起异变我为了完成自己的目的，欺骗并利用了你。</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:silence">
+          <text>这次，我甚至还在你们族人处在危难时期时来这里搅局。</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <text>这对你们普通人来说，应该早就是不可原谅的程度了吧？</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:close_eye_silence">
+          <text>甚至还被那群怪物控制，然后被你们这些人类打败，可真是耻辱啊。</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:worried">
+          <text>……</text>
+        </sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_weird">
+          <text>正邪，你走吧。</text>
+        </sentence>
+        <!--语句14-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_surprised" variant="mvz2:silence">
+          <text>！</text>
+        </sentence>
+        <!--语句15-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我不想和你多说什么，小人族还处在危机之中。</text>
+        </sentence>
+        <!--语句16-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我们还有更大的敌人要面对，我不希望有人再来这里干扰我们了。</text>
+        </sentence>
+        <!--语句17-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>所以，请你给我离开这里。</text>
+        </sentence>
+        <!--语句18-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk" variant="mvz2:close_eye_silence">
+          <text>……</text>
+        </sentence>
+        <!--语句19-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_weird">
+          <text>凋灵。</text>
+        </sentence>
+        <!--语句20-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <text>那群家伙的老大叫凋灵。</text>
+        </sentence>
+        <!--语句21-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:surprised">
+          <text>凋灵？</text>
+        </sentence>
+        <!--语句22-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:dialog_beat" variant="mvz2:angry">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>就是你们一直在打的那些黑骷髅的首领！这都听不懂吗！</text>
+        </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:seija" sounds="mvz2:talk">
+          <text>好了，赶我走是吧！求之不得！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>character leave mvz2:seija</script>
             <script>playsound mvz2:dialog_flashback</script>
             <script>delay 1.5</script>
             <script>next</script>
-          </click>
-          <text>好了，赶我走是吧！求之不得！</text>
+          </onClick>
         </sentence>
+        <!--语句24-->
         <sentence speaker="mvz2:shinmyoumaru" description="（正邪离场）" sounds="mvz2:talk" variant="mvz2:worried">
-          <start>
+          <!--语句开始脚本-->
+          <onStart>
             <script>item show mvz2:artifacts/miracle_mallet_replica</script>
-          </start>
-          <click>
+          </onStart>
+          <text>……</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>item hide</script>
             <script>next</script>
-          </click>
+          </onClick>
+        </sentence>
+        <!--语句25-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>针妙丸，这样真的好吗？</text>
+        </sentence>
+        <!--语句26-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:normal">
+          <text>对于她来说，这样就是最好的办法了。</text>
+        </sentence>
+        <!--语句27-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>天邪鬼，她们的性格就是这样的。</text>
+        </sentence>
+        <!--语句28-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>……</text>
         </sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸，这样真的好吗？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:normal">对于她来说，这样就是最好的办法了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">天邪鬼，她们的性格就是这样的。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="music fade 1;end">我明白了。</sentence>
+        <!--语句29-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我明白了。</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>music fade 1</script>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-
-  <!-- Day 8 -->
+  <!--辉针城第8天入场-->
   <group id="castle_8" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第8天入场" music="mvz2:mainmenu" background="mvz2:misc/castle">
+    <archive name="辉针城第8天入场" background="mvz2:misc/castle" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.castle_8" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:shinmyoumaru" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">正邪说那些黑骷髅的首领叫做凋灵，你们知道它嘛？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的，凋灵是我们世界的一个极为强大的存在。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">它是个三头的死亡巨怪，所到之处房屋瓦解，植被凋零，是个非常可怕的魔物。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">原来如此，这些黑骷髅是你们世界的魔物。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">但为什么，它们会来到我们幻想乡呢？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这……我就不清楚了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">说起来，我们已经快要靠近关押同胞的地方了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onClick="end">再加把劲，我们就能解救族人了！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>正邪说那些黑骷髅的首领叫做凋灵，你们知道它嘛？</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>是的，凋灵是我们世界的一个极为强大的存在。</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>它是个三头的死亡巨怪，所到之处房屋瓦解，植被凋零，是个非常可怕的魔物。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>原来如此，这些黑骷髅是你们世界的魔物。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>但为什么，它们会来到我们幻想乡呢？</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>这……我就不清楚了。</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>说起来，我们已经快要靠近关押同胞的地方了。</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>再加把劲，我们就能解救族人了！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第8天结束-->
   <group id="castle_8_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第8天结束" background="mvz2:misc/castle">
       <unlock>
@@ -751,129 +1781,310 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">这个是磁暴线圈！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">它能够电击周围的敌人！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">当然，也包括空中的！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird" onClick="end">你确定这是我们世界的东西？</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">
+          <text>这个是磁暴线圈！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>它能够电击周围的敌人！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>当然，也包括空中的！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>你确定这是我们世界的东西？</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第8天地图-->
   <group id="castle_8_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第8天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第8天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_8" />
       </unlock>
     </archive>
-    <section onSkip="music volume 1;music play mvz2:sad_shinmyoumaru;forecolor fade #0000 0.5;loopsound stop mvz2:people_noise;end">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>music volume 1</script>
+        <script>music play mvz2:sad_shinmyoumaru</script>
+        <script>forecolor fade #0000 0.5</script>
+        <script>loopsound stop mvz2:people_noise</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">好，族人们被关在这里！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>好，族人们被关在这里！</text>
+        </sentence>
+        <!--语句1-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <click>
+          <text>戴夫，我们一起把他们救出来！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>forecolor fade #0000 #000F 0.5</script>
             <script>delay 1</script>
-
             <script>playsound mvz2:bow</script>
             <script>shake</script>
             <script>delay 0.5</script>
-
             <script>playsound mvz2:bow</script>
             <script>shake</script>
             <script>delay 1</script>
             <script>next</script>
-          </click>
-          <text>戴夫，我们一起把他们救出来！</text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="loopsound play mvz2:people_noise;loopsound fade mvz2:people_noise 0 0.5 1"><![CDATA[<color=blue>（我们小心翼翼地打开每一个罐子，让小人族慢慢的走出来。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（小人族们有的因重获自由而欢喜，有的也因为丧失亲人而不停哭泣。）</color>]]></sentence>
+        <!--语句2-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <click>
+          <!--语句开始脚本-->
+          <onStart>
+            <script>loopsound play mvz2:people_noise</script>
+            <script>loopsound fade mvz2:people_noise 0 0.5 1</script>
+          </onStart>
+          <text><![CDATA[<color=blue>（我们小心翼翼地打开每一个罐子，让小人族慢慢的走出来。）</color>]]></text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（小人族们有的因重获自由而欢喜，有的也因为丧失亲人而不停哭泣。）</color>]]></text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（最后，所有的小人族都得到了解救。）</color>]]></text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>forecolor fade #0000 0.5</script>
             <script>delay 1</script>
             <script>next</script>
-          </click>
-          <text><![CDATA[<color=blue>（最后，所有的小人族都得到了解救。）</color>]]></text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="shake">同胞们，你们能得救真的是太好了！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="loopsound fade mvz2:people_noise 0"><![CDATA[<color=blue>（听到针妙丸的话语，小人族们纷纷看向了她。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="music fade 0"><![CDATA[<color=blue>（……）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird"><![CDATA[<color=blue>（然而，空气却突然在这时冻结了。）</color>]]></sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:surprised">……同胞们？</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:talk">……</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:talk">是针妙丸城主啊……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">怎、怎么了？</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:talk">上次托您的福，小人族至今为止都没有办法抬头。</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:talk">这次，我们又被这些可怕的怪物杀了不知道多少人。</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:talk">我们现在境地如此，您……真的有做到什么吗。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" variant="mvz2:fear" onStart="shake">……！</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:talk" onStart="shake;loopsound volume mvz2:people_noise 1;music volume 1;music play mvz2:sad_shinmyoumaru">我们好累……好痛……</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:talk" onStart="shake">妈妈！妈妈！呜呜呜！我的妈妈！不要死！</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:dialog_beat" onStart="shake">别再和那可恶的天邪鬼在一块了！</sentence>
-        <sentence speakerName="小人族" sounds="mvz2:dialog_explosive" onStart="shake">该死的，这些怪物一定是你招来的吧！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake"><![CDATA[<color=blue>（怎、怎么回事！怎么会变成这样！）</color>]]></sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:hide_eyes">……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onClick="bubble hide;character leave mvz2:shinmyoumaru;delay 0.5;next">对不起。我……</sentence>
-        <sentence speaker="mvz2:steve" description="（针妙丸离场）" sounds="mvz2:talk" onStart="shake">
-          <click>
+        <!--语句5-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>同胞们，你们能得救真的是太好了！</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>loopsound fade mvz2:people_noise 0</script>
+          </onStart>
+          <text><![CDATA[<color=blue>（听到针妙丸的话语，小人族们纷纷看向了她。）</color>]]></text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>music fade 0</script>
+          </onStart>
+          <text><![CDATA[<color=blue>（……）</color>]]></text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text><![CDATA[<color=blue>（然而，空气却突然在这时冻结了。）</color>]]></text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:surprised">
+          <text>……同胞们？</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speakerName="小人族" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speakerName="小人族" sounds="mvz2:talk">
+          <text>是针妙丸城主啊……</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>怎、怎么了？</text>
+        </sentence>
+        <!--语句13-->
+        <sentence speakerName="小人族" sounds="mvz2:talk">
+          <text>上次托您的福，小人族至今为止都没有办法抬头。</text>
+        </sentence>
+        <!--语句14-->
+        <sentence speakerName="小人族" sounds="mvz2:talk">
+          <text>这次，我们又被这些可怕的怪物杀了不知道多少人。</text>
+        </sentence>
+        <!--语句15-->
+        <sentence speakerName="小人族" sounds="mvz2:talk">
+          <text>我们现在境地如此，您……真的有做到什么吗。</text>
+        </sentence>
+        <!--语句16-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:dialog_cut" variant="mvz2:fear">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>……！</text>
+        </sentence>
+        <!--语句17-->
+        <sentence speakerName="小人族" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+            <script>loopsound volume mvz2:people_noise 1</script>
+            <script>music volume 1</script>
+            <script>music play mvz2:sad_shinmyoumaru</script>
+          </onStart>
+          <text>我们好累……好痛……</text>
+        </sentence>
+        <!--语句18-->
+        <sentence speakerName="小人族" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>妈妈！妈妈！呜呜呜！我的妈妈！不要死！</text>
+        </sentence>
+        <!--语句19-->
+        <sentence speakerName="小人族" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>别再和那可恶的天邪鬼在一块了！</text>
+        </sentence>
+        <!--语句20-->
+        <sentence speakerName="小人族" sounds="mvz2:dialog_explosive">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text>该死的，这些怪物一定是你招来的吧！</text>
+        </sentence>
+        <!--语句21-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text><![CDATA[<color=blue>（怎、怎么回事！怎么会变成这样！）</color>]]></text>
+        </sentence>
+        <!--语句22-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:hide_eyes">
+          <text>……</text>
+        </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>对不起。我……</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>bubble hide</script>
+            <script>character leave mvz2:shinmyoumaru</script>
+            <script>delay 0.5</script>
+            <script>next</script>
+          </onClick>
+        </sentence>
+        <!--语句24-->
+        <sentence speaker="mvz2:steve" description="（针妙丸离场）" sounds="mvz2:talk">
+          <text>针妙丸！你要去哪儿？！</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>forecolor fade #0000 #000F 1</script>
             <script>delay 2</script>
             <script>next</script>
             <script>character leave mvz2:crazy_villager</script>
-          </click>
-          <text>针妙丸！你要去哪儿？！</text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（小人族继续喧哗着。只是从自由的欢呼，变成了伤痛的哭嚎，以及质疑的议论。）</color>]]></sentence>
+        <!--语句25-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <click>
+          <text><![CDATA[<color=blue>（小人族继续喧哗着。只是从自由的欢呼，变成了伤痛的哭嚎，以及质疑的议论。）</color>]]></text>
+        </sentence>
+        <!--语句26-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（没有了针妙丸，我们不知所措，最后也只能离开这里。）</color>]]></text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>forecolor fade #000F #0000 1</script>
             <script>loopsound fade mvz2:people_noise 0</script>
             <script>delay 1</script>
-
             <script>loopsound stop mvz2:people_noise</script>
             <script>end</script>
-          </click>
-          <text><![CDATA[<color=blue>（没有了针妙丸，我们不知所措，最后也只能离开这里。）</color>]]></text>
+          </onClick>
         </sentence>
       </sentences>
     </section>
   </group>
-  
-  <!-- Day 9 -->
+  <!--辉针城第9天入场-->
   <group id="castle_9" tags="mvz2:castle;mvz2:intro">
-    <archive name="辉针城第9天入场" music="mvz2:mainmenu" background="mvz2:misc/castle">
+    <archive name="辉针城第9天入场" background="mvz2:misc/castle" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.castle_9" />
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸昨天离开了我们，到现在还没有回来。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我有点担心她……</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">城里的凋灵骷髅已经被我们清理得差不多了，她不会有危险的，放心吧。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">比起关心这些——那些车辆是什么？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那些车还驮着一些黄色的棺材，里面好像还有绷带和灵魂沙渗出来。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">战车，木乃伊，还有灵魂沙吗……凋灵骷髅的科技比我想象的还要高啊。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">总之，注意别被碾了！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>针妙丸昨天离开了我们，到现在还没有回来。</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我有点担心她……</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>城里的凋灵骷髅已经被我们清理得差不多了，她不会有危险的，放心吧。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>比起关心这些——那些车辆是什么？</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>那些车还驮着一些黄色的棺材，里面好像还有绷带和灵魂沙渗出来。</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>战车，木乃伊，还有灵魂沙吗……凋灵骷髅的科技比我想象的还要高啊。</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>总之，注意别被碾了！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第9天结束-->
   <group id="castle_9_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第9天结束" background="mvz2:misc/castle">
       <unlock>
@@ -881,60 +2092,171 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">啊！这个东西是……巨碗！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">你可以把星之碎片放进里面进行存储，它也会自己缓慢生成星之碎片！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">但是，一旦要取出它里面的星之碎片，就必须要把它砸毁了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">珍惜你放下的每一个巨碗吧！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>啊！这个东西是……巨碗！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>你可以把星之碎片放进里面进行存储，它也会自己缓慢生成星之碎片！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>但是，一旦要取出它里面的星之碎片，就必须要把它砸毁了！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>珍惜你放下的每一个巨碗吧！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第9天地图-->
   <group id="castle_9_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第9天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第9天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_9" />
       </unlock>
     </archive>
-    <section onSkip="music volume 1;music play mvz2:sad_shinmyoumaru;end">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>music volume 1</script>
+        <script>music play mvz2:sad_shinmyoumaru</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:hide_eyes" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="music fade 0">针妙丸……你回来了？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">是，抱歉让你们担心了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">昨天的事情……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="music volume 1;music play mvz2:sad_shinmyoumaru">我果然还是当不好一个领导者。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">对不起，让你们失望了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我不知道该怎么做。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">最后我还是没有靠自己的力量拯救辉针城。全都是因为我害怕万宝槌的力量。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">万宝槌？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:hold_mallet_cry" sounds="mvz2:talk">就是这个。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">它是我们小人族的魔宝，可以实现人的愿望，但也会付出相应的代价。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">在它们入侵的时候，我本来就应该使用它的。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">可是，上次的混乱也是因它而起，我那时才知道万宝槌可怕的能力。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">所以我这次才没有使用它，结果反而……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">不，这不是你的错。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">别说了，已经无法改变了不是吗。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" variant="mvz2:hide_eyes" sounds="mvz2:talk">针妙丸还有最后一个请求，可以吗？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">什么？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">正邪提到，这些黑色骷髅的首领叫做凋灵。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">请您帮我把它除掉吧——为了我的同胞们……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">我，知道了。</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>music fade 0</script>
+          </onStart>
+          <text>针妙丸……你回来了？</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>是，抱歉让你们担心了。</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>昨天的事情……</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>music volume 1</script>
+            <script>music play mvz2:sad_shinmyoumaru</script>
+          </onStart>
+          <text>我果然还是当不好一个领导者。</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>对不起，让你们失望了。</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我不知道该怎么做。</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>最后我还是没有靠自己的力量拯救辉针城。全都是因为我害怕万宝槌的力量。</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>万宝槌？</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:hold_mallet_cry">
+          <text>就是这个。</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>它是我们小人族的魔宝，可以实现人的愿望，但也会付出相应的代价。</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>在它们入侵的时候，我本来就应该使用它的。</text>
+        </sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>可是，上次的混乱也是因它而起，我那时才知道万宝槌可怕的能力。</text>
+        </sentence>
+        <!--语句14-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>所以我这次才没有使用它，结果反而……</text>
+        </sentence>
+        <!--语句15-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句16-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>不，这不是你的错。</text>
+        </sentence>
+        <!--语句17-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>别说了，已经无法改变了不是吗。</text>
+        </sentence>
+        <!--语句18-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:hide_eyes">
+          <text>针妙丸还有最后一个请求，可以吗？</text>
+        </sentence>
+        <!--语句19-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>什么？</text>
+        </sentence>
+        <!--语句20-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>正邪提到，这些黑色骷髅的首领叫做凋灵。</text>
+        </sentence>
+        <!--语句21-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>请您帮我把它除掉吧——为了我的同胞们……</text>
+        </sentence>
+        <!--语句22-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我，知道了。</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-  
-  <!-- Day 10 -->
+  <!--凋灵战书-->
   <group id="castle_note" tags="mvz2:castle;mvz2:note">
     <archive name="凋灵战书" background="mvz2:archive/castle_note">
       <unlock>
@@ -942,22 +2264,45 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">这个东西是——凋灵骷髅的战书？</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">是时候了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">该让那些该死的黑色骷髅为我们小人族的牺牲付出代价了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">我明白了，交给我吧。</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>这个东西是——凋灵骷髅的战书？</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>是时候了。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>该让那些该死的黑色骷髅为我们小人族的牺牲付出代价了。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我明白了，交给我吧。</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
-
-  <!-- Day 11 -->
+  <!--辉针城第11天入场-->
   <group id="castle_11" tags="mvz2:castle;mvz2:intro">
     <archive name="辉针城第11天入场" background="mvz2:misc/castle">
       <unlock>
@@ -965,125 +2310,297 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">小心点，那个可怕的骷髅怪物——凋灵马上就要来了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">它能冲锋，并且以它的威力，很可能一下冲锋就毁掉你一整排的器械！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……听起来确实难搞。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">不过，应该有办法能阻止它的。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">试试用强大的东西挡住它的去路，或者直接在它冲锋前把它击垮！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">并且，金苹果对凋灵这种亡灵生物来说可能会产生奇效！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">试着骗它吃掉一些金苹果！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我们小人族就靠你了，史蒂夫……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">遵命。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（辉针城外乌云密布。这些乌云已经笼罩这里太长时间了。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end"><![CDATA[<color=blue>（是时候该让它们散去了。）</color>]]></sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>小心点，那个可怕的骷髅怪物——凋灵马上就要来了！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>它能冲锋，并且以它的威力，很可能一下冲锋就毁掉你一整排的器械！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……听起来确实难搞。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>不过，应该有办法能阻止它的。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>试试用强大的东西挡住它的去路，或者直接在它冲锋前把它击垮！</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>并且，金苹果对凋灵这种亡灵生物来说可能会产生奇效！</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>试着骗它吃掉一些金苹果！</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我们小人族就靠你了，史蒂夫……</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>遵命。</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（辉针城外乌云密布。这些乌云已经笼罩这里太长时间了。）</color>]]></text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（是时候该让它们散去了。）</color>]]></text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第11天结束-->
   <group id="castle_11_over" tags="mvz2:castle;mvz2:over">
     <archive name="辉针城第11天结束" background="mvz2:misc/castle">
       <unlock>
         <condition required="mvz2:level.castle_11" />
       </unlock>
     </archive>
-    <section onSkip="end;playsound mvz2:final_item">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>end</script>
+        <script>playsound mvz2:final_item</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">结、结束了吗？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">看起来是的，凋灵已经支离破碎，骷髅们也已经溃不成军了！</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……谢谢你们。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">这下辉针城就彻底摆脱它们的控制了。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">谢谢你们为我和我的子民们所做的一切。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk;mvz2:final_item" onClick="end">我永远不会忘记你们的这份恩情的。</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>结、结束了吗？</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>看起来是的，凋灵已经支离破碎，骷髅们也已经溃不成军了！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>……谢谢你们。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>这下辉针城就彻底摆脱它们的控制了。</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>谢谢你们为我和我的子民们所做的一切。</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk;mvz2:final_item">
+          <text>我永远不会忘记你们的这份恩情的。</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--辉针城第11天地图-->
   <group id="castle_11_map" tags="mvz2:castle;mvz2:map">
-    <archive name="辉针城第11天地图" music="mvz2:castle_map" background="mvz2:misc/castle">
+    <archive name="辉针城第11天地图" background="mvz2:misc/castle" music="mvz2:castle_map">
       <unlock>
         <condition required="mvz2:level.castle_11" />
       </unlock>
     </archive>
-    <section onSkip="bubble hide;forecolor fade #0000 #000F 1;delay 1;action chapter_3_finish;item hide;end">
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>bubble hide</script>
+        <script>forecolor fade #0000 #000F 1</script>
+        <script>delay 1</script>
+        <script>action chapter_3_finish</script>
+        <script>item hide</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">你们帮我解决了这些怪物，解救了我的子……我们小人族，真的不胜感激。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep_close_eyes">……我不清楚。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我身为小人族的公主，却一次次地没能保护好我的人民。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我真的不算什么合格的领导者。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">别这么说，针妙丸。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">还是你写的信才带我们来到这里的。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">但是，最后事情还是你们解决的。我根本没派上什么用场。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我真的……没脸见他们了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">针妙丸……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep">为了表示对你们的感谢，我想送你们这个。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" onStart="item show mvz2:artifacts/miracle_mallet_replica">这是正邪逃走时留下的一件道具，是我的万宝槌的仿制品。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">虽说是仿制品，但也有不可小觑的力量。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep_close_eyes" onStart="item hide">……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep">在送给你们之前，我、想最后一次，有一些君主的尊严，可以吗？</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">嗯。</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">好。谢谢。</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>你们帮我解决了这些怪物，解救了我的子……我们小人族，真的不胜感激。</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep_close_eyes">
+          <text>……我不清楚。</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我身为小人族的公主，却一次次地没能保护好我的人民。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我真的不算什么合格的领导者。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>别这么说，针妙丸。</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>还是你写的信才带我们来到这里的。</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>但是，最后事情还是你们解决的。我根本没派上什么用场。</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>我真的……没脸见他们了。</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>针妙丸……</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep">
+          <text>为了表示对你们的感谢，我想送你们这个。</text>
+        </sentence>
+        <!--语句11-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>item show mvz2:artifacts/miracle_mallet_replica</script>
+          </onStart>
+          <text>这是正邪逃走时留下的一件道具，是我的万宝槌的仿制品。</text>
+        </sentence>
+        <!--语句12-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>虽说是仿制品，但也有不可小觑的力量。</text>
+        </sentence>
+        <!--语句13-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep_close_eyes">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>item hide</script>
+          </onStart>
+          <text>……</text>
+        </sentence>
+        <!--语句14-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:weep">
+          <text>在送给你们之前，我、想最后一次，有一些君主的尊严，可以吗？</text>
+        </sentence>
+        <!--语句15-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句16-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>嗯。</text>
+        </sentence>
+        <!--语句17-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>好。谢谢。</text>
+        </sentence>
+        <!--语句18-->
         <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:hold_mallet_weep_close_eyes">
-          <click>
+          <text>万宝槌，把我变大吧。</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>playsound mvz2:sparkle</script>
             <script>forecolor fade #FFF0 #FFFF 0.5</script>
             <script>delay 0.5</script>
-
             <script>playsound mvz2:grow_big</script>
             <script>character variant mvz2:shinmyoumaru mvz2:big</script>
             <script>delay 1</script>
-
             <script>forecolor fade #FFFF #FFF0 1</script>
             <script>delay 1</script>
-
             <script>next</script>
-          </click>
-          <text>万宝槌，把我变大吧。</text>
+          </onClick>
         </sentence>
-        <sentence speaker="mvz2:shinmyoumaru" description="（针妙丸变大了）" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">为答谢有功之士史蒂夫为小人族，及辉针城做出的贡献——</sentence>
-        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:gift_mallet">本公主今日赐你宝具，务必收下。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <!--语句19-->
+        <sentence speaker="mvz2:shinmyoumaru" description="（针妙丸变大了）" sounds="mvz2:talk">
+          <text>……</text>
+        </sentence>
+        <!--语句20-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">
+          <text>为答谢有功之士史蒂夫为小人族，及辉针城做出的贡献——</text>
+        </sentence>
+        <!--语句21-->
+        <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk" variant="mvz2:gift_mallet">
+          <text>本公主今日赐你宝具，务必收下。</text>
+        </sentence>
+        <!--语句22-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <click>
+          <text>……</text>
+        </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>感谢公主此等赏赐。</text>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>forecolor fade #0000 #000F 2</script>
             <script>delay 3</script>
-
             <script>next</script>
-          </click>
-          <text>感谢公主此等赏赐。</text>
-          </sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（辉针城中，夕阳光下，我半跪在这位孤独的公主面前，用充满仪式感的方式接受她的礼物。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（周围格外的安静，没有臣民，没有其他的小人族见证这一神圣的时刻。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（在那之后，针妙丸公主送我们离开，一直送到了香霖堂。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（那时已经是晚上了。她道过别之后，什么都没有说，便走上了回家的路。）</color>]]></sentence>
+          </onClick>
+        </sentence>
+        <!--语句24-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（辉针城中，夕阳光下，我半跪在这位孤独的公主面前，用充满仪式感的方式接受她的礼物。）</color>]]></text>
+        </sentence>
+        <!--语句25-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（周围格外的安静，没有臣民，没有其他的小人族见证这一神圣的时刻。）</color>]]></text>
+        </sentence>
+        <!--语句26-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（在那之后，针妙丸公主送我们离开，一直送到了香霖堂。）</color>]]></text>
+        </sentence>
+        <!--语句27-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（那时已经是晚上了。她道过别之后，什么都没有说，便走上了回家的路。）</color>]]></text>
+        </sentence>
+        <!--语句28-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text><![CDATA[<color=blue>（只是那背影，无比落寞，逐渐消失在了漆黑的夜空中，化作了一颗小小的星星。）</color>]]></text>
-          <click>
+          <!--语句点击脚本-->
+          <onClick>
             <script>bubble hide</script>
             <script>delay 2</script>
-
             <script>action chapter_3_finish</script>
             <script>end</script>
-          </click></sentence>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
