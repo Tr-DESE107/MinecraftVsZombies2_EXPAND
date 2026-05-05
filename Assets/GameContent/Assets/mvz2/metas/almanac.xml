@@ -4036,6 +4036,66 @@
                 <p>都说了不要在地下引发地震！！！</p>
             </flavor>
         </entry>
+		
+		<!--EXPAND Artifacts-->
+		<entry id="mvz2:ShrunkenHead">
+			<header>
+				<p>萎缩头颅。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>周期性为场上我方怪物赋予骨质头盔</color>]]></p>
+			</properties>
+			<flavor>
+				<p>死灵法师整的都是什么玩意...不能来点阳间的吗</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:AngelsFeather">
+			<header>
+				<p>天使的羽毛。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>周期性为场上我方实体赋予圣盾</color>]]></p>
+			</properties>
+			<flavor>
+				<p>愿我不在你身边的时候它能好好保护你</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:WitherSkeletonSkull">
+			<header>
+				<p>凋灵骷髅的头颅。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>]]></p>
+			</properties>
+			<flavor>
+				<p>多么惊悚恐怖的骷髅头！</p>
+			</flavor>
+		</entry>
+		<entry/>
+		<entry/>
+		<entry id="mvz2:FrankensteinBrain">
+			<header>
+				<p>科学怪人的大脑。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%</color>]]></p>
+			</properties>
+			<flavor>
+				<p>即使肉体已经死亡，这个大脑也在不断汲取能量并活跃。</p>
+				<p>希望这不意味着他知道发生了什么。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:NightmareMask">
+			<header>
+				<p>梦魇的面具。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>敌人的攻击速度下降20%，但有33%概率不受到本次伤害。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>你确定你在攻击敌人吗？</p>
+			</flavor>
+		</entry>
 		<entry id="mvz2:WitherHeartShield">
 			<header>
 				<p>凋灵护心盾。</p>

@@ -192,6 +192,7 @@ namespace MVZ2.GameContent.Buffs
             public const string ironCurtain = "iron_curtain";
             public const string miracleMalletReplicaDamage = "miracle_mallet_replica_damage";
             public const string FrankensteinBrainAddHealthBuff = "FrankensteinBrainAddHealthBuff";
+            public const string WitherSkeletonSkullReduceHealthBuff = "WitherSkeletonSkullReduceHealthBuff";
             public const string brokenLantern = "broken_lantern";
 
             // Chapter 4
@@ -376,6 +377,9 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 2
             public const string slendermanMindSwap = "slenderman_mind_swap";
+
+            // Chapter 3
+            public const string WitherSkeletonSkullReduceCost = "WitherSkeletonSkullReduceCost";
 
             // Chapter 6
             public const string blueprintLock = "blueprint_lock";
@@ -736,6 +740,9 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 2
             public static readonly NamespaceID slendermanMindSwap = Get(VanillaBuffNames.SeedPack.slendermanMindSwap);
+
+            // Chapter 3
+            public static readonly NamespaceID WitherSkeletonSkullReduceCost = Get(VanillaBuffNames.SeedPack.WitherSkeletonSkullReduceCost);
 
             // Chapter 6
             public static readonly NamespaceID controlRodRecharge = Get(VanillaBuffNames.SeedPack.controlRodRecharge);

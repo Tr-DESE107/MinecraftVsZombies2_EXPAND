@@ -505,7 +505,7 @@
         <sample path="mvz2:entity/locked_chest/giggles3" weight="1" />
     </sound>
     <sound name="locked_chest_ouch">
-        <sample path="mvz2:entity/locked_chest/ouch" weight="1" />
+        <sample path="mvz2:entity/locked_chest/Areeeeeee" weight="1" />
     </sound>
     <sound name="locked_chest_death">
         <sample path="mvz2:entity/locked_chest/death" weight="1" />

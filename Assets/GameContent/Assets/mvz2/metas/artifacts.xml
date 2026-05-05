@@ -64,11 +64,6 @@
             <condition required="mvz2:level.castle_11" />
         </unlock>
     </artifact>
-    <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/wither_skeleton_skull">
-        <unlock>
-            <condition required="mvz2:level.castle_14" />
-        </unlock>
-    </artifact>
     <artifact id="nether_star" name="下界之星" tooltip="每有4个星之碎片被使用，生成一个星之碎片" sprite="mvz2:artifacts/nether_star">
         <unlock>
             <condition required="mvz2:artifact.nether_star" />
@@ -160,6 +155,11 @@
 	<artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather">
 		<unlock>
 			<condition required="mvz2:level.dream_6" />
+		</unlock>
+	</artifact>
+	<artifact id="WitherSkeletonSkull" name="凋灵骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/WitherSkeletonSkull">
+		<unlock>
+			<condition required="mvz2:level.castle_14" />
 		</unlock>
 	</artifact>
     <artifact id="FrankensteinBrain" name="&lt;color=red&gt;科学怪人之脑&lt;/color&gt;" tooltip="场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%" sprite="mvz2:artifacts/FrankensteinBrain">

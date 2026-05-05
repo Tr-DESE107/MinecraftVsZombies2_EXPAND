@@ -201,6 +201,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 839decadd93608a458dfa0676ac6ce7f, type: 3}
   - name: artifacts/WitherHeartShield
     sprite: {fileID: 21300000, guid: e4ff65582e1e99d4aa26218e03930405, type: 3}
+  - name: artifacts/WitherSkeletonSkull
+    sprite: {fileID: 21300000, guid: 269ed251673b583439f3b4b3a16dd319, type: 3}
   - name: chapter_transition/chapter_title_end
     sprite: {fileID: 21300000, guid: 132beb45039de2d47a6cff39a62a56b3, type: 3}
   - name: chapter_transition/chapter_wheel

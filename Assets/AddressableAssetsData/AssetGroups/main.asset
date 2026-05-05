@@ -13804,6 +13804,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccd008944a0ce7248922817df2c3934d
+    m_Address: mvz2:entity/locked_chest/Areeeeeee
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccd13bb555a3caa41b03769e2fd70345
     m_Address: mvz2:entity/Villager/Villager_hit2
     m_ReadOnly: 0
