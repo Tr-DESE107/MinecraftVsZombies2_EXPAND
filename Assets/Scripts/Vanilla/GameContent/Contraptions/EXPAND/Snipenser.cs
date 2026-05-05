@@ -10,13 +10,18 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Level;
+
 using Tools;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
@@ -54,7 +59,6 @@ namespace MVZ2.GameContent.Contraptions
                     var target = detector.DetectEntityWithTheMost(entity, t => GetTargetPriority(entity, t));
                     if (target != null)
                     {
-                        // ����ֱ�߷�����ٶ�  
                         var direction = (target.GetCenter() - entity.GetShootPoint()).normalized;
                         var speed = entity.GetShotVelocity().magnitude * 1.5f;
                         var velocity = direction * speed;
@@ -81,6 +85,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static void Shoot(Entity entity, NamespaceID projectileID, float damage, Vector3 velocity)
         {
+            if (entity == null) return;
+
             entity.TriggerAnimation("Shoot");
             var proID = projectileID;
             var BulletRNG = entity.RNG.Next(6);
@@ -101,7 +107,7 @@ namespace MVZ2.GameContent.Contraptions
                     break;
             }
 
-            var projectile = entity.ShootProjectile(new ShootParams()
+            var shootParams = new ShootParams()
             {
                 projectileID = proID,
                 position = entity.GetShootPoint(),
@@ -109,7 +115,15 @@ namespace MVZ2.GameContent.Contraptions
                 damage = damage,
                 soundID = entity.GetShootSound(),
                 velocity = velocity,
-            })?.Let(e => e.SetGravity(0)); // �Ƴ�������ʹ��ֱ�߷���  
+                pivot = entity.GetBoundsPivot(),  // 添加这一行
+                spawnParam = new SpawnParams()    // 添加这一行
+            };
+
+            var projectile = entity.ShootProjectile(shootParams);
+            if (projectile != null)
+            {
+                projectile.SetGravity(0);
+            }
         }
         private void EvokedUpdate(Entity entity)
         {
@@ -132,7 +146,7 @@ namespace MVZ2.GameContent.Contraptions
             else
             {
                 evokeTimer.Run();
-                
+
                 if (evokeTimer.PassedInterval(3))
                 {
                     Shoot(entity, entity.GetProjectileID() ?? VanillaProjectileID.missile, entity.GetDamage(), velocity);
