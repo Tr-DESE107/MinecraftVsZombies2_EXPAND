@@ -76,6 +76,11 @@ namespace MVZ2.Editor
         {
             TalkMenu.FormatTalkDatas();
         }
+        [MenuItem("MVZ2/Assets/Talk/Convert Talk File", priority = 6000, secondaryPriority = 1)]
+        public static void ConvertTalkFile()
+        {
+            TalkMenu.ConvertNaturalLanguageToTalks();
+        }
         [MenuItem("MVZ2/Save Data/Decompress", priority = 10000, secondaryPriority = 0)]
         public static void DecompressSaveData()
         {

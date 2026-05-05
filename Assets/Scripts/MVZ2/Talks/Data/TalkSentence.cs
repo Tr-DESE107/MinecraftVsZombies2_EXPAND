@@ -21,12 +21,10 @@ namespace MVZ2.TalkData
         public TalkScript[]? startScripts;
         public TalkScript[]? clickScripts;
 
-        private TalkSentence(string text, NamespaceID[] sounds, TalkScript[]? startScripts, TalkScript[]? clickScripts)
+        public TalkSentence(string text, NamespaceID[] sounds)
         {
             this.text = text;
             this.sounds = sounds;
-            this.startScripts = startScripts;
-            this.clickScripts = clickScripts;
         }
 
         public XmlNode ToXmlNode(XmlDocument document)
@@ -92,12 +90,14 @@ namespace MVZ2.TalkData
                 }
             }
 
-            return new TalkSentence(text, sounds ?? Array.Empty<NamespaceID>(), startScripts, clickScripts)
+            return new TalkSentence(text, sounds ?? Array.Empty<NamespaceID>())
             {
                 speaker = speaker,
                 speakerName = speakerName,
                 description = description,
                 variant = variant,
+                startScripts = startScripts,
+                clickScripts = clickScripts,
             };
         }
         public string GetSpeakerName(MainManager main)

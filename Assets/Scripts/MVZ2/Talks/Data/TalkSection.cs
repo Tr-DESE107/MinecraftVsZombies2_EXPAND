@@ -19,11 +19,8 @@ namespace MVZ2.TalkData
         public TalkCharacter[] characters;
         public TalkSentence[] sentences;
 
-        private TalkSection(TalkScript[]? startScripts, TalkScript[]? autoSkipScripts, TalkScript[]? skipScripts, TalkCharacter[] characters, TalkSentence[] sentences)
+        public TalkSection(TalkCharacter[] characters, TalkSentence[] sentences)
         {
-            this.startScripts = startScripts;
-            this.skipScripts = skipScripts;
-            this.autoSkipScripts = autoSkipScripts;
             this.characters = characters;
             this.sentences = sentences;
         }
@@ -139,8 +136,11 @@ namespace MVZ2.TalkData
                         sentences.Add(meta);
                 }
             }
-            return new TalkSection(startScripts, autoSkipScripts, skipScripts, characters.ToArray(), sentences.ToArray())
+            return new TalkSection(characters.ToArray(), sentences.ToArray())
             {
+                startScripts = startScripts,
+                autoSkipScripts = autoSkipScripts,
+                skipScripts = skipScripts,
                 canAutoSkip = canAutoSkip,
                 archiveText = archiveText,
             };

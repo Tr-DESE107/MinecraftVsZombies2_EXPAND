@@ -1667,10 +1667,6 @@
       </unlock>
     </archive>
     <section>
-      <!--分段自动跳过脚本-->
-      <onAutoSkip>
-        <script></script>
-      </onAutoSkip>
       <!--分段跳过脚本-->
       <onSkip>
         <script>foreground alpha 0</script>
@@ -1902,10 +1898,6 @@
     </section>
     <!--史蒂夫在一间屋子里醒来。-->
     <section>
-      <!--分段自动跳过脚本-->
-      <onAutoSkip>
-        <script></script>
-      </onAutoSkip>
       <!--分段跳过脚本-->
       <onSkip>
         <script>forecolor set #000F</script>
@@ -2096,10 +2088,6 @@
     </section>
     <!--史蒂夫走出了屋子。-->
     <section>
-      <!--分段自动跳过脚本-->
-      <onAutoSkip>
-        <script></script>
-      </onAutoSkip>
       <!--分段跳过脚本-->
       <onSkip>
         <script>background alpha 0</script>
