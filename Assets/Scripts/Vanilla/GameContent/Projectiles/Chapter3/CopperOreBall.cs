@@ -4,13 +4,17 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Projectiles;
+
 using MVZ2Logic.Entities;
+using MVZ2Logic.Entities;
+
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Level;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
@@ -64,6 +68,8 @@ namespace MVZ2.GameContent.Projectiles
                         position = pos,
                         projectileID = VanillaProjectileID.cobble,
                         velocity = new Vector3(xspeed, yspeed, zspeed),
+                        pivot = projectile.GetBoundsPivot(),
+                        spawnParam = projectile.GetSpawnParams(),
                     };
                     projectile.ShootProjectile(shootParams);
                     projectile.Produce(VanillaPickupID.CopperNugget);

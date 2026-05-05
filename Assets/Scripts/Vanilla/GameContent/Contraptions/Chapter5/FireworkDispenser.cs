@@ -111,6 +111,8 @@ namespace MVZ2.GameContent.Contraptions
                 damage = damage,
                 soundID = entity.GetShootSound(),
                 velocity = velocity,
+                pivot = entity.GetBoundsPivot(),
+                spawnParam = entity.GetSpawnParams(),
             })?.Let(e => e.SetGravity(0)); // 移除重力，使用直线飞行  
         }
         private void EvokedUpdate(Entity entity)

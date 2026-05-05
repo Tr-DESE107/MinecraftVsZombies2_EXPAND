@@ -115,8 +115,8 @@ namespace MVZ2.GameContent.Contraptions
                 damage = damage,
                 soundID = entity.GetShootSound(),
                 velocity = velocity,
-                pivot = entity.GetBoundsPivot(),  // 添加这一行
-                spawnParam = new SpawnParams()    // 添加这一行
+                pivot = entity.GetBoundsPivot(),
+                spawnParam = entity.GetSpawnParams(),
             };
 
             var projectile = entity.ShootProjectile(shootParams);

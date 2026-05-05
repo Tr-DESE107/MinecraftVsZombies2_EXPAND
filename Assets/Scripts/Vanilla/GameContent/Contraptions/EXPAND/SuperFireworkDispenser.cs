@@ -98,6 +98,8 @@ namespace MVZ2.GameContent.Contraptions
                 damage = damage,
                 soundID = entity.GetShootSound(),
                 velocity = velocity,
+                pivot = entity.GetBoundsPivot(),
+                spawnParam = entity.GetSpawnParams(),
             })?.Let(e => e.SetGravity(GRAVITY));
         }
         private void EvokedUpdate(Entity entity)

@@ -164,7 +164,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void Explode(Entity entity, float damage, DamageEffectList effects, int faction)
         {
-            Explode(entity, damage, entity.GetRange(), effects, faction);
+            Explode(entity, damage, EXPLODE_RANGE, effects, faction);
         }
         public static void Explode(Entity entity, float damage, float range, DamageEffectList effects, int faction)
         {
@@ -245,9 +245,10 @@ namespace MVZ2.GameContent.Enemies
         // ����  
         public const int SHOOT_COOLDOWN = 135;  
         public const int SHOOT_DURATION = 15;  
-        public const int BURST_TOTAL = 3;        // �������ܹ�3��  
-        public const int BURST_INTERVAL = 20;    // ÿ�����20֡��Լ0.67�룩  
+        public const int BURST_TOTAL = 3;
+        public const int BURST_INTERVAL = 20;
         public const int STATE_WALK = LogicEnemyStates.WALK;  
-        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;  
+        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
+        public const int EXPLODE_RANGE = 70;
     }  
 }
