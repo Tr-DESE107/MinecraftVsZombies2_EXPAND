@@ -57,7 +57,7 @@
     <group id="chapter.castle"><conditions><condition required="mvz2:entered_castle" /></conditions></group>
     <group id="chapter.mausoleum"><conditions><condition required="mvz2:entered_mausoleum" /></conditions></group>
     <group id="chapter.ship"><conditions><condition required="mvz2:entered_ship" /></conditions></group>
-    <group id="chapter.palace"><conditions><condition required="mvz2:level.ship_11" /></conditions></group>
+    <group id="chapter.palace"><conditions><condition required="mvz2:level.entered_palace" /></conditions></group>
 
     <group id="chapter_finished.halloween"><conditions><condition required="mvz2:level.halloween_11" /></conditions></group>
     <group id="chapter_finished.dream"><conditions><condition required="mvz2:level.dream_11" /></conditions></group>
