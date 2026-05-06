@@ -1122,17 +1122,18 @@
       </sentences>
     </section>
   </group>
-  <!--第三天关卡-->
-  <group id="palace_3" tags="mvz2:unknown">
-    <archive name="第三天关卡" background="mvz2:unknown" music="mvz2:unknown">
+  <!--地灵殿第3天入场-->
+  <group id="palace_3" tags="mvz2:palace;mvz2:intro">
+    <archive name="地灵殿第3天入场" background="mvz2:misc/palace" music="mvz2:mainmenu">
       <unlock>
-        <condition required="mvz2:unknown" />
+        <condition required="mvz2:level.palace_3" />
       </unlock>
     </archive>
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:unknown" side="left" />
+        <character id="mvz2:satori" side="left" />
+        <character id="mvz2:steve" side="self" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -1171,17 +1172,65 @@
       </sentences>
     </section>
   </group>
-  <!--第三天地图-->
-  <group id="palace_3_map" tags="mvz2:unknown">
-    <archive name="第三天地图" background="mvz2:unknown" music="mvz2:unknown">
+  <!--地灵殿第3天结束-->
+  <group id="palace_3_over" tags="mvz2:palace;mvz2:over">
+    <archive name="地灵殿第3天结束" background="mvz2:misc/palace">
       <unlock>
-        <condition required="mvz2:unknown" />
+        <condition required="mvz2:level.palace_3" />
       </unlock>
     </archive>
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:unknown" side="left" />
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <!--语句列表-->
+      <sentences>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>生日快乐！不过今天也不是你的生日！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>这根蜡烛也不是一根普通的蜡烛！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long2">
+          <text>这是诅咒蜡烛，一旦有怪物把它摧毁掉，那个怪物就会被诅咒！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">
+          <text>被诅咒的怪物会染上诅咒的火焰，并且在死亡后会直接爆开！</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">
+          <text>千万别把它弄坏了！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
+      </sentences>
+    </section>
+  </group>
+  <!--地灵殿第3天地图-->
+  <group id="palace_3_map" tags="mvz2:palace;mvz2:map">
+    <archive name="地灵殿第3天地图" background="mvz2:misc/palace" music="mvz2:palace_map">
+      <unlock>
+        <condition required="mvz2:level.palace_3" />
+      </unlock>
+    </archive>
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>item hide</script>
+        <script>end</script>
+      </onSkip>
+      <!--角色列表-->
+      <characters>
+        <character id="mvz2:satori" side="left" />
+        <character id="mvz2:steve" side="self" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -1198,7 +1247,7 @@
           <text>是的，关于你的那位养父……</text>
         </sentence>
         <!--语句3-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
           <text>戴夫？</text>
         </sentence>
         <!--语句4-->
@@ -1210,15 +1259,15 @@
           <text>你确定他疯掉了吗？</text>
         </sentence>
         <!--语句6-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_surprised">
           <text>……怎么了？</text>
         </sentence>
         <!--语句7-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:talk" variant="mvz2:close_eyes">
           <text>……</text>
         </sentence>
         <!--语句8-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:talk" variant="mvz2:normal">
           <text>没什么，我只是想了解一下你们之间的故事。</text>
         </sentence>
         <!--语句9-->
@@ -1258,7 +1307,7 @@
           <text>我只能像他之前照顾我一样，把他照顾好。</text>
         </sentence>
         <!--语句18-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:talk" variant="mvz2:close_eyes">
           <text>……</text>
         </sentence>
         <!--语句19-->
@@ -1270,7 +1319,7 @@
           <text>但是……</text>
         </sentence>
         <!--语句21-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:dialog_surprised">
           <text>我希望你长大后，能坦然接受一些事实。</text>
         </sentence>
         <!--语句22-->
@@ -1291,21 +1340,30 @@
         </sentence>
         <!--语句26-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>item show mvz2:artifacts/control_rod</script>
+          </onStart>
           <text>没关系的。对了，阿空说要送给你这件东西当礼物，她说也许这能够帮上你的忙。</text>
         </sentence>
         <!--语句27-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
           <text>哇，好重！这是什么？</text>
         </sentence>
         <!--语句28-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
-          <text>这是她的一根核能控制棒，是用来调节核融合炉的火力的。</text>
+          <text>这是她的一根核能控制棒，是用来调节核聚变炉的火力的。</text>
         </sentence>
         <!--语句29-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
           <text>试试看吧，史蒂夫。也许你的那些蓝图也需要这种东西也说不定。</text>
           <!--语句点击脚本-->
           <onClick>
+            <script>item hide</script>
             <script>end</script>
           </onClick>
         </sentence>
