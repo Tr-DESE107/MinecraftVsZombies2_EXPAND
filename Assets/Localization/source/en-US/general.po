@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-05 01:00+0800\n"
-"PO-Revision-Date: 2026-05-05 13:02+0800\n"
+"POT-Creation-Date: 2026-05-06 10:18+0800\n"
+"PO-Revision-Date: 2026-05-06 22:21+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1169,7 +1169,7 @@ msgstr "Version {0}"
 msgid "点击以开始！"
 msgstr "Click to start!"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:982
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:983
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1177,7 +1177,7 @@ msgstr ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:984
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:985
 msgid "已跳过对话\"{0}\""
 msgstr "Dialogue skipped: {0}"
 
@@ -1426,7 +1426,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:736
+#: Scripts\MVZ2\Map\MapController.cs:697
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1434,7 +1434,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:738
+#: Scripts\MVZ2\Map\MapController.cs:699
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1442,11 +1442,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:740
+#: Scripts\MVZ2\Map\MapController.cs:701
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:742
+#: Scripts\MVZ2\Map\MapController.cs:703
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1455,12 +1455,12 @@ msgstr ""
 "{0}/{1}"
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:744
+#: Scripts\MVZ2\Map\MapController.cs:705
 msgid "目标地点{0}不存在。"
 msgstr "Target area {0} does not exist."
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:746
+#: Scripts\MVZ2\Map\MapController.cs:707
 msgid "目标关卡{0}不存在。"
 msgstr "Target stage {0} does not exist."
 
@@ -4061,7 +4061,7 @@ msgid ""
 "可是，人明明已经死去，这般欲望又有什么意义呢？"
 msgstr ""
 "The theme for the map of Hall of Dreams' Great Mausoleum.\n"
-"The original theme is the 1th stage theme <i>Night Sakura of Dead Spirits</"
+"The original theme is the 1st stage theme <i>Night Sakura of Dead Spirits</"
 "i> in <i>Ten Desires</i>.\n"
 "Men die. Men are buried. Yet their desires linger.\n"
 "Transformed into zombies, they wander the mortal plane like spectral "
@@ -4329,7 +4329,7 @@ msgid ""
 "最终，Lex离开了这本书，再次回到了图书馆。"
 msgstr ""
 "The Red Dragon's theme.\n"
-"In Bookworm Adventures Vol. 2, the protagonist Lex defeated powerful "
+"In Bookworm <i>Adventures Vol. 2</i>, the protagonist Lex defeated powerful "
 "enemies, obtained many precious treasures, and befriended Wong Fei Hong and "
 "the Monkey King in the book The Monkey King. Together, they ultimately "
 "defeated the Four Heavenly Kings and Er-lang Shen, reaching heaven.\n"
@@ -4354,12 +4354,12 @@ msgid ""
 "出现了大量的机器人，它们偷走了图书馆的书。\n"
 "Lex和他的同伴们跟着机器人冲进了一本书中，那本书即为《惊疑星球》。"
 msgstr ""
-"The theme from the map of Palace of the Earth Spirits.\n"
-"In Bookworm Adventure Vol. 2, the protagonist Lex leaves The Monkey King and "
-"returns to the library, only to find that a large number of robots have "
-"appeared and stolen the library's books.\n"
-"Lex and his companions pursue the robots into a book which is the Astounding "
-"Planet."
+"The theme for the map of Palace of the Earth Spirits.\n"
+"In Bookworm <i>Adventure Vol. 2</i>, the protagonist Lex leaves <i>The "
+"Monkey King</i> and returns to the library, only to discover a large number "
+"of robots have appeared and are stealing the library's books.\n"
+"Lex and his companions pursue the robots into a book, which is <i>Astounding "
+"Planet</i>."
 
 #. Name for music mvz2:palace_level
 #: Music meta file
@@ -4390,12 +4390,13 @@ msgid ""
 "奇怪的……■■■■■■？"
 msgstr ""
 "The theme for the levels of Palace of the Earth Spirits.\n"
-"The original theme is Satori Maiden ~ 3rd Eye, the theme of Satori Komeiji "
-"from Subterranean Animism.\n"
-"The Palace of the Earth Spirits is, as always, profound and magnificent.\n"
+"The original theme is <i>Satori Maiden ~ 3rd Eye</i>, the theme of Satori "
+"Komeiji from <i>Subterranean Animism</i>.\n"
+"The Palace of the Earth Spirits remains as profound and magnificent as "
+"ever.\n"
 "However, at this moment, it seems that many strange things have appeared "
 "here.\n"
-"Strange... ■■■■■■?"
+"Strange... ██████?"
 
 #. Name for music mvz2:palace_final
 #: Music meta file
@@ -4413,11 +4414,11 @@ msgid ""
 "那位夺走他人记忆与灵魂的“猎手”啊，出来与我们一战吧！"
 msgstr ""
 "The theme for the final level of Palace of the Earth Spirits.\n"
-"It is the theme from the extra stage of Subterranean Animism.\n"
-"As countless souls continue to swirl through the Palace of the Earth "
-"Spirits, the culprit behind this attack seems about to arrive.\n"
-"O \"hunter\" who steals the memories and souls of others—come out and face "
-"us in battle!"
+"It is the theme from the extra stage of <i>Subterranean Animism</i>.\n"
+"As countless souls continue to fly around the Palace of the Earth Spirits, "
+"it seems that the culprit behind this attack is about to arrive.\n"
+"O \"Hunter\" who steals the memories and souls of others', come out and "
+"fight us!"
 
 #. Name for music mvz2:palace_boss
 #: Music meta file
@@ -4441,7 +4442,7 @@ msgid ""
 "不可名状的巨型血肉墙壁正在朝你冲过来！！！！！"
 msgstr ""
 "The theme of Locked Chest.\n"
-"It is the theme of the Wall of Flesh boss from Terraria.\n"
+"It is the theme of the Wall of Flesh from <i>Terraria</i>.\n"
 "!!!FEAR!!!\n"
 "An indescribable, gigantic wall of flesh is charging toward you!!!!!"
 
