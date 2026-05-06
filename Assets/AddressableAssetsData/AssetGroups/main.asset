@@ -3704,6 +3704,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 449e4670664a445408641c38a5375108
+    m_Address: mvz2:talks/palace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44af0df990a9b3645882e5d960e69e2d
     m_Address: mvz2:contraption/palace/stone_eye
     m_ReadOnly: 0
@@ -6050,6 +6057,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 70de6ddff3a791547a9503617054e1c9
     m_Address: mvz2:arcade/arcade_category_minigame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7115796f746855040a8dba6478a983f0
+    m_Address: mvz2:misc/eientei_inside
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9874,6 +9888,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bae54dd42f53f3647bb2d151a04d3d1d
+    m_Address: mvz2:misc/mysterious_hacker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bae54dd42f53f3647bb2d151a04d3d1d
     m_Address: mvz2:misc/mysterious_hacker

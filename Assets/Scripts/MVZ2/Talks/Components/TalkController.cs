@@ -18,6 +18,7 @@ using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using static System.Collections.Specialized.BitVector32;
 
 namespace MVZ2.Talk
 {
@@ -64,14 +65,7 @@ namespace MVZ2.Talk
 
             // 延迟完毕。
             // 创建角色。
-            var characters = section.characters;
-            if (characters != null)
-            {
-                foreach (TalkCharacter chr in characters)
-                {
-                    CreateCharacter(chr.id, chr.variant, ParseCharacterSide(chr.side));
-                }
-            }
+            InitSectionCharacters(section);
 
             // 延迟半秒。
             await Main.CoroutineManager.DelaySeconds(0.5f);
@@ -291,6 +285,19 @@ namespace MVZ2.Talk
                                         break;
 
                                     CharacterFaint(characterIndex, duration);
+                                }
+                                break;
+                            case "clear":
+                                {
+                                    ClearCharacters();
+                                }
+                                break;
+                            case "init":
+                                {
+                                    var section = GetTalkSection();
+                                    if (section == null)
+                                        break;
+                                    InitSectionCharacters(section);
                                 }
                                 break;
                         }
@@ -818,6 +825,14 @@ namespace MVZ2.Talk
         }
 
 
+        private void InitSectionCharacters(TalkSection section)
+        {
+            var characters = section.characters;
+            foreach (TalkCharacter chr in characters)
+            {
+                CreateCharacter(chr.id, chr.variant, ParseCharacterSide(chr.side));
+            }
+        }
         public void CreateCharacter(NamespaceID characterId, NamespaceID? variant, CharacterSide side)
         {
             var chr = Instantiate(characterTemplate, characterRoot).GetComponent<TalkCharacterController>();

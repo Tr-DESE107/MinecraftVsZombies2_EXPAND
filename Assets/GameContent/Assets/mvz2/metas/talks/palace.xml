@@ -28,8 +28,7 @@
       </onAutoSkip>
       <!--分段跳过脚本-->
       <onSkip>
-        <script>character leave mvz2:crazy_villager</script>
-        <script>character leave mvz2:marisa</script>
+        <script>character clear</script>
         <script>foreground alpha 0</script>
         <script>forecolor set #000F</script>
         <script>music fade 0</script>
@@ -287,6 +286,7 @@
             <script>forecolor fade #0000 #000F 1</script>
             <script>delay 2</script>
 
+            <script>character clear</script>
             <script>section 1</script>
           </onClick>
         </sentence>
@@ -296,11 +296,12 @@
       <!--分段开始脚本-->
       <onStart>
         <script>bubble hide</script>
-        <script>character create mvz2:marisa left mvz2:sad</script>
+        <script>character init</script>
         <script>delay 0.5</script>
-        <script>foreground alpha 0</script>
+
         <script>background alpha 1</script>
         <script>background change mvz2:misc/eientei_inside</script>
+        <script>foreground alpha 0</script>
         <script>forecolor fade #000F #0000 2</script>
         <script>delay 3</script>
 
@@ -311,9 +312,7 @@
       <!--分段跳过脚本-->
       <onSkip>
         <script>forecolor set #000F</script>
-        <script>character leave mvz2:marisa</script>
-        <script>character leave mvz2:crazy_villager</script>
-        <script>character leave mvz2:eirin</script>
+        <script>character clear</script>
         <script>section 2</script>
       </onSkip>
       <!--对话档案文本-->
@@ -321,6 +320,7 @@
       <!--角色列表-->
       <characters>
         <character id="mvz2:steve" side="self" />
+        <character id="mvz2:marisa" side="left" variant="mvz2:sad" />
       </characters>
       <sentences>
         <!--语句33-->
@@ -459,7 +459,7 @@
             <script>bubble hide</script>
             <script>forecolor fade #0000 #000F 1</script>
             <script>delay 1</script>
-            <script>character leave mvz2:crazy_villager</script>
+            <script>character clear</script>
 
             <script>section 2</script>
           </onClick>
@@ -469,14 +469,15 @@
     <section>
       <onStart>
         <script>bubble hide</script>
-        <script>character create mvz2:crazy_villager left</script>
-        <script>character create mvz2:tokiko right mvz2:worried_wounded</script>
+        <script>character init</script>
+
         <script>delay 0.5</script>
-        <script>foreground alpha 0</script>
         <script>background alpha 1</script>
         <script>background change mvz2:misc/eientei_inside</script>
+        <script>foreground alpha 0</script>
         <script>forecolor fade #000F #0000 2</script>
         <script>delay 3</script>
+
         <script>bubble show</script>
       </onStart>
       <!--分段跳过脚本-->
@@ -495,7 +496,7 @@
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:tokiko" side="right" />
+        <character id="mvz2:tokiko" side="right" variant="mvz2:worried_wounded" />
       </characters>
       <sentences>
         <!--语句61-->
