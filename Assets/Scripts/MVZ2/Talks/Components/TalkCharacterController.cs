@@ -27,9 +27,13 @@ namespace MVZ2.Talk
         {
             disappearSpeed = value;
         }
-        public void SetToTheFirstLayer(int index)
+        public void SetToTheFirstLayer()
         {
             transform.SetAsLastSibling();
+        }
+        public void SetToTheLastLayer()
+        {
+            transform.SetAsFirstSibling();
         }
         public void SetVariant(NamespaceID characterID, NamespaceID? variantID)
         {

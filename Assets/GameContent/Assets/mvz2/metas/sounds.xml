@@ -190,6 +190,9 @@
     <sound name="dialog_judge">
         <sample path="mvz2:talk/dialog_judge" weight="1" />
     </sound>
+    <sound name="dialog_objection">
+        <sample path="mvz2:talk/dialog_objection" weight="1" />
+    </sound>
     <sound name="dialog_surprised">
         <sample path="mvz2:talk/dialog_surprised" weight="1" />
     </sound>
@@ -461,6 +464,9 @@
     </sound>
     <sound name="huge_wave" priority="64">
         <sample path="mvz2:huge_wave" weight="1" />
+    </sound>
+    <sound name="hum">
+        <sample path="mvz2:hum" weight="1" />
     </sound>
     <sound name="imp_laugh">
         <sample path="mvz2:entity/imp/imp_laugh1" weight="1" />

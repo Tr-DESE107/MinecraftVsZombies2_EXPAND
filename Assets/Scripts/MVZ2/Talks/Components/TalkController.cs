@@ -300,6 +300,27 @@ namespace MVZ2.Talk
                                     InitSectionCharacters(section);
                                 }
                                 break;
+                            case "layer":
+                                {
+                                    var characterId = ParseArgumentNamespaceID(args[1]);
+                                    var layer = args[2];
+                                    var characterIndex = GetCharacterIndex(characterId);
+                                    if (characterIndex < 0)
+                                        break;
+                                    var controller = GetCharacter(characterIndex);
+                                    if (!controller.Exists())
+                                        break;
+                                    switch (layer) 
+                                    {
+                                        case "first":
+                                            controller.SetToTheFirstLayer();
+                                            break;
+                                        case "last":
+                                            controller.SetToTheLastLayer();
+                                            break;
+                                    }
+                                }
+                                break;
                         }
                     }
                     break;
@@ -730,7 +751,7 @@ namespace MVZ2.Talk
                 controller.SetSpeaking(isSpeaker);
                 if (isSpeaker)
                 {
-                    controller.SetToTheFirstLayer(i);
+                    controller.SetToTheFirstLayer();
                 }
             }
 
