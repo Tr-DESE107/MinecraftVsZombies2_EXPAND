@@ -500,15 +500,25 @@
         <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/armor_stand" />
         </variant>
+        <variant id="mvz2:close_eyes" parent="mvz2:normal">
+        </variant>
     </character>
     <character id="satori" name="觉">
         <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/armor_stand" />
         </variant>
+        <variant id="mvz2:close_eyes" parent="mvz2:normal">
+        </variant>
+        <variant id="mvz2:surprised" parent="mvz2:normal">
+        </variant>
     </character>
     <character id="koishi" name="恋">
         <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/armor_stand" />
+        </variant>
+        <variant id="mvz2:happy" parent="mvz2:normal">
+        </variant>
+        <variant id="mvz2:question" parent="mvz2:normal">
         </variant>
     </character>
     <character id="rin" name="燐">

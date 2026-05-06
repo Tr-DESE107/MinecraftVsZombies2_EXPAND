@@ -1370,22 +1370,24 @@
       </sentences>
     </section>
   </group>
-  <!--第四天关卡-->
-  <group id="palace_4" tags="mvz2:unknown">
-    <archive name="第四天关卡" background="mvz2:unknown" music="mvz2:unknown">
+  <!--地灵殿第4天入场-->
+  <group id="palace_4" tags="mvz2:palace;mvz2:intro">
+    <archive name="地灵殿第4天入场" background="mvz2:misc/palace" music="mvz2:mainmenu">
       <unlock>
-        <condition required="mvz2:unknown" />
+        <condition required="mvz2:level.palace_4" />
       </unlock>
     </archive>
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:unknown" side="left" />
+        <character id="mvz2:rin" side="left" />
+        <character id="mvz2:steve" side="self" />
+        <character id="mvz2:utsuho" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
         <!--语句0-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
           <text>那边那个诡异的石头骷髅是什么东西？</text>
         </sentence>
         <!--语句1-->
@@ -1411,17 +1413,54 @@
       </sentences>
     </section>
   </group>
-  <!--第四天地图-->
-  <group id="palace_4_map" tags="mvz2:unknown">
-    <archive name="第四天地图" background="mvz2:unknown" music="mvz2:unknown">
+  <!--地灵殿第4天结束-->
+  <group id="palace_4_over" tags="mvz2:palace;mvz2:over">
+    <archive name="地灵殿第4天结束" background="mvz2:misc/palace">
       <unlock>
-        <condition required="mvz2:unknown" />
+        <condition required="mvz2:level.palace_4" />
       </unlock>
     </archive>
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:unknown" side="left" />
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <!--语句列表-->
+      <sentences>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">
+          <text>这是石眼！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long2">
+          <text>它的高耐久可以阻挡怪物的攻击，并且可以用视线让前方的敌人减速！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">
+          <text>不要站在它的面前！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
+      </sentences>
+    </section>
+  </group>
+  <!--地灵殿第4天地图-->
+  <group id="palace_4_map" tags="mvz2:palace;mvz2:map">
+    <archive name="地灵殿第4天地图" background="mvz2:misc/palace" music="mvz2:palace_map">
+      <unlock>
+        <condition required="mvz2:level.palace_4" />
+      </unlock>
+    </archive>
+    <section>
+      <!--角色列表-->
+      <characters>
+        <character id="mvz2:steve" side="self" />
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:tokiko" variant="mvz2:worried" side="left" />
+        <character id="mvz2:satori" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -1446,15 +1485,23 @@
           <text>他们在受袭之前，都是孤身一人的状态，并且在房间外面见到了一个奇怪的箱子。</text>
         </sentence>
         <!--语句5-->
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_surprised" variant="mvz2:surprised">
           <text>！</text>
         </sentence>
         <!--语句6-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
           <text>箱、箱子？</text>
         </sentence>
         <!--语句7-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>shake</script>
+          </onStart>
           <text>朱鹭子，你想起来了？！</text>
         </sentence>
         <!--语句8-->
@@ -1462,7 +1509,7 @@
           <text>……</text>
         </sentence>
         <!--语句9-->
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" variant="mvz2:worried">
           <text>不好意思，没、没有。不过，我似乎有点印象就是了。</text>
         </sentence>
         <!--语句10-->
@@ -1471,6 +1518,11 @@
         </sentence>
         <!--语句11-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+          <!--语句开始脚本-->
+          <onStart>
+            <script>character create mvz2:koishi right mvz2:question</script>
+            <script>character layer mvz2:koishi last</script>
+          </onStart>
           <text>这样啊。那个箱子可能就是袭击者为了引诱人出来的诱饵。</text>
         </sentence>
         <!--语句12-->
@@ -1490,19 +1542,19 @@
           <text>不过，说来也很奇怪。那些只是头部受伤的受害者，他们其实都有一个诡异的共同点。</text>
         </sentence>
         <!--语句16-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:dialog_surprised">
           <text>那就是他们在昏迷之前进入了屋子里。</text>
         </sentence>
         <!--语句17-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
           <text>诶？</text>
         </sentence>
         <!--语句18-->
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
           <text>说、说起来确实是这样！</text>
         </sentence>
         <!--语句19-->
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
           <text>我们发现朱鹭子的时候，她确实昏迷在屋子里！</text>
         </sentence>
         <!--语句20-->
@@ -1510,12 +1562,12 @@
           <text>……果然，但也很奇怪。</text>
         </sentence>
         <!--语句21-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:dialog_weird">
           <text>为什么进入屋子里，猎手就会放弃他的目标了？</text>
         </sentence>
         <!--语句22-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
-          <text>并且，那些被抽掉灵魂的受害者，他们被发现时，都是在这个箱子里面陷入昏迷的。</text>
+          <text>并且，那些被抽掉灵魂的受害者，他们被发现时，都是被装进了这个箱子里面。</text>
         </sentence>
         <!--语句23-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
