@@ -207,6 +207,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0bad8dd7ca96eb047840a09bdbdcc162, type: 3}
   - name: misc/abandoned_house
     sprite: {fileID: 21300000, guid: 50bf732bad4c58e4594fe0d57da0eeff, type: 3}
+  - name: misc/blazing_hell_cliff
+    sprite: {fileID: 21300000, guid: f395daa66520f244ab609c2feaea92c7, type: 3}
   - name: misc/boat_zombie
     sprite: {fileID: 21300000, guid: bf74c11d6e254354486cefc7df391641, type: 3}
   - name: misc/castle
@@ -267,6 +269,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a834091dfc5d3884cb48abf3ecb36da3, type: 3}
   - name: misc/red_dragon
     sprite: {fileID: 21300000, guid: 0fc841fb9e17aad4eb59243fd0144927, type: 3}
+  - name: misc/rin_saved_tokiko
+    sprite: {fileID: 21300000, guid: 8d32570468daa3544b723ff7ac17e429, type: 3}
   - name: misc/ship
     sprite: {fileID: 21300000, guid: 8e2855d040c62c5448c709e7cd230d01, type: 3}
   - name: misc/steves_house

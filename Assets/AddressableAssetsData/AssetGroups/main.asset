@@ -6383,6 +6383,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77f3fa3d0ce5cd04a9f70849c1bc44cf
+    m_Address: mvz2:hum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7814e66eed55239459ee2d703cb4fd2c
     m_Address: mvz2:effect/magic_bomb_explosion
     m_ReadOnly: 0
@@ -9336,6 +9343,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afa886669857a1e418b0316c139ebcc2
+    m_Address: mvz2:misc/downed_tokiko
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aff8b41543694e649bc9659d6b690072
     m_Address: mvz2:entity/enemies/ufo_spotlight
     m_ReadOnly: 0
@@ -9926,6 +9940,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb5ecf4eaca68cc49be8e39e2b78bda8
     m_Address: mvz2:level/castle/castle_twilight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb754e26dee4d5441be3bad97415c324
+    m_Address: mvz2:misc/memory_with_unknown_person
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13213,6 +13234,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc7453eba6c52d340834cd81aef0fc98
     m_Address: mvz2:morse_code_reverse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fcc8c28521d9eea499aa79c2dd397c1a
+    m_Address: mvz2:talk/dialog_objection
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
