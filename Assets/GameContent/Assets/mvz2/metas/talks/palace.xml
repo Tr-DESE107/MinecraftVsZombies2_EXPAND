@@ -1593,16 +1593,17 @@
     </section>
   </group>
   <!--第五天关卡-->
-  <group id="palace_5" tags="mvz2:unknown">
-    <archive name="第五天关卡" background="mvz2:unknown" music="mvz2:unknown">
+  <group id="palace_5" tags="mvz2:palace;mvz2:intro">
+    <archive name="地灵殿第5天关卡" background="mvz2:misc/palace" music="mvz2:mainmenu">
       <unlock>
-        <condition required="mvz2:unknown" />
+        <condition required="mvz2:level.palace_5" />
       </unlock>
     </archive>
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:unknown" side="left" />
+        <character id="mvz2:satori" side="left" />
+        <character id="mvz2:steve" side="self" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -1631,7 +1632,7 @@
           <text>按理来说我应该是可以读取那些活物的内心的，但是——</text>
         </sentence>
         <!--语句6-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:dialog_weird">
           <text>我却没有办法做到。</text>
         </sentence>
         <!--语句7-->
@@ -1649,17 +1650,54 @@
       </sentences>
     </section>
   </group>
-  <!--第五天地图-->
-  <group id="palace_5_map" tags="mvz2:unknown">
-    <archive name="第五天地图" background="mvz2:unknown" music="mvz2:unknown">
+  <!--地灵殿第5天结束-->
+  <group id="palace_5_over" tags="mvz2:palace;mvz2:over">
+    <archive name="地灵殿第5天结束" background="mvz2:misc/palace">
       <unlock>
-        <condition required="mvz2:unknown" />
+        <condition required="mvz2:level.palace_5" />
       </unlock>
     </archive>
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:unknown" side="left" />
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <!--语句列表-->
+      <sentences>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>毁灭！！！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long2">
+          <text>这是石砖加农炮！你可以把它放置在两个相邻的沙砾投手上，然后点击它来发射毁灭性的炮弹！！！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy">
+          <text>让炮弹净化一切！！！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
+      </sentences>
+    </section>
+  </group>
+  <!--第五天地图-->
+  <group id="palace_5_map" tags="mvz2:palace;mvz2:map">
+    <archive name="地灵殿第5天地图" background="mvz2:misc/palace" music="mvz2:palace_map">
+      <unlock>
+        <condition required="mvz2:level.palace_5" />
+      </unlock>
+    </archive>
+    <section>
+      <!--角色列表-->
+      <characters>
+        <character id="mvz2:satori" side="left" />
+        <character id="mvz2:steve" side="self" />
+        <character id="mvz2:koishi" side="right" />
+        <character id="mvz2:utsuho" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -1676,47 +1714,53 @@
           <text>那位小人公主提到的，三年前，辉针城下方发生过的爆炸，其实我知道它发生的位置在哪里。阿空跟我提过这件事。</text>
         </sentence>
         <!--语句3-->
-        <sentence speaker="mvz2:utsuho" sounds="mvz2:talk">
+        <sentence speaker="mvz2:utsuho" sounds="mvz2:dialog_surprised" variant="mvz2:happy">
           <text>其实就在妖怪之山上啦，我经常去那地方。</text>
         </sentence>
         <!--语句4-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>妖怪之山……就是幻想乡里的那一群非常高的山吧？</text>
+          <text>妖怪之山……就是幻想乡里的那一座非常高的山脉吧？</text>
         </sentence>
         <!--语句5-->
-        <sentence speaker="mvz2:utsuho" sounds="mvz2:talk">
+        <sentence speaker="mvz2:utsuho" sounds="mvz2:talk" variant="mvz2:normal">
           <text>是的。而且具体位置的话——</text>
         </sentence>
         <!--语句6-->
-        <sentence speaker="mvz2:utsuho" sounds="mvz2:talk">
+        <sentence speaker="mvz2:utsuho" sounds="mvz2:dialog_surprised">
           <text>是在河童基地附近吧。</text>
         </sentence>
         <!--语句7-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
           <text>河童基地吗……那里发生过什么？</text>
+          <onClick>
+            <script>bubble hide</script>
+            <script>character create mvz2:crazy_villager left</script>
+            <script>delay 1</script>
+            <script>next</script>
+          </onClick>
         </sentence>
         <!--语句8-->
-        <sentence speaker="mvz2:crazy_villager" description="（村民入场）" sounds="mvz2:talk">
+        <sentence speaker="mvz2:crazy_villager" description="（村民入场）" sounds="mvz2:villager_short3">
           <text>终于找到你了，邻居！</text>
         </sentence>
         <!--语句9-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
           <text>戴夫？你去哪儿了？</text>
         </sentence>
         <!--语句10-->
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">
-          <text>我做了一个新货物，你可以去看看商店！</text>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text><![CDATA[我做了一个<color=red>新货物</color>，你可以去看看商店！]]></text>
         </sentence>
         <!--语句11-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>……又来推销了？</text>
         </sentence>
         <!--语句12-->
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">
           <text>也不全是。</text>
         </sentence>
         <!--语句13-->
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2;mvz2:dialog_weird">
           <text>你见到朱鹭子吗？</text>
         </sentence>
         <!--语句14-->
@@ -1724,7 +1768,7 @@
           <text>朱鹭子？呃，没有。</text>
         </sentence>
         <!--语句15-->
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">
           <text>那她去哪儿了？</text>
         </sentence>
         <!--语句16-->
@@ -1736,7 +1780,7 @@
           <text>她不见了吗？</text>
         </sentence>
         <!--语句18-->
-        <sentence speaker="mvz2:utsuho" sounds="mvz2:talk">
+        <sentence speaker="mvz2:utsuho" sounds="mvz2:dialog_surprised">
           <text>要不我帮你们找找吧！</text>
         </sentence>
         <!--语句19-->
@@ -1748,7 +1792,7 @@
           <text>那、那好吧。</text>
         </sentence>
         <!--语句21-->
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
           <text>希望她不会出什么事情……</text>
           <!--语句点击脚本-->
           <onClick>
