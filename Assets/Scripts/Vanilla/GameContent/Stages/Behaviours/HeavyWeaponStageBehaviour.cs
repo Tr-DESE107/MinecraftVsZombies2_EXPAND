@@ -16,8 +16,11 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic;
 using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Inputs;
+using MVZ2Logic.Localization;
 using MVZ2Logic.Modifiers;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -46,6 +49,7 @@ namespace MVZ2.GameContent.Stages
             level.SetTriggerActive(false);
             level.SetStarshardCount(2);
             level.SetStarshardSlotCount(2);
+            ShowTip(level);
 
             RespawnSnipenser(level);
         }
@@ -157,6 +161,16 @@ namespace MVZ2.GameContent.Stages
                     entity.PlaySound(VanillaSoundID.largeExplosion);
                 }
             }
+        }
+
+        private void ShowTip(LevelEngine level)
+        {
+            var textKey = VanillaStrings.ADVICE_HEAVY_WEAPON_TIP_MOUSE;
+            if (Global.Input.GetActivePointerType() == PointerTypes.TOUCH)
+            {
+                textKey = VanillaStrings.ADVICE_HEAVY_WEAPON_TIP_TOUCH;
+            }
+            level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, textKey, 100, 150);
         }
 
         public static EntityID? GetSnipenserReference(LevelEngine level) => level.GetProperty<EntityID>(PROP_SNIPENSER_REFERENCE);

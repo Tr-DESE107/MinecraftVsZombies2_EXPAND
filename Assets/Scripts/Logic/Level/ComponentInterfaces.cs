@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -68,27 +69,8 @@ namespace MVZ2Logic.Level.Components
         bool HasLoopSoundEntities(NamespaceID id);
         NamespaceID[] GetLoopSounds();
     }
-    public interface ITalkComponent : ILevelComponent
+    public interface ITalkComponent : ILevelComponent, ITalkController
     {
-        void StartTalk(NamespaceID id, int section, float delay = 1, Action? onEnd = null);
-        bool WillSkipTalk(NamespaceID id, int section);
-        void AutoSkipTalks(NamespaceID id, int section, Action? onSkipped = null);
-        void SimpleStartTalk(NamespaceID groupId, int section, float delay = 0, Action? onSkipped = null, Action? onStarted = null, Action? onEnd = null)
-        {
-            if (WillSkipTalk(groupId, section))
-            {
-                AutoSkipTalks(groupId, section, () =>
-                {
-                    onSkipped?.Invoke();
-                    onEnd?.Invoke();
-                });
-            }
-            else
-            {
-                StartTalk(groupId, section, delay, onEnd);
-                onStarted?.Invoke();
-            }
-        }
     }
     public interface IBlueprintComponent : ILevelComponent
     {

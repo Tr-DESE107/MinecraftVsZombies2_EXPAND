@@ -160,16 +160,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
+      propertyPath: view
+      value: 
+      objectReference: {fileID: 9039985123214844168}
+    - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 9039985123214844168}
+    - target: {fileID: 1316803536713982302, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: unlockGroup.path
       value: chapter.halloween
       objectReference: {fileID: 0}
     - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_Name
       value: map_pin
-      objectReference: {fileID: 0}
-    - target: {fileID: 1741428518060487703, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8450122154962902690, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -211,7 +215,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1074436428805392255, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4003090782110951540, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}
     m_AddedGameObjects:
@@ -289,10 +294,6 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
-  id:
-    spacename: mvz2
-    path: halloween
-  arrow: {fileID: 0}
 --- !u!4 &5461804978657357290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8450122154962902690, guid: 34ed1cdc8a174114e8899f0abb6e93fc, type: 3}

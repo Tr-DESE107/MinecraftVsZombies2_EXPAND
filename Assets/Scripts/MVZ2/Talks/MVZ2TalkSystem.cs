@@ -5,6 +5,7 @@ using MVZ2.Managers;
 using MVZ2Logic.Archive;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Talk;
+using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Definitions;
 
@@ -19,6 +20,21 @@ namespace MVZ2.Talk
         public void StartSection(int section)
         {
             talk.StartSection(section);
+        }
+
+        public void StartTalk(NamespaceID id, int section, float delay = 1, Action? onEnd = null)
+        {
+            talk.StartTalk(id, section, delay, onEnd);
+        }
+
+        public bool WillSkipTalk(NamespaceID id, int section)
+        {
+            return talk.WillSkipTalk(id, section);
+        }
+
+        public void AutoSkipTalks(NamespaceID id, int section, Action? onSkipped = null)
+        {
+            talk.AutoSkipTalks(id, section, onSkipped);
         }
         public abstract IArchiveInterface? GetArchive();
         public abstract IMapInterface? GetMap();

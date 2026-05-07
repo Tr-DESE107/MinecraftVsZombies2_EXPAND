@@ -19,5 +19,7 @@ namespace MVZ2Logic.Definitions
         public const string ENTITY_COUNTER = "entity_counter";
         public const string SHAPE = "shape";
         public const string OPTION_WIDGET = "option_widget";
+        public const string MAP_ELEMENT = "map_element";
+        public const string MAP_ELEMENT_BEHAVIOUR = "map_element_behaviour";
     }
 }

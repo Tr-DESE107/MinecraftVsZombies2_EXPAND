@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -41,41 +42,30 @@ namespace MVZ2.Metas
                 return null;
             }
             var type = EntityTypes.EFFECT;
-            var template = templates.FirstOrDefault(t => t.name == node.Name);
             var name = node.GetAttribute("name") ?? string.Empty;
             var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n") ?? string.Empty;
             var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n") ?? string.Empty;
 
             XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
 
+            // 加载实体行为与属性。
+            var templateID = node.GetAttribute("template");
+            var template = templates.FirstOrDefault(t => t.id == templateID);
+
             var behaviours = new List<NamespaceID>();
-            var behavioursNode = node["behaviours"];
-            bool includeSelfBehaviour = behavioursNode?.GetAttributeBool("includeSelf") ?? true;
-
-
-            var propertyNode = node["properties"];
-            var entityProps = propertyNode.ToPropertyDictionary(defaultNsp);
             Dictionary<string, object?> properties = new Dictionary<string, object?>();
-            foreach (var prop in entityProps)
-            {
-                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.entity);
-                properties.Add(fullName, prop.Value);
-            }
 
+            var behavioursNode = node["behaviours"];
+            var propertyNode = node["properties"];
+            propertyNode?.LoadPropertiesFromNode(defaultNsp, PropertyRegions.entity, properties);
             if (template != null)
             {
-                type = template.id;
-
-                behaviours.AddRange(template.behaviours);
-
-                foreach (var prop in template.properties)
-                {
-                    if (properties.ContainsKey(prop.Key))
-                        continue;
-                    properties.Add(prop.Key, prop.Value);
-                }
+                type = template.type;
+                XMLHelper.LoadBehavioursAndPropertiesFromTemplate(defaultNsp, EngineDefinitionTypes.ENTITY_BEHAVIOUR, template, behaviours, properties);
             }
-            behavioursNode?.ModifyEntityBehaviours(behaviours, properties, defaultNsp);
+            behavioursNode?.LoadBehavioursFromNode(defaultNsp, EngineDefinitionTypes.ENTITY_BEHAVIOUR, behaviours, properties);
+
+            bool includeSelfBehaviour = behavioursNode?.GetAttributeBool("includeSelf") ?? true;
             if (includeSelfBehaviour)
             {
                 behaviours.Add(new NamespaceID(nsp, id));

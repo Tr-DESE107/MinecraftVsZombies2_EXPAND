@@ -16,13 +16,14 @@ using MVZ2Logic.Definitions;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
+using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
 namespace MVZ2.Talk
 {
-    public class TalkController : MonoBehaviour
+    public class TalkController : MonoBehaviour, ITalkController
     {
         #region 公有方法
         /// <summary>
