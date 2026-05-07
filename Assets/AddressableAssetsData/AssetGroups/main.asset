@@ -5565,6 +5565,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66c5ac2441aaed947b4aa14c6d57da8d
+    m_Address: mvz2:lava_loop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66c9b4e5ba245fc4bb471f4a93372b2e
     m_Address: mvz2:effect/spike_particles
     m_ReadOnly: 0
