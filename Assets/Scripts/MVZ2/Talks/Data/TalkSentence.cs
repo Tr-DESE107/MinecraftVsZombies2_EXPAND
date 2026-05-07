@@ -44,7 +44,11 @@ namespace MVZ2.TalkData
 
             document.CreateTalkScriptNodes(node, "onStart", startScripts, "语句开始脚本");
 
-            document.CreateTextOrCDataNode(node, "text", text);
+            var lines = text.Split("\n");
+            foreach (var line in lines)
+            {
+                document.CreateTextOrCDataNode(node, "text", line);
+            }
 
             document.CreateTalkScriptNodes(node, "onClick", clickScripts, "语句点击脚本");
 
@@ -57,39 +61,34 @@ namespace MVZ2.TalkData
             var description = node.GetAttribute("description");
             var sounds = node.GetAttributeNamespaceIDArray("sounds", defaultNsp);
             var variant = node.GetAttributeNamespaceID("variant", defaultNsp);
-            string text;
+            string text = string.Empty;
             TalkScript[]? startScripts = null;
             TalkScript[]? clickScripts = null;
-            var textNode = node["text"];
-            if (textNode != null)
-            {
-                text = textNode.InnerText;
-                var startScriptNode = node["onStart"] ?? node["start"];
-                if (startScriptNode != null)
-                {
-                    startScripts = TalkScript.FromArrayXmlNode(startScriptNode);
-                }
-                var clickScriptNode = node["onClick"] ?? node["click"];
-                if (clickScriptNode != null)
-                {
-                    clickScripts = TalkScript.FromArrayXmlNode(clickScriptNode);
-                }
-            }
-            else
-            {
-                text = node.InnerText;
-                var startScriptStr = node.GetAttribute("onStart");
-                if (!string.IsNullOrEmpty(startScriptStr))
-                {
-                    startScripts = TalkScript.ParseArray(startScriptStr);
-                }
-                var clickScriptStr = node.GetAttribute("onClick");
-                if (!string.IsNullOrEmpty(clickScriptStr))
-                {
-                    clickScripts = TalkScript.ParseArray(clickScriptStr);
-                }
-            }
 
+            var children = node.ChildNodes;
+            for (int i = 0; i < children.Count; i++)
+            {
+                var child = children[i];
+                switch (child.Name)
+                {
+                    case "text":
+                        if (string.IsNullOrEmpty(text))
+                        {
+                            text = child.InnerText;
+                        }
+                        else
+                        {
+                            text += $"\n{child.InnerText}";
+                        }
+                        break;
+                    case "onStart":
+                        startScripts = TalkScript.FromArrayXmlNode(child);
+                        break;
+                    case "onClick":
+                        clickScripts = TalkScript.FromArrayXmlNode(child);
+                        break;
+                }
+            }
             return new TalkSentence(text, sounds ?? Array.Empty<NamespaceID>())
             {
                 speaker = speaker,
