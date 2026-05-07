@@ -13,6 +13,7 @@ namespace MVZ2.TalkData
     {
         public string archiveText = string.Empty;
         public bool canAutoSkip;
+        public bool notUseSkipScriptsForAutoSkip;
         public TalkScript[]? startScripts;
         public TalkScript[]? autoSkipScripts;
         public TalkScript[]? skipScripts;
@@ -35,7 +36,11 @@ namespace MVZ2.TalkData
 
             document.CreateTalkScriptNodes(node, "onStart", startScripts, "分段开始脚本");
             document.CreateTalkScriptNodes(node, "onAutoSkip", autoSkipScripts, "分段自动跳过脚本");
-            document.CreateTalkScriptNodes(node, "onSkip", skipScripts, "分段跳过脚本");
+            var skipNode = document.CreateTalkScriptNodes(node, "onSkip", skipScripts, "分段跳过脚本");
+            if (skipNode != null && notUseSkipScriptsForAutoSkip)
+            {
+                skipNode.CreateAttribute("notForAutoSkip", true.ToString());
+            }
 
             if (!string.IsNullOrEmpty(archiveText))
             {
@@ -92,11 +97,13 @@ namespace MVZ2.TalkData
             }
 
 
+            bool notUseSkipScriptsForAutoSkip = false;
             var skipScriptsNode = node["onSkip"];
             TalkScript[]? skipScripts;
             if (skipScriptsNode != null)
             {
                 skipScripts = TalkScript.FromArrayXmlNode(skipScriptsNode);
+                notUseSkipScriptsForAutoSkip = skipScriptsNode.GetAttributeBool("notForAutoSkip") ?? notUseSkipScriptsForAutoSkip;
             }
             else
             {
@@ -143,6 +150,7 @@ namespace MVZ2.TalkData
                 skipScripts = skipScripts,
                 canAutoSkip = canAutoSkip,
                 archiveText = archiveText,
+                notUseSkipScriptsForAutoSkip = notUseSkipScriptsForAutoSkip,
             };
         }
     }

@@ -100,7 +100,19 @@ namespace MVZ2.Talk
             }
             var section = group.sections[startSection];
             // 执行开始指令。
-            var skipScripts = section.autoSkipScripts ?? section.skipScripts ?? GetDefaultSectionSkipScripts();
+            TalkScript[] skipScripts;
+            if (section.autoSkipScripts != null)
+            {
+                skipScripts = section.autoSkipScripts;
+            }
+            else if (section.skipScripts != null && !section.notUseSkipScriptsForAutoSkip)
+            {
+                skipScripts = section.skipScripts;
+            }
+            else
+            {
+                skipScripts = GetDefaultSectionSkipScripts();
+            }
             await ExecuteScriptsAsync(skipScripts);
         }
         public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)

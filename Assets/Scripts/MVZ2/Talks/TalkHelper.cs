@@ -40,7 +40,7 @@ namespace MVZ2.Talk
             return TalkResult.Started;
         }
 
-        public static void CreateTalkScriptNodes(this XmlDocument document, XmlNode node, string name, TalkScript[]? scripts, string? comment = null)
+        public static XmlNode? CreateTalkScriptNodes(this XmlDocument document, XmlNode node, string name, TalkScript[]? scripts, string? comment = null)
         {
             if (scripts != null && scripts.Length > 0)
             {
@@ -54,7 +54,9 @@ namespace MVZ2.Talk
                     scriptsNode.AppendChild(scriptNode);
                 }
                 node.AppendChild(scriptsNode);
+                return scriptsNode;
             }
+            return null;
         }
     }
     public enum TalkResult

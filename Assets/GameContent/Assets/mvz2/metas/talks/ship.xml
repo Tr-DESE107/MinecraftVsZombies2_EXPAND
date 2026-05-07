@@ -1668,7 +1668,7 @@
     </archive>
     <section>
       <!--分段跳过脚本-->
-      <onSkip>
+      <onSkip notForAutoSkip="true">
         <script>foreground alpha 0</script>
         <script>forecolor set #000F</script>
         <script>music fade 0</script>
@@ -1899,7 +1899,7 @@
     <!--史蒂夫在一间屋子里醒来。-->
     <section>
       <!--分段跳过脚本-->
-      <onSkip>
+      <onSkip notForAutoSkip="true">
         <script>forecolor set #000F</script>
         <script>music fade 0</script>
         <script>item hide</script>
@@ -2089,7 +2089,7 @@
     <!--史蒂夫走出了屋子。-->
     <section>
       <!--分段跳过脚本-->
-      <onSkip>
+      <onSkip notForAutoSkip="true">
         <script>background alpha 0</script>
         <script>music fade 1</script>
         <script>music play mvz2:ship_map</script>

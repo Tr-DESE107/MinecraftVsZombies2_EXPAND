@@ -2641,7 +2641,7 @@
       </unlock>
     </archive>
     <section>
-      <onSkip>
+      <onSkip notForAutoSkip="true">
         <script>bubble hide</script>
         <script>item hide</script>
         <script>background alpha 0</script>
@@ -2857,6 +2857,7 @@
     <!--来到永远亭-->
     <section>
       <onStart>
+        <script>forecolor set #000F</script>
         <script>character clear</script>
         <script>character init</script>
         <script>delay 0.5</script>
