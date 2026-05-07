@@ -247,6 +247,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7c77b2bc79808994aaee8edec5031dc8, type: 3}
   - name: misc/locked_chest
     sprite: {fileID: 21300000, guid: a5915bbae8a80114c8cdfa95740c5d8a, type: 3}
+  - name: misc/locked_chest_item
+    sprite: {fileID: 21300000, guid: fd4b7d847c665b8468da3c89099ccb53, type: 3}
   - name: misc/mausoleum
     sprite: {fileID: 21300000, guid: ea93029bdd8e6d44bbca9f126b03388c, type: 3}
   - name: misc/memory_with_unknown_person
@@ -271,6 +273,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0fc841fb9e17aad4eb59243fd0144927, type: 3}
   - name: misc/rin_saved_tokiko
     sprite: {fileID: 21300000, guid: 8d32570468daa3544b723ff7ac17e429, type: 3}
+  - name: misc/satori_in_chest
+    sprite: {fileID: 21300000, guid: b92eb15f1b9344a4fa60934521955a8c, type: 3}
   - name: misc/ship
     sprite: {fileID: 21300000, guid: 8e2855d040c62c5448c709e7cd230d01, type: 3}
   - name: misc/steves_house

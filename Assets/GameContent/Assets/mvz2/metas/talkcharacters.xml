@@ -500,6 +500,11 @@
         <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/armor_stand" />
         </variant>
+        <variant id="mvz2:close_eyes" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_8" />
+            </unlock>
+        </variant>
     </character>
     <character id="satori" name="觉">
         <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
@@ -547,6 +552,21 @@
                 <condition required="mvz2:level.palace_6" />
             </unlock>
         </variant>
+        <variant id="mvz2:relieved" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_7" />
+            </unlock>
+        </variant>
+        <variant id="mvz2:worried" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_7" />
+            </unlock>
+        </variant>
+        <variant id="mvz2:happy" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_8" />
+            </unlock>
+        </variant>
     </character>
     <character id="utsuho" name="空">
         <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
@@ -560,6 +580,16 @@
         <variant id="mvz2:surprised" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_6" />
+            </unlock>
+        </variant>
+        <variant id="mvz2:question" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_8" />
+            </unlock>
+        </variant>
+        <variant id="mvz2:sad" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_8" />
             </unlock>
         </variant>
     </character>

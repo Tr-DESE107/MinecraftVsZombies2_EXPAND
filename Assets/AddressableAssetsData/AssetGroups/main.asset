@@ -7538,6 +7538,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d32570468daa3544b723ff7ac17e429
+    m_Address: mvz2:misc/rin_saved_tokiko
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d53a16d384cfaf4a9e5272761176424
     m_Address: mvz2:gensokyo
     m_ReadOnly: 0
@@ -9811,6 +9818,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b92eb15f1b9344a4fa60934521955a8c
+    m_Address: mvz2:misc/satori_in_chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b944e3154656ac74f8054ed14cb53335
     m_Address: mvz2:products/starshard_slot
@@ -12806,6 +12820,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f395daa66520f244ab609c2feaea92c7
+    m_Address: mvz2:misc/blazing_hell_cliff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f45a057d7f3b72d4883d7d18d28ea03a
     m_Address: mvz2:ui/level/card_command_block_mobile
     m_ReadOnly: 0
@@ -13273,6 +13294,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd4b7d847c665b8468da3c89099ccb53
+    m_Address: mvz2:misc/locked_chest_item
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd81cc50c2effc04687a0f7feb588738
     m_Address: mvz2:enemy/dream/parasite_terror
