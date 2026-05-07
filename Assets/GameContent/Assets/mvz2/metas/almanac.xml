@@ -959,7 +959,7 @@
 				<p>地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。</p>
 			</header>
 			<properties>
-				<p>血量：<![CDATA[<color=red><var id="mvz2:AttackInterval" /></color>]]></p>
+				<p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
 				<p>伤害增幅：<![CDATA[<color=red>+100%火焰伤害，+66%溅射伤害</color>]]></p>
 				<p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>]]></p>
 			</properties>

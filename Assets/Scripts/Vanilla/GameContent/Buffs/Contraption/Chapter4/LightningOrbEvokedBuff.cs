@@ -17,6 +17,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 using Tools;
@@ -25,6 +26,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
     // 定义 Buff：LightningOrbEvoked（闪电球进入“唤醒/吸收”状态）
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.lightningOrbEvoked)]
     public class LightningOrbEvokedBuff : BuffDefinition
     {
         public LightningOrbEvokedBuff(string nsp, string name) : base(nsp, name)
