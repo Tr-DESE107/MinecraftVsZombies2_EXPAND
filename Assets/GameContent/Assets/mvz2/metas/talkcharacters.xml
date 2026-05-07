@@ -505,6 +505,11 @@
                 <condition required="mvz2:level.palace_8" />
             </unlock>
         </variant>
+        <variant id="mvz2:smile" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_11" />
+            </unlock>
+        </variant>
     </character>
     <character id="satori" name="觉">
         <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
@@ -518,6 +523,11 @@
         <variant id="mvz2:close_eyes" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_3" />
+            </unlock>
+        </variant>
+        <variant id="mvz2:smile" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_11" />
             </unlock>
         </variant>
     </character>
@@ -565,6 +575,11 @@
         <variant id="mvz2:happy" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_8" />
+            </unlock>
+        </variant>
+        <variant id="mvz2:question" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_10" />
             </unlock>
         </variant>
     </character>
