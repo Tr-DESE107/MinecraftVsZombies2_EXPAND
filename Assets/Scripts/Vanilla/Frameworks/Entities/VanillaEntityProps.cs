@@ -367,6 +367,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return definition.GetProperty<NamespaceID>(CATEGORY);
         }
+        public static NamespaceID GetCategory(this Entity entity)
+        {
+            return entity.GetProperty<NamespaceID>(CATEGORY);
+        }
         #endregion
     }
 }

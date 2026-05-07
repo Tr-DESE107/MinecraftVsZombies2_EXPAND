@@ -233,6 +233,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             GetShellAttributeTags(def, tags);
             GetEnemyShellAttributeTags(def, tags);
             GetMassAttributeTags(def, tags);
+            GetCategoryAttributeTags(def, tags);
         }
         private void GetObstacleEntryTags(EntityDefinition def, List<AlmanacEntryTagInfo> tags)
         {
@@ -286,7 +287,6 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 // 枚举类。
                 GetShellAttributeTags(def, tags);
             }
-            GetCategoryAttributeTags(def, tags);
         }
     }
 }
