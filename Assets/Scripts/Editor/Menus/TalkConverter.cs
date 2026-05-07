@@ -65,11 +65,18 @@ public class TalkConverter
             return;
         if (line.StartsWith("#"))
         {
+            ReadSectionEnd();
             ReadGroupEnd();
             ReadGroupStart(line);
             return;     // 处理完毕，不再检查其他规则
         }
 
+        if (line.StartsWith("【") || line.StartsWith("["))
+        {
+            ReadSectionEnd();
+            ReadSectionStart(line);
+            return;
+        }
         if (line.StartsWith("（") || line.StartsWith("("))
         {
             ReadDescription(line);
@@ -85,15 +92,51 @@ public class TalkConverter
         string title = line.TrimStart('#', ' ', '\t');
         _context.CurrentGroup = new TalkConvertGroup(title);
     }
-
     private void ReadGroupEnd()
     {
-        _context.SectionEnd();
         _context.GroupEnd(_defaultNsp);
     }
 
+    private void ReadSectionStart(string line)
+    {
+        int start = -1, end = -1;
+        // 查找开括号
+        for (int i = 0; i < line.Length; i++)
+        {
+            if (line[i] == '[' || line[i] == '【')
+            {
+                start = i;
+                break;
+            }
+        }
+        // 查找对应的闭括号
+        for (int i = start + 1; i < line.Length; i++)
+        {
+            if (line[i] == ']' || line[i] == '】')
+            {
+                end = i;
+                break;
+            }
+        }
+
+        if (start >= 0 && end > start)
+        {
+            string desc = line.Substring(start + 1, end - start - 1);
+            _context.CurrentSection = new TalkConvertSection()
+            {
+                Name = desc
+            };
+        }
+        // 若格式不正确，静默忽略
+    }
+
+    private void ReadSectionEnd()
+    {
+        _context.SectionEnd();
+    }
     private void Complete()
     {
+        ReadSectionEnd();
         ReadGroupEnd();
     }
 
@@ -134,6 +177,7 @@ public class TalkConverter
     private void ReadSentence(string line)
     {
         string speaker = string.Empty;
+        string? speakerName = null;
         string text = line;
 
         // 按第一个冒号分割
@@ -150,6 +194,15 @@ public class TalkConverter
         if (colonIndex > 0)
         {
             speaker = line.Substring(0, colonIndex).Trim();
+
+            var speakerNameStart = speaker.IndexOfAny(new char[] { '(', '（' });
+            var speakerNameEnd = speaker.IndexOfAny(new char[] { ')', '）' });
+            if (speakerNameStart >= 0 && speakerNameEnd > speakerNameStart)
+            {
+                speakerName = speaker.Substring(0, speakerNameStart);
+                speaker = speaker.Substring(speakerNameStart + 1, speakerNameEnd - speakerNameStart - 1);
+            }
+
             text = line.Substring(colonIndex + 1).TrimStart();
         }
 
@@ -157,7 +210,10 @@ public class TalkConverter
             _context.AllocSpeakerID(speaker),
             _context.CurrentDescription ?? string.Empty,
             text
-        );
+        )
+        {
+            SpeakerName = speakerName
+        };
 
         _context.DescriptionEnd();
         _context.SentenceStart(sentence);
@@ -306,6 +362,7 @@ public class TalkConvertSection
 public class TalkConvertSentence
 {
     public NamespaceID Speaker { get; }
+    public string? SpeakerName { get; set; }
     public string Description { get; }
     public string Text { get; }
 
@@ -323,6 +380,7 @@ public class TalkConvertSentence
             clickScripts = isLast ? new TalkScript[] { new TalkScript("end") } : null,
             description = Description,
             speaker = Speaker,
+            speakerName = SpeakerName,
         };
     }
 }

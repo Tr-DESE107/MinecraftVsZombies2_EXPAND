@@ -17,7 +17,6 @@ using NUnit.Framework.Interfaces;
 using PVZEngine;
 using UnityEditor.Graphs;
 using UnityEngine;
-using static UnityEditorInternal.ReorderableList;
 
 namespace MVZ2.Editor
 {
@@ -120,7 +119,7 @@ namespace MVZ2.Editor
                     var sectionName = section.archiveText;
                     if (!string.IsNullOrEmpty(sectionName))
                     {
-                        writer.WriteLine($"[{sectionName}]");
+                        writer.WriteLine($"【{sectionName}】");
                     }
 
                     foreach (var sentence in section.sentences)
