@@ -591,6 +591,7 @@
 	<model name="LEOLau" type="entity" path="mvz2:enemy/EXPAND/LEOLau" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
+	<model name="SquidDrowned" type="entity" path="mvz2:enemy/EXPAND/SquidDrowned" width="200" height="180" xOffset="0" yOffset="-90" />
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="-44" />
@@ -795,6 +796,12 @@
 	
 	<!--EXPAND Effects-->
 	<model name="SoulFreeze" type="entity" path="mvz2:effect/SoulFreeze" width="56" height="56" xOffset="0" yOffset="0" />
+
+	<!--EXPAND Obstacles-->
+	<model name="SquidCage" type="entity" path="mvz2:obstacle/SquidCage" width="40" height="60" xOffset="0" yOffset="0" />
+
+	<!--EXPAND Projectiles-->
+	<model name="Squid" type="entity" path="mvz2:projectile/EXPAND_projectile/Squid" width="32" height="32" xOffset="0" yOffset="-12" />
 
     <!-- Projectiles -->
 	<model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />

@@ -3804,7 +3804,45 @@
 			</properties>
 		</entity>
 
-		<entity template="specialEnemy" id="PirateBomb" name="海盗炸弹" deathMessage="小作坊下药就是猛">
+		<entity template="Drowned_Exp" id="SquidDrowned" name="鱿鱼溺尸" deathMessage="你被鱿鱼缠住了！">
+		
+			<unlock>
+				<condition required="mvz2:level.MutantCrisis" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="add" id="mvz2:enemy_melee" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:maxHealth" value="1000" />
+				<float name="mvz2:damage" value="200" />
+				<float name="mvz2:attackSpeed" value="1" />
+				<float name="mvz2:speed" value="1" />
+				<float name="mvz2:mass" value="1" />
+				<id name="mvz2:shape" value="mvz2:SquidDrowned" />
+				<id name="mvz2:projectileId" value="mvz2:Squid" />
+				<id name="mvz2:Category" value="mvz2:Drowned_Exp" />
+				<vector3 name="mvz2:shotOffset" x="30" y="100" z="0" />
+				<int name="mvz2:cost" value="400" />
+			</properties>
+		</enity>
+
+		<obstacle id="SquidCage" name="鱿鱼障碍物">
+			<behaviours>
+				<behaviour operator="add" id="mvz2:obstacle_common" />
+				<behaviour operator="add" id="mvz2:SquidCage" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:maxHealth" value="250" />
+				<id name="mvz2:shell" value="mvz2:flesh" />
+				<id name="mvz2:placement" value="mvz2:normal" />
+				<vector3 name="mvz2:size" x="40" y="60" z="40" />
+				<int name="mvz2:faction" value="1" />
+				<id name="mvz2:fragmentId" value="mvz2:dispenser" />
+				<id name="mvz2:model" value="mvz2:SquidCage" />
+			</properties>
+		</obstacle>
+        
+<entity template="specialEnemy" id="PirateBomb" name="海盗炸弹" deathMessage="小作坊下药就是猛">
 			<unlock>
 				<condition required="mvz2:level.TrueAndFalseSteve" />
 			</unlock>
@@ -5230,6 +5268,12 @@
         <entity template="projectile" id="snowball">
             <properties>
                 <vector3 name="mvz2:size" x="24" y="24" z="24" />
+            </properties>
+        </projectile>
+        <projectile id="Squid">
+            <properties>
+                <vector3 name="mvz2:size" x="24" y="24" z="24" />
+                <float name="mvz2:gravity" value="1" />
             </properties>
         </entity>
         <entity template="projectile" id="large_snowball">

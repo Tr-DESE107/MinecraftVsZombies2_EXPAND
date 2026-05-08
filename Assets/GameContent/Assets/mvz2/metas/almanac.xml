@@ -3360,6 +3360,22 @@
 			</flavor>
 		</entry>
 
+		<entry id="mvz2:SquidDrowned">
+			<header>
+				<p>鱿鱼溺尸会向你的器械投掷鱿鱼，被鱿鱼命中的器械会被困住。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>特殊：<![CDATA[<color=red>投掷鱿鱼定身器械，可被250点伤害打破</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这只溺尸在海里泡了太久，以至于和鱿鱼成了好朋友。现在他们组队来对付你了。</p>
+				<p />
+				<p>别问为什么鱿鱼会飞，问就是魔法。</p>
+			</flavor>
+		</entry>
+
 
 		<!--Villager EXPAND -->
 		<entry id="mvz2:MutantVillager">

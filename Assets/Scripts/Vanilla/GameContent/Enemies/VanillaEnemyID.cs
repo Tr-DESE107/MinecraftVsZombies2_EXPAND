@@ -137,6 +137,7 @@ namespace MVZ2.GameContent.Enemies
         public const string PirateBucketSkeleton = "PirateBucketSkeleton";
         public const string FlagPirateSkeleton = "FlagPirateSkeleton";
 
+        public const string SquidDrowned = "SquidDrowned";
         public const string HeavyGutant = "HeavyGutant";
         public const string PirateBomb = "PirateBomb";
         public const string Endermite = "Endermite";//todo
@@ -348,6 +349,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID Cobblestone = Get(VanillaEnemyNames.Cobblestone);
 
         public static readonly NamespaceID LEOLau = Get(VanillaEnemyNames.LEOLau);
+
+        public static readonly NamespaceID SquidDrowned = Get(VanillaEnemyNames.SquidDrowned);
 
         private static NamespaceID Get(string name)
         {
