@@ -13,6 +13,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -36,9 +37,9 @@ namespace MVZ2.GameContent.Enemies
             if (!HasEggs(spider))
                 return;
             var other = collision.Other;
-            if (state != EntityCollisionHelper.STATE_EXIT)
+            if (state != EntityCollisionHelper.STATE_EXIT && spider != other && Detection.CanDetect(other) && spider.IsFriendly(other))
             {
-                if (CanLayEgg(spider, other))
+                if (CanLayEgg(other))
                 {
                     LayEgg(spider, other);
                 }
@@ -67,15 +68,9 @@ namespace MVZ2.GameContent.Enemies
         {
             return !spider.HasBuff<MotherTerrorLaidBuff>();
         }
-        public static bool CanLayEgg(Entity self, Entity target)
+        public static bool CanLayEgg(Entity target)
         {
-            if (target == self)
-                return false;
             if (target.IsDead)
-                return false;
-            if (!Detection.CanDetect(target))
-                return false;
-            if (!self.IsFriendly(target))
                 return false;
             if (target.IsEntityOf(VanillaEnemyID.motherTerror) || target.IsEntityOf(VanillaEnemyID.parasiteTerror))
                 return false;

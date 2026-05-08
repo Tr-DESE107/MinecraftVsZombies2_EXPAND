@@ -115,7 +115,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private static bool IsValidAttackTarget(Entity chest, Entity target)
         {
-            return chest.IsHostile(target) && target.IsVulnerableEntity() && !target.IsInvincible() && !target.IsInvisible();
+            return chest.IsHostile(target) && target.IsVulnerableEntity() && !target.IsInvincible() && Detection.CanDetect(target);
         }
         private static bool HasAnyEnemy(Entity entity)
         {

@@ -38,6 +38,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         public const string ancientEgypt = "ancient_egypt";
         public const string independenceDay = "independence_day";
         public const string heavyContraption = "heavy_contraption";
+        public const string bindingChains = "binding_chains";
     }
     public static class VanillaRandomChinaEventID
     {

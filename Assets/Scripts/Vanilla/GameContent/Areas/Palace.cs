@@ -23,20 +23,11 @@ namespace MVZ2.GameContent.Areas
         public override void PostHugeWaveEvent(LevelEngine level)
         {
             base.PostHugeWaveEvent(level);
-            IEnumerable<SeedPack> seedPacks;
-            if (level.IsConveyorMode())
-            {
-                seedPacks = level.GetAllConveyorSeedPacks();
-            }
-            else
-            {
-                seedPacks = level.GetAllSeedPacks().OfType<SeedPack>();
-            }
+
+
+            IEnumerable<SeedPack> seedPacks = GetBlueprintsToLock(level);
             var count = seedPacks.Count() / LOCK_DIVISION;
             if (count <= 0)
-                return;
-            var validSeedPacks = seedPacks.Where(e => !e.HasBuff<BlueprintLockBuff>());
-            if (validSeedPacks.Count() <= 0)
                 return;
             var rng = GetRNG(level);
             if (rng == null)
@@ -44,12 +35,32 @@ namespace MVZ2.GameContent.Areas
                 rng = level.CreateRNG();
                 SetRNG(level, rng);
             }
+            LockRandomBlueprints(level, seedPacks, count, rng);
+            level.PlaySound(VanillaSoundID.locked);
+        }
+        public static IEnumerable<SeedPack> GetBlueprintsToLock(LevelEngine level)
+        {
+            if (level.IsConveyorMode())
+            {
+                return level.GetAllConveyorSeedPacks();
+            }
+            else
+            {
+                return level.GetAllSeedPacks().OfType<SeedPack>();
+            }
+        }
+        public static void LockRandomBlueprints(LevelEngine level, IEnumerable<SeedPack> seedPacks, int count, RandomGenerator rng)
+        {
+            if (count <= 0)
+                return;
+            var validSeedPacks = seedPacks.Where(e => !e.HasBuff<BlueprintLockBuff>());
+            if (validSeedPacks.Count() <= 0)
+                return;
             var seeds = validSeedPacks.RandomTake(count, rng);
             foreach (var seed in seeds)
             {
                 seed.AddBuff<BlueprintLockBuff>();
             }
-            level.PlaySound(VanillaSoundID.locked);
         }
         public static RandomGenerator? GetRNG(LevelEngine level) => level.GetProperty<RandomGenerator>(PROP_RNG);
         public static void SetRNG(LevelEngine level, RandomGenerator? rng) => level.SetProperty(PROP_RNG, rng);
