@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.chinaTown)]
     public class ChinaTownEvent : RandomChinaEventDefinition
     {
-        public ChinaTownEvent(string nsp, string path) : base(nsp, path, NAME)
+        public ChinaTownEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -36,5 +36,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "陶瓷镇";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "用随机瓷器填满场地";
     }
 }

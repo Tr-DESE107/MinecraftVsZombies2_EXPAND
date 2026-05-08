@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.aceOfClubs)]
     public class AceOfClubsEvent : AceAbstractEvent
     {
-        public AceOfClubsEvent(string nsp, string path) : base(nsp, path, NAME)
+        public AceOfClubsEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         protected override void Transform(Entity target, Entity china)
@@ -30,5 +30,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "梅花A";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "将所有怪物和掉落物变为TNT蓝图";
     }
 }

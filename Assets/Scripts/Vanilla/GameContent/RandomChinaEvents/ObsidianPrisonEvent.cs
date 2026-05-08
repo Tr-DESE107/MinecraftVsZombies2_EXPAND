@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.obsidianPrison)]
     public class ObsidianPrisonEvent : RandomChinaEventDefinition
     {
-        public ObsidianPrisonEvent(string nsp, string path) : base(nsp, path, NAME)
+        public ObsidianPrisonEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -57,5 +57,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "黑曜石囚牢";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "用黑曜石困住所有敌怪";
     }
 }

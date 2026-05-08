@@ -2,6 +2,7 @@
 
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Localization;
@@ -64,8 +65,18 @@ namespace MVZ2.GameContent.Contraptions
             var allEvents = contraption.Level.Content.GetDefinitions<RandomChinaEventDefinition>(VanillaDefinitionTypes.RANDOM_CHINA_EVENT);
             var def = allEvents.WeightedRandom(e => e.Weight, rng);
             def.Run(contraption, rng);
-            var nameKey = def.Text;
-            contraption.Level.ShowAdvice(VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME, nameKey, 0, 90);
+
+            var name = Global.Localization.GetTextParticular(def.EventName, VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME);
+            var desc = Global.Localization.GetTextParticular(def.EventDescription, VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION);
+            var text = Global.Localization.GetText(VanillaStrings.RANDOM_CHINA_TEXT_TEMPLATE, name, desc);
+
+            SpawnText(contraption, text);
+        }
+        public void SpawnText(Entity entity, string text)
+        {
+            var param = entity.GetSpawnParams();
+            param.SetProperty(FloatingText.PROP_TEXT, text);
+            entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
         }
     }
 }

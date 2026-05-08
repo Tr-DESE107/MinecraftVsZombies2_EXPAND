@@ -50,6 +50,8 @@ namespace MVZ2.Vanilla.Localization
         public const string UI_GAME_CLEARED = "通关";
         [TranslateMsg]
         public const string UI_COMING_SOON = "恭喜通关！\n接下来的内容还在开发中，敬请期待！";
+        [TranslateMsg("随机瓷器消息模板，{0}为事件名，{1}为事件描述")]
+        public const string RANDOM_CHINA_TEXT_TEMPLATE = "<color=#824400>{0}</color>\n{1}";
 
 
 
@@ -127,6 +129,7 @@ namespace MVZ2.Vanilla.Localization
 
         public const string CONTEXT_COMMAND_CHEAT_NAME = "command.cheat_name";
         public const string CONTEXT_RANDOM_CHINA_EVENT_NAME = "random_china.event_name";
+        public const string CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION = "random_china.event_description";
 
 
         [TranslateMsg("上锁的箱子信息标题", CONTEXT_LOCKED_CHEST_MESSAGE)]
