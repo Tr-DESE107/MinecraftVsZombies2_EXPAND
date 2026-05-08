@@ -1,6 +1,7 @@
 <maps>
     <elementTemplates>
         <contraption />
+        <artifacts />
         <pin>
             <behaviours>
                 <behaviour operator="add" id="mvz2:pin" />
@@ -106,6 +107,16 @@
         <element id="soul_furnace" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.soul_furnace"/></unlock></element>
         <element id="silvenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.silvenser"/></unlock></element>
         <element id="magichest" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.magichest"/></unlock></element>
+		
+		<!--EXPAND C1-->
+        <element id="Poisonser" template="contraption"><unlock><condition required="mvz2:level.halloween_1"/></unlock></element>
+        <element id="infectenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.infectenser"/></unlock></element>
+		<element id="RedStoneOre" template="contraption"><unlock><condition required="mvz2:level.halloween_12"/></unlock></element>
+		<element id="GlowingObsidian" template="contraption"><unlock><condition required="mvz2:level.halloween_13"/></unlock></element>
+		
+		<element id="Almanac" template="artifacts"><unlock><condition required="mvz2:level.halloween_5"/></unlock></element>
+		<element id="ShrunkenHead" template="artifacts"><unlock><condition required="mvz2:level.halloween_14"/></unlock></element>
+		<element id="FrankensteinBrain" template="artifacts"><unlock><condition required="mvz2:level.halloween_15"/></unlock></element>
         
         <!-- Dream Contraptions -->
         <element id="lily_pad" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.lily_pad"/></unlock></element>

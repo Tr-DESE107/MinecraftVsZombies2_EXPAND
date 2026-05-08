@@ -10540,13 +10540,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9970af23e0d6704478f28f4a27566f90
-    m_Address: mvz2:projectile/EXPAND_projectile/NightmareBall 1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99922579875e5484a9060a6a44afba78
     m_Address: mvz2:entity/enemy/EXPAND/Heads_EXPAND
     m_ReadOnly: 0
