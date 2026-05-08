@@ -42,6 +42,8 @@
 - Fixed the issue where starshards at the topmost cannot be stolen by blue UFOs at the topmost.
 - Fixed the issue where damage resistance of bosses works incorrectly.
 - Fixed the issue where the texture in the command block blueprint pickup was not grayscale.
+- Fixed the issue where Seija's cursed doll does not follow Seija's faction upon spawn.
+- Fixed the issue where Seija's cursed doll can be blown away by Wooden Fans.
 
 ---
 

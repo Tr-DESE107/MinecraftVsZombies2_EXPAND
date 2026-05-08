@@ -2428,6 +2428,7 @@
                 <id name="mvz2:crySound" null="true" />
                 <id name="mvz2:deathSound" null="true" />
                 <float name="mvz2:maxHealth" value="9999" />
+                <float name="mvz2:blow_mass_offset" value="10000" />
                 <vector3 name="mvz2:size" x="24" y="32" z="24" />
 
                 <int name="mvz2:cost" value="25" />

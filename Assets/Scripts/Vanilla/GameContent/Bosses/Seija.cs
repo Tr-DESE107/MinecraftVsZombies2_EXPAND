@@ -6,6 +6,7 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Damages;
@@ -38,10 +39,9 @@ namespace MVZ2.GameContent.Bosses
             SetFabricCooldownTimer(boss, timer);
             SetDanmakuTimer(boss, new FrameTimer(4));
 
-            boss.Spawn(VanillaEnemyID.seijaCursedDoll, boss.Position)?.Let(e =>
-            {
-                e.SetParent(boss);
-            });
+            var spawnParam = boss.GetSpawnParams();
+            spawnParam.EntityParent = boss;
+            boss.Spawn(VanillaEnemyID.seijaCursedDoll, boss.Position, spawnParam);
         }
         protected override void UpdateAI(Entity entity)
         {
