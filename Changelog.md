@@ -5,6 +5,7 @@
   - /unlock all: Unlocks all game states.
   - /unlock none: Relocks all game states.
 - Added hyperlinks to Almanac, allowing users to navigate between different entries by clicking on text within the Almanac.
+- Added 8 new Random China events.
 
 ## Modified
 
