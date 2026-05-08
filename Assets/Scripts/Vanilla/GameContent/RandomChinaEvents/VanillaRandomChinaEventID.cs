@@ -35,8 +35,9 @@ namespace MVZ2.GameContent.RandomChinaEvents
         public const string superRecharge = "super_recharge";
         public const string raceCars = "race_cars";
         public const string anvilShower = "anvil_shower";
-        public const string ancientEgypt = "ancientEgypt";
+        public const string ancientEgypt = "ancient_egypt";
         public const string independenceDay = "independence_day";
+        public const string heavyContraption = "heavy_contraption";
     }
     public static class VanillaRandomChinaEventID
     {
