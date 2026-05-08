@@ -3805,12 +3805,12 @@
 		</entity>
 
 		<entity template="Drowned_Exp" id="SquidDrowned" name="鱿鱼溺尸" deathMessage="你被鱿鱼缠住了！">
-		
 			<unlock>
 				<condition required="mvz2:level.MutantCrisis" />
 			</unlock>
 			<behaviours>
 				<behaviour operator="add" id="mvz2:enemy_melee" />
+				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:pop_captain/animation" />
 			</behaviours>
 			<properties>
 				<float name="mvz2:maxHealth" value="1000" />
@@ -3824,25 +3824,9 @@
 				<vector3 name="mvz2:shotOffset" x="30" y="100" z="0" />
 				<int name="mvz2:cost" value="400" />
 			</properties>
-		</enity>
-
-		<obstacle id="SquidCage" name="鱿鱼障碍物">
-			<behaviours>
-				<behaviour operator="add" id="mvz2:obstacle_common" />
-				<behaviour operator="add" id="mvz2:SquidCage" />
-			</behaviours>
-			<properties>
-				<float name="mvz2:maxHealth" value="250" />
-				<id name="mvz2:shell" value="mvz2:flesh" />
-				<id name="mvz2:placement" value="mvz2:normal" />
-				<vector3 name="mvz2:size" x="40" y="60" z="40" />
-				<int name="mvz2:faction" value="1" />
-				<id name="mvz2:fragmentId" value="mvz2:dispenser" />
-				<id name="mvz2:model" value="mvz2:SquidCage" />
-			</properties>
-		</obstacle>
+		</entity>
         
-<entity template="specialEnemy" id="PirateBomb" name="海盗炸弹" deathMessage="小作坊下药就是猛">
+        <entity template="specialEnemy" id="PirateBomb" name="海盗炸弹" deathMessage="小作坊下药就是猛">
 			<unlock>
 				<condition required="mvz2:level.TrueAndFalseSteve" />
 			</unlock>
@@ -4882,6 +4866,21 @@
                 <int name="mvz2:hp_bar_visibility" value="-1" />
             </properties>
         </entity>
+		<entity template="obstacle" id="SquidCage" name="鱿鱼障碍物">
+			<behaviours>
+				<behaviour operator="add" id="mvz2:obstacle_common" />
+				<behaviour operator="add" id="mvz2:SquidCage" />
+			</behaviours>
+			<properties>
+				<float name="mvz2:maxHealth" value="250" />
+				<id name="mvz2:shell" value="mvz2:flesh" />
+				<id name="mvz2:placement" value="mvz2:normal" />
+				<vector3 name="mvz2:size" x="40" y="60" z="40" />
+				<int name="mvz2:faction" value="1" />
+				<id name="mvz2:fragmentId" value="mvz2:dispenser" />
+				<id name="mvz2:model" value="mvz2:SquidCage" />
+			</properties>
+		</entity>
 
         <!-- Bosses -->
         <entity template="boss" id="frankenstein" name="科学怪人的怪物">
@@ -5269,8 +5268,8 @@
             <properties>
                 <vector3 name="mvz2:size" x="24" y="24" z="24" />
             </properties>
-        </projectile>
-        <projectile id="Squid">
+        </entity>
+		<entity template="projectile" id="Squid">
             <properties>
                 <vector3 name="mvz2:size" x="24" y="24" z="24" />
                 <float name="mvz2:gravity" value="1" />

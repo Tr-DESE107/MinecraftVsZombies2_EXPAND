@@ -4668,19 +4668,19 @@
                     <p>MCP-988-2是目标遭到MCP-988锁定时，间断产生的精神异常，表现为患者暂时失去针对自身手臂器官或义体的部分操控能力，每次持续约30秒。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:snipenser" name="狙击发射器" >
+            <entry id="mvz2:MegaSnipenser" name="狙击发射器" >
                 <unlock>
                     <condition required="mvz2:level.palace_6"/>
                 </unlock>
-                <tags sourceEntity="mvz2:snipenser" />
+                <tags sourceEntity="mvz2:MegaSnipenser" />
                 <variables>
-                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:snipenser", "entity")</variable>
-                    <variable name="damage">property("mvz2:entity/damage", "mvz2:snipenser", "entity")</variable>
-                    <variable name="fire_interval">property("mvz2:entity/attackSpeed", "mvz2:snipenser", "entity") / 3</variable>
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:MegaSnipenser", "entity")</variable>
+                    <variable name="damage">property("mvz2:entity/damage", "mvz2:MegaSnipenser", "entity")</variable>
+                    <variable name="fire_interval">property("mvz2:entity/attackSpeed", "mvz2:MegaSnipenser", "entity") / 3</variable>
                 </variables>
-                <picture model="mvz2:entity.snipenser"/>
+                <picture model="mvz2:entity.MegaSnipenser"/>
                 <header>
-                    <p>狙击发射器会朝你指向的位置发射箭矢。</p>
+                    <p>超级狙击发射器会朝你指向的位置发射箭矢。</p>
                 </header>
                 <properties>
                     <p>耐久：<![CDATA[<color=red><var local="hp"/></color>]]></p>
