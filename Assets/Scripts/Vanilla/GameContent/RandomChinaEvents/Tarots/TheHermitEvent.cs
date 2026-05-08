@@ -2,20 +2,22 @@
 
 using MukioI18n;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.RandomChina;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
 using PVZEngine.Entities;
 using Tools;
 
 namespace MVZ2.GameContent.RandomChinaEvents
 {
-    [RandomChinaEventDefinition(VanillaRandomChinaEventNames.chinaTown)]
-    public class ChinaTownEvent : RandomChinaEventDefinition
+    [RandomChinaEventDefinition(VanillaRandomChinaEventNames.theHermit)]
+    public class TheHermitEvent : RandomChinaEventDefinition
     {
-        public ChinaTownEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
+        public TheHermitEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -26,17 +28,18 @@ namespace MVZ2.GameContent.RandomChinaEvents
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
                     var grid = level.GetGrid(column, lane);
-                    if (grid != null && grid.CanSpawnEntity(VanillaContraptionID.randomChina))
+                    if (grid != null && grid.CanSpawnEntity(VanillaContraptionID.mineTNT))
                     {
                         var pos = grid.GetEntityPosition();
-                        contraption.SpawnWithParams(VanillaContraptionID.randomChina, pos);
+                        contraption.SpawnWithParams(VanillaContraptionID.mineTNT, pos);
                     }
                 }
             }
+            contraption.PlaySound(VanillaSoundID.dirtRise);
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
-        public const string NAME = "陶瓷镇";
+        public const string NAME = "IX-隐者";
         [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
-        public const string DESCRIPTION = "用随机瓷器填满战场";
+        public const string DESCRIPTION = "用地雷TNT填满战场";
     }
 }
