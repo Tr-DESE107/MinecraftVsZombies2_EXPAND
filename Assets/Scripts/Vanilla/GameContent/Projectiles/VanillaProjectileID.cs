@@ -69,6 +69,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string BloodBolt = "BloodBolt";
         public const string BigFireCharge = "BigFireCharge";
         public const string SmallRocket = "SmallRocket";
+        public const string Squid = "Squid";
     }
     public static class VanillaProjectileID
     {
@@ -135,6 +136,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID BloodBolt = Get(VanillaProjectileNames.BloodBolt);
         public static readonly NamespaceID BigFireCharge = Get(VanillaProjectileNames.BigFireCharge);
         public static readonly NamespaceID SmallRocket = Get(VanillaProjectileNames.SmallRocket);
+        public static readonly NamespaceID Squid = Get(VanillaProjectileNames.Squid);
 
         private static NamespaceID Get(string name)
         {

@@ -1501,6 +1501,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8d8e8f205d5efe14e8e22b9fc70301a0, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/SmallRocket
     sprite: {fileID: 21300000, guid: f17354d7f24173049ac41e23655559b2, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/Squid
+    sprite: {fileID: 21300000, guid: 55f1f6688da83694087992270e170cb6, type: 3}
   - name: map/gensokyo/pins/castle
     sprite: {fileID: 21300000, guid: 9696331d07114754fbccc29acd1b4846, type: 3}
   - name: map/gensokyo/pins/dream
@@ -3374,6 +3376,9 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1118952533, guid: 9d7d8c34fc25cfc48886195628af3adf, type: 3}
     - {fileID: -1411100427, guid: 9d7d8c34fc25cfc48886195628af3adf, type: 3}
+  - name: entity/obstacle/SquidCage
+    spritesheet:
+    - {fileID: 21300000, guid: 03b88481f5126d44aa5b7cdde9242e04, type: 3}
   - name: entity/pickup/emerald
     spritesheet:
     - {fileID: 21300000, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}
@@ -4124,7 +4129,8 @@ MonoBehaviour:
     - {fileID: -1457860715, guid: 1f962bc3215f7e844ba8e93afb3398ec, type: 3}
   - name: entity/enemy/EXPAND/RaiderSkull
     spritesheet:
-    - {fileID: 21300000, guid: e50630d78a2fedb438493ddc59a2208d, type: 3}
+    - {fileID: 163012262, guid: e50630d78a2fedb438493ddc59a2208d, type: 3}
+    - {fileID: 519991784, guid: e50630d78a2fedb438493ddc59a2208d, type: 3}
   - name: entity/enemy/EXPAND/RandomEnemy
     spritesheet:
     - {fileID: -43616129, guid: 0aa5ccb57de84d941aef1205bb1219a9, type: 3}
@@ -4163,6 +4169,23 @@ MonoBehaviour:
     - {fileID: 957661269, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
     - {fileID: 347712781, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
     - {fileID: -1808796182, guid: 0092d96c8f3c343468247995cf274e1d, type: 3}
+  - name: entity/enemy/EXPAND/SquidDrowned
+    spritesheet:
+    - {fileID: 433256462, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: -1018736239, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: 545991851, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: -1687316652, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: 856964128, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: -963064653, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: -571047026, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: -1925137788, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: 1048941935, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: 1484056997, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: 1014519022, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: -870186681, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: 2067870144, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: -312646039, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
+    - {fileID: 583347677, guid: 6291263cfe308e9468b19e0e773f72a4, type: 3}
   - name: entity/enemy/EXPAND/TeslaTrooper
     spritesheet:
     - {fileID: 208453340, guid: 5864d688036366a4189ccc01ce7e060d, type: 3}
@@ -4186,6 +4209,15 @@ MonoBehaviour:
   - name: entity/enemy/EXPAND/TorchKongfuZombie_qianxu
     spritesheet:
     - {fileID: 21300000, guid: 03795254d93bb494ab75f39799726b7b, type: 3}
+  - name: entity/enemy/EXPAND/TyrantBedserker
+    spritesheet:
+    - {fileID: 1231249821, guid: bdd43ff2f7e3bcc47ad9202d737d70fd, type: 3}
+    - {fileID: 400421293, guid: bdd43ff2f7e3bcc47ad9202d737d70fd, type: 3}
+    - {fileID: 606511193, guid: bdd43ff2f7e3bcc47ad9202d737d70fd, type: 3}
+    - {fileID: 266468118, guid: bdd43ff2f7e3bcc47ad9202d737d70fd, type: 3}
+    - {fileID: -1897262663, guid: bdd43ff2f7e3bcc47ad9202d737d70fd, type: 3}
+    - {fileID: -186537985, guid: bdd43ff2f7e3bcc47ad9202d737d70fd, type: 3}
+    - {fileID: 959559250, guid: bdd43ff2f7e3bcc47ad9202d737d70fd, type: 3}
   - name: entity/enemy/EXPAND/Vampire
     spritesheet:
     - {fileID: -1157410471, guid: b59de1a585020644590d514251641b14, type: 3}

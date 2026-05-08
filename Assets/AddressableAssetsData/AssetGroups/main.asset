@@ -262,6 +262,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03b88481f5126d44aa5b7cdde9242e04
+    m_Address: mvz2:entity/obstacle/SquidCage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03dafdf2ab6ba7e499b6f7a6f350be32
     m_Address: mvz2:mainmenu/view/castle
     m_ReadOnly: 0
@@ -2474,6 +2481,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2603932713ed95d45aadb09c4cde090d
+    m_Address: mvz2:enemy/EXPAND/SquidDrowned
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26640ad21e1b38241a1a58aa07195d70
     m_Address: mvz2:armor/nether_vanguard_shield
     m_ReadOnly: 0
@@ -3256,6 +3270,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 341b6000bbf44494ab80f0996467b69d
+    m_Address: mvz2:projectile/EXPAND_projectile/Squid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 343af9cde9d29df4eb4188060da23847
     m_Address: mvz2:entity/pickups/almanac_book
@@ -5419,6 +5440,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55f1f6688da83694087992270e170cb6
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/Squid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56017a37b9eab0d489db5ba250433934
     m_Address: mvz2:mobile_blueprint/mesmerizer
     m_ReadOnly: 0
@@ -6042,6 +6070,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f054e773d901ea4098b801495706ba9
+    m_Address: mvz2:obstacle/SquidCage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f078c67087fbfb4aa46cf7965c4f6c2
     m_Address: mvz2:map/halloween/dream_key_map
     m_ReadOnly: 0
@@ -6230,6 +6265,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6291263cfe308e9468b19e0e773f72a4
+    m_Address: mvz2:entity/enemy/EXPAND/SquidDrowned
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62946c4ec1c56824b9e5ae35201dc267
     m_Address: mvz2:entity/enemy/endermite
@@ -9394,6 +9436,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9970af23e0d6704478f28f4a27566f90
+    m_Address: mvz2:projectile/EXPAND_projectile/NightmareBall 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99922579875e5484a9060a6a44afba78
     m_Address: mvz2:entity/enemy/EXPAND/Heads_EXPAND
     m_ReadOnly: 0
@@ -10436,6 +10485,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abb94c0c395333941bca628b8aafb3f8
+    m_Address: mvz2:enemy/castle/TyrantBedserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abbc33df2cd585342a1278ffb2b9f4b8
     m_Address: mvz2:entity/enemy/HostMutant
@@ -11563,6 +11619,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdd43ff2f7e3bcc47ad9202d737d70fd
+    m_Address: mvz2:entity/enemy/EXPAND/TyrantBedserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bded572031703084ca75d3a1a2cc8785
     m_Address: mvz2:bones/head
