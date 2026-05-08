@@ -5,6 +5,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Blueprints;
@@ -65,22 +66,13 @@ namespace MVZ2.GameContent.Artifacts
                 case REWARD_BLUEPRINT:
                     {
                         var spawnParams = new SpawnParams();
-                        var contraptionID = GetRandomContraptionID(entity.Level, rng);
+                        var contraptionID = entity.Level.GetRandomContraptionFromPool(rng);
                         var blueprintID = LogicBlueprintID.FromEntity(contraptionID);
                         spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                         entity.Produce(VanillaPickupID.blueprintPickup, spawnParams);
                         break;
                     }
             }
-        }
-        private NamespaceID GetRandomContraptionID(LevelEngine level, RandomGenerator rng)
-        {
-            var pool = level.GetRandomContraptionPool();
-            if (pool != null)
-            {
-                return pool.Random(rng);
-            }
-            return VanillaContraptionID.dispenser;
         }
         public const float DROP_CHANCE = 25;
         public const int REWARD_EMERALD = 0;
