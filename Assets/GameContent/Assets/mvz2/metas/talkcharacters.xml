@@ -544,43 +544,44 @@
         </variant>
     </character>
     <character id="rin" name="燐">
-        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
-            <layer sprite="mvz2:characters/armor_stand" />
+        <variant id="mvz2:normal" width="653" height="1280" extendLeft="50" extendRight="100" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/rin[0]" />
         </variant>
         <variant id="mvz2:scared" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_6" />
             </unlock>
+            <layer sprite="mvz2:characters/rin[4]" positionX="176" positionY="48" />
         </variant>
-        <variant id="mvz2:sad" parent="mvz2:normal">
+        <variant id="mvz2:worried" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_6" />
             </unlock>
+            <layer sprite="mvz2:characters/rin[6]" positionX="176" positionY="192" />
         </variant>
         <variant id="mvz2:nervous" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_6" />
             </unlock>
+            <layer sprite="mvz2:characters/rin[3]" positionX="176" positionY="160" />
         </variant>
         <variant id="mvz2:relieved" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_7" />
             </unlock>
-        </variant>
-        <variant id="mvz2:worried" parent="mvz2:normal">
-            <unlock>
-                <condition required="mvz2:level.palace_7" />
-            </unlock>
-        </variant>
-        <variant id="mvz2:happy" parent="mvz2:normal">
-            <unlock>
-                <condition required="mvz2:level.palace_8" />
-            </unlock>
+            <layer sprite="mvz2:characters/rin[2]" positionX="176" positionY="192" />
         </variant>
         <variant id="mvz2:question" parent="mvz2:normal">
             <unlock>
-                <condition required="mvz2:level.palace_10" />
+                <condition required="mvz2:level.palace_7" />
             </unlock>
+            <layer sprite="mvz2:characters/rin[1]" positionX="176" positionY="112" />
+        </variant>
+        <variant id="mvz2:happy" parent="mvz2:normal">
+            <unlock>
+                <condition required="mvz2:level.palace_11" />
+            </unlock>
+            <layer sprite="mvz2:characters/rin[5]" positionX="176" positionY="192" />
         </variant>
     </character>
     <character id="utsuho" name="空">

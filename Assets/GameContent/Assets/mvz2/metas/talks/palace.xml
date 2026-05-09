@@ -2348,7 +2348,7 @@
           <text>谢天谢地……真的太好了。</text>
         </sentence>
         <!--语句3-->
-        <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:normal">
+        <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:question">
           <text>另外，今天的话，好像是有新的怪物出现了。</text>
         </sentence>
         <!--语句4-->
@@ -2534,7 +2534,7 @@
           <text>……</text>
         </sentence>
         <!--语句24-->
-        <sentence speaker="mvz2:rin" sounds="mvz2:talk">
+        <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:normal">
           <text>……不过，往好处想，似乎因为这件事，咱才能及时赶到，才没让小妹你陷入危险啊。</text>
         </sentence>
         <!--语句25-->
@@ -2689,7 +2689,7 @@
           <text>哦？</text>
         </sentence>
         <!--语句4-->
-        <sentence speaker="mvz2:rin" sounds="mvz2:dialog_weird">
+        <sentence speaker="mvz2:rin" sounds="mvz2:dialog_weird" variant="mvz2:question">
           <!--语句开始脚本-->
           <onStart>
             <script>item show mvz2:misc/locked_chest_item</script>
@@ -3141,7 +3141,7 @@
           <text>阿燐，抱歉，因为我的事情，反而拖累了觉小姐。</text>
         </sentence>
         <!--语句48-->
-        <sentence speaker="mvz2:rin" sounds="mvz2:dialog_beat" variant="mvz2:happy">
+        <sentence speaker="mvz2:rin" sounds="mvz2:dialog_beat" variant="mvz2:normal">
           <!--语句开始脚本-->
           <onStart>
             <script>shake</script>
@@ -3335,7 +3335,7 @@
           <text>怎么会有这样邪恶的怪物？</text>
         </sentence>
         <!--语句18-->
-        <sentence speaker="mvz2:rin" sounds="mvz2:talk">
+        <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:worried">
           <text>史蒂夫小弟，如果你之后遇到那个黑客，请您也一定要小心。</text>
         </sentence>
         <!--语句19-->
@@ -3416,7 +3416,7 @@
         <character id="mvz2:utsuho" side="right" />
         <character id="mvz2:steve" side="self" />
         <character id="mvz2:tokiko" variant="mvz2:worried" side="left" />
-        <character id="mvz2:rin" variant="mvz2:worried" side="left" />
+        <character id="mvz2:rin" variant="mvz2:question" side="left" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -3498,7 +3498,7 @@
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:rin" side="left" />
+        <character id="mvz2:rin" variant="mvz2:worried" side="left" />
         <character id="mvz2:steve" side="self" />
         <character id="mvz2:utsuho" side="right" />
       </characters>
@@ -3943,7 +3943,7 @@
           <text>那个孩子……</text>
         </sentence>
         <!--语句42-->
-        <sentence speaker="mvz2:rin" sounds="mvz2:talk">
+        <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:question">
           <text>史蒂夫小弟吗？</text>
         </sentence>
         <!--语句43-->

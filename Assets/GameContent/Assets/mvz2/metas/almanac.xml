@@ -2994,7 +2994,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:rin"/>
+                <picture sprite="mvz2:characters/rin[0]" character="mvz2:rin"/>
                 <header>
                     <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的宠物之一，偷尸体的火车妖怪。</p>
                 </header>

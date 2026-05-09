@@ -1506,6 +1506,15 @@ MonoBehaviour:
     - {fileID: -337755752, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}
     - {fileID: -665028044, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}
     - {fileID: 180654886, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}
+  - name: characters/rin
+    spritesheet:
+    - {fileID: -1843318040, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: -1372157617, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: 330649445, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: 455205255, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: 2081136452, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: -376180039, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: -2056665195, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
   - name: characters/seiga
     spritesheet:
     - {fileID: -1912906337, guid: 34556420d8f5af5449796aad4f0ca3f1, type: 3}
