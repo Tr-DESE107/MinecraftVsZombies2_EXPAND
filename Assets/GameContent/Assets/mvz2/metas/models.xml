@@ -795,7 +795,7 @@
     <model name="soul_storm" type="entity" path="mvz2:effect/soul_storm" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	
 	<!--EXPAND Effects-->
-	<model name="SoulFreeze" type="entity" path="mvz2:effect/SoulFreeze" width="56" height="56" xOffset="0" yOffset="0" />
+	
 
 	<!--EXPAND Obstacles-->
 	<model name="SquidCage" type="entity" path="mvz2:obstacle/SquidCage" width="40" height="60" xOffset="0" yOffset="0" />
@@ -963,6 +963,7 @@
 	<model name="EightDiagram" type="icon" path="mvz2:icon/EXPAND_icon/EightDiagram" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="ResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/ResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="VanguardResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/VanguardResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+	<model name="SoulFreeze" type="icon" path="mvz2:icon/EXPAND_icon/SoulFreeze" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="blueprint_lock" type="ui" path="mvz2:ui/blueprint_lock" shot="false" width="64" height="64" xOffset="0" yOffset="0" />

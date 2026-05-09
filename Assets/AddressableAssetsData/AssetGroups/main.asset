@@ -17236,13 +17236,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fed9515588b290243a9ff01f3085957e
-    m_Address: mvz2:effect/SoulFreeze
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fee9b43affcd8f447aa2989b0c0abee5
     m_Address: mvz2:arcade/iz/puzzle_fire_in_the_hole
     m_ReadOnly: 0

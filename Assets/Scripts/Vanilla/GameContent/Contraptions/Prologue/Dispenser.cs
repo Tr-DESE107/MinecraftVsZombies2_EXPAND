@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Contraptions
         // 核心修改：添加随机发射逻辑
         public override Entity? Shoot(Entity entity)
         {
-            if (entity.RNG.Next(6) == 0)
+            if (entity.RNG.Next(6) == 0 && !entity.IsEvoked())
             {
                 var param = entity.GetShootParams();
                 param.projectileID = VanillaProjectileID.purpleArrow;
