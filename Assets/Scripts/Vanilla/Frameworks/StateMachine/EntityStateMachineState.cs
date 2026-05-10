@@ -6,7 +6,7 @@ namespace MVZ2.Vanilla.StateMachine
 {
     public abstract class EntityStateMachineState
     {
-        protected EntityStateMachineState(int state) : this(state, 0)
+        protected EntityStateMachineState(int state) : this(state, -1)
         {
         }
         protected EntityStateMachineState(int state, int animationState)
@@ -15,7 +15,7 @@ namespace MVZ2.Vanilla.StateMachine
             this.animationState = animationState;
         }
         public int state;
-        public int animationState;
+        public int animationState = -1;
         public virtual void OnEnter(EntityStateMachine machine, Entity entity) { }
         public virtual void OnUpdateAI(EntityStateMachine machine, Entity entity) { }
         public virtual void OnUpdateLogic(EntityStateMachine machine, Entity entity) { }

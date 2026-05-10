@@ -90,6 +90,8 @@ namespace MVZ2.Vanilla.Entities
         public const string wickedHermitZombie_State = "wicked_hermit_zombie/state";
 
         public const string undeadFlyingObject_State = "undead_flying_object/state";
+        public const string popCaptain_Animation = "pop_captain/animation";
+
         public const string skeletonStatue_Animation = "skeleton_statue/animation";
         public const string skeletonStatue_Death = "skeleton_statue/death";
         public const string skeletonStatue_State = "skeleton_statue/state";

@@ -2104,6 +2104,7 @@
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_state" />
                 <behaviour operator="remove" id="mvz2:enemy_death_disappear" />
+                <behaviour operator="add" id="mvz2:pop_captain/animation" />
             </behaviours>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:pop_captain_cap" />
