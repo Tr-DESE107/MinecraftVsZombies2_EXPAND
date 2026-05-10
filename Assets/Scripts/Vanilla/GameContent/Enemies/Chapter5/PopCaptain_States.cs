@@ -139,27 +139,26 @@ namespace MVZ2.GameContent.Enemies
             // 如果受到伤害的是主碰撞器，并且目标还存活：
             if (!targetCollider.IsForMain() || !target.ExistsAndAlive())
                 return;
+            var thisLane = entity.GetLane();
             // 如果目标是怪物：
             if (target.Type == EntityTypes.ENEMY)
             {
                 // 如果目标地格存在，直接使其换行。
                 if (target.GetMass() <= VanillaMass.HEAVY)
                 {
-                    var lane = target.GetLane();
                     var column = target.GetColumn();
-                    var grid = entity.Level.GetGrid(column, lane + rowOffset);
+                    var grid = entity.Level.GetGrid(column, thisLane + rowOffset);
                     if (grid != null)
                     {
-                        target.StartChangingLane(lane + rowOffset);
+                        target.StartChangingLane(thisLane + rowOffset);
                     }
                 }
             }
             else if (target.Type == EntityTypes.PLANT)
             {
                 // 如果目标是器械：
-                var lane = target.GetLane();
                 var column = target.GetColumn();
-                var targetGrid = entity.Level.GetGrid(column, lane + rowOffset);
+                var targetGrid = entity.Level.GetGrid(column, thisLane + rowOffset);
                 if (targetGrid == null)
                 {
                     // 如果目标地格不存在，直接秒杀器械。
@@ -168,7 +167,7 @@ namespace MVZ2.GameContent.Enemies
                 else
                 {
                     // 移动器械到目标地格。
-                    target.StartChangingGrid(column, lane + rowOffset);
+                    target.StartChangingGrid(column, thisLane + rowOffset);
                 }
             }
             // 将目标眩晕。
