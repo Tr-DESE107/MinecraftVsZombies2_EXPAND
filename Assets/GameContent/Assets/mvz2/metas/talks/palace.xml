@@ -1886,6 +1886,7 @@
           <text>好了，我这就把它安装到战场上，接下来，你就准备看好戏吧！</text>
           <!--语句点击脚本-->
           <onClick>
+            <script>music volume 1</script>
             <script>end</script>
           </onClick>
         </sentence>
