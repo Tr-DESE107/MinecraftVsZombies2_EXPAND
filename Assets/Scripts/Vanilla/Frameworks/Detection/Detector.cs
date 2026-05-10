@@ -170,8 +170,10 @@ namespace MVZ2.Vanilla.Detections
         {
             return x > LevelPositions.GetAttackBorderX(false) && x < LevelPositions.GetAttackBorderX(true);
         }
-        protected EntityDefinition? GetEntityDefinition(NamespaceID entityID)
+        protected EntityDefinition? GetEntityDefinition(NamespaceID? entityID)
         {
+            if (!NamespaceID.IsValid(entityID))
+                return null;
             if (!definitionCaches.TryGetValue(entityID, out var cache))
             {
                 cache = Global.Game.GetEntityDefinition(entityID);
