@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Stages;
 using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
@@ -108,10 +109,10 @@ namespace MVZ2.GameContent.Pickups
             var timer = GetOrInitStateTimer(pickup);
             if (timer.RunToExpired())
             {
-                if (pickup.Level.IsFirstAdventure() && pickup.GetVariant() == VARIANT_FIRST_TIME)
+                if (pickup.Level.IsFirstAdventure() && pickup.GetVariant() == VARIANT_FIRST_TIME && pickup.Level.StageID == VanillaStageID.palace11)
                 {
                     SetPickupState(pickup, STATE_TALK_STARTED);
-                    pickup.Level.SimpleStartTalk(VanillaTalkID.lockedChestAppear, 0, onSkipped: () =>
+                    pickup.Level.SimpleStartTalk(VanillaTalkID.palace11Boss, 0, onSkipped: () =>
                     {
                         StartShake(pickup);
                     },
