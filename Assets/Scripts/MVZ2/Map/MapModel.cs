@@ -27,6 +27,10 @@ namespace MVZ2.Map
         #endregion
 
         #region 无尽按钮
+        public MapButton? GetEndlessMapButton()
+        {
+            return endlessButton;
+        }
         public void SetEndlessButtonInteractable(bool interactable)
         {
             if (!endlessButton)

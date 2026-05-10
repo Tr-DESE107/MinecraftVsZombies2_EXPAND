@@ -623,15 +623,20 @@ namespace MVZ2.Map
             model.SetEndlessButtonText("\u221E");
 
 
+            MapButton? unclearedMapButton = null;
             if (unclearedMapButtonIndex >= 0)
             {
-                var unclearedMapButton = model.GetMapButton(unclearedMapButtonIndex);
-                if (unclearedMapButton.Exists())
-                {
-                    var pos = unclearedMapButton.transform.position;
-                    pos.z = mapCamera.transform.position.z;
-                    mapCamera.transform.position = pos;
-                }
+                unclearedMapButton = model.GetMapButton(unclearedMapButtonIndex);
+            }
+            else
+            {
+                unclearedMapButton = model.GetEndlessMapButton();
+            }
+            if (unclearedMapButton.Exists())
+            {
+                var pos = unclearedMapButton.transform.position;
+                pos.z = mapCamera.transform.position.z;
+                mapCamera.transform.position = pos;
             }
         }
         private void UpdateModelElements(MapModel model)

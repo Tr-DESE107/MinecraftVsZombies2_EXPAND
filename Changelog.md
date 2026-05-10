@@ -9,6 +9,7 @@
 ## Modified
 
 - Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
+- After completing all levels in a map, entering the map will now set the view to the position of the endless level button.
 
 ### Balance
 - Moonlight Sensor
