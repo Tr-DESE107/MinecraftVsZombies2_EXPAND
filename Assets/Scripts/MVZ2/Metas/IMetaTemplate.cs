@@ -7,7 +7,7 @@ namespace MVZ2.Metas
 {
     public interface IMetaTemplate
     {
-        IEnumerable<NamespaceID> GetBehaviours();
+        IEnumerable<BehaviourItem> GetBehaviours();
         Dictionary<string, object?> GetProperties();
     }
 }

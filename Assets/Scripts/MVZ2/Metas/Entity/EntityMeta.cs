@@ -52,7 +52,7 @@ namespace MVZ2.Metas
             var templateID = node.GetAttribute("template");
             var template = templates.FirstOrDefault(t => t.id == templateID);
 
-            var behaviours = new List<NamespaceID>();
+            var behaviours = new List<BehaviourItem>();
             Dictionary<string, object?> properties = new Dictionary<string, object?>();
 
             var behavioursNode = node["behaviours"];
@@ -68,11 +68,11 @@ namespace MVZ2.Metas
             bool includeSelfBehaviour = behavioursNode?.GetAttributeBool("includeSelf") ?? true;
             if (includeSelfBehaviour)
             {
-                behaviours.Add(new NamespaceID(nsp, id));
+                behaviours.Add(new BehaviourItem(new NamespaceID(nsp, id), 0));
             }
+            var behavioursArray = behaviours.OrderBy(b => b.priority).Select(b => b.id).ToArray();
 
-
-            return new EntityMeta(id, name, deathMessage, tooltip, unlockConditions, behaviours.ToArray(), properties)
+            return new EntityMeta(id, name, deathMessage, tooltip, unlockConditions, behavioursArray, properties)
             {
                 Type = type,
                 Order = order,
@@ -85,6 +85,7 @@ namespace MVZ2.Metas
         public BehaviourOperator Operator { get; private set; }
         public NamespaceID? SourceID { get; private set; }
         public NamespaceID ID { get; private set; }
+        public int Priority { get; private set; }
         public EntityBehaviourItem(BehaviourOperator @operator, NamespaceID iD)
         {
             Operator = @operator;
@@ -105,9 +106,11 @@ namespace MVZ2.Metas
                 op = o;
             }
             var sourceID = node.GetAttributeNamespaceID("source", defaultNsp);
+            var priority = node.GetAttributeInt("priority") ?? 0;
             return new EntityBehaviourItem(op, id)
             {
-                SourceID = sourceID
+                SourceID = sourceID,
+                Priority = priority
             };
         }
         private static Dictionary<string, BehaviourOperator> operatorDict = new Dictionary<string, BehaviourOperator>()
@@ -117,6 +120,17 @@ namespace MVZ2.Metas
             { "replace", BehaviourOperator.Replace },
         };
 
+    }
+    public struct BehaviourItem
+    {
+        public NamespaceID id;
+        public int priority;
+
+        public BehaviourItem(NamespaceID id, int priority)
+        {
+            this.id = id;
+            this.priority = priority;
+        }
     }
     public enum BehaviourOperator
     {
