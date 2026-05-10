@@ -65,6 +65,7 @@ namespace MVZ2.Map
                 model = null;
             }
             SetCameraBackgroundColor(Color.black);
+            CancelDraggingView();
         }
         public async void SetMap(NamespaceID mapId)
         {
@@ -549,6 +550,7 @@ namespace MVZ2.Map
 
         private IEnumerator EnterLevel(NamespaceID? areaID, NamespaceID? stageID)
         {
+            CancelDraggingView();
             if (!NamespaceID.IsValid(areaID) || Global.Game.GetAreaDefinition(areaID) == null)
             {
                 var title = Main.LanguageManager._(LogicStrings.ERROR);
@@ -690,6 +692,11 @@ namespace MVZ2.Map
         {
             Main.Scene.HidePages();
             Main.Scene.DisplayMap(MapID);
+        }
+        private void CancelDraggingView()
+        {
+            draggingView = false;
+            ui.SetDragRootVisible(false);
         }
 
         #endregion
