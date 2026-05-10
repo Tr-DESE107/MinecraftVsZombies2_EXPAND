@@ -2524,7 +2524,7 @@
         </entity>
         <entity template="humanoid" id="nether_hunter" name="下界猎手" deathMessage="转来转去像个小丑">
             <unlock>
-                <condition required="mvz2:contraption.nether_reactor_core" />
+                <condition requiredGroups="mvz2:contraption.nether_reactor_core" />
             </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
@@ -2550,7 +2550,7 @@
         </entity>
         <entity template="humanoid" id="nether_mage" name="下界法师" deathMessage="我已启动">
             <unlock>
-                <condition required="mvz2:contraption.nether_reactor_core" />
+                <condition requiredGroups="mvz2:contraption.nether_reactor_core" />
             </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state" />
