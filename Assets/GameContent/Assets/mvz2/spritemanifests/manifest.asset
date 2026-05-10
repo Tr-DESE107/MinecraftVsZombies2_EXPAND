@@ -1471,6 +1471,11 @@ MonoBehaviour:
     - {fileID: 601784348, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
     - {fileID: -1003292378, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
     - {fileID: -603209068, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
+  - name: characters/eirin
+    spritesheet:
+    - {fileID: -499195586, guid: 744d21f4b3d72674e9d855641bebf711, type: 3}
+    - {fileID: 1907543056, guid: 744d21f4b3d72674e9d855641bebf711, type: 3}
+    - {fileID: 1666439732, guid: 744d21f4b3d72674e9d855641bebf711, type: 3}
   - name: characters/futo
     spritesheet:
     - {fileID: 329402412, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
@@ -1479,6 +1484,11 @@ MonoBehaviour:
     - {fileID: -1580232334, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
     - {fileID: -1028235923, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
     - {fileID: -430792853, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
+  - name: characters/koishi
+    spritesheet:
+    - {fileID: 106786177, guid: db8130de60f980943a44383aed09ce5d, type: 3}
+    - {fileID: -558446616, guid: db8130de60f980943a44383aed09ce5d, type: 3}
+    - {fileID: 1304107769, guid: db8130de60f980943a44383aed09ce5d, type: 3}
   - name: characters/marisa
     spritesheet:
     - {fileID: -1133822276, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
@@ -1515,6 +1525,12 @@ MonoBehaviour:
     - {fileID: 2081136452, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
     - {fileID: -376180039, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
     - {fileID: -2056665195, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+  - name: characters/satori
+    spritesheet:
+    - {fileID: 672907054, guid: 61b36d39f1febbd40978c7f4cfc4156d, type: 3}
+    - {fileID: 158789374, guid: 61b36d39f1febbd40978c7f4cfc4156d, type: 3}
+    - {fileID: 2113587037, guid: 61b36d39f1febbd40978c7f4cfc4156d, type: 3}
+    - {fileID: -457054698, guid: 61b36d39f1febbd40978c7f4cfc4156d, type: 3}
   - name: characters/seiga
     spritesheet:
     - {fileID: -1912906337, guid: 34556420d8f5af5449796aad4f0ca3f1, type: 3}

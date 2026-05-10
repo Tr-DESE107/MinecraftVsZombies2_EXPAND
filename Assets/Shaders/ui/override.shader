@@ -22,7 +22,7 @@ Shader "MinecraftVSZombies2/UI/Override"
         Cull Off
         Lighting Off
         ZWrite Off
-        Blend SrcAlpha Zero
+        Blend One Zero
 
         Pass
         {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 93dd3cca0a6f1a24da49df3b3eed57fa
+guid: 744d21f4b3d72674e9d855641bebf711
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,148 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rin_0
+      name: eirin_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 653
+        width: 522
         height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7eddebf755064941a71c9aad3b938a1
-      internalID: -1843318040
+      spriteID: 3416b863c43e07342912fbf3727705c2
+      internalID: -499195586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rin_1
+      name: eirin_1
       rect:
         serializedVersion: 2
-        x: 656
-        y: 1072
-        width: 304
-        height: 208
+        x: 525
+        y: 1168
+        width: 144
+        height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 590c4fb902a53844682ed78e0f5cffdb
-      internalID: -1372157617
+      spriteID: 4e432b35d0696d8418e875724ed50945
+      internalID: 1907543056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rin_2
+      name: eirin_2
       rect:
         serializedVersion: 2
-        x: 656
-        y: 829
-        width: 160
-        height: 240
+        x: 525
+        y: 1133
+        width: 48
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4287fa388637d8e4894a1689161ef6eb
-      internalID: 330649445
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rin_3
-      rect:
-        serializedVersion: 2
-        x: 963
-        y: 1088
-        width: 160
-        height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c510c00edd8e2e34e9112021046c7aae
-      internalID: 455205255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rin_4
-      rect:
-        serializedVersion: 2
-        x: 819
-        y: 781
-        width: 320
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f609374c362d79142b3f4d93e06af144
-      internalID: 2081136452
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rin_5
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 698
-        width: 160
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b82cca1e4c1fd14dbce3eccc0a8963e
-      internalID: -376180039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rin_6
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 567
-        width: 160
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4e62d66c9846e54b97e844da0b51bfa
-      internalID: -2056665195
+      spriteID: 140615a3424704a469148e8035c361bd
+      internalID: 1666439732
       vertices: []
       indices: 
       edges: []
@@ -280,14 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rin_0: -1843318040
-      rin_1: -1372157617
-      rin_2: 330649445
-      rin_3: 455205255
-      rin_4: 2081136452
-      rin_5: -376180039
-      rin_6: -2056665195
-      rin_7: -184033721
+      eirin_0: -499195586
+      eirin_1: 1907543056
+      eirin_2: 1666439732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1030,6 +1030,7 @@
             <script>forecolor fade #000F #FFFF 1</script>
             <script>delay 2</script>
             <script>character leave mvz2:koishi</script>
+            <script>character variant mvz2:satori mvz2:normal</script>
             <script>forecolor fade #FFFF #FFF0 2</script>
             <script>foreground alpha 1</script>
             <script>foreground change mvz2:misc/memory_with_unknown_person</script>
@@ -1311,7 +1312,7 @@
           <text>……</text>
         </sentence>
         <!--语句19-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:talk" variant="mvz2:normal">
           <text>你是个有孝心的孩子。</text>
         </sentence>
         <!--语句20-->
@@ -1327,11 +1328,11 @@
           <text>……</text>
         </sentence>
         <!--语句23-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:talk" variant="mvz2:close_eyes">
           <text>……</text>
         </sentence>
         <!--语句24-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:talk" variant="mvz2:normal">
           <text>不，孩子。那位村民就是你的养父，别想太多。</text>
         </sentence>
         <!--语句25-->
@@ -2119,7 +2120,7 @@
             <script>delay 0.5</script>
             <script>forecolor fade #000F #0000 2</script>
             <script>delay 2.5</script>
-            <script>character create mvz2:satori left</script>
+            <script>character create mvz2:satori left mvz2:surprised</script>
             <script>character create mvz2:crazy_villager left</script>
             <script>delay 0.5</script>
             <script>loopsound play mvz2:lava_loop</script>
@@ -2452,6 +2453,10 @@
         </sentence>
         <!--语句3-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <onStart>
+            <script>character create mvz2:koishi right</script>
+            <script>character layer mvz2:koishi last</script>
+          </onStart>
           <text>你之前去灼热地狱遗址，是为了？</text>
         </sentence>
         <!--语句4-->
@@ -3674,8 +3679,8 @@
         <character id="mvz2:rin" side="left" />
         <character id="mvz2:utsuho" side="left" />
         <character id="mvz2:crazy_villager" side="left" />
-        <character id="mvz2:tokiko" side="right" />
         <character id="mvz2:koishi" side="right" />
+        <character id="mvz2:tokiko" side="right" />
         <character id="mvz2:steve" side="self" />
       </characters>
       <!--语句列表-->
@@ -3856,7 +3861,7 @@
           <text><![CDATA[<color=blue>（看来器械也不是万能的……）</color>]]></text>
         </sentence>
         <!--语句29-->
-        <sentence speaker="mvz2:koishi" sounds="mvz2:dialog_surprised">
+        <sentence speaker="mvz2:koishi" sounds="mvz2:dialog_surprised" variant="mvz2:happy">
           <!--语句开始脚本-->
           <onStart>
             <script>item show mvz2:artifacts/censer_of_forgotten</script>

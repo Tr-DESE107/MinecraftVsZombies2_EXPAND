@@ -2959,7 +2959,7 @@
                 <unlock>
                     <condition required="mvz2:entered_palace"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:eirin"/>
+                <picture sprite="mvz2:characters/eirin[0]" character="mvz2:eirin"/>
                 <header>
                     <p>永远亭的医师。</p>
                 </header>
@@ -2975,7 +2975,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_1"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:satori"/>
+                <picture sprite="mvz2:characters/satori[0]" character="mvz2:satori"/>
                 <header>
                     <p>居住于地下的觉妖怪，<![CDATA[<ref=[misc]mvz2:chireiden>地灵殿</ref>]]>的主人。</p>
                 </header>
@@ -3031,7 +3031,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:koishi"/>
+                <picture sprite="mvz2:characters/koishi[0]" character="mvz2:koishi"/>
                 <header>
                     <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的妹妹。</p>
                 </header>

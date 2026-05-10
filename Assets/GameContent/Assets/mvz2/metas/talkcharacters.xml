@@ -497,50 +497,57 @@
         </variant>
     </character>
     <character id="eirin" name="永琳">
-        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
-            <layer sprite="mvz2:characters/armor_stand" />
+        <variant id="mvz2:normal" width="522" height="1280" extendLeft="50" extendRight="0" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/eirin[0]" />
         </variant>
         <variant id="mvz2:close_eyes" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_8" />
             </unlock>
+            <layer sprite="mvz2:characters/eirin[1]" positionX="208" positionY="112" />
         </variant>
         <variant id="mvz2:smile" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_11" />
             </unlock>
+            <layer sprite="mvz2:characters/eirin[2]" positionX="256" positionY="192" />
         </variant>
     </character>
     <character id="satori" name="觉">
-        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
-            <layer sprite="mvz2:characters/armor_stand" />
+        <variant id="mvz2:normal" width="530" height="1280" extendLeft="50" extendRight="0" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/satori[0]" />
         </variant>
         <variant id="mvz2:surprised" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_2" />
             </unlock>
+            <layer sprite="mvz2:characters/satori[2]" positionX="208" positionY="96" />
         </variant>
         <variant id="mvz2:close_eyes" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_3" />
             </unlock>
+            <layer sprite="mvz2:characters/satori[1]" positionX="224" positionY="112" />
         </variant>
         <variant id="mvz2:smile" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_11" />
             </unlock>
+            <layer sprite="mvz2:characters/satori[3]" positionX="272" positionY="176" />
         </variant>
     </character>
     <character id="koishi" name="恋">
-        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
-            <layer sprite="mvz2:characters/armor_stand" />
+        <variant id="mvz2:normal" width="596" height="1280" extendLeft="50" extendRight="0" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/koishi[0]" />
         </variant>
         <variant id="mvz2:happy" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/koishi[2]" positionX="240" positionY="112" />
         </variant>
         <variant id="mvz2:question" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_4" />
             </unlock>
+            <layer sprite="mvz2:characters/koishi[1]" positionX="64" positionY="176" />
         </variant>
     </character>
     <character id="rin" name="燐">
