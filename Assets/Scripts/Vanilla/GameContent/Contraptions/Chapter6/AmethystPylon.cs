@@ -124,8 +124,10 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static Vector3 GetLaserPosition(Entity entity)
         {
+            var laserScale = GetLaserScale(entity);
             var offset = entity.GetShotOffset();
             offset.x *= entity.GetFacingX();
+            offset.y += (laserScale.y - 1) * Y_OFFSET_PER_LASER_SCALE;
             return entity.Position + offset;
         }
         public static EntityID? GetMasterSparkID(Entity entity) => entity.GetBehaviourField<EntityID>(PROP_MASTER_SPARK_ID);
@@ -142,7 +144,8 @@ namespace MVZ2.GameContent.Contraptions
         public const float EVOCATION_DISABLE_SECONDS = 30f;
         public const float LASER_DAMAGE_SCALE_1 = 20f;
         public const float LASER_SCALE_MIN = 0.5f;
-        public const float LASER_SCALE_MAX = 4;
+        public const float LASER_SCALE_MAX = 2.5f;
+        public const float Y_OFFSET_PER_LASER_SCALE = -7f;
         public const int STATE_IDLE = VanillaContraptionStates.IDLE;
         public const int STATE_ATTACK = VanillaContraptionStates.AMETHYST_PYLON_ATTACK;
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_MASTER_SPARK_ID = new VanillaEntityPropertyMeta<EntityID>("master_spark_id");
