@@ -17,6 +17,12 @@ namespace MVZ2.GameContent.Effects
         {
             AddModifier(new Vector3Modifier(EngineEntityProps.MODEL_POSITION_OFFSET, NumberOperator.Add, PROP_MODEL_OFFSET));
         }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.SetModelProperty("Color", entity.GetTint());
+            entity.SetModelProperty("Text", GetText(entity));
+        }
         public override void Update(Entity entity)
         {
             base.Update(entity);
