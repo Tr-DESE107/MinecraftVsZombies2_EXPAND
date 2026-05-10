@@ -1518,7 +1518,7 @@
     </stage>
     <stage id="palace_endless" name="地灵殿无尽" type="endless">
         <unlock>
-            <condition required="mvz2:level.palace_5" />
+            <condition required="mvz2:level.palace_11" />
         </unlock>
         <clear pickupModel="mvz2:entity.money_chest" />
         <spawns flags="2">
