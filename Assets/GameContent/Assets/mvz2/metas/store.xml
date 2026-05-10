@@ -317,8 +317,8 @@
                 <condition required="mvz2:level.palace_11" />
             </unlock>
             <talks>
-                <talk character="mvz2:crazy_villager">上锁箱子的挂锁！当器械被除铁镐和自毁之外的方式摧毁时，立即充能它的蓝图！</talk>
-                <talk character="mvz2:tokiko">那个可恶箱子的挂锁！当器械被除铁镐和自毁之外的方式摧毁时，立即充能它的蓝图！</talk>
+                <talk character="mvz2:crazy_villager">上锁箱子的挂锁！当器械受到伤害时，减少它蓝图的充能时间！</talk>
+                <talk character="mvz2:tokiko">那个可恶箱子的挂锁！当器械受到伤害时，减少它蓝图的充能时间！</talk>
             </talks>
             <stages>
                 <stage price="15000" unlocks="mvz2:artifact.broken_lock" />

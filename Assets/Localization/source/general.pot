@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-06 10:18+0800\n"
+"POT-Creation-Date: 2026-05-10 04:18+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1488,38 +1488,38 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:697
+#: Scripts\MVZ2\Map\MapController.cs:704
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:699
+#: Scripts\MVZ2\Map\MapController.cs:706
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:701
+#: Scripts\MVZ2\Map\MapController.cs:708
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:703
+#: Scripts\MVZ2\Map\MapController.cs:710
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:705
+#: Scripts\MVZ2\Map\MapController.cs:712
 msgid "目标地点{0}不存在。"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:707
+#: Scripts\MVZ2\Map\MapController.cs:714
 msgid "目标关卡{0}不存在。"
 msgstr ""
 
@@ -4795,13 +4795,13 @@ msgstr ""
 #. Store item description of mvz2:broken_lock by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
-msgid "上锁箱子的挂锁！当器械被除铁镐和自毁之外的方式摧毁时，立即充能它的蓝图！"
+msgid "上锁箱子的挂锁！当器械受到伤害时，减少它蓝图的充能时间！"
 msgstr ""
 
 #. Store item description of mvz2:broken_lock by character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
-msgid "那个可恶箱子的挂锁！当器械被除铁镐和自毁之外的方式摧毁时，立即充能它的蓝图！"
+msgid "那个可恶箱子的挂锁！当器械受到伤害时，减少它蓝图的充能时间！"
 msgstr ""
 
 #. Store item description of mvz2:cake by character mvz2:crazy_villager
