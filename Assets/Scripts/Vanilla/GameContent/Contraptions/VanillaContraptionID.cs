@@ -104,6 +104,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string LCMTNT = "LCMTNT";
         public const string StoneGenerator = "StoneGenerator";
         public const string Stone = "Stone";
+        public const string FireDispenser = "FireDispenser";
 
         //EXPAND BlackCard
         public const string Bedrock = "Bedrock";
@@ -208,6 +209,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID LCMTNT = Get(VanillaContraptionNames.LCMTNT);
         public static readonly NamespaceID StoneGenerator = Get(VanillaContraptionNames.StoneGenerator);
         public static readonly NamespaceID Stone = Get(VanillaContraptionNames.Stone);
+        public static readonly NamespaceID FireDispenser = Get(VanillaContraptionNames.FireDispenser);
 
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);

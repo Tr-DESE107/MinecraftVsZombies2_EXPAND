@@ -214,11 +214,15 @@ namespace MVZ2.GameContent.Buffs
             public const string elasticCloudEvocation = "elastic_cloud_evocation";
             public const string skywardBeaconNight = "skyward_beacon_night";
 
-            //EXPAND
-            public const string TeslaCoilOvercharge = "TeslaCoilOvercharge";
             // Chapter 6
             public const string psychicShackled = "psychic_shackled";
             public const string stoneEyeCharged = "stone_eye_charged";
+
+            //EXPAND
+            public const string TeslaCoilOvercharge = "TeslaCoilOvercharge";
+            public const string FireDispenserCursedBuff = "FireDispenserCursedBuff";
+            public const string FireDispenserSoulFireBuff = "FireDispenserSoulFireBuff";
+
         }
         public static class Enemy
         {
@@ -584,6 +588,11 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 6
             public static readonly NamespaceID psychicShackled = Get(VanillaBuffNames.Contraption.psychicShackled);
+
+            //EXPAND
+            public static readonly NamespaceID TeslaCoilOvercharge = Get(VanillaBuffNames.Contraption.TeslaCoilOvercharge);
+            public static readonly NamespaceID FireDispenserCursedBuff = Get(VanillaBuffNames.Contraption.FireDispenserCursedBuff);
+            public static readonly NamespaceID FireDispenserSoulFireBuff = Get(VanillaBuffNames.Contraption.FireDispenserSoulFireBuff);
         }
         public static class Enemy
         {
