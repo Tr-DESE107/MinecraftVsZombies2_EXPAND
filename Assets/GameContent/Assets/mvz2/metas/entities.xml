@@ -1890,7 +1890,7 @@
 			</unlock>
 			<properties>
 				<bool name="mvz2:triggerActive" value="true" />
-				<id name="mvz2:projectileId" value="mvz2:spectral_arrow" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
 				<id name="mvz2:shell" value="mvz2:stone" />
 
 				<int name="mvz2:cost" value="175" />
@@ -6333,6 +6333,13 @@
             </properties>
         </entity>
         <entity template="effect" id="cursed_fireburn">
+            <properties>
+                <bool name="mvz2:decorative" value="false" />
+                <bool name="mvz2:isFire" value="true" />
+                <int name="mvz2:maxTimeout" value="30" />
+            </properties>
+        </entity>
+        <entity template="effect" id="SoulFireburn">
             <properties>
                 <bool name="mvz2:decorative" value="false" />
                 <bool name="mvz2:isFire" value="true" />

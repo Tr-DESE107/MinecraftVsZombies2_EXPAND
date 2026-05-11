@@ -10,12 +10,12 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [AutoBuffDefinition(VanillaBuffNames.Contraption.hellfireCursed)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.FireDispenserCursedBuff)]
     public class FireDispenserCursedBuff : BuffDefinition
     {
         public FireDispenserCursedBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new NamespaceIDModifier(VanillaContraptionProps.FRAGMENT_ID, SetOperator.Set, VanillaFragmentID.hellfireCursed));
+            AddModifier(new NamespaceIDModifier(VanillaContraptionProps.FRAGMENT_ID, SetOperator.Set, VanillaFragmentID.FireDispenserCursed));
             AddModifier(ColorModifier.Override(LogicEntityProps.LIGHT_COLOR, new Color(0, 1, 0)));
         }
     }

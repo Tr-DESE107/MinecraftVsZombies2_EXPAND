@@ -107,9 +107,6 @@ namespace MVZ2.GameContent.Effects
         public const string gridFire = "grid_fire";
         public const string fallenEndShip = "fallen_end_ship";
 
-        //EXPAND
-        public const string SoulFreeze = "SoulFreeze";
-        
         public const string megaGlowingLaser = "mega_glowing_laser";
         public const string nukeSmoke = "nuke_smoke";
         public const string nukeFlash = "nuke_flash";
@@ -127,6 +124,10 @@ namespace MVZ2.GameContent.Effects
         public const string witherSummoningBlocks = "wither_summoning_blocks";
         public const string soulEffect = "soul_effect";
         public const string soulStorm = "soul_storm";
+
+
+        //EXPAND
+        public const string SoulFreeze = "SoulFreeze";
     }
     public static class VanillaEffectID
     {
@@ -229,9 +230,6 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID dragonFireBreath = Get(VanillaEffectNames.dragonFireBreath);
         public static readonly NamespaceID gridFire = Get(VanillaEffectNames.gridFire);
         public static readonly NamespaceID fallenEndShip = Get(VanillaEffectNames.fallenEndShip);
-
-        //EXPAND
-        public static readonly NamespaceID SoulFreeze = Get(VanillaEffectNames.SoulFreeze);
         
         public static readonly NamespaceID megaGlowingLaser = Get(VanillaEffectNames.megaGlowingLaser);
         public static readonly NamespaceID nukeSmoke = Get(VanillaEffectNames.nukeSmoke);
@@ -250,6 +248,11 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID witherSummoningBlocks = Get(VanillaEffectNames.witherSummoningBlocks);
         public static readonly NamespaceID soulEffect = Get(VanillaEffectNames.soulEffect);
         public static readonly NamespaceID soulStorm = Get(VanillaEffectNames.soulStorm);
+
+
+        //EXPAND
+        public static readonly NamespaceID SoulFreeze = Get(VanillaEffectNames.SoulFreeze);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
