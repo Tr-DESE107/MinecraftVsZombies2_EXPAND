@@ -1331,6 +1331,10 @@
         <sentence speaker="mvz2:satori" sounds="mvz2:talk" variant="mvz2:close_eyes">
           <text>……</text>
         </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（觉大人的意思……难道说，戴夫他——）</color>]]></text>
+        </sentence>
         <!--语句24-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk" variant="mvz2:normal">
           <text>不，孩子。那位村民就是你的养父，别想太多。</text>
@@ -1339,13 +1343,24 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>抱、抱歉。</text>
         </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（这样的话，我至少能够放下心来了，戴夫还是那个戴夫。）</color>]]></text>
+        </sentence>
+        <!--语句23-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <onStart>
+            <script>shake</script>
+          </onStart>
+          <text><![CDATA[<color=blue>（没有人能在觉大人面前撒谎的！）</color>]]></text>
+        </sentence>
         <!--语句26-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
           <!--语句开始脚本-->
           <onStart>
             <script>item show mvz2:artifacts/control_rod</script>
           </onStart>
-          <text>没关系的。对了，阿空说要送给你这件东西当礼物，她说也许这能够帮上你的忙。</text>
+          <text>对了，阿空说要送给你这件东西当礼物，她说也许这能够帮上你的忙。</text>
         </sentence>
         <!--语句27-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
@@ -1704,7 +1719,7 @@
       <sentences>
         <!--语句0-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>对了，觉小姐。</text>
+          <text>对了，觉大人。</text>
         </sentence>
         <!--语句1-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
@@ -2575,7 +2590,7 @@
       <sentences>
         <!--语句0-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>说起来，觉小姐呢？</text>
+          <text>说起来，觉大人呢？</text>
         </sentence>
         <!--语句1-->
         <sentence speaker="mvz2:utsuho" sounds="mvz2:talk">
@@ -2925,7 +2940,7 @@
         </sentence>
         <!--语句3-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text><![CDATA[<color=blue>（觉小姐居然也成为了袭击的受害者……）</color>]]></text>
+          <text><![CDATA[<color=blue>（觉大人居然也成为了袭击的受害者……）</color>]]></text>
         </sentence>
         <!--语句4-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat">
@@ -3920,7 +3935,7 @@
         </sentence>
         <!--语句37-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>再见，觉小姐！</text>
+          <text>再见，觉大人！</text>
         </sentence>
         <!--语句38-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
