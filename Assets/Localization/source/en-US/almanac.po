@@ -5567,7 +5567,7 @@ msgstr "Rin Kaenbyou"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "<ref=[misc]mvz2:satori>古明地 觉</ref>的宠物之一，偷尸体的火车妖怪。"
-msgstr "One of <ref=[misc]mvz2:satori>Satori Komeiji</ref>'s pets—a corpse-stealing kasha youkai."
+msgstr "One of <ref=[misc]mvz2:satori>Satori Komeiji</ref>'s pets, a corpse-stealing kasha youkai."
 
 #. Flavor for misc mvz2:rin
 #: Almanac meta file
@@ -5580,13 +5580,13 @@ msgid ""
 "\n"
 "她并不喜欢那些由异变产生的、方形的僵尸。"
 msgstr ""
-"A kasha youkai that dwells within flames, with a cheerful personality.\n"
-"She is extremely interested in corpses, though she avoids those that have already been buried and does not actively kill people. Her "
-"body carries the stench of decay.\n"
-"The corpses she collects are given to <ref=[misc]mvz2:utsuho>Utsuho</ref> to help regulate the heat of Remains of Blazing Hell.\n"
-"She can also communicate with corpses and spirits, or can capture and control them.\n"
+"She is a cheerful kasha youkai who dwells in flames.\n"
+"She is extremely interested in corpses, but loses interest in those that are properly buried and does not actively kill people. Her "
+"body reeks of decay.\n"
+"The corpses she collect are given to <ref=[misc]mvz2:utsuho>Utsuho</ref> for regulating the heat of the Remains of Blazing Hell.\n"
+"She can also communicate with corpses and spirits, or capture and control them.\n"
 "\n"
-"She dislikes those blocky zombies created by The Incident."
+"She dislikes those blocky zombies created by The Incident. "
 
 #. Name for misc mvz2:utsuho
 #: Almanac meta file
