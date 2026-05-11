@@ -5281,12 +5281,12 @@ msgstr "An ordinary magician, and also a former good friend of <ref=[misc]mvz2:r
 msgctxt "misc.description"
 msgid ""
 "在幻想乡四处游荡、采集的人类，职业是魔法使（而非种族）。\n"
-"曾经和森近 霖之助关系很好，后来也因他的失踪翻遍了整个幻想乡，无果。\n"
+"曾经和森近 霖之助关系很好，称呼他为“香霖”。后来也因他的失踪翻遍了整个幻想乡，无果。\n"
 "随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。"
 msgstr ""
 "A human who wanders around Gensokyo collecting various items. Her profession is a magician (not the race).\n"
-"She was once on very good terms with Rinnosuke Morichika, but after his disappearance, she searched all over Gensokyo for him, but to "
-"no avail.\n"
+"She was once on very good terms with Rinnosuke Morichika and even calling him by his nickname \"Kourin\", but after his disappearance, "
+"she searched all over Gensokyo for him, but to no avail.\n"
 "Afterwards, she built a memorial for Rinnosuke and would visit him every now and then to commemorate him."
 
 #. Name for misc mvz2:miko
