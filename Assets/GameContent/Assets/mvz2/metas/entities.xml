@@ -3812,7 +3812,7 @@
 			</unlock>
 			<behaviours>
 				<behaviour operator="add" id="mvz2:enemy_melee" />
-				<behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:pop_captain/animation" />
+				<behaviour operator="add" id="mvz2:pop_captain/animation" />
 			</behaviours>
 			<properties>
 				<float name="mvz2:maxHealth" value="1000" />
