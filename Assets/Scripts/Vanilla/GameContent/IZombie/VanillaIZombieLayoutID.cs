@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Stages
 
         public const string ize2Composite = "ize2_composite";
         public const string ize2Control = "ize2_control";
-        public const string ize2Defense = "ize2_defense";
+        public const string ize2Impale = "ize2_impale";
         public const string ize2Instakill = "ize2_instakill";
         public const string ize2Dispensers = "ize2_dispensers";
         public const string ize2Spikes = "ize2_spikes";
@@ -85,7 +85,7 @@ namespace MVZ2.GameContent.Stages
 
         public static readonly NamespaceID ize2Composite = Get(VanillaIZombieLayoutNames.ize2Composite);
         public static readonly NamespaceID ize2Control = Get(VanillaIZombieLayoutNames.ize2Control);
-        public static readonly NamespaceID ize2Defense = Get(VanillaIZombieLayoutNames.ize2Defense);
+        public static readonly NamespaceID ize2Impale = Get(VanillaIZombieLayoutNames.ize2Impale);
         public static readonly NamespaceID ize2Instakill = Get(VanillaIZombieLayoutNames.ize2Instakill);
         public static readonly NamespaceID ize2Dispensers = Get(VanillaIZombieLayoutNames.ize2Dispensers);
         public static readonly NamespaceID ize2Spikes = Get(VanillaIZombieLayoutNames.ize2Spikes);

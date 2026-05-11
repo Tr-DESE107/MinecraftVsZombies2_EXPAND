@@ -8,19 +8,19 @@ using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.ize2Defense)]
-    public class IZE2DefenseLayout : IZELayout
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.ize2Impale)]
+    public class IZE2ImpaleLayout : IZELayout
     {
-        public IZE2DefenseLayout(string nsp, string name) : base(nsp, name)
+        public IZE2ImpaleLayout(string nsp, string name) : base(nsp, name)
         {
         }
         protected override void FillEndlessContraptions(IIZombieMap map, RandomGenerator rng)
         {
             RandomFill(map, VanillaContraptionID.gravityPad, 5, rng);
 
-            RandomFill(map, VanillaContraptionID.silvenser, 7, rng);
-            RandomFill(map, VanillaContraptionID.pistenser, 5, rng);
-            RandomFill(map, VanillaContraptionID.stoneEye, 3, rng);
+            RandomFill(map, VanillaContraptionID.silvenser, 10, rng);
+            RandomFill(map, VanillaContraptionID.pistenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.stoneEye, 2, rng);
             RandomFill(map, VanillaContraptionID.totenser, 2, rng);
         }
     }
