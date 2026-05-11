@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2026-05-10 04:18+0800\n"
-"PO-Revision-Date: 2026-05-10 16:21+0800\n"
+"PO-Revision-Date: 2026-05-11 22:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1377,13 +1377,13 @@ msgstr "Four Souls Blast"
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:168
 msgctxt "locked_chest_text"
 msgid "炸弹来咯！"
-msgstr "Here come the BOMBS!"
+msgstr "Here comes the BOOM!"
 
 # 上锁的箱子文本
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:170
 msgctxt "locked_chest_text"
 msgid "我才是炸弹！"
-msgstr "I AM THE BOMB!"
+msgstr "I AM THE BOOM!"
 
 # 上锁的箱子文本
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:172
