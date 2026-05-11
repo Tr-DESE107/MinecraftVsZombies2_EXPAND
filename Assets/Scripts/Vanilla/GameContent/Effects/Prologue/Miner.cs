@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (!entity.Level.IsNoEnergy() && entity.Level.IsDay())
+            if (!entity.Level.IsNoEnergy() && (entity.Level.IsDay() || WorksAllDay(entity)))
             {
                 var timer = GetProductTimer(entity);
                 if (timer.RunToExpiredAndNotNull())
@@ -47,14 +47,14 @@ namespace MVZ2.GameContent.Effects
                 entity.SetAnimationBool("Open", false);
             }
         }
-        public static FrameTimer? GetProductTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_PRODUCE_TIMER);
-        public static void SetProductTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_PRODUCE_TIMER, value);
+        public static FrameTimer? GetProductTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_PRODUCE_TIMER);
+        public static void SetProductTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_PRODUCE_TIMER, value);
+        public static bool WorksAllDay(Entity entity) => entity.GetBehaviourField<bool>(PROP_WORKS_ALL_DAY);
+        public static void SetWorksAllDay(Entity entity, bool value) => entity.SetBehaviourField(PROP_WORKS_ALL_DAY, value);
         #endregion
 
         #region 属性字段
-
-        private static readonly NamespaceID ID = VanillaEffectID.miner;
-        public static readonly VanillaEntityPropertyMeta<bool> PROP_IS_OPEN = new VanillaEntityPropertyMeta<bool>("isOpen");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_WORKS_ALL_DAY = new VanillaEntityPropertyMeta<bool>("works_all_day");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("produceTimer");
         public const int START_TIME = 120;
         public const int PRODUCE_TIME = 300;

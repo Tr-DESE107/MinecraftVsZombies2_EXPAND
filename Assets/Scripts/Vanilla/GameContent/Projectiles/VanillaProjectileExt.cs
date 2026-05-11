@@ -48,10 +48,9 @@ namespace MVZ2.Vanilla.Projectiles
 
             var velocity = entity.ModifyProjectileVelocity(parameters.velocity);
             var position = parameters.position;
-
-            var pivot = parameters.pivot;
             var projectileSize = projectileDefinition.GetSize();
-            position += Vector3.Scale(projectileDefinition.GetBoundsPivot() - pivot, projectileSize);
+            var projectileBoundsPivot = projectileDefinition.GetBoundsPivot();
+            position += Vector3.Scale(projectileBoundsPivot - parameters.pivot, projectileSize);
 
             var param = parameters.spawnParam;
             param.SetProperty(VanillaEntityProps.DAMAGE, parameters.damage);

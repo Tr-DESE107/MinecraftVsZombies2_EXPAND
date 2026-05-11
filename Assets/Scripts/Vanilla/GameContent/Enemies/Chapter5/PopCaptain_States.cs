@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Enemies
         #region 空闲
         public class IdleState : EntityStateMachineState
         {
-            public IdleState() : base(STATE_IDLE, ANIMATION_STATE_IDLE) { }
+            public IdleState() : base(STATE_IDLE) { }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Enemies
         #region 行走
         public class WalkState : EntityStateMachineState
         {
-            public WalkState() : base(STATE_WALK, ANIMATION_STATE_WALK) { }
+            public WalkState() : base(STATE_WALK) { }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public class AttackState : EntityStateMachineState
         {
-            public AttackState() : base(STATE_MELEE_ATTACK, ANIMATION_STATE_ATTACK) { }
+            public AttackState() : base(STATE_MELEE_ATTACK) { }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -140,27 +140,26 @@ namespace MVZ2.GameContent.Enemies
             // 如果受到伤害的是主碰撞器，并且目标还存活：
             if (!targetCollider.IsForMain() || !target.ExistsAndAlive())
                 return;
+            var thisLane = entity.GetLane();
             // 如果目标是怪物：
             if (target.Type == EntityTypes.ENEMY)
             {
                 // 如果目标地格存在，直接使其换行。
                 if (target.GetMass() <= VanillaMass.HEAVY)
                 {
-                    var lane = target.GetLane();
                     var column = target.GetColumn();
-                    var grid = entity.Level.GetGrid(column, lane + rowOffset);
+                    var grid = entity.Level.GetGrid(column, thisLane + rowOffset);
                     if (grid != null)
                     {
-                        target.StartChangingLane(lane + rowOffset);
+                        target.StartChangingLane(thisLane + rowOffset);
                     }
                 }
             }
             else if (target.Type == EntityTypes.PLANT)
             {
                 // 如果目标是器械：
-                var lane = target.GetLane();
                 var column = target.GetColumn();
-                var targetGrid = entity.Level.GetGrid(column, lane + rowOffset);
+                var targetGrid = entity.Level.GetGrid(column, thisLane + rowOffset);
                 if (targetGrid == null)
                 {
                     // 如果目标地格不存在，直接秒杀器械。
@@ -169,7 +168,7 @@ namespace MVZ2.GameContent.Enemies
                 else
                 {
                     // 移动器械到目标地格。
-                    target.StartChangingGrid(column, lane + rowOffset);
+                    target.StartChangingGrid(column, thisLane + rowOffset);
                 }
             }
             // 将目标眩晕。
@@ -180,7 +179,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public class SmashDownState : EntityStateMachineState
         {
-            public SmashDownState() : base(STATE_SMASH_DOWN, ANIMATION_STATE_SMASH_DOWN) { }
+            public SmashDownState() : base(STATE_SMASH_DOWN) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -222,7 +221,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public class SmashUpState : EntityStateMachineState
         {
-            public SmashUpState() : base(STATE_SMASH_UP, ANIMATION_STATE_SMASH_UP) { }
+            public SmashUpState() : base(STATE_SMASH_UP) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -267,7 +266,7 @@ namespace MVZ2.GameContent.Enemies
         #region 死亡
         public class DeathState : EntityStateMachineState
         {
-            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_DEATH) { }
+            public DeathState() : base(STATE_DEATH) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -300,13 +299,6 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_SMASH_DOWN = VanillaEnemyStates.POP_CAPTAIN_SMASH_DOWN;
         public const int STATE_SMASH_UP = VanillaEnemyStates.POP_CAPTAIN_SMASH_UP;
         public const int STATE_DEATH = LogicEnemyStates.DEATH;
-
-        public const int ANIMATION_STATE_IDLE = EnemyCommonAnimationBehaviour.ANIMATION_STATE_IDLE;
-        public const int ANIMATION_STATE_WALK = EnemyCommonAnimationBehaviour.ANIMATION_STATE_WALK;
-        public const int ANIMATION_STATE_ATTACK = EnemyCommonAnimationBehaviour.ANIMATION_STATE_ATTACK;
-        public const int ANIMATION_STATE_DEATH = EnemyCommonAnimationBehaviour.ANIMATION_STATE_DEATH;
-        public const int ANIMATION_STATE_SMASH_DOWN = EnemyCommonAnimationBehaviour.ANIMATION_STATE_PRIVATE + 0;
-        public const int ANIMATION_STATE_SMASH_UP = EnemyCommonAnimationBehaviour.ANIMATION_STATE_PRIVATE + 1;
     }
 
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Buffs.Level;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
@@ -31,6 +32,7 @@ using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Definitions;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Level
@@ -307,6 +309,18 @@ namespace MVZ2.Vanilla.Level
                 }
             }
             return null;
+        }
+        #endregion
+
+        #region 随机池器械
+        public static NamespaceID GetRandomContraptionFromPool(this LevelEngine level, RandomGenerator rng)
+        {
+            var pool = level.GetRandomContraptionPool();
+            if (pool != null)
+            {
+                return pool.Random(rng);
+            }
+            return VanillaContraptionID.dispenser;
         }
         #endregion
     }

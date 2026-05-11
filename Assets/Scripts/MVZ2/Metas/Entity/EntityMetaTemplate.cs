@@ -12,10 +12,10 @@ namespace MVZ2.Metas
     {
         public int type;
         public string id;
-        public List<NamespaceID> behaviours;
+        public List<BehaviourItem> behaviours;
         public Dictionary<string, object?> properties;
 
-        public EntityMetaTemplate(int type, string id, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
+        public EntityMetaTemplate(int type, string id, List<BehaviourItem> behaviours, Dictionary<string, object?> properties)
         {
             this.id = id;
             this.type = type;
@@ -23,7 +23,7 @@ namespace MVZ2.Metas
             this.properties = properties;
         }
 
-        public IEnumerable<NamespaceID> GetBehaviours() => behaviours;
+        public IEnumerable<BehaviourItem> GetBehaviours() => behaviours;
         public Dictionary<string, object?> GetProperties() => properties;
         public static EntityMetaTemplate[] LoadChildrenTemplates(XmlNode node, string defaultNsp)
         {
@@ -42,7 +42,7 @@ namespace MVZ2.Metas
         {
             var id = node.Name;
             var type = node.GetAttributeInt("type") ?? -1;
-            var behaviours = new List<NamespaceID>();
+            var behaviours = new List<BehaviourItem>();
             var properties = new Dictionary<string, object?>();
             XMLHelper.LoadTemplatePropertiesFromNode(node, defaultNsp, rootNode, EngineDefinitionTypes.ENTITY_BEHAVIOUR, PropertyRegions.entity, behaviours, properties);
 

@@ -553,6 +553,8 @@ namespace MVZ2.Entities
             groundPos.y = Entity.GetGroundY();
             var transGroundPos = Level.LawnToTrans(groundPos);
             Model.SetGroundY(transGroundPos.y);
+            Model.transform.localPosition = Level.LawnToTransScale * Entity.GetModelPositionOffset();
+
             var centerTransform = Model.GetCenterTransform();
             if (centerTransform.Exists())
                 centerTransform.localEulerAngles = Entity.RenderRotation;

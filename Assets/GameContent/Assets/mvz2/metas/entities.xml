@@ -2664,6 +2664,7 @@
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:no_align_to_lane" value="true" />
                 <bool name="mvz2:noReward" value="true" />
+                <bool name="mvz2:undead" value="false" />
                 <vector3 name="mvz2:starting_position_offset" x="0" y="600" z="0" />
                 <vector3 name="mvz2:size" x="80" y="56" z="56" />
                 <id name="mvz2:shell" value="mvz2:metal" />
@@ -2747,6 +2748,7 @@
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_state" />
                 <behaviour operator="remove" id="mvz2:enemy_death_disappear" />
+                <behaviour operator="add" id="mvz2:pop_captain/animation" />
             </behaviours>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:pop_captain_cap" />
@@ -4554,6 +4556,7 @@
                 <id name="mvz2:crySound" null="true" />
                 <id name="mvz2:deathSound" null="true" />
                 <float name="mvz2:maxHealth" value="9999" />
+                <float name="mvz2:blow_mass_offset" value="10000" />
                 <vector3 name="mvz2:size" x="24" y="32" z="24" />
 
                 <int name="mvz2:cost" value="25" />
@@ -4651,7 +4654,7 @@
         </entity>
         <entity template="humanoid" id="nether_hunter" name="下界猎手" deathMessage="转来转去像个小丑">
             <unlock>
-                <condition required="mvz2:contraption.nether_reactor_core" />
+                <condition requiredGroups="mvz2:contraption.nether_reactor_core" />
             </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
@@ -4677,7 +4680,7 @@
         </entity>
         <entity template="humanoid" id="nether_mage" name="下界法师" deathMessage="我已启动">
             <unlock>
-                <condition required="mvz2:contraption.nether_reactor_core" />
+                <condition requiredGroups="mvz2:contraption.nether_reactor_core" />
             </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state" />
@@ -5157,7 +5160,7 @@
             <behaviours>
                 <behaviour operator="add" id="mvz2:pickup_collect_clear" />
                 <behaviour operator="add" id="mvz2:pickup_stop_on_land" />
-                <behaviour operator="add" id="mvz2:pickup_with_content" />
+                <behaviour operator="add" id="mvz2:pickup_with_content" priority="9999" />
             </behaviours>
             <properties>
                 <bool name="mvz2:important" value="true" />
@@ -5535,11 +5538,13 @@
         </entity>
         <entity template="projectile" id="charged_bolt">
             <properties>
-                <vector3 name="mvz2:size" x="52" y="20" z="20" />
+                <vector3 name="mvz2:size" x="52" y="52" z="52" />
+                <vector3 name="mvz2:boundsPivot" x="0.5" y="0" z="0.5" />
                 <idArray name="mvz2:damageEffects" value="mvz2:lightning" />
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="64" y="64" z="64" />
                 <color name="mvz2:lightColor" value="#FFFFFF" />
+                <bool name="mvz2:shadowHidden" value="true" />
             </properties>
         </entity>
         <entity template="projectile" id="hell_planet_otherworld">

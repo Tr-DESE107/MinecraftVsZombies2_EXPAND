@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.strength)]
     public class StrengthEvent : RandomChinaEventDefinition
     {
-        public StrengthEvent(string nsp, string path) : base(nsp, path, NAME)
+        public StrengthEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -45,5 +45,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "VIII-力量";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "所有敌怪变大";
     }
 }

@@ -12,17 +12,17 @@ namespace MVZ2.Metas
     public class MapElementMetaTemplate : IMetaTemplate
     {
         public string id;
-        public List<NamespaceID> behaviours;
+        public List<BehaviourItem> behaviours;
         public Dictionary<string, object?> properties;
 
-        public MapElementMetaTemplate(string id, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
+        public MapElementMetaTemplate(string id, List<BehaviourItem> behaviours, Dictionary<string, object?> properties)
         {
             this.id = id;
             this.behaviours = behaviours;
             this.properties = properties;
         }
 
-        public IEnumerable<NamespaceID> GetBehaviours() => behaviours;
+        public IEnumerable<BehaviourItem> GetBehaviours() => behaviours;
         public Dictionary<string, object?> GetProperties() => properties;
         public static MapElementMetaTemplate[] LoadTemplates(XmlNode node, string defaultNsp)
         {
@@ -40,7 +40,7 @@ namespace MVZ2.Metas
         private static MapElementMetaTemplate? LoadTemplate(XmlNode node, string defaultNsp, XmlNode rootNode)
         {
             var id = node.Name;
-            var behaviours = new List<NamespaceID>();
+            var behaviours = new List<BehaviourItem>();
             var properties = new Dictionary<string, object?>();
             XMLHelper.LoadTemplatePropertiesFromNode(node, defaultNsp, rootNode, LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, LogicPropertyRegions.mapElement, behaviours, properties);
 

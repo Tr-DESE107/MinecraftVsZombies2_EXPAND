@@ -9,8 +9,10 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Enemies
@@ -25,6 +27,7 @@ namespace MVZ2.GameContent.Enemies
                 ignoreHighEnemy = true,
                 ignoreLowEnemy = true
             };
+            AddModifier(new NamespaceIDModifier(VanillaEntityProps.PROJECTILE_ID, SetOperator.Set, PROP_PROJECTILE_ID));
         }
         public override void Init(Entity entity)
         {
@@ -48,6 +51,23 @@ namespace MVZ2.GameContent.Enemies
                     break;
                 case STATE_RANGED_ATTACK:
                     UpdateStateAttack(entity);
+                    break;
+            }
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            var enemyClass = entity.GetVariant();
+            switch (enemyClass)
+            {
+                case VARIANT_FROST:
+                    entity.SetProperty(PROP_PROJECTILE_ID, VanillaProjectileID.iceBolt);
+                    break;
+                case VARIANT_LIGHTNING:
+                    entity.SetProperty(PROP_PROJECTILE_ID, VanillaProjectileID.chargedBolt);
+                    break;
+                default:
+                    entity.SetProperty(PROP_PROJECTILE_ID, VanillaProjectileID.fireball);
                     break;
             }
         }
@@ -119,7 +139,6 @@ namespace MVZ2.GameContent.Enemies
                     {
                         var param = enemy.GetShootParams();
                         param.damage = enemy.GetDamage() * 0.2f;
-                        param.projectileID = VanillaProjectileID.iceBolt;
                         param.soundID = VanillaSoundID.snow;
                         enemy.ShootProjectile(param);
                     }
@@ -128,7 +147,6 @@ namespace MVZ2.GameContent.Enemies
                     {
                         var param = enemy.GetShootParams();
                         param.damage = enemy.GetDamage() * 0.2f;
-                        param.projectileID = VanillaProjectileID.chargedBolt;
                         param.soundID = null;
                         param.velocity *= 0.4f;
                         for (int i = 0; i < 3; i++)
@@ -141,7 +159,6 @@ namespace MVZ2.GameContent.Enemies
                     {
                         var param = enemy.GetShootParams();
                         param.damage = enemy.GetDamage() * 0.8f;
-                        param.projectileID = VanillaProjectileID.fireball;
                         param.soundID = VanillaSoundID.fire;
                         enemy.ShootProjectile(param);
                     }
@@ -185,6 +202,7 @@ namespace MVZ2.GameContent.Enemies
         public const int VARIANT_LIGHTNING = 3;
         public static readonly VanillaEntityPropertyMeta<int> PROP_ATTACK_STATE = new VanillaEntityPropertyMeta<int>("attackState");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("attackTimer");
+        public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_PROJECTILE_ID = new VanillaEntityPropertyMeta<NamespaceID>("projectile_id");
         public static int[] mageVariants = new int[]
         {
             SkeletonMage.VARIANT_FIRE,

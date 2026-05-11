@@ -226,7 +226,7 @@ namespace MVZ2.IO
                 properties[fullName] = pair.Value;
             }
         }
-        public static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, string behaviourPropertyRegion, string propertyRegion, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
+        public static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, string behaviourPropertyRegion, string propertyRegion, List<BehaviourItem> behaviours, Dictionary<string, object?> properties)
         {
             var parent = node.GetAttribute("parent");
             if (!string.IsNullOrEmpty(parent))
@@ -243,7 +243,7 @@ namespace MVZ2.IO
             var propsNode = node["properties"];
             propsNode.LoadPropertiesFromNode(defaultNsp, propertyRegion, properties);
         }
-        public static void LoadBehavioursAndPropertiesFromTemplate(string defaultNsp, string behaviourPropertyRegion, IMetaTemplate template, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
+        public static void LoadBehavioursAndPropertiesFromTemplate(string defaultNsp, string behaviourPropertyRegion, IMetaTemplate template, List<BehaviourItem> behaviours, Dictionary<string, object?> properties)
         {
             behaviours.AddRange(template.GetBehaviours());
 
@@ -254,7 +254,7 @@ namespace MVZ2.IO
                 properties.Add(prop.Key, prop.Value);
             }
         }
-        public static void LoadBehavioursFromNode(this XmlNode node, string defaultNsp, string propertyRegion, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
+        public static void LoadBehavioursFromNode(this XmlNode node, string defaultNsp, string propertyRegion, List<BehaviourItem> behaviours, Dictionary<string, object?> properties)
         {
             if (node == null)
                 return;
@@ -271,7 +271,7 @@ namespace MVZ2.IO
                 }
             }
         }
-        public static void OperateBehaviourList(this XmlNode node, List<NamespaceID> behaviours, string defaultNsp)
+        public static void OperateBehaviourList(this XmlNode node, List<BehaviourItem> behaviours, string defaultNsp)
         {
             var item = EntityBehaviourItem.FromXmlNode(node, defaultNsp);
             if (item == null)
@@ -279,28 +279,35 @@ namespace MVZ2.IO
             switch (item.Operator)
             {
                 case BehaviourOperator.Add:
-                    if (behaviours.Contains(item.ID))
+                    if (behaviours.Exists(b => b.id == item.ID))
                     {
                         Log.LogWarning($"Trying to add behaviour {item.ID} to the list which already has this.");
                     }
                     else
                     {
-                        behaviours.Add(item.ID);
+                        behaviours.Add(new BehaviourItem(item.ID, item.Priority));
                     }
                     break;
                 case BehaviourOperator.Remove:
-                    if (!behaviours.Remove(item.ID))
                     {
-                        Log.LogWarning($"Cannot find behaviour {item.ID} to remove.");
+                        var index = behaviours.FindIndex(b => b.id == item.ID);
+                        if (index < 0)
+                        {
+                            Log.LogWarning($"Cannot find behaviour {item.ID} to remove.");
+                        }
+                        else
+                        {
+                            behaviours.RemoveAt(index);
+                        }
                     }
                     break;
                 case BehaviourOperator.Replace:
                     if (NamespaceID.IsValid(item.SourceID))
                     {
-                        var index = behaviours.IndexOf(item.SourceID);
+                        var index = behaviours.FindIndex(b => b.id == item.SourceID);
                         if (index >= 0)
                         {
-                            behaviours[index] = item.ID;
+                            behaviours[index] = new BehaviourItem(item.ID, item.Priority);
                         }
                         else
                         {

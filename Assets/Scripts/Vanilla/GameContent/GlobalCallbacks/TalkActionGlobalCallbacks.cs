@@ -239,7 +239,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.ship, VanillaAreaID.ship, VanillaStageID.ship1));
                         break;
                     case "goto_palace":
-                        saves.SetLastMapID(VanillaMapID.ship);
+                        saves.SetLastMapID(VanillaMapID.palace);
                         saves.SaveToFile(); // 进入地灵殿过渡时保存游戏
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.palace, VanillaAreaID.palace, VanillaStageID.palace1));
                         break;

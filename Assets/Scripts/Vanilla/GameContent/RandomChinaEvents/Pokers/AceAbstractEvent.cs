@@ -9,7 +9,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
 {
     public abstract class AceAbstractEvent : RandomChinaEventDefinition
     {
-        public AceAbstractEvent(string nsp, string path, string name, float weight = 1) : base(nsp, path, name, weight)
+        protected AceAbstractEvent(string nsp, string path, string name, string description, float weight = 1) : base(nsp, path, name, description, weight)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)

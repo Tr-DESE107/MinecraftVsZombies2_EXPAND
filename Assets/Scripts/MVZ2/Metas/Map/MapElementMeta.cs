@@ -44,7 +44,7 @@ namespace MVZ2.Metas
             var templateID = node.GetAttribute("template");
             var template = templates.FirstOrDefault(t => t.id == templateID);
 
-            var behaviours = new List<NamespaceID>();
+            var behaviours = new List<BehaviourItem>();
             Dictionary<string, object?> properties = new Dictionary<string, object?>();
 
             var behavioursNode = node["behaviours"];
@@ -56,7 +56,9 @@ namespace MVZ2.Metas
             }
             behavioursNode?.LoadBehavioursFromNode(defaultNsp, LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, behaviours, properties);
 
-            return new MapElementMeta(id, properties, behaviours.ToArray())
+            var behavioursArray = behaviours.OrderBy(b => b.priority).Select(b => b.id).ToArray();
+
+            return new MapElementMeta(id, properties, behavioursArray)
             {
                 unlockConditions = unlockConditions
             };

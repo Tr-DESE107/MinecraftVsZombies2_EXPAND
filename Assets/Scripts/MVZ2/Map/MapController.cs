@@ -68,6 +68,7 @@ namespace MVZ2.Map
                 model = null;
             }
             SetCameraBackgroundColor(Color.black);
+            CancelDraggingView();
         }
         public async void SetMap(NamespaceID mapId)
         {
@@ -552,6 +553,7 @@ namespace MVZ2.Map
 
         private IEnumerator EnterLevel(NamespaceID? areaID, NamespaceID? stageID)
         {
+            CancelDraggingView();
             if (!NamespaceID.IsValid(areaID) || Global.Game.GetAreaDefinition(areaID) == null)
             {
                 var title = Main.LanguageManager._(LogicStrings.ERROR);
@@ -624,15 +626,20 @@ namespace MVZ2.Map
             model.SetEndlessButtonText("\u221E");
 
 
+            MapButton? unclearedMapButton = null;
             if (unclearedMapButtonIndex >= 0)
             {
-                var unclearedMapButton = model.GetMapButton(unclearedMapButtonIndex);
-                if (unclearedMapButton.Exists())
-                {
-                    var pos = unclearedMapButton.transform.position;
-                    pos.z = mapCamera.transform.position.z;
-                    mapCamera.transform.position = pos;
-                }
+                unclearedMapButton = model.GetMapButton(unclearedMapButtonIndex);
+            }
+            else
+            {
+                unclearedMapButton = model.GetEndlessMapButton();
+            }
+            if (unclearedMapButton.Exists())
+            {
+                var pos = unclearedMapButton.transform.position;
+                pos.z = mapCamera.transform.position.z;
+                mapCamera.transform.position = pos;
             }
         }
         private void UpdateModelElements(MapModel model)
@@ -693,6 +700,11 @@ namespace MVZ2.Map
         {
             Main.Scene.HidePages();
             Main.Scene.DisplayMap(MapID);
+        }
+        private void CancelDraggingView()
+        {
+            draggingView = false;
+            ui.SetDragRootVisible(false);
         }
 
         #endregion

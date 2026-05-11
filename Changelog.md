@@ -5,10 +5,13 @@
   - /unlock all: Unlocks all game states.
   - /unlock none: Relocks all game states.
 - Added hyperlinks to Almanac, allowing users to navigate between different entries by clicking on text within the Almanac.
+- Added 8 new Random China events.
 
 ## Modified
 
 - Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
+- After completing all levels in a map, entering the map will now set the view to the position of the endless level button.
+- Random China now displays both of evocation event's name and description instead of its name only.
 
 ### Balance
 - Moonlight Sensor
@@ -33,6 +36,7 @@
   - Lightbomb
   - Eye of the Giant
 - The spawn rate of monsters during the boss battle in level 5-11 has been increased to 150% of the original rate.
+- Undead Flying Objects are no longer undead mobs.
 
 ## Fixed
 - Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.
@@ -41,6 +45,8 @@
 - Fixed the issue where starshards at the topmost cannot be stolen by blue UFOs at the topmost.
 - Fixed the issue where damage resistance of bosses works incorrectly.
 - Fixed the issue where the texture in the command block blueprint pickup was not grayscale.
+- Fixed the issue where Seija's cursed doll does not follow Seija's faction upon spawn.
+- Fixed the issue where Seija's cursed doll can be blown away by Wooden Fans.
 
 ---
 

@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.theFool)]
     public class TheFoolEvent : RandomChinaEventDefinition
     {
-        public TheFoolEvent(string nsp, string path) : base(nsp, path, NAME)
+        public TheFoolEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -32,5 +32,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "0-愚者";
-    }
+		[TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+		public const string DESCRIPTION = "所有敌怪回到起始点";
+	}
 }
