@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Stages
             // A类阵
             yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Composite, 1.2f); // 综合
             yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Control, 1.2f); // 控制
-            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Spectral, 0.8f); // 光灵（有1火药桶）
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Spectral, 1.0f); // 光灵（有1火药桶）
 
             // B类阵
             yield return new IZELayoutItem(VanillaIZombieLayoutID.ize2Spikes, 0.4f); // 倾斜
