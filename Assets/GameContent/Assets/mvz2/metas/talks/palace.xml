@@ -170,7 +170,7 @@
         </sentence>
         <!--语句17-->
         <sentence speaker="mvz2:marisa" speakerName="？？？" sounds="mvz2:dialog_weird">
-          <text>怎、怎么回事？发生什么事了？</text>
+          <text>怎么回事？发生什么事了？</text>
           <!--语句点击脚本-->
           <onClick>
             <script>bubble hide</script>
@@ -181,7 +181,7 @@
         </sentence>
         <!--语句18-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>你、你是……</text>
+          <text>你——你是……</text>
         </sentence>
         <!--语句19-->
         <sentence speaker="mvz2:marisa" description="（魔理沙出现）" sounds="mvz2:dialog_cut">
@@ -205,7 +205,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>什、什么？</text>
+          <text>什么？</text>
         </sentence>
         <!--语句22-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_bang">
@@ -605,7 +605,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>还、还有其他被袭击的人？！</text>
+          <text>还有其他被袭击的人？！</text>
         </sentence>
         <!--语句17-->
         <sentence speaker="mvz2:eirin" sounds="mvz2:talk">
@@ -701,7 +701,7 @@
         </sentence>
         <!--语句6-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>呃，好、好的。</text>
+          <text>呃，好——好的。</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
@@ -818,7 +818,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>再、再也没醒过来……</text>
+          <text>再也没醒过来……</text>
         </sentence>
         <!--语句12-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
@@ -834,7 +834,7 @@
         </sentence>
         <!--语句15-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
-          <text>好、好的，谢谢您……</text>
+          <text>好——好的，谢谢您……</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
@@ -1341,7 +1341,7 @@
         </sentence>
         <!--语句25-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>抱、抱歉。</text>
+          <text>啊，抱歉。</text>
         </sentence>
         <!--语句23-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
@@ -1510,7 +1510,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>箱、箱子？</text>
+          <text>箱——箱子？</text>
         </sentence>
         <!--语句7-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat">
@@ -1526,7 +1526,7 @@
         </sentence>
         <!--语句9-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" variant="mvz2:worried">
-          <text>不好意思，没、没有。不过，我似乎有点印象就是了。</text>
+          <text>不好意思，没有。不过，我似乎有点印象就是了。</text>
         </sentence>
         <!--语句10-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
@@ -1567,7 +1567,7 @@
         </sentence>
         <!--语句18-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
-          <text>说、说起来确实是这样！</text>
+          <text>说起来确实是这样！</text>
         </sentence>
         <!--语句19-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
@@ -1790,7 +1790,7 @@
         </sentence>
         <!--语句16-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>不、不知道啊。</text>
+          <text>呃、不知道啊。</text>
         </sentence>
         <!--语句17-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
@@ -1806,7 +1806,7 @@
         </sentence>
         <!--语句20-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>那、那好吧。</text>
+          <text>那好吧。</text>
         </sentence>
         <!--语句21-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
@@ -1887,7 +1887,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>那、那怎么对付这些怪物啊！</text>
+          <text>那怎么对付这些怪物啊！</text>
         </sentence>
         <!--语句7-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">
@@ -2009,7 +2009,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>我、我不知道啊！</text>
+          <text>我——我不知道啊！</text>
         </sentence>
         <!--语句6-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
@@ -2046,7 +2046,7 @@
         </sentence>
         <!--语句11-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
-          <text>控、控制？</text>
+          <text>啊？控制？</text>
         </sentence>
         <!--语句12-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
@@ -2054,7 +2054,7 @@
         </sentence>
         <!--语句13-->
         <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:worried">
-          <text>是、是……咱似乎还记得那个位置。</text>
+          <text>是，是……咱似乎还记得那个位置。</text>
         </sentence>
         <!--语句14-->
         <sentence speaker="mvz2:rin" sounds="mvz2:talk">
@@ -2111,7 +2111,7 @@
             <script>music play mvz2:suspension</script>
             <script>shake</script>
           </onStart>
-          <text>不、不知道啊！我还以为她在那里玩……</text>
+          <text>不——不知道啊！我还以为她在那里玩……</text>
         </sentence>
         <!--语句21-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat">
@@ -2148,7 +2148,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>朱、朱鹭子，你在那里做什么！</text>
+          <text>朱鹭子，你在那里做什么！</text>
         </sentence>
         <!--语句23-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
@@ -2354,7 +2354,7 @@
       <sentences>
         <!--语句0-->
         <sentence speaker="mvz2:rin" sounds="mvz2:talk">
-          <text>还、还好咱赶到了……幸好她没事。</text>
+          <text>还好咱赶到了……幸好她没事。</text>
         </sentence>
         <!--语句1-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
@@ -2386,7 +2386,7 @@
         </sentence>
         <!--语句8-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>对、对……</text>
+          <text>呃，对……</text>
         </sentence>
         <!--语句9-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
@@ -2476,7 +2476,7 @@
         </sentence>
         <!--语句4-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_weird" variant="mvz2:surprised">
-          <text>诶？我、我去过那里吗？</text>
+          <text>诶？我去过那里吗？</text>
         </sentence>
         <!--语句5-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
@@ -2532,7 +2532,7 @@
         </sentence>
         <!--语句18-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_surprised" variant="mvz2:surprised">
-          <text>被、被人控制？</text>
+          <text>被人控制？</text>
         </sentence>
         <!--语句19-->
         <sentence speaker="mvz2:rin" sounds="mvz2:talk">
@@ -2801,7 +2801,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>发、发生什么了！</text>
+          <text>发生什么了！</text>
         </sentence>
         <!--语句14-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_cut" variant="mvz2:surprised">
@@ -2882,7 +2882,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>快、快把觉大人送去治疗！！！</text>
+          <text>快把觉大人送去治疗！！！</text>
           <!--语句点击脚本-->
           <onClick>
             <script>bubble hide</script>
@@ -3011,7 +3011,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>这、这怎么找？</text>
+          <text>这怎么找？！</text>
         </sentence>
         <!--语句16-->
         <sentence speaker="mvz2:eirin" sounds="mvz2:talk">
@@ -3028,7 +3028,7 @@
             <script>shake</script>
             <script>character variant mvz2:rin mvz2:worried</script>
           </onStart>
-          <text>怎、怎么办……</text>
+          <text>怎么办……</text>
         </sentence>
         <!--语句19-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:dialog_weird">
@@ -3203,7 +3203,7 @@
         </sentence>
         <!--语句1-->
         <sentence speaker="mvz2:rin" sounds="mvz2:dialog_weird" variant="mvz2:scared">
-          <text>啊？居、居然还是只僵尸猫，已经烂的不成样子了……</text>
+          <text>啊？居然还是只僵尸猫，已经烂的不成样子了……</text>
         </sentence>
         <!--语句2-->
         <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:worried">
@@ -3329,7 +3329,7 @@
         </sentence>
         <!--语句11-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
-          <text>说、说起来，我——</text>
+          <text>说起来，我——</text>
         </sentence>
         <!--语句12-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
@@ -3488,7 +3488,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>没、没有啊，咱根本就没有动它。是史蒂夫小弟——？</text>
+          <text>没有啊，咱根本就没有动它。是史蒂夫小弟——？</text>
         </sentence>
         <!--语句10-->
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
@@ -3579,7 +3579,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>这、这个东西，不是我们之前在地灵殿门口见到的箱子吗？</text>
+          <text>这——这个东西，不是我们之前在地灵殿门口见到的箱子吗？</text>
         </sentence>
         <!--语句1-->
         <sentence speaker="mvz2:rin" sounds="mvz2:talk">
@@ -3591,7 +3591,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>不、不知道啊！</text>
+          <text>不知道啊！</text>
         </sentence>
         <!--语句3-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
@@ -3642,7 +3642,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>总、总算是把它杀掉了……</text>
+          <text>总算是把它杀掉了……</text>
         </sentence>
         <!--语句2-->
         <sentence speaker="mvz2:utsuho" sounds="mvz2:talk">
