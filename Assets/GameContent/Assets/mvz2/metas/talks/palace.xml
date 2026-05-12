@@ -1163,8 +1163,8 @@
           <text>很抱歉我没能帮上什么忙。不过如果你不介意，我之后可以给你们一些袭击凶手的线索。也许那个家伙有什么东西能唤回她的记忆也说不定。</text>
         </sentence>
         <!--语句6-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
-          <text>嗯，那你就先去战斗吧。</text>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>既然这样，那我还是先去准备今天的战斗吧。</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
