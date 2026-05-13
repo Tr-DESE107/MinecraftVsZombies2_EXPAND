@@ -1126,6 +1126,7 @@ namespace MVZ2.Vanilla.Entities
             PostRemoveStatusEffect(entity, buffDefinition, source);
         }
 
+        #region EXPAND_BUFF
         public static void InflictRegenerationBuff(this Entity entity, float Heal, int time, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.Regeneration);
@@ -1184,6 +1185,22 @@ namespace MVZ2.Vanilla.Entities
             ShockBuff.SetTimeout(buff, time);
             PostApplyStatusEffect(entity, buff, source);
         }
+        public static void InflictBurnLaserGlowing(this Entity entity, int time, ILevelSourceReference? source)
+        {
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.BurnLaserGlowing);
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff? buff = entity.GetBuffs(buffDefinition).FirstOrDefault(e => !e.IsFromAura);
+            if (buff == null)
+            {
+                buff = entity.AddBuff(buffDefinition);
+            }
+            BurnLaserGlowingBuff.MaxTime(buff, time);
+            PostApplyStatusEffect(entity, buff, source);
+        }
+
+        #endregion
+
         #region 魅惑
         public static void CharmPermanent(this Entity entity, int faction, ILevelSourceReference? source)
         {

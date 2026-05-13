@@ -134,6 +134,7 @@ namespace MVZ2.GameContent.Buffs
             public const string ExplosionProtection = "ExplosionProtection";
             public const string DeathMark = "DeathMark";
             public const string SquidDrownedMarked = "SquidDrownedMarked";
+            public const string BurnLaserGlowing = "BurnLaserGlowing";
         }
         public static class Armor
         {
@@ -478,11 +479,6 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.Entity.temporaryUpdateBeforeGame);
             public static readonly NamespaceID destroyConflictGridEntitiesOnLand = Get(VanillaBuffNames.Entity.destroyConflictGridEntitiesOnLand);
             
-            public static readonly NamespaceID Regeneration = Get(VanillaBuffNames.Entity.Regeneration);
-            public static readonly NamespaceID Corropoison = Get(VanillaBuffNames.Entity.Corropoison);
-            public static readonly NamespaceID SquidDrownedMarked = Get(VanillaBuffNames.Entity.SquidDrownedMarked);
-            public static readonly NamespaceID DeathMark = Get(VanillaBuffNames.Entity.DeathMark);
-
             // Chapter 2
             public static readonly NamespaceID inWater = Get(VanillaBuffNames.Entity.inWater);
             public static readonly NamespaceID whiteFlash = Get(VanillaBuffNames.Entity.whiteFlash);
@@ -509,6 +505,15 @@ namespace MVZ2.GameContent.Buffs
 
             // Random China
             public static readonly NamespaceID worldwideCelebration = Get(VanillaBuffNames.Entity.worldwideCelebration);
+
+
+            //EXPAND
+            public static readonly NamespaceID Regeneration = Get(VanillaBuffNames.Entity.Regeneration);
+            public static readonly NamespaceID Corropoison = Get(VanillaBuffNames.Entity.Corropoison);
+            public static readonly NamespaceID SquidDrownedMarked = Get(VanillaBuffNames.Entity.SquidDrownedMarked);
+            public static readonly NamespaceID DeathMark = Get(VanillaBuffNames.Entity.DeathMark);
+            public static readonly NamespaceID BurnLaserGlowing = Get(VanillaBuffNames.Entity.BurnLaserGlowing);
+
         }
         public static class Armor
         {

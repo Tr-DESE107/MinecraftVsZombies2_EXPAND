@@ -1129,6 +1129,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d26b719675efdbf49b1e6342f7270818, type: 3}
   - name: entity/effects/breakout_board_long
     sprite: {fileID: 21300000, guid: a6f5c16aaaa862f4a8000dbbb824d5a0, type: 3}
+  - name: entity/effects/BurnLaser
+    sprite: {fileID: 21300000, guid: 9973331f667e94447a33fd7e5f1775b4, type: 3}
   - name: entity/effects/camera_frame
     sprite: {fileID: 21300000, guid: 5005e9bfb3edbd84082f1c1dbc01250b, type: 3}
   - name: entity/effects/combat_trail_punch
@@ -2640,25 +2642,21 @@ MonoBehaviour:
     - {fileID: -126909966, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 518665364, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 1655532396, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
-    - {fileID: -741261213, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: -15982234, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: -2031906759, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: -386985825, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: -1956921470, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 806063021, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
-    - {fileID: 1585665846, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 519066543, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: -1117986336, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 300982093, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: -2112565856, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 2046485234, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
-    - {fileID: 260043557, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 1114019460, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 1139782069, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 431076807, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: -1846885919, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
     - {fileID: 733341608, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
-    - {fileID: 565864490, guid: 8cd62d619528c294fa8aec7ad673d04b, type: 3}
   - name: entity/contraption/splitenser
     spritesheet:
     - {fileID: -391827783, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
@@ -4353,6 +4351,14 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/BlueIce
     spritesheet:
     - {fileID: -1992250252, guid: 88b9e1cc24bc0824486b13f1979996b5, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/FireDispenser
+    spritesheet:
+    - {fileID: -1394308010, guid: a90e0e53f23f4ba47a762d6203ae452f, type: 3}
+    - {fileID: -838581393, guid: a90e0e53f23f4ba47a762d6203ae452f, type: 3}
+    - {fileID: -692558938, guid: a90e0e53f23f4ba47a762d6203ae452f, type: 3}
+    - {fileID: 1515508430, guid: a90e0e53f23f4ba47a762d6203ae452f, type: 3}
+    - {fileID: 1235489818, guid: a90e0e53f23f4ba47a762d6203ae452f, type: 3}
+    - {fileID: -2058625889, guid: a90e0e53f23f4ba47a762d6203ae452f, type: 3}
   - name: entity/contraption/EXPAND_Contraption/Freezenser
     spritesheet:
     - {fileID: 1264651411, guid: 87d6503edbe02b243bbb89dda74ed47f, type: 3}
@@ -4400,6 +4406,14 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1937529910, guid: 3c59bd362faf03c4b80f3be3c03de00c, type: 3}
     - {fileID: 1917315321, guid: 3c59bd362faf03c4b80f3be3c03de00c, type: 3}
+  - name: entity/contraption/EXPAND_Skin/FireDispenser_GMS2U
+    spritesheet:
+    - {fileID: 1297383566, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
+    - {fileID: 1877052082, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
+    - {fileID: 2068262842, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
+    - {fileID: -565631128, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
+    - {fileID: -797179508, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
+    - {fileID: -910674699, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
   - name: entity/contraption/EXPAND_Skin/G.I.
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}

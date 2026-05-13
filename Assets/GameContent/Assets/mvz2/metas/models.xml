@@ -796,7 +796,7 @@
     <model name="soul_storm" type="entity" path="mvz2:effect/soul_storm" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	
 	<!--EXPAND Effects-->
-	
+	<model name="BurnLaser" type="entity" path="mvz2:effect/EXPAND_EFFECTS/BurnLaser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
 	<!--EXPAND Obstacles-->
 	<model name="SquidCage" type="entity" path="mvz2:obstacle/SquidCage" width="40" height="60" xOffset="0" yOffset="0" />

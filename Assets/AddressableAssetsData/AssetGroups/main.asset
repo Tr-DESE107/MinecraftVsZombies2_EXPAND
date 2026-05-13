@@ -1648,6 +1648,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1712fc3b12dc328499c6b66f099df30c
+    m_Address: mvz2:contraption/palace/FireDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1723b13d8d44a654a8424dc59197b0aa
     m_Address: mvz2:characters/seija
     m_ReadOnly: 0
@@ -4796,6 +4803,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43f388ee7249ba5408f47424f7238cb9
+    m_Address: mvz2:effect/EXPAND_EFFECTS/BurnLaser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43fcd92f2a72ca443ab18701d0b8563c
     m_Address: mvz2:ui/charge_bar_background
     m_ReadOnly: 0
@@ -7055,6 +7069,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64002b1c85cfb59499639c4812e28ee4
+    m_Address: mvz2:icon/EXPAND_icon/SoulFreeze
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 641f2ef95c0d9684eaa734109a643d9a
     m_Address: mvz2:artifacts/ShadowCellCore
@@ -10540,6 +10561,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9973331f667e94447a33fd7e5f1775b4
+    m_Address: mvz2:entity/effects/BurnLaser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99922579875e5484a9060a6a44afba78
     m_Address: mvz2:entity/enemy/EXPAND/Heads_EXPAND
     m_ReadOnly: 0
@@ -11541,6 +11569,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a90e0e53f23f4ba47a762d6203ae452f
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/FireDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a91f725ba10a5c545a6a951003948a10
     m_Address: mvz2:mobile_blueprint/diamond_spikes
     m_ReadOnly: 0
@@ -12408,6 +12443,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5502b7338a8e8b409398d1a1993d03f
+    m_Address: mvz2:contraption/palace/FireDispenser_GMS2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5715e05ac56dd147811779cee84b7a6
     m_Address: mvz2:entity/projectiles/EXPAND_projectiles/NightmareBall
@@ -15133,6 +15175,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfb8cb068f506d8459456dcf3e07d38b
     m_Address: mvz2:entity/enemy/BruteZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfbcdac91159d70408f4ac115d0b79f5
+    m_Address: mvz2:entity/contraption/EXPAND_Skin/FireDispenser_GMS2U
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

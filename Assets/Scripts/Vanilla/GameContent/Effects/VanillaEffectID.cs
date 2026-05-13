@@ -128,6 +128,7 @@ namespace MVZ2.GameContent.Effects
 
         //EXPAND
         public const string SoulFreeze = "SoulFreeze";
+        public const string BurnLaser = "BurnLaser";
     }
     public static class VanillaEffectID
     {
@@ -252,6 +253,7 @@ namespace MVZ2.GameContent.Effects
 
         //EXPAND
         public static readonly NamespaceID SoulFreeze = Get(VanillaEffectNames.SoulFreeze);
+        public static readonly NamespaceID BurnLaser = Get(VanillaEffectNames.BurnLaser);
 
         private static NamespaceID Get(string name)
         {
