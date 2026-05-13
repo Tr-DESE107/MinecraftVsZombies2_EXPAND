@@ -57,17 +57,14 @@ namespace MVZ2.GameContent.Stages
         {
             if (level.EntityExists(IsAliveHostileBoss))
             {
-                level.RemoveBuffs<LevelEnemiesClearedBuff>();
+                ExitLevelEnemiesClearedState(level);
                 // Boss出现
                 level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
                 level.SetProgressBarToBoss(VanillaProgressBarID.lockedChest);
                 return;
             }
 
-            if (!level.HasBuff<LevelEnemiesClearedBuff>())
-            {
-                level.AddBuff<LevelEnemiesClearedBuff>();
-            }
+            EnterLevelEnemiesClearedState(level);
             if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.lockedChestPickup)))
             {
                 var lastEnemyPosition = level.GetLastEnemyPosition();
@@ -111,7 +108,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.AfterBossWaveUpdate(level);
             ClearEnemies(level);
-
+            EnterLevelEnemiesClearedState(level);
 
             if (!level.IsFirstAdventure())
                 return;
@@ -121,14 +118,9 @@ namespace MVZ2.GameContent.Stages
             // 存在未死亡的敌方Boss时，则重新进入boss战。
             if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
             {
-                level.RemoveBuffs<LevelEnemiesClearedBuff>();
+                ExitLevelEnemiesClearedState(level);
                 level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
                 return;
-            }
-            // 所有BOSS均死亡时，进入战斗暂停状态
-            if (!level.HasBuff<LevelEnemiesClearedBuff>())
-            {
-                level.AddBuff<LevelEnemiesClearedBuff>();
             }
 
             // 有已经死亡，但是仍存在的BOSS时不结束。

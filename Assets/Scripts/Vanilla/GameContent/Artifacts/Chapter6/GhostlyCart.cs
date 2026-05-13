@@ -3,6 +3,7 @@
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Level;
 using PVZEngine;
 
 namespace MVZ2.GameContent.Artifacts
@@ -22,6 +23,9 @@ namespace MVZ2.GameContent.Artifacts
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
+            if (artifact.Level.IsAllEnemiesCleared() || artifact.Level.IsCleared)
+                return;
+
             var secondTimer = artifact.GetSecondTimer();
             if (secondTimer == null)
             {

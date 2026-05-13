@@ -72,11 +72,13 @@ namespace MVZ2.GameContent.Stages
         private void TheGiantPhase3TransitionUpdate(LevelEngine level)
         {
             ClearEnemies(level);
+            EnterLevelEnemiesClearedState(level);
             if (level.EntityExists(e => e.IsEntityOf(VanillaBossID.theGiant) && e.IsHostileEntity() && !e.IsDead && TheGiant.GetPhase(e) == TheGiant.PHASE_3))
             {
                 // 巨人3阶段出现
                 level.PlayMusic(VanillaMusicID.mausoleumBoss2);
                 SetBossState(level, BOSS_STATE_PHASE3);
+                ExitLevelEnemiesClearedState(level);
                 return;
             }
         }
@@ -94,6 +96,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.AfterBossWaveUpdate(level);
             ClearEnemies(level);
+            EnterLevelEnemiesClearedState(level);
 
             if (!level.IsFirstAdventure())
                 return;

@@ -64,7 +64,6 @@ namespace MVZ2.GameContent.Stages
         }
         protected virtual void AfterBossWaveUpdate(LevelEngine level)
         {
-
         }
         protected void RunBossWave(LevelEngine level)
         {
@@ -80,6 +79,19 @@ namespace MVZ2.GameContent.Stages
             {
                 entity.Die(new DamageEffectList(VanillaDamageEffects.NO_REVIVAL));
             }
+        }
+        protected void EnterLevelEnemiesClearedState(LevelEngine level)
+        {
+            // ½øÈëÕ½¶·ÔÝÍ£×´Ì¬
+            if (!level.HasBuff<LevelEnemiesClearedBuff>())
+            {
+                level.AddBuff<LevelEnemiesClearedBuff>();
+            }
+        }
+        protected void ExitLevelEnemiesClearedState(LevelEngine level)
+        {
+            // ÍË³öÕ½¶·ÔÝÍ£×´Ì¬
+            level.RemoveBuffs<LevelEnemiesClearedBuff>();
         }
         protected Vector3 GetClearPickupPosition(LevelEngine level, Entity? target)
         {

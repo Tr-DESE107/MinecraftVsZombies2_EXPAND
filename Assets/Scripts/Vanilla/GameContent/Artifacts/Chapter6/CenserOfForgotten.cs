@@ -27,6 +27,9 @@ namespace MVZ2.GameContent.Artifacts
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
+            if (artifact.Level.IsAllEnemiesCleared() || artifact.Level.IsCleared)
+                return;
+
             var secondTimer = artifact.GetSecondTimer();
             if (secondTimer == null)
             {
