@@ -2125,7 +2125,7 @@
                 <p><![CDATA[<ref=[misc]mvz2:koishi>不知何人</ref>]]>赠予的奇怪香炉。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>每60秒眩晕所有敌怪5秒</color>]]></p>
+                <p>效果：<![CDATA[<color=red>每60秒眩晕所有敌怪10秒</color>]]></p>
             </properties>
             <flavor>
                 <p>不是，你什么时候解锁这个制品的？</p>

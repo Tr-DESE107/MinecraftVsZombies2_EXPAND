@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-05 07:15+0800\n"
-"PO-Revision-Date: 2026-05-10 09:58+0800\n"
+"POT-Creation-Date: 2026-05-13 01:45+0800\n"
+"PO-Revision-Date: 2026-05-13 13:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4104,8 +4104,8 @@ msgstr "A strange censer gifted by <ref=[misc]mvz2:koishi>an unknown person</ref
 #. Properties for artifacts mvz2:censer_of_forgotten
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>每60秒眩晕所有敌怪5秒</color>"
-msgstr "Effect: <color=red>Stuns all enemy monsters for 5 seconds every 60 seconds</color>"
+msgid "效果：<color=red>每60秒眩晕所有敌怪10秒</color>"
+msgstr "Effect: <color=red>Stuns all enemy monsters for 10 seconds every 60 seconds</color>"
 
 #. Flavor for artifacts mvz2:censer_of_forgotten
 #: Almanac meta file
@@ -8491,8 +8491,8 @@ msgstr "Censer of the Forgotten"
 #. Tooltip for artifact mvz2:censer_of_forgotten
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "每60秒眩晕所有敌怪5秒"
-msgstr "Stuns all enemy monsters for 5 seconds every 60 seconds"
+msgid "每60秒眩晕所有敌怪10秒"
+msgstr "Stuns all enemy monsters for 10 seconds every 60 seconds"
 
 #. Name for artifact mvz2:broken_lock
 #: Artifact meta file

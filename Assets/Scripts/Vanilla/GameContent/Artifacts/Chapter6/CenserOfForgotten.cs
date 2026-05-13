@@ -65,6 +65,6 @@ namespace MVZ2.GameContent.Artifacts
             }
         }
         public const int MAX_COOLDOWN_SECONDS = 60;
-        public const float STUN_SECONDS = 5;
+        public const float STUN_SECONDS = 10;
     }
 }
