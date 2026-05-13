@@ -133,11 +133,7 @@ namespace MVZ2.Entities
         }
         public void UpdateFrame(float deltaTime)
         {
-            var posOffset = GetTransformOffset();
-
-            var pos = Entity.Position;
-            var currentTransPos = Level.LawnToTrans(pos);
-            transform.position = Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
+            transform.position = GetInterpolatedTransformPosition();
             UpdateShadow();
             UpdateHeightIndicator();
             lastPosition = transform.position;
@@ -213,6 +209,19 @@ namespace MVZ2.Entities
             var colliderY = relativeWorldPos.y / lossySize.y;
 
             return new Vector2(colliderX, colliderY);
+        }
+        public Vector3 GetInterpolatedTransformPosition()
+        {
+            var pos = Entity.Position;
+            var currentTransPos = Level.LawnToTrans(pos);
+            var posOffset = GetTransformOffset();
+            return Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
+        }
+        public Vector3 GetInterpolatedTransformPositionOffset()
+        {
+            var pos = Entity.Position;
+            var currentTransPos = Level.LawnToTrans(pos);
+            return GetInterpolatedTransformPosition() - currentTransPos;
         }
         #endregion
 
@@ -343,7 +352,7 @@ namespace MVZ2.Entities
         #endregion
 
         #region 位置
-        private Vector3 GetGroundLocalPosition()
+        public Vector3 GetGroundWorldPosition()
         {
             var pos = Entity.Position;
             var groundY = Entity.GetGroundY();
@@ -356,7 +365,11 @@ namespace MVZ2.Entities
             worldPosition.x = transform.position.x;
             worldPosition.z = transform.position.z;
             worldPosition += Level.LawnToTransDistance(shadowOffset);
-            return transform.InverseTransformPoint(worldPosition);
+            return worldPosition;
+        }
+        public Vector3 GetGroundLocalPosition()
+        {
+            return transform.InverseTransformPoint(GetGroundWorldPosition());
         }
         protected void UpdateShadow()
         {
