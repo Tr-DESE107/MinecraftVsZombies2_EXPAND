@@ -7,13 +7,14 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [AutoBuffDefinition(VanillaBuffNames.Level.seijaAutoCollect)]
-    public class SeijaAutoCollectBuff : BuffDefinition
+    [AutoBuffDefinition(VanillaBuffNames.Level.battleRespite)]
+    public class BattleRespiteBuff : BuffDefinition
     {
-        public SeijaAutoCollectBuff(string nsp, string name) : base(nsp, name)
+        public BattleRespiteBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new BooleanModifier(LogicStageProps.AUTO_COLLECT_ALL, true));
             AddModifier(new BooleanModifier(LogicStageProps.NO_ENERGY, true));
+            AddModifier(new BooleanModifier(LogicLevelProps.ALL_ENEMIES_CLEARED, true));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
         }
     }

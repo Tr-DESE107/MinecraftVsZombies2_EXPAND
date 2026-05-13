@@ -69,12 +69,14 @@ namespace MVZ2.GameContent.Stages
         private void NightmareaperTransitionUpdate(LevelEngine level)
         {
             ClearEnemies(level);
+            EnterLevelEnemiesClearedState(level);
 
             StartTransitionUntilBossExists<NightmareaperTransitionBuff>(level, () =>
             {
                 // 梦魇收割者出现
                 level.SetUIAndInputDisabled(false);
                 SetBossState(level, BOSS_STATE_NIGHTMAREAPER);
+                ExitLevelEnemiesClearedState(level);
             });
         }
         private void NightmareaperUpdate(LevelEngine level)
@@ -94,6 +96,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.AfterBossWaveUpdate(level);
             ClearEnemies(level);
+            EnterLevelEnemiesClearedState(level);
 
 
             if (!level.IsFirstAdventure())

@@ -12,6 +12,7 @@
 - Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
 - After completing all levels in a map, entering the map will now set the view to the position of the endless level button.
 - Random China now displays both of evocation event's name and description instead of its name only.
+- Sweet Dream Pillow no longer triggers after all enemies in the level have been cleared.
 
 ### Balance
 - Moonlight Sensor

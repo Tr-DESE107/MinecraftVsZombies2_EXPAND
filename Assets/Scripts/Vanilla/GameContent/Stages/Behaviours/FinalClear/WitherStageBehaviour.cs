@@ -55,6 +55,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.AfterBossWaveUpdate(level);
             ClearEnemies(level);
+            EnterLevelEnemiesClearedState(level);
 
             if (!level.IsFirstAdventure())
                 return;

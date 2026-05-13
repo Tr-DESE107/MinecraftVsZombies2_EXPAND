@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            SetAssumeAlive(entity, GetReviveTimes(entity) >= 0);
+            SetAssumeAlive(entity, GetReviveTimes(entity) > 0);
         }
         private void PreEnemyFaintCallback(EntityCallbackParams param, CallbackResult result)
         {

@@ -40,12 +40,12 @@ namespace MVZ2.GameContent.Stages
             }
             else
             {
-                level.AddBuff<SeijaAutoCollectBuff>();
+                level.AddBuff<BattleRespiteBuff>();
                 level.SimpleStartTalk(VanillaTalkID.castle7Boss, 0, delay: 1, onEnd: onEnd);
                 void onEnd()
                 {
                     StartBattle(level);
-                    level.RemoveBuffs<SeijaAutoCollectBuff>();
+                    level.RemoveBuffs<BattleRespiteBuff>();
                 }
             }
         }
@@ -86,7 +86,6 @@ namespace MVZ2.GameContent.Stages
             {
                 Seija.StartState(e, VanillaBossStates.SEIJA_FRONTFLIP);
             });
-            level.SetNoEnergy(false);
             // 音乐。
             level.PlayMusic(VanillaMusicID.seija);
             // 血条。

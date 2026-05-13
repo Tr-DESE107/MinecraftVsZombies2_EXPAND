@@ -121,7 +121,7 @@
     <buff id="nightmare_cleared" polarity="none" level="5000" target="level" />
 
     <!-- Chapter 3 -->
-    <buff id="seija_auto_collect" polarity="none" level="5000" target="level" />
+    <buff id="battle_respite" polarity="none" level="5000" target="level" />
     <buff id="inverted_mirror" polarity="negative" level="3000" target="projectile" />
     <buff id="miracle_mallet_replica_damage" polarity="positive" level="2000" target="contraption" />
     <buff id="broken_lantern" polarity="mixed" level="2000" target="contraption" />
@@ -211,6 +211,7 @@
     <buff id="locked_chest_invincible" polarity="none" level="5000" target="boss" />
     <buff id="stone_eye_charged" polarity="positive" level="0" target="contraption" />
     <buff id="burning" polarity="negative" level="0" target="entity" />
+    <buff id="level_enemies_cleared" polarity="none" level="5000" target="level" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />
