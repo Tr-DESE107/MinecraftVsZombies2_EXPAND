@@ -14,8 +14,7 @@ namespace MVZ2.GameContent.Detections
     {
         protected override Bounds GetDetectionBounds(Entity self)
         {
-            var shootOffset = self.GetShotOffset();
-            var source = self.Position + shootOffset;
+            var source = AmethystPylon.GetLaserPosition(self);
             var laserSizeDef = GetEntitySize(VanillaEffectID.amethystPylonLaser, new Vector3(2000, 26, 26));
             var laserSize = Vector3.Scale(laserSizeDef, AmethystPylon.GetLaserScale(self));
             var range = self.GetRange();
