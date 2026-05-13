@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 3
             public const string reverseSatellite = "reverse_satellite";
             public const string littleZombieLevel = "little_zombie_level";
-            public const string seijaAutoCollect = "seija_auto_collect";
+            public const string battleRespite = "battle_respite";
             public const string witherTransition = "wither_transition";
             public const string witherCleared = "wither_cleared";
 
@@ -65,6 +65,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 6
             public const string lockedChestStage = "locked_chest_stage";
+            public const string levelEnemiesCleared = "level_enemies_cleared";
 
             // Random China
             public const string greedyVacuum = "greedy_vacuum";
@@ -394,7 +395,7 @@ namespace MVZ2.GameContent.Buffs
             // Chapter 3
             public static readonly NamespaceID reverseSatellite = Get(VanillaBuffNames.Level.reverseSatellite);
             public static readonly NamespaceID littleZombieLevel = Get(VanillaBuffNames.Level.littleZombieLevel);
-            public static readonly NamespaceID seijaAutoCollect = Get(VanillaBuffNames.Level.seijaAutoCollect);
+            public static readonly NamespaceID battleRespite = Get(VanillaBuffNames.Level.battleRespite);
             public static readonly NamespaceID witherTransition = Get(VanillaBuffNames.Level.witherTransition);
             public static readonly NamespaceID witherCleared = Get(VanillaBuffNames.Level.witherCleared);
 

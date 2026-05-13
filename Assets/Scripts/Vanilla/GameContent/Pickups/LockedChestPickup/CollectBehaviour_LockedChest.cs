@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Pickups
             level.ResetHeldItem();
             level.StopMusic();
             level.PlaySoundIfNotNull(pickup.GetCollectSound());
-            level.PlaySound(VanillaSoundID.winMusic);
+            level.PlaySound(VanillaSoundID.finalItem);
             level.Spawn(VanillaEffectID.starParticles, pickup.Position, pickup);
 
             LockedChestPickup.GetOrInitStateTimer(pickup).ResetSeconds(LockedChestPickup.SECONDS_TO_START_TALK);
