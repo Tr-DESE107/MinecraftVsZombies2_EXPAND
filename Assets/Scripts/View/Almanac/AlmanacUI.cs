@@ -40,20 +40,20 @@ namespace MVZ2.UI.Almanac
             }
             return null;
         }
-        public AlmanacTagIcon? GetDescriptionIcon(AlmanacPageType page, string linkID)
+        public AlmanacTagIcon? GetDescriptionIcon(AlmanacPageType page, int index)
         {
             switch (page)
             {
                 case AlmanacPageType.ContraptionsStandalone:
-                    return standaloneContraptions.GetDescriptionIcon(linkID);
+                    return standaloneContraptions.GetDescriptionIcon(index);
                 case AlmanacPageType.ContraptionsMobile:
-                    return mobileContraptions.GetDescriptionIcon(linkID);
+                    return mobileContraptions.GetDescriptionIcon(index);
                 case AlmanacPageType.Enemies:
-                    return enemies.GetDescriptionIcon(linkID);
+                    return enemies.GetDescriptionIcon(index);
                 case AlmanacPageType.Artifacts:
-                    return artifacts.GetDescriptionIcon(linkID);
+                    return artifacts.GetDescriptionIcon(index);
                 case AlmanacPageType.Miscs:
-                    return miscs.GetDescriptionIcon(linkID);
+                    return miscs.GetDescriptionIcon(index);
             }
             return null;
         }

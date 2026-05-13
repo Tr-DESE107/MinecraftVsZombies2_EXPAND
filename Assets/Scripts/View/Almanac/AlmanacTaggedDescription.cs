@@ -50,9 +50,8 @@ namespace MVZ2.UI.Almanac
                 container.OnPointerDown -= OnIconPointerDownCallback;
             });
         }
-        public AlmanacTagIcon? GetIconContainer(string linkID)
+        public AlmanacTagIcon? GetIconContainer(int index)
         {
-            var index = FindLinkIndexByID(linkID);
             if (index < 0)
                 return null;
             var item = iconStackList.getElement<AlmanacDescriptionTag>(index);

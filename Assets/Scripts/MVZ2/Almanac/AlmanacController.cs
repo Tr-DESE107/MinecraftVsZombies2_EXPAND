@@ -253,10 +253,10 @@ namespace MVZ2.Almanacs
         {
             if (descriptionTagTooltipLockedTarget == linkID)
                 return;
-            var icon = ui.GetDescriptionIcon(page, linkID);
-            if (!icon.Exists())
-                return;
             if (!TryParseTagLinkID(linkID, out var index, out var tagID, out var enumValueID))
+                return;
+            var icon = ui.GetDescriptionIcon(page, index);
+            if (!icon.Exists())
                 return;
             var viewData = GetTagTooltipViewData(tagID, enumValueID);
             Main.Scene.ShowTooltip(new SimpleTooltipSource(almanacCamera, icon, viewData));
