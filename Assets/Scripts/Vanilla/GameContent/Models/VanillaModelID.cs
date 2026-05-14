@@ -68,6 +68,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID EightDiagram = Get("EightDiagram", TYPE_ICON);
         public static readonly NamespaceID ResistanceShield = Get("ResistanceShield", TYPE_ICON);
         public static readonly NamespaceID VanguardResistanceShield = Get("VanguardResistanceShield", TYPE_ICON);
+        public static readonly NamespaceID WarriorResistanceShield = Get("WarriorResistanceShield", TYPE_ICON);
         public static readonly NamespaceID SoulFreeze = Get("SoulFreeze", TYPE_ICON);
 
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
