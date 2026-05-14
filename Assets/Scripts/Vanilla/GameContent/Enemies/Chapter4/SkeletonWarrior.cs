@@ -2,6 +2,8 @@
 
 using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
@@ -28,5 +30,30 @@ namespace MVZ2.GameContent.Enemies
                 shield?.AddBuff<IZombieSkeletonWarriorArmorBuff>();
             }
         }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            entity.SetModelDamagePercent();
+
+            if (entity.State == STATE_MELEE_ATTACK)
+            {
+                // 攻击时增加减伤buff  
+                if (!entity.HasBuff<WarriorResistance>())
+                {
+                    var buff = entity.AddBuff<WarriorResistance>();
+                    buff.SetProperty(WarriorResistance.PROP_Resistance_Level, 0.25f);
+                }
+            }
+            else
+            {
+                // 不攻击时去除减伤buff  
+                if (entity.HasBuff<WarriorResistance>())
+                {
+                    entity.RemoveBuffs<WarriorResistance>();
+                }
+            }
+
+        }
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
     }
 }

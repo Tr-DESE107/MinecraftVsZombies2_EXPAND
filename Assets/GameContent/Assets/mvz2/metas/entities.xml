@@ -2924,7 +2924,7 @@
 			</unlock>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
-				<id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
+				<id name="mvz2:starting_shield" value="mvz2:NetherWarriorShield" />
 				<float name="mvz2:maxHealth" value="600" />
 				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />

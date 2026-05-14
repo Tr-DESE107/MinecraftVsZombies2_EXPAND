@@ -212,6 +212,7 @@ namespace MVZ2.GameContent.Buffs
             // Core
             public const string randomEnemySpeed = "random_enemy_speed";
             public const string VanguardResistance = "VanguardResistance";
+            public const string WarriorResistance = "WarriorResistance";
             public const string WitherProtection = "WitherProtection";
 
             // Prologue

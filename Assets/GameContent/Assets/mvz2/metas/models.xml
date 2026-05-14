@@ -816,6 +816,7 @@
 	<model name="nether_helmet" type="armor" path="mvz2:armor/nether_helmet" width="33" height="26" xOffset="0" yOffset="2" />
 	<model name="NetherVanguardHelmet" type="armor" path="mvz2:armor/NetherVanguardHelmet" width="33" height="26" xOffset="0" yOffset="2" />
 	<model name="nether_vanguard_shield" type="armor" path="mvz2:armor/nether_vanguard_shield" width="34" height="34" xOffset="4" yOffset="4" />
+	<model name="NetherWarriorShield" type="armor" path="mvz2:armor/NetherWarriorShield" width="34" height="34" xOffset="4" yOffset="4" />
 	<model name="SantaHat" type="armor" path="mvz2:armor/SantaHat" width="40" height="30" xOffset="0" yOffset="0" />
 	<model name="WealthHat" type="armor" path="mvz2:armor/EXPAND_armor/WealthHat" width="40" height="30" xOffset="0" yOffset="0" />
 	<model name="PirateBucket" type="armor" path="mvz2:armor/PirateBucket" width="33" height="30" xOffset="0" yOffset="-10" />
@@ -873,6 +874,7 @@
 	<model name="EightDiagram" type="icon" path="mvz2:icon/EXPAND_icon/EightDiagram" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="ResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/ResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="VanguardResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/VanguardResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+	<model name="WarriorResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/WarriorResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 </models>
