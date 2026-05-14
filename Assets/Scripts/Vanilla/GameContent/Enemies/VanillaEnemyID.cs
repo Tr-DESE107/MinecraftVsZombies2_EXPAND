@@ -117,6 +117,7 @@ namespace MVZ2.GameContent.Enemies
         public const string TorchKongfuZombie = "TorchKongfuZombie";
         public const string DrunkardMonkZombie = "DrunkardMonkZombie";
         public const string Hemperor = "Hemperor";
+        public const string FlyingPot = "FlyingPot";
 
         //EXPAND_C5
         public const string PirateZombie = "PirateZombie";
@@ -276,6 +277,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID TorchKongfuZombie = Get(VanillaEnemyNames.TorchKongfuZombie);
         public static readonly NamespaceID DrunkardMonkZombie = Get(VanillaEnemyNames.DrunkardMonkZombie);
         public static readonly NamespaceID Hemperor = Get(VanillaEnemyNames.Hemperor);
+        public static readonly NamespaceID FlyingPot = Get(VanillaEnemyNames.FlyingPot);
 
         //EXPAND_C5
         public static readonly NamespaceID PirateZombie = Get(VanillaEnemyNames.PirateZombie);

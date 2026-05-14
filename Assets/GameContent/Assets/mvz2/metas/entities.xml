@@ -3225,6 +3225,23 @@
 				<int name="mvz2:cost" value="100" />
 			</properties>
 		</zombie>
+		<enemy id="FlyingPot" name="飞行壶" deathMessage="建国后明明不许成精！">
+			<unlock>
+				<condition required="mvz2:level.mausoleum_8" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="remove" id="mvz2:enemy_melee" />
+			</behaviours>
+			<properties>
+				<int name="mvz2:cost" value="100" />
+				<float name="mvz2:maxHealth" value="20" />
+				<int name="mvz2:waterInteraction" value="2" />
+				<id name="mvz2:deathSound" value="mvz2:pot_break" />
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<id name="mvz2:shape" value="mvz2:dullahan_head" />
+				<id name="mvz2:crySound" null="true" />
+			</properties>
+		</enemy>
 		
 		<!-- EXPAND Enemies C5 -->
 		<zombie id="PirateZombie" name="海盗僵尸" deathMessage="我们发现了埋藏在颅骨下的宝藏!">
