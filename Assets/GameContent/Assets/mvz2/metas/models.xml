@@ -489,6 +489,7 @@
 	<model name="Hemperor" type="entity" path="mvz2:enemy/mausoleum/Hemperor" width="70" height="104" xOffset="1" yOffset="-47">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
+	<model name="FlyingPot" type="entity" path="mvz2:enemy/mausoleum/FlyingPot" width="32" height="22" xOffset="0" yOffset="-11" />
 
     <!--EXPAND Enemies C5-->
 	<model name="PirateZombie" type="entity" path="mvz2:enemy/ship/PirateZombie" width="64" height="96" xOffset="10" yOffset="-44">
