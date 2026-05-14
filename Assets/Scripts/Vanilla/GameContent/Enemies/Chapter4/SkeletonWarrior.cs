@@ -2,9 +2,6 @@
 
 using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.Vanilla.Enemies;
-using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
@@ -41,7 +38,7 @@ namespace MVZ2.GameContent.Enemies
 
             if (entity.State == STATE_MELEE_ATTACK)
             {
-                // ����ʱ��Ӽ��buff  
+                // 攻击时移除减伤buff
                 if (!entity.HasBuff<WarriorResistance>())
                 {
                     var buff = entity.AddBuff<WarriorResistance>();
@@ -50,7 +47,7 @@ namespace MVZ2.GameContent.Enemies
             }
             else
             {
-                // ������ʱȥ�����buff  
+                // 不攻击时添加减伤buff 
                 if (entity.HasBuff<WarriorResistance>())
                 {
                     entity.RemoveBuffs<WarriorResistance>();
@@ -58,6 +55,6 @@ namespace MVZ2.GameContent.Enemies
             }
 
         }
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
     }
 }
