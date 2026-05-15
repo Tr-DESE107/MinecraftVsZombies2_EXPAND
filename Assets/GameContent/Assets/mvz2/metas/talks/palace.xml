@@ -2914,7 +2914,7 @@
         <script>end</script>
       </onSkip>
       <!--对话档案文本-->
-      <text>来到永远亭</text>
+      <text>来到永远亭。</text>
       <!--角色列表-->
       <characters>
         <character id="mvz2:steve" side="self" />

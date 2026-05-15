@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-11 09:47+0800\n"
+"POT-Creation-Date: 2026-05-15 06:31+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9548,13 +9548,13 @@ msgstr ""
 #. Text for talk sentence 17 in talk group kourindou_visit_palace_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
-msgid "怎、怎么回事？发生什么事了？"
+msgid "怎么回事？发生什么事了？"
 msgstr ""
 
 #. Text for talk sentence 18 in talk group kourindou_visit_palace_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
-msgid "你、你是……"
+msgid "你——你是……"
 msgstr ""
 
 #. Text for talk sentence 19 in talk group kourindou_visit_palace_1's section 0
@@ -9578,7 +9578,7 @@ msgstr ""
 #. Text for talk sentence 21 in talk group kourindou_visit_palace_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
-msgid "什、什么？"
+msgid "什么？"
 msgstr ""
 
 #. Text for talk sentence 22 in talk group kourindou_visit_palace_1's section 0
@@ -9914,7 +9914,7 @@ msgstr ""
 #. Text for talk sentence 16 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
-msgid "还、还有其他被袭击的人？！"
+msgid "还有其他被袭击的人？！"
 msgstr ""
 
 #. Text for talk sentence 17 in talk group kourindou_visit_palace_1's section 2
@@ -10016,7 +10016,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group palace_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_1"
-msgid "呃，好、好的。"
+msgid "呃，好——好的。"
 msgstr ""
 
 #. Archive name for talk group palace_1_over
@@ -10124,7 +10124,7 @@ msgstr ""
 #. Text for talk sentence 11 in talk group palace_1_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_1_map"
-msgid "再、再也没醒过来……"
+msgid "再也没醒过来……"
 msgstr ""
 
 #. Text for talk sentence 12 in talk group palace_1_map's section 0
@@ -10148,7 +10148,7 @@ msgstr ""
 #. Text for talk sentence 15 in talk group palace_1_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_1_map"
-msgid "好、好的，谢谢您……"
+msgid "好——好的，谢谢您……"
 msgstr ""
 
 #. Archive name for talk group palace_2
@@ -10442,7 +10442,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group palace_3's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3"
-msgid "嗯，那你就先去战斗吧。"
+msgid "既然这样，那我还是先去准备今天的战斗吧。"
 msgstr ""
 
 #. Archive name for talk group palace_3_over
@@ -10616,7 +10616,7 @@ msgstr ""
 #. Text for talk sentence 26 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
-msgid "抱、抱歉。"
+msgid "啊，抱歉。"
 msgstr ""
 
 #. Text for talk sentence 27 in talk group palace_3_map's section 0
@@ -10760,7 +10760,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
-msgid "箱、箱子？"
+msgid "箱——箱子？"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group palace_4_map's section 0
@@ -10778,7 +10778,7 @@ msgstr ""
 #. Text for talk sentence 9 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
-msgid "不好意思，没、没有。不过，我似乎有点印象就是了。"
+msgid "不好意思，没有。不过，我似乎有点印象就是了。"
 msgstr ""
 
 #. Text for talk sentence 10 in talk group palace_4_map's section 0
@@ -10832,7 +10832,7 @@ msgstr ""
 #. Text for talk sentence 18 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
-msgid "说、说起来确实是这样！"
+msgid "说起来确实是这样！"
 msgstr ""
 
 #. Text for talk sentence 19 in talk group palace_4_map's section 0
@@ -11072,7 +11072,7 @@ msgstr ""
 #. Text for talk sentence 16 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
-msgid "不、不知道啊。"
+msgid "呃、不知道啊。"
 msgstr ""
 
 #. Text for talk sentence 17 in talk group palace_5_map's section 0
@@ -11096,7 +11096,7 @@ msgstr ""
 #. Text for talk sentence 20 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
-msgid "那、那好吧。"
+msgid "那好吧。"
 msgstr ""
 
 #. Text for talk sentence 21 in talk group palace_5_map's section 0
@@ -11150,7 +11150,7 @@ msgstr ""
 #. Text for talk sentence 6 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
-msgid "那、那怎么对付这些怪物啊！"
+msgid "那怎么对付这些怪物啊！"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group palace_6's section 0
@@ -11240,7 +11240,7 @@ msgstr ""
 #. Text for talk sentence 5 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
-msgid "我、我不知道啊！"
+msgid "我——我不知道啊！"
 msgstr ""
 
 #. Text for talk sentence 6 in talk group palace_6_map's section 0
@@ -11276,7 +11276,7 @@ msgstr ""
 #. Text for talk sentence 11 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
-msgid "控、控制？"
+msgid "啊？控制？"
 msgstr ""
 
 #. Text for talk sentence 12 in talk group palace_6_map's section 0
@@ -11288,7 +11288,7 @@ msgstr ""
 #. Text for talk sentence 13 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
-msgid "是、是……咱似乎还记得那个位置。"
+msgid "是，是……咱似乎还记得那个位置。"
 msgstr ""
 
 #. Text for talk sentence 14 in talk group palace_6_map's section 0
@@ -11342,7 +11342,7 @@ msgstr ""
 #. Text for talk sentence 20 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
-msgid "不、不知道啊！我还以为她在那里玩……"
+msgid "不——不知道啊！我还以为她在那里玩……"
 msgstr ""
 
 #. Text for talk sentence 21 in talk group palace_6_map's section 0
@@ -11354,7 +11354,7 @@ msgstr ""
 #. Text for talk sentence 22 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
-msgid "朱、朱鹭子，你在那里做什么！"
+msgid "朱鹭子，你在那里做什么！"
 msgstr ""
 
 #. Description for talk sentence 22 in talk group palace_6_map's section 0
@@ -11474,7 +11474,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "还、还好咱赶到了……幸好她没事。"
+msgid "还好咱赶到了……幸好她没事。"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group palace_7's section 0
@@ -11522,7 +11522,7 @@ msgstr ""
 #. Text for talk sentence 8 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "对、对……"
+msgid "呃，对……"
 msgstr ""
 
 #. Text for talk sentence 9 in talk group palace_7's section 0
@@ -11594,7 +11594,7 @@ msgstr ""
 #. Text for talk sentence 4 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
-msgid "诶？我、我去过那里吗？"
+msgid "诶？我去过那里吗？"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group palace_7_map's section 0
@@ -11672,7 +11672,7 @@ msgstr ""
 #. Text for talk sentence 18 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
-msgid "被、被人控制？"
+msgid "被人控制？"
 msgstr ""
 
 #. Text for talk sentence 19 in talk group palace_7_map's section 0
@@ -11882,7 +11882,7 @@ msgstr ""
 #. Text for talk sentence 13 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "发、发生什么了！"
+msgid "发生什么了！"
 msgstr ""
 
 #. Description for talk sentence 13 in talk group palace_8_map's section 0
@@ -11918,13 +11918,13 @@ msgstr ""
 #. Text for talk sentence 18 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "快、快把觉大人送去治疗！！！"
+msgid "快把觉大人送去治疗！！！"
 msgstr ""
 
 #. Archive text for talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "archive"
-msgid "来到永远亭"
+msgid "来到永远亭。"
 msgstr ""
 
 #. Text for talk sentence 0 in talk group palace_8_map's section 1
@@ -12020,7 +12020,7 @@ msgstr ""
 #. Text for talk sentence 15 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "这、这怎么找？"
+msgid "这怎么找？！"
 msgstr ""
 
 #. Text for talk sentence 16 in talk group palace_8_map's section 1
@@ -12038,7 +12038,7 @@ msgstr ""
 #. Text for talk sentence 18 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "怎、怎么办……"
+msgid "怎么办……"
 msgstr ""
 
 #. Text for talk sentence 19 in talk group palace_8_map's section 1
@@ -12236,7 +12236,7 @@ msgstr ""
 #. Text for talk sentence 1 in talk group palace_9's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9"
-msgid "啊？居、居然还是只僵尸猫，已经烂的不成样子了……"
+msgid "啊？居然还是只僵尸猫，已经烂的不成样子了……"
 msgstr ""
 
 #. Text for talk sentence 2 in talk group palace_9's section 0
@@ -12355,7 +12355,7 @@ msgstr ""
 #. Text for talk sentence 11 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
-msgid "说、说起来，我——"
+msgid "说起来，我——"
 msgstr ""
 
 #. Text for talk sentence 12 in talk group palace_9_map's section 0
@@ -12523,7 +12523,7 @@ msgstr ""
 #. Text for talk sentence 9 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
-msgid "没、没有啊，咱根本就没有动它。是史蒂夫小弟——？"
+msgid "没有啊，咱根本就没有动它。是史蒂夫小弟——？"
 msgstr ""
 
 #. Text for talk sentence 10 in talk group palace_10_map's section 0
@@ -12595,7 +12595,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group palace_11_boss's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_boss"
-msgid "这、这个东西，不是我们之前在地灵殿门口见到的箱子吗？"
+msgid "这——这个东西，不是我们之前在地灵殿门口见到的箱子吗？"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group palace_11_boss's section 0
@@ -12607,7 +12607,7 @@ msgstr ""
 #. Text for talk sentence 2 in talk group palace_11_boss's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_boss"
-msgid "不、不知道啊！"
+msgid "不知道啊！"
 msgstr ""
 
 #. Text for talk sentence 3 in talk group palace_11_boss's section 0
@@ -12637,7 +12637,7 @@ msgstr ""
 #. Text for talk sentence 1 in talk group palace_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_over"
-msgid "总、总算是把它杀掉了……"
+msgid "总算是把它杀掉了……"
 msgstr ""
 
 #. Text for talk sentence 2 in talk group palace_11_over's section 0
