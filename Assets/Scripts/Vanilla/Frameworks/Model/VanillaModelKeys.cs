@@ -30,6 +30,7 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID psychicShackled = Get("psychic_shackled");
         public static readonly NamespaceID burning = Get("burning");
         //EXPAND
+        public static readonly NamespaceID SpeedParticles = Get("SpeedParticles");
         public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles");
         public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles");
         public static readonly NamespaceID ShockStaticParticles = Get("ShockStaticParticles");

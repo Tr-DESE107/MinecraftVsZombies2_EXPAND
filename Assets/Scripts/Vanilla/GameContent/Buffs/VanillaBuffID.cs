@@ -300,6 +300,7 @@ namespace MVZ2.GameContent.Buffs
 
             //EXPAND
             public const string AntiGravityPadGravity = "AntiGravityPadGravity";
+            public const string FlagSkeletonSpeed = "FlagSkeletonSpeed";
             public const string Shock = "Shock";
             public const string AttackSpeed = "AttackSpeed";
             public const string SoulFreeze = "SoulFreeze";
@@ -675,6 +676,7 @@ namespace MVZ2.GameContent.Buffs
 
             //EXPAND
             public static readonly NamespaceID AntiGravityPadGravity = Get(VanillaBuffNames.Enemy.AntiGravityPadGravity);
+            public static readonly NamespaceID FlagSkeletonSpeed = Get(VanillaBuffNames.Enemy.FlagSkeletonSpeed);
             public static readonly NamespaceID Shock = Get(VanillaBuffNames.Enemy.Shock);
             public static readonly NamespaceID AttackSpeed = Get(VanillaBuffNames.Enemy.AttackSpeed);
             public static readonly NamespaceID SoulFreeze = Get(VanillaBuffNames.Enemy.SoulFreeze);

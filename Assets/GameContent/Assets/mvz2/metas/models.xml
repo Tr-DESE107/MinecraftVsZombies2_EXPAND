@@ -432,7 +432,7 @@
     <model name="IronWitherSkeleton" type="entity" path="mvz2:enemy/castle/IronWitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="FlagWitherSkeleton" type="entity" path="mvz2:enemy/castle/FlagWitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="NetherCourier" type="entity" path="mvz2:enemy/castle/NetherCourier" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 
@@ -474,7 +474,7 @@
     <model name="IronMonkZombie" type="entity" path="mvz2:enemy/mausoleum/IronMonkZombie" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="FlagMonkZombie" type="entity" path="mvz2:enemy/mausoleum/FlagMonkZombie" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="FlagbearerZombie" type="entity" path="mvz2:enemy/mausoleum/FlagbearerZombie" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="SixQiZombie" type="entity" path="mvz2:enemy/mausoleum/SixQiZombie" width="64" height="96" xOffset="10" yOffset="-44">
@@ -504,7 +504,7 @@
 	<model name="PirateBucketSkeleton" type="entity" path="mvz2:enemy/ship/PirateBucketSkeleton" width="64" height="115" xOffset="10" yOffset="-54">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
-	<model name="FlagPirateSkeleton" type="entity" path="mvz2:enemy/ship/FlagPirateSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+	<model name="JollyRogerZombie" type="entity" path="mvz2:enemy/ship/JollyRogerZombie" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
 	
@@ -959,6 +959,7 @@
     <model name="burning" type="icon" path="mvz2:icon/burning" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	
 	<!--EXPAND Icons-->
+	<model name="SpeedParticles" type="icon" path="mvz2:icon/EXPAND_icon/SpeedParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="RegenerationParticles" type="icon" path="mvz2:icon/RegenerationParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="CorropoisonParticles" type="icon" path="mvz2:icon/CorropoisonParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="ShockStaticParticles" type="icon" path="mvz2:icon/ShockStaticParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
