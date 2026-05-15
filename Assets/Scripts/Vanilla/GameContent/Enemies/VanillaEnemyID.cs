@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Enemies
         public const string WitherSkeleton = "WitherSkeleton";
         public const string LeatherWitherSkeleton = "LeatherWitherSkeleton";
         public const string IronWitherSkeleton = "IronWitherSkeleton";
-        public const string FlagWitherSkeleton = "FlagWitherSkeleton"; //todo
+        public const string NetherCourier = "NetherCourier"; //todo
 
         public const string NetherWarrior = "NetherWarrior";
         public const string NetherArcher = "NetherArcher";
@@ -112,7 +112,7 @@ namespace MVZ2.GameContent.Enemies
         public const string MonkZombie = "MonkZombie";
         public const string LeatherMonkZombie = "LeatherMonkZombie";
         public const string IronMonkZombie = "IronMonkZombie";
-        public const string FlagMonkZombie = "FlagMonkZombie";//todo
+        public const string FlagbearerZombie = "FlagbearerZombie";//todo
         public const string SixQiZombie = "SixQiZombie";
         public const string TorchKongfuZombie = "TorchKongfuZombie";
         public const string DrunkardMonkZombie = "DrunkardMonkZombie";
@@ -124,7 +124,7 @@ namespace MVZ2.GameContent.Enemies
         public const string LeatherPirateZombie = "LeatherPirateZombie";
         public const string PirateSkeleton = "PirateSkeleton";
         public const string PirateBucketSkeleton = "PirateBucketSkeleton";
-        public const string FlagPirateSkeleton = "FlagPirateSkeleton";
+        public const string JollyRogerZombie = "JollyRogerZombie";
 
         public const string SquidDrowned = "SquidDrowned";
         public const string HeavyGutant = "HeavyGutant";
@@ -253,7 +253,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID WitherSkeleton = Get(VanillaEnemyNames.WitherSkeleton);
         public static readonly NamespaceID LeatherWitherSkeleton = Get(VanillaEnemyNames.LeatherWitherSkeleton);
         public static readonly NamespaceID IronWitherSkeleton = Get(VanillaEnemyNames.IronWitherSkeleton);
-        public static readonly NamespaceID FlagWitherSkeleton = Get(VanillaEnemyNames.FlagWitherSkeleton);
+        public static readonly NamespaceID NetherCourier = Get(VanillaEnemyNames.NetherCourier);
 
         public static readonly NamespaceID NetherWarrior = Get(VanillaEnemyNames.NetherWarrior);
         public static readonly NamespaceID NetherArcher = Get(VanillaEnemyNames.NetherArcher);
@@ -272,7 +272,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID MonkZombie = Get(VanillaEnemyNames.MonkZombie);
         public static readonly NamespaceID LeatherMonkZombie = Get(VanillaEnemyNames.LeatherMonkZombie);
         public static readonly NamespaceID IronMonkZombie = Get(VanillaEnemyNames.IronMonkZombie);
-        public static readonly NamespaceID FlagMonkZombie = Get(VanillaEnemyNames.FlagMonkZombie);
+        public static readonly NamespaceID FlagbearerZombie = Get(VanillaEnemyNames.FlagbearerZombie);
         public static readonly NamespaceID SixQiZombie = Get(VanillaEnemyNames.SixQiZombie);
         public static readonly NamespaceID TorchKongfuZombie = Get(VanillaEnemyNames.TorchKongfuZombie);
         public static readonly NamespaceID DrunkardMonkZombie = Get(VanillaEnemyNames.DrunkardMonkZombie);
@@ -284,7 +284,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID LeatherPirateZombie = Get(VanillaEnemyNames.LeatherPirateZombie);
         public static readonly NamespaceID PirateSkeleton = Get(VanillaEnemyNames.PirateSkeleton);
         public static readonly NamespaceID PirateBucketSkeleton = Get(VanillaEnemyNames.PirateBucketSkeleton);
-        public static readonly NamespaceID FlagPirateSkeleton = Get(VanillaEnemyNames.FlagPirateSkeleton);
+        public static readonly NamespaceID JollyRogerZombie = Get(VanillaEnemyNames.JollyRogerZombie);
 
         public static readonly NamespaceID HeavyGutant = Get(VanillaEnemyNames.HeavyGutant);
         public static readonly NamespaceID PirateBomb = Get(VanillaEnemyNames.PirateBomb);

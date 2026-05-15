@@ -2861,13 +2861,14 @@
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 			</properties>
 		</WitherSkeleton_Exp>
-		<WitherSkeleton_Exp id="FlagWitherSkeleton" name="旗帜凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+		<WitherSkeleton_Exp id="NetherCourier" name="下界传令兵" deathMessage="被未受训练的新兵打死，你也太丢人了">
 			<unlock>
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
 			<properties>
 				<int name="mvz2:cost" value="300" />
 				<int name="mvz2:waterInteraction" value="2" />
+				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
 				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
@@ -3167,7 +3168,7 @@
 				<int name="mvz2:cost" value="125" />
 			</properties>
 		</zombie>
-		<zombie id="FlagMonkZombie" name="武僧旗帜僵尸" deathMessage="洒家今日便要开荤了！">
+		<zombie id="FlagbearerZombie" name="掌旗僵尸" deathMessage="洒家今日便要开荤了！">
 			<unlock>
 				<condition required="mvz2:level.castle_11" />
 			</unlock>
@@ -3441,6 +3442,25 @@
 				<float name="mvz2:damage" value="150" />
 				<float name="mvz2:maxHealth" value="600" />
 				<float name="mvz2:speed" value="0.8" />
+			</properties>
+		</zombie>
+		<zombie id="JollyRogerZombie" name="海盗旗帜僵尸" deathMessage="他没射中靶子，气急败坏的打了你一顿">
+			<unlock>
+				<condition required="mvz2:level.ship_1" />
+			</unlock>
+			<behaviours>
+				<behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
+			</behaviours>
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:PirateBucket" />
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+				<id name="mvz2:projectileId" value="mvz2:bullet" />
+				<int name="mvz2:cost" value="100" />
+				<float name="mvz2:damage" value="150" />
+				<float name="mvz2:maxHealth" value="600" />
+				<float name="mvz2:speed" value="1.5" />
 			</properties>
 		</zombie>
 		<zombie id="SailorZombie" name="水手僵尸" deathMessage="湿又滑！">

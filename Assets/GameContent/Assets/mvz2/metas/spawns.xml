@@ -288,7 +288,7 @@
         <terrain water="true" />
         <weight base="3000" />
     </entry>
-    <entry id="FlagWitherSkeleton" entity="mvz2:FlagWitherSkeleton">
+    <entry id="NetherCourier" entity="mvz2:NetherCourier">
         <spawn level="0" />
         <terrain water="true" />
         <weight base="0" />
@@ -365,7 +365,7 @@
         <terrain water="true" air="true" />
         <weight base="3000" />
     </entry>
-    <entry id="FlagMonkZombie" entity="mvz2:FlagMonkZombie">
+    <entry id="FlagbearerZombie" entity="mvz2:FlagbearerZombie">
         <spawn level="0" />
         <terrain water="true" air="true" />
         <weight base="0" />

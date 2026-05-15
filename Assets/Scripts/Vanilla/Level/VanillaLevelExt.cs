@@ -462,7 +462,29 @@ namespace MVZ2.Vanilla.Level
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
-            return level.Spawn(VanillaEnemyID.flagZombie, pos, null);
+
+            // 根据地图ID生成不同的摇旗怪物  
+            NamespaceID flagEnemyID = VanillaEnemyID.flagZombie;
+            var areaID = level.AreaID;
+
+            if (areaID == VanillaAreaID.halloween)
+            {
+                flagEnemyID = VanillaEnemyID.FlagSkeleton;
+            }
+            else if (areaID == VanillaAreaID.castle)
+            {
+                flagEnemyID = VanillaEnemyID.NetherCourier;
+            }
+            else if (areaID == VanillaAreaID.mausoleum)
+            {
+                flagEnemyID = VanillaEnemyID.FlagbearerZombie;
+            }
+            else if (areaID == VanillaAreaID.ship)
+            {
+                flagEnemyID = VanillaEnemyID.JollyRogerZombie;
+            }
+
+            return level.Spawn(flagEnemyID, pos, null);
         }
         #endregion
 
