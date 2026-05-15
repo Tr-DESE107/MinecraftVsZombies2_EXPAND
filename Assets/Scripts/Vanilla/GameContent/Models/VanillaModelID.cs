@@ -53,6 +53,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID mindSwap = Get("mind_swap", TYPE_UI);
 
         //EXPAND
+        public static readonly NamespaceID SpeedParticles = Get("SpeedParticles", TYPE_ICON);
         public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles", TYPE_ICON);
         public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles", TYPE_ICON);
         public static readonly NamespaceID ShockStaticParticles = Get("ShockStaticParticles", TYPE_ICON);
@@ -60,6 +61,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID EightDiagram = Get("EightDiagram", TYPE_ICON);
         public static readonly NamespaceID ResistanceShield = Get("ResistanceShield", TYPE_ICON);
         public static readonly NamespaceID VanguardResistanceShield = Get("VanguardResistanceShield", TYPE_ICON);
+        public static readonly NamespaceID WarriorResistanceShield = Get("WarriorResistanceShield", TYPE_ICON);
 
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
         {

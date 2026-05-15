@@ -22,6 +22,7 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID goldenGrid = Get("golden_grid");
 
         //EXPAND
+        public static readonly NamespaceID SpeedParticles = Get("SpeedParticles");
         public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles");
         public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles");
         public static readonly NamespaceID ShockStaticParticles = Get("ShockStaticParticles");
@@ -29,6 +30,7 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID EightDiagram = Get("EightDiagram");
         public static readonly NamespaceID ResistanceShield = Get("ResistanceShield");
         public static readonly NamespaceID VanguardResistanceShield = Get("VanguardResistanceShield");
+        public static readonly NamespaceID WarriorResistanceShield = Get("WarriorResistanceShield");
 
         private static NamespaceID Get(string name)
         {

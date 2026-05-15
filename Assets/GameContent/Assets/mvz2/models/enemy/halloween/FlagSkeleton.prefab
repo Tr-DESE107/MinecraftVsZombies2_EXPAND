@@ -485,6 +485,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6999929167464410214, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
   m_PrefabInstance: {fileID: 7469416486686784194}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8266728122562213350
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7334809600742099417}
+    m_Modifications:
+    - target: {fileID: 6070118448842189996, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_Name
+      value: iron_helmet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+--- !u!4 &63154510120844782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8239634433196034056, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
+  m_PrefabInstance: {fileID: 8266728122562213350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8613610557014280117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,7 +609,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1316119070365421164, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 63154510120844782}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
 --- !u!114 &1164595042243220313 stripped
@@ -731,6 +796,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7334809600742099417 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1316119070365421164, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+  m_PrefabInstance: {fileID: 8613610557014280117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7628100053194644835 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2185870618584029910, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}

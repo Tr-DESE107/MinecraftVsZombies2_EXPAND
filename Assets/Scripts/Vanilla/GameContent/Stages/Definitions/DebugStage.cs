@@ -49,12 +49,12 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.lightningOrb,
                 //VanillaContraptionID.fireworkDispenser,
-                VanillaEnemyID.NightmareDisciple,
-                VanillaEnemyID.WitherSkeletonHorse,
-                VanillaEnemyID.AssaultDullahan,
-                VanillaEnemyID.AngryGhast,
-                VanillaEnemyID.AngryReverser,
-                VanillaEnemyID.KingofReverser,
+                VanillaEnemyID.dullahanHead,
+                VanillaEnemyID.SkeletonHead,
+                VanillaEnemyID.ZombieHead,
+                VanillaEnemyID.RedEyeZombieHead,
+                VanillaEnemyID.HostHead,
+                VanillaEnemyID.BerserkerHead,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

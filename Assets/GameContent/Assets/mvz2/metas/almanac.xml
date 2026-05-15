@@ -1807,6 +1807,22 @@
 				<p>哦对，这个世界的亡灵白天不知怎么回事不会燃烧，所以你还是要被这帮小僵尸追着屁股咬</p>
 			</flavor>
 		</entry>
+		<entry id="mvz2:FlagSkeleton">
+			<header>
+				<p>摇旗骷髅的出现标志着一大波怪物的到来。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+			</properties>
+			<flavor>
+				<p>他用着骷髅特有的语言鼓励着骷髅族的同胞们冲向战场，但他似乎没意识到让远程攻击的同胞跑的更快吃更多子弹不是个好主意。</p>
+				<p/>
+				<p>这种语言并不只能在普通骷髅族内用，对远房的黑色表亲也能用。</p>
+				<p>似乎对更加高大的黑色远亲也能用。</p>
+			</flavor>
+		</entry>
 		<entry id="mvz2:SkeletonHead">
 			<header>
 				<p>骷髅头可以快速的在空中飘动</p>
@@ -2348,17 +2364,31 @@
 			</flavor>
 		</entry>
 
+		<entry id="mvz2:NetherCourier">
+			<header>
+				<p>下界传令兵的出现标志着一大波下界军团的到来。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+			</properties>
+			<flavor>
+				<p>虽然这只军队中有大量未经过训练的新兵(炮灰)，但这个传令兵是货真价实的。下界传令兵由下界战士中的佼佼者担任，虽然未持剑，但他们已经达到了徒手便能放出领域伤害的境界。</p>
+			</flavor>
+		</entry>
+
 		<entry id="mvz2:NetherWarrior">
 			<header>
-				<p>下界战士在攻击时能够额外造成范围伤害。</p>
+				<p>下界战士在攻击时能够额外造成范围伤害，自身还会拥有减伤。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）+<var id="shield_hp" />（盾）</color>]]></p>
 				<p>速度：<![CDATA[<color=red><var id="entity_speed" /></color>]]></p>
-				<p>特点：<![CDATA[<color=red>攻击时持续对小范围内的器械造成伤害，盾牌可抵挡一定高度的子弹。</color>]]></p>
+				<p>特点：<![CDATA[<color=red>攻击时持续对小范围内的器械造成伤害，同时为自己增加50%的抗性，盾牌可抵挡一定高度的子弹。</color>]]></p>
 			</properties>
 			<flavor>
-				<p>地狱中最常见的部队之一。在下界骑士团的训练下，配备了精良的武器。身为凋零骷髅一族，榨取敌人的生命是他们一贯的作风。</p>
+				<p>地狱中最常见的部队之一。在下界骑士团的训练下，配备了精良的武器。身为凋零骷髅一族，榨取敌人的生命是他们一贯的作风，临战架势下的他们更是坚不可摧。</p>
 				<p>真希望你没有惹到他们。</p>
 			</flavor>
 		</entry>
@@ -2721,6 +2751,23 @@
 				<p>这种僵尸带的铁桶其实是个反着的矿车，他负责拿这个矿车给庙里烧水用。</p>
 			</flavor>
 		</entry>
+		<entry id="mvz2:FlagbearerZombie">
+			<header>
+				<p>掌旗僵尸的出现标志着一大波大尸国僵尸的到来。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+				<p>特点：<![CDATA[<color=red>每有一个怪物死亡，为自己增加20%的攻击力，上限10个。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>《军政》曰：“言不相闻，故为金鼓；视不相见，故为旌旗。”夫金鼓旌旗者，所以一人之耳目也。</p>
+				<p>“凡旗总，每旗一人，执旗在前。旗向前指，则全旗齐进；旗后指，则全旗齐退；旗左指，则左转；右指，则右转。</p>
+				<p>若旗向前挥动不住，则是急进之令，各兵当奋勇争先。旗手若倒，本旗无目，虽勇必乱。故旗手必选胆壮力全者为之。</p>
+				<p>冲锋之时，旗手摇旗呐喊，以助军威。余兵衔枚（口中含木片）而进，不得出声。”</p>
+			</flavor>
+		</entry>
 		<entry id="mvz2:TorchKongfuZombie">
 			<header>
 				<p>功夫火把僵尸的火把能够快速烧毁易燃器械。</p>
@@ -2809,13 +2856,28 @@
 			</flavor>
 		</entry>
 
+		<entry id="mvz2:FlyingPot">
+			<header>
+				<p>飞行壶需要20次伤害才能被杀死。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="entity_speed" /></color>]]></p>
+				<p>特点：<![CDATA[<color=red>每次收到伤害只算作受到1点伤害。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>有的倒霉蛋没能成仙，反倒是他们用的壶成了仙。</p>
+			</flavor>
+		</entry>
+		
 		<entry id="mvz2:skeleton_warrior">
 			<header>
-				<p>骷髅战士能够被死灵墓碑召唤前来作战。</p>
+				<p>骷髅战士能够被死灵墓碑召唤前来作战，在攻击时拥有减伤。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）+<var id="shield_hp" />（盾）</color>]]></p>
 				<p>速度：<![CDATA[<color=red><var id="entity_speed" /></color>]]></p>
+				<p>特点：<![CDATA[<color=red>攻击时拥有25%减伤。</color>]]></p>
 			</properties>
 			<flavor>
 				<p>"为什么你不穿衣服？"</p>
@@ -2824,7 +2886,7 @@
 				<p>"说不定未来就107107了"</p>
 			</flavor>
 		</entry>
-
+		
 		<entry id="mvz2:skeleton_mage">
 			<header>
 				<p>不同的骷髅法师能够使用不同种类的法术。</p>
@@ -2938,6 +3000,24 @@
 			<flavor>
 				<p>我怀疑这家伙是按桶喝的酒，你看犯罪证据还带在他的头上呢。</p>
 				<p><![CDATA[<color=grey>呃，如果这骷髅是泡酒物呢？</color>]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:JollyRogerZombie">
+			<header>
+				<p>海盗旗帜僵尸的出现标志着一大波海盗的到来。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+				<p>特点：<![CDATA[<color=red>有3发火枪弹药，每次发射一发，射击完毕后会正常近战攻击</color>]]></p>
+			</properties>
+			<flavor>
+				<p>警告：不要接近一个醉醺醺、拿着火枪的僵尸，虽然他举的是黑旗，但现在的他不太像是有理智，能够遵守《海盗守则》的样子。</p>
+				<p/>
+				<p><![CDATA[<color=grey>海盗守则里提到：交战时刻，升起海盗红旗（Jolie Rouge）意味着绝不投降、绝不接受投降、不留活口。</color>]]></p>
+				<p><![CDATA[<color=grey>而升起黑旗（Jolly Roger），意味着海盗愿意接受投降，交船、交钱、交货则饶命。</color>]]></p>
+				<p><![CDATA[<color=grey>我就提一嘴，你别真考虑投降了。</color>]]></p>
 			</flavor>
 		</entry>
 
@@ -3161,6 +3241,23 @@
 				<p>我为什么会觉得这些家伙是库尔咒训练的。</p>
 			</flavor>
 		</entry>
+
+		<!--
+		<entry id="mvz2:SquidDrowned">
+			<header>
+				<p>鱿鱼溺尸会向你的器械投掷鱿鱼，被鱿鱼命中的器械会被困住。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+				<p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+				<p>特殊：<![CDATA[<color=red>投掷鱿鱼定身器械，可被250点伤害打破</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这只溺尸在海里泡了太久，以至于和鱿鱼成了好朋友。现在他们组队来对付你了。</p>
+				<p />
+				<p>别问为什么鱿鱼会飞，问就是魔法。</p>
+			</flavor>
+		</entry>-->
 
 
 		<!--Villager EXPAND -->

@@ -373,7 +373,7 @@
     <model name="IronWitherSkeleton" type="entity" path="mvz2:enemy/castle/IronWitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="FlagWitherSkeleton" type="entity" path="mvz2:enemy/castle/FlagWitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="NetherCourier" type="entity" path="mvz2:enemy/castle/NetherCourier" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 
@@ -415,7 +415,7 @@
     <model name="IronMonkZombie" type="entity" path="mvz2:enemy/mausoleum/IronMonkZombie" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="FlagMonkZombie" type="entity" path="mvz2:enemy/mausoleum/FlagMonkZombie" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="FlagbearerZombie" type="entity" path="mvz2:enemy/mausoleum/FlagbearerZombie" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="SixQiZombie" type="entity" path="mvz2:enemy/mausoleum/SixQiZombie" width="64" height="96" xOffset="10" yOffset="-44">
@@ -430,6 +430,7 @@
 	<model name="Hemperor" type="entity" path="mvz2:enemy/mausoleum/Hemperor" width="70" height="104" xOffset="1" yOffset="-47">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
+	<model name="FlyingPot" type="entity" path="mvz2:enemy/mausoleum/FlyingPot" width="32" height="22" xOffset="0" yOffset="-11" />
 
     <!--EXPAND Enemies C5-->
 	<model name="PirateZombie" type="entity" path="mvz2:enemy/ship/PirateZombie" width="64" height="96" xOffset="10" yOffset="-44">
@@ -444,7 +445,7 @@
 	<model name="PirateBucketSkeleton" type="entity" path="mvz2:enemy/ship/PirateBucketSkeleton" width="64" height="115" xOffset="10" yOffset="-54">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
-	<model name="FlagPirateSkeleton" type="entity" path="mvz2:enemy/ship/FlagPirateSkeleton" width="64" height="96" xOffset="10" yOffset="-44">
+	<model name="JollyRogerZombie" type="entity" path="mvz2:enemy/ship/JollyRogerZombie" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
 	
@@ -537,6 +538,7 @@
 	<model name="LEOLau" type="entity" path="mvz2:enemy/EXPAND/LEOLau" width="64" height="96" xOffset="10" yOffset="-44">
 		<armorconfig>mvz2:humanoid</armorconfig>
 	</model>
+	<model name="SquidDrowned" type="entity" path="mvz2:enemy/EXPAND/SquidDrowned" width="200" height="180" xOffset="0" yOffset="-90" />
 
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="-44" />
@@ -721,6 +723,12 @@
 	<!--EXPAND Effects-->
 	<model name="SoulFreeze" type="entity" path="mvz2:effect/SoulFreeze" width="56" height="56" xOffset="0" yOffset="0" />
 
+	<!--EXPAND Obstacles-->
+	<model name="SquidCage" type="entity" path="mvz2:obstacle/SquidCage" width="40" height="60" xOffset="0" yOffset="0" />
+
+	<!--EXPAND Projectiles-->
+	<model name="Squid" type="entity" path="mvz2:projectile/EXPAND_projectile/Squid" width="32" height="32" xOffset="0" yOffset="-12" />
+
     <!-- Projectiles -->
 	<model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="-1" />
 	<model name="mine_tnt_seed" type="entity" path="mvz2:projectile/mine_tnt_seed" width="64" height="64" xOffset="0" yOffset="-24" />
@@ -808,7 +816,9 @@
 	<model name="KingofReverserCrown" type="armor" path="mvz2:armor/KingofReverserCrown" width="40" height="50" xOffset="0" yOffset="-21" />
 	<model name="nether_helmet" type="armor" path="mvz2:armor/nether_helmet" width="33" height="26" xOffset="0" yOffset="2" />
 	<model name="NetherVanguardHelmet" type="armor" path="mvz2:armor/NetherVanguardHelmet" width="33" height="26" xOffset="0" yOffset="2" />
+	<model name="ImperialGuardHelmet" type="armor" path="mvz2:armor/EXPAND_armor/ImperialGuardHelmet" width="33" height="26" xOffset="0" yOffset="2" />
 	<model name="nether_vanguard_shield" type="armor" path="mvz2:armor/nether_vanguard_shield" width="34" height="34" xOffset="4" yOffset="4" />
+	<model name="NetherBrickShield" type="armor" path="mvz2:armor/NetherBrickShield" width="34" height="34" xOffset="4" yOffset="4" />
 	<model name="SantaHat" type="armor" path="mvz2:armor/SantaHat" width="40" height="30" xOffset="0" yOffset="0" />
 	<model name="WealthHat" type="armor" path="mvz2:armor/EXPAND_armor/WealthHat" width="40" height="30" xOffset="0" yOffset="0" />
 	<model name="PirateBucket" type="armor" path="mvz2:armor/PirateBucket" width="33" height="30" xOffset="0" yOffset="-10" />
@@ -859,6 +869,7 @@
     <model name="vulnerable" type="icon" path="mvz2:icon/vulnerable" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	
 	<!--EXPAND Icons-->
+	<model name="SpeedParticles" type="icon" path="mvz2:icon/EXPAND_icon/SpeedParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="RegenerationParticles" type="icon" path="mvz2:icon/RegenerationParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="CorropoisonParticles" type="icon" path="mvz2:icon/CorropoisonParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="ShockStaticParticles" type="icon" path="mvz2:icon/ShockStaticParticles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
@@ -866,6 +877,7 @@
 	<model name="EightDiagram" type="icon" path="mvz2:icon/EXPAND_icon/EightDiagram" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="ResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/ResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 	<model name="VanguardResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/VanguardResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+	<model name="WarriorResistanceShield" type="icon" path="mvz2:icon/EXPAND_icon/WarriorResistanceShield" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 
     <model name="mind_swap" type="ui" path="mvz2:ui/mind_swap" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
 </models>

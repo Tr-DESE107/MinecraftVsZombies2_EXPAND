@@ -1312,6 +1312,7 @@
             <spawn id="mvz2:shikaisen_zombie" />
             <spawn id="mvz2:necromancer" />
             <spawn id="mvz2:TorchKongfuZombie" />
+            <spawn id="mvz2:FlyingPot" />
         </spawns>
         <properties>
             <integer name="spawnerCount" value="6" />
@@ -1363,6 +1364,7 @@
             <spawn id="mvz2:SixQiZombie" />
             <spawn id="mvz2:TorchKongfuZombie" />
             <spawn id="mvz2:Hemperor" />
+            <spawn id="mvz2:FlyingPot" />
         </spawns>
         <properties>
             <integer name="spawnerCount" value="8" />
@@ -1928,6 +1930,7 @@
 			<spawn id="mvz2:emperor_zombie" />
 			<spawn id="mvz2:TorchKongfuZombie" />
 			<spawn id="mvz2:Hemperor" />
+			<spawn id="mvz2:FlyingPot" />
         </spawns>
         <properties>
             <integer name="spawnerCount" value="8" />
