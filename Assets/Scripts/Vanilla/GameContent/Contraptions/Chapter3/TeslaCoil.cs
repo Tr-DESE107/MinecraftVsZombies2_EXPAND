@@ -176,9 +176,10 @@ namespace MVZ2.GameContent.Contraptions
                 }
                 if (entity.Type == EntityTypes.ENEMY)
                 {
-                    //entity.ShortCircuit(150);
+                    //entity.ShortCircuit(150);  
                     entity.InflictShock(30, new EntitySourceReference(entity));
-                    if (entity.HasBuff<FlyBuff>())
+                    // 只有当 TeslaCoil 拥有 Overcharge buff 时才能移除飞行能力  
+                    if (source.HasBuff<TeslaCoilOvercharge>() && entity.HasBuff<FlyBuff>())
                     {
                         if (entity.RNG.Next(4) == 0)
                         {
