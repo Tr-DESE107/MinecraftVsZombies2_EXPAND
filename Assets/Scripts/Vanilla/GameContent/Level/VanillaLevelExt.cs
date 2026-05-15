@@ -3,8 +3,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
@@ -13,15 +13,12 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Grids;
-using MVZ2Logic.Grids;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
 using MVZ2Logic.Blueprints;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -31,7 +28,6 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
@@ -200,7 +196,29 @@ namespace MVZ2.Vanilla.Level
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
-            return level.Spawn(VanillaEnemyID.flagZombie, pos, null);
+
+            // 根据地图ID生成不同的摇旗怪物  
+            NamespaceID flagEnemyID = VanillaEnemyID.flagZombie;
+            var areaID = level.AreaID;
+
+            if (areaID == VanillaAreaID.halloween)
+            {
+                flagEnemyID = VanillaEnemyID.FlagSkeleton;
+            }
+            else if (areaID == VanillaAreaID.castle)
+            {
+                flagEnemyID = VanillaEnemyID.NetherCourier;
+            }
+            else if (areaID == VanillaAreaID.mausoleum)
+            {
+                flagEnemyID = VanillaEnemyID.FlagbearerZombie;
+            }
+            else if (areaID == VanillaAreaID.ship)
+            {
+                flagEnemyID = VanillaEnemyID.JollyRogerZombie;
+            }
+
+            return level.Spawn(flagEnemyID, pos, null);
         }
         #endregion
 

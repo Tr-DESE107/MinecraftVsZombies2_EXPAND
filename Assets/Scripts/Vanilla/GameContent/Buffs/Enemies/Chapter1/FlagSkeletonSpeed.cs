@@ -1,22 +1,19 @@
 #nullable enable
 
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
-
 using MVZ2Logic.Models;
-
 using PVZEngine;
 using PVZEngine.Buffs;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
+using MVZ2.Vanilla.Enemies;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.FlagSkeletonSpeed)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.FlagSkeletonSpeed)]
     public class FlagSkeletonSpeedBuff : BuffDefinition
     {
         public FlagSkeletonSpeedBuff(string nsp, string name) : base(nsp, name)

@@ -7,16 +7,19 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+
 using MVZ2Logic.Level;
+
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.FlagbearerZombie)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.FlagbearerZombie)]
     public class FlagbearerZombie : MonkZombie
     {
         public FlagbearerZombie(string nsp, string name) : base(nsp, name)
@@ -42,7 +45,7 @@ namespace MVZ2.GameContent.Enemies
             }
         }
 
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var deadEntity = param.entity;
             var deathInfo = param.deathInfo;

@@ -3674,7 +3674,7 @@
 				<int name="mvz2:cost" value="125" />
 			</properties>
 		</entity>
-		<entity template="zombie" id="FlagbearerZombie"name="掌旗僵尸" deathMessage="夺旗先登！">
+		<entity template="zombie" id="FlagbearerZombie" name="掌旗僵尸" deathMessage="夺旗先登！">
 			<unlock>
 				<condition required="mvz2:level.mausoleum_1" />
 			</unlock>
@@ -3958,8 +3958,8 @@
 				<float name="mvz2:maxHealth" value="600" />
 				<float name="mvz2:speed" value="0.8" />
 			</properties>
-		</zombie>
-		<zombie id="JollyRogerZombie" name="海盗旗帜僵尸" deathMessage="我就说投降没好下场。">
+		</entity>
+		<entity template="zombie" id="JollyRogerZombie" name="海盗旗帜僵尸" deathMessage="我就说投降没好下场。">
 			<unlock>
 				<condition required="mvz2:level.ship_1" />
 			</unlock>

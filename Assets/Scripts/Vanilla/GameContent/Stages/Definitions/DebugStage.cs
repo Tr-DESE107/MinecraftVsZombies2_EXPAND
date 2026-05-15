@@ -53,10 +53,12 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.obsidian,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,
-                VanillaContraptionID.beacon,
-                VanillaContraptionID.skywardBeacon,
-                VanillaEnemyID.zombie,
-                VanillaEnemyID.ironHelmettedZombie,
+                //VanillaContraptionID.beacon,
+                //VanillaContraptionID.skywardBeacon,
+                VanillaEnemyID.FlagSkeleton,
+                VanillaEnemyID.NetherCourier,
+                VanillaEnemyID.FlagbearerZombie,
+                VanillaEnemyID.JollyRogerZombie,
                 VanillaEnemyID.mesmerizer,
             });
             level.SetArtifactSlotCount(3);
