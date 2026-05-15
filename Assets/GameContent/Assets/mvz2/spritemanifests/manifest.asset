@@ -389,6 +389,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 28a1b23d69f2f284695b159c4c295d6f, type: 3}
   - name: mobile_blueprint/firework_dispenser
     sprite: {fileID: 21300000, guid: ced04377ba2ef5c4997601c45b6ca7e7, type: 3}
+  - name: mobile_blueprint/FlagbearerZombie
+    sprite: {fileID: 21300000, guid: 4a91986d0a1fb034ab8367a5c55c94bb, type: 3}
   - name: mobile_blueprint/FlagSkeleton
     sprite: {fileID: 21300000, guid: 0c063550d332c854ca01810283b9e22d, type: 3}
   - name: mobile_blueprint/flag_zombie
@@ -455,6 +457,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a2c663f155f7ff44eb88ea0b4b0a285e, type: 3}
   - name: mobile_blueprint/jeweled_pagoda
     sprite: {fileID: 21300000, guid: 91145db7ce144ae46b011cc317c0fd39, type: 3}
+  - name: mobile_blueprint/JollyRogerZombie
+    sprite: {fileID: 21300000, guid: d11b2c3a4820d4341a0c82f67263062b, type: 3}
   - name: mobile_blueprint/kagerou
     sprite: {fileID: 21300000, guid: 6f2b6c2d521de48498c08e9afbf7e77b, type: 3}
   - name: mobile_blueprint/KingofReverser
@@ -531,6 +535,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d1bf852fe2722b54e9735417e907a23c, type: 3}
   - name: mobile_blueprint/NetherArcher
     sprite: {fileID: 21300000, guid: 83223b5e2b40a81428e212ef576631d2, type: 3}
+  - name: mobile_blueprint/NetherCourier
+    sprite: {fileID: 21300000, guid: 320d8175eed475b46895644e463de091, type: 3}
   - name: mobile_blueprint/NetherTroopCarrier
     sprite: {fileID: 21300000, guid: 3816b1ac92926794f8be0374fd4656aa, type: 3}
   - name: mobile_blueprint/NetherVanguard
@@ -1141,6 +1147,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ce61d5f5e6687a643968d800f45003ef, type: 3}
   - name: entity/enemies/muskets
     sprite: {fileID: 21300000, guid: 38321ae00bfd2c647a4a0e221e08ce9a, type: 3}
+  - name: entity/enemies/netherite_sword
+    sprite: {fileID: 21300000, guid: 44112ce4a5ac07d49b64e411fb4fd6bf, type: 3}
   - name: entity/enemies/RedEyeZombieHead
     sprite: {fileID: 21300000, guid: 645fcd6dca551b74081afa84999b7736, type: 3}
   - name: entity/enemies/SkeletonHead
@@ -1930,6 +1938,11 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
     - {fileID: 21300002, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
+  - name: entity/armor/ImperialGuardHelmet
+    spritesheet:
+    - {fileID: 953825088, guid: 1356ae977400d3f43969bb3779c08f37, type: 3}
+    - {fileID: 451102365, guid: 1356ae977400d3f43969bb3779c08f37, type: 3}
+    - {fileID: 2001455314, guid: 1356ae977400d3f43969bb3779c08f37, type: 3}
   - name: entity/armor/iron_helmet
     spritesheet:
     - {fileID: 21300000, guid: 4604673f13e91a847a5781f0d106be31, type: 3}
@@ -3759,6 +3772,11 @@ MonoBehaviour:
     - {fileID: 1525796552, guid: a20c664f002d02c45a83c93d170c5c1a, type: 3}
     - {fileID: 1619024437, guid: a20c664f002d02c45a83c93d170c5c1a, type: 3}
     - {fileID: 1494735760, guid: a20c664f002d02c45a83c93d170c5c1a, type: 3}
+  - name: entity/armor/EXPAND_armor/Cabasset
+    spritesheet:
+    - {fileID: 1325752924, guid: 3f9c9b755b4005b4288a339e36b69d45, type: 3}
+    - {fileID: 588872569, guid: 3f9c9b755b4005b4288a339e36b69d45, type: 3}
+    - {fileID: -421256731, guid: 3f9c9b755b4005b4288a339e36b69d45, type: 3}
   - name: entity/armor/EXPAND_armor/ChainmailHelmet
     spritesheet:
     - {fileID: -911301944, guid: b17617c5559b3c346a42a3c226f0b3d1, type: 3}
@@ -4126,6 +4144,9 @@ MonoBehaviour:
     - {fileID: -168768756, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
     - {fileID: -1082140172, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
     - {fileID: -210768420, guid: 8a4d031a7b9504044ade6c6e1f8abbbb, type: 3}
+  - name: entity/enemy/EXPAND/NetherBrickShield
+    spritesheet:
+    - {fileID: 21300000, guid: 7c30cefcf1eacb64faa09f604493cdd4, type: 3}
   - name: entity/enemy/EXPAND/NetherCourier
     spritesheet:
     - {fileID: 965502163, guid: 4daa8f763112e754083924f9d3d29e04, type: 3}
@@ -4137,6 +4158,9 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1907976018, guid: f01e3579eb453fa4ca9d2f45afcb7291, type: 3}
     - {fileID: 315500922, guid: f01e3579eb453fa4ca9d2f45afcb7291, type: 3}
+  - name: entity/enemy/EXPAND/NetherVanguardShield
+    spritesheet:
+    - {fileID: 21300000, guid: 9d4afc3347e4ab74cbee8a8770deddac, type: 3}
   - name: entity/enemy/EXPAND/NetherWarriorShield
     spritesheet:
     - {fileID: 21300000, guid: 5fd32a3960b8edd4d89fcd70dcb87ff3, type: 3}

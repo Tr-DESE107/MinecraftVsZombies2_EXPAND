@@ -156,6 +156,15 @@
 				<float name="mvz2:maxHealth" value="600" />
 			</props>
 		</entry>
+		<entry id="ImperialGuardHelmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3" />
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1110" />
+			</props>
+		</entry>
 		<entry id="HemperorCrown" type="mvz2:helmet">
 			<props>
 				<id name="mvz2:shell" value="mvz2:wood" />
@@ -393,7 +402,7 @@
 				<float name="mvz2:maxHealth" value="600" />
 			</props>
 		</entry>
-		<entry id="NetherWarriorShield" type="mvz2:small_shield">
+		<entry id="NetherBrickShield" type="mvz2:small_shield">
 			<colliders>
 				<collider name="main">
 					<offset x="0" y="0" z="0" />

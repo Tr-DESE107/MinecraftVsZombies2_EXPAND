@@ -222,7 +222,7 @@ PrefabInstance:
       addedObject: {fileID: 702323592930716135}
     - targetCorrespondingSourceObject: {fileID: 42421902326188256, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6248219256762947884}
+      addedObject: {fileID: 8722027027269638166}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
 --- !u!4 &1122716412493297309 stripped
@@ -240,7 +240,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 9198320902467191658, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
   m_PrefabInstance: {fileID: 2126259587625442999}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2228021168367643518
+--- !u!1001 &3555444997312850500
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -258,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5214507826323845714, guid: 99fdd39dc1d8b954894741af1e69910c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5214507826323845714, guid: 99fdd39dc1d8b954894741af1e69910c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -297,8 +297,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99fdd39dc1d8b954894741af1e69910c, type: 3}
---- !u!4 &6248219256762947884 stripped
+--- !u!4 &8722027027269638166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5214507826323845714, guid: 99fdd39dc1d8b954894741af1e69910c, type: 3}
-  m_PrefabInstance: {fileID: 2228021168367643518}
+  m_PrefabInstance: {fileID: 3555444997312850500}
   m_PrefabAsset: {fileID: 0}
