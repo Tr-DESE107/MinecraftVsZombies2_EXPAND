@@ -85,7 +85,7 @@ namespace MVZ2.GameContent.Enemies
         public const string EvilMage = "EvilMage";
         public const string WitherBoneWall = "WitherBoneWall";
 
-        public const string FlagSkeleton = "FlagSkeleton"; //todo
+        public const string FlagSkeleton = "FlagSkeleton";
 
         //EXPAND_C2
         public const string HostZombie = "HostZombie";
@@ -105,7 +105,7 @@ namespace MVZ2.GameContent.Enemies
         public const string WitherSkeleton = "WitherSkeleton";
         public const string LeatherWitherSkeleton = "LeatherWitherSkeleton";
         public const string IronWitherSkeleton = "IronWitherSkeleton";
-        public const string NetherCourier = "NetherCourier"; //todo
+        public const string NetherCourier = "NetherCourier";
 
         public const string NetherWarrior = "NetherWarrior";
         public const string NetherArcher = "NetherArcher";
@@ -124,7 +124,7 @@ namespace MVZ2.GameContent.Enemies
         public const string MonkZombie = "MonkZombie";
         public const string LeatherMonkZombie = "LeatherMonkZombie";
         public const string IronMonkZombie = "IronMonkZombie";
-        public const string FlagbearerZombie = "FlagbearerZombie";//todo
+        public const string FlagbearerZombie = "FlagbearerZombie";
         public const string SixQiZombie = "SixQiZombie";
         public const string TorchKongfuZombie = "TorchKongfuZombie";
         public const string DrunkardMonkZombie = "DrunkardMonkZombie";

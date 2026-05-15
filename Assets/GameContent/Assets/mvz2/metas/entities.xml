@@ -2226,7 +2226,7 @@
         <entity template="zombie" id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <properties>
                 <int name="mvz2:cost" value="300" />
-                <float name="mvz2:damage" value="200" />
+                <float name="mvz2:damage" value="300" />
                 <float name="mvz2:speed" value="1.5" />
                 <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
             </properties>
@@ -2967,6 +2967,7 @@
 
 		<entity template="Skeleton_Exp" id="FlagSkeleton" name="旗帜骷髅" deathMessage="不要停下来啊">
 			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
 				<int name="mvz2:cost" value="300" />
 				<int name="mvz2:waterInteraction" value="2" />
 				<float name="mvz2:damage" value="200" />
@@ -3351,7 +3352,7 @@
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 			</properties>
 		</entity>
-		<entity template="WitherSkeleton_Exp" id="NetherCourier" name="下界传令兵" deathMessage="被未受训练的新兵打死，你也太丢人了">
+                <entity template="WitherSkeleton_Exp" id="NetherCourier" name="下界传令兵" deathMessage="被他打死不算丢人">
 			<unlock>
 				<condition required="mvz2:level.dream_11" />
 			</unlock>
@@ -3360,6 +3361,7 @@
 			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="300" />
+				<float name="mvz2:maxHealth" value="500" />
 				<int name="mvz2:waterInteraction" value="2" />
 				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<id name="mvz2:shell" value="mvz2:nether" />
@@ -3418,7 +3420,7 @@
 			</unlock>
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
-				<id name="mvz2:starting_shield" value="mvz2:NetherWarriorShield" />
+				<id name="mvz2:starting_shield" value="mvz2:NetherBrickShield" />
 				<float name="mvz2:maxHealth" value="600" />
 				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
@@ -3672,14 +3674,15 @@
 				<int name="mvz2:cost" value="125" />
 			</properties>
 		</entity>
-		<entity template="zombie" id="FlagbearerZombie" name="掌旗僵尸" deathMessage="洒家今日便要开荤了！">
+		<entity template="zombie" id="FlagbearerZombie"name="掌旗僵尸" deathMessage="夺旗先登！">
 			<unlock>
-				<condition required="mvz2:level.castle_11" />
+				<condition required="mvz2:level.mausoleum_1" />
 			</unlock>
 			<behaviours>
 				<behaviour operator="add" id="mvz2:boated_enemy" />
 			</behaviours>
 			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:ImperialGuardHelmet" />
 				<int name="mvz2:cost" value="300" />
 				<float name="mvz2:maxHealth" value="300" />
 				<float name="mvz2:damage" value="200" />
@@ -3735,7 +3738,7 @@
 		</entity>
 		<entity template="enemy" id="FlyingPot" name="飞行壶" deathMessage="建国后明明不许成精！">
 			<unlock>
-				<condition required="mvz2:level.mausoleum_8" />
+				<condition required="mvz2:level.mausoleum_7" />
 			</unlock>
 			<behaviours>
 				<behaviour operator="remove" id="mvz2:enemy_melee" />
@@ -3956,7 +3959,7 @@
 				<float name="mvz2:speed" value="0.8" />
 			</properties>
 		</zombie>
-		<zombie id="JollyRogerZombie" name="海盗旗帜僵尸" deathMessage="他没射中靶子，气急败坏的打了你一顿">
+		<zombie id="JollyRogerZombie" name="海盗旗帜僵尸" deathMessage="我就说投降没好下场。">
 			<unlock>
 				<condition required="mvz2:level.ship_1" />
 			</unlock>
@@ -3971,7 +3974,7 @@
 				<id name="mvz2:projectileId" value="mvz2:bullet" />
 				<int name="mvz2:cost" value="100" />
 				<float name="mvz2:damage" value="150" />
-				<float name="mvz2:maxHealth" value="600" />
+				<float name="mvz2:maxHealth" value="400" />
 				<float name="mvz2:speed" value="1.5" />
 			</properties>
 		</entity>

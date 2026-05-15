@@ -412,6 +412,11 @@
 		<spawn level="3" minWave="5" />
 		<weight base="2000" />
 	</entry>
+	<entry id="FlyingPot">
+		<entity id="mvz2:Hemperor" />
+		<spawn level="3" minWave="5" />
+		<weight base="2000" />
+	</entry>
 	
     <!--EXPAND C5-->
 	<entry id="PirateZombie" entity="mvz2:PirateZombie">
