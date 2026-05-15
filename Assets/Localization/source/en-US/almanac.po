@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-01 04:01+0800\n"
-"PO-Revision-Date: 2026-05-01 16:02+0800\n"
+"POT-Creation-Date: 2026-05-16 01:57+0800\n"
+"PO-Revision-Date: 2026-05-16 02:23+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3735,6 +3735,27 @@ msgstr ""
 "Oh, and by the way, the undead in this world don't burn during the day for some reason. So you're still gonna get chased and bitten in "
 "the rear by these little guys."
 
+#. Header for enemies mvz2:FlagSkeleton
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "摇旗骷髅的出现标志着一大波怪物的到来。"
+msgstr "The appearance of the Flag Skeleton marks the arrival of a large wave of monsters."
+
+#. Flavor for enemies mvz2:FlagSkeleton
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"他用着骷髅特有的语言鼓励着骷髅族的同胞们冲向战场，但他似乎没意识到让远程攻击的同胞跑的更快吃更多子弹不是个好主意。\n"
+"\n"
+"这种语言并不只能在普通骷髅族内用，对远房的黑色表亲也能用。\n"
+"似乎对更加高大的黑色远亲也能用。"
+msgstr ""
+"He uses the unique language of skeletons to encourage his fellow skeletons to charge into battle — though he doesn't seem to realize "
+"that making his ranged-attacking kin run faster only means they'll eat more bullets.\n"
+"\n"
+"This language isn't just for ordinary skeletons — it also works on their distant dark-colored cousins.\n"
+"And apparently, it works on their even taller dark relatives as well."
+
 #. Header for enemies mvz2:SkeletonHead
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -4639,11 +4660,28 @@ msgstr ""
 "\n"
 "...Hey, where did they even get the iron?"
 
+#. Header for enemies mvz2:NetherCourier
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "下界传令兵的出现标志着一大波下界军团的到来。"
+msgstr "The appearance of the Nether Courier marks the arrival of a large wave of the Nether Legion."
+
+#. Flavor for enemies mvz2:NetherCourier
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"虽然这只军队中有大量未经过训练的新兵(炮灰)，但这个传令兵是货真价实的。下界传令兵由下界战士中的佼佼者担任，虽然未持剑，但他们已经达到了"
+"徒手便能放出领域伤害的境界。"
+msgstr ""
+"Although there are plenty of untrained recruits in this army — cannon fodder — this courier is the real deal. Nether Couriers are "
+"chosen from the finest Nether Warriors. Though unarmed, they have reached a level where they can unleash area damage with their bare "
+"hands."
+
 #. Header for enemies mvz2:NetherWarrior
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "下界战士在攻击时能够额外造成范围伤害。"
-msgstr "Nether Warrior deals additional area damage when attacking."
+msgid "下界战士在攻击时能够额外造成范围伤害，自身还会拥有减伤。"
+msgstr "Nether Warriors deal additional area damage when attacking and also have damage reduction."
 
 #. Properties for enemies mvz2:NetherWarrior
 #: Almanac meta file
@@ -4651,23 +4689,25 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"helmet_hp\" />（头盔）+<var id=\"shield_hp\" />（盾）</color>\n"
 "速度：<color=red><var id=\"entity_speed\" /></color>\n"
-"特点：<color=red>攻击时持续对小范围内的器械造成伤害，盾牌可抵挡一定高度的子弹。</color>"
+"特点：<color=red>攻击时持续对小范围内的器械造成伤害，同时为自己增加50%的抗性，盾牌可抵挡一定高度的子弹。</color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"helmet_hp\" /> (Helmet) + <var id=\"shield_hp\" /> (Shield)</"
 "color>\n"
 "Speed: <color=red><var id=\"entity_speed\" /></color>\n"
-"Special: <color=red>Deals continuous damage to contraptions within a small area while attacking. Shield can block projectiles of a "
-"certain height.</color>"
+"Special: <color=red>Deals continuous damage to contraptions within a small area while attacking, while also granting itself 50% damage "
+"resistance. The shield can block projectiles of a certain height.</color>"
 
 #. Flavor for enemies mvz2:NetherWarrior
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"地狱中最常见的部队之一。在下界骑士团的训练下，配备了精良的武器。身为凋零骷髅一族，榨取敌人的生命是他们一贯的作风。\n"
+"地狱中最常见的部队之一。在下界骑士团的训练下，配备了精良的武器。身为凋零骷髅一族，榨取敌人的生命是他们一贯的作风，临战架势下的他们更是"
+"坚不可摧。\n"
 "真希望你没有惹到他们。"
 msgstr ""
 "One of the most common troops in the Nether. Trained by the Nether Knight Order, they are equipped with fine weapons. As members of "
-"the Wither Skeleton kin, draining the life from their enemies is their standard practice.\n"
+"the Wither Skeleton kin, draining the life from their enemies is their standard practice, and in their combat stance, they are "
+"virtually indestructible.\n"
 "\n"
 "I hope you haven't crossed them."
 
@@ -5308,6 +5348,48 @@ msgctxt "enemies.description"
 msgid "这种僵尸带的铁桶其实是个反着的矿车，他负责拿这个矿车给庙里烧水用。"
 msgstr "The iron bucket this zombie wears is actually an upside-down minecart. He uses it to carry water for the temple's boiler."
 
+#. Header for enemies mvz2:FlagbearerZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "掌旗僵尸的出现标志着一大波大尸国僵尸的到来。"
+msgstr "The appearance of the Flag-bearer Zombie marks the arrival of a large wave of Great SHI Dynasty zombies."
+
+#. Properties for enemies mvz2:FlagbearerZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"armor_hp\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"特点：<color=red>每有一个怪物死亡，为自己增加20%的攻击力，上限10个。</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"armor_hp\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"Special: <color=red>For each monster that dies, increases its own attack power by 20%. Stacks up to 10 times.</color>"
+
+#. Flavor for enemies mvz2:FlagbearerZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"《军政》曰：“言不相闻，故为金鼓；视不相见，故为旌旗。”夫金鼓旌旗者，所以一人之耳目也。\n"
+"“凡旗总，每旗一人，执旗在前。旗向前指，则全旗齐进；旗后指，则全旗齐退；旗左指，则左转；右指，则右转。\n"
+"若旗向前挥动不住，则是急进之令，各兵当奋勇争先。旗手若倒，本旗无目，虽勇必乱。故旗手必选胆壮力全者为之。\n"
+"冲锋之时，旗手摇旗呐喊，以助军威。余兵衔枚（口中含木片）而进，不得出声。”"
+msgstr ""
+"The \"Art of War\" states: \"Because speech cannot be heard, they made gongs and drums; because actions cannot be seen, they made "
+"banners and flags.\" Gongs and drums, banners and flags are means to unify the ears and eyes of the host.\n"
+"\n"
+"The regulations say:\n"
+"\"For each flag unit, there is one man — the standard-bearer — who holds the flag at the front. When the flag points forward, the "
+"entire unit advances together. When it points backward, they retreat together. When it points left, they turn left; when it points "
+"right, they turn right.\n"
+"If the flag waves forward continuously, it is an order for rapid advance, and every soldier must strive to be the first. If the "
+"standard-bearer falls, the unit has no guide — no matter how brave, disorder will follow. Hence, the standard-bearer must be chosen as "
+"one of strong courage and full strength.\n"
+"At the moment of the charge, the standard-bearer waves the flag and shouts to boost the army's morale. The rest of the soldiers "
+"advance with wooden gags in their mouths, uttering no sound.\""
+
 #. Header for enemies mvz2:TorchKongfuZombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -5471,22 +5553,48 @@ msgstr ""
 "\n"
 "Also, they're really good at doing sit-ups."
 
+#. Header for enemies mvz2:FlyingPot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "飞行壶需要20次伤害才能被杀死。"
+msgstr "The Flying Pot requires 20 hits to be destroyed."
+
+#. Properties for enemies mvz2:FlyingPot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"entity_speed\" /></color>\n"
+"特点：<color=red>每次收到伤害只算作受到1点伤害。</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"entity_speed\" /></color>\n"
+"Special: <color=red>Each instance of damage counts as only 1 point of damage.</color>"
+
+#. Flavor for enemies mvz2:FlyingPot
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "有的倒霉蛋没能成仙，反倒是他们用的壶成了仙。"
+msgstr "Some unlucky souls failed to become immortals — but the pots they used ended up achieving immortality instead."
+
 #. Header for enemies mvz2:skeleton_warrior
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "骷髅战士能够被死灵墓碑召唤前来作战。"
-msgstr "Skeleton Warriors can be summoned by the Necrotombstone to fight for you."
+msgid "骷髅战士能够被死灵墓碑召唤前来作战，在攻击时拥有减伤。"
+msgstr "Skeleton Warriors can be summoned by the Necrotombstone to fight for you, and have damage reduction while attacking."
 
 #. Properties for enemies mvz2:skeleton_warrior
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"helmet_hp\" />（头盔）+<var id=\"shield_hp\" />（盾）</color>\n"
-"速度：<color=red><var id=\"entity_speed\" /></color>"
+"速度：<color=red><var id=\"entity_speed\" /></color>\n"
+"特点：<color=red>攻击时拥有25%减伤。</color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"helmet_hp\" /> (Helmet) + <var id=\"shield_hp\" /> (Shield)</"
 "color>\n"
-"Speed: <color=red><var id=\"entity_speed\" /></color>"
+"Speed: <color=red><var id=\"entity_speed\" /></color>\n"
+"Special: <color=red>Has 25% damage reduction while attacking.</color>"
 
 #. Flavor for enemies mvz2:skeleton_warrior
 #: Almanac meta file
@@ -5701,6 +5809,46 @@ msgstr ""
 "I suspect this guy drinks by the barrel — and you can see the evidence right on his head.\n"
 "\n"
 "<color=grey>Uh... what if the skeleton itself is the thing being pickled in the alcohol?</color>"
+
+#. Header for enemies mvz2:JollyRogerZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "海盗旗帜僵尸的出现标志着一大波海盗的到来。"
+msgstr "The appearance of the Jolly Roger Zombie marks the arrival of a large wave of pirates."
+
+#. Properties for enemies mvz2:JollyRogerZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"armor_hp\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"特点：<color=red>有3发火枪弹药，每次发射一发，射击完毕后会正常近战攻击</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"armor_hp\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"Special: <color=red>Has 3 musket rounds. Fires one shot per attack. When ammunition is exhausted, switches to regular melee attacks.</"
+"color>"
+
+#. Flavor for enemies mvz2:JollyRogerZombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"警告：不要接近一个醉醺醺、拿着火枪的僵尸，虽然他举的是黑旗，但现在的他不太像是有理智，能够遵守《海盗守则》的样子。\n"
+"\n"
+"<color=grey>海盗守则里提到：交战时刻，升起海盗红旗（Jolie Rouge）意味着绝不投降、绝不接受投降、不留活口。</color>\n"
+"<color=grey>而升起黑旗（Jolly Roger），意味着海盗愿意接受投降，交船、交钱、交货则饶命。</color>\n"
+"<color=grey>我就提一嘴，你别真考虑投降了。</color>"
+msgstr ""
+"Warning: Do not approach a tipsy, musket-wielding zombie. Even though he's flying a black flag, he doesn't exactly look like he's in "
+"any state to follow the Pirate Code.\n"
+"\n"
+"<color=grey>The Pirate Code states: in battle, raising the Jolie Rouge (Red Flag) means no quarter — no surrender given, no surrender "
+"accepted, no prisoners taken.</color>\n"
+"<color=grey>Raising the Jolly Roger (Black Flag), however, means the pirates are willing to accept surrender — hand over the ship, the "
+"treasure, and the cargo, and they'll spare your life.</color>\n"
+"<color=grey>Just putting it out there. Don't actually consider surrendering.</color>"
 
 #. Name for enemies mvz2:undead_flying_object
 #: Almanac meta file
@@ -10455,11 +10603,17 @@ msgctxt "entity.name"
 msgid "铁盔凋零骷髅"
 msgstr "Iron Helmet Wither Skeleton"
 
-#. Name for entity mvz2:FlagWitherSkeleton
+#. Name for entity mvz2:NetherCourier
 #: Entity meta file
 msgctxt "entity.name"
-msgid "旗帜凋零骷髅"
-msgstr "Flag Wither Skeleton"
+msgid "下界传令兵"
+msgstr "Nether Courier"
+
+#. Death message for entity mvz2:NetherCourier
+#: Entity meta file
+msgctxt "death_message"
+msgid "被他打死不算丢人"
+msgstr "Dying to him is no shame."
 
 #. Name for entity mvz2:AngryReverser
 #: Entity meta file
@@ -10630,11 +10784,17 @@ msgctxt "entity.name"
 msgid "武僧铁盔僵尸"
 msgstr "Iron Helmet  Monk Zombie"
 
-#. Name for entity mvz2:FlagMonkZombie
+#. Name for entity mvz2:FlagbearerZombie
 #: Entity meta file
 msgctxt "entity.name"
-msgid "武僧旗帜僵尸"
-msgstr "Flag Monk Zombie"
+msgid "掌旗僵尸"
+msgstr "Flag-bearer Zombie"
+
+#. Death message for entity mvz2:FlagbearerZombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "夺旗先登！"
+msgstr "Plant the flag and take the lead!"
 
 #. Name for entity mvz2:SixQiZombie
 #: Entity meta file
@@ -10683,6 +10843,18 @@ msgstr "Hemperor"
 msgctxt "death_message"
 msgid "死是凉爽的夏夜，可供人无忧的安眠"
 msgstr "Der Tod, das ist die kühle Nacht"
+
+#. Name for entity mvz2:FlyingPot
+#: Entity meta file
+msgctxt "entity.name"
+msgid "飞行壶"
+msgstr "Flying Pot"
+
+#. Death message for entity mvz2:FlyingPot
+#: Entity meta file
+msgctxt "death_message"
+msgid "建国后明明不许成精！"
+msgstr "No becoming a spirit after the founding of the nation!"
 
 #. Name for entity mvz2:PirateZombie
 #: Entity meta file
@@ -10744,6 +10916,24 @@ msgctxt "death_message"
 msgid "你不要过来啊!"
 msgstr "Stay back! Don't come any closer!"
 
+#. Name for entity mvz2:SquidDrowned
+#: Entity meta file
+msgctxt "entity.name"
+msgid "鱿鱼溺尸"
+msgstr "Squid Drowned"
+
+#. Death message for entity mvz2:SquidDrowned
+#: Entity meta file
+msgctxt "death_message"
+msgid "你被鱿鱼缠住了！"
+msgstr "You got tangled by a squid!"
+
+#. Name for entity mvz2:SquidCage
+#: Entity meta file
+msgctxt "entity.name"
+msgid "鱿鱼障碍物"
+msgstr "Squid"
+
 #. Name for entity mvz2:PirateBomb
 #: Entity meta file
 msgctxt "entity.name"
@@ -10803,6 +10993,18 @@ msgstr "Musketeer Zombie"
 msgctxt "death_message"
 msgid "他没射中靶子，气急败坏的打了你一顿"
 msgstr "He missed the target, flew into a rage, and just beat you to death instead."
+
+#. Name for entity mvz2:JollyRogerZombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "海盗旗帜僵尸"
+msgstr "Jolly Roger Zombie"
+
+#. Death message for entity mvz2:JollyRogerZombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "我就说投降没好下场。"
+msgstr "See? I told you surrender never ends well."
 
 #. Name for entity mvz2:SailorZombie
 #: Entity meta file
@@ -11899,6 +12101,14 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "entity.name"
+#~ msgid "旗帜凋零骷髅"
+#~ msgstr "Flag Wither Skeleton"
+
+#~ msgctxt "entity.name"
+#~ msgid "武僧旗帜僵尸"
+#~ msgstr "Flag Monk Zombie"
 
 #~ msgctxt "contraptions.description"
 #~ msgid "精准采集是你这样用的？"
