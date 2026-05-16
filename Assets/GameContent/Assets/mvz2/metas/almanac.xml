@@ -833,7 +833,7 @@
 				<p>磁暴线圈会电击周围大范围内的敌人。</p>
 			</header>
 			<properties>
-				<p>攻击速度：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
+				<p>攻击速度：<![CDATA[<color=red>2秒</color>]]></p>
 				<p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
 				<p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
 				<p>特殊：<![CDATA[<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害</color>]]></p>
@@ -1004,7 +1004,7 @@
 		</entry>
 		<entry id="black_hole_bomb">
 			<variables>
-				<variable name="dps">toDouble(global("mvz2:entity_damage")) * 0.3</variable>
+				<variable name="dps">global("mvz2:entity_damage") * 0.3</variable>
 			</variables>
 			<header>
 				<p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。</p>
@@ -1655,9 +1655,10 @@
 		<entry id="mvz2:skyward_beacon">
 			<tags>
 				<tag id="mvz2:placement_beacon" />
+				<tag id="mvz2:antifly"/>
 			</tags>
 			<header>
-				<p>御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。</p>
+				<p>御天信标会发射光柱持续打击一处定点内的所有敌人。点击它可以修改打击的定点位置。</p>
 			</header>
 			<properties>
 				<p>攻击间隔：<![CDATA[<color=red>1发/3秒</color>]]></p>
