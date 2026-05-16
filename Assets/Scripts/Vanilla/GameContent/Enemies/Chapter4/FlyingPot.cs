@@ -32,6 +32,11 @@ namespace MVZ2.GameContent.Enemies
                 damageInfo.SetAmount(1f);
             }
         }
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+            entity.Remove();
+        }
 
     }
 }

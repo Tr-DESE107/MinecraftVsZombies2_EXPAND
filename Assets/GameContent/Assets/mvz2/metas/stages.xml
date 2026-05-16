@@ -1944,15 +1944,20 @@
         <model preset="cloudy" />
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <spawns flags="2" >
-            <spawn id="mvz2:zombie"/>
-            <spawn id="mvz2:leather_capped_zombie"/>
-            <spawn id="mvz2:iron_helmetted_zombie"/>
-            <spawn id="mvz2:undead_flying_object" />
-            <spawn id="mvz2:zombie_cloud" />
-            <spawn id="mvz2:cannoneer_zombie" />
-            <spawn id="mvz2:pop_captain" />
+			<spawn id="mvz2:PirateZombie" />
+			<spawn id="mvz2:LeatherPirateZombie" />
+			<spawn id="mvz2:PirateBucketSkeleton" />
+			<spawn id="mvz2:undead_flying_object" />
+			<spawn id="mvz2:zombie_cloud" />
+			<spawn id="mvz2:cannoneer_zombie" />
+			<spawn id="mvz2:pop_captain" />
 			<spawn id="mvz2:HeavyGutant" />
 			<spawn id="mvz2:Endermite" />
+			<spawn id="mvz2:cannonball_zombie" />
+			<spawn id="mvz2:PirateIMP" />
+			<spawn id="mvz2:ChiefCannoneerZombie" />
+			<spawn id="mvz2:MusketeerZombie" />
+			<spawn id="mvz2:SailorZombie" />
         </spawns>
         <properties>
             <bool name="mvz2:boss_revenge" value="true"/>
