@@ -413,7 +413,7 @@
 		<weight base="2000" />
 	</entry>
 	<entry id="FlyingPot">
-		<entity id="mvz2:Hemperor" />
+		<entity id="mvz2:FlyingPot" />
 		<spawn level="3" minWave="5" />
 		<weight base="2000" />
 	</entry>
