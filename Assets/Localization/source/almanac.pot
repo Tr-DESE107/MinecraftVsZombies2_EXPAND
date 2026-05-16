@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-16 01:57+0800\n"
+"POT-Creation-Date: 2026-05-16 05:34+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1799,7 +1799,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"攻击速度：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
+"攻击速度：<color=red>2秒</color>\n"
 "半径：<color=red><var id=\"mvz2:FireRange\" />格</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "特殊：<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害</color>\n"
@@ -1973,7 +1973,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"血量：<color=red><var id=\"mvz2:AttackInterval\" /></color>\n"
+"耐久：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "伤害增幅：<color=red>+100%火焰伤害，+66%溅射伤害</color>\n"
 "技能：<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>"
 msgstr ""
@@ -2567,7 +2567,7 @@ msgstr ""
 #. Header for contraptions mvz2:skyward_beacon
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。"
+msgid "御天信标会发射光柱持续打击一处定点内的所有敌人。点击它可以修改打击的定点位置。"
 msgstr ""
 
 #. Properties for contraptions mvz2:skyward_beacon
