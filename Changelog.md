@@ -13,6 +13,7 @@
 - After completing all levels in a map, entering the map will now set the view to the position of the endless level button.
 - Random China now displays both of evocation event's name and description instead of its name only.
 - Sweet Dream Pillow no longer triggers after all enemies in the level have been cleared.
+- Improved the console's auto-completion feature. Now, code completion displays up to 10 suggestions at a time, with the ability to page through more.
 
 ### Balance
 - Moonlight Sensor
