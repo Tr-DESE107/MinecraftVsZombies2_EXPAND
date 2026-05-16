@@ -508,7 +508,7 @@ Animator:
   m_GameObject: {fileID: 7955094530580287421}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 171695887b8623c4e8d8e17a9ec78ce4, type: 2}
+  m_Controller: {fileID: 9100000, guid: f46113773d3573748b1f6ab5ac0530e5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1021,15 +1021,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9092457047127972368, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.b
-      value: 0.8679245
+      value: 0.03137255
       objectReference: {fileID: 0}
     - target: {fileID: 9092457047127972368, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.g
-      value: 0.12281939
+      value: 0.03137255
       objectReference: {fileID: 0}
     - target: {fileID: 9092457047127972368, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.r
-      value: 0.5198133
+      value: 0.63529414
       objectReference: {fileID: 0}
     - target: {fileID: 9092457047127972368, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_SortingOrder
@@ -1111,15 +1111,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9092457047127972368, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.b
-      value: 0.21960786
+      value: 0.103140585
       objectReference: {fileID: 0}
     - target: {fileID: 9092457047127972368, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.g
-      value: 0.21960786
+      value: 0.103140585
       objectReference: {fileID: 0}
     - target: {fileID: 9092457047127972368, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Color.r
-      value: 0.21960786
+      value: 0.93710685
       objectReference: {fileID: 0}
     - target: {fileID: 9092457047127972368, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_SortingOrder
