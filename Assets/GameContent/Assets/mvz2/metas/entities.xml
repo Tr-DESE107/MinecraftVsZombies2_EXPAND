@@ -3235,6 +3235,7 @@
 			</unlock>
 			<behaviours>
 				<behaviour operator="remove" id="mvz2:enemy_melee" />
+				<behaviour operator="add" id="mvz2:fragmented" />
 			</behaviours>
 			<properties>
 				<int name="mvz2:cost" value="100" />

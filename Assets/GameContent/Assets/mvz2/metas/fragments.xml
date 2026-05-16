@@ -343,6 +343,14 @@
 			<key hex="#43B3AE" time="1" />
 		</colorKeys>
 	</fragment>
+	<fragment name="FlyingPot">
+		<colorKeys>
+			<key hex="#5b3e27" time="0" />
+			<key hex="#654a39" time="0.35" />
+			<key hex="#b69682" time="0.7" />
+			<key hex="#634938" time="1" />
+		</colorKeys>
+	</fragment>
 	<fragment name="Bedrock">
 		<colorKeys>
 			<key hex="#4F4F4F" time="0.5" />
