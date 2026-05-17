@@ -5,6 +5,7 @@ using MVZ2.Metas;
 using MVZ2.UI.Talk;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace MVZ2.Talk
 {
@@ -57,7 +58,7 @@ namespace MVZ2.Talk
             ui.SetPivot(pivot);
             ui.SetWidthExtend(widthExtend);
         }
-        public void SetSide(CharacterSide side)
+        public void SetSide(CharacterSide side, bool flipX)
         {
             Vector3 scale = Vector3.zero;
             switch (side)
@@ -69,6 +70,7 @@ namespace MVZ2.Talk
                     scale = new Vector3(1, 1, 1);
                     break;
             }
+            ui.SetFlipX(flipX);
             ui.SetScale(scale);
         }
         public void ResetMotion()

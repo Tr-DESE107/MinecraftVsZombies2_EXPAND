@@ -16,6 +16,10 @@ namespace MVZ2.UI.Talk
         {
             image.sprite = sprite;
         }
+        public void SetFlipX(bool flipX)
+        {
+            image.transform.localScale = new Vector3(flipX ? -1 : 1, 1, 1);
+        }
         public void SetPivot(Vector2 pivot)
         {
             imageRectTransform.pivot = pivot;

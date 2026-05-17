@@ -81,8 +81,15 @@ namespace MVZ2.Store
             {
                 characterId = characterID;
 
+                var faceRight = false;
+                var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
+                if (characterMeta != null)
+                {
+                    faceRight = characterMeta.faceRight;
+                }
+
                 character.SetVariant(characterID, null);
-                character.SetSide(CharacterSide.Left);
+                character.SetSide(CharacterSide.Left, faceRight);
             }
 
             if (preset.Music != null && !Main.MusicManager.IsPlaying(preset.Music))

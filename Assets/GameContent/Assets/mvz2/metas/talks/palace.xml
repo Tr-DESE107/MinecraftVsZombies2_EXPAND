@@ -854,9 +854,9 @@
       <!--角色列表-->
       <characters>
         <character id="mvz2:satori" side="left" />
-        <character id="mvz2:rin" side="left" />
+        <character id="mvz2:utsuho" side="left" />
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:utsuho" side="right" />
+        <character id="mvz2:rin" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -1396,9 +1396,9 @@
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:rin" side="left" />
+        <character id="mvz2:utsuho" side="left" />
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:utsuho" side="right" />
+        <character id="mvz2:rin" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -1710,10 +1710,10 @@
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:satori" side="left" />
+        <character id="mvz2:utsuho" side="left" />
         <character id="mvz2:steve" side="self" />
         <character id="mvz2:koishi" side="right" />
-        <character id="mvz2:utsuho" side="right" />
+        <character id="mvz2:satori" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -1969,9 +1969,9 @@
       <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
-        <character id="mvz2:satori" side="left" />
+        <character id="mvz2:rin" variant="mvz2:worried" side="left" />
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:rin" variant="mvz2:worried" side="right" />
+        <character id="mvz2:satori" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -2073,7 +2073,7 @@
           <!--语句点击脚本-->
           <onClick>
             <script>bubble hide</script>
-            <script>character create mvz2:utsuho right mvz2:happy</script>
+            <script>character create mvz2:utsuho left mvz2:happy</script>
             <script>delay 1</script>
             <script>next</script>
           </onClick>
@@ -2597,7 +2597,7 @@
           <text>觉大人啊，她早上说自己去外边调查了。</text>
         </sentence>
         <!--语句2-->
-        <sentence speaker="mvz2:utsuho" sounds="mvz2:dialog_weird">
+        <sentence speaker="mvz2:utsuho" sounds="mvz2:dialog_weird" variant="mvz2:question">
           <text>有关这些——呃，打人的事情。</text>
         </sentence>
         <!--语句3-->
@@ -2678,9 +2678,9 @@
       </onSkip>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:rin" variant="mvz2:worried" side="left" />
+        <character id="mvz2:utsuho" variant="mvz2:question" side="left" />
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:utsuho" variant="mvz2:question" side="right" />
+        <character id="mvz2:rin" variant="mvz2:worried" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -2730,7 +2730,7 @@
           <text>……</text>
         </sentence>
         <!--语句8-->
-        <sentence speaker="mvz2:utsuho" sounds="mvz2:dialog_beat" variant="mvz2:variant">
+        <sentence speaker="mvz2:utsuho" sounds="mvz2:dialog_beat" variant="mvz2:happy">
           <!--语句开始脚本-->
           <onStart>
             <script>shake</script>
@@ -2920,9 +2920,9 @@
         <character id="mvz2:steve" side="self" />
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:tokiko" variant="mvz2:worried" side="left" />
-        <character id="mvz2:rin" variant="mvz2:worried" side="left" />
+        <character id="mvz2:utsuho" variant="mvz2:sad" side="left" />
         <character id="mvz2:koishi" variant="mvz2:question" side="right" />
-        <character id="mvz2:utsuho" variant="mvz2:sad" side="right" />
+        <character id="mvz2:rin" variant="mvz2:worried" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -3434,10 +3434,10 @@
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:utsuho" side="right" />
-        <character id="mvz2:steve" side="self" />
+        <character id="mvz2:utsuho" side="left" />
         <character id="mvz2:tokiko" variant="mvz2:worried" side="left" />
-        <character id="mvz2:rin" variant="mvz2:question" side="left" />
+        <character id="mvz2:steve" side="self" />
+        <character id="mvz2:rin" variant="mvz2:question" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -3519,9 +3519,9 @@
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:rin" variant="mvz2:worried" side="left" />
+        <character id="mvz2:utsuho" side="left" />
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:utsuho" side="right" />
+        <character id="mvz2:rin" variant="mvz2:worried" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -3567,9 +3567,9 @@
       <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
-        <character id="mvz2:rin" variant="mvz2:scared" side="left" />
+        <character id="mvz2:utsuho" variant="mvz2:surprised" side="left" />
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:utsuho" variant="mvz2:surprised" side="right" />
+        <character id="mvz2:rin" variant="mvz2:scared" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -3622,9 +3622,9 @@
     <section>
       <!--角色列表-->
       <characters>
-        <character id="mvz2:rin" variant="mvz2:scared" side="left" />
+        <character id="mvz2:utsuho" variant="mvz2:surprised" side="left" />
         <character id="mvz2:steve" side="self" />
-        <character id="mvz2:utsuho" variant="mvz2:surprised" side="right" />
+        <character id="mvz2:rin" variant="mvz2:scared" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>

@@ -870,8 +870,16 @@ namespace MVZ2.Talk
         {
             var chr = Instantiate(characterTemplate, characterRoot).GetComponent<TalkCharacterController>();
             chr.gameObject.SetActive(true);
+
+            bool faceRight = false;
+            var characterMeta = Main.ResourceManager.GetCharacterMeta(characterId);
+            if (characterMeta != null)
+            {
+                faceRight = characterMeta.faceRight;
+            }
+
             chr.SetVariant(characterId, variant);
-            chr.SetSide(side);
+            chr.SetSide(side, faceRight);
             characterList.Add(new CharacterData(characterId, side, chr));
         }
 

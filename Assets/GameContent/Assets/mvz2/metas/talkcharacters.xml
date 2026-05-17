@@ -591,29 +591,33 @@
             <layer sprite="mvz2:characters/rin[5]" positionX="176" positionY="192" />
         </variant>
     </character>
-    <character id="utsuho" name="空">
-        <variant id="mvz2:normal" width="448" height="896" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
-            <layer sprite="mvz2:characters/armor_stand" />
+    <character id="utsuho" name="空" faceRight="true">
+        <variant id="mvz2:normal" width="1094" height="1280" extendLeft="100" extendRight="200" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/utsuho[0]" />
         </variant>
         <variant id="mvz2:happy" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_5" />
             </unlock>
+            <layer sprite="mvz2:characters/utsuho[1]" positionX="576" positionY="128" />
         </variant>
         <variant id="mvz2:surprised" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_6" />
             </unlock>
+            <layer sprite="mvz2:characters/utsuho[4]" positionX="592" positionY="144" />
         </variant>
         <variant id="mvz2:question" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_8" />
             </unlock>
+            <layer sprite="mvz2:characters/utsuho[2]" positionX="592" positionY="96" />
         </variant>
         <variant id="mvz2:sad" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.palace_8" />
             </unlock>
+            <layer sprite="mvz2:characters/utsuho[3]" positionX="592" positionY="128" />
         </variant>
     </character>
 </characters>

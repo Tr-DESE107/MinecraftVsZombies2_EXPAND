@@ -1597,6 +1597,13 @@ MonoBehaviour:
     - {fileID: -2106919776, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -900475582, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: 734534095, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
+  - name: characters/utsuho
+    spritesheet:
+    - {fileID: -2040329995, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
+    - {fileID: -2100033065, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
+    - {fileID: 1428977806, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
+    - {fileID: -877922488, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
+    - {fileID: 824911285, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
   - name: icons/parasitized_icon
     spritesheet:
     - {fileID: -1697089634, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}

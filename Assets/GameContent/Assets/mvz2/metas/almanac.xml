@@ -3014,7 +3014,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:utsuho"/>
+                <picture sprite="mvz2:characters/utsuho[0]" character="mvz2:utsuho"/>
                 <header>
                     <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的宠物之一，能够操纵核能的地狱鸦。</p>
                 </header>
