@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-17 03:54+0800\n"
+"POT-Creation-Date: 2026-05-17 08:18+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2381,7 +2381,7 @@ msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" />，低于200时每秒失去60生命</color>\n"
 "速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
 "碾压伤害：<color=red>10000000</color>\n"
-"弱点：<color=red>尖刺方块</color>"
+"弱点：<color=red><ref=[contraptions]mvz2:spike_block>尖刺方块</ref></color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:hell_chariot

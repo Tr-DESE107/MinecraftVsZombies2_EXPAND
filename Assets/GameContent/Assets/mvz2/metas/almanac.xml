@@ -1514,7 +1514,7 @@
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />，低于200时每秒失去60生命</color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>碾压伤害：<![CDATA[<color=red>10000000</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>尖刺方块</color>]]></p>
+                <p>弱点：<![CDATA[<color=red><ref=[contraptions]mvz2:spike_block>尖刺方块</ref></color>]]></p>
             </properties>
             <flavor>
                 <p>地狱战车的司机怎么一脸不情愿的样子？</p>
