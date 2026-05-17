@@ -3572,7 +3572,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41b8b1da0aae7ce4ca2f884df9b30083
-    m_Address: mvz2:note/note_palace
+    m_Address: mvz2:note/palace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8804,6 +8804,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5915bbae8a80114c8cdfa95740c5d8a
+    m_Address: mvz2:misc/locked_chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5a8678da695d194583b685cf37473e1
     m_Address: mvz2:diamond
     m_ReadOnly: 0
@@ -8925,6 +8932,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a81e7ee6085bf10488c8ac5cec8948f8
     m_Address: mvz2:misc/fall_from_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a834091dfc5d3884cb48abf3ecb36da3
+    m_Address: mvz2:misc/palace
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9860,6 +9874,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bae54dd42f53f3647bb2d151a04d3d1d
+    m_Address: mvz2:misc/mysterious_hacker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bafd8d60319920d40a5881b8a2776d56
     m_Address: mvz2:entity/contraption/force_pad_evoking
@@ -12155,6 +12176,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea1dc867602a6da4cac4f2bc72dd4f5e
+    m_Address: mvz2:misc/dream_darkness
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea4c0b7c8c4abc444bbed3969cda9a5e
     m_Address: mvz2:projectile/arrow

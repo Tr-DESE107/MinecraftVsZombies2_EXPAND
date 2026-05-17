@@ -3033,7 +3033,7 @@
                 </unlock>
                 <picture sprite="mvz2:characters/armor_stand" character="mvz2:koishi"/>
                 <header>
-                    <p><![CDATA[<ref=[misc]mvz2:chireiden>古明地 觉</ref>]]>的妹妹。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的妹妹。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
