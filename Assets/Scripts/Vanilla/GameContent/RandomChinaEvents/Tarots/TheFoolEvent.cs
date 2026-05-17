@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "0-愚者";
-		[TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
-		public const string DESCRIPTION = "所有敌怪回到起始点";
-	}
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "所有敌怪回到起始点";
+    }
 }

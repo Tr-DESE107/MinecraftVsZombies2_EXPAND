@@ -11,13 +11,11 @@ using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
-using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses

@@ -63,7 +63,7 @@ namespace MVZ2.GameContent.Enemies
         {
             var facingX = enemy.GetFacingX();
             var column = enemy.GetColumn();
-            var target = detector.DetectEntityWithTheMost(enemy, t => 
+            var target = detector.DetectEntityWithTheMost(enemy, t =>
             {
                 var value = (t.GetColumn() - column) * facingX * 100;
                 var grid = t.GetGrid();

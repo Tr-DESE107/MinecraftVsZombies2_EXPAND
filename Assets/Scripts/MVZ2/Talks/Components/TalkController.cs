@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Managers;
@@ -17,8 +16,6 @@ using MVZ2Logic.Resources;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using static System.Collections.Specialized.BitVector32;
 
 namespace MVZ2.Talk
 {
@@ -322,7 +319,7 @@ namespace MVZ2.Talk
                                     var controller = GetCharacter(characterIndex);
                                     if (!controller.Exists())
                                         break;
-                                    switch (layer) 
+                                    switch (layer)
                                     {
                                         case "first":
                                             controller.SetToTheFirstLayer();

@@ -165,7 +165,7 @@ namespace MVZ2.Almanacs
 
             var picture = entry?.picture;
             var characterID = picture?.character;
-            if (NamespaceID.IsValid(characterID)) 
+            if (NamespaceID.IsValid(characterID))
             {
                 ShowCharacterZoom(characterID);
             }

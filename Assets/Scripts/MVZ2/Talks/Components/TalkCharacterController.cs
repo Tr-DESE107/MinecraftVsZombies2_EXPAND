@@ -5,7 +5,6 @@ using MVZ2.Metas;
 using MVZ2.UI.Talk;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace MVZ2.Talk
 {
