@@ -551,7 +551,7 @@
         </variant>
     </character>
     <character id="rin" name="燐">
-        <variant id="mvz2:normal" width="653" height="1280" extendLeft="50" extendRight="100" pivotX="0.5" pivotY="0.6">
+        <variant id="mvz2:normal" width="653" height="1280" extendLeft="25" extendRight="75" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/rin[0]" />
         </variant>
         <variant id="mvz2:scared" parent="mvz2:normal">
