@@ -1480,6 +1480,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1be099efb0a0d3841ad50caee17e9761
+    m_Address: mvz2:characters/utsuho
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bf54b349ebb4ae48b1cee1197c7c2ae
     m_Address: mvz2:entity/enemy/zombie
     m_ReadOnly: 0
@@ -5362,6 +5369,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61b36d39f1febbd40978c7f4cfc4156d
+    m_Address: mvz2:characters/satori
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 61c0748c531b0e245accf518bb27e194
     m_Address: mvz2:enemy/mausoleum/reflective_barrier_zombie
     m_ReadOnly: 0
@@ -6187,6 +6201,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 744d21f4b3d72674e9d855641bebf711
+    m_Address: mvz2:characters/eirin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 745188df3d02ed44e92b2101700416b2
     m_Address: mvz2:contraption/prologue/obsidian
@@ -8005,6 +8026,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93dd3cca0a6f1a24da49df3b3eed57fa
+    m_Address: mvz2:characters/rin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 93e2f9e0bfa5b694baa6f369a01161b8
     m_Address: mvz2:entity/effect/wither_skeleton_skulls
@@ -9931,13 +9959,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bae54dd42f53f3647bb2d151a04d3d1d
-    m_Address: mvz2:misc/mysterious_hacker
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bafd8d60319920d40a5881b8a2776d56
     m_Address: mvz2:entity/contraption/force_pad_evoking
     m_ReadOnly: 0
@@ -11588,6 +11609,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db8130de60f980943a44383aed09ce5d
+    m_Address: mvz2:characters/koishi
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc158f8a14c1b36448838afc1a3bfa51
     m_Address: mvz2:entity/zombie/zombie_cry2

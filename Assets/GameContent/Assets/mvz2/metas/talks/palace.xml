@@ -347,7 +347,7 @@
         </sentence>
         <!--语句1-->
         <sentence speaker="mvz2:eirin" sounds="mvz2:talk">
-          <text>头部遭人重击，失去意识，并被边角击中，带有头皮裂伤以及出血。好在经过治疗之后已经没事了。</text>
+          <text>头部遭扁平物体重击，失去意识，带有头皮裂伤及出血。好在经过治疗之后已经没事了。</text>
         </sentence>
         <!--语句2-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
@@ -1160,7 +1160,7 @@
         </sentence>
         <!--语句5-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
-          <text>很抱歉我没能帮上什么忙。不过如果你不介意，我之后可以给你们一些袭击凶手的线索。也许那个家伙有什么东西能唤回她的记忆也说不定。</text>
+          <text>很抱歉我没能帮上什么忙。不过如果你不介意，我之后可以给你们一些袭击犯人的线索。也许那个家伙有什么东西能唤回她的记忆也说不定。</text>
         </sentence>
         <!--语句6-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
