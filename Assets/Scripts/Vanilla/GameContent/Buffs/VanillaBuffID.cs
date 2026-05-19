@@ -327,6 +327,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 3
             public const string invertedMirror = "inverted_mirror";
+            public const string Electrified = "Electrified";
 
             // Chapter 4
             public const string hellfireIgnited = "hellfire_ignited";
@@ -674,6 +675,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 3
             public static readonly NamespaceID invertedMirror = Get(VanillaBuffNames.Projectile.invertedMirror);
+            public static readonly NamespaceID Electrified = Get(VanillaBuffNames.Projectile.Electrified);
 
             // Chapter 4
             public static readonly NamespaceID hellfireIgnited = Get(VanillaBuffNames.Projectile.hellfireIgnited);
