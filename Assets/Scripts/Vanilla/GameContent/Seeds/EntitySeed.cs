@@ -23,6 +23,7 @@ namespace MVZ2.GameContent.Seeds
             SetProperty(LogicSeedProps.SEED_TYPE, SeedTypes.ENTITY);
             SetProperty(LogicSeedProps.SEED_ENTITY_ID, info.entityID);
             SetProperty(EngineSeedProps.COST, (float)info.cost);
+            SetProperty(EngineSeedProps.TRIGGER_COST, (float)info.triggerCost);
             SetProperty(EngineSeedProps.RECHARGE_ID, info.rechargeID);
             SetProperty(LogicSeedProps.TRIGGER_ACTIVE, info.triggerActive);
             SetProperty(LogicSeedProps.CAN_INSTANT_EVOKE, info.canInstantEvoke);
@@ -74,6 +75,7 @@ namespace MVZ2.GameContent.Seeds
     {
         public NamespaceID entityID;
         public int cost;
+        public int triggerCost;
         public NamespaceID? rechargeID;
         public bool triggerActive;
         public bool canInstantTrigger;

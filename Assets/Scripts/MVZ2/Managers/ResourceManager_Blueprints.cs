@@ -82,6 +82,7 @@ namespace MVZ2.Managers
         {
             var sprite = GetBlueprintIcon(seedDef);
             string costStr = string.Empty;
+            string triggerCostStr = string.Empty;
 
             var seedID = seedDef.GetID();
             bool commandBlock = seedID == VanillaContraptionID.commandBlock;
@@ -94,12 +95,19 @@ namespace MVZ2.Managers
                     costSB.Append("+");
                 }
                 costStr = costSB.ToString();
+
+                // 新增：处理触发花费显示  
+                if (seedDef.IsTriggerActive() && seedDef.GetTriggerCost() > 0)
+                {
+                    triggerCostStr = $"<color=red>{seedDef.GetTriggerCost()}</color>";
+                }
             }
 
             var viewData = new BlueprintViewData()
             {
                 icon = sprite,
                 cost = costStr,
+                triggerCost = triggerCostStr,
                 triggerActive = seedDef.IsTriggerActive(),
                 iconGrayscale = isCommandBlock
             };
