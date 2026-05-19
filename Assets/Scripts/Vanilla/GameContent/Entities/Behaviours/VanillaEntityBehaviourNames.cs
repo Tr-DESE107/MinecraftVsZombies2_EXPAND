@@ -125,6 +125,7 @@ namespace MVZ2.Vanilla.Entities
         public const string takeGrid = "take_grid";
         public const string lilyPadCarrier = "lily_pad_carrier";
         public const string hellfireIgnitedArrow = "hellfire_ignited_arrow";
+        public const string ElectrifiedBullet = "ElectrifiedBullet";
         public const string energyPickup = "energy_pickup";
         public const string hellPlanet = "hell_planet";
 
