@@ -3,6 +3,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -10,8 +11,8 @@ using static MVZ2.GameContent.Contraptions.TeslaCoil;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.ElectrifiedBullet)]
-    public class ElectrifiedBulletBehaviour : ProjectileBehaviour, IElectrifyBehaviour
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.ElectrifiedBullet)]
+    public class ElectrifiedBulletBehaviour : EntityBehaviourDefinition, IElectrifyBehaviour
     {
         public ElectrifiedBulletBehaviour(string nsp, string name) : base(nsp, name)
         {
