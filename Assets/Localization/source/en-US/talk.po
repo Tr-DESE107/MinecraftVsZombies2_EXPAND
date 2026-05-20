@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2026-05-15 06:31+0800\n"
-"PO-Revision-Date: 2026-05-15 18:50+0800\n"
+"PO-Revision-Date: 2026-05-20 11:51+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -10245,7 +10245,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "怎怎怎怎么回事？！"
-msgstr "Wh-wh-what the hell?!"
+msgstr "Wh-wh-what happened?!"
 
 #. Text for talk sentence 10 in talk group kourindou_visit_palace_1's section 0
 #: Talk meta file
@@ -10264,7 +10264,8 @@ msgstr "Tokiko, wake up!!!"
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "香霖堂不是有器械保护着吗，怎么会发生这种事！"
 msgstr ""
-"Weren't there contraptions protecting Kourindou? How could this happen?!"
+"Weren't there contraptions protecting Kourindou? How could this have "
+"happened?!"
 
 #. Text for talk sentence 14 in talk group kourindou_visit_palace_1's section 0
 #: Talk meta file
@@ -10361,7 +10362,7 @@ msgstr "Fine, I understand."
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "快，搬到我的扫帚上！"
-msgstr "Quick, get her onto my broom!"
+msgstr "Quick! Get her onto my broom!"
 
 #. Text for talk sentence 32 in talk group kourindou_visit_palace_1's section 0
 #: Talk meta file
@@ -10402,9 +10403,8 @@ msgid ""
 "头部遭人重击，失去意识，并被边角击中，带有头皮裂伤以及出血。好在经过治疗之后"
 "已经没事了。"
 msgstr ""
-"She sustained blunt-force trauma to the head, lost consciousness, and was "
-"struck by a sharp edge, causing a scalp laceration with bleeding. "
-"Fortunately, she is fine now after treatment."
+"She was hit in the head by a flat object, lost consciousness, having "
+"sustained scalp laceration with hemorrhage. She is fine now after treatment."
 
 #. Text for talk sentence 2 in talk group kourindou_visit_palace_1's section 1
 #: Talk meta file
@@ -10446,7 +10446,7 @@ msgstr "Don't mention it."
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "其实我现在、有些愧疚。"
-msgstr "To be honest... I'm feeling kinda guilty right now."
+msgstr "To be honest... I feel guilty."
 
 #. Text for talk sentence 10 in talk group kourindou_visit_palace_1's section 1
 #: Talk meta file
@@ -10460,7 +10460,8 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "甚至还在想，把她就这样放着不管算了。"
-msgstr "I even thought about just leaving her like that and forget about it."
+msgstr ""
+"I even thought about just leaving her like that and forgetting about it."
 
 #. Text for talk sentence 12 in talk group kourindou_visit_palace_1's section 1
 #: Talk meta file
@@ -10635,7 +10636,7 @@ msgstr "It seems that she has amnesia."
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "头部遭受扁平物体重击，有的时候难免会这样。"
-msgstr "A blunt-force trauma to the head can sometimes cause this."
+msgstr "Being hit in the head can sometimes result in such a condition."
 
 #. Description for talk sentence 12 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
@@ -10653,7 +10654,7 @@ msgstr "Then, Doctor, is there any way to—"
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "治疗的办法有倒是有，不过我最近有点忙不过来。"
-msgstr "There is a treatment, but I've been a little overworked lately."
+msgstr "There is a treatment, but I've been rather busy lately."
 
 #. Text for talk sentence 15 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
@@ -10673,15 +10674,15 @@ msgstr "There are other victims too?!"
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "是，最近非常多。"
-msgstr "Yes. Quite a lot, in fact."
+msgstr "Yes. There are a lot recently."
 
 #. Text for talk sentence 18 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "不过，找回她的记忆的话，我倒是有个两全其美的办法。"
 msgstr ""
-"However, when it comes to investigating the recent attacks and restoring her "
-"memories, I happen to know someone who can address both issues at once."
+"Though, I happen to know someone who can both address the recent attacks and "
+"restore her memories."
 
 #. Text for talk sentence 19 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
@@ -10690,9 +10691,9 @@ msgid ""
 "居住于地下的觉妖怪，曾经因为这些袭击案件而来与我这里的病人交流过，她似乎也在"
 "调查这些事件。"
 msgstr ""
-"The satori youkai living in the Underworld once came here to question my "
-"patients because of these assault cases. Looks like she's investigating "
-"these incidents as well."
+"The satori youkai living in the Underworld once came here to interrogate my "
+"patients because of these assaults. Looks like she's investigating these "
+"incidents as well."
 
 #. Text for talk sentence 20 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
@@ -10701,9 +10702,9 @@ msgid ""
 "那位觉妖怪也是催眠术的高手，使用催眠术应该是能帮忙找回她的记忆的。靠她的帮助"
 "兴许还能把犯人也揪出来。"
 msgstr ""
-"That satori is also an expert in hypnosis. Using hypnosis should be able to "
-"help restore the patient's memories. With her assistance, you might even be "
-"able to track down the culprit."
+"That satori is also an expert in hypnosis, which should be able to help "
+"restore the patient's memories. With her assistance, you might even be able "
+"to track down the culprit."
 
 #. Text for talk sentence 22 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
@@ -10717,9 +10718,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "病人的身体经过治疗应该可以自由行动了，没有什么大问题。"
-msgstr ""
-"The patient should be able to move around freely after treatment, so there "
-"shouldn't be any major issues."
+msgstr "After treatments, the patient should be recovering well."
 
 #. Text for talk sentence 24 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
@@ -10791,7 +10790,7 @@ msgstr "...Since you want to help, I'll leave it to you."
 #: Talk meta file
 msgctxt "talk-mvz2:palace_1"
 msgid "呃，好——好的。"
-msgstr "Uh, o-okay."
+msgstr "Uh, o-okay, then."
 
 #. Archive name for talk group palace_1_over
 #: Talk meta file
@@ -10804,16 +10803,15 @@ msgstr "Palace Day 1 Outro"
 msgctxt "talk-mvz2:palace_1_over"
 msgid "这是变形发射器！通过触发它，可以让它在两种不同的模式下进行切换！"
 msgstr ""
-"This is the Transfenser! By triggering it, you can make it switch between "
-"two different modes!"
+"This is the Transfenser! Triggering it makes it switch between two modes!"
 
 #. Text for talk sentence 1 in talk group palace_1_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_1_over"
 msgid "一般情况下它会发射光灵箭，让击中的目标发光并受到更多伤害！"
 msgstr ""
-"Normally, it fires spectral arrows which cause hit targets to glow and take "
-"increased damage!"
+"Normally, it fires spectral arrows, causing hit targets to glow and take "
+"more damage!"
 
 #. Text for talk sentence 2 in talk group palace_1_over's section 0
 #: Talk meta file
@@ -10829,7 +10827,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_1_over"
 msgid "射穿你的敌人吧！"
-msgstr "Shoot through your enemies!"
+msgstr "Pierce your enemies!"
 
 #. Archive name for talk group palace_1_map
 #: Talk meta file
@@ -10895,7 +10893,7 @@ msgstr ""
 msgctxt "talk-mvz2:palace_1_map"
 msgid "以及，关于你们那家香霖堂受到的袭击，我确实有一直在调查类似的案件。"
 msgstr ""
-"Also, regarding the attack on Kourindou, I have in fact been investigating "
+"Also, regarding the assault at Kourindou, I have in fact been investigating "
 "similar cases."
 
 #. Text for talk sentence 8 in talk group palace_1_map's section 0
@@ -10905,9 +10903,9 @@ msgid ""
 "最近地上和地下都出现了很多袭击案件，受害者都有类似的情况——就是头部受到扁平物"
 "体打击。"
 msgstr ""
-"There have been many attacks on both the surface and underground recently, "
-"and the victims all share a similar trait, which is that their heads were "
-"struck by a blunt object."
+"There have been many assaults on both the surface and underground recently, "
+"and the victims all share a similar trait, which is being hit in the head by "
+"a flat object."
 
 #. Text for talk sentence 9 in talk group palace_1_map's section 0
 #: Talk meta file
@@ -10920,8 +10918,8 @@ msgstr "That's exactly the same as what happened to Tokiko...!"
 msgctxt "talk-mvz2:palace_1_map"
 msgid "你们这位其实算是幸运的了。有些受害者在受到袭击之后，就再也没醒来过。"
 msgstr ""
-"Your friend here is actually one of the lucky ones. Some victims never woke "
-"up after being attacked."
+"Your friend here is actually one of the luckier ones. Some victims never "
+"woke up after being attacked."
 
 #. Text for talk sentence 11 in talk group palace_1_map's section 0
 #: Talk meta file
@@ -10951,7 +10949,7 @@ msgctxt "talk-mvz2:palace_1_map"
 msgid ""
 "不过请你做好准备，我帮你找回记忆的手段是一种催眠术，也不是什么情况都有效的。"
 msgstr ""
-"But please be prepared as the method I use is a form of hypnosis, and it "
+"But please remember that the method I use is a form of hypnosis, and it "
 "isn't effective in every case."
 
 #. Text for talk sentence 15 in talk group palace_1_map's section 0
@@ -10970,7 +10968,7 @@ msgstr "Palace Day 2 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
 msgid "介绍一下，这两位是我养的宠物。"
-msgstr "Let me introduce you my two pets here."
+msgstr "Let me introduce my two pets here."
 
 #. Text for talk sentence 1 in talk group palace_2's section 0
 #: Talk meta file
@@ -10982,7 +10980,8 @@ msgstr "Heya, my name is Rin Kaenbyou. Just call me Orin!"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
 msgid "你好！我是灵乌路 空，负责核能相关的事情！"
-msgstr "Hi there, I'm Utsuho Reiuji! I handle all the nuclear stuff!"
+msgstr ""
+"Hi there, I'm Utsuho Reiuji! Call me Okuu! I handle all the nuclear stuff!"
 
 #. Text for talk sentence 3 in talk group palace_2's section 0
 #: Talk meta file
@@ -11015,7 +11014,7 @@ msgstr "(Satori leaves)"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
 msgid "看起来像是一种……细胞？"
-msgstr "It looks like some kind of... cell?"
+msgstr "It looks like some kind of... biological cell?"
 
 #. Text for talk sentence 7 in talk group palace_2's section 0
 #: Talk meta file
@@ -11027,7 +11026,7 @@ msgstr "When that creature is killed, it splits into two smaller copies!"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
 msgid "小心应对，它们在分裂后还会换行！"
-msgstr "Be careful, they can even change lanes after splitting!"
+msgstr "Be careful, they change lanes after splitting!"
 
 #. Archive name for talk group palace_2_over
 #: Talk meta file
@@ -11039,7 +11038,7 @@ msgstr "Palace Day 2 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2_over"
 msgid "老朋友，沙砾投手！"
-msgstr "An old friend—Gravel-pult!"
+msgstr "An old friend, Gravel-pult!"
 
 #. Text for talk sentence 1 in talk group palace_2_over's section 0
 #: Talk meta file
@@ -11053,14 +11052,14 @@ msgstr ""
 msgctxt "talk-mvz2:palace_2_over"
 msgid "不过它有概率会投出沙砾，这些沙砾能够暂时定住敌人，不让它们移动或攻击！"
 msgstr ""
-"However, it has a chance to lob gravels which can temporarily immobilize "
+"However, it has a chance to lob gravel which can temporarily immobilize "
 "enemies, preventing them from moving and attacking!"
 
 #. Text for talk sentence 3 in talk group palace_2_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2_over"
 msgid "别弄得自己满头都是沙砾！"
-msgstr "Don't end up with your head full of gravel!"
+msgstr "Don't end up with your head in gravel!"
 
 #. Archive name for talk group palace_2_map
 #: Talk meta file
@@ -11082,7 +11081,7 @@ msgctxt "talk-mvz2:palace_2_map"
 msgid "催眠术只能用来找回那些刻在内心深处，印象极度深刻的内容。"
 msgstr ""
 "Hypnosis can only bring back vividly memorable experiences deep within the "
-"heart."
+"mind."
 
 #. Text for talk sentence 2 in talk group palace_2_map's section 0
 #: Talk meta file
@@ -11206,7 +11205,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2_map"
 msgid "这让我不小心选了你当目标。"
-msgstr "That made me accidentally chose you as the target."
+msgstr "That made me accidentally target you."
 
 #. Text for talk sentence 20 in talk group palace_2_map's section 0
 #: Talk meta file
@@ -11218,7 +11217,7 @@ msgstr "...I think... I remembered something from the past?"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2_map"
 msgid "但是，那段记忆，十分模糊……"
-msgstr "But... that memory is pretty blur..."
+msgstr "But... that memory is pretty vague..."
 
 #. Archive name for talk group palace_3
 #: Talk meta file
@@ -11238,7 +11237,7 @@ msgctxt "talk-mvz2:palace_3"
 msgid "我的妹妹叫古明地 恋，之前发生过一些事情，让她获得了无意识相关的能力。"
 msgstr ""
 "My younger sister is Koishi Komeiji. Due to certain events in the past, she "
-"gained abilities related to the unconscious."
+"gained abilities related to the unconscious mind."
 
 #. Text for talk sentence 2 in talk group palace_3's section 0
 #: Talk meta file
@@ -11247,8 +11246,8 @@ msgid ""
 "一般人在平常状态下是发现不了她的，并且她自己有的时候也不知道自己到底在干些什"
 "么。"
 msgstr ""
-"Ordinary people usually wouldn't notice her normally, and sometimes she "
-"doesn't even know what she's doing."
+"Ordinary people usually wouldn't notice her, and sometimes she doesn't even "
+"know what she's doing."
 
 #. Text for talk sentence 3 in talk group palace_3's section 0
 #: Talk meta file
@@ -11280,7 +11279,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3"
 msgid "既然这样，那我还是先去准备今天的战斗吧。"
-msgstr ""
+msgstr "Then, let me prepare for the upcoming battle."
 
 #. Archive name for talk group palace_3_over
 #: Talk meta file
@@ -11292,31 +11291,35 @@ msgstr "Palace Day 3 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_over"
 msgid "生日快乐！不过今天也不是你的生日！"
-msgstr ""
+msgstr "Happy birthday! Even though it's probably not your birthday!"
 
 #. Text for talk sentence 1 in talk group palace_3_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_over"
 msgid "这根蜡烛也不是一根普通的蜡烛！"
-msgstr ""
+msgstr "And this candle isn't an ordinary candle either!"
 
 #. Text for talk sentence 2 in talk group palace_3_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_over"
 msgid "这是诅咒蜡烛，一旦有怪物把它摧毁掉，那个怪物就会被诅咒！"
 msgstr ""
+"It's a wicked Cursed Candle. If a monster destroys it, that monster will be "
+"cursed!"
 
 #. Text for talk sentence 3 in talk group palace_3_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_over"
 msgid "被诅咒的怪物会染上诅咒的火焰，并且在死亡后会直接爆开！"
 msgstr ""
+"The cursed monster will be set ablaze in flames of curse, and will explode "
+"upon death!"
 
 #. Text for talk sentence 4 in talk group palace_3_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_over"
 msgid "千万别把它弄坏了！"
-msgstr ""
+msgstr "So whatever you do, don't break it!"
 
 #. Archive name for talk group palace_3_map
 #: Talk meta file
@@ -11334,67 +11337,70 @@ msgstr "Steve, a word with you, please."
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "啊，觉大人，您有事找我？"
-msgstr ""
+msgstr "Ah, Lady Satori, you wanted to see me?"
 
 #. Text for talk sentence 2 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "是的，关于你的那位养父……"
-msgstr ""
+msgstr "Yes, it's about your adoptive father..."
 
 #. Text for talk sentence 3 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "戴夫？"
-msgstr ""
+msgstr "Dave?"
 
 #. Text for talk sentence 4 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Text for talk sentence 5 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "你确定他疯掉了吗？"
-msgstr ""
+msgstr "Are you certain that he's gone crazy?"
 
 #. Text for talk sentence 6 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "……怎么了？"
-msgstr ""
+msgstr "...What do you mean?"
 
 #. Text for talk sentence 8 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "没什么，我只是想了解一下你们之间的故事。"
-msgstr ""
+msgstr "It's nothing. I just wanted to understand the bond between you two."
 
 #. Text for talk sentence 9 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "这样啊。"
-msgstr ""
+msgstr "I see."
 
 #. Text for talk sentence 11 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "说实话， 我不清楚他是不是真的疯了。"
-msgstr ""
+msgstr "To be honest, I'm not sure whether he's truly gone crazy."
 
 #. Text for talk sentence 12 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "当我从昏迷中醒来之后，他就完全变了一个人。"
 msgstr ""
+"Ever since I woke up from my coma, he's become a completely different person."
 
 #. Text for talk sentence 13 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "嘴里说着一堆胡话，性格和之前大不相同。"
 msgstr ""
+"He spouts all sorts of nonsense, talking about Gensokyo and such, and his "
+"personality is nothing like before."
 
 #. Text for talk sentence 14 in talk group palace_3_map's section 0
 #: Talk meta file
@@ -11403,60 +11409,67 @@ msgid ""
 "我一度怀疑他到底是不是真的戴夫。但是他是我的父亲，而且我还能感受得到，他真的"
 "还爱着我。"
 msgstr ""
+"I even once doubted whether he was really Dave or not, but he's still my "
+"father, and I can still feel that he truly loves me."
 
 #. Text for talk sentence 15 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "我没有其他选择，我只能相信……他疯掉了。"
-msgstr ""
+msgstr "I have no other choice but to believe that... he's gone crazy."
 
 #. Text for talk sentence 16 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "在我昏迷之前，戴夫他曾经得了一场重病，可能是那场病让他变成这样的。"
 msgstr ""
+"Before I fell into a coma, Dave had a serious illness. Maybe that illness is "
+"what made him like that."
 
 #. Text for talk sentence 17 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "我只能像他之前照顾我一样，把他照顾好。"
 msgstr ""
+"All I can do now is to take care of him, just like how he used to take care "
+"of me."
 
 #. Text for talk sentence 19 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "你是个有孝心的孩子。"
-msgstr ""
+msgstr "You're a good child who cares deeply about your parents, Steve."
 
 #. Text for talk sentence 20 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "但是……"
-msgstr ""
+msgstr "But..."
 
 #. Text for talk sentence 21 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "我希望你长大后，能坦然接受一些事实。"
 msgstr ""
+"I hope that when you grow up, you'll be able to accept certain truths calmly."
 
 #. Text for talk sentence 24 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "<color=blue>（觉大人的意思……难道说，戴夫他——）</color>"
-msgstr ""
+msgstr "(Wait, does Lady Satori mean that... Would it be that, Dave—)"
 
 #. Text for talk sentence 25 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "不，孩子。那位村民就是你的养父，别想太多。"
-msgstr ""
+msgstr "No, Steve. That villager is your adoptive father. Don't overthink it."
 
 #. Text for talk sentence 26 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "啊，抱歉。"
-msgstr ""
+msgstr "S-sorry."
 
 #. Text for talk sentence 27 in talk group palace_3_map's section 0
 #: Talk meta file
@@ -11464,36 +11477,43 @@ msgctxt "talk-mvz2:palace_3_map"
 msgid ""
 "<color=blue>（这样的话，我至少能够放下心来了，戴夫还是那个戴夫。）</color>"
 msgstr ""
+"(If that's the case, I don't need to worry about it. Dave is still the Dave "
+"I know.)"
 
 #. Text for talk sentence 28 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "<color=blue>（没有人能在觉大人面前撒谎的！）</color>"
-msgstr ""
+msgstr "(No one can lie to Lady Satori!)"
 
 #. Text for talk sentence 29 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "对了，阿空说要送给你这件东西当礼物，她说也许这能够帮上你的忙。"
 msgstr ""
+"By the way, Okuu asked me to give you this as a gift. She said that it might "
+"be helpful."
 
 #. Text for talk sentence 30 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "哇，好重！这是什么？"
-msgstr ""
+msgstr "Whoa, it's heavy! What is this?"
 
 #. Text for talk sentence 31 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "这是她的一根核能控制棒，是用来调节核聚变炉的火力的。"
 msgstr ""
+"It's one of her nuclear control rods, used to regulate the heat of the "
+"Nuclear Furnace."
 
 #. Text for talk sentence 32 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "试试看吧，史蒂夫。也许你的那些蓝图也需要这种东西也说不定。"
 msgstr ""
+"Give it a try, Steve. Perhaps your blueprints could make good use of this."
 
 #. Archive name for talk group palace_4
 #: Talk meta file
@@ -11505,31 +11525,33 @@ msgstr "Palace Day 4 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4"
 msgid "那边那个诡异的石英骷髅是什么东西？"
-msgstr ""
+msgstr "What's that spooky scary silica skeleton over there?"
 
 #. Text for talk sentence 1 in talk group palace_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4"
 msgid "那个东西很麻烦的。"
-msgstr ""
+msgstr "That thing's a real pain to deal with."
 
 #. Text for talk sentence 2 in talk group palace_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4"
 msgid "咱曾经尝试过把它打散架，结果不出一会它自己又站起来了。"
 msgstr ""
+"I tried smashing it into pieces once, but it just stood back up on its own "
+"in no time."
 
 #. Text for talk sentence 3 in talk group palace_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4"
 msgid "那次我不得不把它炸烂才彻底解决它。"
-msgstr ""
+msgstr "One time I had to blow it up to bits to finally get rid of it."
 
 #. Text for talk sentence 4 in talk group palace_4's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4"
 msgid "也就是说，它会复活……？"
-msgstr ""
+msgstr "So, that means it can come back to life...?"
 
 #. Archive name for talk group palace_4_over
 #: Talk meta file
@@ -11541,19 +11563,21 @@ msgstr "Palace Day 4 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_over"
 msgid "这是石眼！"
-msgstr ""
+msgstr "This is Stone Eye!"
 
 #. Text for talk sentence 1 in talk group palace_4_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_over"
 msgid "它的高耐久可以阻挡怪物的攻击，并且可以用视线让前方的敌人减速！"
 msgstr ""
+"Its high toughness lets it withstand monster attacks, and it can even slow "
+"enemies down in front of it with its gaze! Stones can really break the bones!"
 
 #. Text for talk sentence 2 in talk group palace_4_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_over"
 msgid "不要站在它的面前！"
-msgstr ""
+msgstr "Don't stand in front of it!"
 
 #. Archive name for talk group palace_4_map
 #: Talk meta file
@@ -11566,6 +11590,8 @@ msgstr "Palace Day 4 Map"
 msgctxt "talk-mvz2:palace_4_map"
 msgid "关于朱鹭子受到的那次袭击，之前也有出现过很多类似的案件。"
 msgstr ""
+"Regarding the assault involving Tokiko, there have been many similar cases "
+"before."
 
 #. Text for talk sentence 1 in talk group palace_4_map's section 0
 #: Talk meta file
@@ -11574,12 +11600,15 @@ msgid ""
 "部分受害者受到袭击之后，就陷入了长期失去意识的状态。但那并非死亡，只是灵魂被"
 "从身体中抽走了。"
 msgstr ""
+"Some victims fell into a prolonged state of unconsciousness after being "
+"attacked, but they haven't died. Their souls have been taken away from their "
+"bodies."
 
 #. Text for talk sentence 2 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "灵魂吗……"
-msgstr ""
+msgstr "Souls...?"
 
 #. Text for talk sentence 3 in talk group palace_4_map's section 0
 #: Talk meta file
@@ -11588,6 +11617,8 @@ msgid ""
 "不过，剩下的那些比较幸运的人，都只是头部受到了扁平物体的打击，我之前也有向他"
 "们了解过情况。"
 msgstr ""
+"As for the luckier ones, they only suffered blows to the head from a flat "
+"object. I've spoken to them before as well."
 
 #. Text for talk sentence 4 in talk group palace_4_map's section 0
 #: Talk meta file
@@ -11595,66 +11626,76 @@ msgctxt "talk-mvz2:palace_4_map"
 msgid ""
 "他们在受袭之前，都是孤身一人的状态，并且在房间外面见到了一个奇怪的箱子。"
 msgstr ""
+"Before they were attacked, they were all alone indoors, and they saw a "
+"strange chest outside."
 
 #. Text for talk sentence 5 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "！"
-msgstr ""
+msgstr "!"
 
 #. Text for talk sentence 6 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "箱——箱子？"
-msgstr ""
+msgstr "A-a chest?"
 
 #. Text for talk sentence 7 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "朱鹭子，你想起来了？！"
-msgstr ""
+msgstr "Tokiko, did you remember something?!"
 
 #. Text for talk sentence 8 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Text for talk sentence 9 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "不好意思，没有。不过，我似乎有点印象就是了。"
-msgstr ""
+msgstr "No, sorry, but I feel like I vaguely recall something."
 
 #. Text for talk sentence 10 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "我总感觉，我好像见过什么奇怪的箱子，但是我不太记得那个箱子长什么样了。"
 msgstr ""
+"I have this feeling that I saw some kind of strange chest, but I can't "
+"really remember what it looked like."
 
 #. Text for talk sentence 11 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "这样啊。那个箱子可能就是袭击者为了引诱人出来的诱饵。"
 msgstr ""
+"I see. That chest may have been bait used by the attacker to lure victims "
+"out."
 
 #. Text for talk sentence 12 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "我暂且把这些袭击的犯人称之为“猎手”。"
 msgstr ""
+"I'll refer to the perpetrator of these attacks as \"Hunter\" for the time "
+"being."
 
 #. Text for talk sentence 13 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "“猎手”……？"
-msgstr ""
+msgstr "\"Hunter\"...?"
 
 #. Text for talk sentence 14 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "因为这些袭击看起来，就像是犯人在狩猎别人的灵魂一样。"
 msgstr ""
+"Because these attacks seem as though the perpetrator is hunting for people's "
+"souls."
 
 #. Text for talk sentence 15 in talk group palace_4_map's section 0
 #: Talk meta file
@@ -11662,72 +11703,80 @@ msgctxt "talk-mvz2:palace_4_map"
 msgid ""
 "不过，说来也很奇怪。那些只是头部受伤的受害者，他们其实都有一个诡异的共同点。"
 msgstr ""
+"Well, there is something rather strange. The victims who only suffered head "
+"injuries share a peculiar common trait."
 
 #. Text for talk sentence 16 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "那就是他们在昏迷之前进入了屋子里。"
-msgstr ""
+msgstr "That is, they were all indoors before they lost consciousness."
 
 #. Text for talk sentence 17 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "诶？"
-msgstr ""
+msgstr "Huh?"
 
 #. Text for talk sentence 18 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "说起来确实是这样！"
-msgstr ""
+msgstr "Now that you mention it, that's true!"
 
 #. Text for talk sentence 19 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "我们发现朱鹭子的时候，她确实昏迷在屋子里！"
-msgstr ""
+msgstr "When we found Tokiko, she had indeed collapsed inside Kourindou!"
 
 #. Text for talk sentence 20 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "……果然，但也很奇怪。"
-msgstr ""
+msgstr "...Sure enough, but it's still strange."
 
 #. Text for talk sentence 21 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "为什么进入屋子里，猎手就会放弃他的目标了？"
-msgstr ""
+msgstr "Why would \"Hunter\" abandon their targets once they are indoors?"
 
 #. Text for talk sentence 22 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "并且，那些被抽掉灵魂的受害者，他们被发现时，都是被装进了这个箱子里面。"
 msgstr ""
+"Furthermore, the victims whose souls were taken were all found stuffed "
+"inside that chest."
 
 #. Text for talk sentence 23 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "这是犯人的某种癖好吗？"
-msgstr ""
+msgstr "Is this some kind of sick, twisted habit of the perpetrator?"
 
 #. Text for talk sentence 24 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "尽管我能读取他人的内心想法，但我现在确实没有任何有关犯人是谁的证据。"
 msgstr ""
+"Even though I can read people's minds, I currently have no evidence of who "
+"the perpetrator is."
 
 #. Text for talk sentence 25 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "我调查过的人中，没有任何人有关于犯案的记忆。"
 msgstr ""
+"Among those I've investigated, no one has any memory related to committing "
+"these crimes."
 
 #. Text for talk sentence 26 in talk group palace_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4_map"
 msgid "可能，我需要调查一下其他东西……？"
-msgstr ""
+msgstr "Perhaps, I may need to look into something else...?"
 
 #. Archive name for talk group palace_5
 #: Talk meta file
@@ -11739,55 +11788,58 @@ msgstr "Palace Day 5 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "话说回来，史蒂夫。"
-msgstr ""
+msgstr "Speaking of which, Steve."
 
 #. Text for talk sentence 1 in talk group palace_5's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "那些方块生物……非常奇怪。"
-msgstr ""
+msgstr "Those blocky creatures are... very strange."
 
 #. Text for talk sentence 2 in talk group palace_5's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "呃，对你们来说确实是这样的……"
-msgstr ""
+msgstr "Uh, I guess that's true for you guys..."
 
 #. Text for talk sentence 3 in talk group palace_5's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "我不是这个意思。"
-msgstr ""
+msgstr "That's not what I meant."
 
 #. Text for talk sentence 4 in talk group palace_5's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "这些方块生物中虽然大部分都是亡灵生物，但也不乏有一些活物。"
 msgstr ""
+"Although most of those blocky creatures are undead, there are also some "
+"living beings among them."
 
 #. Text for talk sentence 5 in talk group palace_5's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "按理来说我应该是可以读取那些活物的内心的，但是——"
 msgstr ""
+"Logically, I should be able to read the thoughts of those living ones, but..."
 
 #. Text for talk sentence 6 in talk group palace_5's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "我却没有办法做到。"
-msgstr ""
+msgstr "I just can't seem to do so."
 
 #. Text for talk sentence 7 in talk group palace_5's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "呃，为什么？"
-msgstr ""
+msgstr "Huh, why though?"
 
 #. Text for talk sentence 8 in talk group palace_5's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "我不清楚。看来这种生物真的是非常特殊了。"
-msgstr ""
+msgstr "I'm not sure. It seems that these creatures really are quite special."
 
 #. Archive name for talk group palace_5_over
 #: Talk meta file
@@ -11799,7 +11851,7 @@ msgstr "Palace Day 5 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_over"
 msgid "毁灭！！！"
-msgstr ""
+msgstr "Destruction!!!"
 
 #. Text for talk sentence 1 in talk group palace_5_over's section 0
 #: Talk meta file
@@ -11808,12 +11860,14 @@ msgid ""
 "这是石砖加农炮！你可以把它放置在两个相邻的沙砾投手上，然后点击它来发射毁灭性"
 "的炮弹！！！"
 msgstr ""
+"This is Brick Cannon! You can place it on two adjacent Gravel-pults, and "
+"then click on it to fire devastating missiles!!!"
 
 #. Text for talk sentence 2 in talk group palace_5_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_over"
 msgid "让炮弹净化一切！！！"
-msgstr ""
+msgstr "By Missiles Be Purged!!!"
 
 #. Archive name for talk group palace_5_map
 #: Talk meta file
@@ -11825,13 +11879,14 @@ msgstr "Palace Day 5 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "对了，觉大人。"
-msgstr ""
+msgstr "By the way, Lady Satori."
 
 #. Text for talk sentence 1 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "有关这起异变的事情吗？嗯，我确实还记得之前发生过的一件事。"
 msgstr ""
+"About this incident? Hmm, I do remember something that's happened before."
 
 #. Text for talk sentence 2 in talk group palace_5_map's section 0
 #: Talk meta file
@@ -11840,120 +11895,125 @@ msgid ""
 "那位小人公主提到的，三年前，辉针城下方发生过的爆炸，其实我知道它发生的位置在"
 "哪里。阿空跟我提过这件事。"
 msgstr ""
+"Regarding the explosion beneath the Shining Needle Castle three years ago, "
+"which the Inchling Princess has mentioned, I actually know where it "
+"occurred. Okuu has told me about it."
 
 #. Text for talk sentence 3 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "其实就在妖怪之山上啦，我经常去那地方。"
-msgstr ""
+msgstr "It happened at Youkai Mountain, y'know. I go there pretty often."
 
 #. Text for talk sentence 4 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "妖怪之山……就是幻想乡里的那一座非常高的山脉吧？"
-msgstr ""
+msgstr "Youkai Mountain... it's that really tall mountain in Gensokyo, right?"
 
 #. Text for talk sentence 5 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "是的。而且具体位置的话——"
-msgstr ""
+msgstr "Yes, and more specifically..."
 
 #. Text for talk sentence 6 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "是在河童基地附近吧。"
-msgstr ""
+msgstr "It was near the kappas' hideout."
 
 #. Text for talk sentence 7 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "河童基地吗……那里发生过什么？"
-msgstr ""
+msgstr "The kappas' hideout...? What happened there?"
 
 #. Text for talk sentence 8 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "终于找到你了，邻居！"
-msgstr ""
+msgstr "Finally found you, neighbor!"
 
 #. Text for talk sentence 9 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "戴夫？你去哪儿了？"
-msgstr ""
+msgstr "Dave? Where have you been?"
 
 #. Text for talk sentence 10 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "我做了一个<color=red>新货物</color>，你可以去看看商店！"
-msgstr ""
+msgstr "I've made a <color=red>new product</color>. Check it out at the shop!"
 
 #. Text for talk sentence 11 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "……又来推销了？"
-msgstr ""
+msgstr "...That's it? Just selling new stuff?"
 
 #. Text for talk sentence 12 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "也不全是。"
-msgstr ""
+msgstr "Not entirely."
 
 #. Text for talk sentence 13 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "你见到朱鹭子吗？"
-msgstr ""
+msgstr "Have you seen Tokiko?"
 
 #. Text for talk sentence 14 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "朱鹭子？呃，没有。"
-msgstr ""
+msgstr "Tokiko? Uh, no."
 
 #. Text for talk sentence 15 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "那她去哪儿了？"
-msgstr ""
+msgstr "Then where did she go?"
 
 #. Text for talk sentence 16 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "呃、不知道啊。"
-msgstr ""
+msgstr "I... I don't know."
 
 #. Text for talk sentence 17 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "她不见了吗？"
-msgstr ""
+msgstr "She's missing?"
 
 #. Text for talk sentence 18 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "要不我帮你们找找吧！"
-msgstr ""
+msgstr "Want me to help you look for her?"
 
 #. Text for talk sentence 19 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "地灵殿附近我很熟悉，应该很快就能找到的。"
 msgstr ""
+"I know the area around the Palace of the Earth Spirits really well. It "
+"shouldn't take long to find her."
 
 #. Text for talk sentence 20 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "那好吧。"
-msgstr ""
+msgstr "Okay then."
 
 #. Text for talk sentence 21 in talk group palace_5_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5_map"
 msgid "希望她不会出什么事情……"
-msgstr ""
+msgstr "I hope nothing bad happens to her..."
 
 #. Archive name for talk group palace_6
 #: Talk meta file
@@ -11966,60 +12026,66 @@ msgstr "Palace Day 6 Intro"
 msgctxt "talk-mvz2:palace_6"
 msgid "那些怪物又来了！准备器械和蓝图！"
 msgstr ""
+"Those monsters are coming again! I'll go get my blueprints and contraptions "
+"ready!"
 
 #. Text for talk sentence 1 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Text for talk sentence 2 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "！！！！！"
-msgstr ""
+msgstr "!!!!!"
 
 #. Text for talk sentence 3 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "我的蓝图呢！"
-msgstr ""
+msgstr "WHERE ARE MY BLUEPRINTS?!"
 
 #. Text for talk sentence 4 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "！"
-msgstr ""
+msgstr "!"
 
 #. Text for talk sentence 5 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "怎么回事，怎么都没了！"
-msgstr ""
+msgstr "What the... they're all gone?!"
 
 #. Text for talk sentence 6 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "那怎么对付这些怪物啊！"
-msgstr ""
+msgstr "H-how am I supposed to fight these monsters now?!"
 
 #. Text for talk sentence 7 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "这样吧，邻居，我去把我压箱底的秘密武器拿来！"
 msgstr ""
+"Wait just a second, neighbor! I'll go get the secret weapon I've been saving "
+"as a last resort!"
 
 #. Text for talk sentence 8 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "那是什么？"
-msgstr ""
+msgstr "Secret weapon?"
 
 #. Text for talk sentence 9 in talk group palace_6's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6"
 msgid "好了，我这就把它安装到战场上，接下来，你就准备看好戏吧！"
 msgstr ""
+"All right, I'm gonna grab it and set it up on the battlefield. Now, just sit "
+"back and enjoy the show!"
 
 #. Archive name for talk group palace_6_over
 #: Talk meta file
@@ -12031,25 +12097,26 @@ msgstr "Palace Day 6 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_over"
 msgid "好了，狙击发射器，你就回来继续压箱底吧！"
-msgstr ""
+msgstr "Good work, Snipenser. Back onto the dusty shelf you go!"
 
 #. Text for talk sentence 1 in talk group palace_6_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_over"
 msgid "这是冷却单元！在核反应堆里常用的物品！"
-msgstr ""
+msgstr "This is Cooling Cell! A common component in nuclear reactors!"
 
 #. Text for talk sentence 2 in talk group palace_6_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_over"
 msgid "你可以把它放在器械上，来立即缩短它的充能时间！"
 msgstr ""
+"You can place it on a contraption to immediately shorten its recharge time!"
 
 #. Text for talk sentence 3 in talk group palace_6_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_over"
 msgid "好好冷静冷静！"
-msgstr ""
+msgstr "Let's cool off for a bit!"
 
 #. Archive name for talk group palace_6_map
 #: Talk meta file
@@ -12061,43 +12128,43 @@ msgstr "Palace Day 6 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "所以怎么回事，蓝图去哪里了！"
-msgstr ""
+msgstr "So what happened? Where did the blueprints go?!"
 
 #. Text for talk sentence 1 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "是燐干的。她把那些东西都藏起来了。"
-msgstr ""
+msgstr "It was Orin's doing. She hid them all away."
 
 #. Text for talk sentence 2 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Text for talk sentence 3 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "诶、诶？阿燐？"
-msgstr ""
+msgstr "H-huh? Orin?"
 
 #. Text for talk sentence 4 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "你为什么要这么做？！"
-msgstr ""
+msgstr "Why would you do that?!"
 
 #. Text for talk sentence 5 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "我——我不知道啊！"
-msgstr ""
+msgstr "I-I don't know!"
 
 #. Text for talk sentence 6 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "啊？"
-msgstr ""
+msgstr "Huh?"
 
 #. Text for talk sentence 7 in talk group palace_6_map's section 0
 #: Talk meta file
@@ -12106,54 +12173,58 @@ msgid ""
 "她的内心里确实有把你的蓝图都偷走的记忆，但是不知道为什么，她的这段记忆很模"
 "糊，也不知道她为什么要这么做。"
 msgstr ""
+"It's true that she has memories of stealing your blueprints, but strangely, "
+"those memories are very muddled, and I can't figure out her motives."
 
 #. Text for talk sentence 8 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "等咱回过神来的时候，咱连自己做了什么都已经不清楚了！"
-msgstr ""
+msgstr "By the time I came to my senses, I didn't even know what I'd done!"
 
 #. Text for talk sentence 9 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "之前咱还以为是做了什么梦，不过现在看来，并不是这样！"
 msgstr ""
+"I thought it was all just some sort of dream, but now... it seems like it "
+"wasn't!"
 
 #. Text for talk sentence 10 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "就好像，是被什么人控制了一样！"
-msgstr ""
+msgstr "It was like... I was being manipulated!"
 
 #. Text for talk sentence 11 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "啊？控制？"
-msgstr ""
+msgstr "Manipulated?"
 
 #. Text for talk sentence 12 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "总之，阿燐，你先把那些蓝图都拿回来吧。"
-msgstr ""
+msgstr "In any case, Orin, please go get those blueprints back first."
 
 #. Text for talk sentence 13 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "是，是……咱似乎还记得那个位置。"
-msgstr ""
+msgstr "Y-yes... I think I still remember where I put 'em."
 
 #. Text for talk sentence 14 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "那咱先告辞了……对不起。"
-msgstr ""
+msgstr "I'll be going now... sorry."
 
 #. Text for talk sentence 15 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "究竟发生了什么……？"
-msgstr ""
+msgstr "What's even going on...?"
 
 #. Description for talk sentence 15 in talk group palace_6_map's section 0
 #: Talk meta file
@@ -12165,7 +12236,7 @@ msgstr "(Rin leaves)"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "史蒂夫先生，我找到朱鹭子小姐了！"
-msgstr ""
+msgstr "Mr. Steve! I found Miss Tokiko!"
 
 #. Description for talk sentence 16 in talk group palace_6_map's section 0
 #: Talk meta file
@@ -12177,148 +12248,149 @@ msgstr "(Utsuho enters)"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "哦？她在哪儿？"
-msgstr ""
+msgstr "Oh? Where is she?"
 
 #. Text for talk sentence 18 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "！她在灼热地狱遗址做什么？！"
-msgstr ""
+msgstr "! What is she doing at the Remains of Blazing Hell?!"
 
 #. Text for talk sentence 19 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "那地方全是岩浆，对她这样的妖怪来说很危险！"
 msgstr ""
+"That place is full of lava! It's extremely dangerous for a youkai like her!"
 
 #. Text for talk sentence 20 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "不——不知道啊！我还以为她在那里玩……"
-msgstr ""
+msgstr "I-I don't know! I thought she's just playing there..."
 
 #. Text for talk sentence 21 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "总之，我们快赶过去！"
-msgstr ""
+msgstr "We gotta get there quick!"
 
 #. Text for talk sentence 22 in talk group palace_6_map's section 0
 #: Talk meta file
-#, fuzzy
-#| msgctxt "talk-mvz2:mausoleum_11_map"
-#| msgid "朱鹭子，你没事吧！"
 msgctxt "talk-mvz2:palace_6_map"
 msgid "朱鹭子，你在那里做什么！"
-msgstr "Are you okay? Tokiko!"
+msgstr "T-Tokiko, what are you doing over there?!"
 
 #. Description for talk sentence 22 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "archive"
 msgid "（来到灼热地狱遗址）"
-msgstr ""
+msgstr "(They arrive at the Remains of Blazing Hell)"
 
 #. Text for talk sentence 23 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "呃——咕、啊、呃呃呃……"
-msgstr ""
+msgstr "Ughh...? Ack... uh, uuugh..."
 
 #. Text for talk sentence 24 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "朱鹭子，你怎么了！"
-msgstr ""
+msgstr "Tokiko, are you all right?!"
 
 #. Text for talk sentence 25 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "她的内心现在非常混乱！充满了杂音！"
-msgstr ""
+msgstr "Her mind is in a state of disarray right now! It's full of noise!"
 
 #. Text for talk sentence 26 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "怎么回事！她那里也太危险了！下面是一片岩浆湖！"
 msgstr ""
+"This is bad! Where she's standing, she's gonna fall into the lava lake below!"
 
 #. Text for talk sentence 27 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "朱鹭子，你快下来！"
-msgstr ""
+msgstr "Tokiko, get down from there!"
 
 #. Text for talk sentence 28 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "呃呃呃呃呃、咕——啊啊啊啊啊啊啊啊啊！"
-msgstr ""
+msgstr "Uggghhhh...Augh—UWAAAAAAAHHH!"
 
 #. Text for talk sentence 29 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "不！！！！！！<color=blue>（朱鹭子掉下去了！！！）</color>"
-msgstr ""
+msgstr "NOOO!!!!!! <color=blue>(SHE FELL!!!)</color>"
 
 #. Text for talk sentence 30 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "<color=blue>（怎么……会这样……）</color>"
-msgstr ""
+msgstr "<color=blue>(How... could this...)</color>"
 
 #. Text for talk sentence 31 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "给我把她吹回去！！！快！"
-msgstr ""
+msgstr "Send her back up! QUICK!!!"
 
 #. Text for talk sentence 32 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "发生什么了！"
-msgstr ""
+msgstr "H-huh?!"
 
 #. Text for talk sentence 33 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "阿燐！！！"
-msgstr ""
+msgstr "Orin!!!"
 
 #. Description for talk sentence 33 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "archive"
 msgid "（刚刚回来的燐，将一个木风扇扔到了朱鹭子的下方，把她吹了回去。）"
 msgstr ""
+"(Rin, who just returned, throws a wooden fan beneath Tokiko, blowing her "
+"back up.)"
 
 #. Text for talk sentence 34 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "史蒂夫，快！接住她！"
-msgstr ""
+msgstr "HURRY, STEVE! CATCH HER!"
 
 #. Text for talk sentence 35 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "朱鹭子！！！"
-msgstr ""
+msgstr "Tokiko!!!"
 
 #. Text for talk sentence 36 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "呃、啊啊啊……"
-msgstr ""
+msgstr "Ugh... aahhh..."
 
 #. Text for talk sentence 37 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "快，我们把她带回安全的地方！"
-msgstr ""
+msgstr "Quick! Get her somewhere safe!"
 
 #. Text for talk sentence 38 in talk group palace_6_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_6_map"
 msgid "回地灵殿！"
-msgstr ""
+msgstr "Back to the Palace!"
 
 #. Archive name for talk group palace_7
 #: Talk meta file
@@ -12330,7 +12402,7 @@ msgstr "Palace Day 7 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "还好咱赶到了……幸好她没事。"
-msgstr ""
+msgstr "Glad that I made it in time... Thank goodness she's alright."
 
 #. Text for talk sentence 1 in talk group palace_7's section 0
 #: Talk meta file
@@ -12338,48 +12410,50 @@ msgctxt "talk-mvz2:palace_7"
 msgid ""
 "放心吧，朱鹭子的情绪现在已经稳定下来了，身体也没有大碍。之后我们和她谈谈吧。"
 msgstr ""
+"Rest assured, Tokiko has calmed down, and she's not hurt. We'll speak with "
+"her later."
 
 #. Text for talk sentence 2 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "谢天谢地……真的太好了。"
-msgstr ""
+msgstr "Thank goodness... That's really great."
 
 #. Text for talk sentence 3 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "另外，今天的话，好像是有新的怪物出现了。"
-msgstr ""
+msgstr "Also, seems like there's a new monster showing up today."
 
 #. Text for talk sentence 4 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "手里拿着奇怪的金属板，不知道它是干什么的。"
-msgstr ""
+msgstr "It's holding a weird metallic board. No idea what it does."
 
 #. Text for talk sentence 5 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "是吗，让我——"
-msgstr ""
+msgstr "Really? Let me..."
 
 #. Text for talk sentence 6 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "——？"
-msgstr ""
+msgstr "...?"
 
 #. Text for talk sentence 7 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "原来是一种叫“黑客”的怪物？"
-msgstr ""
+msgstr "So it's called a \"Hacker\"?"
 
 #. Text for talk sentence 8 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "呃，对……"
-msgstr ""
+msgstr "Y-yeah..."
 
 #. Text for talk sentence 9 in talk group palace_7's section 0
 #: Talk meta file
@@ -12388,13 +12462,15 @@ msgid ""
 "<color=blue>（奇怪，在我的记忆中，我很确信我不曾见过这种凋灵骷髅黑客。）</"
 "color>"
 msgstr ""
+"<color=blue>(Strange... I'm absolutely certain I've never seen this kind of "
+"Wither Skeleton Hacker before.)</color>"
 
 #. Text for talk sentence 10 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid ""
 "<color=blue>（但是，为什么它却告诉我，这种怪物的样子，我很熟悉？）</color>"
-msgstr ""
+msgstr "<color=blue>(But why... why does it feel so familiar?)</color>"
 
 #. Archive name for talk group palace_7_over
 #: Talk meta file
@@ -12406,7 +12482,7 @@ msgstr "Palace Day 7 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_over"
 msgid "这是紫晶塔！它能够发射穿透一整行的激光！"
-msgstr ""
+msgstr "This is Amethyst Pylon! It fires a laser that pierces an entire row!"
 
 #. Text for talk sentence 1 in talk group palace_7_over's section 0
 #: Talk meta file
@@ -12414,12 +12490,14 @@ msgctxt "talk-mvz2:palace_7_over"
 msgid ""
 "不过它的伤害很低，但是如果它受到的光照足够多，它的激光威力和大小都会提升！"
 msgstr ""
+"Its base damage is very low, but if it receives enough light, the laser's "
+"power and size both increase!"
 
 #. Text for talk sentence 2 in talk group palace_7_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_over"
 msgid "射穿你的敌人！"
-msgstr ""
+msgstr "Pierce your enemies! Now with more lasers!"
 
 #. Archive name for talk group palace_7_map
 #: Talk meta file
@@ -12431,79 +12509,83 @@ msgstr "Palace Day 7 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Text for talk sentence 1 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "朱鹭子，你现在没事了？"
-msgstr ""
+msgstr "Are you okay now, Tokiko?"
 
 #. Text for talk sentence 2 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "嗯。"
-msgstr ""
+msgstr "Yes, mostly."
 
 #. Text for talk sentence 3 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "你之前去灼热地狱遗址，是为了？"
 msgstr ""
+"When you went to the Remains of Blazing Hell earlier... what were you doing "
+"there?"
 
 #. Text for talk sentence 4 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "诶？我去过那里吗？"
-msgstr ""
+msgstr "Huh? I went there?"
 
 #. Text for talk sentence 5 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "你不记得了？"
-msgstr ""
+msgstr "You don't remember?"
 
 #. Text for talk sentence 6 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "抱歉，我真的没印象……"
-msgstr ""
+msgstr "Sorry, I really have no recollection..."
 
 #. Text for talk sentence 7 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "之前发生什么了？"
-msgstr ""
+msgstr "What happened before that?"
 
 #. Text for talk sentence 8 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "那时，我照常呆在地灵殿的庭院里。"
-msgstr ""
+msgstr "At that time, I was just in the courtyard of the Palace like usual."
 
 #. Text for talk sentence 9 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "突然我的脑中变得一片空白，有一种奇怪的感觉占据了我的脑子。"
 msgstr ""
+"And suddenly, my mind went completely blank. A weird feeling just took over "
+"my mind."
 
 #. Text for talk sentence 10 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "像是有人在呼唤我一样，那个声音说着——"
-msgstr ""
+msgstr "It's like someone was calling out to me. That voice said..."
 
 #. Text for talk sentence 11 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "“远离他们，远离”——呃……那位先生。"
-msgstr ""
+msgstr "\"Stay away from them, away from...\" Um... that gentleman."
 
 #. Text for talk sentence 12 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "远离……我？"
-msgstr ""
+msgstr "Away... from me?"
 
 #. Text for talk sentence 13 in talk group palace_7_map's section 0
 #: Talk meta file
@@ -12512,54 +12594,59 @@ msgid ""
 "然而就在这个念头产生后不久，我的脑子突然变得一团乱麻，之后发生了什么我就不清"
 "楚了。"
 msgstr ""
+"But shortly after that thought appeared, my mind suddenly got all jumbled "
+"up, and I don't know what happened after that."
 
 #. Text for talk sentence 14 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "等我恢复意识的时候，已经躺在地灵殿的床上了。"
 msgstr ""
+"By the time I regained consciousness, I was already back inside the Palace "
+"lying on a bed."
 
 #. Text for talk sentence 15 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "那种感觉，我真的不想再经历第二次……"
-msgstr ""
+msgstr "That feeling... I really don't to go through that again..."
 
 #. Text for talk sentence 17 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "该不会，朱鹭子小妹也是和咱一样……被人控制了？"
-msgstr ""
+msgstr "Could it be that li'l Tokiko was being... manipulated just like I was?"
 
 #. Text for talk sentence 18 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "被人控制？"
-msgstr ""
+msgstr "Manipulated?"
 
 #. Text for talk sentence 19 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "咱也有过这样的经历，就在小妹你这件事发生前不久。"
-msgstr ""
+msgstr "I also had a similar experience, right before you did."
 
 #. Text for talk sentence 20 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "那时咱不知道为什么，脑中突然就只有一个念头了。"
 msgstr ""
+"At that time, I dunno why, but only one thought suddenly filled my head."
 
 #. Text for talk sentence 21 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "那就是，把史蒂夫小弟你的所有蓝图搬走，然后藏起来。"
-msgstr ""
+msgstr "That was, to take every single one of Steve's blueprints and hide 'em."
 
 #. Text for talk sentence 22 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "看来你好像处处被针对啊，邻居！"
-msgstr ""
+msgstr "Looks like someone really has it out for you, neighbor!"
 
 #. Text for talk sentence 24 in talk group palace_7_map's section 0
 #: Talk meta file
@@ -12567,18 +12654,22 @@ msgctxt "talk-mvz2:palace_7_map"
 msgid ""
 "……不过，往好处想，似乎因为这件事，咱才能及时赶到，才没让小妹你陷入危险啊。"
 msgstr ""
+"...But, looking on the bright side, seems like because of that, I was able "
+"to make it in time and save li'l Tokiko from greater danger."
 
 #. Text for talk sentence 25 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "先不提那个家伙为什么对我的恶意如此之大了。做这些事情的人到底是谁？"
 msgstr ""
+"Leaving aside just why that someone has such enormous malice toward me for a "
+"moment... Who on earth is doing this?"
 
 #. Text for talk sentence 26 in talk group palace_7_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "难道……是那个“猎手”干的吗？"
-msgstr ""
+msgstr "Don't tell me... that \"Hunter\" is behind this...?"
 
 #. Archive name for talk group palace_8
 #: Talk meta file
@@ -12590,31 +12681,33 @@ msgstr "Palace Day 8 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8"
 msgid "说起来，觉大人呢？"
-msgstr ""
+msgstr "Speaking of which, where's Lady Satori?"
 
 #. Text for talk sentence 1 in talk group palace_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8"
 msgid "觉大人啊，她早上说自己去外边调查了。"
 msgstr ""
+"Oh, Lady Satori? She went out this morning. She said she was gonna do some "
+"investigating."
 
 #. Text for talk sentence 2 in talk group palace_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8"
 msgid "有关这些——呃，打人的事情。"
-msgstr ""
+msgstr "About these... uh, assaults."
 
 #. Text for talk sentence 3 in talk group palace_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8"
 msgid "这样啊。"
-msgstr ""
+msgstr "I see."
 
 #. Text for talk sentence 4 in talk group palace_8's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8"
 msgid "希望能有所进展吧。"
-msgstr ""
+msgstr "Hopefully there's some progress."
 
 #. Archive name for talk group palace_8_over
 #: Talk meta file
@@ -12626,19 +12719,21 @@ msgstr "Palace Day 8 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_over"
 msgid "核平一切！"
-msgstr ""
+msgstr "You nuke 'em, then you win!"
 
 #. Text for talk sentence 1 in talk group palace_8_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_over"
 msgid "这是核弹，你点燃它之后，他就会瞬间杀死极大范围内的怪物！"
 msgstr ""
+"This is Nuke! Once you light it, it instantly kills all monsters in a "
+"massive area!"
 
 #. Text for talk sentence 2 in talk group palace_8_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_over"
 msgid "并且不会留下任何尸体！"
-msgstr ""
+msgstr "And it won't leave a single body behind!"
 
 #. Text for talk sentence 3 in talk group palace_8_over's section 0
 #: Talk meta file
@@ -12646,12 +12741,14 @@ msgctxt "talk-mvz2:palace_8_over"
 msgid ""
 "不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法再这里放置器械！"
 msgstr ""
+"However, after it detonates, it'll destroy the tile it was on, temporarily "
+"preventing you from placing any contraptions there!"
 
 #. Text for talk sentence 4 in talk group palace_8_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_over"
 msgid "战术核弹来袭！"
-msgstr ""
+msgstr "Tactical Nuke! Incoming!"
 
 #. Archive name for talk group palace_8_map
 #: Talk meta file
@@ -12663,94 +12760,91 @@ msgstr "Palace Day 8 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "觉大人还没回来吗？"
-msgstr ""
+msgstr "Lady Satori's still not back yet?"
 
 #. Text for talk sentence 1 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "对啊，是不是有些太晚了？"
-msgstr ""
+msgstr "Yeah, isn't it getting kinda late?"
 
 #. Text for talk sentence 2 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "……？等等，这边有个东西。"
-msgstr ""
+msgstr "...? Wait, there's something over here."
 
 #. Text for talk sentence 3 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "哦？"
-msgstr ""
+msgstr "Oh?"
 
 #. Text for talk sentence 4 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "箱子？"
-msgstr ""
+msgstr "A chest?"
 
 #. Text for talk sentence 5 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "？"
-msgstr ""
+msgstr "?"
 
 #. Text for talk sentence 6 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "我有一种不好的预感。要打开它吗？"
-msgstr ""
+msgstr "I've got a bad feeling about this. Should we open it?"
 
 #. Text for talk sentence 7 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Text for talk sentence 8 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "打开吧！里面说不定有什么东西呢。"
-msgstr ""
+msgstr "Open it! There might be something inside."
 
 #. Text for talk sentence 9 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "那就——"
-msgstr ""
+msgstr "Then—"
 
 #. Text for talk sentence 10 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "哇啊啊啊啊啊啊啊啊！"
-msgstr ""
+msgstr "WAAAAAAAAAAHHHHH!"
 
 #. Description for talk sentence 10 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "archive"
 msgid "（箱子被打开，里面躺着的是昏迷的觉。）"
-msgstr ""
+msgstr "(The chest is opened. Inside lies Satori, unconscious.)"
 
 #. Text for talk sentence 11 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "觉、觉、觉大人！"
-msgstr ""
+msgstr "L-Lady Satori!"
 
 #. Text for talk sentence 12 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "怎么回事！！！"
-msgstr ""
+msgstr "Wh-what the?!"
 
 #. Text for talk sentence 13 in talk group palace_8_map's section 0
 #: Talk meta file
-#, fuzzy
-#| msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
-#| msgid "发生什么了？"
 msgctxt "talk-mvz2:palace_8_map"
 msgid "发生什么了！"
-msgstr "Something the matter?"
+msgstr "What happened?!"
 
 #. Description for talk sentence 13 in talk group palace_8_map's section 0
 #: Talk meta file
@@ -12762,31 +12856,31 @@ msgstr "(Tokiko enters)"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "！！！"
-msgstr ""
+msgstr "!!!"
 
 #. Text for talk sentence 15 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "这、这、这、这个箱子！！！"
-msgstr ""
+msgstr "Th-th-this... this chest!!!"
 
 #. Text for talk sentence 16 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "啊啊啊啊啊啊啊啊！"
-msgstr ""
+msgstr "AAAAAAAAHHHH!"
 
 #. Text for talk sentence 17 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "朱鹭子，你怎么了！"
-msgstr ""
+msgstr "Tokiko, what's with you?!"
 
 #. Text for talk sentence 18 in talk group palace_8_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "快把觉大人送去治疗！！！"
-msgstr ""
+msgstr "Wuick, get Lady Satori to a doctor!!!"
 
 #. Archive text for talk group palace_8_map's section 1
 #: Talk meta file
@@ -12798,31 +12892,31 @@ msgstr "They arrive at Eientei."
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "怎么会这样……"
-msgstr ""
+msgstr "How could this have happened..."
 
 #. Text for talk sentence 2 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "又来到这里了……"
-msgstr ""
+msgstr "We're here again..."
 
 #. Text for talk sentence 3 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "<color=blue>（觉大人居然也成为了袭击的受害者……）</color>"
-msgstr ""
+msgstr "<color=blue>(Even Lady Satori became a victim...)</color>"
 
 #. Text for talk sentence 4 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "<color=blue>（可恶！到底是谁！）</color>"
-msgstr ""
+msgstr "<color=blue>(Damn it! Who is it?!)</color>"
 
 #. Text for talk sentence 5 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "没想到，她也会成为犯人的目标。"
-msgstr ""
+msgstr "I didn't expect her to become a victim as well."
 
 #. Description for talk sentence 5 in talk group palace_8_map's section 1
 #: Talk meta file
@@ -12834,7 +12928,7 @@ msgstr "(Eirin enters)"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "一个好消息和一个坏消息。我直接说了吧。"
-msgstr ""
+msgstr "Good news and bad news. Let me just get straight to it."
 
 #. Text for talk sentence 7 in talk group palace_8_map's section 1
 #: Talk meta file
@@ -12843,42 +12937,44 @@ msgid ""
 "好消息是她受到的物理伤害不严重，只有头部遭到击打而已，没有出血，也没有后遗症"
 "可能。"
 msgstr ""
+"The good news is her physical injuries aren't severe. The blow to her head "
+"caused no internal hemorrhage and no risk of sequelae."
 
 #. Text for talk sentence 8 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "那实在是太好了。"
-msgstr ""
+msgstr "That's a huge relief."
 
 #. Text for talk sentence 9 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "我还没说完。"
-msgstr ""
+msgstr "I haven't finished."
 
 #. Text for talk sentence 10 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "坏消息是，她的灵魂被剥离出身体了。"
-msgstr ""
+msgstr "The bad news is, her soul had been extracted from her body."
 
 #. Text for talk sentence 11 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "！"
-msgstr ""
+msgstr "!"
 
 #. Text for talk sentence 12 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "没有了灵魂，她就只能一直沉睡下去。"
-msgstr ""
+msgstr "Without her soul, she'll simply remain in this slumber forever."
 
 #. Text for talk sentence 13 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "觉大人，醒不过来了吗……"
-msgstr ""
+msgstr "Lady Satori... won't wake up...?"
 
 #. Text for talk sentence 14 in talk group palace_8_map's section 1
 #: Talk meta file
@@ -12887,12 +12983,14 @@ msgid ""
 "还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能能让他把灵魂还回"
 "来。"
 msgstr ""
+"There's still one last option. Confront the culprit directly, take him down, "
+"and perhaps you can force the culprit to return her soul."
 
 #. Text for talk sentence 15 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "这怎么找？！"
-msgstr ""
+msgstr "But how do we find him?!"
 
 #. Text for talk sentence 16 in talk group palace_8_map's section 1
 #: Talk meta file
@@ -12901,60 +12999,63 @@ msgid ""
 "如果有点线索的话，我可能可以帮你们找出他。不过，那位能提供线索的小姐，现在正"
 "躺在床上呢。"
 msgstr ""
+"If you have some clues, I might be able to help track him down. However, the "
+"young lady who could provide those clues is now lying in bed."
 
 #. Text for talk sentence 17 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "之前她倒是对我守口如瓶，如今连说话这件事都做不到了。"
 msgstr ""
+"She wouldn't tell me a thing before, and now she can't even speak at all."
 
 #. Text for talk sentence 18 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "怎么办……"
-msgstr ""
+msgstr "What do we do?..."
 
 #. Text for talk sentence 19 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "那个——大夫？"
-msgstr ""
+msgstr "Umm... Doctor?"
 
 #. Text for talk sentence 20 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "朱鹭子？"
-msgstr ""
+msgstr "Tokiko?"
 
 #. Text for talk sentence 21 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "我好像，想起来了。"
-msgstr ""
+msgstr "I think... I remember now."
 
 #. Text for talk sentence 22 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "！你想起来了？！"
-msgstr ""
+msgstr "! You remember?!"
 
 #. Text for talk sentence 23 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "嗯，至少大部分都想起来了吧……"
-msgstr ""
+msgstr "Yeah, at least... I've recalled most of it now..."
 
 #. Text for talk sentence 24 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "在——看到那个可怕的箱子之后。"
-msgstr ""
+msgstr "After... seeing that terrifying chest."
 
 #. Text for talk sentence 25 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "……箱子？"
-msgstr ""
+msgstr "...Chest?"
 
 #. Text for talk sentence 27 in talk group palace_8_map's section 1
 #: Talk meta file
@@ -12963,18 +13064,21 @@ msgid ""
 "在你们登船的时候，我依然在香霖堂看店。那个紫色的木头箱子就在那个时候在店门口"
 "外莫名其妙地出现了。"
 msgstr ""
+"When you all boarded the ship, I stayed in Kourindou. That's when a purple "
+"wooden chest appeared outside the shop's door out of nowhere."
 
 #. Text for talk sentence 28 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "我上前看了看，那个箱子被锁着，打不开。"
 msgstr ""
+"I went to take a closer look. The chest was locked, so I couldn't open it."
 
 #. Text for talk sentence 29 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "并且，上面还雕刻着奇怪的画。"
-msgstr ""
+msgstr "And... there were strange carvings on it."
 
 #. Text for talk sentence 30 in talk group palace_8_map's section 1
 #: Talk meta file
@@ -12982,72 +13086,78 @@ msgctxt "talk-mvz2:palace_8_map"
 msgid ""
 "我感觉这个东西很不妙，于是转身就准备回香霖堂，结果头就被重重地打了一下。"
 msgstr ""
+"I had a really bad feeling about it, so I turned around, and when I was "
+"about to head back into Kourindou, I got struck hard on the head."
 
 #. Text for talk sentence 31 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "那时的我下意识地，拼了命地往屋子里面跑。"
-msgstr ""
+msgstr "At that moment, I instinctively ran back into the shop."
 
 #. Text for talk sentence 32 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "然后，我就什么都不记得了。"
-msgstr ""
+msgstr "After that... I don't remember anything."
 
 #. Text for talk sentence 33 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "醒来之后，我就已经在这个地方了。"
-msgstr ""
+msgstr "Next thing I knew, I woke up here."
 
 #. Text for talk sentence 34 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "……原来如此。"
-msgstr ""
+msgstr "...I see."
 
 #. Text for talk sentence 35 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "明白了，我会帮你们制作一些药水，这些药水应该能把它引过来。"
 msgstr ""
+"Understood. I'll brew some luring potions for you. These should be able to "
+"do the job."
 
 #. Text for talk sentence 36 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "需要几天时间，之后你们再来拿吧。我先告辞了。"
 msgstr ""
+"It'll take a few days. Once they're ready, come by and collect them. I'll "
+"take my leave now."
 
 #. Text for talk sentence 37 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "觉大人——有救吗……？"
-msgstr ""
+msgstr "Lady Satori... can she be saved...?"
 
 #. Text for talk sentence 38 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "一定会的，阿空！"
-msgstr ""
+msgstr "She absolutely will, Okuu!"
 
 #. Text for talk sentence 39 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "史蒂夫？"
-msgstr ""
+msgstr "Steve?"
 
 #. Text for talk sentence 40 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "朱鹭子？有什么事吗？"
-msgstr ""
+msgstr "Tokiko? What is it?"
 
 #. Text for talk sentence 41 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "我确实都想起来了。"
-msgstr ""
+msgstr "I really have remembered everything."
 
 #. Text for talk sentence 42 in talk group palace_8_map's section 1
 #: Talk meta file
@@ -13055,48 +13165,54 @@ msgctxt "talk-mvz2:palace_8_map"
 msgid ""
 "我是……不对，我原本没有名字，大家都叫我朱鹭子，所以我之后也就叫这个名字了。"
 msgstr ""
+"I am... no, I originally didn't have a name. Everyone just called me Tokiko, "
+"so I took that as my name."
 
 #. Text for talk sentence 43 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "然后，霖之助在三年前把香霖堂那家店交给我代理。"
-msgstr ""
+msgstr "Then, three years ago, Rinnosuke entrusted Kourindou to me."
 
 #. Text for talk sentence 44 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "再然后，我和史蒂夫，以及戴夫先生相遇了。"
-msgstr ""
+msgstr "After that, I met you and Mr. Dave."
 
 #. Text for talk sentence 45 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "一直到现在的事情，我都差不多想起来了。"
-msgstr ""
+msgstr "Everything up until now... I've pretty much remembered all of it."
 
 #. Text for talk sentence 46 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "恭喜你找回记忆，小妹。"
-msgstr ""
+msgstr "Congrats on getting your memories back, li'l missy."
 
 #. Text for talk sentence 47 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "阿燐，抱歉，因为我的事情，反而拖累了觉小姐。"
 msgstr ""
+"Orin... I'm sorry. Because of what happened to me, Lady Satori got dragged "
+"into this."
 
 #. Text for talk sentence 48 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "不用太自责，我们会那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！"
 msgstr ""
+"Don't blame yourself. We'll drag that culprit out, stuff him into my cart, "
+"and Lady Satori will be back!"
 
 #. Text for talk sentence 49 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "好了，一起回地灵殿吧！"
-msgstr ""
+msgstr "All right, let's all head back to the Palace!"
 
 #. Archive name for talk group palace_9
 #: Talk meta file
@@ -13108,19 +13224,20 @@ msgstr "Palace Day 9 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9"
 msgid "诶？快看，怪物之中有些猫！"
-msgstr ""
+msgstr "Huh? Check it out, some cats are among the monsters!"
 
 #. Text for talk sentence 1 in talk group palace_9's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9"
 msgid "啊？居然还是只僵尸猫，已经烂的不成样子了……"
 msgstr ""
+"Huh? Wha—it's even a zombie cat, already all rotten and falling apart..."
 
 #. Text for talk sentence 2 in talk group palace_9's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9"
 msgid "小心啊，史蒂夫小弟，猫们可是有九条命的！"
-msgstr ""
+msgstr "Mind ya though, li'l Steve. Cats have nine lives!"
 
 #. Archive name for talk group palace_9_over
 #: Talk meta file
@@ -13132,7 +13249,7 @@ msgstr "Palace Day 9 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_over"
 msgid "啊哈，下界反应核！"
-msgstr ""
+msgstr "An arcane device! It's Nether Reactor Core!"
 
 #. Text for talk sentence 1 in talk group palace_9_over's section 0
 #: Talk meta file
@@ -13140,6 +13257,8 @@ msgctxt "talk-mvz2:palace_9_over"
 msgid ""
 "如果它被放置在一个由器械组成的，特殊形状的结构的中心，它会持续产出星之碎片！"
 msgstr ""
+"If placed in the center of a special contraption formation, it will "
+"continuously generate Starshards!"
 
 #. Text for talk sentence 2 in talk group palace_9_over's section 0
 #: Talk meta file
@@ -13152,12 +13271,18 @@ msgid ""
 "<color=red>A</color>和<color=blue>B</color>是两种不同的器械，X则是下界反应"
 "核！"
 msgstr ""
+"The formation being:\n"
+"<color=red>A</color><color=blue>B</color><color=red>A</color>\n"
+"<color=blue>B</color>X<color=blue>B</color>\n"
+"<color=red>A</color><color=blue>B</color><color=red>A</color>\n"
+"<color=red>A</color> and <color=blue>B</color> are two different "
+"contraptions, and X is the Nether Reactor Core!"
 
 #. Text for talk sentence 3 in talk group palace_9_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_over"
 msgid "试着启动反应堆吧！"
-msgstr ""
+msgstr "Client message: Active!"
 
 #. Archive name for talk group palace_9_map
 #: Talk meta file
@@ -13169,31 +13294,33 @@ msgstr "Palace Day 9 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "对了，史蒂夫小弟，咱有件事情得跟你说一下。"
-msgstr ""
+msgstr "So, li'l Steve, there's something I gotta tell ya."
 
 #. Text for talk sentence 1 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "咱之前不是……偷偷地把你的武器都给藏起来了吗？当然是不知道是什么原因。"
 msgstr ""
+"About that time earlier when... I secretly hid all your gear? Of course, I "
+"had no clue why I did it then."
 
 #. Text for talk sentence 2 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "现在咱终于想起来是怎么回事了。"
-msgstr ""
+msgstr "But now I've finally remembered what happened."
 
 #. Text for talk sentence 3 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "是因为什么？"
-msgstr ""
+msgstr "What is it?"
 
 #. Text for talk sentence 4 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "咱说过，在那时候，咱好像是被人控制了。"
-msgstr ""
+msgstr "Like I said, at that time, it was like someone was manipulating me."
 
 #. Text for talk sentence 5 in talk group palace_9_map's section 0
 #: Talk meta file
@@ -13201,111 +13328,120 @@ msgctxt "talk-mvz2:palace_9_map"
 msgid ""
 "这个我之前倒是遇见过这样的情况，一只头戴金冠的凋灵骷髅，能够精神控制其他人。"
 msgstr ""
+"I've run into something like that before. There's this Wither Skeleton "
+"wearing a golden crown, capable of mesmerizing others."
 
 #. Text for talk sentence 6 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "不对，这次控制咱的好像不是那种怪物。"
 msgstr ""
+"Nah. This time, the one manipulating me didn't seem like that kind of "
+"monster."
 
 #. Text for talk sentence 7 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "在咱被控制之前，咱好像偶然间瞥到了某个身影。"
 msgstr ""
+"Right before I got manipulated, I happened to catch a glimpse of a figure."
 
 #. Text for talk sentence 8 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "那个身影，好像是一只之前在战场上见到过的黑骷髅黑客。"
 msgstr ""
+"That figure... looked like one of those black skeleton Hackers I'd seen "
+"before."
 
 #. Text for talk sentence 9 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "然后，咱之后就不知道发生什么了……"
-msgstr ""
+msgstr "And then after that, I dunno what happened..."
 
 #. Text for talk sentence 10 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "啊？是黑客控制了你？"
-msgstr ""
+msgstr "Huh? A Hacker manipulated you?"
 
 #. Text for talk sentence 11 in talk group palace_9_map's section 0
 #: Talk meta file
-#, fuzzy
-#| msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
-#| msgid "说起来，戴夫。"
 msgctxt "talk-mvz2:palace_9_map"
 msgid "说起来，我——"
-msgstr "Speaking of, Dave."
+msgstr "Now that you mention it, I..."
 
 #. Text for talk sentence 12 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "我在那次失控之前，好像确实——"
-msgstr ""
+msgstr "Before I got manipulated that time, I think I really did..."
 
 #. Text for talk sentence 13 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "确实好像看到了一个黑骷髅黑客。"
-msgstr ""
+msgstr "I think I really did see a black skeleton Hacker."
 
 #. Text for talk sentence 14 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "那之后我就失去了意识。"
-msgstr ""
+msgstr "After that, I lost consciousness."
 
 #. Text for talk sentence 15 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Text for talk sentence 16 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "这个黑客居然能控制别人的精神，甚至还差点害死了朱鹭子……"
 msgstr ""
+"That Hacker can somehow manipulate people's minds... it even nearly got "
+"Tokiko killed..."
 
 #. Text for talk sentence 17 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "怎么会有这样邪恶的怪物？"
-msgstr ""
+msgstr "How can a monster be this evil?"
 
 #. Text for talk sentence 18 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "史蒂夫小弟，如果你之后遇到那个黑客，请您也一定要小心。"
 msgstr ""
+"L'il Steve, if you ever run into that Hacker, you gotta be real careful too."
 
 #. Text for talk sentence 19 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "那个家伙看起来比想象中的要危险。"
-msgstr ""
+msgstr "That thing looks even more dangerous than it seems."
 
 #. Text for talk sentence 20 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "并且……对您的恶意十分之大。"
-msgstr ""
+msgstr "And... it's got an awful lot of malice toward you."
 
 #. Text for talk sentence 21 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "对，史蒂夫，一定要小心……"
-msgstr ""
+msgstr "Yeah, Steve. Please be careful..."
 
 #. Text for talk sentence 22 in talk group palace_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_9_map"
 msgid "我明白了。就算是为了阿燐和朱鹭子，我也绝对不会放过那个家伙的。"
 msgstr ""
+"Understood. If it's for Orin and Tokiko, I absolutely won't spare that "
+"bastard."
 
 #. Archive name for talk group palace_note
 #: Talk meta file
@@ -13323,13 +13459,13 @@ msgstr "What is this?"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_note"
 msgid "呃，某种实验记录吧？"
-msgstr ""
+msgstr "Uhh, some kind of experiment log?"
 
 #. Text for talk sentence 2 in talk group palace_note's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_note"
 msgid "我看一下。"
-msgstr ""
+msgstr "Let me take a look."
 
 #. Text for talk sentence 3 in talk group palace_note's section 0
 #: Talk meta file
@@ -13341,7 +13477,7 @@ msgstr "…"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_note"
 msgid "算了，看不明白。"
-msgstr ""
+msgstr "Never mind. I don't understand it."
 
 #. Archive name for talk group palace_10_map
 #: Talk meta file
@@ -13353,79 +13489,80 @@ msgstr "Palace Day 10 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "史蒂夫先生，我把大夫做的灵魂药剂带来了！"
-msgstr ""
+msgstr "Mr. Steve! I brought the Soul Potion the doctor made!"
 
 #. Text for talk sentence 1 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "好，这下就能引诱那个可恶的家伙了！"
-msgstr ""
+msgstr "Good. Now we can lure that damn bastard out!"
 
 #. Text for talk sentence 2 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "希望这样能把觉小姐的灵魂找回来。"
-msgstr ""
+msgstr "Hopefully we can recover Miss Satori's soul this way."
 
 #. Text for talk sentence 3 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "她帮我了很多忙，她变成现在这样，我真的很难过。"
 msgstr ""
+"She helped me so much... seeing her end up like this really makes me sad."
 
 #. Text for talk sentence 4 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Text for talk sentence 5 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "话说咱有一点比较在意……"
-msgstr ""
+msgstr "There's still something that's been bugging me..."
 
 #. Text for talk sentence 6 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "之前在地灵殿门口的那个，发现觉大人时候的那个箱子去哪里了？"
-msgstr ""
+msgstr "That chest where we found Lady Satori in. Where is it?"
 
 #. Text for talk sentence 7 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "诶？"
-msgstr ""
+msgstr "Huh?"
 
 #. Text for talk sentence 8 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "啊，原来不是燐你搬走了吗？"
-msgstr ""
+msgstr "Huh? Wait, wasn't it you who moved it, Orin?"
 
 #. Text for talk sentence 9 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "没有啊，咱根本就没有动它。是史蒂夫小弟——？"
-msgstr ""
+msgstr "No! I never touched it! Was it li'l Steve here...?"
 
 #. Text for talk sentence 10 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "我也没动过它啊……朱鹭子？"
-msgstr ""
+msgstr "I didn't touch it either... Tokiko?"
 
 #. Text for talk sentence 11 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "诶？我见到它之后就吓坏了，根本就没动它……"
-msgstr ""
+msgstr "Huh? I was terrified after I saw it... I definitely didn't touch it..."
 
 #. Text for talk sentence 12 in talk group palace_10_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_10_map"
 msgid "奇怪，难道是恋大人干的吗……？"
-msgstr ""
+msgstr "Weird... Could Lady Koishi have moved it...?"
 
 #. Archive name for talk group palace_11
 #: Talk meta file
@@ -13437,31 +13574,33 @@ msgstr "Palace Day 11 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11"
 msgid "准备好了。"
-msgstr ""
+msgstr "I'm all set."
 
 #. Text for talk sentence 1 in talk group palace_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11"
 msgid "空，在战斗开始后不久，你就使用那瓶灵魂药剂，把“猎手”引过来吧。"
 msgstr ""
+"Okuu, shortly after the battle starts, use that Soul Potion and lure the "
+"\"Hunter\" here."
 
 #. Text for talk sentence 2 in talk group palace_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11"
 msgid "明白了！"
-msgstr ""
+msgstr "Got it!"
 
 #. Text for talk sentence 3 in talk group palace_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11"
 msgid "“猎手”到底是什么人呢……"
-msgstr ""
+msgstr "Who exactly is this \"Hunter\"...?"
 
 #. Text for talk sentence 4 in talk group palace_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11"
 msgid "不清楚啊……"
-msgstr ""
+msgstr "No clue..."
 
 #. Text for talk sentence 5 in talk group palace_11's section 0
 #: Talk meta file
@@ -13469,6 +13608,8 @@ msgctxt "talk-mvz2:palace_11"
 msgid ""
 "<color=blue>（我们没有这次的敌人的任何信息……只能硬着头皮上了。）</color>"
 msgstr ""
+"<color=blue>(We have no information about this enemy... we'll just have to "
+"charge in blind.)</color>"
 
 #. Archive name for talk group palace_11_boss
 #: Talk meta file
@@ -13481,30 +13622,31 @@ msgstr "Palace Day 11 Boss"
 msgctxt "talk-mvz2:palace_11_boss"
 msgid "这——这个东西，不是我们之前在地灵殿门口见到的箱子吗？"
 msgstr ""
+"Th-this thing... isn't this the chest we saw in front of the Palace earlier?!"
 
 #. Text for talk sentence 1 in talk group palace_11_boss's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_boss"
 msgid "这个东西怎么会出现在这里？"
-msgstr ""
+msgstr "What's it doing here?!"
 
 #. Text for talk sentence 2 in talk group palace_11_boss's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_boss"
 msgid "不知道啊！"
-msgstr ""
+msgstr "I don't know!"
 
 #. Text for talk sentence 3 in talk group palace_11_boss's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_boss"
 msgid "等等，这个箱子好像有动静！"
-msgstr ""
+msgstr "Hold on, the chest seems to be moving!"
 
 #. Text for talk sentence 4 in talk group palace_11_boss's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_boss"
 msgid "！！！！！"
-msgstr ""
+msgstr "!!!!!"
 
 #. Archive name for talk group palace_11_over
 #: Talk meta file
@@ -13516,31 +13658,33 @@ msgstr "Palace Day 11 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_over"
 msgid "……！"
-msgstr ""
+msgstr "...!"
 
 #. Text for talk sentence 1 in talk group palace_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_over"
 msgid "总算是把它杀掉了……"
-msgstr ""
+msgstr "F-finally... we killed it..."
 
 #. Text for talk sentence 2 in talk group palace_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_over"
 msgid "箱子居然是活的……闻所未闻！"
-msgstr ""
+msgstr "The chest was alive...?! I've never heard of such a thing!"
 
 #. Text for talk sentence 3 in talk group palace_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_over"
 msgid "刚才那个箱子死掉的时候，有很多的灵魂飞了出来！原来它就是那个“猎手”！"
 msgstr ""
+"When that chest died just now, tons of souls flew out! So that thing was the "
+"\"Hunter\"!"
 
 #. Text for talk sentence 4 in talk group palace_11_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_over"
 msgid "希望觉大人的灵魂能回到她的体内……"
-msgstr ""
+msgstr "I hope Lady Satori's soul has returned to her body..."
 
 #. Archive name for talk group palace_11_map
 #: Talk meta file
@@ -13552,31 +13696,31 @@ msgstr "Palace Day 11 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "我们快去永远亭，看看觉大人有没有醒过来吧！"
-msgstr ""
+msgstr "Let's hurry to Eientei and see if Lady Satori's woken up!"
 
 #. Text for talk sentence 1 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "好！"
-msgstr ""
+msgstr "Yeah!"
 
 #. Text for talk sentence 2 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "大夫，觉大人她怎么样了？"
-msgstr ""
+msgstr "Doctor, how's Lady Satori?"
 
 #. Description for talk sentence 2 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "archive"
 msgid "（来到永远亭）"
-msgstr ""
+msgstr "(They arrive at Eientei)"
 
 #. Text for talk sentence 3 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "觉大人！"
-msgstr ""
+msgstr "Lady Satori!"
 
 #. Description for talk sentence 3 in talk group palace_11_map's section 0
 #: Talk meta file
@@ -13588,97 +13732,107 @@ msgstr "(Satori enters)"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "看来我做了个很长的梦呢。"
-msgstr ""
+msgstr "Seems like I've had a long dream."
 
 #. Text for talk sentence 5 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "感谢您为我们做出的一切，史蒂夫先生。"
-msgstr ""
+msgstr "Thank you for everything you've done, Mr. Steve."
 
 #. Text for talk sentence 6 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "举手之劳！"
-msgstr ""
+msgstr "Just a small favor!"
 
 #. Text for talk sentence 7 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "<color=blue>（又在抢我功劳了……）</color>"
-msgstr ""
+msgstr "<color=blue>(Taking credit for my work again...)</color>"
 
 #. Text for talk sentence 8 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "也谢谢您帮我们这么多！"
-msgstr ""
+msgstr "Thank you so much for helping us, too!"
 
 #. Text for talk sentence 9 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "实在是没有想到，犯人居然就是那个箱子。"
-msgstr ""
+msgstr "To think the culprit was actually that chest..."
 
 #. Text for talk sentence 10 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "当时我去调查案件，却在地灵殿前方就发现了那个箱子。"
 msgstr ""
+"I've encountered that chest outside the Palace when I went to investigate "
+"the case."
 
 #. Text for talk sentence 11 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "我发现了它的不对，尝试去调查它，结果却疏于防备，被它所袭击。"
 msgstr ""
+" I walked up to it knowing something's not right, but I had let my guard "
+"down, and the chest struck me in the head."
 
 #. Text for talk sentence 12 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "看来我过于依赖读心的能力，疏忽了其他的事情啊。"
 msgstr ""
+"I relied too much on my mind-reading ability and neglected the other "
+"possibilities."
 
 #. Text for talk sentence 13 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "果然，在智慧这方面，没人能比得过您，医生。"
-msgstr ""
+msgstr "As expected, when it comes to wisdom, no one can surpass you, Doctor."
 
 #. Text for talk sentence 14 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "过奖。也还是靠朱鹭子小姐的线索才能得出的结论。"
 msgstr ""
+"You flatter me. It was also thanks to Miss Tokiko's clues that we reached "
+"the conclusion."
 
 #. Text for talk sentence 15 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "托您的福，现在永远亭的病人们醒了很多。"
 msgstr ""
+"Thanks to you all, many of the patients here at Eientei have now woken up."
 
 #. Text for talk sentence 16 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "诶？大夫您知道那个箱子就是犯人？"
-msgstr ""
+msgstr "Huh? You knew the chest was the culprit, Doctor?"
 
 #. Text for talk sentence 17 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "毕竟侦探也不是我的本分工作，我也只能在医学这方面帮点忙了。"
 msgstr ""
+"Detective work isn't really my job. I can only help with the medical stuff."
 
 #. Text for talk sentence 18 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "我先去看看其他醒来的病人了。"
-msgstr ""
+msgstr "I'll go check on the other patients who've woken up."
 
 #. Text for talk sentence 19 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "不过……"
-msgstr ""
+msgstr "But still..."
 
 #. Text for talk sentence 20 in talk group palace_11_map's section 0
 #: Talk meta file
@@ -13686,120 +13840,131 @@ msgctxt "talk-mvz2:palace_11_map"
 msgid ""
 "我和觉小姐同样都是受害者，为什么我只是受了伤，觉小姐却是被抽走了灵魂呢？"
 msgstr ""
+"Miss Satori and I were both victims. Why was it that I only got injured, but "
+"she had her soul extracted?"
 
 #. Text for talk sentence 21 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "我想，你还记得那个箱子体积有多大吧？大到连我都躺得下呢。"
 msgstr ""
+"I assume you still remember how big that chest was? It's even big enough for "
+"me to fit inside."
 
 #. Text for talk sentence 22 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "呃，所以？"
-msgstr ""
+msgstr "Yeah, so?"
 
 #. Text for talk sentence 23 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "它进不去房门，就这么简单。"
-msgstr ""
+msgstr "It couldn't fit through doors. Simple."
 
 #. Text for talk sentence 24 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "这也能说明，为什么那些及时进屋的受害者也只是受伤而已。"
 msgstr ""
+"That also explains why victims who made it inside in time only sustained "
+"injuries."
 
 #. Text for talk sentence 25 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "<color=blue>（好普通的原因！）</color>"
-msgstr ""
+msgstr "<color=blue>(That's such an ordinary reason!)</color>"
 
 #. Text for talk sentence 26 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "啊，还有，香霖堂的防御器械没有锁定它，也是因为——箱子的伪装？"
 msgstr ""
+"Ah, also, Kourindou's defensive contraptions didn't target it either. Was "
+"that because... it's disguised as an ordinary chest?"
 
 #. Text for talk sentence 27 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "大概吧。我其实不是很懂器械这方面。"
-msgstr ""
+msgstr "Probably. I'm not too particularly knowledgeable about contraptions."
 
 #. Text for talk sentence 28 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "<color=blue>（看来器械也不是万能的……）</color>"
 msgstr ""
+"<color=blue>(Looks like contraptions aren't all-powerful either...)</color>"
 
 #. Text for talk sentence 29 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "这个，收下吧！"
-msgstr ""
+msgstr "Here, take this!"
 
 #. Text for talk sentence 30 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "哇！突然出现的什么东西，好重！"
-msgstr ""
+msgstr "Whoa! Something just appeared out of nowhere! And it's heavy!"
 
 #. Text for talk sentence 31 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "大概是我的妹妹为了表达感谢，送你的东西吧。"
-msgstr ""
+msgstr "That's probably a gift from my little sister to express her gratitude."
 
 #. Text for talk sentence 32 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "<color=blue>（能不能送些轻一点的东西！）</color>"
-msgstr ""
+msgstr "<color=blue>(Can you give me something lighter?!)</color>"
 
 #. Text for talk sentence 33 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "呵呵，明白啦，下次会的。"
-msgstr ""
+msgstr "Hehe, I will. Maybe next time."
 
 #. Text for talk sentence 34 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "啊，已经这么晚了，差不多也该回去了吧。"
-msgstr ""
+msgstr "Ah, it's late already. About time we head back."
 
 #. Text for talk sentence 35 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "这次就回香霖堂吧，朱鹭子的记忆已经恢复了，也没有必要继续留在地灵殿了！"
 msgstr ""
+"Let's go back to Kourindou this time. Tokiko's memories are restored, so "
+"there's no need to stay in the Palace anymore!"
 
 #. Text for talk sentence 36 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "那我们回去吧！"
-msgstr ""
+msgstr "Then, let's go home!"
 
 #. Text for talk sentence 37 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "再见，觉大人！"
-msgstr ""
+msgstr "Goodbye, Lady Satori!"
 
 #. Text for talk sentence 38 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "……嗯，再见。"
-msgstr ""
+msgstr "...Goodbye."
 
 #. Text for talk sentence 39 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "……"
-msgstr ""
+msgstr "..."
 
 #. Description for talk sentence 39 in talk group palace_11_map's section 0
 #: Talk meta file
@@ -13811,31 +13976,31 @@ msgstr "(Steve, Villager and Tokiko leaves)"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "觉大人，您在担心什么吗？"
-msgstr ""
+msgstr "Lady Satori, is something worrying you?"
 
 #. Text for talk sentence 41 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "那个孩子……"
-msgstr ""
+msgstr "That child..."
 
 #. Text for talk sentence 42 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "史蒂夫小弟吗？"
-msgstr ""
+msgstr "You mean li'l Steve?"
 
 #. Text for talk sentence 43 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "嗯。"
-msgstr ""
+msgstr " Yes."
 
 #. Text for talk sentence 44 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
 msgid "希望他之后能接受这一切吧。"
-msgstr ""
+msgstr "I hope he'll be able to accept all of this... when the time comes."
 
 #. Archive name for talk group tutorial
 #: Talk meta file
