@@ -8,7 +8,6 @@ using MVZ2.Metas;
 using MVZ2.UI;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
@@ -17,7 +16,6 @@ using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 using UnityEngine;
 
@@ -81,6 +79,7 @@ namespace MVZ2.Managers
         {
             var sprite = GetBlueprintIcon(seedDef);
             string costStr = string.Empty;
+            string triggerCostStr = string.Empty;
 
             var seedID = seedDef.GetID();
             bool commandBlock = seedID == VanillaContraptionID.commandBlock;
@@ -93,12 +92,18 @@ namespace MVZ2.Managers
                     costSB.Append("+");
                 }
                 costStr = costSB.ToString();
+                // 新增：处理触发花费显示  
+                if (seedDef.IsTriggerActive() && seedDef.GetProperty<float>(PVZEngine.Level.EngineSeedProps.TRIGGER_COST) > 0)
+                {
+                    triggerCostStr = $"<color=red>{seedDef.GetProperty<float>(PVZEngine.Level.EngineSeedProps.TRIGGER_COST)}</color>";
+                }
             }
 
             var viewData = new BlueprintViewData()
             {
                 icon = sprite,
                 cost = costStr,
+                triggerCost = triggerCostStr,
                 triggerActive = seedDef.IsTriggerActive(),
                 iconGrayscale = isCommandBlock
             };

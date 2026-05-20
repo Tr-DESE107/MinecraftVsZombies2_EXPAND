@@ -170,6 +170,7 @@ namespace MVZ2.Modding
                 {
                     entityID = entityID,
                     cost = def.GetCost(),
+                    triggerCost = def.GetTriggerCost(),
                     rechargeID = def.GetRechargeID(),
                     triggerActive = def.IsTriggerActive(),
                     canInstantTrigger = def.CanInstantTrigger(),
@@ -390,6 +391,7 @@ namespace MVZ2.Modding
                 {
                     entityID = entityID,
                     cost = meta.Cost,
+                    triggerCost = meta.TriggerCost,
                     rechargeID = meta.RechargeID,
                     triggerActive = meta.IsTriggerActive(),
                     canInstantTrigger = meta.CanInstantTrigger(),
