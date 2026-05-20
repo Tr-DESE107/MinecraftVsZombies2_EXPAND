@@ -195,7 +195,7 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, FIELD_EVOCATION_TIMER, timer);
 
         public const int BOULDER_COUNT_IN_PALACE = 30;
-        public const int RESTORE_TIME = 1800;
+        public const int RESTORE_TIME = 900;
         public const int EVOCATION_DURATION = 120;
         public const float TOTAL_HP_LOSS = 0.25f;
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_BROKEN = new VanillaEntityPropertyMeta<bool>("Broken");
