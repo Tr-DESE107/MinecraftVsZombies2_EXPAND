@@ -285,38 +285,38 @@
         </variant>
     </character>
     <character id="futo" name="布都">
-        <variant id="mvz2:normal" width="584" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
+        <variant id="mvz2:normal" width="587" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
             <layer sprite="mvz2:characters/futo[0]" />
         </variant>
         <variant id="mvz2:daze" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.mausoleum_2" />
             </unlock>
-            <layer sprite="mvz2:characters/futo[1]" positionX="0" positionY="0" />
+            <layer sprite="mvz2:characters/futo[1]" positionX="112" positionY="0" />
         </variant>
         <variant id="mvz2:question" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.mausoleum_4" />
             </unlock>
-            <layer sprite="mvz2:characters/futo[2]" positionX="0" positionY="0" />
+            <layer sprite="mvz2:characters/futo[2]" positionX="80" positionY="176" />
         </variant>
         <variant id="mvz2:scared" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.mausoleum_7" />
             </unlock>
-            <layer sprite="mvz2:characters/futo[3]" positionX="0" positionY="0" />
+            <layer sprite="mvz2:characters/futo[5]" positionX="192" positionY="208" />
         </variant>
         <variant id="mvz2:worried" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.mausoleum_7" />
             </unlock>
-            <layer sprite="mvz2:characters/futo[4]" positionX="0" positionY="0" />
+            <layer sprite="mvz2:characters/futo[3]" positionX="192" positionY="192" />
         </variant>
         <variant id="mvz2:cringe" parent="mvz2:normal">
             <unlock>
                 <condition required="mvz2:level.mausoleum_9" />
             </unlock>
-            <layer sprite="mvz2:characters/futo[5]" positionX="0" positionY="0" />
+            <layer sprite="mvz2:characters/futo[4]" positionX="240" positionY="192" />
         </variant>
     </character>
     <character id="marisa" name="魔理沙">
