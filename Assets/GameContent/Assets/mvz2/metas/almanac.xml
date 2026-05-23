@@ -520,7 +520,7 @@
         </entry>
         <entry id="mvz2:stone_dropper">
             <variables>
-                <variable name="boulder_damage">global("mvz2:entity_damage") * 4</variable>
+                <variable name="boulder_damage">global("mvz2:entity_damage") * 2</variable>
             </variables>
             <header>
                 <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌方怪物并分裂的巨石。</p>

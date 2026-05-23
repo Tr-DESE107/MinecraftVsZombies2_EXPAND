@@ -22,6 +22,7 @@
   - Now can destroy multiple Hell Chariots at once.
 - Stone Dropper
   - When making attack checks, use the volume of boulders instead of the volume of pebbles.
+  - Damage of boulders: 40 -> 20
 - Jeweled Pagoda
   - Recharge time: Very Long -> Short
   - Tile disabling duration: 4 minutes -> 2 minutes
@@ -49,6 +50,7 @@
 - Fixed the issue where the texture in the command block blueprint pickup was not grayscale.
 - Fixed the issue where Seija's cursed doll does not follow Seija's faction upon spawn.
 - Fixed the issue where Seija's cursed doll can be blown away by Wooden Fans.
+- Fixed the issue where boulders launched by the evocation of Stone Droppers only deal 10 damage.
 
 ---
 
