@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-10 04:18+0800\n"
-"PO-Revision-Date: 2026-05-11 22:08+0800\n"
+"POT-Creation-Date: 2026-05-24 04:52+0800\n"
+"PO-Revision-Date: 2026-05-24 16:56+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -602,13 +602,13 @@ msgid "所有敌怪变大"
 msgstr "All enemy monsters grow big"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheChariotEvent.cs:39
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheChariotEvent.cs:38
 msgctxt "random_china.event_name"
 msgid "XII-战车"
 msgstr "XII - The Chariot"
 
 # 随机瓷器事件描述
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheChariotEvent.cs:41
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheChariotEvent.cs:40
 msgctxt "random_china.event_description"
 msgid "向每个敌怪发射一枚导弹"
 msgstr "Fire a missile towards every enemy monster"
@@ -722,13 +722,13 @@ msgid "在随机位置掉落16个TNT"
 msgstr "Drop 16 TNTs at random positions"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\WheelOfFortuneEvent.cs:45
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\WheelOfFortuneEvent.cs:39
 msgctxt "random_china.event_name"
 msgid "X-命运之轮"
 msgstr "X - Wheel of Fortune"
 
 # 随机瓷器事件描述
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\WheelOfFortuneEvent.cs:47
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\WheelOfFortuneEvent.cs:41
 msgctxt "random_china.event_description"
 msgid "生成3张随机器械的蓝图"
 msgstr "Spawn 3 blueprints of random contraptions"
@@ -1399,7 +1399,7 @@ msgstr "Version {0}"
 msgid "点击以开始！"
 msgstr "Click to start!"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:1056
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:1061
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1407,30 +1407,30 @@ msgstr ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:1058
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:1063
 msgid "已跳过对话\"{0}\""
 msgstr "Dialogue skipped: {0}"
 
-#: Scripts\MVZ2\Store\StoreController.cs:293
+#: Scripts\MVZ2\Store\StoreController.cs:299
 msgid "购买物品"
 msgstr "Purchase"
 
-#: Scripts\MVZ2\Store\StoreController.cs:295
+#: Scripts\MVZ2\Store\StoreController.cs:301
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] "Are you sure you want to purchase this for {0:N0}?"
 msgstr[1] "Are you sure you want to purchase this for {0:N0}?"
 
-#: Scripts\MVZ2\Store\StoreController.cs:297
+#: Scripts\MVZ2\Store\StoreController.cs:303
 msgid "金钱不足"
 msgstr "Not Enough Money"
 
-#: Scripts\MVZ2\Store\StoreController.cs:299
+#: Scripts\MVZ2\Store\StoreController.cs:305
 msgid "你没有足够的金钱！"
 msgstr ""
 "You don't have enough money! Come back when you're a little mmmm... richer!"
 
-#: Scripts\MVZ2\Store\StoreController.cs:301
+#: Scripts\MVZ2\Store\StoreController.cs:307
 msgid "{0}/{1}"
 msgstr "{0}/{1}"
 
@@ -1656,7 +1656,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:704
+#: Scripts\MVZ2\Map\MapController.cs:708
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1664,7 +1664,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:706
+#: Scripts\MVZ2\Map\MapController.cs:710
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1672,11 +1672,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:708
+#: Scripts\MVZ2\Map\MapController.cs:712
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:710
+#: Scripts\MVZ2\Map\MapController.cs:714
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1685,12 +1685,12 @@ msgstr ""
 "{0}/{1}"
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:712
+#: Scripts\MVZ2\Map\MapController.cs:716
 msgid "目标地点{0}不存在。"
 msgstr "Target area {0} does not exist."
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:714
+#: Scripts\MVZ2\Map\MapController.cs:718
 msgid "目标关卡{0}不存在。"
 msgstr "Target stage {0} does not exist."
 
@@ -2561,16 +2561,16 @@ msgid "中文"
 msgstr "English (United States)"
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:776
+#: Scripts\MVZ2\Entities\EntityController.cs:789
 msgid "死亡"
 msgstr "Dead"
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:778
+#: Scripts\MVZ2\Entities\EntityController.cs:791
 msgid "摧毁"
 msgstr "Destroyed"
 
-#: Scripts\MVZ2\Entities\EntityController.cs:780
+#: Scripts\MVZ2\Entities\EntityController.cs:793
 msgid "{0}"
 msgstr "{0}"
 
@@ -2584,12 +2584,12 @@ msgstr "Failed to export logs."
 msgid "日志已导出至{0}。"
 msgstr "The log files have been successfully exported to {0}."
 
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:528
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:519
 msgctxt "command.output"
 msgid "<color=red>命令不存在：{0}</color>"
 msgstr "<color=red>Command not found: {0}</color>"
 
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:530
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:521
 msgctxt "command.output"
 msgid "<color=red>错误：{0}</color>"
 msgstr "<color=red>Error: {0}</color>"

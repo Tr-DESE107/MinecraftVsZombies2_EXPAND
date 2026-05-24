@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-10 04:18+0800\n"
+"POT-Creation-Date: 2026-05-24 04:52+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -401,10 +401,34 @@ msgctxt "random_china.event_name"
 msgid "神秘埃及"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:39
+msgctxt "random_china.event_description"
+msgid "每行召唤一个木乃伊，然后……"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\AnvilShowerEvent.cs:36
 msgctxt "random_china.event_name"
 msgid "铁砧雨"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AnvilShowerEvent.cs:38
+msgctxt "random_china.event_description"
+msgid "每个敌怪头顶生成一个铁砧"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\BindingChainsEvent.cs:28
+msgctxt "random_china.event_name"
+msgid "魂缚锁链"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\BindingChainsEvent.cs:30
+msgctxt "random_china.event_description"
+msgid "暂时锁定随机3个蓝图"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -413,10 +437,34 @@ msgctxt "random_china.event_name"
 msgid "陶瓷镇"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\ChinaTownEvent.cs:39
+msgctxt "random_china.event_description"
+msgid "用随机瓷器填满战场"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\HeavyContraptionEvent.cs:31
+msgctxt "random_china.event_name"
+msgid "重装器械"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\HeavyContraptionEvent.cs:33
+msgctxt "random_china.event_description"
+msgid "变为狙击发射器"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\HellMetalEvent.cs:31
 msgctxt "random_china.event_name"
 msgid "地狱金属"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\HellMetalEvent.cs:33
+msgctxt "random_china.event_description"
+msgid "所有怪物装备铁盔"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -425,10 +473,22 @@ msgctxt "random_china.event_name"
 msgid "独立日"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\IndependenceDayEvent.cs:41
+msgctxt "random_china.event_description"
+msgid "生成10个红色不死飞行物"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\ObsidianPrisonEvent.cs:58
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\ObsidianPrisonEvent.cs:60
+msgctxt "random_china.event_description"
+msgid "用黑曜石困住所有敌怪"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -437,10 +497,22 @@ msgctxt "random_china.event_name"
 msgid "梅花A"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfClubsEvent.cs:33
+msgctxt "random_china.event_description"
+msgid "将所有怪物和掉落物变为TNT蓝图"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfDiamondsEvent.cs:25
 msgctxt "random_china.event_name"
 msgid "方片A"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfDiamondsEvent.cs:27
+msgctxt "random_china.event_description"
+msgid "将所有怪物和掉落物变为绿宝石"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -449,10 +521,22 @@ msgctxt "random_china.event_name"
 msgid "红桃A"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfHeartsEvent.cs:27
+msgctxt "random_china.event_description"
+msgid "将所有怪物和掉落物变为红石"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:21
 msgctxt "random_china.event_name"
 msgid "黑桃A"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Pokers\AceOfSpadesEvent.cs:23
+msgctxt "random_china.event_description"
+msgid "将所有怪物和掉落物变为星之碎片"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -461,10 +545,22 @@ msgctxt "random_china.event_name"
 msgid "赛车"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\RaceCarsEvent.cs:38
+msgctxt "random_china.event_description"
+msgid "每行生成一个启动的小推车"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\RedstoneReadyEvent.cs:41
 msgctxt "random_china.event_name"
 msgid "红石俱备"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\RedstoneReadyEvent.cs:43
+msgctxt "random_china.event_description"
+msgid "生成20个红石"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -473,10 +569,34 @@ msgctxt "random_china.event_name"
 msgid "超级充能"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\SuperRechargeEvent.cs:30
+msgctxt "random_china.event_description"
+msgid "30秒内蓝图充能速度翻倍"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:45
 msgctxt "random_china.event_name"
 msgid "VIII-力量"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:47
+msgctxt "random_china.event_description"
+msgid "所有敌怪变大"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheChariotEvent.cs:38
+msgctxt "random_china.event_name"
+msgid "XII-战车"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheChariotEvent.cs:40
+msgctxt "random_china.event_description"
+msgid "向每个敌怪发射一枚导弹"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -485,10 +605,34 @@ msgctxt "random_china.event_name"
 msgid "IV-皇帝"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmperorEvent.cs:33
+msgctxt "random_china.event_description"
+msgid "所有器械获得圣盾"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmpressEvent.cs:36
+msgctxt "random_china.event_name"
+msgid "III-女皇"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheEmpressEvent.cs:38
+msgctxt "random_china.event_description"
+msgid "生成一个全天工作的矿场，持续3分钟"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:32
 msgctxt "random_china.event_name"
 msgid "0-愚者"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheFoolEvent.cs:34
+msgctxt "random_china.event_description"
+msgid "所有敌怪回到起始点"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -497,10 +641,58 @@ msgctxt "random_china.event_name"
 msgid "XII-倒吊人"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHangedManEvent.cs:35
+msgctxt "random_china.event_description"
+msgid "生成6个反则卫星"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHermitEvent.cs:40
+msgctxt "random_china.event_name"
+msgid "IX-隐者"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHermitEvent.cs:42
+msgctxt "random_china.event_description"
+msgid "用地雷TNT填满战场"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHierophantEvent.cs:34
+msgctxt "random_china.event_name"
+msgid "V-教皇"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheHierophantEvent.cs:36
+msgctxt "random_china.event_description"
+msgid "每行召唤一个友方的催眠者"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheLoversEvent.cs:45
+msgctxt "random_china.event_name"
+msgid "VI-恋人"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheLoversEvent.cs:47
+msgctxt "random_china.event_description"
+msgid "随机将一对器械和怪物变为中立阵营"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:32
 msgctxt "random_china.event_name"
 msgid "XVII-星星"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheStarEvent.cs:34
+msgctxt "random_china.event_description"
+msgid "召唤10枚陨石"
 msgstr ""
 
 # 随机瓷器事件名称
@@ -509,16 +701,46 @@ msgctxt "random_china.event_name"
 msgid "XVI-塔"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheTowerEvent.cs:36
+msgctxt "random_china.event_description"
+msgid "在随机位置掉落16个TNT"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\WheelOfFortuneEvent.cs:39
+msgctxt "random_china.event_name"
+msgid "X-命运之轮"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\WheelOfFortuneEvent.cs:41
+msgctxt "random_china.event_description"
+msgid "生成3张随机器械的蓝图"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\WorldwideCelebrationEvent.cs:32
 msgctxt "random_china.event_name"
 msgid "普天同庆"
 msgstr ""
 
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\WorldwideCelebrationEvent.cs:34
+msgctxt "random_china.event_description"
+msgid "30秒内所有单位的移速、攻击速度和生产速度翻倍"
+msgstr ""
+
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\WrathOfTheSmallEvent.cs:37
 msgctxt "random_china.event_name"
 msgid "小型之怒"
+msgstr ""
+
+# 随机瓷器事件描述
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\WrathOfTheSmallEvent.cs:39
+msgctxt "random_china.event_description"
+msgid "在随机一行的最左侧生成一个大雪球"
 msgstr ""
 
 # 教程关指引
@@ -922,134 +1144,141 @@ msgid ""
 "接下来的内容还在开发中，敬请期待！"
 msgstr ""
 
-# 充能时间
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:56
-msgctxt "recharge_time"
-msgid "无"
+# 随机瓷器消息模板，{0}为事件名，{1}为事件描述
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:53
+msgid ""
+"<color=#824400>{0}</color>\n"
+"{1}"
 msgstr ""
 
 # 充能时间
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:58
 msgctxt "recharge_time"
-msgid "短"
+msgid "无"
 msgstr ""
 
 # 充能时间
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:60
 msgctxt "recharge_time"
-msgid "长"
+msgid "短"
 msgstr ""
 
 # 充能时间
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:62
 msgctxt "recharge_time"
+msgid "长"
+msgstr ""
+
+# 充能时间
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:64
+msgctxt "recharge_time"
 msgid "很长"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:66
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:68
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr ""
 
 # 死亡信息-梦魇碾压墙
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:73
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:75
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr ""
 
 # 死亡信息-我是僵尸
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:75
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:77
 msgctxt "death_message"
 msgid "你失去了所有能量！"
 msgstr ""
 
 # 死亡信息-重装兵器
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:77
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:79
 msgctxt "death_message"
 msgid "你失去了狙击发射器！"
 msgstr ""
 
 # 命令输出
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:80
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
 msgctxt "command.output"
 msgid "该命令不能在关卡中调用"
 msgstr ""
 
 # 命令输出-help，{0}为命令名，{1}为命令描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
 msgctxt "command.output"
 msgid "/{0} - {1}"
 msgstr ""
 
 # 命令输出-help
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
 msgctxt "command.output"
 msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
 msgstr ""
 
 # 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
 msgctxt "command.output"
 msgid "{0}: [{1}] {2}"
 msgstr ""
 
 # 命令输出-blueprint，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:90
 msgctxt "command.output"
 msgid "蓝图槽位参数{0}超出范围"
 msgstr ""
 
 # 命令输出-cheat，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:90
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:92
 msgctxt "command.output"
 msgid "未找到作弊命令{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:92
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:94
 msgctxt "command.output"
 msgid "已启用{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:94
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:96
 msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr ""
 
 # 命令输出-save
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:96
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:98
 msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:98
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:100
 msgctxt "command.output"
 msgid "已解锁游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:100
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:102
 msgctxt "command.output"
 msgid "无法解锁游戏状态{0}：该状态已被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:102
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:104
 msgctxt "command.output"
 msgid "已重新锁定游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:104
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:106
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名列表
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:106
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:108
 msgctxt "command.output"
 msgid ""
 "已解锁游戏状态：\n"
@@ -1057,13 +1286,13 @@ msgid ""
 msgstr ""
 
 # 命令输出-unlock
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:108
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:110
 msgctxt "command.output"
 msgid "无法解锁所有游戏状态：无游戏状态可解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名列表
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:110
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:112
 msgctxt "command.output"
 msgid ""
 "已重新锁定游戏状态：\n"
@@ -1071,67 +1300,67 @@ msgid ""
 msgstr ""
 
 # 命令输出-unlock
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:112
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:114
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态：无游戏状态可重新锁定"
 msgstr ""
 
 # 命令输出-izombie
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:114
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:116
 msgctxt "command.output"
 msgid "当前关卡不是“我是僵尸”模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:118
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:120
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:120
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:122
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:122
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:124
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:124
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:126
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:132
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:135
 msgctxt "locked_chest_message"
 msgid "勒索弹窗"
 msgstr ""
 
 # 上锁的箱子信息描述，{0}为需求1，{1}为需求2，{2}为招式名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:134
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:137
 msgctxt "locked_chest_message"
 msgid "立刻给我{0}或{1}，否则我就要发动我的终极绝招“{2}”了！"
 msgstr ""
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:137
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:140
 msgctxt "locked_chest_message"
 msgid "哦不好意思"
 msgstr ""
 
 # 上锁的箱子信息描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:139
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:142
 msgctxt "locked_chest_message"
 msgid "我忘说了，你选什么都没用。"
 msgstr ""
 
 # 上锁的箱子需求，{0}为花费的宝石量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:142
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:145
 msgctxt "locked_chest_message"
 msgid "{0}宝石"
 msgid_plural "{0}宝石"
@@ -1139,7 +1368,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 上锁的箱子需求，{0}为花费的星之碎片量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:144
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:147
 msgctxt "locked_chest_message"
 msgid "{0}星之碎片"
 msgid_plural "{0}星之碎片"
@@ -1147,55 +1376,55 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:147
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:150
 msgctxt "locked_chest_message"
 msgid "支付{0}"
 msgstr ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:149
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:152
 msgctxt "locked_chest_message"
 msgid "拒绝"
 msgstr ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:151
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:154
 msgctxt "locked_chest_message"
 msgid "？"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:154
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:157
 msgctxt "locked_chest_message"
 msgid "终极重压"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:156
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:159
 msgctxt "locked_chest_message"
 msgid "超能光束"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:158
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:161
 msgctxt "locked_chest_message"
 msgid "爆破四魂"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:165
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:168
 msgctxt "locked_chest_text"
 msgid "炸弹来咯！"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:167
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:170
 msgctxt "locked_chest_text"
 msgid "我才是炸弹！"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:169
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:172
 msgctxt "locked_chest_text"
 msgid "你有完没完？"
 msgstr ""
@@ -1211,41 +1440,41 @@ msgid "点击以开始！"
 msgstr ""
 
 # 前景图生效时的对话模板，{0}为讨论者，{1}为文本
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:983
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:1061
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 msgstr ""
 
 # 跳过对话时的提示，{0}为对话名称
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:985
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:1063
 msgid "已跳过对话\"{0}\""
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:293
+#: Scripts\MVZ2\Store\StoreController.cs:299
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:295
+#: Scripts\MVZ2\Store\StoreController.cs:301
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] ""
 msgstr[1] ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:297
+#: Scripts\MVZ2\Store\StoreController.cs:303
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:299
+#: Scripts\MVZ2\Store\StoreController.cs:305
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:301
+#: Scripts\MVZ2\Store\StoreController.cs:307
 msgid "{0}/{1}"
 msgstr ""
 
@@ -1488,38 +1717,38 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:704
+#: Scripts\MVZ2\Map\MapController.cs:708
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:706
+#: Scripts\MVZ2\Map\MapController.cs:710
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:708
+#: Scripts\MVZ2\Map\MapController.cs:712
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:710
+#: Scripts\MVZ2\Map\MapController.cs:714
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为地点ID
-#: Scripts\MVZ2\Map\MapController.cs:712
+#: Scripts\MVZ2\Map\MapController.cs:716
 msgid "目标地点{0}不存在。"
 msgstr ""
 
 # 进入关卡的错误信息，{0}为关卡ID
-#: Scripts\MVZ2\Map\MapController.cs:714
+#: Scripts\MVZ2\Map\MapController.cs:718
 msgid "目标关卡{0}不存在。"
 msgstr ""
 
@@ -2395,17 +2624,17 @@ msgid "中文"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:774
+#: Scripts\MVZ2\Entities\EntityController.cs:789
 msgid "死亡"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:776
+#: Scripts\MVZ2\Entities\EntityController.cs:791
 msgid "摧毁"
 msgstr ""
 
 # 血条的文字模板
-#: Scripts\MVZ2\Entities\EntityController.cs:778
+#: Scripts\MVZ2\Entities\EntityController.cs:793
 msgid "{0}"
 msgstr ""
 
@@ -2420,13 +2649,13 @@ msgid "日志已导出至{0}。"
 msgstr ""
 
 # 命令输出，{0}为命令名
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:528
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:519
 msgctxt "command.output"
 msgid "<color=red>命令不存在：{0}</color>"
 msgstr ""
 
 # 命令输出，{0}为错误
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:530
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:521
 msgctxt "command.output"
 msgid "<color=red>错误：{0}</color>"
 msgstr ""
@@ -4300,6 +4529,12 @@ msgstr ""
 #: Archive meta file
 msgctxt "archive.tagname"
 msgid "圣辇船"
+msgstr ""
+
+#. Name for archive tag mvz2:palace
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "地灵殿"
 msgstr ""
 
 #. Name for archive tag mvz2:tutorial
