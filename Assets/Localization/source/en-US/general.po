@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2026-05-24 04:52+0800\n"
-"PO-Revision-Date: 2026-05-24 16:56+0800\n"
+"PO-Revision-Date: 2026-05-24 22:52+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -5305,16 +5305,16 @@ msgstr ""
 msgctxt "store_talk"
 msgid "上锁箱子的挂锁！当器械受到伤害时，减少它蓝图的充能时间！"
 msgstr ""
-"It's the padlock on the Locked Chest! When a contraption is damaged, "
-"decrease the recharge time of its blueprint!"
+"It's the padlock on the Locked Chest! When a contraption is damaged, the "
+"recharge time of its blueprint will be reduced!"
 
 #. Store item description of mvz2:broken_lock by character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "那个可恶箱子的挂锁！当器械受到伤害时，减少它蓝图的充能时间！"
 msgstr ""
-"It's the padlock on that wretched chest! When a contraption is damaged, "
-"decrease the recharge time of its blueprint!"
+"It's the padlock on that wretched chest! When a contraption is damaged, the "
+"recharge time of its blueprint will be reduced!"
 
 #. Store item description of mvz2:cake by character mvz2:crazy_villager
 #: Store meta file

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-24 04:52+0800\n"
+"POT-Creation-Date: 2026-05-26 06:58+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12745,7 +12745,7 @@ msgstr ""
 #. Text for talk sentence 11 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
-msgid "我发现了它的不对，尝试去调查它，结果却疏于防备，被它所袭击。"
+msgid "我发现了它的不对，确认周围没有人后，尝试去调查它，结果却被它所袭击。"
 msgstr ""
 
 #. Text for talk sentence 12 in talk group palace_11_map's section 0

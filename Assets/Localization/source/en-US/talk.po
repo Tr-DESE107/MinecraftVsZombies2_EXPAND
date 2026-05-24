@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-24 04:52+0800\n"
-"PO-Revision-Date: 2026-05-24 16:56+0800\n"
+"POT-Creation-Date: 2026-05-26 06:58+0800\n"
+"PO-Revision-Date: 2026-05-26 20:24+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -12609,7 +12609,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_map"
 msgid "那种感觉，我真的不想再经历第二次……"
-msgstr "That feeling... I really don't to go through that again..."
+msgstr "That feeling... I really don't want to go through that again..."
 
 #. Text for talk sentence 17 in talk group palace_7_map's section 0
 #: Talk meta file
@@ -13775,10 +13775,10 @@ msgstr ""
 #. Text for talk sentence 11 in talk group palace_11_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_11_map"
-msgid "我发现了它的不对，尝试去调查它，结果却疏于防备，被它所袭击。"
+msgid "我发现了它的不对，确认周围没有人后，尝试去调查它，结果却被它所袭击。"
 msgstr ""
-" I walked up to it knowing something's not right, but I had let my guard "
-"down, and the chest struck me in the head."
+"I walked up to it, knowing something's not right. After making sure there "
+"was no one around, I tried to examine it, but it attacked me."
 
 #. Text for talk sentence 12 in talk group palace_11_map's section 0
 #: Talk meta file
