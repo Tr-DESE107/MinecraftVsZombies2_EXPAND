@@ -1019,7 +1019,7 @@
                 <variable name="max_produce_time">property("mvz2:entity_behaviour/nether_reactor_core/max_produce_time")</variable>
             </variables>
             <header>
-                <p>如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出<![CDATA[<ref=[misc]mvz2:starshard.uranium_235>星之碎片</ref>]]>。</p>
+                <p>如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出<![CDATA[<ref=[misc]mvz2:starshard.uranium_235>星之碎片</ref>并<tag id="mvz2:light_source"/>发光。]]></p>
             </header>
             <properties>
                 <p>结构：<![CDATA[<color=red><color=black>X</color>为下界反应核，A和<color=blue>B</color>为两种不同的器械</color>]]></p>

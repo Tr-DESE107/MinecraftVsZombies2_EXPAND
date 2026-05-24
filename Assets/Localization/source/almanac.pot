@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-24 04:52+0800\n"
+"POT-Creation-Date: 2026-05-24 05:48+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1819,7 +1819,7 @@ msgstr ""
 #. Header for contraptions mvz2:nether_reactor_core
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出<ref=[misc]mvz2:starshard.uranium_235>星之碎片</ref>。"
+msgid "如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出<ref=[misc]mvz2:starshard.uranium_235>星之碎片</ref>并<tag id=\"mvz2:light_source\"/>发光。"
 msgstr ""
 
 #. Properties for contraptions mvz2:nether_reactor_core
