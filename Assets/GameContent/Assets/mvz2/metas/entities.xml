@@ -1441,6 +1441,8 @@
                 <color name="mvz2:lightColor" value="#FFAA00" />
 
                 <int name="mvz2:cost" value="250" />
+				<int name="mvz2:triggerCost" value="100" />
+				<bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
@@ -1890,6 +1892,8 @@
 				<float name="mvz2:maxHealth" value="600" />
 
 				<int name="mvz2:cost" value="250" />
+				<int name="mvz2:triggerCost" value="150" />
+				<bool name="mvz2:triggerActive" value="true" />
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</dispenser>
@@ -5040,7 +5044,7 @@
 			</behaviours>
 			<properties>
 				<bool name="mvz2:pointToDirection" value="true" />
-				<float name="mvz2:range" value="60" />
+				<float name="mvz2:range" value="40" />
 				<vector3 name="mvz2:size" x="16" y="2" z="16" />
 			</properties>
 		</projectile>
