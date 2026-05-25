@@ -4,8 +4,14 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
+
+using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+
+using Tools;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
@@ -20,15 +26,69 @@ namespace MVZ2.GameContent.Contraptions
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            InitShootTimer(entity);
+            InitShootTimer(entity); 
+            SetTriggerCooldownTimer(entity, new FrameTimer(0)); // 初始化为0，放下立即可触发  
         }
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
+
+            // 更新触发冷却计时器  
+            var cooldownTimer = GetTriggerCooldownTimer(entity);
+            if (cooldownTimer != null)
+            {
+                cooldownTimer.Run(entity.GetAttackSpeed());
+            }
+
             if (!entity.IsEvoked())
             {
                 ShootTick(entity);
                 return;
+            }
+        }
+        public override bool CanTrigger(Entity entity)
+        {
+            // 检查基础触发条件  
+            if (!base.CanTrigger(entity))
+                return false;
+
+            // 检查是否在冷却中  
+            var cooldownTimer = GetTriggerCooldownTimer(entity);
+            if (cooldownTimer != null && !cooldownTimer.Expired)
+                return false;
+
+            return true;
+        }
+        protected override void OnTrigger(Entity entity)
+        {
+            base.OnTrigger(entity);
+
+            // 触发后立刻发射一发大木球  
+            var param = entity.GetShootParams();
+            param.damage *= 3;
+
+            // 根据朝向调整速度方向  
+            var velocity = entity.GetShotVelocity();
+            if (entity.IsFacingLeft())
+            {
+                velocity.x *= -1;
+            }
+            param.velocity = velocity;
+
+            var spawnParam = entity.GetSpawnParams();
+            spawnParam.SetProperty(EngineEntityProps.SCALE, Vector3.one * 2);
+            spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
+            spawnParam.SetProperty(VanillaEntityProps.SHADOW_SCALE, Vector3.one * 2);
+            param.spawnParam = spawnParam;
+
+            entity.ShootProjectile(param);
+            entity.PlaySound(VanillaSoundID.launch);
+
+            // 重置冷却计时器    
+            var cooldownTimer = GetTriggerCooldownTimer(entity);
+            if (cooldownTimer != null)
+            {
+                cooldownTimer.ResetTime(TRIGGER_COOLDOWN);
             }
         }
         public override Entity? Shoot(Entity entity)
@@ -69,5 +129,13 @@ namespace MVZ2.GameContent.Contraptions
             }
             entity.PlaySound(VanillaSoundID.launch);
         }
+
+        private static readonly NamespaceID ID = VanillaContraptionID.woodenDropper;
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_TRIGGER_COOLDOWN_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("TriggerCooldownTimer");
+
+        private static FrameTimer? GetTriggerCooldownTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_TRIGGER_COOLDOWN_TIMER);
+        private static void SetTriggerCooldownTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_TRIGGER_COOLDOWN_TIMER, timer);
+
+        public const int TRIGGER_COOLDOWN = 120;
     }
 }
