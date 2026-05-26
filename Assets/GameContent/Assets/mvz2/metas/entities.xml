@@ -713,6 +713,9 @@
                 <id name="mvz2:projectileId" value="mvz2:knife" />
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <id name="mvz2:placeSound" value="mvz2:metal_break" />
+				<id name="mvz2:placement" value="mvz2:fusion" />
+				<id name="mvz2:fusionTarget" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_Silvenser" />
 
                 <int name="mvz2:cost" value="150" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
@@ -2197,6 +2200,24 @@
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</entity>
+
+		<dispenser id="EXPANDispenser_Silvenser" name="万象天枢_银制" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:placement" value="mvz2:expandispenser_fusion" />
+				<color name="mvz2:lightColor" value="#FFAA00" />
+				<float name="mvz2:maxHealth" value="600" />
+
+				<int name="mvz2:cost" value="250" />
+				<int name="mvz2:triggerCost" value="150" />
+				<bool name="mvz2:triggerActive" value="true" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</dispenser>
 
 		<!--EXPAND Black Contraption-->
 		<entity template="contraption" id="Bedrock" name="基岩" tooltip="无法摧毁的屏障">
