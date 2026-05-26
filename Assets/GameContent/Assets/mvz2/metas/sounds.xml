@@ -1138,17 +1138,17 @@
     <sound name="Player_death_Old">
         <sample path="mvz2:entity/Player/Player_hurt_Old" weight="1" />
     </sound>
-	<sound name="TeslaTrooperAttack">
-		<sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack1" weight="1" />
-		<sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack2" weight="1" />
-		<sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack3" weight="1" />
-		<sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack4" weight="1" />
-	</sound>
-	<sound name="EndermanTeleport">
-		<sample path="mvz2:entity/Enderman/EndermanTeleport1" weight="1" />
-		<sample path="mvz2:entity/Enderman/EndermanTeleport2" weight="1" />
-	</sound>
-	<sound name="ghast_affectionate_scream">
-		<sample path="mvz2:entity/ghast/ghast_affectionate_scream" weight="1" />
-	</sound>
+    <sound name="TeslaTrooperAttack">
+        <sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack1" weight="1" />
+        <sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack2" weight="1" />
+        <sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack3" weight="1" />
+        <sample path="mvz2:entity/TeslaTrooper/TeslaTrooperAttack4" weight="1" />
+    </sound>
+    <sound name="EndermanTeleport">
+        <sample path="mvz2:entity/Enderman/EndermanTeleport1" weight="1" />
+        <sample path="mvz2:entity/Enderman/EndermanTeleport2" weight="1" />
+    </sound>
+    <sound name="ghast_affectionate_scream">
+        <sample path="mvz2:entity/ghast/ghast_affectionate_scream" weight="1" />
+    </sound>
 </sounds>

@@ -626,6 +626,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 087a7911e7c5bfc4b869372e8a1d0e2d
+    m_Address: mvz2:entity/enemy/EXPAND/YinYangFlag
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 088b8032f2c71a04eb13658b093c1433
     m_Address: mvz2:mobile_blueprint/EnragedHostZombie
     m_ReadOnly: 0
@@ -843,6 +850,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c063550d332c854ca01810283b9e22d
+    m_Address: mvz2:mobile_blueprint/FlagSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c0f98f27759223459980f9a2226fe56
     m_Address: mvz2:level/palace/palace
     m_ReadOnly: 0
@@ -961,6 +975,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d916974cabb05a4dbc57c0c57c656cb
+    m_Address: mvz2:enemy/mausoleum/FlagbearerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0da0947a4bc75b141addb08ebc69c8aa
     m_Address: mvz2:poison_gas
@@ -1340,6 +1361,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1356ae977400d3f43969bb3779c08f37
+    m_Address: mvz2:entity/armor/ImperialGuardHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 135dff09421d4164c91798ffaa81d047
     m_Address: mvz2:entity/carts/unzan_fist
     m_ReadOnly: 0
@@ -1409,6 +1437,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 144bf53f477c34746a32038fa074cc0c
+    m_Address: mvz2:entity/enemy/EXPAND/JollyRoger
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 144cca570f4221548b158b752ec68d85
     m_Address: mvz2:ring_off
@@ -1661,6 +1696,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1726d834e4c9d8a4cb0aa2bef0bf9f5c
+    m_Address: mvz2:enemy/ship/JollyRogerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1726e22d886c3544785500d1d6ed7026
     m_Address: mvz2:arcade/LigneMaginot
@@ -3446,6 +3488,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 320d8175eed475b46895644e463de091
+    m_Address: mvz2:mobile_blueprint/NetherCourier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32162e4052e1e7445af16d420281eebd
     m_Address: mvz2:units/bow
     m_ReadOnly: 0
@@ -4481,6 +4530,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f9c9b755b4005b4288a339e36b69d45
+    m_Address: mvz2:entity/armor/EXPAND_armor/Cabasset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fb9e3cc152d92149914e1b4e20ea5f1
     m_Address: mvz2:entity/enemy/zombie_cloud_particle
     m_ReadOnly: 0
@@ -4775,6 +4831,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4370147feee335f4f85f01b22b96cbd2
+    m_Address: mvz2:entity/enemy/EXPAND/FlagbearerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4375052f062b4324abcfb5860bc743ad
     m_Address: mvz2:entity/enemy/Player
     m_ReadOnly: 0
@@ -4823,6 +4886,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44112ce4a5ac07d49b64e411fb4fd6bf
+    m_Address: mvz2:entity/enemies/netherite_sword
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4440268da916c7441be04ae4200cb5e4
     m_Address: mvz2:entity/enemy/EXPAND/Red_MonkZombie
@@ -5293,6 +5363,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a91986d0a1fb034ab8367a5c55c94bb
+    m_Address: mvz2:mobile_blueprint/FlagbearerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a92d5897aa6c8f489653ea7f4663823
     m_Address: mvz2:enemy/EXPAND/HerobrineMannequin
     m_ReadOnly: 0
@@ -5533,6 +5610,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d92b5d7677db944c9d67a9d6df8a26a
     m_Address: mvz2:entity/armor/nether_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4daa8f763112e754083924f9d3d29e04
+    m_Address: mvz2:entity/enemy/EXPAND/NetherCourier
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6810,6 +6894,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fd32a3960b8edd4d89fcd70dcb87ff3
+    m_Address: mvz2:entity/enemy/EXPAND/NetherWarriorShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fd5dd6553755524490a5b49f96a2b43
     m_Address: mvz2:entity/armor/reflective_barrier
@@ -8120,6 +8211,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7545912fcd2cafc44aa95b439a8dd151
+    m_Address: mvz2:armor/EXPAND_armor/ImperialGuardHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75610e8daf86e8c41ad89c76cd4e7e17
     m_Address: mvz2:entity/enemy/EnragedHostZombie
     m_ReadOnly: 0
@@ -8490,6 +8588,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ad0edc435e282842a2aba393b6de450
+    m_Address: mvz2:mobile_blueprint/FlyingPot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ad35b8fd25fd594d8dee60a271deaf8
     m_Address: mvz2:puzzle
     m_ReadOnly: 0
@@ -8601,6 +8706,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c30cefcf1eacb64faa09f604493cdd4
+    m_Address: mvz2:entity/enemy/EXPAND/NetherBrickShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c436aa11a416094ba8cbae88fdf1f47
     m_Address: mvz2:mobile_blueprint/Cobblestone
@@ -9127,6 +9239,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82eb51a469da816489c39956fb489265
+    m_Address: mvz2:icon/EXPAND_icon/SpeedParticles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83083fb59a175c14bb24108764e67363
     m_Address: mvz2:enemy/halloween/SkeletonHead
     m_ReadOnly: 0
@@ -9252,6 +9371,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 852fa113f9164b840861b767b6a8529e
+    m_Address: mvz2:entity/effect/EXPAND/WarriorResistanceShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8536f7303728fd6438b428da7fd583fa
     m_Address: mvz2:contraption/EXPAND/AntiGravityPad
@@ -10162,6 +10288,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92e7e7f767cea1e419eb3e8f2c03015e
+    m_Address: mvz2:entity/enemy/EXPAND/FlyingPot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92f7647b88ad2954f83aab42c430daf9
     m_Address: mvz2:units/dragon_fire_breath
     m_ReadOnly: 0
@@ -10841,6 +10974,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d4afc3347e4ab74cbee8a8770deddac
+    m_Address: mvz2:entity/enemy/EXPAND/NetherVanguardShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d729579a470f8d4ba84575d9b913427
     m_Address: mvz2:icon/gravel_on_face
     m_ReadOnly: 0
@@ -11162,6 +11302,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2f293795e0cc0945ad68b43d180a087
+    m_Address: mvz2:icon/EXPAND_icon/WarriorResistanceShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3186b48658bcbe458396f03e2f38590
     m_Address: mvz2:entity/contraption/diamond_spikes
@@ -13066,6 +13213,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf383dc69a4513740bfac4de22219927
+    m_Address: mvz2:armor/NetherBrickShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf3a501acdcc05c4eb17ccc6d167e47d
     m_Address: mvz2:projectile/missile
     m_ReadOnly: 0
@@ -13430,13 +13584,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c526a6546e644e54989ca8bce8205149
-    m_Address: mvz2:enemy/mausoleum/FlagMonkZombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c52ffe26b09fa8d43bfa1881edcd3b04
     m_Address: mvz2:misc/frankenstein
     m_ReadOnly: 0
@@ -13772,6 +13919,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9fe467fc43fcdb498a1d5a14b65a788
+    m_Address: mvz2:armor/EXPAND_armor/Cabasset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca16cff8842786b4aaeaa7bc6d92b003
     m_Address: mvz2:buffs
@@ -14361,6 +14515,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d11b2c3a4820d4341a0c82f67263062b
+    m_Address: mvz2:mobile_blueprint/JollyRogerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d12e7157df0411749ab53333da0a507d
     m_Address: mvz2:artifacts/inverted_mirror
     m_ReadOnly: 0
@@ -14556,6 +14717,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4e72b80bec30d1408e4e8d8aca279ea
+    m_Address: mvz2:enemy/mausoleum/FlyingPot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d4ee8be540cfcd14ebdc500a75d0a018
     m_Address: mvz2:mobile_blueprint/SuperMegaZombie
@@ -16236,6 +16404,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f01e3579eb453fa4ca9d2f45afcb7291
+    m_Address: mvz2:entity/enemy/EXPAND/NetherFlag
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f01f837c93d457f419e47ac4a3528a7e
     m_Address: mvz2:entity/effect/binary
     m_ReadOnly: 0
@@ -16473,6 +16648,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f260093dfccad914bbfc6362ce0f6872
+    m_Address: mvz2:entity/enemy/EXPAND/JollyRogerZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f27fff12ebffcfe4cb3a825f5f701c61
     m_Address: mvz2:misc/surrounded_kourindou
@@ -16867,7 +17049,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8874b852d3417a45a70be211dfe04b5
-    m_Address: mvz2:enemy/castle/FlagWitherSkeleton
+    m_Address: mvz2:enemy/castle/NetherCourier
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
