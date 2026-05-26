@@ -67,16 +67,16 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             float additionalDamage = projectile.GetDamage() * 0.5f;
 
             var target = hit.Other;
-            //var shield = hit.Shield;
-            //var armorSlot = shield != null ? shield.Slot : null;
-            //target.TakeDamage(additionalDamage, new DamageEffectList(VanillaDamageEffects.LIGHTNING), projectile, armorSlot);
+            var shield = hit.Shield;
+            var armorSlot = shield != null ? shield.Slot : null;
+            target.TakeDamage(additionalDamage, new DamageEffectList(VanillaDamageEffects.LIGHTNING), projectile, armorSlot);
 
-            
+
 
             // Ω¶…‰…À∫¶      
             var entity = projectile;
             var level = entity.Level;
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY);
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.LIGHTNING);
             var center = entity.GetCenter();
             var radius = 20;
             var faction = entity.GetFaction();
