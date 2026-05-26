@@ -1,9 +1,8 @@
 using MVZ2.GameContent.Placements;
-
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Placements;
 
-[PlacementDefinition(VanillaPlacementNames.fusion)]
+[AutoPlacementDefinition(VanillaPlacementNames.fusion)]
 public class FusionPlacement : PlacementDefinition
 {
     public FusionPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.normal)

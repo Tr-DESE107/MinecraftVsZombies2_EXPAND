@@ -4,21 +4,20 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
-
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
-
 using Tools;
-
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.EXPANDispenser_Dispenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.EXPANDispenser_Dispenser)]
     public class EXPANDispenser_Dispenser : DispenserFamily
     {
         public EXPANDispenser_Dispenser(string nsp, string name) : base(nsp, name)

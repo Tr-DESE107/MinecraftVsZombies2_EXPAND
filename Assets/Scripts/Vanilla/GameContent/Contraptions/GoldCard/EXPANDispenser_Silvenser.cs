@@ -4,18 +4,20 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.EXPANDispenser_Silvenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.EXPANDispenser_Silvenser)]
     public class EXPANDispenser_Silvenser : DispenserFamily
     {
         public EXPANDispenser_Silvenser(string nsp, string name) : base(nsp, name)

@@ -4327,6 +4327,8 @@ MonoBehaviour:
     - {fileID: 1102416837, guid: c48390d6002ea294c877b56330723002, type: 3}
     - {fileID: 648546265, guid: c48390d6002ea294c877b56330723002, type: 3}
     - {fileID: -1519621500, guid: c48390d6002ea294c877b56330723002, type: 3}
+    - {fileID: 1428974613, guid: c48390d6002ea294c877b56330723002, type: 3}
+    - {fileID: 1813054098, guid: c48390d6002ea294c877b56330723002, type: 3}
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Silvenser
     spritesheet:
     - {fileID: -694000544, guid: 4f55dbc66e178c54ba27688fe83ca802, type: 3}
