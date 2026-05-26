@@ -2264,7 +2264,7 @@
 			</properties>
 		</entity>
 
-		<EXPANDispenser id="EXPANDispenser_Dispenser" name="万象天枢_紫箭" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		<entity template="EXPANDispenser" id="EXPANDispenser_Dispenser" name="万象天枢_紫箭" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
@@ -2272,9 +2272,9 @@
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<id name="mvz2:projectileId" value="mvz2:arrow" />
 			</properties>
-		</EXPANDispenser>
+		</entity>
 
-		<EXPANDispenser id="EXPANDispenser_Drivenser" name="万象天枢_驱动" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		<entity template="EXPANDispenser" id="EXPANDispenser_Drivenser" name="万象天枢_驱动" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
@@ -2282,9 +2282,9 @@
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<id name="mvz2:projectileId" value="mvz2:arrow" />
 			</properties>
-		</EXPANDispenser>
-		
-		<EXPANDispenser id="EXPANDispenser_Pistenser" name="万象天枢_活塞" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		</entity>
+
+		<entity template="EXPANDispenser" id="EXPANDispenser_Pistenser" name="万象天枢_活塞" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
@@ -2292,9 +2292,9 @@
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<id name="mvz2:projectileId" value="mvz2:spike" />
 			</properties>
-		</EXPANDispenser>
-		
-		<EXPANDispenser id="EXPANDispenser_Poisonser" name="万象天枢_蚀毒" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		</entity>
+
+		<entity template="EXPANDispenser" id="EXPANDispenser_Poisonser" name="万象天枢_蚀毒" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
@@ -2302,9 +2302,9 @@
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<id name="mvz2:projectileId" value="mvz2:Poisonball" />
 			</properties>
-		</EXPANDispenser>
-		
-		<EXPANDispenser id="EXPANDispenser_SmallDispenser" name="万象天枢_小型" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		</entity>
+
+		<entity template="EXPANDispenser" id="EXPANDispenser_SmallDispenser" name="万象天枢_小型" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
@@ -2312,9 +2312,9 @@
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<id name="mvz2:projectileId" value="mvz2:snowball" />
 			</properties>
-		</EXPANDispenser>
-		
-		<EXPANDispenser id="EXPANDispenser_Splitenser" name="万象天枢_双向" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		</entity>
+
+		<entity template="EXPANDispenser" id="EXPANDispenser_Splitenser" name="万象天枢_双向" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
@@ -2322,9 +2322,9 @@
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<id name="mvz2:projectileId" value="mvz2:arrow" />
 			</properties>
-		</EXPANDispenser>
-		
-		<EXPANDispenser id="EXPANDispenser_Totenser" name="万象天枢_图腾" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		</entity>
+
+		<entity template="EXPANDispenser" id="EXPANDispenser_Totenser" name="万象天枢_图腾" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
@@ -2332,9 +2332,9 @@
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<id name="mvz2:projectileId" value="mvz2:dart" />
 			</properties>
-		</EXPANDispenser>
-		
-		<EXPANDispenser id="EXPANDispenser_Triplenser" name="万象天枢_三头" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		</entity>
+
+		<entity template="EXPANDispenser" id="EXPANDispenser_Triplenser" name="万象天枢_三头" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
@@ -2342,7 +2342,7 @@
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<id name="mvz2:projectileId" value="mvz2:arrow" />
 			</properties>
-		</EXPANDispenser>
+		</entity>
 
 		<!--EXPAND Black Contraption-->
 		<entity template="contraption" id="Bedrock" name="基岩" tooltip="无法摧毁的屏障">

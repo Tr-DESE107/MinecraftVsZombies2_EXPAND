@@ -48,18 +48,17 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
+                VanillaContraptionID.repeatenser,
+                VanillaContraptionID.highFrequencyPulseDispenser,
+                VanillaContraptionID.EXPANDispenser,
+
                 VanillaContraptionID.dispenser,
-                VanillaContraptionID.tnt,
-                VanillaContraptionID.obsidian,
-                VanillaContraptionID.gravityPad,
-                VanillaContraptionID.forcePad,
-                //VanillaContraptionID.beacon,
-                //VanillaContraptionID.skywardBeacon,
-                VanillaEnemyID.FlagSkeleton,
-                VanillaEnemyID.NetherCourier,
-                VanillaEnemyID.FlagbearerZombie,
-                VanillaEnemyID.JollyRogerZombie,
-                VanillaEnemyID.mesmerizer,
+                VanillaContraptionID.smallDispenser,
+                VanillaContraptionID.silvenser,
+                VanillaContraptionID.drivenser,
+                VanillaContraptionID.pistenser,
+                VanillaContraptionID.totenser,
+                VanillaContraptionID.splitenser,
             });
             level.SetArtifactSlotCount(3);
         }
