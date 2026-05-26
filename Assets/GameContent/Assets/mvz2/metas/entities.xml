@@ -1691,6 +1691,7 @@
 
                 <int name="mvz2:cost" value="200" />
                 <int name="mvz2:triggerCost" value="275" />
+				<bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
@@ -2070,6 +2071,7 @@
                 <float name="mvz2:damage" value="60" />
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:triggerCost" value="300" />
+				<bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
