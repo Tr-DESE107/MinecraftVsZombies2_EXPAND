@@ -201,13 +201,29 @@
                 <vector3 name="mvz2:size" x="32" y="48" z="32" />
                 <id name="mvz2:shootSound" value="mvz2:shot" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
-
+				
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
+		
+        
+        <EXPANDispenser type="1" parent="dispenser">
+            <properties>
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:placement" value="mvz2:expandispenser_fusion" />
+				<float name="mvz2:maxHealth" value="600" />
 
-        <specialEnemy type="2" parent="enemy">
+				<int name="mvz2:cost" value="250" />
+				<int name="mvz2:triggerCost" value="150" />
+				<bool name="mvz2:triggerActive" value="true" />
+				
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </EXPANDispenser>
+
+         <specialEnemy type="2" parent="enemy">
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_state" />
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
@@ -607,6 +623,10 @@
 				<int name="mvz2:triggerCost" value="50" />
 				<bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
+
+				<id name="mvz2:placement" value="mvz2:fusion" />
+				<idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_SmallDispenser" />
             </properties>
         </entity>
         <entity template="contraption" id="moonlight_sensor" name="月光传感器" tooltip="自动提供能量，一段时间后提升生产量">
@@ -784,6 +804,9 @@
                 <int name="mvz2:cost" value="150" />
 				<int name="mvz2:triggerCost" value="75" />
                 <id name="mvz2:rechargeId" value="mvz2:medium" />
+
+				<idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_Drivenser" />
             </properties>
         </entity>
         <entity template="contraption" id="gravity_pad" name="重力板" tooltip="增强上方物体的重力">
@@ -841,6 +864,10 @@
 
                 <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
+
+				<id name="mvz2:placement" value="mvz2:fusion" />
+				<idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_Pistenser" />
             </properties>
         </entity>
         <entity template="dispenser" id="totenser" name="图腾发射器" tooltip="发射虚弱的飞镖并灼烧前方的僵尸">
@@ -854,6 +881,10 @@
 
                 <int name="mvz2:cost" value="175" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
+
+				<id name="mvz2:placement" value="mvz2:fusion" />
+				<idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_Totenser" />
             </properties>
         </entity>
         <entity template="contraption" id="dream_crystal" name="梦境结晶" tooltip="能够自我修复的障碍墙">
@@ -1125,6 +1156,10 @@
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
                 <int name="mvz2:cost" value="125" />
+
+				<id name="mvz2:placement" value="mvz2:fusion" />
+				<idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_Splitenser" />
             </properties>
         </entity>
         <entity template="contraption" id="devourer" name="吞噬者" tooltip="移除刷怪笼，或将器械变回蓝图掉落物">
@@ -1251,6 +1286,10 @@
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
                 <int name="mvz2:cost" value="300" />
+
+				<id name="mvz2:placement" value="mvz2:fusion" />
+				<idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser" />
+				<id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_Triplenser" />
             </properties>
         </entity>
         <entity template="contraption" id="firework_dispenser" name="烟花发射器" tooltip="轰击周围高空的敌人">
@@ -1282,7 +1321,7 @@
             <properties>
                 <int name="mvz2:cost" value="200" />
 				<id name="mvz2:placement" value="mvz2:fusion" />
-				<idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser_Silvenser mvz2:EXPANDispenser_Dispenser mvz2:EXPANDispenser_Splitenser" />
+				<idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser_Silvenser mvz2:EXPANDispenser_Dispenser mvz2:EXPANDispenser_Drivenser mvz2:EXPANDispenser_Pistenser mvz2:EXPANDispenser_Poisonser mvz2:EXPANDispenser_SmallDispenser mvz2:EXPANDispenser_Splitenser mvz2:EXPANDispenser_Totenser mvz2:EXPANDispenser_Triplenser" />
 				<id name="mvz2:fusionResult" value="mvz2:EXPANDispenser" />
             </properties>
         </entity>
@@ -2202,6 +2241,7 @@
 				<id name="mvz2:placement" value="mvz2:upgrade" />
 				<color name="mvz2:lightColor" value="#FFAA00" />
 				<float name="mvz2:maxHealth" value="600" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
 
 				<int name="mvz2:cost" value="250" />
 				<int name="mvz2:triggerCost" value="150" />
@@ -2210,41 +2250,95 @@
 			</properties>
 		</entity>
 
-		<entity template="dispenser" id="EXPANDispenser_Silvenser" name="万象天枢_银制" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		<entity template="EXPANDispenser" id="EXPANDispenser_Silvenser" name="万象天枢_银制" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
 			<properties>
-				<bool name="mvz2:upgradeBlueprint" value="true" />
-				<id name="mvz2:upgradeFrom" value="mvz2:EXPANDispenser" />
-				<id name="mvz2:placement" value="mvz2:expandispenser_fusion" />
 				<color name="mvz2:lightColor" value="#FFAA00" />
-				<float name="mvz2:maxHealth" value="600" />
-
-				<int name="mvz2:cost" value="250" />
-				<int name="mvz2:triggerCost" value="150" />
-				<bool name="mvz2:triggerActive" value="true" />
-				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+				<id name="mvz2:projectileId" value="mvz2:knife" />
 			</properties>
 		</entity>
 
-		<entity template="dispenser" id="EXPANDispenser_Dispenser" name="万象天枢_紫箭" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+		<EXPANDispenser id="EXPANDispenser_Dispenser" name="万象天枢_紫箭" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
 			<unlock>
 				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
 			</unlock>
 			<properties>
-				<bool name="mvz2:upgradeBlueprint" value="true" />
-				<id name="mvz2:upgradeFrom" value="mvz2:EXPANDispenser" />
-				<id name="mvz2:placement" value="mvz2:expandispenser_fusion" />
 				<color name="mvz2:lightColor" value="#FFAA00" />
-				<float name="mvz2:maxHealth" value="600" />
-
-				<int name="mvz2:cost" value="250" />
-				<int name="mvz2:triggerCost" value="150" />
-				<bool name="mvz2:triggerActive" value="true" />
-				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
 			</properties>
-		</entity>
+		</EXPANDispenser>
+
+		<EXPANDispenser id="EXPANDispenser_Drivenser" name="万象天枢_驱动" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<color name="mvz2:lightColor" value="#FFAA00" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+			</properties>
+		</EXPANDispenser>
+		
+		<EXPANDispenser id="EXPANDispenser_Pistenser" name="万象天枢_活塞" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<color name="mvz2:lightColor" value="#FFAA00" />
+				<id name="mvz2:projectileId" value="mvz2:spike" />
+			</properties>
+		</EXPANDispenser>
+		
+		<EXPANDispenser id="EXPANDispenser_Poisonser" name="万象天枢_蚀毒" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<color name="mvz2:lightColor" value="#FFAA00" />
+				<id name="mvz2:projectileId" value="mvz2:Poisonball" />
+			</properties>
+		</EXPANDispenser>
+		
+		<EXPANDispenser id="EXPANDispenser_SmallDispenser" name="万象天枢_小型" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<color name="mvz2:lightColor" value="#FFAA00" />
+				<id name="mvz2:projectileId" value="mvz2:snowball" />
+			</properties>
+		</EXPANDispenser>
+		
+		<EXPANDispenser id="EXPANDispenser_Splitenser" name="万象天枢_双向" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<color name="mvz2:lightColor" value="#FFAA00" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+			</properties>
+		</EXPANDispenser>
+		
+		<EXPANDispenser id="EXPANDispenser_Totenser" name="万象天枢_图腾" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<color name="mvz2:lightColor" value="#FFAA00" />
+				<id name="mvz2:projectileId" value="mvz2:dart" />
+			</properties>
+		</EXPANDispenser>
+		
+		<EXPANDispenser id="EXPANDispenser_Triplenser" name="万象天枢_三头" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
+			<unlock>
+				<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+			</unlock>
+			<properties>
+				<color name="mvz2:lightColor" value="#FFAA00" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+			</properties>
+		</EXPANDispenser>
 
 		<!--EXPAND Black Contraption-->
 		<entity template="contraption" id="Bedrock" name="基岩" tooltip="无法摧毁的屏障">

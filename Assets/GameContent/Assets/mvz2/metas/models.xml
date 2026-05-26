@@ -128,12 +128,22 @@
     <model name="Eviltombstone" type="entity" path="mvz2:contraption/upgrade/Eviltombstone" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="CopperDropper" type="entity" path="mvz2:contraption/upgrade/CopperDropper" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="AntiGravityPad" type="entity" path="mvz2:contraption/EXPAND/AntiGravityPad" width="64" height="64" xOffset="0" yOffset="-28" />
-    <model name="EXPANDispenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
-    <model name="EXPANDispenser_Silvenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Silvenser" width="64" height="64" xOffset="0" yOffset="-28" />
-    <model name="EXPANDispenser_Dispenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Dispenser" width="64" height="64" xOffset="0" yOffset="-28" />
-	
+
+	<!--EXPAND BlackCard-->
 	<model name="Bedrock" type="entity" path="mvz2:contraption/EXPAND/Bedrock" width="64" height="64" xOffset="0" yOffset="-28" />
 	<model name="Barrier" type="entity" path="mvz2:contraption/EXPAND/Barrier" width="64" height="64" xOffset="0" yOffset="-28" />
+
+	<!--EXPAND GoldCard-->
+	<model name="EXPANDispenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_Silvenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Silvenser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_Dispenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Dispenser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_Drivenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Drivenser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_Pistenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Pistenser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_Poisonser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Poisonser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_SmallDispenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_SmallDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_Splitenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Splitenser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_Totenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Totenser" width="64" height="64" xOffset="0" yOffset="-28" />
+	<model name="EXPANDispenser_Triplenser" type="entity" path="mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Triplenser" width="64" height="64" xOffset="0" yOffset="-28" />
     
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/prologue/zombie" width="64" height="96" xOffset="10" yOffset="-44">
