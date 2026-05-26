@@ -19,14 +19,14 @@ namespace MVZ2.GameContent.Placements
     {
         public override NamespaceID? GetPlaceError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
-            var fusionTarget = entity.GetFusionTarget();
-            if (!NamespaceID.IsValid(fusionTarget))
+            var fusionTargets = entity.GetFusionTargets();
+            if (fusionTargets == null || fusionTargets.Length == 0)
             {
                 return VanillaGridStatus.onlyUpgrade; // 没有融合目标，不能融合  
             }
 
             var entities = grid.GetEntities();
-            if (entities.Count() <= 0 || !entities.Any(e => e.IsEntityOf(fusionTarget) && e.IsFriendlyEntity()))
+            if (entities.Count() <= 0 || !entities.Any(e => fusionTargets.Any(target => e.IsEntityOf(target)) && e.IsFriendlyEntity()))
             {
                 return VanillaGridStatus.onlyUpgrade;
             }
@@ -35,15 +35,15 @@ namespace MVZ2.GameContent.Placements
 
         public override PlaceOutput PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
-            var fusionTarget = entityDef.GetFusionTarget();
-            if (!NamespaceID.IsValid(fusionTarget))
+            var fusionTargets = entityDef.GetFusionTargets();
+            if (fusionTargets == null || fusionTargets.Length == 0)
                 return PlaceOutput.InvalidOutput;
 
             var fusionResult = entityDef.GetFusionResult();
             if (!NamespaceID.IsValid(fusionResult))
                 return PlaceOutput.InvalidOutput;
 
-            var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(fusionTarget) && e.IsFriendlyEntity());
+            var entity = grid.GetEntities().FirstOrDefault(e => fusionTargets.Any(target => e.IsEntityOf(target)) && e.IsFriendlyEntity());
             if (entity != null && entity.Exists())
             {
                 bool isCommandBlock = param.IsCommandBlock();
