@@ -604,6 +604,20 @@ namespace MVZ2.Vanilla.Entities
             return definition.GetProperty<NamespaceID>(CATEGORY);
         }
         #endregion
+
+        #region 融合  
+        public static readonly PropertyMeta<NamespaceID> FUSION_TARGET = Get<NamespaceID>("fusionTarget");
+        public static NamespaceID? GetFusionTarget(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID>(FUSION_TARGET);
+        }
+
+        public static readonly PropertyMeta<NamespaceID> FUSION_RESULT = Get<NamespaceID>("fusionResult");
+        public static NamespaceID? GetFusionResult(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID>(FUSION_RESULT);
+        }
+        #endregion
     }
 }
 
