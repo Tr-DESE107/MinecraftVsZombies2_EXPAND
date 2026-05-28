@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-24 05:48+0800\n"
+"POT-Creation-Date: 2026-05-28 10:03+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,25 +293,25 @@ msgctxt "almanac_tag.description"
 msgid "不会被一般怪物发现"
 msgstr ""
 
-#. Name for almanac tag low
+#. Name for almanac tag short_enemy
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "低矮"
 msgstr ""
 
-#. Description for almanac tag low
+#. Description for almanac tag short_enemy
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "不会被一般高度或更高的子弹击中"
 msgstr ""
 
-#. Name for almanac tag high
+#. Name for almanac tag tall
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "高"
 msgstr ""
 
-#. Description for almanac tag high
+#. Description for almanac tag tall
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "阻挡跳跃"
@@ -2359,7 +2359,7 @@ msgid ""
 "马速度：<color=red><var local=\"horse_speed\" />（跳跃前），<var local=\"horse_speed_jumped\" />（跳跃后）</color>\n"
 "身体速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
 "头颅速度：<color=red><var local=\"head_speed\" /></color>\n"
-"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\" />高器械</color>"
+"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:tall\" />高器械</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:dullahan

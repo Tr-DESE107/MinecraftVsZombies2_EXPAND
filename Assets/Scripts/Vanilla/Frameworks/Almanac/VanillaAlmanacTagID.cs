@@ -15,8 +15,8 @@ namespace MVZ2.Vanilla.Almanac
         public static readonly NamespaceID nocturnal = Get("nocturnal");
         public static readonly NamespaceID defensive = Get("defensive");
         public static readonly NamespaceID floorContraption = Get("floor_contraption");
-        public static readonly NamespaceID low = Get("low");
-        public static readonly NamespaceID high = Get("high");
+        public static readonly NamespaceID shortEnemy = Get("short_enemy");
+        public static readonly NamespaceID tall = Get("tall");
         public static readonly NamespaceID flying = Get("flying");
         public static readonly NamespaceID canTrigger = Get("can_trigger");
         public static readonly NamespaceID fire = Get("fire");

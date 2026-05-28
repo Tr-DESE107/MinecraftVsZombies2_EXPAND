@@ -132,7 +132,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             // 高
             if (entityDef.BlocksJump())
             {
-                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.high));
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.tall));
             }
             // 可触发
             if (entityDef.IsTriggerActive())
@@ -146,7 +146,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             // 低矮
             if (entityDef.IsLowEnemy())
             {
-                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.low));
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shortEnemy));
             }
             // 飞行
             if (entityDef.IsFlyingEnemy())

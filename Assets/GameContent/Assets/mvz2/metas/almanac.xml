@@ -117,11 +117,11 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="low" name="低矮" description="不会被一般高度或更高的子弹击中" priority="4000">
+        <tag id="short_enemy" name="低矮" description="不会被一般高度或更高的子弹击中" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[4]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="high" name="高" description="阻挡跳跃" priority="4000">
+        <tag id="tall" name="高" description="阻挡跳跃" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[5]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
@@ -1500,7 +1500,7 @@
                 <p>马速度：<![CDATA[<color=red><var local="horse_speed" />（跳跃前），<var local="horse_speed_jumped" />（跳跃后）</color>]]></p>
                 <p>身体速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>头颅速度：<![CDATA[<color=red><var local="head_speed" /></color>]]></p>
-                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:high" />高器械</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:tall" />高器械</color>]]></p>
             </properties>
             <flavor>
                 <p>因为无头骑士总是喜欢在写文章的时候把开头擦掉。</p>
