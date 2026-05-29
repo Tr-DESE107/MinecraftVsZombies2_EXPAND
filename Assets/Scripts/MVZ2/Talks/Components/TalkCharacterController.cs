@@ -96,15 +96,15 @@ namespace MVZ2.Talk
         {
             if (leaving)
             {
-                blendValue = Mathf.Lerp(blendValue, 0, idleBlendFactor);
+                blendValue = Mathf.SmoothDamp(blendValue, 0, ref blendVelocity, smoothTime);
             }
             else if (speaking)
             {
-                blendValue = Mathf.Lerp(blendValue, 1, idleBlendFactor);
+                blendValue = Mathf.SmoothDamp(blendValue, 1, ref blendVelocity, smoothTime);
             }
             else
             {
-                blendValue = Mathf.Lerp(blendValue, idleBlendValue, idleBlendFactor);
+                blendValue = Mathf.SmoothDamp(blendValue, idleBlendValue, ref blendVelocity, smoothTime);
             }
             if (disappearing)
             {
@@ -127,13 +127,14 @@ namespace MVZ2.Talk
         private float disappearSpeed;
         private float disappearBlend;
         private float blendValue = 0;
+        private float blendVelocity;
         private CharacterPortrait? portrait;
         [SerializeField]
         private TalkCharacterUI ui = null!;
         [SerializeField]
         private Animator _animator = null!;
         [SerializeField]
-        private float idleBlendFactor = 0.2f;
+        private float smoothTime = 0.1f;
         [SerializeField]
         private float idleBlendValue = 0.8f;
         [SerializeField]
