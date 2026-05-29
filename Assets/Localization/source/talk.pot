@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-29 07:11+0800\n"
+"POT-Creation-Date: 2026-05-29 08:28+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12086,7 +12086,7 @@ msgstr ""
 #. Text for talk sentence 27 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "在你们登船的时候，我依然在香霖堂看店。那个紫色的木头箱子就在那个时候在店门口外莫名其妙地出现了。"
+msgid "你们还在船上的时候，我在香霖堂看店。那个紫色的木头箱子就莫名其妙地出现在店外了。"
 msgstr ""
 
 #. Text for talk sentence 28 in talk group palace_8_map's section 1

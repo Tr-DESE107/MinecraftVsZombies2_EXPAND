@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-29 07:11+0800\n"
-"PO-Revision-Date: 2026-05-29 19:12+0800\n"
+"POT-Creation-Date: 2026-05-29 08:28+0800\n"
+"PO-Revision-Date: 2026-05-29 20:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -13060,11 +13060,11 @@ msgstr "...Chest?"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid ""
-"在你们登船的时候，我依然在香霖堂看店。那个紫色的木头箱子就在那个时候在店门口"
-"外莫名其妙地出现了。"
+"你们还在船上的时候，我在香霖堂看店。那个紫色的木头箱子就莫名其妙地出现在店外"
+"了。"
 msgstr ""
-"When you all boarded the ship, I stayed in Kourindou. That's when a purple "
-"wooden chest appeared outside the shop's door out of nowhere."
+"While you were on the ship, I stayed in Kourindou. That's when a purple "
+"wooden chest appeared a few steps away from the door out of nowhere."
 
 #. Text for talk sentence 28 in talk group palace_8_map's section 1
 #: Talk meta file
