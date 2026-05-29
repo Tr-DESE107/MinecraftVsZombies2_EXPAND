@@ -2482,7 +2482,7 @@ namespace MVZ2.GameContent.Bosses
                         break;
                     case SUBSTATE_JUMP1:
                     case SUBSTATE_JUMP2:
-                        if (entity.Velocity.y < 0)
+                        if (entity.Velocity.y <= 0.00001f) // 在向上跳，还没有放置头颅的情况下被石化，解除石化后会导致状态卡死，所以用小于0.000001
                         {
                             stateMachine.StartSubState(entity, substate + 1);
                             if (substateProgresses.TryGetValue(substate, out var progress))
@@ -2492,7 +2492,7 @@ namespace MVZ2.GameContent.Bosses
                         }
                         break;
                     case SUBSTATE_JUMP3:
-                        if (entity.Velocity.y < 0)
+                        if (entity.Velocity.y <= 0.00001f) // 在向上跳，还没有放置头颅的情况下被石化，解除石化后会导致状态卡死，所以用小于0.000001
                         {
                             var blocks = GetBlocks(entity);
                             if (blocks.ExistsAndAlive())
