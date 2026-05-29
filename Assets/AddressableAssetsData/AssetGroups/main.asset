@@ -150,6 +150,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01e9fe4bc77e8ed47ae45b550ea9868b
+    m_Address: mvz2:contraption/EXPAND/ExplosionCore
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01ea06eaff14a0746a137123701e46b3
     m_Address: mvz2:entity/projectiles/arrow
     m_ReadOnly: 0

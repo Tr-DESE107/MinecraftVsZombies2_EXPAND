@@ -1756,6 +1756,26 @@
 				<id name="mvz2:rechargeId" value="mvz2:long" />
 			</properties>
 		</contraption>
+		<contraption id="ExplosionCore" name="爆炸核心" tooltip="使用机械能驱动后发生爆炸">
+			<unlock>
+				<condition required="mvz2:contraption.Snipenser" />
+			</unlock>
+			<properties>
+				<bool name="mvz2:defensive" value="true" />
+				<float name="mvz2:maxHealth" value="1500" />
+				<id name="mvz2:fragmentId" value="mvz2:furnace" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:gunpowder_barrel" />
+				<id name="mvz2:placement" value="mvz2:upgrade" />
+				
+				<int name="mvz2:cost" value="0" />
+				<int name="mvz2:triggerCost" value="300" />
+				<bool name="mvz2:triggerActive" value="true" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</contraption>
 
 		<dispenser id="Snipenser" name="狙击发射器" tooltip="攻击全场敌人">
 			<unlock>
