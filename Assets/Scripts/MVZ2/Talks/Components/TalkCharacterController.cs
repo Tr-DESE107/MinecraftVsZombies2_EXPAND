@@ -47,11 +47,10 @@ namespace MVZ2.Talk
         }
         public void SetVariant(TalkCharacterVariant variant)
         {
-            if (portrait == null)
-                return;
             var pivot = new Vector2(variant.pivotX, variant.pivotY);
             var widthExtend = variant.widthExtend;
             var viewData = Main.TalkManager.GetPortraitViewData(variant);
+            var portrait = GetOrCreatePortrait();
             portrait.ChangeVariant(viewData);
             ui.SetSprite(portrait.GetSprite());
             ui.SetPivot(pivot);
@@ -76,21 +75,28 @@ namespace MVZ2.Talk
         {
             blendValue = 0;
         }
-        private void OnEnable()
+        public CharacterPortrait GetOrCreatePortrait()
         {
             if (portrait == null)
             {
                 portrait = Main.TalkManager.CreateCharacterPortrait();
                 portrait.TextureScale = textureScale;
             }
+            return portrait;
         }
-        private void OnDisable()
+        public bool RemovePortrait()
         {
             if (portrait != null)
             {
                 portrait.Dispose();
                 portrait = null;
+                return true;
             }
+            return false;
+        }
+        private void OnDestroy()
+        {
+            RemovePortrait();
         }
         private void Update()
         {
