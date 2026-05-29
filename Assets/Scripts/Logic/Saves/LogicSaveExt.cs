@@ -150,10 +150,6 @@ namespace MVZ2Logic.Saves
         {
             return save.IsGroupUnlocked(LogicUnlockGroupID.hpBar);
         }
-        public static bool IsHPBarUnlockedOrDebug(this IGlobalSaveData save)
-        {
-            return save.IsGroupUnlocked(LogicUnlockGroupID.hpBar) || Application.isEditor || save.IsDebugUser();
-        }
         /// <summary>
         /// 梦境世界是否是梦魇状态。
         /// </summary>
