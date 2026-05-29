@@ -2558,6 +2558,7 @@
             <behaviours includeSelf="false">
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state" />
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
+                <behaviour operator="add" id="mvz2:set_animation_variant" />
                 <behaviour operator="add" id="mvz2:skeleton_mage" />
             </behaviours>
             <properties>
