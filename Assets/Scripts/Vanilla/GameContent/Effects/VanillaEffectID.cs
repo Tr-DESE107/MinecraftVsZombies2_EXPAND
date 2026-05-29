@@ -105,6 +105,24 @@ namespace MVZ2.GameContent.Effects
         public const string dragonFireBreath = "dragon_fire_breath";
         public const string gridFire = "grid_fire";
         public const string fallenEndShip = "fallen_end_ship";
+
+        public const string megaGlowingLaser = "mega_glowing_laser";
+        public const string nukeSmoke = "nuke_smoke";
+        public const string nukeFlash = "nuke_flash";
+        public const string petrifiedShards = "petrified_shards";
+        public const string petrifyLaser = "petrify_laser";
+        public const string amethystPylonLaser = "amethyst_pylon_laser";
+        public const string masterSpark = "master_spark";
+        public const string minecartRail = "minecart_rail";
+        public const string minecartRideable = "minecart_rideable";
+        public const string lockedChestShadow = "locked_chest_shadow";
+        public const string aimTarget = "aim_target";
+        public const string stabEffect = "stab_effect";
+        public const string lockSigil = "lock_sigil";
+        public const string psychicShackle = "psychic_shackle";
+        public const string witherSummoningBlocks = "wither_summoning_blocks";
+        public const string soulEffect = "soul_effect";
+        public const string soulStorm = "soul_storm";
     }
     public static class VanillaEffectID
     {
@@ -206,6 +224,24 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID dragonFireBreath = Get(VanillaEffectNames.dragonFireBreath);
         public static readonly NamespaceID gridFire = Get(VanillaEffectNames.gridFire);
         public static readonly NamespaceID fallenEndShip = Get(VanillaEffectNames.fallenEndShip);
+
+        public static readonly NamespaceID megaGlowingLaser = Get(VanillaEffectNames.megaGlowingLaser);
+        public static readonly NamespaceID nukeSmoke = Get(VanillaEffectNames.nukeSmoke);
+        public static readonly NamespaceID nukeFlash = Get(VanillaEffectNames.nukeFlash);
+        public static readonly NamespaceID petrifiedShards = Get(VanillaEffectNames.petrifiedShards);
+        public static readonly NamespaceID petrifyLaser = Get(VanillaEffectNames.petrifyLaser);
+        public static readonly NamespaceID amethystPylonLaser = Get(VanillaEffectNames.amethystPylonLaser);
+        public static readonly NamespaceID masterSpark = Get(VanillaEffectNames.masterSpark);
+        public static readonly NamespaceID minecartRail = Get(VanillaEffectNames.minecartRail);
+        public static readonly NamespaceID minecartRideable = Get(VanillaEffectNames.minecartRideable);
+        public static readonly NamespaceID lockedChestShadow = Get(VanillaEffectNames.lockedChestShadow);
+        public static readonly NamespaceID aimTarget = Get(VanillaEffectNames.aimTarget);
+        public static readonly NamespaceID stabEffect = Get(VanillaEffectNames.stabEffect);
+        public static readonly NamespaceID lockSigil = Get(VanillaEffectNames.lockSigil);
+        public static readonly NamespaceID psychicShackle = Get(VanillaEffectNames.psychicShackle);
+        public static readonly NamespaceID witherSummoningBlocks = Get(VanillaEffectNames.witherSummoningBlocks);
+        public static readonly NamespaceID soulEffect = Get(VanillaEffectNames.soulEffect);
+        public static readonly NamespaceID soulStorm = Get(VanillaEffectNames.soulStorm);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

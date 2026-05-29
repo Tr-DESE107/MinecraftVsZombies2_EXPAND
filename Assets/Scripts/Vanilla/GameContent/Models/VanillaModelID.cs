@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Models
 
         public static readonly NamespaceID gridPlaceHolder = Get("grid_placeholder", TYPE_GRID);
         public static readonly NamespaceID goldenGrid = Get("golden_grid", TYPE_GRID);
+        public static readonly NamespaceID brokenTile = Get("broken_tile", TYPE_GRID);
 
         public static readonly NamespaceID zombie = Get("zombie", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID moneyChest = Get("money_chest", EngineModelID.TYPE_ENTITY);
@@ -48,8 +49,15 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID knockbackWave = Get("knockback_wave", TYPE_ICON);
         public static readonly NamespaceID divineShield = Get("divine_shield", TYPE_ICON);
         public static readonly NamespaceID vulnerable = Get("vulnerable", TYPE_ICON);
+        public static readonly NamespaceID glowingParticles = Get("glowing_particles", TYPE_ICON);
+        public static readonly NamespaceID gravelOnFace = Get("gravel_on_face", TYPE_ICON);
+        public static readonly NamespaceID candleCursed = Get("candle_cursed", TYPE_ICON);
+        public static readonly NamespaceID petrifiedFeet = Get("petrified_feet", TYPE_ICON);
+        public static readonly NamespaceID shackled = Get("shackled", TYPE_ICON);
+        public static readonly NamespaceID burning = Get("burning", TYPE_ICON);
 
         public static readonly NamespaceID mindSwap = Get("mind_swap", TYPE_UI);
+        public static readonly NamespaceID blueprintLock = Get("blueprint_lock", TYPE_UI);
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)
         {
             return new NamespaceID(areaID.SpaceName, $"starshard.{areaID.Path}").ToModelID(TYPE_HELD_ITEM);

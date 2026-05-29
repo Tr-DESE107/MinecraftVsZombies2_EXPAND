@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Vanilla;
+using MVZ2Logic;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -210,7 +210,7 @@ namespace MVZ2.Level.Components
                 }
             }
         }
-        public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "sound");
+        public static readonly NamespaceID componentID = new NamespaceID(Global.BuiltinNamespace, "sound");
         private Dictionary<NamespaceID, HashSet<long>> loopSounds = new Dictionary<NamespaceID, HashSet<long>>();
         private List<NamespaceID> playingLoopSounds = new List<NamespaceID>();
         private List<NamespaceID> loopSoundBuffer = new List<NamespaceID>();

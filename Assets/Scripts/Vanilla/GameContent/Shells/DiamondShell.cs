@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Shells;
-using PVZEngine.Damages;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
+using PVZEngine.Shells;
 
 namespace MVZ2.GameContent.Shells
 {
-    [ShellDefinition(VanillaShellNames.diamond)]
+    [AutoShellDefinition(VanillaShellNames.diamond)]
     public class DiamondShell : ShellDefinition
     {
         public DiamondShell(string nsp, string name) : base(nsp, name)

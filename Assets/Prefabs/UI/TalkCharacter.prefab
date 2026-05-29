@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4653386459080913052}
   - component: {fileID: 2801811267611955113}
-  - component: {fileID: 3780127357804451407}
+  - component: {fileID: 6942622387223282316}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -45,7 +45,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2580205775630735429}
   m_CullTransparentMesh: 1
---- !u!114 &3780127357804451407
+--- !u!114 &6942622387223282316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,13 +59,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c321612661c274844b82586aba232f9f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -109,7 +109,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 100, y: -200}
-  m_SizeDelta: {x: 250, y: 500}
+  m_SizeDelta: {x: 250, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9110853629423673998
 GameObject:
@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6994645559512801611}
   - component: {fileID: 8264514307198630559}
+  - component: {fileID: 4907137169488292120}
   - component: {fileID: 85909185270243658}
   - component: {fileID: 6428233124690043903}
   m_Layer: 0
@@ -129,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6994645559512801611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -159,14 +160,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 9110853629423673998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b939170178bab418664248bf3280fe, type: 3}
+  m_Script: {fileID: 11500000, guid: f9bc2559aeb5793458adb718f10992a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 4907137169488292120}
   _animator: {fileID: 85909185270243658}
-  image: {fileID: 3780127357804451407}
-  imageRectTransform: {fileID: 4653386459080913052}
   idleBlendFactor: 0.2
   idleBlendValue: 0.8
+--- !u!114 &4907137169488292120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9110853629423673998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dddf3b35b6c59b45a71ad718d1d975a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 6942622387223282316}
+  imageRectTransform: {fileID: 4653386459080913052}
 --- !u!95 &85909185270243658
 Animator:
   serializedVersion: 5

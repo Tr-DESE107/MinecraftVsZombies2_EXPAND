@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace MVZ2.GameContent.Detections
     {
         public BlackholeDetector()
         {
+            canDetectInvisible = true;
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {

@@ -5,24 +5,23 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.slendermanTransition)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.slendermanTransition)]
     public class SlendermanTransitionBuff : BuffDefinition
     {
         public SlendermanTransitionBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Multiply(VanillaAreaProps.BACKGROUND_TINT, PROP_BACKGROUND_TINT));
+            AddModifier(ColorModifier.Multiply(LogicAreaProps.BACKGROUND_TINT, PROP_BACKGROUND_TINT));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
         }
         public override void PostAdd(Buff buff)

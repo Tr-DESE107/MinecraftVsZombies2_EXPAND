@@ -2,13 +2,15 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.HeldItems;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Games;
+using MVZ2Logic.Inputs;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using PVZEngine.Models;
+using UnityEngine;
 
 namespace MVZ2Logic.HeldItems
 {
@@ -131,6 +133,17 @@ namespace MVZ2Logic.HeldItems
             }
             return callbackResult.GetValue<NamespaceID>();
         }
+        public Vector3 GetModelOffset(LevelEngine level, IHeldItemData data)
+        {
+            var callbackResult = new CallbackResult(null);
+            foreach (var behaviour in GetBehaviours())
+            {
+                if (callbackResult.IsBreakRequested)
+                    break;
+                behaviour.GetModelOffset(level, data, callbackResult);
+            }
+            return callbackResult.GetValue<Vector3>();
+        }
         public float GetRadius(LevelEngine level, IHeldItemData data)
         {
             var callbackResult = new CallbackResult(0);
@@ -156,10 +169,8 @@ namespace MVZ2Logic.HeldItems
         private List<NamespaceID> behaviours = new List<NamespaceID>();
         private List<HeldItemBehaviourDefinition> behavioursCache = new List<HeldItemBehaviourDefinition>();
     }
-    public enum LawnArea
-    {
-        Side,
-        Main,
-        Bottom
-    }
+}
+
+namespace MVZ2Logic.Level
+{
 }

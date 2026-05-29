@@ -7,24 +7,26 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Obstacles;
 using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.devourer)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.devourer)]
     public class Devourer : ContraptionBehaviour
     {
         public Devourer(string nsp, string name) : base(nsp, name)
@@ -66,7 +68,7 @@ namespace MVZ2.GameContent.Contraptions
             if (!devourer.IsHostile(other))
                 return;
             var level = devourer.Level;
-            var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER), devourer);
+            var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS), devourer);
             if (output != null)
             {
                 if (output.HasAnyFatal())
@@ -129,6 +131,15 @@ namespace MVZ2.GameContent.Contraptions
 
             var targetGridIndex = GetTargetGridIndex(devourer);
             var reached = devourer.MoveOrthogonally(targetGridIndex, EVOKED_MOVE_SPEED);
+
+            // 垂直移动。
+            var vel = devourer.Velocity;
+            var groundY = devourer.GetGroundY();
+            var yDistance = Mathf.Abs(groundY - devourer.Position.y);
+            var yDirection = Mathf.Sign(groundY - devourer.Position.y);
+            vel.y = yDirection * Mathf.Min(EVOKED_MOVE_SPEED, yDistance);
+            devourer.Velocity = vel;
+
             if (reached)
             {
                 FindPacmanGhostTarget(devourer);
@@ -196,11 +207,11 @@ namespace MVZ2.GameContent.Contraptions
             }
             else
             {
-                var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
+                var effects = new DamageEffectList(VanillaDamageEffects.NO_BROKEN_LOCK, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS);
                 target.Die(effects, devourer);
                 var spawnParams = devourer.GetSpawnParams();
                 var entityID = target.GetDefinitionID();
-                var blueprintID = VanillaBlueprintID.FromEntity(entityID);
+                var blueprintID = LogicBlueprintID.FromEntity(entityID);
                 spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                 devourer.Produce(VanillaPickupID.blueprintPickup, spawnParams);
             }
@@ -252,6 +263,8 @@ namespace MVZ2.GameContent.Contraptions
             if (!entity.ExistsAndAlive())
                 return false;
             if (!entity.IsEntityOf(VanillaObstacleID.monsterSpawner) && entity.Type != EntityTypes.PLANT)
+                return false;
+            if (entity.IsNoDevourer())
                 return false;
             return true;
         }

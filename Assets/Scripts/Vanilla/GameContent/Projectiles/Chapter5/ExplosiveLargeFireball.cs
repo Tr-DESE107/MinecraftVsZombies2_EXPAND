@@ -7,25 +7,26 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.explosiveLargeFireball)]
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.explosiveLargeFireball)]
     public class ExplosiveLargeFireball : EntityBehaviourDefinition, IBeBlownBehaviour
     {
         public ExplosiveLargeFireball(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, PROP_SCALE_MULTIPLIER));
             AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_SCALE_MULTIPLIER));
-            AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_SCALE_MULTIPLIER));
+            AddModifier(new Vector3Modifier(LogicEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_SCALE_MULTIPLIER));
             AddModifier(new FloatModifier(EngineEntityProps.FRICTION, NumberOperator.Add, PROP_FRICTION_ADDITION));
         }
         public override void Init(Entity entity)

@@ -2,21 +2,24 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
-    public class HellChariot : AIEntityBehaviour
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
+    public class HellChariot : AIEntityBehaviour, IDestroyBySpikesEntityBehaviour, IDeathEffectsBehaviour
     {
         public HellChariot(string nsp, string name) : base(nsp, name)
         {
@@ -76,66 +79,39 @@ namespace MVZ2.GameContent.Enemies
             if (!collision.Collider.IsForMain())
                 return;
             var other = collision.Other;
-            if (other.IsDead || !other.IsVulnerableEntity())
+            if (!other.IsVulnerableEntity())
                 return;
             var chariot = collision.Entity;
-            if (IsPunctured(chariot))
-                return;
-            if (!chariot.IsHostile(other))
+            if (IsPunctured(chariot) || !chariot.IsHostile(other))
                 return;
 
-            bool blocked = false;
-            float damage = other.GetTakenCrushDamage();
-            var vehicleInteraction = other.GetVehicleInteraction();
-            if (vehicleInteraction == VehicleInteraction.BLOCK)
-            {
-                damage = chariot.GetDamage() * 0.1f;
-            }
-            var output = collision.OtherCollider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), chariot);
-            if (output != null)
-            {
-                if (output.BodyResult != null && output.BodyResult.Fatal && other.Type == EntityTypes.PLANT)
-                {
-                    other.PlaySound(VanillaSoundID.smash);
-                }
-            }
-            if (other.IsInvincible() || vehicleInteraction == VehicleInteraction.BLOCK)
-            {
-                blocked = true;
-            }
-
-            if (blocked)
-            {
-                var vel = chariot.Velocity;
-                if (vel.x * chariot.GetFacingX() > 0)
-                {
-                    vel.x = 0;
-                }
-                chariot.Velocity = vel;
-            }
-            if (vehicleInteraction == VehicleInteraction.SPIKES)
-            {
-                Puncture(chariot);
-            }
+            Crush(chariot, collision.OtherCollider);
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (!entity.WillRemoveOnDeath(info))
             {
                 Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
             }
-
-            if (!info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-            {
-                var anubisandOffset = ANUBISAND_OFFSET;
-                anubisandOffset.x *= entity.GetFacingX();
-                var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
-                entity.Remove();
-            }
+        }
+        public void DeathEffects(Entity entity, DeathInfo info)
+        {
+            var anubisandOffset = ANUBISAND_OFFSET;
+            anubisandOffset.x *= entity.GetFacingX();
+            var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
+            entity.Remove();
         }
         #endregion
 
+        public bool CanBeDestroyedBySpikes(Entity entity, Entity source)
+        {
+            return !IsPunctured(entity);
+        }
+        public void DestroyBySpikes(Entity entity, Entity source)
+        {
+            Puncture(entity);
+        }
         public static void Puncture(Entity entity)
         {
             if (IsPunctured(entity))
@@ -143,6 +119,48 @@ namespace MVZ2.GameContent.Enemies
             SetPunctured(entity, true);
             var timer = GetPunctureTimer(entity);
             timer?.Reset();
+        }
+        public static void Crush(Entity chariot, IEntityCollider otherCollider)
+        {
+            var other = otherCollider.Entity;
+            float damage = other.GetTakenCrushDamage();
+            var vehicleInteraction = other.GetVehicleInteraction();
+            switch (vehicleInteraction)
+            {
+                case VehicleInteraction.BLOCK:
+                    damage = chariot.GetDamage() * 0.1f;
+                    break;
+                case VehicleInteraction.IGNORE:
+                    return;
+            }
+
+            if (!other.IsDead)
+            {
+                if (vehicleInteraction == VehicleInteraction.BLOCK || other.IsInvincible())
+                {
+                    var vel = chariot.Velocity;
+                    if (vel.x * chariot.GetFacingX() > 0)
+                    {
+                        vel.x = 0;
+                    }
+                    chariot.Velocity = vel;
+                }
+                DamageEffectList damageEffects = new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
+                otherCollider.TakeDamage(damage, damageEffects, chariot)?.Let(o =>
+                {
+                    if (o.BodyResult != null && o.BodyResult.Fatal)
+                    {
+                        if (other.Type == EntityTypes.PLANT || other.Type == EntityTypes.OBSTACLE)
+                        {
+                            other.PlaySound(VanillaSoundID.smash);
+                        }
+                        else if (other.Type == EntityTypes.ENEMY)
+                        {
+                            other.PlaySound(VanillaSoundID.grind);
+                        }
+                    }
+                });
+            }
         }
 
         #region 字段

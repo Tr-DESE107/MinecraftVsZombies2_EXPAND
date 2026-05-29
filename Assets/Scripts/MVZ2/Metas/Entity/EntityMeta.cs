@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -41,48 +42,37 @@ namespace MVZ2.Metas
                 return null;
             }
             var type = EntityTypes.EFFECT;
-            var template = templates.FirstOrDefault(t => t.name == node.Name);
             var name = node.GetAttribute("name") ?? string.Empty;
             var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n") ?? string.Empty;
             var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n") ?? string.Empty;
 
             XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
 
-            var behaviours = new List<NamespaceID>();
-            var behavioursNode = node["behaviours"];
-            bool includeSelfBehaviour = behavioursNode?.GetAttributeBool("includeSelf") ?? true;
+            // 加载实体行为与属性。
+            var templateID = node.GetAttribute("template");
+            var template = templates.FirstOrDefault(t => t.id == templateID);
 
-
-            var propertyNode = node["properties"];
-            var entityProps = propertyNode.ToPropertyDictionary(defaultNsp);
+            var behaviours = new List<BehaviourItem>();
             Dictionary<string, object?> properties = new Dictionary<string, object?>();
-            foreach (var prop in entityProps)
-            {
-                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.entity);
-                properties.Add(fullName, prop.Value);
-            }
 
+            var behavioursNode = node["behaviours"];
+            var propertyNode = node["properties"];
+            propertyNode?.LoadPropertiesFromNode(defaultNsp, PropertyRegions.entity, properties);
             if (template != null)
             {
-                type = template.id;
-
-                behaviours.AddRange(template.behaviours);
-
-                foreach (var prop in template.properties)
-                {
-                    if (properties.ContainsKey(prop.Key))
-                        continue;
-                    properties.Add(prop.Key, prop.Value);
-                }
+                type = template.type;
+                XMLHelper.LoadBehavioursAndPropertiesFromTemplate(defaultNsp, EngineDefinitionTypes.ENTITY_BEHAVIOUR, template, behaviours, properties);
             }
-            behavioursNode?.ModifyEntityBehaviours(behaviours, properties, defaultNsp);
+            behavioursNode?.LoadBehavioursFromNode(defaultNsp, EngineDefinitionTypes.ENTITY_BEHAVIOUR, behaviours, properties);
+
+            bool includeSelfBehaviour = behavioursNode?.GetAttributeBool("includeSelf") ?? true;
             if (includeSelfBehaviour)
             {
-                behaviours.Add(new NamespaceID(nsp, id));
+                behaviours.Add(new BehaviourItem(new NamespaceID(nsp, id), 0));
             }
+            var behavioursArray = behaviours.OrderBy(b => b.priority).Select(b => b.id).ToArray();
 
-
-            return new EntityMeta(id, name, deathMessage, tooltip, unlockConditions, behaviours.ToArray(), properties)
+            return new EntityMeta(id, name, deathMessage, tooltip, unlockConditions, behavioursArray, properties)
             {
                 Type = type,
                 Order = order,
@@ -95,6 +85,7 @@ namespace MVZ2.Metas
         public BehaviourOperator Operator { get; private set; }
         public NamespaceID? SourceID { get; private set; }
         public NamespaceID ID { get; private set; }
+        public int Priority { get; private set; }
         public EntityBehaviourItem(BehaviourOperator @operator, NamespaceID iD)
         {
             Operator = @operator;
@@ -115,9 +106,11 @@ namespace MVZ2.Metas
                 op = o;
             }
             var sourceID = node.GetAttributeNamespaceID("source", defaultNsp);
+            var priority = node.GetAttributeInt("priority") ?? 0;
             return new EntityBehaviourItem(op, id)
             {
-                SourceID = sourceID
+                SourceID = sourceID,
+                Priority = priority
             };
         }
         private static Dictionary<string, BehaviourOperator> operatorDict = new Dictionary<string, BehaviourOperator>()
@@ -127,6 +120,17 @@ namespace MVZ2.Metas
             { "replace", BehaviourOperator.Replace },
         };
 
+    }
+    public struct BehaviourItem
+    {
+        public NamespaceID id;
+        public int priority;
+
+        public BehaviourItem(NamespaceID id, int priority)
+        {
+            this.id = id;
+            this.priority = priority;
+        }
     }
     public enum BehaviourOperator
     {

@@ -6,21 +6,22 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileExplode)]
-    public class ProjectileExplodeBehaviour : EntityBehaviourDefinition
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileExplode)]
+    public class ProjectileExplodeBehaviour : EntityBehaviourDefinition, IDeathEffectsBehaviour
     {
         public ProjectileExplodeBehaviour(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, PreHitEntityCallback);
+            AddTrigger(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, PreHitEntityCallback, VanillaCallbackPriorities.LATE);
         }
         private void PreHitEntityCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
         {
@@ -30,11 +31,8 @@ namespace MVZ2.GameContent.Projectiles
                 return;
             param.damage.SetAmount(0);
         }
-        public override void PostDeath(Entity entity, DeathInfo damageInfo)
+        public void DeathEffects(Entity entity, DeathInfo damageInfo)
         {
-            base.PostDeath(entity, damageInfo);
-            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             Explode(entity);
         }
         public virtual void Explode(Entity entity)
@@ -46,7 +44,7 @@ namespace MVZ2.GameContent.Projectiles
         public virtual void ExplodeDamage(Entity entity)
         {
             var range = entity.GetRange();
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
             entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
         }
         public virtual void SpawnExplosionEffect(Entity entity, Vector3 position)

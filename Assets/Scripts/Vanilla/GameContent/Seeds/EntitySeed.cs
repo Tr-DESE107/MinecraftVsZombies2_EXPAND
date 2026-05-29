@@ -3,14 +3,12 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.SeedPacks;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
+using MVZ2Logic.Resources;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
-using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
@@ -59,10 +57,9 @@ namespace MVZ2.GameContent.Seeds
                 base.UpdateTargetBuff(effect, target, buff);
                 if (target is not SeedPack seed)
                     return;
-                var seedDef = seed.Definition;
-                if (seedDef == null || seedDef.GetSeedType() != SeedTypes.ENTITY)
+                if (seed.GetSeedType() != SeedTypes.ENTITY)
                     return;
-                var entityID = seed.Definition?.GetSeedEntityID();
+                var entityID = seed.GetSeedEntityID();
                 if (!NamespaceID.IsValid(entityID))
                     return;
                 buff.SetProperty(UpgradeEndlessCostBuff.PROP_ADDITION, seed.Level.GetEntityCount(entityID) * ADDITION);

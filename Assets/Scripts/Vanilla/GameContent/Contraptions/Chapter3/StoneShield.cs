@@ -6,16 +6,16 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Entities;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.stoneShield)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.stoneShield)]
     public class StoneShield : ContraptionBehaviour
     {
         public StoneShield(string nsp, string name) : base(nsp, name)
@@ -23,6 +23,7 @@ namespace MVZ2.GameContent.Contraptions
             AddAura(new ProtectExplosionAura());
             evocationDetector = new SphereDetector(100)
             {
+                canDetectInvisible = true,
                 includeSelf = true,
                 factionTarget = FactionTarget.Friendly
             };
@@ -60,6 +61,8 @@ namespace MVZ2.GameContent.Contraptions
                 var grids = sourceEnt.GetGridsToTake();
                 foreach (var grid in grids)
                 {
+                    if (grid == null)
+                        continue;
                     var main = grid.GetMainEntity();
                     if (main != null)
                     {

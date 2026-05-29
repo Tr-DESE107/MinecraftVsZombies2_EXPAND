@@ -4,18 +4,18 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using Tools.Mathematics;
+using Tools.Geometrical;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Bosses
 {
-    [BuffDefinition(VanillaBuffNames.Boss.frankensteinSteel)]
+    [AutoBuffDefinition(VanillaBuffNames.Boss.frankensteinSteel)]
     public class FrankensteinSteelBuff : BuffDefinition
     {
         public FrankensteinSteelBuff(string nsp, string name) : base(nsp, name)
@@ -63,14 +63,14 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
             if (knifeZSpeed > 0 && knifeZ <= self.Position.z)
             {
-                if (MathTool.DoLinesIntersect(otherLastPos2D, otherPos2D, leftDown, rightDown))
+                if (Geometry.DoLinesIntersect(otherLastPos2D, otherPos2D, leftDown, rightDown))
                 {
                     normal = Vector3.back;
                 }
             }
             else if (knifeZSpeed < 0 && knifeZ >= self.Position.z)
             {
-                if (MathTool.DoLinesIntersect(otherLastPos2D, otherPos2D, leftUp, rightUp))
+                if (Geometry.DoLinesIntersect(otherLastPos2D, otherPos2D, leftUp, rightUp))
                 {
                     normal = Vector3.forward;
                 }
@@ -78,14 +78,14 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
             if (knifeXSpeed > 0 && knifeX <= self.Position.x)
             {
-                if (MathTool.DoLinesIntersect(otherLastPos2D, otherPos2D, leftUp, leftDown))
+                if (Geometry.DoLinesIntersect(otherLastPos2D, otherPos2D, leftUp, leftDown))
                 {
                     normal = Vector3.left;
                 }
             }
             else if (knifeXSpeed < 0 && knifeX >= self.Position.x)
             {
-                if (MathTool.DoLinesIntersect(otherLastPos2D, otherPos2D, rightUp, rightDown))
+                if (Geometry.DoLinesIntersect(otherLastPos2D, otherPos2D, rightUp, rightDown))
                 {
                     normal = Vector3.right;
                 }

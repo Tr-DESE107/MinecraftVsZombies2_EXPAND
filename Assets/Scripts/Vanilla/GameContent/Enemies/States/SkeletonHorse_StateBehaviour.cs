@@ -2,29 +2,16 @@
 
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonHorse_State)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonHorse_State)]
     public class SkeletonHorse_StateBehaviour : EnemyStateBehaviour
     {
         public SkeletonHorse_StateBehaviour(string nsp, string name) : base(nsp, name)
         {
-        }
-        public override int GetAnimationState(int state)
-        {
-            switch (state)
-            {
-                case STATE_JUMP:
-                    return ANIMATION_STATE_JUMP;
-                case STATE_GALLOP:
-                    return ANIMATION_STATE_GALLOP;
-                case STATE_LAND:
-                    return ANIMATION_STATE_LAND;
-            }
-            return base.GetAnimationState(state);
         }
         protected override int GetActiveState(Entity enemy)
         {
@@ -46,8 +33,5 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_GALLOP = VanillaEnemyStates.SKELETON_HORSE_GALLOP;
         public const int STATE_JUMP = VanillaEnemyStates.SKELETON_HORSE_JUMP;
         public const int STATE_LAND = VanillaEnemyStates.SKELETON_HORSE_LAND;
-        public const int ANIMATION_STATE_JUMP = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
-        public const int ANIMATION_STATE_GALLOP = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 1;
-        public const int ANIMATION_STATE_LAND = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 2;
     }
 }

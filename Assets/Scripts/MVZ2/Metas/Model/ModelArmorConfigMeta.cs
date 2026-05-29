@@ -3,8 +3,8 @@
 using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
+using MVZ2Logic.Armors;
 using PVZEngine;
 using UnityEngine;
 

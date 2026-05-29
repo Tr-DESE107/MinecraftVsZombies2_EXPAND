@@ -2,15 +2,14 @@
 
 using System;
 using System.Linq;
-using MVZ2.Entities;
 using MVZ2.GameContent.Models;
 using MVZ2.Grids;
-using MVZ2.Managers;
 using MVZ2.Models;
-using MVZ2.Vanilla.Grids;
-using MVZ2Logic;
+using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Resources;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -35,6 +34,7 @@ namespace MVZ2.Level
                         continue;
                     initDatas[lane][column] = new GridInitData()
                     {
+                        levelController = this,
                         grid = lawnGrid,
                         modelBuilder = modelBuilder
                     };
@@ -49,7 +49,10 @@ namespace MVZ2.Level
             var gridWidth = level.GetGridWidth();
             var gridHeight = level.GetGridHeight();
             var areaMeta = Main.ResourceManager.GetAreaMeta(level.AreaID);
-            foreach (var gridUI in gridLayout.GetGrids())
+            var grids = gridLayout.GetGrids();
+            if (grids == null)
+                return;
+            foreach (var gridUI in grids)
             {
                 var modelInterface = new GridModelInterface(gridUI);
                 var column = gridUI.Column;
@@ -67,7 +70,8 @@ namespace MVZ2.Level
                 var yOffset = gridMeta?.YOffset ?? 0;
                 var y = 0 + yOffset;
                 var pos = new Vector3(x, y, z);
-                var worldPos = LawnToTrans(pos);
+                pos *= LawnToTransScale;
+                Vector3 gridPos = new Vector3(pos.x, pos.z + pos.y, pos.z);
 
 
                 Sprite? sprite;
@@ -83,14 +87,14 @@ namespace MVZ2.Level
 
                 var slope = grid.GetSlope() * LawnToTransScale;
 
-                var viewData = new GridViewData()
+                var viewData = new GridControllerData()
                 {
-                    position = worldPos,
+                    position = gridPos,
                     sprite = sprite,
                     slope = slope,
                 };
 
-                gridUI.UpdateGridView(viewData);
+                gridUI.UpdateGridController(viewData);
                 gridUI.UpdateFrame(0);
             }
 
@@ -112,7 +116,7 @@ namespace MVZ2.Level
                 if (grid != null)
                 {
                     var pointerPosition = gridUI.TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
-                    var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(data, interaction);
+                    var pointerParams = InputHelper.GetPointerInteractionParamsFromEventData(data, interaction);
                     var target = new HeldItemTargetGrid(grid, pointerPosition);
                     level.DoHeldItemPointerEvent(target, pointerParams);
                 }
@@ -150,6 +154,8 @@ namespace MVZ2.Level
             if (seri.grids == null)
                 return;
             var grids = gridLayout.GetGrids();
+            if (grids == null)
+                return;
             var count = Mathf.Min(grids.Length, seri.grids.Length);
             for (int i = 0; i < count; i++)
             {
@@ -175,7 +181,10 @@ namespace MVZ2.Level
         }
         private void ClearGridHighlight()
         {
-            foreach (var grid in gridLayout.GetGrids())
+            var grids = gridLayout.GetGrids();
+            if (grids == null)
+                return;
+            foreach (var grid in grids)
             {
                 grid.SetColor(Color.clear);
                 grid.SetDisplaySection(0, 1);
@@ -183,7 +192,13 @@ namespace MVZ2.Level
         }
         private void UpdateGridsFrame(float deltaTime, float gameSpeed)
         {
-            gridLayout.UpdateGridsFrame(deltaTime * gameSpeed);
+            var grids = gridLayout.GetGrids();
+            if (grids == null)
+                return;
+            foreach (var grid in grids)
+            {
+                grid.UpdateFrame(deltaTime);
+            }
         }
         private void HighlightAxisGrids(int lane, int column)
         {
@@ -212,7 +227,6 @@ namespace MVZ2.Level
                 }
             }
         }
-
 
         #region 属性字段
         private int pointingGridPointerId = -1;

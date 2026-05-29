@@ -8,24 +8,63 @@ namespace MVZ2.Metas
     public class MapMetaList
     {
         public MapMeta[] metas;
+        public MapElementMeta[] elements;
 
-        private MapMetaList(MapMeta[] metas)
+        private MapMetaList(MapMeta[] metas, MapElementMeta[] elements)
         {
             this.metas = metas;
+            this.elements = elements;
         }
 
         public static MapMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var resources = new List<MapMeta>();
+            var maps = new List<MapMeta>();
+            var elements = new List<MapElementMeta>();
+            var templates = new List<MapElementMetaTemplate>();
+
+            var templatesNode = node["elementTemplates"];
+            if (templatesNode != null)
+            {
+                templates.AddRange(MapElementMetaTemplate.LoadTemplates(templatesNode, defaultNsp));
+            }
+
             for (int i = 0; i < node.ChildNodes.Count; i++)
             {
-                var meta = MapMeta.FromXmlNode(node.ChildNodes[i], defaultNsp);
-                if (meta != null)
+                var child = node.ChildNodes[i];
+                switch (child.Name)
                 {
-                    resources.Add(meta);
+                    case "map":
+                        {
+                            var meta = MapMeta.FromXmlNode(child, defaultNsp);
+                            if (meta != null)
+                                maps.Add(meta);
+                        }
+                        break;
+                    case "elements":
+                        {
+                            LoadElements(child, elements, defaultNsp, templates);
+                        }
+                        break;
                 }
             }
-            return new MapMetaList(resources.ToArray());
+            return new MapMetaList(maps.ToArray(), elements.ToArray());
+        }
+        public static void LoadElements(XmlNode node, List<MapElementMeta> results, string defaultNsp, IEnumerable<MapElementMetaTemplate> templates)
+        {
+            for (int i = 0; i < node.ChildNodes.Count; i++)
+            {
+                var child = node.ChildNodes[i];
+                switch (child.Name)
+                {
+                    case "element":
+                        {
+                            var meta = MapElementMeta.FromXmlNode(child, defaultNsp, templates);
+                            if (meta != null)
+                                results.Add(meta);
+                        }
+                        break;
+                }
+            }
         }
     }
 }

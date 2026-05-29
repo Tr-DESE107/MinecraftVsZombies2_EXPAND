@@ -2,10 +2,11 @@
 
 using System.Threading.Tasks;
 using MVZ2.Managers;
-using MVZ2.Vanilla;
+using MVZ2.UI;
+using MVZ2Logic.Localization;
 using UnityEngine;
 
-namespace MVZ2.Mainmenu.UI
+namespace MVZ2.Mainmenu
 {
     public class InputNameDialogController : MonoBehaviour
     {
@@ -57,7 +58,7 @@ namespace MVZ2.Mainmenu.UI
         {
             if (inputNameType == InputNameType.Initialize)
             {
-                var error = main.LanguageManager._(VanillaStrings.ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT);
+                var error = main.LanguageManager._(LogicStrings.ERROR_MESSAGE_CANNOT_CANCEL_NAME_INPUT);
                 ui.SetErrorMessage(error);
                 return;
             }
@@ -67,19 +68,19 @@ namespace MVZ2.Mainmenu.UI
         {
             if (string.IsNullOrEmpty(name))
             {
-                message = VanillaStrings.ERROR_MESSAGE_NAME_EMPTY;
+                message = LogicStrings.ERROR_MESSAGE_NAME_EMPTY;
                 return false;
             }
 
             if (main.SaveManager.HasDuplicateUserName(name, renamingUserIndex))
             {
-                message = VanillaStrings.ERROR_MESSAGE_NAME_DUPLICATE;
+                message = LogicStrings.ERROR_MESSAGE_NAME_DUPLICATE;
                 return false;
             }
 
             if (inputNameType == InputNameType.Rename && !main.SaveManager.CanRenameUserTo(name))
             {
-                message = VanillaStrings.ERROR_MESSAGE_CANNOT_USE_THIS_NAME;
+                message = LogicStrings.ERROR_MESSAGE_CANNOT_USE_THIS_NAME;
                 return false;
             }
             message = null;

@@ -2,6 +2,9 @@
 
 using System;
 using MukioI18n;
+using MVZ2.Options;
+using MVZ2Logic.Options;
+using PVZEngine;
 using UnityEngine;
 
 
@@ -12,6 +15,7 @@ namespace MVZ2.Managers
         private void Awake()
         {
             animatorBatchData.Init();
+            OptionsManager.OnOptionChangedInt += OnOptionChangedIntCallback;
         }
         public void Update()
         {
@@ -31,6 +35,13 @@ namespace MVZ2.Managers
             }
 
         }
+        private void OnOptionChangedIntCallback(NamespaceID id, int value)
+        {
+            if (id == LogicOptionItemID.fpsMode)
+            {
+                UpdateFPSMode(value);
+            }
+        }
         public void UpdatePerformanceMonitor()
         {
             if (frameCount == 0)
@@ -42,6 +53,28 @@ namespace MVZ2.Managers
 
         void AdjustBatchSize()
         {
+        }
+        private void UpdateFPSMode(int mode)
+        {
+            var fpsActive = mode != FPSModes.DISABLED;
+            Main.Scene.SetFPSEnabled(fpsActive);
+            if (fpsActive)
+            {
+                Vector2 corner = new Vector2(1, 0);
+                switch (mode)
+                {
+                    case FPSModes.TOP_LEFT:
+                        corner = new Vector2(0, 1);
+                        break;
+                    case FPSModes.TOP_RIGHT:
+                        corner = new Vector2(1, 1);
+                        break;
+                    case FPSModes.BOTTOM_LEFT:
+                        corner = new Vector2(0, 0);
+                        break;
+                }
+                Main.Scene.SetFPSCorner(corner);
+            }
         }
 
         public MainManager Main => MainManager.Instance;

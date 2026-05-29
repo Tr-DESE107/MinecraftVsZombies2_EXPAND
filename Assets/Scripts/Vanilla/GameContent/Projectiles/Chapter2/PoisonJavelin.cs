@@ -4,13 +4,13 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.poisonJavelin)]
-    public class PoisonJavelin : ProjectileBehaviour
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.poisonJavelin)]
+    public class PoisonJavelin : EntityBehaviourDefinition
     {
         public PoisonJavelin(string nsp, string name) : base(nsp, name)
         {

@@ -14,10 +14,21 @@ namespace MVZ2Logic.Models
         public const string defaultLayer = "Default";
         public const string pickups = "Pickups";
         public const string foreground = "Foreground";
-        public const string collectedDrops = "CollectedDrops";
-        public const string drops = "Drops";
+        public const string collectedPickups = "CollectedPickups";
         public const string frontUI = "FrontUI";
         public const string money = "Money";
         public const string screenCover = "ScreenCover";
+    }
+    public static class ShaderProperties
+    {
+        public const string MAIN_TEX_ST = "_MainTex_ST";
+        public const string LOCAL_RECT = "_LocalRect";
+        public const string BURN_VALUE = "_BurnValue";
+        public const string TINT = "_Color";
+        public const string COLOR_OFFSET = "_ColorOffset";
+        public const string HSV_OFFSET = "_HSVOffset";
+        public const string DEPTH_TEST = "_DepthTest";
+        public const string GRAYSCALE = "_Grayscale";
+        public const string LIGHT_DISABLED = "_LightDisabled";
     }
 }

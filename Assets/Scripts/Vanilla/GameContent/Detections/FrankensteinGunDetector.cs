@@ -3,6 +3,7 @@
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace MVZ2.GameContent.Detections
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
-            var projectileDef = GetEntityDefinition(self.Level, projectileID);
+            var projectileDef = GetEntityDefinition(projectileID);
             var projectileSize = projectileDef?.GetProperty<Vector3>(EngineEntityProps.SIZE) ?? Vector3.one * 32;
 
             var source = self.Position;

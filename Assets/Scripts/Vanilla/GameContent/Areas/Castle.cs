@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [AreaDefinition(VanillaAreaNames.castle)]
+    [AutoAreaDefinition(VanillaAreaNames.castle)]
     public class Castle : AreaDefinition
     {
         public Castle(string nsp, string name) : base(nsp, name)

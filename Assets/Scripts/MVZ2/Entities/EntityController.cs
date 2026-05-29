@@ -2,21 +2,24 @@
 
 using System;
 using System.Collections.Generic;
-using MVZ2.Cursors;
-using MVZ2.GameContent.Armors;
-using MVZ2.HeldItems;
+using MukioI18n;
 using MVZ2.Level;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
 using MVZ2.UI;
-using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.UI.Level;
+using MVZ2.View.Level;
 using MVZ2Logic;
+using MVZ2Logic.Armors;
+using MVZ2Logic.Cursor;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Models;
+using MVZ2Logic.Options;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
@@ -52,7 +55,7 @@ namespace MVZ2.Entities
             entity.OnEquipArmor += OnArmorEquipCallback;
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
-
+            Level.AddHPBarSource(hpBarSource);
             holdStreakHandler.ResetData();
             RemoveCursorSource();
 
@@ -77,6 +80,7 @@ namespace MVZ2.Entities
             Entity.OnEquipArmor -= OnArmorEquipCallback;
             Entity.OnRemoveArmor -= OnArmorRemoveCallback;
             Entity.SetModelInterface(null);
+            Level.RemoveHPBarSource(hpBarSource);
         }
 
         #region 模型
@@ -129,11 +133,7 @@ namespace MVZ2.Entities
         }
         public void UpdateFrame(float deltaTime)
         {
-            var posOffset = GetTransformOffset();
-
-            var pos = Entity.Position;
-            var currentTransPos = Level.LawnToTrans(pos);
-            transform.position = Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
+            transform.position = GetInterpolatedTransformPosition();
             UpdateShadow();
             UpdateHeightIndicator();
             lastPosition = transform.position;
@@ -160,11 +160,16 @@ namespace MVZ2.Entities
                 Model.UpdateAnimators(deltaTime);
             }
         }
-        public void GetAnimatorsToUpdate(IList<Animator> results)
+        public void GetAnimatorsToUpdate(IList<AnimatorUpdateData> results)
         {
             if (Model.Exists())
             {
-                Model.GetAnimatorsToUpdate(results);
+                animatorBuffer.Clear();
+                Model.GetAnimatorsToUpdate(animatorBuffer);
+                foreach (var animator in animatorBuffer)
+                {
+                    results.Add(new AnimatorUpdateData(animator, Entity.GetAnimationSpeed()));
+                }
             }
         }
         #endregion
@@ -205,6 +210,22 @@ namespace MVZ2.Entities
 
             return new Vector2(colliderX, colliderY);
         }
+        public Vector3 GetInterpolatedTransformPosition()
+        {
+            var pos = Entity.Position;
+            var currentTransPos = Level.LawnToTrans(pos);
+            var posOffset = GetTransformOffset();
+            return Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
+        }
+        public Vector3 GetInterpolatedTransformPositionOffset()
+        {
+            var pos = Entity.Position;
+            var currentTransPos = Level.LawnToTrans(pos);
+            return GetInterpolatedTransformPosition() - currentTransPos;
+        }
+        #endregion
+
+        #region 手持物品
         public HeldItemTargetEntity GetHeldItemTarget(Vector3 worldPosition)
         {
             var pos = TransformWorld2ColliderPosition(worldPosition);
@@ -219,6 +240,9 @@ namespace MVZ2.Entities
             }
             return new HeldItemTargetEntity(Entity, pos);
         }
+        #endregion
+
+        #region 序列化
         public SerializableEntityController ToSerializable()
         {
             return new SerializableEntityController()
@@ -244,6 +268,7 @@ namespace MVZ2.Entities
         {
             holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
             bodyModelInterface = new BodyModelInterface(this);
+            hpBarSource = new EntityHPBarSource(this);
         }
         private void Update()
         {
@@ -309,7 +334,7 @@ namespace MVZ2.Entities
             if (definition == null)
                 return false;
             var target = GetHeldItemTarget(d);
-            var pointer = InputManager.GetPointerDataFromEventData(d);
+            var pointer = InputHelper.GetPointerDataFromEventData(d);
             return definition.IsValidFor(target, data, pointer);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
@@ -327,18 +352,24 @@ namespace MVZ2.Entities
         #endregion
 
         #region 位置
-        private Vector3 GetGroundLocalPosition()
+        public Vector3 GetGroundWorldPosition()
         {
             var pos = Entity.Position;
             var groundY = Entity.GetGroundY();
             var shadowPos = pos;
             shadowPos.y = groundY;
 
+            var shadowOffset = modelPropertyCache.ShadowOffset;
+            shadowOffset.x *= Entity.GetFinalDisplayScale().x;
             var worldPosition = Level.LawnToTrans(shadowPos);
             worldPosition.x = transform.position.x;
             worldPosition.z = transform.position.z;
-            worldPosition += Level.LawnToTransDistance(modelPropertyCache.ShadowOffset);
-            return transform.InverseTransformPoint(worldPosition);
+            worldPosition += Level.LawnToTransDistance(shadowOffset);
+            return worldPosition;
+        }
+        public Vector3 GetGroundLocalPosition()
+        {
+            return transform.InverseTransformPoint(GetGroundWorldPosition());
         }
         protected void UpdateShadow()
         {
@@ -358,7 +389,7 @@ namespace MVZ2.Entities
         private void UpdateHeightIndicator()
         {
             var relativeY = Entity.GetRelativeY();
-            bool active = Main.OptionsManager.IsHeightIndicatorEnabled() && Entity.IsVulnerableEntity() && relativeY >= HEIGHT_INDICATOR_MIN_HEIGHT;
+            bool active = Main.OptionsManager.IsHeightIndicatorEnabled() && Entity.ShowHeightIndicator() && relativeY >= HEIGHT_INDICATOR_MIN_HEIGHT;
             if (heightIndicator.gameObject.activeSelf != active)
             {
                 heightIndicator.gameObject.SetActive(active);
@@ -468,13 +499,14 @@ namespace MVZ2.Entities
                 return;
             var tint = armor.GetTint();
             var colorOffset = armor.GetColorOffset();
-            if (slot == VanillaArmorSlots.main)
+            if (slot == LogicArmorSlots.main)
             {
                 tint *= Entity.GetHelmetTint();
                 colorOffset += Entity.GetHelmetColorOffset();
             }
-            armorModel.GraphicGroup.SetTint(tint);
-            armorModel.GraphicGroup.SetColorOffset(colorOffset);
+            armorModel.SetShaderColor(ShaderProperties.TINT, tint);
+            armorModel.SetShaderColor(ShaderProperties.COLOR_OFFSET, colorOffset);
+            armorModel.ApplyShaderProperties();
         }
         private void UpdateArmorModels()
         {
@@ -525,16 +557,14 @@ namespace MVZ2.Entities
 
             if (Level.IsGameOver() && Entity == Entity.Level.KillerEnemy)
             {
-                var behaviour = Entity.Definition.GetBehaviour<IEnemyStateBehaviour>();
-                if (behaviour != null)
-                {
-                    Model.SetAnimatorInt("AnimationState", behaviour.GetAnimationState(VanillaEnemyStates.WALK));
-                }
+                Entity.UpdateAnimationParameters(LogicEnemyStates.WALK);
             }
             var groundPos = Entity.Position;
             groundPos.y = Entity.GetGroundY();
             var transGroundPos = Level.LawnToTrans(groundPos);
             Model.SetGroundY(transGroundPos.y);
+            Model.transform.localPosition = Level.LawnToTransScale * Entity.GetModelPositionOffset();
+
             var centerTransform = Model.GetCenterTransform();
             if (centerTransform.Exists())
                 centerTransform.localEulerAngles = Entity.RenderRotation;
@@ -593,6 +623,124 @@ namespace MVZ2.Entities
         }
         #endregion
 
+        #region 血条
+        public bool IsHPBarHovered()
+        {
+            var hoverDisplayRange = Main.OptionsManager.GetHPBarHoverDisplayRange();
+            if (hoverDisplayRange > 0)
+            {
+                var entity = Entity;
+                var level = Level;
+                var pointerScreenPos = Main.InputManager.GetPointerScreenPosition();
+                var pointerPos = level.ScreenToLawnPositionByY(pointerScreenPos, entity.Position.y);
+                if ((pointerPos - entity.Position).sqrMagnitude <= hoverDisplayRange * hoverDisplayRange)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool ShouldShowHPBarOnEntity()
+        {
+            var entity = Entity;
+            if (entity.Type == EntityTypes.ENEMY)
+                return true;
+            if (entity.Type == EntityTypes.PLANT || entity.Type == EntityTypes.OBSTACLE)
+            {
+                if (!entity.HasTakenGrid())
+                    return true;
+            }
+            return false; ;
+        }
+        public bool ShouldShowMainHPBar()
+        {
+            if (IsHPBarHovered())
+            {
+                return true;
+            }
+            if (Main.OptionsManager.IsHPBarAutoHide())
+            {
+                var entity = Entity;
+                if (Mathf.Abs(entity.GetMaxHealth() - entity.Health) <= 0.01f)
+                {
+                    // 满血
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public bool ShouldShowArmorHPBar(Armor armor)
+        {
+            if (IsHPBarHovered())
+            {
+                return true;
+            }
+            if (Main.OptionsManager.IsHPBarAutoHide())
+            {
+                if (Mathf.Abs(armor.GetMaxHealth() - armor.Health) <= 0.01f)
+                {
+                    // 满血
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public float GetMainHPBarAmount()
+        {
+            var entity = Entity;
+            var health = entity.Health;
+            var maxHealth = entity.GetMaxHealth();
+            return health / maxHealth;
+        }
+        public float GetArmorHPBarAmount(Armor armor)
+        {
+            var health = armor.Health;
+            var maxHealth = armor.GetMaxHealth();
+            return health / maxHealth;
+        }
+        public string GetMainHPBarText(int amountMode)
+        {
+            var entity = Entity;
+            var text = string.Empty;
+            if (entity.IsDead)
+            {
+                return Main.LanguageManager._(HP_BAR_TEXT_DEATH);
+            }
+            return GetHPBarText(entity.Health, entity.GetMaxHealth(), amountMode);
+        }
+        public string GetArmorHPBarText(Armor armor, int amountMode)
+        {
+            var text = string.Empty;
+            if (!Armor.Exists(armor))
+            {
+                return Main.LanguageManager._(HP_BAR_TEXT_DESTROYED);
+            }
+            return GetHPBarText(armor.Health, armor.GetMaxHealth(), amountMode);
+        }
+        public static string GetHPBarText(float health, float maxHealth, int amountMode)
+        {
+            var text = string.Empty;
+            switch (amountMode)
+            {
+                case HPBarAmountMode.CURRENT_ONLY:
+                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE, Mathf.CeilToInt(Mathf.Max(0, health)));
+                    break;
+                case HPBarAmountMode.CURRENT_AND_MAX:
+                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE_WITH_MAX, Mathf.CeilToInt(Mathf.Max(0, health)), Mathf.CeilToInt(maxHealth));
+                    break;
+            }
+            return text;
+        }
+        #endregion
+
         #region View
         public void TriggerView(string name)
         {
@@ -638,6 +786,14 @@ namespace MVZ2.Entities
             { EntityTypes.EFFECT, 6 },
             { EntityTypes.PICKUP, 7 },
         };
+        [TranslateMsg("血条的文字")]
+        public const string HP_BAR_TEXT_DEATH = "死亡";
+        [TranslateMsg("血条的文字")]
+        public const string HP_BAR_TEXT_DESTROYED = "摧毁";
+        [TranslateMsg("血条的文字模板")]
+        public const string HP_BAR_TEXT_TEMPLATE = "{0}";
+        [TranslateMsg("血条的文字模板")]
+        public const string HP_BAR_TEXT_TEMPLATE_WITH_MAX = "{0}/{1}";
         public MainManager Main => MainManager.Instance;
         public EntityModel? Model { get; private set; }
         public ShadowController Shadow => shadow;
@@ -649,7 +805,9 @@ namespace MVZ2.Entities
         private EntityCursorSource? _cursorSource;
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface = null!;
+        private IHPBarSource hpBarSource = null!;
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
+        private List<Animator> animatorBuffer = new List<Animator>();
         [SerializeField]
         private ShadowController shadow = null!;
         [SerializeField]
@@ -673,12 +831,12 @@ namespace MVZ2.Entities
                 var model = entityCtrl.Model;
                 if (model != null)
                 {
-                    var rendererGroup = model.RendererGroup;
-                    rendererGroup.SetTint(entityCtrl.GetTint());
-                    rendererGroup.SetHSV(entity.GetHSV());
-                    rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
-                    rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
-                    rendererGroup.SetShaderInt("_DepthTest", entity.IsDepthTest() ? 1 : 0);
+                    model.SetShaderColor(ShaderProperties.TINT, entityCtrl.GetTint());
+                    model.SetShaderVector(ShaderProperties.HSV_OFFSET, entity.GetHSVOffset());
+                    model.SetShaderColor(ShaderProperties.COLOR_OFFSET, entityCtrl.GetColorOffset());
+                    model.SetShaderInt(ShaderProperties.GRAYSCALE, entity.IsGrayscale() ? 1 : 0);
+                    model.SetShaderInt(ShaderProperties.DEPTH_TEST, entity.IsDepthTest() ? 1 : 0);
+                    model.ApplyShaderProperties();
 
                     model.transform.localScale = entity.GetFinalDisplayScale();
                     model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
@@ -709,31 +867,36 @@ namespace MVZ2.Entities
                         case PropertyName.Tint:
                             if (model.Exists())
                             {
-                                model.RendererGroup.SetTint(entityCtrl.GetTint());
+                                model.SetShaderColor(ShaderProperties.TINT, entityCtrl.GetTint());
+                                model.ApplyShaderProperties();
                             }
                             break;
                         case PropertyName.ColorOffset:
                             if (model.Exists())
                             {
-                                model.RendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                                model.SetShaderColor(ShaderProperties.COLOR_OFFSET, entityCtrl.GetColorOffset());
+                                model.ApplyShaderProperties();
                             }
                             break;
                         case PropertyName.HSV:
                             if (model.Exists())
                             {
-                                model.RendererGroup.SetHSV(entity.GetHSV());
+                                model.SetShaderVector(ShaderProperties.HSV_OFFSET, entity.GetHSVOffset());
+                                model.ApplyShaderProperties();
                             }
                             break;
                         case PropertyName.Grayscale:
                             if (model.Exists())
                             {
-                                model.RendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+                                model.SetShaderInt(ShaderProperties.GRAYSCALE, entity.IsGrayscale() ? 1 : 0);
+                                model.ApplyShaderProperties();
                             }
                             break;
                         case PropertyName.DepthTest:
                             if (model.Exists())
                             {
-                                model.SetShaderIntRecursive("_DepthTest", entity.IsDepthTest() ? 1 : 0);
+                                model.SetShaderIntRecursive(ShaderProperties.DEPTH_TEST, entity.IsDepthTest() ? 1 : 0);
+                                model.ApplyShaderPropertiesRecursive();
                             }
                             break;
                         case PropertyName.FlipX:
@@ -836,22 +999,22 @@ namespace MVZ2.Entities
             {
                 { EngineEntityProps.TINT, PropertyName.Tint },
                 { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
-                { VanillaEntityProps.HSV, PropertyName.HSV },
-                { VanillaEntityProps.GRAYSCALE, PropertyName.Grayscale },
-                { VanillaEntityProps.DEPTH_TEST, PropertyName.DepthTest },
+                { LogicEntityProps.HSV_OFFSET, PropertyName.HSV },
+                { LogicEntityProps.GRAYSCALE, PropertyName.Grayscale },
+                { LogicEntityProps.DEPTH_TEST, PropertyName.DepthTest },
                 { EngineEntityProps.FLIP_X, PropertyName.FlipX },
                 { EngineEntityProps.DISPLAY_SCALE, PropertyName.DisplayScale },
-                { VanillaEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
-                { VanillaEntityProps.SORTING_ORDER, PropertyName.SortingOrder },
+                { LogicEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
+                { LogicEntityProps.SORTING_ORDER, PropertyName.SortingOrder },
 
-                { VanillaEntityProps.SHADOW_HIDDEN, PropertyName.ShadowHidden },
-                { VanillaEntityProps.SHADOW_OFFSET, PropertyName.ShadowOffset },
-                { VanillaEntityProps.SHADOW_SCALE, PropertyName.ShadowScale },
-                { VanillaEntityProps.SHADOW_ALPHA, PropertyName.ShadowAlpha },
+                { LogicEntityProps.SHADOW_HIDDEN, PropertyName.ShadowHidden },
+                { LogicEntityProps.SHADOW_OFFSET, PropertyName.ShadowOffset },
+                { LogicEntityProps.SHADOW_SCALE, PropertyName.ShadowScale },
+                { LogicEntityProps.SHADOW_ALPHA, PropertyName.ShadowAlpha },
 
-                { VanillaEntityProps.IS_LIGHT_SOURCE, PropertyName.LightSource },
-                { VanillaEntityProps.LIGHT_COLOR, PropertyName.LightColor },
-                { VanillaEntityProps.LIGHT_RANGE, PropertyName.LightRange },
+                { LogicEntityProps.IS_LIGHT_SOURCE, PropertyName.LightSource },
+                { LogicEntityProps.LIGHT_COLOR, PropertyName.LightColor },
+                { LogicEntityProps.LIGHT_RANGE, PropertyName.LightRange },
             };
             public enum PropertyName
             {

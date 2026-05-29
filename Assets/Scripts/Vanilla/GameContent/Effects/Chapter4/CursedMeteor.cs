@@ -5,15 +5,16 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.cursedMeteor)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.cursedMeteor)]
     public class CursedMeteor : EffectBehaviour
     {
 
@@ -30,6 +31,7 @@ namespace MVZ2.GameContent.Effects
             if (parent.ExistsAndAlive() && parent.IsEntityOf(VanillaContraptionID.hellfire))
             {
                 Hellfire.Curse(parent);
+                Hellfire.SetExtinguished(parent, false);
             }
             var range = entity.GetRange();
             var effects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);

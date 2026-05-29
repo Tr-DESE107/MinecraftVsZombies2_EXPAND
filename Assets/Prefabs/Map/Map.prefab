@@ -1188,7 +1188,7 @@ MonoBehaviour:
   storeButtonArrow: {fileID: 1933404283852463347}
   mapButtonArrow: {fileID: 4502225767187452120}
   hintText: {fileID: 2755147281379891900}
-  optionsDialog: {fileID: 915807355168629328}
+  optionsDialog: {fileID: 2540135555495128748}
   raycastBlocker: {fileID: 7323793195261257324}
   mapCamera: {fileID: 4354599265992543201}
   dragRoot: {fileID: 1577468620536192488}
@@ -1213,6 +1213,7 @@ MonoBehaviour:
   mapCameraShakeRoot: {fileID: 878550411373558163}
   mapCamera: {fileID: 4354599265992543201}
   minCameraSize: 2
+  optionDialogController: {fileID: 1883953974383097500}
   buttonColorMinigame: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   buttonColorLocked: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   buttonColorBoss: {r: 1, g: 0, b: 0, a: 1}
@@ -1333,6 +1334,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 806804365057131570, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635674462427518947, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635674462427518947, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2195611907494751322, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
@@ -1486,6 +1495,34 @@ PrefabInstance:
     - target: {fileID: 3918827773718719864, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266737433718690714, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266737433718690714, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266737433718690714, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266737433718690714, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266737433718690714, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266737433718690714, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747419411720465305, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5880296083120107054, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1720,9 +1757,20 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
---- !u!114 &915807355168629328 stripped
+--- !u!114 &1883953974383097500 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 613601716812992831, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2167159705535464947, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
+  m_PrefabInstance: {fileID: 303547042816422767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccb23b4c3c9b5c47bf851c6b2427692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2540135555495128748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2843519283434167747, guid: b3db666493f8aba49bce78e3ba27ef65, type: 3}
   m_PrefabInstance: {fileID: 303547042816422767}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

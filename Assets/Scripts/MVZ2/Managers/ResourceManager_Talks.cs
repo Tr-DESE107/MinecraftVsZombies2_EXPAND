@@ -6,7 +6,8 @@ using System.Linq;
 using MVZ2.Metas;
 using MVZ2.Modding;
 using MVZ2.TalkData;
-using MVZ2.Vanilla;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Options;
 using PVZEngine;
 using UnityEngine;
 
@@ -93,7 +94,7 @@ namespace MVZ2.Managers
             var meta = GetArchiveTagMeta(tagID);
             if (meta == null)
                 return string.Empty;
-            return main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE_TAG_NAME, meta.Name);
+            return main.LanguageManager._p(LogicStrings.CONTEXT_ARCHIVE_TAG_NAME, meta.Name);
         }
         #endregion
 

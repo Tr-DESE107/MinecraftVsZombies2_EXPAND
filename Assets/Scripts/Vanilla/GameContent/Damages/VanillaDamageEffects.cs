@@ -12,19 +12,20 @@ namespace MVZ2.GameContent.Damages
         public readonly static NamespaceID DAMAGE_BODY_AFTER_ARMOR_BROKEN = Get("damage_body_after_armor_broken");
         public readonly static NamespaceID IGNORE_ARMOR = Get("ignore_armor");
 
-        // Damage Types
-        public readonly static NamespaceID PROJECTILE = Get("projectile");
-        public readonly static NamespaceID FALL_DAMAGE = Get("fall_damage");
-        public static readonly NamespaceID FALL_OFF = Get("fall_off");
-        public static readonly NamespaceID FIRE = Get("fire");
-        public static readonly NamespaceID DROWN = Get("drown");
-        public static readonly NamespaceID SLICE = Get("slice");
+        // Elements
         public static readonly NamespaceID IMPACT = Get("impact");
-        public static readonly NamespaceID GRIND = Get("grind");
-        public static readonly NamespaceID WHACK = Get("whack");
+        public static readonly NamespaceID FIRE = Get("fire");
+        public static readonly NamespaceID SLICE = Get("slice");
         public static readonly NamespaceID EXPLOSION = Get("explosion");
         public static readonly NamespaceID ICE = Get("ice");
         public static readonly NamespaceID LIGHTNING = Get("lightning");
+        public static readonly NamespaceID LIGHT = Get("light");
+
+        // Damage Types
+        public readonly static NamespaceID PROJECTILE = Get("projectile");
+        public readonly static NamespaceID FALL_DAMAGE = Get("fall_damage");
+        public static readonly NamespaceID GRIND = Get("grind");
+        public static readonly NamespaceID WHACK = Get("whack");
         public static readonly NamespaceID GOLD = Get("gold");
         public static readonly NamespaceID ENEMY_MELEE = Get("enemy_melee");
         public static readonly NamespaceID GROUND_SPIKES = Get("ground_spikes");
@@ -40,12 +41,20 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID NO_DAMAGE_BLINK = Get("no_damage_blink");
         public static readonly NamespaceID BYPASS_BOSS_ARMOR = Get("bypass_boss_armor");
 
-        // Death Effect
-        public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");
-        public static readonly NamespaceID NO_DEATH_TRIGGER = Get("no_death_trigger");
-        public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
+        // Death Reason
         public static readonly NamespaceID SACRIFICE = Get("sacrifice");
         public static readonly NamespaceID OUT_OF_BOUND = Get("out_of_bound");
+        public static readonly NamespaceID DROWN = Get("drown");
+        public static readonly NamespaceID FALL_OFF = Get("fall_off");
+        public static readonly NamespaceID PICKAXE = Get("pickaxe");
+        public static readonly NamespaceID INSTA_KILL = Get("insta_kill");
+
+        // Death Effect
+        public static readonly NamespaceID REMOVE_ON_DEATH = Get("remove_on_death");
+        public static readonly NamespaceID NO_DEATH_EFFECTS = Get("no_death_effects");
+        public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
+        public static readonly NamespaceID NO_BROKEN_LOCK = Get("no_broken_lock");
+        public static readonly NamespaceID NO_REVIVAL = Get("no_revival");
 
         public static NamespaceID Get(string name)
         {

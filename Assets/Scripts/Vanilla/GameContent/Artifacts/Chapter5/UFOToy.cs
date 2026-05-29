@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
@@ -15,7 +15,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.ufoToy)]
+    [AutoArtifactDefinition(VanillaArtifactNames.ufoToy)]
     public class UFOToy : ArtifactDefinition
     {
         public UFOToy(string nsp, string name) : base(nsp, name)

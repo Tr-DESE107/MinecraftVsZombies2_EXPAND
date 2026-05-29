@@ -2,35 +2,32 @@
 
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Contraptions;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.RandomChina;
 using MVZ2Logic;
-using MVZ2Logic.Level;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.randomChina)]
-    public class RandomChina : ContraptionBehaviour
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.randomChina)]
+    public class RandomChina : ContraptionBehaviour, IDeathEffectsBehaviour
     {
         public RandomChina(string nsp, string name) : base(nsp, name)
         {
         }
 
-        public override void PostDeath(Entity entity, DeathInfo damageInfo)
+        public void DeathEffects(Entity entity, DeathInfo damageInfo)
         {
-            base.PostDeath(entity, damageInfo);
-            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
-
             var grid = entity.GetGrid();
             if (grid == null)
                 return;
@@ -67,8 +64,18 @@ namespace MVZ2.GameContent.Contraptions
             var allEvents = contraption.Level.Content.GetDefinitions<RandomChinaEventDefinition>(VanillaDefinitionTypes.RANDOM_CHINA_EVENT);
             var def = allEvents.WeightedRandom(e => e.Weight, rng);
             def.Run(contraption, rng);
-            var nameKey = def.Text;
-            contraption.Level.ShowAdvice(VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME, nameKey, 0, 90);
+
+            var name = Global.Localization.GetTextParticular(def.EventName, VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME);
+            var desc = Global.Localization.GetTextParticular(def.EventDescription, VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION);
+            var text = Global.Localization.GetText(VanillaStrings.RANDOM_CHINA_TEXT_TEMPLATE, name, desc);
+
+            SpawnText(contraption, text);
+        }
+        public void SpawnText(Entity entity, string text)
+        {
+            var param = entity.GetSpawnParams();
+            param.SetProperty(FloatingText.PROP_TEXT, text);
+            entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
         }
     }
 }

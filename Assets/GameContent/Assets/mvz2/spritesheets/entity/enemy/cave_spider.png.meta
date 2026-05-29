@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 36
         width: 65
         height: 35
       alignment: 9
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 0
+        y: 36
         width: 65
         height: 35
       alignment: 9
@@ -168,7 +168,7 @@ TextureImporter:
       name: cave_spider_2
       rect:
         serializedVersion: 2
-        x: 132
+        x: 0
         y: 8
         width: 42
         height: 27
@@ -189,7 +189,7 @@ TextureImporter:
       name: cave_spider_3
       rect:
         serializedVersion: 2
-        x: 132
+        x: 0
         y: 0
         width: 44
         height: 7
@@ -202,6 +202,27 @@ TextureImporter:
       bones: []
       spriteID: a9f48d1ec8a6cd940a2607a0c29582a3
       internalID: -1336028926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave_spider_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 23
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b34af9b55db034cbbde17e82f027d2
+      internalID: 1222761229
       vertices: []
       indices: 
       edges: []
@@ -221,6 +242,7 @@ TextureImporter:
       cave_spider_1: 1916710286
       cave_spider_2: -918893853
       cave_spider_3: -1336028926
+      cave_spider_4: 1222761229
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace MVZ2.GameContent.Detections
     {
         public ForcePadDetector(int mask, float affectHeight, float sizeMultiplier)
         {
+            canDetectInvisible = true;
             this.mask = mask;
             factionTarget = FactionTarget.Any;
             this.affectHeight = affectHeight;

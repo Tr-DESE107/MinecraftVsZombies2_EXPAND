@@ -2,13 +2,15 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Placements;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Almanacs;
+using MVZ2.Vanilla.Almanac;
 using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
-using MVZ2Logic.Almanacs;
+using MVZ2Logic.Almanac;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Modding;
 using PVZEngine;
@@ -29,15 +31,27 @@ namespace MVZ2.GameContent.GlobalCallbacks
         {
             var category = param.category;
             var entryID = param.entryID;
+            var entityID = param.sourceEntityID;
             var tags = param.tags;
 
             switch (category)
             {
-                case VanillaAlmanacCategories.CONTRAPTIONS:
-                    GetContraptionEntryTags(entryID, tags);
+                case LogicAlmanacCategories.CONTRAPTIONS:
+                    {
+                        var def = Global.Game.GetEntityDefinition(entryID);
+                        if (def != null)
+                            GetContraptionEntryTags(def, tags);
+                    }
                     break;
-                case VanillaAlmanacCategories.ENEMIES:
-                    GetEnemyEntryTags(entryID, tags);
+                case LogicAlmanacCategories.ENEMIES:
+                    {
+                        var def = Global.Game.GetEntityDefinition(entryID);
+                        if (def != null)
+                            GetEnemyEntryTags(def, tags);
+                    }
+                    break;
+                case LogicAlmanacCategories.MISC:
+                    GetMiscEntryTags(entryID, entityID, tags);
                     break;
             }
         }
@@ -57,11 +71,6 @@ namespace MVZ2.GameContent.GlobalCallbacks
             if (entityDef.IsLoyal() && Global.Saves.IsUnlocked(VanillaUnlockID.castle1))
             {
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.loyal));
-            }
-            // 忠诚
-            if (!entityDef.CanDeactive())
-            {
-                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.controlImmunity));
             }
         }
         private void GetShellAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
@@ -104,6 +113,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
         }
         private void GetContraptionAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
+            GetVulnerableAttributeTags(entityDef, tags);
             // 夜用
             if (entityDef.IsNocturnal())
             {
@@ -122,7 +132,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             // 高
             if (entityDef.BlocksJump())
             {
-                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.high));
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.tall));
             }
             // 可触发
             if (entityDef.IsTriggerActive())
@@ -132,10 +142,11 @@ namespace MVZ2.GameContent.GlobalCallbacks
         }
         private void GetEnemyAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
+            GetVulnerableAttributeTags(entityDef, tags);
             // 低矮
             if (entityDef.IsLowEnemy())
             {
-                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.low));
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shortEnemy));
             }
             // 飞行
             if (entityDef.IsFlyingEnemy())
@@ -154,12 +165,17 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.drownproof));
             }
         }
-        private void GetContraptionEntryTags(NamespaceID id, List<AlmanacEntryTagInfo> tags)
+        private void GetVulnerableAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
+        {
+            // 控制免疫
+            if (!entityDef.CanDeactive())
+            {
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.controlImmunity));
+            }
+        }
+        private void GetContraptionEntryTags(EntityDefinition def, List<AlmanacEntryTagInfo> tags)
         {
             var game = Global.Game;
-            var def = game.GetEntityDefinition(id);
-            if (def == null)
-                return;
 
             // 放置类。
             var placement = def.GetPlacementID();
@@ -194,14 +210,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
             // 枚举类。
             GetShellAttributeTags(def, tags);
         }
-        private void GetEnemyEntryTags(NamespaceID id, List<AlmanacEntryTagInfo> tags)
+        private void GetEnemyEntryTags(EntityDefinition def, List<AlmanacEntryTagInfo> tags)
         {
-            var game = Global.Game;
-            var def = game.GetEntityDefinition(id);
-            if (def == null)
-                return;
-
-
             // 特性类。
             GetEntityAttributeTags(def, tags);
             GetEnemyAttributeTags(def, tags);
@@ -210,6 +220,59 @@ namespace MVZ2.GameContent.GlobalCallbacks
             GetShellAttributeTags(def, tags);
             GetEnemyShellAttributeTags(def, tags);
             GetMassAttributeTags(def, tags);
+        }
+        private void GetObstacleEntryTags(EntityDefinition def, List<AlmanacEntryTagInfo> tags)
+        {
+            // 特性类。
+            GetEntityAttributeTags(def, tags);
+            GetVulnerableAttributeTags(def, tags);
+
+            // 枚举类。
+            GetShellAttributeTags(def, tags);
+        }
+        private void GetBossEntryTags(EntityDefinition def, List<AlmanacEntryTagInfo> tags)
+        {
+            // 特性类。
+            GetEntityAttributeTags(def, tags);
+            GetVulnerableAttributeTags(def, tags);
+
+            // 枚举类。
+            GetShellAttributeTags(def, tags);
+        }
+        private void GetMiscEntryTags(NamespaceID id, NamespaceID? entityID, List<AlmanacEntryTagInfo> tags)
+        {
+            if (!NamespaceID.IsValid(entityID))
+                return;
+
+            var game = Global.Game;
+            var def = game.GetEntityDefinition(entityID);
+            if (def == null)
+                return;
+
+            if (def.Type == EntityTypes.PLANT)
+            {
+                GetContraptionEntryTags(def, tags);
+            }
+            else if (def.Type == EntityTypes.ENEMY)
+            {
+                GetEnemyEntryTags(def, tags);
+            }
+            else if (def.Type == EntityTypes.OBSTACLE)
+            {
+                GetObstacleEntryTags(def, tags);
+            }
+            else if (def.Type == EntityTypes.BOSS)
+            {
+                GetBossEntryTags(def, tags);
+            }
+            else
+            {
+                // 特性类。
+                GetEntityAttributeTags(def, tags);
+
+                // 枚举类。
+                GetShellAttributeTags(def, tags);
+            }
         }
     }
 }

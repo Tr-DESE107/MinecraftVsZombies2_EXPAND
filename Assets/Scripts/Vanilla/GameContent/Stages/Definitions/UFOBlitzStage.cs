@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.ufoBlitz)]
+    [AutoStageDefinition(VanillaStageNames.ufoBlitz)]
     public partial class UFOBlitzStage : StageDefinition
     {
         public UFOBlitzStage(string nsp, string name) : base(nsp, name)

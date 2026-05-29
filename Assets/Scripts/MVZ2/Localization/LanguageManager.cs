@@ -7,9 +7,12 @@ using System.Globalization;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
-using MVZ2.Vanilla;
+using MVZ2.Options;
 using MVZ2Logic;
 using MVZ2Logic.Games;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Options;
+using MVZ2Logic.Resources;
 using PVZEngine;
 using UnityEngine;
 
@@ -137,7 +140,7 @@ namespace MVZ2.Localization
         {
             try
             {
-                if (TryGetLocalizedStringParticular(VanillaStrings.CONTEXT_LANGUAGE_NAME, CURRENT_LANGUAGE_NAME, language, out var name))
+                if (TryGetLocalizedStringParticular(LogicStrings.CONTEXT_LANGUAGE_NAME, CURRENT_LANGUAGE_NAME, language, out var name))
                 {
                     return name;
                 }
@@ -199,22 +202,13 @@ namespace MVZ2.Localization
         }
         public string GetCurrentLanguage()
         {
-#if UNITY_EDITOR
-            switch (debugLanguage)
-            {
-                case DebugLanguage.Chinese:
-                    return CN;
-                case DebugLanguage.English:
-                    return EN;
-            }
-#endif
-            return Main.OptionsManager.GetLanguage();
+            return currentLanguage;
         }
         public void CallLanguageChanged(string lang)
         {
             OnLanguageChanged?.Invoke(lang);
         }
-        public string[] GetAllLanguages()
+        public string[] GetAllLanguageCodes()
         {
             return allLanguages.ToArray();
         }
@@ -224,19 +218,49 @@ namespace MVZ2.Localization
                 return;
             Main.OptionsManager.SetLanguage(allLanguages.FirstOrDefault());
         }
-        string IGlobalLocalization.GetText(string textKey, params string[] args)
+        private void Awake()
+        {
+            OptionsManager.OnOptionChangedString += OnOptionChangedStringCallback;
+        }
+        private void OnOptionChangedStringCallback(NamespaceID id, string value)
+        {
+            if (id == LogicOptionItemID.language)
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    value = GetEnvironmentLanguage();
+                }
+                currentLanguage = value;
+                Main.LanguageManager.CallLanguageChanged(value);
+            }
+        }
+        private static string GetEnvironmentLanguage()
+        {
+            var culture = CultureInfo.CurrentCulture;
+            var allLanguages = Global.Localization.GetAllLanguageCodes();
+            foreach (var language in allLanguages)
+            {
+                if (culture.Name == language)
+                    return language;
+                var langCulture = new CultureInfo(language);
+                if (culture.Parent == langCulture.Parent)
+                    return language;
+            }
+            return CN;
+        }
+        string IGlobalLocalization.GetText(string textKey, params object[] args)
         {
             return _(textKey, args);
         }
-        string IGlobalLocalization.GetTextParticular(string textKey, string context, params string[] args)
+        string IGlobalLocalization.GetTextParticular(string textKey, string context, params object[] args)
         {
             return _p(context, textKey, args);
         }
-        string IGlobalLocalization.GetTextPlural(string textKey, string textPlural, long n, params string[] args)
+        string IGlobalLocalization.GetTextPlural(string textKey, string textPlural, long n, params object[] args)
         {
             return _n(textKey, textPlural, n, args);
         }
-        string IGlobalLocalization.GetTextPluralParticular(string textKey, string textPlural, long n, string context, params string[] args)
+        string IGlobalLocalization.GetTextPluralParticular(string textKey, string textPlural, long n, string context, params object[] args)
         {
             return _pn(context, textKey, textPlural, n, args);
         }
@@ -246,19 +270,12 @@ namespace MVZ2.Localization
         public const string EN = "en-US";
         public const string SOURCE_LANGUAGE = CN;
 
-        [TranslateMsg("当前语言名称", VanillaStrings.CONTEXT_LANGUAGE_NAME)]
+        [TranslateMsg("当前语言名称", LogicStrings.CONTEXT_LANGUAGE_NAME)]
         public const string CURRENT_LANGUAGE_NAME = "中文";
 
         private List<string> allLanguages = new List<string>() { SOURCE_LANGUAGE };
+        private string currentLanguage = CN;
         [SerializeField]
         private MainManager main = null!;
-        [SerializeField]
-        private DebugLanguage debugLanguage;
-    }
-    public enum DebugLanguage
-    {
-        Default,
-        Chinese,
-        English
     }
 }

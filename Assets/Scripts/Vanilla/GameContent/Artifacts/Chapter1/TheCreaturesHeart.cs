@@ -3,11 +3,10 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.SeedPacks;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -17,7 +16,7 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.theCreaturesHeart)]
+    [AutoArtifactDefinition(VanillaArtifactNames.theCreaturesHeart)]
     public class TheCreaturesHeart : ArtifactDefinition
     {
         public TheCreaturesHeart(string nsp, string name) : base(nsp, name)
@@ -106,12 +105,9 @@ namespace MVZ2.GameContent.Artifacts
                 base.UpdateTargetBuff(effect, target, buff);
                 if (target is not SeedPack seed)
                     return;
-                var seedDef = seed.Definition;
-                if (seedDef == null)
+                if (seed.GetSeedType() != SeedTypes.ENTITY)
                     return;
-                if (seedDef.GetSeedType() != SeedTypes.ENTITY)
-                    return;
-                var entityID = seed.Definition.GetSeedEntityID();
+                var entityID = seed.GetSeedEntityID();
                 if (!NamespaceID.IsValid(entityID))
                     return;
                 buff.SetProperty(TheCreaturesHeartReduceCostBuff.PROP_ADDITION, seed.Level.GetEntityCount(entityID) * REDUCTION);

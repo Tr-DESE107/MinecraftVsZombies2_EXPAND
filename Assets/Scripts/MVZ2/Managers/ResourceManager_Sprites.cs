@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVZ2.Modding;
 using MVZ2.Sprites;
-using MVZ2Logic;
+using MVZ2Logic.Resources;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

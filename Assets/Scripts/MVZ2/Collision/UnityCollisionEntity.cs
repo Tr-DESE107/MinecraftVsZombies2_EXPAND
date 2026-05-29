@@ -2,10 +2,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Collision;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Level.Collisions;
 using UnityEngine;
 
 namespace MVZ2.Collisions
@@ -54,12 +53,11 @@ namespace MVZ2.Collisions
         }
         public void UpdateEntityDetection()
         {
-            var detection = Entity.GetCollisionDetection();
-            bool active = detection != EntityCollisionHelper.DETECTION_IGNORE;
-            if (gameObject.activeSelf != active)
-            {
-                gameObject.SetActive(active);
-            }
+            //bool active = Entity.IsCollisionDisabled();
+            //if (gameObject.activeSelf != active)
+            //{
+            //    gameObject.SetActive(active);
+            //}
         }
         public void UpdateEntityPosition()
         {

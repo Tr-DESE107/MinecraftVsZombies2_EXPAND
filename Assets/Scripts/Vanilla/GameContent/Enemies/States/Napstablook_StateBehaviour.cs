@@ -2,25 +2,16 @@
 
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.napstablook_State)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.napstablook_State)]
     public class Napstablook_StateBehaviour : EnemyStateBehaviour
     {
         public Napstablook_StateBehaviour(string nsp, string name) : base(nsp, name)
         {
-        }
-        public override int GetAnimationState(int state)
-        {
-            switch (state)
-            {
-                case STATE_ANGRY:
-                    return ANIMATION_STATE_ANGRY;
-            }
-            return base.GetAnimationState(state);
         }
         protected override int GetActiveState(Entity enemy)
         {
@@ -31,6 +22,5 @@ namespace MVZ2.GameContent.Enemies
             return STATE_WALK;
         }
         public const int STATE_ANGRY = VanillaEnemyStates.NAPSTABLOOK_ANGRY;
-        public const int ANIMATION_STATE_ANGRY = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
     }
 }

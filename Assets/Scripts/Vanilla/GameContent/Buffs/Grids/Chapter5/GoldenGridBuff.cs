@@ -4,31 +4,36 @@ using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Grids
 {
-    [BuffDefinition(VanillaBuffNames.Grid.goldenGrid)]
+    [AutoBuffDefinition(VanillaBuffNames.Grid.goldenGrid)]
     public class GoldenGridBuff : BuffDefinition
     {
         public GoldenGridBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(VanillaGridProps.IS_WATER, false));
-            AddModifier(new BooleanModifier(VanillaGridProps.DISABLED, true));
+            AddModifier(new BooleanModifier(LogicGridProps.IS_WATER, false));
+            AddModifier(new BooleanModifier(LogicGridProps.DISABLED, true));
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, MODEL_KEY, VanillaModelID.goldenGrid);
+        }
+        public override void OnCreate(Buff buff)
+        {
+            base.OnCreate(buff);
+            buff.SetProperty(PROP_FLASH_TIMER, TimerHelper.NewSecondTimer(FLASH_SECONDS));
+            buff.SetProperty(PROP_TIMEOUT_TIMER, TimerHelper.NewSecondTimer(MAX_TIMEOUT_SECONDS));
         }
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
-            buff.SetProperty(PROP_FLASH_TIMER, TimerHelper.NewSecondTimer(FLASH_SECONDS));
-            buff.SetProperty(PROP_TIMEOUT_TIMER, TimerHelper.NewSecondTimer(MAX_TIMEOUT_SECONDS));
             UpdateModel(buff);
         }
         public override void PostUpdate(Buff buff)
@@ -63,33 +68,14 @@ namespace MVZ2.GameContent.Buffs.Grids
 
                 var timeoutTimer = buff.GetProperty<FrameTimer>(PROP_TIMEOUT_TIMER);
 
-                model.SetModelProperty("GridType", GetGridType(grid));
-                model.SetShaderFloat("_BurnValue", buff.GetProperty<float>(PROP_DISAPPEAR_VALUE));
-                model.SetColorOffset(colorOffset);
+                model.SetModelProperty("GridType", grid.GetGridModelType());
+                model.SetShaderFloat(ShaderProperties.BURN_VALUE, buff.GetProperty<float>(PROP_DISAPPEAR_VALUE));
+                model.SetShaderColor(ShaderProperties.COLOR_OFFSET, colorOffset);
+                model.ApplyShaderProperties();
             }
         }
-        public int GetGridType(LawnGrid grid)
-        {
-            if (grid.GetSlope() > 0)
-            {
-                return TYPE_SLOPE;
-            }
-            if (grid.Definition.IsCloud())
-            {
-                return TYPE_CLOUD;
-            }
-            if (grid.Definition.IsWater())
-            {
-                return TYPE_WATER;
-            }
-            return TYPE_NORMAL;
-        }
-        public const int TYPE_NORMAL = 0;
-        public const int TYPE_WATER = 1;
-        public const int TYPE_CLOUD = 2;
-        public const int TYPE_SLOPE = 3;
         public const float FLASH_SECONDS = 1;
-        public const float MAX_TIMEOUT_SECONDS = 240;
+        public const float MAX_TIMEOUT_SECONDS = 120;
         public static readonly NamespaceID MODEL_KEY = VanillaModelKeys.goldenGrid;
         public static readonly VanillaBuffPropertyMeta<float> PROP_DISAPPEAR_VALUE = new VanillaBuffPropertyMeta<float>("disappear_value");
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_FLASH_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("flash_timer");

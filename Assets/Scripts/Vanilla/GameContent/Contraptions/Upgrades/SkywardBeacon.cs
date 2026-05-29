@@ -3,22 +3,22 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.skywardBeacon)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.skywardBeacon)]
     public class SkywardBeacon : AIEntityBehaviour
     {
         public SkywardBeacon(string nsp, string name) : base(nsp, name)
@@ -60,10 +60,9 @@ namespace MVZ2.GameContent.Contraptions
                 var position = strikeGrid.GetEntityPosition();
                 if (!target.ExistsAndAlive())
                 {
-                    target = entity.Spawn(VanillaEffectID.skywardBeaconTarget, position)?.Let(e =>
-                    {
-                        e.SetParent(entity);
-                    });
+                    var param = entity.GetSpawnParams();
+                    param.EntityParent = entity;
+                    target = entity.Spawn(VanillaEffectID.skywardBeaconTarget, position, param);
                     SetTargetEntity(entity, new EntityID(target));
                 }
                 else

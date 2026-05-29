@@ -3,29 +3,29 @@
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.furnace)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.furnace)]
     public class Furnace : ContraptionBehaviour
     {
         public Furnace(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR_OFFSET));
             AddModifier(new BooleanModifier(VanillaEntityProps.IS_FIRE, BooleanOperator.And, PROP_BURNING));
-            AddModifier(new BooleanModifier(VanillaEntityProps.IS_LIGHT_SOURCE, BooleanOperator.And, PROP_BURNING));
+            AddModifier(new BooleanModifier(LogicEntityProps.IS_LIGHT_SOURCE, BooleanOperator.And, PROP_BURNING));
         }
         public override void Init(Entity entity)
         {
@@ -36,6 +36,11 @@ namespace MVZ2.GameContent.Contraptions
 
             var evocationTimer = new FrameTimer(EVOCATION_DURATION);
             SetEvocationTimer(entity, evocationTimer);
+
+            if (entity.Level.IsIZombie())
+            {
+                entity.SetCanDeactive(false);
+            }
         }
         protected override void UpdateAI(Entity entity)
         {

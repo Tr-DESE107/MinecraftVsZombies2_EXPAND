@@ -2,10 +2,11 @@
 
 using System.Collections.Generic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Callbacks;
 
@@ -141,7 +142,17 @@ namespace MVZ2Logic.Games
             if (def == null)
                 return id.ToString();
             var name = def.GetOptionName() ?? LogicStrings.UNKNOWN_OPTION_NAME;
-            return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_OPTION_NAME);
+            return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_BLUEPRINT_OPTION_NAME);
+        }
+        public static string GetSeedOptionTooltip(this IGlobalGame game, NamespaceID id)
+        {
+            if (id == null)
+                return "null";
+            var def = game.GetSeedOptionDefinition(id);
+            if (def == null)
+                return id.ToString();
+            var name = def.GetOptionTooltip() ?? string.Empty;
+            return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_BLUEPRINT_OPTION_TOOLTIP);
         }
         public static string GetBlueprintName(this IGlobalGame game, NamespaceID blueprintID)
         {
@@ -190,6 +201,11 @@ namespace MVZ2Logic.Games
                     var entityID = definition.GetSeedEntityID();
                     return entityID != null ? game.GetEntityTooltip(entityID) : string.Empty;
                 }
+            }
+            else if (seedType == SeedTypes.OPTION)
+            {
+                var optionID = definition.GetSeedOptionID();
+                return optionID != null ? game.GetSeedOptionTooltip(optionID) : string.Empty;
             }
             return string.Empty;
         }

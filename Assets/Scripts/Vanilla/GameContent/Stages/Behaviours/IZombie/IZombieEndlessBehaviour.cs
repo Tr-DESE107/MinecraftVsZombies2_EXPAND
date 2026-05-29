@@ -2,97 +2,52 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Blueprints;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Level;
-using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    public class IZombieEndlessBehaviour : IZombieBehaviour
+    public class IZombieEndlessBehaviour : IZombieEndlessBaseBehaviour
     {
         public IZombieEndlessBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.SetProperty(VanillaStageProps.ENDLESS, true);
-            stageDef.SetPickaxeCountLimit(MAX_PICKAXE_COUNT);
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes, 0.2f));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers, 0.2f));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeFire, 0.2f));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f));
+        }
+        protected override IEnumerable<IZELayoutItem> GetNormalLayouts()
+        {
+            // A¿‡’Û
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f); // ◊€∫œ
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f); // øÿ÷∆
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill, 1f); // º¥À¿
 
-            awardLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeAwards));
-            awardLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeError, 0.2f));
+            // B¿‡’Û
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes, 0.2f); // ƒæÕ∂º‚¥Ã
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers, 0.2f); // ∑¢…‰∆˜
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f); // ±¨’®
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeFire, 0.2f); // ª—Ê
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f); // ª÷∏¥
         }
-        public override void Start(LevelEngine level)
+        protected override IEnumerable<IZELayoutItem> GetAwardLayouts()
         {
-            base.Start(level);
-            level.SetPickaxeRemainCount(START_PICKAXE_COUNT);
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeAwards);
+            yield return new IZELayoutItem(VanillaIZombieLayoutID.izeError, 0.2f);
         }
-        protected override void NextRound(LevelEngine level)
+        protected override NamespaceID GetFirstLayoutID()
         {
-            base.NextRound(level);
-            if (level.CurrentFlag % ROUNDS_PER_PICKAXE == 0 && level.IsPickaxeCountLimited())
-            {
-                var pickaxeCount = level.GetPickaxeRemainCount();
-                pickaxeCount = Mathf.Min(level.GetPickaxeCountLimit(), pickaxeCount + 1);
-                level.SetPickaxeRemainCount(pickaxeCount);
-            }
+            return VanillaIZombieLayoutID.izeComposite;
         }
-        protected override NamespaceID GetNewLayout(int round, RandomGenerator rng)
+        protected override IEnumerable<NamespaceID> GetBlueprints()
         {
-            if (round == 0)
-                return VanillaIZombieLayoutID.izeComposite;
-
-            if (round % 5 == 0)
-                return awardLayouts.WeightedRandom(i => i.weight, rng).id;
-
-            return normalLayouts.WeightedRandom(i => i.weight, rng).id;
-        }
-
-        protected override int GetMaxRounds()
-        {
-            return -1;
-        }
-        protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
-        {
-            level.FillSeedPacks(new NamespaceID[]
-            {
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
-            });
-        }
-        public const int ROUNDS_PER_PICKAXE = 2;
-        public const int MAX_PICKAXE_COUNT = 3;
-        public const int START_PICKAXE_COUNT = 1;
-        public override bool AllowPickaxe => true;
-        private List<IZELayoutItem> normalLayouts = new List<IZELayoutItem>();
-        private List<IZELayoutItem> awardLayouts = new List<IZELayoutItem>();
-    }
-    public struct IZELayoutItem
-    {
-        public NamespaceID id;
-        public float weight;
-
-        public IZELayoutItem(NamespaceID id, float weight = 1)
-        {
-            this.id = id;
-            this.weight = weight;
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.imp);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.ghost);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.gargoyle);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior);
+            yield return LogicBlueprintID.FromEntity(VanillaEnemyID.dullahan);
         }
     }
 }

@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.eyeOfTheGiant)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.eyeOfTheGiant)]
     public class EyeOfTheGiantBuff : BuffDefinition
     {
         public EyeOfTheGiantBuff(string nsp, string name) : base(nsp, name)

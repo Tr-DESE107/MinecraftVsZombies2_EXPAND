@@ -9,7 +9,7 @@
         _Color("Tint", Color) = (1,1,1,1)
         _ColorOffset("Color Offset", Color) = (0,0,0,0)
         [Toggle]
-        _Grayscale("Grayscale", Int) = 0
+        _GrayscaleMaterial("Grayscale", Int) = 0
         _GrayscaleFactor("Grayscale Factor", Vector) = (0.598,1.174,0.224,0)
 
         [Header(Burn)]
@@ -72,7 +72,7 @@
             "PreviewType" = "Plane"
         }
 
-        Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
+        Blend One OneMinusSrcAlpha
         Cull Off
         ZWrite Off
         ZTest LEqual

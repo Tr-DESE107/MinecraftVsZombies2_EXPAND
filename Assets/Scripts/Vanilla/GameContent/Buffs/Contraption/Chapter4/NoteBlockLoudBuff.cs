@@ -3,14 +3,14 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.noteBlockLoud)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.noteBlockLoud)]
     public class NoteBlockLoudBuff : BuffDefinition
     {
         public NoteBlockLoudBuff(string nsp, string name) : base(nsp, name)

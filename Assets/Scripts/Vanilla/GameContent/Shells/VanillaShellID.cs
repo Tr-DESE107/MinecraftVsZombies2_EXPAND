@@ -21,6 +21,7 @@ namespace MVZ2.GameContent.Shells
         public const string netherrack = "netherrack";
         public const string cloud = "cloud";
         public const string lightning = "lightning";
+        public const string shadow = "shadow";
     }
     public static class VanillaShellID
     {
@@ -38,6 +39,7 @@ namespace MVZ2.GameContent.Shells
         public static readonly NamespaceID netherrack = Get(VanillaShellNames.netherrack);
         public static readonly NamespaceID cloud = Get(VanillaShellNames.cloud);
         public static readonly NamespaceID lightning = Get(VanillaShellNames.lightning);
+        public static readonly NamespaceID shadow = Get(VanillaShellNames.shadow);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

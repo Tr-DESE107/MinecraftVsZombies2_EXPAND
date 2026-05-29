@@ -2,18 +2,18 @@
 
 using System.Linq;
 using MVZ2.GameContent.Areas;
-using MVZ2.GameContent.Armors;
 using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Games;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Armors;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.test)]
+    [AutoCommandDefinition(VanillaCommandNames.test)]
     public class Test : CommandDefinition
     {
         public Test(string nsp, string name) : base(nsp, name)
@@ -26,47 +26,68 @@ namespace MVZ2.GameContent.Commands
             if (level == null)
                 return;
 
-            if (parameters[0] == "armor")
+            if (parameters[0] == "spawnenemies")
             {
-                var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
-                SpawnArmorEnemies(level, id, VanillaArmorSlots.main);
+                var page = 0;
+                if (parameters.Length > 1)
+                {
+                    page = CommandUtility.ParseOptionalInt(parameters[1], 0);
+                }
+                SpawnEnemies(level, page);
+            }
+            else if (parameters[0] == "armor")
+            {
+                var id = NamespaceID.Parse(parameters[1], Global.BuiltinNamespace);
+                EquipArmors(level, id, LogicArmorSlots.main);
             }
             else if (parameters[0] == "shield")
             {
-                var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
-                SpawnArmorEnemies(level, id, VanillaArmorSlots.shield);
+                var id = NamespaceID.Parse(parameters[1], Global.BuiltinNamespace);
+                EquipArmors(level, id, LogicArmorSlots.shield);
             }
             else if (parameters[0] == "paratroops")
             {
                 Ship.SpawnParatroops(level, 3);
             }
+            else if (parameters[0] == "wave")
+            {
+                var count = ParseHelper.ParseInt(parameters[1]);
+                level.CurrentWave = count;
+            }
+            else if (parameters[0] == "flags")
+            {
+                level.CurrentFlag = ParseHelper.ParseInt(parameters[1]);
+                level.UpdateLevelName();
+            }
         }
-        private void SpawnArmorEnemies(LevelEngine level, NamespaceID armorID, NamespaceID slot)
+        private void SpawnEnemies(LevelEngine level, int page)
         {
             var game = Global.Game;
-            var armorDefinition = game.GetArmorDefinition(armorID);
-            if (armorDefinition == null)
-            {
-                return;
-            }
-
-            int halfColumns = level.GetMaxColumnCount() / 2;
-            int currentIndex = 0;
             var enemies = game.GetAllEntityDefinitions().Where(e => e.Type == EntityTypes.ENEMY).ToArray();
-            foreach (var shapeDef in game.GetAllShapeDefinitions())
+
+            var columns = level.GetMaxColumnCount();
+            var lanes = level.GetMaxLaneCount();
+            var halfColumns = columns / 2;
+            var enemiesPerPage = halfColumns * lanes;
+            for (int i = 0; i < enemiesPerPage; i++)
             {
-                var shapeID = shapeDef.GetID();
-                var enemyDef = enemies.FirstOrDefault(e => e.GetShapeID() == shapeID);
+                var index = i + enemiesPerPage * page;
+                if (index < 0 || index >= enemies.Length)
+                    continue;
+                var enemyDef = enemies[index];
                 if (enemyDef == null)
                     continue;
-                var column = (currentIndex % halfColumns) * 2 + 1;
-                var lane = currentIndex / halfColumns;
+                var column = (i % halfColumns) * 2 + 1;
+                var lane = i / halfColumns;
                 var pos = level.GetEntityGridPosition(column, lane);
-                var spawned = level.Spawn(enemyDef, pos, null)?.Let(e =>
-                {
-                    e.EquipArmorTo(slot, armorID);
-                    currentIndex++;
-                });
+                var spawned = level.Spawn(enemyDef, pos, null);
+            }
+        }
+        private void EquipArmors(LevelEngine level, NamespaceID armorID, NamespaceID slot)
+        {
+            foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY))
+            {
+                enemy.EquipArmorTo(slot, armorID);
             }
         }
     }

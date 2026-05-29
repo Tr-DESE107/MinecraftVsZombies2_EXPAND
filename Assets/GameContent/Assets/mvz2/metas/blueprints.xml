@@ -4,6 +4,7 @@
         <error id="not_enough_energy" message="能量不足" />
         <error id="tutorial" message="无法使用" />
         <error id="decrepify" message="受到衰老诅咒！" />
+        <error id="locked" message="被封锁！" />
     </errors>
     <styles>
         <style id="normal">
@@ -38,6 +39,18 @@
         <option id="add_pearl" cost="50" name="增加弹珠">
             <icon sprite="mvz2:options/add_pearl" />
         </option>
+        <option id="heavy_weapon_nuke" cost="75" name="消灭敌人">
+            <icon sprite="mvz2:options/heavy_weapon_nuke" mobile="mvz2:mobile_blueprint/heavy_weapon_nuke" />
+        </option>
+        <option id="heavy_weapon_flashbang" cost="25" name="眩晕敌人">
+            <icon sprite="mvz2:options/heavy_weapon_flashbang" mobile="mvz2:mobile_blueprint/heavy_weapon_flashbang" />
+        </option>
+        <option id="heavy_weapon_rapid" cost="125" name="增加射速">
+            <icon sprite="mvz2:options/heavy_weapon_rapid" mobile="mvz2:mobile_blueprint/heavy_weapon_rapid" />
+        </option>
+        <option id="heavy_weapon_spread" cost="200" name="增加散射">
+            <icon sprite="mvz2:options/heavy_weapon_spread" mobile="mvz2:mobile_blueprint/heavy_weapon_spread" />
+        </option>
     </options>
     <entities>
         <entity id="skeleton_mage_fire" cost="75" name="骷髅法师（火）" entity="mvz2:skeleton_mage" variant="1">
@@ -68,6 +81,16 @@
         </entity>
         <entity id="zombie_cloud_snow" cost="125" name="僵尸云（雪）" entity="mvz2:zombie_cloud" variant="2">
             <icon model="mvz2:entity.zombie_cloud_snow" mobile="mvz2:mobile_blueprint/zombie_cloud_snow" />
+        </entity>
+
+        <entity id="nether_mage_fire" cost="75" name="下界法师（火）" entity="mvz2:nether_mage" variant="1">
+            <icon model="mvz2:entity.nether_mage_fire" mobile="mvz2:mobile_blueprint/nether_mage_fire" />
+        </entity>
+        <entity id="nether_mage_frost" cost="75" name="下界法师（冰）" entity="mvz2:nether_mage" variant="2">
+            <icon model="mvz2:entity.nether_mage_frost" mobile="mvz2:mobile_blueprint/nether_mage_frost" />
+        </entity>
+        <entity id="nether_mage_lightning" cost="75" name="下界法师（电）" entity="mvz2:nether_mage" variant="3">
+            <icon model="mvz2:entity.nether_mage_lightning" mobile="mvz2:mobile_blueprint/nether_mage_lightning" />
         </entity>
     </entities>
 </blueprints>

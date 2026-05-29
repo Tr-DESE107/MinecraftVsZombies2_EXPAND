@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using MukioI18n;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Inputs
 {
     public partial class InputManager : MonoBehaviour
     {

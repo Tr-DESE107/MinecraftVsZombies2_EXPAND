@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml;
 using MVZ2.Metas;
 using MVZ2Logic;
+using MVZ2Logic.Resources;
 using PVZEngine;
-using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.IO
@@ -38,6 +39,30 @@ namespace MVZ2.IO
             var document = new XmlDocument();
             document.Load(xmlReader);
             return document;
+        }
+        public static void CreateTextOrCDataNode(this XmlDocument document, XmlNode node, string name, string text)
+        {
+            XmlNode textNode;
+            if (text.IndexOfAny(xmlSpecialChars) != -1)
+            {
+                textNode = document.CreateElement(name);
+                var section = document.CreateCDataSection(text);
+                textNode.AppendChild(section);
+            }
+            else
+            {
+                textNode = document.CreateElement(name);
+                textNode.InnerText = text;
+            }
+            node.AppendChild(textNode);
+        }
+        public static void AddComment(this XmlDocument document, XmlNode node, string? comment)
+        {
+            if (!string.IsNullOrEmpty(comment))
+            {
+                var commentNode = document.CreateComment(comment);
+                node.AppendChild(commentNode);
+            }
         }
         public static bool HasAttribute(this XmlNode node, string name)
         {
@@ -83,6 +108,15 @@ namespace MVZ2.IO
             if (attr == null)
                 return null;
             if (!ParseHelper.TryParseFloat(attr.Value, out var value))
+                return null;
+            return value;
+        }
+        public static double? GetAttributeDouble(this XmlNode node, string name)
+        {
+            var attr = node.Attributes[name];
+            if (attr == null)
+                return null;
+            if (!ParseHelper.TryParseDouble(attr.Value, out var value))
                 return null;
             return value;
         }
@@ -190,7 +224,58 @@ namespace MVZ2.IO
             var time = node.GetAttributeFloat("time") ?? 0;
             return new GradientAlphaKey(alpha, time);
         }
-        public static void ModifyEntityBehaviours(this XmlNode node, List<NamespaceID> behaviours, Dictionary<string, object?> properties, string defaultNsp)
+
+        #region 行为 & 属性
+        public static void LoadPropertiesFromNode(this XmlNode propsNode, string defaultNsp, string propertyRegion, Dictionary<string, object?> properties)
+        {
+            var props = propsNode.ToPropertyDictionary(defaultNsp);
+            foreach (var prop in props)
+            {
+                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, propertyRegion);
+                properties[fullName] = prop.Value;
+            }
+        }
+        public static void LoadBehaviourProperties(this XmlNode node, Dictionary<string, object?> properties, string propertyRegion, string defaultNsp)
+        {
+            var propertyTargetBehaviourID = node.GetAttributeNamespaceID("behaviour", defaultNsp);
+            if (!NamespaceID.IsValid(propertyTargetBehaviourID))
+                return;
+            var propDict = node.ToPropertyDictionary(defaultNsp);
+            foreach (var pair in propDict)
+            {
+                var fullName = PropertyKeyHelper.CombineFullName(propertyTargetBehaviourID.SpaceName, propertyRegion, propertyTargetBehaviourID.Path, pair.Key);
+                properties[fullName] = pair.Value;
+            }
+        }
+        public static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, string behaviourPropertyRegion, string propertyRegion, List<BehaviourItem> behaviours, Dictionary<string, object?> properties)
+        {
+            var parent = node.GetAttribute("parent");
+            if (!string.IsNullOrEmpty(parent))
+            {
+                var parentNode = rootNode[parent];
+                if (parentNode != null)
+                {
+                    LoadTemplatePropertiesFromNode(parentNode, defaultNsp, rootNode, behaviourPropertyRegion, propertyRegion, behaviours, properties);
+                }
+            }
+            var behavioursNode = node["behaviours"];
+            behavioursNode.LoadBehavioursFromNode(defaultNsp, behaviourPropertyRegion, behaviours, properties);
+
+            var propsNode = node["properties"];
+            propsNode.LoadPropertiesFromNode(defaultNsp, propertyRegion, properties);
+        }
+        public static void LoadBehavioursAndPropertiesFromTemplate(string defaultNsp, string behaviourPropertyRegion, IMetaTemplate template, List<BehaviourItem> behaviours, Dictionary<string, object?> properties)
+        {
+            behaviours.AddRange(template.GetBehaviours());
+
+            foreach (var prop in template.GetProperties())
+            {
+                if (properties.ContainsKey(prop.Key))
+                    continue;
+                properties.Add(prop.Key, prop.Value);
+            }
+        }
+        public static void LoadBehavioursFromNode(this XmlNode node, string defaultNsp, string propertyRegion, List<BehaviourItem> behaviours, Dictionary<string, object?> properties)
         {
             if (node == null)
                 return;
@@ -203,11 +288,11 @@ namespace MVZ2.IO
                 }
                 else if (childNode.Name == "properties")
                 {
-                    childNode.FillBehaviourProperties(properties, defaultNsp);
+                    childNode.LoadBehaviourProperties(properties, propertyRegion, defaultNsp);
                 }
             }
         }
-        public static void OperateBehaviourList(this XmlNode node, List<NamespaceID> behaviours, string defaultNsp)
+        public static void OperateBehaviourList(this XmlNode node, List<BehaviourItem> behaviours, string defaultNsp)
         {
             var item = EntityBehaviourItem.FromXmlNode(node, defaultNsp);
             if (item == null)
@@ -215,28 +300,35 @@ namespace MVZ2.IO
             switch (item.Operator)
             {
                 case BehaviourOperator.Add:
-                    if (behaviours.Contains(item.ID))
+                    if (behaviours.Exists(b => b.id == item.ID))
                     {
                         Log.LogWarning($"Trying to add behaviour {item.ID} to the list which already has this.");
                     }
                     else
                     {
-                        behaviours.Add(item.ID);
+                        behaviours.Add(new BehaviourItem(item.ID, item.Priority));
                     }
                     break;
                 case BehaviourOperator.Remove:
-                    if (!behaviours.Remove(item.ID))
                     {
-                        Log.LogWarning($"Cannot find behaviour {item.ID} to remove.");
+                        var index = behaviours.FindIndex(b => b.id == item.ID);
+                        if (index < 0)
+                        {
+                            Log.LogWarning($"Cannot find behaviour {item.ID} to remove.");
+                        }
+                        else
+                        {
+                            behaviours.RemoveAt(index);
+                        }
                     }
                     break;
                 case BehaviourOperator.Replace:
                     if (NamespaceID.IsValid(item.SourceID))
                     {
-                        var index = behaviours.IndexOf(item.SourceID);
+                        var index = behaviours.FindIndex(b => b.id == item.SourceID);
                         if (index >= 0)
                         {
-                            behaviours[index] = item.ID;
+                            behaviours[index] = new BehaviourItem(item.ID, item.Priority);
                         }
                         else
                         {
@@ -250,18 +342,7 @@ namespace MVZ2.IO
                     break;
             }
         }
-        public static void FillBehaviourProperties(this XmlNode node, Dictionary<string, object?> properties, string defaultNsp)
-        {
-            var propertyTargetBehaviourID = node.GetAttributeNamespaceID("behaviour", defaultNsp);
-            if (!NamespaceID.IsValid(propertyTargetBehaviourID))
-                return;
-            var propDict = node.ToPropertyDictionary(defaultNsp);
-            foreach (var pair in propDict)
-            {
-                var fullName = PropertyKeyHelper.CombineFullName(propertyTargetBehaviourID.SpaceName, EngineDefinitionTypes.ENTITY_BEHAVIOUR, propertyTargetBehaviourID.Path, pair.Key);
-                properties.Add(fullName, pair.Value);
-            }
-        }
+        #endregion
         public static Dictionary<string, object?> ToPropertyDictionary(this XmlNode node, string defaultNsp)
         {
             var properties = new Dictionary<string, object?>();
@@ -401,6 +482,24 @@ namespace MVZ2.IO
                         }
                     }
                     break;
+                case "vector2Int":
+                    {
+                        if (node.TryGetAttributeVector2Int(out var vec2))
+                        {
+                            propValue = vec2;
+                            return true;
+                        }
+                    }
+                    break;
+                case "vector3Int":
+                    {
+                        if (node.TryGetAttributeVector3Int(out var vec3))
+                        {
+                            propValue = vec3;
+                            return true;
+                        }
+                    }
+                    break;
             }
             return false;
         }
@@ -425,6 +524,31 @@ namespace MVZ2.IO
             if (x.HasValue && y.HasValue && z.HasValue)
             {
                 propValue = new Vector3(x.Value, y.Value, z.Value);
+                return true;
+            }
+            return false;
+        }
+        public static bool TryGetAttributeVector2Int(this XmlNode node, out Vector2Int propValue)
+        {
+            propValue = default;
+            var x = node.GetAttributeInt("x");
+            var y = node.GetAttributeInt("y");
+            if (x.HasValue && y.HasValue)
+            {
+                propValue = new Vector2Int(x.Value, y.Value);
+                return true;
+            }
+            return false;
+        }
+        public static bool TryGetAttributeVector3Int(this XmlNode node, out Vector3Int propValue)
+        {
+            propValue = default;
+            var x = node.GetAttributeInt("x");
+            var y = node.GetAttributeInt("y");
+            var z = node.GetAttributeInt("z");
+            if (x.HasValue && y.HasValue && z.HasValue)
+            {
+                propValue = new Vector3Int(x.Value, y.Value, z.Value);
                 return true;
             }
             return false;
@@ -478,6 +602,94 @@ namespace MVZ2.IO
                         }
                     }
                     break;
+                case "vector2Array":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<Vector2>();
+                        }
+                        else
+                        {
+                            var vectors = new List<Vector2>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseVector2(s, out var parsed))
+                                {
+                                    vectors.Add(parsed);
+                                }
+                            }
+                            propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
+                case "vector3Array":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<Vector3>();
+                        }
+                        else
+                        {
+                            var vectors = new List<Vector3>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseVector3(s, out var parsed))
+                                {
+                                    vectors.Add(parsed);
+                                }
+                            }
+                            propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
+                case "vector2IntArray":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<Vector2Int>();
+                        }
+                        else
+                        {
+                            var vectors = new List<Vector2Int>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseVector2Int(s, out var parsed))
+                                {
+                                    vectors.Add(parsed);
+                                }
+                            }
+                            propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
+                case "vector3IntArray":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<Vector3Int>();
+                        }
+                        else
+                        {
+                            var vectors = new List<Vector3Int>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseVector3Int(s, out var parsed))
+                                {
+                                    vectors.Add(parsed);
+                                }
+                            }
+                            propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
             }
             return false;
         }
@@ -499,5 +711,28 @@ namespace MVZ2.IO
             propValue = null;
             return false;
         }
+
+
+        public static string ConcatNodeParagraphs(this XmlNode node)
+        {
+            var lineNodes = node.ChildNodes;
+            var sb = new StringBuilder();
+            bool first = true;
+            for (int i = 0; i < lineNodes.Count; i++)
+            {
+                var lineNode = lineNodes[i];
+                if (lineNode.Name == "p")
+                {
+                    if (!first)
+                    {
+                        sb.Append("\n");
+                    }
+                    first = false;
+                    sb.Append(lineNodes[i].InnerText);
+                }
+            }
+            return sb.ToString();
+        }
+        public static readonly char[] xmlSpecialChars = { '<', '>', '&', '\'', '"' };
     }
 }

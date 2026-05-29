@@ -3,13 +3,13 @@
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Armors
 {
-    [BuffDefinition(VanillaBuffNames.Armor.armorDamageColor)]
+    [AutoBuffDefinition(VanillaBuffNames.Armor.armorDamageColor)]
     public class ArmorDamageColorBuff : BuffDefinition
     {
         public ArmorDamageColorBuff(string nsp, string name) : base(nsp, name)

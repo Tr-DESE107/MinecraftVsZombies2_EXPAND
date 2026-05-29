@@ -57,6 +57,15 @@ namespace MVZ2.GameContent.Contraptions
         public const string elasticCloud = "elastic_cloud";
         public const string jeweledPagoda = "jeweled_pagoda";
 
+        public const string transfenser = "transfenser";
+        public const string gravelpult = "gravelpult";
+        public const string cursedCandle = "cursed_candle";
+        public const string stoneEye = "stone_eye";
+        public const string coolingCell = "cooling_cell";
+        public const string amethystPylon = "amethyst_pylon";
+        public const string nuke = "nuke";
+        public const string netherReactorCore = "nether_reactor_core";
+
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
         public const string goldenDropper = "golden_dropper";
@@ -65,11 +74,13 @@ namespace MVZ2.GameContent.Contraptions
         public const string highFrequencyPulseDispenser = "high_frequency_pulse_dispenser";
         public const string hfpd = highFrequencyPulseDispenser;
         public const string diamondSpikes = "diamond_spikes";
+        public const string brickCannon = "brick_cannon";
         public const string commandBlock = "command_block";
 
         public const string anvil = "anvil";
         public const string randomChina = "random_china";
         public const string errorBlock = "error_block";
+        public const string snipenser = "snipenser";
     }
     public static class VanillaContraptionID
     {
@@ -123,6 +134,15 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID elasticCloud = Get(VanillaContraptionNames.elasticCloud);
         public static readonly NamespaceID jeweledPagoda = Get(VanillaContraptionNames.jeweledPagoda);
 
+        public static readonly NamespaceID transfenser = Get(VanillaContraptionNames.transfenser);
+        public static readonly NamespaceID gravelpult = Get(VanillaContraptionNames.gravelpult);
+        public static readonly NamespaceID cursedCandle = Get(VanillaContraptionNames.cursedCandle);
+        public static readonly NamespaceID stoneEye = Get(VanillaContraptionNames.stoneEye);
+        public static readonly NamespaceID coolingCell = Get(VanillaContraptionNames.coolingCell);
+        public static readonly NamespaceID amethystPylon = Get(VanillaContraptionNames.amethystPylon);
+        public static readonly NamespaceID nuke = Get(VanillaContraptionNames.nuke);
+        public static readonly NamespaceID netherReactorCore = Get(VanillaContraptionNames.netherReactorCore);
+
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);
         public static readonly NamespaceID goldenDropper = Get(VanillaContraptionNames.goldenDropper);
@@ -131,11 +151,13 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID highFrequencyPulseDispenser = Get(VanillaContraptionNames.highFrequencyPulseDispenser);
         public static readonly NamespaceID hfpd = highFrequencyPulseDispenser;
         public static readonly NamespaceID diamondSpikes = Get(VanillaContraptionNames.diamondSpikes);
+        public static readonly NamespaceID brickCannon = Get(VanillaContraptionNames.brickCannon);
         public static readonly NamespaceID commandBlock = Get(VanillaContraptionNames.commandBlock);
 
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
         public static readonly NamespaceID randomChina = Get(VanillaContraptionNames.randomChina);
         public static readonly NamespaceID errorBlock = Get(VanillaContraptionNames.errorBlock);
+        public static readonly NamespaceID snipenser = Get(VanillaContraptionNames.snipenser);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

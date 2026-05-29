@@ -2,12 +2,13 @@
 
 using MVZ2.GameContent.Pickups;
 using MVZ2Logic;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.clearLevel)]
+    [AutoCommandDefinition(VanillaCommandNames.clearLevel)]
     public class ClearLevel : CommandDefinition
     {
         public ClearLevel(string nsp, string name) : base(nsp, name)

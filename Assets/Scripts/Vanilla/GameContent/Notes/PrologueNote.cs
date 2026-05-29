@@ -2,13 +2,14 @@
 
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
+using MVZ2.Vanilla.ChapterTransitions;
 using MVZ2Logic;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Notes;
 
 namespace MVZ2.GameContent.Notes
 {
-    [NoteDefinition(VanillaNoteNames.prologue)]
+    [AutoNoteDefinition(VanillaNoteNames.prologue)]
     public class PrologueNote : NoteDefinition
     {
         public PrologueNote(string nsp, string name) : base(nsp, name)

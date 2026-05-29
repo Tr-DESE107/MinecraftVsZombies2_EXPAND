@@ -3,7 +3,7 @@ guid: ecf0ee3020934614c9673de172a435cd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -21,7 +21,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -119,6 +119,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -128,8 +141,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 584
-        height: 1271
+        width: 587
+        height: 1280
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,9 +160,9 @@ TextureImporter:
       name: futo_1
       rect:
         serializedVersion: 2
-        x: 587
-        y: 503
-        width: 583
+        x: 590
+        y: 512
+        width: 448
         height: 768
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -168,10 +181,10 @@ TextureImporter:
       name: futo_2
       rect:
         serializedVersion: 2
-        x: 587
-        y: 180
-        width: 336
-        height: 320
+        x: 590
+        y: 381
+        width: 256
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +202,10 @@ TextureImporter:
       name: futo_3
       rect:
         serializedVersion: 2
-        x: 926
-        y: 180
-        width: 336
-        height: 320
+        x: 849
+        y: 333
+        width: 144
+        height: 176
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +223,10 @@ TextureImporter:
       name: futo_4
       rect:
         serializedVersion: 2
-        x: 1173
-        y: 903
-        width: 336
-        height: 368
+        x: 590
+        y: 250
+        width: 96
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +244,10 @@ TextureImporter:
       name: futo_5
       rect:
         serializedVersion: 2
-        x: 1173
-        y: 532
-        width: 336
-        height: 368
+        x: 689
+        y: 282
+        width: 144
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

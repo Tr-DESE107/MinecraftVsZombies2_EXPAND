@@ -2,11 +2,11 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.elasticCloudBounceCooldown)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.elasticCloudBounceCooldown)]
     public class ElasticCloudBounceCooldownBuff : BuffDefinition
     {
         public ElasticCloudBounceCooldownBuff(string nsp, string name) : base(nsp, name)

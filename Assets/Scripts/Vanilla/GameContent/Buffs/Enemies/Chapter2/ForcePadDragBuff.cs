@@ -2,14 +2,14 @@
 
 using MVZ2.Vanilla.Modifiers;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.forcePadDrag)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.forcePadDrag)]
     public class ForcePadDragBuff : BuffDefinition
     {
         public ForcePadDragBuff(string nsp, string name) : base(nsp, name)

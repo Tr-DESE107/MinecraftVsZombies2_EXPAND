@@ -2,11 +2,11 @@
 
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Entity.destroyConflictGridEntitiesOnLand)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.destroyConflictGridEntitiesOnLand)]
     public class DestroyConflictGridEntitiesOnLandBuff : BuffDefinition
     {
         public DestroyConflictGridEntitiesOnLandBuff(string nsp, string name) : base(nsp, name)

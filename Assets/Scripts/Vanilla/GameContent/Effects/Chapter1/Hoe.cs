@@ -6,15 +6,16 @@ using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.hoe)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.hoe)]
     public class Hoe : EffectBehaviour
     {
 

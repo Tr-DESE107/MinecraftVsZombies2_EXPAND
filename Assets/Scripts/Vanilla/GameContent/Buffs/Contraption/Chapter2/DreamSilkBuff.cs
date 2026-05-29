@@ -7,11 +7,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using Tools.Mathematics;
@@ -19,7 +20,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.dreamSilk)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.dreamSilk)]
     public class DreamSilkBuff : BuffDefinition
     {
         public DreamSilkBuff(string nsp, string name) : base(nsp, name)
@@ -84,19 +85,19 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             if (percentage <= 0.25f)
             {
-                return 1 - 0.2f * MathTool.EaseInAndOut(percentage / 0.25f);
+                return 1 - 0.2f * Transitions.EaseInAndOut(percentage / 0.25f);
             }
             else if (percentage <= 0.75f)
             {
-                return 0.8f + 0.45f * MathTool.EaseInAndOut((percentage - 0.25f) / 0.5f);
+                return 0.8f + 0.45f * Transitions.EaseInAndOut((percentage - 0.25f) / 0.5f);
             }
             else if (percentage <= 1)
             {
-                return 1.25f - 0.25f * MathTool.EaseInAndOut((percentage - 0.75f) / 0.25f);
+                return 1.25f - 0.25f * Transitions.EaseInAndOut((percentage - 0.75f) / 0.25f);
             }
             return 1;
         }
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

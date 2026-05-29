@@ -19,6 +19,12 @@
       "pivotY": 0.5
     },
     {
+      "name": "archive/palace_note",
+      "texture": "archive/palace_note.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
       "name": "chapter_transition/chapter_title_end",
       "texture": "chapter_transition/chapter_title_end.png",
       "pivotX": 0.5,
@@ -45,6 +51,12 @@
     {
       "name": "chapter_transition/title_mausoleum",
       "texture": "chapter_transition/title_mausoleum.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
+      "name": "chapter_transition/title_palace",
+      "texture": "chapter_transition/title_palace.png",
       "pivotX": 0.5,
       "pivotY": 0.5
     },
@@ -93,6 +105,12 @@
     {
       "name": "note/help_front",
       "texture": "note/help_front.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
+      "name": "note/palace",
+      "texture": "note/palace.png",
       "pivotX": 0.5,
       "pivotY": 0.5
     },

@@ -11,18 +11,18 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Notes;
 using MVZ2.GameContent.Stages;
 using MVZ2.IO;
-using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
+using MVZ2.UI;
+using MVZ2.UI.Mainmenu;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Resources;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using Tools.Mathematics;
@@ -52,16 +52,13 @@ namespace MVZ2.Mainmenu
 
             UpdateWindowView();
 
-            if (!main.MusicManager.IsPlaying(VanillaMusicID.mainmenu))
+            if (!main.MusicManager.IsPlaying(LogicMusicID.mainmenu))
             {
-                main.MusicManager.Play(VanillaMusicID.mainmenu);
+                main.MusicManager.Play(LogicMusicID.mainmenu);
             }
             ui.SetVersion(Application.version);
             var name = main.SaveManager.GetCurrentUserName() ?? string.Empty;
-            bool isSpecialName = main.Game.IsSpecialUserName(name);
-            ui.SetUserName(name);
-            ui.SetUserNameColor(isSpecialName ? Color.red : Color.black);
-            ui.SetUserNameGold(!isSpecialName && main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
+            SetUserName(name);
             animatorBlendStart = mainmenuBlend;
             animatorBlendEnd = mainmenuBlend;
         }
@@ -111,6 +108,7 @@ namespace MVZ2.Mainmenu
             mainmenuActionDict.Add(MainmenuButtonType.Achievement, OnAchievementButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.MusicRoom, OnMusicRoomButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Arcade, OnArcadeButtonClickCallback);
+            ui.OnMainmenuButtonUpdateSprite += OnMainmenuButtonUpdateSpriteCallback;
             ui.OnMainmenuButtonClick += OnMainmenuButtonClickCallback;
 
             ui.OnUserManageDialogButtonClick += OnUserManageButtonClickCallback;
@@ -119,6 +117,8 @@ namespace MVZ2.Mainmenu
 
             ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
             ui.OnAchievementsReturnButtonClick += OnAchievementsReturnClickCallback;
+
+            optionsDialogController.OnClose += OnOptionsCloseClickCallback;
         }
         private void Update()
         {
@@ -144,6 +144,10 @@ namespace MVZ2.Mainmenu
                 {
                     StartCoroutine(GotoDebugStage(VanillaAreaID.ship));
                 }
+                else if (Input.GetKeyDown(KeyCode.F6))
+                {
+                    StartCoroutine(GotoDebugStage(VanillaAreaID.palace));
+                }
             }
             if (animatorBlendTimeout > 0)
             {
@@ -161,6 +165,20 @@ namespace MVZ2.Mainmenu
         #endregion
 
         #region 事件回调
+        private void OnMainmenuButtonUpdateSpriteCallback(MainmenuButtonType type, MainmenuButton button)
+        {
+            var sprKey = button.NormalSprite;
+            if (!button.Interactable)
+            {
+                sprKey = button.DisabledSprite;
+            }
+            else if (button.IsHovered)
+            {
+                sprKey = button.HoveredSprite;
+            }
+            var spr = main.GetFinalSprite(sprKey);
+            button.SetSprite(spr);
+        }
         private void OnMainmenuButtonClickCallback(MainmenuButtonType type)
         {
             if (mainmenuActionDict.TryGetValue(type, out var action))
@@ -175,15 +193,14 @@ namespace MVZ2.Mainmenu
         private void OnOptionsButtonClickCallback()
         {
             ui.SetOptionsDialogVisible(true);
-            optionsLogic = new OptionsLogicMainmenu(ui.OptionsDialog, this);
-            optionsLogic.InitDialog();
-            optionsLogic.OnClose += OnOptionsCloseClickCallback;
+            var context = new OptionContextMainmenu();
+            optionsDialogController.Open(context);
         }
         private void OnHelpButtonClickCallback()
         {
-            main.SoundManager.Play2D(VanillaSoundID.paper);
+            main.SoundManager.Play2D(LogicSoundID.paper);
             main.MusicManager.Stop();
-            var buttonText = main.LanguageManager._(Vanilla.VanillaStrings.BACK);
+            var buttonText = main.LanguageManager._(LogicStrings.BACK);
             main.Scene.DisplayNote(VanillaNoteID.help, buttonText);
         }
         private void OnUserManageButtonClickCallback()
@@ -193,7 +210,7 @@ namespace MVZ2.Mainmenu
         }
         private void OnQuitButtonClickCallback()
         {
-            var title = main.LanguageManager._(Vanilla.VanillaStrings.QUIT);
+            var title = main.LanguageManager._(LogicStrings.QUIT);
             var desc = main.LanguageManager._(QUIT_DESC);
             main.Scene.ShowDialogSelect(title, desc, (value) =>
             {
@@ -246,15 +263,9 @@ namespace MVZ2.Mainmenu
             main.Scene.DisplayArcade(() => main.Scene.DisplayMainmenu());
         }
 
-        private void OnOptionsCloseClickCallback()
+        private void OnOptionsCloseClickCallback(bool needsReload)
         {
             ui.SetOptionsDialogVisible(false);
-            if (optionsLogic == null)
-                return;
-            bool needsReload = optionsLogic.NeedsReload;
-            optionsLogic.OnClose -= OnOptionsCloseClickCallback;
-            optionsLogic.Dispose();
-            optionsLogic = null;
             if (needsReload)
             {
                 Reload();
@@ -287,8 +298,8 @@ namespace MVZ2.Mainmenu
                         var currentName = main.SaveManager.GetUserName(userIndex);
                         if (!main.SaveManager.CanRenameUser(currentName))
                         {
-                            var title = main.LanguageManager._(VanillaStrings.HINT);
-                            var desc = main.LanguageManager._(VanillaStrings.ERROR_MESSAGE_CANNOT_RENAME_THIS_USER);
+                            var title = main.LanguageManager._(LogicStrings.HINT);
+                            var desc = main.LanguageManager._(LogicStrings.ERROR_MESSAGE_CANNOT_RENAME_THIS_USER);
                             main.Scene.ShowDialogMessage(title, desc);
                             break;
                         }
@@ -302,8 +313,8 @@ namespace MVZ2.Mainmenu
                 case UserManageDialog.ButtonType.Delete:
                     {
                         var userIndex = GetSelectedUserIndex();
-                        var title = main.LanguageManager._(VanillaStrings.WARNING);
-                        var desc = main.LanguageManager._(VanillaStrings.WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
+                        var title = main.LanguageManager._(LogicStrings.WARNING);
+                        var desc = main.LanguageManager._(LogicStrings.WARNING_DELETE_USER, main.SaveManager.GetUserName(userIndex));
                         main.Scene.ShowDialogSelect(title, desc, (value) =>
                         {
                             if (value)
@@ -364,12 +375,12 @@ namespace MVZ2.Mainmenu
                         string title, desc;
                         if (!success)
                         {
-                            title = main.LanguageManager._(VanillaStrings.ERROR);
+                            title = main.LanguageManager._(LogicStrings.ERROR);
                             desc = main.LanguageManager._(ERROR_NOT_EXPORTED);
                         }
                         else
                         {
-                            title = main.LanguageManager._(VanillaStrings.HINT);
+                            title = main.LanguageManager._(LogicStrings.HINT);
                             desc = main.LanguageManager._(HINT_EXPORTED, path);
                         }
                         await main.Scene.ShowDialogMessageAsync(title, desc);
@@ -401,7 +412,7 @@ namespace MVZ2.Mainmenu
                 catch (Exception)
                 {
                     // 加载失败，用户文件可能损坏。
-                    var title = main.LanguageManager._(VanillaStrings.ERROR);
+                    var title = main.LanguageManager._(LogicStrings.ERROR);
                     var desc = main.LanguageManager._(ERROR_CORRUPT_USER_DATA_PACK);
                     main.Scene.ShowDialogMessage(title, desc);
                     return;
@@ -414,7 +425,7 @@ namespace MVZ2.Mainmenu
                     // 如果不能重命名，直接提示错误。
                     if (!main.SaveManager.CanRenameUser(userName))
                     {
-                        var title = main.LanguageManager._(VanillaStrings.ERROR);
+                        var title = main.LanguageManager._(LogicStrings.ERROR);
                         var desc = main.LanguageManager._(ERROR_DUPLICATE_IMPORTING_USER_NAME_AND_CANNOT_RENAME);
                         main.Scene.ShowDialogMessage(title, desc);
                         return;
@@ -458,7 +469,7 @@ namespace MVZ2.Mainmenu
                 ui.SetBackgroundDark(true);
                 UpdateWindowView();
                 main.MusicManager.Stop();
-                main.SoundManager.Play2D(VanillaSoundID.loseMusic);
+                main.SoundManager.Play2D(LogicSoundID.loseMusic);
 
                 foreach (var button in GetAllButtons())
                 {
@@ -524,7 +535,7 @@ namespace MVZ2.Mainmenu
             }
             catch (Exception e)
             {
-                var title = main.LanguageManager._(VanillaStrings.ERROR);
+                var title = main.LanguageManager._(LogicStrings.ERROR);
                 var desc = main.LanguageManager._(ERROR_MESSAGE_UNABLE_TO_DELETE_USER, e.Message);
                 main.Scene.ShowDialogMessage(title, desc);
                 Debug.LogError($"Unable to delete user{userIndex}'s save data : {e}");
@@ -538,8 +549,7 @@ namespace MVZ2.Mainmenu
             var currentUserIndex = main.SaveManager.GetCurrentUserIndex();
             if (userIndex == currentUserIndex)
             {
-                ui.SetUserName(name);
-                ui.SetUserNameGold(main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
+                SetUserName(name);
             }
         }
         private void SwitchUser(int userIndex)
@@ -554,7 +564,7 @@ namespace MVZ2.Mainmenu
             }
             catch (Exception e)
             {
-                var title = main.LanguageManager._(VanillaStrings.ERROR);
+                var title = main.LanguageManager._(LogicStrings.ERROR);
                 var desc = main.LanguageManager._(ERROR_MESSAGE_UNABLE_TO_SWITCH_TO_USER, e.Message);
                 main.Scene.ShowDialogMessage(title, desc);
                 Debug.LogError($"Unable to switch to user{userIndex}'s save data : {e}");
@@ -650,7 +660,7 @@ namespace MVZ2.Mainmenu
         }
         private Vector2 GetCurrentAnimatorBlend()
         {
-            return Vector2.Lerp(animatorBlendStart, animatorBlendEnd, MathTool.EaseInAndOut((transitionTime - animatorBlendTimeout) / transitionTime));
+            return Vector2.Lerp(animatorBlendStart, animatorBlendEnd, Transitions.EaseInAndOut((transitionTime - animatorBlendTimeout) / transitionTime));
         }
         private void UpdateWindowView()
         {
@@ -674,6 +684,13 @@ namespace MVZ2.Mainmenu
                 }
             }
             ui.SetWindowViewSprite(sprite);
+        }
+        private void SetUserName(string name)
+        {
+            bool isSpecialName = main.Game.IsSpecialUserName(name);
+            ui.SetUserName(name);
+            ui.SetUserNameColor(isSpecialName ? Color.red : Color.black);
+            ui.SetUserNameGold(!isSpecialName && main.SponsorManager.HasSponsorPlan(name, SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.BLAST_FURNACE));
         }
 
         #region 统计
@@ -722,28 +739,17 @@ namespace MVZ2.Mainmenu
                 var metaType = meta?.Type ?? StatCategoryType.Entity;
                 var metaOperation = meta?.Operation ?? StatOperation.Sum;
 
-                var title = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_CATEGORY, metaName);
+                var title = main.LanguageManager._p(LogicStrings.CONTEXT_STAT_CATEGORY, metaName);
 
-                // 大类数字显示。
-                string categoryNumberString = string.Empty;
                 long categoryNumber = 0;
-                switch (metaOperation)
-                {
-                    case StatOperation.Sum:
-                        categoryNumber = category.GetSum();
-                        break;
-                    case StatOperation.Max:
-                        categoryNumber = category.GetMax();
-                        break;
-                }
-                categoryNumberString = categoryNumber.ToString();
-
                 // 子项。
                 var entries = category.GetAllEntries();
                 var entriesViewData = new List<StatEntryViewData>();
                 for (int j = 0; j < entries.Length; j++)
                 {
                     var entry = entries[j];
+                    if (!main.ResourceManager.ShouldStatEntryDisplay(entry.ID, metaType))
+                        continue;
                     var name = main.ResourceManager.GetStatEntryName(entry.ID, metaType);
                     var count = entry.Value;
                     entriesViewData.Add(new StatEntryViewData()
@@ -751,7 +757,19 @@ namespace MVZ2.Mainmenu
                         name = name,
                         count = count
                     });
+                    switch (metaOperation)
+                    {
+                        case StatOperation.Sum:
+                            categoryNumber += count;
+                            break;
+                        case StatOperation.Max:
+                            categoryNumber = Math.Max(categoryNumber, count);
+                            break;
+                    }
                 }
+                // 大类数字显示。
+                string categoryNumberString = categoryNumber.ToString();
+
                 categoriesViewData[i] = new StatCategoryViewData()
                 {
                     entries = entriesViewData.OrderByDescending(e => e.count).ToArray(),
@@ -771,7 +789,7 @@ namespace MVZ2.Mainmenu
                 if (meta == null)
                     continue;
                 // 子项。
-                var name = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_ENTRY, meta.Name);
+                var name = main.LanguageManager._p(LogicStrings.CONTEXT_STAT_ENTRY, meta.Name);
                 var count = entry.Value;
                 if (count <= 0)
                     continue;
@@ -804,9 +822,9 @@ namespace MVZ2.Mainmenu
                     var metaDescription = meta.Description;
 
                     var icon = main.GetFinalSprite(iconRef);
-                    var name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaName);
+                    var name = main.LanguageManager._p(LogicStrings.CONTEXT_ACHIEVEMENT, metaName);
                     var earned = main.SaveManager.IsAchievementEarned(new NamespaceID(nsp, meta.ID));
-                    var description = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaDescription);
+                    var description = main.LanguageManager._p(LogicStrings.CONTEXT_ACHIEVEMENT, metaDescription);
                     viewDatas[i] = new AchievementEntryViewData()
                     {
                         icon = icon,
@@ -861,8 +879,8 @@ namespace MVZ2.Mainmenu
         private Vector2 statsBlend = new Vector2(-1, -1);
         [SerializeField]
         private Vector2 achievementsBlend = new Vector2(1, -1);
-
-        private OptionsLogicMainmenu? optionsLogic;
+        [SerializeField]
+        private OptionsDialogController optionsDialogController = null!;
         private int[]? managingUserIndexes;
         private int selectedUserArrayIndex = -1;
         private bool isDark;

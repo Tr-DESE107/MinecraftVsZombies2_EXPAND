@@ -3,15 +3,15 @@
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.lilyPad)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.lilyPad)]
     public class LilyPad : ContraptionBehaviour
     {
         public LilyPad(string nsp, string name) : base(nsp, name)
@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Contraptions
                 for (int y = lane - 1; y <= lane + 1; y++)
                 {
                     var grid = level.GetGrid(x, y);
-                    if (grid == null || !grid.IsWater() || !grid.IsEmpty())
+                    if (grid == null || !grid.IsWater() || !grid.IsEmpty() || grid.IsDisabled())
                         continue;
                     level.Spawn(VanillaContraptionID.lilyPad, grid.GetEntityPosition(), entity)?.Let(e =>
                     {

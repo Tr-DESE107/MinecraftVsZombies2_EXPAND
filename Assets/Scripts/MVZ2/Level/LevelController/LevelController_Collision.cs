@@ -2,8 +2,9 @@
 
 using System.Collections.Generic;
 using MVZ2.Collisions;
+using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Entities;
-using PVZEngine.Level.Collisions;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -16,6 +17,7 @@ namespace MVZ2.Level
             {
                 maxDepth = 6,
                 maxObjects = 3,
+                collapseObjects = 1,
                 size = new Rect(0, -500, 1600, 1600),
             };
             builtinCollisionSystem = new BuiltinCollisionSystem(quadTreeParams);

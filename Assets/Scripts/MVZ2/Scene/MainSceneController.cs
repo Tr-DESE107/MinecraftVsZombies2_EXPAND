@@ -9,10 +9,9 @@ using MVZ2.Almanacs;
 using MVZ2.Arcade;
 using MVZ2.Archives;
 using MVZ2.ChapterTransition;
-using MVZ2.Debugs;
+using MVZ2.DebugConsole;
 using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu;
-using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Map;
 using MVZ2.MusicRoom;
@@ -22,11 +21,11 @@ using MVZ2.Saves;
 using MVZ2.Store;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Game;
-using MVZ2.Vanilla.Saves;
+using MVZ2.UI.Scene;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Scenes;
 using PVZEngine;
 using UnityEngine;
@@ -52,7 +51,7 @@ namespace MVZ2.Scenes
         {
             ShowDialog(title, desc, new string[]
             {
-                main.LanguageManager._(VanillaStrings.CONFIRM),
+                main.LanguageManager._(LogicStrings.CONFIRM),
             }, (index) => onSelect?.Invoke());
         }
         public Task ShowDialogMessageAsync(string title, string desc)
@@ -65,16 +64,16 @@ namespace MVZ2.Scenes
         {
             ShowDialog(title, desc, new string[]
             {
-                main.LanguageManager._(VanillaStrings.YES),
-                main.LanguageManager._(VanillaStrings.NO),
+                main.LanguageManager._(LogicStrings.YES),
+                main.LanguageManager._(LogicStrings.NO),
             }, (index) => onSelect?.Invoke(index == 0));
         }
         public void ShowDialogSelectTask(string title, string desc, Func<bool, Task>? onSelect = null)
         {
             var options = new string[]
             {
-                main.LanguageManager._(VanillaStrings.YES),
-                main.LanguageManager._(VanillaStrings.NO),
+                main.LanguageManager._(LogicStrings.YES),
+                main.LanguageManager._(LogicStrings.NO),
             };
             Func<int, Task>? intSelect = null;
             if (onSelect != null)
@@ -113,7 +112,7 @@ namespace MVZ2.Scenes
             achievementHint.Show(achievements);
             if (achievements.Count() > 0)
             {
-                main.SoundManager.Play2D(VanillaSoundID.achievement);
+                main.SoundManager.Play2D(LogicSoundID.achievement);
             }
         }
         #endregion
@@ -421,6 +420,10 @@ namespace MVZ2.Scenes
         {
             DisplayMap(mapID);
         }
+        void IGlobalScene.GotoStore(Action backAction, bool showTalks)
+        {
+            DisplayStore(backAction, showTalks);
+        }
         Coroutine IGlobalScene.GotoLevelCoroutine()
         {
             return main.CoroutineManager.ToCoroutine(GotoLevelSceneAsync());
@@ -428,6 +431,14 @@ namespace MVZ2.Scenes
         Coroutine IGlobalScene.GotoChapterTransitionCoroutine(NamespaceID chapterID, bool end)
         {
             return main.CoroutineManager.ToCoroutine(DisplayChapterTransitionAsync(chapterID, end));
+        }
+        void IGlobalScene.OpenCreditsPanel()
+        {
+            ShowCredits();
+        }
+        void IGlobalScene.OpenKeybindingPanel()
+        {
+            ShowKeybinding();
         }
 
         #region 生命周期
@@ -444,6 +455,8 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Addons, addons);
             pages.Add(MainScenePageType.MusicRoom, musicRoom);
             pages.Add(MainScenePageType.Arcade, arcade);
+
+            ui.OnDebugIconClick += (icon) => main.Scene.DisplayConsole();
         }
         private void Update()
         {
@@ -463,7 +476,7 @@ namespace MVZ2.Scenes
         {
             if (!CanPageUseDebugConsole())
                 return false;
-            return Application.isEditor || main.SaveManager.IsDebugUserName(username);
+            return main.DebugManager.CanUseDebugFeatures(username);
         }
         private bool CanPageUseDebugConsole()
         {

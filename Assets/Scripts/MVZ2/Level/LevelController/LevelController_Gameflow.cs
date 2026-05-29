@@ -5,21 +5,19 @@ using System.Threading.Tasks;
 using MVZ2.Entities;
 using MVZ2.GlobalGames;
 using MVZ2.Level.Components;
-using MVZ2.Logic.Level;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Saves;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
+using MVZ2Logic.Unlocks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using static MVZ2.Level.UI.LevelUIPreset;
+using static MVZ2.UI.Level.LevelUIPreset;
 
 namespace MVZ2.Level
 {
@@ -66,6 +64,7 @@ namespace MVZ2.Level
             InitLevelEngine_Talk(level);
 
             level.IsRerun = Saves.IsLevelCleared(stageID);
+            isHPBarUnlocked = Main.LevelManager.GetHPBarUnlocked();
         }
         private void ApplyComponents(LevelEngine level)
         {
@@ -99,8 +98,8 @@ namespace MVZ2.Level
             level.OnGameOver += OnEngineGameOverCallback;
             level.OnClear += OnEngineClearCallback;
             level.AddTrigger(LevelCallbacks.POST_WAVE_FINISHED, PostWaveFinishedCallback);
-            level.AddTrigger(VanillaLevelCallbacks.POST_HUGE_WAVE_APPROACH, PostHugeWaveApproachCallback);
-            level.AddTrigger(VanillaLevelCallbacks.POST_FINAL_WAVE, PostFinalWaveCallback);
+            level.AddTrigger(LogicLevelCallbacks.POST_HUGE_WAVE_APPROACH, PostHugeWaveApproachCallback);
+            level.AddTrigger(LogicLevelCallbacks.POST_FINAL_WAVE, PostFinalWaveCallback);
         }
         public void SetStartStage(NamespaceID area, NamespaceID stage)
         {
@@ -233,7 +232,7 @@ namespace MVZ2.Level
         private void SetGameOver()
         {
             isGameOver = true;
-            level.PlaySound(VanillaSoundID.loseMusic);
+            level.PlaySound(LogicSoundID.loseMusic);
             level.HideAdvice();
 
             var areaModel = GetAreaModel();
@@ -277,9 +276,9 @@ namespace MVZ2.Level
         }
         public async Task ExitLevelToNote(NamespaceID id)
         {
-            Sounds.Play2D(VanillaSoundID.paper);
+            Sounds.Play2D(LogicSoundID.paper);
 
-            var buttonText = Localization._(Vanilla.VanillaStrings.CONTINUE);
+            var buttonText = Localization._(LogicStrings.CONTINUE);
             Scene.DisplayNote(id, buttonText);
 
             await ExitScene();
@@ -330,7 +329,7 @@ namespace MVZ2.Level
         }
         private void OnLevelPropertyChangedCallback(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
-            if (VanillaAreaProps.STARSHARD_ICON.Equals(name))
+            if (LogicAreaProps.STARSHARD_ICON.Equals(name))
             {
                 SetStarshardIcon();
             }
@@ -338,7 +337,7 @@ namespace MVZ2.Level
         private async void OnEngineClearCallback()
         {
             RemoveLevelState();
-            Saves.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
+            Saves.Unlock(LogicUnlockID.GetLevelClearUnlock(level.StageID));
             Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
 
             SetMapDialog();

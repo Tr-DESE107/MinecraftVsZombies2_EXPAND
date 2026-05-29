@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ namespace MVZ2.GameContent.Detections
             if (!base.ValidateCollider(param, collider))
                 return false;
             var bounds = collider.GetBoundingBox();
-            if (!Detection.IsInFrontOf(param.entity, bounds.center.x))
+            if (param.entity.IsInTheFrontOf(bounds.center.x))
                 return false;
             var target = collider.Entity;
             if (!target.BlocksJump())

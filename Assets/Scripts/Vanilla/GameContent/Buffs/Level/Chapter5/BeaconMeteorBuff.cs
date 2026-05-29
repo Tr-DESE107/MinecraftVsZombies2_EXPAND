@@ -4,7 +4,9 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -12,7 +14,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.beaconMeteor)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.beaconMeteor)]
     public class BeaconMeteorBuff : BuffDefinition
     {
         public BeaconMeteorBuff(string nsp, string name) : base(nsp, name)
@@ -85,8 +87,8 @@ namespace MVZ2.GameContent.Buffs.Level
             var param = new SpawnParams();
             param.SetProperty(EngineEntityProps.FACTION, faction);
             param.SetProperty(VanillaEntityProps.DAMAGE, damage);
-            param.SetProperty(VanillaEntityProps.HSV, hsvOffset);
-            param.SetProperty(VanillaEntityProps.VARIANT, variant);
+            param.SetProperty(LogicEntityProps.HSV_OFFSET, hsvOffset);
+            param.SetProperty(LogicEntityProps.VARIANT, variant);
             var meteor = level.Spawn(VanillaProjectileID.beaconMeteor, pos, null, param)?.Let(e =>
             {
                 e.Velocity = velocity;

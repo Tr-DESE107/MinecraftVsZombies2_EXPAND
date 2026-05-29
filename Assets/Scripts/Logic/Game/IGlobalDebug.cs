@@ -13,5 +13,6 @@ namespace MVZ2Logic.Games
         NamespaceID[] GetAllCommandsID();
         string GetCommandNameByID(NamespaceID id);
         NamespaceID? GetCommandIDByName(string name);
+        void ExportLogFiles();
     }
 }

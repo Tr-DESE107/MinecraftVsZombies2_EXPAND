@@ -11,18 +11,18 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -31,7 +31,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaBossNames.slenderman)]
+    [AutoEntityBehaviourDefinition(VanillaBossNames.slenderman)]
     public class SlenderMan : BossBehaviour
     {
         public SlenderMan(string nsp, string name) : base(nsp, name)
@@ -134,14 +134,14 @@ namespace MVZ2.GameContent.Bosses
             if (motionTime <= 0)
                 return;
             float lastPercent = Mathf.Clamp01(1 - motionTime / (float)MAX_MOVE_TIMEOUT);
-            float lastMovePercent = MathTool.EaseInAndOut(lastPercent);
+            float lastMovePercent = Transitions.EaseInAndOut(lastPercent);
 
             motionTime--;
 
             SetMoveTimeout(entity, motionTime);
 
             float percent = Mathf.Clamp01(1 - motionTime / (float)MAX_MOVE_TIMEOUT);
-            float movePercent = MathTool.EaseInAndOut(percent);
+            float movePercent = Transitions.EaseInAndOut(percent);
             var displacement = GetMoveDisplacement(entity);
 
             float addedPercent = movePercent - lastMovePercent;
@@ -221,7 +221,7 @@ namespace MVZ2.GameContent.Bosses
                 entity.PlaySound(VanillaSoundID.nightmarePortal);
             }
         }
-        private Entity? SpawnPortal(Entity boss, Vector3 position, NamespaceID enemyID)
+        public static Entity? SpawnPortal(Entity boss, Vector3 position, NamespaceID enemyID)
         {
             return boss.SpawnWithParams(VanillaEffectID.nightmarePortal, position)?.Let(e =>
             {
@@ -253,10 +253,9 @@ namespace MVZ2.GameContent.Bosses
                 var blueprint = level.GetConveyorSeedPackAt(i);
                 if (blueprint == null) continue;
 
-                var blueprintDef = blueprint.Definition;
-                if (blueprintDef == null || blueprintDef.GetSeedType() != SeedTypes.ENTITY) continue;
+                if (blueprint.GetSeedType() != SeedTypes.ENTITY) continue;
 
-                var entityID = blueprintDef.GetSeedEntityID();
+                var entityID = blueprint.GetSeedEntityID();
                 if (entityID == null) continue;
 
                 var entityDef = level.Content.GetEntityDefinition(entityID);
@@ -272,21 +271,28 @@ namespace MVZ2.GameContent.Bosses
         #region Fate Choose
         private void ChooseFate(Entity entity)
         {
+            var rng = GetFateOptionRNG(entity);
+            ChooseFate(entity, rng, (option) =>
+            {
+                DoFate(entity, option);
+                // 用Delayed，防止当前手持僵尸时点击按钮后直接把僵尸放在地上
+                entity.Level.ResumeGameDelayed(100);
+            });
+        }
+        public static void ChooseFate(Entity entity, RandomGenerator? rng, Action<int> onSelect)
+        {
             var level = entity.Level;
             level.PauseGame(100);
             var title = Global.Localization.GetText(CHOOSE_FATE_TITLE);
             var desc = Global.Localization.GetText(CHOOSE_FATE_DESCRIPTION);
 
             int count = level.GetSlendermanFateChoiceCount();
-            var rng = GetFateOptionRNG(entity);
             var selected = rng != null ? fateOptions.RandomTake(count, rng).ToArray() : fateOptions.Take(count).ToArray();
             var options = selected.Select(i => GetFateOptionText(i)).ToArray();
             level.ShowDialog(title, desc, options, (i) =>
             {
                 var option = selected[i];
-                DoFate(entity, option);
-                // 用Delayed，防止当前手持僵尸时点击按钮后直接把僵尸放在地上
-                level.ResumeGameDelayed(100);
+                onSelect?.Invoke(option);
             });
         }
         private void DoFate(Entity boss, int option)
@@ -348,7 +354,7 @@ namespace MVZ2.GameContent.Bosses
                 contraption.UpdateTakenGrids();
             }
         }
-        private void Biohazard(Entity boss)
+        public static void Biohazard(Entity boss)
         {
             boss.PlaySound(VanillaSoundID.biohazard);
             boss.PlaySound(VanillaSoundID.nightmarePortal);
@@ -550,26 +556,26 @@ namespace MVZ2.GameContent.Bosses
         };
         private static NamespaceID[] mindSwapPool = new NamespaceID[]
         {
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.lilyPad),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.drivenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.vortexHopper),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.pistenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk)
+            LogicBlueprintID.FromEntity(VanillaContraptionID.lilyPad),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.drivenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.vortexHopper),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.pistenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.totenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamSilk)
         };
         private static NamespaceID[] hardMindSwapPool = new NamespaceID[]
         {
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.lilyPad),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.drivenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.vortexHopper),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.pistenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
-            VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.zombie)
+            LogicBlueprintID.FromEntity(VanillaContraptionID.lilyPad),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.drivenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.vortexHopper),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.pistenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.totenser),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
+            LogicBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
+            LogicBlueprintID.FromEntity(VanillaEnemyID.zombie)
         };
         private static int[] fateOptions = new int[]
         {

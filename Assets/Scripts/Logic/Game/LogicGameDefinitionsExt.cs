@@ -2,12 +2,18 @@
 
 using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Errors;
+using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.IZombie;
+using MVZ2Logic.Maps;
 using MVZ2Logic.Notes;
-using MVZ2Logic.SeedPacks;
+using MVZ2Logic.Options;
+using MVZ2Logic.Shapes;
 using PVZEngine;
 
 namespace MVZ2Logic.Games
@@ -89,6 +95,30 @@ namespace MVZ2Logic.Games
         public static ShapeDefinition[] GetAllShapeDefinitions(this IGameContent provider)
         {
             return provider.GetDefinitions<ShapeDefinition>(LogicDefinitionTypes.SHAPE);
+        }
+        public static OptionWidgetDefinition? GetOptionWidgetDefinition(this IGameContent provider, NamespaceID? id)
+        {
+            return provider.GetDefinition<OptionWidgetDefinition>(LogicDefinitionTypes.OPTION_WIDGET, id);
+        }
+        public static OptionWidgetDefinition[] GetAllOptionWidgetDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<OptionWidgetDefinition>(LogicDefinitionTypes.OPTION_WIDGET);
+        }
+        public static MapElementDefinition? GetMapElementDefinition(this IGameContent provider, NamespaceID? id)
+        {
+            return provider.GetDefinition<MapElementDefinition>(LogicDefinitionTypes.MAP_ELEMENT, id);
+        }
+        public static MapElementDefinition[] GetAllMapElementDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<MapElementDefinition>(LogicDefinitionTypes.MAP_ELEMENT);
+        }
+        public static MapElementBehaviourDefinition? GetMapElementBehaviourDefinition(this IGameContent provider, NamespaceID? id)
+        {
+            return provider.GetDefinition<MapElementBehaviourDefinition>(LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR, id);
+        }
+        public static MapElementBehaviourDefinition[] GetAllMapElementBehaviourDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<MapElementBehaviourDefinition>(LogicDefinitionTypes.MAP_ELEMENT_BEHAVIOUR);
         }
     }
 }

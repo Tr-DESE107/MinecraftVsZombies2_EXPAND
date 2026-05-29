@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Managers;
 using MVZ2.Options;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic;
+using MVZ2.View.Level;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Options;
 using PVZEngine.Entities;
 using PVZEngine.SeedPacks;
 using UnityEngine;
@@ -42,14 +41,14 @@ namespace MVZ2.Level
         {
             if (Input.touchCount > 0)
             {
-                foreach (var position in Main.InputManager.GetTouchUps())
+                foreach (var position in InputHelper.GetTouchUps())
                 {
                     OnPointerRelease(position);
                 }
             }
             else
             {
-                foreach (var position in Main.InputManager.GetMouseUps(MouseButtons.LEFT))
+                foreach (var position in InputHelper.GetMouseUps(MouseButtons.LEFT))
                 {
                     OnPointerRelease(position);
                 }
@@ -59,7 +58,7 @@ namespace MVZ2.Level
         {
             var eventSystem = EventSystem.current;
             var results = new List<RaycastResult>();
-            var pointerId = InputManager.GetPointerIdByButtonAndType(pointer.button, pointer.type);
+            var pointerId = InputHelper.GetPointerIdByButtonAndType(pointer.button, pointer.type);
             var eventData = new PointerEventData(eventSystem)
             {
                 position = pointer.position,
@@ -91,6 +90,10 @@ namespace MVZ2.Level
             if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.fastForward)))
             {
                 OnFastForwardKey();
+            }
+            if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.hpBars)))
+            {
+                OnHPBarsKey();
             }
 
 
@@ -129,7 +132,7 @@ namespace MVZ2.Level
                 if (!IsPauseDisabled())
                 {
                     PauseGame();
-                    level.PlaySound(VanillaSoundID.pause);
+                    level.PlaySound(LogicSoundID.pause);
                     ShowPausedDialog();
                 }
             }
@@ -147,7 +150,7 @@ namespace MVZ2.Level
                 if (!IsPauseDisabled())
                 {
                     PauseGame();
-                    level.PlaySound(VanillaSoundID.pause);
+                    level.PlaySound(LogicSoundID.pause);
                     ShowOptionsDialog();
                 }
             }
@@ -158,9 +161,21 @@ namespace MVZ2.Level
         }
         private void OnFastForwardKey()
         {
-            if (isGameOver || optionsLogic != null)
+            if (isGameOver || optionsDialogController.IsOpen())
                 return;
             SwitchSpeedUp();
+        }
+        private void OnHPBarsKey()
+        {
+            if (isGameOver || optionsDialogController.IsOpen())
+                return;
+            if (!IsHPBarsUnlocked())
+            {
+                level.PlaySound(LogicSoundID.buzzer);
+                return;
+            }
+            Main.OptionsManager.SwitchHPBarEnabled();
+            level.PlaySound(Main.OptionsManager.IsHPBarEnabled() ? LogicSoundID.dialogItemShow : LogicSoundID.dialogItemHide);
         }
         private void OnBlueprintKey(int i, bool conveyor, int key)
         {
@@ -207,6 +222,10 @@ namespace MVZ2.Level
             if (Input.GetKeyDown(KeyCode.F6))
             {
                 OnCommandBlockTestKey();
+            }
+            if (Input.GetKeyDown(KeyCode.F7))
+            {
+                OnAdvancedPauseKey();
             }
         }
         private void OnFastKillKey()
@@ -259,6 +278,10 @@ namespace MVZ2.Level
                 var spawnParams = CommandBlock.GetImitateSpawnParams(contraption);
                 var command = grid.SpawnPlacedEntity(VanillaContraptionID.commandBlock, spawnParams);
             }
+        }
+        private void OnAdvancedPauseKey()
+        {
+            SwitchAdvancedPause();
         }
         #endregion
     }

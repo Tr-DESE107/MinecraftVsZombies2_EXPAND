@@ -21,6 +21,7 @@
                 <param name="x" type="float" optional="true">可选。要生成的实体位置的X值。</param>
                 <param name="y" type="float" optional="true">可选。要生成的实体位置的Y值。</param>
                 <param name="z" type="float" optional="true">可选。要生成的实体位置的Z值。</param>
+                <param name="faction" type="int" optional="true">可选。要生成的实体的阵营。0为友方，1为敌方。</param>
             </params>
         </variant>
         <variant subname="tile">
@@ -29,6 +30,7 @@
                 <param name="id" type="id" idType="entity">要生成的实体ID。</param>
                 <param name="column" type="float" optional="true">可选。实体所在列。0代表最左侧一列，向右递增。</param>
                 <param name="lane" type="float" optional="true">可选。实体所在行。0代表最上方一行，向下递增。</param>
+                <param name="faction" type="int" optional="true">可选。要生成的实体的阵营。0为友方，1为敌方。</param>
             </params>
         </variant>
     </command>
@@ -65,7 +67,7 @@
             <description>将某槽位的蓝图替换为指定ID的蓝图。</description>
             <params>
                 <param name="slot" type="int">蓝图槽位，0代表第一个槽位，1代表第二个槽位，依此类推。</param>
-                <param name="id" type="id" idType="blueprint">蓝图ID。</param>
+                <param name="id" type="id" idType="seed">蓝图ID。</param>
             </params>
         </variant>
         <variant subname="remove">
@@ -173,7 +175,7 @@
         <variant subname="pos">
             <description>生成指定蓝图掉落物。默认位置为场地中心。</description>
             <params>
-                <param name="id" type="id" idType="blueprint">要生成的蓝图掉落物的对应实体ID。</param>
+                <param name="id" type="id" idType="seed">要生成的蓝图掉落物的对应实体ID。</param>
                 <param name="x" type="float" optional="true">可选。要生成的掉落物位置的X值。</param>
                 <param name="y" type="float" optional="true">可选。要生成的掉落物位置的Y值。</param>
                 <param name="z" type="float" optional="true">可选。要生成的掉落物位置的Z值。</param>
@@ -182,7 +184,7 @@
         <variant subname="tile">
             <description>在指定的地格位置生成指定蓝图掉落物。默认位置为场地中心。</description>
             <params>
-                <param name="id" type="id" idType="blueprint">要生成的蓝图掉落物的对应实体ID。</param>
+                <param name="id" type="id" idType="seed">要生成的蓝图掉落物的对应实体ID。</param>
                 <param name="column" type="float" optional="true">可选。掉落物所在列。0代表最左侧一列，向右递增。</param>
                 <param name="lane" type="float" optional="true">可选。掉落物所在行。0代表最上方一行，向下递增。</param>
             </params>
@@ -222,23 +224,93 @@
             <description>打印当前存档所有目前解锁的游戏状态。</description>
             <params/>
         </variant>
+        <variant subname="listlocked">
+            <description>打印当前存档所有目前尚未解锁的游戏状态。</description>
+            <params/>
+        </variant>
+        <variant subname="all">
+            <description>解锁所有游戏状态。</description>
+            <params/>
+        </variant>
+        <variant subname="none">
+            <description>锁定所有游戏状态。</description>
+            <params/>
+        </variant>
     </command>
     <command id="test" inLevel="true">
         <description>进行某些测试。</description>
+        <variant subname="spawnenemies">
+            <description>生成一页不同的怪物。</description>
+            <params>
+                <param name="page" type="int" optional="true">可选。怪物页数。</param>
+            </params>
+        </variant>
         <variant subname="armor">
-            <description>生成一排带有特定头盔的不同怪物。</description>
+            <description>使所有怪物戴上盔甲。</description>
             <params>
                 <param name="id" type="id" idType="armor">盔甲ID。</param>
             </params>
         </variant>
         <variant subname="shield">
-            <description>生成一排带有特定盾牌的不同怪物。</description>
+            <description>使所有怪物拿起护盾。</description>
             <params>
                 <param name="id" type="id" idType="armor">盔甲ID。</param>
             </params>
         </variant>
         <variant subname="paratroops">
             <description>生成一队伞兵僵尸。</description>
+        </variant>
+        <variant subname="wave">
+            <description>设置当前关卡波数。</description>
+            <params>
+                <param name="wave" type="int">要设置的波数。</param>
+            </params>
+        </variant>
+        <variant subname="flags">
+            <description>设置当前轮数。</description>
+            <params>
+                <param name="flags" type="int">要设置的轮数。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="izombie" inLevel="true">
+        <description>针对“我是僵尸”关卡进行操作。</description>
+        <variant subname="layout">
+            <description>以特定布局刷新当前场地。</description>
+            <params>
+                <param name="id" type="id" idType="i_zombie_layout" optional="true">可选。我是僵尸布局ID。默认为随机布局。</param>
+            </params>
+        </variant>
+        <variant subname="pickaxe">
+            <description>设置铁镐可使用次数。</description>
+            <params>
+                <param name="count" type="int">可使用次数。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="gotolevel">
+        <description>进入一个指定的关卡。</description>
+        <variant>
+            <description>进入一个指定的关卡。</description>
+            <params>
+                <param name="stage" type="id" idType="stage">要进入的关卡ID。</param>
+                <param name="area" type="id" idType="area">要进入的场地ID。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="chaptertransition">
+        <description>播放一段章节过渡动画。</description>
+        <variant subname="start">
+            <description>播放章节开始动画。</description>
+            <params>
+                <param name="stage" type="id" idType="chapter_transition">章节过渡动画ID。</param>
+            </params>
+        </variant>
+        <variant subname="end">
+            <description>播放章节结束动画。</description>
+            <params>
+                <param name="stage" type="id" idType="chapter_transition">章节过渡动画ID。</param>
+            </params>
         </variant>
     </command>
 </commands>

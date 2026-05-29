@@ -5,17 +5,15 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.theGiantTransition)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.theGiantTransition)]
     public class TheGiantTransitionBuff : BuffDefinition
     {
         public TheGiantTransitionBuff(string nsp, string name) : base(nsp, name)
@@ -65,11 +63,11 @@ namespace MVZ2.GameContent.Buffs.Level
                 {
                     level.PlaySound(VanillaSoundID.giantRoar);
                     level.ShakeScreen(15, 0, 90);
-                    level.Spawn(VanillaEffectID.amplifiedRoar, new Vector3(VanillaLevelExt.LEVEL_WIDTH, 0, level.GetLawnCenterZ()), null);
+                    level.Spawn(VanillaEffectID.amplifiedRoar, new Vector3(LevelPositions.LEVEL_WIDTH, 0, level.GetLawnCenterZ()), null);
                 }
                 if (timeout == STATE_2_TIMEOUT)
                 {
-                    var giant = level.Spawn(VanillaBossID.theGiant, new Vector3(VanillaLevelExt.LEVEL_WIDTH, 0, level.GetLawnCenterZ()), null)?.Let(e =>
+                    var giant = level.Spawn(VanillaBossID.theGiant, new Vector3(LevelPositions.LEVEL_WIDTH, 0, level.GetLawnCenterZ()), null)?.Let(e =>
                     {
                         TheGiant.SetAppear(e);
                         e.ApplyBuffForBossRevenge(0.8f);

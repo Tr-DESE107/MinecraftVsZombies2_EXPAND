@@ -2,12 +2,14 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
+using PVZEngine.Entities;
 
-namespace MVZ2.GameContent.Buffs.Carts
+namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.changeGrid)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.changeGrid)]
     public class ChangeGridBuff : BuffDefinition
     {
         public ChangeGridBuff(string nsp, string name) : base(nsp, name)
@@ -28,15 +30,16 @@ namespace MVZ2.GameContent.Buffs.Carts
             }
 
             var factor = GetChangeSpeedFactor(buff);
+            var gridPivotOffset = entity.GetGridPivotOffset();
             var revFactor = 1 - factor;
-            float targetX = entity.Level.GetEntityColumnX(targetColumn);
-            float targetZ = entity.Level.GetEntityLaneZ(targetLane);
+            float targetX = entity.Level.GetEntityColumnX(targetColumn) - gridPivotOffset.x;
+            float targetZ = entity.Level.GetEntityLaneZ(targetLane) - gridPivotOffset.z;
             var pos = entity.Position;
             pos.x = pos.x * revFactor + targetX * factor;
             pos.z = pos.z * revFactor + targetZ * factor;
             var xDiff = pos.x - targetX;
             var zDiff = pos.z - targetZ;
-            var sqrDistance = (xDiff * xDiff) + (zDiff * zDiff);
+            var sqrDistance = xDiff * xDiff + zDiff * zDiff;
             if (sqrDistance <= 1)
             {
                 pos.x = targetX;

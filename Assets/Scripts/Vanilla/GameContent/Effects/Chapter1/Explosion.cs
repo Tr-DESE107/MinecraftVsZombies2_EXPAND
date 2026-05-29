@@ -2,13 +2,14 @@
 
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.explosion)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.explosion)]
     public class Explosion : EffectBehaviour
     {
 

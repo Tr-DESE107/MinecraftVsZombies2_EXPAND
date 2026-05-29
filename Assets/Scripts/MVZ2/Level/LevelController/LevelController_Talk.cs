@@ -4,13 +4,11 @@ using System;
 using System.Threading.Tasks;
 using MVZ2.Metas;
 using MVZ2.Talk;
-using MVZ2.Talks;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Level;
@@ -60,7 +58,7 @@ namespace MVZ2.Level
             {
                 if (!level.NoStartTalkMusic())
                 {
-                    Music.Play(VanillaMusicID.mainmenu);
+                    Music.Play(LogicMusicID.mainmenu);
                 }
             });
         }
@@ -86,7 +84,7 @@ namespace MVZ2.Level
         #region 事件回调
         private void UI_OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
+            Global.Game.RunCallbackFiltered(LogicCallbacks.TALK_ACTION, new LogicCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         #endregion
 

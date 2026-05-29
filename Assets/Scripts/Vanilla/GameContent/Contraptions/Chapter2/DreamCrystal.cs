@@ -2,16 +2,16 @@
 
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.dreamCrystal)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.dreamCrystal)]
     public class DreamCrystal : ContraptionBehaviour
     {
         public DreamCrystal(string nsp, string name) : base(nsp, name)

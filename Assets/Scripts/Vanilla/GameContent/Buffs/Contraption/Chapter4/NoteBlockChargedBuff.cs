@@ -2,14 +2,14 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.noteBlockCharged)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.noteBlockCharged)]
     public class NoteBlockChargedBuff : BuffDefinition
     {
         public NoteBlockChargedBuff(string nsp, string name) : base(nsp, name)
@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         private void UpdateColorOffset(Buff buff)
         {
             var time = buff.GetProperty<int>(PROP_TIME);
-            var alpha = 1 - (time / (float)MAX_TIME);
+            var alpha = 1 - time / (float)MAX_TIME;
             buff.SetProperty(PROP_COLOR_OFFSET, new Color(1, 1, 1, alpha));
         }
         public const int MAX_TIME = 90;

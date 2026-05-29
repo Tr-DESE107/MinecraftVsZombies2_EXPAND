@@ -2,16 +2,19 @@
 
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Pickups;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
+using MVZ2Logic.Models;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaPickupNames.clearPickup)]
+    [AutoEntityBehaviourDefinition(VanillaPickupNames.clearPickup)]
     public class ClearPickup : EntityBehaviourDefinition
     {
         public ClearPickup(string nsp, string name) : base(nsp, name)
@@ -42,6 +45,7 @@ namespace MVZ2.GameContent.Pickups
             base.Update(pickup);
             var level = pickup.Level;
             float shadowAlpha = 1;
+            float gravity = 1;
             if (pickup.IsCollected())
             {
                 var collectedTime = pickup.GetCollectedTime();
@@ -51,10 +55,14 @@ namespace MVZ2.GameContent.Pickups
                 pickup.Velocity = (targetPos - pickup.Position) * 0.05f;
                 pickup.SetScale(Vector3.one * Mathf.Lerp(1, 3, timePercent));
                 pickup.SetDisplayScale(Vector3.one * Mathf.Lerp(1, 3, timePercent));
+                pickup.SetSortingLayer(SortingLayers.collectedPickups);
+                pickup.SetSortingOrder(9999);
 
                 shadowAlpha = 0;
+                gravity = 0;
             }
             pickup.SetShadowAlpha(shadowAlpha);
+            pickup.SetGravity(gravity);
         }
         private Vector3 GetMoveTargetPosition(Entity entity)
         {

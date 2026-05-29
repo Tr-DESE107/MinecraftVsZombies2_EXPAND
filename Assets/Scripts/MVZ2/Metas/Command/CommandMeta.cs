@@ -3,10 +3,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
+using MVZ2.Debugs;
 using MVZ2.IO;
-using MVZ2.Managers;
-using MVZ2.Vanilla;
 using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Localization;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Metas
 {
@@ -137,28 +139,35 @@ namespace MVZ2.Metas
             switch (Type)
             {
                 case TYPE_COMMAND:
-                    return VanillaStrings.PARAMETER_TYPE_COMMAND;
+                    return LogicStrings.PARAMETER_TYPE_COMMAND;
                 case TYPE_ID:
-                    return VanillaStrings.PARAMETER_TYPE_ID;
+                    return LogicStrings.PARAMETER_TYPE_ID;
                 case TYPE_BOOL:
-                    return VanillaStrings.PARAMETER_TYPE_BOOLEAN;
+                    return LogicStrings.PARAMETER_TYPE_BOOLEAN;
                 case TYPE_INT:
-                    return VanillaStrings.PARAMETER_TYPE_INT;
+                    return LogicStrings.PARAMETER_TYPE_INT;
                 case TYPE_FLOAT:
-                    return VanillaStrings.PARAMETER_TYPE_FLOAT;
+                    return LogicStrings.PARAMETER_TYPE_FLOAT;
             }
-            return VanillaStrings.PARAMETER_TYPE_UNKNOWN;
+            return LogicStrings.PARAMETER_TYPE_UNKNOWN;
         }
         public const string TYPE_BOOL = "bool";
         public const string TYPE_INT = "int";
         public const string TYPE_FLOAT = "float";
         public const string TYPE_COMMAND = "command";
         public const string TYPE_ID = "id";
-        public const string ID_TYPE_ENTITY = "entity";
-        public const string ID_TYPE_BLUEPRINT = "blueprint";
-        public const string ID_TYPE_ARTIFACT = "artifact";
-        public const string ID_TYPE_ARMOR = "armor";
-        public const string ID_TYPE_ARMOR_SLOT = "armor_slot";
+
+        public const string ID_TYPE_ENTITY = EngineDefinitionTypes.ENTITY;
+        public const string ID_TYPE_SEED = EngineDefinitionTypes.SEED;
+        public const string ID_TYPE_ARMOR = EngineDefinitionTypes.ARMOR;
+        public const string ID_TYPE_STAGE = EngineDefinitionTypes.STAGE;
+        public const string ID_TYPE_AREA = EngineDefinitionTypes.AREA;
+
+        public const string ID_TYPE_ARMOR_SLOT = LogicDefinitionTypes.ARMOR_SLOT;
+        public const string ID_TYPE_ARTIFACT = LogicDefinitionTypes.ARTIFACT;
+        public const string ID_TYPE_I_ZOMBIE_LAYOUT = LogicDefinitionTypes.I_ZOMBIE_LAYOUT;
+
         public const string ID_TYPE_UNLOCK = "unlock";
+        public const string ID_TYPE_CHAPTER_TRANSITION = "chapter_transition";
     }
 }

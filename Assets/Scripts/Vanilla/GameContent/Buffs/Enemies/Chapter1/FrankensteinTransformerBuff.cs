@@ -2,13 +2,13 @@
 
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.frankensteinTransformer)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.frankensteinTransformer)]
     public class FrankensteinTransformerBuff : BuffDefinition
     {
         public FrankensteinTransformerBuff(string nsp, string name) : base(nsp, name)

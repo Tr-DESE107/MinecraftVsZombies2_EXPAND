@@ -4,6 +4,7 @@ using MVZ2.Managers;
 using MVZ2.Modding;
 using MVZ2.Vanilla;
 using MVZ2Logic;
+using MVZ2Logic.Definitions;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
@@ -14,10 +15,6 @@ namespace MVZ2.Tests
     {
         public async Task Init()
         {
-            var levelEngineAssembly = typeof(LevelEngine).Assembly;
-            var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
-            PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
-            PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
             ModManager.OnRegisterMods += RegisterMod;
 
             mainGame.SetActive(true);
@@ -32,7 +29,7 @@ namespace MVZ2.Tests
         private void RegisterMod(IModManager manager)
         {
             var mod = new VanillaMod();
-            var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) };
+            var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)), Assembly.GetAssembly(typeof(LogicMain)) };
             var main = MainManager.Instance;
             var game = main.Game;
             var modLoader = new ModLoader(main);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3232015012220588732}
   - component: {fileID: 2887194972650009827}
+  - component: {fileID: 5642770827677979630}
   - component: {fileID: 6577921544806083142}
   - component: {fileID: 1469516605759971153}
   m_Layer: 6
@@ -47,7 +48,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bab90e1a9c25324cbcc21e59508834d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  view: {fileID: 5642770827677979630}
+  hpBarView: {fileID: 0}
   size: {x: 0.8, y: 0.8}
+--- !u!114 &5642770827677979630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2303182786100757701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88eb08993482ee4e8c7b85fbc5951bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rendererTransform: {fileID: 2923234992898687305}
   spriteRenderer: {fileID: 8345045272177654768}
   holdStreakHandler: {fileID: 6577921544806083142}

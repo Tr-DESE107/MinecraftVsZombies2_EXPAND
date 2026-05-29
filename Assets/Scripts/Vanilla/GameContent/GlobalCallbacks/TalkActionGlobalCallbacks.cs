@@ -5,16 +5,18 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Maps;
 using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Grids;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Saves;
+using MVZ2.Vanilla.ChapterTransitions;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
-using MVZ2Logic.Archives;
+using MVZ2Logic.Archive;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Modding;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
@@ -27,9 +29,9 @@ namespace MVZ2.GameContent.GlobalCallbacks
     {
         public override void Apply(Mod mod)
         {
-            mod.AddTrigger(VanillaCallbacks.TALK_ACTION, TalkAction);
+            mod.AddTrigger(LogicCallbacks.TALK_ACTION, TalkAction);
         }
-        private void TalkAction(VanillaCallbacks.TalkActionParams param, CallbackResult result)
+        private void TalkAction(LogicCallbacks.TalkActionParams param, CallbackResult result)
         {
             var system = param.system;
             var cmd = param.action;
@@ -116,8 +118,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 var desc = Global.Localization.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
                 var options = new string[]
                 {
-                    Global.Localization.GetText(VanillaStrings.YES),
-                    Global.Localization.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(LogicStrings.YES),
+                    Global.Localization.GetText(LogicStrings.NO)
                 };
                 system.ShowDialog(title, desc, options, (index) =>
                 {
@@ -154,8 +156,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 var desc = Global.Localization.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
                 var options = new string[]
                 {
-                    Global.Localization.GetText(VanillaStrings.YES),
-                    Global.Localization.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(LogicStrings.YES),
+                    Global.Localization.GetText(LogicStrings.NO)
                 };
 
 
@@ -233,19 +235,27 @@ namespace MVZ2.GameContent.GlobalCallbacks
                         saves.SaveToFile(); // 进入圣辇船过渡时保存游戏
                         Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.ship, VanillaAreaID.ship, VanillaStageID.ship1));
                         break;
+                    case "goto_palace":
+                        saves.SetLastMapID(VanillaMapID.palace);
+                        saves.SaveToFile(); // 进入地灵殿过渡时保存游戏
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.palace, VanillaAreaID.palace, VanillaStageID.palace1));
+                        break;
                     case "chapter_3_finish":
-                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo, true));
                         break;
                     case "chapter_4_finish":
-                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo));
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo, true));
                         break;
                     case "chapter_5_finish":
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionToMap(VanillaChapterTransitions.ship, VanillaMapID.gensokyo, true));
+                        break;
+                    case "chapter_6_finish":
                         IEnumerator coroutineFunc()
                         {
-                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.ship, VanillaMapID.gensokyo);
+                            yield return VanillaChapterTransitions.TransitionToMap(VanillaChapterTransitions.palace, VanillaMapID.gensokyo, true);
                             var title = Global.Localization.GetText(VanillaStrings.UI_GAME_CLEARED);
                             var desc = Global.Localization.GetText(VanillaStrings.UI_COMING_SOON);
-                            var options = new string[] { Global.Localization.GetText(VanillaStrings.CONFIRM) };
+                            var options = new string[] { Global.Localization.GetText(LogicStrings.CONFIRM) };
                             Global.GUI.ShowDialog(title, desc, options);
                         }
                         Global.Game.StartCoroutine(coroutineFunc());
@@ -281,12 +291,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             private void ShowTutorialDialog(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
+                var title = Global.Localization.GetTextParticular(LogicStrings.ARCHIVE_BRANCH, LogicStrings.CONTEXT_ARCHIVE);
                 var desc = Global.Localization.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
                 var options = new string[]
                 {
-                    Global.Localization.GetText(VanillaStrings.YES),
-                    Global.Localization.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(LogicStrings.YES),
+                    Global.Localization.GetText(LogicStrings.NO)
                 };
                 system.ShowDialog(title, desc, options, (index) =>
                 {
@@ -304,12 +314,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             private void TryBuySeventhSlot(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
-                var desc = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_WHETHER_HAS_ENOUGH_MONEY, VanillaStrings.CONTEXT_ARCHIVE);
+                var title = Global.Localization.GetTextParticular(LogicStrings.ARCHIVE_BRANCH, LogicStrings.CONTEXT_ARCHIVE);
+                var desc = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_WHETHER_HAS_ENOUGH_MONEY, LogicStrings.CONTEXT_ARCHIVE);
                 var options = new string[]
                 {
-                    Global.Localization.GetText(VanillaStrings.YES),
-                    Global.Localization.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(LogicStrings.YES),
+                    Global.Localization.GetText(LogicStrings.NO)
                 };
 
                 system.ShowDialog(title, desc, options, (index) =>
@@ -328,12 +338,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             private void ShowSeventhSlotDialog(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
+                var title = Global.Localization.GetTextParticular(LogicStrings.ARCHIVE_BRANCH, LogicStrings.CONTEXT_ARCHIVE);
                 var desc = Global.Localization.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
                 var options = new string[]
                 {
-                    Global.Localization.GetText(VanillaStrings.YES),
-                    Global.Localization.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(LogicStrings.YES),
+                    Global.Localization.GetText(LogicStrings.NO)
                 };
 
 

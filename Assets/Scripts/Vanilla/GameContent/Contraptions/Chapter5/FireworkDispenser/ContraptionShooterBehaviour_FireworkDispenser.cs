@@ -5,12 +5,13 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
+using PVZEngine.Collisions;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.contraptionShooterFireworkDispenser)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.contraptionShooterFireworkDispenser)]
     public class ContraptionShooterBehaviour_FireworkDispenser : ContraptionShooterBehaviour
     {
         public ContraptionShooterBehaviour_FireworkDispenser(string nsp, string name) : base(nsp, name)

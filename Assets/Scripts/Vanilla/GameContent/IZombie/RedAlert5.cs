@@ -3,14 +3,14 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Stages;
-using MVZ2Logic;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.IZombie;
 using PVZEngine;
 using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.redAlert5)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.redAlert5)]
     public class RedAlert5 : IZombieLayoutDefinition
     {
         public RedAlert5(string nsp, string name) : base(nsp, name, 5)

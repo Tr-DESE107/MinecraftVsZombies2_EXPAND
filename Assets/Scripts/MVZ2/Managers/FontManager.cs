@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2Logic;
+using MVZ2Logic.Resources;
 using PVZEngine;
 using TMPro;
 using UnityEngine;
