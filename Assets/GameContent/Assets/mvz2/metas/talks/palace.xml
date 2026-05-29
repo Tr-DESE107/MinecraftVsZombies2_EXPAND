@@ -3003,7 +3003,7 @@
         </sentence>
         <!--语句14-->
         <sentence speaker="mvz2:eirin" sounds="mvz2:talk">
-          <text>还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能能让他把灵魂还回来。</text>
+          <text>还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能让他把灵魂还回来。</text>
         </sentence>
         <!--语句15-->
         <sentence speaker="mvz2:rin" sounds="mvz2:dialog_cut">
@@ -3167,7 +3167,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>不用太自责，我们会那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！</text>
+          <text>不用太自责，我们会把那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！</text>
         </sentence>
         <!--语句49-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">

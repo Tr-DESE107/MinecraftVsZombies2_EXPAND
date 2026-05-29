@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-26 06:58+0800\n"
-"PO-Revision-Date: 2026-05-26 20:24+0800\n"
+"POT-Creation-Date: 2026-05-29 07:11+0800\n"
+"PO-Revision-Date: 2026-05-29 19:12+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -12880,7 +12880,7 @@ msgstr "Tokiko, what's with you?!"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "快把觉大人送去治疗！！！"
-msgstr "Wuick, get Lady Satori to a doctor!!!"
+msgstr "Quick, get Lady Satori to a doctor!!!"
 
 #. Archive text for talk group palace_8_map's section 1
 #: Talk meta file
@@ -12980,8 +12980,7 @@ msgstr "Lady Satori... won't wake up...?"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid ""
-"还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能能让他把灵魂还回"
-"来。"
+"还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能让他把灵魂还回来。"
 msgstr ""
 "There's still one last option. Confront the culprit directly, take him down, "
 "and perhaps you can force the culprit to return her soul."
@@ -13203,7 +13202,8 @@ msgstr ""
 #. Text for talk sentence 48 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "不用太自责，我们会那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！"
+msgid ""
+"不用太自责，我们会把那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！"
 msgstr ""
 "Don't blame yourself. We'll drag that culprit out, stuff him into my cart, "
 "and Lady Satori will be back!"
