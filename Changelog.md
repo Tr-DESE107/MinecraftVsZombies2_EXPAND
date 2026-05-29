@@ -1,19 +1,33 @@
+# 0.6.0
 ## Added
+- Added chapter 6 - Palace of Earth Spirits.
 - Added commands for Debug mode:
   - /gotolevel: Goto a level.
+  - /izombie：Operate on the "I, Zombie" level.
+  - /chaptertransition：Plays a chapter transition animation.
   - /unlock listlocked: Lists all locked game states.
   - /unlock all: Unlocks all game states.
   - /unlock none: Relocks all game states.
+  - /test wave：Sets the current wave number.
+  - /test flags：Sets the current flags.
+  - /test spawnenemies：Spawns a page of different monsters.
 - Added hyperlinks to Almanac, allowing users to navigate between different entries by clicking on text within the Almanac.
 - Added 8 new Random China events.
+- Add options for screen layout, VSync, and target frame rate.
+- Add sound effects for the appearance of Ghasts and Pop Captains.
+- Added glowing visual effects for Spiders, Cave Spiders, Mesmerizers, Berserkers and Bedserkers.
+- Added 4 new I, Zombie levels, and I Zombie Endless 2.
+- Added almanac entry for Bedserker.
 
 ## Modified
-
 - Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
 - After completing all levels in a map, entering the map will now set the view to the position of the endless level button.
 - Random China now displays both of evocation event's name and description instead of its name only.
 - Sweet Dream Pillow no longer triggers after all enemies in the level have been cleared.
 - Improved the console's auto-completion feature. Now, code completion displays up to 10 suggestions at a time, with the ability to page through more.
+- Added a description to Zombie Cloud's almanac entry, specifying its ability to absorb lightning and cold damage.
+- Reduced the number of particles in the Glowstone halo.
+- Update the texture of The Creature's Missile.
 
 ### Balance
 - Moonlight Sensor
@@ -41,6 +55,11 @@
 - The spawn rate of monsters during the boss battle in level 5-11 has been increased to 150% of the original rate.
 - Undead Flying Objects are no longer undead mobs.
 
+### Commands
+- Command "/spawn" can now specify the faction of the spawned entity.
+- The effect of command "/test armor" has been changed to make all monsters wear specific armor.
+- The effect of command "/test shield" has been changed to make all monsters hold specific shield.
+
 ## Fixed
 - Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.
 - Fixed the issue where Pop Captain can knock a lily pad onto land.
@@ -51,6 +70,15 @@
 - Fixed the issue where Seija's cursed doll does not follow Seija's faction upon spawn.
 - Fixed the issue where Seija's cursed doll can be blown away by Wooden Fans.
 - Fixed the issue where boulders launched by the evocation of Stone Droppers only deal 10 damage.
+- Fixed the issue of incorrect ground-smashing animation for The Creature at low animation frequencies.
+- Fixed the issue where switching windows while dragging the map arrow to move the view would cause the dragging arrow to not disappear.
+- Fixed the issue of instant evocation failure after placing a Force Pad.
+- Fixed the issue where some water stains were not being cleared after the Red Dragon crashed.
+- Fixed the issue of white edges in the button textures in the music room.
+- Fixed the issue where the evoked Devourer would not attempt to adjust its vertical position.
+- Fixed the issue of incorrect flag rendering when the flag zombie sank into the water.
+- Fixed the issue where Shikaisen Staff was not immune to slowing effects.
+- Fixed the issue where zombies, after their health turned negative, were resurrected by Shikaisen Staff and their health after resurrection was not full.
 
 ---
 
