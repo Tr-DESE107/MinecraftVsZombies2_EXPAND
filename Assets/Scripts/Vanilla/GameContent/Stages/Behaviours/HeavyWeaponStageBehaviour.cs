@@ -2,7 +2,6 @@
 
 using System;
 using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Commands;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;

@@ -277,18 +277,24 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0bad8dd7ca96eb047840a09bdbdcc162, type: 3}
   - name: misc/abandoned_house
     sprite: {fileID: 21300000, guid: 50bf732bad4c58e4594fe0d57da0eeff, type: 3}
+  - name: misc/blazing_hell_cliff
+    sprite: {fileID: 21300000, guid: f395daa66520f244ab609c2feaea92c7, type: 3}
   - name: misc/boat_zombie
     sprite: {fileID: 21300000, guid: bf74c11d6e254354486cefc7df391641, type: 3}
   - name: misc/castle
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
   - name: misc/dead_red_dragon
     sprite: {fileID: 21300000, guid: 0da8ea7b3ec83e94793e912ac5ea6c81, type: 3}
+  - name: misc/downed_tokiko
+    sprite: {fileID: 21300000, guid: afa886669857a1e418b0316c139ebcc2, type: 3}
   - name: misc/dragon_fallen_place
     sprite: {fileID: 21300000, guid: 4793d226f42daea46946880a3e168402, type: 3}
   - name: misc/dream
     sprite: {fileID: 21300000, guid: 8826f776dff1c6a4d8d72030535a150e, type: 3}
   - name: misc/dream_darkness
     sprite: {fileID: 21300000, guid: ea1dc867602a6da4cac4f2bc72dd4f5e, type: 3}
+  - name: misc/eientei_inside
+    sprite: {fileID: 21300000, guid: 7115796f746855040a8dba6478a983f0, type: 3}
   - name: misc/end_ship
     sprite: {fileID: 21300000, guid: 7e371a692db43054c88eb8560c9ebd74, type: 3}
   - name: misc/eternal_night_swamp
@@ -311,8 +317,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7c77b2bc79808994aaee8edec5031dc8, type: 3}
   - name: misc/locked_chest
     sprite: {fileID: 21300000, guid: a5915bbae8a80114c8cdfa95740c5d8a, type: 3}
+  - name: misc/locked_chest_item
+    sprite: {fileID: 21300000, guid: fd4b7d847c665b8468da3c89099ccb53, type: 3}
   - name: misc/mausoleum
     sprite: {fileID: 21300000, guid: ea93029bdd8e6d44bbca9f126b03388c, type: 3}
+  - name: misc/memory_with_unknown_person
+    sprite: {fileID: 21300000, guid: bb754e26dee4d5441be3bad97415c324, type: 3}
   - name: misc/murder
     sprite: {fileID: 21300000, guid: 944683e1f0da086409759e5b63d9d066, type: 3}
   - name: misc/murder_censored
@@ -331,6 +341,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a834091dfc5d3884cb48abf3ecb36da3, type: 3}
   - name: misc/red_dragon
     sprite: {fileID: 21300000, guid: 0fc841fb9e17aad4eb59243fd0144927, type: 3}
+  - name: misc/rin_saved_tokiko
+    sprite: {fileID: 21300000, guid: 8d32570468daa3544b723ff7ac17e429, type: 3}
+  - name: misc/satori_in_chest
+    sprite: {fileID: 21300000, guid: b92eb15f1b9344a4fa60934521955a8c, type: 3}
   - name: misc/ship
     sprite: {fileID: 21300000, guid: 8e2855d040c62c5448c709e7cd230d01, type: 3}
   - name: misc/steves_house
@@ -1848,6 +1862,11 @@ MonoBehaviour:
     - {fileID: 601784348, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
     - {fileID: -1003292378, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
     - {fileID: -603209068, guid: 66d6b2cec1b5a03498ee84ec03d69134, type: 3}
+  - name: characters/eirin
+    spritesheet:
+    - {fileID: -499195586, guid: 744d21f4b3d72674e9d855641bebf711, type: 3}
+    - {fileID: 1907543056, guid: 744d21f4b3d72674e9d855641bebf711, type: 3}
+    - {fileID: 1666439732, guid: 744d21f4b3d72674e9d855641bebf711, type: 3}
   - name: characters/futo
     spritesheet:
     - {fileID: 329402412, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
@@ -1856,6 +1875,11 @@ MonoBehaviour:
     - {fileID: -1580232334, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
     - {fileID: -1028235923, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
     - {fileID: -430792853, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
+  - name: characters/koishi
+    spritesheet:
+    - {fileID: 106786177, guid: db8130de60f980943a44383aed09ce5d, type: 3}
+    - {fileID: -558446616, guid: db8130de60f980943a44383aed09ce5d, type: 3}
+    - {fileID: 1304107769, guid: db8130de60f980943a44383aed09ce5d, type: 3}
   - name: characters/marisa
     spritesheet:
     - {fileID: -1133822276, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
@@ -1883,6 +1907,21 @@ MonoBehaviour:
     - {fileID: -337755752, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}
     - {fileID: -665028044, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}
     - {fileID: 180654886, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}
+  - name: characters/rin
+    spritesheet:
+    - {fileID: -1843318040, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: -1372157617, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: 330649445, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: 455205255, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: 2081136452, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: -376180039, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+    - {fileID: -2056665195, guid: 93dd3cca0a6f1a24da49df3b3eed57fa, type: 3}
+  - name: characters/satori
+    spritesheet:
+    - {fileID: 672907054, guid: 61b36d39f1febbd40978c7f4cfc4156d, type: 3}
+    - {fileID: 158789374, guid: 61b36d39f1febbd40978c7f4cfc4156d, type: 3}
+    - {fileID: 2113587037, guid: 61b36d39f1febbd40978c7f4cfc4156d, type: 3}
+    - {fileID: -457054698, guid: 61b36d39f1febbd40978c7f4cfc4156d, type: 3}
   - name: characters/seiga
     spritesheet:
     - {fileID: -1912906337, guid: 34556420d8f5af5449796aad4f0ca3f1, type: 3}
@@ -1948,6 +1987,14 @@ MonoBehaviour:
     - {fileID: -79018707, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -2106919776, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -900475582, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
+    - {fileID: 734534095, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
+  - name: characters/utsuho
+    spritesheet:
+    - {fileID: -2040329995, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
+    - {fileID: -2100033065, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
+    - {fileID: 1428977806, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
+    - {fileID: -877922488, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
+    - {fileID: 824911285, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
   - name: icons/parasitized_icon
     spritesheet:
     - {fileID: -1697089634, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}

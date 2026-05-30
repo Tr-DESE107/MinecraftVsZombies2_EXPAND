@@ -27,9 +27,13 @@ namespace MVZ2.Talk
         {
             disappearSpeed = value;
         }
-        public void SetToTheFirstLayer(int index)
+        public void SetToTheFirstLayer()
         {
             transform.SetAsLastSibling();
+        }
+        public void SetToTheLastLayer()
+        {
+            transform.SetAsFirstSibling();
         }
         public void SetVariant(NamespaceID characterID, NamespaceID? variantID)
         {
@@ -53,7 +57,7 @@ namespace MVZ2.Talk
             ui.SetPivot(pivot);
             ui.SetWidthExtend(widthExtend);
         }
-        public void SetSide(CharacterSide side)
+        public void SetSide(CharacterSide side, bool flipX)
         {
             Vector3 scale = Vector3.zero;
             switch (side)
@@ -65,6 +69,7 @@ namespace MVZ2.Talk
                     scale = new Vector3(1, 1, 1);
                     break;
             }
+            ui.SetFlipX(flipX);
             ui.SetScale(scale);
         }
         public void ResetMotion()

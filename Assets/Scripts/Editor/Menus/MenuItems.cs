@@ -71,6 +71,21 @@ namespace MVZ2.Editor
         {
             SpriteMenu.RenameSprites();
         }
+        [MenuItem("MVZ2/Assets/Talk/Format Talk Datas", priority = 6000, secondaryPriority = 0)]
+        public static void FormatTalkDatas()
+        {
+            TalkMenu.FormatTalkDatas();
+        }
+        [MenuItem("MVZ2/Assets/Talk/Convert Dialogues to XML", priority = 6000, secondaryPriority = 1)]
+        public static void ConvertTalkFile()
+        {
+            TalkMenu.ConvertNaturalLanguageToTalks();
+        }
+        [MenuItem("MVZ2/Assets/Talk/Convert XML to Dialogues", priority = 6000, secondaryPriority = 2)]
+        public static void ConvertTalkXMLToDialogues()
+        {
+            TalkMenu.ConvertXMLToPlainText();
+        }
         [MenuItem("MVZ2/Save Data/Decompress", priority = 10000, secondaryPriority = 0)]
         public static void DecompressSaveData()
         {

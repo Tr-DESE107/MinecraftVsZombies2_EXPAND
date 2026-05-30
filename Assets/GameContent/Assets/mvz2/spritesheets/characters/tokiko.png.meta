@@ -282,6 +282,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tokiko_7
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 121
+        width: 224
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4a62364f957a744bbab788523896f4
+      internalID: 734534095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -300,6 +321,7 @@ TextureImporter:
       tokiko_4: -79018707
       tokiko_5: -2106919776
       tokiko_6: -900475582
+      tokiko_7: 734534095
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -25,7 +25,8 @@ namespace MVZ2.Talk
         }
         public void DestroyGameObject()
         {
-            Destroy(gameObject);
+            if (gameObject.Exists())
+                Destroy(gameObject);
         }
         public Camera renderCamera = null!;
         public ElementList layers = null!;

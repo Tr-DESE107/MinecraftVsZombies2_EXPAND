@@ -14,9 +14,9 @@ namespace MVZ2.UI.Almanac
         {
             return entryTags.getElement<AlmanacTagIcon>(index);
         }
-        public AlmanacTagIcon? GetDescriptionIcon(string linkID)
+        public AlmanacTagIcon? GetDescriptionIcon(int index)
         {
-            return descriptionIconUpdater.GetIconContainer(linkID);
+            return descriptionIconUpdater.GetIconContainer(index);
         }
         public void UpdateTagIcons(AlmanacTagIconViewData[] viewDatas)
         {

@@ -117,11 +117,11 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="low" name="低矮" description="不会被一般高度或更高的子弹击中" priority="4000">
+        <tag id="short_enemy" name="低矮" description="不会被一般高度或更高的子弹击中" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[4]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="high" name="高" description="阻挡跳跃" priority="4000">
+        <tag id="tall" name="高" description="阻挡跳跃" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[5]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
@@ -743,7 +743,7 @@
         </entry>
         <entry id="mvz2:stone_dropper">
             <variables>
-                <variable name="boulder_damage">toDouble(global("mvz2:entity_damage")) * 4</variable>
+                <variable name="boulder_damage">global("mvz2:entity_damage") * 2</variable>
             </variables>
             <header>
                 <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
@@ -1323,7 +1323,7 @@
                 <variable name="max_produce_time">property("mvz2:entity_behaviour/nether_reactor_core/max_produce_time")</variable>
             </variables>
             <header>
-                <p>如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出<![CDATA[<ref=[misc]mvz2:starshard.uranium_235>星之碎片</ref>]]>。</p>
+                <p>如果下界反应核被放置在一个由器械组成的特殊结构的中心，则会持续产出<![CDATA[<ref=[misc]mvz2:starshard.uranium_235>星之碎片</ref>并<tag id="mvz2:light_source"/>发光。]]></p>
             </header>
             <properties>
                 <p>结构：<![CDATA[<color=red><color=black>X</color>为下界反应核，A和<color=blue>B</color>为两种不同的器械</color>]]></p>
@@ -2679,7 +2679,7 @@
                 <p>马速度：<![CDATA[<color=red><var local="horse_speed" />（跳跃前），<var local="horse_speed_jumped" />（跳跃后）</color>]]></p>
                 <p>身体速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>头颅速度：<![CDATA[<color=red><var local="head_speed" /></color>]]></p>
-                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:high" />高器械</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:tall" />高器械</color>]]></p>
                 <p>特点：<![CDATA[<color=red>身体攻击时持续对小范围内的器械造成伤害。</color>]]></p>
             </properties>
             <flavor>
@@ -2726,7 +2726,7 @@
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />，低于200时每秒失去60生命</color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>碾压伤害：<![CDATA[<color=red>10000000</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>尖刺方块</color>]]></p>
+                <p>弱点：<![CDATA[<color=red><ref=[contraptions]mvz2:spike_block>尖刺方块</ref></color>]]></p>
             </properties>
             <flavor>
                 <p>地狱战车的司机怎么一脸不情愿的样子？</p>
@@ -4915,7 +4915,7 @@
                 </properties>
                 <flavor>
                     <p>在幻想乡四处游荡、采集的人类，职业是魔法使（而非种族）。</p>
-                    <p>曾经和森近 霖之助关系很好，后来也因他的失踪翻遍了整个幻想乡，无果。</p>
+                    <p>曾经和森近 霖之助关系很好，称呼他为“香霖”。后来也因他的失踪翻遍了整个幻想乡，无果。</p>
                     <p>随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。</p>
                 </flavor>
             </entry>
@@ -5052,7 +5052,7 @@
                 <unlock>
                     <condition required="mvz2:entered_palace"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:eirin"/>
+                <picture sprite="mvz2:characters/eirin[0]" character="mvz2:eirin"/>
                 <header>
                     <p>永远亭的医师。</p>
                 </header>
@@ -5068,7 +5068,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_1"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:satori"/>
+                <picture sprite="mvz2:characters/satori[0]" character="mvz2:satori"/>
                 <header>
                     <p>居住于地下的觉妖怪，<![CDATA[<ref=[misc]mvz2:chireiden>地灵殿</ref>]]>的主人。</p>
                 </header>
@@ -5087,7 +5087,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:rin"/>
+                <picture sprite="mvz2:characters/rin[0]" character="mvz2:rin"/>
                 <header>
                     <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的宠物之一，偷尸体的火车妖怪。</p>
                 </header>
@@ -5107,7 +5107,7 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:utsuho"/>
+                <picture sprite="mvz2:characters/utsuho[0]" character="mvz2:utsuho"/>
                 <header>
                     <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的宠物之一，能够操纵核能的地狱鸦。</p>
                 </header>
@@ -5124,9 +5124,9 @@
                 <unlock>
                     <condition required="mvz2:level.palace_2"/>
                 </unlock>
-                <picture sprite="mvz2:characters/armor_stand" character="mvz2:koishi"/>
+                <picture sprite="mvz2:characters/koishi[0]" character="mvz2:koishi"/>
                 <header>
-                    <p><![CDATA[<ref=[misc]mvz2:chireiden>古明地 觉</ref>]]>的妹妹。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:satori>古明地 觉</ref>]]>的妹妹。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>

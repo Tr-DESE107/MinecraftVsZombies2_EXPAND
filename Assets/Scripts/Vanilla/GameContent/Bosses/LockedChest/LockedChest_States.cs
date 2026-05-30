@@ -13,13 +13,11 @@ using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Fragments;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Grids;
@@ -2065,7 +2063,7 @@ namespace MVZ2.GameContent.Bosses
                 var substate = stateMachine.GetSubState(entity);
                 var timer = stateMachine.GetSubStateTimer(entity);
                 timer.Run(stateMachine.GetSpeed(entity));
-                switch (substate) 
+                switch (substate)
                 {
                     case SUBSTATE_TWITCH:
                         {

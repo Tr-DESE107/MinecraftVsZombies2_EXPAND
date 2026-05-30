@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Artifacts
 
                 foreach (var enemy in level.FindEntities(e => e.IsVulnerableEntity() && e.IsHostile(contraption)))
                 {
-                    enemy.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.MUTE), contraption);
+                    enemy.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.LIGHT, VanillaDamageEffects.MUTE), contraption);
                 }
                 contraption.Spawn(VanillaEffectID.stunningFlash, contraption.GetCenter());
                 contraption.PlaySound(VanillaSoundID.evocation);

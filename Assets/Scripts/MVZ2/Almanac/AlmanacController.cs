@@ -178,7 +178,7 @@ namespace MVZ2.Almanacs
 
             var picture = entry?.picture;
             var characterID = picture?.character;
-            if (NamespaceID.IsValid(characterID)) 
+            if (NamespaceID.IsValid(characterID))
             {
                 ShowCharacterZoom(characterID);
             }
@@ -266,10 +266,10 @@ namespace MVZ2.Almanacs
         {
             if (descriptionTagTooltipLockedTarget == linkID)
                 return;
-            var icon = ui.GetDescriptionIcon(page, linkID);
-            if (!icon.Exists())
-                return;
             if (!TryParseTagLinkID(linkID, out var index, out var tagID, out var enumValueID))
+                return;
+            var icon = ui.GetDescriptionIcon(page, index);
+            if (!icon.Exists())
                 return;
             var viewData = GetTagTooltipViewData(tagID, enumValueID);
             Main.Scene.ShowTooltip(new SimpleTooltipSource(almanacCamera, icon, viewData));

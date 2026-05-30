@@ -42,9 +42,9 @@ namespace MVZ2.GameContent.Enemies
             SetOrbitAngle(entity, angle);
 
             var orbitOffset = Vector2.right.RotateClockwise(angle) * ORBIT_DISTANCE;
-            var targetPosition = entity.Parent.Position + new Vector3(orbitOffset.x, 0, orbitOffset.y);
+            var targetPosition = entity.Parent.GetCenter() + new Vector3(orbitOffset.x, 0, orbitOffset.y);
             targetPosition.y = Mathf.Max(targetPosition.y, entity.Level.GetGroundY(targetPosition));
-            entity.Position = targetPosition;
+            entity.SetCenter(targetPosition);
 
             // Absorb.
             detectBuffer.Clear();

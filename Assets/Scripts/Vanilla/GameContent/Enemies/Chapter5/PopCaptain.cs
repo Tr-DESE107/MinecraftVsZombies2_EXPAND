@@ -5,7 +5,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
-using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.StateMachine;
 using MVZ2Logic.Entities;

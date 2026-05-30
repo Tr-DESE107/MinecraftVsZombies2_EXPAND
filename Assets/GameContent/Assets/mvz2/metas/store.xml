@@ -6,6 +6,11 @@
                 <condition required="mvz2:entered_gensokyo" />
             </conditions>
         </preset>
+        <preset id="chireiden" character="mvz2:crazy_villager" background="mvz2:misc/palace" music="mvz2:mainmenu" priority="200">
+            <conditions>
+                <condition required="mvz2:entered_palace" requiredNot="mvz2:level.palace_11" />
+            </conditions>
+        </preset>
     </presets>
     <talks>
         <talk id="mvz2:kourindou_first_visit">
@@ -36,6 +41,11 @@
         <talk id="mvz2:kourindou_visit_ship_2">
             <conditions>
                 <condition required="mvz2:level.ship_6" requiredNot="mvz2:kourindou_visited_ship_2" />
+            </conditions>
+        </talk>
+        <talk id="mvz2:kourindou_visit_palace_1">
+            <conditions>
+                <condition required="mvz2:level.ship_11" requiredNot="mvz2:entered_palace" />
             </conditions>
         </talk>
     </talks>

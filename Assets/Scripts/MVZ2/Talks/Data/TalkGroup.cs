@@ -19,7 +19,7 @@ namespace MVZ2.TalkData
         public TalkGroupArchiveInfo? archive;
         public TalkSection[] sections;
 
-        private TalkGroup(string id, NamespaceID[] tags, TalkSection[] sections)
+        public TalkGroup(string id, NamespaceID[] tags, TalkSection[] sections)
         {
             this.id = id;
             this.tags = tags;
@@ -38,6 +38,8 @@ namespace MVZ2.TalkData
                 node.AppendChild(archiveNode);
                 foreach (var section in sections)
                 {
+                    document.AddComment(node, section.archiveText);
+
                     var child = section.ToXmlNode(document);
                     node.AppendChild(child);
                 }

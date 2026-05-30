@@ -326,7 +326,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 无视红线放置
-        
+
         public static readonly PropertyMeta<bool> IGNORE_REDLINE_PLACEMENT = Get<bool>("ignore_redline_placement");
         public static bool IgnoreRedlinePlacement(this EntityDefinition definition)
         {

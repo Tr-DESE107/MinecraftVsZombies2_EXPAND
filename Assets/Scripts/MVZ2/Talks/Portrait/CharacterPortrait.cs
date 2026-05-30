@@ -55,7 +55,7 @@ namespace MVZ2.Talk
         }
         public void Dispose()
         {
-            if (texture2d.Exists()) 
+            if (texture2d.Exists())
                 UnityEngine.Object.Destroy(texture2d);
             if (sprite.Exists())
                 UnityEngine.Object.Destroy(sprite);

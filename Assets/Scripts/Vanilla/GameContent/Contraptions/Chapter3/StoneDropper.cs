@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 var param = entity.GetShootParams();
                 param.projectileID = VanillaProjectileID.boulder;
-                param.damage = entity.GetDamage() * 4;
+                param.damage = entity.GetDamage() * BOULDER_DAMAGE_MULTIPLIER;
                 return entity.ShootProjectile(param);
             }
             return base.Shoot(entity);
@@ -113,6 +113,7 @@ namespace MVZ2.GameContent.Contraptions
                 var zspeed = rng.Next(-1.5f, 1.5f);
                 var param = entity.GetShootParams();
                 param.projectileID = VanillaProjectileID.boulder;
+                param.damage = entity.GetDamage() * BOULDER_DAMAGE_MULTIPLIER;
                 param.velocity = new Vector3(xspeed, yspeed, zspeed);
                 entity.ShootProjectile(param);
             }
@@ -126,7 +127,7 @@ namespace MVZ2.GameContent.Contraptions
                 projectileID = VanillaProjectileID.boulder,
             };
         }
-
+        public const float BOULDER_DAMAGE_MULTIPLIER = 2;
         private static readonly NamespaceID ID = VanillaContraptionID.stoneDropper;
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_TRIGGER_COOLDOWN_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("TriggerCooldownTimer");
 

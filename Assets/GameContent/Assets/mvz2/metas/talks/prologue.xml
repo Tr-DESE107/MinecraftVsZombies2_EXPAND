@@ -1,62 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <talks order="0">
+  <!--教程-->
   <group id="tutorial" tags="mvz2:prologue;mvz2:tutorial">
-    <archive name="教程" music="mvz2:mainmenu" background="mvz2:misc/steves_house">
+    <archive name="教程" background="mvz2:misc/steves_house" music="mvz2:mainmenu">
       <unlock>
         <condition required="mvz2:level.prologue" />
       </unlock>
     </archive>
-    <section canAutoSkip="false" onSkip="sentence 3;action create_tutorial_form">
+    <!--开始段落-->
+    <section canAutoSkip="False">
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>sentence 3</script>
+        <script>action create_tutorial_form</script>
+      </onSkip>
+      <!--对话档案文本-->
       <text>开始段落</text>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嘿，邻居，好久不见啊！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">上次见到你，已经是好久以前了啊！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">现在掌握器械的经验怎么样了？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="action create_tutorial_form">差不多快忘了吧？要不要复习一下呢？</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">
+          <text>嘿，邻居，好久不见啊！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">
+          <text>上次见到你，已经是好久以前了啊！</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>现在掌握器械的经验怎么样了？</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>差不多快忘了吧？要不要复习一下呢？</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>action create_tutorial_form</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
-    <section onSkip="action start_tutorial;end">
+    <!--如果进行教程-->
+    <section>
+      <!--分段跳过脚本-->
+      <onSkip>
+        <script>action start_tutorial</script>
+        <script>end</script>
+      </onSkip>
+      <!--对话档案文本-->
       <text>如果进行教程</text>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="action start_tutorial;end">好了，现在开始吧！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>好了，现在开始吧！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>action start_tutorial</script>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
+    <!--如果不进行教程-->
     <section>
+      <!--对话档案文本-->
       <text>如果不进行教程</text>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="section 4">记性不错嘛！朋友！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>记性不错嘛！朋友！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>section 4</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
+    <!--教程完成后-->
     <section>
+      <!--对话档案文本-->
       <text>教程完成后</text>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">嘿！朋友！你看起来真的掌握了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="section 4">以至于我还什么都没说，你就已经完成教程了！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">
+          <text>嘿！朋友！你看起来真的掌握了！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>以至于我还什么都没说，你就已经完成教程了！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>section 4</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
+    <!--开始序章-->
     <section>
+      <!--对话档案文本-->
       <text>开始序章</text>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">啊！正说着呢，那些僵尸就又来开始进攻你了。</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="end">那么，朋友，用你的经验把他们干掉吧！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">
+          <text>啊！正说着呢，那些僵尸就又来开始进攻你了。</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy">
+          <text>那么，朋友，用你的经验把他们干掉吧！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>
+  <!--藏宝图？-->
   <group id="prologue_note" tags="mvz2:prologue;mvz2:note">
     <archive name="藏宝图？" background="mvz2:archive/prologue_note">
       <unlock>
@@ -64,16 +147,40 @@
       </unlock>
     </archive>
     <section>
+      <!--角色列表-->
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
+      <!--语句列表-->
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这看起来像是一个藏宝图啊！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">你觉得这个藏宝图的终点会有着什么呢？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">也许……这玩意会把我们带到什么神奇的地方！！！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">甚至有可能是我天天跟你说的那个幻想乡！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">你知道的，那是个人类和妖怪共存的地方！还有好多神话传说中神奇力量！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">很疯狂吧？？？那我们就去找——这道看起来特别可疑的传送门吧！</sentence>
+        <!--语句0-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">
+          <text>这看起来像是一个藏宝图啊！</text>
+        </sentence>
+        <!--语句1-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">
+          <text>你觉得这个藏宝图的终点会有着什么呢？</text>
+        </sentence>
+        <!--语句2-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">
+          <text>也许……这玩意会把我们带到什么神奇的地方！！！</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">
+          <text>甚至有可能是我天天跟你说的那个幻想乡！</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
+          <text>你知道的，那是个人类和妖怪共存的地方！还有好多神话传说中神奇力量！</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
+          <text>很疯狂吧？？？那我们就去找——这道看起来特别可疑的传送门吧！</text>
+          <!--语句点击脚本-->
+          <onClick>
+            <script>end</script>
+          </onClick>
+        </sentence>
       </sentences>
     </section>
   </group>

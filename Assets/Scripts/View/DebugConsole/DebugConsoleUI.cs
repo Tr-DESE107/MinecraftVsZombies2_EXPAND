@@ -62,13 +62,13 @@ namespace MVZ2.UI.DebugConsole
                 rectTransform.anchoredPosition = Vector2.right * (size.x + inputField.textComponent.rectTransform.anchoredPosition.x);
             }
         }
-        public void SetAutoCompleteSelections(string[] autoComplete)
+        public void SetAutoCompleteSelections(string[] autoComplete, int selected, bool hasAbove, bool hasBelow)
         {
             autoCompleteSelection.updateList(autoComplete.Length, (i, obj) =>
             {
                 var item = obj.GetComponent<DebugConsoleAutoCompleteItem>();
                 item.SetText(autoComplete[i]);
-                item.SetIsOn(false);
+                item.SetIsOn(selected == i);
             },
             (obj) =>
             {
@@ -80,12 +80,13 @@ namespace MVZ2.UI.DebugConsole
                 var item = obj.GetComponent<DebugConsoleAutoCompleteItem>();
                 item.OnValueChanged -= OnAutoCompleteItemValueChangedCallback;
             });
+            autoCompleteArrowUp.interactable = hasAbove;
+            autoCompleteArrowDown.interactable = hasBelow;
         }
         public void SetCurrentAutoComplete(int index)
         {
             if (autoCompleteSelection != null && index >= 0)
             {
-                autoCompleteScroll.verticalNormalizedPosition = 1 - index / (float)autoCompleteSelection.Count;
                 var item = autoCompleteSelection.getElement<DebugConsoleAutoCompleteItem>(index);
                 if (item.Exists())
                     item.SetIsOn(true);
@@ -108,6 +109,9 @@ namespace MVZ2.UI.DebugConsole
             inputField.onSelect.AddListener((text) => OnInputFieldFocus?.Invoke(true));
             inputField.onDeselect.AddListener((text) => OnInputFieldFocus?.Invoke(false));
             inputField.onValueChanged.AddListener((text) => OnInputFieldValueChanged?.Invoke(text));
+
+            autoCompleteArrowUp.onClick.AddListener(() => OnAutoCompleteArrowButtonClick?.Invoke(true));
+            autoCompleteArrowDown.onClick.AddListener(() => OnAutoCompleteArrowButtonClick?.Invoke(false));
         }
         public event Action? OnCloseClick;
         public event Action<bool>? OnArrowButtonClick;
@@ -115,6 +119,7 @@ namespace MVZ2.UI.DebugConsole
         public event Action<string>? OnInputFieldValueChanged;
         public event Action<bool>? OnInputFieldFocus;
         public event Action<int>? OnAutoCompleteItemClick;
+        public event Action<bool>? OnAutoCompleteArrowButtonClick;
         [SerializeField]
         private Button closeButton = null!;
         [SerializeField]
@@ -136,7 +141,9 @@ namespace MVZ2.UI.DebugConsole
         [SerializeField]
         private GameObject autoCompletePanel = null!;
         [SerializeField]
-        private ScrollRect autoCompleteScroll = null!;
+        private Button autoCompleteArrowUp = null!;
+        [SerializeField]
+        private Button autoCompleteArrowDown = null!;
         [SerializeField]
         private ElementList autoCompleteSelection = null!;
     }

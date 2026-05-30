@@ -15,7 +15,6 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Enemies
 {

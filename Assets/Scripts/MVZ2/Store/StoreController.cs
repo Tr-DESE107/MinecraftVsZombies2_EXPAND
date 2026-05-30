@@ -10,7 +10,6 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.UI.Store;
-using MVZ2.UI.Talk;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Definitions;
@@ -83,8 +82,15 @@ namespace MVZ2.Store
             {
                 characterId = characterID;
 
+                var faceRight = false;
+                var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
+                if (characterMeta != null)
+                {
+                    faceRight = characterMeta.faceRight;
+                }
+
                 character.SetVariant(characterID, null);
-                character.SetSide(CharacterSide.Left);
+                character.SetSide(CharacterSide.Left, faceRight);
             }
 
             if (preset.Music != null && !Main.MusicManager.IsPlaying(preset.Music))
