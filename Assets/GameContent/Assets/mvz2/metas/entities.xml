@@ -3540,6 +3540,7 @@
                 <bool name="mvz2:noDestroyOutsideLawn" value="true" />
                 <bool name="mvz2:pointToDirection" value="true" />
                 <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:ignore_force_pad" value="true" />
                 <float name="mvz2:range" value="120" />
                 <vector3 name="mvz2:size" x="24" y="100" z="24" />
                 <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />
