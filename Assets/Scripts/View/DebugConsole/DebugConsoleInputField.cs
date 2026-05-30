@@ -822,6 +822,11 @@ namespace MVZ2.UI.DebugConsole
 
         public InputType inputType { get { return m_InputType; } set { if (SetPropertyUtility.SetStruct(ref m_InputType, value)) SetToCustom(); } }
 
+        /// <summary>
+        /// The TouchScreenKeyboard being used to edit the Input Field.
+        /// </summary>
+        public TouchScreenKeyboard touchScreenKeyboard { get { return m_SoftKeyboard; } }
+
         public TouchScreenKeyboardType keyboardType
         {
             get { return m_KeyboardType; }

@@ -392,25 +392,31 @@ namespace MVZ2.DebugConsole
         }
         private float GetKeyboardHeightAndroid()
         {
-            using (AndroidJavaClass UnityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+            try
             {
-                AndroidJavaObject? currentActivity = UnityClass.GetStatic<AndroidJavaObject>("currentActivity");
+                using AndroidJavaClass UnityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+
+                using AndroidJavaObject? currentActivity = UnityClass.GetStatic<AndroidJavaObject>("currentActivity");
                 if (currentActivity == null)
                     return 0f;
 
-                AndroidJavaObject? mUnityPlayer = currentActivity.Get<AndroidJavaObject>("mUnityPlayer");
+                using AndroidJavaObject? mUnityPlayer = currentActivity.Get<AndroidJavaObject>("mUnityPlayer");
                 if (mUnityPlayer == null)
                     return 0f;
 
-                AndroidJavaObject? view = mUnityPlayer.Call<AndroidJavaObject>("getView");
+                using AndroidJavaObject? view = mUnityPlayer.Call<AndroidJavaObject>("getView");
                 if (view == null)
                     return 0f;
 
-                using (AndroidJavaObject rect = new AndroidJavaObject("android.graphics.Rect"))
-                {
-                    view.Call("getWindowVisibleDisplayFrame", rect);
-                    return (float)(Screen.height - rect.Call<int>("height"));
-                }
+                using AndroidJavaObject rect = new AndroidJavaObject("android.graphics.Rect");
+
+                view.Call("getWindowVisibleDisplayFrame", rect);
+                return (float)(Screen.height - rect.Call<int>("height"));
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("获取安卓窗口高度失败: " + e.Message);
+                return 0f;
             }
         }
         public MainManager Main => MainManager.Instance;

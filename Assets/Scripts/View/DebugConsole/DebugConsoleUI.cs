@@ -52,7 +52,7 @@ namespace MVZ2.UI.DebugConsole
             inputField.Select();
         }
 
-        #region �Զ���ȫ
+        #region 自动补全
         public void ShowAutoCompletePanel()
         {
             autoCompletePanel.SetActive(true);
