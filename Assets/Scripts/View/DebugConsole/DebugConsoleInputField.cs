@@ -1629,7 +1629,17 @@ namespace MVZ2.UI.DebugConsole
                     SendOnValueChangedAndUpdateLabel();
                 }
             }
-            else if (m_HideMobileInput && Application.platform == RuntimePlatform.Android)
+            // On iOS/tvOS we always have TouchScreenKeyboard instance even when using external keyboard
+            // so we keep track of the caret position there
+            else if (m_HideMobileInput && m_SoftKeyboard != null && m_SoftKeyboard.canSetSelection &&
+                     Application.platform != RuntimePlatform.IPhonePlayer && Application.platform != RuntimePlatform.tvOS)
+            {
+                var selectionStart = Mathf.Min(caretSelectPositionInternal, caretPositionInternal);
+                var selectionLength = Mathf.Abs(caretSelectPositionInternal - caretPositionInternal);
+                m_SoftKeyboard.selection = new RangeInt(selectionStart, selectionLength);
+            }
+            else if (m_HideMobileInput && Application.platform == RuntimePlatform.Android ||
+                     m_SoftKeyboard.canSetSelection && (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.tvOS))
             {
                 UpdateStringPositionFromKeyboard();
             }
