@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.HeldItems
                 case HeldItemTargetEntity entityTarget:
                     {
                         var entity = entityTarget.Target;
-                        var targetEntity = entity.FindPointerTargetEntity(entityTarget.PointerPosition.y, e => CanUseOnEntity(e));
+                        var targetEntity = entity.FindPointerTargetEntity(entityTarget.LocalPointerPosition.y, entityTarget.ScreenPosition, e => CanUseOnEntity(e));
                         return HeldHighlight.Entity(targetEntity);
                     }
                 case HeldItemTargetGrid gridTarget:
@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.HeldItems
                         if (pointer.interaction == PointerInteraction.Hold)
                         {
                             var grid = gridTarget.Target;
-                            var entityTarget = grid.FindPointerTargetEntity(gridTarget.PointerPosition.y, e => CanUseOnEntity(e), out var rangeMin, out var rangeMax);
+                            var entityTarget = grid.FindPointerTargetEntity(gridTarget.LocalPointerPosition.y, e => CanUseOnEntity(e), out var rangeMin, out var rangeMax);
                             if (entityTarget != null)
                             {
                                 return HeldHighlight.Green(grid, rangeMin, rangeMax);
@@ -81,7 +81,7 @@ namespace MVZ2.GameContent.HeldItems
         private void OnPointerEventEntity(HeldItemTargetEntity target, IHeldItemData data, PointerInteractionData pointerParams)
         {
             var entity = target.Target;
-            var targetEntity = entity.FindPointerTargetEntity(target.PointerPosition.y, CanUseOnEntity);
+            var targetEntity = entity.FindPointerTargetEntity(target.LocalPointerPosition.y, target.ScreenPosition, CanUseOnEntity);
             if (targetEntity != null && CanUseOnEntityOfPointer(targetEntity, pointerParams))
             {
                 entity.Level.ResetHeldItem();
@@ -91,7 +91,7 @@ namespace MVZ2.GameContent.HeldItems
         private void OnPointerEventGrid(HeldItemTargetGrid target, IHeldItemData data, PointerInteractionData pointerData)
         {
             var grid = target.Target;
-            var targetEntity = grid.FindPointerTargetEntity(target.PointerPosition.y, CanUseOnEntity, out _, out _);
+            var targetEntity = grid.FindPointerTargetEntity(target.LocalPointerPosition.y, CanUseOnEntity, out _, out _);
             if (targetEntity != null && CanUseOnEntityOfPointer(targetEntity, pointerData))
             {
                 grid.Level.ResetHeldItem();

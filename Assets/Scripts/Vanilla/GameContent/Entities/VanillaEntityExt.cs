@@ -1193,19 +1193,23 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 获取指针目标
-        public static Entity FindPointerTargetEntity(this Entity entity, float pointerPosition, Predicate<Entity> predicate)
+        public static Entity FindPointerTargetEntity(this Entity entity, float pointerPositionY, Vector2 screenPosition, Predicate<Entity> predicate)
         {
             var protector = entity;
             var protectTargets = entity.GetProtectingTargets();
             if (protectTargets != null && protectTargets.Length > 0)
             {
+                var gridPosition = entity.Level.ScreenToLawnPositionByRelativeY(screenPosition, 0);
+                var column = entity.Level.GetColumn(gridPosition.x);
+                var lane = entity.Level.GetLane(gridPosition.z);
+
                 // 存在保护中的目标。
                 var canUseOnProtector = predicate(protector);
-                var firstValidMainTarget = protectTargets.FirstOrDefault(t => predicate(t));
+                var firstValidMainTarget = protectTargets.FirstOrDefault(t => t.GetColumn() == column && t.GetLane() == lane && predicate(t));
 
                 // 主要层器械可以使用。
                 // 保护层器械不能使用，或者指向保护层器械上方。
-                if (firstValidMainTarget != null && (!canUseOnProtector || pointerPosition >= 0.5f))
+                if (firstValidMainTarget != null && (!canUseOnProtector || pointerPositionY >= 0.5f))
                 {
                     return firstValidMainTarget;
                 }
