@@ -1447,6 +1447,24 @@ namespace MVZ2.GameContent.Bosses
                         break;
                 }
             }
+            //private void SpitBlueprint(Entity entity)
+            //{
+            //    entity.PlaySound(VanillaSoundID.bow);
+            //    var rng = entity.RNG;
+            //    var x = rng.NextFloat() * 20 - 10;
+            //    var y = rng.NextFloat() * 10 + 10;
+            //    var z = rng.NextFloat() * 20 - 10;
+            //    var velocity = new Vector3(x * entity.GetFacingX(), y, z);
+
+            //    var blueprintID = entity.Level.GetLockedChestSpitBlueprintID();
+            //    var shotPosition = entity.Position + entity.GetShotOffset();
+            //    var param = entity.GetSpawnParams();
+            //    param.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
+            //    entity.Spawn(VanillaPickupID.blueprintPickup, shotPosition, param)?.Let(b =>
+            //    {
+            //        b.Velocity = velocity;
+            //    });
+            //}
             private void SpitBlueprint(Entity entity)
             {
                 entity.PlaySound(VanillaSoundID.bow);
@@ -1456,7 +1474,30 @@ namespace MVZ2.GameContent.Bosses
                 var z = rng.NextFloat() * 20 - 10;
                 var velocity = new Vector3(x * entity.GetFacingX(), y, z);
 
-                var blueprintID = entity.Level.GetLockedChestSpitBlueprintID();
+                // 定义可用的僵尸蓝图ID列表  
+                var possibleBlueprints = new NamespaceID[]
+                {
+        VanillaEnemyID.VillagerGhast,
+        VanillaEnemyID.HeavyGutant,
+        VanillaEnemyID.SquidDrowned,
+        VanillaEnemyID.FlyingPot,
+        VanillaEnemyID.NetherTroopCarrier,
+        VanillaEnemyID.KingofReverser,
+        VanillaEnemyID.WintherMage,
+        VanillaEnemyID.PhaseSpider,
+        VanillaEnemyID.NightmareDisciple,
+        VanillaEnemyID.EvilMage,
+        VanillaEnemyID.Mannequin,
+        VanillaEnemyID.XCarrierMutant,
+        VanillaEnemyID.RandomKingSkeleton,
+        VanillaEnemyID.RandomZombie,
+        VanillaEnemyID.RandomMutant,
+        VanillaEnemyID.MutantMannequin,
+                };
+
+                // 随机选择一个蓝图ID  
+                var blueprintID = possibleBlueprints[rng.Next(possibleBlueprints.Length)];
+
                 var shotPosition = entity.Position + entity.GetShotOffset();
                 var param = entity.GetSpawnParams();
                 param.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);

@@ -583,7 +583,10 @@ namespace MVZ2.GameContent.Bosses
                     Vector3 pos = new Vector3(x, y, z);
                     var randomEnemy = enemyPool.Random(rng);
                     var Enemy0 = SpawnPortal(boss, pos, randomEnemy);
+                    if (Enemy0 != null) 
+                    { 
                     Enemy0.AddBuff<AttackSpeedBuff>();
+                    }
 
                 }
             }
