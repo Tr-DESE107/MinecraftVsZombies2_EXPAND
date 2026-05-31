@@ -25,6 +25,7 @@
 - Fixed the issue where pebbles split from boulders dealing only 5 damage.
 - Fixed the issue where the rolling blocks summoned by The Locked Chest would not disappear after leaving the battlefield.
 - Fixed the issue where Stone Shields provide explosion resistance to enemy obstacles.
+- Fixed the issue where, even after Starshards were reset to zero or disabled, the held Starshard could still be used.
 - Texts and localization fixes.
 
 ---
