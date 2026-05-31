@@ -32,12 +32,28 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
+            var triggerCount = GetTriggerCount(entity);
+            entity.SetModelProperty("triggerCount", triggerCount);
 
             // 更新触发冷却计时器  
             var cooldownTimer = GetTriggerCooldownTimer(entity);
             if (cooldownTimer != null)
             {
                 cooldownTimer.Run(entity.GetAttackSpeed());
+
+                // 检测冷却结束，将 triggerCount 从 4 回归到 3  
+                if (triggerCount == 4 && cooldownTimer.Expired)
+                {
+                    SetTriggerCount(entity, 3);
+                    entity.SetModelProperty("triggerCount", 3);
+
+                    // 强制更新模型  
+                    var modelInterface = entity.GetModelInterface();
+                    if (modelInterface != null)
+                    {
+                        modelInterface.UpdateModel();
+                    }
+                }
             }
 
             if (!entity.IsEvoked())
@@ -151,6 +167,9 @@ namespace MVZ2.GameContent.Contraptions
                 entity.ShootProjectile(param);
                 entity.PlaySound(VanillaSoundID.odd);
 
+                // 进入冷却时将 triggerCount 设为 4  
+                SetTriggerCount(entity, 4);
+
                 // 重置冷却计时器  
                 var cooldownTimer = GetTriggerCooldownTimer(entity);
                 if (cooldownTimer != null)
@@ -172,12 +191,21 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.odd);
         }
 
+        public static int GetTriggerCount(Entity entity)
+        {
+            return entity.GetProperty<int>(PROP_TRIGGER_COUNT);
+        }
+
+        public static void SetTriggerCount(Entity entity, int value)
+        {
+            entity.SetProperty(PROP_TRIGGER_COUNT, value); // 设置 Entity 属性，C# 逻辑获取  
+            entity.SetModelProperty("triggerCount", value); // 设置 Model 属性，用于贴图切换  
+        }
+
         private static readonly NamespaceID ID = VanillaContraptionID.smallDispenser;
         private static readonly VanillaEntityPropertyMeta<int> PROP_TRIGGER_COUNT = new VanillaEntityPropertyMeta<int>("TriggerCount");
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_TRIGGER_COOLDOWN_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("TriggerCooldownTimer");
 
-        private static int GetTriggerCount(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_TRIGGER_COUNT);
-        private static void SetTriggerCount(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_TRIGGER_COUNT, value);
         private static FrameTimer? GetTriggerCooldownTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_TRIGGER_COOLDOWN_TIMER);
         private static void SetTriggerCooldownTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_TRIGGER_COOLDOWN_TIMER, timer);
 
