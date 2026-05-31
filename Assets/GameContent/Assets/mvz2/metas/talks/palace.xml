@@ -2644,7 +2644,7 @@
         </sentence>
         <!--语句3-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long3">
-          <text>不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法再这里放置器械！</text>
+          <text>不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法在这里放置器械！</text>
         </sentence>
         <!--语句4-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy">
@@ -3003,7 +3003,7 @@
         </sentence>
         <!--语句14-->
         <sentence speaker="mvz2:eirin" sounds="mvz2:talk">
-          <text>还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能能让他把灵魂还回来。</text>
+          <text>还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能让他把灵魂还回来。</text>
         </sentence>
         <!--语句15-->
         <sentence speaker="mvz2:rin" sounds="mvz2:dialog_cut">
@@ -3068,7 +3068,7 @@
         </sentence>
         <!--语句27-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
-          <text>在你们登船的时候，我依然在香霖堂看店。那个紫色的木头箱子就在那个时候在店门口外莫名其妙地出现了。</text>
+          <text>你们还在船上的时候，我在香霖堂看店。那个紫色的木头箱子就莫名其妙地出现在店外了。</text>
         </sentence>
         <!--语句28-->
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">
@@ -3167,7 +3167,7 @@
           <onStart>
             <script>shake</script>
           </onStart>
-          <text>不用太自责，我们会那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！</text>
+          <text>不用太自责，我们会把那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！</text>
         </sentence>
         <!--语句49-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">

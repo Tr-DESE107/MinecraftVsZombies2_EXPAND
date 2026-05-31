@@ -22,6 +22,18 @@ namespace MVZ2.GameContent.HeldItems
         public StarshardHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void OnUpdate(LevelEngine level, IHeldItemData data)
+        {
+            base.OnUpdate(level, data);
+            if (!IsValid(level, data))
+            {
+                level.ResetHeldItem();
+            }
+        }
+        public bool IsValid(LevelEngine level, IHeldItemData data)
+        {
+            return level.GetStarshardCount() > 0 && level.CanUseStarshard() && level.GetStarshardHeldType() == data.Type;
+        }
         public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
             var modelID = VanillaModelID.GetStarshardHeldItem(level.AreaDefinition.GetID());

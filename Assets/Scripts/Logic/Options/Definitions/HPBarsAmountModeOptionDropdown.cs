@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Options
         }
         public override bool ShouldEnable(IOptionContext context)
         {
-            return Global.Saves.IsHPBarUnlockedOrDebug();
+            return Global.Saves.IsHPBarUnlocked() || Global.Debugs.CanUseDebugFeatures();
         }
         public override int GetValue(IOptionContext context)
         {

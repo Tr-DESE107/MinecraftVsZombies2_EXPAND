@@ -18,11 +18,12 @@ namespace MVZ2.GameContent.IZombie
         {
             RandomFill(map, VanillaContraptionID.soulFurnace, 2, rng);
             RandomFill(map, VanillaContraptionID.gravityPad, 3, rng);
-            RandomFill(map, VanillaContraptionID.transfenser, 4, rng);
-            RandomFill(map, VanillaContraptionID.beacon, 4, rng);
+            RandomFill(map, VanillaContraptionID.transfenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.beacon, 3, rng);
             RandomFill(map, VanillaContraptionID.amethystPylon, 3, rng);
             RandomFill(map, VanillaContraptionID.cursedCandle, 3, rng);
             RandomFill(map, VanillaContraptionID.gunpowderBarrel, 1, rng);
+            RandomFill(map, VanillaContraptionID.glowstone, 2, rng);
         }
     }
 }

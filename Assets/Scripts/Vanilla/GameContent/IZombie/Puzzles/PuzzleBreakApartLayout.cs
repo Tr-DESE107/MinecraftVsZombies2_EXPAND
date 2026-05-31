@@ -26,28 +26,34 @@ namespace MVZ2.GameContent.IZombie
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            Insert(map, 0, 3, VanillaContraptionID.transfenser);
-            Insert(map, 1, 3, VanillaContraptionID.furnace);
-            Insert(map, 2, 3, VanillaContraptionID.furnace);
-            Insert(map, 2, 3, VanillaContraptionID.gravityPad);
-            Insert(map, 3, 3, VanillaContraptionID.spikeBlock);
-            Insert(map, 4, 3, VanillaContraptionID.smallDispenser);
+            Insert(map, 0, 0, VanillaContraptionID.smallDispenser);
+            Insert(map, 1, 0, VanillaContraptionID.punchton);
+            Insert(map, 4, 0, VanillaContraptionID.stoneDropper);
+            Insert(map, rng.Next(2, 4), 0, VanillaContraptionID.furnace);
+            RandomFillAtLane(map, 0, VanillaContraptionID.spikeBlock, 1, rng);
 
-            Insert(map, 0, 4, VanillaContraptionID.cursedCandle);
+            Insert(map, 0, 3, VanillaContraptionID.drivenser);
+            Insert(map, 1, 3, VanillaContraptionID.drivenser);
+            Insert(map, 2, 3, VanillaContraptionID.splitenser);
+            Insert(map, 2, 3, VanillaContraptionID.gravityPad);
+            Insert(map, 3, 3, VanillaContraptionID.furnace);
+            Insert(map, 4, 3, VanillaContraptionID.furnace);
+
+            Insert(map, 0, 4, VanillaContraptionID.furnace);
             Insert(map, 1, 4, VanillaContraptionID.furnace);
             Insert(map, 2, 4, VanillaContraptionID.transfenser);
-            Insert(map, 3, 4, VanillaContraptionID.gravelpult);
-            Insert(map, 4, 4, VanillaContraptionID.stoneEye);
+            Insert(map, 3, 4, VanillaContraptionID.cursedCandle);
+            Insert(map, 4, 4, VanillaContraptionID.smallDispenser);
 
-            Insert(map, 1, 1, VanillaContraptionID.spikeBlock);
+            Insert(map, 0, 1, VanillaContraptionID.furnace);
+            Insert(map, 0, 2, VanillaContraptionID.furnace);
+            Insert(map, 1, 2, VanillaContraptionID.furnace);
+            Insert(map, 0, 2, VanillaContraptionID.gravityPad);
 
-            RandomFill(map, VanillaContraptionID.transfenser, 3, rng);
+            RandomFill(map, VanillaContraptionID.transfenser, 2, rng);
             RandomFill(map, VanillaContraptionID.gravelpult, 1, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 5, rng);
-
-            RandomFill(map, VanillaContraptionID.drivenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.smallDispenser, 1, rng);
-            RandomFill(map, VanillaContraptionID.cursedCandle, 1, rng);
+            RandomFill(map, VanillaContraptionID.splitenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.smallDispenser, 2, rng);
         }
     }
 }

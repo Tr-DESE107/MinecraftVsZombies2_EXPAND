@@ -139,7 +139,10 @@ namespace MVZ2.Grids
             var grid = level.GetGrid(Column, Lane);
             if (grid == null)
                 return false;
-            var target = new HeldItemTargetGrid(grid, TransformWorld2ColliderPosition(eventData.pointerCurrentRaycast.worldPosition));
+            var worldPosition = eventData.pointerCurrentRaycast.worldPosition;
+            var screenPosition = eventData.pointerCurrentRaycast.screenPosition;
+            var localPointerPosition = TransformWorld2ColliderPosition(worldPosition);
+            var target = new HeldItemTargetGrid(grid, localPointerPosition, screenPosition);
             var pointer = InputHelper.GetPointerDataFromEventData(eventData);
             return definition.IsValidFor(target, data, pointer);
         }

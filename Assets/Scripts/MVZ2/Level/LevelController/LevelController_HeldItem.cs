@@ -232,7 +232,7 @@ namespace MVZ2.Level
             var pointerId = eventData.pointerId;
             var pointerPosition = InputHelper.GetPointerPosition(pointerId);
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
-            var target = entity.GetHeldItemTarget(worldPosition);
+            var target = entity.GetHeldItemTarget(worldPosition, pointerPosition);
             var pointerParams = InputHelper.GetPointerDataFromEventData(eventData);
             return level.GetHeldHighlight(target, pointerParams);
         }
@@ -247,7 +247,7 @@ namespace MVZ2.Level
                 var screenPos = InputHelper.GetPointerPosition(pointerId);
                 var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
                 var position = gridUI.TransformWorld2ColliderPosition(worldPos);
-                var target = new HeldItemTargetGrid(grid, position);
+                var target = new HeldItemTargetGrid(grid, position, screenPos);
                 var type = InputHelper.GetPointerDataFromPointerId(pointerId);
                 return level.GetHeldHighlight(target, type);
             }

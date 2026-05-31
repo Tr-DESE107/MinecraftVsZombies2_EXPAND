@@ -11,6 +11,7 @@ using MVZ2.Archives;
 using MVZ2.ChapterTransition;
 using MVZ2.DebugConsole;
 using MVZ2.GameContent.Stages;
+using MVZ2.Level;
 using MVZ2.Mainmenu;
 using MVZ2.Managers;
 using MVZ2.Map;
@@ -37,6 +38,7 @@ namespace MVZ2.Scenes
         public void Init()
         {
             achievementHint.gameObject.SetActive(true);
+            uiCameraLimiter.UpdateCamera();
         }
         #region 对话框
         public void ShowDialog(string title, string desc, string[] options, Action<int>? onSelect = null)
@@ -495,6 +497,8 @@ namespace MVZ2.Scenes
 
         [SerializeField]
         private Camera uiCamera = null!;
+        [SerializeField]
+        private CameraLimiter uiCameraLimiter = null!;
         [SerializeField]
         private MainSceneUI ui = null!;
         [SerializeField]

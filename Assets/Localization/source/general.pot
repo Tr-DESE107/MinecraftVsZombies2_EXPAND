@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-24 04:52+0800\n"
+"POT-Creation-Date: 2026-05-30 03:04+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1452,29 +1452,29 @@ msgid "已跳过对话\"{0}\""
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:299
+#: Scripts\MVZ2\Store\StoreController.cs:304
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:301
+#: Scripts\MVZ2\Store\StoreController.cs:306
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] ""
 msgstr[1] ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:303
+#: Scripts\MVZ2\Store\StoreController.cs:308
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:305
+#: Scripts\MVZ2\Store\StoreController.cs:310
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:307
+#: Scripts\MVZ2\Store\StoreController.cs:312
 msgid "{0}/{1}"
 msgstr ""
 
@@ -2624,27 +2624,27 @@ msgid "中文"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:789
+#: Scripts\MVZ2\Entities\EntityController.cs:787
 msgid "死亡"
 msgstr ""
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:791
+#: Scripts\MVZ2\Entities\EntityController.cs:789
 msgid "摧毁"
 msgstr ""
 
 # 血条的文字模板
-#: Scripts\MVZ2\Entities\EntityController.cs:793
+#: Scripts\MVZ2\Entities\EntityController.cs:791
 msgid "{0}"
 msgstr ""
 
 # 日志导出失败的警告
-#: Scripts\MVZ2\Managers\DebugManager.cs:54
+#: Scripts\MVZ2\Managers\DebugManager.cs:58
 msgid "导出日志失败。"
 msgstr ""
 
 # 日志导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Managers\DebugManager.cs:56
+#: Scripts\MVZ2\Managers\DebugManager.cs:60
 msgid "日志已导出至{0}。"
 msgstr ""
 
@@ -2863,7 +2863,7 @@ msgstr ""
 
 # 分辨率名，{0}为宽，{1}为高,{2}为刷新率
 #: Scripts\Logic\Options\Definitions\ResolutionOptionDropdown.cs:89
-msgid "{0}x{1} @{2}Hz"
+msgid "{0}x{1} @{2:0.##}Hz"
 msgstr ""
 
 # 屏幕布局

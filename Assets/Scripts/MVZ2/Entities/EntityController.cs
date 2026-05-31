@@ -226,19 +226,17 @@ namespace MVZ2.Entities
         #endregion
 
         #region 手持物品
-        public HeldItemTargetEntity GetHeldItemTarget(Vector3 worldPosition)
+        public HeldItemTargetEntity GetHeldItemTarget(Vector3 worldPosition, Vector3 screenPosition)
         {
             var pos = TransformWorld2ColliderPosition(worldPosition);
-            return new HeldItemTargetEntity(Entity, pos);
+            return new HeldItemTargetEntity(Entity, pos, screenPosition);
         }
         public HeldItemTargetEntity GetHeldItemTarget(PointerEventData data)
         {
-            var pos = Vector2.zero;
-            if (data != null)
-            {
-                pos = TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
-            }
-            return new HeldItemTargetEntity(Entity, pos);
+            var worldPosition = data.pointerCurrentRaycast.worldPosition;
+            var screenPosition = data.pointerCurrentRaycast.screenPosition;
+            var pos = TransformWorld2ColliderPosition(worldPosition);
+            return new HeldItemTargetEntity(Entity, pos, screenPosition);
         }
         #endregion
 

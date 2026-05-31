@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-26 06:58+0800\n"
+"POT-Creation-Date: 2026-05-31 11:39+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11780,7 +11780,7 @@ msgstr ""
 #. Text for talk sentence 3 in talk group palace_8_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_over"
-msgid "不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法再这里放置器械！"
+msgid "不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法在这里放置器械！"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group palace_8_over's section 0
@@ -12014,7 +12014,7 @@ msgstr ""
 #. Text for talk sentence 14 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能能让他把灵魂还回来。"
+msgid "还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能让他把灵魂还回来。"
 msgstr ""
 
 #. Text for talk sentence 15 in talk group palace_8_map's section 1
@@ -12086,7 +12086,7 @@ msgstr ""
 #. Text for talk sentence 27 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "在你们登船的时候，我依然在香霖堂看店。那个紫色的木头箱子就在那个时候在店门口外莫名其妙地出现了。"
+msgid "你们还在船上的时候，我在香霖堂看店。那个紫色的木头箱子就莫名其妙地出现在店外了。"
 msgstr ""
 
 #. Text for talk sentence 28 in talk group palace_8_map's section 1
@@ -12212,7 +12212,7 @@ msgstr ""
 #. Text for talk sentence 48 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "不用太自责，我们会那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！"
+msgid "不用太自责，我们会把那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！"
 msgstr ""
 
 #. Text for talk sentence 49 in talk group palace_8_map's section 1

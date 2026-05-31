@@ -2,6 +2,9 @@
 
 using MVZ2.Cameras;
 using MVZ2.Managers;
+using MVZ2.Options;
+using MVZ2Logic.Options;
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -9,20 +12,11 @@ namespace MVZ2.Level
     [DefaultExecutionOrder(1)]
     public class CameraLimiter : MonoBehaviour
     {
-        private void OnEnable()
+        public void UpdateCamera()
         {
-            ResolutionManager.OnResolutionChanged += OnResolutionChangedCallback;
             UpdateCamera(Screen.width, Screen.height);
         }
-        private void OnDisable()
-        {
-            ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
-        }
-        private void OnResolutionChangedCallback(int width, int height)
-        {
-            UpdateCamera(width, height);
-        }
-        private void UpdateCamera(int width, int height)
+        public void UpdateCamera(int width, int height)
         {
             if (!_camera)
                 return;
@@ -43,6 +37,28 @@ namespace MVZ2.Level
             rect.size = rectSize;
             rect.center = new Vector2(0.5f, 0.5f);
             _camera.rect = rect;
+        }
+        private void OnEnable()
+        {
+            ResolutionManager.OnResolutionChanged += OnResolutionChangedCallback;
+            OptionsManager.OnOptionChangedInt += OnOptionChangedIntCallback;
+            UpdateCamera();
+        }
+        private void OnDisable()
+        {
+            ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
+            OptionsManager.OnOptionChangedInt -= OnOptionChangedIntCallback;
+        }
+        private void OnResolutionChangedCallback(int width, int height)
+        {
+            UpdateCamera(width, height);
+        }
+        private void OnOptionChangedIntCallback(NamespaceID option, int value)
+        {
+            if (option == LogicOptionItemID.screenLayout)
+            {
+                UpdateCamera();
+            }
         }
 
         [SerializeField]

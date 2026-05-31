@@ -83,10 +83,15 @@ namespace MVZ2.Saves
                 var destPath = GetUserModSaveDataPath(userIndex, spaceName, 0);
                 var backupPath = GetUserModSaveDataPath(userIndex, spaceName, 1);
                 FileHelper.ValidateDirectory(destPath);
-                if (File.Exists(destPath))
+                try
+                {
                     File.Replace(tempSavePath, destPath, backupPath);
-                else
+                }
+                catch (FileNotFoundException)
+                {
+                    // 目标文件在调用前被删除 → 改用移动
                     File.Move(tempSavePath, destPath);
+                }
             }
         }
         private void CycleSaveDataBackups(int userIndex, string spaceName)

@@ -61,6 +61,8 @@ namespace MVZ2.DebugConsole
         }
         private void Update()
         {
+            UpdateUIMargin();
+
             HandleInputNavigation();
             if (CheckSuggestionDirty())
             {
@@ -366,6 +368,57 @@ namespace MVZ2.DebugConsole
         }
         #endregion
 
+        private void UpdateUIMargin()
+        {
+            ui.SetConsoleBottomMargin(GetKeyboardHeight() / Screen.height);
+        }
+        private float GetKeyboardHeight()
+        {
+            if (Application.isEditor)
+            {
+                return debugKeyboardHeight;
+            }
+            else if (Application.platform == RuntimePlatform.Android)
+            {
+                if (TouchScreenKeyboard.isSupported && TouchScreenKeyboard.visible)
+                    return GetKeyboardHeightAndroid();
+            }
+            else if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+                if (TouchScreenKeyboard.isSupported && TouchScreenKeyboard.visible)
+                    return (float)TouchScreenKeyboard.area.height;
+            }
+            return 0f;
+        }
+        private float GetKeyboardHeightAndroid()
+        {
+            try
+            {
+                using AndroidJavaClass UnityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+
+                using AndroidJavaObject? currentActivity = UnityClass.GetStatic<AndroidJavaObject>("currentActivity");
+                if (currentActivity == null)
+                    return 0f;
+
+                using AndroidJavaObject? mUnityPlayer = currentActivity.Get<AndroidJavaObject>("mUnityPlayer");
+                if (mUnityPlayer == null)
+                    return 0f;
+
+                using AndroidJavaObject? view = mUnityPlayer.Call<AndroidJavaObject>("getView");
+                if (view == null)
+                    return 0f;
+
+                using AndroidJavaObject rect = new AndroidJavaObject("android.graphics.Rect");
+
+                view.Call("getWindowVisibleDisplayFrame", rect);
+                return (float)(Screen.height - rect.Call<int>("height"));
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("获取安卓窗口高度失败: " + e.Message);
+                return 0f;
+            }
+        }
         public MainManager Main => MainManager.Instance;
         private List<string> commandHistory = new List<string>();
         private int historyIndex = -1;
@@ -377,6 +430,8 @@ namespace MVZ2.DebugConsole
         private string? lastInput;
         private int lastCaret = -1;
         private bool historyNavigated;
+        [SerializeField]
+        private float debugKeyboardHeight = 0f;
         [SerializeField]
         private bool keepHistoryBetweenSessions = true;
         [SerializeField]

@@ -17,6 +17,7 @@ Material:
   m_InvalidKeywords:
   - COLORED_ON
   - _CIRCLESTART_RIGHT
+  - _GRAYSCALEMATERIAL_ON
   - _GRAYSCALE_ON
   - _SPOTLIT_ON
   m_LightmapFlags: 4
@@ -32,5 +33,6 @@ Material:
     m_Ints: []
     m_Floats:
     - _Grayscale: 1
+    - _GrayscaleMaterial: 1
     m_Colors: []
   m_BuildTextureStacks: []

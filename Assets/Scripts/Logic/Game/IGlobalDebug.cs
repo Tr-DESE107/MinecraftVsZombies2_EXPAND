@@ -6,6 +6,7 @@ namespace MVZ2Logic.Games
 {
     public interface IGlobalDebug
     {
+        bool CanUseDebugFeatures();
         void Print(string message);
         string[] GetCommandHistory();
         void ExecuteCommand(string command, int times);
