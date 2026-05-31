@@ -10,19 +10,21 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs
+namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.parabot)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.parabot)]
     public class ParabotBuff : BuffDefinition
     {
         public ParabotBuff(string nsp, string name) : base(nsp, name)
@@ -78,7 +80,8 @@ namespace MVZ2.GameContent.Buffs
                     position = centerPos,
                     projectileID = VanillaProjectileID.parabot,
                     soundID = VanillaSoundID.bow,
-                    velocity = (otherCenter - centerPos).normalized * 10
+                    velocity = (otherCenter - centerPos).normalized * 10,
+                    spawnParam = entity.GetSpawnParams(),
                 };
                 var projectile = entity.ShootProjectile(shootParams);
                 if (projectile != null)
@@ -141,7 +144,7 @@ namespace MVZ2.GameContent.Buffs
         {
             return buff.GetProperty<int>(PROP_EXPLODE_TIME);
         }
-        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

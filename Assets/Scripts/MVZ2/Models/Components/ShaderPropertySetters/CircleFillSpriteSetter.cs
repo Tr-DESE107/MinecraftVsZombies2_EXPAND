@@ -12,6 +12,7 @@ namespace MVZ2.Models
         public override void SetProperty(float value)
         {
             Element.SetFloat("_CircleFill", value);
+            Element.ApplyShaderProperties();
         }
         [Range(0, 1)]
         public float fill;

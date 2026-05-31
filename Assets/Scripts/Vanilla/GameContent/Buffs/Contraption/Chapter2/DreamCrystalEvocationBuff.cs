@@ -6,19 +6,20 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.dreamCrystalEvocation)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.dreamCrystalEvocation)]
     public class DreamCrystalEvocationBuff : BuffDefinition
     {
         public DreamCrystalEvocationBuff(string nsp, string name) : base(nsp, name)
         {
             healDetector = new SphereDetector(100)
             {
+                canDetectInvisible = true,
                 factionTarget = FactionTarget.Friendly
             };
             AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));

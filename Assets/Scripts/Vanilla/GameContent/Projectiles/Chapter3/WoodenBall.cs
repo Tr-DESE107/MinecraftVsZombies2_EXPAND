@@ -6,14 +6,13 @@ using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.woodenBall)]
-    public class WoodenBall : ProjectileBehaviour, IHellfireIgniteBehaviour
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.woodenBall)]
+    public class WoodenBall : EntityBehaviourDefinition, IHellfireIgniteBehaviour
     {
         public WoodenBall(string nsp, string name) : base(nsp, name)
         {
@@ -21,9 +20,6 @@ namespace MVZ2.GameContent.Projectiles
         public override void Update(Entity projectile)
         {
             base.Update(projectile);
-            float angleSpeed = -projectile.Velocity.x * 2.5f;
-            projectile.RenderRotation += Vector3.forward * angleSpeed;
-
             UpdateIgnited(projectile);
         }
         public void Ignite(Entity entity, Entity hellfire, bool cursed)

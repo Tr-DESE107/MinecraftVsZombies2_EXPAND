@@ -2,16 +2,19 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.StateMachine;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -19,7 +22,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
 {
-    [EntityBehaviourDefinition(VanillaBossNames.nightmareaper)]
+    [AutoEntityBehaviourDefinition(VanillaBossNames.nightmareaper)]
     public partial class Nightmareaper : BossBehaviour
     {
         public Nightmareaper(string nsp, string name) : base(nsp, name)
@@ -72,12 +75,10 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
             if (!entity.IsAboveLand())
                 return;
             foreach (Entity nightmareaper in entity.Level.FindEntities(VanillaBossID.nightmareaper))

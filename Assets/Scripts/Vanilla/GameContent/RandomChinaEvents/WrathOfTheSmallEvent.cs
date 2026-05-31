@@ -2,10 +2,12 @@
 
 using MukioI18n;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Definitions;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.RandomChina;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -15,7 +17,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.wrathOfTheSmall)]
     public class WrathOfTheSmallEvent : RandomChinaEventDefinition
     {
-        public WrathOfTheSmallEvent(string nsp, string path) : base(nsp, path, NAME)
+        public WrathOfTheSmallEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -23,7 +25,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
             var level = contraption.Level;
             var randomLane = rng.Next(0, level.GetMaxLaneCount());
             var z = level.GetEntityLaneZ(randomLane);
-            var x = VanillaLevelExt.GetBorderX(false);
+            var x = LevelPositions.GetBorderX(false);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
             contraption.Spawn(VanillaProjectileID.largeSnowball, pos)?.Let(e =>
@@ -34,5 +36,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "小型之怒";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "在随机一行的最左侧生成一个大雪球";
     }
 }

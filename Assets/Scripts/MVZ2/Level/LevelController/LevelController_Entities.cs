@@ -5,13 +5,13 @@ using System.Linq;
 using System.Runtime.Serialization;
 using MukioI18n;
 using MVZ2.Entities;
-using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -61,7 +61,7 @@ namespace MVZ2.Level
             {
                 // 触发手持物品指针事件。
                 var target = entityCtrl.GetHeldItemTarget(eventData);
-                var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(eventData, interaction);
+                var pointerParams = InputHelper.GetPointerInteractionParamsFromEventData(eventData, interaction);
                 level.DoHeldItemPointerEvent(target, pointerParams);
             }
 
@@ -82,7 +82,7 @@ namespace MVZ2.Level
         {
             SetHoveredEntity(entityCtrl);
             // 显示查看图鉴提示
-            if (!IsGameStarted() && entityCtrl.Entity.IsPreviewEnemy() && CanChooseBlueprints())
+            if (!IsGameStarted() && entityCtrl.Entity.IsPreviewEnemy() && ChooseBlueprintsInteractable())
             {
                 ShowTooltip(new EntityTooltipSource(this, entityCtrl));
             }
@@ -100,18 +100,18 @@ namespace MVZ2.Level
         {
             if (IsGameStarted())
                 return;
-            var pointer = InputManager.GetPointerDataFromEventData(eventData);
+            var pointer = InputHelper.GetPointerDataFromEventData(eventData);
             var entity = entityCtrl.Entity;
             if (pointer.type == PointerTypes.MOUSE && pointer.button != MouseButtons.LEFT)
                 return;
-            if (!entity.IsPreviewEnemy() || !Main.SaveManager.IsAlmanacUnlocked() || !CanChooseBlueprints())
+            if (!entity.IsPreviewEnemy() || !Main.SaveManager.IsAlmanacUnlocked() || !ChooseBlueprintsInteractable())
                 return;
             var entityID = entityCtrl.Entity.GetDefinitionID();
             if (!Main.ResourceManager.IsEnemyInAlmanac(entityID) || !Main.SaveManager.IsEnemyUnlocked(entityID))
                 return;
             HideTooltip();
             OpenEnemyAlmanac(entity.GetDefinitionID());
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         #endregion
 
@@ -127,7 +127,7 @@ namespace MVZ2.Level
         private bool RemoveControllerFromEntity(Entity entity)
         {
             var entityController = GetEntityController(entity);
-            if (entityController)
+            if (entityController.Exists())
             {
                 entityController.OnPointerInteraction -= UI_OnEntityPointerInteractionCallback;
                 entityController.RemoveEntity();
@@ -136,7 +136,7 @@ namespace MVZ2.Level
             }
             return false;
         }
-        public EntityController GetEntityController(Entity entity)
+        public EntityController? GetEntityController(Entity entity)
         {
             return entities.FirstOrDefault(e => e.Entity == entity);
         }
@@ -187,7 +187,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 动画
-        private void UpdateEntityAnimators(IList<Animator> toUpdate, float deltaTime, float gameSpeed, float maxBatchPercentage)
+        private void UpdateEntityAnimators(IList<AnimatorUpdateData> toUpdate, float deltaTime, float gameSpeed, float maxBatchPercentage)
         {
             var count = toUpdate.Count;
             if (count <= 0)
@@ -200,9 +200,11 @@ namespace MVZ2.Level
             for (int i = 0; i < updateCount; i++)
             {
                 var index = (i + startIndex) % count;
-                var animator = toUpdate[index];
+                var data = toUpdate[index];
+                var animator = data.animator;
+                var speed = data.speed;
                 animator.enabled = false;
-                animator.Update(deltaTime * gameSpeed * updateSpeed);
+                animator.Update(deltaTime * gameSpeed * updateSpeed * speed);
             }
             currentEntityAnimatorIndex = (updateCount + startIndex) % count;
         }
@@ -219,7 +221,7 @@ namespace MVZ2.Level
         private List<EntityController> entities = new List<EntityController>();
         private EntityController? hoveredEntity;
         private EntityController? highlightedEntity;
-        private List<Animator> entityAnimatorBuffer = new List<Animator>();
+        private List<AnimatorUpdateData> entityAnimatorBuffer = new List<AnimatorUpdateData>();
         private int currentEntityAnimatorIndex = 0;
 
         [Header("Entities")]
@@ -268,6 +270,17 @@ namespace MVZ2.Level
                     description = description
                 };
             }
+        }
+    }
+    public struct AnimatorUpdateData
+    {
+        public Animator animator;
+        public float speed;
+
+        public AnimatorUpdateData(Animator animator, float speed)
+        {
+            this.animator = animator;
+            this.speed = speed;
         }
     }
 }

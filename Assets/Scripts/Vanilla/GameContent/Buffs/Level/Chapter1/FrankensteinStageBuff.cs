@@ -2,19 +2,20 @@
 
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Enemies
+namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.frankensteinStage)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.frankensteinStage)]
     public class FrankensteinStageBuff : BuffDefinition
     {
         public FrankensteinStageBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Multiply(VanillaAreaProps.GLOBAL_LIGHT, PROP_LIGHT_MULTIPLIER));
+            AddModifier(ColorModifier.Multiply(LogicAreaProps.GLOBAL_LIGHT, PROP_LIGHT_MULTIPLIER));
         }
         public override void PostAdd(Buff buff)
         {
@@ -41,7 +42,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 time++;
                 buff.SetProperty(PROP_TIME, time);
             }
-            var colorComp = 1 - (time / (float)MAX_TIME) * 0.5f;
+            var colorComp = 1 - time / (float)MAX_TIME * 0.5f;
             buff.SetProperty(PROP_LIGHT_MULTIPLIER, new Color(colorComp, colorComp, colorComp, 1));
         }
         public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("LightMultiplier");

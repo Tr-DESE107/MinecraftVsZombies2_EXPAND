@@ -5,20 +5,20 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Obstacles;
-using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Unlocks;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.annihilationField)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.annihilationField)]
     public class AnnihilationField : EffectBehaviour
     {
 
@@ -27,7 +27,6 @@ namespace MVZ2.GameContent.Effects
         {
             absorbDetector = new BlackholeDetector()
             {
-                canDetectInvisible = true,
                 factionTarget = FactionTarget.Hostile,
                 mask = EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE | EntityCollisionHelper.MASK_PROJECTILE
             };
@@ -66,17 +65,7 @@ namespace MVZ2.GameContent.Effects
         public override void PostRemove(Entity entity)
         {
             base.PostRemove(entity);
-            var level = entity.Level;
-            if (level.AreaID == VanillaAreaID.dream && !Global.Saves.IsUnlocked(VanillaUnlockID.bottledBlackhole))
-            {
-                if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && e.GetPickupContentID() == VanillaArtifactID.bottledBlackhole))
-                {
-                    level.Spawn(VanillaPickupID.artifactPickup, entity.Position, entity)?.Let(e =>
-                    {
-                        e.SetPickupContentID(VanillaArtifactID.bottledBlackhole);
-                    });
-                }
-            }
+            entity.SpawnUnlockArtifactPickup(VanillaAreaID.dream, VanillaUnlockID.bottledBlackhole, VanillaArtifactID.bottledBlackhole, entity.Position);
         }
         private List<Entity> detectBuffer = new List<Entity>();
         private Detector absorbDetector;

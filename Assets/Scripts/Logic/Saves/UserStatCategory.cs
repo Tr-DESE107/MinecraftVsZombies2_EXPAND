@@ -36,18 +36,6 @@ namespace MVZ2Logic.Saves
         {
             return entries.ToArray();
         }
-        public long GetSum()
-        {
-            if (entries.Count <= 0)
-                return 0;
-            return entries.Sum(e => e.Value);
-        }
-        public long GetMax()
-        {
-            if (entries.Count <= 0)
-                return 0;
-            return entries.Max(e => e.Value);
-        }
         public SerializableUserStatCategory ToSerializable()
         {
             var entries = this.entries.Select(e => e.ToSerializable()).ToArray();

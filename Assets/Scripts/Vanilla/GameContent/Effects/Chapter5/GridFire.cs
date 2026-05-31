@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Stages;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Localization;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -17,7 +19,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.gridFire)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.gridFire)]
     public class GridFire : EntityBehaviourDefinition, IBeBlownBehaviour
     {
         public GridFire(string nsp, string name) : base(nsp, name)
@@ -35,7 +37,7 @@ namespace MVZ2.GameContent.Contraptions
             if (level.StageID == VanillaStageID.ship11 && !level.IsRerun && !level.IsGridFireAdviced())
             {
                 level.SetGridFireAdviced(true);
-                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_EXTINGUISH_FIRE, 100, 120);
+                level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_EXTINGUISH_FIRE, 100, 120);
             }
         }
         public override void Update(Entity entity)
@@ -49,10 +51,7 @@ namespace MVZ2.GameContent.Contraptions
             detector.DetectEntities(hellfire, igniteBuffer);
             foreach (Entity target in igniteBuffer)
             {
-                var behaviour = target.Definition?.GetBehaviour<IHellfireIgniteBehaviour>();
-                if (behaviour == null)
-                    return;
-                behaviour.Ignite(target, hellfire, false);
+                target.HellfireIgnite(hellfire, false);
             }
         }
         public void BeBlown(Entity entity, Entity source)

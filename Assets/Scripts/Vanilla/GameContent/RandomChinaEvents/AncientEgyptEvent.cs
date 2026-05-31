@@ -3,10 +3,12 @@
 using MukioI18n;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Definitions;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.RandomChina;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using Tools;
@@ -16,7 +18,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.ancientEgypt)]
     public class AncientEgyptEvent : RandomChinaEventDefinition
     {
-        public AncientEgyptEvent(string nsp, string path) : base(nsp, path, NAME)
+        public AncientEgyptEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -34,5 +36,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "神秘埃及";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "每行召唤一个木乃伊，然后……";
     }
 }

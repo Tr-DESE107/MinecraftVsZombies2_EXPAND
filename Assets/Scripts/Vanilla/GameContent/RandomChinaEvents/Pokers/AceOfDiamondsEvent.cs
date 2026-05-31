@@ -2,7 +2,8 @@
 
 using MukioI18n;
 using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
+using MVZ2.Vanilla.Definitions;
+using MVZ2.Vanilla.Localization;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.aceOfDiamonds)]
     public class AceOfDiamondsEvent : AceAbstractEvent
     {
-        public AceOfDiamondsEvent(string nsp, string path) : base(nsp, path, NAME)
+        public AceOfDiamondsEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         protected override void Transform(Entity target, Entity china)
@@ -23,5 +24,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "方片A";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "将所有怪物和掉落物变为绿宝石";
     }
 }

@@ -3,18 +3,19 @@
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.hfpd)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.hfpd)]
     public class HighFrequencyPulseDispenser : DispenserFamily
     {
         public HighFrequencyPulseDispenser(string nsp, string name) : base(nsp, name)

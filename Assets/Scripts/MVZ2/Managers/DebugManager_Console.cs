@@ -8,59 +8,63 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Metas;
-using MVZ2.Vanilla;
 using MVZ2Logic;
-using MVZ2Logic.Artifacts;
-using MVZ2Logic.Command;
 using MVZ2Logic.Commands;
-using MVZ2Logic.Debugs;
 using MVZ2Logic.Games;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Localization;
 using PVZEngine;
-using PVZEngine.Definitions;
-using PVZEngine.Entities;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Debugs
 {
     public partial class DebugManager : MonoBehaviour, IGlobalDebug
     {
         public void LoadCommandParameterSuggestions()
         {
-            entityIDSet.Clear();
-            blueprintIDSet.Clear();
-            artifactIDSet.Clear();
             commandIDSet.Clear();
-            armorIDSet.Clear();
-            armorSlotIDSet.Clear();
-            unlockIDSet.Clear();
-            foreach (var def in Main.Game.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
-            {
-                entityIDSet.Add(def.GetID().ToString());
-            }
-            foreach (var def in Main.Game.GetDefinitions<SeedDefinition>(EngineDefinitionTypes.SEED))
-            {
-                blueprintIDSet.Add(def.GetID().ToString());
-            }
-            foreach (var def in Main.Game.GetDefinitions<ArtifactDefinition>(LogicDefinitionTypes.ARTIFACT))
-            {
-                artifactIDSet.Add(def.GetID().ToString());
-            }
             foreach (var def in Main.Game.GetAllCommandDefinitions())
             {
                 commandIDSet.Add(def.GetID());
             }
-            foreach (var def in Main.Game.GetAllArmorDefinitions())
+
+            foreach (var set in idSetDictionary.Values)
             {
-                armorIDSet.Add(def.GetID().ToString());
+                set.Clear();
             }
-            foreach (var def in Main.Game.GetAllArmorSlotDefinitions())
-            {
-                armorSlotIDSet.Add(def.GetID().ToString());
-            }
+            RegisterIDSets();
+
             foreach (var unlock in Main.ResourceManager.GetAllUnlockConditions())
             {
-                unlockIDSet.Add(unlock.ToString());
+                var defType = CommandMetaParam.ID_TYPE_UNLOCK;
+                if (!idSetDictionary.TryGetValue(defType, out var set))
+                {
+                    set = new HashSet<string>();
+                    idSetDictionary.Add(defType, set);
+                }
+                set.Add(unlock.ToString());
+            }
+        }
+        private void RegisterIDSets()
+        {
+            foreach (var def in Main.Game.GetDefinitions())
+            {
+                var defType = def.GetDefinitionType();
+                if (!idSetDictionary.TryGetValue(defType, out var set))
+                {
+                    set = new HashSet<string>();
+                    idSetDictionary.Add(defType, set);
+                }
+                set.Add(def.GetID().ToString());
+            }
+            var chapterTransitionType = CommandMetaParam.ID_TYPE_CHAPTER_TRANSITION;
+            foreach (var id in Main.ResourceManager.GetAllChapterTransitions())
+            {
+                if (!idSetDictionary.TryGetValue(chapterTransitionType, out var set))
+                {
+                    set = new HashSet<string>();
+                    idSetDictionary.Add(chapterTransitionType, set);
+                }
+                set.Add(id.ToString());
             }
         }
         public bool IsConsoleActive()
@@ -88,7 +92,7 @@ namespace MVZ2.Managers
                 }
                 catch (Exception ex)
                 {
-                    var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
+                    var msg = Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
                     PrintLine(msg);
                 }
             }
@@ -110,7 +114,7 @@ namespace MVZ2.Managers
             }
             if (definition == null)
             {
-                msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_NOT_FOUND, command);
+                msg = Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_NOT_FOUND, command);
                 return false;
             }
             try
@@ -119,7 +123,7 @@ namespace MVZ2.Managers
             }
             catch (Exception ex)
             {
-                msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
+                msg = Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
                 return false;
             }
             return true;
@@ -275,7 +279,7 @@ namespace MVZ2.Managers
                     {
                         return Main.Game.GetEntityDefinition(id) != null;
                     }
-                case CommandMetaParam.ID_TYPE_BLUEPRINT:
+                case CommandMetaParam.ID_TYPE_SEED:
                     {
                         return Main.Game.GetSeedDefinition(id) != null;
                     }
@@ -402,56 +406,12 @@ namespace MVZ2.Managers
                     break;
                 case CommandMetaParam.TYPE_ID:
                     {
-                        switch (param.IDType)
+                        if (idSetDictionary.TryGetValue(param.IDType, out var set))
                         {
-                            case CommandMetaParam.ID_TYPE_ENTITY:
-                                {
-                                    foreach (var sug in entityIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_BLUEPRINT:
-                                {
-                                    foreach (var sug in blueprintIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_ARTIFACT:
-                                {
-                                    foreach (var sug in artifactIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_ARMOR:
-                                {
-                                    foreach (var sug in armorIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_ARMOR_SLOT:
-                                {
-                                    foreach (var sug in armorSlotIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
-                            case CommandMetaParam.ID_TYPE_UNLOCK:
-                                {
-                                    foreach (var sug in unlockIDSet)
-                                    {
-                                        yield return sug;
-                                    }
-                                }
-                                break;
+                            foreach (var sug in set)
+                            {
+                                yield return sug;
+                            }
                         }
                     }
                     break;
@@ -473,15 +433,15 @@ namespace MVZ2.Managers
                 return;
             // 在关卡外执行关卡命令
             if (def.MustInLevel() && !Global.Level.IsInLevel())
-                throw new InvalidOperationException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MUST_IN_LEVEL));
+                throw new InvalidOperationException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_MUST_IN_LEVEL));
 
             var variants = def.GetVariants();
             if (variants == null)
-                throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_FORMAT));
+                throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_FORMAT));
             var variant = GetBestFitCommandVariant(variants, parts);
             // 命令变体不存在。
             if (variant == null)
-                throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_FORMAT));
+                throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_FORMAT));
 
             // 检测命令变体的子名称是否正确。
             var hasSubname = !string.IsNullOrEmpty(variant.Subname);
@@ -492,14 +452,14 @@ namespace MVZ2.Managers
                 {
                     var possibleSubnames = GetCommandPossibleSubnameTexts(variants);
                     var subnameStr = string.Join(",", possibleSubnames);
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MISSING_SUBNAME, subnameStr));
+                    throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_MISSING_SUBNAME, subnameStr));
                 }
                 // 子名称不正确
                 if (!variant.Subname.Equals(parts[1], StringComparison.OrdinalIgnoreCase))
                 {
                     var possibleSubnames = GetCommandPossibleSubnameTexts(variants);
                     var subnameStr = string.Join(",", possibleSubnames);
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_SUBNAME, subnameStr));
+                    throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_SUBNAME, subnameStr));
                 }
             }
             // 检测命令变体的参数是否正确。
@@ -512,13 +472,13 @@ namespace MVZ2.Managers
                     if (parameter.Optional)
                         continue;
 
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MISSING_PARAMETER, parameter.Name));
+                    throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_MISSING_PARAMETER, parameter.Name));
                 }
                 var part = parts[partIndex];
 
                 if (!FitsCommandParameter(parameter, part))
                 {
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_PARAMETER, parameter.Name));
+                    throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_PARAMETER, parameter.Name));
                 }
             }
             var actualParamLength = variant.GetParameterIndexOfCommandPart(parts.Length);
@@ -526,7 +486,7 @@ namespace MVZ2.Managers
             var maxParameterCount = variant.Parameters.Length;
             if (actualParamLength < minParameterCount || actualParamLength > maxParameterCount)
             {
-                throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_PARAMETER_COUNT));
+                throw new ArgumentException(Main.LanguageManager._p(LogicStrings.CONTEXT_COMMAND_OUTPUT, LogicStrings.COMMAND_INCORRECT_PARAMETER_COUNT));
             }
         }
         #endregion
@@ -551,19 +511,14 @@ namespace MVZ2.Managers
 
         [SerializeField]
         private string commandHistoryFileName = "commands.txt";
-        private HashSet<string> entityIDSet = new HashSet<string>();
-        private HashSet<string> blueprintIDSet = new HashSet<string>();
-        private HashSet<string> artifactIDSet = new HashSet<string>();
-        private HashSet<string> armorIDSet = new HashSet<string>();
-        private HashSet<string> armorSlotIDSet = new HashSet<string>();
-        private HashSet<string> unlockIDSet = new HashSet<string>();
+        private Dictionary<string, HashSet<string>> idSetDictionary = new Dictionary<string, HashSet<string>>();
         private HashSet<NamespaceID> commandIDSet = new HashSet<NamespaceID>();
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;
         public const string DEFAULT_VALUE_PARAMETER = CommandUtility.DEFAULT_VALUE_PARAMETER;
-        [TranslateMsg("命令输出，{0}为命令名", VanillaStrings.CONTEXT_COMMAND_OUTPUT)]
+        [TranslateMsg("命令输出，{0}为命令名", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_NOT_FOUND = "<color=red>命令不存在：{0}</color>";
-        [TranslateMsg("命令输出，{0}为错误", VanillaStrings.CONTEXT_COMMAND_OUTPUT)]
+        [TranslateMsg("命令输出，{0}为错误", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_ERROR = "<color=red>错误：{0}</color>";
     }
 }

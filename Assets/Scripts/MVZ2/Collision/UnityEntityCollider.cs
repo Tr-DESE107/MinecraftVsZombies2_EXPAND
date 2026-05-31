@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine;
 using PVZEngine.Base;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Level.Collisions;
 using Tools;
-using Tools.Mathematics;
+using Tools.Geometrical;
 using UnityEngine;
 
 namespace MVZ2.Collisions
@@ -172,6 +172,10 @@ namespace MVZ2.Collisions
         }
 
         #region 检测
+        public bool CheckBox(Vector3 center, Vector3 size)
+        {
+            return boxCollider.bounds.IntersectsOptimized(new Bounds(center, size));
+        }
         public bool CheckSphere(Vector3 center, float radius)
         {
             var closest = boxCollider.ClosestPoint(center);
@@ -181,7 +185,7 @@ namespace MVZ2.Collisions
         {
             var capsule = new Capsule(pos1, pos2, radius);
             var box = boxCollider.bounds;
-            return MathTool.CollideBetweenCubeAndCapsule(capsule, box);
+            return Geometry.CollideBetweenCubeAndCapsule(capsule, box);
         }
         #endregion
 

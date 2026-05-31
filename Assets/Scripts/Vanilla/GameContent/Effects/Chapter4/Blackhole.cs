@@ -7,15 +7,17 @@ using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.blackhole)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.blackhole)]
     public class Blackhole : EffectBehaviour
     {
 
@@ -25,7 +27,6 @@ namespace MVZ2.GameContent.Effects
             absorbDetector = new BlackholeDetector()
             {
                 mask = EntityCollisionHelper.MASK_VULNERABLE | EntityCollisionHelper.MASK_PROJECTILE,
-                canDetectInvisible = true,
                 factionTarget = FactionTarget.Any
             };
         }

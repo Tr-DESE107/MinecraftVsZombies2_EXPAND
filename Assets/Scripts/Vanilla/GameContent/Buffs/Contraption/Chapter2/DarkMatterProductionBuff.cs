@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.darkMatterProduction)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.darkMatterProduction)]
     public class DarkMatterProductionBuff : BuffDefinition
     {
         public DarkMatterProductionBuff(string nsp, string name) : base(nsp, name)

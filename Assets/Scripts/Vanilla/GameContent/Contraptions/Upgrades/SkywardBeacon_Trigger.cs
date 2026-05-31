@@ -3,22 +3,25 @@
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skywardBeacon_Trigger)]
-    public class SkywardBeacon_Trigger : ContraptionTriggerBehaviour
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.skywardBeacon_Trigger)]
+    public class SkywardBeacon_Trigger : EntityEmptyHandClickBehaviour
     {
         public SkywardBeacon_Trigger(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Trigger(Entity entity)
+        public override bool IsValidPointerInteraction(Entity entity, PointerInteractionData interaction)
         {
-            base.Trigger(entity);
-
+            return interaction.IsPointerDownOrDrag();
+        }
+        public override void EmptyHandClick(Entity entity)
+        {
             var builder = new HeldItemBuilder(VanillaHeldTypes.skywardBeacon, 100);
             builder.SetEntityID(entity.ID);
             entity.Level.SetHeldItem(builder);

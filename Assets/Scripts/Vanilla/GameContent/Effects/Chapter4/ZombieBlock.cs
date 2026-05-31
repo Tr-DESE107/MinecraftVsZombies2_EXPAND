@@ -5,17 +5,20 @@ using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.zombieBlock)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.zombieBlock)]
     public class ZombieBlock : EffectBehaviour
     {
 
@@ -188,7 +191,7 @@ namespace MVZ2.GameContent.Effects
         public const int MODE_TRANSFORM = 2;
         public const int MODE_SNAKE_FOOD = 3;
 
-        private Detector jumpDetector = new CollisionDetector();
+        private Detector jumpDetector = new CollisionDetector(true);
         private List<IEntityCollider> jumpBuffer = new List<IEntityCollider>();
 
         private static readonly VanillaEntityPropertyMeta<int> PROP_MODE = new VanillaEntityPropertyMeta<int>("Mode");

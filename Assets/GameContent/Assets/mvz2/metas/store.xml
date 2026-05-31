@@ -6,6 +6,11 @@
                 <condition required="mvz2:entered_gensokyo" />
             </conditions>
         </preset>
+        <preset id="chireiden" character="mvz2:crazy_villager" background="mvz2:misc/palace" music="mvz2:mainmenu" priority="200">
+            <conditions>
+                <condition required="mvz2:entered_palace" requiredNot="mvz2:level.palace_11" />
+            </conditions>
+        </preset>
     </presets>
     <talks>
         <talk id="mvz2:kourindou_first_visit">
@@ -36,6 +41,11 @@
         <talk id="mvz2:kourindou_visit_ship_2">
             <conditions>
                 <condition required="mvz2:level.ship_6" requiredNot="mvz2:kourindou_visited_ship_2" />
+            </conditions>
+        </talk>
+        <talk id="mvz2:kourindou_visit_palace_1">
+            <conditions>
+                <condition required="mvz2:level.ship_11" requiredNot="mvz2:entered_palace" />
             </conditions>
         </talk>
     </talks>
@@ -126,6 +136,21 @@
                 <stage price="2000" unlocks="mvz2:obsidian_first_aid" />
             </stages>
         </product>
+        <product id="satori_detector" sprite="mvz2:products/satori_detector">
+            <unlock>
+                <condition required="mvz2:level.palace_5" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">我专门研发的觉眼探测器！可以用于查看器械和怪物的血量！</talk>
+                <talk character="mvz2:tokiko">神奇的头戴眼镜！可以用于查看器械和怪物的血量！</talk>
+            </talks>
+            <stages>
+                <stage price="5000" unlocks="mvz2:satori_detector" />
+            </stages>
+        </product>
+        <product/>
+        <product/>
+        <product/>
 
         <product id="infectenser" blueprintId="mvz2:infectenser">
             <talks>
@@ -206,8 +231,8 @@
                 <condition required="mvz2:level.dream_11" />
             </unlock>
             <talks>
-                <talk character="mvz2:crazy_villager">从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是场景会变得很黑！</talk>
-                <talk character="mvz2:tokiko">一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！</talk>
+                <talk character="mvz2:crazy_villager">从梦魇身上提取出来的暗物质！器械生产效率翻倍，但是怪物会隐形！</talk>
+                <talk character="mvz2:tokiko">一种很黑的东西，它能让器械生产效率翻倍，但是你会看不见那些怪物！</talk>
             </talks>
             <stages>
                 <stage price="15000" unlocks="mvz2:artifact.dark_matter" />
@@ -237,18 +262,6 @@
                 <stage price="15000" unlocks="mvz2:artifact.nether_star" />
             </stages>
         </product>
-        <!-- <product id="wither_skeleton_skull" sprite="mvz2:artifacts/wither_skeleton_skull">
-            <unlock>
-                <condition required="mvz2:level.castle_11" />
-            </unlock>
-            <talks>
-                <talk character="mvz2:crazy_villager">凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！</talk>
-                <talk character="mvz2:tokiko">很吓人的骷髅头……它能让你的蓝图消耗变为80%，但是器械们的耐久也会因此变为60%！</talk>
-            </talks>
-            <stages>
-                <stage price="15000" unlocks="mvz2:artifact.wither_skeleton_skull" />
-            </stages>
-        </product> -->
         <product id="greedy_vacuum" sprite="mvz2:artifacts/greedy_vacuum">
             <unlock>
                 <condition required="mvz2:level.mausoleum_5" />
@@ -295,6 +308,30 @@
             </talks>
             <stages>
                 <stage price="15000" unlocks="mvz2:artifact.dragon_tooth" />
+            </stages>
+        </product>
+        <product id="ghostly_cart" sprite="mvz2:artifacts/ghostly_cart">
+            <unlock>
+                <condition required="mvz2:level.palace_5" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">一辆废弃的尸体推车！每3分钟都会刷新你的最终防线小车！</talk>
+                <talk character="mvz2:tokiko">偷尸体的猫的小推车！每3分钟都会刷新你的最终防线小车！</talk>
+            </talks>
+            <stages>
+                <stage price="4440" unlocks="mvz2:artifact.ghostly_cart" />
+            </stages>
+        </product>
+        <product id="broken_lock" sprite="mvz2:artifacts/broken_lock">
+            <unlock>
+                <condition required="mvz2:level.palace_11" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">上锁箱子的挂锁！当器械受到伤害时，减少它蓝图的充能时间！</talk>
+                <talk character="mvz2:tokiko">那个可恶箱子的挂锁！当器械受到伤害时，减少它蓝图的充能时间！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.broken_lock" />
             </stages>
         </product>
         <product id="cake" sprite="mvz2:products/cake">

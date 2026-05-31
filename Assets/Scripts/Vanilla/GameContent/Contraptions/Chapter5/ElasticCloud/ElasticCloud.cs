@@ -5,18 +5,20 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.elasticCloud)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.elasticCloud)]
     public class ElasticCloud : AIEntityBehaviour
     {
         public ElasticCloud(string nsp, string name) : base(nsp, name)
@@ -63,7 +65,7 @@ namespace MVZ2.GameContent.Contraptions
             enemy.Velocity += knockbackMultiplier * KNOCKBACK_DISTANCE * self.GetFacingDirection();
 
             var bounceDamage = BOUNCE_DAMAGE * self.Level.GetElasticCloudBounceDamageMultiplier();
-            self.TakeDamage(bounceDamage, new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), self);
+            self.TakeDamage(bounceDamage, new DamageEffectList(), self);
             AddEnemyKnockbackCooldown(self, enemy, Ticks.FromSeconds(KNOCKBACK_COOLDOWN_SECONDS));
             PlayBounceEffect(self);
             return true;

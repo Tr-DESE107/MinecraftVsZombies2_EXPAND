@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using MVZ2.UI.Map;
 using PVZEngine;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace MVZ2.Map
 {
     public class MapModel : MonoBehaviour
     {
+        #region 无尽轮数
         public void SetEndlessFlagsTextActive(bool active)
         {
             if (!endlessFlagsText)
@@ -22,15 +24,12 @@ namespace MVZ2.Map
                 return;
             endlessFlagsText.text = text;
         }
-        public int GetMapButtonCount()
+        #endregion
+
+        #region 无尽按钮
+        public MapButton? GetEndlessMapButton()
         {
-            return mapButtons.Length;
-        }
-        public MapButton? GetMapButton(int index)
-        {
-            if (index < 0 || index >= mapButtons.Length)
-                return null;
-            return mapButtons[index];
+            return endlessButton;
         }
         public void SetEndlessButtonInteractable(bool interactable)
         {
@@ -50,15 +49,18 @@ namespace MVZ2.Map
                 return;
             endlessButton.SetText(text);
         }
-        public void SetMapKeyActive(bool active)
+        #endregion
+
+        #region 地图按钮
+        public int GetMapButtonCount()
         {
-            if (mapKey)
-                mapKey.gameObject.SetActive(active);
+            return mapButtons.Length;
         }
-        public void SetMapKeyArrowVisible(bool visible)
+        public MapButton? GetMapButton(int index)
         {
-            if (mapKey)
-                mapKey.SetArrowVisible(visible);
+            if (index < 0 || index >= mapButtons.Length)
+                return null;
+            return mapButtons[index];
         }
         public void SetMapButtonInteractable(int index, bool interactable)
         {
@@ -95,19 +97,19 @@ namespace MVZ2.Map
                 return;
             button.SetBorderSpriteToDefault();
         }
-        public NamespaceID[] GetMapElementUnlocks()
+        #endregion
+
+
+        #region 地图元素
+        public MapElement? GetMapElement(NamespaceID id)
         {
-            return mapElements.Select(e => e.unlock?.Get()).OfType<NamespaceID>().Where(i => NamespaceID.IsValid(i)).ToArray();
+            return mapElements.FirstOrDefault(e => e.definitionID?.Get() == id);
         }
-        public void SetMapElementUnlocked(NamespaceID unlock, bool unlocked)
+        public MapElement[] GetMapElements()
         {
-            foreach (var element in mapElements)
-            {
-                if (element.unlock?.Get() != unlock)
-                    continue;
-                element.SetActive(unlocked);
-            }
+            return mapElements;
         }
+        #endregion
         private void Awake()
         {
             foreach (var button in mapButtons)
@@ -119,40 +121,18 @@ namespace MVZ2.Map
             {
                 endlessButton.OnClick += () => OnEndlessButtonClick?.Invoke();
             }
-            if (mapKey)
-            {
-                mapKey.OnClick += (id) => OnMapKeyClick?.Invoke();
-            }
-            if (nightmareBox)
-            {
-                nightmareBox.OnClick += (id) => OnMapNightmareBoxClick?.Invoke();
-            }
-            if (mapPins != null)
-            {
-                foreach (var pin in mapPins)
-                {
-                    pin.OnClick += (id) => OnMapPinClick?.Invoke(id);
-                }
-            }
+            mapElements = elementRoot.GetComponentsInChildren<MapElement>();
         }
         public event Action<int>? OnMapButtonClick;
         public event Action? OnEndlessButtonClick;
-        public event Action? OnMapKeyClick;
-        public event Action? OnMapNightmareBoxClick;
-        public event Action<NamespaceID>? OnMapPinClick;
         [SerializeField]
         private TextMeshPro endlessFlagsText = null!;
         [SerializeField]
+        private Transform elementRoot = null!;
+        [SerializeField]
         private MapButton endlessButton = null!;
         [SerializeField]
-        private MapElementButton mapKey = null!;
-        [SerializeField]
-        private MapElementButton nightmareBox = null!;
-        [SerializeField]
         private MapButton[] mapButtons = null!;
-        [SerializeField]
         private MapElement[] mapElements = null!;
-        [SerializeField]
-        private MapElementButton[] mapPins = null!;
     }
 }

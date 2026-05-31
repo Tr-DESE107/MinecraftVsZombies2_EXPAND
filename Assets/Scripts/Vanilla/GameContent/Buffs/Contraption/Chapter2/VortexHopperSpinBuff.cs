@@ -2,17 +2,18 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.vortexHopperSpin)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.vortexHopperSpin)]
     public class VortexHopperSpinBuff : BuffDefinition
     {
         public VortexHopperSpinBuff(string nsp, string name) : base(nsp, name)
@@ -59,7 +60,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 return;
             if (enemy.ImmuneVortex())
                 return;
-            enemy.Die(new DamageEffectList(VanillaDamageEffects.DROWN, VanillaDamageEffects.NO_DEATH_TRIGGER), hopper);
+            enemy.Die(new DamageEffectList(VanillaDamageEffects.DROWN, VanillaDamageEffects.NO_DEATH_EFFECTS), hopper);
             var hopperPos = hopper.Position;
             hopperPos.y = hopper.GetGroundY();
             var hopperPos2D = new Vector2(hopper.Position.x, hopper.Position.z);

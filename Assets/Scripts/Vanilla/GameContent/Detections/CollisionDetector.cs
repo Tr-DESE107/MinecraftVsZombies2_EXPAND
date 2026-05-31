@@ -8,8 +8,9 @@ namespace MVZ2.GameContent.Detections
 {
     public class CollisionDetector : Detector
     {
-        public CollisionDetector()
+        public CollisionDetector(bool canDetectInvisible)
         {
+            this.canDetectInvisible = canDetectInvisible;
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {

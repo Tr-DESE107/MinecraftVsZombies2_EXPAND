@@ -3,12 +3,12 @@
 using MVZ2.GameContent.Fragments;
 using MVZ2.Vanilla.Contraptions;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.skywardBeaconNight)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.skywardBeaconNight)]
     public class SkywardBeaconNightBuff : BuffDefinition
     {
         public SkywardBeaconNightBuff(string nsp, string name) : base(nsp, name)

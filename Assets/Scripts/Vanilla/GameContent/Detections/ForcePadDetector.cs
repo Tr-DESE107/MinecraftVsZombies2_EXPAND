@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace MVZ2.GameContent.Detections
     {
         public ForcePadDetector(int mask, float affectHeight, float sizeMultiplier)
         {
+            canDetectInvisible = true;
             this.mask = mask;
             factionTarget = FactionTarget.Any;
             this.affectHeight = affectHeight;
@@ -32,10 +34,13 @@ namespace MVZ2.GameContent.Detections
         {
             if (!collider.IsForMain())
                 return false;
-            var target = collider.Entity;
-            if (target == null)
+            return base.ValidateCollider(param, collider);
+        }
+        public override bool ValidateTarget(DetectionParams self, Entity target)
+        {
+            if (!base.ValidateTarget(self, target))
                 return false;
-            if (target.IsDead)
+            if (target.IgnoreForcePad())
                 return false;
             return true;
         }

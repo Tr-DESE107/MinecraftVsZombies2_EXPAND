@@ -2,7 +2,8 @@
 
 using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic;
+using MVZ2.UI.Level;
+using MVZ2Logic.Resources;
 using UnityEngine;
 
 namespace MVZ2.Metas
@@ -27,6 +28,8 @@ namespace MVZ2.Metas
         public Vector4 Padding { get; private set; }
 
         public SpriteReference? IconSprite { get; private set; }
+
+        public Vector2 TextOffset { get; private set; }
         public static ProgressBarMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -80,6 +83,14 @@ namespace MVZ2.Metas
             {
                 iconSprite = iconNode.GetAttributeSpriteReference("sprite", defaultNsp);
             }
+
+            var textNode = node["text"];
+            Vector2 textOffset = Vector2.zero;
+            if (textNode != null)
+            {
+                textOffset.x = textNode.GetAttributeFloat("xOffset") ?? textOffset.x;
+                textOffset.y = textNode.GetAttributeFloat("yOffset") ?? textOffset.y;
+            }
             return new ProgressBarMeta(id)
             {
                 Type = type,
@@ -95,6 +106,8 @@ namespace MVZ2.Metas
                 Padding = padding,
 
                 IconSprite = iconSprite,
+
+                TextOffset = textOffset,
             };
         }
         public static ProgressBarMode ParseBarMode(string str)
@@ -103,10 +116,5 @@ namespace MVZ2.Metas
                 return ProgressBarMode.Filled;
             return ProgressBarMode.Sliced;
         }
-    }
-    public enum ProgressBarMode
-    {
-        Sliced = 0,
-        Filled = 1
     }
 }

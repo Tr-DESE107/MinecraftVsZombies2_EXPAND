@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -11,7 +12,7 @@ namespace MVZ2.GameContent.Placements
 {
     public class NormalSpawnCondition : ContraptionSpawnCondition
     {
-        public override NamespaceID? GetSpawnError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
+        protected override NamespaceID? GetSpawnErrorOfGrid(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
             if (grid.IsWater())
             {
@@ -25,7 +26,7 @@ namespace MVZ2.GameContent.Placements
             {
                 return VanillaGridStatus.notOnAir;
             }
-            return base.GetSpawnError(placement, grid, entity);
+            return base.GetSpawnErrorOfGrid(placement, grid, entity);
         }
     }
 }

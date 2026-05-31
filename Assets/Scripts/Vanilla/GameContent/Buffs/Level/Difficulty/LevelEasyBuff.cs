@@ -3,18 +3,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Level;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.levelEasy)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.levelEasy)]
     public class LevelEasyBuff : BuffDefinition
     {
         public LevelEasyBuff(string nsp, string name) : base(nsp, name)
@@ -32,6 +34,7 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REVERSE_SATELLITE_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, -1f));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.SKELETON_HORSE_JUMP_TIMES, IntegerOperator.Add, -1));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.WICKED_HERMIT_ZOMBIE_STUN_TIME, IntegerOperator.Add, 75));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.WISP_FLY_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0.66666666666f));
 
             AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.FRANKENSTEIN_NO_STEEL, true));
 
@@ -43,6 +46,8 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.NIGHTMAREAPER_TIMEOUT, IntegerOperator.Add, 900));
 
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.WITHER_REGENERATION, NumberOperator.Set, 0));
+
+            AddModifier(new NamespaceIDModifier(VanillaDifficultyLevelProps.LOCKED_CHEST_SPIT_BLUEPRINT_ID, SetOperator.Set, LogicBlueprintID.FromEntity(VanillaEnemyID.zombie)));
 
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.STARSHARD_CARRIER_COUNTER_INCREAMENT, NumberOperator.Multiply, 2f));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REDSTONE_CARRIER_COUNTER_INCREAMENT, NumberOperator.Multiply, 2f));

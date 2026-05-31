@@ -4,16 +4,17 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.goldenApple)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.goldenApple)]
     public class GoldenApple : ContraptionBehaviour
     {
         public GoldenApple(string nsp, string name) : base(nsp, name)
@@ -44,21 +45,21 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             if (target.IsEvoked())
             {
+                enemy.Neutralize();
                 var mutant = target.Spawn(VanillaEnemyID.mutantZombie, enemy.Position)?.Let(e =>
                 {
                     e.CharmPermanent(target.GetFaction(), new EntitySourceReference(target));
                 });
                 enemy.Spawn(VanillaEffectID.mindControlLines, enemy.GetCenter());
-                enemy.Neutralize();
                 enemy.Remove();
                 enemy.PlaySound(VanillaSoundID.charmed);
                 enemy.PlaySound(VanillaSoundID.odd);
             }
             else
             {
+                enemy.Neutralize();
                 enemy.CharmPermanent(target.GetFaction(), new EntitySourceReference(target));
                 enemy.Spawn(VanillaEffectID.mindControlLines, enemy.GetCenter());
-                enemy.Neutralize();
                 enemy.PlaySound(VanillaSoundID.charmed);
                 enemy.PlaySound(VanillaSoundID.floop);
             }

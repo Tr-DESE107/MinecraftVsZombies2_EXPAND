@@ -3,8 +3,9 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -12,7 +13,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.bottledBlackhole)]
+    [AutoArtifactDefinition(VanillaArtifactNames.bottledBlackhole)]
     public class BottledBlackhole : ArtifactDefinition
     {
         public BottledBlackhole(string nsp, string name) : base(nsp, name)
@@ -34,7 +35,7 @@ namespace MVZ2.GameContent.Artifacts
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();
-                results.AddRange(level.GetEntities(EntityTypes.PLANT));
+                results.AddRange(level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsFriendlyEntity()));
             }
             public override void UpdateTargetBuff(AuraEffect effect, IBuffTarget target, Buff buff)
             {

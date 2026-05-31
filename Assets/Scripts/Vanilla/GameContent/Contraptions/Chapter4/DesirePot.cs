@@ -2,20 +2,24 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
-using MVZ2.Vanilla.SeedPacks;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Blueprints;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using PVZEngine;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -24,7 +28,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.desirePot)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.desirePot)]
     public class DesirePot : ContraptionBehaviour
     {
         public DesirePot(string nsp, string name) : base(nsp, name)
@@ -119,7 +123,7 @@ namespace MVZ2.GameContent.Contraptions
                 }
 
 
-                if (blueprintID == VanillaBlueprintID.FromEntity(VanillaContraptionID.desirePot))
+                if (blueprintID == LogicBlueprintID.FromEntity(VanillaContraptionID.desirePot))
                 {
                     drawnDesirePots++;
                 }
@@ -130,7 +134,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 if (level.IsConveyorMode())
                 {
-                    level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN_CONVEYOR, 0, 150);
+                    level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN_CONVEYOR, 0, 150);
                 }
                 else
                 {
@@ -141,7 +145,7 @@ namespace MVZ2.GameContent.Contraptions
                     }
                     level.ShakeScreen(10, 0, 15);
                     var sum = Mathf.FloorToInt(fatigueDamageSum);
-                    level.ShowAdvicePlural(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN, sum, 0, 150, sum.ToString());
+                    level.ShowAdvicePlural(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN, sum, 0, 150, sum.ToString());
                     entity.PlaySound(VanillaSoundID.fatigue);
                 }
             }
@@ -205,8 +209,8 @@ namespace MVZ2.GameContent.Contraptions
         public static int GetDuplicatedCount(Entity entity) => entity.GetBehaviourField<int>(PROP_DUPLICATED_COUNT);
         public static void SetDuplicatedCount(Entity entity, int value) => entity.SetBehaviourField(PROP_DUPLICATED_COUNT, value);
 
-        public static float GetFatigueDamage(LevelEngine level) => level.GetBehaviourField<float>(PROP_FATIGUE_DAMAGE);
-        public static void SetFatigueDamage(LevelEngine level, float value) => level.SetBehaviourField(PROP_FATIGUE_DAMAGE, value);
+        public static float GetFatigueDamage(LevelEngine level) => level.GetProperty<float>(PROP_FATIGUE_DAMAGE);
+        public static void SetFatigueDamage(LevelEngine level, float value) => level.SetProperty(PROP_FATIGUE_DAMAGE, value);
 
 
 

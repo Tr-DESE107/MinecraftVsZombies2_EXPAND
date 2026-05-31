@@ -3,15 +3,18 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.elasticCloudEvocation)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.elasticCloudEvocation)]
     public class ElasticCloudEvocationBuff : BuffDefinition
     {
         public ElasticCloudEvocationBuff(string nsp, string name) : base(nsp, name)
@@ -31,7 +34,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 var faction = entity.GetFaction();
                 var radius = 200f;
                 var level = entity.Level;
-                foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE | EntityCollisionHelper.MASK_PROJECTILE, 0))
+                var overlapParam = OverlapParams.Hostile(faction, EntityCollisionHelper.MASK_VULNERABLE | EntityCollisionHelper.MASK_PROJECTILE);
+                foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, overlapParam))
                 {
                     if (!entityCollider.IsMainCollider())
                         continue;

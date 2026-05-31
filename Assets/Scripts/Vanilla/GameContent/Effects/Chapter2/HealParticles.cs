@@ -2,12 +2,12 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.healParticles)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.healParticles)]
     public class HealParticles : EffectBehaviour
     {
         #region 公有方法

@@ -3,20 +3,19 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.witherTransition)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.witherTransition)]
     public class WitherTransitionBuff : BuffDefinition
     {
         public WitherTransitionBuff(string nsp, string name) : base(nsp, name)
@@ -68,7 +67,6 @@ namespace MVZ2.GameContent.Buffs.Level
                     if (level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
                     {
                         // 凋灵出现
-                        level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
                         level.SetProgressBarToBoss(VanillaProgressBarID.wither);
                         level.ShakeScreen(30, 0, 30);
 

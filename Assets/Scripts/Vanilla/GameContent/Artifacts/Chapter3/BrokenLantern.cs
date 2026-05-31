@@ -2,9 +2,9 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
-using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
@@ -13,7 +13,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.brokenLantern)]
+    [AutoArtifactDefinition(VanillaArtifactNames.brokenLantern)]
     public class BrokenLantern : ArtifactDefinition
     {
         public BrokenLantern(string nsp, string name) : base(nsp, name)
@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Artifacts
             {
                 var level = auraEffect.Source.GetLevel();
                 updateBuffer.Clear();
-                level.FindEntitiesNonAlloc(e => e.IsLightSource() && e.Type == EntityTypes.PLANT, updateBuffer);
+                level.FindEntitiesNonAlloc(e => e.IsLightSource() && e.Type == EntityTypes.PLANT && e.IsFriendlyEntity(), updateBuffer);
                 foreach (var entity in updateBuffer)
                 {
                     results.Add(entity);

@@ -2,14 +2,14 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Definitions;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.sorcerersScroll)]
+    [AutoArtifactDefinition(VanillaArtifactNames.sorcerersScroll)]
     public class SorcerersScroll : ArtifactDefinition
     {
         public SorcerersScroll(string nsp, string name) : base(nsp, name)

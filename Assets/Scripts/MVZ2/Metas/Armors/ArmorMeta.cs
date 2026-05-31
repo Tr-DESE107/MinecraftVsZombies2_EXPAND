@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
-using PVZEngine.Level.Collisions;
+using PVZEngine.Collisions;
 
 namespace MVZ2.Metas
 {

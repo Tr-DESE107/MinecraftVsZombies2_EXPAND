@@ -4,20 +4,20 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Contraptions
+namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.wickedHermitWarp)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.wickedHermitWarp)]
     public class WickedHermitWarpBuff : BuffDefinition
     {
         public WickedHermitWarpBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.Set, EntityCollisionHelper.DETECTION_IGNORE));
+            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.BitOr, EntityCollisionHelper.DETECTION_NO_COLLISION));
         }
         public override void PostAdd(Buff buff)
         {

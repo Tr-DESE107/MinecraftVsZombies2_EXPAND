@@ -4,16 +4,15 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.redDragonTransition)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.redDragonTransition)]
     public class RedDragonTransitionBuff : BuffDefinition
     {
         public RedDragonTransitionBuff(string nsp, string name) : base(nsp, name)

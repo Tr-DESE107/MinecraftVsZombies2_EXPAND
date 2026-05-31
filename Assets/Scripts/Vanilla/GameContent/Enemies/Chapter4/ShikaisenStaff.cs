@@ -8,14 +8,14 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.shikaisenStaff)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.shikaisenStaff)]
     public class ShikaisenStaff : EnemyBehaviour
     {
         public ShikaisenStaff(string nsp, string name) : base(nsp, name)
@@ -64,11 +64,11 @@ namespace MVZ2.GameContent.Enemies
                 input.SetAmount(entity.GetMaxHealth() * 10);
             }
         }
-        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;
-            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) || info.HasEffect(VanillaDamageEffects.DROWN) || info.HasEffect(VanillaDamageEffects.FALL_OFF))
+            if (entity.WillRemoveOnDeath(info) || info.HasEffect(VanillaDamageEffects.DROWN) || info.HasEffect(VanillaDamageEffects.FALL_OFF))
                 return;
             var staff = entity.Level.FindFirstEntity(e => e.IsEntityOf(VanillaEnemyID.shikaisenStaff) && (e.Position - entity.Position).magnitude <= e.GetRange() && e.ExistsAndAlive());
             if (staff == null)

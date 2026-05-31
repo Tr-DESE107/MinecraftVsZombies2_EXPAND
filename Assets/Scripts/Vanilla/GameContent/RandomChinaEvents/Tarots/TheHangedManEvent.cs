@@ -2,9 +2,11 @@
 
 using MukioI18n;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla;
-using PVZEngine.Definitions;
+using MVZ2.Vanilla.Definitions;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.RandomChina;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
@@ -13,7 +15,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.theHangedMan)]
     public class TheHangedManEvent : RandomChinaEventDefinition
     {
-        public TheHangedManEvent(string nsp, string path) : base(nsp, path, NAME)
+        public TheHangedManEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -30,5 +32,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "XII-倒吊人";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "生成6个反则卫星";
     }
 }

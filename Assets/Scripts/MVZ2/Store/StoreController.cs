@@ -9,12 +9,12 @@ using MVZ2.Metas;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
-using MVZ2.Talks;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Saves;
+using MVZ2.UI.Store;
 using MVZ2Logic;
+using MVZ2Logic.Audios;
+using MVZ2Logic.Callbacks;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using Tools;
@@ -34,12 +34,19 @@ namespace MVZ2.Store
             ResetChatTimeout();
             UpdateMoney();
             ui.Display();
+            character.SetSpeaking(true);
+            character.ResetMotion();
 
 
             var presets = Main.ResourceManager.GetAllStorePresets();
             var filteredPresets = presets.Where(p => p.Conditions == null || Main.SaveManager.MeetsXMLConditions(p.Conditions));
             var preset = filteredPresets.OrderByDescending(p => p.Priority).FirstOrDefault();
             SetPreset(preset);
+        }
+        public override void Hide()
+        {
+            base.Hide();
+            character.RemovePortrait();
         }
         public async void CheckStartTalks()
         {
@@ -73,12 +80,20 @@ namespace MVZ2.Store
             var backgroundSprite = Main.GetFinalSprite(preset.Background);
             ui.SetBackground(backgroundSprite);
 
-            var character = preset.Character;
-            if (character != null)
+            var characterID = preset.Character;
+            if (characterID != null)
             {
-                characterId = character;
-                var viewData = Main.ResourceManager.GetCharacterViewData(characterId, null, CharacterSide.Left);
-                ui.SetCharacter(viewData);
+                characterId = characterID;
+
+                var faceRight = false;
+                var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
+                if (characterMeta != null)
+                {
+                    faceRight = characterMeta.faceRight;
+                }
+
+                character.SetVariant(characterID, null);
+                character.SetSide(CharacterSide.Left, faceRight);
             }
 
             if (preset.Music != null && !Main.MusicManager.IsPlaying(preset.Music))
@@ -149,7 +164,7 @@ namespace MVZ2.Store
             if (productMeta == null)
                 return;
             var textKey = productMeta.GetMessage(characterId);
-            var message = GetTranslatedString(VanillaStrings.CONTEXT_STORE_TALK, textKey);
+            var message = GetTranslatedString(LogicStrings.CONTEXT_STORE_TALK, textKey);
             pointingProduct = true;
             ui.ShowTalk(message);
         }
@@ -214,7 +229,7 @@ namespace MVZ2.Store
                         return;
                     }
                     Main.SaveManager.AddMoney(-price);
-                    Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
+                    Main.SoundManager.Play2D(LogicSoundID.cashRegister);
                     Main.SaveManager.SaveToFile(); // 购买物品后保存游戏
                     UpdateMoney();
                     UpdatePage();
@@ -229,7 +244,7 @@ namespace MVZ2.Store
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
+            Global.Game.RunCallbackFiltered(LogicCallbacks.TALK_ACTION, new LogicCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         #endregion
         private void UpdateProducts()
@@ -258,7 +273,7 @@ namespace MVZ2.Store
             var chat = Main.StoreManager.GetRandomChat(characterId, chatRNG);
             if (chat == null)
                 return;
-            var message = GetTranslatedString(VanillaStrings.CONTEXT_STORE_TALK, chat.Text);
+            var message = GetTranslatedString(LogicStrings.CONTEXT_STORE_TALK, chat.Text);
             ui.ShowTalk(message);
             var soundID = chat.Sound;
             if (NamespaceID.IsValid(soundID))
@@ -315,6 +330,8 @@ namespace MVZ2.Store
         private StoreUI ui = null!;
         [SerializeField]
         private TalkController talkController = null!;
+        [SerializeField]
+        private TalkCharacterController character = null!;
         [SerializeField]
         private int productsPerRow = 4;
         [SerializeField]

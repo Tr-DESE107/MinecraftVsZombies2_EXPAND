@@ -3,21 +3,23 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Models;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.sacrificed)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.sacrificed)]
     public class SacrificedBuff : BuffDefinition
     {
         public SacrificedBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Set, -0.5f, VanillaModifierPriorities.FORCE));
-            AddModifier(new Vector3Modifier(VanillaEntityProps.LIGHT_RANGE, NumberOperator.Multiply, PROP_LIGHT_RANGE));
+            AddModifier(new Vector3Modifier(LogicEntityProps.LIGHT_RANGE, NumberOperator.Multiply, PROP_LIGHT_RANGE));
             AddModifier(new BooleanModifier(VanillaEntityProps.AI_FROZEN, true));
         }
         public override void PostUpdate(Buff buff)
@@ -34,7 +36,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             if (entity == null)
                 return;
             entity.RenderRotation += Vector3.forward * time;
-            entity.SetShaderFloat("_BurnValue", percentage);
+            entity.SetShaderFloat(ShaderProperties.BURN_VALUE, percentage);
+            entity.ApplyShaderProperties();
 
             if (time >= MAX_TIME)
             {

@@ -6,17 +6,19 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.gunpowderTwinkle)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.gunpowderTwinkle)]
     public class GunpowderTwinkle : EntityBehaviourDefinition
     {
         public GunpowderTwinkle(string nsp, string name) : base(nsp, name)

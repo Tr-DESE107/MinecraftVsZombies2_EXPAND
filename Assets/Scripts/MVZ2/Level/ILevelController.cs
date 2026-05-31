@@ -3,6 +3,7 @@
 using System.Collections;
 using MVZ2.GlobalGames;
 using MVZ2.UI;
+using MVZ2.UI.Level;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -14,10 +15,10 @@ namespace MVZ2.Level
         ILevelUI GetUI();
         LevelEngine GetEngine();
         Camera GetCamera();
-        ILevelBlueprintController BlueprintController { get; }
-        ILevelBlueprintChooseController BlueprintChoosePart { get; }
+        LevelBlueprintController BlueprintController { get; }
+        LevelBlueprintChooseController BlueprintChoosePart { get; }
 
-        bool CanChooseBlueprints();
+        bool ChooseBlueprintsInteractable();
         void OpenAlmanac();
         void OpenStore();
         bool IsOpeningExtraScene();

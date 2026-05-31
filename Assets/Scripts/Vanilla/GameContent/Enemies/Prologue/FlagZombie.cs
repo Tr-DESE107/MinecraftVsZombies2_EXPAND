@@ -2,17 +2,15 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.flagZombie)]
-    public class FlagZombie : Zombie
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.flagZombie)]
+    public class FlagZombie : EntityBehaviourDefinition
     {
         public FlagZombie(string nsp, string name) : base(nsp, name)
         {

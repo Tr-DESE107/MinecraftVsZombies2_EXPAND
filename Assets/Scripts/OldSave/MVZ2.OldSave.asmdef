@@ -1,7 +1,11 @@
 {
     "name": "MVZ2.OldSave",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:22176648926941143911458f1e23c75d",
+        "GUID:f38aeb21428f65548a7c6793dcf8a08b",
+        "GUID:5fde897b5e6f58943b173e1c033b7b41"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

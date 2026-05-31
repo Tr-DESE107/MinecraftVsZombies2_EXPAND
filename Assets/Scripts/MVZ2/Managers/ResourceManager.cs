@@ -197,16 +197,10 @@ namespace MVZ2.Managers
             async Task LoadSprites(TaskProgress progress)
             {
                 var loadProgress = progress.AddChild();
-                var variantProgress = progress.AddChild();
                 loadProgress.SetCurrentTaskName("Waiting");
-                variantProgress.SetCurrentTaskName("Waiting");
 
                 await LoadMainSpriteManifests(modNamespace, loadProgress);
                 loadProgress.SetProgress(1, "Finished");
-
-                var enumerator = LoadCharacterVariantSprites(modNamespace, variantProgress, scale: characterImageScale);
-                await Main.CoroutineManager.ToTask(enumerator);
-                variantProgress.SetProgress(1, "Finished");
             }
             async Task LoadModels(TaskProgress progress)
             {

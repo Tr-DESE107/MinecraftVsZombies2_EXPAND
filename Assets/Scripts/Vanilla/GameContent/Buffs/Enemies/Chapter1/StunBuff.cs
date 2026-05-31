@@ -4,14 +4,14 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.stun)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.stun)]
     public class StunBuff : BuffDefinition
     {
         public StunBuff(string nsp, string name) : base(nsp, name)

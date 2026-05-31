@@ -2,15 +2,28 @@
 
 using System;
 using MukioI18n;
-using MVZ2.Debugs;
 using MVZ2.IO;
-using MVZ2.Vanilla;
+using MVZ2.Managers;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
 using UnityEngine;
 
-namespace MVZ2.Managers
+namespace MVZ2.Debugs
 {
     public partial class DebugManager : MonoBehaviour
     {
+        public bool CanUseDebugFeatures()
+        {
+            return CanUseDebugFeatures(Main.SaveManager.GetCurrentUserName());
+        }
+        public bool CanUseDebugFeatures(string? username)
+        {
+            if (Application.isEditor && !disableDebugFeatures)
+                return true;
+            if (Main.SaveManager.IsDebugUserName(username))
+                return true;
+            return false;
+        }
         public async void ExportLogFiles()
         {
             bool success = false;
@@ -30,12 +43,12 @@ namespace MVZ2.Managers
             string title, desc;
             if (!success)
             {
-                title = Main.LanguageManager._(VanillaStrings.ERROR);
+                title = Main.LanguageManager._(LogicStrings.ERROR);
                 desc = Main.LanguageManager._(ERROR_NOT_EXPORTED);
             }
             else
             {
-                title = Main.LanguageManager._(VanillaStrings.HINT);
+                title = Main.LanguageManager._(LogicStrings.HINT);
                 desc = Main.LanguageManager._(HINT_EXPORTED, path);
             }
             await Main.Scene.ShowDialogMessageAsync(title, desc);
@@ -46,5 +59,8 @@ namespace MVZ2.Managers
         public const string ERROR_NOT_EXPORTED = "导出日志失败。";
         [TranslateMsg("日志导出成功的提示，{0}为路径")]
         public const string HINT_EXPORTED = "日志已导出至{0}。";
+
+        [SerializeField]
+        private bool disableDebugFeatures = false;
     }
 }

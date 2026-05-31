@@ -5,27 +5,33 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.shikaisenRevive)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.shikaisenRevive)]
     public class ShikaisenReviveBuff : BuffDefinition
     {
         public ShikaisenReviveBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(VanillaEnemyProps.ASSUME_ALIVE, true));
+            AddModifier(new BooleanModifier(LogicEnemyProps.ASSUME_ALIVE, true));
             AddTrigger(VanillaLevelCallbacks.PRE_ENEMY_FAINT, PreEnemyFaintCallback);
         }
         private void PreEnemyFaintCallback(EntityCallbackParams param, CallbackResult result)
         {
             var entity = param.entity;
+            var fatalOutput = entity.GetLethalDeathInfo();
+            if (fatalOutput != null && fatalOutput.HasEffect(VanillaDamageEffects.NO_REVIVAL))
+            {
+                return;
+            }
             var level = entity.Level;
             Buff? buff = null;
             Entity? source = null;
@@ -47,6 +53,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 return;
             entity.Revive();
             var costHealth = Mathf.Min(source.Health, entity.GetMaxHealth());
+            entity.Health = Mathf.Max(0, entity.Health);
             entity.HealEffects(costHealth, source);
             source.TakeDamage(costHealth, new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), source);
             if (source.Health <= 0)

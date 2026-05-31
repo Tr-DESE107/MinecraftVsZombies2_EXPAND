@@ -4,14 +4,14 @@ using MukioI18n;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Talk;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -22,7 +22,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.triggerTutorial)]
+    [AutoStageDefinition(VanillaStageNames.triggerTutorial)]
     public class TriggerTutorialStage : StageDefinition
     {
         public TriggerTutorialStage(string nsp, string name) : base(nsp, name)
@@ -156,11 +156,11 @@ namespace MVZ2.GameContent.Stages
                 case STATE_CLICK_TRIGGER:
                     {
                         var heldEntityType = level.GetHeldItemType();
-                        if (heldEntityType == VanillaHeldTypes.trigger)
+                        if (heldEntityType == LogicHeldTypes.trigger)
                         {
                             StartState(level, STATE_TRIGGER_TNT);
                         }
-                        else if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && TNT.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
+                        else if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && IgnitableBehaviour.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
                         {
                             StartState(level, STATE_TNT_TRIGGERED);
                         }
@@ -168,7 +168,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_TRIGGER_TNT:
                     {
-                        if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && TNT.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
+                        if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && IgnitableBehaviour.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
                         {
                             StartState(level, STATE_TNT_TRIGGERED);
                         }
@@ -184,7 +184,7 @@ namespace MVZ2.GameContent.Stages
                 case STATE_CLICK_TRIGGER_SWAP:
                     {
                         var heldEntityType = level.GetHeldItemType();
-                        if (heldEntityType == VanillaHeldTypes.trigger)
+                        if (heldEntityType == LogicHeldTypes.trigger)
                         {
                             StartState(level, STATE_CLICK_TNT_SWAP);
                         }
@@ -200,7 +200,7 @@ namespace MVZ2.GameContent.Stages
                             break;
                         }
                         var heldEntityType = level.GetHeldItemType();
-                        if (heldEntityType != VanillaHeldTypes.trigger)
+                        if (heldEntityType != LogicHeldTypes.trigger)
                         {
                             // 返回之前的状态。
                             StartState(level, STATE_CLICK_TRIGGER_SWAP);
@@ -209,7 +209,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_PLACE_TNT_SWAP:
                     {
-                        if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && TNT.IsIgnited(e)))
+                        if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && IgnitableBehaviour.IsIgnited(e)))
                         {
                             // 下一状态
                             StartState(level, STATE_TNT_PLACED_SWAP);
@@ -273,10 +273,10 @@ namespace MVZ2.GameContent.Stages
                     break;
             }
         }
-        public static FrameTimer? GetTutorialTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, PROP_TUTORIAL_TIMER);
-        public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, PROP_TUTORIAL_TIMER, value);
-        public static int GetTutorialState(LevelEngine level) => level.GetBehaviourField<int>(ID, PROP_STATE);
-        public static void SetTutorialState(LevelEngine level, int value) => level.SetBehaviourField(ID, PROP_STATE, value);
+        public static FrameTimer? GetTutorialTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_TUTORIAL_TIMER);
+        public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetProperty(PROP_TUTORIAL_TIMER, value);
+        public static int GetTutorialState(LevelEngine level) => level.GetProperty<int>(PROP_STATE);
+        public static void SetTutorialState(LevelEngine level, int value) => level.SetProperty(PROP_STATE, value);
         private static readonly NamespaceID ID = VanillaStageID.triggerTutorial;
 
         public static readonly string[] tutorialStrings = new string[]

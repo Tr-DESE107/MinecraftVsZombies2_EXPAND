@@ -2,12 +2,12 @@
 
 using System.Linq;
 using MVZ2Logic;
-using MVZ2Logic.Command;
-using MVZ2Logic.IZombie;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Commands
 {
-    [CommandDefinition(VanillaCommandNames.repeat)]
+    [AutoCommandDefinition(VanillaCommandNames.repeat)]
     public class Repeat : CommandDefinition
     {
         public Repeat(string nsp, string name) : base(nsp, name)

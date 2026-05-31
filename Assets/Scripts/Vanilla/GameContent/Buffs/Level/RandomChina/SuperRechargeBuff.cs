@@ -2,13 +2,14 @@
 
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
-    [BuffDefinition(VanillaBuffNames.Level.superRecharge)]
+    [AutoBuffDefinition(VanillaBuffNames.Level.superRecharge)]
     public class SuperRechargeBuff : BuffDefinition
     {
         public SuperRechargeBuff(string nsp, string name) : base(nsp, name)

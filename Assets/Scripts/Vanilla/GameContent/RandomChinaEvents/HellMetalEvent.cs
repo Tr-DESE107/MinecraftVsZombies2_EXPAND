@@ -2,9 +2,12 @@
 
 using MukioI18n;
 using MVZ2.GameContent.Armors;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Definitions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.RandomChina;
+using MVZ2Logic.Entities;
 using PVZEngine.Entities;
 using Tools;
 
@@ -13,7 +16,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
     [RandomChinaEventDefinition(VanillaRandomChinaEventNames.hellMetal)]
     public class HellMetalEvent : RandomChinaEventDefinition
     {
-        public HellMetalEvent(string nsp, string path) : base(nsp, path, NAME)
+        public HellMetalEvent(string nsp, string path) : base(nsp, path, NAME, DESCRIPTION)
         {
         }
         public override void Run(Entity contraption, RandomGenerator rng)
@@ -27,5 +30,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]
         public const string NAME = "地狱金属";
+        [TranslateMsg("随机瓷器事件描述", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_DESCRIPTION)]
+        public const string DESCRIPTION = "所有怪物装备铁盔";
     }
 }

@@ -2,18 +2,21 @@
 
 using System.Diagnostics.CodeAnalysis;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
-namespace MVZ2.Vanilla.Enemies
+namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyMelee)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyMelee)]
     public class EnemyMeleeBehaviour : AIEntityBehaviour
     {
         public EnemyMeleeBehaviour(string nsp, string name) : base(nsp, name)
@@ -63,15 +66,9 @@ namespace MVZ2.Vanilla.Enemies
             var currentTarget = targetID?.GetEntity(enemy.Level);
             if (ValidateMeleeTarget(enemy, currentTarget))
                 return;
-            var target = other;
-            var protector = target.GetProtector();
-            if (protector != null && protector.Exists() && !protector.IsFriendly(enemy))
+            if (ValidateMeleeTarget(enemy, other))
             {
-                target = protector;
-            }
-            if (ValidateMeleeTarget(enemy, target))
-            {
-                SetMeleeTarget(enemy, new EntityID(target));
+                SetMeleeTarget(enemy, new EntityID(other));
             }
         }
         private void CollisionExit(Entity enemy, Entity other)
@@ -150,6 +147,6 @@ namespace MVZ2.Vanilla.Enemies
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_MELEE_TARGET = new VanillaEntityPropertyMeta<EntityID>("melee_target");
         #endregion
 
-        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
     }
 }

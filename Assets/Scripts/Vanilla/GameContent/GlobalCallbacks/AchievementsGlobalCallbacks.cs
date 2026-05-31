@@ -3,11 +3,11 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
             mod.AddTrigger(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, PostAnvilObsidianFirstAidCallback, filter: VanillaContraptionID.anvil);
         }
-        private void PostContraptionDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;
@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 }
             }
         }
-        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

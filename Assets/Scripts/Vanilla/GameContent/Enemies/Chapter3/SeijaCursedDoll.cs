@@ -8,20 +8,21 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.seijaCursedDoll)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.seijaCursedDoll)]
     public class SeijaCursedDoll : EnemyBehaviour
     {
         public SeijaCursedDoll(string nsp, string name) : base(nsp, name)
         {
             absorbDetector = new SphereDetector(ABSORB_RADIUS)
             {
+                canDetectInvisible = true,
                 mask = EntityCollisionHelper.MASK_PROJECTILE,
             };
         }
@@ -40,9 +41,9 @@ namespace MVZ2.GameContent.Enemies
             SetOrbitAngle(entity, angle);
 
             var orbitOffset = Vector2.right.RotateClockwise(angle) * ORBIT_DISTANCE;
-            var targetPosition = entity.Parent.Position + new Vector3(orbitOffset.x, 0, orbitOffset.y);
+            var targetPosition = entity.Parent.GetCenter() + new Vector3(orbitOffset.x, 0, orbitOffset.y);
             targetPosition.y = Mathf.Max(targetPosition.y, entity.Level.GetGroundY(targetPosition));
-            entity.Position = targetPosition;
+            entity.SetCenter(targetPosition);
 
             // Absorb.
             detectBuffer.Clear();
@@ -59,7 +60,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (entity.WillRemoveOnDeath(info))
                 return;
             var param = entity.GetSpawnParams();
             param.SetProperty(EngineEntityProps.SIZE, entity.GetSize());

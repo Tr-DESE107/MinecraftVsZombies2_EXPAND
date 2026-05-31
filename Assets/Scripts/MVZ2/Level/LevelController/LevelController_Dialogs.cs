@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
-using MVZ2.Level.UI;
 using MVZ2.Options;
-using MVZ2.Vanilla;
-using MVZ2Logic;
+using MVZ2.UI.Level;
+using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
 using Tools;
 using UnityEngine;
 
@@ -29,12 +29,13 @@ namespace MVZ2.Level
             ui.SetGameOverDialogActive(false);
             ui.SetLevelLoadedDialogVisible(false);
             ui.SetLevelErrorLoadingDialogVisible(false);
+            optionsDialogController.OnClose += UI_OnOptionsMenuCloseCallback;
         }
 
         #region 重新开始确认
         public void ShowRestartConfirmDialog()
         {
-            var title = Localization._(VanillaStrings.RESTART);
+            var title = Localization._(LogicStrings.RESTART);
             var desc = Localization._(DIALOG_DESC_RESTART);
             Scene.ShowDialogSelectTask(title, desc, async (confirm) =>
             {
@@ -134,9 +135,8 @@ namespace MVZ2.Level
         {
             ui.SetOptionsDialogActive(true);
 
-            optionsLogic = new OptionsLogicLevel(ui.OptionsDialog, this);
-            optionsLogic.InitDialog();
-            optionsLogic.OnClose += UI_OnOptionsMenuCloseCallback;
+            var context = new OptionContextLevel(level);
+            optionsDialogController.Open(context);
         }
         #endregion
 
@@ -156,17 +156,28 @@ namespace MVZ2.Level
         #region 游戏结束
         private void ShowGameOverDialog()
         {
-            string? message;
+            string? messageKey;
             if (killerID != null)
             {
-                message = Resources.GetEntityDeathMessage(killerID);
+                messageKey = Resources.GetEntityDeathMessage(killerID);
             }
             else
             {
-                message = deathMessage;
+                messageKey = deathMessage;
             }
             ui.SetGameOverDialogActive(true);
-            ui.SetGameOverDialogMessage(Localization._p(LogicStrings.CONTEXT_DEATH_MESSAGE, message));
+            var msg = Localization._p(LogicStrings.CONTEXT_DEATH_MESSAGE, messageKey);
+            string message;
+            if (level.IsEndless())
+            {
+                var roundsMessage = Localization._pn(LogicStrings.CONTEXT_DEATH_MESSAGE, LogicStrings.DEATH_MESSAGE_ENDLESS, level.CurrentFlag, level.CurrentFlag);
+                message = Localization._p(LogicStrings.CONTEXT_DEATH_MESSAGE, LogicStrings.DEATH_MESSAGE_ENDLESS_TEMPLATE, msg, roundsMessage);
+            }
+            else
+            {
+                message = msg;
+            }
+            ui.SetGameOverDialogMessage(message);
         }
         private async void UI_OnGameOverRetryButtonClickedCallback()
         {
@@ -200,11 +211,12 @@ namespace MVZ2.Level
         [TranslateMsg("对话框内容，{0}为多出的关卡标识符列表")]
         public const string ERROR_LOAD_LEVEL_IDENTIFIER_ADDITIONAL_IDENTIFIER = "多出的模组：\n{0}";
 
-        private OptionsLogicLevel? optionsLogic;
 
         [Header("Dialogs")]
         [SerializeField]
         private List<Sprite> pauseImages = new List<Sprite>();
+        [SerializeField]
+        private OptionsDialogController optionsDialogController = null!;
         #endregion
     }
 }

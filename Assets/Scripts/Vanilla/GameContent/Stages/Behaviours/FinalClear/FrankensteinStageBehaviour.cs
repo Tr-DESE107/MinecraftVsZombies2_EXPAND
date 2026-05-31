@@ -3,18 +3,18 @@
 using System.Linq;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Stages
             var targetEnemy = level.FindFirstEntity(e => !e.IsDead && e.HasBuff<FrankensteinTransformerBuff>());
             if (targetEnemy == null || !targetEnemy.Exists())
             {
-                var position = new Vector3(VanillaLevelExt.ENEMY_RIGHT_BORDER, 0, level.GetEntityLaneZ(Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f)));
+                var position = new Vector3(LevelPositions.ENEMY_RIGHT_BORDER, 0, level.GetEntityLaneZ(Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f)));
                 targetEnemy = level.Spawn(VanillaEnemyID.zombie, position, null)?.Let(e =>
                 {
                     e.AddBuff<FrankensteinTransformerBuff>();
@@ -125,8 +125,8 @@ namespace MVZ2.GameContent.Stages
             base.AfterBossWaveUpdate(level);
             level.CheckClearUpdate();
         }
-        public FrameTimer? GetFrankentsteinTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_FRANKENSTEIN_TIMER);
-        public void SetFrankensteinTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_FRANKENSTEIN_TIMER, value);
+        public FrameTimer? GetFrankentsteinTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_FRANKENSTEIN_TIMER);
+        public void SetFrankensteinTimer(LevelEngine level, FrameTimer value) => level.SetProperty(PROP_FRANKENSTEIN_TIMER, value);
         public FrameTimer GetOrCreateFrankensteinTimer(LevelEngine level)
         {
             var roundTimer = GetFrankentsteinTimer(level);

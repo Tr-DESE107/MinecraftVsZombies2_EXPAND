@@ -4,8 +4,8 @@ using System;
 using MongoDB.Bson.Serialization.Attributes;
 using MVZ2.Entities;
 using MVZ2.Grids;
-using MVZ2.Level.UI;
 using MVZ2.Models;
+using MVZ2.UI.Level;
 using PVZEngine;
 using PVZEngine.Level;
 using Tools;
@@ -19,7 +19,8 @@ namespace MVZ2.Level
 
         public float levelProgress;
         public float[]? bannerProgresses;
-        public float bossProgress;
+        public float bossHealth;
+        public float bossMaxHealth;
         public NamespaceID? bossProgressBarStyle;
         public bool progressBarMode;
 

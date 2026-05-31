@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.withersRevenge)]
+    [AutoStageDefinition(VanillaStageNames.withersRevenge)]
     public partial class WithersRevenge : StageDefinition
     {
         public WithersRevenge(string nsp, string name) : base(nsp, name)

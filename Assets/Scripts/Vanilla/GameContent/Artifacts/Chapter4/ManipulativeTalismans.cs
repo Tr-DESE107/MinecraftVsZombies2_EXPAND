@@ -3,15 +3,16 @@
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
-    [ArtifactDefinition(VanillaArtifactNames.manipulativeTalismans)]
+    [AutoArtifactDefinition(VanillaArtifactNames.manipulativeTalismans)]
     public class ManipulativeTalismans : ArtifactDefinition
     {
         public ManipulativeTalismans(string nsp, string name) : base(nsp, name)

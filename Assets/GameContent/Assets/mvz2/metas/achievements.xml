@@ -49,4 +49,14 @@
             <condition required="mvz2:achievement.midas_touchdown" />
         </unlock>
     </achievement>
+    <achievement id="sculpting_strike" name="雕琢打击" description="用铁镐挖掉一个石像鬼。" icon="mvz2:achievements/sculpting_strike">
+        <unlock>
+            <condition required="mvz2:achievement.sculpting_strike" />
+        </unlock>
+    </achievement>
+    <achievement id="let_them_eat_cake" name="何不食肉糜" description="让皇帝僵尸吃下一块蛋糕。" icon="mvz2:achievements/let_them_eat_cake">
+        <unlock>
+            <condition required="mvz2:achievement.let_them_eat_cake" />
+        </unlock>
+    </achievement>
 </achievements>

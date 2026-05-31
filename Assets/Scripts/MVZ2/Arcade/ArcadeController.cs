@@ -5,17 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.Logic.Level;
 using MVZ2.Managers;
 using MVZ2.Saves;
 using MVZ2.Scenes;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Saves;
-using MVZ2.Vanilla.Stats;
+using MVZ2.UI.Arcade;
+using MVZ2Logic.Audios;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Saves;
+using MVZ2Logic.Stats;
 using PVZEngine;
 using UnityEngine;
 
@@ -29,8 +28,8 @@ namespace MVZ2.Arcade
             ui.DisplayPage(ArcadeUI.ArcadePage.Index);
             ui.SetAllInteractable(true);
             UpdateItems();
-            if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
-                Main.MusicManager.Play(VanillaMusicID.choosing);
+            if (!Main.MusicManager.IsPlaying(LogicMusicID.choosing))
+                Main.MusicManager.Play(LogicMusicID.choosing);
         }
         public void DisplayMinigames()
         {
@@ -68,12 +67,12 @@ namespace MVZ2.Arcade
                     DisplayPuzzles();
                     break;
             }
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
         }
         private async void OnItemClickCallback(ArcadeUI.ArcadePage page, int index)
         {
             var items = page == ArcadeUI.ArcadePage.Puzzle ? puzzleItems : minigameItems;
-            Main.SoundManager.Play2D(VanillaSoundID.tap);
+            Main.SoundManager.Play2D(LogicSoundID.tap);
 
             var arcadeID = items[index];
             var arcadeMeta = Main.ResourceManager.GetArcadeMeta(arcadeID);
@@ -138,7 +137,7 @@ namespace MVZ2.Arcade
             string name;
             if (unlocked)
             {
-                name = GetTranslatedStringParticular(VanillaStrings.CONTEXT_LEVEL_NAME, stageDef.GetLevelName());
+                name = GetTranslatedStringParticular(LogicStrings.CONTEXT_LEVEL_NAME, stageDef.GetLevelName());
             }
             else
             {
@@ -147,7 +146,7 @@ namespace MVZ2.Arcade
             var hint = string.Empty;
             if (unlocked && stageDef.GetStageType() == StageTypes.TYPE_PUZZLE_ENDLESS)
             {
-                var flags = Main.SaveManager.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
+                var flags = Main.SaveManager.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
                 hint = GetTranslatedString(ENDLESS_MAX_STREAKS, flags);
             }
             var icon = Main.GetFinalSprite(meta.Icon);
@@ -189,7 +188,7 @@ namespace MVZ2.Arcade
                 var stage = Main.Game.GetStageDefinition(meta.StageID);
                 if (stage == null)
                     return false;
-                return Main.SaveManager.IsAllInvalidOrUnlocked(meta.HiddenUntil);
+                return meta.HiddenUntil.IsNullOrMeetsConditions(Main.SaveManager);
             });
             GetOrderedArcade(arcades, minigameItems);
             GetOrderedPuzzles(arcades, puzzleItems);

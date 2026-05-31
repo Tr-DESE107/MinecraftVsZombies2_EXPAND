@@ -9,24 +9,28 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.Contraption.lightningOrbEvoked)]
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.lightningOrbEvoked)]
     public class LightningOrbEvokedBuff : BuffDefinition
     {
         public LightningOrbEvokedBuff(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
-            thunderDetector = new LawnDetector();
+            thunderDetector = new LawnDetector()
+            {
+                canDetectInvisible = true
+            };
         }
         public override void PostAdd(Buff buff)
         {

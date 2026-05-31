@@ -3,22 +3,24 @@
 using MVZ2.GameContent.Armors;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Armors;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Contraptions
+namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.paratroop)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.paratroop)]
     public class ParatroopBuff : BuffDefinition
     {
         public ParatroopBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(VanillaEntityProps.FALL_RESISTANCE, NumberOperator.Add, 10000));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, 0));
-            AddModifier(new IntModifier(VanillaEnemyProps.STATE_OVERRIDE, IntegerOperator.Set, VanillaEnemyStates.IDLE));
+            AddModifier(new IntModifier(VanillaEnemyProps.STATE_OVERRIDE, IntegerOperator.Set, LogicEnemyStates.IDLE));
         }
         public override void PostAdd(Buff buff)
         {
@@ -26,8 +28,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            entity.DeactivateArmorColliders(VanillaArmorSlots.shield);
-            entity.SetAnimationBool("Parachuting", true);
+            entity.DeactivateArmorColliders(LogicArmorSlots.shield);
         }
         public override void PostRemove(Buff buff)
         {
@@ -35,8 +36,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            entity.ActivateArmorColliders(VanillaArmorSlots.shield);
-            entity.SetAnimationBool("Parachuting", IsParachuting(entity));
+            entity.ActivateArmorColliders(LogicArmorSlots.shield);
         }
         public override void PostUpdate(Buff buff)
         {
@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            var shield = entity.GetArmorAtSlot(VanillaArmorSlots.shield);
+            var shield = entity.GetArmorAtSlot(LogicArmorSlots.shield);
             if (shield == null || shield.Definition.GetID() != VanillaArmorID.umbrellaShield)
             {
                 buff.Remove();

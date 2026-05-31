@@ -3,9 +3,9 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Obstacles;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -17,7 +17,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {
-    [AreaDefinition(VanillaAreaNames.halloween)]
+    [AutoAreaDefinition(VanillaAreaNames.halloween)]
     public class Halloween : AreaDefinition
     {
         public Halloween(string nsp, string name) : base(nsp, name)
@@ -100,10 +100,9 @@ namespace MVZ2.GameContent.Areas
         {
             return grid.Column - STATUE_MIN_COLUMN + 1;
         }
-        public static RandomGenerator? GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(ID, PROP_RNG);
-        public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(ID, PROP_RNG, rng);
+        public static RandomGenerator? GetRNG(LevelEngine level) => level.GetProperty<RandomGenerator>(PROP_RNG);
+        public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetProperty(PROP_RNG, rng);
 
-        private static readonly NamespaceID ID = VanillaAreaID.halloween;
         public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("HalloweenRNG");
         public const int STATUE_MIN_COLUMN = 5;
     }

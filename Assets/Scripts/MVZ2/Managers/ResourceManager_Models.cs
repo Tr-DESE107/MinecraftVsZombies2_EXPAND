@@ -106,6 +106,8 @@ namespace MVZ2.Managers
                 var modelID = meta.Path;
                 var metaPath = EngineModelID.ConcatName(meta.Type, meta.Name);
                 var metaID = new NamespaceID(modNamespace, metaPath);
+                var spritePath = $"model_icon/{metaPath}";
+                Sprite modelSprite;
                 if (NamespaceID.IsValid(modelID))
                 {
                     Sprite? sprite = null;
@@ -117,13 +119,16 @@ namespace MVZ2.Managers
                     {
                         sprite = GetDefaultSpriteClone();
                     }
-                    modResource.ModelIcons.Add(metaPath, sprite);
+                    modelSprite = sprite;
                 }
                 else
                 {
-                    modResource.ModelIcons.Add(metaPath, GetDefaultSpriteClone());
+                    modelSprite = GetDefaultSpriteClone();
                     Debug.LogWarning($"Model prefab {metaID} is missing.");
                 }
+                modResource.ModelIcons.Add(metaPath, modelSprite);
+                modResource.Sprites.Add(spritePath, modelSprite);
+
                 progress.SetProgress(1 / (float)count, metaID.ToString());
                 yieldCounter++;
                 if (yieldCounter >= maxYieldCount)

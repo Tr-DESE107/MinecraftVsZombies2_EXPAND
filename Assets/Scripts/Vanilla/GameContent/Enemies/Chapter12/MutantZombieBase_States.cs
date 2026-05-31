@@ -3,16 +3,19 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.StateMachine;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
 
-namespace MVZ2.Vanilla.Enemies
+namespace MVZ2.GameContent.Enemies
 {
     public abstract partial class MutantZombieBase : EnemyBehaviour
     {
@@ -176,11 +179,7 @@ namespace MVZ2.Vanilla.Enemies
                 return false;
             var level = zombie.Level;
             var midColumn = level.GetMaxColumnCount() / 2 + 1;
-            if (zombie.IsFacingLeft())
-            {
-                return zombie.Position.x > level.GetColumnX(midColumn);
-            }
-            return zombie.Position.x < level.GetColumnX(midColumn);
+            return zombie.IsInTheRearOf(level.GetColumnX(midColumn));
         }
         public class ThrowState : EntityStateMachineState
         {
@@ -284,17 +283,17 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_IDLE = LogicEnemyStates.IDLE;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
         public const int STATE_SMASH = VanillaEnemyStates.MUTANT_ZOMBIE_SMASH;
         public const int STATE_THROW = VanillaEnemyStates.MUTANT_ZOMBIE_THROW;
-        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+        public const int STATE_DEATH = LogicEnemyStates.DEATH;
 
-        public const int ANIMATION_STATE_IDLE = EnemyStateBehaviour.ANIMATION_STATE_IDLE;
-        public const int ANIMATION_STATE_WALK = EnemyStateBehaviour.ANIMATION_STATE_WALK;
-        public const int ANIMATION_STATE_DEATH = EnemyStateBehaviour.ANIMATION_STATE_DEATH;
-        public const int ANIMATION_STATE_SMASH = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
-        public const int ANIMATION_STATE_THROW = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 1;
+        public const int ANIMATION_STATE_IDLE = EnemyCommonAnimationBehaviour.ANIMATION_STATE_IDLE;
+        public const int ANIMATION_STATE_WALK = EnemyCommonAnimationBehaviour.ANIMATION_STATE_WALK;
+        public const int ANIMATION_STATE_DEATH = EnemyCommonAnimationBehaviour.ANIMATION_STATE_DEATH;
+        public const int ANIMATION_STATE_SMASH = EnemyCommonAnimationBehaviour.ANIMATION_STATE_PRIVATE + 0;
+        public const int ANIMATION_STATE_THROW = EnemyCommonAnimationBehaviour.ANIMATION_STATE_PRIVATE + 1;
     }
 
 }

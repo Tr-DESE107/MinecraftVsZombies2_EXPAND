@@ -3,8 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using PVZEngine;
 
-namespace MVZ2Logic.Command
+namespace MVZ2Logic.Commands
 {
     public static class CommandUtility
     {
@@ -42,6 +43,22 @@ namespace MVZ2Logic.Command
                 return defaultValue;
             }
             return ParseHelper.ParseFloat(text);
+        }
+        public static int ParseOptionalInt(string text, int defaultValue)
+        {
+            if (text == DEFAULT_VALUE_PARAMETER)
+            {
+                return defaultValue;
+            }
+            return ParseHelper.ParseInt(text);
+        }
+        public static NamespaceID? ParseOptionalNamespaceID(string text, string defaultNsp, NamespaceID? defaultValue)
+        {
+            if (text == DEFAULT_VALUE_PARAMETER)
+            {
+                return defaultValue;
+            }
+            return NamespaceID.TryParse(text, defaultNsp, out var result) ? result : null;
         }
         public const char COMMAND_CHARACTER = '/';
         public const string DEFAULT_VALUE_PARAMETER = "~";

@@ -4,14 +4,14 @@ using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Stages;
-using MVZ2Logic;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.IZombie;
 using PVZEngine;
 using Tools;
 
 namespace MVZ2.GameContent.IZombie
 {
-    [IZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleUnbreakable)]
+    [AutoIZombieLayoutDefinition(VanillaIZombieLayoutNames.puzzleUnbreakable)]
     public class PuzzleUnbreakableLayout : IZombieLayoutDefinition
     {
         public PuzzleUnbreakableLayout(string nsp, string name) : base(nsp, name, 5)
@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.IZombie
             {
                 oddLanes[i] = i;
             }
-            var shuffledOddLanes = oddLanes.Shuffle(rng);
+            var shuffledOddLanes = oddLanes.Randomize(rng);
             for (int lane = 0; lane < map.Lanes; lane++)
             {
                 bool odd = lane % 2 == 0;

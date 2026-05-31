@@ -5,15 +5,16 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.seijaMagicBomb)]
-    public class SeijaMagicBomb : ProjectileBehaviour
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.seijaMagicBomb)]
+    public class SeijaMagicBomb : EntityBehaviourDefinition
     {
         public SeijaMagicBomb(string nsp, string name) : base(nsp, name)
         {

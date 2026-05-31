@@ -22,6 +22,11 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
         public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
 
+        public const string puzzleAmongUs = "puzzle_among_us";
+        public const string puzzleImInChargeNow = "puzzle_im_in_charge_now";
+        public const string puzzleBreakApart = "puzzle_break_apart";
+        public const string puzzleCatzomware = "puzzle_catzomware";
+
         public const string iZombieDebug = "i_zombie_debug";
 
         public const string izeComposite = "ize_composite";
@@ -33,6 +38,16 @@ namespace MVZ2.GameContent.Stages
         public const string izeFire = "ize_fire";
         public const string izeAwards = "ize_awards";
         public const string izeError = "ize_error";
+
+        public const string ize2Composite = "ize2_composite";
+        public const string ize2Control = "ize2_control";
+        public const string ize2Impale = "ize2_impale";
+        public const string ize2Instakill = "ize2_instakill";
+        public const string ize2Dispensers = "ize2_dispensers";
+        public const string ize2Spikes = "ize2_spikes";
+        public const string ize2Fire = "ize2_fire";
+        public const string ize2Spectral = "ize2_spectral";
+        public const string ize2Gunpowder = "ize2_gunpowder";
     }
     public static class VanillaIZombieLayoutID
     {
@@ -51,6 +66,11 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID puzzleFireInTheHole = Get(VanillaIZombieLayoutNames.puzzleFireInTheHole);
         public static readonly NamespaceID puzzleAllYourObservesAreBelongToUs = Get(VanillaIZombieLayoutNames.puzzleAllYourObservesAreBelongToUs);
 
+        public static readonly NamespaceID puzzleAmongUs = Get(VanillaIZombieLayoutNames.puzzleAmongUs);
+        public static readonly NamespaceID puzzleImInChargeNow = Get(VanillaIZombieLayoutNames.puzzleImInChargeNow);
+        public static readonly NamespaceID puzzleBreakApart = Get(VanillaIZombieLayoutNames.puzzleBreakApart);
+        public static readonly NamespaceID puzzleCatzomware = Get(VanillaIZombieLayoutNames.puzzleCatzomware);
+
         public static readonly NamespaceID iZombieDebug = Get(VanillaIZombieLayoutNames.iZombieDebug);
 
         public static readonly NamespaceID izeComposite = Get(VanillaIZombieLayoutNames.izeComposite);
@@ -62,6 +82,16 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID izeFire = Get(VanillaIZombieLayoutNames.izeFire);
         public static readonly NamespaceID izeAwards = Get(VanillaIZombieLayoutNames.izeAwards);
         public static readonly NamespaceID izeError = Get(VanillaIZombieLayoutNames.izeError);
+
+        public static readonly NamespaceID ize2Composite = Get(VanillaIZombieLayoutNames.ize2Composite);
+        public static readonly NamespaceID ize2Control = Get(VanillaIZombieLayoutNames.ize2Control);
+        public static readonly NamespaceID ize2Impale = Get(VanillaIZombieLayoutNames.ize2Impale);
+        public static readonly NamespaceID ize2Instakill = Get(VanillaIZombieLayoutNames.ize2Instakill);
+        public static readonly NamespaceID ize2Dispensers = Get(VanillaIZombieLayoutNames.ize2Dispensers);
+        public static readonly NamespaceID ize2Spikes = Get(VanillaIZombieLayoutNames.ize2Spikes);
+        public static readonly NamespaceID ize2Fire = Get(VanillaIZombieLayoutNames.ize2Fire);
+        public static readonly NamespaceID ize2Spectral = Get(VanillaIZombieLayoutNames.ize2Spectral);
+        public static readonly NamespaceID ize2Gunpowder = Get(VanillaIZombieLayoutNames.ize2Gunpowder);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

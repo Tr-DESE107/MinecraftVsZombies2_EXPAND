@@ -4,19 +4,21 @@ using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.IZombie;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
-using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Difficulties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Stats;
 using PVZEngine;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -73,6 +75,16 @@ namespace MVZ2.GameContent.Stages
                 if (level.FindEntities(VanillaEffectID.izObserver).All(e => IZObserver.IsPass(e)))
                 {
                     level.CurrentFlag++;
+
+                    // 写入统计。
+                    if (level.IsEndless())
+                    {
+                        if (Global.Saves.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
+                        {
+                            Global.Saves.SetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
+                        }
+                    }
+
                     var maxRound = GetMaxRounds();
                     var currentRound = level.CurrentFlag;
 
@@ -81,12 +93,12 @@ namespace MVZ2.GameContent.Stages
                         level.WaveState = STATE_NEXT_ROUND;
                         if (maxRound <= 0)
                         {
-                            level.ShowAdvicePlural(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_STREAK, currentRound, 0, 150, currentRound.ToString());
+                            level.ShowAdvicePlural(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_STREAK, currentRound, 0, 150, currentRound.ToString());
                         }
                         else
                         {
                             var remained = maxRound - currentRound;
-                            level.ShowAdvicePlural(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_ROUNDS_LEFT, remained, 0, 150, remained.ToString());
+                            level.ShowAdvicePlural(LogicStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_ROUNDS_LEFT, remained, 0, 150, remained.ToString());
                         }
                         var roundTimer = GetRoundTimer(level);
                         roundTimer?.Reset();
@@ -136,7 +148,12 @@ namespace MVZ2.GameContent.Stages
         protected virtual int GetMaxRounds() => 1;
         protected abstract void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout);
         protected abstract NamespaceID GetNewLayout(int round, RandomGenerator rng);
-        protected virtual void NextRound(LevelEngine level)
+        public void NextRound(LevelEngine level)
+        {
+            var layoutID = GetNewLayout(level.CurrentFlag, level.GetRoundRNG());
+            NextRound(level, layoutID);
+        }
+        public virtual void NextRound(LevelEngine level, NamespaceID layoutID)
         {
             foreach (var ent in level.GetEntities())
             {
@@ -146,7 +163,6 @@ namespace MVZ2.GameContent.Stages
             scene.SetScreenCoverColor(Color.white);
             scene.FadeScreenCoverColor(new Color(1, 1, 1, 0), 0.25f);
             level.PlaySound(VanillaSoundID.hugeWave);
-            var layoutID = GetNewLayout(level.CurrentFlag, level.GetRoundRNG());
             SetCurrentLayout(level, layoutID);
             var layout = level.Content.GetIZombieLayoutDefinition(layoutID);
             if (layout != null)
@@ -155,14 +171,6 @@ namespace MVZ2.GameContent.Stages
                 ReplaceBlueprints(level, layout);
             }
             level.WaveState = STATE_NORMAL;
-
-            if (level.IsEndless())
-            {
-                if (Global.Saves.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
-                {
-                    Global.Saves.SetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
-                }
-            }
         }
         private void GenerateMap(LevelEngine level, IZombieLayoutDefinition layout)
         {
@@ -219,10 +227,10 @@ namespace MVZ2.GameContent.Stages
                 level.GameOver(GameOverTypes.INSTANT, null, VanillaStrings.DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES);
             }
         }
-        public NamespaceID? GetCurrentLayout(LevelEngine level) => level.GetBehaviourField<NamespaceID>(PROP_CURRENT_LAYOUT);
-        public void SetCurrentLayout(LevelEngine level, NamespaceID value) => level.SetBehaviourField(PROP_CURRENT_LAYOUT, value);
-        public FrameTimer? GetRoundTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_ROUND_TIMER);
-        public void SetRoundTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_ROUND_TIMER, value);
+        public NamespaceID? GetCurrentLayout(LevelEngine level) => level.GetProperty<NamespaceID>(PROP_CURRENT_LAYOUT);
+        public void SetCurrentLayout(LevelEngine level, NamespaceID value) => level.SetProperty(PROP_CURRENT_LAYOUT, value);
+        public FrameTimer? GetRoundTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_ROUND_TIMER);
+        public void SetRoundTimer(LevelEngine level, FrameTimer value) => level.SetProperty(PROP_ROUND_TIMER, value);
 
         #region 属性字段
         private const string PROP_REGION = "i_zombie_stage";

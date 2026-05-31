@@ -11,7 +11,9 @@ using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Collisions;
 using MVZ2.Cursors;
+using MVZ2.Debugs;
 using MVZ2.GlobalGames;
+using MVZ2.Inputs;
 using MVZ2.IO;
 using MVZ2.Level;
 using MVZ2.Level.Components;
@@ -21,9 +23,15 @@ using MVZ2.Models;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
+using MVZ2.Store;
 using MVZ2.Supporters;
 using MVZ2Logic;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Options;
+using MVZ2Logic.Resources;
+using MVZ2Logic.Serialization;
 using PVZEngine;
+using PVZEngine.Level;
 using UnityEditor;
 using UnityEngine;
 
@@ -37,8 +45,9 @@ namespace MVZ2.Managers
             InitSerializable();
             LogInformations();
             await LoadManagersInit();
-            Scene.Init();
             ModManager.PostGameInit();
+            initialized = true;
+            Scene.Init();
         }
         public void UpdateManagerFixed()
         {
@@ -63,6 +72,14 @@ namespace MVZ2.Managers
         }
         public bool UseMobileLayout()
         {
+            if (initialized)
+            {
+                var screenLayout = OptionsManager.GetScreenLayout();
+                if (screenLayout != ScreenLayouts.AUTO)
+                {
+                    return screenLayout == ScreenLayouts.MOBILE;
+                }
+            }
             return IsMobile();
         }
         public TaskPipeline? GetLoadPipeline()
@@ -161,12 +178,6 @@ namespace MVZ2.Managers
         }
         #endregion
 
-        #region 文本
-        public string GetFloatPercentageText(float value)
-        {
-            return LanguageManager._(VALUE_PERCENT, Mathf.RoundToInt(value * 100));
-        }
-        #endregion
 
         private void Awake()
         {
@@ -199,9 +210,18 @@ namespace MVZ2.Managers
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
-            Application.targetFrameRate = 60;
             Input.simulateMouseWithTouches = false;
+            Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.None);
+            Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.ScriptOnly);
+            Application.SetStackTraceLogType(LogType.Error, StackTraceLogType.Full);
+
             Game = new GlobalGame(this);
+            Global.InitGame(Game);
+            ModelFactories.SetFactory(new ModelFactory());
+
+            var levelEngineAssembly = typeof(LevelEngine).Assembly;
+            var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
+            PropertyMapper.InitPropertyMaps(BuiltinNamespace, levelEngineAssembly.GetTypes());
 
             Global.Init(new GlobalParams()
             {
@@ -214,9 +234,9 @@ namespace MVZ2.Managers
                 music = MusicManager,
                 gui = new GlobalGUI(this),
                 scene = Scene,
-                game = Game,
                 localization = LanguageManager,
-                debug = DebugManager
+                debug = DebugManager,
+                cursors = CursorManager
             });
         }
         private void InitSerializable()
@@ -276,7 +296,6 @@ namespace MVZ2.Managers
             FontManager.Init();
             InputManager.InitKeys();
             OptionsManager.InitOptions();
-            OptionsManager.LoadOptions();
 
             await ModManager.LoadModInfos(Game);
 
@@ -288,6 +307,7 @@ namespace MVZ2.Managers
             ModManager.InitModLogics(Game);
             ModManager.LoadModLogics(Game);
             ModManager.PostReloadMods(Game);
+            OptionsManager.LoadOptions();
 
             // 在MOD逻辑加载之后
             SaveManager.Load();
@@ -320,8 +340,6 @@ namespace MVZ2.Managers
         public const string TASK_LOAD_RESOURCES = "加载中……";
         [TranslateMsg("初始化任务名称")]
         public const string TASK_LOAD_SPONSORS = "获取赞助者列表……";
-        [TranslateMsg("值，{0}为百分数")]
-        public const string VALUE_PERCENT = "{0}%";
         public static MainManager Instance { get; private set; } = null!;
         public GlobalGame Game { get; private set; } = null!;
         public string BuiltinNamespace => builtinNamespace;
@@ -349,9 +367,12 @@ namespace MVZ2.Managers
         public DebugManager DebugManager => debugManager;
         public MainSceneController Scene => scene;
         public PerformanceManager PerformanceManager => performanceManager;
+        public TalkManager TalkManager => talkManager;
 
         private Task? initTask;
         private TaskPipeline? loadPipeline;
+        private bool initialized = false;
+
         [SerializeField]
         private string builtinNamespace = "mvz2";
 #if UNITY_EDITOR
@@ -406,6 +427,8 @@ namespace MVZ2.Managers
         private DebugManager debugManager = null!;
         [SerializeField]
         private PerformanceManager performanceManager = null!;
+        [SerializeField]
+        private TalkManager talkManager = null!;
         [SerializeField]
         private MainSceneController scene = null!;
         public enum PlatformMode

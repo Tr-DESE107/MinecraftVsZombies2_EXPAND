@@ -4,14 +4,15 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.dreamSilk)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.dreamSilk)]
     public class DreamSilk : ContraptionBehaviour
     {
         public DreamSilk(string nsp, string name) : base(nsp, name)
@@ -20,7 +21,6 @@ namespace MVZ2.GameContent.Contraptions
         public override void Init(Entity silk)
         {
             base.Init(silk);
-            silk.Timeout = silk.GetMaxTimeout();
             silk.PlaySound(VanillaSoundID.sparkle);
             var grid = silk.GetGrid();
             if (grid != null)
@@ -35,18 +35,6 @@ namespace MVZ2.GameContent.Contraptions
                     entity.AddBuff<DreamSilkBuff>();
                     break;
                 }
-            }
-        }
-        protected override void UpdateLogic(Entity silk)
-        {
-            base.UpdateLogic(silk);
-            silk.Timeout--;
-            var tint = silk.GetTint();
-            tint.a = silk.Timeout / (float)silk.GetMaxTimeout();
-            silk.SetTint(tint);
-            if (silk.Timeout <= 0)
-            {
-                silk.Remove();
             }
         }
         public static bool CanSleep(Entity entity)

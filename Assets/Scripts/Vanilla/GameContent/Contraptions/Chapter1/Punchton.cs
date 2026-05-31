@@ -6,32 +6,38 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Collisions;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.punchton)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.punchton)]
     public class Punchton : ContraptionBehaviour
     {
         public Punchton(string nsp, string name) : base(nsp, name)
         {
             detector = new PunchtonDetector(false);
-            punchDetector = new PunchtonDetector(true);
+            punchDetector = new PunchtonDetector(true)
+            {
+                canDetectInvisible = true
+            };
             evokedDetector = new PunchtonDetector(true)
             {
+                canDetectInvisible = true,
                 infiniteRange = true
             };
         }
@@ -180,7 +186,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (ent.Type == EntityTypes.ENEMY)
                 {
                     var pos = ent.Position;
-                    pos.x = VanillaLevelExt.GetBorderX(!entity.IsFacingLeft());
+                    pos.x = LevelPositions.GetBorderX(!entity.IsFacingLeft());
                     ent.Position = pos;
                 }
             }

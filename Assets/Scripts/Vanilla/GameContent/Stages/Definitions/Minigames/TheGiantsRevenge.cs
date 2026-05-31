@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.theGiantsRevenge)]
+    [AutoStageDefinition(VanillaStageNames.theGiantsRevenge)]
     public partial class TheGiantsRevenge : StageDefinition
     {
         public TheGiantsRevenge(string nsp, string name) : base(nsp, name)

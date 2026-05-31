@@ -6,6 +6,12 @@
         <terrain water="true" air="true" />
         <weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
     </entry>
+    <entry id="flag_zombie" noEndless="true">
+        <entity id="mvz2:flag_zombie" />
+        <spawn level="0" />
+        <terrain water="true" air="true" />
+        <weight base="0" />
+    </entry>
     <entry id="leather_capped_zombie">
         <entity id="mvz2:leather_capped_zombie" />
         <spawn level="2" />
@@ -19,11 +25,11 @@
         <terrain water="true" air="true" />
         <weight base="3000" />
     </entry>
-    <entry id="flag_zombie" noEndless="true">
-        <entity id="mvz2:flag_zombie" />
-        <spawn level="0" />
+    <entry id="diamond_helmetted_zombie">
+        <entity id="mvz2:diamond_helmetted_zombie" />
+        <spawn level="6" />
         <terrain water="true" air="true" />
-        <weight base="0" />
+        <weight base="2000" />
     </entry>
 
     <!-- Halloween -->
@@ -156,6 +162,29 @@
         <entity id="mvz2:pop_captain" />
         <spawn level="5" minWave="10" />
         <weight base="2000" />
+    </entry>
+
+    <!-- Palace -->
+    <entry id="shadow_cell">
+        <entity id="mvz2:shadow_cell" />
+        <spawn level="3" minWave="5" />
+        <terrain excludedTags="mvz2:day" water="true" />
+        <weight base="3000" />
+    </entry>
+    <entry id="skeleton_statue">
+        <entity id="mvz2:skeleton_statue" />
+        <spawn level="2" minWave="5" />
+        <weight base="1500" />
+    </entry>
+    <entry id="hacker">
+        <entity id="mvz2:hacker" />
+        <spawn level="3" minWave="5" />
+        <weight base="2000" />
+    </entry>
+    <entry id="zombie_cat">
+        <entity id="mvz2:zombie_cat" />
+        <spawn level="4" minWave="5" />
+        <weight base="2500" />
     </entry>
     
     <entry id="mutant_zombie">

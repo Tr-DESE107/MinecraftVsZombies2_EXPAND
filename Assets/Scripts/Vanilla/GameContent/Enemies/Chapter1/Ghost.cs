@@ -2,19 +2,19 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
+using MVZ2.GameContent.Entities;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.ghost)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.ghost)]
     public class Ghost : AIEntityBehaviour
     {
         public Ghost(string nsp, string name) : base(nsp, name)

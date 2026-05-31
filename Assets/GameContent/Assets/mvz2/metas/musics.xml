@@ -414,4 +414,60 @@
             <p>最终，Lex离开了这本书，再次回到了图书馆。</p>
         </description>
     </music>
+
+    
+    <music id="palace_map" name="惊疑星球-地图">
+        <unlock>
+            <condition required="mvz2:level.palace_1" />
+        </unlock>
+        <track main="mvz2:palace_map" />
+        <source>书虫大冒险 Vol.2</source>
+        <description>
+            <p>地灵殿地图的音乐。</p>
+            <p>在《书虫大冒险 Vol.2》中，主角Lex离开《美猴王》，回到了图书馆，却发现图书馆中出现了大量的机器人，它们偷走了图书馆的书。</p>
+            <p>Lex和他的同伴们跟着机器人冲进了一本书中，那本书即为《惊疑星球》。</p>
+        </description>
+    </music>
+    <music id="palace_level" name="异常之眼">
+        <unlock>
+            <condition required="mvz2:level.palace_1" />
+        </unlock>
+        <track main="mvz2:palace_level" sub="mvz2:palace_level_sub" />
+        <source>东方地灵殿</source>
+        <origin>少女觉 ～ 3rd eye</origin>
+        <author>Dr.糕萌酸钾-Studio</author>
+        <description>
+            <p>地灵殿关卡的音乐。</p>
+            <p>原曲是《东方地灵殿》中古明地 觉的音乐《少女觉 ～ 3rd eye》。</p>
+            <p>地灵殿一如既往的深邃而又华丽。</p>
+            <p>然而，此时的地灵殿却似乎出现了很多奇怪的东西。</p>
+            <p>奇怪的……■■■■■■？</p>
+        </description>
+    </music>
+    <music id="palace_final" name="Last Remote">
+        <unlock>
+            <condition required="mvz2:level.palace_11" />
+        </unlock>
+        <track main="mvz2:palace_final" />
+        <source>东方地灵殿</source>
+        <description>
+            <p>地灵殿最终关的音乐。</p>
+            <p>是《东方地灵殿》中Extra关的音乐。</p>
+            <p>随着无数的灵魂在地灵殿不断飞舞，这场袭击的凶手似乎马上就要来临了。</p>
+            <p>那位夺走他人记忆与灵魂的“猎手”啊，出来与我们一战吧！</p>
+        </description>
+    </music>
+    <music id="palace_boss" name="Boss 2">
+        <unlock>
+            <condition required="mvz2:level.palace_11" />
+        </unlock>
+        <track main="mvz2:palace_boss" />
+        <source>泰拉瑞亚</source>
+        <description>
+            <p>上锁的箱子的音乐。</p>
+            <p>是游戏《泰拉瑞亚》中Boss血肉之墙的音乐。</p>
+            <p>！！！恐惧！！！</p>
+            <p>不可名状的巨型血肉墙壁正在朝你冲过来！！！！！</p>
+        </description>
+    </music>
 </musics>

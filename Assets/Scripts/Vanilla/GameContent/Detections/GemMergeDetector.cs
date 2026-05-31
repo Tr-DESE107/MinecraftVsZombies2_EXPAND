@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Detections;
+using PVZEngine.Collisions;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace MVZ2.GameContent.Detections
     {
         public GemMergeDetector()
         {
+            canDetectInvisible = true;
             mask = EntityCollisionHelper.MASK_PICKUP;
             factionTarget = FactionTarget.Any;
         }

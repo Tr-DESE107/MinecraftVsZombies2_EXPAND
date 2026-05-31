@@ -2,16 +2,17 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs.Contraptions
+namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Enemy.summonedByUFO)]
+    [AutoBuffDefinition(VanillaBuffNames.Enemy.summonedByUFO)]
     public class SummonedByUFOBuff : BuffDefinition
     {
         public SummonedByUFOBuff(string nsp, string name) : base(nsp, name)
@@ -19,11 +20,11 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             AddModifier(new FloatModifier(VanillaEntityProps.FALL_RESISTANCE, NumberOperator.Add, 10000));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, 0));
             AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_SCALE));
-            AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_SCALE));
+            AddModifier(new Vector3Modifier(LogicEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_SCALE));
             AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, PROP_SCALE));
             AddModifier(new BooleanModifier(VanillaEntityProps.AI_FROZEN, true));
             AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
-            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.Set, EntityCollisionHelper.DETECTION_IGNORE));
+            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.BitOr, EntityCollisionHelper.DETECTION_NO_COLLISION));
         }
         public override void PostAdd(Buff buff)
         {

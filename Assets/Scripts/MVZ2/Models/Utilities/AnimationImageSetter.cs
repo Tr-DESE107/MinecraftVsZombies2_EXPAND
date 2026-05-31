@@ -4,7 +4,7 @@ using MVZ2.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Rendering
+namespace MVZ2.Models
 {
     [RequireComponent(typeof(Image))]
     [ExecuteAlways]

@@ -1,3 +1,119 @@
+# 0.6.1
+## Changes
+- Changed the level layouts of I, Zombie levels "Among Us" and "Break Apart".
+- Replaced a Transfenser and a Beacon of the Light Layout from I, Zombie Endless 2 with two Glowstones.
+- In the console on mobile devices, the text box will now appear above the virtual keyboard.
+- The Locked Chest no longer summons Balloons in the top lane.
+- Speed of entrance and exit of characters is no longer affected by framerate.
+- Missiles of Brick Cannon are no longer affected by Force Pad.
+- Cooling Cell will now select the blueprint with the longest remaining recharge time among all valid blueprints as its target.
+- Added several missing hyperlinks to the Almanac.
+
+## Fixed Issues
+- Fixed the issue of being unable to adjust cursor position in the debug console on Android devices.
+- Fixed the issue where sprites of the Nether Mage not changing depending on its types.
+- Fixed the issue where material of the Nether Mage not being nether.
+- Fixed the issue where resolution not updating after changing screen display settings.
+- Fixed the issue where The Locked Chest being stuck in place if petrified when it jumps and attempts to place a Wither Skull while summoning the Wither.
+- Fixed the issue of removing two Gravity Pads under a Brick Cannon with an pickaxe.
+- Fixed the issue where Wooden Dropper and Golden Dropper not attacking Shadow Cell.
+- Fixed the issue where resolution in settings displaying many decimal places.
+- Fixed the issue of missing shop character sprites after shop cutscenes.
+- Fixed the issue of skipping the first phase of the Giant fight by damaging it when it has very low health the moment it spawns.
+- Fixed the issue where chapter 6 cannot begin due to files not saving properly.
+- Fixed the issue where command Block-imitated blueprint pickups not being monochrome.
+- Fixed the issue where pebbles split from boulders dealing only 5 damage.
+- Fixed the issue where the rolling blocks summoned by The Locked Chest would not disappear after leaving the battlefield.
+- Fixed the issue where Stone Shields provide explosion resistance to enemy obstacles.
+- Fixed the issue where, even after Starshards were reset to zero or disabled, the held Starshard could still be used.
+- Texts and localization fixes.
+
+---
+
+# 0.6.0
+## Added
+- Added chapter 6 - Palace of Earth Spirits.
+- Added commands for Debug mode:
+  - /gotolevel: Goto a level.
+  - /izombie：Operate on the "I, Zombie" level.
+  - /chaptertransition：Plays a chapter transition animation.
+  - /unlock listlocked: Lists all locked game states.
+  - /unlock all: Unlocks all game states.
+  - /unlock none: Relocks all game states.
+  - /test wave：Sets the current wave number.
+  - /test flags：Sets the current flags.
+  - /test spawnenemies：Spawns a page of different monsters.
+- Added hyperlinks to Almanac, allowing users to navigate between different entries by clicking on text within the Almanac.
+- Added 8 new Random China events.
+- Add options for screen layout, VSync, and target frame rate.
+- Add sound effects for the appearance of Ghasts and Pop Captains.
+- Added glowing visual effects for Spiders, Cave Spiders, Mesmerizers, Berserkers and Bedserkers.
+- Added 4 new I, Zombie levels, and I Zombie Endless 2.
+- Added almanac entry for Bedserker.
+
+## Modified
+- Skyward Beacon's strike position now can be changed by just clicking on it instead of triggering it.
+- After completing all levels in a map, entering the map will now set the view to the position of the endless level button.
+- Random China now displays both of evocation event's name and description instead of its name only.
+- Sweet Dream Pillow no longer triggers after all enemies in the level have been cleared.
+- Improved the console's auto-completion feature. Now, code completion displays up to 10 suggestions at a time, with the ability to page through more.
+- Added a description to Zombie Cloud's almanac entry, specifying its ability to absorb lightning and cold damage.
+- Reduced the number of particles in the Glowstone halo.
+- Update the texture of The Creature's Missile.
+
+### Balance
+- Moonlight Sensor
+  - Material: Stone -> Wood
+- Spike Block
+  - Now can destroy multiple Hell Chariots at once.
+- Stone Dropper
+  - When making attack checks, use the volume of boulders instead of the volume of pebbles.
+  - Damage of boulders: 40 -> 20
+- Jeweled Pagoda
+  - Recharge time: Very Long -> Short
+  - Tile disabling duration: 4 minutes -> 2 minutes
+- Command Block
+  - Material: Stone -> Metal
+- Dark Matter now make monsters invisible instead of making the battlefield dark.
+- The total flag amount of level 1-3 is from 2 -> 1.
+- These artifacts now only work for friendly contraptions:
+  - Sweet Sleep Pillow
+  - Dark Matter
+  - Bottled Blackhold
+  - Miracle Mallet
+  - Broken Lantern
+  - Lightbomb
+  - Eye of the Giant
+- The spawn rate of monsters during the boss battle in level 5-11 has been increased to 150% of the original rate.
+- Undead Flying Objects are no longer undead mobs.
+
+### Commands
+- Command "/spawn" can now specify the faction of the spawned entity.
+- The effect of command "/test armor" has been changed to make all monsters wear specific armor.
+- The effect of command "/test shield" has been changed to make all monsters hold specific shield.
+
+## Fixed
+- Fixed the issue where when Pop Captain knocked a contraption onto a lilypad with a contraption on it, the knocked contraption will fall into water instead.
+- Fixed the issue where Pop Captain can knock a lily pad onto land.
+- Fixed the issue where monsters sometimes continue to attack after leaving the attack range when attacking a contraption inside the stone shield during melee attacks.
+- Fixed the issue where starshards at the topmost cannot be stolen by blue UFOs at the topmost.
+- Fixed the issue where damage resistance of bosses works incorrectly.
+- Fixed the issue where the texture in the command block blueprint pickup was not grayscale.
+- Fixed the issue where Seija's cursed doll does not follow Seija's faction upon spawn.
+- Fixed the issue where Seija's cursed doll can be blown away by Wooden Fans.
+- Fixed the issue where boulders launched by the evocation of Stone Droppers only deal 10 damage.
+- Fixed the issue of incorrect ground-smashing animation for The Creature at low animation frequencies.
+- Fixed the issue where switching windows while dragging the map arrow to move the view would cause the dragging arrow to not disappear.
+- Fixed the issue of instant evocation failure after placing a Force Pad.
+- Fixed the issue where some water stains were not being cleared after the Red Dragon crashed.
+- Fixed the issue of white edges in the button textures in the music room.
+- Fixed the issue where the evoked Devourer would not attempt to adjust its vertical position.
+- Fixed the issue of incorrect flag rendering when the flag zombie sank into the water.
+- Fixed the issue where Shikaisen Staff was not immune to slowing effects.
+- Fixed the issue where zombies, after their health turned negative, were resurrected by Shikaisen Staff and their health after resurrection was not full.
+
+---
+
 # 0.5.2
 
 ## Modified

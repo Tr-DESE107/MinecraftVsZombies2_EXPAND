@@ -36,7 +36,7 @@ namespace MVZ2.Tests
         }
         ModifiableProperties props;
 
-        private class TestPropertyContainer : IPropertyModifyTarget
+        private class TestPropertyContainer : IModifiablePropertyTarget
         {
             private EntityDefinition definition;
             public TestPropertyContainer(EntityDefinition definition)
@@ -70,7 +70,7 @@ namespace MVZ2.Tests
                 return false;
             }
 
-            public void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
+            public void GetModifiersForProperty(IPropertyKey name, List<ModifierSourceItem> results)
             {
             }
 

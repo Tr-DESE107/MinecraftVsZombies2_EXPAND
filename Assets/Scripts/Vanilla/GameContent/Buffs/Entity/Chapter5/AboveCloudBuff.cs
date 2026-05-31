@@ -5,16 +5,17 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Buffs
+namespace MVZ2.GameContent.Buffs.Entities
 {
-    [BuffDefinition(VanillaBuffNames.Entity.aboveCloud)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.aboveCloud)]
     public class AboveCloudBuff : BuffDefinition
     {
         public AboveCloudBuff(string nsp, string name) : base(nsp, name)
@@ -22,9 +23,9 @@ namespace MVZ2.GameContent.Buffs
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.AddMultiple, PROP_GRAVITY_ADDITION, VanillaModifierPriorities.WATER_GRAVITY));
             AddModifier(new FloatModifier(EngineEntityProps.FRICTION, NumberOperator.Multiply, PROP_FRICTION_MULTI));
             AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, PROP_GROUND_LIMIT_OFFSET));
-            AddModifier(new FloatModifier(VanillaEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
-            AddModifier(new BooleanModifier(VanillaEnemyProps.HARMLESS, PROP_FALLING));
-            AddModifier(new BooleanModifier(VanillaEntityProps.DEPTH_TEST, true));
+            AddModifier(new FloatModifier(LogicEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
+            AddModifier(new BooleanModifier(LogicEnemyProps.HARMLESS, PROP_FALLING));
+            AddModifier(new BooleanModifier(LogicEntityProps.DEPTH_TEST, true));
         }
         public override void PostAdd(Buff buff)
         {
@@ -110,7 +111,7 @@ namespace MVZ2.GameContent.Buffs
         {
             if (entity.Position.y <= FALL_OFF_Y && !entity.IsDead)
             {
-                entity.Die(new DamageEffectList(VanillaDamageEffects.FALL_OFF, VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER), entity, null);
+                entity.Die(new DamageEffectList(VanillaDamageEffects.FALL_OFF, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.NO_REVIVAL), entity, null);
             }
         }
         private void FloatInteraction(Entity entity, out float gravityAddition)
@@ -131,7 +132,7 @@ namespace MVZ2.GameContent.Buffs
         {
             if (inside != buff.GetProperty<bool>(PROP_INSIDE_CLOUD))
             {
-                buff.SetProperty<bool>(PROP_INSIDE_CLOUD, inside);
+                buff.SetProperty(PROP_INSIDE_CLOUD, inside);
                 entity.PlayAirSplashSound();
                 if (inside)
                 {

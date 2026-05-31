@@ -12,14 +12,14 @@ namespace MVZ2.GameContent.Placements
 {
     public class DreamSilkSpawnCondition : ContraptionSpawnCondition
     {
-        public override NamespaceID? GetSpawnError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
+        protected override NamespaceID? GetSpawnErrorOfGrid(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
             var entities = grid.GetEntities();
             if (entities.Count() <= 0 || !entities.Any(e => DreamSilk.CanSleep(e)))
                 return VanillaGridStatus.onlyCanSleep;
 
             // 被占用。
-            return base.GetSpawnError(placement, grid, entity);
+            return base.GetSpawnErrorOfGrid(placement, grid, entity);
         }
     }
 }

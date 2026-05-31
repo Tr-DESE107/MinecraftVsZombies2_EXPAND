@@ -3,7 +3,7 @@
 using System.Xml;
 using MVZ2.IO;
 using MVZ2.Modding;
-using PVZEngine.Level.Collisions;
+using PVZEngine.Collisions;
 using UnityEngine;
 
 namespace MVZ2.Metas
@@ -103,6 +103,9 @@ namespace MVZ2.Metas
                     break;
                 case "unlocks":
                     resource.UnlockMetaList = UnlockMetaList.FromXmlNode(document["unlocks"], defaultNsp);
+                    break;
+                case "options":
+                    resource.OptionMetaList = OptionMetaList.FromXmlNode(document["options"], defaultNsp);
                     break;
             }
         }

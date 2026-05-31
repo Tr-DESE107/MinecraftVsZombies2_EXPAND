@@ -5,20 +5,22 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.zombieCloud)]
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.zombieCloud)]
     public class ZombieCloud : AIEntityBehaviour
     {
         public ZombieCloud(string nsp, string name) : base(nsp, name)
@@ -65,11 +67,6 @@ namespace MVZ2.GameContent.Enemies
                     entity.Spawn(VanillaEffectID.zombieCloudSnowflake, pos);
                 }
             }
-        }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelProperty("Variant", entity.GetVariant());
         }
         public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {

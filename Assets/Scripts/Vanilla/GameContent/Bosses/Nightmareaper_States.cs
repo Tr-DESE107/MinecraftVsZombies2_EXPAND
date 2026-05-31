@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
@@ -11,11 +12,14 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Shells;
+using MVZ2.Vanilla.StateMachine;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Collisions;
+using PVZEngine.Collisions.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
@@ -47,8 +51,8 @@ namespace MVZ2.GameContent.Bosses
         }
         private static int GetOutbound(Entity entity)
         {
-            const float leftX = VanillaLevelExt.LEFT_BORDER + 40;
-            const float rightX = VanillaLevelExt.RIGHT_BORDER - 40;
+            const float leftX = LevelPositions.LEFT_BORDER + 40;
+            const float rightX = LevelPositions.RIGHT_BORDER - 40;
             float topY = entity.Level.GetGridTopZ();
             float bottomY = entity.Level.GetGridBottomZ();
             if (entity.Position.x <= leftX)
@@ -181,7 +185,7 @@ namespace MVZ2.GameContent.Bosses
                 entity.Velocity = velocity;
 
                 float leftX = CENTER_POSITION.x + 40;
-                float rightX = VanillaLevelExt.RIGHT_BORDER - 40;
+                float rightX = LevelPositions.RIGHT_BORDER - 40;
                 float topY = entity.Level.GetGridTopZ();
                 float bottomY = entity.Level.GetGridBottomZ();
                 bool outOfRightRegion = entity.Position.x <= leftX || entity.Position.z <= bottomY || entity.Position.x >= rightX || entity.Position.z >= topY;
@@ -280,7 +284,8 @@ namespace MVZ2.GameContent.Bosses
                 }
                 // Jab.
                 bool jabbed = false;
-                foreach (IEntityCollider collider in entity.Level.OverlapBox(target.GetCenter(), Vector3.one * 40, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
+                var overlapParam = OverlapParams.Hostile(entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE);
+                foreach (IEntityCollider collider in entity.Level.OverlapBox(target.GetCenter(), Vector3.one * 40, overlapParam))
                 {
                     var damage = collider.Entity.GetTakenCrushDamage();
                     var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
@@ -420,7 +425,8 @@ namespace MVZ2.GameContent.Bosses
 
                     var point0 = entity.GetCenter() + Vector3.up * SPIN_HEIGHT * 0.5f;
                     var point1 = entity.GetCenter() + Vector3.down * SPIN_HEIGHT * 0.5f;
-                    level.OverlapCapsuleNonAlloc(point0, point1, SPIN_RADIUS, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0, detectBuffer);
+                    var overlapParam = OverlapParams.Hostile(entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE);
+                    level.OverlapCapsuleNonAlloc(point0, point1, SPIN_RADIUS, overlapParam, detectBuffer);
                     foreach (IEntityCollider collider in detectBuffer)
                     {
                         var target = collider.Entity;

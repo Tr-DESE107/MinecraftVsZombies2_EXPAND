@@ -5,13 +5,13 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.gas)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.gas)]
     public class GasBehaviour : EffectBehaviour
     {
         public GasBehaviour(string nsp, string name) : base(nsp, name)

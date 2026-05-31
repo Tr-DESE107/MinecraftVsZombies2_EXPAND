@@ -212,6 +212,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - -1 spawned Parasite Terrors from monsters.
 - Skeleton Horses won't jump.
 - Wicked Hermit Zombie is stunned for 7.5 seconds after teleporting.
+- The Self-destruction of Wisp Flies deals 100 damage.
 
 **Bosses**
 
@@ -220,6 +221,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Nightmareaper's Crushing Wall closes slower.
 - Nightmareaper's time limit is 2 minutes.
 - Wither won't regenerate health.
+- The blueprints spitted by the Locked Chest are Zombies.
 
 **Misc**
 
@@ -247,6 +249,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - +1 spawned Parasite Terrors from monsters.
 - Skeleton Horses jump twice.
 - Wicked Hermit Zombie is stunned for 2.5 seconds after teleporting.
+- The Self-destruction of Wisp Flies deals 300 damage.
 
 **Bosses**
 
@@ -261,6 +264,8 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - The Red Dragon will summon three tornados in phase 1.
 - The Red Dragon's giant fire ball in phase 2 flies and explodes faster.
 - The radius of the flame explosion caused by the Red Dragon's flying in phase 2 is doubled.
+- The blueprints spitted by the Locked Chest are Iron Helmet Zombies.
+- Locked Chest will ask for 2 starshards in the ransom pop-up.
 
 **Misc**
 

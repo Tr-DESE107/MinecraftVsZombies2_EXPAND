@@ -6,13 +6,16 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -21,8 +24,8 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
-    public class UndeadFlyingObject : AIEntityBehaviour
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
+    public class UndeadFlyingObject : AIEntityBehaviour, IDeathEffectsBehaviour
     {
         public UndeadFlyingObject(string nsp, string name) : base(nsp, name)
         {
@@ -45,7 +48,6 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.PlaySound(VanillaSoundID.ufo, volume: 0.5f);
             }
-            entity.SetAnimationInt("Variant", entity.GetVariant());
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -64,7 +66,6 @@ namespace MVZ2.GameContent.Enemies
                 var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE);
                 entity.Die(effects, entity);
             }
-            entity.SetAnimationInt("Variant", entity.GetVariant());
             entity.SetAnimationBool("SpotlightOn", entity.State == STATE_ACT);
             var variant = entity.GetVariant();
             if (behaviours.TryGetValue(variant, out var behaviour))
@@ -72,21 +73,22 @@ namespace MVZ2.GameContent.Enemies
                 behaviour.UpdateLogic(entity);
             }
         }
+
+        public void DeathEffects(Entity entity, DeathInfo info)
+        {
+            float damageMutliplier = entity.Level.GetReverseSatelliteDamageMultiplier();
+            float radius = EXPLOSION_RADIUS;
+            var damage = entity.GetDamage() * damageMutliplier;
+            if (damage >= 0)
+            {
+                entity.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION));
+            }
+            Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
+            entity.PlaySound(VanillaSoundID.explosion);
+        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) && !info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-            {
-                float damageMutliplier = entity.Level.GetReverseSatelliteDamageMultiplier();
-                float radius = EXPLOSION_RADIUS;
-                var damage = entity.GetDamage() * damageMutliplier;
-                if (damage >= 0)
-                {
-                    entity.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION));
-                }
-                Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
-                entity.PlaySound(VanillaSoundID.explosion);
-            }
             var variant = entity.GetVariant();
             if (behaviours.TryGetValue(variant, out var behaviour))
             {
@@ -228,9 +230,9 @@ namespace MVZ2.GameContent.Enemies
         public const float MAX_MOVE_SPEED = 15f;
         public const float MOVE_FACTOR = 0.5f;
 
-        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
-        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
-        public const int STATE_LEAVE = VanillaEnemyStates.LEAVE;
+        public const int STATE_IDLE = LogicEnemyStates.IDLE;
+        public const int STATE_DEATH = LogicEnemyStates.DEATH;
+        public const int STATE_LEAVE = LogicEnemyStates.LEAVE;
         public const int STATE_STAY = VanillaEnemyStates.UFO_STAY;
         public const int STATE_ACT = VanillaEnemyStates.UFO_ACT;
 

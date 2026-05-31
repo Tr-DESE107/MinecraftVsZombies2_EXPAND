@@ -9,14 +9,14 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skyBackground)]
+    [AutoEntityBehaviourDefinition(VanillaEntityBehaviourNames.skyBackground)]
     public class SkyBackground : EntityBehaviourDefinition
     {
         #region 公有方法

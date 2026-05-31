@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic;
+using MVZ2Logic.Resources;
 using PVZEngine;
 using UnityEngine;
 
@@ -33,6 +33,7 @@ namespace MVZ2.Metas
     {
         public string id;
         public string name = string.Empty;
+        public bool faceRight = false;
         [Obsolete]
         public NamespaceID? unlockCondition;
         public List<TalkCharacterVariant> variants = new List<TalkCharacterVariant>();
@@ -42,6 +43,10 @@ namespace MVZ2.Metas
             this.id = id;
         }
 
+        public TalkCharacterVariant GetFirstVariant()
+        {
+            return variants.FirstOrDefault();
+        }
         public TalkCharacterVariant GetVariant(NamespaceID id)
         {
             return variants.FirstOrDefault(v => v.id == id);
@@ -56,6 +61,7 @@ namespace MVZ2.Metas
             }
             var meta = new TalkCharacterMeta(id);
             meta.name = node.GetAttribute("name") ?? string.Empty;
+            meta.faceRight = node.GetAttributeBool("faceRight") ?? false;
 
             var variantTemplates = new List<TalkCharacterVariantTemplate>();
             var variantChildNodes = node.ChildNodes;

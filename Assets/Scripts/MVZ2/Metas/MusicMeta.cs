@@ -49,7 +49,7 @@ namespace MVZ2.Metas
             var description = string.Empty;
             if (descriptionNode != null)
             {
-                description = AlmanacMetaEntry.ConcatNodeParagraphs(descriptionNode);
+                description = descriptionNode.ConcatNodeParagraphs();
             }
             return new MusicMeta(id)
             {

@@ -4,13 +4,13 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.witherSkull)]
-    public class WitherSkull : ProjectileBehaviour
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.witherSkull)]
+    public class WitherSkull : EntityBehaviourDefinition
     {
         public WitherSkull(string nsp, string name) : base(nsp, name)
         {

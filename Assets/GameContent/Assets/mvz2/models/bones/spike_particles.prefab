@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 150193795065411988, guid: d70d62722151087409d72ed6d98d22a8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cbec3a6887d19854c839fac1474ec945, type: 2}
+      objectReference: {fileID: 2100000, guid: 0382c8c7c9909ed46a6a7f6d913f4579, type: 2}
     - target: {fileID: 836884166557527207, guid: d70d62722151087409d72ed6d98d22a8, type: 3}
       propertyPath: looping
       value: 0
@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115639321957275279, guid: 20878af0986885c4793b4099d7815082, type: 3}
       propertyPath: m_Name
-      value: bone Variant
+      value: spike_particles
       objectReference: {fileID: 0}
     - target: {fileID: 8845140610999988400, guid: 20878af0986885c4793b4099d7815082, type: 3}
       propertyPath: m_LocalPosition.y

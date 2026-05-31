@@ -4,19 +4,20 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.dragonFireBreath)]
+    [AutoEntityBehaviourDefinition(VanillaEffectNames.dragonFireBreath)]
     public class DragonFireBreath : EntityBehaviourDefinition, IBeBlownBehaviour
     {
         public DragonFireBreath(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Override(VanillaEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR, VanillaModifierPriorities.EARLY));
+            AddModifier(ColorModifier.Override(LogicEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR, VanillaModifierPriorities.EARLY));
         }
         public override void Init(Entity entity)
         {
@@ -45,7 +46,6 @@ namespace MVZ2.GameContent.Effects
             var variant = entity.GetVariant();
             var lightColor = GetLightColorByVariant(variant);
             entity.SetProperty(PROP_LIGHT_COLOR, lightColor);
-            entity.SetModelProperty("Variant", variant);
         }
         private void UpdateGridFire(Entity entity)
         {
@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Effects
         }
         public void BeBlown(Entity entity, Entity source)
         {
-            var newVelocity = source.IsFacingLeft() ? Vector3.left : Vector3.right;
+            var newVelocity = source.GetFacingDirection();
             newVelocity *= entity.Velocity.magnitude;
             entity.Velocity = newVelocity;
         }

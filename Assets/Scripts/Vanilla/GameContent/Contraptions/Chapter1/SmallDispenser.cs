@@ -2,16 +2,17 @@
 
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.smallDispenser)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.smallDispenser)]
     public class SmallDispenser : DispenserFamily
     {
         public SmallDispenser(string nsp, string name) : base(nsp, name)
@@ -46,11 +47,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             var velocity = Vector3.right * 3;
-            if (entity.IsFacingLeft())
-            {
-                velocity.x *= -1;
-            }
-            entity.ShootProjectile(VanillaProjectileID.largeSnowball, velocity);
+            velocity.x *= entity.GetFacingX();
+
+            var shootParams = entity.GetShootParams();
+            shootParams.projectileID = VanillaProjectileID.largeSnowball;
+            shootParams.velocity = velocity;
+            entity.ShootProjectile(shootParams);
             entity.PlaySound(VanillaSoundID.odd);
         }
     }

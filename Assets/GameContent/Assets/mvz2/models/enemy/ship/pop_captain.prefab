@@ -1063,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 6035589216026234355}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: renderers.Array.data[0]
@@ -1162,8 +1162,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4793806031120343999}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelAnchors.Array.data[6]
+      value: 
+      objectReference: {fileID: 8863995529222982419}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -1177,6 +1181,10 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[2]
       value: 
       objectReference: {fileID: 8991297331606811298}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: subSortingGroups.Array.data[3]
+      value: 
+      objectReference: {fileID: 3550297610442994072}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
       value: pop_captain
@@ -1248,6 +1256,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1037447941452006708}
     m_Modifications:
+    - target: {fileID: 1064062275316188114, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1824355228223485131, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
       propertyPath: m_Name
       value: bone
@@ -1295,6 +1307,10 @@ PrefabInstance:
     - target: {fileID: 5237456030807457987, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716140171532756521, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 6709277797501107786, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1371,6 +1387,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3550297610442994072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4643281490085793939, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
+  m_PrefabInstance: {fileID: 8157443032403845387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3838936201693976848 stripped
@@ -1589,6 +1616,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 313034350564900970, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
   m_PrefabInstance: {fileID: 8157443032403845387}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8863995529222982419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 735832556025817624, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
+  m_PrefabInstance: {fileID: 8157443032403845387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8990368806464340323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1004650146084282472, guid: 9825285f92864984384fbf2d953d36d0, type: 3}
