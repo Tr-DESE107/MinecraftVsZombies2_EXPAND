@@ -64,12 +64,12 @@ namespace MVZ2.GameContent.Contraptions
                     if (grid == null)
                         continue;
                     var main = grid.GetMainEntity();
-                    if (main != null)
+                    if (main != null && sourceEnt.IsFriendly(main))
                     {
                         results.Add(main);
                     }
                     var carrier = grid.GetCarrierEntity();
-                    if (carrier != null)
+                    if (carrier != null && sourceEnt.IsFriendly(carrier))
                     {
                         results.Add(carrier);
                     }
