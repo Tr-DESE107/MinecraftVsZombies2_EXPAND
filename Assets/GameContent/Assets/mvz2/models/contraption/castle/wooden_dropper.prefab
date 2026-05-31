@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2771561332843182044}
   - component: {fileID: 2064027860654206670}
   - component: {fileID: 4767914349279869656}
+  - component: {fileID: 7947327313260830461}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9ff472ab3deed244c8552a2bd5d7c949, type: 3}
+  m_Sprite: {fileID: 698915699, guid: 98377024446ed9c44aa8cb49fd8dd64f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,6 +99,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &7947327313260830461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238797982714816195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca377810bae8aa49bb81e20fdb171a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 698915699, guid: 98377024446ed9c44aa8cb49fd8dd64f, type: 3}
+  - {fileID: -771153635, guid: 98377024446ed9c44aa8cb49fd8dd64f, type: 3}
+  propertyName: OnCooldown
 --- !u!1 &3336421720491544475
 GameObject:
   m_ObjectHideFlags: 0
