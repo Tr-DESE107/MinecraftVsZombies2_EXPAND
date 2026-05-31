@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-30 03:04+0800\n"
+"POT-Creation-Date: 2026-05-31 11:39+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11780,7 +11780,7 @@ msgstr ""
 #. Text for talk sentence 3 in talk group palace_8_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_over"
-msgid "不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法再这里放置器械！"
+msgid "不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法在这里放置器械！"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group palace_8_over's section 0

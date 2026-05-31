@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-29 08:28+0800\n"
-"PO-Revision-Date: 2026-05-29 20:38+0800\n"
+"POT-Creation-Date: 2026-05-31 11:39+0800\n"
+"PO-Revision-Date: 2026-05-31 11:40+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -11457,7 +11457,9 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "<color=blue>（觉大人的意思……难道说，戴夫他——）</color>"
-msgstr "(Wait, does Lady Satori mean that... Would it be that, Dave—)"
+msgstr ""
+"<color=blue>(Wait, does Lady Satori mean that... Would it be that, Dave—)</"
+"color>"
 
 #. Text for talk sentence 25 in talk group palace_3_map's section 0
 #: Talk meta file
@@ -11477,14 +11479,14 @@ msgctxt "talk-mvz2:palace_3_map"
 msgid ""
 "<color=blue>（这样的话，我至少能够放下心来了，戴夫还是那个戴夫。）</color>"
 msgstr ""
-"(If that's the case, I don't need to worry about it. Dave is still the Dave "
-"I know.)"
+"<color=blue>(If that's the case, I don't need to worry about it. Dave is "
+"still the Dave I know.)</color>"
 
 #. Text for talk sentence 28 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "<color=blue>（没有人能在觉大人面前撒谎的！）</color>"
-msgstr "(No one can lie to Lady Satori!)"
+msgstr "<color=blue>(No one can lie to Lady Satori!)</color>"
 
 #. Text for talk sentence 29 in talk group palace_3_map's section 0
 #: Talk meta file
@@ -12739,7 +12741,7 @@ msgstr "And it won't leave a single body behind!"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_over"
 msgid ""
-"不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法再这里放置器械！"
+"不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法在这里放置器械！"
 msgstr ""
 "However, after it detonates, it'll destroy the tile it was on, temporarily "
 "preventing you from placing any contraptions there!"

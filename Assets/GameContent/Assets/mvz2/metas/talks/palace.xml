@@ -2644,7 +2644,7 @@
         </sentence>
         <!--语句3-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long3">
-          <text>不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法再这里放置器械！</text>
+          <text>不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法在这里放置器械！</text>
         </sentence>
         <!--语句4-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy">
