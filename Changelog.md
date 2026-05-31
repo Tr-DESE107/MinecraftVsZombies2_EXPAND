@@ -23,6 +23,7 @@
 - Fixed the issue where chapter 6 cannot begin due to files not saving properly.
 - Fixed the issue where command Block-imitated blueprint pickups not being monochrome.
 - Fixed the issue where pebbles split from boulders dealing only 5 damage.
+- Fixed the issue where the rolling blocks summoned by The Locked Chest would not disappear after leaving the battlefield.
 - Texts and localization fixes.
 
 ---
