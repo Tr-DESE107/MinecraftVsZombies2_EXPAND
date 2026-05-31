@@ -1,3 +1,32 @@
+# 0.6.1
+## Changes
+- Changed the level layouts of I, Zombie levels "Among Us" and "Break Apart".
+- Replaced a Transfenser and a Beacon of the Light Layout from I, Zombie Endless 2 with two Glowstones.
+- In the console on mobile devices, the text box will now appear above the virtual keyboard.
+- The Locked Chest no longer summons Balloons in the top lane.
+- Speed of entrance and exit of characters is no longer affected by framerate.
+- Missiles of Brick Cannon are no longer affected by Force Pad.
+- Cooling Cell will now select the blueprint with the longest remaining recharge time among all valid blueprints as its target.
+- Added several missing hyperlinks to the Almanac.
+
+## Fixed Issues
+- Fixed the issue of being unable to adjust cursor position in the debug console on Android devices.
+- Fixed the issue where sprites of the Nether Mage not changing depending on its types.
+- Fixed the issue where material of the Nether Mage not being nether.
+- Fixed the issue where resolution not updating after changing screen display settings.
+- Fixed the issue where The Locked Chest being stuck in place if petrified when it jumps and attempts to place a Wither Skull while summoning the Wither.
+- Fixed the issue of removing two Gravity Pads under a Brick Cannon with an pickaxe.
+- Fixed the issue where Wooden Dropper and Golden Dropper not attacking Shadow Cell.
+- Fixed the issue where resolution in settings displaying many decimal places.
+- Fixed the issue of missing shop character sprites after shop cutscenes.
+- Fixed the issue of skipping the first phase of the Giant fight by damaging it when it has very low health the moment it spawns.
+- Fixed the issue where chapter 6 cannot begin due to files not saving properly.
+- Fixed the issue where command Block-imitated blueprint pickups not being monochrome.
+- Fixed the issue where pebbles split from boulders dealing only 5 damage.
+- Texts and localization fixes.
+
+---
+
 # 0.6.0
 ## Added
 - Added chapter 6 - Palace of Earth Spirits.
