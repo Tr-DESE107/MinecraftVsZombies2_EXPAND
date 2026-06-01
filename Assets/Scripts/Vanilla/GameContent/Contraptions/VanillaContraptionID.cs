@@ -93,7 +93,11 @@ namespace MVZ2.GameContent.Contraptions
         public const string LCMTNT = "LCMTNT";
         public const string StoneGenerator = "StoneGenerator";
         public const string Stone = "Stone";
+
+        //EXPAND Fusion
         public const string ExplosionCore = "ExplosionCore";
+        public const string ExplosionCore_GunpowderBarrel = "ExplosionCore_GunpowderBarrel";
+        public const string ExplosionCore_GlowingObsidian = "ExplosionCore_GlowingObsidian";
 
         //EXPAND BlackCard
         public const string Bedrock = "Bedrock";
@@ -199,7 +203,11 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID LCMTNT = Get(VanillaContraptionNames.LCMTNT);
         public static readonly NamespaceID StoneGenerator = Get(VanillaContraptionNames.StoneGenerator);
         public static readonly NamespaceID Stone = Get(VanillaContraptionNames.Stone);
+
+        //EXPAND Fusion
         public static readonly NamespaceID ExplosionCore = Get(VanillaContraptionNames.ExplosionCore);
+        public static readonly NamespaceID ExplosionCore_GunpowderBarrel = Get(VanillaContraptionNames.ExplosionCore_GunpowderBarrel);
+        public static readonly NamespaceID ExplosionCore_GlowingObsidian = Get(VanillaContraptionNames.ExplosionCore_GlowingObsidian); 
 
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);

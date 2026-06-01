@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2d8521069afc3041b758df94b62562f
+guid: 1fadbf08bd9a0504db10721f41834d1c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ExplosionCore_0
+      name: ExplosionCore_GlowingObsidian_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 1
-        width: 48
-        height: 57
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab34c4a8d165caf4c807222dbc898008
-      internalID: 606006440
+      spriteID: 0f7bccbc66f2183489fbdf1c01e22f6a
+      internalID: -138790114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionCore_1
+      name: ExplosionCore_GlowingObsidian_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1
-        width: 48
-        height: 57
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c112b469e9d62f4d9b67363a8243067
-      internalID: -572425314
+      spriteID: 1378bff894c9f7548b18a6e8728d3f95
+      internalID: 1948516811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplosionCore_GlowingObsidian_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d49c24ca71c6ea40a5ab84d25746f9e
+      internalID: 1713144072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplosionCore_GlowingObsidian_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c560b424aaa61b04580ff2ee28c8825f
+      internalID: -1351251635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplosionCore_GlowingObsidian_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59916384a7619ec4bb34f84c80ccdeff
+      internalID: 1608583756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplosionCore_GlowingObsidian_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f364cae890dfa545b303400d1a03904
+      internalID: 1206610604
       vertices: []
       indices: 
       edges: []
@@ -175,8 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ExplosionCore_0: 606006440
-      ExplosionCore_1: -572425314
+      ExplosionCore_GlowingObsidian_0: -138790114
+      ExplosionCore_GlowingObsidian_1: 1948516811
+      ExplosionCore_GlowingObsidian_2: 1713144072
+      ExplosionCore_GlowingObsidian_3: -1351251635
+      ExplosionCore_GlowingObsidian_4: 1608583756
+      ExplosionCore_GlowingObsidian_5: 1206610604
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

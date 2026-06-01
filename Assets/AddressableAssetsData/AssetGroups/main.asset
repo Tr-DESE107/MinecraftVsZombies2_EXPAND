@@ -151,7 +151,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01e9fe4bc77e8ed47ae45b550ea9868b
-    m_Address: mvz2:contraption/EXPAND/ExplosionCore
+    m_Address: mvz2:contraption/EXPAND/ExplosionCore_GunpowderBarrel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1522,6 +1522,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1684641a546722a44bfea0398bc1bea1
+    m_Address: mvz2:entity/contraption/EXPAND_Skin/StoneDropper_Koishi
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 169b20c3c8d562044bd55bb9f6d0c255
     m_Address: mvz2:projectile/spike
     m_ReadOnly: 0
@@ -1731,6 +1738,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19b96b36e7e105241a972659f9e0c61c
+    m_Address: mvz2:entity/contraptions/ExplosionCore
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19c5d7995232173498a6f525c27f6544
     m_Address: mvz2:effect/mine_debris
@@ -2067,6 +2081,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fadbf08bd9a0504db10721f41834d1c
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/ExplosionCore_GlowingObsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 204fe2216f90dcb4a9e3e45c0373628b
     m_Address: mvz2:effect/mind_control_lines
@@ -3102,6 +3123,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3006a32148cf3bb478c9021243d90895
+    m_Address: mvz2:contraption/EXPAND/ExplosionCore
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30186cc749987114d9e9551582fb27ca
     m_Address: mvz2:cart/nyaightmare
@@ -6931,6 +6959,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d09101a1474a5e48b285e2d33c32ba3
+    m_Address: mvz2:contraption/EXPAND/ExplosionCore_GlowingObsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d19f900e36343048a4dac575a84e01d
     m_Address: mvz2:sweeping_beam
     m_ReadOnly: 0
@@ -7786,6 +7821,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7bcc33aabbd2bdf4b88f38a476c86f34
     m_Address: mvz2:entity/enemy/MutantDESE107
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7becda534e6922e4481c9e4769554cb9
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/SmallDispenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9505,6 +9547,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98377024446ed9c44aa8cb49fd8dd64f
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/WoodenDropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 983c95778175afa4899ce4ca543a5a13
     m_Address: mvz2:units/colliders/wither_skeleton
@@ -11993,6 +12042,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2b1b19c4c98a0e4390a8b7320626240
     m_Address: mvz2:ui/musicroom/play_button
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2d8521069afc3041b758df94b62562f
+    m_Address: mvz2:entity/contraption/EXPAND_Contraption/ExplosionCore_GunpowderBarrel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
