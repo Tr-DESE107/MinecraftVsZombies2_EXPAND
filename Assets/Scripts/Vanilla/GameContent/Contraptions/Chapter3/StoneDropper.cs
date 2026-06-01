@@ -40,6 +40,10 @@ namespace MVZ2.GameContent.Contraptions
             {
                 cooldownTimer.Run(entity.GetAttackSpeed());
             }
+            // ¸üÐÂÀäÈ´×´Ì¬ÊôÐÔ  
+            var cooldownTimer0 = GetTriggerCooldownTimer(entity);
+            bool isOnCooldown = cooldownTimer0 != null && !cooldownTimer0.Expired;
+            entity.SetModelProperty("OnCooldown", isOnCooldown);
 
             if (!entity.IsEvoked())
             {
