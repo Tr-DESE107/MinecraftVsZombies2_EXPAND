@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-31 08:16+0800\n"
+"POT-Creation-Date: 2026-06-01 10:30+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6907,7 +6907,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:sweet_sleep_pillow
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械每秒恢复10点耐久"
+msgid "友方器械每秒恢复10点耐久"
 msgstr ""
 
 #. Name for artifact mvz2:pagoda_branch
@@ -6943,7 +6943,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:dark_matter
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械生产效率×200%，但怪物隐形"
+msgid "友方器械生产效率×200%，但怪物隐形"
 msgstr ""
 
 #. Name for artifact mvz2:bottled_blackhole
@@ -6955,7 +6955,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:bottled_blackhole
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "每有一个蓝图空位，+10%器械伤害"
+msgid "每有一个蓝图空位，+10%友方器械伤害"
 msgstr ""
 
 #. Name for artifact mvz2:smart_phone
@@ -6991,7 +6991,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:miracle_mallet_replica
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "+15%器械伤害"
+msgid "+15%友方器械伤害"
 msgstr ""
 
 #. Name for artifact mvz2:nether_star
@@ -7015,7 +7015,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:broken_lantern
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "发光的器械+25%生产速度和攻击速度，但×50%光照范围"
+msgid "发光的友方器械+25%生产速度和攻击速度，但×50%光照范围"
 msgstr ""
 
 #. Name for artifact mvz2:manipulative_talismans
@@ -7051,7 +7051,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:lightbomb
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害"
+msgid "友方器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害"
 msgstr ""
 
 #. Name for artifact mvz2:eye_of_the_giant
@@ -7063,7 +7063,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:eye_of_the_giant
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械x250%伤害，但x50%攻击速度"
+msgid "友方器械x250%伤害，但x50%攻击速度"
 msgstr ""
 
 #. Name for artifact mvz2:ufo_toy

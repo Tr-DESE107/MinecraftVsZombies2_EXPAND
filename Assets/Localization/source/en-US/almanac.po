@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-31 08:16+0800\n"
-"PO-Revision-Date: 2026-05-31 20:32+0800\n"
+"POT-Creation-Date: 2026-06-01 10:30+0800\n"
+"PO-Revision-Date: 2026-06-01 22:31+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -8255,8 +8255,8 @@ msgstr "Sweet Sleep Pillow"
 #. Tooltip for artifact mvz2:sweet_sleep_pillow
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械每秒恢复10点耐久"
-msgstr "Contraptions restore 10 toughness per second"
+msgid "友方器械每秒恢复10点耐久"
+msgstr "Friendly contraptions restore 10 toughness per second"
 
 #. Name for artifact mvz2:pagoda_branch
 #: Artifact meta file
@@ -8291,8 +8291,8 @@ msgstr "Dark Matter"
 #. Tooltip for artifact mvz2:dark_matter
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械生产效率×200%，但怪物隐形"
-msgstr "x200% contraption produce speed, but the monsters are invisible"
+msgid "友方器械生产效率×200%，但怪物隐形"
+msgstr "x200% friendly contraption produce speed, but the monsters are invisible"
 
 #. Name for artifact mvz2:bottled_blackhole
 #: Artifact meta file
@@ -8303,8 +8303,8 @@ msgstr "Bottled Blackhole"
 #. Tooltip for artifact mvz2:bottled_blackhole
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "每有一个蓝图空位，+10%器械伤害"
-msgstr "+10% contraption damage for each empty blueprint slot"
+msgid "每有一个蓝图空位，+10%友方器械伤害"
+msgstr "+10% friendly contraption damage for each empty blueprint slot"
 
 #. Name for artifact mvz2:smart_phone
 #: Artifact meta file
@@ -8339,8 +8339,8 @@ msgstr "Miracle Mallet Replica"
 #. Tooltip for artifact mvz2:miracle_mallet_replica
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "+15%器械伤害"
-msgstr "+15% contraption damage"
+msgid "+15%友方器械伤害"
+msgstr "+15% friendly contraption damage"
 
 #. Name for artifact mvz2:nether_star
 #: Artifact meta file
@@ -8363,8 +8363,8 @@ msgstr "Broken Lantern"
 #. Tooltip for artifact mvz2:broken_lantern
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "发光的器械+25%生产速度和攻击速度，但×50%光照范围"
-msgstr "+25% produce speed and attack speed, but x50% light range for glowing contraptions"
+msgid "发光的友方器械+25%生产速度和攻击速度，但×50%光照范围"
+msgstr "+25% produce speed and attack speed, but x50% light range for glowing friendly contraptions"
 
 #. Name for artifact mvz2:manipulative_talismans
 #: Artifact meta file
@@ -8399,8 +8399,8 @@ msgstr "Lightbomb"
 #. Tooltip for artifact mvz2:lightbomb
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害"
-msgstr "Whenever a contraption is detonated, deal an additional damage equal to its energy cost to ALL enemies"
+msgid "友方器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害"
+msgstr "Whenever a friendly contraption is detonated, deal an additional damage equal to its energy cost to ALL enemies"
 
 #. Name for artifact mvz2:eye_of_the_giant
 #: Artifact meta file
@@ -8411,8 +8411,8 @@ msgstr "Eye of the Giant"
 #. Tooltip for artifact mvz2:eye_of_the_giant
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械x250%伤害，但x50%攻击速度"
-msgstr "x250% damage but x50% attack speed for contraptions"
+msgid "友方器械x250%伤害，但x50%攻击速度"
+msgstr "x250% damage but x50% attack speed for friendly contraptions"
 
 #. Name for artifact mvz2:ufo_toy
 #: Artifact meta file
