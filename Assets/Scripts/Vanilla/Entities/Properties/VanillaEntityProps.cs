@@ -610,7 +610,7 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 融合  
+        #region 融合    
         private static PropertyMeta<T> Get<T>(string name, T? defaultValue = default, params string[] obsoleteNames)
         {
             return new VanillaEntityPropertyMeta<T>(name, defaultValue, obsoleteNames);
@@ -626,6 +626,12 @@ namespace MVZ2.Vanilla.Entities
         public static NamespaceID? GetFusionResult(this EntityDefinition entity)
         {
             return entity.GetProperty<NamespaceID>(FUSION_RESULT);
+        }
+
+        public static readonly PropertyMeta<NamespaceID[]> FUSION_RESULTS = Get<NamespaceID[]>("fusionResults");
+        public static NamespaceID[]? GetFusionResults(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID[]>(FUSION_RESULTS);
         }
         #endregion
     }
