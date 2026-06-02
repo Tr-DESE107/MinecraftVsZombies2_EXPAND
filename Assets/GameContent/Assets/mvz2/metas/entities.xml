@@ -803,6 +803,7 @@
 
                 <int name="mvz2:cost" value="150" />
                 <int name="mvz2:triggerCost" value="75" />
+                <bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:rechargeId" value="mvz2:medium" />
 
                 <idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser" />

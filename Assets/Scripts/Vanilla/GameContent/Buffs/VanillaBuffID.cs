@@ -188,6 +188,7 @@ namespace MVZ2.GameContent.Buffs
             public const string dreamCrystalEvocation = "dream_crystal_evocation";
             public const string dreamSilk = "dream_silk";
             public const string bottledBlackholeDamage = "bottled_blackhole_damage";
+            public const string DrivenserTriggerBuff = "DrivenserTriggerBuff";
 
             // Chapter 3
             public const string stoneShieldProtected = "stone_shield_protected";
@@ -569,6 +570,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID dreamCrystalEvocation = Get(VanillaBuffNames.Contraption.dreamCrystalEvocation);
             public static readonly NamespaceID dreamSilk = Get(VanillaBuffNames.Contraption.dreamSilk);
             public static readonly NamespaceID bottledBlackholeDamage = Get(VanillaBuffNames.Contraption.bottledBlackholeDamage);
+            public static readonly NamespaceID DrivenserTriggerBuff = Get(VanillaBuffNames.Contraption.DrivenserTriggerBuff);
 
             // Chapter 3
             public static readonly NamespaceID stoneShieldProtected = Get(VanillaBuffNames.Contraption.stoneShieldProtected);
