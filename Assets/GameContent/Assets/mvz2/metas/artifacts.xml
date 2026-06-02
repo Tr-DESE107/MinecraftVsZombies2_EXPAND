@@ -45,7 +45,7 @@
             <condition required="mvz2:artifact.bottled_blackhole" />
         </unlock>
     </artifact>
-	
+    
     <artifact id="smart_phone" name="智能手机" tooltip="你在最后一波开始前每有10能量，关卡结束时便获得10金钱" sprite="mvz2:artifacts/smart_phone">
         <unlock>
             <condition required="mvz2:kourindou_visited_castle" />
@@ -119,17 +119,17 @@
         </unlock>
     </artifact>
 
-	<!--EXPAND-->
-	<artifact id="ShrunkenHead" name="萎缩头颅" tooltip="周期性为场上我方怪物赋予骨质头盔" sprite="mvz2:artifacts/ShrunkenHead">
-		<unlock>
-			<condition required="mvz2:level.halloween_14" />
-		</unlock>
-	</artifact>
-	<artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather">
-		<unlock>
-			<condition required="mvz2:level.dream_6" />
-		</unlock>
-	</artifact>
+    <!--EXPAND-->
+    <artifact id="ShrunkenHead" name="萎缩头颅" tooltip="周期性为场上我方怪物赋予骨质头盔" sprite="mvz2:artifacts/ShrunkenHead">
+        <unlock>
+            <condition required="mvz2:level.halloween_14" />
+        </unlock>
+    </artifact>
+    <artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather">
+        <unlock>
+            <condition required="mvz2:level.dream_6" />
+        </unlock>
+    </artifact>
     <artifact id="FrankensteinBrain" name="&lt;color=red&gt;科学怪人之脑&lt;/color&gt;" tooltip="场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%" sprite="mvz2:artifacts/FrankensteinBrain">
         <unlock>
             <condition required="mvz2:level.halloween_15" />
@@ -152,12 +152,12 @@
     </artifact>
     <artifact id="LeftHandBow" name="&lt;color=red&gt;左弓&lt;/color&gt;" tooltip="&lt;color=red&gt;使得怪物拥有难以置信的攻击速度&lt;/color&gt;" sprite="mvz2:artifacts/LeftHandBow">
         <unlock>
-			<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
         </unlock>
     </artifact>
     <artifact id="HerobrineSkull" name="&lt;color=red&gt;邪神头颅&lt;/color&gt;" tooltip="&lt;color=red&gt;面对我&lt;/color&gt;" sprite="mvz2:artifacts/HerobrineSkull">
         <unlock>
-			<condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
         </unlock>
     </artifact>
 </artifacts>

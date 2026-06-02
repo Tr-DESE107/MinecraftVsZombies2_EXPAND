@@ -7714,6 +7714,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a831ca29ba480f448c27cd579c9cef8
+    m_Address: mvz2:mobile_blueprint/ExplosionCore
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a8db72eb32f2374786990b1c3e9de7a
     m_Address: mvz2:misc/nightmare_censored
     m_ReadOnly: 0
