@@ -67,6 +67,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string Poisonball = "Poisonball";
         public const string largePoisonball = "largePoisonball";
         public const string RedKnife = "RedKnife";
+        public const string PurpleKnife = "PurpleKnife";
         public const string CopperBall = "CopperBall";
         public const string CopperOreBall = "CopperOreBall";
         public const string PulseArrow = "PulseArrow";
@@ -137,6 +138,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID purpleArrow = Get(VanillaProjectileNames.purpleArrow);
         public static readonly NamespaceID ObsidianShard = Get(VanillaProjectileNames.ObsidianShard);
         public static readonly NamespaceID RedKnife = Get(VanillaProjectileNames.RedKnife);
+        public static readonly NamespaceID PurpleKnife = Get(VanillaProjectileNames.PurpleKnife);
         public static readonly NamespaceID Poisonball = Get(VanillaProjectileNames.Poisonball);
         public static readonly NamespaceID largePoisonball = Get(VanillaProjectileNames.largePoisonball);
         public static readonly NamespaceID CopperBall = Get(VanillaProjectileNames.CopperBall);

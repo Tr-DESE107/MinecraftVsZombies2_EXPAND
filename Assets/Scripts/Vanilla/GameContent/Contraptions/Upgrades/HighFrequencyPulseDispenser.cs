@@ -276,7 +276,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public const int REPEAT_INVERVAL = 7;
         public const int EVOCATION_TIME = 60;
-        public const int REPEAT_COUNT = 6;
+        public const int REPEAT_COUNT = 8;
         public const int REPEAT_COUNT_UPGRADED = 10;
         public const int MISSILE_MAX_COUNT = 6;
         public const int MISSILE_ATTACK_INTERVAL = 60; // µ¼µ¯¹¥»÷¼ä¸ô£¨Ö¡£©    
