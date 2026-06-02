@@ -121,9 +121,9 @@
     <model name="StoneGenerator" type="entity" path="mvz2:contraption/EXPAND/StoneGenerator" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="Stone" type="entity" path="mvz2:contraption/EXPAND/Stone" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="FireDispenser" type="entity" path="mvz2:contraption/palace/FireDispenser" width="64" height="64" xOffset="0" yOffset="-28" />
-	<model name="ExplosionCore" type="entity" path="mvz2:contraption/EXPAND/ExplosionCore" width="64" height="64" xOffset="0" yOffset="-28" />
-	<model name="ExplosionCore_GunpowderBarrel" type="entity" path="mvz2:contraption/EXPAND/ExplosionCore_GunpowderBarrel" width="64" height="64" xOffset="0" yOffset="-28" />
-	<model name="ExplosionCore_GlowingObsidian" type="entity" path="mvz2:contraption/EXPAND/ExplosionCore_GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="ExplosionCore" type="entity" path="mvz2:contraption/EXPAND/ExplosionCore" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="ExplosionCore_GunpowderBarrel" type="entity" path="mvz2:contraption/EXPAND/ExplosionCore_GunpowderBarrel" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="ExplosionCore_GlowingObsidian" type="entity" path="mvz2:contraption/EXPAND/ExplosionCore_GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28" />
     
     <model name="Randombstone" type="entity" path="mvz2:contraption/GoldCard/Randombstone" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="SuperFireworkDispenser" type="entity" path="mvz2:contraption/EXPAND/SuperFireworkDispenser" width="64" height="64" xOffset="0" yOffset="-28" />

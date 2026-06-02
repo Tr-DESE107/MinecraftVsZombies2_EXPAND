@@ -9,13 +9,14 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using UnityEngine;
+using MVZ2Logic.Entities;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.ExplosionCore)]
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.ExplosionCore)]
     public class ExplosionCore : ContraptionBehaviour
     {
         public ExplosionCore(string nsp, string name) : base(nsp, name) 
