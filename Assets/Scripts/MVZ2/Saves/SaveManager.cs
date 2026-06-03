@@ -57,7 +57,8 @@ namespace MVZ2.Saves
             lock (_saveLock)
             {
                 // 1. 将存档写入临时文件。
-                var tempSavePath = GetUserModSaveDataTempPath(userIndex, spaceName);
+                var guid = Guid.NewGuid().ToString("N");
+                var tempSavePath = GetUserModSaveDataTempPath(userIndex, spaceName, guid);
                 FileHelper.ValidateDirectory(tempSavePath);
                 var serializable = modSaveData.ToSerializable();
                 var metaJson = serializable.ToBson();
@@ -89,8 +90,15 @@ namespace MVZ2.Saves
                 }
                 catch (FileNotFoundException)
                 {
-                    // 目标文件在调用前被删除 → 改用移动
-                    File.Move(tempSavePath, destPath);
+                    try
+                    {
+                        // 目标文件在调用前被删除 → 改用移动
+                        File.Move(tempSavePath, destPath);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.LogError($"存档文件{destPath}写入失败: {e}");
+                    }
                 }
             }
         }
@@ -433,9 +441,9 @@ namespace MVZ2.Saves
             }
             return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), filename);
         }
-        public string GetUserModSaveDataTempPath(int userIndex, string spaceName)
+        public string GetUserModSaveDataTempPath(int userIndex, string spaceName, string guid)
         {
-            return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), "user.dat.temp");
+            return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), $"user.dat.temp{guid}");
         }
         #endregion
 
