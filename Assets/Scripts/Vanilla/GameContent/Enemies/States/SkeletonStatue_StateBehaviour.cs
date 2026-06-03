@@ -16,11 +16,15 @@ namespace MVZ2.GameContent.Enemies
         }
         protected override int GetPassiveState(Entity enemy)
         {
-            if (SkeletonStatue.IsReviving(enemy))
+            var state = base.GetPassiveState(enemy);
+            if (state < 0)
             {
-                return SkeletonStatue.STATE_REVIVING;
+                if (SkeletonStatue.IsReviving(enemy))
+                {
+                    state = SkeletonStatue.STATE_REVIVING;
+                }
             }
-            return base.GetPassiveState(enemy);
+            return state;
         }
         protected override int GetActiveState(Entity enemy)
         {
