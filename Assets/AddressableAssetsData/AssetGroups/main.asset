@@ -5440,6 +5440,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53cb863ca50fd0f45bacc08b93170e1a
+    m_Address: mvz2:projectile/EXPAND_projectile/PurpleKnife
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53f322d812c753f42851480dbcfccbd7
     m_Address: mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Totenser
     m_ReadOnly: 0
@@ -11669,13 +11676,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bb7b1b4f6370f4c43bf840d5d2d93ee1
-    m_Address: mvz2:contraption/upgrade/EXPANDispenser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb82960c34438084dbe2e212ab303367
     m_Address: mvz2:entity/mummy/mummy3
     m_ReadOnly: 0
@@ -15119,6 +15119,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4b7e739ce9470740afa2a402e91b5df
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/PurpleKnife
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4c0bfb75f72dd04691ce970467c4c37
     m_Address: mvz2:entity/contraption/DiamondOre
