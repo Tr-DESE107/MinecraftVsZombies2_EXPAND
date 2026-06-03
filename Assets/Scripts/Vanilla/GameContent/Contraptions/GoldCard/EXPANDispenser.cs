@@ -114,15 +114,27 @@ namespace MVZ2.GameContent.Contraptions
 
         public override bool CanEvoke(Entity entity)
         {
-            if (IsUpgraded(entity))
-                return false;
             return base.CanEvoke(entity);
         }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
-            entity.AddBuff<HFPDUpgradedBuff>();
+
+            // 触发后获得导弹盒    
+            SetHasMissileBox(entity, true);
+            SetMissileCount(entity, MISSILE_MAX_COUNT);
+
+            // 保持原有的升级效果  
+            if (!entity.HasBuff<HFPDUpgradedBuff>())
+            {
+                entity.AddBuff<HFPDUpgradedBuff>();
+            }
             entity.PlaySound(VanillaSoundID.motor);
+
+            // 重置并启动大招计时器  
+            var evocationTimer = GetEvocationTimer(entity);
+            evocationTimer?.Reset();
+            entity.SetEvoked(true);
         }
 
         private void TryShootMissile(Entity entity)
@@ -221,36 +233,19 @@ namespace MVZ2.GameContent.Contraptions
             if (evocationTimer == null)
                 return;
             evocationTimer.Run();
-            if (evocationTimer.PassedInterval(15))
+            if (evocationTimer.PassedInterval(2))
             {
+                // 直接调用基类方法  
                 var projectile = Shoot(entity);
                 if (projectile != null)
                     projectile.Velocity *= 2;
             }
             if (evocationTimer.Expired)
             {
-                ShootLargeArrow(entity);
                 entity.SetEvoked(false);
                 var shootTimer = GetShootTimer(entity);
                 shootTimer?.Reset();
             }
-        }
-        private Entity? ShootLargeArrow(Entity entity)
-        {
-            entity.TriggerAnimation("Shoot");
-
-            var param = entity.GetShootParams();
-
-            var offset = entity.GetShotOffset();
-            offset = entity.ModifyShotOffset(offset);
-            param.position = entity.Position + offset;
-            param.velocity = param.velocity.normalized;
-
-            param.projectileID = VanillaProjectileID.largeArrow;
-            param.damage = entity.GetDamage() * 30;
-            param.soundID = VanillaSoundID.spellCard;
-
-            return entity.ShootProjectile(param);
         }
 
         // 导弹盒相关属性    
@@ -273,7 +268,7 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetRepeatCount(Entity entity, int count) => entity.SetBehaviourField(PROP_REPEAT_COUNT, count);
 
         public const int REPEAT_INVERVAL = 7;
-        public const int EVOCATION_TIME = 60;
+        public const int EVOCATION_TIME = 120;
         public const int REPEAT_COUNT = 8;
         public const int REPEAT_COUNT_UPGRADED = 12;
         public const int MISSILE_MAX_COUNT = 8;
