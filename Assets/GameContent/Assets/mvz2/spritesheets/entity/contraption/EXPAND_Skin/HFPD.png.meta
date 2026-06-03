@@ -127,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 9
+        y: 52
         width: 45
-        height: 43
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: HFPD_1
       rect:
         serializedVersion: 2
-        x: 137
-        y: 23
-        width: 21
-        height: 31
+        x: 52
+        y: 52
+        width: 45
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: HFPD_2
       rect:
         serializedVersion: 2
-        x: 167
-        y: 48
-        width: 12
-        height: 6
+        x: 105
+        y: 66
+        width: 28
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: HFPD_3
       rect:
         serializedVersion: 2
-        x: 49
-        y: 9
-        width: 45
-        height: 39
+        x: 105
+        y: 50
+        width: 28
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: HFPD_4
       rect:
         serializedVersion: 2
-        x: 96
-        y: 10
-        width: 40
-        height: 38
+        x: 2
+        y: 7
+        width: 45
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: HFPD_5
       rect:
         serializedVersion: 2
-        x: 167
-        y: 40
-        width: 12
-        height: 6
+        x: 50
+        y: 4
+        width: 40
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,6 +244,69 @@ TextureImporter:
       bones: []
       spriteID: 390116c16e1451d489f9b379758084de
       internalID: 354384086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HFPD_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 6
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6779f58df3c5a90459e2cc26c770159f
+      internalID: 1937749892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HFPD_7
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 13
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feeaa4777cebaa249bcf2a1a878eeda8
+      internalID: 170509617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HFPD_8
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 3
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9559c21256930f247a8b99ecf49fda60
+      internalID: 21730644
       vertices: []
       indices: 
       edges: []
@@ -265,6 +328,9 @@ TextureImporter:
       HFPD_3: -1156057602
       HFPD_4: 1327915474
       HFPD_5: 354384086
+      HFPD_6: 1937749892
+      HFPD_7: 170509617
+      HFPD_8: 21730644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
