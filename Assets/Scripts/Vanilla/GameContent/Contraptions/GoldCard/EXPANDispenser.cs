@@ -120,7 +120,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
 
-            // 触发后获得导弹盒    
+            //获得导弹盒    
             SetHasMissileBox(entity, true);
             SetMissileCount(entity, MISSILE_MAX_COUNT);
 
