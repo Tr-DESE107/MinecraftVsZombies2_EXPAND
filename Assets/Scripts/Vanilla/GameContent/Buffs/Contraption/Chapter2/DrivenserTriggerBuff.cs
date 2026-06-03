@@ -8,12 +8,12 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
-using PVZEngine.Level;
+using PVZEngine.Definitions;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Contraptions  
 {  
-    [BuffDefinition(VanillaBuffNames.Contraption.DrivenserTriggerBuff)]  
+    [AutoBuffDefinition(VanillaBuffNames.Contraption.DrivenserTriggerBuff)]  
     public class DrivenserTriggerBuff : BuffDefinition  
     {  
         public DrivenserTriggerBuff(string nsp, string name) : base(nsp, name)  

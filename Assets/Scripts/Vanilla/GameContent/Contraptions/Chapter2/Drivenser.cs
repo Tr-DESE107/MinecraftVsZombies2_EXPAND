@@ -10,8 +10,6 @@ using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -19,6 +17,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
+using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -61,8 +60,8 @@ namespace MVZ2.GameContent.Contraptions
             {
                 var shootTimer = GetShootTimer(entity);
 
-                // ����������У������죨�����̣�  
-                int shootInterval = GetIsTriggerEvoke(entity) ? GetTimerTime(entity)/2 : GetTimerTime(entity);
+                // 如果是触发大招，射速更快（间隔更短）  
+                int shootInterval = GetIsTriggerEvoke(entity) ? GetTimerTime(entity) / 2 : GetTimerTime(entity);
 
                 if (shootTimer.RunToExpiredAndNotNull())
                 {
@@ -81,14 +80,14 @@ namespace MVZ2.GameContent.Contraptions
                     {
                         entity.SetEvoked(false);
 
-                        // ����������У������Ϻ�Ի� 
+                        // 如果是触发大招，发射完毕后自毁  
                         if (GetIsTriggerEvoke(entity))
                         {
                             Explode(entity, 60, 600);
                             entity.TakeDamage(99999, new DamageEffectList(), entity);
                         }
 
-                        SetIsTriggerEvoke(entity, false); // �����  
+                        SetIsTriggerEvoke(entity, false); // 重置标志  
                     }
                     shootTimer.ResetTime(shootInterval);
                 }
@@ -132,11 +131,11 @@ namespace MVZ2.GameContent.Contraptions
             int baseLevel = GetUpgradeLevel(entity);
             int effectiveLevel = baseLevel;
 
-            // ��������buff����λ�������6���ÿ����λ+2��ʸ    
+            // 如果有触发buff，挡位可以提升到6，且每个挡位+2箭矢    
             if (entity.HasBuff<DrivenserTriggerBuff>())
             {
                 effectiveLevel = Mathf.Min(baseLevel, TRIGGER_MAX_LEVEL);
-                int count = effectiveLevel * 2 + 2 + TRIGGER_ARROW_BONUS; // ÿ����λ+2��ʸ    
+                int count = effectiveLevel * 2 + 2 + TRIGGER_ARROW_BONUS; // 每个挡位+2箭矢    
                 SetRepeatCount(entity, count);
             }
             else
@@ -154,7 +153,7 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
 
-        // ��Ӵ�������    
+        // 添加触发方法    
         public override bool CanTrigger(Entity entity)
         {
             return base.CanTrigger(entity) && !entity.HasBuff<DrivenserTriggerBuff>();
@@ -166,10 +165,10 @@ namespace MVZ2.GameContent.Contraptions
 
             entity.TakeDamage(75, new DamageEffectList(), entity);
 
-            // ��Ӵ���buff�����30�    
+            // 添加触发buff，持续30秒    
             entity.AddBuff<DrivenserTriggerBuff>();
 
-            // ����������    
+            // 播放音效和特效    
             entity.PlaySound(VanillaSoundID.mechanism);
             entity.Level.Spawn(VanillaEffectID.gearParticles, entity.Position, entity);
         }
@@ -180,12 +179,12 @@ namespace MVZ2.GameContent.Contraptions
 
             int level = GetUpgradeLevel(entity);
 
-            // ��������buff�������졢�������ʸ  
+            // 如果有触发buff，射速更快、发射更多箭矢  
             if (entity.HasBuff<DrivenserTriggerBuff>())
             {
                 #region ANOTHER EVOKE
                 //int level = GetUpgradeLevel(entity);
-                //int arrowCount = 5 + level * 2; // 5 + ����ȼ�*2  
+                //int arrowCount = 5 + level * 2; // 5 + 驱动等级*2  
 
                 //for (int i = 0; i < arrowCount; i++)
                 //{
@@ -196,7 +195,7 @@ namespace MVZ2.GameContent.Contraptions
                 //    shootParams.soundID = VanillaSoundID.spellCard;
                 //    shootParams.velocity = shootParams.velocity.normalized;
 
-                //    // ÿֻ���΢ƫתһ���� 
+                //    // 每只箭稍微偏转一点角度  
                 //    float angleOffset = (i - arrowCount / 2f) * 0.1f;
                 //    Quaternion rotation = Quaternion.Euler(0, angleOffset * Mathf.Rad2Deg, 0);
                 //    shootParams.velocity = rotation * shootParams.velocity;
@@ -204,23 +203,23 @@ namespace MVZ2.GameContent.Contraptions
                 //    entity.ShootProjectile(shootParams);
                 //}
 
-                //// �������buff  
+                //// 移除触发buff  
                 //entity.RemoveBuffs<DrivenserTriggerBuff>();
 
-                //// ��� 
+                //// 自毁  
                 //entity.TakeDamage(99999, new DamageEffectList(), entity);
                 #endregion
 
                 entity.SetEvoked(true);
-                SetRepeatCount(entity, 5 + Mathf.FloorToInt(level * 1.5f)); // 5 + ����ȼ�*1.5 ��ȡ�
-                SetIsTriggerEvoke(entity, true); // ��Ϊ������� 
+                SetRepeatCount(entity, 5 + Mathf.FloorToInt(level * 1.5f)); // 5 + 驱动等级*1.5 向下取整
+                SetIsTriggerEvoke(entity, true); // 标记为触发大招  
 
-                // �������buff  
+                // 移除触发buff  
                 entity.RemoveBuffs<DrivenserTriggerBuff>();
             }
             else
             {
-                // ԭ��Ŀ���߼�  
+                // 原有的开大逻辑  
                 entity.SetEvoked(true);
                 SetRepeatCount(entity, 5);
                 SetIsTriggerEvoke(entity, false);
@@ -255,9 +254,9 @@ namespace MVZ2.GameContent.Contraptions
         }
         public const int MAX_UPGRADE_LEVEL = 4;
         public const int I_ZOMBIE_LEVEL = 2;
-        public const int TRIGGER_MAX_LEVEL = 6; // ����ʱ����    
-        public const int TRIGGER_ARROW_BONUS = 2; // ÿ����λ+2��ʸ    
-        public const float TRIGGER_HEALTH_COST = 125; // �����ʧѪ��    
+        public const int TRIGGER_MAX_LEVEL = 6; // 触发时最大挡位    
+        public const int TRIGGER_ARROW_BONUS = 2; // 每个挡位+2箭矢    
+        public const float TRIGGER_HEALTH_COST = 125; // 触发损失血量    
         private static readonly NamespaceID ID = VanillaContraptionID.drivenser;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_REPEAT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("RepeatTimer");
         public static readonly VanillaEntityPropertyMeta<int> PROP_REPEAT_COUNT = new VanillaEntityPropertyMeta<int>("RepeatCount");

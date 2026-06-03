@@ -4537,6 +4537,9 @@ MonoBehaviour:
     - {fileID: -1156057602, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
     - {fileID: 1327915474, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
     - {fileID: 354384086, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 1937749892, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 170509617, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 21730644, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   - name: entity/contraption/EXPAND_Skin/SmoothStoneShield
     spritesheet:
     - {fileID: -465856548, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
