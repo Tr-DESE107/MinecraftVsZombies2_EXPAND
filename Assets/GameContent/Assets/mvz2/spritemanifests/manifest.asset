@@ -4342,6 +4342,8 @@ MonoBehaviour:
     - {fileID: 1828765822, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
     - {fileID: 1347023728, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
     - {fileID: -1225652064, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
+    - {fileID: -1278438853, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
+    - {fileID: -1167442362, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     spritesheet:
     - {fileID: 256080187, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
@@ -4527,6 +4529,14 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
     - {fileID: 59550891, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
+  - name: entity/contraption/EXPAND_Skin/HFPD
+    spritesheet:
+    - {fileID: 395192976, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 418986790, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 1012567326, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: -1156057602, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 1327915474, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 354384086, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   - name: entity/contraption/EXPAND_Skin/SmoothStoneShield
     spritesheet:
     - {fileID: -465856548, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
