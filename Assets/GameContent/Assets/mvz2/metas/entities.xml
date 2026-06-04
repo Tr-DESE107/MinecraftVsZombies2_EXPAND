@@ -954,7 +954,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
-        <entity template="contraption" id="desire_pot" name="欲望壶" tooltip="复制怪物身上的星之碎片">
+        <entity template="contraption" id="desire_pot" name="欲望壶" tooltip="复制怪物身上的星之碎片，最多三次">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.desire_pot" />
             </unlock>
@@ -1125,7 +1125,7 @@
         </entity>
 
         <!-- Palace Contraptions -->
-        <entity template="dispenser" id="transfenser" name="变形发射器" tooltip="发射光灵箭，或者瞄准最前方的敌人">
+        <entity template="dispenser" id="transfenser" name="变形发射器" tooltip="发射光灵箭，或者用激光穿透整行敌人">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.transfenser" />
             </unlock>

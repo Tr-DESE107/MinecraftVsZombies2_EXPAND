@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-06-01 10:30+0800\n"
+"POT-Creation-Date: 2026-06-04 11:17+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5587,7 +5587,7 @@ msgstr ""
 #. Tooltip for entity mvz2:desire_pot
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "复制怪物身上的星之碎片"
+msgid "复制怪物身上的星之碎片，最多三次"
 msgstr ""
 
 #. Name for entity mvz2:gunpowder_barrel
@@ -5695,7 +5695,7 @@ msgstr ""
 #. Tooltip for entity mvz2:transfenser
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "发射光灵箭，或者瞄准最前方的敌人"
+msgid "发射光灵箭，或者用激光穿透整行敌人"
 msgstr ""
 
 #. Name for entity mvz2:gravelpult

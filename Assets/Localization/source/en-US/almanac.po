@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-06-01 10:30+0800\n"
-"PO-Revision-Date: 2026-06-01 22:31+0800\n"
+"POT-Creation-Date: 2026-06-04 11:17+0800\n"
+"PO-Revision-Date: 2026-06-04 11:26+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -375,7 +375,7 @@ msgstr "Immune to mind control"
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "不会溺水"
-msgstr "Drownproof"
+msgstr "Waterproof"
 
 #. Description for almanac tag drownproof
 #: Almanac meta file
@@ -387,13 +387,13 @@ msgstr "Survives in water"
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "控制免疫"
-msgstr "Immobilization Immunity"
+msgstr "Failproof"
 
 #. Description for almanac tag control_immunity
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "不会被定身"
-msgstr "Immune to immobilization"
+msgstr "Cannot be disabled"
 
 #. Name for almanac tag not_undead
 #: Almanac meta file
@@ -465,7 +465,7 @@ msgstr "Very Heavy"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "不受到击退"
-msgstr "Immune to knockback"
+msgstr "Takes no knockback"
 
 #. Name for almanac tag enum value mvz2:stone of enum shell
 #: Almanac meta file
@@ -641,7 +641,7 @@ msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Fire rate: <color=red>1.5 seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Evocation: <color=red>Rapidly shoot 60 arrows</color>"
+"Evocation: <color=red>Rapidly shoots 60 arrows</color>"
 
 #. Flavor for contraptions mvz2:dispenser
 #: Almanac meta file
@@ -693,7 +693,7 @@ msgid ""
 "技能：<color=red>获得下界合金装甲，耐久提高至10000</color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Evocation: <color=red>Gain netherite armor, increase toughness into 10000</color>"
+"Evocation: <color=red>Gains netherite armor, increases toughness into 10000</color>"
 
 #. Flavor for contraptions mvz2:obsidian
 #: Almanac meta file
@@ -776,7 +776,7 @@ msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Time to arm: <color=red>15 seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Evocation: <color=red>Instantly arm itself, then place two copies of itself on the rightmost column</color>"
+"Evocation: <color=red>Instantly arms itself, then places two copies of itself on the rightmost column</color>"
 
 #. Flavor for contraptions mvz2:mine_tnt
 #: Almanac meta file
@@ -802,7 +802,7 @@ msgid ""
 msgstr ""
 "Range: <color=red>3.5 tiles</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Evocation: <color=red>Shoot a snowball that gets bigger and bigger</color>"
+"Evocation: <color=red>Shoots a snowball that gets bigger and bigger</color>"
 
 #. Flavor for contraptions mvz2:small_dispenser
 #: Almanac meta file
@@ -824,7 +824,7 @@ msgid ""
 "技能：<color=red>立即升级，<tag id=\"mvz2:light_source\" />发出蓝光，并使生产量变为2倍</color>"
 msgstr ""
 "Energy production: <color=red>1/1.6 secs, then 1/1 sec</color>\n"
-"Evocation: <color=red>Instantly upgrade, <tag id=\"mvz2:light_source\" />glow with blue light and increase its yield by 2 times</color>"
+"Evocation: <color=red>Instantly upgrades, <tag id=\"mvz2:light_source\" />glows with blue light and doubles its yield</color>"
 
 #. Flavor for contraptions mvz2:moonlight_sensor
 #: Almanac meta file
@@ -846,7 +846,7 @@ msgid ""
 "技能：<color=red>眩晕所有敌方怪物5秒，清除器械的精神控制状态</color>"
 msgstr ""
 "Radius: <color=red>1.5 tiles</color>\n"
-"Evocation: <color=red>Stun all enemy monsters for 5 seconds, remove the mind control status from all contraptions</color>"
+"Evocation: <color=red>Stuns all enemy monsters for 5 seconds, removes the mind control status from all contraptions</color>"
 
 #. Flavor for contraptions mvz2:glowstone
 #: Almanac meta file
@@ -877,7 +877,7 @@ msgid ""
 msgstr ""
 "Damage: <color=red>100 (Ignore Armors)</color>\n"
 "Time to repair: <color=red>20 seconds</color>\n"
-"Evocation: <color=red>Deal 500 damage to all enemies in front and knock back them to the rightest</color>"
+"Evocation: <color=red>Deals 500 damage to all enemies in front by pushing them all the way to the right</color>"
 
 #. Flavor for contraptions mvz2:punchton
 #: Almanac meta file
@@ -901,7 +901,7 @@ msgid ""
 msgstr ""
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "Radius: <color=red>1.5 tiles</color>\n"
-"Evocation: <color=red>Blast into 4 flying copies of itself that explode on impact</color>"
+"Evocation: <color=red>Blasts into 4 flying copies of itself that explode on impact</color>"
 
 #. Flavor for contraptions mvz2:tnt
 #: Almanac meta file
@@ -929,9 +929,9 @@ msgid ""
 msgstr ""
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "Splash Damage: <color=red><var local=\"splash_damage\" /> (Do not damage the direct target)</color>\n"
-"Special: <color=red>Need to be fueled by burning other contraptions</color>\n"
+"Special: <color=red>Needs to be fueled by burning other contraptions</color>\n"
 "Max Fuel: <color=red>120</color>\n"
-"Evocation: <color=red>Consume all the remaining fuel to rapidly shoot explosive soulfire balls towards random enemies</color>"
+"Evocation: <color=red>Consumes all the remaining fuel to rapidly shoot explosive soulfire balls towards random enemies</color>"
 
 #. Flavor for contraptions mvz2:soul_furnace
 #: Almanac meta file
@@ -956,7 +956,7 @@ msgid ""
 msgstr ""
 "Damage: <color=red><var id=\"mvz2:entity_damage\" />, <var local=\"flesh_damage\"/> against flesh</color>\n"
 "Special: <color=red>Knives pierce enemies, but are blocked by hard objects</color>\n"
-"Evocation: <color=red>Create circles of knives with at most 10 enemies as the centers, knives start flying after a few seconds</color>"
+"Evocation: <color=red>Creates circles of knives with at most 10 enemies as the centers, knives start flying after a few seconds</color>"
 
 #. Flavor for contraptions mvz2:silvenser
 #: Almanac meta file
@@ -977,7 +977,7 @@ msgstr "Magichests transform into a <ref=[misc]mvz2:starshard.magic_candy>Starsh
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "技能：<color=red>召唤一个<ref=[enemies]mvz2:ghast>恶魂</ref>，用以纪念我好朋友之前做过的一个游戏</color>"
-msgstr "Evocation: <color=red>Summon a <ref=[enemies]mvz2:ghast>Ghast</ref> to memorialize a game my good friend made before</color>"
+msgstr "Evocation: <color=red>Summons a <ref=[enemies]mvz2:ghast>Ghast</ref> to memorialize a game my good friend made</color>"
 
 #. Flavor for contraptions mvz2:magichest
 #: Almanac meta file
@@ -999,7 +999,7 @@ msgstr "Lily Pads allow you to place non-aquatic contraptions on water."
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "技能：<color=red>在3x3范围内的水中召唤分身</color>"
-msgstr "Evocation: <color=red>Summon copies on 3x3 water tiles</color>"
+msgstr "Evocation: <color=red>Summons 8 copies on nearby water tiles</color>"
 
 #. Flavor for contraptions mvz2:lily_pad
 #: Almanac meta file
@@ -1025,7 +1025,7 @@ msgstr ""
 "Fire rate: <color=red>1.5 seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "Max Level: <color=red>5</color>\n"
-"Evocation: <color=red>Shoot 5 large arrows</color>"
+"Evocation: <color=red>Shoots 5 large arrows</color>"
 
 #. Flavor for contraptions mvz2:drivenser
 #: Almanac meta file
@@ -1047,7 +1047,7 @@ msgstr "Gravity Pads can lower the height of medium height objects above it, and
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "技能：<color=red>铁砧从天而降，砸伤敌人并阻挡怪物们前进</color>"
-msgstr "Evocation: <color=red>Anvil falls from the sky, crushes enemy monsters and stops them</color>"
+msgstr "Evocation: <color=red>An anvil falls from the sky, crushing and blocking off enemies</color>"
 
 #. Flavor for contraptions mvz2:gravity_pad
 #: Almanac meta file
@@ -1067,7 +1067,7 @@ msgstr "Vortex Hoppers drag all monsters close to it underwater when spinning."
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "技能：<color=red>将更大范围的敌方怪物拉入水底</color>"
-msgstr "Evocation: <color=red>Drag enemy monsters in a wider range underwater</color>"
+msgstr "Evocation: <color=red>Drags enemies in a greater area underwater</color>"
 
 #. Flavor for contraptions mvz2:vortex_hopper
 #: Almanac meta file
@@ -1093,7 +1093,7 @@ msgstr ""
 "Fire rate: <color=red>1.5 second</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "Special: <color=red>Can attack enemies on air</color>\n"
-"Evocation: <color=red>Shoot seeds of giant armor-piercing spikes at up to 10 enemies</color>"
+"Evocation: <color=red>Shoots seeds of giant armor-piercing spikes at up to 10 enemies</color>"
 
 #. Flavor for contraptions mvz2:pistenser
 #: Almanac meta file
@@ -1122,8 +1122,9 @@ msgid ""
 msgstr ""
 "Fire rate: <color=red>1.5 seconds</color>\n"
 "Damage: <color=red>15 (dart), 20/s (fire breath)</color>\n"
-"Special: <color=red>Poison on its dart make <tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />monsters deal no damage</color>\n"
-"Evocation: <color=red>Throw a spear which pierces through enemies, and leave a trail of weakening gas</color>"
+"Special: <color=red>Curare on its darts paralyzes <tag id=\"mvz2:shell\" enum=\"mvz2:flesh\" />monsters, making them deal no damage</"
+"color>\n"
+"Evocation: <color=red>Throws a spear which pierces through enemies, spawning Curare aerosol</color>"
 
 #. Flavor for contraptions mvz2:totenser
 #: Almanac meta file
@@ -1152,7 +1153,7 @@ msgid ""
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Regeneration: <color=red>60/s</color>\n"
-"Evocation: <color=red>Become invincible, regenerate toughness for surrounding contraptions</color>"
+"Evocation: <color=red>Becomes invincible, regenerates toughness for surrounding contraptions</color>"
 
 #. Flavor for contraptions mvz2:dream_crystal
 #: Almanac meta file
@@ -1428,7 +1429,7 @@ msgstr ""
 "Fire rate: <color=red>1.5 seconds</color>\n"
 "Notes limit: <color=red>10</color>\n"
 "Range: <color=red>4 tiles</color>\n"
-"Evocation: <color=red>In 30 seconds, deal x500% damage, x500% fire rate, x200% note flying speed and +10 tiles range</color>"
+"Evocation: <color=red>In 30 seconds, deals x500% damage, x500% fire rate, x200% note flying speed and +10 tiles range</color>"
 
 #. Flavor for contraptions mvz2:note_block
 #: Almanac meta file
@@ -1550,7 +1551,7 @@ msgid ""
 "技能：<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>"
 msgstr ""
 "Damage Addition: <color=red>+100% fire damage, +66% splash damage</color>\n"
-"Evocation: <color=red>Become cursed flame, provides +200% fire damage, +133% splash damage for arrows</color>"
+"Evocation: <color=red>Flame becomes cursed, provides +200% fire damage, +133% splash damage for arrows</color>"
 
 #. Flavor for contraptions mvz2:hellfire
 #: Almanac meta file
@@ -1591,7 +1592,7 @@ msgstr ""
 "Warrior Toughness: <color=red><var local=\"warrior_hp\" />+<var local=\"helmet_hp\" /> (Helmet)+<var local=\"shield_hp\" /> (Shield)</"
 "color>\n"
 "Warrior Speed: <color=red><var local=\"warrior_speed\" /></color>\n"
-"Evocation: <color=red>Summon 3 skeleton mages of the same class: Fire, Frost, or Lightning</color>"
+"Evocation: <color=red>Summons 3 skeleton mages of the same class: Fire, Frost, or Lightning</color>"
 
 #. Flavor for contraptions mvz2:necrotombstone
 #: Almanac meta file
@@ -1652,8 +1653,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid "技能：<color=red>将最后方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>"
 msgstr ""
-"Evocation: <color=red>Spawn copies of the last 2 fully-recharged blueprints as pickups, then reset the recharges of the 2 blueprints.</"
-"color>"
+"Evocation: <color=red>Spawns copies of the 2 bottommost fully-recharged blueprints as pickups, then resets the cooldown of the 2 "
+"blueprints.</color>"
 
 #. Flavor for contraptions mvz2:desire_pot
 #: Almanac meta file
@@ -1693,7 +1694,7 @@ msgstr ""
 "Explosion Radius: <color=red>1.5 tiles</color>\n"
 "Produce time: <color=red>36 seconds</color>\n"
 "Energy production: <color=red><var local=\"gunpowder_value\" /></color>\n"
-"Evocation: <color=red>Produce furious gunpowder instead, which provides <var local=\"furious_gunpowder_value\" /> energy but explodes "
+"Evocation: <color=red>Produces furious gunpowder instead, which provides <var local=\"furious_gunpowder_value\" /> energy but explodes "
 "faster</color>"
 
 #. Flavor for contraptions mvz2:gunpowder_barrel
@@ -1760,7 +1761,7 @@ msgstr ""
 "Fire rate: <color=red>1 shot/3 seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" />, only damage flying enemies</color>\n"
 "Explosion Radius: <color=red>1.5 tiles</color>\n"
-"Evocation: <color=red>Permanently +1 tile explosion radius</color>"
+"Evocation: <color=red>Blast radius permanently +1 tile</color>"
 
 #. Flavor for contraptions mvz2:firework_dispenser
 #: Almanac meta file
@@ -1819,7 +1820,7 @@ msgid ""
 msgstr ""
 "Fire rate: <color=red>5 shots/1.5s</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Evocation: <color=red>Summon 10 meteors to strike random positions on the battlefield</color>"
+"Evocation: <color=red>Summons 10 meteors to strike random positions on the battlefield</color>"
 
 #. Flavor for contraptions mvz2:beacon
 #: Almanac meta file
@@ -1848,7 +1849,7 @@ msgstr ""
 "Special: <color=red>Directly blow away airborne and very light monsters, but has no effect against heavy and very heavy monsters on "
 "the ground</color>\n"
 "Range: <color=red>One entire row</color>\n"
-"Evocation: <color=red>Blow away all enemy monsters on the battlefield</color>"
+"Evocation: <color=red>Blows away all enemies on the battlefield</color>"
 
 #. Flavor for contraptions mvz2:wooden_fan
 #: Almanac meta file
@@ -1872,7 +1873,7 @@ msgid ""
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Toughness Cost: <color=red>300 (Per monster), 450 (Per monster in HARD), 20 (Per bullet)</color>\n"
-"Evocation: <color=red>Knock back and bounce away all enemy monsters within a radius of 2.5 tiles</color>"
+"Evocation: <color=red>Bounces away all enemy monsters within a radius of 2.5 tiles</color>"
 
 #. Flavor for contraptions mvz2:elastic_cloud
 #: Almanac meta file
@@ -1942,12 +1943,12 @@ msgstr ""
 "  Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "  Fire Rate: <color=red><var local=\"fire_interval\" /> seconds</color>\n"
 "  Glow Duration: <color=red><var local=\"glowing_duration\" /> seconds</color>\n"
-"  Evocation: <color=red>Shoot 40 spectral arrows</color>\n"
+"  Evocation: <color=red>Shoots 40 spectral arrows</color>\n"
 "Laser Mode:\n"
 "  Damage: <color=red><var local=\"laser_dps\" />/s</color>\n"
 "  Glow Duration: <color=red>Instantaneous</color>\n"
-"  Evocation: <color=red>Deal <var local=\"evocation_laser_damage\" /> damage to all enemies ahead and inflict glowing to them for <var "
-"local=\"evocation_glowing_duration\" /> seconds</color>"
+"  Evocation: <color=red>Deals <var local=\"evocation_laser_damage\" /> damage to all enemies ahead and inflicts glowing to them for "
+"<var local=\"evocation_glowing_duration\" /> seconds</color>"
 
 #. Flavor for contraptions mvz2:transfenser
 #: Almanac meta file
@@ -1983,7 +1984,7 @@ msgstr ""
 "Fire Rate: <color=red>3 seconds</color>\n"
 "Immobilize Time: <color=red>5 seconds</color>\n"
 "Gravel Chance: <color=red>25%</color>\n"
-"Evocation: <color=red>Throw gravels to every enemy</color>"
+"Evocation: <color=red>Flings gravel to every enemy</color>"
 
 #. Flavor for contraptions mvz2:gravelpult
 #: Almanac meta file
@@ -2212,7 +2213,7 @@ msgstr ""
 "Radius: <color=red>3.5 tiles</color>\n"
 "Special: <color=red>Does not trigger the monsters' death effects; The tile will be broken and disabled for 3 minutes after detonation</"
 "color>\n"
-"Evocation: <color=red>Destroy all enemy monsters</color>"
+"Evocation: <color=red>Destroys all enemy monsters</color>"
 
 #. Flavor for contraptions mvz2:nuke
 #: Almanac meta file
@@ -2286,7 +2287,7 @@ msgid ""
 msgstr ""
 "Range: <color=red>3.5 tiles</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Evocation: <color=red>Make all parasitizing parabots self-destruct</color>"
+"Evocation: <color=red>All parasitizing parabots self-destruct</color>"
 
 #. Flavor for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -2312,7 +2313,7 @@ msgid ""
 msgstr ""
 "Up/Down: <color=red>Change objects' lanes.</color>\n"
 "Front/Back: <color=red>Make projectiles turn back, or speed-boosted and have knockback effect.</color>\n"
-"Evocation: <color=red>Move nearby enemy monsters to a certain spot</color>"
+"Evocation: <color=red>Moves nearby enemies to a selected spot</color>"
 
 #. Flavor for contraptions mvz2:force_pad
 #: Almanac meta file
@@ -2372,7 +2373,7 @@ msgid ""
 msgstr ""
 "Fire rate: <color=red>1 shot/3 seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Evocation: <color=red>Unfold a starry sky, temporarily changing day to night. A total of 300 star projectiles will fall from the sky "
+"Evocation: <color=red>Unfolds a starry sky, temporarily changing day to night. A total of 300 star projectiles will fall from the sky "
 "for 30 seconds, with each star projectile dealing 55 damage.</color>"
 
 #. Flavor for contraptions mvz2:skyward_beacon
@@ -2477,7 +2478,7 @@ msgstr ""
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "Reload Time: <color=red>30 seconds</color>\n"
 "Special: <color=red>Takes 2 tiles; Does not trigger the monsters' death effects</color>\n"
-"Evocation: <color=red>Immediately load a missile, the next missile launched will blast apart into 36 fire charges, each dealing 135 "
+"Evocation: <color=red>Immediately loads a missile, the next missile launched will create 36 fire charges on impact, each dealing 135 "
 "explosion damage</color>"
 
 #. Flavor for contraptions mvz2:brick_cannon
@@ -2528,7 +2529,7 @@ msgid ""
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Transformation Time: <color=red>3.2s</color>\n"
-"Evocation: <color=red>Instantly evoke the contraption it transforms into</color>"
+"Evocation: <color=red>Instantly evokes the contraption it transforms into</color>"
 
 #. Flavor for contraptions mvz2:command_block
 #: Almanac meta file
@@ -4064,7 +4065,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "<ref=[misc]mvz2:utsuho>灵乌路 空</ref>的一根备用核能控制棒。"
-msgstr "A spare nuclear control rod from <ref=[misc]mvz2:utsuho>Reiuji Utsuho</ref>."
+msgstr "A spare nuclear control rod from <ref=[misc]mvz2:utsuho>Utsuho Reiuji</ref>."
 
 #. Properties for artifacts mvz2:control_rod
 #: Almanac meta file
@@ -6500,7 +6501,7 @@ msgstr "Dispenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "向敌人射出箭"
-msgstr "Shoot arrows towards enemies"
+msgstr "Shoots arrows at the enemy"
 
 #. Name for entity mvz2:furnace
 #: Entity meta file
@@ -6512,7 +6513,7 @@ msgstr "Furnace"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "提供给你额外的红石"
-msgstr "Provide additional redstone"
+msgstr "Gives you additional redstone"
 
 #. Name for entity mvz2:obsidian
 #: Entity meta file
@@ -6524,7 +6525,7 @@ msgstr "Obsidian"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "阻碍怪物的前进，并保护背后的其他器械"
-msgstr "Protect your other contraptions"
+msgstr "Blocks off enemies and protects your other contraptions"
 
 #. Name for entity mvz2:mine_tnt
 #: Entity meta file
@@ -6536,7 +6537,7 @@ msgstr "Mine TNT"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "接触时爆炸，但需要时间准备"
-msgstr "Explode on contact, but take time to arm itself"
+msgstr "Explodes on contact, but takes time to arm itself"
 
 #. Name for entity mvz2:small_dispenser
 #: Entity meta file
@@ -6548,7 +6549,7 @@ msgstr "Small Dispenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射短距离雪球"
-msgstr "Shoot short-ranged snowballs"
+msgstr "Shoots short-ranged snowballs"
 
 #. Name for entity mvz2:moonlight_sensor
 #: Entity meta file
@@ -6560,7 +6561,7 @@ msgstr "Moonlight Sensor"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "自动提供能量，一段时间后提升生产量"
-msgstr "Automatically provides energy, increases the yield after a while"
+msgstr "Automatically gives energy, increases the yield after a while"
 
 #. Name for entity mvz2:glowstone
 #: Entity meta file
@@ -6572,7 +6573,7 @@ msgstr "Glowstone"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "照亮周围范围"
-msgstr "Light an area"
+msgstr "Lights up an area"
 
 #. Name for entity mvz2:punchton
 #: Entity meta file
@@ -6584,7 +6585,7 @@ msgstr "Punchton"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "冲击前方敌人，需要时间再次准备"
-msgstr "Impacts enemies, take time to repair itself"
+msgstr "Bashes enemies, takes time to repair itself"
 
 #. Name for entity mvz2:tnt
 #: Entity meta file
@@ -6596,7 +6597,7 @@ msgstr "TNT"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "触发后炸飞周围敌人"
-msgstr "Blow up surrounding enemies after being triggered"
+msgstr "Blows up surrounding enemies after being triggered"
 
 #. Name for entity mvz2:soul_furnace
 #: Entity meta file
@@ -6608,7 +6609,7 @@ msgstr "Soul Furnace"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射火球，但需要献祭前方的器械作为燃料"
-msgstr "Shoot strong soulfires, but burn the contraption in front as its fuel"
+msgstr "Shoots soulfires, but burns the contraption in front as its fuel"
 
 #. Name for entity mvz2:silvenser
 #: Entity meta file
@@ -6620,7 +6621,7 @@ msgstr "Silvenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "射出穿透肉体的飞刀"
-msgstr "Shoot knives which pierce the flesh"
+msgstr "Shoots knives which pierce through flesh"
 
 #. Name for entity mvz2:magichest
 #: Entity meta file
@@ -6632,7 +6633,7 @@ msgstr "Magichest"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "将一个怪物变为星之碎片"
-msgstr "Transform an enemy into a Starshard"
+msgstr "Transforms an enemy into a Starshard"
 
 #. Name for entity mvz2:lily_pad
 #: Entity meta file
@@ -6644,7 +6645,7 @@ msgstr "Lily Pad"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "允许在水上放置器械"
-msgstr "Allow you to place contraptions on water"
+msgstr "Lets you place non-aquatic contraptions on top of it"
 
 #. Name for entity mvz2:drivenser
 #: Entity meta file
@@ -6656,7 +6657,7 @@ msgstr "Drivenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "能够堆叠放置，堆叠后子弹数量增加"
-msgstr "Stackable, add arrows per shot after stacked"
+msgstr "Adds arrows per shot by stacking"
 
 #. Name for entity mvz2:gravity_pad
 #: Entity meta file
@@ -6668,7 +6669,7 @@ msgstr "Gravity Pad"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "增强上方物体的重力"
-msgstr "Increase the gravity of objects above it"
+msgstr "Increases gravity above it"
 
 #. Name for entity mvz2:vortex_hopper
 #: Entity meta file
@@ -6680,7 +6681,7 @@ msgstr "Vortex Hopper"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "把附近的僵尸拉入水底"
-msgstr "Drag enemies close to it underwater"
+msgstr "Pulls nearby enemies underwater"
 
 #. Name for entity mvz2:pistenser
 #: Entity meta file
@@ -6692,7 +6693,7 @@ msgstr "Pistenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "能够伸长自己来攻击空中敌人"
-msgstr "Stretch itself to attack enemies in the air"
+msgstr "Extends itself to attack enemies in the air"
 
 #. Name for entity mvz2:totenser
 #: Entity meta file
@@ -6704,7 +6705,7 @@ msgstr "Totenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射虚弱的飞镖并灼烧前方的僵尸"
-msgstr "Shoot weakening darts and burn nearby enemies"
+msgstr "Shoots weakening darts and burns enemies in front"
 
 #. Name for entity mvz2:dream_crystal
 #: Entity meta file
@@ -6716,7 +6717,7 @@ msgstr "Dream Crystal"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "能够自我修复的障碍墙"
-msgstr "Barrier with regeneration"
+msgstr "Blocks off enemies and regains health over time"
 
 #. Name for entity mvz2:dream_silk
 #: Entity meta file
@@ -6728,7 +6729,7 @@ msgstr "Dream Silk"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "让一个器械睡着，醒来后生成一个星之碎片"
-msgstr "Make a contraption sleep, create a Starshard when it wakes up"
+msgstr "Makes a contraption sleep, creates a Starshard when it wakes up"
 
 #. Name for entity mvz2:wooden_dropper
 #: Entity meta file
@@ -6752,7 +6753,7 @@ msgstr "Spike Block"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "扎伤上面的敌人"
-msgstr "Damage enemies above"
+msgstr "Hurts enemies that step on it"
 
 #. Name for entity mvz2:stone_dropper
 #: Entity meta file
@@ -6776,7 +6777,7 @@ msgstr "Stone Shield"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "保护内部的器械"
-msgstr "Protect the contraption inside"
+msgstr "Protects contraptions inside"
 
 #. Name for entity mvz2:golden_apple
 #: Entity meta file
@@ -6788,7 +6789,7 @@ msgstr "Golden Apple"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "魅惑攻击它的怪物"
-msgstr "Charms the monster that attacks it"
+msgstr "Hypnotizes the monster that attacks it"
 
 #. Name for entity mvz2:thunder_drum
 #: Entity meta file
@@ -6800,7 +6801,7 @@ msgstr "Thunder Drum"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "触发后震退怪物"
-msgstr "Knock back monsters on triggered"
+msgstr "Knocks back monsters when triggered"
 
 #. Name for entity mvz2:tesla_coil
 #: Entity meta file
@@ -6836,7 +6837,7 @@ msgstr "Note Block"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射反弹的音符"
-msgstr "Fire bouncing notes"
+msgstr "Fires bouncing musical notes"
 
 #. Name for entity mvz2:lightning_orb
 #: Entity meta file
@@ -6848,7 +6849,7 @@ msgstr "Lightning Orb"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "阻碍怪物前进，并吸收子弹来治疗自己"
-msgstr "Blocks monsters and absorb projectiles"
+msgstr "Blocks off monsters and absorbs projectiles to regain toughness"
 
 #. Name for entity mvz2:splitenser
 #: Entity meta file
@@ -6860,7 +6861,7 @@ msgstr "Splitenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "向前后双方射出箭"
-msgstr "Shoot arrows forward and backward"
+msgstr "Shoots arrows forward and backward"
 
 #. Name for entity mvz2:devourer
 #: Entity meta file
@@ -6872,7 +6873,7 @@ msgstr "Devourer"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "移除刷怪笼，或将器械变回蓝图掉落物"
-msgstr "Removes spawners, or turn contraptions into blueprints"
+msgstr "Removes spawners, or turns contraptions into blueprints"
 
 #. Name for entity mvz2:hellfire
 #: Entity meta file
@@ -6896,7 +6897,7 @@ msgstr "Necrotombstone"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "召唤友方骷髅战士"
-msgstr "Summon friendly skeleton warriors"
+msgstr "Summons friendly skeleton warriors"
 
 #. Name for entity mvz2:black_hole_bomb
 #: Entity meta file
@@ -6908,7 +6909,7 @@ msgstr "Black Hole Bomb"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "触发后产生引力黑洞"
-msgstr "Create a black hole after being triggered"
+msgstr "Creates a black hole after being triggered"
 
 #. Name for entity mvz2:desire_pot
 #: Entity meta file
@@ -6919,8 +6920,8 @@ msgstr "Desire Pot"
 #. Tooltip for entity mvz2:desire_pot
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "复制怪物身上的星之碎片"
-msgstr "Duplicate starshards carried by monsters"
+msgid "复制怪物身上的星之碎片，最多三次"
+msgstr "Duplicates starshards carried by monsters, up to three times"
 
 #. Name for entity mvz2:gunpowder_barrel
 #: Entity meta file
@@ -6932,7 +6933,7 @@ msgstr "Gunpowder Barrel"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "提供大量能量，但有爆炸的风险"
-msgstr "Provide massive energy, but may explode"
+msgstr "Provides massive energy, but may explode"
 
 #. Name for entity mvz2:triplenser
 #: Entity meta file
@@ -6944,7 +6945,7 @@ msgstr "Triplenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "一次射出三行的箭矢"
-msgstr "Shoot arrows in 3 lanes"
+msgstr "Shoots arrows in three lanes"
 
 #. Name for entity mvz2:firework_dispenser
 #: Entity meta file
@@ -6956,7 +6957,7 @@ msgstr "Firework Dispenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "轰击周围高空的敌人"
-msgstr "Blow up nearby flying enemies"
+msgstr "Blasts nearby flying enemies"
 
 #. Name for entity mvz2:repeatenser
 #: Entity meta file
@@ -6968,7 +6969,7 @@ msgstr "Repeatenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "一次射出两支箭矢"
-msgstr "Shoot 2 arrows at a time"
+msgstr "Shoots two arrows at a time"
 
 #. Name for entity mvz2:beacon
 #: Entity meta file
@@ -6980,7 +6981,7 @@ msgstr "Beacon"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "向五个方向发射手里剑"
-msgstr "Shoot shurikens in 5 directions"
+msgstr "Shoots shurikens in 5 directions"
 
 #. Name for entity mvz2:wooden_fan
 #: Entity meta file
@@ -6992,7 +6993,7 @@ msgstr "Wooden Fan"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "吹动一整行的怪物"
-msgstr "Blow away an entire lane of monsters"
+msgstr "Blows away an entire lane of monsters"
 
 #. Name for entity mvz2:elastic_cloud
 #: Entity meta file
@@ -7004,7 +7005,7 @@ msgstr "Elastic Cloud"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "弹走接触到的怪物"
-msgstr "Bounce away monsters upon contact"
+msgstr "Bounces away monsters upon contact"
 
 #. Name for entity mvz2:jeweled_pagoda
 #: Entity meta file
@@ -7016,7 +7017,7 @@ msgstr "Jeweled Pagoda"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "禁用一整行地格并生成星之碎片"
-msgstr "Disable an entire lane for starshards"
+msgstr "Disables an entire lane for starshards"
 
 #. Name for entity mvz2:transfenser
 #: Entity meta file
@@ -7027,8 +7028,8 @@ msgstr "Transfenser"
 #. Tooltip for entity mvz2:transfenser
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "发射光灵箭，或者瞄准最前方的敌人"
-msgstr "Shoot spectral arrows or aim at the foremost enemy"
+msgid "发射光灵箭，或者用激光穿透整行敌人"
+msgstr "Shoots spectral arrows or pierces a lane of enemies with lasers"
 
 #. Name for entity mvz2:gravelpult
 #: Entity meta file
@@ -7040,7 +7041,7 @@ msgstr "Gravel-pult"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "投出燧石或沙砾"
-msgstr "Throw flints or gravels"
+msgstr "Flings flint or gravel"
 
 #. Name for entity mvz2:cursed_candle
 #: Entity meta file
@@ -7052,7 +7053,7 @@ msgstr "Cursed Candle"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "诅咒并焚烧怪物，使其自爆"
-msgstr "Curse an enemy, make it burn and explode"
+msgstr "Curses an enemy, makes it burn and explode"
 
 #. Name for entity mvz2:stone_eye
 #: Entity meta file
@@ -7064,7 +7065,7 @@ msgstr "Stone Eye"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "减速并阻挡前方敌人"
-msgstr "Slow and block enemies"
+msgstr "Slows and blocks off enemies"
 
 #. Name for entity mvz2:cooling_cell
 #: Entity meta file
@@ -7076,7 +7077,7 @@ msgstr "Cooling Cell"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "加快器械的充能进度"
-msgstr "Speed up the recharge time of a contraption"
+msgstr "Shortens the recharge time of a contraption"
 
 #. Name for entity mvz2:amethyst_pylon
 #: Entity meta file
@@ -7088,7 +7089,7 @@ msgstr "Amethyst Pylon"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射穿透激光，在光线中增强"
-msgstr "Shoot lasers and is enhanced by lights"
+msgstr "Shoots lasers and is enhanced by lights"
 
 #. Name for entity mvz2:nuke
 #: Entity meta file
@@ -7100,7 +7101,7 @@ msgstr "Nuke"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "触发后摧毁大范围内的敌人以及所在地块"
-msgstr "Destroy enemies and the tile after being triggered"
+msgstr "Destroys enemies in a large area and its tile after being triggered"
 
 #. Name for entity mvz2:nether_reactor_core
 #: Entity meta file
@@ -7112,7 +7113,7 @@ msgstr "Nether Reactor Core"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "在特殊阵型中持续提供星之碎片"
-msgstr "Produce starshards in a special formation"
+msgstr "Produces starshards in a special formation"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file
@@ -7128,7 +7129,7 @@ msgid ""
 "发射在敌人之间传播的寄生机器人"
 msgstr ""
 "(Requires Small Dispenser)\n"
-"Shoot parabots which spread between enemies"
+"Shoots parabots which spread between enemies"
 
 #. Name for entity mvz2:force_pad
 #: Entity meta file
@@ -7144,7 +7145,7 @@ msgid ""
 "改变上方物体的力"
 msgstr ""
 "(Requires Gravity Pad)\n"
-"Change the force of objects above it"
+"Changes the force of objects above it"
 
 #. Name for entity mvz2:golden_dropper
 #: Entity meta file
@@ -7206,7 +7207,7 @@ msgid ""
 "更快扎伤上面的敌人，并具有更高耐久"
 msgstr ""
 "(Requires Spike Block)\n"
-"Damage enemies above quicker, and has more toughness"
+"Hurts enemies that step on it quicker, and has more toughness"
 
 #. Name for entity mvz2:brick_cannon
 #: Entity meta file
@@ -7234,7 +7235,7 @@ msgstr "Command Block"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "模仿一个器械"
-msgstr "Imitate a contraption"
+msgstr "Imitates a contraption"
 
 #. Name for entity mvz2:anvil
 #: Entity meta file
@@ -7246,7 +7247,7 @@ msgstr "Anvil"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "阻碍怪物的前进"
-msgstr "Protect your other contraptions"
+msgstr "Protects your other contraptions"
 
 #. Name for entity mvz2:random_china
 #: Entity meta file
@@ -7258,7 +7259,7 @@ msgstr "Random China"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "被摧毁后生成随机器械"
-msgstr "Spawn a random contraption upon destroyed"
+msgstr "Spawns a random contraption when destroyed"
 
 #. Name for entity mvz2:error_block
 #: Entity meta file
@@ -7818,7 +7819,7 @@ msgstr "Skeleton Warrior"
 #: Entity meta file
 msgctxt "death_message"
 msgid "骸死我了"
-msgstr "Spooked"
+msgstr "It sent shivers down your spine."
 
 #. Name for entity mvz2:skeleton_mage
 #: Entity meta file
@@ -7842,7 +7843,7 @@ msgstr "Nether Hunter"
 #: Entity meta file
 msgctxt "death_message"
 msgid "转来转去像个小丑"
-msgstr "draw around and around like a joker"
+msgstr "The spire slayed you."
 
 #. Name for entity mvz2:nether_mage
 #: Entity meta file

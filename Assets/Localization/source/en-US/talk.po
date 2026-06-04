@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2026-05-31 11:39+0800\n"
-"PO-Revision-Date: 2026-05-31 11:40+0800\n"
+"PO-Revision-Date: 2026-06-04 10:50+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1066,8 +1066,8 @@ msgstr "This is the golden apple! Despite that, it's not for restoring health!"
 msgctxt "talk-mvz2:castle_6_over"
 msgid "实际上它是一个魅惑果实，能魅惑第一个攻击它的怪物！"
 msgstr ""
-"In reality, it is a charming fruit that charms the first monster to attack "
-"it!"
+"In reality, it is a tasty, shiny fruit that hypnotizes the first monster to "
+"attack it!"
 
 #. Text for talk sentence 2 in talk group castle_6_over's section 0
 #: Talk meta file
@@ -4104,7 +4104,7 @@ msgstr "You're as stubborn as ever."
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
 msgid "好，准备好所有器械！"
-msgstr "Alright, reload ALL contraptions!"
+msgstr "All right, reload ALL contraptions!"
 
 #. Text for talk sentence 27 in talk group dream_8_map's section 0
 #: Talk meta file
@@ -4672,7 +4672,7 @@ msgstr "All I can say is I'm sorry."
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
 msgid "……是这样吗。还是多谢了，哆来咪小姐。"
-msgstr "... Alright. Thank you very much still, Miss Doremy."
+msgstr "...All right. Thank you very much still, Miss Doremy."
 
 #. Text for talk sentence 31 in talk group dream_11_map's section 0
 #: Talk meta file
@@ -5201,7 +5201,7 @@ msgstr "Yup, glad we're on the same page!"
 msgctxt "talk-mvz2:kourindou_first_visit"
 msgid "好了！那这里就变成了坑爹村民和我邻居的新基地了！"
 msgstr ""
-"Alright! I hereby declare this: Crazy Villager and Neighbor's brand new "
+"All right! I hereby declare this: Crazy Villager and Neighbor's brand new "
 "headquarters!"
 
 #. Text for talk sentence 50 in talk group kourindou_first_visit's section 0
@@ -5514,7 +5514,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:starshard_tutorial"
 msgid "好了，现在来试试吧！"
-msgstr "Alright, let's try Magic Candy - the Starshard of this area!"
+msgstr "All right, let's try Magic Candy - the Starshard of this area!"
 
 #. Archive text for talk group starshard_tutorial's section 1
 #: Talk meta file
@@ -6165,7 +6165,7 @@ msgstr "Well, to start off, lemme teach you how to trigger contraptions!"
 #: Talk meta file
 msgctxt "talk-mvz2:trigger_tutorial"
 msgid "那么，现在来开始吧！"
-msgstr "Alright, try it out!"
+msgstr "All right, try it out!"
 
 #. Archive name for talk group halloween_7
 #: Talk meta file
@@ -7947,7 +7947,7 @@ msgstr "Mausoleum Day 5 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_5_map"
 msgid "好了，是时候该重新封印巨人了！"
-msgstr "Alright, it's about time to reseal the Giant!"
+msgstr "All right, it's about time to reseal the Giant!"
 
 #. Text for talk sentence 1 in talk group mausoleum_5_map's section 0
 #: Talk meta file
@@ -8270,7 +8270,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_6"
 msgid "好了，作为僵尸，去干掉每一行的侦测器吧！"
-msgstr "Alright, Mr. Zombie! Destroy all the observers in each row!"
+msgstr "All right, Mr. Zombie! Destroy all the observers in each row!"
 
 #. Archive name for talk group mausoleum_6_over
 #: Talk meta file
@@ -10368,7 +10368,7 @@ msgstr "Quick! Get her onto my broom!"
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "好了，我走了！你们也尽快赶到！"
-msgstr "Alright, I'm off! You two get over there as fast as you can!"
+msgstr "All right, I'm off! You two get over there as fast as you can!"
 
 #. Text for talk sentence 33 in talk group kourindou_visit_palace_1's section 0
 #: Talk meta file
@@ -10702,9 +10702,8 @@ msgid ""
 "那位觉妖怪也是催眠术的高手，使用催眠术应该是能帮忙找回她的记忆的。靠她的帮助"
 "兴许还能把犯人也揪出来。"
 msgstr ""
-"That satori is also an expert in hypnosis, which should be able to help "
-"restore the patient's memories. With her assistance, you might even be able "
-"to track down the culprit."
+"She is also an expert in hypnosis, which should help restore the patient's "
+"memories. With her help, you might even be able to track down the culprit."
 
 #. Text for talk sentence 22 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
@@ -11527,7 +11526,7 @@ msgstr "Palace Day 4 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4"
 msgid "那边那个诡异的石英骷髅是什么东西？"
-msgstr "What's that spooky scary silica skeleton over there?"
+msgstr "What's that spooky, scary, silica skeleton over there?"
 
 #. Text for talk sentence 1 in talk group palace_4's section 0
 #: Talk meta file
@@ -12404,7 +12403,7 @@ msgstr "Palace Day 7 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "还好咱赶到了……幸好她没事。"
-msgstr "Glad that I made it in time... Thank goodness she's alright."
+msgstr "Glad that I made it in time... Thank goodness she's all right."
 
 #. Text for talk sentence 1 in talk group palace_7's section 0
 #: Talk meta file
@@ -13417,7 +13416,7 @@ msgstr "How can a monster be this evil?"
 msgctxt "talk-mvz2:palace_9_map"
 msgid "史蒂夫小弟，如果你之后遇到那个黑客，请您也一定要小心。"
 msgstr ""
-"L'il Steve, if you ever run into that Hacker, you gotta be real careful too."
+"Li'l Steve, if you ever run into that Hacker, you gotta be real careful too."
 
 #. Text for talk sentence 19 in talk group palace_9_map's section 0
 #: Talk meta file
@@ -17230,7 +17229,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:ship_10"
 msgid "要对付红龙吗……好吧，那就交给我了。"
-msgstr "You want me to deal with the Red Dragon... alright, I’ll do it."
+msgstr "You want me to deal with the Red Dragon... all right, I’ll do it."
 
 #. Text for talk sentence 7 in talk group ship_10's section 0
 #: Talk meta file
@@ -17452,7 +17451,7 @@ msgstr "I-I was almost a goner!"
 #: Talk meta file
 msgctxt "talk-mvz2:ship_11_over"
 msgid "所有人都没事吧？"
-msgstr "Is everyone alright?"
+msgstr "Is everyone all right?"
 
 #. Text for talk sentence 3 in talk group ship_11_over's section 0
 #: Talk meta file
@@ -17648,8 +17647,8 @@ msgstr ""
 msgctxt "talk-mvz2:ship_11_map"
 msgid "好了。接下来，请让我就您身世的问题，帮您解惑吧。"
 msgstr ""
-"...Alright. Next, let me resolve your question about your origin, and clear "
-"your confusion."
+"...All right. Next, let me resolve your question about your origin, and "
+"clear your confusion."
 
 #. Text for talk sentence 22 in talk group ship_11_map's section 0
 #: Talk meta file
