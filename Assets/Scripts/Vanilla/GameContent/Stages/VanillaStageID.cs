@@ -158,6 +158,7 @@ namespace MVZ2.GameContent.Stages
         public const string WarThunder = "WarThunder";
         public const string ZombieNimbleZombieQuick = "ZombieNimbleZombieQuick";
         public const string OpticalIllusion = "OpticalIllusion";
+        public const string WhatTheHell = "WhatTheHell";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

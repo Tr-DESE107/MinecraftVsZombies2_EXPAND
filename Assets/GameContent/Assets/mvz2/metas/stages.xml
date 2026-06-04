@@ -2804,6 +2804,12 @@
             
         </spawns>
     </stage>
+    <stage id="WhatTheHell" name="&lt;color=red&gt;WhatTheHell&lt;/color&gt;" type="minigame" music="mvz2:Sacrificial">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="15" wavesPerFlag="1" firstWaveTime="1800" pointsAddition="50">
+            <spawn id="mvz2:AngryGhast" />
+        </spawns>
+    </stage>
 
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
