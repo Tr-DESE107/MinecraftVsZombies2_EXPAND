@@ -282,7 +282,7 @@
             <properties>
                 <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
-                <p>特点：<![CDATA[<color=red>1/7概率发射紫箭</color>]]></p>
+                <p>特点：<![CDATA[<color=red>每次发射时，有1/7的概率发射一发紫箭</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>普通箭矢<var id="mvz2:entity_damage" />，紫箭70+10(穿甲伤害)</color>]]></p>
                 <p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
             </properties>
@@ -514,8 +514,8 @@
                 <p>银制发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />]]>血肉之躯的飞刀。</p>
             </header>
             <properties>
+                <p>特点：<![CDATA[<color=red>每次发射时，有1/7的概率发射一发红色飞刀，红色飞刀可以穿透并伤害3个敌人；6/7的概率发射蓝色飞刀，蓝色飞刀可以穿透多个敌人。两种飞刀都无法穿透硬物</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>1/7概率发射红色飞刀，蓝色飞刀可以穿透多个敌人，但无法穿透硬物</color>]]></p>
                 <p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
             </properties>
             <flavor>
@@ -563,7 +563,7 @@
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>触发：<![CDATA[<color=red>触发后进入过载模式，每秒损失1点耐久，档位上升1级</color>]]></p>
                 <p>升级上限：<![CDATA[<color=red>5，过载模式可以短暂上升为6</color>]]></p>
-                <p>技能：<![CDATA[<color=red>普通模式下发射五支大箭矢，过载模式下能够快速发射5+挡位*1.5只巨型箭（向下取整），而后自爆。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+挡位*1.5只大型箭矢（向下取整），而后自爆。</color>]]></p>
             </properties>
             <flavor>
                 <p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
@@ -709,12 +709,13 @@
         <!-- Chapter 3 -->
         <entry id="mvz2:wooden_dropper">
             <header>
-                <p>木制投掷器向敌人发射滚动的木球，触发时可以立刻发射一发大木球。</p>
+                <p>木制投掷器向敌人发射滚动的木球，触发时可以立刻发射一发大型木球。</p>
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，金球40</color>]]></p>
-                <p>触发：<![CDATA[<color=red>触发后立刻发射一颗大木球，冷却时间4秒。</color>]]></p>
+                <p>特点：<![CDATA[<color=red>每次发射时，有1/6的概率发射一颗大型木球</color>]]></p>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，大型木球80</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后立刻发射一颗大型木球，冷却时间4秒</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射30颗大型木球，每颗造成80点伤害</color>]]></p>
             </properties>
             <flavor>
@@ -753,7 +754,7 @@
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
-                <p>巨石概率：<![CDATA[<color=red>25%</color>]]></p>
+                <p>特点：<![CDATA[<color=red>每次发射时，有1/4的概率发射一颗巨石</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>10（卵石），40（巨石）</color>]]></p>
                 <p>触发：<![CDATA[<color=red>触发后立刻发射一颗巨石，冷却时间3秒。</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射30发巨石</color>]]></p>
@@ -823,7 +824,7 @@
                 <p>雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。</p>
             </header>
             <properties>
-                <p>修复时间：<![CDATA[<color=red>60秒</color>]]></p>
+                <p>修复时间：<![CDATA[<color=red>30秒</color>]]></p>
                 <p>触发：<![CDATA[<color=red>触发后会震飞所有地面上的敌怪，使其后退并换行。</color>]]></p>
                 <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>]]></p>
             </properties>
@@ -917,8 +918,8 @@
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red>1发/<var id="mvz2:AttackInterval" />秒（前方），2发/<var id="mvz2:AttackInterval" />秒（后方）</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>箭和飞镖<var id="mvz2:entity_damage" />，小导弹100，大导弹600</color>]]></p>
-                <p>技能：<![CDATA[<color=red>快速向前发射60支箭矢，向后发射20发箭矢和8发小导弹，最后向后发射1发大导弹</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>箭和飞镖<var id="mvz2:entity_damage" />，小型导弹100，大型导弹600</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速向前发射60支箭矢，向后发射20发箭矢和8发小型导弹，最后向后发射1发大型导弹</color>]]></p>
             </properties>
             <flavor>
                 <p>“别射了，你把我晃得头晕！”后面的发射器很不爽。</p>
@@ -1052,7 +1053,7 @@
                 <variable name="furious_gunpowder_value">property("mvz2:entity/energyValue", "mvz2:furious_gunpowder", "entity")</variable>
             </variables>
             <header>
-                <p>火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的友方单位。火药桶在被破坏时也会爆炸。</p>
+                <p>火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的所有单位。火药桶在被破坏时也会爆炸。</p>
             </header>
             <properties>
                 <p>爆炸伤害：<![CDATA[<color=red>100（简单）、150（普通）、300（困难）</color>]]></p>
@@ -1107,8 +1108,9 @@
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red>2支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，脉冲箭40，大箭矢600</color>]]></p>
-                <p>技能：<![CDATA[<color=red>快速发射40支箭矢和8发小导弹，最后发射一支大箭矢</color>]]></p>
+                <p>特点：<![CDATA[<color=red>每次发射时，有1/5的概率发射一支脉冲箭</color>]]></p>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，脉冲箭40，大型箭矢600</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速发射40支箭矢和8发小型导弹，最后发射一支大型箭矢</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[他没能有幸加入<ref=[contraptions]mvz2:high_frequency_pulse_dispenser>高频脉冲发射器</ref>的士兵队伍，因为它每次说话都要说两遍。]]></p>
@@ -1538,8 +1540,8 @@
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>铜球<var id="mvz2:entity_damage" />，每次反弹后减半，铜矿球80</color>]]></p>
-                <p>概率：<![CDATA[<color=red>铜球25%赋予眩晕，5%掉落铜锭</color>]]></p>
+                <p>特点：<![CDATA[<color=red>每次发射时，有1/4的概率发射铜矿球，铜矿球可以击退敌人并分裂为卵石和铜粒；3/4的概率发射铜球，铜球击中敌人后25%使敌人眩晕，5%掉落铜锭</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>铜球<var id="mvz2:entity_damage" />，每次反弹后减半，铜矿球80，卵石20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射20发铜球和15发铜矿球</color>]]></p>
             </properties>
             <flavor>
