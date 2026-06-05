@@ -2139,6 +2139,7 @@
                 <id name="mvz2:upgradeFrom" value="mvz2:dispenser" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
+                <id name="mvz2:shootSound" value="mvz2:gun_shot" />
 
                 <float name="mvz2:damage" value="60" />
                 <int name="mvz2:cost" value="125" />

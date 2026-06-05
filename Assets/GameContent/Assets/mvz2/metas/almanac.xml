@@ -1,4 +1,4 @@
-<almanac>
+﻿<almanac>
     <tags>
         <tag id="placement_buried" name="埋藏器械" description="只能放置在实心地面上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags[0]" />
@@ -468,11 +468,12 @@
         </entry>
         <entry id="mvz2:tnt">
             <header>
-                <p>TNT在触发后能炸飞周围的敌人。</p>
+                <p>TNT在触发(又称驱动)后能炸飞周围的敌人。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后爆炸</color>]]></p>
                 <p>技能：<![CDATA[<color=red>炸出4个TNT分身</color>]]></p>
             </properties>
             <flavor>
@@ -555,13 +556,14 @@
         </entry>
         <entry id="mvz2:drivenser">
             <header>
-                <p>在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量。</p>
+                <p>在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量，驱动/触发后可以进入过载模式。</p>
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>升级上限：<![CDATA[<color=red>5</color>]]></p>
-                <p>技能：<![CDATA[<color=red>发射五支大箭矢</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后进入过载模式，每秒损失1点耐久，档位上升1级</color>]]></p>
+                <p>升级上限：<![CDATA[<color=red>5，过载模式可以短暂上升为6</color>]]></p>
+                <p>技能：<![CDATA[<color=red>普通模式下发射五支大箭矢，过载模式下能够快速发射5+挡位*1.5只巨型箭（向下取整），而后自爆。</color>]]></p>
             </properties>
             <flavor>
                 <p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
@@ -707,11 +709,12 @@
         <!-- Chapter 3 -->
         <entry id="mvz2:wooden_dropper">
             <header>
-                <p>木制投掷器向敌人发射滚动的木球。</p>
+                <p>木制投掷器向敌人发射滚动的木球，触发时可以立刻发射一发大木球。</p>
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，金球40</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后立刻发射一颗大木球，冷却时间4秒。</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射30颗大型木球，每颗造成80点伤害</color>]]></p>
             </properties>
             <flavor>
@@ -746,13 +749,13 @@
                 <variable name="boulder_damage">global("mvz2:entity_damage") * 2</variable>
             </variables>
             <header>
-                <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
+                <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。触发时可以立刻发射一发巨石。</p>
             </header>
             <properties>
-
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>巨石概率：<![CDATA[<color=red>25%</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>10（卵石），40（巨石）</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后立刻发射一颗巨石，冷却时间3秒。</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射30发巨石</color>]]></p>
             </properties>
             <flavor>
@@ -821,6 +824,7 @@
             </header>
             <properties>
                 <p>修复时间：<![CDATA[<color=red>60秒</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后会震飞所有地面上的敌怪，使其后退并换行。</color>]]></p>
                 <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>]]></p>
             </properties>
             <flavor>
@@ -1012,6 +1016,7 @@
             <properties>
                 <p>持续时间：<![CDATA[<color=red>8秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var local="dps" />/秒</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。</color>]]></p>
                 <p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>产生湮灭领域，直接消灭范围内的所有敌人和敌弹</color>]]></p>
             </properties>
@@ -1136,6 +1141,7 @@
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>可以直接吹飞空中或者较轻的怪物，但对地面上较重的怪物没有效果</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后会将一整行内的敌方怪物吹回原地。</color>]]></p>
                 <p>范围：<![CDATA[<color=red>一整行</color>]]></p>
                 <p>技能：<![CDATA[<color=red>改为吹动整个战场的怪物</color>]]></p>
             </properties>
@@ -1403,10 +1409,11 @@
         <!-- EXPAND 1 -->
         <entry id="mvz2:small_dispenser">
             <header>
-                <p>小型发射器能发射短距离的雪球。</p>
+                <p>小型发射器能发射短距离的雪球，触发可以升级挡位，不同挡位概率发射不同子弹。</p>
             </header>
             <properties>
                 <p>射程：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后升档，初始为零档，一档概率发射木球和雪球，二档概率发射木球、石子、巨石、雪球。达到二档后驱动可以立即发射一发巨石</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
             </properties>
@@ -1490,10 +1497,11 @@
                 <tag id="mvz2:antifly"/>
             </tags>
             <header>
-                <p>狙击发射器能够全方位发射高速箭。</p>
+                <p>狙击发射器能够全方位发射高速子弹。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后发生一次爆炸，并能够发射更多不同的子弹</color>]]></p>
                 <p>特点：<![CDATA[<color=red>全方位射击</color>]]></p>
                 <p>技能：<![CDATA[<color=red>连续发射多发射弹，发射完毕后发生一次范围3*3，伤害900的爆炸</color>]]></p>
             </properties>
@@ -1688,12 +1696,13 @@
                 <tag id="mvz2:placement_repeatenser" />
             </tags>
             <header>
-                <p>高频脉冲发射器一次能发射四支箭矢。</p>
+                <p>高频脉冲发射器一次能发射八支箭矢，触发后获得对空导弹。</p>
             </header>
             <properties>
-                <p>攻击间隔：<![CDATA[<color=red>4支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
+                <p>攻击间隔：<![CDATA[<color=red>8支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>技能：<![CDATA[<color=red>永久改为发射六支箭矢，并<tag id="mvz2:light_source" />发光</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后拥有6发能够对空的小型导弹。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>永久改为发射10支箭矢，并<tag id="mvz2:light_source" />发光</color>]]></p>
             </properties>
             <flavor>
                 <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
@@ -1755,12 +1764,12 @@
                 <tag id="mvz2:placement_hfpd" />
             </tags>
             <header>
-                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。嗯，说是这么说，但还没做好</p>
+                <p>万象天枢能与其他发射器融合并获取无与伦比的能力。</p>
             </header>
             <properties>
-                <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>视形态而定</color>]]></p>
-                <p>技能：<![CDATA[<color=red>视形态而定</color>]]></p>
+                <p>特点：<![CDATA[<color=red>可以将不同的发射器放置在基础万象天枢上融合。</color>]]></p>
+                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref></color>]]>，其他可以融合，但行为同基础万象天枢</p>
+                <p>注：你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</p>
             </properties>
             <flavor>
                 <p>有不少人可能好奇他的简称E.X.P.A.N.D.都代表了什么？嗯，E代表Expand，D代表Dispenser，剩下来的四个字母都代表了什么？其实他本人也没想好。</p>
@@ -1791,7 +1800,7 @@
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>驱动后能够冰冻全场敌人</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后能够冰冻全场敌人</color>]]></p>
                 <p>技能：<![CDATA[<color=red>先对全场被冰冻的敌人造成1000点伤害，后冰冻全场敌人。</color>]]></p>
             </properties>
             <flavor>
@@ -1864,22 +1873,26 @@
         </entry>
         <entry id="mvz2:ExplosionCore">
             <header>
-                <p>爆炸核心。</p>
+                <p>爆炸核心，亦称爆裂核心，向其注入能量可以发生爆炸，能够和其他爆炸类型的器械融合。</p>
             </header>
             <properties>
-                <p>生产时间：<![CDATA[<color=red>24秒</color>]]></p>
-                <p>耐久：<![CDATA[<color=red>圆石350，石头600</color>]]></p>
-                <p>技能：<![CDATA[<color=red>瞬间生成6张卡片</color>]]></p>
+                <p>特点：<![CDATA[<color=red>触发后发生爆炸，死亡时同样发生爆炸</color>]]></p>
+                <p>可融合器械：<![CDATA[<color=red>火药桶、发光的黑曜石</color>]]></p>
             </properties>
             <flavor>
-                <p>刷石机（StoneGenerator，又称Cobblestone farming）是通过熔岩的凝固行为自动或半自动地生产圆石、石头或玄武岩的机器，同时也是空岛生存必备的机器。</p>
-                <p>当熔岩以不同的方式流动到与水或蓝冰相邻的方块时，其将会凝固并生成不同的石制方块。通过约束液体流动，熔岩可以稳定地在同一位置凝固，从而可再生地产出石制方块。这些方块可以在原位采集，或是通过活塞机械移出装置，汇集到某个位置集中采掘，或者推入爆炸室等装置自动收集。</p>
-                <p>圆石和石头是重要的合成材料，用于合成相当多的红石元件和其他方块。尽管可以直接在世界中采掘这些方块，但建造一个自动的、无需玩家在场的刷石机可以更方便地获取大量圆石和石头。此外，自动生成的方块本身也有一些有趣的用途。</p>
-                <p>在此，本教程将为您展示刷石机如何建造。</p>
+                <p>例行实验记录 ███</p>
+                <p>实验对象： 爆炸核心（编号：MCP-EXP-067）</p>
+                <p>实验目的： 测定该实体在可控能量注入下的爆炸响应及能量转化效率。</p>
+                <p>实验步骤：</p>
+                <p>1.将实体置于3级防护测试舱内，周围部署标准爆炸衰减传感器阵列（型号：SE-7）。</p>
+                <p>2.通过远程能量注入装置（EID-09）以稳定速率向实体内部输送标准化能量单位（总输入：300 ME）。</p>
+                <p>3.记录爆炸触发时间、冲击波扩散范围、舱内压强变化及残余能量读数。</p>
+                <p>能量注入后约0.033秒，实体发生爆炸。爆炸未对实体本身的结构完整性造成可观测破坏。舱内传感器测得瞬时压强峰值达7.4 MPa，等效冲击半径约为2.25米。</p>
+                <p>能量转化分析：爆炸所释放的总能量经传感器阵列综合计算约为25.8 ME。相较于注入的300 ME，能量转化效率仅为8.6%。大量能量去向不明。监测设备未记录到热辐射以外的二次能量释放形式。</p>
+                <p>有研究人员在本次实验过程中注意到，该实体与某些已知实例中所见的异常物体存在表面相似性。</p>
+                <p>初步筛查显示，具备TiC2特性的陈旧██（具体术语因档案损坏而不可辨）在[已编辑]地区广泛分布。值得注意的是，上述地区在21世纪初曾多次报告“自燃现象”与“非来源性爆炸”。然而，所有相关记录均在[[已删除]]事件后被列为V级机密。</p>
                 <p/>
-                <p/>
-                <p/>
-                <p><![CDATA[<color=red>===开通坑爹商城会员以阅读全文===</color>]]></p>
+                <p><![CDATA[<color=blue>这真是一种极为低效的能量使用手段。</color>]]></p>
             </flavor>
         </entry>
 
