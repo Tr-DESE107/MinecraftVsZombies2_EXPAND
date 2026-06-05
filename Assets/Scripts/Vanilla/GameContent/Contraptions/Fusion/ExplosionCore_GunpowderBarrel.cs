@@ -55,8 +55,8 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            var damage = entity.GetDamage();
-            var range = entity.GetRange()*6;
+            var damage = entity.GetDamage() * 6;
+            var range = entity.GetRange();
             Explode(entity, range, damage);
 
         }
