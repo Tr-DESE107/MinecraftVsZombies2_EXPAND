@@ -1,4 +1,4 @@
-<fragments>
+﻿<fragments>
     <fragment name="dispenser">
         <colorKeys>
             <key hex="#4F4F4F" time="0.35" />
@@ -389,6 +389,13 @@
             <key hex="#4F4F4F" time="0.35" />
             <key hex="#FF0000" time="0.7" />
             <key hex="#ABABAB" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="ExplosionCore">
+        <colorKeys>
+            <key hex="#d80000" time="0.35" />
+            <key hex="#f4dc18" time="0.7" />
+            <key hex="#2e0000" time="1" />
         </colorKeys>
     </fragment>
 </fragments>
