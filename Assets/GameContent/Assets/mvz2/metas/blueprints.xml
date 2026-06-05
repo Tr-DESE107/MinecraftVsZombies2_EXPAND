@@ -41,6 +41,13 @@
                 frameBottom="mvz2:ui/level/BlackCardMobile[1]"
                 frameTop="mvz2:ui/level/BlackCardMobile[2]" />
         </style>
+        <style id="GreenCard">
+            <standalone background="mvz2:ui/level/GreenCard" />
+            <mobile
+                background="mvz2:ui/level/GreenCardMobile[0]"
+                frameBottom="mvz2:ui/level/GreenCardMobile[1]"
+                frameTop="mvz2:ui/level/GreenCardMobile[2]" />
+        </style>
     </styles>
     <options>
         <option id="return_pearl" cost="25" name="返回弹珠">

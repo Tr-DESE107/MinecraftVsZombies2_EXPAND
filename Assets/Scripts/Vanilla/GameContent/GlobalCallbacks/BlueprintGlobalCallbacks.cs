@@ -77,6 +77,10 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 result.SetValue(LogicBlueprintStyles.BlackCard);
             }
+            else if (seedID == VanillaBlueprintID.FromEntity(VanillaContraptionID.ExplosionCore))
+            {
+                result.SetValue(LogicBlueprintStyles.GreenCard);
+            }
             else if (definition.IsUpgradeBlueprint())
             {
                 result.SetValue(LogicBlueprintStyles.upgrade);

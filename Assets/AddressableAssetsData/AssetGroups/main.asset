@@ -1158,6 +1158,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 116e5d95131027343941a7ce39e5dfe3
+    m_Address: mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1180289811b708d4781f5bd9065fb543
     m_Address: mvz2:entity/projectiles/breakout_pearl
     m_ReadOnly: 0
@@ -8281,6 +8288,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81b0d2a39c01cf7478bc4ca539cac17a
+    m_Address: mvz2:entity/contraption/EXPAND_Skin/HFPD
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81dd671c4a73dc1439c7e4394a95e1c0
     m_Address: mvz2:enemy/ship/undead_flying_object
     m_ReadOnly: 0
@@ -14041,6 +14055,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3f8efbae35fed24a8603b1380022924
+    m_Address: mvz2:contraption/upgrade/HFPD
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4338c72026e47949a5e8edc50e80692
     m_Address: mvz2:ui/level/imbued_icon
