@@ -1,4 +1,4 @@
-<spawns>
+﻿<spawns>
     <entry id="zombie">
         <entity id="mvz2:zombie" />
         <spawn level="1" />
@@ -457,7 +457,7 @@
         <terrain water="true" />
         <weight base="1250" />
     </entry>
-    <entry id="MegaMutantVillager" entity="mvz2:MegaMutantVillager">
+    <entry id="MegaMutantVillager" entity="mvz2:MegaMutantVillager" noEndless="true">
         <spawn level="8" minWave="1" />
         <terrain water="true" />
         <weight base="1000" />
@@ -472,7 +472,7 @@
         <spawn level="2" />
         <weight base="1000" />
     </entry>
-    <entry id="MutantMannequin" entity="mvz2:MutantMannequin">
+    <entry id="MutantMannequin" entity="mvz2:MutantMannequin" noEndless="true">
         <spawn level="10" minWave="1" />
         <terrain water="true" />
         <weight base="1500" />
@@ -483,20 +483,20 @@
     </entry>
 
     <!--EXPAND Random-->
-    <entry id="RandomMutant" entity="mvz2:RandomMutant">
+    <entry id="RandomMutant" entity="mvz2:RandomMutant" noEndless="true">
         <spawn level="7" minWave="1" />
         <terrain water="true" />
         <weight base="1250" />
     </entry>
-    <entry id="RandomImp" entity="mvz2:RandomImp">
+    <entry id="RandomImp" entity="mvz2:RandomImp" noEndless="true">
         <spawn level="2" />
         <weight base="1500" />
     </entry>
-    <entry id="RandomZombie" entity="mvz2:RandomZombie">
+    <entry id="RandomZombie" entity="mvz2:RandomZombie" noEndless="true">
         <spawn level="1" />
         <weight base="1500" />
     </entry>
-    <entry id="RandomKingSkeleton" entity="mvz2:RandomKingSkeleton">
+    <entry id="RandomKingSkeleton" entity="mvz2:RandomKingSkeleton" noEndless="true">
         <spawn level="3" minWave="5" />
         <weight base="1500" />
     </entry>
@@ -506,7 +506,7 @@
         <weight base="5000" />
     </entry>
 
-    <entry id="XCarrierMutant" entity="mvz2:XCarrierMutant">
+    <entry id="XCarrierMutant" entity="mvz2:XCarrierMutant" noEndless="true">
         <spawn level="8" />
         <terrain water="true" />
         <weight base="2000" />
