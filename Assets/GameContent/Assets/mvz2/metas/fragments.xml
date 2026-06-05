@@ -510,5 +510,68 @@
             <key hex="#1E7A90" time="1.0" />
         </colorKeys>
     </fragment>
+    <fragment name="EXPANDispenser">
+        <colorKeys>
+            <key hex="#ffc401" time="0.35" />
+            <key hex="#ffffff" time="0.7" />
+            <key hex="#040404" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Silvenser">
+        <colorKeys>
+            <key hex="#0f00d0" time="0.35" />
+            <key hex="#bccfe9" time="0.7" />
+            <key hex="#f1f1f1" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Dispenser">
+        <colorKeys>
+            <key hex="#86297f" time="0.35" />
+            <key hex="#3d2309" time="0.7" />
+            <key hex="#535353" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Drivenser">
+        <colorKeys>
+            <key hex="#9d003d" time="0.35" />
+            <key hex="#6c0000" time="0.7" />
+            <key hex="#f27491" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Pistenser">
+        <colorKeys>
+            <key hex="#603713" time="0.35" />
+            <key hex="#ffa901" time="0.7" />
+            <key hex="#a8a89d" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="Poisonser">
+        <colorKeys>
+            <key hex="#007900" time="0.35" />
+            <key hex="#8cc08c" time="0.7" />
+            <key hex="#143600" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Splitenser">
+        <colorKeys>
+            <key hex="#000000" time="0.35" />
+            <key hex="#ffffff" time="0.7" />
+            <key hex="#664c2b" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Totenser">
+        <colorKeys>
+            <key hex="#f39a19" time="0.35" />
+            <key hex="#0fd90b" time="0.7" />
+            <key hex="#ff4e4e" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Triplenser">
+        <colorKeys>
+            <key hex="#940000" time="0.35" />
+            <key hex="#345ec3" time="0.7" />
+            <key hex="#ffe800" time="1" />
+        </colorKeys>
+    </fragment>
     <!--EXPAND END-->
 </fragments>
