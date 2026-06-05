@@ -12,7 +12,9 @@ using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic.Entities;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -37,13 +39,13 @@ namespace MVZ2.GameContent.Contraptions
             if (!entity.IsEntityOf(VanillaContraptionID.ExplosionCore))
                 return;
 
-            // Èç¹ûÉËº¦°üº¬"±¬Õ¨"Ð§¹û£¬Ôò¼õÉÙÉËº¦  
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½ï¿½Õ¨"Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.EXPLOSION))
             {
                 entity.HealEffects(damageInfo.Amount*2, entity);
 
                 result.SetFinalValue(false);
-                damageInfo.Multiply(0f); // ÏÖÔÚlevelÊÇfloatÀàÐÍ  
+                damageInfo.Multiply(0f); // ï¿½ï¿½levelï¿½floatï¿½ï¿½ï¿½ 
             }
 
 
@@ -51,7 +53,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity contraption)
         {
             base.UpdateLogic(contraption);
-            // ¸ù¾ÝÑªÁ¿¸üÐÂÊÜËð¶¯»­  
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
             contraption.SetModelDamagePercent();
         }
 
@@ -80,11 +82,12 @@ namespace MVZ2.GameContent.Contraptions
             Explosion.Spawn(entity, entity.GetCenter(), range);
             entity.PlaySound(VanillaSoundID.explosion);
             entity.Level.ShakeScreen(10, 0, 15);
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(entity), entity.GetDefinitionID());
 
 
             return damageOutputs;
         }
-        // ²»ÄÜ±»´óÕÐÇ¿»¯  
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
         public override bool CanEvoke(Entity entity)
         {
             return false;

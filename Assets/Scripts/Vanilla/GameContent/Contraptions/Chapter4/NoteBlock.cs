@@ -17,6 +17,8 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Callbacks;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -118,6 +120,7 @@ namespace MVZ2.GameContent.Contraptions
             Explosion.Spawn(entity, entity.GetCenter(), range);
             entity.PlaySound(VanillaSoundID.explosion);
             entity.Level.ShakeScreen(10, 0, 15);
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(entity), entity.GetDefinitionID());
 
 
             return damageOutputs;
