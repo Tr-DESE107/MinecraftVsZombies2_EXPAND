@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <models>
     <armorconfig id="default">
         <armor slot="mvz2:main">
@@ -806,6 +806,11 @@
     <model name="BloodBolt" type="entity" path="mvz2:projectile/EXPAND_projectile/BloodBolt" width="64" height="20" xOffset="6" yOffset="-10" />
     <model name="BigFireCharge" type="entity" path="mvz2:projectile/EXPAND_projectile/BigFireCharge" width="48" height="48" xOffset="0" yOffset="-12" />
     <model name="SmallRocket" type="entity" path="mvz2:projectile/EXPAND_projectile/SmallRocket" width="16" height="2" xOffset="0" yOffset="-1" />
+
+    <model name="PistolBullet" type="entity" path="mvz2:projectile/EXPAND_projectile/PistolBullet" width="32" height="10" xOffset="0" yOffset="-1" />
+    <model name="SniperBullet" type="entity" path="mvz2:projectile/EXPAND_projectile/SniperBullet" width="32" height="10" xOffset="0" yOffset="-1" />
+    <model name="KnifeBullet" type="entity" path="mvz2:projectile/EXPAND_projectile/KnifeBullet" width="32" height="10" xOffset="0" yOffset="0" />
+    <model name="RocketBullet" type="entity" path="mvz2:projectile/EXPAND_projectile/RocketBullet" width="16" height="2" xOffset="0" yOffset="-1" />
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0" />

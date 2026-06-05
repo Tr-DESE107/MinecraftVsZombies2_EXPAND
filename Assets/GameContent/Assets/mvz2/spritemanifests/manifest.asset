@@ -1513,14 +1513,22 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 659d228714ec1f44796fd138287b70ec, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/IcedBolt
     sprite: {fileID: 21300000, guid: 4251b85827d1fbe449d687c174d0265a, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/KnifeBullet
+    sprite: {fileID: 21300000, guid: 59ed8427a7bc30342b72417d962d593e, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/NightmareBall
     sprite: {fileID: 21300000, guid: b5715e05ac56dd147811779cee84b7a6, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/PistolBullet
+    sprite: {fileID: 21300000, guid: f657b1cf34dcaee4896263159b10a663, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/PulseArrow
     sprite: {fileID: 21300000, guid: 8d8e8f205d5efe14e8e22b9fc70301a0, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/PurpleKnife
     sprite: {fileID: 21300000, guid: f4b7e739ce9470740afa2a402e91b5df, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/RocketBullet
+    sprite: {fileID: 21300000, guid: 3301449d29e50ed43be87101b4e5b555, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/SmallRocket
     sprite: {fileID: 21300000, guid: f17354d7f24173049ac41e23655559b2, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/SniperBullet
+    sprite: {fileID: 21300000, guid: 2b5a0c6953728db40a29b052bf4f0983, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/Squid
     sprite: {fileID: 21300000, guid: 55f1f6688da83694087992270e170cb6, type: 3}
   - name: map/gensokyo/pins/castle
