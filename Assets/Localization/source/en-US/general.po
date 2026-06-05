@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-04-30 07:34+0800\n"
-"PO-Revision-Date: 2026-04-30 19:35+0800\n"
+"POT-Creation-Date: 2026-06-05 11:19+0800\n"
+"PO-Revision-Date: 2026-06-05 23:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3236,6 +3236,12 @@ msgstr "Zombie Nimble Zombie Quick"
 msgctxt "levelname"
 msgid "<color=red>视错觉</color>"
 msgstr "<color=red>Optical Illusion</color>"
+
+#. Name for stage mvz2:WhatTheHell
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>WhatTheHell</color>"
+msgstr "<color=red>WhatTheHell</color>"
 
 #. Name for stage mvz2:puzzle_i_zombie
 #: Stage meta file
