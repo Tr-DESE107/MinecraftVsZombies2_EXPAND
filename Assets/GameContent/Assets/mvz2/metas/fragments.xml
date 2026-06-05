@@ -1,4 +1,4 @@
-<fragments>
+﻿<fragments>
     <fragment name="dispenser">
         <colorKeys>
             <key hex="#4F4F4F" time="0.35" />
@@ -318,77 +318,147 @@
             <key hex="#FFFFFF" time="1" />
         </colorKeys>
     </fragment>
-	<!--EXPAND-->
-	<fragment name="GlowingObsidian" blend="true">
-		<colorKeys>
-			<key hex="#FF0000" time="0" />
-			<key hex="#000000" time="1" />
-		</colorKeys>
-	</fragment>
-	<fragment name="GlowingObsidianArmor" blend="true">
-		<colorKeys>
-			<key hex="#FFA500" time="0" />
-			<key hex="#000000" time="1" />
-		</colorKeys>
-	</fragment>
-	<fragment name="AntiGravityPad">
-		<colorKeys>
-			<key hex="#A0FF80" time="0.75" />
-			<key hex="#00BA00" time="1" />
-		</colorKeys>
-	</fragment>
-	<fragment name="CopperDropper">
-		<colorKeys>
-			<key hex="#B87333" time="0.5" />
-			<key hex="#43B3AE" time="1" />
-		</colorKeys>
-	</fragment>
-	<fragment name="FlyingPot">
-		<colorKeys>
-			<key hex="#5b3e27" time="0" />
-			<key hex="#654a39" time="0.35" />
-			<key hex="#b69682" time="0.7" />
-			<key hex="#634938" time="1" />
-		</colorKeys>
-	</fragment>
-	<fragment name="Bedrock">
-		<colorKeys>
-			<key hex="#4F4F4F" time="0.5" />
-			<key hex="#101010" time="1" />
-		</colorKeys>
-	</fragment>
-	<fragment name="Barrier">
-		<colorKeys>
-			<key hex="#e30000" time="0.35"/>
-			<key hex="#be0101" time="0.7"/>
-			<key hex="#b10000" time="0.3"/>
-		</colorKeys>
-	</fragment>
-	<fragment name="Santa">
-		<colorKeys>
-			<key hex="#FF0000" time="0.75"/>
-			<key hex="#FFFFFF" time="1"/>
-		</colorKeys>
-	</fragment>
-	<fragment name="GoldenSanta">
-		<colorKeys>
-			<key hex="#FFD700" time="0.75"/>
-			<key hex="#FFFFFF" time="1"/>
-		</colorKeys>
-	</fragment>
-	<fragment name="PermanentIce">
-		<colorKeys>
-			<key hex="#A9D6F8" time="0.0" />
-			<key hex="#74A9E0" time="0.3" />
-			<key hex="#3D7BC2" time="0.6" />
-			<key hex="#1E4FA0" time="1.0" />
-		</colorKeys>
-	</fragment>
-	<fragment name="Snipenser">
-		<colorKeys>
-			<key hex="#4F4F4F" time="0.35" />
-			<key hex="#FF0000" time="0.7" />
-			<key hex="#ABABAB" time="1" />
-		</colorKeys>
-	</fragment>
+    <!--EXPAND-->
+    <fragment name="GlowingObsidian" blend="true">
+        <colorKeys>
+            <key hex="#FF0000" time="0" />
+            <key hex="#000000" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="GlowingObsidianArmor" blend="true">
+        <colorKeys>
+            <key hex="#FFA500" time="0" />
+            <key hex="#000000" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="AntiGravityPad">
+        <colorKeys>
+            <key hex="#A0FF80" time="0.75" />
+            <key hex="#00BA00" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="CopperDropper">
+        <colorKeys>
+            <key hex="#B87333" time="0.5" />
+            <key hex="#43B3AE" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="FlyingPot">
+        <colorKeys>
+            <key hex="#5b3e27" time="0" />
+            <key hex="#654a39" time="0.35" />
+            <key hex="#b69682" time="0.7" />
+            <key hex="#634938" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="Bedrock">
+        <colorKeys>
+            <key hex="#4F4F4F" time="0.5" />
+            <key hex="#101010" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="Barrier">
+        <colorKeys>
+            <key hex="#e30000" time="0.35"/>
+            <key hex="#be0101" time="0.7"/>
+            <key hex="#b10000" time="0.3"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="Santa">
+        <colorKeys>
+            <key hex="#FF0000" time="0.75"/>
+            <key hex="#FFFFFF" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="GoldenSanta">
+        <colorKeys>
+            <key hex="#FFD700" time="0.75"/>
+            <key hex="#FFFFFF" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="PermanentIce">
+        <colorKeys>
+            <key hex="#A9D6F8" time="0.0" />
+            <key hex="#74A9E0" time="0.3" />
+            <key hex="#3D7BC2" time="0.6" />
+            <key hex="#1E4FA0" time="1.0" />
+        </colorKeys>
+    </fragment>
+    <fragment name="Snipenser">
+        <colorKeys>
+            <key hex="#4F4F4F" time="0.35" />
+            <key hex="#FF0000" time="0.7" />
+            <key hex="#ABABAB" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="ExplosionCore">
+        <colorKeys>
+            <key hex="#d80000" time="0.35" />
+            <key hex="#f4dc18" time="0.7" />
+            <key hex="#2e0000" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser">
+        <colorKeys>
+            <key hex="#ffc401" time="0.35" />
+            <key hex="#ffffff" time="0.7" />
+            <key hex="#040404" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Silvenser">
+        <colorKeys>
+            <key hex="#0f00d0" time="0.35" />
+            <key hex="#bccfe9" time="0.7" />
+            <key hex="#f1f1f1" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Dispenser">
+        <colorKeys>
+            <key hex="#86297f" time="0.35" />
+            <key hex="#3d2309" time="0.7" />
+            <key hex="#535353" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Drivenser">
+        <colorKeys>
+            <key hex="#9d003d" time="0.35" />
+            <key hex="#6c0000" time="0.7" />
+            <key hex="#f27491" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Pistenser">
+        <colorKeys>
+            <key hex="#603713" time="0.35" />
+            <key hex="#ffa901" time="0.7" />
+            <key hex="#a8a89d" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="Poisonser">
+        <colorKeys>
+            <key hex="#007900" time="0.35" />
+            <key hex="#8cc08c" time="0.7" />
+            <key hex="#143600" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Splitenser">
+        <colorKeys>
+            <key hex="#000000" time="0.35" />
+            <key hex="#ffffff" time="0.7" />
+            <key hex="#664c2b" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Totenser">
+        <colorKeys>
+            <key hex="#f39a19" time="0.35" />
+            <key hex="#0fd90b" time="0.7" />
+            <key hex="#ff4e4e" time="1" />
+        </colorKeys>
+    </fragment>
+    <fragment name="EXPANDispenser_Triplenser">
+        <colorKeys>
+            <key hex="#940000" time="0.35" />
+            <key hex="#345ec3" time="0.7" />
+            <key hex="#ffe800" time="1" />
+        </colorKeys>
+    </fragment>
 </fragments>

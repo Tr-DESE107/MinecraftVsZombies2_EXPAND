@@ -387,6 +387,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 28d615d4432f6624aaa56f1d26ba8883, type: 3}
   - name: mobile_blueprint/EXPANDispenser
     sprite: {fileID: 21300000, guid: 28a1b23d69f2f284695b159c4c295d6f, type: 3}
+  - name: mobile_blueprint/ExplosionCore
+    sprite: {fileID: 21300000, guid: 7a831ca29ba480f448c27cd579c9cef8, type: 3}
   - name: mobile_blueprint/firework_dispenser
     sprite: {fileID: 21300000, guid: ced04377ba2ef5c4997601c45b6ca7e7, type: 3}
   - name: mobile_blueprint/FlagbearerZombie
@@ -935,6 +937,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1106f96e2391f404caf8c7b2974ba5ea, type: 3}
   - name: entity/contraptions/Eviltombstone
     sprite: {fileID: 21300000, guid: 50a8ea65ed9d3a547ad90f45bd8f587e, type: 3}
+  - name: entity/contraptions/ExplosionCore
+    sprite: {fileID: 21300000, guid: 19b96b36e7e105241a972659f9e0c61c, type: 3}
   - name: entity/contraptions/force_wave
     sprite: {fileID: 21300000, guid: c91919e3f10e9004f85638cba2384e3e, type: 3}
   - name: entity/contraptions/giant_bowl
@@ -1431,6 +1435,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 003fea51ebc7be1498297e7b66cc61d1, type: 3}
   - name: ui/level/GoldCard
     sprite: {fileID: 21300000, guid: 1484201cbc6393c4e9ec02345b03baa5, type: 3}
+  - name: ui/level/GreenCard
+    sprite: {fileID: 21300000, guid: 347ba7833809ef7499cf20ae63768fc7, type: 3}
   - name: ui/level/hint_arrow
     sprite: {fileID: 21300000, guid: e54f2595624bbc447b98881de587ce72, type: 3}
   - name: ui/level/huge_wave
@@ -1507,12 +1513,22 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 659d228714ec1f44796fd138287b70ec, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/IcedBolt
     sprite: {fileID: 21300000, guid: 4251b85827d1fbe449d687c174d0265a, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/KnifeBullet
+    sprite: {fileID: 21300000, guid: 59ed8427a7bc30342b72417d962d593e, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/NightmareBall
     sprite: {fileID: 21300000, guid: b5715e05ac56dd147811779cee84b7a6, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/PistolBullet
+    sprite: {fileID: 21300000, guid: f657b1cf34dcaee4896263159b10a663, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/PulseArrow
     sprite: {fileID: 21300000, guid: 8d8e8f205d5efe14e8e22b9fc70301a0, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/PurpleKnife
+    sprite: {fileID: 21300000, guid: f4b7e739ce9470740afa2a402e91b5df, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/RocketBullet
+    sprite: {fileID: 21300000, guid: 3301449d29e50ed43be87101b4e5b555, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/SmallRocket
     sprite: {fileID: 21300000, guid: f17354d7f24173049ac41e23655559b2, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/SniperBullet
+    sprite: {fileID: 21300000, guid: 2b5a0c6953728db40a29b052bf4f0983, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/Squid
     sprite: {fileID: 21300000, guid: 55f1f6688da83694087992270e170cb6, type: 3}
   - name: map/gensokyo/pins/castle
@@ -3701,6 +3717,7 @@ MonoBehaviour:
     - {fileID: 4507745102081845256, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
     - {fileID: -7816349463641043585, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
     - {fileID: 5696273315130911449, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
+    - {fileID: -304888982, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
   - name: ui/level/card_upgrade_mobile
     spritesheet:
     - {fileID: 355339113813773564, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
@@ -3713,6 +3730,12 @@ MonoBehaviour:
     - {fileID: -1554942783, guid: bd9181611fa05f34e9e0f6ea22795c7d, type: 3}
     - {fileID: -1595292535, guid: bd9181611fa05f34e9e0f6ea22795c7d, type: 3}
     - {fileID: -974356515, guid: bd9181611fa05f34e9e0f6ea22795c7d, type: 3}
+  - name: ui/level/GreenCardMobile
+    spritesheet:
+    - {fileID: 448619965, guid: 60df6bc6df6a5af4fa3d2a042899cb73, type: 3}
+    - {fileID: -1002383895, guid: 60df6bc6df6a5af4fa3d2a042899cb73, type: 3}
+    - {fileID: 2135031810, guid: 60df6bc6df6a5af4fa3d2a042899cb73, type: 3}
+    - {fileID: -399267045, guid: 60df6bc6df6a5af4fa3d2a042899cb73, type: 3}
   - name: ui/level/nightmare_broken_glasses
     spritesheet:
     - {fileID: -496670632954994581, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
@@ -3860,6 +3883,8 @@ MonoBehaviour:
     - {fileID: 1828765822, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
     - {fileID: 1347023728, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
     - {fileID: -1225652064, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
+    - {fileID: -1278438853, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
+    - {fileID: -1167442362, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     spritesheet:
     - {fileID: 256080187, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
@@ -3899,6 +3924,8 @@ MonoBehaviour:
     - {fileID: 1102416837, guid: c48390d6002ea294c877b56330723002, type: 3}
     - {fileID: 648546265, guid: c48390d6002ea294c877b56330723002, type: 3}
     - {fileID: -1519621500, guid: c48390d6002ea294c877b56330723002, type: 3}
+    - {fileID: 1428974613, guid: c48390d6002ea294c877b56330723002, type: 3}
+    - {fileID: 1813054098, guid: c48390d6002ea294c877b56330723002, type: 3}
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Silvenser
     spritesheet:
     - {fileID: -694000544, guid: 4f55dbc66e178c54ba27688fe83ca802, type: 3}
@@ -3949,6 +3976,22 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/BlueIce
     spritesheet:
     - {fileID: -1992250252, guid: 88b9e1cc24bc0824486b13f1979996b5, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/ExplosionCore_GlowingObsidian
+    spritesheet:
+    - {fileID: -138790114, guid: 1fadbf08bd9a0504db10721f41834d1c, type: 3}
+    - {fileID: 1948516811, guid: 1fadbf08bd9a0504db10721f41834d1c, type: 3}
+    - {fileID: 1713144072, guid: 1fadbf08bd9a0504db10721f41834d1c, type: 3}
+    - {fileID: -1351251635, guid: 1fadbf08bd9a0504db10721f41834d1c, type: 3}
+    - {fileID: 1608583756, guid: 1fadbf08bd9a0504db10721f41834d1c, type: 3}
+    - {fileID: 1206610604, guid: 1fadbf08bd9a0504db10721f41834d1c, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/ExplosionCore_GunpowderBarrel
+    spritesheet:
+    - {fileID: -1183490948, guid: c2d8521069afc3041b758df94b62562f, type: 3}
+    - {fileID: -2041089064, guid: c2d8521069afc3041b758df94b62562f, type: 3}
+    - {fileID: 1927489060, guid: c2d8521069afc3041b758df94b62562f, type: 3}
+    - {fileID: -905259075, guid: c2d8521069afc3041b758df94b62562f, type: 3}
+    - {fileID: -999857783, guid: c2d8521069afc3041b758df94b62562f, type: 3}
+    - {fileID: -698583657, guid: c2d8521069afc3041b758df94b62562f, type: 3}
   - name: entity/contraption/EXPAND_Contraption/Freezenser
     spritesheet:
     - {fileID: 1264651411, guid: 87d6503edbe02b243bbb89dda74ed47f, type: 3}
@@ -3956,6 +3999,12 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/PermanentIce
     spritesheet:
     - {fileID: 21300000, guid: e5993582e307a4140a997bc005e9f852, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/SmallDispenser
+    spritesheet:
+    - {fileID: 580415032, guid: 7becda534e6922e4481c9e4769554cb9, type: 3}
+    - {fileID: 1593508367, guid: 7becda534e6922e4481c9e4769554cb9, type: 3}
+    - {fileID: -1663582259, guid: 7becda534e6922e4481c9e4769554cb9, type: 3}
+    - {fileID: 1751204929, guid: 7becda534e6922e4481c9e4769554cb9, type: 3}
   - name: entity/contraption/EXPAND_Contraption/Snipenser
     spritesheet:
     - {fileID: -1228610995, guid: fda78549c8341a5448aef8d58c997a7f, type: 3}
@@ -3992,6 +4041,11 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/SuperFireworkDispenser_update
     spritesheet:
     - {fileID: 21300000, guid: 01fd9d559ff84124393ac5de475e4acd, type: 3}
+  - name: entity/contraption/EXPAND_Contraption/WoodenDropper
+    spritesheet:
+    - {fileID: 698915699, guid: 98377024446ed9c44aa8cb49fd8dd64f, type: 3}
+    - {fileID: -771153635, guid: 98377024446ed9c44aa8cb49fd8dd64f, type: 3}
+    - {fileID: 1127546194, guid: 98377024446ed9c44aa8cb49fd8dd64f, type: 3}
   - name: entity/contraption/EXPAND_Skin/FirechargeDispenser
     spritesheet:
     - {fileID: 1937529910, guid: 3c59bd362faf03c4b80f3be3c03de00c, type: 3}
@@ -4000,12 +4054,27 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -2086568401, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
     - {fileID: 59550891, guid: f4fbabfb2f9642d4ab30e7d1ccabb6c9, type: 3}
+  - name: entity/contraption/EXPAND_Skin/HFPD
+    spritesheet:
+    - {fileID: 395192976, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 418986790, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 1012567326, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: -1156057602, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 1327915474, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 354384086, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 1937749892, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 170509617, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
+    - {fileID: 21730644, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   - name: entity/contraption/EXPAND_Skin/SmoothStoneShield
     spritesheet:
     - {fileID: -465856548, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
     - {fileID: -264196577, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
     - {fileID: -459734040, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
     - {fileID: -919118041, guid: 3a18f9da53bf64140936205ef3c8c2c6, type: 3}
+  - name: entity/contraption/EXPAND_Skin/StoneDropper_Koishi
+    spritesheet:
+    - {fileID: -1090778929, guid: 1684641a546722a44bfea0398bc1bea1, type: 3}
+    - {fileID: 572714791, guid: 1684641a546722a44bfea0398bc1bea1, type: 3}
   - name: entity/contraption/EXPAND_Skin/YorigamiJyoon
     spritesheet:
     - {fileID: 37738219, guid: b46994409ab2cee45b41269de891afbd, type: 3}

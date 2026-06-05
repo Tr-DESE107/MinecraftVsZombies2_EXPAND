@@ -35,6 +35,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             detector = new TeslaCoilDetector(ATTACK_HEIGHT);
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
+
+            electrifyDetector = new ElectrifyDetector(32)
+            {
+                factionTarget = FactionTarget.Friendly,
+                mask = EntityCollisionHelper.MASK_PROJECTILE,
+            };
         }
         private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
         {
@@ -126,7 +132,22 @@ namespace MVZ2.GameContent.Contraptions
             {
                 entity.RemoveBuffs<FrankensteinShockedBuff>();
             }
+            UpdateElectrify(entity);
         }
+        private void UpdateElectrify(Entity teslaCoil)
+        {
+            electrifyBuffer.Clear();
+            electrifyDetector.DetectEntities(teslaCoil, electrifyBuffer);
+            foreach (Entity target in electrifyBuffer)
+            {
+                var behaviour = target.Definition?.GetBehaviour<IElectrifyBehaviour>();
+                if (behaviour == null)
+                    continue;
+                behaviour.Electrify(target, teslaCoil);
+            }
+        }
+        private Detector electrifyDetector;
+        private List<Entity> electrifyBuffer = new List<Entity>();
         private float GetTargetPriority(Entity self, Entity target)
         {
             var target2Self = target.Position - self.Position;
@@ -215,5 +236,9 @@ namespace MVZ2.GameContent.Contraptions
         private static List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
         private static HashSet<LawnGrid> gridDetectBuffer = new HashSet<LawnGrid>();
         private static readonly NamespaceID ID = VanillaContraptionID.teslaCoil;
+    }
+    public interface IElectrifyBehaviour
+    {
+        void Electrify(Entity entity, Entity teslaCoil);
     }
 }

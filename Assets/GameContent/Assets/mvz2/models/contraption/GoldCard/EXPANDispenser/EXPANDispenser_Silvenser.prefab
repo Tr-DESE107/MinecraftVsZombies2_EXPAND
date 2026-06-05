@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 5586977896354693430}
   - component: {fileID: 2333651059526017413}
   - component: {fileID: 5347850699521834593}
+  - component: {fileID: 111573115453612539}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -305,6 +306,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &111573115453612539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564393059301867376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca377810bae8aa49bb81e20fdb171a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -694000544, guid: 4f55dbc66e178c54ba27688fe83ca802, type: 3}
+  - {fileID: 1421304782, guid: 4f55dbc66e178c54ba27688fe83ca802, type: 3}
+  propertyName: Upgraded
 --- !u!1 &7714611962598137251
 GameObject:
   m_ObjectHideFlags: 0

@@ -84,7 +84,6 @@ namespace MVZ2.GameContent.Contraptions
         public const string Eviltombstone = "Eviltombstone";
         public const string CopperDropper = "CopperDropper";
         public const string AntiGravityPad = "AntiGravityPad";
-        public const string EXPANDispenser = "EXPANDispenser";
         public const string Freezenser = "Freezenser";
         public const string PermanentIce = "PermanentIce";
         public const string Randombstone = "Randombstone";
@@ -95,9 +94,26 @@ namespace MVZ2.GameContent.Contraptions
         public const string StoneGenerator = "StoneGenerator";
         public const string Stone = "Stone";
 
+        //EXPAND Fusion
+        public const string ExplosionCore = "ExplosionCore";
+        public const string ExplosionCore_GunpowderBarrel = "ExplosionCore_GunpowderBarrel";
+        public const string ExplosionCore_GlowingObsidian = "ExplosionCore_GlowingObsidian";
+
         //EXPAND BlackCard
         public const string Bedrock = "Bedrock";
         public const string Barrier = "Barrier";
+
+        //EXPAND GoldCard
+        public const string EXPANDispenser = "EXPANDispenser";
+        public const string EXPANDispenser_Silvenser = "EXPANDispenser_Silvenser";
+        public const string EXPANDispenser_Dispenser = "EXPANDispenser_Dispenser";
+        public const string EXPANDispenser_Drivenser = "EXPANDispenser_Drivenser";
+        public const string EXPANDispenser_Pistenser = "EXPANDispenser_Pistenser";
+        public const string EXPANDispenser_Poisonser = "EXPANDispenser_Poisonser";
+        public const string EXPANDispenser_SmallDispenser = "EXPANDispenser_SmallDispenser";
+        public const string EXPANDispenser_Splitenser = "EXPANDispenser_Splitenser";
+        public const string EXPANDispenser_Totenser = "EXPANDispenser_Totenser";
+        public const string EXPANDispenser_Triplenser = "EXPANDispenser_Triplenser";
 
     }
     public static class VanillaContraptionID
@@ -178,7 +194,6 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID CopperDropper = Get(VanillaContraptionNames.CopperDropper);
         public static readonly NamespaceID Eradicator = Get(VanillaContraptionNames.Eradicator);
         public static readonly NamespaceID AntiGravityPad = Get(VanillaContraptionNames.AntiGravityPad);
-        public static readonly NamespaceID EXPANDispenser = Get(VanillaContraptionNames.EXPANDispenser);
         public static readonly NamespaceID Freezenser = Get(VanillaContraptionNames.Freezenser);
         public static readonly NamespaceID PermanentIce = Get(VanillaContraptionNames.PermanentIce);
         public static readonly NamespaceID Randombstone = Get(VanillaContraptionNames.Randombstone);
@@ -189,9 +204,26 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID StoneGenerator = Get(VanillaContraptionNames.StoneGenerator);
         public static readonly NamespaceID Stone = Get(VanillaContraptionNames.Stone);
 
+        //EXPAND Fusion
+        public static readonly NamespaceID ExplosionCore = Get(VanillaContraptionNames.ExplosionCore);
+        public static readonly NamespaceID ExplosionCore_GunpowderBarrel = Get(VanillaContraptionNames.ExplosionCore_GunpowderBarrel);
+        public static readonly NamespaceID ExplosionCore_GlowingObsidian = Get(VanillaContraptionNames.ExplosionCore_GlowingObsidian); 
+
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);
         public static readonly NamespaceID Barrier = Get(VanillaContraptionNames.Barrier);
+
+        //EXPAND GoldCard
+        public static readonly NamespaceID EXPANDispenser = Get(VanillaContraptionNames.EXPANDispenser);
+        public static readonly NamespaceID EXPANDispenser_Silvenser = Get(VanillaContraptionNames.EXPANDispenser_Silvenser);
+        public static readonly NamespaceID EXPANDispenser_Dispenser = Get(VanillaContraptionNames.EXPANDispenser_Dispenser);
+        public static readonly NamespaceID EXPANDispenser_Drivenser = Get(VanillaContraptionNames.EXPANDispenser_Drivenser);
+        public static readonly NamespaceID EXPANDispenser_Pistenser = Get(VanillaContraptionNames.EXPANDispenser_Pistenser);
+        public static readonly NamespaceID EXPANDispenser_Poisonser = Get(VanillaContraptionNames.EXPANDispenser_Poisonser);
+        public static readonly NamespaceID EXPANDispenser_SmallDispenser = Get(VanillaContraptionNames.EXPANDispenser_SmallDispenser);
+        public static readonly NamespaceID EXPANDispenser_Splitenser = Get(VanillaContraptionNames.EXPANDispenser_Splitenser);
+        public static readonly NamespaceID EXPANDispenser_Totenser = Get(VanillaContraptionNames.EXPANDispenser_Totenser);
+        public static readonly NamespaceID EXPANDispenser_Triplenser = Get(VanillaContraptionNames.EXPANDispenser_Triplenser);
 
         private static NamespaceID Get(string name)
         {

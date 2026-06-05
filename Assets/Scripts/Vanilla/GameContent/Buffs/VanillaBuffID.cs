@@ -172,6 +172,7 @@ namespace MVZ2.GameContent.Buffs
             public const string dreamCrystalEvocation = "dream_crystal_evocation";
             public const string dreamSilk = "dream_silk";
             public const string bottledBlackholeDamage = "bottled_blackhole_damage";
+            public const string DrivenserTriggerBuff = "DrivenserTriggerBuff";
 
             // Chapter 3
             public const string stoneShieldProtected = "stone_shield_protected";
@@ -327,6 +328,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 3
             public const string invertedMirror = "inverted_mirror";
+            public const string Electrified = "Electrified";
 
             // Chapter 4
             public const string hellfireIgnited = "hellfire_ignited";
@@ -522,6 +524,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID dreamCrystalEvocation = Get(VanillaBuffNames.Contraption.dreamCrystalEvocation);
             public static readonly NamespaceID dreamSilk = Get(VanillaBuffNames.Contraption.dreamSilk);
             public static readonly NamespaceID bottledBlackholeDamage = Get(VanillaBuffNames.Contraption.bottledBlackholeDamage);
+            public static readonly NamespaceID DrivenserTriggerBuff = Get(VanillaBuffNames.Contraption.DrivenserTriggerBuff);
 
             // Chapter 3
             public static readonly NamespaceID stoneShieldProtected = Get(VanillaBuffNames.Contraption.stoneShieldProtected);
@@ -674,6 +677,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 3
             public static readonly NamespaceID invertedMirror = Get(VanillaBuffNames.Projectile.invertedMirror);
+            public static readonly NamespaceID Electrified = Get(VanillaBuffNames.Projectile.Electrified);
 
             // Chapter 4
             public static readonly NamespaceID hellfireIgnited = Get(VanillaBuffNames.Projectile.hellfireIgnited);

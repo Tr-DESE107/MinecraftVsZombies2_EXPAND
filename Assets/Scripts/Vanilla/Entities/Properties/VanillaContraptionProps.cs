@@ -141,6 +141,18 @@ namespace MVZ2.Vanilla.Contraptions
         }
         #endregion
 
+        #region 触发花费  
+        public static readonly PropertyMeta<int> TRIGGER_COST = Get<int>("triggerCost");
+        public static int GetTriggerCost(this Entity entity)
+        {
+            return entity.GetProperty<int>(TRIGGER_COST);
+        }
+        public static int GetTriggerCost(this EntityDefinition definition)
+        {
+            return definition.GetProperty<int>(TRIGGER_COST);
+        }
+        #endregion
+
         #region 立即触发
         public static readonly PropertyMeta<bool> INSTANT_TRIGGER = Get<bool>("instantTrigger");
         public static bool CanInstantTrigger(this EntityDefinition definition)

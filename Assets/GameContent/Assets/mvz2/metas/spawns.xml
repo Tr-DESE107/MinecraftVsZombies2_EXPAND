@@ -1,4 +1,4 @@
-<spawns>
+﻿<spawns>
     <entry id="zombie">
         <entity id="mvz2:zombie" />
         <spawn level="1" />
@@ -128,33 +128,33 @@
     </entry>
 
     <!-- Ship -->
-	<entry id="undead_flying_object" type="custom">
-		<entity id="mvz2:undead_flying_object" variant="-1" />
-		<spawn level="2" minWave="3" />
-		<preview variant="3" />
-	</entry>
-	<entry id="undead_flying_object_blitz" type="custom" noEndless="true">
-		<entity id="mvz2:undead_flying_object" variant="0" />
-		<spawn level="1" />
-		<preview count="5" />
-	</entry>
-	<entry id="cannoneer_zombie">
-		<entity id="mvz2:cannoneer_zombie" />
-		<spawn level="4" minWave="10" />
-		<terrain water="true" air="true" />
-		<weight base="1500" />
-	</entry>
-	<entry id="zombie_cloud">
-		<entity id="mvz2:zombie_cloud" />
-		<spawn level="3" minWave="10" />
-		<terrain water="true" air="true" />
-		<weight base="2000" />
-	</entry>
-	<entry id="pop_captain">
-		<entity id="mvz2:pop_captain" />
-		<spawn level="5" minWave="10" />
-		<weight base="1000" />
-	</entry>
+    <entry id="undead_flying_object" type="custom">
+        <entity id="mvz2:undead_flying_object" variant="-1" />
+        <spawn level="2" minWave="3" />
+        <preview variant="3" />
+    </entry>
+    <entry id="undead_flying_object_blitz" type="custom" noEndless="true">
+        <entity id="mvz2:undead_flying_object" variant="0" />
+        <spawn level="1" />
+        <preview count="5" />
+    </entry>
+    <entry id="cannoneer_zombie">
+        <entity id="mvz2:cannoneer_zombie" />
+        <spawn level="4" minWave="10" />
+        <terrain water="true" air="true" />
+        <weight base="1500" />
+    </entry>
+    <entry id="zombie_cloud">
+        <entity id="mvz2:zombie_cloud" />
+        <spawn level="3" minWave="10" />
+        <terrain water="true" air="true" />
+        <weight base="2000" />
+    </entry>
+    <entry id="pop_captain">
+        <entity id="mvz2:pop_captain" />
+        <spawn level="5" minWave="10" />
+        <weight base="1000" />
+    </entry>
     
     <entry id="mutant_zombie">
         <entity id="mvz2:mutant_zombie" />
@@ -217,11 +217,11 @@
         <spawn level="3" minWave="5" />
         <weight base="1000" />
     </entry>
-	<entry id="imp" entity="mvz2:imp">
-		<spawn level="1" />
-		<weight base="3000" />
-	</entry>
-	
+    <entry id="imp" entity="mvz2:imp">
+        <spawn level="1" />
+        <weight base="3000" />
+    </entry>
+    
     <!--EXPAND C2-->
     <entry id="HostHead" entity="mvz2:HostHead">
         <spawn level="2" />
@@ -253,23 +253,23 @@
         <terrain water="true" />
         <weight base="900" />
     </entry>
-	<entry id="AngryGhast">
-		<entity id="mvz2:AngryGhast" />
-		<spawn level="3" minWave="6" />
-		<terrain water="true" air="true" />
-		<weight base="2000" />
-	</entry>
-	<entry id="parasite_terror">
-		<entity id="mvz2:parasite_terror" />
-		<spawn level="2" minWave="1" />
-		<weight base="2000" />
-	</entry>
-	<entry id="PhaseSpider">
-		<entity id="mvz2:PhaseSpider" />
-		<spawn level="3" minWave="5" />
-		<weight base="2000" />
-	</entry>
-	
+    <entry id="AngryGhast">
+        <entity id="mvz2:AngryGhast" />
+        <spawn level="3" minWave="6" />
+        <terrain water="true" air="true" />
+        <weight base="2000" />
+    </entry>
+    <entry id="parasite_terror">
+        <entity id="mvz2:parasite_terror" />
+        <spawn level="2" minWave="1" />
+        <weight base="2000" />
+    </entry>
+    <entry id="PhaseSpider">
+        <entity id="mvz2:PhaseSpider" />
+        <spawn level="3" minWave="5" />
+        <weight base="2000" />
+    </entry>
+    
     <!--EXPAND C3-->
     <entry id="WitherSkeleton" entity="mvz2:WitherSkeleton">
         <spawn level="1" />
@@ -346,7 +346,7 @@
         <spawn level="6" minWave="10" />
         <weight base="2000" />
     </entry>
-	
+    
     <!--EXPAND C4-->
     <entry id="MonkZombie" entity="mvz2:MonkZombie">
         <spawn level="1" />
@@ -378,43 +378,43 @@
         <spawn level="2" />
         <weight base="4000" />
     </entry>
-	<entry id="Hemperor">
-		<entity id="mvz2:Hemperor" />
-		<spawn level="3" minWave="5" />
-		<weight base="2000" />
-	</entry>
-	<entry id="FlyingPot">
-		<entity id="mvz2:FlyingPot" />
-		<spawn level="3" minWave="5" />
-		<weight base="2000" />
-	</entry>
-	
+    <entry id="Hemperor">
+        <entity id="mvz2:Hemperor" />
+        <spawn level="3" minWave="5" />
+        <weight base="2000" />
+    </entry>
+    <entry id="FlyingPot">
+        <entity id="mvz2:FlyingPot" />
+        <spawn level="3" minWave="5" />
+        <weight base="2000" />
+    </entry>
+    
     <!--EXPAND C5-->
-	<entry id="PirateZombie" entity="mvz2:PirateZombie">
-		<spawn level="1" />
-		<preview count="3" />
-		<terrain water="true" air="true" />
-		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
-	</entry>
-	<entry id="PirateSkeleton" entity="mvz2:PirateSkeleton">
-		<spawn level="1" />
-		<preview count="3" />
-		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
-	</entry>
-	<entry id="LeatherPirateZombie" entity="mvz2:LeatherPirateZombie">
-		<spawn level="2" />
-		<preview count="2" />
-		<terrain water="true" air="true" />
-		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="150" />
-	</entry>
-	<entry id="PirateBucketSkeleton" entity="mvz2:PirateBucketSkeleton">
-		<spawn level="4" />
-		<weight base="3000" />
-	</entry>
-	<entry id="cannonball_zombie" entity="mvz2:cannonball_zombie">
-		<spawn level="2" minWave="2"/>
-		<weight base="3000" />
-	</entry>
+    <entry id="PirateZombie" entity="mvz2:PirateZombie">
+        <spawn level="1" />
+        <preview count="3" />
+        <terrain water="true" air="true" />
+        <weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+    </entry>
+    <entry id="PirateSkeleton" entity="mvz2:PirateSkeleton">
+        <spawn level="1" />
+        <preview count="3" />
+        <weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+    </entry>
+    <entry id="LeatherPirateZombie" entity="mvz2:LeatherPirateZombie">
+        <spawn level="2" />
+        <preview count="2" />
+        <terrain water="true" air="true" />
+        <weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="150" />
+    </entry>
+    <entry id="PirateBucketSkeleton" entity="mvz2:PirateBucketSkeleton">
+        <spawn level="4" />
+        <weight base="3000" />
+    </entry>
+    <entry id="cannonball_zombie" entity="mvz2:cannonball_zombie">
+        <spawn level="2" minWave="2"/>
+        <weight base="3000" />
+    </entry>
     <entry id="Endermite" entity="mvz2:Endermite">
         <spawn level="2" />
         <weight base="1500" />
@@ -424,26 +424,26 @@
         <terrain water="true" />
         <weight base="1600" />
     </entry>
-	<entry id="ChiefCannoneerZombie">
-		<entity id="mvz2:ChiefCannoneerZombie" />
-		<spawn level="4" minWave="10" />
-		<terrain water="true" air="true" />
-		<weight base="1500" />
-	</entry>
-	<entry id="SailorZombie">
-		<entity id="mvz2:SailorZombie" />
-		<spawn level="3" minWave="5" />
-		<weight base="2000" />
-	</entry>
-	<entry id="MusketeerZombie">
-		<entity id="mvz2:MusketeerZombie" />
-		<spawn level="2" minWave="5" />
-		<weight base="1750" />
-	</entry>
-	<entry id="PirateIMP" entity="mvz2:PirateIMP">
-		<spawn level="2" minWave="2"/>
-		<weight base="3000" />
-	</entry>
+    <entry id="ChiefCannoneerZombie">
+        <entity id="mvz2:ChiefCannoneerZombie" />
+        <spawn level="4" minWave="10" />
+        <terrain water="true" air="true" />
+        <weight base="1500" />
+    </entry>
+    <entry id="SailorZombie">
+        <entity id="mvz2:SailorZombie" />
+        <spawn level="3" minWave="5" />
+        <weight base="2000" />
+    </entry>
+    <entry id="MusketeerZombie">
+        <entity id="mvz2:MusketeerZombie" />
+        <spawn level="2" minWave="5" />
+        <weight base="1750" />
+    </entry>
+    <entry id="PirateIMP" entity="mvz2:PirateIMP">
+        <spawn level="2" minWave="2"/>
+        <weight base="3000" />
+    </entry>
 
     <!--EXPAND Villager-->
     <entry id="VillagerGhast" entity="mvz2:VillagerGhast">
@@ -457,7 +457,7 @@
         <terrain water="true" />
         <weight base="1250" />
     </entry>
-    <entry id="MegaMutantVillager" entity="mvz2:MegaMutantVillager">
+    <entry id="MegaMutantVillager" entity="mvz2:MegaMutantVillager" noEndless="true">
         <spawn level="8" minWave="1" />
         <terrain water="true" />
         <weight base="1000" />
@@ -472,7 +472,7 @@
         <spawn level="2" />
         <weight base="1000" />
     </entry>
-    <entry id="MutantMannequin" entity="mvz2:MutantMannequin">
+    <entry id="MutantMannequin" entity="mvz2:MutantMannequin" noEndless="true">
         <spawn level="10" minWave="1" />
         <terrain water="true" />
         <weight base="1500" />
@@ -483,39 +483,39 @@
     </entry>
 
     <!--EXPAND Random-->
-    <entry id="RandomMutant" entity="mvz2:RandomMutant">
+    <entry id="RandomMutant" entity="mvz2:RandomMutant" noEndless="true">
         <spawn level="7" minWave="1" />
         <terrain water="true" />
         <weight base="1250" />
     </entry>
-    <entry id="RandomImp" entity="mvz2:RandomImp">
+    <entry id="RandomImp" entity="mvz2:RandomImp" noEndless="true">
         <spawn level="2" />
         <weight base="1500" />
     </entry>
-    <entry id="RandomZombie" entity="mvz2:RandomZombie">
+    <entry id="RandomZombie" entity="mvz2:RandomZombie" noEndless="true">
         <spawn level="1" />
         <weight base="1500" />
     </entry>
-	<entry id="RandomKingSkeleton" entity="mvz2:RandomKingSkeleton">
-		<spawn level="3" minWave="5" />
-		<weight base="1500" />
-	</entry>
-	<entry id="RandomSkeleton">
-		<entity id="mvz2:RandomSkeleton" />
-		<spawn level="2" />
-		<weight base="5000" />
-	</entry>
+    <entry id="RandomKingSkeleton" entity="mvz2:RandomKingSkeleton" noEndless="true">
+        <spawn level="3" minWave="5" />
+        <weight base="1500" />
+    </entry>
+    <entry id="RandomSkeleton">
+        <entity id="mvz2:RandomSkeleton" />
+        <spawn level="2" />
+        <weight base="5000" />
+    </entry>
 
-	<entry id="XCarrierMutant" entity="mvz2:XCarrierMutant">
-		<spawn level="8" />
-		<terrain water="true" />
-		<weight base="2000" />
-	</entry>
-	<entry id="TeslaTrooper">
-		<entity id="mvz2:TeslaTrooper" />
-		<spawn level="2" minWave="3" />
-		<terrain water="true" />
-		<weight base="2000" />
-	</entry>
+    <entry id="XCarrierMutant" entity="mvz2:XCarrierMutant" noEndless="true">
+        <spawn level="8" />
+        <terrain water="true" />
+        <weight base="2000" />
+    </entry>
+    <entry id="TeslaTrooper">
+        <entity id="mvz2:TeslaTrooper" />
+        <spawn level="2" minWave="3" />
+        <terrain water="true" />
+        <weight base="2000" />
+    </entry>
 
 </spawns>
