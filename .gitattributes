@@ -1,9 +1,9 @@
-# 所有文件默认使用 LF（仓库内统一）
+# 所有文本文件仓库内统一用 LF
 * text=auto eol=lf
 
-# 为 C# 文件单独设置 CRLF 行尾（Windows 开发友好）
-*.cs text eol=crlf
+# C# 文件明确：仓库用 LF + UTF-8，本地检出用 CRLF
+*.cs text eol=lf working-tree-encoding=UTF-8-BOM
 
-# 排除二进制文件（避免损坏）
+# 排除二进制文件
 *.png binary
 *.jpg binary
