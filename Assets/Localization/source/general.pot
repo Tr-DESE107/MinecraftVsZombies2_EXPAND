@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-16 05:34+0800\n"
+"POT-Creation-Date: 2026-06-05 11:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,6 +79,16 @@ msgstr ""
 #. 用户管理界面按钮
 #: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Users/CreateNewUserButton/Name
 msgid "（新建用户）"
+msgstr ""
+
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Top/ImportButton/Text
+msgid "导入"
+msgstr ""
+
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Top/ExportButton/Text
+msgid "导出"
 msgstr ""
 
 #. 用户管理界面按钮
@@ -3287,6 +3297,12 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "<color=red>视错觉</color>"
+msgstr ""
+
+#. Name for stage mvz2:WhatTheHell
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>WhatTheHell</color>"
 msgstr ""
 
 #. Name for stage mvz2:puzzle_i_zombie

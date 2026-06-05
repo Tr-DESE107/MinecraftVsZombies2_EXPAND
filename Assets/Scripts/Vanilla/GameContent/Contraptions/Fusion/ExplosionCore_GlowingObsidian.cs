@@ -103,7 +103,7 @@ namespace MVZ2.GameContent.Contraptions
             base.OnTrigger(entity);
             entity.PlaySound(VanillaSoundID.gunReload);
             entity.PlaySound(VanillaSoundID.fuse);
-            var damage = entity.GetDamage()*6;
+            var damage = entity.GetDamage() * 4.5f;
             var range = entity.GetRange();
             Explode(entity, range, damage);
         }

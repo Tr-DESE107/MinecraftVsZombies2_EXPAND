@@ -126,10 +126,10 @@ TextureImporter:
       name: StoneDropper_Koishi_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
         width: 50
-        height: 49
+        height: 48
       alignment: 9
       pivot: {x: 0.52, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: StoneDropper_Koishi_1
       rect:
         serializedVersion: 2
-        x: 51
+        x: 52
         y: 0
         width: 50
-        height: 49
+        height: 48
       alignment: 9
       pivot: {x: 0.52, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}

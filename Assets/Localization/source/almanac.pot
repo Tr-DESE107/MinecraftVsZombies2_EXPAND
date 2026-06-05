@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-05-16 05:34+0800\n"
+"POT-Creation-Date: 2026-06-05 11:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1061,7 +1061,7 @@ msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "攻击间隔：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
-"特点：<color=red>1/7概率发射紫箭</color>\n"
+"特点：<color=red>每次发射时，有1/7的概率发射一发紫箭</color>\n"
 "伤害：<color=red>普通箭矢<var id=\"mvz2:entity_damage\" />，紫箭70+10(穿甲伤害)</color>\n"
 "技能：<color=red>快速发射60支箭矢</color>"
 msgstr ""
@@ -1296,7 +1296,7 @@ msgstr ""
 #. Header for contraptions mvz2:tnt
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "TNT在触发后能炸飞周围的敌人。"
+msgid "TNT在触发(又称驱动)后能炸飞周围的敌人。"
 msgstr ""
 
 #. Properties for contraptions mvz2:tnt
@@ -1305,6 +1305,7 @@ msgctxt "contraptions.description"
 msgid ""
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "半径：<color=red><var id=\"mvz2:FireRange\" />格</color>\n"
+"触发：<color=red>触发后爆炸</color>\n"
 "技能：<color=red>炸出4个TNT分身</color>"
 msgstr ""
 
@@ -1357,8 +1358,8 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
+"特点：<color=red>每次发射时，有1/7的概率发射一发红色飞刀，红色飞刀可以穿透并伤害3个敌人；6/7的概率发射蓝色飞刀，蓝色飞刀可以穿透多个敌人。两种飞刀都无法穿透硬物</color>\n"
 "伤害：<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>\n"
-"特点：<color=red>1/7概率发射红色飞刀，蓝色飞刀可以穿透多个敌人，但无法穿透硬物</color>\n"
 "技能：<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>"
 msgstr ""
 
@@ -1420,7 +1421,7 @@ msgstr ""
 #. Header for contraptions mvz2:drivenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量。"
+msgid "在一个驱动发射器上再放置一个驱动发射器，可以增加它每次发射的箭的数量，驱动/触发后可以进入过载模式。"
 msgstr ""
 
 #. Properties for contraptions mvz2:drivenser
@@ -1429,8 +1430,9 @@ msgctxt "contraptions.description"
 msgid ""
 "攻击间隔：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"升级上限：<color=red>5</color>\n"
-"技能：<color=red>发射五支大箭矢</color>"
+"触发：<color=red>触发后进入过载模式，每秒损失1点耐久，档位上升1级</color>\n"
+"升级上限：<color=red>5，过载模式可以短暂上升为6</color>\n"
+"技能：<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+挡位*1.5只大型箭矢（向下取整），而后自爆。</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:drivenser
@@ -1624,7 +1626,7 @@ msgstr ""
 #. Header for contraptions mvz2:wooden_dropper
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "木制投掷器向敌人发射滚动的木球。"
+msgid "木制投掷器向敌人发射滚动的木球，触发时可以立刻发射一发大型木球。"
 msgstr ""
 
 #. Properties for contraptions mvz2:wooden_dropper
@@ -1632,7 +1634,9 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "攻击间隔：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
-"伤害：<color=red><var id=\"mvz2:entity_damage\" />，金球40</color>\n"
+"特点：<color=red>每次发射时，有1/6的概率发射一颗大型木球</color>\n"
+"伤害：<color=red><var id=\"mvz2:entity_damage\" />，大型木球80</color>\n"
+"触发：<color=red>触发后立刻发射一颗大型木球，冷却时间4秒</color>\n"
 "技能：<color=red>立即喷射30颗大型木球，每颗造成80点伤害</color>"
 msgstr ""
 
@@ -1677,7 +1681,7 @@ msgstr ""
 #. Header for contraptions mvz2:stone_dropper
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。"
+msgid "石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。触发时可以立刻发射一发巨石。"
 msgstr ""
 
 #. Properties for contraptions mvz2:stone_dropper
@@ -1685,8 +1689,9 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "攻击间隔：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
-"巨石概率：<color=red>25%</color>\n"
+"特点：<color=red>每次发射时，有1/4的概率发射一颗巨石</color>\n"
 "伤害：<color=red>10（卵石），40（巨石）</color>\n"
+"触发：<color=red>触发后立刻发射一颗巨石，冷却时间3秒。</color>\n"
 "技能：<color=red>立即喷射30发巨石</color>"
 msgstr ""
 
@@ -1777,7 +1782,8 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"修复时间：<color=red>60秒</color>\n"
+"修复时间：<color=red>30秒</color>\n"
+"触发：<color=red>触发后会震飞所有地面上的敌怪，使其后退并换行。</color>\n"
 "技能：<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>"
 msgstr ""
 
@@ -1911,8 +1917,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "攻击间隔：<color=red>1发/<var id=\"mvz2:AttackInterval\" />秒（前方），2发/<var id=\"mvz2:AttackInterval\" />秒（后方）</color>\n"
-"伤害：<color=red>箭和飞镖<var id=\"mvz2:entity_damage\" />，小导弹100，大导弹600</color>\n"
-"技能：<color=red>快速向前发射60支箭矢，向后发射20发箭矢和8发小导弹，最后向后发射1发大导弹</color>"
+"伤害：<color=red>箭和飞镖<var id=\"mvz2:entity_damage\" />，小型导弹100，大型导弹600</color>\n"
+"技能：<color=red>快速向前发射60支箭矢，向后发射20发箭矢和8发小型导弹，最后向后发射1发大型导弹</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:splitenser
@@ -2032,6 +2038,7 @@ msgctxt "contraptions.description"
 msgid ""
 "持续时间：<color=red>8秒</color>\n"
 "伤害：<color=red><var local=\"dps\" />/秒</color>\n"
+"触发：<color=red>触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。</color>\n"
 "半径：<color=red><var id=\"mvz2:FireRange\" />格</color>\n"
 "技能：<color=red>产生湮灭领域，直接消灭范围内的所有敌人和敌弹</color>"
 msgstr ""
@@ -2075,7 +2082,7 @@ msgstr ""
 #. Header for contraptions mvz2:gunpowder_barrel
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的友方单位。火药桶在被破坏时也会爆炸。"
+msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的所有单位。火药桶在被破坏时也会爆炸。"
 msgstr ""
 
 #. Properties for contraptions mvz2:gunpowder_barrel
@@ -2158,8 +2165,9 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "攻击间隔：<color=red>2支/<var id=\"mvz2:AttackInterval\" />秒</color>\n"
-"伤害：<color=red><var id=\"mvz2:entity_damage\" />，脉冲箭40，大箭矢600</color>\n"
-"技能：<color=red>快速发射40支箭矢和8发小导弹，最后发射一支大箭矢</color>"
+"特点：<color=red>每次发射时，有1/5的概率发射一支脉冲箭</color>\n"
+"伤害：<color=red><var id=\"mvz2:entity_damage\" />，脉冲箭40，大型箭矢600</color>\n"
+"技能：<color=red>快速发射40支箭矢和8发小型导弹，最后发射一支大型箭矢</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:repeatenser
@@ -2206,6 +2214,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>可以直接吹飞空中或者较轻的怪物，但对地面上较重的怪物没有效果</color>\n"
+"触发：<color=red>触发后会将一整行内的敌方怪物吹回原地。</color>\n"
 "范围：<color=red>一整行</color>\n"
 "技能：<color=red>改为吹动整个战场的怪物</color>"
 msgstr ""
@@ -2264,7 +2273,7 @@ msgstr ""
 #. Header for contraptions mvz2:small_dispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "小型发射器能发射短距离的雪球。"
+msgid "小型发射器能发射短距离的雪球，触发可以升级挡位，不同挡位概率发射不同子弹。"
 msgstr ""
 
 #. Properties for contraptions mvz2:small_dispenser
@@ -2272,6 +2281,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "射程：<color=red><var id=\"mvz2:FireRange\" />格</color>\n"
+"触发：<color=red>触发后升档，初始为零档，一档概率发射木球和雪球，二档概率发射木球、石子、巨石、雪球。达到二档后驱动可以立即发射一发巨石</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "技能：<color=red>射出一个越滚越大的雪球</color>"
 msgstr ""
@@ -2356,7 +2366,7 @@ msgstr ""
 #. Header for contraptions mvz2:Snipenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "狙击发射器能够全方位发射高速箭。"
+msgid "狙击发射器能够全方位发射高速子弹。"
 msgstr ""
 
 #. Properties for contraptions mvz2:Snipenser
@@ -2364,6 +2374,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"触发：<color=red>触发后发生一次爆炸，并能够发射更多不同的子弹</color>\n"
 "特点：<color=red>全方位射击</color>\n"
 "技能：<color=red>连续发射多发射弹，发射完毕后发生一次范围3*3，伤害900的爆炸</color>"
 msgstr ""
@@ -2411,8 +2422,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "攻击间隔：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
-"伤害：<color=red>铜球<var id=\"mvz2:entity_damage\" />，每次反弹后减半，铜矿球80</color>\n"
-"概率：<color=red>铜球25%赋予眩晕，5%掉落铜锭</color>\n"
+"特点：<color=red>每次发射时，有1/4的概率发射铜矿球，铜矿球可以击退敌人并分裂为卵石和铜粒；3/4的概率发射铜球，铜球击中敌人后25%使敌人眩晕，5%掉落铜锭</color>\n"
+"伤害：<color=red>铜球<var id=\"mvz2:entity_damage\" />，每次反弹后减半，铜矿球80，卵石20</color>\n"
 "技能：<color=red>立即喷射20发铜球和15发铜矿球</color>"
 msgstr ""
 
@@ -2592,16 +2603,17 @@ msgstr ""
 #. Header for contraptions mvz2:high_frequency_pulse_dispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "高频脉冲发射器一次能发射四支箭矢。"
+msgid "高频脉冲发射器一次能发射八支箭矢，触发后获得对空导弹。"
 msgstr ""
 
 #. Properties for contraptions mvz2:high_frequency_pulse_dispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"攻击间隔：<color=red>4支/<var id=\"mvz2:AttackInterval\" />秒</color>\n"
+"攻击间隔：<color=red>8支/<var id=\"mvz2:AttackInterval\" />秒</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\" />发光</color>"
+"触发：<color=red>触发后拥有6发能够对空的小型导弹。</color>\n"
+"技能：<color=red>永久改为发射10支箭矢，并<tag id=\"mvz2:light_source\" />发光</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:high_frequency_pulse_dispenser
@@ -2641,16 +2653,16 @@ msgstr ""
 #. Header for contraptions mvz2:EXPANDispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "万象天枢能与其他发射器融合并获取无与伦比的能力。嗯，说是这么说，但还没做好"
+msgid "万象天枢能与其他发射器融合并获取无与伦比的能力。"
 msgstr ""
 
 #. Properties for contraptions mvz2:EXPANDispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"攻击间隔：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
-"伤害：<color=red>视形态而定</color>\n"
-"技能：<color=red>视形态而定</color>"
+"特点：<color=red>可以将不同的发射器放置在基础万象天枢上融合。</color>\n"
+"可融合器械：<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref>，其他可以融合，但行为同基础万象天枢</color>\n"
+"注：<color=red>你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:EXPANDispenser
@@ -2675,7 +2687,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "伤害：<color=red>普通冰锥<var id=\"mvz2:entity_damage\" />，冻结冰锥30</color>\n"
-"特点：<color=red>1/4概率发射能够冻结敌人150帧的冰锥。</color>\n"
+"特点：<color=red>每次发射时，有1/4概率发射能够冻结敌人150帧的冰锥。</color>\n"
 "技能：<color=red>快速发射60支冰锥</color>"
 msgstr ""
 
@@ -2698,7 +2710,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"特点：<color=red>驱动后能够冰冻全场敌人</color>\n"
+"触发：<color=red>触发后能够冰冻全场敌人</color>\n"
 "技能：<color=red>先对全场被冰冻的敌人造成1000点伤害，后冰冻全场敌人。</color>"
 msgstr ""
 
@@ -2792,6 +2804,39 @@ msgid ""
 "\n"
 "\n"
 "<color=red>===开通坑爹商城会员以阅读全文===</color>"
+msgstr ""
+
+#. Header for contraptions mvz2:ExplosionCore
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "爆炸核心，亦称爆裂核心，向其注入能量可以发生爆炸，能够和其他爆炸类型的器械融合。"
+msgstr ""
+
+#. Properties for contraptions mvz2:ExplosionCore
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"特点：<color=red>触发后发生爆炸，死亡时同样发生爆炸</color>\n"
+"可融合器械：<color=red>火药桶、发光的黑曜石</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:ExplosionCore
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"例行实验记录 ███\n"
+"实验对象： 爆炸核心（编号：MCP-EXP-067）\n"
+"实验目的： 测定该实体在可控能量注入下的爆炸响应及能量转化效率。\n"
+"实验步骤：\n"
+"1.将实体置于3级防护测试舱内，周围部署标准爆炸衰减传感器阵列（型号：SE-7）。\n"
+"2.通过远程能量注入装置（EID-09）以稳定速率向实体内部输送标准化能量单位（总输入：300 ME）。\n"
+"3.记录爆炸触发时间、冲击波扩散范围、舱内压强变化及残余能量读数。\n"
+"能量注入后约0.033秒，实体发生爆炸。爆炸未对实体本身的结构完整性造成可观测破坏。舱内传感器测得瞬时压强峰值达7.4 MPa，等效冲击半径约为2.25米。\n"
+"能量转化分析：爆炸所释放的总能量经传感器阵列综合计算约为25.8 ME。相较于注入的300 ME，能量转化效率仅为8.6%。大量能量去向不明。监测设备未记录到热辐射以外的二次能量释放形式。\n"
+"有研究人员在本次实验过程中注意到，该实体与某些已知实例中所见的异常物体存在表面相似性。\n"
+"初步筛查显示，具备TiC2特性的陈旧██（具体术语因档案损坏而不可辨）在[已编辑]地区广泛分布。值得注意的是，上述地区在21世纪初曾多次报告“自燃现象”与“非来源性爆炸”。然而，所有相关记录均在[[已删除]]事件后被列为V级机密。\n"
+"\n"
+"<color=blue>这真是一种极为低效的能量使用手段。</color>"
 msgstr ""
 
 #. Header for contraptions mvz2:Bedrock
@@ -7805,6 +7850,30 @@ msgctxt "entity.name"
 msgid "石头"
 msgstr ""
 
+#. Name for entity mvz2:ExplosionCore
+#: Entity meta file
+msgctxt "entity.name"
+msgid "爆炸核心"
+msgstr ""
+
+#. Tooltip for entity mvz2:ExplosionCore
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "使用机械能驱动后发生爆炸"
+msgstr ""
+
+#. Name for entity mvz2:ExplosionCore_GunpowderBarrel
+#: Entity meta file
+msgctxt "entity.name"
+msgid "爆炸核心_火药桶"
+msgstr ""
+
+#. Name for entity mvz2:ExplosionCore_GlowingObsidian
+#: Entity meta file
+msgctxt "entity.name"
+msgid "爆炸核心_发光的黑曜石"
+msgstr ""
+
 #. Name for entity mvz2:Snipenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -7873,6 +7942,12 @@ msgctxt "entity.name"
 msgid "随机墓碑"
 msgstr ""
 
+#. Tooltip for entity mvz2:Randombstone
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "召唤友方随机怪物"
+msgstr ""
+
 #. Name for entity mvz2:DiamondOre
 #: Entity meta file
 msgctxt "entity.name"
@@ -7909,6 +7984,60 @@ msgctxt "entity.tooltip"
 msgid ""
 "（需要高频脉冲发射器）\n"
 "一次射出十支箭矢"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_Silvenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_银制"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_Dispenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_紫箭"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_Drivenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_驱动"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_Pistenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_活塞"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_Poisonser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_蚀毒"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_SmallDispenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_小型"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_Splitenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_双向"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_Totenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_图腾"
+msgstr ""
+
+#. Name for entity mvz2:EXPANDispenser_Triplenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "万象天枢_三头"
 msgstr ""
 
 #. Name for entity mvz2:Bedrock
