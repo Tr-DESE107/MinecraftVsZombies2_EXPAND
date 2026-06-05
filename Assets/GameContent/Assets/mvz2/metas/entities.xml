@@ -2076,6 +2076,7 @@
                 <color name="mvz2:lightColor" value="#b1f274" />
                 <id name="mvz2:fragmentId" value="mvz2:Poisonser" />
                 <id name="mvz2:projectileId" value="mvz2:Poisonball" />
+                <vector3 name="mvz2:size" x="32" y="32" z="32" />
             </properties>
         </EXPANDispenser>
         
@@ -2087,6 +2088,7 @@
                 <color name="mvz2:lightColor" value="#f2f2f2" />
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <id name="mvz2:projectileId" value="mvz2:snowball" />
+                <vector3 name="mvz2:size" x="32" y="32" z="32" />
             </properties>
         </EXPANDispenser>
         
