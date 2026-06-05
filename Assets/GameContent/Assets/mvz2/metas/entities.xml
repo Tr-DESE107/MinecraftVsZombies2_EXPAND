@@ -1493,7 +1493,7 @@
                 <color name="mvz2:lightColor" value="#FFAA00" />
 
                 <int name="mvz2:cost" value="250" />
-                <int name="mvz2:triggerCost" value="100" />
+                <int name="mvz2:triggerCost" value="125" />
                 <bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
@@ -1605,7 +1605,6 @@
                 <float name="mvz2:range" value="400" />
                 <id name="mvz2:projectileId" value="mvz2:Poisonball" />
                 <id name="mvz2:shootSound" value="mvz2:bow" />
-                <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <vector3 name="mvz2:shotOffset" x="25" y="15" z="0" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
@@ -1736,6 +1735,7 @@
             <properties>
                 <bool name="mvz2:producer" value="true" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:fragmentId" value="mvz2:furnace" />
 
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
@@ -1822,6 +1822,10 @@
                 <int name="mvz2:triggerCost" value="300" />
                 <bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
+
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="120" y="120" z="120" />
+                <color name="mvz2:lightColor" value="#FF0000" />
             </properties>
         </contraption>
 
@@ -1934,7 +1938,7 @@
             </properties>
         </contraption>
         
-        <contraption id="Randombstone" name="随机墓碑" tooltip="召唤友方下界战士">
+        <contraption id="Randombstone" name="随机墓碑" tooltip="召唤友方随机怪物">
             <unlock>
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
@@ -2012,11 +2016,11 @@
                 <bool name="mvz2:upgradeBlueprint" value="true" />
                 <id name="mvz2:upgradeFrom" value="mvz2:high_frequency_pulse_dispenser" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#ffda00" />
                 <float name="mvz2:maxHealth" value="600" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
 
-                <int name="mvz2:cost" value="250" />
+                <int name="mvz2:cost" value="300" />
                 <int name="mvz2:triggerCost" value="150" />
                 <bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
@@ -2028,7 +2032,7 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#67b4ff" />
                 <id name="mvz2:projectileId" value="mvz2:knife" />
             </properties>
         </EXPANDispenser>
@@ -2038,7 +2042,7 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#f4b4f6" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
             </properties>
         </EXPANDispenser>
@@ -2048,7 +2052,7 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#ff7777" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
             </properties>
         </EXPANDispenser>
@@ -2058,7 +2062,7 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#ffd200" />
                 <id name="mvz2:projectileId" value="mvz2:spike" />
             </properties>
         </EXPANDispenser>
@@ -2068,7 +2072,8 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#b1f274" />
+                <id name="mvz2:fragmentId" value="mvz2:Poisonser" />
                 <id name="mvz2:projectileId" value="mvz2:Poisonball" />
             </properties>
         </EXPANDispenser>
@@ -2078,7 +2083,8 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#f2f2f2" />
+                <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <id name="mvz2:projectileId" value="mvz2:snowball" />
             </properties>
         </EXPANDispenser>
@@ -2088,7 +2094,7 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#fffefe" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
             </properties>
         </EXPANDispenser>
@@ -2098,7 +2104,7 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#ffaf14" />
                 <id name="mvz2:projectileId" value="mvz2:dart" />
             </properties>
         </EXPANDispenser>
@@ -2108,7 +2114,7 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <color name="mvz2:lightColor" value="#FFAA00" />
+                <color name="mvz2:lightColor" value="#ffe800" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
             </properties>
         </EXPANDispenser>

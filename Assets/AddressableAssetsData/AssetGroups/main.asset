@@ -738,6 +738,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b2c08d261c8f9046aad36b34014cca7
+    m_Address: mvz2:projectile/EXPAND_projectile/KnifeBullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b687cc971691aa4786964a361a0d14c
     m_Address: mvz2:artifacts/greedy_vacuum
     m_ReadOnly: 0
@@ -2824,6 +2831,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b5a0c6953728db40a29b052bf4f0983
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/SniperBullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b7ddde9b7a3533498e973193163290c
     m_Address: mvz2:lose_music
     m_ReadOnly: 0
@@ -3278,6 +3292,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3301449d29e50ed43be87101b4e5b555
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/RocketBullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3322237d80cabdd4cb9ca5b49b955e2e
     m_Address: mvz2:ship_level_sub
     m_ReadOnly: 0
@@ -3382,6 +3403,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 347ba7833809ef7499cf20ae63768fc7
+    m_Address: mvz2:ui/level/GreenCard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34816f027e0f87342850b19b65eab54d
     m_Address: mvz2:soul_sand_break3
@@ -4417,6 +4445,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43d814944dad513438dd59c489d222bd
+    m_Address: mvz2:projectile/EXPAND_projectile/PistolBullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43fcd92f2a72ca443ab18701d0b8563c
     m_Address: mvz2:ui/charge_bar_background
@@ -5853,6 +5888,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59ed8427a7bc30342b72417d962d593e
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/KnifeBullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a0c08fed03edc745bbc7ea6e497cf14
     m_Address: mvz2:entity/contraption/desire_pot
     m_ReadOnly: 0
@@ -6335,6 +6377,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60df6bc6df6a5af4fa3d2a042899cb73
+    m_Address: mvz2:ui/level/GreenCardMobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 614ed32a96b18ee45b196d855175f379
     m_Address: mvz2:entity/enemy/mother_terror
@@ -7545,6 +7594,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77d80d60e19bffa44b0283a7f2dbb817
+    m_Address: mvz2:projectile/EXPAND_projectile/RocketBullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77e47ba4e4bc65a46bf4e84b41c40576
     m_Address: mvz2:entity/projectiles/golden_ball
@@ -10898,6 +10954,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae896319bf5c59e458f99e9a1a943bb1
+    m_Address: mvz2:projectile/EXPAND_projectile/SniperBullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae918595844e8b446a1aca7d71291b61
     m_Address: mvz2:mobile_blueprint/skeleton_mage
@@ -15245,6 +15308,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f657b1cf34dcaee4896263159b10a663
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/PistolBullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f661948e8fac49542be1f0cbf157b316
     m_Address: mvz2:entity/enemy/mutant_zombie
