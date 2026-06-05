@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
@@ -12,9 +12,7 @@ using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic.Entities;
-using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -39,13 +37,13 @@ namespace MVZ2.GameContent.Contraptions
             if (!entity.IsEntityOf(VanillaContraptionID.ExplosionCore))
                 return;
 
-            // ����������"��ը"Ч�����������  
+            // 如果伤害包含"爆炸"效果，则减少伤害  
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.EXPLOSION))
             {
                 entity.HealEffects(damageInfo.Amount*2, entity);
 
                 result.SetFinalValue(false);
-                damageInfo.Multiply(0f); // ��level�float��� 
+                damageInfo.Multiply(0f); // 现在level是float类型  
             }
 
 
@@ -53,16 +51,24 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity contraption)
         {
             base.UpdateLogic(contraption);
-            // ����������������  
+            // 根据血量更新受损动画  
             contraption.SetModelDamagePercent();
         }
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+            var damage = entity.GetDamage();
+            Explode(entity, 40, damage);
 
+        }
         protected override void OnTrigger(Entity entity)
         {
             base.OnTrigger(entity);
             entity.PlaySound(VanillaSoundID.gunReload);
             entity.PlaySound(VanillaSoundID.fuse);
-            Explode(entity, 160, 600);
+            var damage = entity.GetDamage()*6;
+            var range = entity.GetRange();
+            Explode(entity, range, damage);
         }
         public static DamageOutput[] Explode(Entity entity, float range, float damage)
         {
@@ -87,7 +93,7 @@ namespace MVZ2.GameContent.Contraptions
 
             return damageOutputs;
         }
-        // �����������  
+        // 不能被大招强化  
         public override bool CanEvoke(Entity entity)
         {
             return false;

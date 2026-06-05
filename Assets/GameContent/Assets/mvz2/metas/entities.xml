@@ -1,4 +1,4 @@
-<entities>
+﻿<entities>
     <counters>
         <counter id="low_enemy" name="低矮怪物" />
         <counter id="flying_enemy" name="飞行怪物" />
@@ -2063,10 +2063,11 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <bool name="mvz2:defensive" value="true" />
-                <float name="mvz2:maxHealth" value="1500" />
-                <id name="mvz2:fragmentId" value="mvz2:furnace" />
+                <float name="mvz2:maxHealth" value="1" />
+                <id name="mvz2:fragmentId" value="mvz2:ExplosionCore" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <float name="mvz2:damage" value="100" />
+                <float name="mvz2:range" value="135" />
                 
                 <id name="mvz2:placement" value="mvz2:fusion" />
                 <idArray name="mvz2:fusionTargets" value="mvz2:gunpowder_barrel mvz2:GlowingObsidian" />
@@ -2086,10 +2087,11 @@
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
             <properties>
-                <bool name="mvz2:defensive" value="true" />
                 <float name="mvz2:maxHealth" value="1500" />
-                <id name="mvz2:fragmentId" value="mvz2:furnace" />
+                <id name="mvz2:fragmentId" value="mvz2:ExplosionCore" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <float name="mvz2:damage" value="100" />
+                <float name="mvz2:range" value="160" />
 
                 <bool name="mvz2:upgradeBlueprint" value="true" />
                 <id name="mvz2:upgradeFrom" value="mvz2:gunpowder_barrel" />
@@ -2107,12 +2109,14 @@
             </unlock>
             <properties>
                 <bool name="mvz2:defensive" value="true" />
-                <float name="mvz2:maxHealth" value="1500" />
-                <id name="mvz2:fragmentId" value="mvz2:furnace" />
+                <float name="mvz2:maxHealth" value="3000" />
+                <id name="mvz2:fragmentId" value="mvz2:ExplosionCore" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <float name="mvz2:damage" value="200" />
+                <float name="mvz2:range" value="120" />
 
                 <bool name="mvz2:upgradeBlueprint" value="true" />
-                <id name="mvz2:upgradeFrom" value="mvz2:gunpowder_barrel" />
+                <id name="mvz2:upgradeFrom" value="mvz2:GlowingObsidian" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
                 
                 <int name="mvz2:cost" value="0" />
