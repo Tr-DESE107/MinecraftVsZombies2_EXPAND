@@ -1,4 +1,4 @@
-// Assets/Scripts/Vanilla/GameContent/Stages/Definitions/minigame_exp/AllUnlockedEnemiesStage.cs  
+ï»¿// Assets/Scripts/Vanilla/GameContent/Stages/Definitions/minigame_exp/AllUnlockedEnemiesStage.cs  
 #nullable enable
 
 using System.Linq;
@@ -8,10 +8,29 @@ using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Level;
+using MVZ2Logic.Localization;
+using MVZ2Logic.Stats;
+using PVZEngine;
+using PVZEngine.Callbacks;
+using PVZEngine.Level;
+using PVZEngine.Definitions;
+using Tools;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.WhatTheHell)]
+    [AutoStageDefinition(VanillaStageNames.WhatTheHell)]
     public partial class WhatTheHell : StageDefinition
     {
         public WhatTheHell(string nsp, string name) : base(nsp, name)
@@ -40,12 +59,12 @@ namespace MVZ2.GameContent.Stages
                     if (spawnDef == null)
                         return false;
 
-                    // ¹ıÂËµô²»ÊÊºÏµÄ¹ÖÎï  
-                    var entityDef = game.GetEntityDefinition(spawnDef.GetSpawnEntity());
-                    if (entityDef == null)
-                        return false;
+                    // è¿‡æ»¤æ‰ä¸é€‚åˆçš„æ€ªç‰©  
+                    //var entityDef = game.GetEntityDefinition(spawnDef.GetSpawnEntity());
+                    //if (entityDef == null)
+                    //    return false;
 
-                    //// ÅÅ³ıÎŞº¦¹ÖÎï¡¢·Ç»îÔ¾¹ÖÎïµÈ  
+                    //// æ’é™¤æ— å®³æ€ªç‰©ã€éæ´»è·ƒæ€ªç‰©ç­‰  
                     //if (entityDef.GetProperty<bool>("mvz2:harmless") ?? false)
                     //    return false;
                     //if (entityDef.GetProperty<bool>("mvz2:notActiveEnemy") ?? false)
@@ -64,7 +83,7 @@ namespace MVZ2.GameContent.Stages
             }
             else
             {
-                // Èç¹ûÃ»ÓĞÒÑ½âËøµÄ¹ÖÎï£¬Ê¹ÓÃÄ¬ÈÏ¹ÖÎï  
+                // å¦‚æœæ²¡æœ‰å·²è§£é”çš„æ€ªç‰©ï¼Œä½¿ç”¨é»˜è®¤æ€ªç‰©  
                 level.SetEnemyPool(new NamespaceID[]
                 {
                     VanillaSpawnID.zombie,

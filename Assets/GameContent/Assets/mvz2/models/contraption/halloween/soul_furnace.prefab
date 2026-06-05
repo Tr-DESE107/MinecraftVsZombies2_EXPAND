@@ -528,6 +528,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2833546054664218752}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: renderers.Array.data[3]
+      value: 
+      objectReference: {fileID: 2054762940920883217}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.data[0]
       value: 
       objectReference: {fileID: 167326706844084683}

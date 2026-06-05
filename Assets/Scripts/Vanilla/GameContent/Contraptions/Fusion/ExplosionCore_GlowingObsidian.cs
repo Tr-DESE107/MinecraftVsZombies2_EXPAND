@@ -13,6 +13,8 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using UnityEngine;
 using PVZEngine.Buffs;
+using MVZ2Logic.Entities;
+using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Contraptions
 {

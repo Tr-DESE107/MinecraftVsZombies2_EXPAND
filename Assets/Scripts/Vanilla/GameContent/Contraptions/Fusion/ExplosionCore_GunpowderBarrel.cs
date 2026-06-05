@@ -11,6 +11,8 @@ using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using UnityEngine;
+using MVZ2Logic.Entities;
+using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Contraptions
 {
