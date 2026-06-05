@@ -1585,8 +1585,8 @@
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>可以将不同的发射器放置在基础万象天枢上融合。</color>]]></p>
-                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref></color>]]>，其他可以融合，但行为同基础万象天枢</p>
-                <p>注：你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</p>
+                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref>，其他可以融合，但行为同基础万象天枢</color>]]></p>
+                <p>注：<![CDATA[<color=red>你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</color>]]></p>
             </properties>
             <flavor>
                 <p>有不少人可能好奇他的简称E.X.P.A.N.D.都代表了什么？嗯，E代表Expand，D代表Dispenser，剩下来的四个字母都代表了什么？其实他本人也没想好。</p>
@@ -1603,7 +1603,7 @@
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>普通冰锥<var id="mvz2:entity_damage" />，冻结冰锥30</color>]]></p>
-                <p>特点：<![CDATA[<color=red>1/4概率发射能够冻结敌人150帧的冰锥。</color>]]></p>
+                <p>特点：<![CDATA[<color=red>每次发射时，有1/4概率发射能够冻结敌人150帧的冰锥。</color>]]></p>
                 <p>技能：<![CDATA[<color=red>快速发射60支冰锥</color>]]></p>
             </properties>
             <flavor>
