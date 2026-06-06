@@ -1,3 +1,18 @@
+# 0.6.2
+## 修复
+- Fixed an issue where the health bar of airborne monsters on the Palanquin Ship would keep shaking after they died.
+- Fixed an issue where some rolling ball projectiles were rendered incorrectly on the Palanquin Ship.
+- Fixed an issue where the Gargoyle Statue and Monster Spawner were missing the "taken tile layer" tag in the Almanac.
+- Fixed an issue where the Reverse Satellite was missing the "flying" tag in the Almanac.
+- Fixed an issue where the Skeleton Statue in its remains state would not disappear when submerged in water.
+- Made another attempt to fix the unresponsiveness caused by save file failures.
+- The daytime Nuke can no longer be ignited by fire or explosions.
+- Fixed an issue where the Red Dragon's tail swipe would destroy contraptions.
+- Fixed inaccurate tooltip descriptions for some artifacts.
+- Text and localization fixes.
+
+---
+
 # 0.6.1
 ## Changes
 - Changed the level layouts of I, Zombie levels "Among Us" and "Break Apart".
