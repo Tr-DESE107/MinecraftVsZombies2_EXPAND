@@ -1,5 +1,8 @@
 # 0.6.2
-## 修复
+## Modified
+- Updated music "The Exacerbated Castle Keep".
+
+## Fixed
 - Fixed an issue where the health bar of airborne monsters on the Palanquin Ship would keep shaking after they died.
 - Fixed an issue where some rolling ball projectiles were rendered incorrectly on the Palanquin Ship.
 - Fixed an issue where the Gargoyle Statue and Monster Spawner were missing the "taken tile layer" tag in the Almanac.
