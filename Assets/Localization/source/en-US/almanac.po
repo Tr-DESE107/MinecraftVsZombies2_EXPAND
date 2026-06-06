@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-06-04 11:17+0800\n"
-"PO-Revision-Date: 2026-06-04 11:26+0800\n"
+"POT-Creation-Date: 2026-06-06 12:48+0800\n"
+"PO-Revision-Date: 2026-06-06 12:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2817,9 +2817,10 @@ msgstr ""
 #. Header for enemies mvz2:mother_terror
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "恐怖之母会向血肉之躯寄生虫卵。"
+msgid "恐怖之母会向血肉之躯寄生虫卵。如果它们在没有产卵的情况下死亡，也会释放<ref=[enemies]mvz2:parasite_terror>恐怖寄生虫</ref>。"
 msgstr ""
-"Mother Terrors lay their eggs into another enemy's body. They will also release Parasite Terrors if they die without laying eggs."
+"Mother Terrors lay their eggs into another enemy's body. They will also release <ref=[enemies]mvz2:parasite_terror>Parasite Terrors</"
+"ref> if they die without laying eggs."
 
 #. Properties for enemies mvz2:mother_terror
 #: Almanac meta file
@@ -8666,6 +8667,11 @@ msgstr "Nether Mage (Frost)"
 msgctxt "entity.name"
 msgid "下界法师（电）"
 msgstr "Nether Mage (Lightning)"
+
+#~ msgctxt "enemies.description"
+#~ msgid "恐怖之母会向血肉之躯寄生虫卵。"
+#~ msgstr ""
+#~ "Mother Terrors lay their eggs into another enemy's body. They will also release Parasite Terrors if they die without laying eggs."
 
 #~ msgctxt "contraptions.description"
 #~ msgid ""

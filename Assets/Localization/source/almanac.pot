@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-06-04 11:17+0800\n"
+"POT-Creation-Date: 2026-06-06 12:48+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2261,7 +2261,7 @@ msgstr ""
 #. Header for enemies mvz2:mother_terror
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "恐怖之母会向血肉之躯寄生虫卵。"
+msgid "恐怖之母会向血肉之躯寄生虫卵。如果它们在没有产卵的情况下死亡，也会释放<ref=[enemies]mvz2:parasite_terror>恐怖寄生虫</ref>。"
 msgstr ""
 
 #. Properties for enemies mvz2:mother_terror

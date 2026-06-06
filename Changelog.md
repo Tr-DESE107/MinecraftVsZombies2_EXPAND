@@ -4,6 +4,7 @@
 - Changed the order of gem colors in the display text of UFO Toy from "red, green, blue, cyan" to "green, red, blue, cyan".
 
 ## Fixed
+- Fixed an issue where the almanac description of Mother Terror is different in Simplified Chinese and English.
 - Fixed an issue where the health bar of airborne monsters on the Palanquin Ship would keep shaking after they died.
 - Fixed an issue where some rolling ball projectiles were rendered incorrectly on the Palanquin Ship.
 - Fixed an issue where the Gargoyle Statue and Monster Spawner were missing the "taken tile layer" tag in the Almanac.
