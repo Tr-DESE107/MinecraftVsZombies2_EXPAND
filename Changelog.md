@@ -1,6 +1,7 @@
 # 0.6.2
 ## Modified
 - Updated music "The Exacerbated Castle Keep".
+- Changed the order of gem colors in the display text of UFO Toy from "red, green, blue, cyan" to "green, red, blue, cyan".
 
 ## Fixed
 - Fixed an issue where the health bar of airborne monsters on the Palanquin Ship would keep shaking after they died.
