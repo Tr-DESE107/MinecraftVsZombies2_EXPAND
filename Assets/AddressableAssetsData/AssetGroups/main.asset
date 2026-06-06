@@ -5343,7 +5343,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48f4733abfcc21d4a9d0b71aa00e1967
-    m_Address: mvz2:mobile_blueprint/snipenser
+    m_Address: mvz2:mobile_blueprint/Snipenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6090,13 +6090,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 538d70d2b4644ed4da48166a891a4756
-    m_Address: mvz2:entities.xml
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53ae426afe3ebb8438ab6c1165ed0448
     m_Address: mvz2:entity/enemies/stone_sword
@@ -11772,13 +11765,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a678ba358b84aae4d983092adb035ac0
-    m_Address: mvz2:fragments.xml
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Meta
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6a0e2c3323ebcf469d5e3591dfb9e2a
     m_Address: mvz2:entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     m_ReadOnly: 0
@@ -17334,13 +17320,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f8b40542b34100542a9e5d6a89449fe4
-    m_Address: mvz2:models.xml
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8d0d1426f88a6b4bb83eb101121870e
     m_Address: mvz2:mobile_blueprint/skeleton
