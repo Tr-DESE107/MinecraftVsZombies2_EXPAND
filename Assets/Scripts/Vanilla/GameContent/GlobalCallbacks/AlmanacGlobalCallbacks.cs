@@ -57,6 +57,20 @@ namespace MVZ2.GameContent.GlobalCallbacks
         }
         private void GetEntityAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
+            var game = Global.Game;
+            // 占位类。
+            var takenGridLayers = entityDef.GetGridLayersToTake();
+            if (takenGridLayers != null)
+            {
+                foreach (var layer in takenGridLayers)
+                {
+                    var layerDef = game.GetGridLayerDefinition(layer);
+                    if (layerDef != null && NamespaceID.IsValid(layerDef.AlmanacTag))
+                    {
+                        tags.Add(new AlmanacEntryTagInfo(layerDef.AlmanacTag));
+                    }
+                }
+            }
             // 发光
             if (entityDef.IsLightSource())
             {
@@ -186,20 +200,6 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 if (NamespaceID.IsValid(almanacTag))
                 {
                     tags.Add(new AlmanacEntryTagInfo(almanacTag));
-                }
-            }
-
-            // 占位类。
-            var takenGridLayers = def.GetGridLayersToTake();
-            if (takenGridLayers != null)
-            {
-                foreach (var layer in takenGridLayers)
-                {
-                    var layerDef = game.GetGridLayerDefinition(layer);
-                    if (layerDef != null && NamespaceID.IsValid(layerDef.AlmanacTag))
-                    {
-                        tags.Add(new AlmanacEntryTagInfo(layerDef.AlmanacTag));
-                    }
                 }
             }
 

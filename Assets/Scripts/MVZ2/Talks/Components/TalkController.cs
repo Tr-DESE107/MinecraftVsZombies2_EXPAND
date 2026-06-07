@@ -139,7 +139,7 @@ namespace MVZ2.Talk
         #endregion
 
         #region 事件回调
-        private void OnClickCallback()
+        private async void OnClickCallback()
         {
             if (!canClick)
                 return;
@@ -150,9 +150,9 @@ namespace MVZ2.Talk
                 return;
             }
             var scripts = sentence.clickScripts ?? GetDefaultSentenceClickScripts();
-            _ = ExecuteScriptsAsync(scripts);
+            await ExecuteScriptsAsync(scripts);
         }
-        private void OnSkipClickedCallback()
+        private async void OnSkipClickedCallback()
         {
             var section = GetTalkSection();
             if (section == null)
@@ -161,7 +161,7 @@ namespace MVZ2.Talk
                 return;
             }
             var skipScripts = section.skipScripts ?? GetDefaultSectionSkipScripts();
-            _ = ExecuteScriptsAsync(skipScripts);
+            await ExecuteScriptsAsync(skipScripts);
         }
         #endregion
 
@@ -742,7 +742,7 @@ namespace MVZ2.Talk
         /// <summary>
         /// 开始句子。
         /// </summary>
-        private void StartSentence()
+        private async void StartSentence()
         {
             var sentence = GetTalkSentence();
             if (sentence == null)
@@ -825,7 +825,7 @@ namespace MVZ2.Talk
 
             // 执行脚本组。
             var scripts = sentence.startScripts ?? GetDefaultSentenceStartScripts();
-            _ = ExecuteScriptsAsync(scripts);
+            await ExecuteScriptsAsync(scripts);
         }
 
         private void EndTalk()

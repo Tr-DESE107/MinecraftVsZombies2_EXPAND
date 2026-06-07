@@ -1423,7 +1423,7 @@
                 <variable name="laid_speed">global("mvz2:entity_speed") * 0.3</variable>
             </variables>
             <header>
-                <p>恐怖之母会向血肉之躯寄生虫卵。</p>
+                <p>恐怖之母会向血肉之躯寄生虫卵。如果它们在没有产卵的情况下死亡，也会释放<![CDATA[<ref=[enemies]mvz2:parasite_terror>恐怖寄生虫</ref>]]>。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>

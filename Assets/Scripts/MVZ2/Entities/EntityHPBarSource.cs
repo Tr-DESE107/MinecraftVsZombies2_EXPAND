@@ -35,10 +35,12 @@ namespace MVZ2.Entities
         public Vector3 GetPosition()
         {
             var entity = Controller.Entity;
-            var entityPos = entity.Position;
-            entityPos.y = Mathf.Max(entityPos.y, entity.GetGroundY());
-            var transPos = Controller.Level.LawnToTrans(entityPos);
-            return transPos + Controller.GetInterpolatedTransformPositionOffset() + Vector3.up * 0.24f;
+            var groundPos = entity.Position;
+            groundPos.y = entity.GetGroundY();
+            var groundTransPos = Controller.Level.LawnToTrans(groundPos);
+            var position = Controller.transform.position;
+            position.y = Mathf.Max(position.y, groundTransPos.y);
+            return position + Vector3.up * 0.24f;
         }
         public void UpdateHPBarList(HPBarList list)
         {
