@@ -373,6 +373,15 @@ namespace MVZ2.Vanilla.Entities
         }
 
         #endregion
+
+        #region 禁止爆炸
+        public static readonly PropertyMeta<bool> NO_EXPLOSION = Get<bool>("no_explosion");
+
+        public static bool NoExplosion(this Entity entity)
+        {
+            return entity.GetProperty<bool>(NO_EXPLOSION);
+        }
+        #endregion
     }
 }
 
