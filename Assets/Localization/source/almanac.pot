@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-06-06 12:48+0800\n"
+"POT-Creation-Date: 2026-06-07 01:02+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1929,7 +1929,7 @@ msgid ""
 "御天信标一直都是器械界的一位大歌星——我没在开双关玩笑，它是真的很有人气。\n"
 "在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。\n"
 "它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和<ref=[contraptions]mvz2:stone_dropper>石制投掷器</ref>算是不错的朋友，但它也非常讨厌骷髅头。\n"
-"不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）"
+"不过它有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）"
 msgstr ""
 
 #. Header for contraptions mvz2:high_frequency_pulse_dispenser
