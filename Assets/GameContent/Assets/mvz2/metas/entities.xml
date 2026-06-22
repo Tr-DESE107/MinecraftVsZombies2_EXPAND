@@ -1959,7 +1959,7 @@
 
         <entity template="dispenser" id="FireDispenser" name="火焰发射器" tooltip="发射火焰箭，驱动改变发射的箭矢">
             <unlock>
-                <condition required="mvz2:level.halloween_11" />
+                <condition required="mvz2:level.palace_1" />
             </unlock>
             <properties>
                 <bool name="mvz2:triggerActive" value="true" />
@@ -1967,6 +1967,7 @@
                 <id name="mvz2:shell" value="mvz2:stone" />
 
                 <int name="mvz2:cost" value="175" />
+                <int name="mvz2:triggerCost" value="50" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
 
                 <bool name="mvz2:isLightSource" value="true" />
