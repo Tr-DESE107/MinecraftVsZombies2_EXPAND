@@ -3453,6 +3453,11 @@ MonoBehaviour:
     - {fileID: 1941320443, guid: fd045d9b19051854898d84facdd55d17, type: 3}
     - {fileID: -157417127, guid: fd045d9b19051854898d84facdd55d17, type: 3}
     - {fileID: 1456763691, guid: fd045d9b19051854898d84facdd55d17, type: 3}
+  - name: ui/level/BlackCardMobile
+    spritesheet:
+    - {fileID: 1788569927, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
+    - {fileID: 1023466115, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
+    - {fileID: -1398685869, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
   - name: ui/level/card_command_block_mobile
     spritesheet:
     - {fileID: -1177441340, guid: f45a057d7f3b72d4883d7d18d28ea03a, type: 3}
@@ -3472,6 +3477,16 @@ MonoBehaviour:
     - {fileID: 5404499671542490641, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
     - {fileID: 2914410065991313758, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
     - {fileID: 6656791130363650158, guid: a2cfaa6b4cafa4e4cb84af18ad63d07f, type: 3}
+  - name: ui/level/GoldCardMobile
+    spritesheet:
+    - {fileID: -99248040, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
+    - {fileID: 322672074, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
+    - {fileID: 181760348, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
+  - name: ui/level/GreenCardMobile
+    spritesheet:
+    - {fileID: -2023049537, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
+    - {fileID: 2078631157, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
+    - {fileID: 387427119, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
   - name: ui/level/imbued_icon
     spritesheet:
     - {fileID: -1336416021, guid: e4338c72026e47949a5e8edc50e80692, type: 3}

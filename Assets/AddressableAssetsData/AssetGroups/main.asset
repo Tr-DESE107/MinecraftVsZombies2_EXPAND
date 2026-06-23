@@ -206,6 +206,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02e22612c718a3b4fa86d98dc55e8d7d
+    m_Address: mvz2:ui/level/GreenCard_Mobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 02f33469f03bcff48af96441a301c4f5
     m_Address: mvz2:effect/nightmareaper_timer
     m_ReadOnly: 0
@@ -7084,13 +7091,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 60df6bc6df6a5af4fa3d2a042899cb73
-    m_Address: mvz2:ui/level/GreenCardMobile
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 610273fe8572b5d4abc29354cc157783
     m_Address: mvz2:artifacts/broken_lock
     m_ReadOnly: 0
@@ -10659,6 +10659,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9570f6a14b38272448c11b729fae526b
+    m_Address: mvz2:ui/level/BlackCard_Mobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95787fe4591fc5349934ee4e212c654d
     m_Address: mvz2:contraption/dream/anvil
     m_ReadOnly: 0
@@ -13374,13 +13381,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bd9181611fa05f34e9e0f6ea22795c7d
-    m_Address: mvz2:ui/level/GoldCardMobile
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdab62905818ab343b09f4857c660b11
     m_Address: mvz2:characters/shinmyoumaru_big
     m_ReadOnly: 0
@@ -13961,13 +13961,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c81630e048e9a8c419d79ed139ca0fe3
-    m_Address: mvz2:ui/level/BlackCardMobile
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c82886228e56ce84d8d101bb2e34ab8d
     m_Address: mvz2:armor/reflective_barrier
@@ -17812,6 +17805,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffb9065a06ea7a345978dc5d8d0d0bea
     m_Address: mvz2:entity/projectiles/hell_planets
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffc4dc1f22d3c2b4c8b357b16c9c71aa
+    m_Address: mvz2:ui/level/GoldCard_Mobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
