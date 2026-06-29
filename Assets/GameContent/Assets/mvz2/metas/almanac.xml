@@ -38,7 +38,7 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_beacon" name="升级器械：信标" description="必须放置在信标上" priority="0">
-            <icon sprite="mvz2:ui/almanac/Contraption(icon)[44]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C5[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_two_gravelpults" name="升级器械：一对沙砾投手" description="必须放置在一对相邻的沙砾投手上" priority="0">
@@ -156,45 +156,45 @@
 
         <!--EXPAND tag -->
         <tag id="placement_stone_dropper" name="升级器械：石制投掷器" description="必须放置在石制投掷器上" priority="0">
-            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_attribute[3]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C3[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_necrotombstone" name="升级器械：死灵墓碑" description="必须放置在死灵墓碑上" priority="0">
-            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_attribute[0]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C4[5]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_force_pad" name="升级器械：反重力板" description="必须放置在反重力板上" priority="0">
-            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_attribute[4]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_Up[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
         </tag>
         <tag id="placement_FireworkDispenser" name="升级器械：烟花发射器" description="必须放置在烟花发射器上" priority="0">
-            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption(icon)[45]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C5[4]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_RedstoneOre" name="升级器械：红石矿" description="必须放置在红石矿上" priority="0">
-            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption(icon)[12]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C1[9]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_hfpd" name="升级器械：高频脉冲发射器" description="必须放置在高频脉冲发射器上" priority="0">
-            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption(icon)[56]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_Up[7]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
         </tag>
         <tag id="placement_Eviltombstone" name="升级器械：邪灵墓碑" description="必须放置在邪灵墓碑上" priority="0">
-            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption(icon)[55]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_Up[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#FFA900" />
         </tag>
         <tag id="placement_dispenser" name="升级器械：发射器" description="必须放置在发射器上" priority="0">
-            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption(icon)[0]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C0[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
 
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
-            <icon sprite="mvz2:ui/almanac/Expand_attribute[2]" />
-            <background sprite="mvz2:ui/almanac/EXPAND_Tag/tag_backgrounds[2]" color="#3b5b3b" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
         </tag>
         <tag id="Buff" name="状态效果" description="可以施加和得到状态效果" priority="4000">
-            <icon sprite="mvz2:ui/almanac/Expand_buff[0]" />
-            <background sprite="mvz2:ui/almanac/EXPAND_Tag/tag_backgrounds[2]" color="#7e557e" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
         </tag>
 
         <tag id="Category" name="分类" enum="mvz2:Category" priority="3000" >

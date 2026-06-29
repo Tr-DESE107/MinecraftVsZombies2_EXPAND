@@ -207,7 +207,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 02e22612c718a3b4fa86d98dc55e8d7d
-    m_Address: mvz2:ui/level/GreenCard_Mobile
+    m_Address: mvz2:ui/level/GreenCardMobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10660,7 +10660,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9570f6a14b38272448c11b729fae526b
-    m_Address: mvz2:ui/level/BlackCard_Mobile
+    m_Address: mvz2:ui/level/BlackCardMobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -17811,7 +17811,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffc4dc1f22d3c2b4c8b357b16c9c71aa
-    m_Address: mvz2:ui/level/GoldCard_Mobile
+    m_Address: mvz2:ui/level/GoldCardMobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
