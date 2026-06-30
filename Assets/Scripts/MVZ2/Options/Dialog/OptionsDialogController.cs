@@ -1,9 +1,10 @@
-#nullable enable
+﻿#nullable enable
 
 using System;
 using System.Collections.Generic;
 using MukioI18n;
 using MVZ2.Cameras;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
 using MVZ2.UI;
@@ -164,12 +165,42 @@ namespace MVZ2.Options
                 case ButtonType.Difficulty:
                     {
                         Main.OptionsManager.CycleDifficulty();
-                        UpdateDifficultyButton(Main.OptionsManager.GetDifficulty());
-                        SaveOptions();
-                        var level = Main.LevelManager.GetLevelController();
-                        if (level.Exists())
+                        var difficulty = Main.OptionsManager.GetDifficulty();
+                        if (difficulty == VanillaDifficulties.lunatic)
                         {
-                            level.UpdateDifficulty();
+                            // 切换到EXPAND难度时弹出选项确认框  
+                            var title = Main.LanguageManager._(LogicStrings.WARNING);
+                            var desc = Main.LanguageManager._(DIALOG_DESC_LUNATIC_WARNING);
+                            var options = new string[]
+                            {
+                Main.LanguageManager._(DIALOG_OPTION_SWITCH_LUNATIC),
+                Main.LanguageManager._(DIALOG_OPTION_SWITCH_EASY),
+                Main.LanguageManager._(DIALOG_OPTION_SWITCH_NORMAL),
+                Main.LanguageManager._(DIALOG_OPTION_KEEP_HARD),
+                            };
+                            Main.Scene.ShowDialog(title, desc, options, (index) =>
+                            {
+                                switch (index)
+                                {
+                                    case 0:
+                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.lunatic);
+                                        break;
+                                    case 1:
+                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.easy);
+                                        break;
+                                    case 2:
+                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.normal);
+                                        break;
+                                    default:
+                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.hard);
+                                        break;
+                                }
+                                ApplyDifficultyChange();
+                            });
+                        }
+                        else
+                        {
+                            ApplyDifficultyChange();
                         }
                     }
                     break;
@@ -208,6 +239,16 @@ namespace MVZ2.Options
                         level.ShowRestartConfirmDialog();
                     }
                     break;
+            }
+        }
+        private void ApplyDifficultyChange()
+        {
+            UpdateDifficultyButton(Main.OptionsManager.GetDifficulty());
+            SaveOptions();
+            var level = Main.LevelManager.GetLevelController();
+            if (level.Exists())
+            {
+                level.UpdateDifficulty();
             }
         }
         private void OnMoreOptionsBackClickCallback()
@@ -609,6 +650,18 @@ namespace MVZ2.Options
         public const string OPTION_FASTFORWARD_MULTIPLIER = "加速倍率：{0}";
         [TranslateMsg("对话框内容")]
         public const string DIALOG_DESC_LEAVE_LEVEL = "确认要返回吗？\n你的进度会被保存。";
+
+        [TranslateMsg("难度警告弹窗内容")]
+        public const string DIALOG_DESC_LUNATIC_WARNING = "EXPAND难度过大，你必须通关过一次任意难度关卡才能游玩该关卡的难度\n是否要切换为EXPAND难度？";
+        [TranslateMsg("难度警告弹窗选项")]
+        public const string DIALOG_OPTION_SWITCH_LUNATIC = "切换为<color=red>EXPAND</color>难度";
+        [TranslateMsg("难度警告弹窗选项")]
+        public const string DIALOG_OPTION_SWITCH_EASY = "切换为<color=green>EXP|简单</color>难度";
+        [TranslateMsg("难度警告弹窗选项")]
+        public const string DIALOG_OPTION_SWITCH_NORMAL = "切换为EXP|普通难度";
+        [TranslateMsg("难度警告弹窗选项")]
+        public const string DIALOG_OPTION_KEEP_HARD = "保留在<color=yellow>EXP|困难</color>难度";
+
         #endregion
 
         public event Action<bool>? OnClose;

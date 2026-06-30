@@ -2,8 +2,12 @@
 
 using System;
 using System.Linq;
+
+using MukioI18n;
+
 using MVZ2.Audios;
 using MVZ2.Cameras;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GlobalGames;
 using MVZ2.Level.Components;
 using MVZ2.Localization;
@@ -11,12 +15,15 @@ using MVZ2.Managers;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
+
 using MVZ2Logic.Level;
 using MVZ2Logic.Options;
+
 using PVZEngine;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
+
 using Tools;
+
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -92,10 +99,23 @@ namespace MVZ2.Level
         {
             if (level.CurrentFlag <= 0)
             {
-                level.SetDifficulty(Options.GetDifficulty());
+                var difficulty = Options.GetDifficulty();
+                // EXPAND(lunatic)难度限制：未通关过本关任意难度，则强制降为hard，并弹出提示  
+                // 调试用户(debug/DESE107)或调试模式(编辑器)下解除该限制  
+                if (difficulty == VanillaDifficulties.lunatic
+                    && Main.SaveManager.GetLevelDifficultyRecords(startStageID).Length <= 0
+                    && !Main.DebugManager.CanUseDebugFeatures())
+                {
+                    difficulty = VanillaDifficulties.hard;
+                    var popup = Main.LanguageManager._(POPUP_DIFFICULTY_DOWNGRADED);
+                    Main.Scene.ShowPopup(popup);
+                }
+                level.SetDifficulty(difficulty);
             }
             UpdateDifficultyName();
         }
+        [TranslateMsg("EXPAND难度未通关时自动降级的提示")]
+        public const string POPUP_DIFFICULTY_DOWNGRADED = "未通关，难度已自动调节为<color=yellow>EXP|困难</color>";
         public int GetCurrentFlag()
         {
             return level.CurrentFlag;
