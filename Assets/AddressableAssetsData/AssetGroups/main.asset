@@ -2677,6 +2677,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 240b39f5bb8954d40bb8413551a71d5b
+    m_Address: mvz2:level/grids/RadiationGridWater
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2440037b2007e8048a8817eab8c62e4c
     m_Address: mvz2:entity/contraptions/stone_eye_ray
     m_ReadOnly: 0
@@ -2867,7 +2874,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 269ed251673b583439f3b4b3a16dd319
-    m_Address: mvz2:artifacts/WitherSkeletonSkull
+    m_Address: mvz2:artifacts/ChippedWitherSkeletonSkull
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3837,6 +3844,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35ae9c5ec699d7743aa92cef171dc535
+    m_Address: mvz2:level/grids/RadiationGridCloud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35f80fb8af94a064f86a987dc6dae8e0
     m_Address: mvz2:mobile_blueprint/reverse_satellite
     m_ReadOnly: 0
@@ -4718,6 +4732,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40d303720bbdbe442b75ac980f18b5c9
+    m_Address: mvz2:grid/RadiationGrid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40db1b532555e104184c1eca82025505
     m_Address: mvz2:shading/nightmare_boss_sky_censored
@@ -9757,6 +9778,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 883704dda44966a4da569d593dae0e94
+    m_Address: mvz2:level/grids/RadiationGridSlope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 885cf94d2d3f2844895b0a87b1fcc5ea
     m_Address: mvz2:level/hp_bar
     m_ReadOnly: 0
@@ -10976,6 +11004,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99fdfba4aeff67c43b3124c97a3a0dd7
     m_Address: mvz2:entity/pickups/redstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a1a9b4da8cf39f47a7f53c3d2c71ae4
+    m_Address: mvz2:mobile_blueprint/AncientBrickShield
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -14816,6 +14851,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d11e54be27f5e634c834f26315eea38a
+    m_Address: mvz2:effect/EXPAND_EFFECTS/RadiationLight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d12e7157df0411749ab53333da0a507d
     m_Address: mvz2:artifacts/inverted_mirror
     m_ReadOnly: 0
@@ -15613,6 +15655,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: def45ea4dbbb61842a5312993906d43a
+    m_Address: mvz2:level/grids/RadiationGrid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df0e5b44567880844996ecebf00d7d8c
     m_Address: mvz2:random/crystal/crystal_break2

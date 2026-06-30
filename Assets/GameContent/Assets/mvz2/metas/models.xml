@@ -31,6 +31,10 @@
     <model name="grid_placeholder" type="grid" path="mvz2:grid/placeholder" width="80" height="80" xOffset="0" yOffset="0" />
     <model name="golden_grid" type="grid" path="mvz2:grid/golden" width="80" height="80" xOffset="0" yOffset="0" />
     <model name="broken_tile" type="grid" path="mvz2:grid/broken" width="80" height="80" xOffset="0" yOffset="0" />
+    
+    <!--EXPAND Grid-->
+    <model name="RadiationGrid" type="grid" path="mvz2:grid/RadiationGrid" width="80" height="80" xOffset="0" yOffset="0" />
+    
     <!-- Contraptions -->
     <model name="dispenser" type="entity" path="mvz2:contraption/prologue/dispenser" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="furnace" type="entity" path="mvz2:contraption/prologue/furnace" width="64" height="64" xOffset="0" yOffset="-28" />
@@ -814,6 +818,7 @@
     
     <!--EXPAND Effects-->
     <model name="BurnLaser" type="entity" path="mvz2:effect/EXPAND_EFFECTS/BurnLaser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="RadiationLight" type="entity" path="mvz2:effect/EXPAND_EFFECTS/RadiationLight" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!--EXPAND Obstacles-->
     <model name="SquidCage" type="entity" path="mvz2:obstacle/SquidCage" width="40" height="60" xOffset="0" yOffset="0" />
