@@ -1773,6 +1773,18 @@
                 <p>炮膛内的导弹具备再生能力。每次发射后约30秒，一枚新的导弹会于膛内原位形成。此再生过程可被人工干预：若在发射后立即向炮管内填入与导弹体积相近的物体，再生将中止，且MCP-044会将该物体作为下一次发射的弹体使用。任何未用于攻击指令的再生导弹均无法被安全取出。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:AncientBrickShield">
+            <header>
+                <p>远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。</p>
+            </header>
+            <properties>
+                <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>技能：<![CDATA[<color=red>3x3范围内的器械无敌10秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>施工中</p>
+            </flavor>
+        </entry>
 
 
 

@@ -661,6 +661,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08bd40dbf85b76d4787c4c4daf66dfbe
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_C2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09351709b15db8e4ba5f671be2d087d7
     m_Address: mvz2:horse_angry
     m_ReadOnly: 0
@@ -2991,6 +2998,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 293d6e34d30c96442b88284330ea423c
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/AncientBrickShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 294712fdf799501439ac34ed9fdf68c7
     m_Address: mvz2:entity/ghast/ghast_fire
@@ -6910,11 +6924,11 @@ MonoBehaviour:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ecca9c7098d1ee4f980a7d6b2f3ee96
-    m_Address: mvz2:ui/almanac/EXPAND_Tag/Expand_attribute
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ed7b76c963151d47a1c3bf49aa4af1f
     m_Address: mvz2:options/heavy_weapon_flashbang
@@ -7461,13 +7475,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 66d4f3c83b6f6e7418f6cdbc6e9af995
-    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption(icon)
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66d6b2cec1b5a03498ee84ec03d69134
     m_Address: mvz2:characters/doremy
@@ -8483,6 +8490,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7769b259233b08b42ab57732517a57ee
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_C5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 778627e9e9910c4459fb857ded496da7
     m_Address: mvz2:entity/enemies/SkeletonHead
     m_ReadOnly: 0
@@ -8639,13 +8653,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79a357758cd7dff4d83ebc2928ce0812
     m_Address: mvz2:characters/armor_stand
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 79bc90921fac92a4bad7be69e64ed94c
-    m_Address: mvz2:ui/almanac/EXPAND_Tag/Expand_buff
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9056,6 +9063,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e2a5f1a985b7844fab9f9b44b92a55d
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_C3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e3238d6a0536f0438a9dd04e4032716
     m_Address: mvz2:projectile/snowball
@@ -9799,6 +9813,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8928c69d4edf60b44ab4d867bd50fb14
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_C1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8962300e559ee02418a68ff464fabfbc
     m_Address: mvz2:mobile_blueprint/Barrier
     m_ReadOnly: 0
@@ -10072,6 +10093,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dcc2690d2c749b4ea16902b528af25c
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_EXPAND
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8dfc059bdbbc9174bb6b803e2051e4b4
     m_Address: mvz2:entity/contraption/nether_reactor_core_bar
     m_ReadOnly: 0
@@ -10148,6 +10176,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ec9f9a62f18733418c6698e2b0cf802
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_C6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ee7e3c6233a6be4191bfd80ff87e80e
     m_Address: mvz2:entity/enemy/boat
@@ -11233,6 +11268,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dfeaf1dfdd796b47bbc4c6fe0110991
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_C4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e40ab53b358b324292c9b883ebd6f69
     m_Address: mvz2:boss/SteveGiantSnakeTail
     m_ReadOnly: 0
@@ -11400,6 +11442,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a09e4c0816a1e1748b36d4f04b3f1529
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_Up
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a09f33498540d1241aec405ade0f9202
     m_Address: mvz2:icon/weakness_particles
@@ -12247,6 +12296,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad9e7909a6ed17048a163d4868bc1308
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_ALL
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ada278ae5ff1fa840b8dd74240dc2c13
     m_Address: mvz2:entity/EXPAND_Enemy/MegaMutantVillager
@@ -14242,6 +14298,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cae291a26fe838c4491591b3de78b60f
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_C0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: caf294fde03a7ab4d81dbd866034edb2
     m_Address: mvz2:contraption/mausoleum/note_block
     m_ReadOnly: 0
@@ -14325,6 +14388,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cca37b16d40ca6840aa40c018456059f
+    m_Address: mvz2:contraption/EXPAND/AncientBrickShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccd008944a0ce7248922817df2c3934d
     m_Address: mvz2:entity/locked_chest/Areeeeeee
@@ -16060,7 +16130,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7ba9ab9c0be50b47bf333c1753c06f9
     m_Address: mvz2:armor/HemperorCrown

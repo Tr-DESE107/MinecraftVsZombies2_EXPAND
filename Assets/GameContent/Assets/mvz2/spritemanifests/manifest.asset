@@ -363,6 +363,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
   - name: mobile_blueprint/amethyst_pylon
     sprite: {fileID: 21300000, guid: 44691debf33607e4a85f6e43c29ba535, type: 3}
+  - name: mobile_blueprint/AncientBrickShield
+    sprite: {fileID: 21300000, guid: 9a1a9b4da8cf39f47a7f53c3d2c71ae4, type: 3}
   - name: mobile_blueprint/AngryGhast
     sprite: {fileID: 21300000, guid: 05418e9e1caea104aa460e7f57f30df4, type: 3}
   - name: mobile_blueprint/AngryReverser

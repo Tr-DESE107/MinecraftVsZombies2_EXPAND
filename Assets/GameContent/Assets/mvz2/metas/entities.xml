@@ -1777,7 +1777,7 @@
                 <behaviour operator="add" id="mvz2:brick_cannon/evoke" />
             </behaviours>
             <properties>
-                <float name="mvz2:damage" value="1800" />
+                <float name="mvz2:damage" value="3600" />
                 <vector3 name="mvz2:shadowScale" x="3" y="1" z="1" />
                 <vector3 name="mvz2:size" x="126" y="66" z="66" />
                 <vector3 name="mvz2:grid_pivot_offset" x="-40" y="0" z="0"  />
@@ -1793,6 +1793,29 @@
                 <vector3 name="mvz2:shotVelocity" x="0" y="30" z="0" />
                 <vector3 name="mvz2:shotOffset" x="-40" y="100" z="5" />
                 <id name="mvz2:shootSound" value="mvz2:launch" />
+
+                <vector2IntArray name="mvz2:extra_grids" value="[1,0]" />
+
+                <int name="mvz2:cost" value="500" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </entity>
+        <entity template="contraption" id="AncientBrickShield" name="古代石砖护罩" tooltip="（需要一对相邻的石护罩）\n保护内部的器械">
+            <unlock>
+                <condition requiredGroups="mvz2:contraption.brick_cannon" />
+            </unlock>
+            <properties>
+                <vector3 name="mvz2:shadowScale" x="3" y="1" z="1" />
+                <vector3 name="mvz2:size" x="160" y="40" z="40" />
+                <vector3 name="mvz2:grid_pivot_offset" x="-40" y="0" z="0"  />
+                <idArray name="mvz2:gridLayers" value="mvz2:protector" />
+                <id name="mvz2:fragmentId" value="mvz2:furnace" />
+                <bool name="mvz2:no_abduction" value="true" />
+                <bool name="mvz2:no_devourer" value="true" />
+                <bool name="mvz2:upgradeBlueprint" value="true" />
+                <id name="mvz2:upgradeFrom" value="mvz2:stone_shield" />
+                <id name="mvz2:placement" value="mvz2:brick_cannon" />
+                <float name="mvz2:maxHealth" value="10000" />
 
                 <vector2IntArray name="mvz2:extra_grids" value="[1,0]" />
 
