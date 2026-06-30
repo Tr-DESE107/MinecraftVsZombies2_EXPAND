@@ -1,4 +1,4 @@
-<artifacts>
+﻿<artifacts>
     <!-- Halloween -->
     <artifact id="almanac" name="图鉴" tooltip="本场战斗每出现2种怪物，开始战斗时+25能量" sprite="mvz2:artifacts/almanac">
         <unlock>
@@ -157,7 +157,7 @@
             <condition required="mvz2:level.dream_6" />
         </unlock>
     </artifact>
-    <artifact id="WitherSkeletonSkull" name="凋灵骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/WitherSkeletonSkull">
+    <artifact id="ChippedWitherSkeletonSkull" name="缺角凋零骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/ChippedWitherSkeletonSkull">
         <unlock>
             <condition required="mvz2:level.castle_14" />
         </unlock>

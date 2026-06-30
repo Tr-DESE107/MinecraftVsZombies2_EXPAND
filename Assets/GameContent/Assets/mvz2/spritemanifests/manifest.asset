@@ -145,6 +145,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 610273fe8572b5d4abc29354cc157783, type: 3}
   - name: artifacts/censer_of_forgotten
     sprite: {fileID: 21300000, guid: 319433371d6e7c945a25348c8bd53839, type: 3}
+  - name: artifacts/ChippedWitherSkeletonSkull
+    sprite: {fileID: 21300000, guid: 269ed251673b583439f3b4b3a16dd319, type: 3}
   - name: artifacts/control_rod
     sprite: {fileID: 21300000, guid: 7661d066eb4c9de4989300fb69c48e31, type: 3}
   - name: artifacts/dark_matter
@@ -205,8 +207,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 839decadd93608a458dfa0676ac6ce7f, type: 3}
   - name: artifacts/WitherHeartShield
     sprite: {fileID: 21300000, guid: e4ff65582e1e99d4aa26218e03930405, type: 3}
-  - name: artifacts/WitherSkeletonSkull
-    sprite: {fileID: 21300000, guid: 269ed251673b583439f3b4b3a16dd319, type: 3}
   - name: chapter_transition/chapter_title_end
     sprite: {fileID: 21300000, guid: 132beb45039de2d47a6cff39a62a56b3, type: 3}
   - name: chapter_transition/chapter_wheel
@@ -1555,6 +1555,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e24ff6ec892f18b448dbf22d3d1b3c08, type: 3}
   - name: level/grids/normal
     sprite: {fileID: 21300000, guid: 50c9e8ccf09318c4c811ae6d530b985a, type: 3}
+  - name: level/grids/RadiationGrid
+    sprite: {fileID: 21300000, guid: def45ea4dbbb61842a5312993906d43a, type: 3}
+  - name: level/grids/RadiationGridCloud
+    sprite: {fileID: 21300000, guid: 35ae9c5ec699d7743aa92cef171dc535, type: 3}
+  - name: level/grids/RadiationGridSlope
+    sprite: {fileID: 21300000, guid: 883704dda44966a4da569d593dae0e94, type: 3}
+  - name: level/grids/RadiationGridWater
+    sprite: {fileID: 21300000, guid: 240b39f5bb8954d40bb8413551a71d5b, type: 3}
   - name: level/halloween/halloween
     sprite: {fileID: 21300000, guid: bd7b2da4545106b46b4afbf8863f9926, type: 3}
   - name: level/halloween/halloween_cloudy
