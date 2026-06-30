@@ -3461,6 +3461,12 @@ MonoBehaviour:
     - {fileID: 1941320443, guid: fd045d9b19051854898d84facdd55d17, type: 3}
     - {fileID: -157417127, guid: fd045d9b19051854898d84facdd55d17, type: 3}
     - {fileID: 1456763691, guid: fd045d9b19051854898d84facdd55d17, type: 3}
+  - name: ui/arcade/clear_trophy
+    spritesheet:
+    - {fileID: -1869708391, guid: 05be70da756d5b140b7ae02c4b6c0897, type: 3}
+    - {fileID: -253889807, guid: 05be70da756d5b140b7ae02c4b6c0897, type: 3}
+    - {fileID: 1035068648, guid: 05be70da756d5b140b7ae02c4b6c0897, type: 3}
+    - {fileID: 966993347, guid: 05be70da756d5b140b7ae02c4b6c0897, type: 3}
   - name: ui/level/BlackCardMobile
     spritesheet:
     - {fileID: 1788569927, guid: 9570f6a14b38272448c11b729fae526b, type: 3}

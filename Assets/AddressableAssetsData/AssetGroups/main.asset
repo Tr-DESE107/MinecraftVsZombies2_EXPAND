@@ -437,6 +437,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05be70da756d5b140b7ae02c4b6c0897
+    m_Address: mvz2:ui/arcade/clear_trophy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0619923c92bbc6046b85e68acb7317a1
     m_Address: mvz2:entity/projectiles/CopperBall
     m_ReadOnly: 0
@@ -9563,13 +9570,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84a7f7624ce186d43bdfe0a7c6d53f6b
     m_Address: mvz2:entity/contraptions/giant_bowl
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 84d24c865b8c9b341a85b8104370a001
-    m_Address: mvz2:ui/arcade/clear_trophy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
