@@ -91,7 +91,9 @@ namespace MVZ2.GameContent.Buffs.Grids
                 var effects = new DamageEffectList(
                     VanillaDamageEffects.MUTE,
                     VanillaDamageEffects.IGNORE_ARMOR,
-                    VanillaDamageEffects.NO_DEATH_EFFECTS);
+                    VanillaDamageEffects.NO_DEATH_EFFECTS,
+                    VanillaDamageEffects.RADIATION
+                    );
                 entity.TakeDamageSourced(RADIATION_DAMAGE, effects, new GridSourceReference(grid));
             }
         }

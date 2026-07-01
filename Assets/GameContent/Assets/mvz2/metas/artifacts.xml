@@ -162,6 +162,11 @@
             <condition required="mvz2:level.castle_14" />
         </unlock>
     </artifact>
+    <artifact id="PbCore" name="铅核" tooltip="我方器械受到的辐射伤害-80%" sprite="mvz2:artifacts/PbCore">
+        <unlock>
+            <condition required="mvz2:level.palace_6" />
+        </unlock>
+    </artifact>
     <artifact id="FrankensteinBrain" name="&lt;color=red&gt;科学怪人之脑&lt;/color&gt;" tooltip="场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%" sprite="mvz2:artifacts/FrankensteinBrain">
         <unlock>
             <condition required="mvz2:level.halloween_15" />

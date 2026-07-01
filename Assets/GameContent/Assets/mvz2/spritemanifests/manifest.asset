@@ -191,6 +191,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8f3ef6c96e58e2642b44b12c151a1062, type: 3}
   - name: artifacts/pagoda_branch
     sprite: {fileID: 21300000, guid: 48d03b03b358d9948863f3eb0517933a, type: 3}
+  - name: artifacts/PbCore
+    sprite: {fileID: 21300000, guid: f223c42af047cf14e9ccc111954c8ae0, type: 3}
   - name: artifacts/RedDragonsSeveredWing
     sprite: {fileID: 21300000, guid: a34840612bb83fe439ed967b044a553a, type: 3}
   - name: artifacts/ShadowCellCore
