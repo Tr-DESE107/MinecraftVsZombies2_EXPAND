@@ -175,6 +175,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d12e7157df0411749ab53333da0a507d, type: 3}
   - name: artifacts/LeftHandBow
     sprite: {fileID: 21300000, guid: ae60b10c0b93bd04f99aa332fd81bfab, type: 3}
+  - name: artifacts/LightBlock
+    sprite: {fileID: 21300000, guid: 0abf572c5d76bbb4fbdb78c8bb4646ad, type: 3}
   - name: artifacts/lightbomb
     sprite: {fileID: 21300000, guid: 36eda47ce4c8f0e40ab52622c040d37d, type: 3}
   - name: artifacts/magma_stone

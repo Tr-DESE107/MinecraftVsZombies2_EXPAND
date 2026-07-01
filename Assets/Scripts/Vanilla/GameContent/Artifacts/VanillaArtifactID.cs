@@ -42,14 +42,18 @@ namespace MVZ2.GameContent.Artifacts
         public const string sorcerersScroll = "sorcerers_scroll";
         public const string dragonTooth = "dragon_tooth";
 
-        public const string HerobrineSkull = "HerobrineSkull";
-        public const string ChippedWitherSkeletonSkull = "ChippedWitherSkeletonSkull";
-        public const string LeftHandBow = "LeftHandBow";
         public const string controlRod = "control_rod";
         public const string ghostlyCart = "ghostly_cart";
         public const string censerOfForgotten = "censer_of_forgotten";
         public const string brokenLock = "broken_lock";
         public const string magmaStone = "magma_stone";
+
+        //EXPAND
+        public const string HerobrineSkull = "HerobrineSkull";
+        public const string ChippedWitherSkeletonSkull = "ChippedWitherSkeletonSkull";
+        public const string LeftHandBow = "LeftHandBow";
+        public const string LightBlock = "LightBlock";
+
     }
     public static class VanillaArtifactID
     {
@@ -89,15 +93,17 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID sorcerersScroll = Get(VanillaArtifactNames.sorcerersScroll);
         public static readonly NamespaceID dragonTooth = Get(VanillaArtifactNames.dragonTooth);
         
-        public static readonly NamespaceID HerobrineSkull = Get(VanillaArtifactNames.HerobrineSkull);
-        public static readonly NamespaceID ChippedWitherSkeletonSkull = Get(VanillaArtifactNames.ChippedWitherSkeletonSkull);
-        public static readonly NamespaceID LeftHandBow = Get(VanillaArtifactNames.LeftHandBow);
-
         public static readonly NamespaceID controlRod = Get(VanillaArtifactNames.controlRod);
         public static readonly NamespaceID ghostlyCart = Get(VanillaArtifactNames.ghostlyCart);
         public static readonly NamespaceID censerOfForgotten = Get(VanillaArtifactNames.censerOfForgotten);
         public static readonly NamespaceID brokenLock = Get(VanillaArtifactNames.brokenLock);
         public static readonly NamespaceID magmaStone = Get(VanillaArtifactNames.magmaStone);
+
+        //EXPAND
+        public static readonly NamespaceID HerobrineSkull = Get(VanillaArtifactNames.HerobrineSkull);
+        public static readonly NamespaceID ChippedWitherSkeletonSkull = Get(VanillaArtifactNames.ChippedWitherSkeletonSkull);
+        public static readonly NamespaceID LeftHandBow = Get(VanillaArtifactNames.LeftHandBow);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

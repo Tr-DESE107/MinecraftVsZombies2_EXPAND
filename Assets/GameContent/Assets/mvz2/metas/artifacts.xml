@@ -192,4 +192,9 @@
             <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
         </unlock>
     </artifact>
+    <artifact id="LightBlock" name="&lt;color=red&gt;光源方块&lt;/color&gt;" tooltip="&lt;color=red&gt;让场地变得黑暗&lt;/color&gt;" sprite="mvz2:artifacts/LightBlock">
+        <unlock>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+        </unlock>
+    </artifact>
 </artifacts>

@@ -20,7 +20,6 @@ namespace MVZ2.GameContent.Artifacts
         {
             AddAura(new ProductionAura());
             AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
-            AddAura(new DarkAura());
         }
         public override void PostUpdate(Artifact artifact)
         {
@@ -48,17 +47,5 @@ namespace MVZ2.GameContent.Artifacts
                 results.AddRange(level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsFriendlyEntity()));
             }
         }
-        public class DarkAura : AuraEffectDefinition
-        {
-            public DarkAura() : base(VanillaBuffID.Level.DarkMatterDark)
-            {
-            }
-
-            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
-            {
-                results.Add(auraEffect.Source.GetLevel());
-            }
-        }
-
     }
 }

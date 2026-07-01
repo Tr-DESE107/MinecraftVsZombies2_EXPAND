@@ -4278,6 +4278,7 @@
                 <p>暗影细胞核心能够唤醒怪物的有效部分。尸体复活不可怕，尸体的单独一部分复活才可怕。</p>
             </flavor>
         </entry>
+        <entry/>
         <entry id="mvz2:LeftHandBow">
             <header>
                 <p></p>
@@ -4301,6 +4302,17 @@
             </properties>
             <flavor>
                 <p align="center"><![CDATA[<color=red><size=300%><b>    面对我</b></size></color>]]></p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:LightBlock">
+            <header>
+                <p>光源方块。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>使得场地变得极度昏暗。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>好黑啊，你没交电费吗</p>
             </flavor>
         </entry>
 
