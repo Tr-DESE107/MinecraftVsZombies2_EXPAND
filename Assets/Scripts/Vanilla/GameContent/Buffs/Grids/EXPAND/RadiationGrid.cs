@@ -109,8 +109,14 @@ namespace MVZ2.GameContent.Buffs.Grids
                 var flashTimer = buff.GetProperty<FrameTimer>(PROP_FLASH_TIMER);
                 var c = flashTimer?.GetTimeoutPercentage() ?? 0;
 
-                // 关键：写入 GridType，prefab 中 4 个子物体据此切换贴图。  
+                // 剩余时间百分比：1（满）-> 0（到期）  
+                var timeoutTimer = buff.GetProperty<FrameTimer>(PROP_TIMEOUT_TIMER);
+                float remaining = timeoutTimer?.GetTimeoutPercentage() ?? 1f;
+                // alpha 从 1.0 线性降到最小值 
+                float alpha = Mathf.Lerp(MIN_ALPHA, 1f, remaining);
+
                 model.SetModelProperty("GridType", grid.GetGridModelType());
+                model.SetShaderColor(ShaderProperties.TINT, new Color(1, 1, 1, alpha));
                 model.ApplyShaderProperties();
             }
         }
@@ -142,7 +148,13 @@ namespace MVZ2.GameContent.Buffs.Grids
             }
             else
             {
-                light.Position = grid.GetEntityPosition() + LIGHT_OFFSET;  // 这里也要加上同样的偏移  
+                light.Position = grid.GetEntityPosition() + LIGHT_OFFSET;
+
+                // 剩余时间百分比：1（满）-> 0（到期）  
+                var timeoutTimer = buff.GetProperty<FrameTimer>(PROP_TIMEOUT_TIMER);
+                float remaining = timeoutTimer?.GetTimeoutPercentage() ?? 1f;
+                // 光照范围从 LIGHT_RANGE_FULL 线性降到 0  
+                light.SetLightRange(LIGHT_RANGE_FULL * remaining);
             }
         }
 
@@ -162,11 +174,13 @@ namespace MVZ2.GameContent.Buffs.Grids
         }
 
         public const float FLASH_SECONDS = 1;
-        public const float MAX_TIMEOUT_SECONDS = 10; // 持续时间，可调  
-        public const float RADIATION_DAMAGE = 1;     // 每帧伤害，可调  
+        public const float MAX_TIMEOUT_SECONDS = 20;
+        public const float RADIATION_DAMAGE = 2;
         public static readonly NamespaceID MODEL_KEY = VanillaModelKeys.RadiationGrid;
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_FLASH_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("flash_timer");
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMEOUT_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timeout_timer");
         public static readonly VanillaBuffPropertyMeta<EntityID> PROP_LIGHT = new VanillaBuffPropertyMeta<EntityID>("light");
+        public const float MIN_ALPHA = 0.01f;
+        public static readonly Vector3 LIGHT_RANGE_FULL = new Vector3(120, 120, 120);
     }
 }

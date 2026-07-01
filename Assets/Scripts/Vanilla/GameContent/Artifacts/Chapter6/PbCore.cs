@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Artifacts
             if (!input.HasEffect(VanillaDamageEffects.RADIATION))
                 return;
             var entity = input.Entity;
-            if (entity.IsHostileEntity() && entity.Type != EntityTypes.PLANT)
+            if (!(entity.Type == EntityTypes.PLANT && entity.IsFriendlyEntity()))
                 return;
             var count = entity.Level.GetArtifacts().Count(a => a != null && a.Definition == this);
             input.Multiply(1 - DAMAGE_MULTIPLIER_ADDITION * count);

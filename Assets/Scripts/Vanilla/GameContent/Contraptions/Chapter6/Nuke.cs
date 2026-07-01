@@ -47,12 +47,12 @@ namespace MVZ2.GameContent.Contraptions
                 BreakTile(contraption);
             }
 
-            RadiateGrids(contraption);
+            RadiateGrids(contraption, contraption.IsEvoked() ? 2 : 1);
 
             contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(contraption), contraption.GetDefinitionID());
         }
 
-        public static void RadiateGrids(Entity entity)
+        public static void RadiateGrids(Entity entity, int radius = 1)
         {
             var grid = entity.GetGrid();
             if (grid == null)
@@ -60,10 +60,10 @@ namespace MVZ2.GameContent.Contraptions
             var level = entity.Level;
             int column = grid.Column;
             int lane = grid.Lane;
-            // 以自身格子为中心的 3*3 范围  
-            for (int x = -1; x <= 1; x++)
+            // 以自身格子为中心的 (2*radius+1) 见方范围  
+            for (int x = -radius; x <= radius; x++)
             {
-                for (int y = -1; y <= 1; y++)
+                for (int y = -radius; y <= radius; y++)
                 {
                     var g = level.GetGrid(column + x, lane + y);
                     if (g == null)
@@ -74,24 +74,25 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static void Explode(Entity entity, float range, float damage)
         {
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);
             var damageOutputs = entity.Explode(entity.GetCenter(), range, entity.GetFaction(), damage, damageEffects);
             damageOutputs.ClearExplosionCorpses();
         }
         public static void ExplodeEvoked(Entity entity, float range, float damage)
         {
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
-            var deathEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL, VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DEATH_EFFECTS, VanillaDamageEffects.REMOVE_ON_DEATH);
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);
+            var deathEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);
             foreach (var ent in entity.Level.FindEntities(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible()))
             {
-                if (ent.Type == EntityTypes.BOSS)
-                {
-                    ent.TakeDamage(damage, damageEffects, entity);
-                }
-                else
-                {
-                    ent.DieOrRemove(deathEffects, entity);
-                }
+                //if (ent.Type == EntityTypes.BOSS)
+                //{
+                //    ent.TakeDamage(damage, damageEffects, entity);
+                //}
+                //else
+                //{
+                //    ent.DieOrRemove(deathEffects, entity);
+                //}
+                ent.TakeDamage(damage, damageEffects, entity);
             }
         }
         public static void ExplodeEffects(Entity entity)
