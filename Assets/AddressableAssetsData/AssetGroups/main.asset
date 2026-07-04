@@ -1032,6 +1032,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0da1db74cb539644fa412bf17aae49a6
+    m_Address: mvz2:contraption/EXPAND/HBomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0da8ea7b3ec83e94793e912ac5ea6c81
     m_Address: mvz2:misc/dead_red_dragon
     m_ReadOnly: 0
@@ -8595,6 +8602,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7838a6737608c9044aafa72cda068459
+    m_Address: mvz2:mobile_blueprint/HBomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 785248f3150b5ed4d9ad34e175c4e24f
     m_Address: mvz2:pickup/artifact_pickup
     m_ReadOnly: 0
@@ -8846,6 +8860,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b57a64018c9846419a683f11760eae4
+    m_Address: mvz2:entity/contraptions/EXPAND_Skin/RadiationCandle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b5ab4ce3e848bf4f95807e6a0a2cc4d
     m_Address: mvz2:achievements/reforged
@@ -13348,6 +13369,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbbfd6a4e3820bb4c9fafefc9a604b80
     m_Address: mvz2:icons/divine_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbd4be12f257d2f4f944b2efa37399a9
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/HBomb
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

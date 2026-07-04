@@ -1312,13 +1312,13 @@
         </entry>
         <entry id="mvz2:nuke">
             <header>
-                <p>核弹在触发后会摧毁大范围内的敌人，让它们尸骨无存，但会暂时破坏所在的地块。</p>
+                <p>核弹在触发后会摧毁大范围内的敌人并留下致命的辐射区，但会暂时破坏所在的地块。</p>
             </header>
             <properties>
-                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>半径：<![CDATA[<color=red>3.5格</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会触发死亡效果；引爆后破坏所在的地块，无法放置器械，持续3分钟</color>]]></p>
-                <p>技能：<![CDATA[<color=red>消灭所有敌怪</color>]]></p>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />；辐射区持续10s，每秒造成60伤害。</color>]]></p>
+                <p>半径：<![CDATA[<color=red>1.5格的辐射区，2.5格的伤害，3.5格的核扩散</color>]]></p>
+                <p>特点：<![CDATA[<color=red>辐射区致死的敌怪不会触发死亡效果；核扩散效果会让受到该效果的实体降低最大生命值；引爆后破坏所在的地块，无法放置器械，持续3分钟</color>]]></p>
+                <p>技能：<![CDATA[<color=red>留下半径2.5格的辐射区，对全场敌人造成伤害，降低全场实体35%的最大生命值。</color>]]></p>
             </properties>
             <flavor>
                 <p>“我诞生于人类与恶魔的交易之中。相信我，你绝对不会想要见到我的。”</p>
@@ -1607,6 +1607,20 @@
                 <p><![CDATA[<color=white>在之后的版本里，我将直接听从你的命令</color>]]></p>
             </flavor>
         </entry>
+        <entry id="mvz2:HBomb">
+            <header>
+                <p>氢弹在触发后会摧毁大范围内的敌人，但会暂时破坏所在的地块。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>半径：<![CDATA[<color=red>3.5格的伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>受氢弹致死的敌人不会触发死亡效果；引爆后破坏所在的地块，无法放置器械，持续3分钟</color>]]></p>
+                <p>技能：<![CDATA[<color=red>对全场敌人造成7200伤害。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>一种更高效的核能手段。</p>
+            </flavor>
+        </entry>
         <entry id="mvz2:DiamondOre">
             <tags>
                 <tag id="mvz2:placement_RedstoneOre" />
@@ -1624,7 +1638,6 @@
             </flavor>
         </entry>
 
-        <entry/>
         <entry/>
 
         <entry id="mvz2:infectenser">

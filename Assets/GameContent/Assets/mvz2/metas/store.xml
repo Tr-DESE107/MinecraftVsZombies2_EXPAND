@@ -1,4 +1,4 @@
-<store>
+﻿<store>
     <presets>
         <preset id="village" character="mvz2:crazy_villager" background="mvz2:store/background_village" music="mvz2:mainmenu" priority="0" />
         <preset id="kourindou" character="mvz2:tokiko" background="mvz2:store/background_kourindou" music="mvz2:gensokyo_map" priority="100">
@@ -233,8 +233,19 @@
                 <stage price="50000" unlocks="mvz2:contraption.SuperFireworkDispenser" />
             </stages>
         </product>
+        <product id="HBomb" blueprintId="mvz2:HBomb">
+            <unlock>
+                <condition required="mvz2:level.palace_6" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">不要问我哪搞来的这家伙，一颗氢弹需要拿一颗原子弹来引燃，氢弹爆炸后会给敌人带来绝对的死亡！</talk>
+                <talk character="mvz2:tokiko">按“科学道理”讲，氢弹必须用裂变弹引燃，触发后会释放出更多的能量！</talk>
+            </talks>
+            <stages>
+                <stage price="50000" unlocks="mvz2:contraption.HBomb" />
+            </stages>
+        </product>
         
-        <product />
         <product />
         <product />
         <product />

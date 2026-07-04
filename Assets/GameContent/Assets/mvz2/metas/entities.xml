@@ -1578,7 +1578,7 @@
                 <behaviour operator="add" id="mvz2:ignitable" />
                 <behaviour operator="add" id="mvz2:ignitable/trigger" />
                 <behaviour operator="add" id="mvz2:ignitable/evoke" />
-                <behaviour operator="add" id="mvz2:explode_on_fire_death" />
+                <behaviour operator="add" id="mvz2:ExplodeOnRadiationDeath" />
             </behaviours>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
@@ -2282,6 +2282,39 @@
                 <id name="mvz2:placement" value="mvz2:upgrade" />
 
                 <int name="mvz2:cost" value="950" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </entity>
+        
+        <entity template="contraption" id="HBomb" name="氢弹" tooltip="触发后摧毁大范围内的敌人以及所在地块">
+            <unlock>
+                <condition required="mvz2:contraption.HBomb" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:ignitable" />
+                <behaviour operator="add" id="mvz2:ignitable/trigger" />
+                <behaviour operator="add" id="mvz2:ignitable/evoke" />
+                <behaviour operator="add" id="mvz2:ExplodeOnRadiationDeath" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:upgradeBlueprint" value="true" />
+                <id name="mvz2:upgradeFrom" value="mvz2:nuke" />
+                <id name="mvz2:placement" value="mvz2:upgrade" />
+                
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:dynamite" value="true" />
+                <bool name="mvz2:nocturnal" value="true" />
+                <float name="mvz2:damage" value="3600" />
+                <float name="mvz2:range" value="280" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:placeSound" value="mvz2:metal" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:deathSound" value="mvz2:metal" />
+                <bool name="mvz2:triggerActive" value="true" />
+                <bool name="mvz2:instantTrigger" value="true" />
+
+                <int name="mvz2:cost" value="200" />
+                <int name="mvz2:triggerCost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>

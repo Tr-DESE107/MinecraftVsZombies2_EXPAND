@@ -510,6 +510,15 @@
             <key hex="#1E7A90" time="1.0" />
         </colorKeys>
     </fragment>
+    <fragment name="HBomb">
+        <colorKeys>
+            <key hex="#000000" time="0.0" />
+            <key hex="#404a68" time="0.3" />
+            <key hex="#7c521c" time="0.6" />
+            <key hex="#44565c" time="1.0" />
+        </colorKeys>
+    </fragment>
+    <!--E.X.P.A.N.D.-->
     <fragment name="EXPANDispenser">
         <colorKeys>
             <key hex="#ffc401" time="0.35" />

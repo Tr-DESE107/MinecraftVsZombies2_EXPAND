@@ -106,6 +106,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string FireDispenser = "FireDispenser";
 
         public const string AncientBrickShield = "AncientBrickShield";
+        public const string HBomb = "HBomb";
 
         //EXPAND Fusion
         public const string ExplosionCore = "ExplosionCore";
@@ -229,6 +230,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID FireDispenser = Get(VanillaContraptionNames.FireDispenser);
 
         public static readonly NamespaceID AncientBrickShield = Get(VanillaContraptionNames.AncientBrickShield);
+        public static readonly NamespaceID HBomb = Get(VanillaContraptionNames.HBomb);
 
         //EXPAND Fusion
         public static readonly NamespaceID ExplosionCore = Get(VanillaContraptionNames.ExplosionCore);

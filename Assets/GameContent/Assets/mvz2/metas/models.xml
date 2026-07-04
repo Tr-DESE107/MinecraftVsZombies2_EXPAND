@@ -136,6 +136,7 @@
     <model name="Eviltombstone" type="entity" path="mvz2:contraption/upgrade/Eviltombstone" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="CopperDropper" type="entity" path="mvz2:contraption/upgrade/CopperDropper" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="AntiGravityPad" type="entity" path="mvz2:contraption/EXPAND/AntiGravityPad" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="HBomb" type="entity" path="mvz2:contraption/EXPAND/HBomb" width="64" height="64" xOffset="0" yOffset="-28" />
 
     <!--EXPAND BlackCard-->
     <model name="Bedrock" type="entity" path="mvz2:contraption/EXPAND/Bedrock" width="64" height="64" xOffset="0" yOffset="-28" />
