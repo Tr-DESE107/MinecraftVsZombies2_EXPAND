@@ -1449,7 +1449,7 @@
                 <behaviour id="mvz2:gravelpult/evoke" />
             </behaviours>
             <properties>
-                <float name="mvz2:damage" value="20" />
+                <float name="mvz2:damage" value="10" />
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
                 <vector3 name="mvz2:shotOffset" x="-10" y="35" z="0" />
@@ -1463,7 +1463,7 @@
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
                 <vector3 name="mvz2:shadowOffset" x="8" y="0" z="0" />
 
-                <int name="mvz2:cost" value="100" />
+                <int name="mvz2:cost" value="150" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </entity>
