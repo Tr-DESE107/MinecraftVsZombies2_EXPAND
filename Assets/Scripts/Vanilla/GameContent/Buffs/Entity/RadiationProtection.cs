@@ -9,10 +9,10 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [AutoBuffDefinition(VanillaBuffNames.Entity.ExplosionProtection)]
-    public class ExplosionProtection : BuffDefinition
+    [AutoBuffDefinition(VanillaBuffNames.Entity.RadiationProtection)]
+    public class RadiationProtection : BuffDefinition
     {
-        public ExplosionProtection(string nsp, string name) : base(nsp, name)
+        public RadiationProtection(string nsp, string name) : base(nsp, name)
         {
             // 注册回调：实体即将受到伤害前触发
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback, priority: -100);
@@ -23,13 +23,13 @@ namespace MVZ2.GameContent.Buffs
             var damageInfo = param.input;
             var entity = damageInfo.Entity;
 
-            // 从实体获取 ExplosionProtection buff实例  
-            var buff = entity.GetFirstBuff<ExplosionProtection>();
+            // 从实体获取 RadiationProtection buff实例  
+            var buff = entity.GetFirstBuff<RadiationProtection>();
             if (buff == null)
                 return;
 
-            // 判断伤害是否带有"爆炸"效果，若是则减免伤害  
-            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.EXPLOSION))
+            // 判断伤害是否带有"辐射"效果，若是则减免伤害  
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.RADIATION))
             {
                 var level = buff.GetProperty<float>(PROP_Protection_Level); // 确保指定类型为float  
                 damageInfo.Multiply(1f - level); // 乘以(1 - level)，level为float类型  

@@ -141,6 +141,7 @@ namespace MVZ2.GameContent.Buffs
             public const string SquidDrownedMarked = "SquidDrownedMarked";
             public const string BurnLaserGlowing = "BurnLaserGlowing";
             public const string NuclearDiffusion = "NuclearDiffusion";
+            public const string RadiationProtection = "RadiationProtection";
         }
         public static class Armor
         {
