@@ -529,6 +529,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID DeathMark = Get(VanillaBuffNames.Entity.DeathMark);
             public static readonly NamespaceID BurnLaserGlowing = Get(VanillaBuffNames.Entity.BurnLaserGlowing);
             public static readonly NamespaceID NuclearDiffusion = Get(VanillaBuffNames.Entity.NuclearDiffusion);
+            public static readonly NamespaceID RadiationProtection = Get(VanillaBuffNames.Entity.RadiationProtection);
 
         }
         public static class Armor

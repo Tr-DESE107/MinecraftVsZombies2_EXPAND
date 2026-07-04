@@ -93,15 +93,21 @@ namespace MVZ2.GameContent.Contraptions
                 var reduction = baseMaxHealth * EVOKED_REDUCTION_RATIO;  
                 ApplyNuclearDiffusion(ent, reduction);  
             }  
-        }  
-  
+        }
+
         // 复用 NuclearDiffusionBuff：PROP_HEALTH_REDUCTION 存负数，Add 即为减少最大生命值  
-        private static void ApplyNuclearDiffusion(Entity ent, float reduction)  
-        {  
-            var buff = ent.AddBuff<NuclearDiffusionBuff>();  
-            buff.SetProperty(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION, -reduction);  
-        }  
-  
+        private static void ApplyNuclearDiffusion(Entity ent, float reduction)
+        {
+            // 辐射保护同样减免「降低最大生命值」的效果，取最高保护等级。  
+            float protection = RadiationProtection.GetProtectionLevel(ent);
+            reduction *= (1f - protection);
+            if (reduction <= 0f)
+                return; // 保护满级（>=1，如 Eradicator）时完全免疫。  
+
+            var buff = ent.AddBuff<NuclearDiffusionBuff>();
+            buff.SetProperty(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION, -reduction);
+        }
+
         public static void RadiateGrids(Entity entity, int radius = 1)  
         {  
             var grid = entity.GetGrid();  

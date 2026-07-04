@@ -1,5 +1,6 @@
 ﻿#nullable enable
 
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
@@ -25,7 +26,7 @@ namespace MVZ2.GameContent.Buffs.Grids
     {
         public RadiationGridBuff(string nsp, string name) : base(nsp, name)
         {
-            // 不加 IS_WATER / DISABLED：不改地形、不改出怪、不限制器械放置。  
+            // 不加 IS_WATER / DISABLED：不改地形、不改出怪、不限制器械放置。    
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, MODEL_KEY, VanillaModelID.RadiationGrid);
         }
 
@@ -33,7 +34,7 @@ namespace MVZ2.GameContent.Buffs.Grids
         {
             base.OnCreate(buff);
             buff.SetProperty(PROP_FLASH_TIMER, TimerHelper.NewSecondTimer(FLASH_SECONDS));
-            // 持续时间计时器：到期后移除该地板 buff，避免无尽。  
+            // 持续时间计时器：到期后移除该地板 buff，避免无尽。    
             buff.SetProperty(PROP_TIMEOUT_TIMER, TimerHelper.NewSecondTimer(MAX_TIMEOUT_SECONDS));
         }
 
@@ -41,7 +42,7 @@ namespace MVZ2.GameContent.Buffs.Grids
         {
             base.PostAdd(buff);
             UpdateModel(buff);
-            SpawnLight(buff);   // 生成照亮幽灵的光源实体  
+            SpawnLight(buff);   // 生成照亮幽灵的光源实体    
         }
 
         public override void PostUpdate(Buff buff)
@@ -56,9 +57,9 @@ namespace MVZ2.GameContent.Buffs.Grids
 
             DamageEntitiesOnGrid(buff);
             UpdateModel(buff);
-            UpdateLight(buff);  // 维持光源存活并跟随格子  
+            UpdateLight(buff);  // 维持光源存活并跟随格子    
 
-            // 到期移除，恢复地板，并清掉光源。  
+            // 到期移除，恢复地板，并清掉光源。    
             if (timeoutTimer == null || timeoutTimer.Expired)
             {
                 RemoveLight(buff);
@@ -66,7 +67,7 @@ namespace MVZ2.GameContent.Buffs.Grids
             }
         }
 
-        // buff 被任何途径移除时，确保光源实体也被清掉，避免残留。  
+        // buff 被任何途径移除时，确保光源实体也被清掉，避免残留。    
         public override void PostRemove(Buff buff)
         {
             base.PostRemove(buff);
@@ -79,8 +80,8 @@ namespace MVZ2.GameContent.Buffs.Grids
             if (grid == null)
                 return;
             var level = grid.Level;
-            // 用 FindEntities 按"当前所在格子"判定：  
-            // 这样行走中的怪物（不占格）也能命中，而不仅是占格的器械。  
+            // 用 FindEntities 按"当前所在格子"判定：    
+            // 这样行走中的怪物（不占格）也能命中，而不仅是占格的器械。    
             foreach (var entity in level.FindEntities(e => e.GetGrid() == grid))
             {
                 if (entity == null || !entity.ExistsAndAlive())
@@ -95,7 +96,29 @@ namespace MVZ2.GameContent.Buffs.Grids
                     VanillaDamageEffects.RADIATION
                     );
                 entity.TakeDamageSourced(RADIATION_DAMAGE, effects, new GridSourceReference(grid));
+
+                // 站在辐射地砖上的实体持续降低最大生命值
+                ApplyNuclearDiffusion(entity);
             }
+        }
+
+        // 每个实体只保留一个 NuclearDiffusionBuff：没有则新增，有则只改内部数值。    
+        private void ApplyNuclearDiffusion(Entity entity)
+        {
+            // 辐射保护同样减免“降低最大生命值”的效果，取最高保护等级。  
+            float protection = RadiationProtection.GetProtectionLevel(entity);
+            float reductionPerFrame = HEALTH_REDUCTION_PER_FRAME * (1f - protection);
+            if (reductionPerFrame <= 0f)
+                return; // 保护满级（>=1）时完全免疫，不再累减。  
+
+            var buff = entity.GetFirstBuff<NuclearDiffusionBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<NuclearDiffusionBuff>();
+            }
+            // PROP_HEALTH_REDUCTION 存负数，Add 即减少最大生命值；每帧累减固定值。  
+            var current = buff.GetProperty<float>(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION);
+            buff.SetProperty(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION, current - reductionPerFrame);
         }
 
         public void UpdateModel(Buff buff)
@@ -109,10 +132,10 @@ namespace MVZ2.GameContent.Buffs.Grids
                 var flashTimer = buff.GetProperty<FrameTimer>(PROP_FLASH_TIMER);
                 var c = flashTimer?.GetTimeoutPercentage() ?? 0;
 
-                // 剩余时间百分比：1（满）-> 0（到期）  
+                // 剩余时间百分比：1（满）-> 0（到期）    
                 var timeoutTimer = buff.GetProperty<FrameTimer>(PROP_TIMEOUT_TIMER);
                 float remaining = timeoutTimer?.GetTimeoutPercentage() ?? 1f;
-                // alpha 从 1.0 线性降到最小值 
+                // alpha 从 1.0 线性降到最小值   
                 float alpha = Mathf.Lerp(MIN_ALPHA, 1f, remaining);
 
                 model.SetModelProperty("GridType", grid.GetGridModelType());
@@ -120,8 +143,8 @@ namespace MVZ2.GameContent.Buffs.Grids
                 model.ApplyShaderProperties();
             }
         }
-        // 新增一个常量，统一管理光源相对格子中心的偏移  
-        public static readonly Vector3 LIGHT_OFFSET = new Vector3(0, 20f, 0); // 按需调整  
+        // 新增一个常量，统一管理光源相对格子中心的偏移    
+        public static readonly Vector3 LIGHT_OFFSET = new Vector3(0, 20f, 0); // 按需调整    
 
         private void SpawnLight(Buff buff)
         {
@@ -129,7 +152,7 @@ namespace MVZ2.GameContent.Buffs.Grids
             if (grid == null)
                 return;
             var level = grid.Level;
-            var pos = grid.GetEntityPosition() + LIGHT_OFFSET;   // 用统一偏移  
+            var pos = grid.GetEntityPosition() + LIGHT_OFFSET;   // 用统一偏移    
             var light = level.Spawn(VanillaEffectID.RadiationLight, pos, null);
             if (light != null)
                 buff.SetProperty(PROP_LIGHT, new EntityID(light));
@@ -150,10 +173,10 @@ namespace MVZ2.GameContent.Buffs.Grids
             {
                 light.Position = grid.GetEntityPosition() + LIGHT_OFFSET;
 
-                // 剩余时间百分比：1（满）-> 0（到期）  
+                // 剩余时间百分比：1（满）-> 0（到期）    
                 var timeoutTimer = buff.GetProperty<FrameTimer>(PROP_TIMEOUT_TIMER);
                 float remaining = timeoutTimer?.GetTimeoutPercentage() ?? 1f;
-                // 光照范围从 LIGHT_RANGE_FULL 线性降到 0  
+                // 光照范围从 LIGHT_RANGE_FULL 线性降到 0    
                 light.SetLightRange(LIGHT_RANGE_FULL * remaining);
             }
         }
@@ -167,7 +190,7 @@ namespace MVZ2.GameContent.Buffs.Grids
             buff.SetProperty<EntityID>(PROP_LIGHT, null);
         }
 
-        // 给指定格子添加该地板（仿 PagodaLaser.DisableGrid）。  
+        // 给指定格子添加该地板（仿 PagodaLaser.DisableGrid）。    
         public static void Radiate(LawnGrid grid)
         {
             grid.AddBuff(VanillaBuffID.Grid.RadiationGrid);
@@ -176,6 +199,9 @@ namespace MVZ2.GameContent.Buffs.Grids
         public const float FLASH_SECONDS = 1;
         public const float MAX_TIMEOUT_SECONDS = 10;
         public const float RADIATION_DAMAGE = 2;
+        
+        public const float HEALTH_REDUCTION_PER_FRAME = 0.2f;
+
         public static readonly NamespaceID MODEL_KEY = VanillaModelKeys.RadiationGrid;
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_FLASH_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("flash_timer");
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMEOUT_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timeout_timer");
