@@ -780,6 +780,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0abf572c5d76bbb4fbdb78c8bb4646ad
+    m_Address: mvz2:artifacts/LightBlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ae5af202f9ad9c4cb362f05a0290a3b
     m_Address: mvz2:units/colliders/humanoid
     m_ReadOnly: 0
@@ -16984,6 +16991,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f223c42af047cf14e9ccc111954c8ae0
+    m_Address: mvz2:artifacts/PbCore
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f24e02b7e9159cb4ebd603ab477f2152
     m_Address: mvz2:mobile_blueprint/high_frequency_pulse_dispenser

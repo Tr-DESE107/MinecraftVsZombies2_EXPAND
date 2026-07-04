@@ -20,69 +20,110 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
 using PVZEngine.Buffs;
+using MVZ2.GameContent.Buffs.Entities;
 
-namespace MVZ2.GameContent.Contraptions
-{
-    [AutoEntityBehaviourDefinition(VanillaContraptionNames.nuke)]
-    public class Nuke : AIEntityBehaviour, IExplodeContraptionBehaviour
-    {
-        public Nuke(string nsp, string name) : base(nsp, name)
-        {
-        }
-        void IExplodeContraptionBehaviour.Explode(Entity contraption, float range, float damage)
-        {
-            if (contraption.IsEvoked())
-            {
-                ExplodeEvoked(contraption, range, damage);
-                ExplodeEffectsEvoked(contraption);
-            }
-            else
-            {
-                Explode(contraption, range, damage);
-                ExplodeEffects(contraption);
-            }
-
-            if (contraption.GetRelativeY() < BREAK_TILE_HEIGHT)
-            {
-                BreakTile(contraption);
-            }
-
-            RadiateGrids(contraption, contraption.IsEvoked() ? 2 : 1);
-
-            contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(contraption), contraption.GetDefinitionID());
-        }
-
-        public static void RadiateGrids(Entity entity, int radius = 1)
-        {
-            var grid = entity.GetGrid();
-            if (grid == null)
-                return;
-            var level = entity.Level;
-            int column = grid.Column;
-            int lane = grid.Lane;
-            // 以自身格子为中心的 (2*radius+1) 见方范围  
-            for (int x = -radius; x <= radius; x++)
-            {
-                for (int y = -radius; y <= radius; y++)
-                {
-                    var g = level.GetGrid(column + x, lane + y);
-                    if (g == null)
-                        continue;
-                    g.AddBuff(VanillaBuffID.Grid.RadiationGrid);
-                }
-            }
-        }
-        public static void Explode(Entity entity, float range, float damage)
-        {
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);
-            var damageOutputs = entity.Explode(entity.GetCenter(), range, entity.GetFaction(), damage, damageEffects);
-            damageOutputs.ClearExplosionCorpses();
-        }
-        public static void ExplodeEvoked(Entity entity, float range, float damage)
-        {
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);
-            var deathEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);
-            foreach (var ent in entity.Level.FindEntities(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible()))
+namespace MVZ2.GameContent.Contraptions  
+{  
+    [AutoEntityBehaviourDefinition(VanillaContraptionNames.nuke)]  
+    public class Nuke : AIEntityBehaviour, IExplodeContraptionBehaviour  
+    {  
+        public Nuke(string nsp, string name) : base(nsp, name)  
+        {  
+        }  
+        void IExplodeContraptionBehaviour.Explode(Entity contraption, float range, float damage)  
+        {  
+            if (contraption.IsEvoked())  
+            {  
+                ExplodeEvoked(contraption, range, damage);  
+                ExplodeEffectsEvoked(contraption);  
+                // 开大：无差别按 XML 最大生命值削减 35%  
+                WeakenAllByBaseHealth(contraption);  
+            }  
+            else  
+            {  
+                Explode(contraption, range, damage);  
+                ExplodeEffects(contraption);  
+                // 常规爆炸：7*7 核扩散，按距离线性削减 50~300  
+                NuclearDiffusion(contraption);  
+            }  
+  
+            if (contraption.GetRelativeY() < BREAK_TILE_HEIGHT)  
+            {  
+                BreakTile(contraption);  
+            }  
+  
+            RadiateGrids(contraption, contraption.IsEvoked() ? 2 : 1);  
+  
+            contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(contraption), contraption.GetDefinitionID());  
+        }  
+  
+        // 常规爆炸：7*7（range=280）核扩散，按距离线性削减 50~300 最大生命值  
+        public static void NuclearDiffusion(Entity entity, float range = DIFFUSION_RANGE)  
+        {  
+            var center = entity.GetCenter();  
+            foreach (var ent in entity.Level.FindEntities(e => e.IsVulnerableEntity() && !e.IsInvincible()))  
+            {  
+                if (ent == entity)  
+                    continue;  
+                var distance = (ent.GetCenter() - center).magnitude;  
+                if (distance > range)  
+                    continue;  
+                var reduction = Mathf.Lerp(DIFFUSION_MAX_REDUCTION, DIFFUSION_MIN_REDUCTION, distance / range);  
+                ApplyNuclearDiffusion(ent, reduction);  
+            }  
+        }  
+  
+        // 开大：无差别削减全场实体「XML 配置最大生命值」的 35%  
+        public static void WeakenAllByBaseHealth(Entity entity)  
+        {  
+            foreach (var ent in entity.Level.FindEntities(e => e.IsVulnerableEntity() && !e.IsInvincible()))  
+            {  
+                if (ent == entity)  
+                    continue;  
+                // ignoreBuffs: true -> 取 XML 基础最大生命值，不含已有修饰符  
+                var baseMaxHealth = ent.GetMaxHealth(ignoreBuffs: true);  
+                var reduction = baseMaxHealth * EVOKED_REDUCTION_RATIO;  
+                ApplyNuclearDiffusion(ent, reduction);  
+            }  
+        }  
+  
+        // 复用 NuclearDiffusionBuff：PROP_HEALTH_REDUCTION 存负数，Add 即为减少最大生命值  
+        private static void ApplyNuclearDiffusion(Entity ent, float reduction)  
+        {  
+            var buff = ent.AddBuff<NuclearDiffusionBuff>();  
+            buff.SetProperty(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION, -reduction);  
+        }  
+  
+        public static void RadiateGrids(Entity entity, int radius = 1)  
+        {  
+            var grid = entity.GetGrid();  
+            if (grid == null)  
+                return;  
+            var level = entity.Level;  
+            int column = grid.Column;  
+            int lane = grid.Lane;  
+            for (int x = -radius; x <= radius; x++)  
+            {  
+                for (int y = -radius; y <= radius; y++)  
+                {  
+                    var g = level.GetGrid(column + x, lane + y);  
+                    if (g == null)  
+                        continue;  
+                    g.AddBuff(VanillaBuffID.Grid.RadiationGrid);  
+                }  
+            }  
+        }  
+        public static void Explode(Entity entity, float range, float damage)  
+        {  
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);  
+            var damageOutputs = entity.Explode(entity.GetCenter(), range, entity.GetFaction(), damage, damageEffects);  
+            damageOutputs.ClearExplosionCorpses();  
+        }  
+        public static void ExplodeEvoked(Entity entity, float range, float damage)  
+        {  
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);  
+            var deathEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);  
+            foreach (var ent in entity.Level.FindEntities(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible()))  
             {
                 //if (ent.Type == EntityTypes.BOSS)
                 //{
@@ -92,51 +133,57 @@ namespace MVZ2.GameContent.Contraptions
                 //{
                 //    ent.DieOrRemove(deathEffects, entity);
                 //}
-                ent.TakeDamage(damage, damageEffects, entity);
-            }
-        }
-        public static void ExplodeEffects(Entity entity)
-        {
-            var smokeSpawnParam = entity.GetSpawnParams();
-            smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.5f, 0, 1));
-            ExplodeEffects(entity, smokeSpawnParam);
-        }
-        public static void ExplodeEffects(Entity entity, SpawnParams smokeSpawnParam)
-        {
-            ExplodeEffects(entity.Level, entity.Position, entity, smokeSpawnParam);
-        }
-        public static void ExplodeEffects(LevelEngine level, Vector3 position, Entity? spawner, SpawnParams smokeSpawnParam)
-        {
-            level.Spawn(VanillaEffectID.nukeSmoke, position, spawner, smokeSpawnParam);
-            level.Spawn(VanillaEffectID.nukeFlash, level.GetLawnCenter(), spawner, smokeSpawnParam);
-            level.PlaySound(VanillaSoundID.nukeblast, position);
-            level.ShakeScreen(10, 0, 60);
-        }
-        public static void ExplodeEffectsEvoked(Entity entity)
-        {
-            var smokeSpawnParam = entity.GetSpawnParams();
-            smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.25f, 0, 1));
-            smokeSpawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);
-            ExplodeEffects(entity, smokeSpawnParam);
-        }
-        public static void BreakTile(Entity entity)
-        {
-            var grid = entity.GetGrid();
-            if (grid == null)
-                return;
-            DestroyEntitiesInGrid(grid, entity);
-            BrokenTileBuff.Break(grid);
-        }
-        public static void DestroyEntitiesInGrid(LawnGrid grid, Entity source)
-        {
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.INSTA_KILL);
-            foreach (var entity in grid.GetEntities())
-            {
-                if (entity == source)
-                    continue;
-                entity.DieOrRemove(damageEffects, entity);
-            }
-        }
-        public const float BREAK_TILE_HEIGHT = 64f;
-    }
+                ent.TakeDamage(damage, damageEffects, entity);  
+            }  
+        }  
+        public static void ExplodeEffects(Entity entity)  
+        {  
+            var smokeSpawnParam = entity.GetSpawnParams();  
+            smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.5f, 0, 1));  
+            ExplodeEffects(entity, smokeSpawnParam);  
+        }  
+        public static void ExplodeEffects(Entity entity, SpawnParams smokeSpawnParam)  
+        {  
+            ExplodeEffects(entity.Level, entity.Position, entity, smokeSpawnParam);  
+        }  
+        public static void ExplodeEffects(LevelEngine level, Vector3 position, Entity? spawner, SpawnParams smokeSpawnParam)  
+        {  
+            level.Spawn(VanillaEffectID.nukeSmoke, position, spawner, smokeSpawnParam);  
+            level.Spawn(VanillaEffectID.nukeFlash, level.GetLawnCenter(), spawner, smokeSpawnParam);  
+            level.PlaySound(VanillaSoundID.nukeblast, position);  
+            level.ShakeScreen(10, 0, 60);  
+        }  
+        public static void ExplodeEffectsEvoked(Entity entity)  
+        {  
+            var smokeSpawnParam = entity.GetSpawnParams();  
+            smokeSpawnParam.SetProperty(EngineEntityProps.TINT, new Color(0, 0.25f, 0, 1));  
+            smokeSpawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * 2);  
+            ExplodeEffects(entity, smokeSpawnParam);  
+        }  
+        public static void BreakTile(Entity entity)  
+        {  
+            var grid = entity.GetGrid();  
+            if (grid == null)  
+                return;  
+            DestroyEntitiesInGrid(grid, entity);  
+            BrokenTileBuff.Break(grid);  
+        }  
+        public static void DestroyEntitiesInGrid(LawnGrid grid, Entity source)  
+        {  
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.INSTA_KILL);  
+            foreach (var entity in grid.GetEntities())  
+            {  
+                if (entity == source)  
+                    continue;  
+                entity.DieOrRemove(damageEffects, entity);  
+            }  
+        }  
+        public const float BREAK_TILE_HEIGHT = 64f;  
+        // 核扩散参数  
+        public const float DIFFUSION_RANGE = 280f;  
+        public const float DIFFUSION_MAX_REDUCTION = 300f;  
+        public const float DIFFUSION_MIN_REDUCTION = 50f;  
+        // 开大削减比例  
+        public const float EVOKED_REDUCTION_RATIO = 0.35f;  
+    }  
 }

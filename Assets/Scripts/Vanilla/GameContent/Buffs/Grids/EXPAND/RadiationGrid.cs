@@ -174,7 +174,7 @@ namespace MVZ2.GameContent.Buffs.Grids
         }
 
         public const float FLASH_SECONDS = 1;
-        public const float MAX_TIMEOUT_SECONDS = 20;
+        public const float MAX_TIMEOUT_SECONDS = 10;
         public const float RADIATION_DAMAGE = 2;
         public static readonly NamespaceID MODEL_KEY = VanillaModelKeys.RadiationGrid;
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_FLASH_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("flash_timer");
