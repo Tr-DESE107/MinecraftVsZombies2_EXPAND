@@ -3,30 +3,11 @@
 
 using System.Linq;
 using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Localization;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
-using MVZ2Logic.Localization;
-using MVZ2Logic.Stats;
-using PVZEngine;
-using PVZEngine.Callbacks;
-using PVZEngine.Level;
-using PVZEngine.Definitions;
-using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {

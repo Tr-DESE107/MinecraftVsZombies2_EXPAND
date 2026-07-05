@@ -1,4 +1,4 @@
-<stages>
+﻿<stages>
     <stage id="i_zombie_debug" name="测试关卡" type="puzzle" startEnergy="9990" music="mvz2:puzzle">
         <camera position="lawn" transition="instant" />
     </stage>
@@ -2810,7 +2810,56 @@
             <spawn id="mvz2:AngryGhast" />
         </spawns>
     </stage>
+    
+    <stage id="BlueprintBossRush" name="&lt;color=red&gt;BlueprintBossRush&lt;/color&gt;" type="minigame" music="mvz2:Sacrificial">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1800">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:ghast" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:cave_spider" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+        </spawns>
+    </stage>
 
+    <stage id="HeavyWeaponVSMannequin" name="重装兵器大战玩家模型" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.palace_9" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="3" pointsPower="1.2" pointsMultiplier="2" pointsAddition="1">
+            <spawn id="mvz2:ImpMannequin" />
+            <spawn id="mvz2:MegaImpMannequin" />
+            <spawn id="mvz2:MutantMannequin" />
+            <spawn id="mvz2:MegaMutantVillager" />
+            <spawn id="mvz2:MutantVillager" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <bool name="autoCollectAll" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
+    </stage>
+
+    <stage id="HeavyWeaponBossRush" name="重装兵器Boss Rush" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.palace_9" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="1" pointsPower="1.2" pointsMultiplier="2" pointsAddition="1">
+            <spawn id="mvz2:zombie" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <bool name="autoCollectAll" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
+    </stage>
+    
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />

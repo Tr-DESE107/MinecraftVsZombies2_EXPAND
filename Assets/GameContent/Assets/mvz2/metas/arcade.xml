@@ -60,6 +60,10 @@
     <minigame id="ZombieNimbleZombieQuick" stage="mvz2:ZombieNimbleZombieQuick" area="mvz2:castle" icon="mvz2:arcade/ZombieNimbleZombieQuick" />
     <minigame id="OpticalIllusion" stage="mvz2:OpticalIllusion" area="mvz2:dream" icon="mvz2:arcade/OpticalIllusion" />
     
+    <minigame id="HeavyWeaponVSMannequin" stage="mvz2:HeavyWeaponVSMannequin" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponVSMannequin" />
+    <minigame id="HeavyWeaponBossRush" stage="mvz2:HeavyWeaponBossRush" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponBossRush" />
+    <minigame id="BlueprintBossRush" stage="mvz2:BlueprintBossRush" area="mvz2:day" icon="mvz2:arcade/BlueprintBossRush" />
+    
 
     <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />
     <puzzle id="puzzle_i_skeleton" stage="mvz2:puzzle_i_skeleton" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_skeleton" />

@@ -9786,7 +9786,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87d6503edbe02b243bbb89dda74ed47f
-    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/Freezenser
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/Freezenser_Toy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -14808,6 +14808,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d02205389b488a044b01ab21d898f27e
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/Freezenser_Ice
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d02401159b16dc843bcfb357a5e99732
     m_Address: mvz2:entity/wither/cry1
