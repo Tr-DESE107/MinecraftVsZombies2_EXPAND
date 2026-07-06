@@ -136,12 +136,16 @@ namespace MVZ2.GameContent.Buffs
             public const string Regeneration = "Regeneration";
             public const string Corropoison = "Corropoison";
             public const string Resistance = "Resistance";
-            public const string ExplosionProtection = "ExplosionProtection";
             public const string DeathMark = "DeathMark";
             public const string SquidDrownedMarked = "SquidDrownedMarked";
             public const string BurnLaserGlowing = "BurnLaserGlowing";
             public const string NuclearDiffusion = "NuclearDiffusion";
+
+            //EXPAND Protection
+            public const string ExplosionProtection = "ExplosionProtection";
             public const string RadiationProtection = "RadiationProtection";
+            public const string WitherProtection = "WitherProtection";
+            public const string FireProtection = "FireProtection";
         }
         public static class Armor
         {
@@ -243,7 +247,6 @@ namespace MVZ2.GameContent.Buffs
             public const string randomEnemySpeed = "random_enemy_speed";
             public const string VanguardResistance = "VanguardResistance";
             public const string WarriorResistance = "WarriorResistance";
-            public const string WitherProtection = "WitherProtection";
 
             // Prologue
             public const string gemCarrier = "gem_carrier";
@@ -529,8 +532,12 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID DeathMark = Get(VanillaBuffNames.Entity.DeathMark);
             public static readonly NamespaceID BurnLaserGlowing = Get(VanillaBuffNames.Entity.BurnLaserGlowing);
             public static readonly NamespaceID NuclearDiffusion = Get(VanillaBuffNames.Entity.NuclearDiffusion);
-            public static readonly NamespaceID RadiationProtection = Get(VanillaBuffNames.Entity.RadiationProtection);
 
+            //EXPAND Protection
+            public static readonly NamespaceID ExplosionProtection = Get(VanillaBuffNames.Entity.ExplosionProtection);
+            public static readonly NamespaceID RadiationProtection = Get(VanillaBuffNames.Entity.RadiationProtection);
+            public static readonly NamespaceID WitherProtection = Get(VanillaBuffNames.Entity.WitherProtection);
+            public static readonly NamespaceID FireProtection = Get(VanillaBuffNames.Entity.FireProtection);
         }
         public static class Armor
         {

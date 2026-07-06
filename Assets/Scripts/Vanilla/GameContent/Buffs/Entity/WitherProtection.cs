@@ -9,7 +9,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [AutoBuffDefinition(VanillaBuffNames.Enemy.WitherProtection)]
+    [AutoBuffDefinition(VanillaBuffNames.Entity.WitherProtection)]
     public class WitherProtection : BuffDefinition
     {
         public WitherProtection(string nsp, string name) : base(nsp, name)
