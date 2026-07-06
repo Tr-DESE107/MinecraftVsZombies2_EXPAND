@@ -3007,7 +3007,7 @@
 
                 <int name="mvz2:cost" value="150" />
 
-                <id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
+                <id name="mvz2:Category" value="mvz2:Touhou_Exp" />
             </properties>
         </entity>
         <entity template="enemy" id="zombie_cloud" name="僵尸云" deathMessage="你就云吧">
@@ -3782,7 +3782,7 @@
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </entity>
-        <entity template="WitherSkeleton_Exp" id="WitherSkeletonHorse" name="凋零骷髅马" deathMessage="死因：死马的领域伤害">
+        <entity template="enemy" id="WitherSkeletonHorse" name="凋零骷髅马" deathMessage="死因：死马的领域伤害">
             <unlock>
                 <condition required="mvz2:level.castle_11" />
             </unlock>
@@ -3864,7 +3864,7 @@
             </properties>
         </entity>
 
-        <entity template="witherSkeleton" id="Anubiskull" name="灵魂头王" deathMessage="全是头！">
+        <entity template="enemy" id="Anubiskull" name="灵魂头王" deathMessage="全是头！">
             <unlock>
                 <condition required="mvz2:level.castle_7" />
             </unlock>
@@ -4055,6 +4055,7 @@
             </behaviours>
             <properties>
                 <int name="mvz2:cost" value="100" />
+                <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:maxHealth" value="20" />
                 <int name="mvz2:waterInteraction" value="2" />
                 <id name="mvz2:deathSound" value="mvz2:pot_break" />
@@ -4125,7 +4126,7 @@
             </properties>
         </entity>
 
-        <entity template="specialEnemy" id="Endermite" name="末影螨" deathMessage="怎么被个土豆大小的螨虫害死了?">
+        <entity template="enemy" id="Endermite" name="末影螨" deathMessage="怎么被个土豆大小的螨虫害死了?">
             <unlock>
                 <condition required="mvz2:level.ship_6" />
             </unlock>
@@ -4378,7 +4379,6 @@
                 <float name="mvz2:takenCrushDamage" value="900" />
                 <bool name="mvz2:immuneVortex" value="true" />
                 <int name="mvz2:vehicleInteraction" value="2" />
-
                 <vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
 
                 <int name="mvz2:cost" value="600" />
@@ -4516,7 +4516,7 @@
             </properties>
         </entity>
 
-        <entity template="Mannequin_Exp" id="MannequinTNT" name="玩家模型TNT" deathMessage="触发后炸飞周围敌人">
+        <entity template="specialEnemy" id="MannequinTNT" name="玩家模型TNT" deathMessage="触发后炸飞周围敌人">
             <unlock>
                 <condition required="mvz2:level.TrueAndFalseSteve" />
             </unlock>
@@ -4537,6 +4537,7 @@
 
                 <int name="mvz2:cost" value="200" />
                 
+                <id name="mvz2:Category" value="mvz2:Mannequin_Exp" />
             </properties>
         </entity>
         <entity template="Mannequin_Exp" id="CannoneerMannequin" name="炮手玩家模型" deathMessage="开！炮！">

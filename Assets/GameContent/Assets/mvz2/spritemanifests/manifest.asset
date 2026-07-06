@@ -1353,6 +1353,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 53ae426afe3ebb8438ab6c1165ed0448, type: 3}
   - name: entity/enemies/ufo_spotlight
     sprite: {fileID: 21300000, guid: aff8b41543694e649bc9659d6b690072, type: 3}
+  - name: entity/enemies/ZombieFaceLight
+    sprite: {fileID: 21300000, guid: cd6ec462ddccd1d4abee8b74a69c200f, type: 3}
   - name: entity/enemies/ZombieHead
     sprite: {fileID: 21300000, guid: 3c7a2dce92dbdfb49b1162d3a0a8e913, type: 3}
   - name: entity/EXPAND_Enemy/KingofReverserWand

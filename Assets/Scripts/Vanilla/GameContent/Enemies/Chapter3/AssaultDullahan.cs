@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 param.SetProperty(LogicEnemyProps.PREVIEW_ENEMY, true);
             }
-            entity.Spawn(VanillaEnemyID.skeletonHorse, entity.Position, param)?.Let(e =>
+            entity.Spawn(VanillaEnemyID.WitherSkeletonHorse, entity.Position, param)?.Let(e =>
             {
                 entity.RideOn(e);
             });
@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 DropHead(enemy);
             }
-            else if (horse.IsEntityOf(VanillaEnemyID.skeletonHorse))
+            else if (horse.IsEntityOf(VanillaEnemyID.WitherSkeletonHorse))
             {
                 if (horse.State == SkeletonHorse.STATE_JUMP)
                 {

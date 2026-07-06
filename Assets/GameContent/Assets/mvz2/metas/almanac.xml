@@ -487,7 +487,7 @@
         </entry>
         <entry id="mvz2:soul_furnace">
             <variables>
-                <variable name="splash_damage">toDouble(global("mvz2:entity_damage")) * 0.25</variable>
+                <variable name="splash_damage">global("mvz2:entity_damage") * 0.25</variable>
             </variables>
             <header>
                 <p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要提供燃料。]]></p>
@@ -561,7 +561,7 @@
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>触发：<![CDATA[<color=red>触发后进入过载模式，每秒损失1点耐久，档位上升1级</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后损失75耐久并进入过载模式，每秒损失1点耐久，档位上升1级</color>]]></p>
                 <p>升级上限：<![CDATA[<color=red>5，过载模式可以短暂上升为6</color>]]></p>
                 <p>技能：<![CDATA[<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+挡位*1.5只大型箭矢（向下取整），而后自爆。</color>]]></p>
             </properties>
@@ -1215,6 +1215,9 @@
             <variables>
                 <variable name="gravel_damage">global("mvz2:entity_damage") * 2</variable>
             </variables>
+            <tags>
+                <tag id="mvz2:antifly"/>
+            </tags>
             <header>
                 <p>沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身的沙砾。</p>
             </header>
@@ -3134,7 +3137,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>每次收到伤害只算作受到1点伤害。</color>]]></p>
+                <p>特点：<![CDATA[<color=red>每次受到伤害只算作受到1点伤害。</color>]]></p>
             </properties>
             <flavor>
                 <p>有的倒霉蛋没能成仙，反倒是他们用的壶成了仙。</p>
@@ -4854,7 +4857,7 @@
                     <p>MCP-988-2是目标遭到MCP-988锁定时，间断产生的精神异常，表现为患者暂时失去针对自身手臂器官或义体的部分操控能力，每次持续约30秒。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:MegaSnipenser" name="狙击发射器" >
+            <entry id="mvz2:MegaSnipenser" name="超级狙击发射器" >
                 <unlock>
                     <condition required="mvz2:level.palace_6"/>
                 </unlock>
