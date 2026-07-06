@@ -460,7 +460,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 换格
-        public static void StartChangingGrid(this Entity entity, int column, int lane)
+        public static void StartChangingGrid(this Entity entity, int column, int lane, bool destroyConflict = true)
         {
             var buff = entity.GetFirstBuff<ChangeGridBuff>();
             if (buff == null)
@@ -471,11 +471,12 @@ namespace MVZ2.Vanilla.Entities
             column = Math.Clamp(column, 0, level.GetMaxColumnCount() - 1);
             lane = Math.Clamp(lane, 0, level.GetMaxLaneCount() - 1);
             ChangeGridBuff.Start(buff, column, lane);
-            var grid = level.GetGrid(column, lane);
-            if (grid != null)
+
+            if (destroyConflict)
             {
+                var grid = level.GetGrid(column, lane);
                 var layers = entity.GetGridLayersToTake();
-                if (layers != null)
+                if (grid != null && layers != null)
                 {
                     entity.DestroyConflictGridEntities(grid, layers);
                 }
@@ -1287,19 +1288,26 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 获取指针目标
-        public static Entity FindPointerTargetEntity(this Entity entity, float pointerPosition, Predicate<Entity> predicate)
+        public static Entity FindPointerTargetEntity(this Entity entity, float pointerPositionY, Vector2 screenPosition, Predicate<Entity> predicate)
         {
             var protector = entity;
             var protectTargets = entity.GetProtectingTargets();
             if (protectTargets != null && protectTargets.Length > 0)
             {
+                var gridPosition = entity.Level.ScreenToLawnPositionByRelativeY(screenPosition, 0);
+                var column = entity.Level.GetColumn(gridPosition.x);
+                var lane = entity.Level.GetLane(gridPosition.z);
+
                 // 存在保护中的目标。
                 var canUseOnProtector = predicate(protector);
-                var firstValidMainTarget = protectTargets.FirstOrDefault(t => predicate(t));
+                var firstValidMainTarget = protectTargets
+                    .OrderBy(t => Mathf.Abs(t.GetColumn() - column))
+                    .ThenBy(t => Mathf.Abs(t.GetLane() - lane))
+                    .FirstOrDefault(t => predicate(t));
 
                 // 主要层器械可以使用。
                 // 保护层器械不能使用，或者指向保护层器械上方。
-                if (firstValidMainTarget != null && (!canUseOnProtector || pointerPosition >= 0.5f))
+                if (firstValidMainTarget != null && (!canUseOnProtector || pointerPositionY >= 0.5f))
                 {
                     return firstValidMainTarget;
                 }

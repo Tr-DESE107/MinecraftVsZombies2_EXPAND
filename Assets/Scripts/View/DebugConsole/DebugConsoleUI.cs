@@ -25,6 +25,15 @@ namespace MVZ2.UI.DebugConsole
         public int GetStringPosition() => inputField.stringPosition - inputField.compositionLength;
         public void SetStringPosition(int position) => inputField.stringPosition = position;
         public void MoveToCommandEnd(bool shift) => inputField.MoveTextEnd(shift);
+        public void SetConsoleBottomMargin(float marginRatio)
+        {
+            var rectTransform = transform as RectTransform;
+            if (rectTransform.Exists() && rootRectTransform.Exists())
+            {
+                var yDelta = -marginRatio * rectTransform.rect.height;
+                rootRectTransform.sizeDelta = new Vector2(0, yDelta);
+            }
+        }
         public void Print(string text)
         {
             outputText.text += text;
@@ -43,7 +52,7 @@ namespace MVZ2.UI.DebugConsole
             inputField.Select();
         }
 
-        #region �Զ���ȫ
+        #region 自动补全
         public void ShowAutoCompletePanel()
         {
             autoCompletePanel.SetActive(true);
@@ -120,6 +129,9 @@ namespace MVZ2.UI.DebugConsole
         public event Action<bool>? OnInputFieldFocus;
         public event Action<int>? OnAutoCompleteItemClick;
         public event Action<bool>? OnAutoCompleteArrowButtonClick;
+
+        [SerializeField]
+        private RectTransform rootRectTransform = null!;
         [SerializeField]
         private Button closeButton = null!;
         [SerializeField]

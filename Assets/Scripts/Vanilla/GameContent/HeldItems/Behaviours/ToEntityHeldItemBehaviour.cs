@@ -47,13 +47,13 @@ namespace MVZ2.GameContent.HeldItems
                 case HeldItemTargetEntity entityTarget:
                     {
                         var entity = entityTarget.Target;
-                        var targetEntity = entity.FindPointerTargetEntity(entityTarget.PointerPosition.y, CanUseOnEntity);
+                        var targetEntity = entity.FindPointerTargetEntity(entityTarget.LocalPointerPosition.y, entityTarget.ScreenPosition, CanUseOnEntity);
                         return HeldHighlight.Entity(targetEntity);
                     }
                 case HeldItemTargetGrid gridTarget:
                     {
                         var grid = gridTarget.Target;
-                        var entityTarget = grid.FindPointerTargetEntity(gridTarget.PointerPosition.y, CanUseOnEntity, out var rangeMin, out var rangeMax);
+                        var entityTarget = grid.FindPointerTargetEntity(gridTarget.LocalPointerPosition.y, CanUseOnEntity, out var rangeMin, out var rangeMax);
                         if (entityTarget != null)
                         {
                             return HeldHighlight.Green(grid, rangeMin, rangeMax);
@@ -101,7 +101,7 @@ namespace MVZ2.GameContent.HeldItems
                 return;
 
             var entity = target.Target;
-            var targetEntity = entity.FindPointerTargetEntity(target.PointerPosition.y, CanUseOnEntity);
+            var targetEntity = entity.FindPointerTargetEntity(target.LocalPointerPosition.y, target.ScreenPosition, CanUseOnEntity);
             entity.Level.ResetHeldItem();
             if (targetEntity != null)
             {
@@ -115,7 +115,7 @@ namespace MVZ2.GameContent.HeldItems
                 return;
 
             var grid = target.Target;
-            var targetEntity = grid.FindPointerTargetEntity(target.PointerPosition.y, CanUseOnEntity, out _, out _);
+            var targetEntity = grid.FindPointerTargetEntity(target.LocalPointerPosition.y, CanUseOnEntity, out _, out _);
             grid.Level.ResetHeldItem();
             if (targetEntity != null)
             {

@@ -90,12 +90,12 @@ namespace MVZ2.GameContent.Artifacts
         public static void UpdateDisplayText(Artifact artifact)
         {
             var stringBuilder = new StringBuilder();
-            for (int i = 0; i < TYPE_COUNT; i++)
+            foreach (var type in typeOrder)
             {
-                var count = GetTypeCount(artifact, i);
+                var count = GetTypeCount(artifact, type);
                 if (count > 0)
                 {
-                    if (typeColorDict.TryGetValue(i, out var color))
+                    if (typeColorDict.TryGetValue(type, out var color))
                     {
                         stringBuilder.Append($"<color={color}>{count}</color>");
                     }
@@ -136,6 +136,13 @@ namespace MVZ2.GameContent.Artifacts
             { TYPE_GREEN, "#00FF00" },
             { TYPE_BLUE, "#0000FF" },
             { TYPE_DIAMOND, "#00FFFF" },
+        };
+        public static int[] typeOrder = new int[]
+        {
+            TYPE_GREEN,
+            TYPE_RED,
+            TYPE_BLUE,
+            TYPE_DIAMOND,
         };
     }
 }

@@ -16,25 +16,29 @@ namespace MVZ2Logic.HeldItems
     }
     public struct HeldItemTargetEntity : IHeldItemTarget
     {
-        public HeldItemTargetEntity(Entity target, Vector2 pointerPosition)
+        public HeldItemTargetEntity(Entity target, Vector2 localPointerPosition, Vector3 screenPosition)
         {
             Target = target;
-            PointerPosition = pointerPosition;
+            LocalPointerPosition = localPointerPosition;
+            ScreenPosition = screenPosition;
         }
         public LevelEngine GetLevel() => Target.Level;
         public Entity Target { get; }
-        public Vector2 PointerPosition { get; }
+        public Vector2 LocalPointerPosition { get; }
+        public Vector3 ScreenPosition { get; }
     }
     public struct HeldItemTargetGrid : IHeldItemTarget
     {
-        public HeldItemTargetGrid(LawnGrid target, Vector2 pointerPosition)
+        public HeldItemTargetGrid(LawnGrid target, Vector2 localPointerPosition, Vector3 screenPosition)
         {
             Target = target;
-            PointerPosition = pointerPosition;
+            LocalPointerPosition = localPointerPosition;
+            ScreenPosition = screenPosition;
         }
         public LevelEngine GetLevel() => Target.Level;
         public LawnGrid Target { get; }
-        public Vector2 PointerPosition { get; }
+        public Vector2 LocalPointerPosition { get; }
+        public Vector3 ScreenPosition { get; }
     }
     public struct HeldItemTargetLawn : IHeldItemTarget
     {

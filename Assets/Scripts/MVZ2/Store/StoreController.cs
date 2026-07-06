@@ -45,6 +45,11 @@ namespace MVZ2.Store
             var preset = filteredPresets.OrderByDescending(p => p.Priority).FirstOrDefault();
             SetPreset(preset);
         }
+        public override void Hide()
+        {
+            base.Hide();
+            character.RemovePortrait();
+        }
         public async void CheckStartTalks()
         {
             var loreTalks = Main.ResourceManager.GetCurrentStoreLoreTalks();

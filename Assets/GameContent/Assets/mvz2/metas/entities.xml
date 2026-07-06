@@ -1244,7 +1244,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
-        <entity template="contraption" id="desire_pot" name="欲望壶" tooltip="复制怪物身上的星之碎片">
+        <entity template="contraption" id="desire_pot" name="欲望壶" tooltip="复制怪物身上的星之碎片，最多三次">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.desire_pot" />
             </unlock>
@@ -1423,7 +1423,7 @@
         </entity>
 
         <!-- Palace Contraptions -->
-        <entity template="dispenser" id="transfenser" name="变形发射器" tooltip="发射光灵箭，或者瞄准最前方的敌人">
+        <entity template="dispenser" id="transfenser" name="变形发射器" tooltip="发射光灵箭，或者用激光穿透整行敌人">
             <unlock>
                 <condition requiredGroups="mvz2:contraption.transfenser" />
             </unlock>
@@ -4795,6 +4795,7 @@
                 <bool name="mvz2:notActiveEnemy" value="true" />
                 <bool name="mvz2:undead" value="false" />
                 <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:flying_enemy" value="true" />
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <id name="mvz2:crySound" null="true" />
                 <id name="mvz2:deathSound" value="mvz2:power_off" />
@@ -5056,6 +5057,7 @@
             <behaviours includeSelf="false">
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state" />
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
+                <behaviour operator="add" id="mvz2:set_animation_variant" />
                 <behaviour operator="add" id="mvz2:skeleton_mage" />
             </behaviours>
             <properties>
@@ -5066,6 +5068,7 @@
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
                 <bool name="mvz2:noReward" value="true" />
+                <id name="mvz2:shell" value="mvz2:nether" />
 
                 <int name="mvz2:cost" value="75" />
             </properties>
@@ -5272,6 +5275,7 @@
             <properties>
                 <int name="mvz2:waterInteraction" value="0" />
                 <float name="mvz2:maxHealth" value="3000" />
+                <id name="mvz2:shell" value="mvz2:normal" />
                 <vector3 name="mvz2:size" x="50" y="120" z="50" />
                 <color name="mvz2:bloodColor" value="#7F0000FF" />
                 <color name="mvz2:bloodColorCensored" value="#00007FFF" />
@@ -6094,6 +6098,7 @@
                 <bool name="mvz2:noDestroyOutsideLawn" value="true" />
                 <bool name="mvz2:pointToDirection" value="true" />
                 <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:ignore_force_pad" value="true" />
                 <float name="mvz2:range" value="120" />
                 <vector3 name="mvz2:size" x="24" y="100" z="24" />
                 <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />

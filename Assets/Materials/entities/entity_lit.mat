@@ -124,6 +124,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Grayscale: 0
+    - _GrayscaleMaterial: 0
     - _GreenAlpha: 0
     - _HSVTint: 0
     - _HurtAlpha: 0
@@ -148,6 +149,9 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _TerrainFlagReference: 0
+    - _TerrainFlagRequired: 0
+    - _TerrainFlagRequiredNot: 0
+    - _TerrainFlagReverse: 0
     - _TerrainMask: 0
     - _TexAlpha: 1
     - _UVSec: 0

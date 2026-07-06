@@ -115,9 +115,11 @@ namespace MVZ2.Level
                 var grid = level.GetGrid(column, lane);
                 if (grid != null)
                 {
-                    var pointerPosition = gridUI.TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
+                    var worldPosition = data.pointerCurrentRaycast.worldPosition;
+                    var screenPosition = data.pointerCurrentRaycast.screenPosition;
+                    var pointerPosition = gridUI.TransformWorld2ColliderPosition(worldPosition);
                     var pointerParams = InputHelper.GetPointerInteractionParamsFromEventData(data, interaction);
-                    var target = new HeldItemTargetGrid(grid, pointerPosition);
+                    var target = new HeldItemTargetGrid(grid, pointerPosition, screenPosition);
                     level.DoHeldItemPointerEvent(target, pointerParams);
                 }
             }

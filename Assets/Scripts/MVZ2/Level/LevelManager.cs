@@ -242,7 +242,7 @@ namespace MVZ2.Level
 
         public bool GetHPBarUnlocked()
         {
-            return Main.SaveManager.IsHPBarUnlockedOrDebug();
+            return Main.SaveManager.IsHPBarUnlocked() || Main.DebugManager.CanUseDebugFeatures();
         }
 
 

@@ -1,3 +1,80 @@
+# 0.6.4
+## Fixes
+- Fixed the issue where Nightmare Crushing Walls' direction being incorrect on the mobile devices.
+- Fixed the issue of incorrect detection height for the Skeleton Mage when it is on a high slope.
+- Fixed the issue where the Hellfire in the Mausoleum map does not animate.
+- Text and localization fixes.
+
+---
+
+# 0.6.3
+## Modified
+- Swapped the order of Parasite Terror spawning and damage infliction when a monster is parasitized by Mother Terror, to prevent the Cursed Candle from failing to kill the spawned Parasite Terrors.
+
+## Fixes
+- Fixed an issue where saves could not be properly saved on some Android devices.
+- Fixed an issue where the Soul Furnace could not ignite explosives.
+- Fixed an issue where using a pickaxe or Starshard on a contraption inside a Stone Shield would incorrectly target the Stone Shield when the mouse pointer is at a certain upper position.
+- Fixed an issue where Nightmare’s hit material was "Flesh" instead of "Normal".
+- Fixed an issue where Nightmare Crushing Walls displayed incorrectly when the view was inverted.
+- Fixed an issue where Ghosts would not spawn on empty paths.
+- Fixed an issue where Napstablook would not float.
+- Text and localization fixes.
+
+---
+
+# 0.6.2
+## Modified
+- Updated music "The Exacerbated Castle Keep".
+- Changed the order of gem colors in the display text of UFO Toy from "red, green, blue, cyan" to "green, red, blue, cyan".
+
+## Fixed
+- Fixed an issue where the almanac description of Mother Terror is different in Simplified Chinese and English.
+- Fixed an issue where the health bar of airborne monsters on the Palanquin Ship would keep shaking after they died.
+- Fixed an issue where some rolling ball projectiles were rendered incorrectly on the Palanquin Ship.
+- Fixed an issue where the Gargoyle Statue and Monster Spawner were missing the "taken tile layer" tag in the Almanac.
+- Fixed an issue where the Reverse Satellite was missing the "flying" tag in the Almanac.
+- Fixed an issue where the Skeleton Statue in its remains state would not disappear when submerged in water.
+- Made another attempt to fix the unresponsiveness caused by save file failures.
+- The daytime Nuke can no longer be ignited by fire or explosions.
+- Fixed an issue where the Red Dragon's tail swipe would destroy contraptions.
+- Fixed inaccurate tooltip descriptions for some artifacts.
+- Text and localization fixes.
+
+---
+
+# 0.6.1
+## Changes
+- Changed the level layouts of I, Zombie levels "Among Us" and "Break Apart".
+- Replaced a Transfenser and a Beacon of the Light Layout from I, Zombie Endless 2 with two Glowstones.
+- In the console on mobile devices, the text box will now appear above the virtual keyboard.
+- The Locked Chest no longer summons Balloons in the top lane.
+- Speed of entrance and exit of characters is no longer affected by framerate.
+- Missiles of Brick Cannon are no longer affected by Force Pad.
+- Cooling Cell will now select the blueprint with the longest remaining recharge time among all valid blueprints as its target.
+- Added several missing hyperlinks to the Almanac.
+
+## Fixed Issues
+- Fixed the issue of being unable to adjust cursor position in the debug console on Android devices.
+- Fixed the issue where sprites of the Nether Mage not changing depending on its types.
+- Fixed the issue where material of the Nether Mage not being nether.
+- Fixed the issue where resolution not updating after changing screen display settings.
+- Fixed the issue where The Locked Chest being stuck in place if petrified when it jumps and attempts to place a Wither Skull while summoning the Wither.
+- Fixed the issue of removing two Gravity Pads under a Brick Cannon with an pickaxe.
+- Fixed the issue where Wooden Dropper and Golden Dropper not attacking Shadow Cell.
+- Fixed the issue where resolution in settings displaying many decimal places.
+- Fixed the issue of missing shop character sprites after shop cutscenes.
+- Fixed the issue of skipping the first phase of the Giant fight by damaging it when it has very low health the moment it spawns.
+- Fixed the issue where chapter 6 cannot begin due to files not saving properly.
+- Fixed the issue where command Block-imitated blueprint pickups not being monochrome.
+- Fixed the issue where pebbles split from boulders dealing only 5 damage.
+- Fixed the issue where the rolling blocks summoned by The Locked Chest would not disappear after leaving the battlefield.
+- Fixed the issue where Stone Shields provide explosion resistance to enemy obstacles.
+- Fixed the issue where, even after Starshards were reset to zero or disabled, the held Starshard could still be used.
+- Texts and localization fixes.
+
+---
+
 # 0.6.0
 ## Added
 - Added chapter 6 - Palace of Earth Spirits.

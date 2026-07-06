@@ -24,27 +24,36 @@ namespace MVZ2.GameContent.IZombie
                 LogicBlueprintID.FromEntity(VanillaEnemyID.imp),
                 LogicBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
                 VanillaBlueprintID.ufoRed,
-                LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+                LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie)
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
-            FillColumn(map, 0, VanillaContraptionID.stoneShield);
-            FillColumn(map, 0, VanillaContraptionID.furnace);
-            FillColumn(map, 4, VanillaContraptionID.dreamCrystal);
+            FillColumn(map, 4, VanillaContraptionID.splitenser);
+            FillColumn(map, 0, VanillaContraptionID.gravityPad);
 
-            Insert(map, 2, 0, VanillaContraptionID.gunpowderBarrel);
-            Insert(map, 2, 2, VanillaContraptionID.gunpowderBarrel);
+            Insert(map, 0, 0, VanillaContraptionID.furnace);
+            Insert(map, 0, 1, VanillaContraptionID.soulFurnace);
+            Insert(map, 0, 2, VanillaContraptionID.repeatenser);
+            Insert(map, 0, 3, VanillaContraptionID.furnace);
+            Insert(map, 0, 4, VanillaContraptionID.furnace);
 
-            for (int lane = 0; lane < map.Lanes; lane++)
-            {
-                RandomFillAtLane(map, lane, VanillaContraptionID.splitenser, 1, rng);
-            }
+            Insert(map, 1, 4, VanillaContraptionID.noteBlock);
+            Insert(map, 2, 4, VanillaContraptionID.gunpowderBarrel);
+            Insert(map, 3, 4, VanillaContraptionID.furnace);
+            Insert(map, 1, 3, VanillaContraptionID.repeatenser);
+            Insert(map, 2, 3, VanillaContraptionID.furnace);
+            Insert(map, 3, 3, VanillaContraptionID.triplenser);
 
-            RandomFill(map, VanillaContraptionID.repeatenser, 2, rng);
+            Insert(map, 1, 1, VanillaContraptionID.gunpowderBarrel);
+            Insert(map, 1, 1, VanillaContraptionID.stoneShield);
+            Insert(map, 2, 1, VanillaContraptionID.furnace);
+            Insert(map, 3, 1, VanillaContraptionID.repeatenser);
+
+            RandomFill(map, VanillaContraptionID.repeatenser, 1, rng);
             RandomFill(map, VanillaContraptionID.triplenser, 3, rng);
-
-            RandomFill(map, VanillaContraptionID.furnace, 3, rng);
+            // RandomFill(map, VanillaContraptionID.splitenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 2, rng);
         }
     }
 }

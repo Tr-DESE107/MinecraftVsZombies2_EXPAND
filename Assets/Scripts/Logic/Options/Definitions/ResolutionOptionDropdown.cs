@@ -89,6 +89,6 @@ namespace MVZ2.GameContent.Options
             return Global.Localization.GetText(RESOLUTION_NAME, resolution.width, resolution.height, resolution.refreshRateRatio);
         }
         [TranslateMsg("分辨率名，{0}为宽，{1}为高,{2}为刷新率")]
-        public const string RESOLUTION_NAME = "{0}x{1} @{2}Hz";
+        public const string RESOLUTION_NAME = "{0}x{1} @{2:0.##}Hz";
     }
 }

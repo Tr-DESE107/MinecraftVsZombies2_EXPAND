@@ -165,8 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 4907137169488292120}
   _animator: {fileID: 85909185270243658}
-  idleBlendFactor: 0.2
+  smoothTime: 0.1
   idleBlendValue: 0.8
+  textureScale: 0.7
 --- !u!114 &4907137169488292120
 MonoBehaviour:
   m_ObjectHideFlags: 0

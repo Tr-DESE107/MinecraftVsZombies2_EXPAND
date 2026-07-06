@@ -49,9 +49,11 @@ namespace MVZ2.Vanilla.Grids
             var protectedLayers = VanillaGridLayers.protectedLayers;
             var hasProtector = protector != null;
 
+            var column = grid.Column;
+            var lane = grid.Lane;
             var protectedEntities = protectedLayers.Select(t => grid.GetLayerEntity(t)).OfType<Entity>();
             var hasMain = protectedEntities.Count() > 0;
-            var validMain = protectedEntities.FirstOrDefault(t => predicate(t));
+            var validMain = protectedEntities.FirstOrDefault(t => t.GetColumn() == column && t.GetLane() == lane && predicate(t));
 
             var canUseOnProtector = protector != null && predicate(protector);
             var canUseOnMain = validMain != null;

@@ -128,6 +128,7 @@ namespace MVZ2.Entities
         #region 更新
         public void UpdateFixed()
         {
+            renderAccumulator = 0;
             if (Model.Exists())
             {
                 Model.UpdateFixed();
@@ -136,6 +137,12 @@ namespace MVZ2.Entities
         }
         public void UpdateFrame(float deltaTime)
         {
+            // 1. 累加渲染时间（deltaTime 来源于系统的每帧耗时）
+            renderAccumulator += deltaTime;
+
+            // 避免极端情况下累加器溢出（比如切出游戏后返回）
+            renderAccumulator = Mathf.Min(renderAccumulator, maxRenderAccumulator);
+
             transform.position = GetInterpolatedTransformPosition();
             UpdateShadow();
             UpdateHeightIndicator();
@@ -215,10 +222,20 @@ namespace MVZ2.Entities
         }
         public Vector3 GetInterpolatedTransformPosition()
         {
+            // 2. 计算插值系数 alpha
+            // 它代表当前渲染时间，在“上一逻辑帧”到“当前逻辑帧”之间走了百分之多少
+            float alpha = renderAccumulator * Ticks.GetTPS() * Level.GetGameSpeed();
+            alpha = Mathf.Clamp01(alpha); // 确保在 0~1 之间
+
+            // 3. 执行线性插值（Lerp）
             var pos = Entity.Position;
             var currentTransPos = Level.LawnToTrans(pos);
             var posOffset = GetTransformOffset();
-            return Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
+            var currPosition = currentTransPos + posOffset;
+            Vector3 smoothPosition = Vector3.Lerp(lastPosition, currPosition, alpha);
+
+            // 4. 将最终平滑后的位置赋值给渲染组件（如 Mesh / SpriteRenderer）
+            return smoothPosition;
         }
         public Vector3 GetInterpolatedTransformPositionOffset()
         {
@@ -229,19 +246,17 @@ namespace MVZ2.Entities
         #endregion
 
         #region 手持物品
-        public HeldItemTargetEntity GetHeldItemTarget(Vector3 worldPosition)
+        public HeldItemTargetEntity GetHeldItemTarget(Vector3 worldPosition, Vector3 screenPosition)
         {
             var pos = TransformWorld2ColliderPosition(worldPosition);
-            return new HeldItemTargetEntity(Entity, pos);
+            return new HeldItemTargetEntity(Entity, pos, screenPosition);
         }
         public HeldItemTargetEntity GetHeldItemTarget(PointerEventData data)
         {
-            var pos = Vector2.zero;
-            if (data != null)
-            {
-                pos = TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
-            }
-            return new HeldItemTargetEntity(Entity, pos);
+            var worldPosition = data.pointerCurrentRaycast.worldPosition;
+            var screenPosition = data.pointerCurrentRaycast.screenPosition;
+            var pos = TransformWorld2ColliderPosition(worldPosition);
+            return new HeldItemTargetEntity(Entity, pos, screenPosition);
         }
         #endregion
 
@@ -806,11 +821,14 @@ namespace MVZ2.Entities
         private bool isHighlight;
         private bool twinkling;
         private EntityCursorSource? _cursorSource;
+        private float renderAccumulator;
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface = null!;
         private IHPBarSource hpBarSource = null!;
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
         private List<Animator> animatorBuffer = new List<Animator>();
+        [SerializeField]
+        private float maxRenderAccumulator = 1f;
         [SerializeField]
         private ShadowController shadow = null!;
         [SerializeField]

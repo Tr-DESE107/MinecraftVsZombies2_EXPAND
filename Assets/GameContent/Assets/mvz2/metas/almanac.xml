@@ -1343,7 +1343,7 @@
             </properties>
             <flavor>
                 <p>传说在先古时期，有人用一种蓝色的东西作为核心，创造了一座尖塔。</p>
-                <p>尖塔中存在着各式各样的宝物，塔内也有着四个生物。</p>
+                <p>尖塔中存在着各式各样的宝物，也有着四个生物。</p>
                 <p>有一天，这座尖塔就被杀戮了，它在之后再也没有出现过。</p>
             </flavor>
         </entry>
@@ -1705,7 +1705,7 @@
                 <p>御天信标一直都是器械界的一位大歌星——我没在开双关玩笑，它是真的很有人气。</p>
                 <p>在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。</p>
                 <p><![CDATA[它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和<ref=[contraptions]mvz2:stone_dropper>石制投掷器</ref>算是不错的朋友，但它也非常讨厌骷髅头。]]></p>
-                <p>不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）</p>
+                <p>不过它有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）</p>
             </flavor>
         </entry>
 
@@ -2452,7 +2452,7 @@
                 <variable name="laid_speed">toDouble(global("mvz2:entity_speed")) * 0.3</variable>
             </variables>
             <header>
-                <p>恐怖之母会向血肉之躯寄生虫卵。</p>
+                <p>恐怖之母会向血肉之躯寄生虫卵。如果它们在没有产卵的情况下死亡，也会释放<![CDATA[<ref=[enemies]mvz2:parasite_terror>恐怖寄生虫</ref>]]>。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
@@ -4645,7 +4645,7 @@
                     <variable name="duration">10</variable>
                 </variables>
                 <header>
-                    <p>在梦境世界中的一大波怪物来临时，太阳突然异常消失，产生黑暗。</p>
+                    <p>在<![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>中的一大波怪物来临时，太阳突然异常消失，产生黑暗。</p>
                 </header>
                 <properties>
                     <p>持续时间：<![CDATA[<color=red><var local="duration"/>秒</color>]]></p>
@@ -4913,7 +4913,7 @@
                 </unlock>
                 <picture sprite="mvz2:characters/doremy[0]" character="mvz2:doremy" />
                 <header>
-                    <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
+                    <p>哆来咪·苏伊特是<![CDATA[<ref=[misc]mvz2:dream_world>梦境世界</ref>]]>的管理者，管理着人们的梦境。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>Cuerzor58</color>]]></p>
@@ -5273,7 +5273,7 @@
                 </unlock>
                 <picture sprite="mvz2:misc/dream" />
                 <header>
-                    <p>梦境世界是由哆来咪管理的，所有人的梦境所处的地方。</p>
+                    <p>梦境世界是由<![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>]]>管理的，所有人的梦境所处的地方。</p>
                 </header>
                 <flavor>
                     <p>所有生物的梦境都互相连通，而梦境世界就是这些梦境所处的地方。</p>

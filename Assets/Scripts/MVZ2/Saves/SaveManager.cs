@@ -57,7 +57,8 @@ namespace MVZ2.Saves
             lock (_saveLock)
             {
                 // 1. 将存档写入临时文件。
-                var tempSavePath = GetUserModSaveDataTempPath(userIndex, spaceName);
+                var guid = Guid.NewGuid().ToString("N");
+                var tempSavePath = Path.Combine(Application.temporaryCachePath, $"save_validate_{guid}.tmp");
                 FileHelper.ValidateDirectory(tempSavePath);
                 var serializable = modSaveData.ToSerializable();
                 var metaJson = serializable.ToBson();
@@ -72,21 +73,47 @@ namespace MVZ2.Saves
                 catch (Exception e)
                 {
                     Log.LogWarning($"保存用户{userIndex}的Mod{spaceName}的存档文件时发生错误，存档文件验证失败：{e}");
-                    File.Delete(tempSavePath);
+                    if (File.Exists(tempSavePath)) 
+                        File.Delete(tempSavePath);
                     return;
                 }
 
                 // 3. 写入临时文件成功后，将备份文件和之前的存档文件写入备份。
                 CycleSaveDataBackups(userIndex, spaceName);
 
-                // 4. 用临时文件替换之前的存档文件。
+                // 4. 用临时文件替换之前的存档文件
                 var destPath = GetUserModSaveDataPath(userIndex, spaceName, 0);
                 var backupPath = GetUserModSaveDataPath(userIndex, spaceName, 1);
                 FileHelper.ValidateDirectory(destPath);
-                if (File.Exists(destPath))
-                    File.Replace(tempSavePath, destPath, backupPath);
-                else
-                    File.Move(tempSavePath, destPath);
+
+                try
+                {
+                    // 如果原存档存在，将其安全移至备份路径
+                    if (File.Exists(destPath))
+                    {
+                        File.Copy(destPath, backupPath, true);
+                    }
+                	
+                    // 因为跨分区/跨目录，放弃使用 File.Move
+                    // 直接采用 File.Copy (覆盖模式)，在 Android 上这是最安全、权限通过率最高的底层 IO 方式
+                    File.Copy(tempSavePath, destPath, true);
+                }
+                catch (Exception e)
+                {
+                    Log.LogError($"正式存档写入失败（Cache -> Persist）: {e}");
+                }
+                finally
+                {
+                    // 无论正式写入成功还是失败，都把 cache 里的临时文件擦干净
+                    try
+                    {
+                        if (File.Exists(tempSavePath))
+                        {
+                            File.Delete(tempSavePath);
+                        }
+                    }
+                    catch { /* 缓存文件删不掉也无所谓，系统后续会自动清理 */ }
+                }
             }
         }
         private void CycleSaveDataBackups(int userIndex, string spaceName)
@@ -427,10 +454,6 @@ namespace MVZ2.Saves
                 filename = $"user.dat.bak{backupIndex}";
             }
             return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), filename);
-        }
-        public string GetUserModSaveDataTempPath(int userIndex, string spaceName)
-        {
-            return Path.Combine(GetUserModSaveDataDirectory(userIndex, spaceName), "user.dat.temp");
         }
         #endregion
 

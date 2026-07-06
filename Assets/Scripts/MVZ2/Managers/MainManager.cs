@@ -48,9 +48,9 @@ namespace MVZ2.Managers
             InitSerializable();
             LogInformations();
             await LoadManagersInit();
-            Scene.Init();
             ModManager.PostGameInit();
             initialized = true;
+            Scene.Init();
         }
         public void UpdateManagerFixed()
         {

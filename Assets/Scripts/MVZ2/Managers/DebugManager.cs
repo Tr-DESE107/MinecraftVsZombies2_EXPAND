@@ -18,7 +18,11 @@ namespace MVZ2.Debugs
         }
         public bool CanUseDebugFeatures(string? username)
         {
-            return Application.isEditor || Main.SaveManager.IsDebugUserName(username);
+            if (Application.isEditor && !disableDebugFeatures)
+                return true;
+            if (Main.SaveManager.IsDebugUserName(username))
+                return true;
+            return false;
         }
         public async void ExportLogFiles()
         {
@@ -55,5 +59,8 @@ namespace MVZ2.Debugs
         public const string ERROR_NOT_EXPORTED = "导出日志失败。";
         [TranslateMsg("日志导出成功的提示，{0}为路径")]
         public const string HINT_EXPORTED = "日志已导出至{0}。";
+
+        [SerializeField]
+        private bool disableDebugFeatures = false;
     }
 }

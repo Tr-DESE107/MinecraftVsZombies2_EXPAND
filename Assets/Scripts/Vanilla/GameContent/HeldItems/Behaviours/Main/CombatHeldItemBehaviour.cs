@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         public bool IsValid(LevelEngine level, IHeldItemData data)
         {
-            return level.GetStarshardCount() > 0 && level.CanUseStarshard();
+            return level.GetStarshardCount() > 0 && level.CanUseStarshard() && level.GetStarshardHeldType() == data.Type;
         }
         public override HeldHighlight GetHighlight(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {

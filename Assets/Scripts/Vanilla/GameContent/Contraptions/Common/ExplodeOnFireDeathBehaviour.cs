@@ -26,6 +26,8 @@ namespace MVZ2.GameContent.Contraptions
                 !info.HasEffect(VanillaDamageEffects.FIRE) &&
                 !info.HasEffect(VanillaDamageEffects.EXPLOSION))
                 return;
+            if (entity.NoExplosion())
+                return;
             var range = entity.GetRange();
             var damage = entity.GetDamage();
             entity.BehaviourExplode(range, damage);

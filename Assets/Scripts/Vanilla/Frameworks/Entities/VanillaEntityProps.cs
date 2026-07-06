@@ -366,6 +366,30 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<float>(TAKEN_CRUSH_DAMAGE);
         }
+
+        #region 无视传动力板
+
+        public static readonly PropertyMeta<bool> IGNORE_FORCE_PAD = Get<bool>("ignore_force_pad");
+        public static bool IgnoreForcePad(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(IGNORE_FORCE_PAD);
+        }
+        public static bool IgnoreForcePad(this Entity entity)
+        {
+            return entity.GetProperty<bool>(IGNORE_FORCE_PAD);
+        }
+
+        #endregion
+
+        #region 禁止爆炸
+        public static readonly PropertyMeta<bool> NO_EXPLOSION = Get<bool>("no_explosion");
+
+        public static bool NoExplosion(this Entity entity)
+        {
+            return entity.GetProperty<bool>(NO_EXPLOSION);
+        }
+        #endregion
+
         #region 分类  
         public static readonly PropertyMeta<NamespaceID> CATEGORY = Get<NamespaceID>("Category");
         public static NamespaceID GetCategory(this EntityDefinition definition)

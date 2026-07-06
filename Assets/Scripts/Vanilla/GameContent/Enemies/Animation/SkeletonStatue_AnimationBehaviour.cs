@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Enemies
         protected override void ModifyAnimationParameters(Entity entity, int state, ref AnimationParameters parameters)
         {
             base.ModifyAnimationParameters(entity, state, ref parameters);
-            if (state == STATE_REVIVING)
+            if (state == STATE_REVIVING || state == STATE_DEATH)
             {
                 parameters.walkState = WALK_STATE_NONE;
                 parameters.armState = ARM_STATE_NONE;

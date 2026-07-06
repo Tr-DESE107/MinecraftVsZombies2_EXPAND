@@ -35,10 +35,13 @@ namespace MVZ2.GameContent.Detections
         {
             if (!collider.IsForMain())
                 return false;
-            var target = collider.Entity;
-            if (target == null)
+            return base.ValidateCollider(param, collider);
+        }
+        public override bool ValidateTarget(DetectionParams self, Entity target)
+        {
+            if (!base.ValidateTarget(self, target))
                 return false;
-            if (target.IsDead)
+            if (target.IgnoreForcePad())
                 return false;
             return true;
         }

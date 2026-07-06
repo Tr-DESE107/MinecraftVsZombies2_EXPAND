@@ -1035,33 +1035,41 @@ namespace MVZ2.GameContent.Bosses
         #region 咳嗽
         private static int GetNextCoughType(Entity entity)
         {
-            var usedCoughType = GetUsedCoughType(entity);
+            List<int> validCoughTypes = new List<int>();
+            GetValidCoughTypes(entity, validCoughTypes);
 
-            if ((usedCoughType & COUGH_TYPE_MASK) == COUGH_TYPE_MASK)
+            if (validCoughTypes.Count <= 0)
             {
-                usedCoughType = 0;
+                SetUsedCoughType(entity, 0);
+                GetValidCoughTypes(entity, validCoughTypes);
             }
 
-            List<int> unusedCoughTypes = new List<int>();
-            for (int i = 0; i < COUGH_TYPE_COUNT; i++)
-            {
-                if ((usedCoughType & (1 << i)) != 0)
-                    continue;
-                unusedCoughTypes.Add(i);
-            }
             int coughType;
-            if (unusedCoughTypes.Count <= 0)
+            if (validCoughTypes.Count <= 0)
             {
-                coughType = COUGH_TYPE_PISTENSER;
+                coughType = COUGH_TYPE_PUNCHTON;
             }
             else
             {
-                coughType = unusedCoughTypes.Random(entity.RNG);
+                coughType = validCoughTypes.Random(entity.RNG);
             }
 
+            var usedCoughType = GetUsedCoughType(entity);
             usedCoughType |= 1 << coughType;
             SetUsedCoughType(entity, usedCoughType);
             return coughType;
+        }
+        private static void GetValidCoughTypes(Entity entity, List<int> results)
+        {
+            var usedCoughType = GetUsedCoughType(entity);
+            foreach (var type in coughTypePool)
+            {
+                if ((usedCoughType & (1 << type.Number)) != 0)
+                    continue;
+                if (!type.IsValid(entity))
+                    continue;
+                results.Add(type.Number);
+            }
         }
         private class CoughState : EntityStateMachineState
         {
@@ -1259,7 +1267,6 @@ namespace MVZ2.GameContent.Bosses
                 switch (GetCoughType(entity))
                 {
                     case COUGH_TYPE_PISTENSER:
-                    default:
                         ReleaseBalloon(entity);
                         break;
                     case COUGH_TYPE_WOODEN_FAN:
@@ -1269,6 +1276,7 @@ namespace MVZ2.GameContent.Bosses
                         ReleaseRollingBlock(entity, VanillaEnemyID.rollingWood);
                         break;
                     case COUGH_TYPE_PUNCHTON:
+                    default:
                         ReleaseRollingBlock(entity, VanillaEnemyID.rollingStone);
                         break;
                 }
@@ -2528,7 +2536,7 @@ namespace MVZ2.GameContent.Bosses
                         break;
                     case SUBSTATE_JUMP1:
                     case SUBSTATE_JUMP2:
-                        if (entity.Velocity.y < 0)
+                        if (entity.Velocity.y <= 0.00001f) // 在向上跳，还没有放置头颅的情况下被石化，解除石化后会导致状态卡死，所以用小于0.000001
                         {
                             stateMachine.StartSubState(entity, substate + 1);
                             if (substateProgresses.TryGetValue(substate, out var progress))
@@ -2538,7 +2546,7 @@ namespace MVZ2.GameContent.Bosses
                         }
                         break;
                     case SUBSTATE_JUMP3:
-                        if (entity.Velocity.y < 0)
+                        if (entity.Velocity.y <= 0.00001f) // 在向上跳，还没有放置头颅的情况下被石化，解除石化后会导致状态卡死，所以用小于0.000001
                         {
                             var blocks = GetBlocks(entity);
                             if (blocks.ExistsAndAlive())
@@ -2960,8 +2968,8 @@ namespace MVZ2.GameContent.Bosses
         public const int COUGH_TYPE_WOODEN_FAN = 1;
         public const int COUGH_TYPE_SOUL_FURNACE = 2;
         public const int COUGH_TYPE_PISTENSER = 3;
-        public const int COUGH_TYPE_COUNT = 4;
-        public const int COUGH_TYPE_MASK = (1 << COUGH_TYPE_COUNT) - 1;
+
+
         private static EntityStateMachine stateMachine = new LockedChestStateMachine();
         private static Detector crushDetector = new GridDetector(true);
         private static Detector collisionDetector = new CollisionDetector(true);
@@ -2978,6 +2986,13 @@ namespace MVZ2.GameContent.Bosses
             new FiveSmashesAction(VanillaStrings.LOCKED_CHEST_ACTION_FIVE_SMASHES),
             new HyperbeamAction(VanillaStrings.LOCKED_CHEST_ACTION_HYPERBEAM),
             new FourSoulsAction(VanillaStrings.LOCKED_CHEST_ACTION_FOUR_SOULS),
+        };
+        private static CoughType[] coughTypePool = new CoughType[]
+        {
+            new CoughTypePunchton(),
+            new CoughTypeWoodenFan(),
+            new CoughTypeSoulFurnace(),
+            new CoughTypePistenser(),
         };
 
 
@@ -3050,6 +3065,42 @@ namespace MVZ2.GameContent.Bosses
             STATE_JUMP,
             STATE_PAY_TO_WIN,
         };
+
+        private abstract class CoughType
+        {
+            public CoughType(int number)
+            {
+                Number = number;
+            }
+            public virtual bool IsValid(Entity entity)
+            {
+                return true;
+            }
+            public int Number { get; }
+        }
+        private class CoughTypePunchton : CoughType
+        {
+            public CoughTypePunchton() : base(COUGH_TYPE_PUNCHTON) { }
+        }
+        private class CoughTypeWoodenFan : CoughType
+        {
+            public CoughTypeWoodenFan() : base(COUGH_TYPE_WOODEN_FAN) { }
+        }
+        private class CoughTypeSoulFurnace : CoughType
+        {
+            public CoughTypeSoulFurnace() : base(COUGH_TYPE_SOUL_FURNACE) { }
+        }
+        private class CoughTypePistenser : CoughType
+        {
+            public CoughTypePistenser() : base(COUGH_TYPE_PISTENSER) { }
+            public override bool IsValid(Entity entity)
+            {
+                if (entity.GetLane() == 0) // 第一路不出气球。
+                    return false;
+                return base.IsValid(entity);
+            }
+        }
+
         private abstract class PayToWinAction
         {
             protected PayToWinAction(string nameKey)

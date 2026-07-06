@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-05-24 04:52+0800\n"
-"PO-Revision-Date: 2026-05-24 22:52+0800\n"
+"POT-Creation-Date: 2026-06-17 08:49+0800\n"
+"PO-Revision-Date: 2026-06-17 20:50+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -593,7 +593,7 @@ msgstr "Doubles the blueprint recharge speed for 30 seconds"
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:45
 msgctxt "random_china.event_name"
 msgid "VIII-力量"
-msgstr "VII - Strength"
+msgstr "VIII - Strength"
 
 # 随机瓷器事件描述
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\StrengthEvent.cs:47
@@ -604,8 +604,8 @@ msgstr "All enemy monsters grow big"
 # 随机瓷器事件名称
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheChariotEvent.cs:38
 msgctxt "random_china.event_name"
-msgid "XII-战车"
-msgstr "XII - The Chariot"
+msgid "VII-战车"
+msgstr "VII - The Chariot"
 
 # 随机瓷器事件描述
 #: Scripts\Vanilla\GameContent\RandomChinaEvents\Tarots\TheChariotEvent.cs:40
@@ -1411,26 +1411,26 @@ msgstr ""
 msgid "已跳过对话\"{0}\""
 msgstr "Dialogue skipped: {0}"
 
-#: Scripts\MVZ2\Store\StoreController.cs:299
+#: Scripts\MVZ2\Store\StoreController.cs:304
 msgid "购买物品"
 msgstr "Purchase"
 
-#: Scripts\MVZ2\Store\StoreController.cs:301
+#: Scripts\MVZ2\Store\StoreController.cs:306
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgid_plural "确定以{0:N0}的价格买下这个物品？"
 msgstr[0] "Are you sure you want to purchase this for {0:N0}?"
 msgstr[1] "Are you sure you want to purchase this for {0:N0}?"
 
-#: Scripts\MVZ2\Store\StoreController.cs:303
+#: Scripts\MVZ2\Store\StoreController.cs:308
 msgid "金钱不足"
 msgstr "Not Enough Money"
 
-#: Scripts\MVZ2\Store\StoreController.cs:305
+#: Scripts\MVZ2\Store\StoreController.cs:310
 msgid "你没有足够的金钱！"
 msgstr ""
 "You don't have enough money! Come back when you're a little mmmm... richer!"
 
-#: Scripts\MVZ2\Store\StoreController.cs:307
+#: Scripts\MVZ2\Store\StoreController.cs:312
 msgid "{0}/{1}"
 msgstr "{0}/{1}"
 
@@ -2561,26 +2561,26 @@ msgid "中文"
 msgstr "English (United States)"
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:789
+#: Scripts\MVZ2\Entities\EntityController.cs:804
 msgid "死亡"
 msgstr "Dead"
 
 # 血条的文字
-#: Scripts\MVZ2\Entities\EntityController.cs:791
+#: Scripts\MVZ2\Entities\EntityController.cs:806
 msgid "摧毁"
 msgstr "Destroyed"
 
-#: Scripts\MVZ2\Entities\EntityController.cs:793
+#: Scripts\MVZ2\Entities\EntityController.cs:808
 msgid "{0}"
 msgstr "{0}"
 
 # 日志导出失败的警告
-#: Scripts\MVZ2\Managers\DebugManager.cs:54
+#: Scripts\MVZ2\Managers\DebugManager.cs:58
 msgid "导出日志失败。"
 msgstr "Failed to export logs."
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Managers\DebugManager.cs:56
+#: Scripts\MVZ2\Managers\DebugManager.cs:60
 msgid "日志已导出至{0}。"
 msgstr "The log files have been successfully exported to {0}."
 
@@ -2802,8 +2802,8 @@ msgid "全部"
 msgstr "All"
 
 #: Scripts\Logic\Options\Definitions\ResolutionOptionDropdown.cs:89
-msgid "{0}x{1} @{2}Hz"
-msgstr "{0}x{1} @{2}Hz"
+msgid "{0}x{1} @{2:0.##}Hz"
+msgstr "{0}x{1} @{2:0.##}Hz"
 
 #: Scripts\Logic\Options\Definitions\ScreenLayoutOptionDropdown.cs:52
 msgctxt "option.screen_layout"
@@ -4252,7 +4252,6 @@ msgid ""
 "因为老大哥在看着我。"
 msgstr ""
 "The theme for Wither.\n"
-"The theme of the Wither.\n"
 "As previously mentioned regarding the story of Lex in <I>Bookworm Adventures "
 "Vol. 2</i>, let’s skip the fifth book and focus on the sixth.\n"
 "The sixth book that Lex travels through, which is also the final one, is "

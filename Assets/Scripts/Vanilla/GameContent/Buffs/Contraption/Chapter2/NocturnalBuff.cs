@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.nocturnal, VanillaModelID.nocturnal);
             AddModifier(new BooleanModifier(VanillaEntityProps.AI_FROZEN, true));
+            AddModifier(new BooleanModifier(VanillaEntityProps.NO_EXPLOSION, true));
         }
     }
 }

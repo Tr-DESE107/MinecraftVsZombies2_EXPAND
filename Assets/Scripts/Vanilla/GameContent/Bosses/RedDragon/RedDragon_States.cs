@@ -1973,7 +1973,7 @@ namespace MVZ2.GameContent.Bosses
                             }
                             else
                             {
-                                gridEntity.StartChangingGrid(x, targetLane);
+                                gridEntity.StartChangingGrid(x, targetLane, false);
                             }
                             gridEntity.PlaySound(VanillaSoundID.punch, 0.75f);
                         }
