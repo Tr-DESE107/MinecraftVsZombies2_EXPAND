@@ -14,23 +14,22 @@ using UnityEngine;
 namespace MVZ2.GameContent.Buffs.Enemies
 {
     /// <summary>
-    /// WitherHeartShieldResistanceBuff��
-    /// ֻ�ṩ�˺�����Ч�����ҵ����ﴦ�ڹ���״̬ʱ������
-    /// �������κ��Ӿ����黯����
+    /// 凋零之心护盾抗性Buff
+    /// 只提供伤害减免效果，并且当怪物处于攻击状态时触发
+    /// 不包含任何视觉层变化
     /// </summary>
     [AutoBuffDefinition(VanillaBuffNames.Enemy.WitherHeartShieldResistanceBuff)]
     public class WitherHeartShieldResistanceBuff : BuffDefinition
     {
         public WitherHeartShieldResistanceBuff(string nsp, string name) : base(nsp, name)
         {
-            // ע��ʵ������ǰ�Ļص�������ʵ�ּ��˻���
+            // 注册实体伤害前的回调来实现减伤逻辑
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.ResistanceShield, VanillaModelID.ResistanceShield);
-
         }
 
         /// <summary>
-        /// �˺�ǰ�ص����ж��Ƿ�ӵ�и�Buff���ҹ���ǹ���״̬ʱӦ�ü��˱���
+        /// 伤害前回调：判断是否拥有该Buff且处于攻击状态时应用减伤倍数
         /// </summary>
         private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
         {
@@ -55,11 +54,13 @@ namespace MVZ2.GameContent.Buffs.Enemies
             // 非飞行怪物受到的伤害减少75%。
             if (entity.IsHostileEntity() && !entity.HasBuff<FlyBuff>())
             {
-                multiplier *= 0.25f;
-                // 但在攻击时额外受到25%额外伤害。
                 if (entity.State == STATE_MELEE_ATTACK)
                 {
-                    multiplier *= 1.25f;
+                    multiplier *= 1.25f; // 近战攻击时增伤  
+                }
+                else
+                {
+                    multiplier *= 0.25f; // 常态减伤 75%  
                 }
             }
 
@@ -67,8 +68,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
             damageInfo.Multiply(Mathf.Pow(multiplier, buffCount));
         }
 
-        // �������б������ÿ�η��䣬��������
-        private List<Buff> buffBuffer = new List<Buff>();
         public const int STATE_MELEE_ATTACK = LogicEnemyStates.MELEE_ATTACK;
     }
 }
