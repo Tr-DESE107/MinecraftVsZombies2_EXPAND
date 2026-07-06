@@ -394,7 +394,7 @@
             </properties>
         </WINtherSkeleton_Exp>
 
-        <Ghost_Exp type="2" parent="enemy">
+        <Ghost_Exp type="2" parent="humanoid">
             <properties>
                 <float name="mvz2:friction" value="0.05" />
                 <float name="mvz2:mass" value="-2" />
