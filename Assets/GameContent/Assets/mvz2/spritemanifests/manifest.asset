@@ -1886,6 +1886,11 @@ MonoBehaviour:
     - {fileID: 1686918570674494234, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
     - {fileID: -4745778892844803770, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
     - {fileID: 4039136606957829479, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+  - name: map_buttonL
+    spritesheet:
+    - {fileID: -1955369687, guid: 9d700d1bd0426824091787f43b64ecb5, type: 3}
+    - {fileID: 584878866, guid: 9d700d1bd0426824091787f43b64ecb5, type: 3}
+    - {fileID: 1445282326, guid: 9d700d1bd0426824091787f43b64ecb5, type: 3}
   - name: portal
     spritesheet:
     - {fileID: 21300000, guid: f1647e2400793da43be7f9344136d81d, type: 3}

@@ -5937,6 +5937,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 504d6a3b8dea1eb4c94ff8ae90b12603
+    m_Address: mvz2:enemy/castle/RaiderSkull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 508b6af64add28a4aa27df24e84640ff
     m_Address: mvz2:map/dream/map
     m_ReadOnly: 0
@@ -15544,13 +15551,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dc3e837e38e396f4ab8cb7af2c11cfe8
-    m_Address: mvz2:characters/EXPAND_Characters/CrazyVillager_ChineseNewYear
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc3f43337866cef4c94af92af1159b8f
     m_Address: mvz2:mobile_blueprint/drivenser
     m_ReadOnly: 0
@@ -17957,13 +17957,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ff989c427abfeb046b9f07f43b467858
-    m_Address: mvz2:enemy/castle/RaiderSkull
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff9eff07fe22a764e83ed19a25169123
     m_Address: mvz2:entity/EXPAND_Enemy/RandomMannequin
     m_ReadOnly: 0
@@ -18001,13 +17994,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffe7678ba632c984daedf8d9223f6c42
     m_Address: mvz2:entity/effects/nightmare_portal_frame_censored
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fffbd509c304b904e9fcedd4125885ac
-    m_Address: mvz2:map_buttonL
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
