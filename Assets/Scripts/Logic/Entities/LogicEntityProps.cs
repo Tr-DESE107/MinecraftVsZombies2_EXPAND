@@ -280,6 +280,9 @@ namespace MVZ2Logic.Entities
             return definition.GetProperty<int>(LIGHT_LEVEL);
         }
 
+        // 该实体的 WraithBuff 能被哪些光照等级照亮(int 数组)  
+        public static readonly PropertyMeta<int[]> WRAITH_REQUIRED_LIGHT_LEVELS = Get<int[]>("wraithRequiredLightLevels");
+
         //EXPAND ADD End
 
         #endregion

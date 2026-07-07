@@ -356,7 +356,6 @@
             </conditions>
         </override>
     </model>
-    -->
     <model name="shikaisen_staff" type="entity" path="mvz2:enemy/mausoleum/shikaisen_staff" width="24" height="64" xOffset="0" yOffset="-26" />
     <model name="nether_hunter" type="entity" path="mvz2:enemy/palace/nether_hunter" width="77" height="120" xOffset="12" yOffset="-55">
         <armorconfig>mvz2:humanoid</armorconfig>
@@ -545,6 +544,11 @@
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="SailorZombie" type="entity" path="mvz2:enemy/ship/SailorZombie" width="64" height="100" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    
+    <!--EXPAND Enemies C6-->
+    <model name="WraithWarrior" type="entity" path="mvz2:enemy/palace/WraithWarrior" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 
