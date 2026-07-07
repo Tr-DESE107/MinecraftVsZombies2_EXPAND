@@ -6,16 +6,12 @@ using System.Linq;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Collisions;
 using PVZEngine.Collisions.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using Tools.Geometrical;
 using UnityEngine;
 
@@ -34,6 +30,11 @@ namespace MVZ2.Level.Components
             if (Level.IsTimeInterval(4) || lightDirty)
             {
                 UpdateLighting();
+            }
+            else
+            {
+                // 非全量帧：只对移动中的光源做增量刷新（如飞行中的箭）  
+                UpdateMovingLightSources();
             }
         }
 
@@ -189,6 +190,42 @@ namespace MVZ2.Level.Components
             CollectEntities();
             UpdateIllumination();
         }
+        private void UpdateMovingLightSources()
+        {
+            for (int i = 0; i < lightSources.Count; i++)
+            {
+                var lightSource = lightSources[i];
+                if (lightSource == null || !lightSource.Exists())
+                    continue;
+                var center = lightSource.GetCenter();
+                // 位置未变化则跳过，避免无意义重算（静止光源零开销）  
+                if (lastLightPositions.TryGetValue(lightSource.ID, out var lastPos)
+                    && lastPos == center)
+                {
+                    continue;
+                }
+                RefreshLightSource(lightSource);
+            }
+        }
+        // 增量刷新单个光源：先移除它上一帧的影响，再重新计算  
+        public void RefreshLightSource(Entity lightSource)
+        {
+            var lightSourceID = lightSource.ID;
+
+            // 清掉该光源旧的照亮关系（反向索引也要清）  
+            if (lightToEntities.TryGetValue(lightSourceID, out var oldSet))
+            {
+                foreach (var targetID in oldSet)
+                {
+                    if (entityToLights.TryGetValue(targetID, out var targetSet))
+                        targetSet.Remove(lightSourceID);
+                }
+                oldSet.Clear();
+            }
+
+            // 重新计算并写回（此时 lightToEntities[id] 已是空集，可安全复用）  
+            UpdateIlluminationForLightSource(lightSource);
+        }
         private void CollectEntities()
         {
             lightSources.Clear();
@@ -214,6 +251,7 @@ namespace MVZ2.Level.Components
         public void UpdateIlluminationForLightSource(Entity lightSource)
         {
             var lightSourceID = lightSource.ID;
+            lastLightPositions[lightSourceID] = lightSource.GetCenter(); // 记录位置(全量/增量两条路径都会经过这里)
 
             // 1. 先从 entityToLights 中移除该光源的旧影响
             if (!lightToEntities.TryGetValue(lightSourceID, out var lightSourceSet))
@@ -287,6 +325,8 @@ namespace MVZ2.Level.Components
         private bool lightDirty = false;
 
         public static readonly NamespaceID componentID = new NamespaceID(Global.BuiltinNamespace, "lighting");
+        // 光源上一次计算时的位置，用于判断是否移动  
+        private readonly Dictionary<long, Vector3> lastLightPositions = new Dictionary<long, Vector3>();
         #endregion
     }
     [Serializable]
