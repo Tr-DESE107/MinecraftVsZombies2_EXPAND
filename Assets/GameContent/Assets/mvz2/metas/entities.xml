@@ -4324,7 +4324,35 @@
 
                 <intArray name="mvz2:wraithRequiredLightLevels" value="1 4" />
 
-                <int name="mvz2:lit_mask" value="255" />
+                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="3" />
+            </properties>
+        </entity>
+        
+        <entity template="Ghost_Exp" id="WraithArcher" name="亡魂弓箭手" deathMessage="现在有伴了。">
+            <unlock>
+                <condition required="mvz2:level.halloween_3" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
+                <behaviour operator="remove" id="mvz2:enemy_melee" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:friction" value="0.05" />
+                <float name="mvz2:mass" value="-2" />
+                <id name="mvz2:shell" value="mvz2:bone" />
+                <id name="mvz2:crySound" value="mvz2:ghost_cry" />
+                <id name="mvz2:deathSound" value="mvz2:ghost_death" />
+                <id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
+                
+                <float name="mvz2:range" value="800" />
+                <float name="mvz2:maxHealth" value="400" />
+                <vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
+                <vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+                <id name="mvz2:projectileId" value="mvz2:arrow" />
+
+                <intArray name="mvz2:wraithRequiredLightLevels" value="2 4" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />

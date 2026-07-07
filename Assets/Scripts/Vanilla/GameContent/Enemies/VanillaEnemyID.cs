@@ -150,6 +150,7 @@ namespace MVZ2.GameContent.Enemies
 
         //EXPAND_C6
         public const string WraithWarrior = "WraithWarrior";
+        public const string WraithArcher = "WraithArcher";
 
         //EXPAND_Villager
         public const string MegaMutantVillager = "MegaMutantVillager";
@@ -325,6 +326,7 @@ namespace MVZ2.GameContent.Enemies
 
         //EXPAND_C6
         public static readonly NamespaceID WraithWarrior = Get(VanillaEnemyNames.WraithWarrior);
+        public static readonly NamespaceID WraithArcher = Get(VanillaEnemyNames.WraithArcher);
         
         //EXPAND_Villager
         public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);

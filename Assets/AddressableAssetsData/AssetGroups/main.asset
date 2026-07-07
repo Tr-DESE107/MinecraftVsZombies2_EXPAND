@@ -808,6 +808,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b65bbdc14d04884da554c22c439bb55
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/WraithWarrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b687cc971691aa4786964a361a0d14c
     m_Address: mvz2:artifacts/greedy_vacuum
     m_ReadOnly: 0
@@ -1384,6 +1391,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 132beb45039de2d47a6cff39a62a56b3
     m_Address: mvz2:chapter_transition/chapter_title_end
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13397e883900e5045993459172167e58
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/WraithBerserker
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6651,6 +6665,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a887b75643f0234094fdd97781c272e
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/WraithDullhan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b197e2b4a8161c4e8f1808052883a63
     m_Address: mvz2:bones/mutant_zombie
     m_ReadOnly: 0
@@ -8805,6 +8826,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7aa0b18657c1bd740bd604322015874b
+    m_Address: mvz2:enemy/palace/WraithWarrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7aa4f566f4d21f94ab8a60d2c9dac47c
     m_Address: mvz2:misc/grave_in_dream
     m_ReadOnly: 0
@@ -9451,6 +9479,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 820a7750be8b8464da332e609acb1646
     m_Address: mvz2:entity/EXPAND_Enemy/PirateSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8210f28710c36184caca8dbbbd68896f
+    m_Address: mvz2:mobile_blueprint/FireDispenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11877,6 +11912,13 @@ MonoBehaviour:
     - AreaModel
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6460956dd6ead34896a7f2b13ad7eba
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/WraithVanguard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6559072dba7fa4468fa5b18eec1f3ce
     m_Address: mvz2:entity/EXPAND_Enemy/Bedserker
     m_ReadOnly: 0
@@ -13255,6 +13297,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9ec244855aa140498159645bdee979f
+    m_Address: mvz2:enemy/palace/WraithArcher
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9edefea292182b489711acd39777a42
     m_Address: mvz2:entity/projectiles/spike_ball
@@ -15033,6 +15082,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2858ffdd8ba89a40a81bd2188feb7c9
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/NetherMage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d28e63ecd71367a4e8507400e2ed6c6c
     m_Address: mvz2:talk/dialog_wipe
     m_ReadOnly: 0
@@ -16001,6 +16057,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e35415f57161b804da4ffb64a491c409
     m_Address: mvz2:entity/pickups/RedEnvelope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3542035435c8c642b228f47a21b0db5
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/WraithArcher
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -17533,6 +17596,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8dbc419c62dfc148a2d10db9f0ce0d3
     m_Address: mvz2:note/background_dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8e0894f904137a429e0d7e436ee9f3d
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/NetherHunter
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
