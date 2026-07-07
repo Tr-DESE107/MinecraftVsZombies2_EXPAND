@@ -693,6 +693,28 @@ namespace MVZ2.IO
                         }
                         return true;
                     }
+                case "intArray":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<int>();
+                        }
+                        else
+                        {
+                            var ints = new List<int>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseInt(s, out var parsed))
+                                {
+                                    ints.Add(parsed);
+                                }
+                            }
+                            propValue = ints.ToArray();
+                        }
+                        return true;
+                    }
             }
             return false;
         }
