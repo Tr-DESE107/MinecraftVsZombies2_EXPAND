@@ -3117,6 +3117,8 @@
                 <vector3 name="mvz2:starting_position_offset" x="0" y="20" z="0" />
 
                 <int name="mvz2:cost" value="125" />
+
+                <id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
             </properties>
         </entity>
         <entity template="humanoid" id="skeleton_statue" name="骷髅雕像" deathMessage="*咔嚓*">
@@ -3138,6 +3140,8 @@
                 <bool name="mvz2:undead" value="false" />
 
                 <int name="mvz2:cost" value="100" />
+
+                <id name="mvz2:Category" value="mvz2:humanoid_Exp" />
             </properties>
         </entity>
         <entity template="witherSkeleton" id="hacker" name="黑客" deathMessage="G4M3 0V3R">
@@ -3183,6 +3187,8 @@
                 <id name="mvz2:shape" value="mvz2:cat" />
 
                 <int name="mvz2:cost" value="150" />
+
+                <id name="mvz2:Category" value="mvz2:Animal_Exp" />
             </properties>
         </entity>
         <entity template="enemy" id="wisp_fly" name="鬼火苍蝇" deathMessage="嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡">
@@ -3209,6 +3215,8 @@
                 <color name="mvz2:lightColor" value="#00FF00" />
 
                 <int name="mvz2:cost" value="25" />
+
+                <id name="mvz2:Category" value="mvz2:Arthropod_Exp" />
             </properties>
         </entity>
 
@@ -4143,7 +4151,7 @@
                 <idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
                 <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
 
-                <id name="mvz2:Category" value="mvz2:SpecialEnemy_Exp" />
+                <id name="mvz2:Category" value="mvz2:Arthropod_Exp" />
             </properties>
         </entity>
 
@@ -4528,7 +4536,6 @@
                 <float name="mvz2:damage" value="1000" />
                 <float name="mvz2:range" value="90" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
-                <id name="mvz2:fragmentId" value="mvz2:mine_tnt" />
                 <id name="mvz2:placeSound" value="mvz2:grass" />
                 
                 <id name="mvz2:deathSound" value="mvz2:grass" />

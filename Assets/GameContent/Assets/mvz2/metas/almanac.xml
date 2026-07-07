@@ -232,6 +232,9 @@
             <value value="mvz2:Blaze_Exp" name="烈焰人类" description="该怪物属于烈焰人类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[24]" backgroundColor="#ff4500"/>
             <value value="mvz2:Piglin_Exp" name="猪灵类" description="该怪物属于猪灵类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[25]" backgroundColor="#ffc0cb"/>
             <value value="mvz2:Guardian_Exp" name="守护者类" description="该怪物属于守护者类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[26]" backgroundColor="#4169e1"/>
+            <value value="mvz2:Enderman_Exp" name="末影人类" description="该怪物属于末影人类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[27]" backgroundColor="#8b008b"/>
+            <value value="mvz2:Arthropod_Exp" name="节肢生物类" description="该怪物属于节肢生物类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[28]" backgroundColor="#2e8b57"/>
+            <value value="mvz2:Animal_Exp" name="动物类" description="该怪物属于动物类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[29]" backgroundColor="#e9967a"/>
         </enum>
 
 

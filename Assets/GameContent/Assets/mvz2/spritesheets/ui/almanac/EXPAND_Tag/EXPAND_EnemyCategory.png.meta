@@ -689,6 +689,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: EXPAND_EnemyCategory_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d996324fc6af005439a8b54d5676f9e0
+      internalID: -1735736193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPAND_EnemyCategory_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e8b0f4f27f65347bde83f32190e7f0
+      internalID: -1903225130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPAND_EnemyCategory_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c4d1754b3f13f49b2230d8183f0dab
+      internalID: 1567586790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -720,6 +783,9 @@ TextureImporter:
       EXPAND_EnemyCategory_24: -46669710
       EXPAND_EnemyCategory_25: -1445744792
       EXPAND_EnemyCategory_26: 2128521704
+      EXPAND_EnemyCategory_27: -1735736193
+      EXPAND_EnemyCategory_28: -1903225130
+      EXPAND_EnemyCategory_29: 1567586790
       EXPAND_EnemyCategory_3: -378595270
       EXPAND_EnemyCategory_4: 1289849107
       EXPAND_EnemyCategory_5: 55901816

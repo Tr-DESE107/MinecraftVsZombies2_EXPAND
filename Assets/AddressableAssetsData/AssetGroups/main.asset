@@ -8092,6 +8092,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70597e7ca65cc1f4c89f45ff57c05a3c
+    m_Address: mvz2:arcade/BlueprintBossRush
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 70875885371f09444af751a1676e6f71
     m_Address: mvz2:artifacts/miracle_mallet_replica
     m_ReadOnly: 0

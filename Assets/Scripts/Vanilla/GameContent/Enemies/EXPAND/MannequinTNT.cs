@@ -67,6 +67,12 @@ namespace MVZ2.GameContent.Enemies
         //        Charge(result.Entity);
         //    }
         //}
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+            entity.RemoveBuffs<TNTIgnitedBuff>();
+            entity.Remove();
+        }
         //public override bool CanTrigger(Entity entity)
         //{
         //    return base.CanTrigger(entity) && !IsIgnited(entity);

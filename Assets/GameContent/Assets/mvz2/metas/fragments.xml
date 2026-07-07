@@ -526,6 +526,14 @@
             <key hex="#4e4e4e" time="1.0" />
         </colorKeys>
     </fragment>
+    <fragment name="MannequinTNT">
+        <colorKeys>
+            <key hex="#967b5c" time="0.0" />
+            <key hex="#a6865f" time="0.3" />
+            <key hex="#cec2b4" time="0.6" />
+            <key hex="#c13d3d" time="1.0" />
+        </colorKeys>
+    </fragment>
     <!--E.X.P.A.N.D.-->
     <fragment name="EXPANDispenser">
         <colorKeys>

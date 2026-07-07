@@ -18,7 +18,6 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
-using MVZ2Logic.Entities;
 
 namespace MVZ2.GameContent.Enemies
 {
