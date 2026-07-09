@@ -554,6 +554,15 @@
     <model name="WraithArcher" type="entity" path="mvz2:enemy/palace/WraithArcher" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+    <model name="WraithBerserker" type="entity" path="mvz2:enemy/palace/WraithBerserker" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="WraithDullhan" type="entity" path="mvz2:enemy/palace/WraithDullhan" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="WraithVanguard" type="entity" path="mvz2:enemy/palace/WraithVanguard" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
 
     <!--EXPAND Enemies Villager-->
     <model name="MegaMutantVillager" type="entity" path="mvz2:enemy/EXPAND/MegaMutantVillager" width="200" height="180" xOffset="0" yOffset="-90" />

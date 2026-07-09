@@ -3156,7 +3156,7 @@
             <properties>
                 <float name="mvz2:maxHealth" value="512" />
                 <float name="mvz2:range" value="800" />
-                <vector3 name="mvz2:size" x="38" y="103" z="38" />
+                
                 <id name="mvz2:shell" value="mvz2:nether" />
                 <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
@@ -3912,7 +3912,7 @@
                 <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
-                <vector3 name="mvz2:size" x="77" y="100" z="40" />
+                <vector3 name="mvz2:size" x="38" y="103" z="38" />
                 <float name="mvz2:maxHealth" value="1200" />
                 <float name="mvz2:speed" value="0.8" />
 
@@ -4353,6 +4353,68 @@
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
 
                 <intArray name="mvz2:wraithRequiredLightLevels" value="2 4" />
+
+                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="3" />
+            </properties>
+        </entity>
+        
+        <entity template="witherSkeleton" id="WraithBerserker" name="亡魂狂战士" deathMessage="爆！">
+            <unlock>
+                <condition required="mvz2:level.castle_3" />
+            </unlock>
+            <properties>
+                <bool name="mvz2:dynamite" value="true" />
+                <id name="mvz2:starting_armor" value="mvz2:berserker_helmet" />
+                <float name="mvz2:range" value="120" />
+                <float name="mvz2:speed" value="2" />
+
+                <float name="mvz2:friction" value="0.05" />
+                <float name="mvz2:mass" value="-2" />
+                <id name="mvz2:shell" value="mvz2:bone" />
+                <id name="mvz2:crySound" value="mvz2:ghost_cry" />
+                <id name="mvz2:deathSound" value="mvz2:ghost_death" />
+
+                <intArray name="mvz2:wraithRequiredLightLevels" value="1 4" />
+
+                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="3" />
+            </properties>
+        </entity>
+
+        <entity template="Ghost_Exp" id="WraithDullhan" name="亡魂无头先锋" deathMessage="现在有伴了。">
+            <unlock>
+                <condition required="mvz2:level.halloween_3" />
+            </unlock>
+            <properties>
+                <float name="mvz2:friction" value="0.05" />
+                <float name="mvz2:mass" value="-2" />
+                <id name="mvz2:shell" value="mvz2:bone" />
+                <id name="mvz2:crySound" value="mvz2:ghost_cry" />
+                <id name="mvz2:deathSound" value="mvz2:ghost_death" />
+
+                <intArray name="mvz2:wraithRequiredLightLevels" value="1 4" />
+
+                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="3" />
+            </properties>
+        </entity>
+
+        <entity template="Ghost_Exp" id="WraithVanguard" name="亡魂冲锋者" deathMessage="现在有伴了。">
+            <unlock>
+                <condition required="mvz2:level.halloween_3" />
+            </unlock>
+            <properties>
+                <float name="mvz2:friction" value="0.05" />
+                <float name="mvz2:mass" value="-2" />
+                <id name="mvz2:shell" value="mvz2:bone" />
+                <id name="mvz2:crySound" value="mvz2:ghost_cry" />
+                <id name="mvz2:deathSound" value="mvz2:ghost_death" />
+
+                <intArray name="mvz2:wraithRequiredLightLevels" value="1 4" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
