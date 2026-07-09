@@ -1,26 +1,22 @@
-#nullable enable  
-  
+﻿#nullable enable
+
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Pickups;  
-using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla.Audios;  
-using MVZ2.Vanilla.Contraptions;  
+using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
-using MVZ2.Vanilla.Properties;  
+using MVZ2.Vanilla.Properties;
 
 using MVZ2Logic.Blueprints;
-using MVZ2Logic.Entities;  
-using MVZ2Logic.Level;  
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 
-using PVZEngine;  
-using PVZEngine.Definitions;  
-using PVZEngine.Entities;  
-using PVZEngine.Level;
-using PVZEngine.Modifiers;  
+using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.Entities;
+using PVZEngine.Modifiers;
 
-using Tools;  
+using Tools;
 
 using UnityEngine;
 

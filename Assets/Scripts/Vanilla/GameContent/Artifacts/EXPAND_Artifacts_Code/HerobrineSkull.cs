@@ -1,14 +1,8 @@
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
+﻿using MVZ2Logic.Definitions;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Callbacks;
 using MVZ2.GameContent.Enemies;
-using MVZ2Logic.Definitions;
 using MVZ2Logic.Callbacks;
 
 namespace MVZ2.GameContent.Artifacts

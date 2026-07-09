@@ -2,8 +2,6 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;       // ��Ϸ�Զ��� Buff ϵͳ�����ռ�
-using MVZ2Logic;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Definitions;                    // MVZ2 ��Ϸ�����߼�
 using MVZ2Logic.Artifacts;         // MVZ2 �� Artifact�����������߼�����
 using MVZ2Logic.Level;             // ��Ϸ�ؿ��߼�
@@ -11,7 +9,6 @@ using PVZEngine.Auras;             // �⻷��Aura��ϵͳ
 using PVZEngine.Buffs;             // Buff ϵͳ
 using PVZEngine.Callbacks;         // �ص�����ϵͳ
 using PVZEngine.Entities;          // ʵ��ϵͳ������ֲ���ʬ����е�ȣ�
-using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Artifacts
 {

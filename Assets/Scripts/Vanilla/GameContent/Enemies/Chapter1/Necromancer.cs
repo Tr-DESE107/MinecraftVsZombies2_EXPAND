@@ -6,7 +6,6 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;

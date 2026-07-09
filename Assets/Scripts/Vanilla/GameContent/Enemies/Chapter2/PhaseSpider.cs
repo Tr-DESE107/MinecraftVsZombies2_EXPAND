@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
@@ -11,7 +11,6 @@ using PVZEngine.Entities;
 using PVZEngine.Definitions;
 using Tools;
 using UnityEngine;
-using MVZ2Logic.Entities;
 using MVZ2.GameContent.Entities;
 
 namespace MVZ2.GameContent.Enemies  

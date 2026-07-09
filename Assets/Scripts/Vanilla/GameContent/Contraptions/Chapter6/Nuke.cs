@@ -11,8 +11,10 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
+
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -20,7 +22,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using Tools;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions  

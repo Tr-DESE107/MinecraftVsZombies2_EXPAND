@@ -1,11 +1,10 @@
-#nullable enable    
+﻿#nullable enable    
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
@@ -14,8 +13,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -23,7 +20,6 @@ using Tools;
 using UnityEngine;
 using PVZEngine;
 using MVZ2Logic.Level;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
 
 namespace MVZ2.GameContent.Bosses

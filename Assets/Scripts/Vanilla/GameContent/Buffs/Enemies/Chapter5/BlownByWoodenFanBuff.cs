@@ -2,12 +2,14 @@
 
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
+
 using MVZ2Logic.Contents.Enemies;
+
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies

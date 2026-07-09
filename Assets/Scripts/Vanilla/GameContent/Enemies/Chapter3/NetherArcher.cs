@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 
 using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Damages;
@@ -10,7 +10,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;

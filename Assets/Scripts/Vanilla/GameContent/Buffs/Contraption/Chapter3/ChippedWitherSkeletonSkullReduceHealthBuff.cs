@@ -2,7 +2,6 @@
 
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Armors

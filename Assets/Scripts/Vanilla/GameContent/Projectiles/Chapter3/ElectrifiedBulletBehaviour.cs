@@ -1,13 +1,10 @@
-using MVZ2.GameContent.Buffs.Projectiles;
+﻿using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
-
-using static MVZ2.GameContent.Contraptions.TeslaCoil;
 
 namespace MVZ2.GameContent.Projectiles
 {

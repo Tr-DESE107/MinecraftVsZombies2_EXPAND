@@ -1,7 +1,7 @@
-using MVZ2.GameContent.Shells;
-using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Entities;
+ï»¿using MVZ2.Vanilla.Detections;
+
 using PVZEngine.Entities;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Detections
@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Detections
         //    var target = collider.Entity;
         //    var shellID = target.GetShellID();
 
-        //    // Ö»¼ì²â½ğÊôÍâ¿ÇµÄÍ¶ÉäÎï  
+        //    // åªæ£€æµ‹é‡‘å±å¤–å£³çš„æŠ•å°„ç‰©  
         //    return shellID != null && shellID == VanillaShellID.metal;
         //}
         private float extraHeight;

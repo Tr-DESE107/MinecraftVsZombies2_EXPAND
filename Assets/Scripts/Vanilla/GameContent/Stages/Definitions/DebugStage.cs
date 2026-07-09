@@ -2,11 +2,12 @@
 
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Level;
+
 using MVZ2Logic.Level;
+
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;

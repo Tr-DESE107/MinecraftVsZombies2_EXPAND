@@ -4,28 +4,22 @@ using System.Collections.Generic;
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
-using MVZ2.GameContent.Entities;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 
-using MVZ2Logic.Definitions;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
-using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
-using PVZEngine.Definitions;
 using PVZEngine.Entities;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions

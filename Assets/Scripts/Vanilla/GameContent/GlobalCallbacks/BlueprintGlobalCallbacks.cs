@@ -3,15 +3,16 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
+
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
+
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 
 namespace MVZ2.GameContent.GlobalCallbacks
 {

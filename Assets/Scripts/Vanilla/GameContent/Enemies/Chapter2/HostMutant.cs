@@ -2,15 +2,16 @@
 
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
+
 using MVZ2Logic.Level;
+
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
-using PVZEngine.Definitions;
+
 using Tools;
+
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Enemies

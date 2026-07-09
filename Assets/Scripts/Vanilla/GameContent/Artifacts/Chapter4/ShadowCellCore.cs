@@ -6,8 +6,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
-using MVZ2Logic;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
@@ -15,7 +13,6 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using Tools;
-using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.Artifacts
 {
