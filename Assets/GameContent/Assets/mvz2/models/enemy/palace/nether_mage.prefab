@@ -485,6 +485,14 @@ PrefabInstance:
       propertyPath: sprites.Array.data[1]
       value: 
       objectReference: {fileID: 67389490, guid: d2858ffdd8ba89a40a81bd2188feb7c9, type: 3}
+    - target: {fileID: 1894441461397295313, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894441461397295313, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2344158614246142042, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -541,6 +549,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -458146371, guid: d2858ffdd8ba89a40a81bd2188feb7c9, type: 3}
+    - target: {fileID: 8340313329280367573, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2929149933621977752, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
     m_RemovedGameObjects: []
@@ -1095,6 +1107,14 @@ PrefabInstance:
     - target: {fileID: 349508635827793257, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
       propertyPath: m_Name
       value: Collider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
       propertyPath: m_LocalPosition.x

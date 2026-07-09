@@ -704,6 +704,14 @@ PrefabInstance:
       value: wither_skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710215947291492401, guid: 983c95778175afa4899ce4ca543a5a13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1597,6 +1605,14 @@ PrefabInstance:
       propertyPath: sprites.Array.data[1]
       value: 
       objectReference: {fileID: -1525853295, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
+    - target: {fileID: 1894441461397295313, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894441461397295313, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2275754192178819002, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.03
@@ -1685,6 +1701,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1632798389, guid: 1cffeb798b5d3c646b2556be70630109, type: 3}
+    - target: {fileID: 8340313329280367573, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
+      objectReference: {fileID: 0}
     - target: {fileID: 9098854915225751818, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01

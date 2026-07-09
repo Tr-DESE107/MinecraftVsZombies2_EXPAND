@@ -11611,6 +11611,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a16a514268d6229469d699d648921ca7
+    m_Address: mvz2:enemy/palace/WraithBerserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a17a216e852e4774d97c8c38418cadd8
     m_Address: mvz2:random/candle/break2
     m_ReadOnly: 0
@@ -14844,6 +14851,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0103228400571941ad8592457cbcb84
+    m_Address: mvz2:enemy/palace/WraithDullhan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0159b237963ff745a734fae1c80132f
     m_Address: mvz2:characters/shinmyoumaru
     m_ReadOnly: 0
@@ -14951,6 +14965,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d09577e2d8466434da1b489c8a2aee1d
     m_Address: mvz2:effect/soul_effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0b0144d59309444dbc9efeb93b3c03d
+    m_Address: mvz2:enemy/palace/WraithVanguard
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
