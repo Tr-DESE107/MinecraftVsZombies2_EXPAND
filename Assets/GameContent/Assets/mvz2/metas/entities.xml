@@ -529,7 +529,7 @@
     <entries>
         <!-- Contraptions -->
         <entity template="dispenser" id="dispenser" name="发射器" tooltip="向敌人射出箭" >
-                        <properties>
+            <properties>
                <id name="mvz2:placement" value="mvz2:fusion" />
                <idArray name="mvz2:fusionTargets" value="mvz2:EXPANDispenser" />
                <id name="mvz2:fusionResult" value="mvz2:EXPANDispenser_Dispenser" />
@@ -2373,6 +2373,7 @@
             </properties>
         </entity>
         
+        <!--EXPAND Gold Contraption-->
         <entity template="dispenser" id="EXPANDispenser" name="万象天枢" tooltip="（需要高频脉冲发射器）\n一次射出十支箭矢">
             <unlock>
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
@@ -2483,6 +2484,20 @@
             <properties>
                 <color name="mvz2:lightColor" value="#ffe800" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
+            </properties>
+        </entity>
+
+        <!--EXPAND Cyan Contraption-->
+        <entity template="contraption" id="BrainInVat" name="缸中之脑" tooltip="放置后怪物进家不会死亡，以任何形式被摧毁时游戏直接失败">
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:loyal" value="true" />
+                <float name="mvz2:maxHealth" value="300" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:deathSound" value="mvz2:pot_break" />
+
+                <int name="mvz2:cost" value="8000" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
 

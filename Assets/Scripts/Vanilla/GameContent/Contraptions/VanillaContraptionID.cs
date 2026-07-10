@@ -117,6 +117,9 @@ namespace MVZ2.GameContent.Contraptions
         public const string Bedrock = "Bedrock";
         public const string Barrier = "Barrier";
 
+        //EXPAND CyanCard
+        public const string BrainInVat = "BrainInVat";
+
         //EXPAND GoldCard
         public const string EXPANDispenser = "EXPANDispenser";
         public const string EXPANDispenser_Silvenser = "EXPANDispenser_Silvenser";
@@ -240,6 +243,9 @@ namespace MVZ2.GameContent.Contraptions
         //EXPAND BlackCard
         public static readonly NamespaceID Bedrock = Get(VanillaContraptionNames.Bedrock);
         public static readonly NamespaceID Barrier = Get(VanillaContraptionNames.Barrier);
+
+        //EXPAND CyanCard
+        public static readonly NamespaceID BrainInVat = Get(VanillaContraptionNames.BrainInVat);
 
         //EXPAND GoldCard
         public static readonly NamespaceID EXPANDispenser = Get(VanillaContraptionNames.EXPANDispenser);
