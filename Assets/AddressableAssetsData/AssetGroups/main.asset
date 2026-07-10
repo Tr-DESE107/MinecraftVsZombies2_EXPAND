@@ -5587,6 +5587,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b426ba30a41bf240aac8f69b4a3510c
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/BrainInVat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b4d201db18ec25468ea644aeeecdbf5
     m_Address: mvz2:entity/projectiles/ObsidianShard
     m_ReadOnly: 0
@@ -16096,6 +16103,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3a9ed7364f2a8b48a1e9183d409fc3d
+    m_Address: mvz2:contraption/CyanCard/BrainInVat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3c74e05995ec5f47a3c0173025c6c78
     m_Address: mvz2:enemy/EXPAND/RandomMannequin

@@ -80,6 +80,10 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 result.SetValue(LogicBlueprintStyles.GreenCard);
             }
+            else if (seedID == LogicBlueprintID.FromEntity(VanillaContraptionID.BrainInVat))
+            {
+                result.SetValue(LogicBlueprintStyles.CyanCard);
+            }
             else if (definition.IsUpgradeBlueprint())
             {
                 result.SetValue(LogicBlueprintStyles.upgrade);
