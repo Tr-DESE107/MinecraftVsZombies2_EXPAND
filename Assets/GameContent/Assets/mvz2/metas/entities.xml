@@ -2585,7 +2585,7 @@
                 <behaviour operator="add" id="mvz2:rickroll_drown_achievement" />
             </behaviours>
             <properties>
-                <id name="mvz2:starting_armor" value="mvz2:diamond_helmet" />
+                <id name="mvz2:starting_armor" value="mvz2:DiamondHelmet" />
                 <int name="mvz2:cost" value="200" />
             </properties>
         </entity>

@@ -137,7 +137,7 @@ namespace MVZ2.GameContent.Contraptions
         }  
         public static void ExplodeEvoked(Entity entity, float range, float damage)  
         {  
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);  
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.VOID);  
             var deathEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL, VanillaDamageEffects.MUTE, VanillaDamageEffects.REMOVE_ON_DEATH);  
             foreach (var ent in entity.Level.FindEntities(e => entity.IsHostile(e) && e.IsVulnerableEntity() && !e.IsInvincible()))  
             {
