@@ -2142,17 +2142,17 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_CLOSE:
                         if (timer.Expired)
                         {
-                            if (entity.Level.IsFirstAdventure())
-                            {
+                            //if (entity.Level.IsFirstAdventure())
+                            //{
                                 var param = entity.GetSpawnParams();
                                 param.SetProperty(LogicEntityProps.VARIANT, GetRevivedTimes(entity) + 1);
                                 LockedChestPickup.Produce(entity.Level, entity.Position, entity, param);
                                 entity.Remove();
-                            }
-                            else
-                            {
-                                ReallyDestroy(entity);
-                            }
+                            //}
+                            //else
+                            //{
+                            //    ReallyDestroy(entity);
+                            //}
                         }
                         break;
                 }

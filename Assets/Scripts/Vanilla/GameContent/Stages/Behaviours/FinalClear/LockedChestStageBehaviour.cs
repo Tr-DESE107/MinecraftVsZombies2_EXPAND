@@ -98,12 +98,12 @@ namespace MVZ2.GameContent.Stages
 
             level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
             level.StopMusic();
-            if (!level.IsFirstAdventure())
-            {
-                // 生成通关掉落物。
-                var boss = level.FindFirstEntity(VanillaBossID.lockedChest);
-                SpawnClearPickup(level, boss);
-            }
+            //if (!level.IsFirstAdventure())
+            //{
+            //    // 生成通关掉落物。
+            //    var boss = level.FindFirstEntity(VanillaBossID.lockedChest);
+            //    SpawnClearPickup(level, boss);
+            //}
         }
         protected override void AfterBossWaveUpdate(LevelEngine level)
         {
@@ -111,8 +111,8 @@ namespace MVZ2.GameContent.Stages
             ClearEnemies(level);
             EnterLevelEnemiesClearedState(level);
 
-            if (!level.IsFirstAdventure())
-                return;
+            //if (!level.IsFirstAdventure())
+            //    return;
             if (level.IsCleared)
                 return;
 
