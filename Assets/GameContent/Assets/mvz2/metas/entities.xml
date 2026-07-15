@@ -1933,6 +1933,7 @@
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
+                <bool name="mvz2:producer" value="true" />
                 <float name="mvz2:maxHealth" value="600" />
                 <float name="mvz2:damage" value="50" />
                 <vector3 name="shotVelocity" x="10" y="0" z="0" />
@@ -2331,6 +2332,7 @@
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
+                <bool name="mvz2:producer" value="true" />
                 <float name="mvz2:maxHealth" value="1200" />
                 <float name="mvz2:damage" value="50" />
                 <vector3 name="shotVelocity" x="10" y="0" z="0" />
