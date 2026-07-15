@@ -2621,6 +2621,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 230f22a6fceefdc43a1dab33cf7da61a
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/RocketDispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 230f3c5c308e8564ea03d53e2ca07478
     m_Address: mvz2:Lava_Chicken
     m_ReadOnly: 0
@@ -7503,6 +7510,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6619748eabda04f4d904ec14a6b87a93
+    m_Address: mvz2:ui/level/CyanCard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6661be6b03238a2409e5b705222184e0
     m_Address: mvz2:misc/graveyard
@@ -15158,6 +15172,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3dcfad8c4dbb404ca0be63f2a6dab31
+    m_Address: mvz2:ui/level/CyanCardMobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3fc6b5b39217ac41a8677d250c262a6
     m_Address: mvz2:enemy/dream/spider
