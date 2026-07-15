@@ -53,8 +53,11 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.RED_DRAGON_TORNADO_COUNT, IntegerOperator.Set, 3));
 
             //AddModifier(new NamespaceIDModifier(VanillaDifficultyLevelProps.LOCKED_CHEST_SPIT_BLUEPRINT_ID, SetOperator.Set, LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie)));
-            AddModifier(new IntModifier(VanillaDifficultyLevelProps.LOCKED_CHEST_REQUIRED_STARSHARDS, IntegerOperator.Add, 1));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.LOCKED_CHEST_REQUIRED_STARSHARDS, IntegerOperator.Add, 2));
             AddAura(new EnemyAura());
+
+            //EXPAND
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.ZOMBIE_CAT_EVADE_CHANCE, NumberOperator.Set, 0.75f));
         }
 
         public class EnemyAura : AuraEffectDefinition

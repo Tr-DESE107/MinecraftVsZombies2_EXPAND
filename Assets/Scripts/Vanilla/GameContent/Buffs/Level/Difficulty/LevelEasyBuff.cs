@@ -55,6 +55,9 @@ namespace MVZ2.GameContent.Buffs.Level
 
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.STARSHARD_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2f));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REDSTONE_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2f));
+
+            //EXPAND
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.ZOMBIE_CAT_EVADE_CHANCE, NumberOperator.Set, 0.25f));
         }
 
         public class BlueprintAura : AuraEffectDefinition

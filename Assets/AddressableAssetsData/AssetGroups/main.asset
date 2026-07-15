@@ -941,6 +941,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cf3a3739f73536449b2da088044431d
+    m_Address: mvz2:entity/zombie_cat/Cat_hiss3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0cf670f563be72447bc4c4f6d5e3c161
     m_Address: mvz2:balloon_inflate
     m_ReadOnly: 0
@@ -9694,6 +9701,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 853a8bfe7168e1b48847f303cb3800df
+    m_Address: mvz2:entity/zombie_cat/Cat_hiss1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85842c2e1aa457b418e743fc8faeae75
     m_Address: mvz2:entity/projectiles/knife
     m_ReadOnly: 0
@@ -12514,6 +12528,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae7c216a6376c9e4e9ca2443933e00c9
+    m_Address: mvz2:characters/EXPAND_Characters/CrazyVillager_Miner
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae7d25745345fe44cb494b3c3f9c12a7
     m_Address: mvz2:achievement
     m_ReadOnly: 0
@@ -12541,6 +12562,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aeb5279dbbbd54846a56726179e3aa6f
+    m_Address: mvz2:enemy/EXPAND/RandomSpider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aeb846fd935c8c24ca242f70ab828253
     m_Address: mvz2:effect/frankenstein_jump_trail
@@ -16335,6 +16363,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6e320f9df0a37c49a0d6f38ffae7cdc
+    m_Address: mvz2:entity/EXPAND_Enemy/RandomEnemy/RandomSpider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6ef82d213584ae4e8a121cddec4c0ca
     m_Address: mvz2:entity/effects/rain
     m_ReadOnly: 0
@@ -17096,6 +17131,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f156dabb8b8aa294f9a078ad47022ad3
+    m_Address: mvz2:entity/zombie_cat/Cat_hiss2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1647e2400793da43be7f9344136d81d
     m_Address: mvz2:portal

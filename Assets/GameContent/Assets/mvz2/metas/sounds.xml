@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sounds>
     <sound name="achievement">
         <sample path="mvz2:achievement" weight="1" />
@@ -1159,5 +1159,10 @@
     </sound>
     <sound name="ghast_affectionate_scream">
         <sample path="mvz2:entity/ghast/ghast_affectionate_scream" weight="1" />
+    </sound>
+    <sound name="CatHiss">
+        <sample path="mvz2:entity/zombie_cat/Cat_hiss1" weight="1" />
+        <sample path="mvz2:entity/zombie_cat/Cat_hiss2" weight="1" />
+        <sample path="mvz2:entity/zombie_cat/Cat_hiss3" weight="1" />
     </sound>
 </sounds>

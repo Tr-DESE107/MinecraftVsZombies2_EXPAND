@@ -46,6 +46,10 @@ namespace MVZ2.GameContent.Difficulties
         public static int GetWickedHermitZombieStunTime(this LevelEngine level) => level.GetProperty<int>(WICKED_HERMIT_ZOMBIE_STUN_TIME);
         public static float GetWispFlyDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(WISP_FLY_DAMAGE_MULTIPLIER);
 
+        //EXPAND Enemies
+        public static readonly VanillaDifficultyPropertyMeta<float> ZOMBIE_CAT_EVADE_CHANCE = Get<float>("zombieCatEvadeChance", 0.5f);
+        public static float GetZombieCatEvadeChance(this LevelEngine level) => level.GetProperty<float>(ZOMBIE_CAT_EVADE_CHANCE);
+
         // Bosses
         public static readonly VanillaDifficultyPropertyMeta<bool> FRANKENSTEIN_INSTANT_STEEL = Get<bool>("frankensteinInstantSteel");
         public static readonly VanillaDifficultyPropertyMeta<bool> FRANKENSTEIN_NO_STEEL = Get<bool>("frankensteinNoSteel");
