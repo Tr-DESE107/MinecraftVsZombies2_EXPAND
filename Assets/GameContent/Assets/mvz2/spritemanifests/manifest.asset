@@ -1017,6 +1017,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 113f8d660acfe7748849e3d20cb3575e, type: 3}
   - name: characters/EXPAND_Characters/CrazyVillager_ChineseNewYear
     sprite: {fileID: 21300000, guid: dc3e837e38e396f4ab8cb7af2c11cfe8, type: 3}
+  - name: characters/EXPAND_Characters/CrazyVillager_Miner
+    sprite: {fileID: 21300000, guid: ae7c216a6376c9e4e9ca2443933e00c9, type: 3}
   - name: entity/armor/bedserker_helmet
     sprite: {fileID: 21300000, guid: e44b0e9757080bf4dbf0ae5b2420e15c, type: 3}
   - name: entity/armor/berserker_helmet

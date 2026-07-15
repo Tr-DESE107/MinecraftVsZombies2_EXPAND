@@ -2112,7 +2112,6 @@
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
-            <spawn id="mvz2:necromancer" />
             <spawn id="mvz2:mesmerizer" />
             <spawn id="mvz2:berserker" />
             <spawn id="mvz2:dullahan" />
