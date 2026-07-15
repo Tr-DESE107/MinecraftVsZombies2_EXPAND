@@ -1,4 +1,4 @@
-<achievements>
+﻿<achievements>
     <achievement id="ghost_buster" name="捉鬼敢死队" description="在不照亮任何一次的情况下杀死一个幽灵。" icon="mvz2:achievements/ghost_buster">
         <unlock>
             <condition required="mvz2:achievement.ghost_buster" />
@@ -57,6 +57,11 @@
     <achievement id="let_them_eat_cake" name="何不食肉糜" description="让皇帝僵尸吃下一块蛋糕。" icon="mvz2:achievements/let_them_eat_cake">
         <unlock>
             <condition required="mvz2:achievement.let_them_eat_cake" />
+        </unlock>
+    </achievement>
+    <achievement id="AnnoyingPersistence" name="锲而不舍" description="不断拾取箱子以完全激怒箱子" icon="mvz2:achievements/AnnoyingPersistence">
+        <unlock>
+            <condition required="mvz2:achievement.AnnoyingPersistence" />
         </unlock>
     </achievement>
 </achievements>

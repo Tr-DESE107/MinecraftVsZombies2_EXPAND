@@ -19,15 +19,16 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Grids;
-using MVZ2Logic.Grids;
 using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.StateMachine;
+using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic;
 using MVZ2Logic.Blueprints;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -2195,6 +2196,12 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_SPOKE:
                         if (timer.Expired)
                         {
+                            //自爆时解锁成就
+                            if (!Global.Saves.IsUnlocked(VanillaUnlockID.AnnoyingPersistence))
+                            {
+                                Global.Saves.Unlock(VanillaUnlockID.AnnoyingPersistence);
+                                Global.Saves.SaveToFile();
+                            }
                             ReallyDestroy(entity);
                         }
                         break;
