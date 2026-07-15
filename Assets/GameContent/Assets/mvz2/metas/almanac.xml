@@ -187,6 +187,11 @@
             <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C0[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+        
+        <tag id="producer" name="生产者" description="产出有用道具的器械" priority="4000">
+            <icon sprite="ui/almanac/EXPAND_Tag/Contraption_C0[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
+        </tag>
 
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
             <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[0]" />

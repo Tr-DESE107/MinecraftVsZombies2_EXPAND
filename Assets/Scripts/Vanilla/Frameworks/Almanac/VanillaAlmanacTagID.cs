@@ -32,6 +32,7 @@ namespace MVZ2.Vanilla.Almanac
 
         //EXPAND
         public static readonly NamespaceID Category = Get("Category");
+        public static readonly NamespaceID producer = Get("producer");
 
         private static NamespaceID Get(string name)
         {

@@ -153,6 +153,11 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.canTrigger));
             }
+            // 生产者
+            if (entityDef.IsProducer())
+            {
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.producer));
+            }
         }
         private void GetEnemyAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
