@@ -566,6 +566,9 @@
     <model name="WraithVanguard" type="entity" path="mvz2:enemy/palace/WraithVanguard" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+    <model name="AncientGhost" type="entity" path="mvz2:enemy/palace/AncientGhost" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
 
     <!--EXPAND Enemies Villager-->
     <model name="MegaMutantVillager" type="entity" path="mvz2:enemy/EXPAND/MegaMutantVillager" width="200" height="180" xOffset="0" yOffset="-90" />

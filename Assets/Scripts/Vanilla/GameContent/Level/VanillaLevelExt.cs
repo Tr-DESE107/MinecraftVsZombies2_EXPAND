@@ -217,6 +217,10 @@ namespace MVZ2.Vanilla.Level
             {
                 flagEnemyID = VanillaEnemyID.JollyRogerZombie;
             }
+            else if (areaID == VanillaAreaID.palace)
+            {
+                flagEnemyID = VanillaEnemyID.AncientGhost;
+            }
 
             return level.Spawn(flagEnemyID, pos, null);
         }

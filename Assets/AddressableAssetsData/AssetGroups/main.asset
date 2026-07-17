@@ -521,6 +521,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07162e6098c79dc4cadc85fec8785291
+    m_Address: mvz2:enemy/palace/AncientGhost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 071d4c30cf6fe5042ba032e38c0b03ef
     m_Address: mvz2:entity/cart/nyan_cat
     m_ReadOnly: 0
@@ -13108,6 +13115,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b61c5078162e1274e8a13b8e115a4c33
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/AncientGhost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6265be12c87a324eae9c9efa6f6735d
     m_Address: mvz2:mainmenu/options

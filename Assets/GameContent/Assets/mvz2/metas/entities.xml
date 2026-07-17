@@ -4439,6 +4439,25 @@
             </properties>
         </entity>
 
+        <entity template="Ghost_Exp" id="AncientGhost" name="古老幽灵" deathMessage="现在有伴了。">
+            <unlock>
+                <condition required="mvz2:level.halloween_3" />
+            </unlock>
+            <properties>
+                <float name="mvz2:friction" value="0.05" />
+                <float name="mvz2:mass" value="-2" />
+                <id name="mvz2:shell" value="mvz2:bone" />
+                <id name="mvz2:crySound" value="mvz2:ghost_cry" />
+                <id name="mvz2:deathSound" value="mvz2:ghost_death" />
+
+                <idArray name="mvz2:excludedAreaTags" value="mvz2:day" />
+
+                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="3" />
+            </properties>
+        </entity>
+
         <!-- EXPAND Enemies Villager -->
         <entity template="Villager_Exp" id="VillagerGhast" name="村民恶魂" deathMessage="好多钱钱钱钱钱钱钱！">
             <unlock>
@@ -5511,7 +5530,7 @@
         <entity template="boss" id="locked_chest" name="上锁的箱子">
             <properties>
                 <int name="mvz2:waterInteraction" value="1" />
-                <float name="mvz2:maxHealth" value="18000" />
+                <float name="mvz2:maxHealth" value="1800" />
                 <float name="mvz2:gravity" value="2" />
                 <id name="mvz2:shell" value="mvz2:wood" />
                 <vector3 name="mvz2:size" x="48" y="56" z="72" />

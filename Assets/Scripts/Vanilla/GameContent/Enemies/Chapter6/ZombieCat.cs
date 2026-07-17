@@ -40,9 +40,16 @@ namespace MVZ2.GameContent.Enemies
             if (entity.RNG.NextFloat() < chance)
             {
                 entity.PlayCrySound(VanillaSoundID.CatHiss);
-                entity.Spawn(VanillaEffectID.smokeCluster, entity.GetCenter());
+                var text = "miss";
+                SpawnText(entity,text);
                 damageInfo.Multiply(0f);
             }
+        }
+        public void SpawnText(Entity entity, string text)
+        {
+            var param = entity.GetSpawnParams();
+            param.SetProperty(FloatingText.PROP_TEXT, text);
+            entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
         }
     }
 }
