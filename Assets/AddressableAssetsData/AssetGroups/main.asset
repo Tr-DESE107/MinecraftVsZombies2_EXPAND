@@ -10799,6 +10799,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94ca5f1a636fdf745b64c25567b87acd
+    m_Address: mvz2:achievements/AnnoyingPersistence
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9540e590034049d4386f13245727f885
     m_Address: mvz2:armor/bedserker_helmet
     m_ReadOnly: 0

@@ -110,7 +110,7 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#283593" />
         </tag>
         <tag id="defensive" name="防御性" description="阻挡怪物用的器械" priority="4000">
-            <icon sprite="mvz2:ui/almanac/attribute_tags[2]" />
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[4]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
         </tag>
         <tag id="floor_contraption" name="地面器械" description="不会被一般怪物发现" priority="4000">
@@ -188,11 +188,6 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         
-        <tag id="producer" name="生产者" description="产出有用道具的器械" priority="4000">
-            <icon sprite="ui/almanac/EXPAND_Tag/Contraption_C0[1]" />
-            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
-        </tag>
-
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
             <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
@@ -200,6 +195,14 @@
         <tag id="Buff" name="状态效果" description="可以施加和得到状态效果" priority="4000">
             <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
+        </tag>
+        <tag id="producer" name="生产者" description="产出有用道具的器械" priority="4000">
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[2]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
+        </tag>
+        <tag id="Starsharder" name="星之碎片生产者" description="产出星之碎片" priority="4000">
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[3]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
         </tag>
 
         <tag id="Category" name="分类" enum="mvz2:Category" priority="3000" >

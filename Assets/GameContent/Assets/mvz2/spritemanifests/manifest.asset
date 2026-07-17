@@ -15,6 +15,8 @@ MonoBehaviour:
   spriteEntries:
   - name: map_button_9
     sprite: {fileID: 21300000, guid: b72aed6688108b94d85665c8a5a4a88a, type: 3}
+  - name: achievements/AnnoyingPersistence
+    sprite: {fileID: 21300000, guid: 94ca5f1a636fdf745b64c25567b87acd, type: 3}
   - name: achievements/bonebreaker
     sprite: {fileID: 21300000, guid: 7c96fdff5dc5fde4ab6559e24a67dc99, type: 3}
   - name: achievements/double_trouble
@@ -3685,6 +3687,9 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 534579002, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
     - {fileID: -1778253834, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
+    - {fileID: -1112412625, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
+    - {fileID: -732025190, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
+    - {fileID: -950509466, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
   - name: ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory
     spritesheet:
     - {fileID: 1435476752, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
