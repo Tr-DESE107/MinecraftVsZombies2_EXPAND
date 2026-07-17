@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Level;
 
@@ -49,15 +50,17 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaEnemyID.HostHead,
-                VanillaEnemyID.VillagerGhast,
-                VanillaEnemyID.ZombieHead,
-                VanillaEnemyID.RaiderSkull,
-                VanillaEnemyID.BerserkerHead,
-                VanillaEnemyID.FlyingPot,
-                VanillaEnemyID.SkeletonHead,
+                VanillaContraptionID.amethystPylon,
+                VanillaContraptionID.transfenser,
+                VanillaContraptionID.FireDispenser,
+
+                VanillaEnemyID.WraithWarrior,
+                VanillaEnemyID.WraithArcher,
+                VanillaEnemyID.WraithVanguard,
+                VanillaEnemyID.WraithDullhan,
+                VanillaEnemyID.WraithBerserker,
+                VanillaEnemyID.AncientGhost,
                 VanillaEnemyID.AngryGhast,
-                VanillaEnemyID.RedEyeZombieHead,
             });
             level.SetArtifactSlotCount(3);
         }

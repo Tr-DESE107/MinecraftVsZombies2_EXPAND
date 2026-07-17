@@ -773,6 +773,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a4689e189d85b547a58d3588f4d52a8
+    m_Address: mvz2:enemy/palace/LeatherGhost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a6995e49d92570479a5af478f6f63cd
     m_Address: mvz2:sand_dig3
     m_ReadOnly: 0
@@ -15725,6 +15732,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db6a1fffffc3ecf4e967aa4c2c697d83
+    m_Address: mvz2:enemy/palace/IronGhost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db7fc6350e9dd8641b1e9b222c33a5dd
     m_Address: mvz2:halloween

@@ -154,7 +154,10 @@ namespace MVZ2.GameContent.Enemies
         public const string WraithVanguard = "WraithVanguard";
         public const string WraithDullhan = "WraithDullhan";
         public const string WraithBerserker = "WraithBerserker";
+
         public const string AncientGhost = "AncientGhost";
+        public const string LeatherGhost = "LeatherGhost";
+        public const string IronGhost = "IronGhost";
 
         //EXPAND_Villager
         public const string MegaMutantVillager = "MegaMutantVillager";
@@ -334,7 +337,10 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID WraithVanguard = Get(VanillaEnemyNames.WraithVanguard);
         public static readonly NamespaceID WraithDullhan = Get(VanillaEnemyNames.WraithDullhan);
         public static readonly NamespaceID WraithBerserker = Get(VanillaEnemyNames.WraithBerserker);
+
         public static readonly NamespaceID AncientGhost = Get(VanillaEnemyNames.AncientGhost);
+        public static readonly NamespaceID LeatherGhost = Get(VanillaEnemyNames.LeatherGhost);
+        public static readonly NamespaceID IronGhost = Get(VanillaEnemyNames.IronGhost);
         
         //EXPAND_Villager
         public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);

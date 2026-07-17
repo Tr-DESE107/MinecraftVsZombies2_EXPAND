@@ -1772,9 +1772,12 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:transfenser" />
         <spawns flags="1">
-            <spawn id="mvz2:zombie" />
-            <spawn id="mvz2:leather_capped_zombie" />
-            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:necromancer" />
+            <spawn id="mvz2:KingSkeleton" />
         </spawns>
     </stage>
     <stage id="palace_2" name="地灵殿" dayNumber="2">

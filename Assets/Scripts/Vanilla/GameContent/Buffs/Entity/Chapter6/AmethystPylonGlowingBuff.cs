@@ -1,17 +1,23 @@
 ﻿#nullable enable
 
 using System.Collections.Generic;
+
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+
 using MVZ2Logic.Entities;
 using MVZ2Logic.Models;
+
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
+
 using Tools;
+
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Entities
@@ -27,12 +33,12 @@ namespace MVZ2.GameContent.Buffs.Entities
             // 让被照实体自己成为一个光源  
             AddModifier(new BooleanModifier(LogicEntityProps.IS_LIGHT_SOURCE, true));
             // 光色由 buff 属性 PROP_LIGHT_COLOR 决定(写法同 HellfireIgnitedBuff)  
-            AddModifier(ColorModifier.Override(LogicEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR));
+            AddModifier(ColorModifier.Override(LogicEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR, priority: VanillaModifierPriorities.FORCE));
             // 光照范围固定  
-            AddModifier(new Vector3Modifier(LogicEntityProps.LIGHT_RANGE, NumberOperator.Set, LIGHT_RANGE));
+            AddModifier(new Vector3Modifier(LogicEntityProps.LIGHT_RANGE, NumberOperator.Set, LIGHT_RANGE, priority: VanillaModifierPriorities.FORCE));
             // 光照等级由 buff 属性 PROP_LIGHT_LEVEL 决定(写法同 HellfireIgnitedBuff)，  
             // 供 WraithBuff/八色系统判定"是否被匹配等级照亮"  
-            AddModifier(new IntModifier(LogicEntityProps.LIGHT_LEVEL, IntegerOperator.Set, PROP_LIGHT_LEVEL));
+            AddModifier(new IntModifier(LogicEntityProps.LIGHT_LEVEL, IntegerOperator.Set, PROP_LIGHT_LEVEL , priority: VanillaModifierPriorities.FORCE));
             // 注意：这里刻意不加任何伤害倍率触发，即"无易伤"  
         }
         public override void OnCreate(Buff buff)

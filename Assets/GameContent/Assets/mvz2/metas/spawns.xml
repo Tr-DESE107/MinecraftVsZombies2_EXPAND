@@ -40,8 +40,9 @@
     </entry>
     <entry id="ghost">
         <entity id="mvz2:ghost" />
-        <spawn level="2" minWave="4" />
+        <spawn level="2" minWave="3" />
         <terrain excludedTags="mvz2:day" water="true" air="true" />
+        <preview count="2" />
         <weight base="2000" />
     </entry>
     <entry id="mummy">
@@ -472,6 +473,30 @@
     <entry id="PirateIMP" entity="mvz2:PirateIMP">
         <spawn level="2" minWave="2"/>
         <weight base="3000" />
+    </entry>
+    
+    <!--EXPAND C6-->
+    <entry id="LeatherGhost">
+        <entity id="mvz2:LeatherGhost" />
+        <spawn level="3"/>
+        <terrain excludedTags="mvz2:day" water="true" air="true" />
+        <preview count="2" />
+        <weight base="2000" />
+    </entry>
+    
+    <entry id="IronGhost">
+        <entity id="mvz2:IronGhost" />
+        <spawn level="4" />
+        <terrain excludedTags="mvz2:day" water="true" air="true" />
+        <preview count="2" />
+        <weight base="2000" />
+    </entry>
+    
+    <entry id="AncientGhost" noEndless="true">
+        <entity id="mvz2:AncientGhost" />
+        <spawn level="0" />
+        <terrain water="true" air="true" />
+        <weight base="0" />
     </entry>
 
     <!--EXPAND Villager-->
