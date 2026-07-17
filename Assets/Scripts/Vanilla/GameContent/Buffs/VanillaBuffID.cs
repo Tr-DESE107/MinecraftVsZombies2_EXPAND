@@ -316,6 +316,7 @@ namespace MVZ2.GameContent.Buffs
             public const string SoulFreeze = "SoulFreeze";
             public const string WraithBuff = "WraithBuff";
             public const string AncientGhostBuff = "AncientGhostBuff";
+            public const string AmethystPylonGlowing = "AmethystPylonGlowing";
 
         }
         public static class Obstacle
@@ -707,6 +708,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID SoulFreeze = Get(VanillaBuffNames.Enemy.SoulFreeze);
             public static readonly NamespaceID WraithBuff = Get(VanillaBuffNames.Enemy.WraithBuff);
             public static readonly NamespaceID AncientGhostBuff = Get(VanillaBuffNames.Enemy.AncientGhostBuff);
+            public static readonly NamespaceID AmethystPylonGlowing = Get(VanillaBuffNames.Enemy.AmethystPylonGlowing);
 
 
         }

@@ -1439,6 +1439,7 @@
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="256" y="256" z="256" />
                 <color name="mvz2:lightColor" value="#FFFF00" />
+                <int name="mvz2:lightLevel" value="3" />
             </properties>
         </entity>
         <entity template="contraption" id="gravelpult" name="沙砾投手" tooltip="投出燧石或沙砾">
@@ -1553,7 +1554,7 @@
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:amethyst_pylon/lit" />
-                <behaviour operator="add" id="mvz2:amethyst_pylon/evoke" />
+                <!--<behaviour operator="add" id="mvz2:amethyst_pylon/evoke" /> 已整合到AmethystPylon.cs-->
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />
@@ -1566,6 +1567,9 @@
                 <vector3 name="mvz2:size" x="36" y="100" z="36" />
                 <vector3 name="mvz2:shotOffset" x="25" y="52" z="0" />
 
+                <int name="mvz2:triggerCost" value="50" />
+                <bool name="mvz2:triggerActive" value="true" />
+                
                 <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
@@ -4393,7 +4397,7 @@
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
 
-                <intArray name="mvz2:wraithRequiredLightLevels" value="1 4" />
+                <intArray name="mvz2:wraithRequiredLightLevels" value="3 4" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
@@ -5530,7 +5534,7 @@
         <entity template="boss" id="locked_chest" name="上锁的箱子">
             <properties>
                 <int name="mvz2:waterInteraction" value="1" />
-                <float name="mvz2:maxHealth" value="1800" />
+                <float name="mvz2:maxHealth" value="18000" />
                 <float name="mvz2:gravity" value="2" />
                 <id name="mvz2:shell" value="mvz2:wood" />
                 <vector3 name="mvz2:size" x="48" y="56" z="72" />

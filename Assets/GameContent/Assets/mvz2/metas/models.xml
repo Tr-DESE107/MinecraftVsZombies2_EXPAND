@@ -91,7 +91,7 @@
     <model name="cursed_candle" type="entity" path="mvz2:contraption/palace/cursed_candle" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="stone_eye" type="entity" path="mvz2:contraption/palace/stone_eye" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="cooling_cell" type="entity" path="mvz2:contraption/palace/cooling_cell" width="64" height="64" xOffset="0" yOffset="-28" />
-    <model name="amethyst_pylon" type="entity" path="mvz2:contraption/palace/amethyst_pylon" width="64" height="128" xOffset="0" yOffset="-60" />
+    <model name="amethyst_pylon" type="entity" path="mvz2:contraption/palace/AmethystPylon" width="64" height="128" xOffset="0" yOffset="-60" />
     <model name="nuke" type="entity" path="mvz2:contraption/palace/nuke" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="nether_reactor_core" type="entity" path="mvz2:contraption/palace/nether_reactor_core" width="64" height="64" xOffset="0" yOffset="-28" />
 
