@@ -2005,7 +2005,7 @@
 
         <entity template="dispenser" id="FireDispenser" name="火焰发射器" tooltip="发射火焰箭，驱动改变发射的箭矢">
             <unlock>
-                <condition required="mvz2:level.palace_1" />
+                <condition required="mvz2:level.palace_2" />
             </unlock>
             <properties>
                 <bool name="mvz2:triggerActive" value="true" />
@@ -4371,7 +4371,7 @@
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
 
-                <intArray name="mvz2:wraithRequiredLightLevels" value="1 4" />
+                <intArray name="mvz2:wraithRequiredLightLevels" value="1 3" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
@@ -4401,7 +4401,7 @@
                 <vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
 
-                <intArray name="mvz2:wraithRequiredLightLevels" value="2 4" />
+                <intArray name="mvz2:wraithRequiredLightLevels" value="4 5" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
@@ -4425,7 +4425,7 @@
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
 
-                <intArray name="mvz2:wraithRequiredLightLevels" value="3 4" />
+                <intArray name="mvz2:wraithRequiredLightLevels" value="0 2" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
@@ -4444,7 +4444,7 @@
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
 
-                <intArray name="mvz2:wraithRequiredLightLevels" value="1 4" />
+                <intArray name="mvz2:wraithRequiredLightLevels" value="1 7" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
@@ -4463,7 +4463,7 @@
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
 
-                <intArray name="mvz2:wraithRequiredLightLevels" value="1 4" />
+                <intArray name="mvz2:wraithRequiredLightLevels" value="0 1" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />

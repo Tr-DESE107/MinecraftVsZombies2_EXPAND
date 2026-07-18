@@ -1778,6 +1778,7 @@
             <spawn id="mvz2:skeleton" />
             <spawn id="mvz2:necromancer" />
             <spawn id="mvz2:KingSkeleton" />
+            <spawn id="mvz2:shadow_cell" />
         </spawns>
     </stage>
     <stage id="palace_2" name="地灵殿" dayNumber="2">
@@ -1792,9 +1793,11 @@
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gravelpult" />
         <spawns flags="2">
             <spawn id="mvz2:zombie" />
-            <spawn id="mvz2:leather_capped_zombie" />
-            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:shadow_cell" />
+            <spawn id="mvz2:WraithWarrior" />
         </spawns>
     </stage>
     <stage id="palace_3" name="地灵殿" dayNumber="3">
@@ -1808,11 +1811,15 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:cursed_candle" />
         <spawns flags="2">
-            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
             <spawn id="mvz2:shadow_cell" />
+            <spawn id="mvz2:WraithWarrior" />
+            <spawn id="mvz2:WraithArcher" />
         </spawns>
     </stage>
     <stage id="palace_4" name="地灵殿" dayNumber="4">
@@ -1828,9 +1835,12 @@
         <spawns flags="2">
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:leather_capped_zombie" />
-            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:cave_spider" />
             <spawn id="mvz2:skeleton_statue" />
+            <spawn id="mvz2:WraithArcher" />
         </spawns>
     </stage>
     <stage id="palace_5" name="地灵殿" dayNumber="5">
@@ -1845,11 +1855,15 @@
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:brick_cannon" />
         <spawns flags="2">
             <spawn id="mvz2:zombie" />
-            <spawn id="mvz2:leather_capped_zombie" />
-            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
             <spawn id="mvz2:berserker" />
             <spawn id="mvz2:skeleton_statue" />
+            <spawn id="mvz2:WraithWarrior" />
+            <spawn id="mvz2:WraithArcher" />
+            <spawn id="mvz2:WraithBerserker" />
         </spawns>
     </stage>
     <stage id="palace_6" name="地灵殿" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
@@ -1892,10 +1906,13 @@
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:amethyst_pylon" />
         <spawns flags="2">
             <spawn id="mvz2:zombie" />
-            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:iron_helmetted_zombie" />
             <spawn id="mvz2:skeleton_statue" />
-            <spawn id="mvz2:hacker" />
+            <spawn id="mvz2:WraithVanguard" />
+            <spawn id="mvz2:WraithArcher" />
         </spawns>
     </stage>
     <stage id="palace_8" name="地灵殿" dayNumber="8">
@@ -1910,13 +1927,16 @@
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:nuke" />
         <spawns flags="2">
             <spawn id="mvz2:zombie" />
-            <spawn id="mvz2:leather_capped_zombie" />
-            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
             <spawn id="mvz2:reflective_barrier_zombie" />
             <spawn id="mvz2:ghost" />
             <spawn id="mvz2:shadow_cell" />
             <spawn id="mvz2:hacker" />
+            <spawn id="mvz2:WraithWarrior" />
+            <spawn id="mvz2:WraithBerserker" />
         </spawns>
     </stage>
     <stage id="palace_9" name="地灵殿" dayNumber="9">
@@ -1930,7 +1950,9 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:nether_reactor_core" />
         <spawns flags="2">
-            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
@@ -1938,6 +1960,9 @@
             <spawn id="mvz2:skeleton_statue" />
             <spawn id="mvz2:zombie_cat" />
             <spawn id="mvz2:necromancer" />
+            <spawn id="mvz2:WraithWarrior" />
+            <spawn id="mvz2:WraithArcher" />
+            <spawn id="mvz2:WraithVanguard" />
         </spawns>
     </stage>
     <stage id="palace_10" name="地灵殿" dayNumber="10">
@@ -1951,14 +1976,19 @@
         </talks>
         <clear pickupModel="mvz2:entity.map_pickup" note="mvz2:palace" />
         <spawns flags="3">
-            <spawn id="mvz2:zombie" />
-            <spawn id="mvz2:leather_capped_zombie" />
-            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
             <spawn id="mvz2:shadow_cell" />
             <spawn id="mvz2:skeleton_statue" />
             <spawn id="mvz2:hacker" />
             <spawn id="mvz2:zombie_cat" />
+            <spawn id="mvz2:WraithWarrior" />
+            <spawn id="mvz2:WraithArcher" />
+            <spawn id="mvz2:WraithBerserker" />
+            <spawn id="mvz2:WraithVanguard" />
+            <spawn id="mvz2:WraithDullhan" />
         </spawns>
     </stage>
     <stage id="palace_11" name="地灵殿" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:palace_final">
@@ -1972,22 +2002,31 @@
         </talks>
         <conveyor>
             <entry id="mvz2:transfenser" count="9" />
+            <entry id="mvz2:FireDispenser" count="9" />
             <entry id="mvz2:gravelpult" count="12" />
             <entry id="mvz2:cursed_candle" count="3" minCount="0" />
             <entry id="mvz2:stone_eye" count="6" />
+            <entry id="mvz2:obsdian" count="6" />
             <entry id="mvz2:amethyst_pylon" count="12" />
             <entry id="mvz2:nuke" count="2" minCount="0" />
+            <entry id="mvz2:netherReactorCore" count="2" minCount="0" />
+            <entry id="mvz2:glowstone" count="2" minCount="0" />
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest" />
         <spawns flags="2" pointsMultiplier="3">
-            <spawn id="mvz2:zombie" />
-            <spawn id="mvz2:leather_capped_zombie" />
-            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:zombie" />
             <spawn id="mvz2:shadow_cell" />
             <spawn id="mvz2:skeleton_statue" />
             <spawn id="mvz2:hacker" />
             <spawn id="mvz2:zombie_cat" />
+            <spawn id="mvz2:WraithWarrior" />
+            <spawn id="mvz2:WraithArcher" />
+            <spawn id="mvz2:WraithBerserker" />
+            <spawn id="mvz2:WraithDullhan" />
         </spawns>
         <time firstWave="1" />
         <properties>
