@@ -402,7 +402,8 @@ namespace MVZ2.GameContent.Bosses
             var desc = Global.Localization.GetText(CHOOSE_FATE_DESCRIPTION);
 
             int count = Mathf.Max(1, level.GetSlendermanFateChoiceCount() + entity.RNG.Next(-1, 2));
-            var selected = rng != null ? fateOptions.RandomTake(count, rng).ToArray() : fateOptions.Take(count).ToArray();
+            var pool = count == 1 ? fateOptions.Where(o => o != FATE_PANDORAS_BOX).ToArray() : fateOptions;
+            var selected = rng != null ? pool.RandomTake(count, rng).ToArray() : pool.Take(count).ToArray();
             var options = selected.Select(i => GetFateOptionText(entity.RNG, i)).ToArray();
             level.ShowDialog(title, desc, options, (i) =>
             {
