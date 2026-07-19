@@ -157,6 +157,12 @@ namespace MVZ2.Vanilla.Detections
                 return false;
             if (!canDetectInvisible && target.IsInvisible())
                 return false;
+            //EXPAND ADD
+            // 仅对怪物(纯 ENEMY)隐身：检测方是 ENEMY 且目标 invisibleToEnemy 时，排除该目标  
+            // 不含 BOSS —— BOSS 仍可正常索敌  
+            if (target.IsInvisibleToEnemy() && self.entity != null && self.entity.Type == EntityTypes.ENEMY)
+                return false;
+            //EXPAND END
             return true;
         }
         protected abstract Bounds GetDetectionBounds(Entity self);

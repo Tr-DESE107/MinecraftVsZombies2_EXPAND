@@ -200,6 +200,12 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region EXPAND_索敌
+        // 仅对怪物(纯 ENEMY)索敌隐身；器械等其它检测方仍可正常锁定  
+        public static readonly PropertyMeta<bool> INVISIBLE_TO_ENEMY = Get<bool>("invisibleToEnemy");
+        public static bool IsInvisibleToEnemy(this Entity entity) => entity.GetProperty<bool>(INVISIBLE_TO_ENEMY);
+        public static void SetInvisibleToEnemy(this Entity entity, bool value) => entity.SetProperty(INVISIBLE_TO_ENEMY, value);
+        #endregion
 
         #region 换行
         public static readonly PropertyMeta<float> CHANGE_LANE_SPEED = Get<float>("changeLaneSpeed");

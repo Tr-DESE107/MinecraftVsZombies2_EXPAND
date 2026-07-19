@@ -65,6 +65,9 @@ namespace MVZ2.Vanilla.Enemies
                 return false;
             if (!Detection.CanDetect(target))
                 return false;
+            // 近战方天然是怪物：对"仅对怪物隐身"的目标不可攻击  
+            if (target.IsInvisibleToEnemy())
+                return false;
             if (target.Position.y > enemy.Position.y + enemy.GetMaxAttackHeight())
                 return false;
             if (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.OBSTACLE)

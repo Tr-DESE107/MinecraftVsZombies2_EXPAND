@@ -32,6 +32,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(hpbarModifier);
             AddModifier(new FloatModifier(LogicEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback, priority: VanillaCallbackPriorities.MULTIPLY);
+            // 未被照亮(ethereal=true)时同时隐身，使其他单位的检测器无法将其选为攻击目标  
+            AddModifier(new BooleanModifier(VanillaEntityProps.INVISIBLE_TO_ENEMY, PROP_ETHEREAL));
         }
         public override void OnCreate(Buff buff)
         {
