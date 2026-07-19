@@ -48,9 +48,13 @@ namespace MVZ2.GameContent.Enemies
                 return;
             var lane = entity.GetLane();
             var spawnParam = entity.GetSpawnParams();
-            for (int i = 0; i < 2; i++)
+
+            // 改为生成3个：上、中（本行）、下
+            int[] laneOffsets = new int[] { -1, 0, 1 }; // 上、本行、下
+
+            for (int i = 0; i < laneOffsets.Length; i++)
             {
-                var laneOffset = i * 2 - 1;
+                var laneOffset = laneOffsets[i];
                 var l = Mathf.Clamp(lane + laneOffset, 0, entity.Level.GetMaxLaneCount() - 1);
                 entity.Spawn(VanillaEnemyID.shadowCell, entity.Position, spawnParam)?.Let(e =>
                 {
