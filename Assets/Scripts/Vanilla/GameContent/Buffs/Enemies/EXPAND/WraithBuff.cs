@@ -86,6 +86,13 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
+            // 真实光照：白天或被任意光源照亮，不含 gravel 带来的 AI 冻结    
+            bool litByLight = entity.Level.IsDay() || entity.IsIlluminated();
+            // 未被真实光照亮时，移除脸上的沙砾 buff    
+            if (!litByLight && entity.HasBuff<GravelOnFaceBuff>())
+            {
+                entity.RemoveBuffs<GravelOnFaceBuff>();
+            }
             bool illuminated = IsLitByRequiredLevel(buff, entity);
             SetIlluminated(buff, illuminated);
         }
