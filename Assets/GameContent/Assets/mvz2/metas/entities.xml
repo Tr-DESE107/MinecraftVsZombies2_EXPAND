@@ -1568,7 +1568,7 @@
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />
-                <float name="mvz2:damage" value="10" />
+                <float name="mvz2:damage" value="15" />
                 <bool name="mvz2:blocksJump" value="true" />
                 <id name="mvz2:shell" value="mvz2:stone" />
                 <id name="mvz2:placeSound" value="mvz2:crystal_place" />
@@ -2011,6 +2011,7 @@
                 <bool name="mvz2:triggerActive" value="true" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
                 <id name="mvz2:shell" value="mvz2:stone" />
+                <float name="mvz2:attackSpeed" value="1.75" />
 
                 <int name="mvz2:cost" value="175" />
                 <int name="mvz2:triggerCost" value="50" />
@@ -3917,6 +3918,7 @@
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
                 <id name="mvz2:shape" value="mvz2:dullahan_head" />
+                <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
                 <vector3 name="mvz2:size" x="38" y="26" z="38" />
 
                 <float name="mvz2:maxHealth" value="280" />
@@ -4518,7 +4520,7 @@
                 <condition required="mvz2:level.ship_11" />
             </unlock>
             <properties>
-                <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
+                <id name="mvz2:starting_armor" value="mvz2:RustedIronHelmet" />
                 <float name="mvz2:maxHealth" value="200" />
                 <int name="mvz2:cost" value="150" />
             </properties>
