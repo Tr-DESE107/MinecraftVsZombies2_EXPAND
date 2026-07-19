@@ -77,6 +77,7 @@ namespace MVZ2.GameContent.Buffs
             //EXPAND
             public const string slendermanBlackSun = "slendermanBlackSun";
             public const string DarkMatterDark = "DarkMatterDark";
+            public const string StoneEyePickaxeCooldown = "StoneEyePickaxeCooldown";
         }
         public static class Grid
         {
@@ -481,6 +482,7 @@ namespace MVZ2.GameContent.Buffs
             //EXPAND
             public static readonly NamespaceID slendermanBlackSun = Get(VanillaBuffNames.Level.slendermanBlackSun);
             public static readonly NamespaceID DarkMatterDark = Get(VanillaBuffNames.Level.DarkMatterDark);
+            public static readonly NamespaceID StoneEyePickaxeCooldown = Get(VanillaBuffNames.Level.StoneEyePickaxeCooldown);
         }
         public static class Grid
         {

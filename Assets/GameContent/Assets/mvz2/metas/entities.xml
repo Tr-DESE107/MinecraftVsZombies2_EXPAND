@@ -1514,9 +1514,9 @@
                 <behaviour operator="add" id="mvz2:stone_eye/evoke" />
             </behaviours>
             <properties>
-                <float name="mvz2:range" value="80" />
+                <float name="mvz2:range" value="120" />
                 <vector3 name="mvz2:size" x="32" y="48" z="32" />
-                <float name="mvz2:maxHealth" value="2000" />
+                <float name="mvz2:maxHealth" value="3000" />
                 <bool name="mvz2:defensive" value="true" />
 
                 <int name="mvz2:cost" value="125" />
@@ -4472,7 +4472,7 @@
                 <float name="mvz2:maxHealth" value="600" />
                 <id name="mvz2:starting_armor" value="mvz2:NetherVanguardHelmet" />
 
-                <intArray name="mvz2:wraithRequiredLightLevels" value="0 1" />
+                <intArray name="mvz2:wraithRequiredLightLevels" value="6" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
