@@ -498,6 +498,33 @@
         <terrain water="true" air="true" />
         <weight base="0" />
     </entry>
+    
+    <entry id="WraithWarrior" entity="mvz2:WraithWarrior">
+        <spawn level="2" minWave="3"/>
+        <weight base="2000" />
+    </entry>
+    
+    <entry id="WraithArcher" entity="mvz2:WraithArcher">
+        <spawn level="3" minWave="3"/>
+        <weight base="2000" />
+    </entry>
+    
+    <entry id="WraithVanguard" entity="mvz2:WraithVanguard">
+        <spawn level="4" minWave="4"/>
+        <weight base="1500" />
+    </entry>
+    
+    <entry id="WraithBerserker">
+        <entity id="mvz2:WraithBerserker" />
+        <spawn level="3" minWave="2"/>
+        <weight base="2000" />
+    </entry>
+    
+    <entry id="WraithDullhan">
+        <entity id="mvz2:WraithDullhan" />
+        <spawn level="3" minWave="3" />
+        <weight base="2000" />
+    </entry>
 
     <!--EXPAND Villager-->
     <entry id="VillagerGhast" entity="mvz2:VillagerGhast">
