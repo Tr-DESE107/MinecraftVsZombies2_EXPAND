@@ -194,7 +194,7 @@ namespace MVZ2.GameContent.Enemies
         };
 
         #region ����
-        private const int CAST_COOLDOWN = 300;
+        private const int CAST_COOLDOWN = 420;
         private const int CAST_TIME = 30;
         private const int BUILD_DETECT_TIME = 30;
         private const int MAX_BONE_WALL_COUNT = 15;

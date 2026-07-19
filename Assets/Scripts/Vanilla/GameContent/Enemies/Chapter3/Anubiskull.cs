@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Enemies
 
         public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_SUMMON_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("SummonTimer");
         public static readonly VanillaEntityPropertyMeta<float> FIELD_BLACKHOLE_BLEND = new VanillaEntityPropertyMeta<float>("BlackholeBlend");
-        public const int SUMMON_INTERVAL = 270;
+        public const int SUMMON_INTERVAL = 350;
         public static readonly Vector3 SUMMON_OFFSET = new Vector3(30, 80, 0);
         public static readonly NamespaceID ID = VanillaEnemyID.anubisand;
     }
