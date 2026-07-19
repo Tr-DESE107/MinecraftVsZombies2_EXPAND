@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            bool illuminated = entity.IsAIFrozen() || IsLitByRequiredLevel(buff, entity);
+            bool illuminated = IsLitByRequiredLevel(buff, entity);
             SetIlluminated(buff, illuminated);
         }
         // 判断实体身上是否有"匹配所需等级"的光源照亮  
