@@ -1798,6 +1798,7 @@
             <spawn id="mvz2:IronGhost" />
             <spawn id="mvz2:shadow_cell" />
             <spawn id="mvz2:WraithWarrior" />
+            <spawn id="mvz2:gargoyle" />
         </spawns>
     </stage>
     <stage id="palace_3" name="地灵殿" dayNumber="3">
@@ -1820,6 +1821,7 @@
             <spawn id="mvz2:shadow_cell" />
             <spawn id="mvz2:WraithWarrior" />
             <spawn id="mvz2:WraithArcher" />
+            <spawn id="mvz2:gargoyle" />
         </spawns>
     </stage>
     <stage id="palace_4" name="地灵殿" dayNumber="4">
@@ -1913,6 +1915,7 @@
             <spawn id="mvz2:skeleton_statue" />
             <spawn id="mvz2:WraithVanguard" />
             <spawn id="mvz2:WraithArcher" />
+            <spawn id="mvz2:gargoyle" />
         </spawns>
     </stage>
     <stage id="palace_8" name="地灵殿" dayNumber="8">
@@ -1989,6 +1992,7 @@
             <spawn id="mvz2:WraithBerserker" />
             <spawn id="mvz2:WraithVanguard" />
             <spawn id="mvz2:WraithDullhan" />
+            <spawn id="mvz2:gargoyle" />
         </spawns>
     </stage>
     <stage id="palace_11" name="地灵殿" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:palace_final">
@@ -2001,16 +2005,16 @@
             <talk type="map" value="mvz2:palace_11_map" />
         </talks>
         <conveyor>
-            <entry id="mvz2:transfenser" count="9" />
-            <entry id="mvz2:FireDispenser" count="9" />
-            <entry id="mvz2:gravelpult" count="12" />
-            <entry id="mvz2:cursed_candle" count="3" minCount="0" />
-            <entry id="mvz2:stone_eye" count="6" />
-            <entry id="mvz2:obsdian" count="6" />
-            <entry id="mvz2:amethyst_pylon" count="12" />
-            <entry id="mvz2:nuke" count="2" minCount="0" />
-            <entry id="mvz2:netherReactorCore" count="2" minCount="0" />
-            <entry id="mvz2:glowstone" count="2" minCount="0" />
+            <entry id="mvz2:transfenser" count="90" />
+            <entry id="mvz2:FireDispenser" count="90" />
+            <entry id="mvz2:gravelpult" count="120" />
+            <entry id="mvz2:cursed_candle" count="30" minCount="0" />
+            <entry id="mvz2:stone_eye" count="60" />
+            <entry id="mvz2:obsdian" count="60" />
+            <entry id="mvz2:amethyst_pylon" count="120" />
+            <entry id="mvz2:nuke" count="10" minCount="0" />
+            <entry id="mvz2:netherReactorCore" count="10" minCount="0" />
+            <entry id="mvz2:glowstone" count="20" minCount="0" />
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest" />
         <spawns flags="2" pointsMultiplier="3">

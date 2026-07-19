@@ -2653,7 +2653,7 @@
             <properties>
                 <float name="mvz2:mass" value="1" />
                 <bool name="mvz2:undead" value="false" />
-                <float name="mvz2:maxHealth" value="900" />
+                <float name="mvz2:maxHealth" value="1200" />
                 <id name="mvz2:shell" value="mvz2:stone" />
                 <id name="mvz2:crySound" value="mvz2:gargoyle_cry" />
                 <id name="mvz2:deathSound" value="mvz2:gargoyle_death" />
@@ -3187,6 +3187,8 @@
                 <id name="mvz2:deathSound" value="mvz2:stone" />
                 <idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
                 <bool name="mvz2:undead" value="false" />
+                <float name="mvz2:maxHealth" value="400" />
+                <float name="mvz2:mass" value="1" />
 
                 <int name="mvz2:cost" value="100" />
 
