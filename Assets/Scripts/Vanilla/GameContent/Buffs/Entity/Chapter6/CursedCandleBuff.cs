@@ -5,11 +5,12 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
@@ -34,6 +35,7 @@ namespace MVZ2.GameContent.Buffs.Entities
             AddModifier(new BooleanModifier(LogicEntityProps.REMOVE_ON_DEATH, true));
             AddModifier(new BooleanModifier(LogicEntityProps.NO_DEATH_EFFECTS, true));
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback);
+            AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 0.5f));
         }
         public override void OnCreate(Buff buff)
         {
