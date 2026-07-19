@@ -2010,10 +2010,10 @@
             <entry id="mvz2:gravelpult" count="120" />
             <entry id="mvz2:cursed_candle" count="30" minCount="0" />
             <entry id="mvz2:stone_eye" count="60" />
-            <entry id="mvz2:obsdian" count="60" />
+            <entry id="mvz2:obsidian" count="60" />
             <entry id="mvz2:amethyst_pylon" count="120" />
-            <entry id="mvz2:nuke" count="10" minCount="0" />
-            <entry id="mvz2:netherReactorCore" count="10" minCount="0" />
+            <entry id="mvz2:nuke" count="20" minCount="0" />
+            <entry id="mvz2:nether_reactor_core" count="20" minCount="0" />
             <entry id="mvz2:glowstone" count="20" minCount="0" />
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest" />
@@ -2038,6 +2038,7 @@
             <bool name="mvz2:adventure" value="true"/>
             <id name="clearSound" value="mvz2:final_item" />
             <float name="boss_spawn_points_multiplier" value="1.5" />
+            <float name="conveySpeed" value="1.1"/>
         </properties>
     </stage>
     <stage id="palace_endless" name="地灵殿无尽" type="endless">

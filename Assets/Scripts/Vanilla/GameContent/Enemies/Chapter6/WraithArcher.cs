@@ -196,7 +196,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<int> PROP_BOW_POWER = new VanillaEntityPropertyMeta<int>("bowPower");
         public const int STATE_WALK = LogicEnemyStates.WALK;
         public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
-        public const int BOW_POWER_PULL_SPEED = 100;
+        public const int BOW_POWER_PULL_SPEED = 75;
         public const int BOW_POWER_RESTORE_SPEED = 1000;
         public const int BOW_POWER_MAX = 10000;
     }
