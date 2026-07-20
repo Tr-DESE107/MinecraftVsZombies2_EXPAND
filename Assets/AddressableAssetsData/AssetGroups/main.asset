@@ -3740,6 +3740,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3328b3af923ea5542b1bc32b1fab600d
+    m_Address: mvz2:mobile_blueprint/WraithArcher
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3330f8521f4b9da4e90aa78d28d0cff0
     m_Address: mvz2:dragon/hit2
     m_ReadOnly: 0
@@ -5195,13 +5202,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 457f7a981eb5b634788558bb96099823
-    m_Address: mvz2:mobile_blueprint/nether_hunter
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45ab5cdfafa51bb40889877ca01a8253
     m_Address: mvz2:contraption/upgrade/CopperDropper
     m_ReadOnly: 0
@@ -6336,6 +6336,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55037d64f0af86040a2923f34593dc94
+    m_Address: mvz2:mobile_blueprint/WraithVanguard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55737eb3a28fbe442b0e134036882f07
     m_Address: mvz2:held/sword
     m_ReadOnly: 0
@@ -6929,6 +6936,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d49b72bcbe74384e80b178d81b8737b
+    m_Address: mvz2:mobile_blueprint/AncientGhost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d562f410f9a62746a0886fc28b6fcc4
     m_Address: mvz2:talk/villager/villager_idle1
@@ -12360,6 +12374,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab64495f915db22468afe8d44ea44eb9
+    m_Address: mvz2:mobile_blueprint/WraithWarrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab8b500782b9cf24bbc0ddcc4f9c9103
     m_Address: mvz2:mobile_blueprint/MutantMannequin
     m_ReadOnly: 0
@@ -13730,6 +13751,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be154d0bf904eb843a2b63a01aa7b485
+    m_Address: mvz2:mobile_blueprint/WraithBerserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: be9b5f79551d77d45a54270ddcd700eb
     m_Address: mvz2:boss/red_dragon
@@ -15334,6 +15362,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4456a2e5f6c5f64c8c7c6fc165bed2a
+    m_Address: mvz2:mobile_blueprint/WraithDullhan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d45f50a6e09e447469497cf77a6d16b5
     m_Address: mvz2:ui/level/progress_bar/the_giant_bar
     m_ReadOnly: 0
@@ -15711,6 +15746,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db2ce0a4372799743804c1e6ace58965
+    m_Address: mvz2:mobile_blueprint/LeatherGhost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db3c78d339728b54896ae08ad492515f
     m_Address: mvz2:entity/zombie/zombie_death
@@ -16363,6 +16405,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e55a9df0e97f04247bcd85763e5b23c1
+    m_Address: mvz2:mobile_blueprint/nether_hunter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e58665a25470bdf438fd493d170f6cc4
     m_Address: mvz2:ui/level/energy_gear
     m_ReadOnly: 0
@@ -16718,6 +16767,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eab8d1bdeadd7794282d5de740563c3e
+    m_Address: mvz2:mobile_blueprint/IronGhost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eac3297eb77eaa9469a14df4d15e1125
     m_Address: mvz2:random/crystal/crystal_place4

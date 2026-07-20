@@ -1,4 +1,4 @@
-<maps>
+﻿<maps>
     <elementTemplates>
         <contraption />
         <artifacts />
@@ -326,6 +326,7 @@
             <stage id="mvz2:palace_9" />
             <stage id="mvz2:palace_10" />
             <stage id="mvz2:palace_11" />
+            <stage id="mvz2:AmethystTutorial" />
         </stages>
     </map>
 </maps>

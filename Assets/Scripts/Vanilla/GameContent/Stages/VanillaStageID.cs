@@ -187,6 +187,8 @@ namespace MVZ2.GameContent.Stages
         //EXPAND Puzzle
         public const string puzzleRandomCvsRandomE = "puzzleRandomCvsRandomE";
 
+        public const string AmethystTutorial = "AmethystTutorial";
+
     }
     public static class VanillaStageID
     {
@@ -212,6 +214,9 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID palace11 = Get(VanillaStageNames.palace11);
 
         public static readonly NamespaceID iZombieDebug = Get(VanillaStageNames.iZombieDebug);
+
+        //EXPAND
+        public static readonly NamespaceID AmethystTutorial = Get(VanillaStageNames.AmethystTutorial);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

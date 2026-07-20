@@ -2859,6 +2859,10 @@
         </spawns>
     </stage>
     
+    <stage id="AmethystTutorial" name="光学教程关" type="special" scene="mvz2:palace">
+        <camera transition="to_lawn" />
+    </stage>
+    
     <stage id="BlueprintBossRush" name="&lt;color=red&gt;BlueprintBossRush&lt;/color&gt;" type="minigame" music="mvz2:Sacrificial">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="1" wavesPerFlag="10" firstWaveTime="1800">
