@@ -50,7 +50,7 @@ namespace MVZ2.Vanilla.Localization
         [TranslateMsg]
         public const string UI_GAME_CLEARED = "通关";
         [TranslateMsg]
-        public const string UI_COMING_SOON = "恭喜通关！\n接下来的内容还在开发中，敬请期待！";
+        public const string UI_COMING_SOON = "恭喜通关主线！\n接下来的内容还在开发中，敬请期待！\n你可以通过所有的拓展关卡、我是僵尸模式来解锁新商品！";
         [TranslateMsg("随机瓷器消息模板，{0}为事件名，{1}为事件描述")]
         public const string RANDOM_CHINA_TEXT_TEMPLATE = "<color=#824400>{0}</color>\n{1}";
 
