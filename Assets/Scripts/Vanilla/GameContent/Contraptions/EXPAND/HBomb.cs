@@ -79,7 +79,7 @@ namespace MVZ2.GameContent.Contraptions
 
                 // 血量 <= 7200：直接原子移除，且带 NO_DEATH_EFFECTS，不触发任何亡语召唤。  
                 // 血量 > 7200：只造成伤害（damage*2），不移除。  
-                if (ent.Health <= damage * 2)
+                if (ent.Health <= damage * 2 && ent.Type != EntityTypes.BOSS)
                 {
                     ent.DieOrRemove(deathEffects, entity);
                 }
