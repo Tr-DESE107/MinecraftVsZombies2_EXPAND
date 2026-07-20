@@ -2526,6 +2526,7 @@
                 <condition required="mvz2:contraption.BrainInVat" />
             </unlock>
             <properties>
+                <bool name="mvz2:upgradeBlueprint" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
                 <float name="mvz2:maxHealth" value="300" />
@@ -2544,6 +2545,7 @@
                 <!--<condition required="mvz2:UCANNOTUSEIT!" />-->
             </unlock>
             <properties>
+                <bool name="mvz2:upgradeBlueprint" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
                 <float name="mvz2:maxHealth" value="2147483647" />
@@ -2562,6 +2564,7 @@
                 <!--<condition required="mvz2:UCANNOTUSEIT!" />-->
             </unlock>
             <properties>
+                <bool name="mvz2:upgradeBlueprint" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
                 <float name="mvz2:maxHealth" value="2147483647" />
