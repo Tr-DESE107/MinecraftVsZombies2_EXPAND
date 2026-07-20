@@ -63,10 +63,10 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             var fireType = GetFireType(buff);
             if (fireType == FireType.SoulFreeze)
             {
-                rangeMultiplier = 0.75f; // SoulFreezeFire光源大小为普通火焰的0.75  
+                rangeMultiplier = 0.8f; // SoulFreezeFire光源大小为普通火焰的0.75  
             }
 
-            buff.SetProperty(PROP_LIGHT_RANGE_ADDITION, Vector3.one * 60 * scale * rangeMultiplier);
+            buff.SetProperty(PROP_LIGHT_RANGE_ADDITION, Vector3.one * 70 * scale * rangeMultiplier);
         }
         private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
