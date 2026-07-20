@@ -3033,6 +3033,9 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
+            <bool name="endless" value="true" />
+            <bool name="iZombie" value="true" />
+            <int name="pickaxeCountLimit" value="99" />
         </properties>
     </stage>
 
@@ -3043,9 +3046,7 @@
         <properties>
             <bool name="autoCollectEnergy" value="true" />
             <bool name="autoCollectMoney" value="true" />
-            <bool name="endless" value="true" />
             <bool name="iZombie" value="true" />
-            <int name="pickaxeCountLimit" value="3" />
         </properties>
     </stage>
 
@@ -3109,7 +3110,7 @@
             <bool name="autoCollectMoney" value="true" />
             <bool name="endless" value="true" />
             <bool name="iZombie" value="true" />
-            <int name="pickaxeCountLimit" value="3" />
+            <int name="pickaxeCountLimit" value="99" />
         </properties>
     </stage>
 </stages>

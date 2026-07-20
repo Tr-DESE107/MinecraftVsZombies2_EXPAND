@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Stages
         protected abstract IEnumerable<IZELayoutItem> GetNormalLayouts();
         protected abstract IEnumerable<IZELayoutItem> GetAwardLayouts();
         protected abstract IEnumerable<NamespaceID> GetBlueprints();
-        public const int ROUNDS_PER_PICKAXE = 2;
+        public const int ROUNDS_PER_PICKAXE = 1;
         public const int START_PICKAXE_COUNT = 1;
         public override bool AllowPickaxe => true;
         private List<IZELayoutItem> normalLayouts = new List<IZELayoutItem>();

@@ -42,9 +42,6 @@ namespace MVZ2.GameContent.Stages
             return VanillaIZombieLayoutID.izeComposite;
         }
 
-        public const int ROUNDS_PER_PICKAXE = 1;
-        public const int MAX_PICKAXE_COUNT = 99;
-
         protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
         {
             // 获取已解锁的敌人（该缓存本身只包含 EntityTypes.ENEMY 的实体）  
