@@ -394,7 +394,23 @@
                 <p>地雷TNT为什么需要时间来填装？这的确是个千古难题。如果它能瞬间出来的话那还怕什么呢？但在它看来，这件事挺正常的：“老娘在睡觉！”</p>
             </flavor>
         </entry>
-        <entry />
+        <entry id="mvz2:BrainInVat">
+            <header>
+                <p>放置后怪物进家不会死亡，该器械被摧毁后游戏立刻失败。</p>
+            </header>
+            <properties>
+                <p>特点：<![CDATA[<color=red>放置后怪物进家不会死亡，该器械被摧毁后游戏立刻失败。使用缸中之脑通关的关卡不会记录难度。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>赋予自身10秒无敌</color>]]></p>
+            </properties>
+            <flavor>
+                <p>缸中之脑能改变游戏规则。</p>
+                <p/>
+                <p><![CDATA[<color=grey>想象一个诡异的场景：你的大脑被放置在一个与外界完全隔绝的缸中，先进的科技会模拟你的神经冲动，你的大脑会感受到和现实世界相同的体验。</color>]]></p>
+                <p><![CDATA[<color=grey>现在，问题来了： 如果大脑被模拟并感受到与现实相同的体验，那么这种模拟是否等同于真实的意识体验？在这种情境下，现实和虚拟的区别变得模糊。这是否表明我们对于真实性的理解只是基于体验而非客观存在？大脑被隔离于身体之外，但是否意味着自我认知也可以在没有身体的情况下存在？如果在这个虚拟体验中的感知和体验与现实相同，那么我们如何定义现实？</color>]]></p>
+                <p/>
+                <p><![CDATA[<color=white>戴夫杂乱的字迹：希腊奶，大脑相关的东西你应该问雷克的朋友....我记得叫未什么来着？</color>]]></p>
+            </flavor>
+        </entry>
         <entry />
         <entry />
         <entry />
@@ -1316,7 +1332,7 @@
                 <p><![CDATA[紫晶塔向前发射穿透所有敌人的激光。周围的<tag id="mvz2:light_source"/>光源越多，紫晶塔的伤害越高。]]></p>
             </header>
             <properties>
-                <p>伤害：<![CDATA[<color=red>10（无光源），20（1光源），40（2光源），60（3光源）</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>15（无光源），30（1光源），60（2光源），90（3光源）</color>]]></p>
                 <p>攻击间隔：<![CDATA[<color=red>3秒</color>]]></p>
                 <p>技能：<![CDATA[<color=red>发射一道贯穿三行的超能光束，之后紫晶塔被禁用30秒</color>]]></p>
             </properties>
@@ -1482,10 +1498,10 @@
                 <p>有说法认为他们能够像普通的器械<![CDATA[<ref=[contraptions]mvz2:obsidian>黑曜石</ref>]]>那样发射弹幕反击敌人，不知道是不是真的。</p>
             </flavor>
         </entry>
-
+        <!--
         <entry id="mvz2:Eradicator">
             <header>
-                <p>占位符</p>
+                <p>根除者的占位符</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>占位符</color>]]></p>
@@ -1495,7 +1511,7 @@
             <flavor>
                 <p>占位符</p>
             </flavor>
-        </entry>
+        </entry>-->
         
         <entry id="mvz2:DispenShield">
             <header>
@@ -1516,6 +1532,7 @@
         </entry>
 
 
+        <entry/>
         <entry />
         <entry />
 
@@ -3489,7 +3506,231 @@
                 <p>啊呀，骇死我力！</p>
             </flavor>
         </entry>
+
+        <!--EXPAND C6-->
+        <entry id="mvz2:LeatherGhost">
+            <header>
+                <p>皮帽幽灵能够在虚无的情况下极大降低受到的伤害。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>抗性：<![CDATA[<color=red>虚无状态下减少90%受到的伤害，高难度下100%</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>被<tag id="mvz2:light_source" />光照到时会失去虚无效果</color>]]></p>
+            </properties>
+            <flavor>
+                <p>当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵向你炫耀他的帽子。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:IronGhost">
+            <header>
+                <p>锈铁盔幽灵能够在虚无的情况下极大降低受到的伤害。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>抗性：<![CDATA[<color=red>虚无状态下减少90%受到的伤害，高难度下100%</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>被<tag id="mvz2:light_source" />光照到时会失去虚无效果</color>]]></p>
+            </properties>
+            <flavor>
+                <p>与皮帽怨灵不同，锈铁盔幽灵戴的帽子确实像是古老的产品。可能这时候有小朋友就要问了，锈铁不应该是红色吗？他这个帽子，怎么没有红铁锈？哎，锈蚀的铁盔除了红色之外，还有其他颜色的。</p>
+                <p>铁锈不只有红褐色（三氧化二铁）。在干燥环境或含硫的空气中，铁会形成四氧化三铁或硫化亚铁。这两种化合物呈现蓝黑色或深灰色，且结构致密，没有红锈那种蓬松的粉末感。如果这顶头盔经历过高温（如战场火焰）或常年处于封闭墓穴，表面就会形成一层无光泽的“铁灰”皮壳，这反而比红锈更显古老。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:AncientGhost">
+            <header>
+                <p>古老幽灵的出现标志着一大波幽灵的到来，同时他可以赋予场上所有怪物隐身效果。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>周期性赋予场上怪物隐身效果，该效果不提供抗性提升，仅让怪物在未被光照亮的情况下完全隐形。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>对于该幽灵我们了解的不多，只能从外观上判断他至少存在了上千年。</p>
+                <p>尚不明确他怎么做到让其他怪物隐身的。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:shadow_cell">
+            <variables>
+                <variable name="small_hp">global("mvz2:entity_health") * 0.5</variable>
+            </variables>
+            <header>
+                <p>暗影细胞漂浮在低空中，在被击杀后会向上中下三行分裂出三个小型的暗影细胞。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />（本体），<var local="small_hp" />（小型）</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>在地面上每秒受到100点伤害</color>]]></p>
+            </properties>
+            <flavor>
+                <p><![CDATA[<align="center"><b>《暗影细胞的研究报告》</b></align>]]></p>
+                <p>    暗影细胞是暗影生物的组成单位。暗影生物即一种寄生于尸体之上，操控尸体进行活动的生物<![CDATA[<sup>[1]</sup>]]>。而这些尸体和暗影生物的组合体被称为亡灵生物。</p>
+                <p>    暗影生物通过蚕食尸体的肉，并袭击人类来获取养分，通过养分来加深对宿主的寄生，并产生类似生物一般的结构以及器官，甚至有些暗影生物还通过此方法产生了智慧。</p>
+                <p>    暗影生物可以通过剧毒来治疗自己，但会被具有治疗效果的化学成分所伤。同时，暗影生物惧怕阳光，它们在阳光下会开始自燃<![CDATA[<sup>[2]</sup>]]>。</p>
+                <p>    在下界，存在着暗影生物的亚种，这种亚种具有抗火能力，但是也牺牲了自己从尸体处获取养分的能力，只能通过摄取真菌来获取成长所需的养分。</p>
+                <p/>
+                <p>1. 有报告称，出现了一种不依赖于寄生便可存活的巨型暗影细胞，目前这种生物的存在仍需进一步确认。</p>
+                <p>2. 如今世界各地的阳光底下却存在亡灵生物不燃烧的现象，此事相当异常，需要进一步调查。</p>
+            </flavor>
+        </entry>
         
+        <entry id="mvz2:WraithWarrior">
+            <header>
+                <p>亡魂战士需要等级为1和3的（红色或黄色）光照亮才能被正常伤害，会在攻击时能够额外造成范围伤害。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为1和3的（红色或黄色）光照亮才能被正常伤害</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>变形发射器</color>]]></p>
+            </properties>
+            <flavor>
+                <p>他们没有像下界战士那样精良的装备，但也属于凋零骷髅一族，同样会疯狂榨取敌人的生命。</p>
+                <p/>
+                <p><![CDATA[<color=blue>看起来像是下界军团的军队...但似乎哪里不对？怎么是灵魂体？凋零骷髅再死一遍还有灵魂体？</color>]]></p>
+            </flavor>
+        </entry>
+
+        <entry id="mvz2:WraithArcher">
+            <header>
+                <p>亡魂弓箭手需要等级为4和5的（绿色或青色）光照亮才能被正常伤害，能够发射箭矢攻击。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为4和5的（绿色或青色）光照亮才能被正常伤害</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>火焰发射器</color>]]></p>
+            </properties>
+            <flavor>
+                <p>听说他生前是个下界弓箭手，不小心在地狱都市的高楼摔死了，成为怨灵后，心中的咒焰燃烧的更猛烈了，也学会了持续射出鬼火箭矢。</p>
+            </flavor>
+        </entry>
+        
+        <entry id="mvz2:skeleton_statue">
+            <header>
+                <p>骷髅雕像在死亡后会变为低矮的残骸，若残骸没有及时被摧毁，则会复活。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />（本体），<var id="mvz2:entity_health" />（残骸）</color>]]></p>
+                <p>移速：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>复活时长：<![CDATA[<color=red>5秒，每次死亡+2秒</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>攻击速度越快复活越快</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>被注视时停止移动</color>]]></p>
+            </properties>
+            <flavor>
+                <p><![CDATA[<b>项目编号：</b>]]>MCP-173</p>
+                <p><![CDATA[<b>项目等级：</b>]]>Keter</p>
+                <p><![CDATA[<b>特殊收容措施：</b>]]>MCP-173须收容于一个内衬光滑加固玻璃的球形强化舱内。舱体被无影灯持续照亮，并由六组独立供电的摄像头进行全方位、不间断监控。一旦任何视频信号中断超过0.5秒，将自动触发应急协议。球形舱外依次包裹三层可密封的合金隔离层，夹层中填充重型细砂，以极大迟滞其可能的挖掘行为。</p>
+                <p><![CDATA[<b>描述：</b>]]>MCP-173为一具高度约1.7米的石英质骷髅状雕塑，表面呈灰白色并带有若干细微裂痕。其面部雕刻被普遍描述为“令人不安”，多名人员报告在非接触期梦境中反复出现类似面容。颚部区域可见已干涸的暗红色颜料痕迹，成分分析显示为氧化铁混合物。</p>
+                <p>MCP-173在受到持续直接目视观测时保持完全静止。一旦失去视觉监视，它将立即以约20 km/h的速度移动至最近的活体目标，并尝试实施攻击。如路径受阻，MCP-173能够通过物理挖掘方式破坏障碍物。</p>
+                <p>若MCP-173受到物理破坏，其残骸将在约10秒内迅速重组，恢复至初始完整状态，该过程只能通过再次摧毁其残骸来阻止。即便如此，其残骸碎片在约1天内仍会自行缓慢重组。</p>
+                <p><![CDATA[<b>附录 MCP-173-A：</b>]]>实验记录显示，当处于项目<![CDATA[<ref=[contraptions]mvz2:stone_eye>MCP-531</ref>]]>的视线范围内时，MCP-173会表现出与受人类直视时相同的静止状态。基于该现象，已提案研究将MCP-531纳入MCP-173长期收容方案的可行性，相关测试待批准。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:WraithBerserker">
+            <header>
+                <p>亡魂狂战士需要等级为0和2的（白色或橙色）光照亮才能被正常伤害，死亡后会发生爆炸。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为0和2的（白色或橙色）光照亮才能被正常伤害</color>]]></p>
+            </properties>
+            <flavor>
+                <p>在地灵殿怨念的聚集下，一种可怕的怨灵诞生了，他们是狂战士死后的灵魂，结合了死后的幽灵和生前的特性。</p>
+                <p>难以想象如此的幽灵会出现在战场之上。</p>
+                <p/>
+                <p><![CDATA[<color=green>值得庆幸的是，照亮他们所需要的光非常常见，白天的白光、白色荧石光和普通的火焰光就能够照亮他们。</color>]]></p>
+                <p><![CDATA[<color=green>另外他们这么一炸，应该永远都不会再出现了吧？</color>]]></p>
+                <p/>
+                <p><![CDATA[<color=white>都怪恋恋乱挂收藏品。</color>]]></p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:WraithVanguard">
+            <header>
+                <p>亡魂冲锋者需要等级为6的（蓝色）光照亮才能被正常伤害，未被阻挡时拥有90%减伤，攻击时持续对小范围内的器械造成伤害。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为6的（蓝色）光照亮才能被正常伤害</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>月光传感器、闪电之珠</color>]]></p>
+            </properties>
+            <flavor>
+                <p>他们是下界里已经死去的精英部队成员，化作怨灵前来复仇，虽然已经死去并削减了战斗力，但与他们交战时仍然要加倍小心。</p>
+                <p/>
+                <p><![CDATA[<color=blue>战斗力削减在哪？</color>]]></p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:hacker">
+            <header>
+                <p>黑客会使用它的奇硅电脑骇入并暂时禁用最后方的器械。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>骇入时长：<![CDATA[<color=red>8秒</color>]]></p>
+                <p>禁用时长：<![CDATA[<color=red>32秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>&gt;rm -rf</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:zombie_cat">
+            <header>
+                <p>僵尸猫拥有9条命，每次受到攻击时有一定的概率躲避本次伤害，并且每次死亡时都有50%的概率召唤一只<![CDATA[<ref=[enemies]mvz2:wisp_fly>鬼火苍蝇</ref>]]>。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>能复活8次</color>]]></p>
+                <p>概率：<![CDATA[<color=red>25%（简单），50%（普通和困难），75%（EXPAND）</color>]]></p>
+            </properties>
+            <flavor>
+                <p>我们修复了在夜间游荡的僵尸不会攻击村庄中的流浪猫的问题。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:wisp_fly">
+            <variables>
+                <variable name="easy_damage">global("mvz2:entity_damage")</variable>
+                <variable name="normal_damage">global("mvz2:entity_damage") * 1.5</variable>
+                <variable name="hard_damage">global("mvz2:entity_damage") * 3</variable>
+            </variables>
+            <header>
+                <p>鬼火苍蝇会冲向你的器械，并产生一次小型自爆，造成<![CDATA[<tag id="mvz2:fire" />]]>火焰伤害。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>自爆伤害：<![CDATA[<color=red><var local="easy_damage"/>（简单），<var local="normal_damage"/>（普通），<var local="hard_damage"/>（困难）</color>]]></p>
+            </properties>
+            <flavor>
+                <p>一：为了解决现实中青蛙吃萤火虫会中毒的问题，我们干脆不加入萤火虫。</p>
+                <p>二：我们反悔了，这次我们加入了萤火虫，但是只是方块的视觉效果。</p>
+                <p>三：现在我们真的加入“萤火虫”了。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:WraithDullhan">
+            <header>
+                <p>亡魂无头先锋需要等级为1或7的（红色或紫色）光照亮才能被正常伤害，未被阻挡时拥有90%减伤，攻击时持续对小范围内的器械造成伤害。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为1或7的（红色或紫色）光照亮才能被正常伤害</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>紫晶塔、发光的黑曜石</color>]]></p>
+            </properties>
+            <flavor>
+                <p>这些亡魂不仅没有通过库尔咒的考验，还砍下头颅丢掉了性命。不过这样因祸得福让他们成为了怨灵，他们变得比以前更强，连常规的发光器械都没法照亮他们，这让他们不觉得死亡是件坏事了。</p>
+                <p/>
+                <p><![CDATA[<color=grey>我查了一下资料，怀疑图鉴里的怨灵条目不是野史就是不准确。</color>]]></p>
+                <p><![CDATA[<color=grey>死去的凋零骷髅灵魂一般都会飘向灵魂沙漠，不太可能单独作为游离态出现。</color>]]></p>
+                <p><![CDATA[<color=grey>虽然听说高塔巫师们整过不少骇人的灵魂实验...但猪灵们也没见到过大规模批量生产的怨灵部队。</color>]]></p>
+                <p/>
+                <p><![CDATA[<color=#C6D1C5>那这些家伙是哪来的？</color>]]></p>
+            </flavor>
+        </entry>
+        
+        <!--EXPAND EX-->
         <entry id="mvz2:mega_mutant_zombie">
             <header>
                 <p>超级突变僵尸可以粉碎你的器械，并在血量低至一半时投掷小鬼僵尸</p>
@@ -3748,97 +3989,6 @@
             </flavor>
         </entry>
 
-
-        <entry id="mvz2:shadow_cell">
-            <variables>
-                <variable name="small_hp">global("mvz2:entity_health") * 0.5</variable>
-            </variables>
-            <header>
-                <p>暗影细胞漂浮在低空中，在被击杀后会向上下两行分裂出两个小型的暗影细胞。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />（本体），<var local="small_hp" />（小型）</color>]]></p>
-                <p>特殊：<![CDATA[<color=red>在地面上每秒受到100点伤害</color>]]></p>
-            </properties>
-            <flavor>
-                <p><![CDATA[<align="center"><b>《暗影细胞的研究报告》</b></align>]]></p>
-                <p>    暗影细胞是暗影生物的组成单位。暗影生物即一种寄生于尸体之上，操控尸体进行活动的生物<![CDATA[<sup>[1]</sup>]]>。而这些尸体和暗影生物的组合体被称为亡灵生物。</p>
-                <p>    暗影生物通过蚕食尸体的肉，并袭击人类来获取养分，通过养分来加深对宿主的寄生，并产生类似生物一般的结构以及器官，甚至有些暗影生物还通过此方法产生了智慧。</p>
-                <p>    暗影生物可以通过剧毒来治疗自己，但会被具有治疗效果的化学成分所伤。同时，暗影生物惧怕阳光，它们在阳光下会开始自燃<![CDATA[<sup>[2]</sup>]]>。</p>
-                <p>    在下界，存在着暗影生物的亚种，这种亚种具有抗火能力，但是也牺牲了自己从尸体处获取养分的能力，只能通过摄取真菌来获取成长所需的养分。</p>
-                <p/>
-                <p>1. 有报告称，出现了一种不依赖于寄生便可存活的巨型暗影细胞，目前这种生物的存在仍需进一步确认。</p>
-                <p>2. 如今世界各地的阳光底下却存在亡灵生物不燃烧的现象，此事相当异常，需要进一步调查。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:skeleton_statue">
-            <header>
-                <p>骷髅雕像在死亡后会变为低矮的残骸，若残骸没有及时被摧毁，则会复活。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />（本体），<var id="mvz2:entity_health" />（残骸）</color>]]></p>
-                <p>移速：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>复活时长：<![CDATA[<color=red>5秒，每次死亡+2秒</color>]]></p>
-                <p>特殊：<![CDATA[<color=red>攻击速度越快复活越快</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>被注视时停止移动</color>]]></p>
-            </properties>
-            <flavor>
-                <p><![CDATA[<b>项目编号：</b>]]>MCP-173</p>
-                <p><![CDATA[<b>项目等级：</b>]]>Keter</p>
-                <p><![CDATA[<b>特殊收容措施：</b>]]>MCP-173须收容于一个内衬光滑加固玻璃的球形强化舱内。舱体被无影灯持续照亮，并由六组独立供电的摄像头进行全方位、不间断监控。一旦任何视频信号中断超过0.5秒，将自动触发应急协议。球形舱外依次包裹三层可密封的合金隔离层，夹层中填充重型细砂，以极大迟滞其可能的挖掘行为。</p>
-                <p><![CDATA[<b>描述：</b>]]>MCP-173为一具高度约1.7米的石英质骷髅状雕塑，表面呈灰白色并带有若干细微裂痕。其面部雕刻被普遍描述为“令人不安”，多名人员报告在非接触期梦境中反复出现类似面容。颚部区域可见已干涸的暗红色颜料痕迹，成分分析显示为氧化铁混合物。</p>
-                <p>MCP-173在受到持续直接目视观测时保持完全静止。一旦失去视觉监视，它将立即以约20 km/h的速度移动至最近的活体目标，并尝试实施攻击。如路径受阻，MCP-173能够通过物理挖掘方式破坏障碍物。</p>
-                <p>若MCP-173受到物理破坏，其残骸将在约10秒内迅速重组，恢复至初始完整状态，该过程只能通过再次摧毁其残骸来阻止。即便如此，其残骸碎片在约1天内仍会自行缓慢重组。</p>
-                <p><![CDATA[<b>附录 MCP-173-A：</b>]]>实验记录显示，当处于项目<![CDATA[<ref=[contraptions]mvz2:stone_eye>MCP-531</ref>]]>的视线范围内时，MCP-173会表现出与受人类直视时相同的静止状态。基于该现象，已提案研究将MCP-531纳入MCP-173长期收容方案的可行性，相关测试待批准。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:hacker">
-            <header>
-                <p>黑客会使用它的奇硅电脑骇入并暂时禁用最后方的器械。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
-                <p>骇入时长：<![CDATA[<color=red>8秒</color>]]></p>
-                <p>禁用时长：<![CDATA[<color=red>32秒</color>]]></p>
-            </properties>
-            <flavor>
-                <p>&gt;rm -rf</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:zombie_cat">
-            <header>
-                <p>僵尸猫拥有9条命，每次受到攻击时有一定的概率躲避本次伤害，并且每次死亡时都有50%的概率召唤一只<![CDATA[<ref=[enemies]mvz2:wisp_fly>鬼火苍蝇</ref>]]>。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
-                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>能复活8次</color>]]></p>
-                <p>概率：<![CDATA[<color=red>25%（简单），50%（普通和困难），75%（EXPAND）</color>]]></p>
-            </properties>
-            <flavor>
-                <p>我们修复了在夜间游荡的僵尸不会攻击村庄中的流浪猫的问题。</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:wisp_fly">
-            <variables>
-                <variable name="easy_damage">global("mvz2:entity_damage")</variable>
-                <variable name="normal_damage">global("mvz2:entity_damage") * 1.5</variable>
-                <variable name="hard_damage">global("mvz2:entity_damage") * 3</variable>
-            </variables>
-            <header>
-                <p>鬼火苍蝇会冲向你的器械，并产生一次小型自爆，造成<![CDATA[<tag id="mvz2:fire" />]]>火焰伤害。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
-                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>自爆伤害：<![CDATA[<color=red><var local="easy_damage"/>（简单），<var local="normal_damage"/>（普通），<var local="hard_damage"/>（困难）</color>]]></p>
-            </properties>
-            <flavor>
-                <p>一：为了解决现实中青蛙吃萤火虫会中毒的问题，我们干脆不加入萤火虫。</p>
-                <p>二：我们反悔了，这次我们加入了萤火虫，但是只是方块的视觉效果。</p>
-                <p>三：现在我们真的加入“萤火虫”了。</p>
-            </flavor>
-        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

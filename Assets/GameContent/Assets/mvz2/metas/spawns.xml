@@ -499,28 +499,28 @@
         <weight base="0" />
     </entry>
     
-    <entry id="WraithWarrior" entity="mvz2:WraithWarrior">
+    <entry id="WraithWarrior" entity="mvz2:WraithWarrior" noEndless="true">
         <spawn level="2" minWave="3"/>
         <weight base="2000" />
     </entry>
     
-    <entry id="WraithArcher" entity="mvz2:WraithArcher">
+    <entry id="WraithArcher" entity="mvz2:WraithArcher" noEndless="true">
         <spawn level="3" minWave="3"/>
         <weight base="2000" />
     </entry>
     
-    <entry id="WraithVanguard" entity="mvz2:WraithVanguard">
+    <entry id="WraithVanguard" entity="mvz2:WraithVanguard" noEndless="true">
         <spawn level="4" minWave="4"/>
         <weight base="1500" />
     </entry>
     
-    <entry id="WraithBerserker">
+    <entry id="WraithBerserker" noEndless="true">
         <entity id="mvz2:WraithBerserker" />
         <spawn level="3" minWave="2"/>
         <weight base="2000" />
     </entry>
     
-    <entry id="WraithDullhan">
+    <entry id="WraithDullhan" noEndless="true">
         <entity id="mvz2:WraithDullhan" />
         <spawn level="3" minWave="3" />
         <weight base="2000" />

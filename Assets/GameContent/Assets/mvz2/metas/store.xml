@@ -242,7 +242,7 @@
                 <talk character="mvz2:tokiko">按“科学道理”讲，氢弹必须用裂变弹引燃，触发后会释放出更多的能量！</talk>
             </talks>
             <stages>
-                <stage price="50000" unlocks="mvz2:contraption.HBomb" />
+                <stage price="100000" unlocks="mvz2:contraption.HBomb" />
             </stages>
         </product>
         
@@ -410,6 +410,20 @@
                     <stage price="1071070" unlocks="mvz2:goods.EXPAND_Completed" />
             </stages>
         </product>
+        
+        <product id="BrainInVat" blueprintId="mvz2:BrainInVat">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">这个器械叫做缸中之脑，放置后能让走进家里的怪物不会攻击你，摧毁他会导致不可逆的可怕后果。——哦对了，你如何证明你不是缸中之脑？</talk>
+                <talk character="mvz2:tokiko">好诡异的器械啊....这个器械叫做缸中之脑，听说放置后能让走进你家里的怪物先生不会粗暴对你，但是这个器械被摧毁后会怎么样.....谁也不知道</talk>
+            </talks>
+            <stages>
+                <stage price="50000" unlocks="mvz2:contraption.BrainInVat" />
+            </stages>
+        </product>
+        
         <product id="cake" sprite="mvz2:products/cake">
             <unlock>
                 <condition requiredGroups="mvz2:game_completed" />

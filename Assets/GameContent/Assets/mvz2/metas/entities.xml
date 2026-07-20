@@ -2522,6 +2522,9 @@
 
         <!--EXPAND Cyan Contraption-->
         <entity template="contraption" id="BrainInVat" name="缸中之脑" tooltip="放置后怪物进家不会死亡，以任何形式被摧毁时游戏直接失败">
+            <unlock>
+                <condition required="mvz2:contraption.BrainInVat" />
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
@@ -3150,7 +3153,7 @@
         <!-- Palace Enemies -->
         <entity template="enemy" id="shadow_cell" name="暗影细胞" deathMessage="僵尸就是这么来的。">
             <unlock>
-                <condition required="mvz2:level.palace_1" />
+                <condition required="mvz2:level.ship_11" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:burn_at_day" />
@@ -3198,7 +3201,7 @@
         </entity>
         <entity template="witherSkeleton" id="hacker" name="黑客" deathMessage="G4M3 0V3R">
             <unlock>
-                <condition required="mvz2:level.palace_6" />
+                <condition required="mvz2:level.palace_7" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:humanoid_animation" id="mvz2:hacker/animation" />
@@ -4364,13 +4367,13 @@
         </entity>
         
         <!-- EXPAND Enemies C6 -->
-        <entity template="Ghost_Exp" id="WraithWarrior" name="亡魂战士" deathMessage="现在有伴了。">
+        <entity template="Ghost_Exp" id="WraithWarrior" name="亡魂战士" deathMessage="规则怪谈：找到红光和黄光">
             <unlock>
-                <condition required="mvz2:level.halloween_3" />
+                <condition required="mvz2:level.palace_1" />
             </unlock>
             <properties>
                 <float name="mvz2:friction" value="0.05" />
-                <float name="mvz2:mass" value="-2" />
+                <float name="mvz2:mass" value="-1" />
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
@@ -4385,9 +4388,9 @@
             </properties>
         </entity>
         
-        <entity template="Ghost_Exp" id="WraithArcher" name="亡魂弓箭手" deathMessage="现在有伴了。">
+        <entity template="Ghost_Exp" id="WraithArcher" name="亡魂弓箭手" deathMessage="你惊扰了下界弓箭手的亡魂！">
             <unlock>
-                <condition required="mvz2:level.halloween_3" />
+                <condition required="mvz2:level.palace_2" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
@@ -4395,7 +4398,7 @@
             </behaviours>
             <properties>
                 <float name="mvz2:friction" value="0.05" />
-                <float name="mvz2:mass" value="-2" />
+                <float name="mvz2:mass" value="-1" />
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
@@ -4415,9 +4418,9 @@
             </properties>
         </entity>
         
-        <entity template="witherSkeleton" id="WraithBerserker" name="亡魂狂战士" deathMessage="爆！">
+        <entity template="Ghost_Exp" id="WraithBerserker" name="亡魂狂战士" deathMessage="到底是什么丧心病狂的人能想出这种东西？">
             <unlock>
-                <condition required="mvz2:level.castle_3" />
+                <condition required="mvz2:level.palace_4" />
             </unlock>
             <properties>
                 <bool name="mvz2:dynamite" value="true" />
@@ -4428,7 +4431,7 @@
                 <float name="mvz2:maxHealth" value="200" />
 
                 <float name="mvz2:friction" value="0.05" />
-                <float name="mvz2:mass" value="-2" />
+                <float name="mvz2:mass" value="-1" />
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
@@ -4441,34 +4444,13 @@
             </properties>
         </entity>
 
-        <entity template="Ghost_Exp" id="WraithDullhan" name="亡魂无头先锋" deathMessage="现在有伴了。">
+        <entity template="Ghost_Exp" id="WraithVanguard" name="亡魂冲锋者" deathMessage="为啥你只能被蓝光照亮？因为你生前外号叫蓝盾吗？">
             <unlock>
-                <condition required="mvz2:level.halloween_3" />
+                <condition required="mvz2:level.palace_6" />
             </unlock>
             <properties>
                 <float name="mvz2:friction" value="0.05" />
-                <float name="mvz2:mass" value="-2" />
-                <id name="mvz2:shell" value="mvz2:bone" />
-                <id name="mvz2:crySound" value="mvz2:ghost_cry" />
-                <id name="mvz2:deathSound" value="mvz2:ghost_death" />
-
-                <float name="mvz2:maxHealth" value="900" />
-
-                <intArray name="mvz2:wraithRequiredLightLevels" value="1 7" />
-
-                <int name="mvz2:cost" value="75" />
-                <int name="mvz2:waterInteraction" value="3" />
-                <int name="mvz2:airInteraction" value="3" />
-            </properties>
-        </entity>
-
-        <entity template="Ghost_Exp" id="WraithVanguard" name="亡魂冲锋者" deathMessage="现在有伴了。">
-            <unlock>
-                <condition required="mvz2:level.halloween_3" />
-            </unlock>
-            <properties>
-                <float name="mvz2:friction" value="0.05" />
-                <float name="mvz2:mass" value="-2" />
+                <float name="mvz2:mass" value="-1" />
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
@@ -4484,7 +4466,28 @@
             </properties>
         </entity>
 
-        <entity template="Ghost_Exp" id="AncientGhost" name="古老幽灵" deathMessage="现在有伴了。">
+        <entity template="Ghost_Exp" id="WraithDullhan" name="亡魂无头先锋" deathMessage="别问为什么叫先锋最后一个登场">
+            <unlock>
+                <condition required="mvz2:level.palace_9" />
+            </unlock>
+            <properties>
+                <float name="mvz2:friction" value="0.05" />
+                <float name="mvz2:mass" value="-1" />
+                <id name="mvz2:shell" value="mvz2:bone" />
+                <id name="mvz2:crySound" value="mvz2:ghost_cry" />
+                <id name="mvz2:deathSound" value="mvz2:ghost_death" />
+
+                <float name="mvz2:maxHealth" value="900" />
+
+                <intArray name="mvz2:wraithRequiredLightLevels" value="1 7" />
+
+                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="3" />
+            </properties>
+        </entity>
+
+        <entity template="Ghost_Exp" id="AncientGhost" name="古老幽灵" deathMessage="从观感上来讲，你好像被空气殴打了。">
             <unlock>
                 <condition required="mvz2:level.palace_1" />
             </unlock>
@@ -4504,7 +4507,7 @@
             </properties>
         </entity>
 
-        <entity template="Ghost_Exp" id="LeatherGhost" name="皮帽幽灵" deathMessage="洒家今日便要开荤了！">
+        <entity template="Ghost_Exp" id="LeatherGhost" name="皮帽幽灵" deathMessage="现在有伴了。">
             <unlock>
                 <condition required="mvz2:level.ship_11" />
             </unlock>
@@ -4515,7 +4518,7 @@
             </properties>
         </entity>
 
-        <entity template="Ghost_Exp" id="IronGhost" name="铁盔幽灵" deathMessage="洒家今日便要开荤了！">
+        <entity template="Ghost_Exp" id="IronGhost" name="锈铁盔幽灵" deathMessage="现在有伴了。">
             <unlock>
                 <condition required="mvz2:level.ship_11" />
             </unlock>

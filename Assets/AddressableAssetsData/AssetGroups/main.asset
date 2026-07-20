@@ -12353,6 +12353,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab60e587b909d3042b5b7660d8a9da46
+    m_Address: mvz2:arcade/WhatTheHell
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab8b500782b9cf24bbc0ddcc4f9c9103
     m_Address: mvz2:mobile_blueprint/MutantMannequin
     m_ReadOnly: 0

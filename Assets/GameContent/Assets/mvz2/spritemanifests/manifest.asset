@@ -117,6 +117,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 20f80c720c62e1248b514ad13b0a0939, type: 3}
   - name: arcade/whack_a_ghost
     sprite: {fileID: 21300000, guid: ba09814b17fbf24438727f22089f7192, type: 3}
+  - name: arcade/WhatTheHell
+    sprite: {fileID: 21300000, guid: ab60e587b909d3042b5b7660d8a9da46, type: 3}
   - name: arcade/withers_revenge
     sprite: {fileID: 21300000, guid: cf276e1f4880f4c40b8cd6fdc9e9640e, type: 3}
   - name: arcade/ZombieNimbleZombieQuick
@@ -647,6 +649,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 680fd9e7f1496014bbd8d418fe66de65, type: 3}
   - name: mobile_blueprint/NetherWarrior
     sprite: {fileID: 21300000, guid: f62acd64afd733642b5dc62cd234b346, type: 3}
+  - name: mobile_blueprint/nether_hunter 1
+    sprite: {fileID: 21300000, guid: e55a9df0e97f04247bcd85763e5b23c1, type: 3}
   - name: mobile_blueprint/nether_hunter
     sprite: {fileID: 21300000, guid: 457f7a981eb5b634788558bb96099823, type: 3}
   - name: mobile_blueprint/nether_mage
@@ -847,6 +851,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 98ceb6465d489164ab22b423d1a3d218, type: 3}
   - name: mobile_blueprint/wooden_fan
     sprite: {fileID: 21300000, guid: f79c654b2f8fb7246a6a8a3e9f3c6ba6, type: 3}
+  - name: mobile_blueprint/WraithArcher
+    sprite: {fileID: 21300000, guid: 3328b3af923ea5542b1bc32b1fab600d, type: 3}
+  - name: mobile_blueprint/WraithBerserker
+    sprite: {fileID: 21300000, guid: be154d0bf904eb843a2b63a01aa7b485, type: 3}
+  - name: mobile_blueprint/WraithDullhan
+    sprite: {fileID: 21300000, guid: d4456a2e5f6c5f64c8c7c6fc165bed2a, type: 3}
+  - name: mobile_blueprint/WraithVanguard
+    sprite: {fileID: 21300000, guid: 55037d64f0af86040a2923f34593dc94, type: 3}
   - name: mobile_blueprint/Zalat
     sprite: {fileID: 21300000, guid: a7b657bef639dc54dba8f816b2a7510e, type: 3}
   - name: mobile_blueprint/zombie
