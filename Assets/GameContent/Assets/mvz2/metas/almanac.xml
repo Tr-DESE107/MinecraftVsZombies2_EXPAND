@@ -2786,7 +2786,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var local="horse_hp" />（马），<var id="mvz2:entity_health" />（身体），<var local="head_hp" />（头）</color>]]></p>
-                <p>马速度：<![CDATA[<color=red><var local="horse_speed" />（跳跃前），<var local="horse_speed_jumped" />（跳跃后）</color>]]></p>
+                <p>马速度：<![CDATA[<color=red>2（跳跃前），1（跳跃后）</color>]]></p>
                 <p>身体速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>头颅速度：<![CDATA[<color=red><var local="head_speed" /></color>]]></p>
                 <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:tall" />高器械</color>]]></p>

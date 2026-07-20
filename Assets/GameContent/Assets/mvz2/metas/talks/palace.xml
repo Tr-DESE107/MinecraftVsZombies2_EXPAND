@@ -889,19 +889,26 @@
         </sentence>
         <!--语句5-->
         <sentence speaker="mvz2:rin" description="（觉离开）" sounds="mvz2:talk">
-          <text>今天的怪物里面有一种黑色的生物！</text>
+          <text>今天的怪物里面有一种可怕的怨灵！</text>
         </sentence>
         <!--语句6-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>看起来像是一种……细胞？</text>
+          <text>这家伙看起来有点特别啊？</text>
         </sentence>
         <!--语句7-->
         <sentence speaker="mvz2:utsuho" sounds="mvz2:talk">
-          <text>那种生物一旦被杀死，就会变成两个小的分身！</text>
+          <text>我们验证过了，这种怨灵只能用红色光或黄色光照亮！</text>
         </sentence>
         <!--语句8-->
         <sentence speaker="mvz2:rin" sounds="mvz2:talk">
-          <text>小心应对，它们在分裂后还会换行！</text>
+          <text>不照亮怎么打都打不死！</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>听起来感觉不太妙啊。</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>该让新获取的变形发射器登场了。</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
@@ -940,6 +947,9 @@
         <!--语句3-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
           <text>别弄得自己满头都是沙砾！</text>
+          </sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long2">
+          <text>哦对了，我在你的包里又放了个好用的器械：火焰发射器，具体特性看图鉴去</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
@@ -1165,6 +1175,18 @@
         <!--语句6-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>既然这样，那我还是先去准备今天的战斗吧。</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>嗯...新的怨灵？这家伙看起来和亡魂战士不太一样啊</text>
+        </sentence>
+        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+          <text>这种怨灵我们先前也碰到过，它必须使用绿色光或青色光照亮。</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>开什么玩笑，这帮家伙是规则怪谈吗？不做XXX就打不死？</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>我看得让火焰发射器上场了</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
@@ -1655,9 +1677,24 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>呃，为什么？</text>
         </sentence>
-        <!--语句8-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:satori" sounds="mvz2:dialog_weird">
           <text>我不清楚。看来这种生物真的是非常特殊了。</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>...呃，先把话题回到战场上吧，又有一种新的怨灵哎。</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>还是最令人讨厌的狂战士！！！</text>
+        </sentence>
+        <sentence speaker="mvz2:satori" sounds="mvz2:dialog_weird">
+          <text>不好意思...我们没有见过这种怨灵...。</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>居然没见过吗，不妙啊</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>希望这玩意能被常见光源照亮吧..比方说地狱火荧石之类的</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
@@ -2364,37 +2401,23 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>谢天谢地……真的太好了。</text>
         </sentence>
-        <!--语句3-->
-        <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:question">
-          <text>另外，今天的话，好像是有新的怪物出现了。</text>
-        </sentence>
-        <!--语句4-->
-        <sentence speaker="mvz2:rin" sounds="mvz2:talk">
-          <text>手里拿着奇怪的金属板，不知道它是干什么的。</text>
-        </sentence>
-        <!--语句5-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>是吗，让我——</text>
-        </sentence>
-        <!--语句6-->
-        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
-          <text>——？</text>
-        </sentence>
-        <!--语句7-->
         <sentence speaker="mvz2:satori" sounds="mvz2:talk">
-          <text>原来是一种叫“黑客”的怪物？</text>
+          <text>讲战场上的事...新出现的那种怨灵，是需要用蓝色光才能照亮的</text>
         </sentence>
-        <!--语句8-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>呃，对……</text>
+          <text>啊？</text>
         </sentence>
-        <!--语句9-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text><![CDATA[<color=blue>（奇怪，在我的记忆中，我很确信我不曾见过这种凋灵骷髅黑客。）</color>]]></text>
+          <text>我们这蓝色光的器械不多啊？</text>
         </sentence>
-        <!--语句10-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text><![CDATA[<color=blue>（但是，为什么它却告诉我，这种怪物的样子，我很熟悉？）</color>]]></text>
+          <text>（发蓝色光的器械...我能想到的就是月光发射器使用星之碎片后发的光）</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>（除此之外...实在想不出来，还有什么器械发蓝光了...灵魂熔炉是青色光。）</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>（难道只能用月光传感器使用大招对付它了吗？）</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
@@ -2420,15 +2443,27 @@
       <sentences>
         <!--语句0-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">
-          <text>这是紫晶塔！它能够发射穿透一整行的激光！</text>
+          <text>看我研发出了什么！这是紫晶塔！它能够发射穿透一整行的激光！</text>
         </sentence>
         <!--语句1-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long2">
           <text>不过它的伤害很低，但是如果它受到的光照足够多，它的激光威力和大小都会提升！</text>
         </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>听上去用途不大</text>
+        </sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long2">
+          <text>别急着反驳！我们最近不是一直被这帮特定光才能照亮的幽灵整的快疯掉了吗？</text>
+        </sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long2">
+          <text>这个器械能够吸收旁边器械的光、可以通过驱动改变自己的光照档位，然后输出不同颜色的光！</text>
+        </sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>难道说？</text>
+        </sentence>
         <!--语句2-->
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">
-          <text>射穿你的敌人！</text>
+          <text>是的，现在我们可以自由搭配八色光谱了！</text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
@@ -2585,6 +2620,8 @@
       <characters>
         <character id="mvz2:steve" side="self" />
         <character id="mvz2:utsuho" side="left" />
+        <character id="mvz2:rin" variant="mvz2:relieved" side="left" />
+        <character id="mvz2:satori" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -2607,6 +2644,38 @@
         <!--语句4-->
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>希望能有所进展吧。</text>
+        </sentence>
+        <!--语句3-->
+        <sentence speaker="mvz2:rin" sounds="mvz2:talk" variant="mvz2:question">
+          <text>另外，今天的话，好像是有新的怪物出现了。</text>
+        </sentence>
+        <!--语句4-->
+        <sentence speaker="mvz2:rin" sounds="mvz2:talk">
+          <text>手里拿着奇怪的金属板，不知道它是干什么的。</text>
+        </sentence>
+        <!--语句5-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>是吗，让我——</text>
+        </sentence>
+        <!--语句6-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">
+          <text>——？</text>
+        </sentence>
+        <!--语句7-->
+        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+          <text>原来是一种叫“黑客”的怪物？</text>
+        </sentence>
+        <!--语句8-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>呃，对……</text>
+        </sentence>
+        <!--语句9-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（奇怪，在我的记忆中，我很确信我不曾见过这种凋灵骷髅黑客。）</color>]]></text>
+        </sentence>
+        <!--语句10-->
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（但是，为什么它却告诉我，这种怪物的样子，我很熟悉？）</color>]]></text>
           <!--语句点击脚本-->
           <onClick>
             <script>end</script>
