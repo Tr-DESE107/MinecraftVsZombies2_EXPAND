@@ -1032,6 +1032,9 @@
             <spawn id="mvz2:WitherSkeleton" />
             <spawn id="mvz2:LeatherWitherSkeleton" />
         </spawns>
+        <properties>
+            <bool name="endless" value="true" />
+        </properties>
     </stage>
 
     <stage id="castle_12" name="辉针城" dayNumber="12" unlock="mvz2:level.castle_11" music="mvz2:Dungeon">
@@ -1072,13 +1075,11 @@
             <spawn id="mvz2:WintherMage" />
             <spawn id="mvz2:BerserkerHead" />
             <spawn id="mvz2:dullahan_head" />
-            
         </spawns>
     </stage>
 
     <stage id="castle_14" name="辉针城" dayNumber="14" unlock="mvz2:level.castle_13" music="mvz2:Dungeon">
         <talks>
-            
         </talks>
         <clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:wither_skeleton_skull" />
         <spawns flags="3" pointsAddition="3">
@@ -1096,9 +1097,6 @@
             <spawn id="mvz2:KingofReverser" />
             <spawn id="mvz2:dullahan_head" />
         </spawns>
-        <properties>
-            <bool name="endless" value="true" />
-        </properties>
     </stage>
 
     <stage id="castle_15" name="辉针城" dayNumber="15" type="boss" needBlueprints="false" unlock="mvz2:level.castle_14" music="mvz2:castle_final">
@@ -1415,6 +1413,7 @@
             <integer name="spawnerCount" value="8" />
         </properties>
     </stage>
+    
     <stage id="mausoleum_endless" name="梦殿大祀庙无尽" type="endless">
         <unlock>
             <condition required="mvz2:level.mausoleum_11" />
@@ -1429,36 +1428,6 @@
             <bool name="endless" value="true" />
         </properties>
     </stage>
-    <stage id="mausoleum_12" name="梦殿大祀庙" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.mausoleum_11" music="mvz2:mausoleum_final">
-        <talks noStartMusic="true">
-            
-        </talks>
-        <conveyor>
-            <entry id="mvz2:note_block" count="2" />
-            <entry id="mvz2:lightning_orb" count="6" />
-            <entry id="mvz2:splitenser" count="8" />
-            <entry id="mvz2:devourer" count="2" minCount="0" />
-            <entry id="mvz2:hellfire" count="4" />
-            <entry id="mvz2:necrotombstone" count="4" />
-            <entry id="mvz2:black_hole_bomb" count="1" />
-            <entry id="mvz2:desire_pot" count="2" minCount="0" />
-        </conveyor>
-        <clear pickupModel="mvz2:entity.money_chest" />
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3">
-            <spawn id="mvz2:MonkZombie" />
-            <spawn id="mvz2:LeatherMonkZombie" />
-            <spawn id="mvz2:IronMonkZombie" />
-            <spawn id="mvz2:reflective_barrier_zombie" />
-            <spawn id="mvz2:wicked_hermit_zombie" />
-            <spawn id="mvz2:shikaisen_zombie" />
-            <spawn id="mvz2:emperor_zombie" />
-        </spawns>
-        <properties>
-            <bool name="noEnergy" value="true" />
-            <integer name="spawnerCount" value="8" />
-        </properties>
-    </stage>
-
 
     <!-- Chapter 5 -->
     <stage id="ship_1" name="圣辇船" dayNumber="1">
@@ -1746,6 +1715,7 @@
             <spawn id="mvz2:SailorZombie" />
         </spawns>
     </stage>
+    
     <stage id="ship_endless" name="圣辇船无尽" type="endless">
         <unlock>
             <condition required="mvz2:level.ship_11" />
@@ -2043,6 +2013,7 @@
             <float name="conveySpeed" value="1.1"/>
         </properties>
     </stage>
+    
     <stage id="palace_endless" name="地灵殿无尽" type="endless">
         <unlock>
             <condition required="mvz2:level.palace_11" />
