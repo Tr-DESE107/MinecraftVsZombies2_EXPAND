@@ -1246,10 +1246,10 @@
                 <tag id="mvz2:antifly"/>
             </tags>
             <header>
-                <p>沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身的沙砾。</p>
+                <p>沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身并窒息的沙砾。</p>
             </header>
             <properties>
-                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />（燧石），<var local="gravel_damage" />（沙砾）</color>]]></p>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />（燧石），<var local="gravel_damage" />（沙砾）+30/s(窒息伤害)</color>]]></p>
                 <p>投掷间隔：<![CDATA[<color=red>3秒</color>]]></p>
                 <p>定身时长：<![CDATA[<color=red>5秒</color>]]></p>
                 <p>沙砾概率：<![CDATA[<color=red>25%</color>]]></p>
@@ -1276,14 +1276,14 @@
         </entry>
         <entry id="mvz2:cursed_candle">
             <header>
-                <p>徒手摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。</p>
+                <p>徒手摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害并减速，并在死亡后自爆并留下辐射地块。</p>
             </header>
             <properties>
-                <p>火焰伤害：<![CDATA[<color=red>20/秒</color>]]></p>
+                <p>火焰伤害：<![CDATA[<color=red>40/秒</color>]]></p>
                 <p>爆炸伤害：<![CDATA[<color=red>900</color>]]></p>
                 <p>爆炸半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会触发死亡效果</color>]]></p>
-                <p>技能：<![CDATA[<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍，并且被炸死的其他怪物也不会触发死亡效果</color>]]></p>
+                <p>特点：<![CDATA[<color=red>受诅咒的怪物会不停受到火焰伤害并减速，并在死亡后自爆并留下辐射地块。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍并留下3*3的辐射地块</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<b>项目编号：</b>]]>MCP-310</p>
@@ -1300,9 +1300,9 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
-                <p>范围：<![CDATA[<color=red>前方1格</color>]]></p>
+                <p>范围：<![CDATA[<color=red>前方1.5格</color>]]></p>
                 <p>特点：<![CDATA[<color=red>范围内的敌人攻击速度和移动速度x50%</color>]]></p>
-                <p>技能：<![CDATA[<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘</color>]]></p>
+                <p>技能：<![CDATA[<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘，挖掉后铁镐会进入短暂时间的冷却。</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<b>项目编号：</b>]]>MCP-531</p>
@@ -1329,15 +1329,20 @@
         </entry>
         <entry id="mvz2:amethyst_pylon">
             <header>
-                <p><![CDATA[紫晶塔向前发射穿透所有敌人的激光。周围的<tag id="mvz2:light_source"/>光源越多，紫晶塔的伤害越高。]]></p>
+                <p><![CDATA[紫晶塔向前发射穿透所有敌人的激光。周围的<tag id="mvz2:light_source"/>光源数量决定其伤害与光柱颜色。]]></p>
             </header>
             <properties>
-                <p>伤害：<![CDATA[<color=red>15（无光源），30（1光源），60（2光源），90（3光源）</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>15（无光源），30（1光源），60（2光源），90（3光源及以上）</color>]]></p>
                 <p>攻击间隔：<![CDATA[<color=red>3秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>发射一道贯穿三行的超能光束，之后紫晶塔被禁用30秒</color>]]></p>
+                <p>光源等级：<![CDATA[<color=red>受照射光源等级之和与驱动档位影响，取8的余数，输出对应等级的光照</color>]]></p>
+                <p>驱动：<![CDATA[<color=red>驱动后驱动档位+1（0–7循环），改变激光颜色</color>]]></p>
+                <p>技能：<![CDATA[<color=red>发射一道贯穿三行的白色细激光，1.5秒后展开为大功率光束，持续6.2秒，期间以250/秒造成伤害，之后紫晶塔短路30秒</color>]]></p>
+                <p>特点：<![CDATA[<color=red>攻击到幽灵或怨灵时会让他们发紫晶塔对应颜色的光。</color>]]></p>
             </properties>
             <flavor>
-                <p>有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——现在它成为了你必须建造更多的玩意。</p>
+                <p><![CDATA[有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——现在它成为了你必须建造更多的玩意。]]></p>
+                <p/>
+                <p><![CDATA[记住了，光源的顺序是<color=grey>白</color>、<color=red>红</color>、<color=orange>橙</color>、<color=#FFD700>黄</color>、<color=green>绿</color>、<color=#00FFFF>青</color>、<color=blue>蓝</color>、<color=purple>紫</color>，对应<color=grey>0</color>、<color=red>1</color>、<color=orange>2</color>、<color=#FFD700>3</color>、<color=green>4</color>、<color=#00FFFF>5</color>、<color=blue>6</color>、<color=purple>7</color>的光照等级]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:nuke">
@@ -1369,7 +1374,8 @@
                 <p><![CDATA[<color=blue>B<color=black>X</color>B</color>]]></p>
                 <p><![CDATA[<color=red>A<color=blue>B</color>A</color>]]></p>
                 <p>生产时间：<![CDATA[<color=red><var local="min_produce_time"/>-<var local="max_produce_time"/>秒（根据器械A和B的花费和充能时间而定）</color>]]></p>
-                <p>技能：<![CDATA[<color=red>召唤4个友方的凋灵骷髅，分别是<ref=[enemies]mvz2:berserker>狂战士</ref>、猎手、法师和<ref=[enemies]mvz2:mesmerizer>催眠者</ref></color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤4个随机的友方的凋零骷髅</color>]]></p>
+                <p>特点：<![CDATA[<color=red>产出星之碎片时还会将作用范围内的黑曜石转化为发光的黑曜石，并有概率产出一张爆炸核心蓝图。</color>]]></p>
             </properties>
             <flavor>
                 <p>传说在先古时期，有人用一种蓝色的东西作为核心，创造了一座尖塔。</p>
@@ -1459,7 +1465,7 @@
             </header>
             <properties>
                 <p>触发：<![CDATA[<color=red>触发能够更换形态并发射不同类型的火焰箭矢。</color>]]></p>
-                <p>特点：<![CDATA[<color=red>占位符</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不同形态的发射速度不同，火焰形态最快、诅咒形态次之、冷火形态最慢。</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>发射大量火焰箭矢</color>]]></p>
             </properties>
@@ -3533,7 +3539,7 @@
                 <p>弱点：<![CDATA[<color=red>被<tag id="mvz2:light_source" />光照到时会失去虚无效果</color>]]></p>
             </properties>
             <flavor>
-                <p>与皮帽怨灵不同，锈铁盔幽灵戴的帽子确实像是古老的产品。可能这时候有小朋友就要问了，锈铁不应该是红色吗？他这个帽子，怎么没有红铁锈？哎，锈蚀的铁盔除了红色之外，还有其他颜色的。</p>
+                <p>与皮帽幽灵不同，锈铁盔幽灵戴的帽子确实像是古老的产品。可能这时候有小朋友就要问了，锈铁不应该是红色吗？他这个帽子，怎么没有红铁锈？哎，锈蚀的铁盔除了红色之外，还有其他颜色的。</p>
                 <p>铁锈不只有红褐色（三氧化二铁）。在干燥环境或含硫的空气中，铁会形成四氧化三铁或硫化亚铁。这两种化合物呈现蓝黑色或深灰色，且结构致密，没有红锈那种蓬松的粉末感。如果这顶头盔经历过高温（如战场火焰）或常年处于封闭墓穴，表面就会形成一层无光泽的“铁灰”皮壳，这反而比红锈更显古老。</p>
             </flavor>
         </entry>
@@ -3573,19 +3579,19 @@
                 <p>2. 如今世界各地的阳光底下却存在亡灵生物不燃烧的现象，此事相当异常，需要进一步调查。</p>
             </flavor>
         </entry>
-        
+
         <entry id="mvz2:WraithWarrior">
             <header>
-                <p>亡魂战士需要等级为1和3的（红色或黄色）光照亮才能被正常伤害，会在攻击时能够额外造成范围伤害。</p>
+                <p><![CDATA[亡魂战士需要等级为<color=#FF0000>1</color>和<color=#FFD700>3</color>的（<color=#FF0000>红色</color>或<color=#FFD700>黄色</color>）光照亮才能被正常伤害，会在攻击时能够额外造成范围伤害。]]></p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>需要等级为1和3的（红色或黄色）光照亮才能被正常伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为<color=#FF0000>1</color>和<color=#FFD700>3</color>的（<color=#FF0000>红色</color>或<color=#FFD700>黄色</color>）光照亮才能被正常伤害</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>变形发射器</color>]]></p>
             </properties>
             <flavor>
-                <p>他们没有像下界战士那样精良的装备，但也属于凋零骷髅一族，同样会疯狂榨取敌人的生命。</p>
+                <p><![CDATA[他们没有像下界战士那样精良的装备，但也属于凋零骷髅一族，同样会疯狂榨取敌人的生命。]]></p>
                 <p/>
                 <p><![CDATA[<color=blue>看起来像是下界军团的军队...但似乎哪里不对？怎么是灵魂体？凋零骷髅再死一遍还有灵魂体？</color>]]></p>
             </flavor>
@@ -3593,16 +3599,16 @@
 
         <entry id="mvz2:WraithArcher">
             <header>
-                <p>亡魂弓箭手需要等级为4和5的（绿色或青色）光照亮才能被正常伤害，能够发射箭矢攻击。</p>
+                <p><![CDATA[亡魂弓箭手需要等级为<color=#00FF00>4</color>和<color=#00FFFF>5</color>的（<color=#00FF00>绿色</color>或<color=#00FFFF>青色</color>）光照亮才能被正常伤害，能够发射箭矢攻击。]]></p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>需要等级为4和5的（绿色或青色）光照亮才能被正常伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为<color=#00FF00>4</color>和<color=#00FFFF>5</color>的（<color=#00FF00>绿色</color>或<color=#00FFFF>青色</color>）光照亮才能被正常伤害</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>火焰发射器</color>]]></p>
             </properties>
             <flavor>
-                <p>听说他生前是个下界弓箭手，不小心在地狱都市的高楼摔死了，成为怨灵后，心中的咒焰燃烧的更猛烈了，也学会了持续射出鬼火箭矢。</p>
+                <p><![CDATA[听说他生前是个下界弓箭手，不小心在地狱都市的高楼摔死了，成为怨灵后，心中的咒焰燃烧的更猛烈了，也学会了持续射出鬼火箭矢。]]></p>
             </flavor>
         </entry>
         
@@ -3629,16 +3635,16 @@
         </entry>
         <entry id="mvz2:WraithBerserker">
             <header>
-                <p>亡魂狂战士需要等级为0和2的（白色或橙色）光照亮才能被正常伤害，死亡后会发生爆炸。</p>
+                <p><![CDATA[亡魂狂战士需要等级为<color=grey>0</color>和<color=orange>2</color>的（<color=grey>白色</color>或<color=orange>橙色</color>）光照亮才能被正常伤害，死亡后会发生爆炸。]]></p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>需要等级为0和2的（白色或橙色）光照亮才能被正常伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为<color=grey>0</color>和<color=orange>2</color>的（<color=grey>白色</color>或<color=orange>橙色</color>）光照亮才能被正常伤害</color>]]></p>
             </properties>
             <flavor>
-                <p>在地灵殿怨念的聚集下，一种可怕的怨灵诞生了，他们是狂战士死后的灵魂，结合了死后的幽灵和生前的特性。</p>
-                <p>难以想象如此的幽灵会出现在战场之上。</p>
+                <p><![CDATA[在地灵殿怨念的聚集下，一种可怕的怨灵诞生了，他们是狂战士死后的灵魂，结合了死后的幽灵和生前的特性。]]></p>
+                <p><![CDATA[难以想象如此的幽灵会出现在战场之上。]]></p>
                 <p/>
                 <p><![CDATA[<color=green>值得庆幸的是，照亮他们所需要的光非常常见，白天的白光、白色荧石光和普通的火焰光就能够照亮他们。</color>]]></p>
                 <p><![CDATA[<color=green>另外他们这么一炸，应该永远都不会再出现了吧？</color>]]></p>
@@ -3646,22 +3652,24 @@
                 <p><![CDATA[<color=white>都怪恋恋乱挂收藏品。</color>]]></p>
             </flavor>
         </entry>
+
         <entry id="mvz2:WraithVanguard">
             <header>
-                <p>亡魂冲锋者需要等级为6的（蓝色）光照亮才能被正常伤害，未被阻挡时拥有90%减伤，攻击时持续对小范围内的器械造成伤害。</p>
+                <p><![CDATA[亡魂冲锋者需要等级为<color=blue>6</color>的（<color=blue>蓝色</color>）光照亮才能被正常伤害，未被阻挡时拥有90%减伤，攻击时持续对小范围内的器械造成伤害。]]></p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="helmet_hp" />（头盔）</color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>需要等级为6的（蓝色）光照亮才能被正常伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为<color=blue>6</color>的（<color=blue>蓝色</color>）光照亮才能被正常伤害</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>月光传感器、闪电之珠</color>]]></p>
             </properties>
             <flavor>
-                <p>他们是下界里已经死去的精英部队成员，化作怨灵前来复仇，虽然已经死去并削减了战斗力，但与他们交战时仍然要加倍小心。</p>
+                <p><![CDATA[他们是下界里已经死去的精英部队成员，化作怨灵前来复仇，虽然已经死去并削减了战斗力，但与他们交战时仍然要加倍小心。]]></p>
                 <p/>
                 <p><![CDATA[<color=blue>战斗力削减在哪？</color>]]></p>
             </flavor>
         </entry>
+        
         <entry id="mvz2:hacker">
             <header>
                 <p>黑客会使用它的奇硅电脑骇入并暂时禁用最后方的器械。</p>
@@ -3711,16 +3719,16 @@
         </entry>
         <entry id="mvz2:WraithDullhan">
             <header>
-                <p>亡魂无头先锋需要等级为1或7的（红色或紫色）光照亮才能被正常伤害，未被阻挡时拥有90%减伤，攻击时持续对小范围内的器械造成伤害。</p>
+                <p><![CDATA[亡魂无头先锋需要等级为<color=#FF0000>1</color>或<color=purple>7</color>的（<color=#FF0000>红色</color>或<color=purple>紫色</color>）光照亮才能被正常伤害，攻击时持续对小范围内的器械造成伤害。]]></p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>需要等级为1或7的（红色或紫色）光照亮才能被正常伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要等级为<color=#FF0000>1</color>或<color=purple>7</color>的（<color=#FF0000>红色</color>或<color=purple>紫色</color>）光照亮才能被正常伤害</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>紫晶塔、发光的黑曜石</color>]]></p>
             </properties>
             <flavor>
-                <p>这些亡魂不仅没有通过库尔咒的考验，还砍下头颅丢掉了性命。不过这样因祸得福让他们成为了怨灵，他们变得比以前更强，连常规的发光器械都没法照亮他们，这让他们不觉得死亡是件坏事了。</p>
+                <p><![CDATA[这些亡魂不仅没有通过库尔咒的考验，还砍下头颅丢掉了性命。不过这样因祸得福让他们成为了怨灵，他们变得比以前更强，连常规的发光器械都没法照亮他们，这让他们不觉得死亡是件坏事了。]]></p>
                 <p/>
                 <p><![CDATA[<color=grey>我查了一下资料，怀疑图鉴里的怨灵条目不是野史就是不准确。</color>]]></p>
                 <p><![CDATA[<color=grey>死去的凋零骷髅灵魂一般都会飘向灵魂沙漠，不太可能单独作为游离态出现。</color>]]></p>
