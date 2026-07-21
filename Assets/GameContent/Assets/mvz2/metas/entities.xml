@@ -5839,7 +5839,7 @@
             <properties>
                 <bool name="mvz2:important" value="true" />
                 <id name="mvz2:collectSound" value="mvz2:tap" />
-                <int name="mvz2:maxTimeout" value="150" />
+                <int name="mvz2:maxTimeout" value="360" />
             </properties>
         </entity>
 
