@@ -249,28 +249,28 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
         </tag>
         <enum id="lightLevel" type="int">
-            <value value="0" name="白光" description="频率等级 &lt;color=grey&gt;0&lt;/color&gt;，可照亮需要&lt;color=grey&gt;白&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ffffff" />
-            <value value="1" name="红光" description="频率等级 &lt;color=#FF0000&gt;1&lt;/color&gt;，可照亮需要&lt;color=#FF0000&gt;红&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ff0000" />
-            <value value="2" name="橙光" description="频率等级 &lt;color=orange&gt;2&lt;/color&gt;，可照亮需要&lt;color=orange&gt;橙&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ff8000" />
-            <value value="3" name="黄光" description="频率等级 &lt;color=#FFD700&gt;3&lt;/color&gt;，可照亮需要&lt;color=#FFD700&gt;黄&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ffff00" />
-            <value value="4" name="绿光" description="频率等级 &lt;color=#00FF00&gt;4&lt;/color&gt;，可照亮需要&lt;color=#00FF00&gt;绿&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#00ff00" />
-            <value value="5" name="青光" description="频率等级 &lt;color=#00FFFF&gt;5&lt;/color&gt;，可照亮需要&lt;color=#00FFFF&gt;青&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#00ffff" />
-            <value value="6" name="蓝光" description="频率等级 &lt;color=blue&gt;6&lt;/color&gt;，可照亮需要&lt;color=blue&gt;蓝&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#0000ff" />
-            <value value="7" name="紫光" description="频率等级 &lt;color=purple&gt;7&lt;/color&gt;，可照亮需要&lt;color=purple&gt;紫&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#8c00ff" />
+            <value value="0" name="白光" description="频率等级 &lt;color=grey&gt;0&lt;/color&gt;，可照亮需要&lt;color=grey&gt;白&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[0]" backgroundColor="#ffffff" />
+            <value value="1" name="红光" description="频率等级 &lt;color=#FF0000&gt;1&lt;/color&gt;，可照亮需要&lt;color=#FF0000&gt;红&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[1]" backgroundColor="#ff0000" />
+            <value value="2" name="橙光" description="频率等级 &lt;color=orange&gt;2&lt;/color&gt;，可照亮需要&lt;color=orange&gt;橙&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[2]" backgroundColor="#ff8000" />
+            <value value="3" name="黄光" description="频率等级 &lt;color=#FFD700&gt;3&lt;/color&gt;，可照亮需要&lt;color=#FFD700&gt;黄&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[3]" backgroundColor="#ffff00" />
+            <value value="4" name="绿光" description="频率等级 &lt;color=#00FF00&gt;4&lt;/color&gt;，可照亮需要&lt;color=#00FF00&gt;绿&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[4]" backgroundColor="#00ff00" />
+            <value value="5" name="青光" description="频率等级 &lt;color=#00FFFF&gt;5&lt;/color&gt;，可照亮需要&lt;color=#00FFFF&gt;青&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[5]" backgroundColor="#00ffff" />
+            <value value="6" name="蓝光" description="频率等级 &lt;color=blue&gt;6&lt;/color&gt;，可照亮需要&lt;color=blue&gt;蓝&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[6]" backgroundColor="#0000ff" />
+            <value value="7" name="紫光" description="频率等级 &lt;color=purple&gt;7&lt;/color&gt;，可照亮需要&lt;color=purple&gt;紫&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[7]" backgroundColor="#8c00ff" />
         </enum>
         
         <tag id="wraithLightLevel" name="需要频率" enum="mvz2:wraithLightLevel" priority="3500">
             <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
         </tag>
         <enum id="wraithLightLevel" type="int">
-            <value value="0" name="白光" description="需要频率等级 &lt;color=grey&gt;0&lt;/color&gt;，被&lt;color=grey&gt;白&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ffffff" />
-            <value value="1" name="红光" description="需要频率等级 &lt;color=#FF0000&gt;1&lt;/color&gt;，被&lt;color=#FF0000&gt;红&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ff0000" />
-            <value value="2" name="橙光" description="需要频率等级 &lt;color=orange&gt;2&lt;/color&gt;，被&lt;color=orange&gt;橙&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ff8000" />
-            <value value="3" name="黄光" description="需要频率等级 &lt;color=#FFD700&gt;3&lt;/color&gt;，被&lt;color=#FFD700&gt;黄&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ffff00" />
-            <value value="4" name="绿光" description="需要频率等级 &lt;color=#00FF00&gt;4&lt;/color&gt;，被&lt;color=#00FF00&gt;绿&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#00ff00" />
-            <value value="5" name="青光" description="需要频率等级 &lt;color=#00FFFF&gt;5&lt;/color&gt;，被&lt;color=#00FFFF&gt;青&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#00ffff" />
-            <value value="6" name="蓝光" description="需要频率等级 &lt;color=blue&gt;6&lt;/color&gt;，被&lt;color=blue&gt;蓝&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#0000ff" />
-            <value value="7" name="紫光" description="需要频率等级 &lt;color=purple&gt;7&lt;/color&gt;，被&lt;color=purple&gt;紫&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#8c00ff" />
+            <value value="0" name="白光" description="需要频率等级 &lt;color=grey&gt;0&lt;/color&gt;，被&lt;color=grey&gt;白&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[0]" backgroundColor="#ffffff" />
+            <value value="1" name="红光" description="需要频率等级 &lt;color=#FF0000&gt;1&lt;/color&gt;，被&lt;color=#FF0000&gt;红&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[1]" backgroundColor="#ff0000" />
+            <value value="2" name="橙光" description="需要频率等级 &lt;color=orange&gt;2&lt;/color&gt;，被&lt;color=orange&gt;橙&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[2]" backgroundColor="#ff8000" />
+            <value value="3" name="黄光" description="需要频率等级 &lt;color=#FFD700&gt;3&lt;/color&gt;，被&lt;color=#FFD700&gt;黄&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[3]" backgroundColor="#ffff00" />
+            <value value="4" name="绿光" description="需要频率等级 &lt;color=#00FF00&gt;4&lt;/color&gt;，被&lt;color=#00FF00&gt;绿&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[4]" backgroundColor="#00ff00" />
+            <value value="5" name="青光" description="需要频率等级 &lt;color=#00FFFF&gt;5&lt;/color&gt;，被&lt;color=#00FFFF&gt;青&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[5]" backgroundColor="#00ffff" />
+            <value value="6" name="蓝光" description="需要频率等级 &lt;color=blue&gt;6&lt;/color&gt;，被&lt;color=blue&gt;蓝&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[6]" backgroundColor="#0000ff" />
+            <value value="7" name="紫光" description="需要频率等级 &lt;color=purple&gt;7&lt;/color&gt;，被&lt;color=purple&gt;紫&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[7]" backgroundColor="#8c00ff" />
         </enum>
 
 
@@ -1250,7 +1250,7 @@
                 <p>变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为激光模式，用激光持续对前方的所有敌人造成伤害并使其发光。</p>
             </header>
             <properties>
-                <p>特点：<![CDATA[<color=red>发光的敌人额外受到<var local="glowing_damage_addition" />%伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>发光的敌人额外受到25%伤害，额外受到100%的火焰伤害。</color>]]></p>
                 <p>射击模式：</p>
                 <p>  伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>  发射间隔：<![CDATA[<color=red><var local="fire_interval" />秒</color>]]></p>

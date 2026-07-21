@@ -58,6 +58,8 @@
     <minigame id="ZombiesTide" stage="mvz2:ZombiesTide" area="mvz2:mausoleum" icon="mvz2:arcade/ZombiesTide" />
     <minigame id="WarThunder" stage="mvz2:WarThunder" area="mvz2:dream" icon="mvz2:arcade/WarThunder" />
     <minigame id="ZombieNimbleZombieQuick" stage="mvz2:ZombieNimbleZombieQuick" area="mvz2:castle" icon="mvz2:arcade/ZombieNimbleZombieQuick" />
+    <minigame id="BalloonParty" stage="mvz2:BalloonParty" area="mvz2:castle" icon="mvz2:arcade/BalloonParty" />
+    
     <minigame id="OpticalIllusion" stage="mvz2:OpticalIllusion" area="mvz2:dream" icon="mvz2:arcade/OpticalIllusion" />
     <!--
     <minigame id="HeavyWeaponVSMannequin" stage="mvz2:HeavyWeaponVSMannequin" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponVSMannequin" />

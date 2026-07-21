@@ -637,6 +637,9 @@
     <model name="RandomKingSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomKingSkeleton" width="64" height="105" xOffset="10" yOffset="-50">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+    <model name="Akuah" type="entity" path="mvz2:enemy/EXPAND/Akuah" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
 
     <!--EXPAND EXP-->
     <model name="LEOLau" type="entity" path="mvz2:enemy/EXPAND/LEOLau" width="64" height="96" xOffset="10" yOffset="-44">

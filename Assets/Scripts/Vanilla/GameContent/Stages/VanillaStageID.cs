@@ -163,6 +163,7 @@ namespace MVZ2.GameContent.Stages
         public const string HeavyWeaponVSMannequin = "HeavyWeaponVSMannequin";
         public const string HeavyWeaponBossRush = "HeavyWeaponBossRush";
         public const string BlueprintBossRush = "BlueprintBossRush";
+        public const string BalloonParty = "BalloonParty";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

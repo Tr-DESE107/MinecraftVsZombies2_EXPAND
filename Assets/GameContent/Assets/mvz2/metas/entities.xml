@@ -705,7 +705,7 @@
                 <float name="mvz2:takenCrushDamage" value="150" />
 
                 <int name="mvz2:cost" value="150" />
-                <int name="mvz2:triggerCost" value="50" />
+                <int name="mvz2:triggerCost" value="25" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
@@ -2941,6 +2941,7 @@
                 <int name="mvz2:waterInteraction" value="2" />
                 <int name="mvz2:airInteraction" value="2" />
                 <bool name="mvz2:immune_slowing" value="true" />
+                <bool name="mvz2:loyal" value="true" />
 
                 <int name="mvz2:cost" value="600" />
 
@@ -4004,6 +4005,7 @@
                 <int name="mvz2:airInteraction" value="2" />
                 <float name="mvz2:speed" value="1.8" />
                 <bool name="mvz2:immune_slowing" value="true" />
+                <bool name="mvz2:loyal" value="true" />
 
                 <int name="mvz2:cost" value="800" />
 
@@ -4870,6 +4872,18 @@
                 <float name="mvz2:maxHealth" value="450" />
                 <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
                 <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
+            </properties>
+        </entity>
+        
+        <entity template="zombie" id="Akuah" name="小江" deathMessage="我是彩蛋">
+            <unlock>
+                <condition required="mvz2:level.vsRandomZombie" />
+            </unlock>
+            <properties>
+                <int name="mvz2:cost" value="225" />
+                <float name="mvz2:maxHealth" value="450" />
+                <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+                <float name="mvz2:mass" value="2" />
             </properties>
         </entity>
 

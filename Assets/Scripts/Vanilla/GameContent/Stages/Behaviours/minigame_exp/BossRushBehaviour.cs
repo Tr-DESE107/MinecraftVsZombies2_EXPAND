@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Stages
             VanillaBossID.wither,
             VanillaBossID.theGiant,
             VanillaBossID.redDragon,
-            //VanillaBossID.lockedChest,
+            VanillaBossID.lockedChest,
         };
 
         // ============ 生命周期 ============  
@@ -339,6 +339,10 @@ namespace MVZ2.GameContent.Stages
             VanillaEnemyID.skeletonStatue,
             VanillaEnemyID.hacker,
             VanillaEnemyID.zombieCat,
+            VanillaEnemyID.LeatherGhost,
+            VanillaEnemyID.IronGhost,
+            VanillaEnemyID.ghost,
+            VanillaEnemyID.WraithBerserker,
         };
 
         // ============ 音乐 / 血条映射 ============  

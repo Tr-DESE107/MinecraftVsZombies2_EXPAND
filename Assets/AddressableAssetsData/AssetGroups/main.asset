@@ -143,13 +143,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 01e8bddd67726284785d3d4b6bb1247e
-    m_Address: mvz2:enemy/EXPAND/RandomSkeleton
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01e9fe4bc77e8ed47ae45b550ea9868b
     m_Address: mvz2:contraption/EXPAND/ExplosionCore_GunpowderBarrel
     m_ReadOnly: 0
@@ -2109,6 +2102,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c1ebf5d824609c4b9d3e923a986d1f2
+    m_Address: mvz2:enemy/EXPAND/RandomSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c22aba89e1241c4986a031d470be726
     m_Address: mvz2:entity/boss/wither_skull
@@ -5104,6 +5104,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44565ef1fc6252749a4404e7143e3343
+    m_Address: mvz2:mobile_blueprint/BrainInVat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44691debf33607e4a85f6e43c29ba535
     m_Address: mvz2:mobile_blueprint/amethyst_pylon
     m_ReadOnly: 0
@@ -5229,6 +5236,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45fa75a2fd2faf34298c3a83332f9035
+    m_Address: mvz2:ui/almanac/EXPAND_Tag/lightLevel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4604673f13e91a847a5781f0d106be31
     m_Address: mvz2:entity/armor/iron_helmet
@@ -5915,6 +5929,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f015e411cac05842b1840711ff0ba89
+    m_Address: mvz2:arcade/BalloonParty
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f1e8833ddcff2246a43e4d3b98c6fc4
     m_Address: mvz2:entity/effects/fire_particle

@@ -2802,6 +2802,28 @@
         </spawns>
     </stage>
     
+    <stage id="BalloonParty" name="气球派对" type="minigame" music="mvz2:Lava_Chicken">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="3" wavesPerFlag="8" firstWaveTime="900" pointsMultiplier="1.3">
+            <spawn id="mvz2:ghast" />
+            <spawn id="mvz2:undead_flying_object" />
+            <spawn id="mvz2:VillagerGhast" />
+            <spawn id="mvz2:anubisand" />
+            <spawn id="mvz2:WraithVanguard" />
+            <spawn id="mvz2:WraithBerserker" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:WitherSkeleton" />
+            <spawn id="mvz2:LeatherWitherSkeleton" />
+            <spawn id="mvz2:IronWitherSkeleton" />
+            <spawn id="mvz2:RaiderSkull" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:shadow_cell" />
+        </spawns>
+    </stage>
+    
     <stage id="OpticalIllusion" name="&lt;color=red&gt;视错觉&lt;/color&gt;" type="minigame" music="mvz2:Sacrificial">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="8" wavesPerFlag="5" pointsMultiplier="2.5">
@@ -3058,7 +3080,7 @@
             <bool name="iZombie" value="true" />
         </properties>
     </stage>
-    <stage id="puzzle_catzomware" name="僵尸猫病毒" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
+    <stage id="puzzle_catzomware" name="僵尸猫病毒" needBlueprints="false" type="puzzle" startEnergy="300" music="mvz2:puzzle">
         <unlock>
             <condition required="mvz2:level.puzzle_break_apart mvz2:level.palace_9" />
         </unlock>
