@@ -245,6 +245,34 @@
             <value value="mvz2:Animal_Exp" name="动物类" description="该怪物属于动物类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[29]" backgroundColor="#e9967a"/>
         </enum>
 
+        <tag id="lightLevel" name="光照频率" enum="mvz2:lightLevel" priority="3500">
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+        </tag>
+        <enum id="lightLevel" type="int">
+            <value value="0" name="白光" description="频率等级 &lt;color=grey&gt;0&lt;/color&gt;，可照亮需要&lt;color=grey&gt;白&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ffffff" />
+            <value value="1" name="红光" description="频率等级 &lt;color=#FF0000&gt;1&lt;/color&gt;，可照亮需要&lt;color=#FF0000&gt;红&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ff0000" />
+            <value value="2" name="橙光" description="频率等级 &lt;color=orange&gt;2&lt;/color&gt;，可照亮需要&lt;color=orange&gt;橙&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ff8000" />
+            <value value="3" name="黄光" description="频率等级 &lt;color=#FFD700&gt;3&lt;/color&gt;，可照亮需要&lt;color=#FFD700&gt;黄&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ffff00" />
+            <value value="4" name="绿光" description="频率等级 &lt;color=#00FF00&gt;4&lt;/color&gt;，可照亮需要&lt;color=#00FF00&gt;绿&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#00ff00" />
+            <value value="5" name="青光" description="频率等级 &lt;color=#00FFFF&gt;5&lt;/color&gt;，可照亮需要&lt;color=#00FFFF&gt;青&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#00ffff" />
+            <value value="6" name="蓝光" description="频率等级 &lt;color=blue&gt;6&lt;/color&gt;，可照亮需要&lt;color=blue&gt;蓝&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#0000ff" />
+            <value value="7" name="紫光" description="频率等级 &lt;color=purple&gt;7&lt;/color&gt;，可照亮需要&lt;color=purple&gt;紫&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#8c00ff" />
+        </enum>
+        
+        <tag id="wraithLightLevel" name="需要频率" enum="mvz2:wraithLightLevel" priority="3500">
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+        </tag>
+        <enum id="wraithLightLevel" type="int">
+            <value value="0" name="白光" description="需要频率等级 &lt;color=grey&gt;0&lt;/color&gt;，被&lt;color=grey&gt;白&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ffffff" />
+            <value value="1" name="红光" description="需要频率等级 &lt;color=#FF0000&gt;1&lt;/color&gt;，被&lt;color=#FF0000&gt;红&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ff0000" />
+            <value value="2" name="橙光" description="需要频率等级 &lt;color=orange&gt;2&lt;/color&gt;，被&lt;color=orange&gt;橙&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ff8000" />
+            <value value="3" name="黄光" description="需要频率等级 &lt;color=#FFD700&gt;3&lt;/color&gt;，被&lt;color=#FFD700&gt;黄&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#ffff00" />
+            <value value="4" name="绿光" description="需要频率等级 &lt;color=#00FF00&gt;4&lt;/color&gt;，被&lt;color=#00FF00&gt;绿&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#00ff00" />
+            <value value="5" name="青光" description="需要频率等级 &lt;color=#00FFFF&gt;5&lt;/color&gt;，被&lt;color=#00FFFF&gt;青&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#00ffff" />
+            <value value="6" name="蓝光" description="需要频率等级 &lt;color=blue&gt;6&lt;/color&gt;，被&lt;color=blue&gt;蓝&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#0000ff" />
+            <value value="7" name="紫光" description="需要频率等级 &lt;color=purple&gt;7&lt;/color&gt;，被&lt;color=purple&gt;紫&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/attribute_tags[0]" backgroundColor="#8c00ff" />
+        </enum>
+
 
         <enum id="mass" type="int">
             <value value="-2" name="很轻" description="受到的击退极大" sprite="mvz2:ui/almanac/mass_tags[0]" backgroundColor="#696a7f" />
@@ -1196,7 +1224,7 @@
                 <p><![CDATA[珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产<ref=[misc]mvz2:starshard.ufo_fragment>星之碎片</ref>后消失。]]></p>
             </header>
             <properties>
-                <p>禁用时长：<![CDATA[<color=red>4分钟</color>]]></p>
+                <p>禁用时长：<![CDATA[<color=red>3分钟</color>]]></p>
                 <p>产量：<![CDATA[<color=red>1星之碎片/3禁用的地格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>无</color>]]></p>
             </properties>
@@ -2348,7 +2376,7 @@
                 <p>"或许是下界某次战役堆起来的京观。"</p>
                 <p>"你觉得是哪次战役？"</p>
                 <p>"我不知道，将军堡和<![CDATA[<ref=[enemies]mvz2:Piglin>猪灵</ref>]]>打的那场？或是在扭曲之心和<![CDATA[<ref=[enemies]mvz2:Enderman>末影人</ref>]]>打的？"</p>
-                <p>"有没有可能是平叛心灵军团的？"</p>
+                <p>"有没有可能是平叛厄普西隆的？"</p>
                 <p>"更有可能是和远方亲戚打的那场。"</p>
             </flavor>
         </entry>
@@ -2714,7 +2742,7 @@
                 <p><![CDATA[<color=#F0F>催眠者是整个世界上最帅气、最美丽、最伟大、最厉害的生物！</color>]]></p>
                 <p><![CDATA[<color=#F0F>什么催眠？你不要乱说好不好！</color>]]></p>
                 <p />
-                <p><![CDATA[<color=grey>反逆者们曾经的统领名为扎赉特，他因莫须有的罪而被打入牢狱。逃脱后的他建立起了自己的军队：心灵军团，但仍未敌过凋灵帝国的下界骑士团。</color>]]></p>
+                <p><![CDATA[<color=grey>反逆者们曾经的统领名为扎赉特，他因莫须有的罪而被打入牢狱。逃脱后的他建立起了自己的军队：厄普西隆，但仍未敌过凋灵帝国的下界骑士团。</color>]]></p>
                 <p><![CDATA[<color=grey>扎赉特作古后，他遗留的军队大部分被凋灵帝国所收编，归属至下界骑士团的战斗序列中，后来，他们多了个催眠者的名字。</color>]]></p>
             </flavor>
         </entry>
@@ -2893,7 +2921,7 @@
             </properties>
             <flavor>
                 <p>反逆者军队的精英，愤怒的反逆者们铭记扎赉特的教诲，学习领袖的样貌，渴望夺取一切敌人的意志。下界骑士团曾深受这些家伙们的困扰。传闻他们曾在一天内控制了一整个狂战士军团，扭转了作战局势。</p>
-                <p>可惜局部战斗上的胜利未能完成扎赉特的复仇，扎赉特死后，大部分反逆者收编至下界骑士团，未被收编的、逃离围剿的反逆者们为争夺谁是心灵军团正统打的不可开交。</p>
+                <p>可惜局部战斗上的胜利未能完成扎赉特的复仇，扎赉特死后，大部分反逆者收编至下界骑士团，未被收编的、逃离围剿的反逆者们为争夺谁是厄普西隆正统打的不可开交。</p>
             </flavor>
         </entry>
 
@@ -3015,10 +3043,10 @@
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
             </properties>
             <flavor>
-                <p>与大多数凋零骷髅不同，你现在所看到的敌怪反逆者之王并未收编到下界骑士团的战斗序列当中。他们是独立为战的军事单位，曾属于扎赉特的心灵军团。</p>
+                <p>与大多数凋零骷髅不同，你现在所看到的敌怪反逆者之王并未收编到下界骑士团的战斗序列当中。他们是独立为战的军事单位，曾属于扎赉特的厄普西隆。</p>
                 <p>扎赉特作古后，这些单位并没有向下界骑士团投降，在逃离围剿之后，这些反逆者各自找到了不同的扎赉特复制体，虽然主体已死，但克隆人和反逆者们并不打算就此作罢，他们利用自己的控制能力重新拉起了一支军队并各自为战。迄今仍是地狱中不可忽视的不稳定因素。</p>
                 <p />
-                <p><![CDATA[<color=grey>我想之后你要做好与心灵军团作战的准备。</color>]]></p>
+                <p><![CDATA[<color=grey>我想之后你要做好与厄普西隆作战的准备。</color>]]></p>
             </flavor>
         </entry>
 
