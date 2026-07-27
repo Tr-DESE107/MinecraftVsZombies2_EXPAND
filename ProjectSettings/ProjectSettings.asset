@@ -170,7 +170,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Alltrees.minecraftVSZombies2.test
+    Android: com.Alltrees.minecraftVSZombies2
     Standalone: com.cuerzor.minecraftVSZombies2
   buildNumber:
     Standalone: 0

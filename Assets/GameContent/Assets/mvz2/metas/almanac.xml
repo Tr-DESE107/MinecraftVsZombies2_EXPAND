@@ -716,6 +716,7 @@
         <entry id="mvz2:totenser">
             <tags>
                 <tag id="mvz2:Buff"/>
+                <tag id="mvz2:lightLevel" value="2"/>
             </tags>
             <header>
                 <p>图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。</p>
@@ -1488,6 +1489,10 @@
             </flavor>
         </entry>
         <entry id="mvz2:FireDispenser">
+            <tags>
+                <tag id="mvz2:lightLevel" value="4"/>
+                <tag id="mvz2:lightLevel" value="5"/>
+            </tags>
             <header>
                 <p>火焰发射器能够发射火焰箭，驱动可以改变发射的箭矢</p>
             </header>
@@ -2938,7 +2943,7 @@
                 <p>亡语召唤：<![CDATA[<color=red>灵魂头王、下界冲锋者、愤怒的反逆者</color>]]></p>
             </properties>
             <flavor>
-                <p>该载具很明显普通的下界战车不一样，引擎和运兵舱似乎都经过了特殊的改装，似乎不是史蒂芬爷所为。</p>
+                <p>该载具很明显和普通的下界战车不一样，引擎和运兵舱似乎都经过了特殊的改装，似乎不是史蒂芬爷所为。</p>
                 <p>库尔咒对该载具表示疑惑。</p>
                 <p />
                 <p><![CDATA[<color=white>在不起眼的地方上刻着一行小字：米罗威尼特</color>]]></p>

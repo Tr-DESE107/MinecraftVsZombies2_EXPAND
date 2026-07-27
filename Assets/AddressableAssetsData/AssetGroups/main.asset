@@ -2789,6 +2789,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24a1649d84d6d1549a3d5a5ed438c5b5
+    m_Address: mvz2:entity/locked_chest/Gachi_ah
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24bd2285f487fd3418b6faed12117f29
     m_Address: mvz2:nightmare_boss2
     m_ReadOnly: 0
@@ -7658,6 +7665,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 670d50e4ffe0a3741aed3669ab33fb95
+    m_Address: mvz2:entity/locked_chest/Gachi_aaaaa
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67570966ddb5b0d4688ecc6f6b0d3508
     m_Address: mvz2:random/glass1
     m_ReadOnly: 0
@@ -11415,6 +11429,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cee8ac9e55053542bb2455d54c2c73e
+    m_Address: mvz2:entity/locked_chest/Gachi_auuuuuuugh
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9cf2df072b37c23469fc979417ef3af8
     m_Address: mvz2:contraption/halloween/tnt
     m_ReadOnly: 0
@@ -14726,7 +14747,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccd008944a0ce7248922817df2c3934d
-    m_Address: mvz2:entity/locked_chest/Areeeeeee
+    m_Address: mvz2:entity/locked_chest/Gachi_Areeeeeee
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
