@@ -4760,6 +4760,7 @@
                 
                 <float name="mvz2:damage" value="1000" />
                 <float name="mvz2:range" value="90" />
+                <bool name="mvz2:notActiveEnemy" value="true" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <id name="mvz2:placeSound" value="mvz2:grass" />
                 
