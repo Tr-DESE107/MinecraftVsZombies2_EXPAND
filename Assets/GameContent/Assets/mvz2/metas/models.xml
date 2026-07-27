@@ -433,7 +433,7 @@
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="HostMutant" type="entity" path="mvz2:enemy/dream/HostMutant" width="200" height="180" xOffset="0" yOffset="-90" />
-    <model name="HostIMP" type="entity" path="mvz2:enemy/dream/HostIMP" width="48" height="56" xOffset="0" yOffset="-28">
+    <model name="HostIMP" type="entity" path="mvz2:enemy/dream/HostIMP" width="48" height="60" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="NightmareDisciple" type="entity" path="mvz2:enemy/dream/NightmareDisciple" width="64" height="96" xOffset="10" yOffset="-44">
@@ -551,19 +551,19 @@
     </model>
     
     <!--EXPAND Enemies C6-->
-    <model name="WraithWarrior" type="entity" path="mvz2:enemy/palace/WraithWarrior" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="WraithWarrior" type="entity" path="mvz2:enemy/palace/WraithWarrior" width="64" height="100" xOffset="10" yOffset="-53">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="WraithArcher" type="entity" path="mvz2:enemy/palace/WraithArcher" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="WraithArcher" type="entity" path="mvz2:enemy/palace/WraithArcher" width="64" height="100" xOffset="10" yOffset="-55">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="WraithBerserker" type="entity" path="mvz2:enemy/palace/WraithBerserker" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="WraithBerserker" type="entity" path="mvz2:enemy/palace/WraithBerserker" width="64" height="100" xOffset="10" yOffset="-55">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="WraithDullhan" type="entity" path="mvz2:enemy/palace/WraithDullhan" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="WraithDullhan" type="entity" path="mvz2:enemy/palace/WraithDullhan" width="64" height="100" xOffset="10" yOffset="-55">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="WraithVanguard" type="entity" path="mvz2:enemy/palace/WraithVanguard" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="WraithVanguard" type="entity" path="mvz2:enemy/palace/WraithVanguard" width="64" height="110" xOffset="10" yOffset="-55">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="AncientGhost" type="entity" path="mvz2:enemy/palace/AncientGhost" width="64" height="96" xOffset="10" yOffset="-44">
@@ -635,6 +635,9 @@
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
     <model name="RandomKingSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomKingSkeleton" width="64" height="105" xOffset="10" yOffset="-50">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="Akuah" type="entity" path="mvz2:enemy/EXPAND/Akuah" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 

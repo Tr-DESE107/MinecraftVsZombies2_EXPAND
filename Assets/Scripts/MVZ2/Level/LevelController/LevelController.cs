@@ -102,9 +102,11 @@ namespace MVZ2.Level
                 var difficulty = Options.GetDifficulty();
                 // EXPAND(lunatic)难度限制：未通关过本关任意难度，则强制降为hard，并弹出提示  
                 // 调试用户(debug/DESE107)或调试模式(编辑器)下解除该限制  
+                // 无尽关卡(endless=true)无法通关，故也解除该限制  
                 if (difficulty == VanillaDifficulties.lunatic
                     && Main.SaveManager.GetLevelDifficultyRecords(startStageID).Length <= 0
-                    && !Main.DebugManager.CanUseDebugFeatures())
+                    && !Main.DebugManager.CanUseDebugFeatures()
+                    && !level.IsEndless())
                 {
                     difficulty = VanillaDifficulties.hard;
                     var popup = Main.LanguageManager._(POPUP_DIFFICULTY_DOWNGRADED);

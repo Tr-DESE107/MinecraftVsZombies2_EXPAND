@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-06-06 05:10+0800\n"
-"PO-Revision-Date: 2026-06-06 17:29+0800\n"
+"POT-Creation-Date: 2026-07-27 08:39+0800\n"
+"PO-Revision-Date: 2026-07-27 20:40+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -503,6 +503,30 @@ msgctxt "almanac_tag.description"
 msgid "必须放置在发射器上"
 msgstr "Must be placed on Dispenser"
 
+#. Name for almanac tag placement_nuke
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：核弹"
+msgstr "Upgrade Contraption: Nuke"
+
+#. Description for almanac tag placement_nuke
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在核弹上"
+msgstr "Must be placed on Nuke"
+
+#. Name for almanac tag placement_two_StoneShield
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：一对石护罩"
+msgstr "Upgrade Contraption: 2 Stone Shield"
+
+#. Description for almanac tag placement_two_StoneShield
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在一对相邻的石护罩上"
+msgstr "Must be placed on a pair of Stone Shield"
+
 #. Name for almanac tag antifly
 #: Almanac meta file
 msgctxt "almanac_tag.name"
@@ -527,11 +551,47 @@ msgctxt "almanac_tag.description"
 msgid "可以施加和得到状态效果"
 msgstr "Can inflict and receive Status Effects."
 
+#. Name for almanac tag producer
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "生产者"
+msgstr "producer"
+
+#. Description for almanac tag producer
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "产出有用道具的器械"
+msgstr "A contraption that produces useful items"
+
+#. Name for almanac tag Starsharder
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "星之碎片生产者"
+msgstr "Starshard Producer"
+
+#. Description for almanac tag Starsharder
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "产出星之碎片"
+msgstr "Produces Starshards"
+
 #. Name for almanac tag Category
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "分类"
 msgstr "Category"
+
+#. Name for almanac tag lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "光照频率"
+msgstr "Light Frequency"
+
+#. Name for almanac tag wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "需要频率"
+msgstr "Required Frequency"
 
 #. Name for almanac tag enum value mvz2:Imp_Exp of enum Category
 #: Almanac meta file
@@ -857,6 +917,186 @@ msgctxt "almanac_tag_enum.description"
 msgid "该怪物属于守护者类"
 msgstr "This monster belongs to the Guardian category."
 
+#. Name for almanac tag enum value mvz2:Enderman_Exp of enum Category
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "末影人类"
+msgstr "Enderman"
+
+#. Description for almanac tag enum value mvz2:Enderman_Exp of enum Category
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "该怪物属于末影人类"
+msgstr "This monster belongs to the Enderman category."
+
+#. Name for almanac tag enum value mvz2:Arthropod_Exp of enum Category
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "节肢生物类"
+msgstr "Arthropod"
+
+#. Description for almanac tag enum value mvz2:Arthropod_Exp of enum Category
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "该怪物属于节肢生物类"
+msgstr "This monster belongs to the Arthropod category."
+
+#. Name for almanac tag enum value mvz2:Animal_Exp of enum Category
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "动物类"
+msgstr "Animal"
+
+#. Description for almanac tag enum value mvz2:Animal_Exp of enum Category
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "该怪物属于动物类"
+msgstr "This monster belongs to the Animal category."
+
+#. Name for almanac tag enum value 0 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "白光"
+msgstr "White Light"
+
+#. Description for almanac tag enum value 0 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "频率等级 <color=grey>0</color>，可照亮需要<color=grey>白</color>光的实体"
+msgstr "Frequency Level <color=grey>0</color>. Illuminates entities that require <color=grey>White</color> Light."
+
+#. Name for almanac tag enum value 1 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "红光"
+msgstr "Red Light"
+
+#. Description for almanac tag enum value 1 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "频率等级 <color=#FF0000>1</color>，可照亮需要<color=#FF0000>红</color>光的实体"
+msgstr "Frequency Level <color=#FF0000>1</color>. Illuminates entities that require <color=#FF0000>Red</color> Light."
+
+#. Name for almanac tag enum value 2 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "橙光"
+msgstr "Orange Light"
+
+#. Description for almanac tag enum value 2 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "频率等级 <color=orange>2</color>，可照亮需要<color=orange>橙</color>光的实体"
+msgstr "Frequency Level <color=orange>2</color>. Illuminates entities that require <color=orange>Orange</color> Light."
+
+#. Name for almanac tag enum value 3 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "黄光"
+msgstr "Yellow Light"
+
+#. Description for almanac tag enum value 3 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "频率等级 <color=#FFD700>3</color>，可照亮需要<color=#FFD700>黄</color>光的实体"
+msgstr "Frequency Level <color=#FFD700>3</color>. Illuminates entities that require <color=#FFD700>Yellow</color> Light."
+
+#. Name for almanac tag enum value 4 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "绿光"
+msgstr "Green Light"
+
+#. Description for almanac tag enum value 4 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "频率等级 <color=#00FF00>4</color>，可照亮需要<color=#00FF00>绿</color>光的实体"
+msgstr "Frequency Level <color=#00FF00>4</color>. Illuminates entities that require <color=#00FF00>Green</color> Light."
+
+#. Name for almanac tag enum value 5 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "青光"
+msgstr "Cyan Light"
+
+#. Description for almanac tag enum value 5 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "频率等级 <color=#00FFFF>5</color>，可照亮需要<color=#00FFFF>青</color>光的实体"
+msgstr "Frequency Level <color=#00FFFF>5</color>. Illuminates entities that require <color=#00FFFF>Cyan</color> Light."
+
+#. Name for almanac tag enum value 6 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "蓝光"
+msgstr "Blue Light"
+
+#. Description for almanac tag enum value 6 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "频率等级 <color=blue>6</color>，可照亮需要<color=blue>蓝</color>光的实体"
+msgstr "Frequency Level <color=blue>6</color>. Illuminates entities that require <color=blue>Blue</color> Light."
+
+#. Name for almanac tag enum value 7 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "紫光"
+msgstr "Purple Light"
+
+#. Description for almanac tag enum value 7 of enum lightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "频率等级 <color=purple>7</color>，可照亮需要<color=purple>紫</color>光的实体"
+msgstr "Frequency Level <color=purple>7</color>. Illuminates entities that require <color=purple>Purple</color> Light."
+
+#. Description for almanac tag enum value 0 of enum wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "需要频率等级 <color=grey>0</color>，被<color=grey>白</color>光照亮时显形"
+msgstr "Requires Frequency Level <color=grey>0</color>. Revealed when illuminated by <color=grey>White</color> Light."
+
+#. Description for almanac tag enum value 1 of enum wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "需要频率等级 <color=#FF0000>1</color>，被<color=#FF0000>红</color>光照亮时显形"
+msgstr "Requires Frequency Level <color=#FF0000>1</color>. Revealed when illuminated by <color=#FF0000>Red</color> Light."
+
+#. Description for almanac tag enum value 2 of enum wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "需要频率等级 <color=orange>2</color>，被<color=orange>橙</color>光照亮时显形"
+msgstr "Requires Frequency Level <color=orange>2</color>. Revealed when illuminated by <color=orange>Orange</color> Light."
+
+#. Description for almanac tag enum value 3 of enum wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "需要频率等级 <color=#FFD700>3</color>，被<color=#FFD700>黄</color>光照亮时显形"
+msgstr "Requires Frequency Level <color=#FFD700>3</color>. Revealed when illuminated by <color=#FFD700>Yellow</color> Light."
+
+#. Description for almanac tag enum value 4 of enum wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "需要频率等级 <color=#00FF00>4</color>，被<color=#00FF00>绿</color>光照亮时显形"
+msgstr "Requires Frequency Level <color=#00FF00>4</color>. Revealed when illuminated by <color=#00FF00>Green</color> Light."
+
+#. Description for almanac tag enum value 5 of enum wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "需要频率等级 <color=#00FFFF>5</color>，被<color=#00FFFF>青</color>光照亮时显形"
+msgstr "Requires Frequency Level <color=#00FFFF>5</color>. Revealed when illuminated by <color=#00FFFF>Cyan</color> Light."
+
+#. Description for almanac tag enum value 6 of enum wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "需要频率等级 <color=blue>6</color>，被<color=blue>蓝</color>光照亮时显形"
+msgstr "Requires Frequency Level <color=blue>6</color>. Revealed when illuminated by <color=blue>Blue</color> Light."
+
+#. Description for almanac tag enum value 7 of enum wraithLightLevel
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "需要频率等级 <color=purple>7</color>，被<color=purple>紫</color>光照亮时显形"
+msgstr "Requires Frequency Level <color=purple>7</color>. Revealed when illuminated by <color=purple>Purple</color> Light."
+
 #. Name for almanac tag enum value -2 of enum mass
 #: Almanac meta file
 msgctxt "almanac_tag_enum.name"
@@ -1083,7 +1323,7 @@ msgstr "Takes 1.5x fire, lightning or light damage"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.name"
 msgid "普通"
-msgstr ""
+msgstr "Normal"
 
 #. Header for contraptions mvz2:dispenser
 #: Almanac meta file
@@ -1308,6 +1548,51 @@ msgid "地雷TNT为什么需要时间来填装？这的确是个千古难题。�
 msgstr ""
 "Why does Mine TNT need time to arm itself? It's been an enigma for years. What could ever go wrong if it could be instantly armed? "
 "Though it finds this pretty reasonable. “I was sleeping!”"
+
+#. Header for contraptions mvz2:BrainInVat
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "放置后怪物进家不会死亡，该器械被摧毁后游戏立刻失败。"
+msgstr ""
+"Prevents monsters from ending the game when they reach your house. If this contraption is destroyed, the game is lost immediately."
+
+#. Properties for contraptions mvz2:BrainInVat
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"特点：<color=red>放置后怪物进家不会死亡，该器械被摧毁后游戏立刻失败。使用缸中之脑通关的关卡不会记录难度。</color>\n"
+"技能：<color=red>赋予自身10秒无敌</color>"
+msgstr ""
+"Special: <color=red>Prevents monsters from ending the game when they reach your house. If this contraption is destroyed, the game is "
+"lost immediately. Levels cleared with the Brain in a Vat will not record the difficulty.</color>\n"
+"Evocation: <color=red>Grants itself 10 seconds of invincibility</color>"
+
+#. Flavor for contraptions mvz2:BrainInVat
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"缸中之脑能改变游戏规则。\n"
+"\n"
+"<color=grey>想象一个诡异的场景：你的大脑被放置在一个与外界完全隔绝的缸中，先进的科技会模拟你的神经冲动，你的大脑会感受到和现实世界相同"
+"的体验。</color>\n"
+"<color=grey>现在，问题来了： 如果大脑被模拟并感受到与现实相同的体验，那么这种模拟是否等同于真实的意识体验？在这种情境下，现实和虚拟的区"
+"别变得模糊。这是否表明我们对于真实性的理解只是基于体验而非客观存在？大脑被隔离于身体之外，但是否意味着自我认知也可以在没有身体的情况下"
+"存在？如果在这个虚拟体验中的感知和体验与现实相同，那么我们如何定义现实？</color>\n"
+"\n"
+"<color=white>戴夫杂乱的字迹：希腊奶，大脑相关的东西你应该问雷克的朋友....我记得叫未什么来着？</color>"
+msgstr ""
+"The Brain in a Vat changes the rules of the game.\n"
+"\n"
+"<color=grey>Imagine a bizarre scenario: your brain is placed in a vat, completely isolated from the outside world. Advanced technology "
+"simulates your neural impulses, and your brain experiences the exact same sensations as if it were still in reality.</color>\n"
+"<color=grey>Now, here's the question: if a brain is simulated and experiences the same sensations as reality, is that simulation "
+"equivalent to genuine conscious experience? In this situation, the line between reality and virtuality becomes blurred. Does this "
+"suggest that our understanding of reality is based only on experience, rather than objective existence? If the brain is cut off from "
+"the body, can self-awareness still exist without a physical form? And if the perceptions and experiences within this virtual world are "
+"identical to those in reality, then how do we define reality itself?</color>\n"
+"\n"
+"<color=white>Dave's messy handwriting: idk. If you want to know more about brains, you'd better ask Lake's friend... Wei, I think? Uh, "
+"something like that.</color>"
 
 #. Header for contraptions mvz2:Poisonser
 #: Almanac meta file
@@ -1646,13 +1931,14 @@ msgctxt "contraptions.description"
 msgid ""
 "攻击间隔：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"触发：<color=red>触发后进入过载模式，每秒损失1点耐久，档位上升1级</color>\n"
+"触发：<color=red>触发后损失75耐久并进入过载模式，每秒损失1点耐久，档位上升1级</color>\n"
 "升级上限：<color=red>5，过载模式可以短暂上升为6</color>\n"
 "技能：<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+挡位*1.5只大型箭矢（向下取整），而后自爆。</color>"
 msgstr ""
 "Fire Rate: <color=red><var id=\"mvz2:AttackInterval\" /> seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Triggered: <color=red>When triggered, enters Overdrive Mode, losing 1 Toughness per second and increasing its level by 1</color>\n"
+"Triggered: <color=red>When triggered, loses 75 Toughness and enters Overdrive Mode, then loses 1 additional Toughness per second and "
+"increases its level by 1</color>\n"
 "Max Level: <color=red>5, can temporarily reach level 6 in Overdrive Mode</color>\n"
 "Evocation: <color=red>In normal mode, fires 5 large arrows. In Overdrive Mode, rapidly fires 5 + level × 1.5 large arrows (rounded "
 "down), then self-destructs.</color>"
@@ -2551,14 +2837,14 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"爆炸伤害：<color=red>100（简单）、150（普通）、300（困难）</color>\n"
+"爆炸伤害：<color=red>100（简单）、150（普通）、300（困难及以上）</color>\n"
 "爆炸半径：<color=red><var id=\"mvz2:FireRange\" />格</color>\n"
 "生产时间：<color=red>30秒</color>\n"
 "提供能量：<color=red><var local=\"gunpowder_value\" /></color>\n"
 "技能：<color=red>改为生成暴怒火药，提供<var local=\"furious_gunpowder_value\" />能量，但是会更快爆炸</color>"
 msgstr ""
 "Explosion Damage: <color=red>100 (Easy), 150 (Normal), 300 (Hard)</color>\n"
-"Explosion Radius: <color=red>1.5 tiles</color>\n"
+"Explosion Radius: <color=red><var id=\"mvz2:FireRange\" /> tiles</color>\n"
 "Produce time: <color=red>30 seconds</color>\n"
 "Energy production: <color=red><var local=\"gunpowder_value\" /></color>\n"
 "Evocation: <color=red>Produce furious gunpowder instead, which provides <var local=\"furious_gunpowder_value\" /> energy but explodes "
@@ -2775,11 +3061,11 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"禁用时长：<color=red>4分钟</color>\n"
+"禁用时长：<color=red>3分钟</color>\n"
 "产量：<color=red>1星之碎片/3禁用的地格</color>\n"
 "技能：<color=red>无</color>"
 msgstr ""
-"Disable Duration: <color=red>4 minutes</color>\n"
+"Disable Duration: <color=red>3 minutes</color>\n"
 "Production: <color=red>1 starshard / 3 disabled tiles</color>\n"
 "Evocation: <color=red>None</color>"
 
@@ -2808,7 +3094,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"特点：<color=red>发光的敌人额外受到<var local=\"glowing_damage_addition\" />%伤害</color>\n"
+"特点：<color=red>发光的敌人额外受到25%伤害，额外受到100%的火焰伤害。</color>\n"
 "射击模式：\n"
 "  伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "  发射间隔：<color=red><var local=\"fire_interval\" />秒</color>\n"
@@ -2820,12 +3106,12 @@ msgid ""
 "  技能：<color=red>对前方的所有敌人造成<var local=\"evocation_laser_damage\" />点伤害并使其发光<var "
 "local=\"evocation_glowing_duration\" />秒</color>"
 msgstr ""
-"Special: <color=red>Glowing enemies take 50% extra damage</color>\n"
+"Special: <color=red>Glowing enemies take 25% extra damage, and take 100% extra fire damage.</color>\n"
 "Shooting Mode:\n"
 "  Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "  Fire Rate: <color=red><var local=\"fire_interval\" /> seconds</color>\n"
 "  Glow Duration: <color=red><var local=\"glowing_duration\" /> seconds</color>\n"
-"  Evocation: <color=red>Shoot 40 spectral arrows</color>\n"
+"  Evocation: <color=red>Shoot <var local=\"evocation_arrow_count\" /> spectral arrows</color>\n"
 "Laser Mode:\n"
 "  Damage: <color=red><var local=\"laser_dps\" />/s</color>\n"
 "  Glow Duration: <color=red>Instantaneous</color>\n"
@@ -2849,24 +3135,25 @@ msgstr ""
 #. Header for contraptions mvz2:gravelpult
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身的沙砾。"
-msgstr "Gravel-pults throw flints at the enemies, and sometimes throw gravels that can immobilize monsters."
+msgid "沙砾投手向敌人投出燧石，偶尔投出能够将怪物定身并窒息的沙砾。"
+msgstr "Gravel-pults throw flints at enemies, and occasionally throw gravels that can immobilize and suffocate monsters."
 
 #. Properties for contraptions mvz2:gravelpult
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red><var id=\"mvz2:entity_damage\" />（燧石），<var local=\"gravel_damage\" />（沙砾）</color>\n"
+"伤害：<color=red><var id=\"mvz2:entity_damage\" />（燧石），<var local=\"gravel_damage\" />（沙砾）+30/s(窒息伤害)</color>\n"
 "投掷间隔：<color=red>3秒</color>\n"
 "定身时长：<color=red>5秒</color>\n"
 "沙砾概率：<color=red>25%</color>\n"
 "技能：<color=red>向每个敌人投出一块沙砾</color>"
 msgstr ""
-"Damage: <color=red><var id=\"mvz2:entity_damage\" /> (Flint), <var local=\"gravel_damage\" /> (Gravel)</color>\n"
+"Damage: <color=red><var id=\"mvz2:entity_damage\" /> (Flint), <var local=\"gravel_damage\" /> (Gravel) + 30/s (Suffocation damage)</"
+"color>\n"
 "Fire Rate: <color=red>3 seconds</color>\n"
 "Immobilize Time: <color=red>5 seconds</color>\n"
 "Gravel Chance: <color=red>25%</color>\n"
-"Evocation: <color=red>Throw gravels to every enemy</color>"
+"Evocation: <color=red>Throw a gravel to every enemy</color>"
 
 #. Flavor for contraptions mvz2:gravelpult
 #: Almanac meta file
@@ -2909,26 +3196,28 @@ msgstr ""
 #. Header for contraptions mvz2:cursed_candle
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "徒手摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害，并在死亡后自爆。"
+msgid "徒手摧毁诅咒蜡烛的怪物会被诅咒，不停受到火焰伤害并减速，并在死亡后自爆并留下辐射地块。"
 msgstr ""
-"Monsters that destroy Cursed Candles with melee attacks will be cursed, continuously taking fire damage, and will explode upon death."
+"Monsters that destroy Cursed Candles with melee attacks will be cursed, continuously taking fire damage and being slowed, and will "
+"explode upon death, leaving behind a radiation zone."
 
 #. Properties for contraptions mvz2:cursed_candle
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"火焰伤害：<color=red>20/秒</color>\n"
+"火焰伤害：<color=red>40/秒</color>\n"
 "爆炸伤害：<color=red>900</color>\n"
 "爆炸半径：<color=red>1.5格</color>\n"
-"特点：<color=red>不会触发死亡效果</color>\n"
-"技能：<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍，并且被炸死的其他怪物也不会触发死亡效果</color>"
+"特点：<color=red>受诅咒的怪物会不停受到火焰伤害并减速，并在死亡后自爆并留下辐射地块。</color>\n"
+"技能：<color=red>插在蛋糕上，怪物自爆时半径和伤害翻倍并留下3*3的辐射地块</color>"
 msgstr ""
-"Fire damage: <color=red>20/s</color>\n"
+"Fire damage: <color=red>40/s</color>\n"
 "Explosion damage: <color=red>900</color>\n"
 "Explosion radius: <color=red>1.5 tiles</color>\n"
-"Special: <color=red>Does not trigger the monster's death effects</color>\n"
-"Evocation: <color=red>Being placed on a cake, the explosion radius and damage of the monsters' self-destruction are doubled. Other "
-"monsters killed by the explosion will not trigger their death effects</color>"
+"Special: <color=red>Cursed monsters continuously take fire damage and are slowed, and will explode upon death, leaving behind a "
+"radiation grid.</color>\n"
+"Evocation: <color=red>When placed on a cake, the explosion radius and damage of the monsters' self-destruction are doubled, and it "
+"leaves a 3x3 radiation grid.</color>"
 
 #. Flavor for contraptions mvz2:cursed_candle
 #: Almanac meta file
@@ -2970,14 +3259,15 @@ msgstr "Stone Eyes will reduce the attack speed and movement speed of enemies ah
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"范围：<color=red>前方1格</color>\n"
+"范围：<color=red>前方1.5格</color>\n"
 "特点：<color=red>范围内的敌人攻击速度和移动速度x50%</color>\n"
-"技能：<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘</color>"
+"技能：<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘，挖掉后铁镐会进入短暂时间的冷却。</color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Range: <color=red>1 tile ahead</color>\n"
+"Range: <color=red>1.5 tiles ahead</color>\n"
 "Special: <color=red>x50% enemy attack speed and movement speed within the range</color>\n"
-"Evocation: <color=red>Petrifies all enemies ahead for 10 seconds, they can be destroyed by the pickaxe during this state</color>"
+"Evocation: <color=red>Petrifies all enemies ahead for 10 seconds. While petrified, they can be mined with a pickaxe. After mining one, "
+"the pickaxe enters a brief cooldown.</color>"
 
 #. Flavor for contraptions mvz2:stone_eye
 #: Almanac meta file
@@ -3048,54 +3338,74 @@ msgstr ""
 #. Header for contraptions mvz2:amethyst_pylon
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "紫晶塔向前发射穿透所有敌人的激光。周围的<tag id=\"mvz2:light_source\"/>光源越多，紫晶塔的伤害越高。"
+msgid "紫晶塔向前发射穿透所有敌人的激光。周围的<tag id=\"mvz2:light_source\"/>光源数量决定其伤害与光柱颜色。"
 msgstr ""
-"Amethyst Pylons fire lasers forward that pierces through all enemies. The more <tag id=\"mvz2:light_source\"/>light sources there are "
-"around them, the higher their damage."
+"Amethyst Pylons fire lasers forward that pierce through all enemies. The number of <tag id=\"mvz2:light_source\"/>light sources around "
+"them determines their damage and beam color."
 
 #. Properties for contraptions mvz2:amethyst_pylon
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red>10（无光源），20（1光源），40（2光源），60（3光源）</color>\n"
+"伤害：<color=red>15（无光源），30（1光源），60（2光源），90（3光源及以上）</color>\n"
 "攻击间隔：<color=red>3秒</color>\n"
-"技能：<color=red>发射一道贯穿三行的超能光束，之后紫晶塔被禁用30秒</color>"
+"光源等级：<color=red>受照射光源等级之和与驱动档位影响，取8的余数，输出对应等级的光照</color>\n"
+"驱动：<color=red>驱动后驱动档位+1（0–7循环），改变激光颜色</color>\n"
+"技能：<color=red>发射一道贯穿三行的白色细激光，1.5秒后展开为大功率光束，持续6.2秒，期间以250/秒造成伤害，之后紫晶塔短路30秒</color>\n"
+"特点：<color=red>攻击到幽灵或怨灵时会让他们发紫晶塔对应颜色的光。</color>"
 msgstr ""
-"Damage: <color=red>10 (no light sources), 20 (1 light source), 40 (2 light sources), 60 (3 light sources)</color>\n"
-"Fire rate: <color=red>3 seconds</color>\n"
-"Evocation: <color=red>Fires a supercharged beam that pierces through three lanes, after which the Amethyst Pylon is disabled for 30 "
-"seconds</color>"
+"Damage: <color=red>15 (no light sources), 30 (1 light source), 60 (2 light sources), 90 (3 or more light sources)</color>\n"
+"Attack Interval: <color=red>3 seconds</color>\n"
+"Light Frequency: <color=red>Determined by the sum of incoming light source frequencies and the Drive Level, modulo 8. Outputs light of "
+"the corresponding frequency.</color>\n"
+"Drive: <color=red>When driven, increases Drive Level by 1 (cycles 0–7), changing the laser's color.</color>\n"
+"Evocation: <color=red>Fires a thin white laser that pierces through three lanes. After 1.5 seconds, it expands into a high-power beam "
+"for 6.2 seconds, dealing 250 damage per second. Afterwards, the Amethyst Pylon is short-circuited for 30 seconds.</color>\n"
+"Special: <color=red>When attacking ghosts or wraiths, causes them to emit light of the corresponding color.</color>"
 
 #. Flavor for contraptions mvz2:amethyst_pylon
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——现在它成为了你必须建造更多的玩意。"
+msgid ""
+"有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——现在它成为了你必须建造更多的玩意。\n"
+"\n"
+"记住了，光源的顺序是<color=grey>白</color>、<color=red>红</color>、<color=orange>橙</color>、<color=#FFD700>黄</color>、<color=green>绿"
+"</color>、<color=#00FFFF>青</color>、<color=blue>蓝</color>、<color=purple>紫</color>，对应<color=grey>0</color>、<color=red>1</"
+"color>、<color=orange>2</color>、<color=#FFD700>3</color>、<color=green>4</color>、<color=#00FFFF>5</color>、<color=blue>6</color>、"
+"<color=purple>7</color>的光照等级"
 msgstr ""
-"\"YOU MUST CONSTRUCT ADDITIONAL PYLONS\", the person said to his apprentice after messing up the quantities of amethyst and copper "
-"ingots needed to craft the spyglass."
+"Someone once tried to make a spyglass, but they got the amounts of amethyst and copper ingots wrong — now it's become something you "
+"must construct additional of.\n"
+"\n"
+"Remember, the order of light frequencies is: <color=grey>White</color>, <color=red>Red</color>, <color=orange>Orange</color>, "
+"<color=#FFD700>Yellow</color>, <color=green>Green</color>, <color=#00FFFF>Cyan</color>, <color=blue>Blue</color>, "
+"<color=purple>Purple</color>, corresponding to Light Frequencies <color=grey>0</color>, <color=red>1</color>, <color=orange>2</color>, "
+"<color=#FFD700>3</color>, <color=green>4</color>, <color=#00FFFF>5</color>, <color=blue>6</color>, <color=purple>7</color>."
 
 #. Header for contraptions mvz2:nuke
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "核弹在触发后会摧毁大范围内的敌人，让它们尸骨无存，但会暂时破坏所在的地块。"
+msgid "核弹在触发后会摧毁大范围内的敌人并留下致命的辐射区，但会暂时破坏所在的地块。"
 msgstr ""
-"Nukes will destroy enemies on a large radius after being triggered, leaving them with no remains, but they will temporarily break the "
-"tiles they are located on."
+"Nukes will destroy enemies on a large radius after being triggered, leaving behind a deadly radiation zone, but they will temporarily "
+"break the tiles they are located on."
 
 #. Properties for contraptions mvz2:nuke
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"半径：<color=red>3.5格</color>\n"
-"特点：<color=red>不会触发死亡效果；引爆后破坏所在的地块，无法放置器械，持续3分钟</color>\n"
-"技能：<color=red>消灭所有敌怪</color>"
+"伤害：<color=red><var id=\"mvz2:entity_damage\" />；辐射区持续10s，每秒造成60伤害。</color>\n"
+"半径：<color=red>1.5格的辐射区，2.5格的伤害，3.5格的核扩散</color>\n"
+"特点：<color=red>辐射区致死的敌怪不会触发死亡效果；核扩散效果会让受到该效果的实体降低最大生命值；引爆后破坏所在的地块，无法放置器械，持"
+"续3分钟</color>\n"
+"技能：<color=red>留下半径2.5格的辐射区，对全场敌人造成伤害，降低全场实体35%的最大生命值。</color>"
 msgstr ""
-"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Radius: <color=red>3.5 tiles</color>\n"
-"Special: <color=red>Does not trigger the monsters' death effects; The tile will be broken and disabled for 3 minutes after detonation</"
-"color>\n"
-"Evocation: <color=red>Destroy all enemy monsters</color>"
+"Damage: <color=red><var id=\"mvz2:entity_damage\" />; Radiation Grid lasts 10 seconds, dealing 60 damage per second.</color>\n"
+"Radius: <color=red>1.5-tile Radiation Grid, 2.5-tile damage radius, 3.5-tile nuclear fallout radius</color>\n"
+"Special: <color=red>Enemies killed by the Radiation Grid do not trigger death effects. The nuclear fallout effect reduces the maximum "
+"health of affected entities. Upon detonation, the tile is broken and unusable for 3 minutes.</color>\n"
+"Evocation: <color=red>Leaves a 2.5-tile Radiation Grid, deals damage to all enemies on the field, and reduces the maximum health of "
+"all entities on the field by 35%.</color>"
 
 #. Flavor for contraptions mvz2:nuke
 #: Almanac meta file
@@ -3127,8 +3437,8 @@ msgid ""
 "<color=red>A<color=blue>B</color>A</color>\n"
 "生产时间：<color=red><var local=\"min_produce_time\"/>-<var local=\"max_produce_time\"/>秒（根据器械A和B的花费和充能时间而定）</"
 "color>\n"
-"技能：<color=red>召唤4个友方的凋灵骷髅，分别是<ref=[enemies]mvz2:berserker>狂战士</ref>、猎手、法师和<ref=[enemies]mvz2:mesmerizer>催眠"
-"者</ref></color>"
+"技能：<color=red>召唤4个随机的友方的凋零骷髅</color>\n"
+"特点：<color=red>产出星之碎片时还会将作用范围内的黑曜石转化为发光的黑曜石，并有概率产出一张爆炸核心蓝图。</color>"
 msgstr ""
 "Structure: <color=red><color=black>X</color> = Nether Reactor Core, A and <color=blue>B</color> = two different contraptions</color>\n"
 "<color=red>A<color=blue>B</color>A</color>\n"
@@ -3136,19 +3446,20 @@ msgstr ""
 "<color=red>A<color=blue>B</color>A</color>\n"
 "Production Time: <color=red><var local=\"min_produce_time\"/>-<var local=\"max_produce_time\"/> seconds (depends on the cost and "
 "recharge time of contraptions A and B)</color>\n"
-"Evocation: <color=red>Summons 4 friendly wither skeletons: a <ref=[enemies]mvz2:berserker>Berserker</ref>, a Hunter, a Mage, and a "
-"<ref=[enemies]mvz2:mesmerizer>Mesmerizer</ref>.</color>"
+"Evocation: <color=red>Summons 4 random friendly Wither Skeletons.</color>\n"
+"Special: <color=red>When producing Starshards, also converts Obsidian within range into Glowing Obsidian, and has a chance to drop an "
+"Explosion Core blueprint.</color>"
 
 #. Flavor for contraptions mvz2:nether_reactor_core
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
 "传说在先古时期，有人用一种蓝色的东西作为核心，创造了一座尖塔。\n"
-"尖塔中存在着各式各样的宝物，塔内也有着四个生物。\n"
+"尖塔中存在着各式各样的宝物，也有着四个生物。\n"
 "有一天，这座尖塔就被杀戮了，它在之后再也没有出现过。"
 msgstr ""
-"In ancient times, someone used a blue object as the core to create a spire.\n"
-"The spire contained various treasures, and within it lived four mobs.\n"
+"Legend has it that in ancient times, someone used a blue object as the core to create a spire.\n"
+"The spire contained various treasures, and within it lived four beings.\n"
 "One day, the spire was slain, and it never appeared again."
 
 #. Header for contraptions mvz2:small_dispenser
@@ -3181,6 +3492,40 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid "雪球里包着石头，别问了。"
 msgstr "There are rocks in the snowballs, stop asking."
+
+#. Header for contraptions mvz2:FireDispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "火焰发射器能够发射火焰箭，驱动可以改变发射的箭矢"
+msgstr "Fire Dispenser can fire flame arrows. Driving it changes the type of arrows fired."
+
+#. Properties for contraptions mvz2:FireDispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"触发：<color=red>触发能够更换形态并发射不同类型的火焰箭矢。</color>\n"
+"特点：<color=red>不同形态的发射速度不同，火焰形态最快、诅咒形态次之、冷火形态最慢。</color>\n"
+"伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"技能：<color=red>发射大量火焰箭矢</color>"
+msgstr ""
+"Triggered: <color=red>When triggered, changes form and fires different types of flame arrows.</color>\n"
+"Special: <color=red>Each form has a different fire rate. Flame form is the fastest, Cursed Flame form is second, and Cold Bone Spirit "
+"Flame form is the slowest.</color>\n"
+"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"Evocation: <color=red>Fires a massive volley of flame arrows</color>"
+
+#. Flavor for contraptions mvz2:FireDispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"火焰发射器掌握着多种火焰，他磅礴的火系能量经常溢出到空气当中，有时让其他器械感到温暖，有时候让其他器械感到阴森，在导致了大量的器械同胞"
+"过热之后，他给自己取了个新名字，希望能让大家不再过热。\n"
+"他的新名字叫：消炎"
+msgstr ""
+"Fire Dispenser masters various types of flame. His immense fire energy often overflows into the air, sometimes warming other "
+"contraptions, sometimes giving them chills. After causing so many fellow contraptions to overheat, he gave himself a new name, hoping "
+"to put everyone at ease.\n"
+"His new name is: Diminish Flame."
 
 #. Header for contraptions mvz2:RedStoneOre
 #: Almanac meta file
@@ -3473,6 +3818,34 @@ msgstr ""
 "\n"
 "<color=white>In future versions, I will follow your commands directly.</color>"
 
+#. Header for contraptions mvz2:HBomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "氢弹在触发后会摧毁大范围内的敌人，但会暂时破坏所在的地块。"
+msgstr ""
+"Hydrogen Bombs will destroy enemies on a large radius after being triggered, but will temporarily break the tiles they are located on."
+
+#. Properties for contraptions mvz2:HBomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"半径：<color=red>3.5格的伤害</color>\n"
+"特点：<color=red>受氢弹致死的敌人不会触发死亡效果；引爆后破坏所在的地块，无法放置器械，持续3分钟</color>\n"
+"技能：<color=red>对全场敌人造成7200伤害。</color>"
+msgstr ""
+"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"Radius: <color=red>3.5-tile damage radius</color>\n"
+"Special: <color=red>Enemies killed by the Hydrogen Bomb do not trigger death effects. Upon detonation, the tile is broken and unusable "
+"for 3 minutes.</color>\n"
+"Evocation: <color=red>Deals 7,200 damage to all enemies on the field.</color>"
+
+#. Flavor for contraptions mvz2:HBomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "一种更高效的核能手段。"
+msgstr "A more efficient means of nuclear energy."
+
 #. Header for contraptions mvz2:DiamondOre
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -3613,7 +3986,7 @@ msgid ""
 "在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。\n"
 "它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和<ref=[contraptions]mvz2:stone_dropper>石制投掷器</ref>算是不错的朋友，但"
 "它也非常讨厌骷髅头。\n"
-"不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）"
+"不过它有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）"
 msgstr ""
 "Skyward Beacon has always been a star singer in the contraption world—No pun intended, it's really popular.\n"
 "On stage, it can casually unfold a starry sky, making the audience cheer for the dazzling sight. After pumping up the atmosphere, it "
@@ -3695,7 +4068,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "点击石砖加农炮发射毁灭性的导弹。"
-msgstr ""
+msgstr "Click on the Brick Cannon to launch deadly missiles."
 
 #. Properties for contraptions mvz2:brick_cannon
 #: Almanac meta file
@@ -3706,6 +4079,11 @@ msgid ""
 "特殊：<color=red>占两格地块；被炸死的怪物不会触发死亡效果</color>\n"
 "技能：<color=red>立即装载导弹，且下一发导弹会炸出36个火焰弹，每个造成135爆炸伤害</color>"
 msgstr ""
+"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"Reload Time: <color=red>30 seconds</color>\n"
+"Special: <color=red>Takes 2 tiles; Does not trigger the monsters' death effects</color>\n"
+"Evocation: <color=red>Immediately load a missile, the next missile launched will blast apart into 36 fire charges, each dealing 135 "
+"explosion damage</color>"
 
 #. Flavor for contraptions mvz2:brick_cannon
 #: Almanac meta file
@@ -3722,6 +4100,35 @@ msgid ""
 "炮膛内的导弹具备再生能力。每次发射后约30秒，一枚新的导弹会于膛内原位形成。此再生过程可被人工干预：若在发射后立即向炮管内填入与导弹体积"
 "相近的物体，再生将中止，且MCP-044会将该物体作为下一次发射的弹体使用。任何未用于攻击指令的再生导弹均无法被安全取出。"
 msgstr ""
+"<b>Item #:</b> MCP-044\n"
+"<b>Object Class:</b> Safe\n"
+"<b>Special Containment Procedures:</b> MCP-044 is to be contained within a dedicated, soundproofed chamber. A safely processed, inert "
+"training round (dummy) of matching caliber must be permanently kept within its barrel to inhibit its regenerative function. Personnel "
+"are prohibited from entering its chamber or issuing verbal commands without explicit authorization from at least one Level-3 "
+"researcher. All testing must be conducted at a designated remote firing range within a 50 km radius.\n"
+"<b>Description:</b> MCP-044 is a 2.3-meter-long, muzzle-loading stone cannon carved from a single block of andesite, mounted on a "
+"coniferous wood carriage. Archaeological analysis dates its construction to approximately 3000 years ago. Its barrel is covered in "
+"inscriptions and pictograms, suggesting it was regarded as a ritualistic or defensive relic.\n"
+"MCP-044 comprehends and responds to verbal attack commands in any known human language. Upon command, it automatically elevates and "
+"fires a high-explosive projectile generated within its chamber, with a precise effective range of 50 km. Commands beyond this range "
+"are \"rejected,\" resulting in no response.\n"
+"The projectile exhibits regenerative capabilities. A new round reforms in the chamber approximately 30 seconds after firing. This "
+"process can be interrupted by immediately inserting a similarly-sized object into the barrel post-firing, which halts regeneration and "
+"causes MCP-044 to utilize the inserted object as ammunition. Regenerated projectiles cannot be safely removed unless used for an "
+"attack command."
+
+#. Header for contraptions mvz2:AncientBrickShield
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。"
+msgstr ""
+"Ancient Brick Shield can be placed together with another contraption, protecting it from explosions, projectiles, and melee damage."
+
+#. Flavor for contraptions mvz2:AncientBrickShield
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "施工中"
+msgstr "Under construction."
 
 #. Header for contraptions mvz2:EXPANDispenser
 #: Almanac meta file
@@ -3991,13 +4398,13 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"例行实验记录 ███\n"
-"实验对象： 爆炸核心（编号：MCP-EXP-067）\n"
-"实验目的： 测定该实体在可控能量注入下的爆炸响应及能量转化效率。\n"
-"实验步骤：\n"
-"1.将实体置于3级防护测试舱内，周围部署标准爆炸衰减传感器阵列（型号：SE-7）。\n"
-"2.通过远程能量注入装置（EID-09）以稳定速率向实体内部输送标准化能量单位（总输入：300 ME）。\n"
-"3.记录爆炸触发时间、冲击波扩散范围、舱内压强变化及残余能量读数。\n"
+"<b>例行实验记录 ███</b>\n"
+"<b>实验对象：</b> 爆炸核心（编号：MCP-EXP-067）\n"
+"<b>实验目的：</b> 测定该实体在可控能量注入下的爆炸响应及能量转化效率。\n"
+"<b>实验步骤：</b>\n"
+"<b>1.</b>将实体置于3级防护测试舱内，周围部署标准爆炸衰减传感器阵列（型号：SE-7）。\n"
+"<b>2.</b>通过远程能量注入装置（EID-09）以稳定速率向实体内部输送标准化能量单位（总输入：300 ME）。\n"
+"<b>3.</b>记录爆炸触发时间、冲击波扩散范围、舱内压强变化及残余能量读数。\n"
 "能量注入后约0.033秒，实体发生爆炸。爆炸未对实体本身的结构完整性造成可观测破坏。舱内传感器测得瞬时压强峰值达7.4 MPa，等效冲击半径约为"
 "2.25米。\n"
 "能量转化分析：爆炸所释放的总能量经传感器阵列综合计算约为25.8 ME。相较于注入的300 ME，能量转化效率仅为8.6%。大量能量去向不明。监测设备未"
@@ -4213,18 +4620,15 @@ msgstr "From that helmet, one may assume he used to be a warrior in his lifetime
 
 #. Header for enemies mvz2:diamond_helmetted_zombie
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "enemies.description"
-#| msgid "铁盔僵尸的铁盔给他提供了极高的防护。"
 msgctxt "enemies.description"
 msgid "钻石盔僵尸的钻石盔给他提供了最高的防护。"
-msgstr "The iron helmet of the Iron Helmet Zombie provides him with extremely high protection."
+msgstr "The diamond helmet of the Diamond Helmet Zombie provides him with the highest protection."
 
 #. Flavor for enemies mvz2:diamond_helmetted_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "不好意思，因为他之前在挖钻石，所以迟到了！"
-msgstr ""
+msgstr "Sorry, he was late because he was digging for diamonds before!"
 
 #. Header for enemies mvz2:mutant_zombie
 #: Almanac meta file
@@ -4660,14 +5064,14 @@ msgid ""
 "\"或许是下界某次战役堆起来的京观。\"\n"
 "\"你觉得是哪次战役？\"\n"
 "\"我不知道，将军堡和<ref=[enemies]mvz2:Piglin>猪灵</ref>打的那场？或是在扭曲之心和<ref=[enemies]mvz2:Enderman>末影人</ref>打的？\"\n"
-"\"有没有可能是平叛心灵军团的？\"\n"
+"\"有没有可能是平叛厄普西隆的？\"\n"
 "\"更有可能是和远方亲戚打的那场。\""
 msgstr ""
 "\"Maybe these are the war trophies piled up from some battle in the Nether.\"\n"
 "\"Which battle do you think it was?\"\n"
 "\"I don't know. The one at General's Fort against the <ref=[enemies]mvz2:Piglin>Piglins</ref>? Or the one at the Twisted Heart against "
 "the <ref=[enemies]mvz2:Enderman>Endermen</ref>?\"\n"
-"\"Could it be the campaign to suppress the PsiCorps?\"\n"
+"\"Could it be the campaign to suppress the Epsilon Army/PsiCorps?\"\n"
 "\"More likely the one fought against the distant relatives.\""
 
 #. Header for enemies mvz2:RedEyeZombieHead
@@ -4835,9 +5239,10 @@ msgstr ""
 #. Header for enemies mvz2:mother_terror
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "恐怖之母会向血肉之躯寄生虫卵。"
+msgid "恐怖之母会向血肉之躯寄生虫卵。如果它们在没有产卵的情况下死亡，也会释放<ref=[enemies]mvz2:parasite_terror>恐怖寄生虫</ref>。"
 msgstr ""
-"Mother Terrors lay their eggs into another enemy's body. They will also release Parasite Terrors if they die without laying eggs."
+"Mother Terrors lay eggs into fleshy hosts. If they die without laying eggs, they will release "
+"<ref=[enemies]mvz2:parasite_terror>Parasite Terrors</ref> instead."
 
 #. Properties for enemies mvz2:mother_terror
 #: Almanac meta file
@@ -5281,7 +5686,7 @@ msgid ""
 "<color=#F0F>催眠者是整个世界上最帅气、最美丽、最伟大、最厉害的生物！</color>\n"
 "<color=#F0F>什么催眠？你不要乱说好不好！</color>\n"
 "\n"
-"<color=grey>反逆者们曾经的统领名为扎赉特，他因莫须有的罪而被打入牢狱。逃脱后的他建立起了自己的军队：心灵军团，但仍未敌过凋灵帝国的下界"
+"<color=grey>反逆者们曾经的统领名为扎赉特，他因莫须有的罪而被打入牢狱。逃脱后的他建立起了自己的军队：厄普西隆，但仍未敌过凋灵帝国的下界"
 "骑士团。</color>\n"
 "<color=grey>扎赉特作古后，他遗留的军队大部分被凋灵帝国所收编，归属至下界骑士团的战斗序列中，后来，他们多了个催眠者的名字。</color>"
 msgstr ""
@@ -5289,7 +5694,7 @@ msgstr ""
 "<color=#F0F>What mind control? Don't talk nonsense, okay!</color>\n"
 "\n"
 "<color=grey>The former leader of the Reversers was named Zalat. He was thrown into prison on trumped-up charges. After escaping, he "
-"built his own army: the PsiCorps. But even they could not defeat the Nether Knight Order of The WINther Imperium.</color>\n"
+"built his own army: the Epsilon Army. But even they could not defeat the Nether Knight Order of The WINther Imperium.</color>\n"
 "<color=grey>After Zalat passed away, most of the army he left behind was absorbed into The WINther Imperium and incorporated into the "
 "Nether Knight Order's ranks. Later, they gained a new name — Mesmerizers.</color>"
 
@@ -5395,7 +5800,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red><var local=\"horse_hp\" />（马），<var id=\"mvz2:entity_health\" />（身体），<var local=\"head_hp\" />（头）</color>\n"
-"马速度：<color=red><var local=\"horse_speed\" />（跳跃前），<var local=\"horse_speed_jumped\" />（跳跃后）</color>\n"
+"马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
 "身体速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
 "头颅速度：<color=red><var local=\"head_speed\" /></color>\n"
 "弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:tall\" />高器械</color>\n"
@@ -5403,7 +5808,7 @@ msgid ""
 msgstr ""
 "Toughness: <color=red><var local=\"horse_hp\" /> (Horse), <var id=\"mvz2:entity_health\" /> (Body), <var local=\"head_hp\" /> (Head)</"
 "color>\n"
-"Horse Speed: <color=red><var local=\"horse_speed\" /> (Before jump), <var local=\"horse_speed_jumped\" /> (After jump)</color>\n"
+"Horse Speed: <color=red>2 (Before jump), 1 (After jump)</color>\n"
 "Body Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
 "Head Speed: <color=red><var local=\"head_speed\" /></color>\n"
 "Weakness: <color=red>Golden objects; could not jump over <tag id=\"mvz2:high\"/>high contraptions</color>"
@@ -5596,7 +6001,7 @@ msgctxt "enemies.description"
 msgid ""
 "反逆者军队的精英，愤怒的反逆者们铭记扎赉特的教诲，学习领袖的样貌，渴望夺取一切敌人的意志。下界骑士团曾深受这些家伙们的困扰。传闻他们曾"
 "在一天内控制了一整个狂战士军团，扭转了作战局势。\n"
-"可惜局部战斗上的胜利未能完成扎赉特的复仇，扎赉特死后，大部分反逆者收编至下界骑士团，未被收编的、逃离围剿的反逆者们为争夺谁是心灵军团正"
+"可惜局部战斗上的胜利未能完成扎赉特的复仇，扎赉特死后，大部分反逆者收编至下界骑士团，未被收编的、逃离围剿的反逆者们为争夺谁是厄普西隆正"
 "统打的不可开交。"
 msgstr ""
 "Elites of the Reverser army. The Angry Reversers remember Zalat's teachings, emulate their leader's appearance, and crave the power to "
@@ -5605,7 +6010,7 @@ msgstr ""
 "\n"
 "Unfortunately, their victory on the local front wasn't enough to complete Zalat's revenge. After Zalat died, most of the Reversers "
 "were absorbed into the Nether Knight Order. Those who escaped the purge, however, have been fighting endlessly among themselves — each "
-"faction claiming to be the true successor of the PsiCorps."
+"faction claiming to be the true successor of the Epsilon Army."
 
 #. Header for enemies mvz2:NetherTroopCarrier
 #: Almanac meta file
@@ -5637,7 +6042,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"该载具很明显普通的下界战车不一样，引擎和运兵舱似乎都经过了特殊的改装，似乎不是史蒂芬爷所为。\n"
+"该载具很明显和普通的下界战车不一样，引擎和运兵舱似乎都经过了特殊的改装，似乎不是史蒂芬爷所为。\n"
 "库尔咒对该载具表示疑惑。\n"
 "\n"
 "<color=white>在不起眼的地方上刻着一行小字：米罗威尼特</color>"
@@ -5832,15 +6237,15 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"与大多数凋零骷髅不同，你现在所看到的敌怪反逆者之王并未收编到下界骑士团的战斗序列当中。他们是独立为战的军事单位，曾属于扎赉特的心灵军"
-"团。\n"
+"与大多数凋零骷髅不同，你现在所看到的敌怪反逆者之王并未收编到下界骑士团的战斗序列当中。他们是独立为战的军事单位，曾属于扎赉特的厄普西"
+"隆。\n"
 "扎赉特作古后，这些单位并没有向下界骑士团投降，在逃离围剿之后，这些反逆者各自找到了不同的扎赉特复制体，虽然主体已死，但克隆人和反逆者们"
 "并不打算就此作罢，他们利用自己的控制能力重新拉起了一支军队并各自为战。迄今仍是地狱中不可忽视的不稳定因素。\n"
 "\n"
-"<color=grey>我想之后你要做好与心灵军团作战的准备。</color>"
+"<color=grey>我想之后你要做好与厄普西隆作战的准备。</color>"
 msgstr ""
 "Unlike most Wither Skeletons, the enemy you see before you — the King of Reverser — was never absorbed into the combat ranks of the "
-"Nether Knight Order. They are independent military units, once part of Zalat's PsiCorps.\n"
+"Nether Knight Order. They are independent military units, once part of Zalat's Epsilon Army.\n"
 "\n"
 "After Zalat passed away, these units did not surrender to the Nether Knight Order. Following their escape from the purge, these "
 "Reversers each found different clones of Zalat. Though the original is dead, the clones and the Reversers have no intention of giving "
@@ -6108,7 +6513,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "速度：<color=red><var id=\"entity_speed\" /></color>\n"
-"特点：<color=red>每次收到伤害只算作受到1点伤害。</color>"
+"特点：<color=red>每次受到伤害只算作受到1点伤害。</color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Speed: <color=red><var id=\"entity_speed\" /></color>\n"
@@ -6437,18 +6842,13 @@ msgstr ""
 
 #. Properties for enemies mvz2:zombie_cloud
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "contraptions.description"
-#| msgid ""
-#| "耐久：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-#| "技能：<color=red>3x3范围内的器械无敌10秒</color>"
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "特点：<color=red>被闪电和冰冷伤害攻击会转换为对应的形态</color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Evocation: <color=red>Makes contraptions in 3x3 range invincible for 10 seconds</color>"
+"Special: <color=red>Transform into corresponding forms when hit by lightning or cold attacks</color>"
 
 #. Flavor for enemies mvz2:zombie_cloud
 #: Almanac meta file
@@ -6726,6 +7126,491 @@ msgstr ""
 msgctxt "enemies.description"
 msgid "啊呀，骇死我力！"
 msgstr "Ahhh, I'm so scared!"
+
+#. Header for enemies mvz2:LeatherGhost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "皮帽幽灵能够在虚无的情况下极大降低受到的伤害。"
+msgstr "Leather Cap Ghosts can greatly reduce damage taken while in ethereal form."
+
+#. Properties for enemies mvz2:LeatherGhost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"helmet_hp\" />（头盔）</color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"抗性：<color=red>虚无状态下减少90%受到的伤害，高难度下100%</color>\n"
+"弱点：<color=red>被<tag id=\"mvz2:light_source\" />光照到时会失去虚无效果</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"helmet_hp\" /> (Helmet)</color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Resistance: <color=red>Reduces 90% of damage taken in ethereal form, 100% on higher difficulties</color>\n"
+"Weakness: <color=red>Loses ethereality when illuminated by <tag id=\"mvz2:light_source\" />light sources</color>"
+
+#. Flavor for enemies mvz2:LeatherGhost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵向你炫耀他的帽子。"
+msgstr ""
+"When you walk at night and hear someone calling your name, don't look back — or else a ghost will show up and show off his hat to you."
+
+#. Header for enemies mvz2:IronGhost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "锈铁盔幽灵能够在虚无的情况下极大降低受到的伤害。"
+msgstr "Rusted Iron Helmet Ghosts can greatly reduce damage taken while in ethereal form."
+
+#. Flavor for enemies mvz2:IronGhost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"与皮帽幽灵不同，锈铁盔幽灵戴的帽子确实像是古老的产品。可能这时候有小朋友就要问了，锈铁不应该是红色吗？他这个帽子，怎么没有红铁锈？哎，"
+"锈蚀的铁盔除了红色之外，还有其他颜色的。\n"
+"铁锈不只有红褐色（三氧化二铁）。在干燥环境或含硫的空气中，铁会形成四氧化三铁或硫化亚铁。这两种化合物呈现蓝黑色或深灰色，且结构致密，没"
+"有红锈那种蓬松的粉末感。如果这顶头盔经历过高温（如战场火焰）或常年处于封闭墓穴，表面就会形成一层无光泽的“铁灰”皮壳，这反而比红锈更显古"
+"老。"
+msgstr ""
+"Unlike the Leather Cap Ghost, the Rusted Iron Helmet Ghost wears a helmet that looks genuinely ancient. You might be wondering: "
+"shouldn't rusted iron be red? Why isn't this helmet covered in reddish rust? Well, rust isn't just reddish-brown (iron(III) oxide). In "
+"dry environments or sulfur-rich air, iron forms magnetite (Fe₃O₄) or iron(II) sulfide. These compounds appear blue-black or dark gray, "
+"and form a dense, compact layer — nothing like the flaky, powdery texture of red rust. If this helmet had been exposed to high heat "
+"(like battlefield flames) or spent years in a sealed tomb, its surface would develop a dull, matte \"iron-gray\" crust — which "
+"actually looks more ancient than red rust ever could."
+
+#. Header for enemies mvz2:AncientGhost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "古老幽灵的出现标志着一大波幽灵的到来，同时他可以赋予场上所有怪物隐身效果。"
+msgstr ""
+"The appearance of the Ancient Ghost marks the arrival of a large wave of ghosts. It can also grant invisibility to all monsters on the "
+"field."
+
+#. Properties for enemies mvz2:AncientGhost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>周期性赋予场上怪物隐身效果，该效果不提供抗性提升，仅让怪物在未被光照亮的情况下完全隐形。</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Periodically grants invisibility to monsters on the field. This effect does not provide any damage resistance — it "
+"only makes monsters completely invisible while not illuminated by light.</color>"
+
+#. Flavor for enemies mvz2:AncientGhost
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"对于该幽灵我们了解的不多，只能从外观上判断他至少存在了上千年。\n"
+"尚不明确他怎么做到让其他怪物隐身的。"
+msgstr ""
+"We don't know much about this ghost. From its appearance alone, we can tell it has existed for at least a thousand years.\n"
+"It remains unclear how it manages to make other monsters invisible."
+
+#. Header for enemies mvz2:shadow_cell
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "暗影细胞漂浮在低空中，在被击杀后会向上中下三行分裂出三个小型的暗影细胞。"
+msgstr ""
+"Shadow Cells levitate close to the ground. When defeated, they split into three smaller Shadow Cells across the upper, middle, and "
+"lower lanes."
+
+#. Properties for enemies mvz2:shadow_cell
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />（本体），<var local=\"small_hp\" />（小型）</color>\n"
+"特殊：<color=red>在地面上每秒受到100点伤害</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> (original), <var local=\"small_hp\" /> (small)</color>\n"
+"Special: <color=red>When touching the ground, take 100 damage every second</color>"
+
+#. Flavor for enemies mvz2:shadow_cell
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"<align=\"center\"><b>《暗影细胞的研究报告》</b></align>\n"
+"    暗影细胞是暗影生物的组成单位。暗影生物即一种寄生于尸体之上，操控尸体进行活动的生物<sup>[1]</sup>。而这些尸体和暗影生物的组合体被称"
+"为亡灵生物。\n"
+"    暗影生物通过蚕食尸体的肉，并袭击人类来获取养分，通过养分来加深对宿主的寄生，并产生类似生物一般的结构以及器官，甚至有些暗影生物还通"
+"过此方法产生了智慧。\n"
+"    暗影生物可以通过剧毒来治疗自己，但会被具有治疗效果的化学成分所伤。同时，暗影生物惧怕阳光，它们在阳光下会开始自燃<sup>[2]</sup>。\n"
+"    在下界，存在着暗影生物的亚种，这种亚种具有抗火能力，但是也牺牲了自己从尸体处获取养分的能力，只能通过摄取真菌来获取成长所需的养"
+"分。\n"
+"\n"
+"1. 有报告称，出现了一种不依赖于寄生便可存活的巨型暗影细胞，目前这种生物的存在仍需进一步确认。\n"
+"2. 如今世界各地的阳光底下却存在亡灵生物不燃烧的现象，此事相当异常，需要进一步调查。"
+msgstr ""
+"<align=\"center\"><b><i>Research Findings on Shadow Cells</i></b></align>\n"
+"    Shadow Cells are the building blocks of shadow creatures. Shadow creatures are organisms that parasitize corpses and control them."
+"<sup>[1]</sup> A conglomerate of these corpses and shadow creatures is called an undead.\n"
+"    Shadow creatures' nutrition consists of consuming the flesh of corpses and attacking humans. Using these nutrients, they deepen "
+"their parasitic influences on their hosts and develop biological tissues and organs similar to those of other organisms. Some even "
+"developed intelligence through this process.\n"
+"    Shadow creatures can heal themselves with potent poisons, but are harmed by chemicals that have healing effects. Additionally, "
+"shadow creatures exhibit negative phototropism and spontaneously combust when exposed to sunlight.<sup>[2]</sup>\n"
+"    In the Nether, there exists a subspecies of shadow creatures that possesses fire resistance. However, this comes at the cost of "
+"losing the ability to obtain nutrients from corpses, leaving them only able to obtain the nutrients needed for growth by consuming "
+"fungi.\n"
+"\n"
+"[1]. There are claims regarding the existence of a type of giant Shadow Cells that can survive without parasitism. Further "
+"verification is needed.\n"
+"[2]. A highly unusual phenomenon where the undead do not burn under sunlight is observed in various parts of the world. Further "
+"research is needed."
+
+#. Header for enemies mvz2:WraithWarrior
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"亡魂战士需要等级为<color=#FF0000>1</color>和<color=#FFD700>3</color>的（<color=#FF0000>红色</color>或<color=#FFD700>黄色</color>）光照"
+"亮才能被正常伤害，会在攻击时能够额外造成范围伤害。"
+msgstr ""
+"Wraith Warriors require Light Frequency <color=#FF0000>1</color> (Red) or <color=#FFD700>3</color> (Yellow) to be damaged normally, "
+"and deal additional area damage when attacking."
+
+#. Properties for enemies mvz2:WraithWarrior
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"helmet_hp\" />（头盔）</color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>需要等级为<color=#FF0000>1</color>和<color=#FFD700>3</color>的（<color=#FF0000>红色</color>或<color=#FFD700>黄色</"
+"color>）光照亮才能被正常伤害</color>\n"
+"弱点：<color=red>变形发射器</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"helmet_hp\" /> (Helmet)</color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Requires Light Frequency <color=#FF0000>1</color> (Red) or <color=#FFD700>3</color> (Yellow) to be damaged "
+"normally.</color>\n"
+"Weakness: <color=red>Transfenser</color>"
+
+#. Flavor for enemies mvz2:WraithWarrior
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"他们没有像下界战士那样精良的装备，但也属于凋零骷髅一族，同样会疯狂榨取敌人的生命。\n"
+"\n"
+"<color=blue>看起来像是下界军团的军队...但似乎哪里不对？怎么是灵魂体？凋零骷髅再死一遍还有灵魂体？</color>"
+msgstr ""
+"They don't have the fine equipment of Nether Warriors, but they belong to the Wither Skeleton lineage, and will likewise drain the "
+"life from their enemies without mercy.\n"
+"\n"
+"<color=blue>They look like troops of the Nether Legion... but something feels off. Why are they spirits? Do Wither Skeletons still "
+"have souls after dying again?</color>"
+
+#. Header for enemies mvz2:WraithArcher
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"亡魂弓箭手需要等级为<color=#00FF00>4</color>和<color=#00FFFF>5</color>的（<color=#00FF00>绿色</color>或<color=#00FFFF>青色</color>）光"
+"照亮才能被正常伤害，能够发射箭矢攻击。"
+msgstr ""
+"Wraith Archers require Light Frequency <color=#00FF00>4</color> (Green) or <color=#00FFFF>5</color> (Cyan) to be damaged normally, and "
+"can fire arrows to attack."
+
+#. Properties for enemies mvz2:WraithArcher
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"helmet_hp\" />（头盔）</color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>需要等级为<color=#00FF00>4</color>和<color=#00FFFF>5</color>的（<color=#00FF00>绿色</color>或<color=#00FFFF>青色</"
+"color>）光照亮才能被正常伤害</color>\n"
+"弱点：<color=red>火焰发射器</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"helmet_hp\" /> (Helmet)</color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Requires Light Frequency <color=#00FF00>4</color> (Green) or <color=#00FFFF>5</color> (Cyan) to be damaged "
+"normally.</color>\n"
+"Weakness: <color=red>Fire Dispenser</color>"
+
+#. Flavor for enemies mvz2:WraithArcher
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "听说他生前是个下界弓箭手，不小心在地狱都市的高楼摔死了，成为怨灵后，心中的咒焰燃烧的更猛烈了，也学会了持续射出鬼火箭矢。"
+msgstr ""
+"I heard that in life, he was a Nether Archer who accidentally fell from a tall building in a Nether city. After becoming a vengeful "
+"spirit, the Cursed Flame in his heart burned even fiercer, and he learned to fire ghostly flame arrows continuously."
+
+#. Header for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "骷髅雕像在死亡后会变为低矮的残骸，若残骸没有及时被摧毁，则会复活。"
+msgstr "Skeleton Statues turn into short remains upon death, if the remains are not destroyed in time, they will revive."
+
+#. Properties for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />（本体），<var id=\"mvz2:entity_health\" />（残骸）</color>\n"
+"移速：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"复活时长：<color=red>5秒，每次死亡+2秒</color>\n"
+"特殊：<color=red>攻击速度越快复活越快</color>\n"
+"弱点：<color=red>被注视时停止移动</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> (Body), <var id=\"mvz2:entity_health\" /> (Remains)</color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Revive time: <color=red>5 seconds, +2 seconds per death</color>\n"
+"Special: <color=red>The faster the attack speed, the faster the resurrection</color>\n"
+"Weakness: <color=red>Stop moving when being gazed</color>"
+
+#. Flavor for enemies mvz2:skeleton_statue
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"<b>项目编号：</b>MCP-173\n"
+"<b>项目等级：</b>Keter\n"
+"<b>特殊收容措施：</b>MCP-173须收容于一个内衬光滑加固玻璃的球形强化舱内。舱体被无影灯持续照亮，并由六组独立供电的摄像头进行全方位、不间"
+"断监控。一旦任何视频信号中断超过0.5秒，将自动触发应急协议。球形舱外依次包裹三层可密封的合金隔离层，夹层中填充重型细砂，以极大迟滞其可能"
+"的挖掘行为。\n"
+"<b>描述：</b>MCP-173为一具高度约1.7米的石英质骷髅状雕塑，表面呈灰白色并带有若干细微裂痕。其面部雕刻被普遍描述为“令人不安”，多名人员报告"
+"在非接触期梦境中反复出现类似面容。颚部区域可见已干涸的暗红色颜料痕迹，成分分析显示为氧化铁混合物。\n"
+"MCP-173在受到持续直接目视观测时保持完全静止。一旦失去视觉监视，它将立即以约20 km/h的速度移动至最近的活体目标，并尝试实施攻击。如路径受"
+"阻，MCP-173能够通过物理挖掘方式破坏障碍物。\n"
+"若MCP-173受到物理破坏，其残骸将在约10秒内迅速重组，恢复至初始完整状态，该过程只能通过再次摧毁其残骸来阻止。即便如此，其残骸碎片在约1天"
+"内仍会自行缓慢重组。\n"
+"<b>附录 MCP-173-A：</b>实验记录显示，当处于项目<ref=[contraptions]mvz2:stone_eye>MCP-531</ref>的视线范围内时，MCP-173会表现出与受人类直"
+"视时相同的静止状态。基于该现象，已提案研究将MCP-531纳入MCP-173长期收容方案的可行性，相关测试待批准。"
+msgstr ""
+"<b>Item #: </b>MCP-173\n"
+"<b>Object Class: </b>Keter\n"
+"<b>Special Containment Procedures: </b>MCP-173 must be contained within a spherical reinforced chamber lined with smooth, hardened "
+"glass. The chamber is illuminated by shadowless lighting and monitored without interruption by six independently powered cameras. If "
+"any video feed is lost for more than 0.5 seconds, emergency protocols are automatically activated. The sphere is surrounded by three "
+"sealed alloy isolation layers filled with heavy, fine sand to significantly impede potential digging attempts.\n"
+"<b>Description: </b>MCP-173 is a quartz-based skeletal sculpture approximately 1.7 meters in height, with a grey-white surface marked "
+"by fine cracks. Its facial carving is consistently described as \"disturbing,\" with multiple personnel reporting recurring "
+"appearances in dreams. Dried dark red pigment, identified as an iron oxide mixture, is present on its jaw.\n"
+"MCP-173 remains completely immobile while under direct visual observation. Once visual contact is broken, it moves at approximately 20 "
+"km/h toward the nearest living target and attempts to attack. If obstructed, it can physically dig through barriers.\n"
+"If physically damaged, MCP-173's remnants rapidly reassemble within about 10 seconds, restoring it to its original state. This process "
+"can only be halted by destroying the remnants again. Even then, fragments will slowly self-reassemble over approximately one day.\n"
+"<b>Addendum MCP-173-A: </b>Testing confirms that MCP-173 remains immobile when within the line of sight of "
+"<ref=[contraptions]mvz2:stone_eye>MCP-531</ref>. A proposal to integrate MCP-531 into long-term containment protocols is pending "
+"approval."
+
+#. Header for enemies mvz2:WraithBerserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"亡魂狂战士需要等级为<color=grey>0</color>和<color=orange>2</color>的（<color=grey>白色</color>或<color=orange>橙色</color>）光照亮才能"
+"被正常伤害，死亡后会发生爆炸。"
+msgstr ""
+"Wraith Berserkers require Light Frequency <color=grey>0</color> (White) or <color=orange>2</color> (Orange) to be damaged normally, "
+"and will explode upon death."
+
+#. Properties for enemies mvz2:WraithBerserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"helmet_hp\" />（头盔）</color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>需要等级为<color=grey>0</color>和<color=orange>2</color>的（<color=grey>白色</color>或<color=orange>橙色</color>）光照"
+"亮才能被正常伤害</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"helmet_hp\" /> (Helmet)</color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Requires Light Frequency <color=grey>0</color> (White) or <color=orange>2</color> (Orange) to be damaged normally."
+"</color>"
+
+#. Flavor for enemies mvz2:WraithBerserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"在地灵殿怨念的聚集下，一种可怕的怨灵诞生了，他们是狂战士死后的灵魂，结合了死后的幽灵和生前的特性。\n"
+"难以想象如此的幽灵会出现在战场之上。\n"
+"\n"
+"<color=green>值得庆幸的是，照亮他们所需要的光非常常见，白天的白光、白色荧石光和普通的火焰光就能够照亮他们。</color>\n"
+"<color=green>另外他们这么一炸，应该永远都不会再出现了吧？</color>\n"
+"\n"
+"<color=white>都怪恋恋乱挂收藏品。</color>"
+msgstr ""
+"Born from the gathered grudges of the Palace of the Earth Spirits, a terrible wraith came into being. They are the souls of fallen "
+"Berserkers — a fusion of ghostly remnants and their former living traits.\n"
+"\n"
+"It's hard to imagine such wraiths appearing on the battlefield.\n"
+"\n"
+"<color=green>Thankfully, the light needed to reveal them is quite common — daylight, white Glowstone light, and ordinary firelight can "
+"all illuminate them.</color>\n"
+"<color=green>Besides, once they explode, they probably won't come back again, right?</color>\n"
+"\n"
+"<color=white>All because Koishi hung her collection in the wrong place.</color>"
+
+#. Header for enemies mvz2:WraithVanguard
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"亡魂冲锋者需要等级为<color=blue>6</color>的（<color=blue>蓝色</color>）光照亮才能被正常伤害，未被阻挡时拥有90%减伤，攻击时持续对小范围"
+"内的器械造成伤害。"
+msgstr ""
+"Wraith Vanguards require Light Frequency <color=blue>6</color> (Blue) to be damaged normally. When not blocked, they have 90% damage "
+"reduction, and deal continuous damage to contraptions within a small area while attacking."
+
+#. Properties for enemies mvz2:WraithVanguard
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"helmet_hp\" />（头盔）</color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>需要等级为<color=blue>6</color>的（<color=blue>蓝色</color>）光照亮才能被正常伤害</color>\n"
+"弱点：<color=red>月光传感器、闪电之珠</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /> + <var id=\"helmet_hp\" /> (Helmet)</color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Requires Light Frequency <color=blue>6</color> (Blue) to be damaged normally.</color>\n"
+"Weakness: <color=red>Moonlight Sensor, Lightning Orb</color>"
+
+#. Flavor for enemies mvz2:WraithVanguard
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"他们是下界里已经死去的精英部队成员，化作怨灵前来复仇，虽然已经死去并削减了战斗力，但与他们交战时仍然要加倍小心。\n"
+"\n"
+"<color=blue>战斗力削减在哪？</color>"
+msgstr ""
+"They are the spirits of elite troops who perished in the Nether, returning as vengeful wraiths to settle old scores. Though death has "
+"reduced their combat effectiveness, you must still exercise great caution when engaging them.\n"
+"\n"
+"<color=blue>Reduced combat effectiveness? Where?</color>"
+
+#. Header for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "黑客会使用它的奇硅电脑骇入并暂时禁用最后方的器械。"
+msgstr "Hackers will use their Si-ngular Laptops to hack into and temporarily disable the leftmost contraptions."
+
+#. Properties for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"骇入时长：<color=red>8秒</color>\n"
+"禁用时长：<color=red>32秒</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Hack Duration: <color=red>8 seconds</color>\n"
+"Disable Duration: <color=red>32 seconds</color>"
+
+#. Flavor for enemies mvz2:hacker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ">rm -rf"
+msgstr ">rm -rf"
+
+#. Header for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"僵尸猫拥有9条命，每次受到攻击时有一定的概率躲避本次伤害，并且每次死亡时都有50%的概率召唤一只<ref=[enemies]mvz2:wisp_fly>鬼火苍蝇</"
+"ref>。"
+msgstr ""
+"Zombie Cats have 9 lives. Each time they take damage, they have a chance to dodge it. Each time they die, there is a 50% chance to "
+"spawn a <ref=[enemies]mvz2:wisp_fly>Wisp Fly</ref>."
+
+#. Properties for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>能复活8次</color>\n"
+"概率：<color=red>25%（简单），50%（普通和困难），75%（EXPAND）</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Can revive 8 times</color>\n"
+"Chance: <color=red>25% (Easy), 50% (Normal & Hard), 75% (EXPAND)</color>"
+
+#. Flavor for enemies mvz2:zombie_cat
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "我们修复了在夜间游荡的僵尸不会攻击村庄中的流浪猫的问题。"
+msgstr "We have fixed an issue where zombies wandering at night would not attack stray cats in villages."
+
+#. Header for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "鬼火苍蝇会冲向你的器械，并产生一次小型自爆，造成<tag id=\"mvz2:fire\" />火焰伤害。"
+msgstr "Wisp Flies will charge at your contraptions, trigger a small self-destruct and deal <tag id=\"mvz2:fire\" />fire damage."
+
+#. Properties for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"自爆伤害：<color=red><var local=\"easy_damage\"/>（简单），<var local=\"normal_damage\"/>（普通），<var local=\"hard_damage\"/>（困难）"
+"</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Self-Destruct Damage: <color=red><var local=\"easy_damage\"/> (Easy), <var local=\"normal_damage\"/> (Normal), <var "
+"local=\"hard_damage\"/> (Hard)</color>"
+
+#. Flavor for enemies mvz2:wisp_fly
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"一：为了解决现实中青蛙吃萤火虫会中毒的问题，我们干脆不加入萤火虫。\n"
+"二：我们反悔了，这次我们加入了萤火虫，但是只是方块的视觉效果。\n"
+"三：现在我们真的加入“萤火虫”了。"
+msgstr ""
+"1. To solve the issue where frogs get poisoned by eating fireflies in real life, we simply decided not to add fireflies.\n"
+"2. We changed our minds. This time we added fireflies, but only as a block visual effect.\n"
+"3. Now we have truly added \"fireflies.\""
+
+#. Header for enemies mvz2:WraithDullhan
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"亡魂无头先锋需要等级为<color=#FF0000>1</color>或<color=purple>7</color>的（<color=#FF0000>红色</color>或<color=purple>紫色</color>）光"
+"照亮才能被正常伤害，攻击时持续对小范围内的器械造成伤害。"
+msgstr ""
+"Wraith Dullahans require Light Frequency <color=#FF0000>1</color> (Red) or <color=purple>7</color> (Purple) to be damaged normally, "
+"and deal continuous damage to contraptions within a small area while attacking."
+
+#. Properties for enemies mvz2:WraithDullhan
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>需要等级为<color=#FF0000>1</color>或<color=purple>7</color>的（<color=#FF0000>红色</color>或<color=purple>紫色</"
+"color>）光照亮才能被正常伤害</color>\n"
+"弱点：<color=red>紫晶塔、发光的黑曜石</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Requires Light Frequency <color=#FF0000>1</color> (Red) or <color=purple>7</color> (Purple) to be damaged normally."
+"</color>\n"
+"Weakness: <color=red>Amethyst Pylon, Glowing Obsidian</color>"
+
+#. Flavor for enemies mvz2:WraithDullhan
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"这些亡魂不仅没有通过库尔咒的考验，还砍下头颅丢掉了性命。不过这样因祸得福让他们成为了怨灵，他们变得比以前更强，连常规的发光器械都没法照"
+"亮他们，这让他们不觉得死亡是件坏事了。\n"
+"\n"
+"<color=grey>我查了一下资料，怀疑图鉴里的怨灵条目不是野史就是不准确。</color>\n"
+"<color=grey>死去的凋零骷髅灵魂一般都会飘向灵魂沙漠，不太可能单独作为游离态出现。</color>\n"
+"<color=grey>虽然听说高塔巫师们整过不少骇人的灵魂实验...但猪灵们也没见到过大规模批量生产的怨灵部队。</color>\n"
+"\n"
+"<color=#C6D1C5>那这些家伙是哪来的？</color>"
+msgstr ""
+"These wraiths not only failed Cuerzor's trials — they went ahead and cut off their own heads, losing their lives in the process. But "
+"in a twist of fate, this turned them into vengeful spirits. They became stronger than before, and even ordinary light sources can no "
+"longer reveal them. They no longer see death as a bad thing.\n"
+"\n"
+"<color=grey>I checked the records, and I suspect the entries on wraiths in this Almanac are either folklore or simply inaccurate.</"
+"color>\n"
+"<color=grey>The souls of dead Wither Skeletons usually drift to the Soul Sand Desert. It's unlikely for them to appear as free-"
+"floating entities on their own.</color>\n"
+"<color=grey>Although I've heard that the Tower Coven has conducted some horrifying soul experiments... even the Piglins haven't seen a "
+"mass-produced wraith army.</color>\n"
+"\n"
+"<color=#C6D1C5>Then where did these things come from?</color>"
 
 #. Header for enemies mvz2:mega_mutant_zombie
 #: Almanac meta file
@@ -7088,192 +7973,6 @@ msgstr ""
 "\n"
 "So when you tear apart his clothes, he gets even angrier — angry enough to change his very skeleton type."
 
-#. Header for enemies mvz2:shadow_cell
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "暗影细胞漂浮在低空中，在被击杀后会向上下两行分裂出两个小型的暗影细胞。"
-msgstr "Shadow Cell levitates close to the ground. When defeated, it splits into two smaller Shadow Cells in adjacent lanes."
-
-#. Properties for enemies mvz2:shadow_cell
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red><var id=\"mvz2:entity_health\" />（本体），<var local=\"small_hp\" />（小型）</color>\n"
-"特殊：<color=red>在地面上每秒受到100点伤害</color>"
-msgstr ""
-"Toughness: <color=red><var id=\"mvz2:entity_health\" /> (original), <var local=\"small_hp\" /> (small)</color>\n"
-"Special: <color=red>When touching the ground, take 100 damage every second</color>"
-
-#. Flavor for enemies mvz2:shadow_cell
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"<align=\"center\"><b>《暗影细胞的研究报告》</b></align>\n"
-"    暗影细胞是暗影生物的组成单位。暗影生物即一种寄生于尸体之上，操控尸体进行活动的生物<sup>[1]</sup>。而这些尸体和暗影生物的组合体被称"
-"为亡灵生物。\n"
-"    暗影生物通过蚕食尸体的肉，并袭击人类来获取养分，通过养分来加深对宿主的寄生，并产生类似生物一般的结构以及器官，甚至有些暗影生物还通"
-"过此方法产生了智慧。\n"
-"    暗影生物可以通过剧毒来治疗自己，但会被具有治疗效果的化学成分所伤。同时，暗影生物惧怕阳光，它们在阳光下会开始自燃<sup>[2]</sup>。\n"
-"    在下界，存在着暗影生物的亚种，这种亚种具有抗火能力，但是也牺牲了自己从尸体处获取养分的能力，只能通过摄取真菌来获取成长所需的养"
-"分。\n"
-"\n"
-"1. 有报告称，出现了一种不依赖于寄生便可存活的巨型暗影细胞，目前这种生物的存在仍需进一步确认。\n"
-"2. 如今世界各地的阳光底下却存在亡灵生物不燃烧的现象，此事相当异常，需要进一步调查。"
-msgstr ""
-"<align=\"center\"><b><i>Research Findings on Shadow Cells</i></b></align>\n"
-"    Shadow Cells are the building blocks of shadow creatures. Shadow creatures are organisms that parasitize corpses and control them."
-"<sup>[1]</sup> A conglomerate of these corpses and shadow creatures is called an undead.\n"
-"    Shadow creatures' nutrition consists of consuming the flesh of corpses and attacking humans. Using these nutrients, they deepen "
-"their parasitic influences on their hosts and develop biological tissues and organs similar to those of other organisms. Some even "
-"developed intelligence through this process.\n"
-"    Shadow creatures can heal themselves with potent poisons, but are harmed by chemicals that have healing effects. Additionally, "
-"shadow creatures exhibit negative phototropism and spontaneously combust when exposed to sunlight.<sup>[2]</sup>\n"
-"    In the Nether, there exists a subspecies of shadow creatures that possesses fire resistance. However, this comes at the cost of "
-"losing the ability to obtain nutrients from corpses, leaving them only able to obtain the nutrients needed for growth by consuming "
-"fungi.\n"
-"\n"
-"[1]. There are claims regarding the existence of a type of giant Shadow Cells that can survive without parasitism. Further "
-"verification is needed.\n"
-"[2]. A highly unusual phenomenon where the undead do not burn under sunlight is observed in various parts of the world. Further "
-"research is needed."
-
-#. Header for enemies mvz2:skeleton_statue
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "骷髅雕像在死亡后会变为低矮的残骸，若残骸没有及时被摧毁，则会复活。"
-msgstr "Skeleton Statues turn into short remains upon death, if the remains are not destroyed in time, they will revive."
-
-#. Properties for enemies mvz2:skeleton_statue
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red><var id=\"mvz2:entity_health\" />（本体），<var id=\"mvz2:entity_health\" />（残骸）</color>\n"
-"移速：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"复活时长：<color=red>5秒，每次死亡+2秒</color>\n"
-"特殊：<color=red>攻击速度越快复活越快</color>\n"
-"弱点：<color=red>被注视时停止移动</color>"
-msgstr ""
-"Toughness: <color=red><var id=\"mvz2:entity_health\" /> (Body), <var id=\"mvz2:entity_health\" /> (Remains)</color>\n"
-"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"Revive time: <color=red>5 seconds, +2 seconds per death</color>\n"
-"Special: <color=red>The faster the attack speed, the faster the resurrection</color>\n"
-"Weakness: <color=red>Stop moving when being gazed</color>"
-
-#. Flavor for enemies mvz2:skeleton_statue
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"<b>项目编号：</b>MCP-173\n"
-"<b>项目等级：</b>Keter\n"
-"<b>特殊收容措施：</b>MCP-173须收容于一个内衬光滑加固玻璃的球形强化舱内。舱体被无影灯持续照亮，并由六组独立供电的摄像头进行全方位、不间"
-"断监控。一旦任何视频信号中断超过0.5秒，将自动触发应急协议。球形舱外依次包裹三层可密封的合金隔离层，夹层中填充重型细砂，以极大迟滞其可能"
-"的挖掘行为。\n"
-"<b>描述：</b>MCP-173为一具高度约1.7米的石英质骷髅状雕塑，表面呈灰白色并带有若干细微裂痕。其面部雕刻被普遍描述为“令人不安”，多名人员报告"
-"在非接触期梦境中反复出现类似面容。颚部区域可见已干涸的暗红色颜料痕迹，成分分析显示为氧化铁混合物。\n"
-"MCP-173在受到持续直接目视观测时保持完全静止。一旦失去视觉监视，它将立即以约20 km/h的速度移动至最近的活体目标，并尝试实施攻击。如路径受"
-"阻，MCP-173能够通过物理挖掘方式破坏障碍物。\n"
-"若MCP-173受到物理破坏，其残骸将在约10秒内迅速重组，恢复至初始完整状态，该过程只能通过再次摧毁其残骸来阻止。即便如此，其残骸碎片在约1天"
-"内仍会自行缓慢重组。\n"
-"<b>附录 MCP-173-A：</b>实验记录显示，当处于项目<ref=[contraptions]mvz2:stone_eye>MCP-531</ref>的视线范围内时，MCP-173会表现出与受人类直"
-"视时相同的静止状态。基于该现象，已提案研究将MCP-531纳入MCP-173长期收容方案的可行性，相关测试待批准。"
-msgstr ""
-"<b>Item #: </b>MCP-173\n"
-"<b>Object Class: </b>Keter\n"
-"<b>Special Containment Procedures: </b>MCP-173 must be contained within a spherical reinforced chamber lined with smooth, hardened "
-"glass. The chamber is illuminated by shadowless lighting and monitored without interruption by six independently powered cameras. If "
-"any video feed is lost for more than 0.5 seconds, emergency protocols are automatically activated. The sphere is surrounded by three "
-"sealed alloy isolation layers filled with heavy, fine sand to significantly impede potential digging attempts.\n"
-"<b>Description: </b>MCP-173 is a quartz-based skeletal sculpture approximately 1.7 meters in height, with a grey-white surface marked "
-"by fine cracks. Its facial carving is consistently described as \"disturbing,\" with multiple personnel reporting recurring "
-"appearances in dreams. Dried dark red pigment, identified as an iron oxide mixture, is present on its jaw.\n"
-"MCP-173 remains completely immobile while under direct visual observation. Once visual contact is broken, it moves at approximately 20 "
-"km/h toward the nearest living target and attempts to attack. If obstructed, it can physically dig through barriers.\n"
-"If physically damaged, MCP-173's remnants rapidly reassemble within about 10 seconds, restoring it to its original state. This process "
-"can only be halted by destroying the remnants again. Even then, fragments will slowly self-reassemble over approximately one day.\n"
-"<b>Addendum MCP-173-A: </b>Testing confirms that MCP-173 remains immobile when within the line of sight of "
-"<ref=[contraptions]mvz2:stone_eye>MCP-531</ref>. A proposal to integrate MCP-531 into long-term containment protocols is pending "
-"approval."
-
-#. Header for enemies mvz2:hacker
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "黑客会使用它的奇硅电脑骇入并暂时禁用最后方的器械。"
-msgstr "Hackers will use their Si-ngular Laptops to hack into and temporarily disable the leftmost contraptions."
-
-#. Properties for enemies mvz2:hacker
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"骇入时长：<color=red>8秒</color>\n"
-"禁用时长：<color=red>32秒</color>"
-msgstr ""
-"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Hack Duration: <color=red>8 seconds</color>\n"
-"Disable Duration: <color=red>32 seconds</color>"
-
-#. Flavor for enemies mvz2:hacker
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ">rm -rf"
-msgstr ">rm -rf"
-
-#. Header for enemies mvz2:zombie_cat
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "僵尸猫拥有9条命，并且每次死亡时都有50%的概率召唤一只<ref=[enemies]mvz2:wisp_fly>鬼火苍蝇</ref>。"
-msgstr "Zombie Cat has 9 lives, and each time it dies, there is a 50% chance to spawn a <ref=[enemies]mvz2:wisp_fly>Wisp Fly</ref>."
-
-#. Properties for enemies mvz2:zombie_cat
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"特点：<color=red>能复活8次</color>"
-msgstr ""
-"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"Special: <color=red>Revives for 8 times</color>"
-
-#. Flavor for enemies mvz2:zombie_cat
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "我们修复了在夜间游荡的僵尸不会攻击村庄中的流浪猫的问题。"
-msgstr "We have fixed an issue where zombies wandering at night would not attack stray cats in villages."
-
-#. Header for enemies mvz2:wisp_fly
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "鬼火苍蝇会冲向你的器械，并产生一次小型自爆，造成<tag id=\"mvz2:fire\" />火焰伤害。"
-msgstr "Wisp Flies will charge at your contraptions, trigger a small self-destruct and deal <tag id=\"mvz2:fire\" />fire damage."
-
-#. Properties for enemies mvz2:wisp_fly
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"自爆伤害：<color=red><var local=\"easy_damage\"/>（简单），<var local=\"normal_damage\"/>（普通），<var local=\"hard_damage\"/>（困难）"
-"</color>"
-msgstr ""
-"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"Self-Destruct Damage: <color=red><var local=\"easy_damage\"/> (Easy), <var local=\"normal_damage\"/> (Normal), <var "
-"local=\"hard_damage\"/> (Hard)</color>"
-
-#. Flavor for enemies mvz2:wisp_fly
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid ""
-"一：为了解决现实中青蛙吃萤火虫会中毒的问题，我们干脆不加入萤火虫。\n"
-"二：我们反悔了，这次我们加入了萤火虫，但是只是方块的视觉效果。\n"
-"三：现在我们真的加入“萤火虫”了。"
-msgstr ""
-"1. To solve the issue where frogs get poisoned by eating fireflies in real life, we simply decided not to add fireflies.\n"
-"2. We changed our minds. This time we added fireflies, but only as a block visual effect.\n"
-"3. Now we have truly added \"fireflies.\""
-
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -7376,9 +8075,6 @@ msgstr "A wonderful pillow gifted by <ref=[misc]mvz2:doremy>Doremy</ref>, with t
 
 #. Properties for artifacts mvz2:sweet_sleep_pillow
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "artifacts.description"
-#| msgid "效果：<color=red>器械每秒钟恢复10点耐久</color>"
 msgctxt "artifacts.description"
 msgid "效果：<color=red>友方器械每秒钟恢复10点耐久</color>"
 msgstr "Effect: <color=red>Contraptions restore 10 toughness per second</color>"
@@ -7446,12 +8142,9 @@ msgstr "Dark Matter is an invisible substance that exists in large quantities in
 
 #. Properties for artifacts mvz2:dark_matter
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "artifacts.description"
-#| msgid "效果：<color=red>器械生产效率×200%，但场景变得黑暗</color>"
 msgctxt "artifacts.description"
 msgid "效果：<color=red>友方器械生产效率×200%，但怪物隐形</color>"
-msgstr "Effect: <color=red>x200% contraption produce speed, but the battlefield is pitch black</color>"
+msgstr "Effect: <color=red>x200% friendly contraption produce speed, but the monsters are invisible</color>"
 
 #. Flavor for artifacts mvz2:dark_matter
 #: Almanac meta file
@@ -7467,9 +8160,6 @@ msgstr "A small blackhole packed in a bottle."
 
 #. Properties for artifacts mvz2:bottled_blackhole
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "artifacts.description"
-#| msgid "效果：<color=red>每有一个蓝图空位，器械+10%伤害</color>"
 msgctxt "artifacts.description"
 msgid "效果：<color=red>每有一个蓝图空位，友方器械+10%伤害</color>"
 msgstr "Effect: <color=red>+10% contraption damage for each empty blueprint slot</color>"
@@ -7543,9 +8233,6 @@ msgstr ""
 
 #. Properties for artifacts mvz2:miracle_mallet_replica
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "artifacts.description"
-#| msgid "效果：<color=red>+15%器械伤害</color>"
 msgctxt "artifacts.description"
 msgid "效果：<color=red>+15%友方器械伤害</color>"
 msgstr "Effect: <color=red>+15% contraption damage</color>"
@@ -7606,9 +8293,6 @@ msgstr ""
 
 #. Properties for artifacts mvz2:broken_lantern
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "artifacts.description"
-#| msgid "效果：<color=red><tag id=\"mvz2:light_source\" />发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
 msgctxt "artifacts.description"
 msgid "效果：<color=red><tag id=\"mvz2:light_source\" />发光的友方器械+25%生产速度和攻击速度，但×50%光照范围</color>"
 msgstr ""
@@ -7679,9 +8363,6 @@ msgstr "A special weapon gifted by <ref=[misc]mvz2:miko>Miko</ref>, that produce
 
 #. Properties for artifacts mvz2:lightbomb
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "artifacts.description"
-#| msgid "效果：<color=red>器械自爆时，对所有敌人额外造成等同于该器械能量消耗的伤害</color>"
 msgctxt "artifacts.description"
 msgid "效果：<color=red>友方器械自爆时，对所有敌人额外造成等同于该器械能量消耗的伤害</color>"
 msgstr ""
@@ -7725,9 +8406,6 @@ msgstr "Eyeball of <ref=[misc]mvz2:the_giant>the Giant</ref>."
 
 #. Properties for artifacts mvz2:eye_of_the_giant
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "artifacts.description"
-#| msgid "效果：<color=red>器械x250%伤害，但x50%攻击速度</color>"
 msgctxt "artifacts.description"
 msgid "效果：<color=red>友方器械x250%伤害，但x50%攻击速度</color>"
 msgstr "Effect: <color=red>x250% damage, but x50% attack speed for contraptions</color>"
@@ -7793,19 +8471,19 @@ msgstr "Tools used to search for treasures."
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid ""
-"效果：<color=red>击杀怪物时有25%概率掉落额外资源</color>\n"
-"绿宝石：<color=red>35%</color>\n"
+"效果：<color=red>击杀怪物时有20%概率掉落额外资源</color>\n"
+"绿宝石：<color=red>45%</color>\n"
 "红宝石：<color=red>9%</color>\n"
 "钻石：<color=red>1%</color>\n"
 "3红石：<color=red>30%</color>\n"
-"随机蓝图：<color=red>25%</color>"
+"随机蓝图：<color=red>15%</color>"
 msgstr ""
-"Effect: <color=red>Monsters have 25% chance to drop additional resources</color>\n"
-"Emerald: <color=red>35%</color>\n"
+"Effect: <color=red>Monsters have 20% chance to drop additional resources</color>\n"
+"Emerald: <color=red>45%</color>\n"
 "Ruby: <color=red>9%</color>\n"
 "Diamond: <color=red>1%</color>\n"
 "3 Redstones: <color=red>30%</color>\n"
-"Random Blueprint: <color=red>25%</color>"
+"Random Blueprint: <color=red>15%</color>"
 
 #. Flavor for artifacts mvz2:dowsing_rods
 #: Almanac meta file
@@ -7942,8 +8620,11 @@ msgstr "A broken padlock that fell off the <ref=[misc]mvz2:locked_chest>Locked C
 #. Properties for artifacts mvz2:broken_lock
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械每受到1%伤害，其蓝图冷却时间便减少1%</color>"
-msgstr "Effect: <color=red>For every 1% damage a contraption has taken, its blueprint recharge time will be decreased by 1%</color>"
+msgid ""
+"效果：<color=red>器械每受到1%伤害，其蓝图冷却时间便减少0.5%。防御性或生产型器械此效果减半，同时为两者的器械不受此效果影响。</color>"
+msgstr ""
+"Effect: <color=red>For every 1% damage a contraption has taken, its blueprint cooldown time is reduced by 0.5%. For Defensive or "
+"Producer contraptions, this effect is halved. Contraptions that are both Defensive and Producer are unaffected by this effect.</color>"
 
 #. Flavor for artifacts mvz2:broken_lock
 #: Almanac meta file
@@ -8039,23 +8720,83 @@ msgctxt "artifacts.description"
 msgid "愿我不在你身边的时候它能好好保护你"
 msgstr "May it protect you well when I'm not by your side."
 
-#. Header for artifacts mvz2:WitherSkeletonSkull
+#. Header for artifacts mvz2:ChippedWitherSkeletonSkull
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "凋灵骷髅的头颅。"
-msgstr "A wither skeleton's skull."
+msgid "缺了角的凋零骷髅头。"
+msgstr "Chipped Wither SkeletonSkull"
 
-#. Properties for artifacts mvz2:WitherSkeletonSkull
+#. Properties for artifacts mvz2:ChippedWitherSkeletonSkull
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "效果：<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>"
 msgstr "Effect: <color=red>x80% blueprint cost, but x60% max toughness of newly built contraptions</color>"
 
-#. Flavor for artifacts mvz2:WitherSkeletonSkull
+#. Flavor for artifacts mvz2:ChippedWitherSkeletonSkull
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "多么惊悚恐怖的骷髅头！"
 msgstr "What a spooky scary skull!"
+
+#. Header for artifacts mvz2:PbCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "能够保护器械减少辐射伤害的铅核。"
+msgstr "A lead core that protects contraptions from radiation damage."
+
+#. Properties for artifacts mvz2:PbCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>我方器械受到的辐射伤害-80%</color>"
+msgstr "Effect: <color=red>Friendly contraptions take 80% less radiation damage</color>"
+
+#. Flavor for artifacts mvz2:PbCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"<b>项目编号：</b>MCP-EXP-82\n"
+"<b>项目等级：</b>Safe\n"
+"<b>特殊收容措施：</b>MCP-EXP-82应存放于Site-██的放射性标准柜中，密封于铅衬防爆箱内。关于其贴身携带的实验，仅限签署协议的D级人员执行，且"
+"实验后须接受24小时医学观测。\n"
+"<b>描述：</b>MCP-EXP-82为一块边长5cm的暗黑色立方体铅块。常规定性测试显示其属性与工业纯铅一致，但其内部结构含有多层未知的、高度有序的异"
+"常微观晶格。当该物体被生物体贴身携带时，将自发建立防护立场，对外部辐射源产生三层复合屏蔽效应。\n"
+"高能光子衰减（X/γ 射线电磁电离作用）： 该物体可有效吸收并转化由 X 射线及 γ 射线带来的高能光子能量，阻止其引发次级电子跃迁及物质的电离效"
+"应。\n"
+"带电粒子散射（α/β 粒子轰击）： 对于 α 粒子（氦核）及 β 粒子（电子流）等高能带电粒子流，该物体通过其特有的微观晶格结构，在接近机体组织表"
+"面前，迫使粒子发生多次弹性碰撞，大幅降低其动能，从而阻断其对细胞 DNA 的直接轰击损伤。\n"
+"电磁谐波阻绝（广谱高频电磁辐射/衰变伴生辐射）： 实验记录表明，该物体不仅能够应对粒子与电离辐射，还能在电磁波谱的微波至高频段（覆盖大部"
+"分放射性同位素衰变时伴生的电磁噪声）产生显著的阻抗效应，从根本上阻挡了多重物理场在生物体内的能量沉积与叠加伤害。\n"
+"\n"
+"<b><color=red>附录 MCP-EXP-82-A：</color></b>部分受试者在连续贴身佩戴该物体后，报告拥有将其放置于“工作台”（尚不明确哪种工作台）上配合盐"
+"制成名为“土星糖”的调味品的冲动。\n"
+"<b><color=red>附录 MCP-EXP-82-B：</color></b>据卡莱姆提的信息源显示，MCP-EXP-82在远古时期为合成Auric Tesla Armor的必要材料之一。"
+msgstr ""
+"<b>Item #:</b> MCP-EXP-82\n"
+"<b>Object Class:</b> Safe\n"
+"<b>Special Containment Procedures:</b> MCP-EXP-82 is to be stored in a radioactive standard cabinet at Site-██, sealed within a lead-"
+"lined blast-proof container. Experiments involving close-body carriage are to be conducted only by D-class personnel who have signed "
+"the relevant agreements, and all subjects must undergo 24 hours of medical observation post-experiment.\n"
+"<b>Description:</b> MCP-EXP-82 is a dark black cubic lead block with a side length of 5 cm. Routine qualitative testing indicates its "
+"properties are consistent with industrial-grade pure lead, yet its internal structure contains multiple layers of unknown, highly "
+"ordered anomalous microscopic lattices. When carried in close contact with a living organism, the object spontaneously establishes a "
+"protective field, generating a three-layer composite shielding effect against external radiation sources.\n"
+"Attenuation of High-Energy Photons (X/γ Ray Electromagnetic Ionization): The object effectively absorbs and converts the high-energy "
+"photon energy from X-rays and gamma rays, preventing secondary electron transitions and the ionization of matter.\n"
+"Scattering of Charged Particles (α/β Particle Bombardment): Against high-energy charged particle streams such as alpha particles "
+"(helium nuclei) and beta particles (electron flows), the object's unique microscopic lattice structure forces the particles to undergo "
+"multiple elastic collisions before they can approach the organism's tissue surface, significantly reducing their kinetic energy and "
+"thereby blocking direct DNA damage to cells.\n"
+"Electromagnetic Harmonic Suppression (Broad-Spectrum High-Frequency EM Radiation / Decay-Associated Radiation): Experimental records "
+"indicate that the object not only counters particle and ionizing radiation, but also produces significant impedance effects across the "
+"microwave to high-frequency bands of the electromagnetic spectrum (covering the electromagnetic noise associated with most "
+"radioisotope decay), fundamentally preventing the deposition and cumulative damage of multiple physical fields within biological "
+"tissue.\n"
+"\n"
+"<b><color=red>Addendum MCP-EXP-82-A:</color></b> After prolonged close-body wear, several subjects reported an urge to place the "
+"object on a \"workbench\" (the specific type of workbench remains unclear) and combine it with salt to produce a seasoning referred to "
+"as \"Saturn Sugar.\"\n"
+"<b><color=red>Addendum MCP-EXP-82-B:</color></b> According to intelligence sources from Calamity, MCP-EXP-82 was a required component "
+"in the synthesis of Auric Tesla Armor in ancient times."
 
 #. Header for artifacts mvz2:FrankensteinBrain
 #: Almanac meta file
@@ -8165,6 +8906,24 @@ msgstr ""
 msgctxt "artifacts.description"
 msgid "<color=red><size=300%><b>    面对我</b></size></color>"
 msgstr "<color=red><size=300%><b>   FACE ME</b></size></color>"
+
+#. Header for artifacts mvz2:LightBlock
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "光源方块。"
+msgstr "Light Block."
+
+#. Properties for artifacts mvz2:LightBlock
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>使得场地变得极度昏暗。</color>"
+msgstr "Effect: <color=red>Makes the field extremely dim.</color>"
+
+#. Flavor for artifacts mvz2:LightBlock
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "好黑啊，你没交电费吗"
+msgstr "It's so dark... Did you forget to pay the electricity bill?"
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
@@ -8431,6 +9190,12 @@ msgstr ""
 "bones, scales, and heart as their trophies.\n"
 "The Knight watched their exhilaration in silence. In the end, he claimed nothing for himself."
 
+#. Name for misc mvz2:locked_chest
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "上锁的箱子"
+msgstr "Locked Chest"
+
 #. Header for misc mvz2:locked_chest
 #: Almanac meta file
 msgctxt "misc.description"
@@ -8686,7 +9451,7 @@ msgstr "Tainted Sun"
 #. Header for misc mvz2:tainted_sun
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "在梦境世界中的一大波怪物来临时，太阳突然异常消失，产生黑暗。"
+msgid "在<ref=[misc]mvz2:dream_world>梦境世界</ref>中的一大波怪物来临时，太阳突然异常消失，产生黑暗。"
 msgstr ""
 "When a huge wave of monsters approached in the Dream World, the sun suddenly and abnormally vanished, plunging everything into "
 "darkness."
@@ -8790,9 +9555,6 @@ msgstr ""
 
 #. Name for misc mvz2:bedserker
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "entity.name"
-#| msgid "床战士"
 msgctxt "misc.name"
 msgid "床战士"
 msgstr "Bedserker"
@@ -8802,16 +9564,11 @@ msgstr "Bedserker"
 msgctxt "misc.description"
 msgid "床战士被<ref=[misc]mvz2:wither>凋灵</ref>召唤，背着床朝你的防线冲去，并在一定时间后自爆。"
 msgstr ""
+"Bedserkers are summoned by the <ref=[misc]mvz2:wither>Wither</ref>, they charge toward your defenses carrying beds and self-destruct "
+"after a certain amount of time."
 
 #. Properties for misc mvz2:bedserker
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "enemies.description"
-#| msgid ""
-#| "生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-#| "速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-#| "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-#| "特点：<color=red>被攻击的实体会眩晕5s</color>"
 msgctxt "misc.description"
 msgid ""
 "生命：<color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
@@ -8820,16 +9577,19 @@ msgid ""
 "爆炸伤害：<color=red><var local=\"explosion_damage\"/></color>\n"
 "特殊：<color=red>自爆也会伤害到友军</color>"
 msgstr ""
-"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
-"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Special: <color=red>Stuns the attacked entity for 5 seconds</color>"
+"Health: <color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
+"Speed: <color=red><var local=\"speed\"/></color>\n"
+"Explosion Time: <color=red><var local=\"explosion_time\"/> seconds</color>\n"
+"Explosion Damage: <color=red><var local=\"explosion_damage\"/></color>\n"
+"Special: <color=red>Self-destruct also damages allies</color>"
 
 #. Flavor for misc mvz2:bedserker
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "一些主世界人向下界走私过很多床，这些床后来也都成为了凋灵骷髅战无不胜的法宝——仅限下界和末地。"
 msgstr ""
+"Many Overworlders smuggled a large number of beds into the Nether. These beds later became the Wither Skeletons' unbeatable secret "
+"weapon — but only in the Nether and The End."
 
 #. Name for misc mvz2:ballista
 #: Almanac meta file
@@ -8996,42 +9756,33 @@ msgstr ""
 
 #. Name for misc mvz2:MegaSnipenser
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "entity.name"
-#| msgid "狙击发射器"
 msgctxt "misc.name"
-msgid "狙击发射器"
-msgstr "Snipenser"
+msgid "超级狙击发射器"
+msgstr "MegaSnipenser"
 
 #. Header for misc mvz2:MegaSnipenser
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "超级狙击发射器会朝你指向的位置发射箭矢。"
-msgstr ""
+msgstr "The MegaSnipenser will fire arrows at the direction you are pointing at."
 
 #. Properties for misc mvz2:MegaSnipenser
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "enemies.description"
-#| msgid ""
-#| "生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
-#| "半径：<color=red><var id=\"mvz2:FireRange\" />格</color>\n"
-#| "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>"
 msgctxt "misc.description"
 msgid ""
 "耐久：<color=red><var local=\"hp\"/></color>\n"
 "伤害：<color=red><var local=\"damage\"/></color>\n"
 "射速：<color=red>1支/<var local=\"fire_interval\"/>秒</color>"
 msgstr ""
-"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
-"Radius: <color=red><var id=\"mvz2:FireRange\" /> blocks</color>\n"
-"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>"
+"Toughness：<color=red><var local=\"hp\"/></color>\n"
+"Damage：<color=red><var local=\"damage\"/></color>\n"
+"Speed：<color=red>1 arrow /<var local=\"fire_interval\"/> Seconds</color>"
 
 #. Flavor for misc mvz2:MegaSnipenser
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "他没有消失。他只是累了，想休息了。"
-msgstr ""
+msgstr "He never disappeared. He was simply tired, and wanted rest."
 
 #. Name for almanac group mvz2:characters
 #: Almanac meta file
@@ -9108,7 +9859,7 @@ msgstr "Doremy Sweet"
 #. Header for misc mvz2:doremy
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。"
+msgid "哆来咪·苏伊特是<ref=[misc]mvz2:dream_world>梦境世界</ref>的管理者，管理着人们的梦境。"
 msgstr "Doremy Sweet is the administrator of Dream World, and manages everyone's dreams."
 
 #. Flavor for misc mvz2:doremy
@@ -9279,12 +10030,6 @@ msgstr "An ordinary magician, and also a former good friend of <ref=[misc]mvz2:r
 
 #. Flavor for misc mvz2:marisa
 #: Almanac meta file
-#, fuzzy
-#| msgctxt "misc.description"
-#| msgid ""
-#| "在幻想乡四处游荡、采集的人类，职业是魔法使（而非种族）。\n"
-#| "曾经和森近 霖之助关系很好，后来也因他的失踪翻遍了整个幻想乡，无果。\n"
-#| "随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。"
 msgctxt "misc.description"
 msgid ""
 "在幻想乡四处游荡、采集的人类，职业是魔法使（而非种族）。\n"
@@ -9707,7 +10452,7 @@ msgstr "Dream World"
 #. Header for misc mvz2:dream_world
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "梦境世界是由哆来咪管理的，所有人的梦境所处的地方。"
+msgid "梦境世界是由<ref=[misc]mvz2:doremy>哆来咪</ref>管理的，所有人的梦境所处的地方。"
 msgstr "Dream World is the world of everyone's dreams. It is administrated by Doremy."
 
 #. Flavor for misc mvz2:dream_world
@@ -10356,6 +11101,8 @@ msgstr ""
 msgctxt "misc.description"
 msgid "根据<ref=[misc]mvz2:satori>觉</ref>所说，三年前爆炸的位置位于妖怪之山上，大概是河童基地的位置。"
 msgstr ""
+"According to <ref=[misc]mvz2:satori>Satori</ref>, the location of the explosion three years ago was on the Youkai Mountain, presumably "
+"at the Kappa base."
 
 #. Name for misc mvz2:two_travelers
 #: Almanac meta file
@@ -10613,9 +11360,6 @@ msgstr "Soul Furnace"
 
 #. Tooltip for entity mvz2:soul_furnace
 #: Entity meta file
-#, fuzzy
-#| msgctxt "entity.tooltip"
-#| msgid "发射火球，但需要献祭本格的器械作为燃料"
 msgctxt "entity.tooltip"
 msgid "发射火球，但需要献祭前方的器械作为燃料"
 msgstr "Shoots a powerful fireball, but requires sacrificing the contraption on its own tile as fuel."
@@ -10929,8 +11673,8 @@ msgstr "Desire Pot"
 #. Tooltip for entity mvz2:desire_pot
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "复制怪物身上的星之碎片"
-msgstr "Duplicate starshards carried by monsters"
+msgid "复制怪物身上的星之碎片，最多三次"
+msgstr "Duplicate starshards carried by monsters, up to 3 times."
 
 #. Name for entity mvz2:gunpowder_barrel
 #: Entity meta file
@@ -11037,7 +11781,7 @@ msgstr "Transfenser"
 #. Tooltip for entity mvz2:transfenser
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "发射光灵箭，或者瞄准最前方的敌人"
+msgid "发射光灵箭，或者用激光穿透整行敌人"
 msgstr "Shoot spectral arrows or aim at the foremost enemy"
 
 #. Name for entity mvz2:gravelpult
@@ -11234,6 +11978,22 @@ msgstr ""
 "(Requires 2 Gravel-pults)\n"
 "Click to launch deadly missiles"
 
+#. Name for entity mvz2:AncientBrickShield
+#: Entity meta file
+msgctxt "entity.name"
+msgid "古代石砖护罩"
+msgstr "Ancient Brick Shield"
+
+#. Tooltip for entity mvz2:AncientBrickShield
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要一对相邻的石护罩）\n"
+"保护内部的器械"
+msgstr ""
+"(Requires a pair of adjacent Stone Shields)\n"
+"Protects the contraption inside."
+
 #. Name for entity mvz2:command_block
 #: Entity meta file
 msgctxt "entity.name"
@@ -11284,27 +12044,19 @@ msgstr "Error!"
 
 #. Name for entity mvz2:MegaSnipenser
 #: Entity meta file
-#, fuzzy
-#| msgctxt "entity.name"
-#| msgid "狙击发射器"
 msgctxt "entity.name"
 msgid "超级狙击发射器"
-msgstr "Snipenser"
+msgstr "MegaSnipenser"
 
 #. Tooltip for entity mvz2:MegaSnipenser
 #: Entity meta file
-#, fuzzy
-#| msgctxt "entity.tooltip"
-#| msgid ""
-#| "（需要连射发射器）\n"
-#| "一次射出四支箭矢"
 msgctxt "entity.tooltip"
 msgid ""
-"（需要发射器）\n"
+"（需要狙击发射器）\n"
 "朝指针位置发射箭矢"
 msgstr ""
-"(Requires Repeatenser)\n"
-"Shoots 4 arrows at once"
+"(Requires Snipenser)\n"
+"Shoots arrows to the pointer"
 
 #. Name for entity mvz2:Poisonser
 #: Entity meta file
@@ -11352,13 +12104,13 @@ msgstr "Eradicator"
 #: Entity meta file
 msgctxt "entity.name"
 msgid "火焰发射器"
-msgstr ""
+msgstr "Fire Dispenser"
 
 #. Tooltip for entity mvz2:FireDispenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射火焰箭，驱动改变发射的箭矢"
-msgstr ""
+msgstr "Fires flame arrows. Driving it changes the type of arrows fired."
 
 #. Name for entity mvz2:Freezenser
 #: Entity meta file
@@ -11448,9 +12200,11 @@ msgstr "Snipenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid ""
-"（需要狙击发射器）\n"
+"（需要发射器）\n"
 "攻击全场敌人"
 msgstr ""
+"(Requires Dispenser)\n"
+"Attacks all enemies on the field."
 
 #. Name for entity mvz2:AntiGravityPad
 #: Entity meta file
@@ -11460,18 +12214,13 @@ msgstr "Anti-GravityPad"
 
 #. Tooltip for entity mvz2:AntiGravityPad
 #: Entity meta file
-#, fuzzy
-#| msgctxt "entity.tooltip"
-#| msgid ""
-#| "（需要反重力板）\n"
-#| "改变上方物体的力"
 msgctxt "entity.tooltip"
 msgid ""
 "（需要重力板）\n"
 "反转上方物体的重力"
 msgstr ""
-"(Requires Anti-Gravity Pad)\n"
-"Change the force of objects above it"
+"(Requires Gravity Pad)\n"
+"Reverses the gravity of objects above it."
 
 #. Name for entity mvz2:DispenShield
 #: Entity meta file
@@ -11524,6 +12273,12 @@ msgstr "Randombstone"
 msgctxt "entity.tooltip"
 msgid "召唤友方随机怪物"
 msgstr "Summon friendly random warriors"
+
+#. Name for entity mvz2:HBomb
+#: Entity meta file
+msgctxt "entity.name"
+msgid "氢弹"
+msgstr "HBomb"
 
 #. Name for entity mvz2:DiamondOre
 #: Entity meta file
@@ -11618,6 +12373,18 @@ msgstr "E.X.P.A.N.D.-Totenser"
 msgctxt "entity.name"
 msgid "万象天枢_三头"
 msgstr "E.X.P.A.N.D.-Triplenser"
+
+#. Name for entity mvz2:BrainInVat
+#: Entity meta file
+msgctxt "entity.name"
+msgid "缸中之脑"
+msgstr "Brain In Vat"
+
+#. Tooltip for entity mvz2:BrainInVat
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "放置后怪物进家不会死亡，以任何形式被摧毁时游戏直接失败"
+msgstr "When placed, monsters reaching your house do not end the game. If destroyed by any means, the game is lost immediately."
 
 #. Name for entity mvz2:Bedrock
 #: Entity meta file
@@ -12720,6 +13487,90 @@ msgctxt "death_message"
 msgid "湿又滑！"
 msgstr "Slippery When Wet!"
 
+#. Name for entity mvz2:WraithWarrior
+#: Entity meta file
+msgctxt "entity.name"
+msgid "亡魂战士"
+msgstr "Wraith Warrior"
+
+#. Death message for entity mvz2:WraithWarrior
+#: Entity meta file
+msgctxt "death_message"
+msgid "规则怪谈：找到红光和黄光"
+msgstr "Creepypasta rule: Find the Red Light and Yellow Light."
+
+#. Name for entity mvz2:WraithArcher
+#: Entity meta file
+msgctxt "entity.name"
+msgid "亡魂弓箭手"
+msgstr "Wraith Archer"
+
+#. Death message for entity mvz2:WraithArcher
+#: Entity meta file
+msgctxt "death_message"
+msgid "你惊扰了下界弓箭手的亡魂！"
+msgstr "You've disturbed the spirit of a Nether Archer!"
+
+#. Name for entity mvz2:WraithBerserker
+#: Entity meta file
+msgctxt "entity.name"
+msgid "亡魂狂战士"
+msgstr "Wraith Berserker"
+
+#. Death message for entity mvz2:WraithBerserker
+#: Entity meta file
+msgctxt "death_message"
+msgid "到底是什么丧心病狂的人能想出这种东西？"
+msgstr "What kind of insane mind could come up with something like this?"
+
+#. Name for entity mvz2:WraithVanguard
+#: Entity meta file
+msgctxt "entity.name"
+msgid "亡魂冲锋者"
+msgstr "Wraith Vanguard"
+
+#. Death message for entity mvz2:WraithVanguard
+#: Entity meta file
+msgctxt "death_message"
+msgid "为啥你只能被蓝光照亮？因为你生前外号叫蓝盾吗？"
+msgstr "Why can you only be revealed by Blue Light? Was your nickname 'Blue Shield' back when you were alive?"
+
+#. Name for entity mvz2:WraithDullhan
+#: Entity meta file
+msgctxt "entity.name"
+msgid "亡魂无头先锋"
+msgstr "Wraith Dullahan"
+
+#. Death message for entity mvz2:WraithDullhan
+#: Entity meta file
+msgctxt "death_message"
+msgid "别问为什么叫先锋最后一个登场"
+msgstr "Don't ask why the 'Vanguard' is the last one to show up."
+
+#. Name for entity mvz2:AncientGhost
+#: Entity meta file
+msgctxt "entity.name"
+msgid "古老幽灵"
+msgstr "Ancient Ghost"
+
+#. Death message for entity mvz2:AncientGhost
+#: Entity meta file
+msgctxt "death_message"
+msgid "从观感上来讲，你好像被空气殴打了。"
+msgstr "From the looks of it, you seem to have been beaten up by thin air."
+
+#. Name for entity mvz2:LeatherGhost
+#: Entity meta file
+msgctxt "entity.name"
+msgid "皮帽幽灵"
+msgstr "Leather Cap Ghost"
+
+#. Name for entity mvz2:IronGhost
+#: Entity meta file
+msgctxt "entity.name"
+msgid "锈铁盔幽灵"
+msgstr "Rusted Iron Helmet Ghost"
+
 #. Name for entity mvz2:VillagerGhast
 #: Entity meta file
 msgctxt "entity.name"
@@ -12887,6 +13738,18 @@ msgstr "Random Zombie"
 msgctxt "death_message"
 msgid "是哪种僵尸打死了你啊？"
 msgstr "Which zombie killed you?"
+
+#. Name for entity mvz2:Akuah
+#: Entity meta file
+msgctxt "entity.name"
+msgid "小江"
+msgstr "Akuah"
+
+#. Death message for entity mvz2:Akuah
+#: Entity meta file
+msgctxt "death_message"
+msgid "我是彩蛋"
+msgstr "I'm an Easter egg."
 
 #. Name for entity mvz2:RandomImp
 #: Entity meta file
@@ -13497,7 +14360,7 @@ msgstr "Sweet Sleep Pillow"
 #. Tooltip for artifact mvz2:sweet_sleep_pillow
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械每秒恢复10点耐久"
+msgid "友方器械每秒恢复10点耐久"
 msgstr "Contraptions restore 10 toughness per second"
 
 #. Name for artifact mvz2:pagoda_branch
@@ -13532,11 +14395,8 @@ msgstr "Dark Matter"
 
 #. Tooltip for artifact mvz2:dark_matter
 #: Artifact meta file
-#, fuzzy
-#| msgctxt "artifact.tooltip"
-#| msgid "器械生产效率×200%，但场景变得黑暗"
 msgctxt "artifact.tooltip"
-msgid "器械生产效率×200%，但怪物隐形"
+msgid "友方器械生产效率×200%，但怪物隐形"
 msgstr "x200% contraption produce speed, but the battlefield is pitch black"
 
 #. Name for artifact mvz2:bottled_blackhole
@@ -13548,7 +14408,7 @@ msgstr "Bottled Blackhole"
 #. Tooltip for artifact mvz2:bottled_blackhole
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "每有一个蓝图空位，+10%器械伤害"
+msgid "每有一个蓝图空位，+10%友方器械伤害"
 msgstr "+10% contraption damage for each empty blueprint slot"
 
 #. Name for artifact mvz2:smart_phone
@@ -13584,7 +14444,7 @@ msgstr "Miracle Mallet Replica"
 #. Tooltip for artifact mvz2:miracle_mallet_replica
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "+15%器械伤害"
+msgid "+15%友方器械伤害"
 msgstr "+15% contraption damage"
 
 #. Name for artifact mvz2:nether_star
@@ -13608,7 +14468,7 @@ msgstr "Broken Lantern"
 #. Tooltip for artifact mvz2:broken_lantern
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "发光的器械+25%生产速度和攻击速度，但×50%光照范围"
+msgid "发光的友方器械+25%生产速度和攻击速度，但×50%光照范围"
 msgstr "+25% produce speed and attack speed, but x50% light range for glowing contraptions"
 
 #. Name for artifact mvz2:manipulative_talismans
@@ -13644,7 +14504,7 @@ msgstr "Lightbomb"
 #. Tooltip for artifact mvz2:lightbomb
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害"
+msgid "友方器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害"
 msgstr "Whenever a contraption is detonated, deal an additional damage equal to its energy cost to ALL enemies"
 
 #. Name for artifact mvz2:eye_of_the_giant
@@ -13656,7 +14516,7 @@ msgstr "Eye of the Giant"
 #. Tooltip for artifact mvz2:eye_of_the_giant
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械x250%伤害，但x50%攻击速度"
+msgid "友方器械x250%伤害，但x50%攻击速度"
 msgstr "x250% damage but x50% attack speed for contraptions"
 
 #. Name for artifact mvz2:ufo_toy
@@ -13752,8 +14612,8 @@ msgstr "Broken Lock"
 #. Tooltip for artifact mvz2:broken_lock
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械每受到1%伤害，其蓝图冷却时间便减少1%"
-msgstr "For every 1% damage a contraption has taken, its blueprint recharge time will be decreased by 1%"
+msgid "器械受到伤害时其蓝图冷却时间会相应减少"
+msgstr "Contraption blueprint cooldown is reduced when the contraption takes damage."
 
 #. Name for artifact mvz2:magma_stone
 #: Artifact meta file
@@ -13791,17 +14651,29 @@ msgctxt "artifact.tooltip"
 msgid "周期性为场上我方实体赋予圣盾"
 msgstr "Periodically grants Divine Shields to friendly entities on the field."
 
-#. Name for artifact mvz2:WitherSkeletonSkull
+#. Name for artifact mvz2:ChippedWitherSkeletonSkull
 #: Artifact meta file
 msgctxt "artifact.name"
-msgid "凋灵骷髅头"
-msgstr "Wither Skeleton Skull"
+msgid "缺角凋零骷髅头"
+msgstr "Chipped Wither Skeleton Skull"
 
-#. Tooltip for artifact mvz2:WitherSkeletonSkull
+#. Tooltip for artifact mvz2:ChippedWitherSkeletonSkull
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "×80%蓝图消耗，但新放下的器械的最大耐久×60%"
 msgstr "x80% blueprint cost, but x60% max toughness of newly built contraptions"
+
+#. Name for artifact mvz2:PbCore
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "铅核"
+msgstr "PbCore"
+
+#. Tooltip for artifact mvz2:PbCore
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "我方器械受到的辐射伤害和核扩散效果-80%"
+msgstr "Friendly contraptions take 80% less damage and are 80% less affected by Nuclear Diffusion effects."
 
 #. Name for artifact mvz2:FrankensteinBrain
 #: Artifact meta file
@@ -13878,6 +14750,18 @@ msgstr "<color=red>Herobrine Skull</color>"
 msgctxt "artifact.tooltip"
 msgid "<color=red>面对我</color>"
 msgstr "<color=red>FACE ME</color>"
+
+#. Name for artifact mvz2:LightBlock
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "<color=red>光源方块</color>"
+msgstr "<color=red>Light Block</color>"
+
+#. Tooltip for artifact mvz2:LightBlock
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "<color=red>让场地变得黑暗</color>"
+msgstr "<color=red>Makes the field become dark.</color>"
 
 #. Message for blueprint error recharging
 #: Blueprints meta file
@@ -14023,6 +14907,40 @@ msgctxt "entity.name"
 msgid "下界法师（电）"
 msgstr "Nether Mage (Lightning)"
 
+#~ msgctxt "misc.name"
+#~ msgid "狙击发射器"
+#~ msgstr "Snipenser"
+
+#~ msgctxt "contraptions.description"
+#~ msgid ""
+#~ "伤害：<color=red>10（无光源），20（1光源），40（2光源），60（3光源）</color>\n"
+#~ "攻击间隔：<color=red>3秒</color>\n"
+#~ "技能：<color=red>发射一道贯穿三行的超能光束，之后紫晶塔被禁用30秒</color>"
+#~ msgstr ""
+#~ "Damage: <color=red>10 (no light sources), 20 (1 light source), 40 (2 light sources), 60 (3 light sources)</color>\n"
+#~ "Fire rate: <color=red>3 seconds</color>\n"
+#~ "Evocation: <color=red>Fires a supercharged beam that pierces through three lanes, after which the Amethyst Pylon is disabled for 30 "
+#~ "seconds</color>"
+
+#~ msgctxt "contraptions.description"
+#~ msgid "有个人曾经想搞一个望远镜，但是他搞错了紫水晶和铜锭的数量——现在它成为了你必须建造更多的玩意。"
+#~ msgstr ""
+#~ "\"YOU MUST CONSTRUCT ADDITIONAL PYLONS\", the person said to his apprentice after messing up the quantities of amethyst and copper "
+#~ "ingots needed to craft the spyglass."
+
+#~ msgctxt "enemies.description"
+#~ msgid "恐怖之母会向血肉之躯寄生虫卵。"
+#~ msgstr ""
+#~ "Mother Terrors lay their eggs into another enemy's body. They will also release Parasite Terrors if they die without laying eggs."
+
+#~ msgctxt "artifacts.description"
+#~ msgid "凋灵骷髅的头颅。"
+#~ msgstr "A wither skeleton's skull."
+
+#~ msgctxt "artifact.name"
+#~ msgid "凋灵骷髅头"
+#~ msgstr "Wither Skeleton Skull"
+
 #~ msgctxt "enemies.description"
 #~ msgid "生命：<color=red><var id=\"mvz2:entity_health\" /></color>"
 #~ msgstr "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>"
@@ -14034,10 +14952,6 @@ msgstr "Nether Mage (Lightning)"
 #~ msgctxt "entity.tooltip"
 #~ msgid "反转上方物体的重力"
 #~ msgstr "Reverses the gravity of objects above it."
-
-#~ msgctxt "entity.name"
-#~ msgid "凋零骷髅头"
-#~ msgstr "Wither Skeleton Head"
 
 #~ msgctxt "contraptions.description"
 #~ msgid "小型发射器能发射短距离的雪球。"

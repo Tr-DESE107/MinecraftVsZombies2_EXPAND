@@ -190,6 +190,7 @@ namespace MVZ2.GameContent.Enemies
         public const string Cobblestone = "Cobblestone";
 
         public const string LEOLau = "LEOLau";
+        public const string Akuah = "Akuah";
 
     }
     public static class VanillaEnemyID
@@ -373,6 +374,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID Cobblestone = Get(VanillaEnemyNames.Cobblestone);
 
         public static readonly NamespaceID LEOLau = Get(VanillaEnemyNames.LEOLau);
+
+        public static readonly NamespaceID Akuah = Get(VanillaEnemyNames.Akuah);
 
         public static readonly NamespaceID SquidDrowned = Get(VanillaEnemyNames.SquidDrowned);
 

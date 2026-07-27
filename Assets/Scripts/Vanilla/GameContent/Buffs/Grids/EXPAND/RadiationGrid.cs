@@ -131,31 +131,35 @@ namespace MVZ2.GameContent.Buffs.Grids
                 // 降低最大生命值同样随离地高度衰减：贴地满额，越高越少。      
                 ApplyNuclearDiffusion(entity, heightFactor);  
             }  
-        }  
-  
+        }
+
         // 每个实体只保留一个 NuclearDiffusionBuff：没有则新增，有则只改内部数值。      
         // heightFactor：离地高度衰减系数（1=贴地满额，0=高到不再累减）。      
-        private void ApplyNuclearDiffusion(Entity entity, float heightFactor)  
-        {  
-            if (heightFactor <= 0f)  
-                return; // 高度过高，本帧不降低最大生命值。    
-  
-            // 辐射保护同样减免“降低最大生命值”的效果，取最高保护等级。    
-            float protection = RadiationProtection.GetProtectionLevel(entity);  
-            float reductionPerFrame = HEALTH_REDUCTION_PER_FRAME * (1f - protection) * heightFactor;  
-            if (reductionPerFrame <= 0f)  
-                return; // 保护满级（>=1）时完全免疫，不再累减。    
-  
-            var buff = entity.GetFirstBuff<NuclearDiffusionBuff>();  
-            if (buff == null)  
-            {  
-                buff = entity.AddBuff<NuclearDiffusionBuff>();  
-            }  
-            // PROP_HEALTH_REDUCTION 存负数，Add 即减少最大生命值；每帧累减固定值。    
-            var current = buff.GetProperty<float>(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION);  
-            buff.SetProperty(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION, current - reductionPerFrame);  
-        }  
-  
+        private void ApplyNuclearDiffusion(Entity entity, float heightFactor)
+        {
+            // 核扩散对 boss 无效，避免覆盖 boss 自身的生命增高。  
+            if (entity.Type == EntityTypes.BOSS)
+                return;
+
+            if (heightFactor <= 0f)
+                return; // 高度过高，本帧不降低最大生命值。      
+
+            // 辐射保护同样减免"降低最大生命值"的效果，取最高保护等级。
+            float protection = RadiationProtection.GetProtectionLevel(entity);
+            float reductionPerFrame = HEALTH_REDUCTION_PER_FRAME * (1f - protection) * heightFactor;
+            if (reductionPerFrame <= 0f)
+                return; // 保护满级（>=1）时完全免疫，不再累减。      
+
+            var buff = entity.GetFirstBuff<NuclearDiffusionBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<NuclearDiffusionBuff>();
+            }
+            // PROP_HEALTH_REDUCTION 存负数，Add 即减少最大生命值；每帧累减固定值。      
+            var current = buff.GetProperty<float>(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION);
+            buff.SetProperty(NuclearDiffusionBuff.PROP_HEALTH_REDUCTION, current - reductionPerFrame);
+        }
+
         public void UpdateModel(Buff buff)  
         {  
             var grid = buff.Target as LawnGrid;  

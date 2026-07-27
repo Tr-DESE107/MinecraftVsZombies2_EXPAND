@@ -187,6 +187,14 @@
             <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C0[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+        <tag id="placement_nuke" name="升级器械：核弹" description="必须放置在核弹上" priority="0">
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C6[6]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+        <tag id="placement_two_StoneShield" name="升级器械：一对石护罩" description="必须放置在一对相邻的石护罩上" priority="0">
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C3[3]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
         
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
             <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[0]" />
@@ -243,6 +251,34 @@
             <value value="mvz2:Enderman_Exp" name="末影人类" description="该怪物属于末影人类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[27]" backgroundColor="#8b008b"/>
             <value value="mvz2:Arthropod_Exp" name="节肢生物类" description="该怪物属于节肢生物类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[28]" backgroundColor="#2e8b57"/>
             <value value="mvz2:Animal_Exp" name="动物类" description="该怪物属于动物类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[29]" backgroundColor="#e9967a"/>
+        </enum>
+
+        <tag id="lightLevel" name="光照频率" enum="mvz2:lightLevel" priority="3500">
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+        </tag>
+        <enum id="lightLevel" type="int">
+            <value value="0" name="白光" description="频率等级 &lt;color=grey&gt;0&lt;/color&gt;，可照亮需要&lt;color=grey&gt;白&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[0]" backgroundColor="#ffffff" />
+            <value value="1" name="红光" description="频率等级 &lt;color=#FF0000&gt;1&lt;/color&gt;，可照亮需要&lt;color=#FF0000&gt;红&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[1]" backgroundColor="#ff0000" />
+            <value value="2" name="橙光" description="频率等级 &lt;color=orange&gt;2&lt;/color&gt;，可照亮需要&lt;color=orange&gt;橙&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[2]" backgroundColor="#ff8000" />
+            <value value="3" name="黄光" description="频率等级 &lt;color=#FFD700&gt;3&lt;/color&gt;，可照亮需要&lt;color=#FFD700&gt;黄&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[3]" backgroundColor="#ffff00" />
+            <value value="4" name="绿光" description="频率等级 &lt;color=#00FF00&gt;4&lt;/color&gt;，可照亮需要&lt;color=#00FF00&gt;绿&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[4]" backgroundColor="#00ff00" />
+            <value value="5" name="青光" description="频率等级 &lt;color=#00FFFF&gt;5&lt;/color&gt;，可照亮需要&lt;color=#00FFFF&gt;青&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[5]" backgroundColor="#00ffff" />
+            <value value="6" name="蓝光" description="频率等级 &lt;color=blue&gt;6&lt;/color&gt;，可照亮需要&lt;color=blue&gt;蓝&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[6]" backgroundColor="#0000ff" />
+            <value value="7" name="紫光" description="频率等级 &lt;color=purple&gt;7&lt;/color&gt;，可照亮需要&lt;color=purple&gt;紫&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[7]" backgroundColor="#8c00ff" />
+        </enum>
+        
+        <tag id="wraithLightLevel" name="需要频率" enum="mvz2:wraithLightLevel" priority="3500">
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+        </tag>
+        <enum id="wraithLightLevel" type="int">
+            <value value="0" name="白光" description="需要频率等级 &lt;color=grey&gt;0&lt;/color&gt;，被&lt;color=grey&gt;白&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[0]" backgroundColor="#ffffff" />
+            <value value="1" name="红光" description="需要频率等级 &lt;color=#FF0000&gt;1&lt;/color&gt;，被&lt;color=#FF0000&gt;红&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[1]" backgroundColor="#ff0000" />
+            <value value="2" name="橙光" description="需要频率等级 &lt;color=orange&gt;2&lt;/color&gt;，被&lt;color=orange&gt;橙&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[2]" backgroundColor="#ff8000" />
+            <value value="3" name="黄光" description="需要频率等级 &lt;color=#FFD700&gt;3&lt;/color&gt;，被&lt;color=#FFD700&gt;黄&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[3]" backgroundColor="#ffff00" />
+            <value value="4" name="绿光" description="需要频率等级 &lt;color=#00FF00&gt;4&lt;/color&gt;，被&lt;color=#00FF00&gt;绿&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[4]" backgroundColor="#00ff00" />
+            <value value="5" name="青光" description="需要频率等级 &lt;color=#00FFFF&gt;5&lt;/color&gt;，被&lt;color=#00FFFF&gt;青&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[5]" backgroundColor="#00ffff" />
+            <value value="6" name="蓝光" description="需要频率等级 &lt;color=blue&gt;6&lt;/color&gt;，被&lt;color=blue&gt;蓝&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[6]" backgroundColor="#0000ff" />
+            <value value="7" name="紫光" description="需要频率等级 &lt;color=purple&gt;7&lt;/color&gt;，被&lt;color=purple&gt;紫&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[7]" backgroundColor="#8c00ff" />
         </enum>
 
 
@@ -688,6 +724,7 @@
         <entry id="mvz2:totenser">
             <tags>
                 <tag id="mvz2:Buff"/>
+                <tag id="mvz2:lightLevel" value="2"/>
             </tags>
             <header>
                 <p>图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。</p>
@@ -1196,7 +1233,7 @@
                 <p><![CDATA[珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产<ref=[misc]mvz2:starshard.ufo_fragment>星之碎片</ref>后消失。]]></p>
             </header>
             <properties>
-                <p>禁用时长：<![CDATA[<color=red>4分钟</color>]]></p>
+                <p>禁用时长：<![CDATA[<color=red>3分钟</color>]]></p>
                 <p>产量：<![CDATA[<color=red>1星之碎片/3禁用的地格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>无</color>]]></p>
             </properties>
@@ -1222,7 +1259,7 @@
                 <p>变形发射器发射的光灵箭能让敌人发光，被触发后还会切换为激光模式，用激光持续对前方的所有敌人造成伤害并使其发光。</p>
             </header>
             <properties>
-                <p>特点：<![CDATA[<color=red>发光的敌人额外受到<var local="glowing_damage_addition" />%伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>发光的敌人额外受到25%伤害，额外受到100%的火焰伤害。</color>]]></p>
                 <p>射击模式：</p>
                 <p>  伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>  发射间隔：<![CDATA[<color=red><var local="fire_interval" />秒</color>]]></p>
@@ -1346,6 +1383,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:nuke">
+            <tags>
+                <tag id="mvz2:lightLevel" value="4"/>
+            </tags>
             <header>
                 <p>核弹在触发后会摧毁大范围内的敌人并留下致命的辐射区，但会暂时破坏所在的地块。</p>
             </header>
@@ -1460,6 +1500,10 @@
             </flavor>
         </entry>
         <entry id="mvz2:FireDispenser">
+            <tags>
+                <tag id="mvz2:lightLevel" value="4"/>
+                <tag id="mvz2:lightLevel" value="5"/>
+            </tags>
             <header>
                 <p>火焰发射器能够发射火焰箭，驱动可以改变发射的箭矢</p>
             </header>
@@ -1644,6 +1688,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:HBomb">
+            <tags>
+                <tag id="mvz2:placement_nuke" />
+            </tags>
             <header>
                 <p>氢弹在触发后会摧毁大范围内的敌人，但会暂时破坏所在的地块。</p>
             </header>
@@ -1822,6 +1869,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:AncientBrickShield">
+            <tags>
+                <tag id="mvz2:placement_two_StoneShield" />
+            </tags>
             <header>
                 <p>远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。</p>
             </header>
@@ -2348,7 +2398,7 @@
                 <p>"或许是下界某次战役堆起来的京观。"</p>
                 <p>"你觉得是哪次战役？"</p>
                 <p>"我不知道，将军堡和<![CDATA[<ref=[enemies]mvz2:Piglin>猪灵</ref>]]>打的那场？或是在扭曲之心和<![CDATA[<ref=[enemies]mvz2:Enderman>末影人</ref>]]>打的？"</p>
-                <p>"有没有可能是平叛心灵军团的？"</p>
+                <p>"有没有可能是平叛厄普西隆的？"</p>
                 <p>"更有可能是和远方亲戚打的那场。"</p>
             </flavor>
         </entry>
@@ -2714,7 +2764,7 @@
                 <p><![CDATA[<color=#F0F>催眠者是整个世界上最帅气、最美丽、最伟大、最厉害的生物！</color>]]></p>
                 <p><![CDATA[<color=#F0F>什么催眠？你不要乱说好不好！</color>]]></p>
                 <p />
-                <p><![CDATA[<color=grey>反逆者们曾经的统领名为扎赉特，他因莫须有的罪而被打入牢狱。逃脱后的他建立起了自己的军队：心灵军团，但仍未敌过凋灵帝国的下界骑士团。</color>]]></p>
+                <p><![CDATA[<color=grey>反逆者们曾经的统领名为扎赉特，他因莫须有的罪而被打入牢狱。逃脱后的他建立起了自己的军队：厄普西隆，但仍未敌过凋灵帝国的下界骑士团。</color>]]></p>
                 <p><![CDATA[<color=grey>扎赉特作古后，他遗留的军队大部分被凋灵帝国所收编，归属至下界骑士团的战斗序列中，后来，他们多了个催眠者的名字。</color>]]></p>
             </flavor>
         </entry>
@@ -2893,7 +2943,7 @@
             </properties>
             <flavor>
                 <p>反逆者军队的精英，愤怒的反逆者们铭记扎赉特的教诲，学习领袖的样貌，渴望夺取一切敌人的意志。下界骑士团曾深受这些家伙们的困扰。传闻他们曾在一天内控制了一整个狂战士军团，扭转了作战局势。</p>
-                <p>可惜局部战斗上的胜利未能完成扎赉特的复仇，扎赉特死后，大部分反逆者收编至下界骑士团，未被收编的、逃离围剿的反逆者们为争夺谁是心灵军团正统打的不可开交。</p>
+                <p>可惜局部战斗上的胜利未能完成扎赉特的复仇，扎赉特死后，大部分反逆者收编至下界骑士团，未被收编的、逃离围剿的反逆者们为争夺谁是厄普西隆正统打的不可开交。</p>
             </flavor>
         </entry>
 
@@ -2910,7 +2960,7 @@
                 <p>亡语召唤：<![CDATA[<color=red>灵魂头王、下界冲锋者、愤怒的反逆者</color>]]></p>
             </properties>
             <flavor>
-                <p>该载具很明显普通的下界战车不一样，引擎和运兵舱似乎都经过了特殊的改装，似乎不是史蒂芬爷所为。</p>
+                <p>该载具很明显和普通的下界战车不一样，引擎和运兵舱似乎都经过了特殊的改装，似乎不是史蒂芬爷所为。</p>
                 <p>库尔咒对该载具表示疑惑。</p>
                 <p />
                 <p><![CDATA[<color=white>在不起眼的地方上刻着一行小字：米罗威尼特</color>]]></p>
@@ -3015,10 +3065,10 @@
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
             </properties>
             <flavor>
-                <p>与大多数凋零骷髅不同，你现在所看到的敌怪反逆者之王并未收编到下界骑士团的战斗序列当中。他们是独立为战的军事单位，曾属于扎赉特的心灵军团。</p>
+                <p>与大多数凋零骷髅不同，你现在所看到的敌怪反逆者之王并未收编到下界骑士团的战斗序列当中。他们是独立为战的军事单位，曾属于扎赉特的厄普西隆。</p>
                 <p>扎赉特作古后，这些单位并没有向下界骑士团投降，在逃离围剿之后，这些反逆者各自找到了不同的扎赉特复制体，虽然主体已死，但克隆人和反逆者们并不打算就此作罢，他们利用自己的控制能力重新拉起了一支军队并各自为战。迄今仍是地狱中不可忽视的不稳定因素。</p>
                 <p />
-                <p><![CDATA[<color=grey>我想之后你要做好与心灵军团作战的准备。</color>]]></p>
+                <p><![CDATA[<color=grey>我想之后你要做好与厄普西隆作战的准备。</color>]]></p>
             </flavor>
         </entry>
 
@@ -4270,12 +4320,12 @@
                 <p>用于寻找宝物的工具。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>击杀怪物时有25%概率掉落额外资源</color>]]></p>
-                <p>绿宝石：<![CDATA[<color=red>35%</color>]]></p>
+                <p>效果：<![CDATA[<color=red>击杀怪物时有20%概率掉落额外资源</color>]]></p>
+                <p>绿宝石：<![CDATA[<color=red>45%</color>]]></p>
                 <p>红宝石：<![CDATA[<color=red>9%</color>]]></p>
                 <p>钻石：<![CDATA[<color=red>1%</color>]]></p>
                 <p>3红石：<![CDATA[<color=red>30%</color>]]></p>
-                <p>随机蓝图：<![CDATA[<color=red>25%</color>]]></p>
+                <p>随机蓝图：<![CDATA[<color=red>15%</color>]]></p>
             </properties>
             <flavor>
                 <p>现在我要使用这个东西调查你的身体！</p>

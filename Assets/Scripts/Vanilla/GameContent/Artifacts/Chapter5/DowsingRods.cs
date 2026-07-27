@@ -76,7 +76,7 @@ namespace MVZ2.GameContent.Artifacts
                     }
             }
         }
-        public const float DROP_CHANCE = 25;
+        public const float DROP_CHANCE = 15;
         public const int REWARD_EMERALD = 0;
         public const int REWARD_RUBY = 1;
         public const int REWARD_DIAMOND = 2;
@@ -85,11 +85,11 @@ namespace MVZ2.GameContent.Artifacts
 
         public static Dictionary<int, float> rewardPool = new Dictionary<int, float>()
         {
-            { REWARD_EMERALD, 35 },
+            { REWARD_EMERALD, 45 },
             { REWARD_RUBY, 9 },
             { REWARD_DIAMOND, 1 },
             { REWARD_REDSTONE, 30 },
-            { REWARD_BLUEPRINT, 25 }
+            { REWARD_BLUEPRINT, 15 }
         };
     }
 }

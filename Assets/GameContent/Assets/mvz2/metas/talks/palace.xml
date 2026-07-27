@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <talks order="6000">
   <!--第六章-访问香霖堂-->
   <group id="kourindou_visit_palace_1" tags="mvz2:gensokyo;mvz2:store">
@@ -2411,7 +2411,7 @@
           <text>我们这蓝色光的器械不多啊？</text>
         </sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
-          <text>（发蓝色光的器械...我能想到的就是月光发射器使用星之碎片后发的光）</text>
+          <text>（发蓝色光的器械...我能想到的就是月光传感器使用星之碎片后发的光）</text>
         </sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">
           <text>（除此之外...实在想不出来，还有什么器械发蓝光了...灵魂熔炉是青色光。）</text>
@@ -2620,8 +2620,7 @@
       <characters>
         <character id="mvz2:steve" side="self" />
         <character id="mvz2:utsuho" side="left" />
-        <character id="mvz2:rin" variant="mvz2:relieved" side="left" />
-        <character id="mvz2:satori" side="right" />
+        <character id="mvz2:rin" variant="mvz2:relieved" side="right" />
       </characters>
       <!--语句列表-->
       <sentences>
@@ -2662,7 +2661,7 @@
           <text>——？</text>
         </sentence>
         <!--语句7-->
-        <sentence speaker="mvz2:satori" sounds="mvz2:talk">
+        <sentence speaker="mvz2:utsuho" sounds="mvz2:talk">
           <text>原来是一种叫“黑客”的怪物？</text>
         </sentence>
         <!--语句8-->

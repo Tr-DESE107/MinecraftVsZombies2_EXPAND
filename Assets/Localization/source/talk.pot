@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-06-06 05:10+0800\n"
+"POT-Creation-Date: 2026-07-27 08:39+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10190,7 +10190,7 @@ msgstr ""
 #. Text for talk sentence 5 in talk group palace_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
-msgid "今天的怪物里面有一种黑色的生物！"
+msgid "今天的怪物里面有一种可怕的怨灵！"
 msgstr ""
 
 #. Description for talk sentence 5 in talk group palace_2's section 0
@@ -10202,19 +10202,31 @@ msgstr ""
 #. Text for talk sentence 6 in talk group palace_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
-msgid "看起来像是一种……细胞？"
+msgid "这家伙看起来有点特别啊？"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group palace_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
-msgid "那种生物一旦被杀死，就会变成两个小的分身！"
+msgid "我们验证过了，这种怨灵只能用红色光或黄色光照亮！"
 msgstr ""
 
 #. Text for talk sentence 8 in talk group palace_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
-msgid "小心应对，它们在分裂后还会换行！"
+msgid "不照亮怎么打都打不死！"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group palace_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_2"
+msgid "听起来感觉不太妙啊。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group palace_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_2"
+msgid "该让新获取的变形发射器登场了。"
 msgstr ""
 
 #. Archive name for talk group palace_2_over
@@ -10245,6 +10257,12 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2_over"
 msgid "别弄得自己满头都是沙砾！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group palace_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_2_over"
+msgid "哦对了，我在你的包里又放了个好用的器械：火焰发射器，具体特性看图鉴去"
 msgstr ""
 
 #. Archive name for talk group palace_2_map
@@ -10443,6 +10461,30 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3"
 msgid "既然这样，那我还是先去准备今天的战斗吧。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group palace_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_3"
+msgid "嗯...新的怨灵？这家伙看起来和亡魂战士不太一样啊"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group palace_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_3"
+msgid "这种怨灵我们先前也碰到过，它必须使用绿色光或青色光照亮。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group palace_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_3"
+msgid "开什么玩笑，这帮家伙是规则怪谈吗？不做XXX就打不死？"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group palace_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_3"
+msgid "我看得让火焰发射器上场了"
 msgstr ""
 
 #. Archive name for talk group palace_3_over
@@ -10941,6 +10983,36 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_5"
 msgid "我不清楚。看来这种生物真的是非常特殊了。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "...呃，先把话题回到战场上吧，又有一种新的怨灵哎。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "还是最令人讨厌的狂战士！！！"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "不好意思...我们没有见过这种怨灵...。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "居然没见过吗，不妙啊"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "希望这玩意能被常见光源照亮吧..比方说地狱火荧石之类的"
 msgstr ""
 
 #. Archive name for talk group palace_5_over
@@ -11492,49 +11564,37 @@ msgstr ""
 #. Text for talk sentence 3 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "另外，今天的话，好像是有新的怪物出现了。"
+msgid "讲战场上的事...新出现的那种怨灵，是需要用蓝色光才能照亮的"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "手里拿着奇怪的金属板，不知道它是干什么的。"
+msgid "啊？"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "是吗，让我——"
+msgid "我们这蓝色光的器械不多啊？"
 msgstr ""
 
 #. Text for talk sentence 6 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "——？"
+msgid "（发蓝色光的器械...我能想到的就是月光传感器使用星之碎片后发的光）"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "原来是一种叫“黑客”的怪物？"
+msgid "（除此之外...实在想不出来，还有什么器械发蓝光了...灵魂熔炉是青色光。）"
 msgstr ""
 
 #. Text for talk sentence 8 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "呃，对……"
-msgstr ""
-
-#. Text for talk sentence 9 in talk group palace_7's section 0
-#: Talk meta file
-msgctxt "talk-mvz2:palace_7"
-msgid "<color=blue>（奇怪，在我的记忆中，我很确信我不曾见过这种凋灵骷髅黑客。）</color>"
-msgstr ""
-
-#. Text for talk sentence 10 in talk group palace_7's section 0
-#: Talk meta file
-msgctxt "talk-mvz2:palace_7"
-msgid "<color=blue>（但是，为什么它却告诉我，这种怪物的样子，我很熟悉？）</color>"
+msgid "（难道只能用月光传感器使用大招对付它了吗？）"
 msgstr ""
 
 #. Archive name for talk group palace_7_over
@@ -11546,7 +11606,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group palace_7_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_over"
-msgid "这是紫晶塔！它能够发射穿透一整行的激光！"
+msgid "看我研发出了什么！这是紫晶塔！它能够发射穿透一整行的激光！"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group palace_7_over's section 0
@@ -11558,7 +11618,31 @@ msgstr ""
 #. Text for talk sentence 2 in talk group palace_7_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_over"
-msgid "射穿你的敌人！"
+msgid "听上去用途不大"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group palace_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_7_over"
+msgid "别急着反驳！我们最近不是一直被这帮特定光才能照亮的幽灵整的快疯掉了吗？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group palace_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_7_over"
+msgid "这个器械能够吸收旁边器械的光、可以通过驱动改变自己的光照档位，然后输出不同颜色的光！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group palace_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_7_over"
+msgid "难道说？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group palace_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_7_over"
+msgid "是的，现在我们可以自由搭配八色光谱了！"
 msgstr ""
 
 #. Archive name for talk group palace_7_map
@@ -11753,6 +11837,54 @@ msgctxt "talk-mvz2:palace_8"
 msgid "希望能有所进展吧。"
 msgstr ""
 
+#. Text for talk sentence 5 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "另外，今天的话，好像是有新的怪物出现了。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "手里拿着奇怪的金属板，不知道它是干什么的。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "是吗，让我——"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "——？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "原来是一种叫“黑客”的怪物？"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "呃，对……"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "<color=blue>（奇怪，在我的记忆中，我很确信我不曾见过这种凋灵骷髅黑客。）</color>"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "<color=blue>（但是，为什么它却告诉我，这种怪物的样子，我很熟悉？）</color>"
+msgstr ""
+
 #. Archive name for talk group palace_8_over
 #: Talk meta file
 msgctxt "archive"
@@ -11780,7 +11912,7 @@ msgstr ""
 #. Text for talk sentence 3 in talk group palace_8_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_over"
-msgid "不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法再这里放置器械！"
+msgid "不过，它在爆炸之后，会直接破坏它所在的地块，导致你暂时无法在这里放置器械！"
 msgstr ""
 
 #. Text for talk sentence 4 in talk group palace_8_over's section 0
@@ -12014,7 +12146,7 @@ msgstr ""
 #. Text for talk sentence 14 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能能让他把灵魂还回来。"
+msgid "还有最后一个办法。那就是直接找那个犯人，把他打败之后兴许能让他把灵魂还回来。"
 msgstr ""
 
 #. Text for talk sentence 15 in talk group palace_8_map's section 1
@@ -12086,7 +12218,7 @@ msgstr ""
 #. Text for talk sentence 27 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "在你们登船的时候，我依然在香霖堂看店。那个紫色的木头箱子就在那个时候在店门口外莫名其妙地出现了。"
+msgid "你们还在船上的时候，我在香霖堂看店。那个紫色的木头箱子就莫名其妙地出现在店外了。"
 msgstr ""
 
 #. Text for talk sentence 28 in talk group palace_8_map's section 1
@@ -12212,7 +12344,7 @@ msgstr ""
 #. Text for talk sentence 48 in talk group palace_8_map's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
-msgid "不用太自责，我们会那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！"
+msgid "不用太自责，我们会把那个犯人揪出来，把他痛扁一顿，让他把觉大人还回来的！"
 msgstr ""
 
 #. Text for talk sentence 49 in talk group palace_8_map's section 1

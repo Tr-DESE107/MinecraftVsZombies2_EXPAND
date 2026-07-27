@@ -76,6 +76,13 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.lightSource));
             }
+            // 光照频率：读取 entities.xml 的 <int name="mvz2:lightLevel" .../>，>=0 才出 tag    
+            // 多形态器械(如火焰发射器)的其它等级由图鉴条目 XML 手动补 <tag>，与此处自动生成的等级并列不冲突    
+            var lightLevel = entityDef.GetLightLevel();
+            if (lightLevel >= 0)
+            {
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.lightLevel, lightLevel.ToString()));
+            }
             // 火焰
             if (entityDef.IsFire())
             {
@@ -124,6 +131,20 @@ namespace MVZ2.GameContent.GlobalCallbacks
         {
             var mass = entityDef.GetMass();
             tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.mass, mass.ToString()));
+        }
+
+        // 亡魂(Wraith)图鉴 tag：读取 entities.xml 的 wraithRequiredLightLevels 数组，  
+        private void GetWraithLightLevelTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
+        {
+            // 读取实体的 wraithRequiredLightLevels 数组(未标注则为 null)    
+            var levels = entityDef.GetWraithRequiredLightLevels();
+            if (levels == null)
+                return;
+            // 每个所需等级各生成一个独立的 wraith_light_level 频率 tag    
+            foreach (var level in levels)
+            {
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.wraithLightLevel, level.ToString()));
+            }
         }
         private void GetContraptionAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
@@ -236,6 +257,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             GetEnemyShellAttributeTags(def, tags);
             GetMassAttributeTags(def, tags);
             GetCategoryAttributeTags(def, tags);
+            GetWraithLightLevelTags(def, tags);   // EXPAND ADD：亡魂可被照亮的频率 tag(数组)
         }
         private void GetObstacleEntryTags(EntityDefinition def, List<AlmanacEntryTagInfo> tags)
         {

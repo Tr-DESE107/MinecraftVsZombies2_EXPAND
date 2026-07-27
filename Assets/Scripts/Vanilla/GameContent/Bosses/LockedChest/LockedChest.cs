@@ -241,7 +241,7 @@ namespace MVZ2.GameContent.Bosses
         public const int MUSHROOM_ANIMATION_STATE_EAT = 2;
 
         public const int MAX_REVIVE_TIMES = 9;
-        public const float REVIVAL_HEALTH_PERCENTAGE = 0.1f;
+        public const float REVIVAL_HEALTH_PERCENTAGE = 0.2f;
         public const float FIRE_BREATH_DAMAGE_MULTIPLIER = 0.01f;
         public const float SPIT_TRASH_DAMAGE_MULTIPLIER = 0.35f;
         public const float EXPLOSIVE_SOUL_MULTIPLIER = 1f;

@@ -157,7 +157,7 @@ namespace MVZ2.GameContent.Enemies
             //{
             //    ChargedExplode(entity);
             //}
-            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(entity), entity.GetDefinitionID());
+            //entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(entity), entity.GetDefinitionID());
 
             return damageOutputs;
         }

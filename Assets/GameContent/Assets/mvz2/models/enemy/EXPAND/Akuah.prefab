@@ -249,11 +249,11 @@ PrefabInstance:
     - target: {fileID: 5277136651058253272, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: -1490030898, guid: 5f3a092b11f65cc4a954e2922bb956f4, type: 3}
+      objectReference: {fileID: 1193855152, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
     - target: {fileID: 5277136651058253272, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: -1490030898, guid: 5f3a092b11f65cc4a954e2922bb956f4, type: 3}
+      objectReference: {fileID: -1212583474, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
     - target: {fileID: 5989548653584316206, guid: 796d2dd04d3149241927586ae6890e75, type: 3}
       propertyPath: m_Name
       value: bone
