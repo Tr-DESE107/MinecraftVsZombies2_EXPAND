@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-07-27 06:20+0800\n"
+"POT-Creation-Date: 2026-07-27 08:39+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -495,6 +495,30 @@ msgstr ""
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "必须放置在发射器上"
+msgstr ""
+
+#. Name for almanac tag placement_nuke
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：核弹"
+msgstr ""
+
+#. Description for almanac tag placement_nuke
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在核弹上"
+msgstr ""
+
+#. Name for almanac tag placement_two_StoneShield
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：一对石护罩"
+msgstr ""
+
+#. Description for almanac tag placement_two_StoneShield
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在一对相邻的石护罩上"
 msgstr ""
 
 #. Name for almanac tag antifly

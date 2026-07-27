@@ -187,6 +187,14 @@
             <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C0[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+        <tag id="placement_nuke" name="升级器械：核弹" description="必须放置在核弹上" priority="0">
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C6[6]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+        <tag id="placement_two_StoneShield" name="升级器械：一对石护罩" description="必须放置在一对相邻的石护罩上" priority="0">
+            <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Contraption_C3[3]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
         
         <tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000">
             <icon sprite="mvz2:ui/almanac/EXPAND_Tag/Expand_Attribute[0]" />
@@ -1375,6 +1383,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:nuke">
+            <tags>
+                <tag id="mvz2:lightLevel" value="4"/>
+            </tags>
             <header>
                 <p>核弹在触发后会摧毁大范围内的敌人并留下致命的辐射区，但会暂时破坏所在的地块。</p>
             </header>
@@ -1677,6 +1688,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:HBomb">
+            <tags>
+                <tag id="mvz2:placement_nuke" />
+            </tags>
             <header>
                 <p>氢弹在触发后会摧毁大范围内的敌人，但会暂时破坏所在的地块。</p>
             </header>
@@ -1855,6 +1869,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:AncientBrickShield">
+            <tags>
+                <tag id="mvz2:placement_two_StoneShield" />
+            </tags>
             <header>
                 <p>远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。</p>
             </header>
