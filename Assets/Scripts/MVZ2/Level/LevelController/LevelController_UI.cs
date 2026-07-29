@@ -33,6 +33,9 @@ namespace MVZ2.Level
             uiPreset.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
             uiPreset.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
 
+            uiPreset.OnMinecartUpHeldChanged += (held) => minecartUpHeld = held;
+            uiPreset.OnMinecartDownHeldChanged += (held) => minecartDownHeld = held;
+
             uiPreset.HideMoney();
             SetUIVisibleState(VisibleState.Nothing);
         }
@@ -298,6 +301,9 @@ namespace MVZ2.Level
         private int pointingBlueprint;
         private int pointingBlueprintPointerId;
         private bool pointingBlueprintConveyor;
+
+        private bool minecartUpHeld;
+        private bool minecartDownHeld;
 
         [Header("UI")]
         [SerializeField]

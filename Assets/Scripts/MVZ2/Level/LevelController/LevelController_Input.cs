@@ -97,9 +97,9 @@ namespace MVZ2.Level
             }
 
             int minecartMove = 0;
-            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponUp)))
+            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponUp)) || minecartUpHeld)
                 minecartMove += 1;
-            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponDown)))
+            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponDown)) || minecartDownHeld)
                 minecartMove -= 1;
             MVZ2.GameContent.Effects.MinecartRideable.SetMoveInput(level, minecartMove);
 
