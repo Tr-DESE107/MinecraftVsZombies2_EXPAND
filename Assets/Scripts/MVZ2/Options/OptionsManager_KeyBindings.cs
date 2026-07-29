@@ -82,6 +82,8 @@ namespace MVZ2.Options
             AddKeyBindingMeta(HotKeys.blueprint8, KeyCode.Alpha8, HOTKEY_NAME_BLUEPRINT8);
             AddKeyBindingMeta(HotKeys.blueprint9, KeyCode.Alpha9, HOTKEY_NAME_BLUEPRINT9);
             AddKeyBindingMeta(HotKeys.blueprint10, KeyCode.Alpha0, HOTKEY_NAME_BLUEPRINT10);
+            AddKeyBindingMeta(HotKeys.HeavyWeaponUp, KeyCode.UpArrow, HOTKEY_NAME_HEAVY_WEAPON_UP);
+            AddKeyBindingMeta(HotKeys.HeavyWeaponDown, KeyCode.DownArrow, HOTKEY_NAME_HEAVY_WEAPON_DOWN);
         }
         private static void CallKeybindingChanged(NamespaceID hotkey, KeyCode code)
         {
@@ -133,6 +135,10 @@ namespace MVZ2.Options
         public const string HOTKEY_NAME_BLUEPRINT9 = "蓝图9";
         [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT10 = "蓝图10";
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
+        public const string HOTKEY_NAME_HEAVY_WEAPON_UP = "矿车上移";
+        [TranslateMsg("按键名", LogicStrings.CONTEXT_HOTKEY_NAME)]
+        public const string HOTKEY_NAME_HEAVY_WEAPON_DOWN = "矿车下移";
         #endregion
     }
 }
