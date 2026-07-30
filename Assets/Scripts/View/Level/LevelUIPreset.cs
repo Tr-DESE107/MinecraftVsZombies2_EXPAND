@@ -47,6 +47,13 @@ namespace MVZ2.UI.Level
                 group.blocksRaycasts = value;
             }
         }
+        public void SetMinecartButtonsActive(bool active)
+        {
+            if (minecartUpButton)
+                minecartUpButton.gameObject.SetActive(active);
+            if (minecartDownButton)
+                minecartDownButton.gameObject.SetActive(active);
+        }
         #endregion
 
         #region 能量

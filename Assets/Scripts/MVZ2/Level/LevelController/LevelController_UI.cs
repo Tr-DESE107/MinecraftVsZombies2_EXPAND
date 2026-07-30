@@ -37,6 +37,7 @@ namespace MVZ2.Level
             uiPreset.OnMinecartDownHeldChanged += (held) => minecartDownHeld = held;
 
             uiPreset.HideMoney();
+            uiPreset.SetMinecartButtonsActive(false);   // 新增：默认隐藏矿车按钮  
             SetUIVisibleState(VisibleState.Nothing);
         }
         private void InitLevelEngine_UI(LevelEngine level)
@@ -193,6 +194,11 @@ namespace MVZ2.Level
             UpdateLevelProgressUI();
             UpdateHeldSlotUI();
             UpdateStarshards();
+
+            // 新增：仅在存在可骑乘矿车的关卡（重装兵器类）显示移动按钮  
+            var minecart = level.FindFirstEntity(MVZ2.GameContent.Effects.VanillaEffectID.minecartRideable);
+            bool hasMinecart = minecart != null && !minecart.IsDead;
+            ui.SetMinecartButtonsActive(hasMinecart);
         }
 
         #region 事件回调

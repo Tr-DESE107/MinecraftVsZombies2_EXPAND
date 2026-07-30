@@ -1729,6 +1729,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3c0108de01484784fa9b10b13d99aed0, type: 3}
   - name: ui/level/mind_swap_blackhole
     sprite: {fileID: 21300000, guid: 4c4c1d5c3108f034bbb656243270b2fd, type: 3}
+  - name: ui/level/Oreui_down
+    sprite: {fileID: 21300000, guid: 7335e289d7f5f474fa77588cb4e335e2, type: 3}
+  - name: ui/level/Oreui_up
+    sprite: {fileID: 21300000, guid: a0a33ed9710d8434fb9d6349af021cf6, type: 3}
   - name: ui/level/pause_image_0
     sprite: {fileID: 21300000, guid: 3cb42106841fca546970463cc36fbf45, type: 3}
   - name: ui/level/pause_image_1
