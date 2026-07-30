@@ -470,7 +470,25 @@ namespace MVZ2.Scenes
             {
                 DisplayConsole();
             }
+            // 截图键：控制台未打开时才响应，避免打字误触发
+            if (Input.GetKeyDown(main.OptionsManager.GetKeyBinding(HotKeys.screenshot)) && consoleOpen)
+            {
+                CaptureScreenshot();
+            }
             ui.SetDebugIconActive(canUse && consoleOpen);
+        }
+
+        private void CaptureScreenshot()
+        {
+            string dir = System.IO.Path.Combine(Application.persistentDataPath, "Screenshots");
+            if (!System.IO.Directory.Exists(dir))
+            {
+                System.IO.Directory.CreateDirectory(dir);
+            }
+            string fileName = $"screenshot_{System.DateTime.Now:yyyyMMdd_HHmmss}.png";
+            string path = System.IO.Path.Combine(dir, fileName);
+            ScreenCapture.CaptureScreenshot(path);
+            Debug.Log($"Screenshot saved to: {path}");
         }
         #endregion
 

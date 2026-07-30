@@ -45,5 +45,6 @@ namespace MVZ2.Options
         //EXPAND
         public static readonly NamespaceID HeavyWeaponUp = Get("HeavyWeaponUp");
         public static readonly NamespaceID HeavyWeaponDown = Get("HeavyWeaponDown");
+        public static readonly NamespaceID screenshot = Get("screenshot");
     }
 }
