@@ -165,6 +165,8 @@ namespace MVZ2.GameContent.Stages
         public const string BlueprintBossRush = "BlueprintBossRush";
         public const string BalloonParty = "BalloonParty";
 
+        public const string InfinityWither = "InfinityWither";
+
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
         public const string puzzleISkeleton = "puzzle_i_skeleton";

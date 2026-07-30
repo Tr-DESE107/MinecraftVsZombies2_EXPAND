@@ -562,6 +562,10 @@
         <spawn level="2" />
         <weight base="2000" />
     </entry>
+    <entry id="CannoneerMannequin" entity="mvz2:CannoneerMannequin">
+        <spawn level="3" />
+        <weight base="2000" />
+    </entry>
 
     <!--EXPAND Random-->
     <entry id="RandomMutant" entity="mvz2:RandomMutant" noEndless="true">

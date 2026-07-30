@@ -61,12 +61,11 @@
     <minigame id="BalloonParty" stage="mvz2:BalloonParty" area="mvz2:castle" icon="mvz2:arcade/BalloonParty" />
     
     <minigame id="OpticalIllusion" stage="mvz2:OpticalIllusion" area="mvz2:dream" icon="mvz2:arcade/OpticalIllusion" />
-    <!--
-    <minigame id="HeavyWeaponVSMannequin" stage="mvz2:HeavyWeaponVSMannequin" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponVSMannequin" />
-    <minigame id="HeavyWeaponBossRush" stage="mvz2:HeavyWeaponBossRush" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponBossRush" />
-    -->
     <minigame id="WhatTheHell" stage="mvz2:WhatTheHell" area="mvz2:day" icon="mvz2:arcade/WhatTheHell" />
     <minigame id="BlueprintBossRush" stage="mvz2:BlueprintBossRush" area="mvz2:day" icon="mvz2:arcade/BlueprintBossRush" />
+    <minigame id="HeavyWeaponVSMannequin" stage="mvz2:HeavyWeaponVSMannequin" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponVSMannequin" />
+    <minigame id="HeavyWeaponBossRush" stage="mvz2:HeavyWeaponBossRush" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponBossRush" />
+    <minigame id="InfinityWither" stage="mvz2:InfinityWither" area="mvz2:castle" icon="mvz2:arcade/InfinityWither" />
     
 
     <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />
