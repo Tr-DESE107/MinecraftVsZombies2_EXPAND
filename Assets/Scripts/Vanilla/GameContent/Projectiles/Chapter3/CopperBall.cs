@@ -5,11 +5,9 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
-
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
@@ -41,6 +39,8 @@ namespace MVZ2.GameContent.Projectiles
             if (projectile.RNG.Next(100) > 75)
             {
                 var enemy = hitResult.Other;
+                if (enemy.Type == EntityTypes.BOSS)
+                    return;
                 enemy.Stun(30);
             }
 
