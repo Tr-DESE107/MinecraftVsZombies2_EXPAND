@@ -138,6 +138,10 @@
     <model name="AntiGravityPad" type="entity" path="mvz2:contraption/EXPAND/AntiGravityPad" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="HBomb" type="entity" path="mvz2:contraption/EXPAND/HBomb" width="64" height="64" xOffset="0" yOffset="-28" />
 
+    <model name="Crafter" type="entity" path="mvz2:contraption/EXPAND/Crafter" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="CraftingTable" type="entity" path="mvz2:contraption/EXPAND/CraftingTable" width="64" height="64" xOffset="0" yOffset="-28" />
+    <model name="LuckyBlock" type="entity" path="mvz2:contraption/EXPAND/LuckyBlock" width="64" height="64" xOffset="0" yOffset="-28" />
+
     <!--EXPAND BlackCard-->
     <model name="Bedrock" type="entity" path="mvz2:contraption/EXPAND/Bedrock" width="64" height="64" xOffset="0" yOffset="-28" />
     <model name="Barrier" type="entity" path="mvz2:contraption/EXPAND/Barrier" width="64" height="64" xOffset="0" yOffset="-28" />

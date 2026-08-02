@@ -1857,6 +1857,67 @@
             </properties>
         </entity>
 
+        <entity template="contraption" id="LuckyBlock" name="幸运方块" tooltip="被摧毁后发生随机事件">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:model_damage_percent" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <float name="mvz2:maxHealth" value="300" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:placeSound" value="mvz2:metal_break" />
+                <id name="mvz2:deathSound" value="mvz2:metal_break" />
+
+                <int name="mvz2:cost" value="300" />
+                <id name="mvz2:rechargeId" value="mvz2:medium" />
+            </properties>
+        </entity>
+
+        <entity template="contraption" id="Crafter" name="工作台" tooltip="使用以制造器械">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            </unlock>
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <float name="mvz2:maxHealth" value="300" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:shell" value="mvz2:wood" />
+                <id name="mvz2:placeSound" value="mvz2:wood" />
+                <id name="mvz2:deathSound" value="mvz2:wood" />
+
+                <int name="mvz2:cost" value="300" />
+                <int name="mvz2:triggerCost" value="300" />
+                <bool name="mvz2:triggerActive" value="true" />
+                <id name="mvz2:rechargeId" value="mvz2:medium" />
+            </properties>
+        </entity>
+        
+        <entity template="contraption" id="CraftingTable" name="合成器" tooltip="使用以制造器械">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            </unlock>
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <float name="mvz2:maxHealth" value="300" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:placeSound" value="mvz2:metal_break" />
+                <id name="mvz2:deathSound" value="mvz2:metal_break" />
+
+                <bool name="mvz2:upgradeBlueprint" value="true" />
+                <id name="mvz2:upgradeFrom" value="mvz2:Crafter" />
+
+                <int name="mvz2:cost" value="300" />
+                <int name="mvz2:triggerCost" value="300" />
+                <bool name="mvz2:triggerActive" value="true" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </entity>
+
         <!-- Token Contraptions -->
         <entity template="contraption" id="anvil" name="铁砧" tooltip="阻碍怪物的前进">
             <unlock>

@@ -106,6 +106,10 @@ namespace MVZ2.GameContent.Contraptions
         public const string AncientBrickShield = "AncientBrickShield";
         public const string HBomb = "HBomb";
 
+        public const string Crafter = "Crafter";
+        public const string CraftingTable = "CraftingTable";
+        public const string LuckyBlock = "LuckyBlock";
+
         //EXPAND Fusion
         public const string ExplosionCore = "ExplosionCore";
         public const string ExplosionCore_GunpowderBarrel = "ExplosionCore_GunpowderBarrel";
@@ -232,6 +236,10 @@ namespace MVZ2.GameContent.Contraptions
 
         public static readonly NamespaceID AncientBrickShield = Get(VanillaContraptionNames.AncientBrickShield);
         public static readonly NamespaceID HBomb = Get(VanillaContraptionNames.HBomb);
+
+        public static readonly NamespaceID Crafter = Get(VanillaContraptionNames.Crafter);
+        public static readonly NamespaceID CraftingTable = Get(VanillaContraptionNames.CraftingTable);
+        public static readonly NamespaceID LuckyBlock = Get(VanillaContraptionNames.LuckyBlock);
 
         //EXPAND Fusion
         public static readonly NamespaceID ExplosionCore = Get(VanillaContraptionNames.ExplosionCore);

@@ -3880,6 +3880,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34ec0f3c673fc9847be171f5cbb69e1e
+    m_Address: mvz2:ui/level/OreuiUpPressed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34ed1cdc8a174114e8899f0abb6e93fc
     m_Address: mvz2:map_element
     m_ReadOnly: 0
@@ -14136,6 +14143,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3eb5674ac35a2f4a8e6e0955b77ff9a
+    m_Address: mvz2:ui/level/OreuiDownPressed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c419009eb7b0cae44aca6be02f48b0d4
     m_Address: mvz2:ui/almanac/attribute_tags

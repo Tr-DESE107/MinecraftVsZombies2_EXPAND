@@ -59,6 +59,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8ce35d6e8e1182e46b511d35071fe8b8, type: 3}
   - name: arcade/BlueprintBossRush
     sprite: {fileID: 21300000, guid: 70597e7ca65cc1f4c89f45ff57c05a3c, type: 3}
+  - name: arcade/BombingZone
+    sprite: {fileID: 21300000, guid: 1066be0eaad5bc3499b31501d780f53e, type: 3}
   - name: arcade/breakout
     sprite: {fileID: 21300000, guid: b0de64e2af2016c45ae16c1d0b361591, type: 3}
   - name: arcade/ContraptionDevourer
@@ -77,6 +79,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1162ce482dc657f42888f74cada3662f, type: 3}
   - name: arcade/heavy_weapon
     sprite: {fileID: 21300000, guid: ff7053569e162c6489dce24f636dd305, type: 3}
+  - name: arcade/InfinityWither
+    sprite: {fileID: 21300000, guid: 9c4ff1d6b97d4d54fbe7ea3d182965ac, type: 3}
   - name: arcade/i_zombie
     sprite: {fileID: 21300000, guid: 954f4a9aadd5d0141a70086f5aaedcc5, type: 3}
   - name: arcade/LigneMaginot
@@ -95,6 +99,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: eb0eb64f7392deb41831563ed71fa81a, type: 3}
   - name: arcade/OpticalIllusion
     sprite: {fileID: 21300000, guid: a1447ef5422a9884880007586d621e26, type: 3}
+  - name: arcade/PacZombie
+    sprite: {fileID: 21300000, guid: 25a733bc18bb9a44186916c339f36c31, type: 3}
   - name: arcade/PerformanceArt
     sprite: {fileID: 21300000, guid: bf765943926e6514895dea3bf309fd68, type: 3}
   - name: arcade/RandomChinaAndPot
@@ -1729,10 +1735,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3c0108de01484784fa9b10b13d99aed0, type: 3}
   - name: ui/level/mind_swap_blackhole
     sprite: {fileID: 21300000, guid: 4c4c1d5c3108f034bbb656243270b2fd, type: 3}
-  - name: ui/level/Oreui_down
-    sprite: {fileID: 21300000, guid: 7335e289d7f5f474fa77588cb4e335e2, type: 3}
-  - name: ui/level/Oreui_up
-    sprite: {fileID: 21300000, guid: a0a33ed9710d8434fb9d6349af021cf6, type: 3}
+  - name: ui/level/OreuiDownPressed
+    sprite: {fileID: 21300000, guid: c3eb5674ac35a2f4a8e6e0955b77ff9a, type: 3}
+  - name: ui/level/OreuiUpPressed
+    sprite: {fileID: 21300000, guid: 34ec0f3c673fc9847be171f5cbb69e1e, type: 3}
   - name: ui/level/pause_image_0
     sprite: {fileID: 21300000, guid: 3cb42106841fca546970463cc36fbf45, type: 3}
   - name: ui/level/pause_image_1
@@ -1799,6 +1805,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4c6d3c800778b28489a87251ba3eb5c4, type: 3}
   - name: entity/contraptions/EXPAND_Contraption/BlueIce
     sprite: {fileID: -1992250252, guid: 88b9e1cc24bc0824486b13f1979996b5, type: 3}
+  - name: entity/contraptions/EXPAND_Contraption/CraftingTable
+    sprite: {fileID: 21300000, guid: ce81635536a88ed4b92943f9cea063b1, type: 3}
   - name: entity/contraptions/EXPAND_Contraption/DiamondOre
     sprite: {fileID: 21300000, guid: f4c0bfb75f72dd04691ce970467c4c37, type: 3}
   - name: entity/contraptions/EXPAND_Contraption/HBomb

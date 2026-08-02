@@ -166,6 +166,8 @@ namespace MVZ2.GameContent.Stages
         public const string BalloonParty = "BalloonParty";
 
         public const string InfinityWither = "InfinityWither";
+        public const string PacZombie = "PacZombie";
+        public const string BombingZone = "BombingZone";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
