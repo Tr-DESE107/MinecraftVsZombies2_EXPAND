@@ -15,11 +15,17 @@ namespace MVZ2.GameContent.Stages
         }
         protected override NamespaceID[] GetBlueprintsID()
         {
-            return new NamespaceID[3]
+            return new NamespaceID[9]
             {
                 VanillaBlueprintID.heavyWeaponFlashbang,
-                VanillaBlueprintID.heavyWeaponRapid,
-                VanillaBlueprintID.heavyWeaponSpread,
+                VanillaBlueprintID.HeavyWeaponGrenade,
+                VanillaBlueprintID.HeavyWeaponSelfDestruct,
+                VanillaBlueprintID.HeavyWeaponInvincible,
+                VanillaBlueprintID.HeavyWeaponSwitchProjectile,
+                VanillaBlueprintID.HeavyWeaponBulletUpgrade,
+                VanillaBlueprintID.HeavyWeaponHeal,
+                VanillaBlueprintID.HeavyWeaponRegen,
+                VanillaBlueprintID.HeavyWeaponExtraLife,
             };
         }
     }

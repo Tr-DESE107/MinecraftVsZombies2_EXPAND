@@ -1,4 +1,4 @@
-<blueprints>
+﻿<blueprints>
     <errors>
         <error id="recharging" message="重新充能中…" />
         <error id="not_enough_energy" message="能量不足" />
@@ -78,6 +78,31 @@
         </option>
         <option id="heavy_weapon_spread" cost="200" name="增加散射">
             <icon sprite="mvz2:options/heavy_weapon_spread" mobile="mvz2:mobile_blueprint/heavy_weapon_spread" />
+        </option>
+        
+        <option id="HeavyWeaponGrenade" cost="50" name="手雷">
+            <icon sprite="mvz2:options/HeavyWeaponGrenade" />
+        </option>
+        <option id="HeavyWeaponSelfDestruct" cost="100" name="自爆">
+            <icon sprite="mvz2:options/HeavyWeaponSelfDestruct" />
+        </option>
+        <option id="HeavyWeaponInvincible" cost="150" name="无敌">
+            <icon sprite="mvz2:options/HeavyWeaponInvincible" />
+        </option>
+        <option id="HeavyWeaponSwitchProjectile" cost="50" name="切换子弹">
+            <icon sprite="mvz2:options/HeavyWeaponSwitchProjectile" />
+        </option>
+        <option id="HeavyWeaponBulletUpgrade" cost="125" name="子弹升级">
+            <icon sprite="mvz2:options/HeavyWeaponBulletUpgrade" />
+        </option>
+        <option id="HeavyWeaponHeal" cost="50" name="生命回复">
+            <icon sprite="mvz2:options/HeavyWeaponHeal" />
+        </option>
+        <option id="HeavyWeaponRegen" cost="75" name="再生药水">
+            <icon sprite="mvz2:options/HeavyWeaponRegen" />
+        </option>
+        <option id="HeavyWeaponExtraLife" cost="200" name="更多生命">
+            <icon sprite="mvz2:options/HeavyWeaponExtraLife" />
         </option>
     </options>
     <entities>

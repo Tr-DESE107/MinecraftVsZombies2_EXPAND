@@ -30,18 +30,19 @@ namespace MVZ2.GameContent.Seeds
         }
         private void Use(LevelEngine level)
         {
-            var pos = level.GetLawnCenter();
-            level.Spawn(VanillaEffectID.stunningFlash, pos, null);
+            var cart = HeavyWeaponBlueprintUtils.FindCart(level);
+            var center = cart != null ? cart.GetCenter() : level.GetLawnCenter();
+            center.x += 300;                                    // 落点在右前方  
+            level.Spawn(VanillaEffectID.stunningFlash, center, null);
             bool stunned = false;
+            float radius = 5 * 80 * 0.5f;                       // 约 5×5 格（格宽约80）  
             foreach (var target in level.FindEntities(e => e.IsVulnerableEntity() && e.IsHostileEntity() && e.CanDeactive()))
             {
+                if ((target.GetCenter() - center).magnitude > radius) continue;
                 target.Stun(150);
                 stunned = true;
             }
-            if (stunned)
-            {
-                level.PlaySound(VanillaSoundID.stunned);
-            }
+            if (stunned) level.PlaySound(VanillaSoundID.stunned);
         }
     }
 }

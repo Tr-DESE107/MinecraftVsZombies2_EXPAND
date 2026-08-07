@@ -86,7 +86,6 @@ namespace MVZ2.GameContent.Stages
                 timer.Reset();
                 DropBomb(level);
                 DropBomb(level);
-                DropBomb(level);
             }
         }
 
