@@ -187,6 +187,8 @@ namespace MVZ2.GameContent.Stages
         {
             VanillaContraptionID.tnt,             // 引燃TNT    
             VanillaEnemyID.MannequinTNT,          // 玩家模型TNT    
+            VanillaEnemyID.PirateBomb,          // 玩家模型TNT    
+            VanillaEnemyID.soulsand,
             VanillaProjectileID.missile,          // 科学怪人导弹    
             VanillaProjectileID.cannonMissile,    // 石砖加农炮导弹    
             VanillaProjectileID.beaconMeteor,     // 陨石    
@@ -199,6 +201,8 @@ namespace MVZ2.GameContent.Stages
         {
             1800f,   // tnt    
             900f,   // MannequinTNT    
+            900f,   // PirateBomb    
+            0f,   // soulsand
             200f,   // missile    
             3600f,   // cannonMissile
             500f,   // beaconMeteor    
