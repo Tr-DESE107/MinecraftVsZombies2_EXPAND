@@ -138,6 +138,8 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID gravel = Get(VanillaProjectileNames.gravel);
         public static readonly NamespaceID lockedChestTrash = Get(VanillaProjectileNames.lockedChestTrash);
         public static readonly NamespaceID explosiveSoul = Get(VanillaProjectileNames.explosiveSoul);
+        public static readonly NamespaceID cannonMissile = Get(VanillaProjectileNames.cannonMissile);
+
         //EXPAND
         public static readonly NamespaceID purpleArrow = Get(VanillaProjectileNames.purpleArrow);
         public static readonly NamespaceID ObsidianShard = Get(VanillaProjectileNames.ObsidianShard);

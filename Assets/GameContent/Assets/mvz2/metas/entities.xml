@@ -1973,6 +1973,7 @@
                 <id name="mvz2:upgradeFrom" value="mvz2:dispenser" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
                 <vector3 name="mvz2:shotVelocity" x="20" y="0" z="0" />
+                <float name="mvz2:maxHealth" value="600" />
 
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />

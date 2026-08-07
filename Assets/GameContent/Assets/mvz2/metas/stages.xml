@@ -2957,6 +2957,22 @@
         </spawns>
     </stage>
     
+    <stage id="BombingZone" name="轰炸区" needBlueprints="false" type="minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="2" pointsMultiplier="2">
+            <spawn id="mvz2:MonkZombie" />
+            <spawn id="mvz2:LeatherMonkZombie" />
+            <spawn id="mvz2:IronMonkZombie" />
+            <spawn id="mvz2:Mannequin" />
+            <spawn id="mvz2:ImpMannequin" />
+            <spawn id="mvz2:necromancer" />
+            <spawn id="mvz2:mutant_zombie" />
+            <spawn id="mvz2:Hemperor" />
+            <spawn id="mvz2:emperor" />
+            <spawn id="mvz2:KingSkeleton" />
+        </spawns>
+    </stage>
+    
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />

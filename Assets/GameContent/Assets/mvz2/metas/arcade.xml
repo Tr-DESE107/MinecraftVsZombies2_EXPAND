@@ -67,11 +67,8 @@
     <minigame id="HeavyWeaponBossRush" stage="mvz2:HeavyWeaponBossRush" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponBossRush" />
     
     <minigame id="InfinityWither" stage="mvz2:InfinityWither" area="mvz2:castle" icon="mvz2:arcade/InfinityWither" />
-    <minigame id="PacZombie" stage="mvz2:PacZombie" area="mvz2:mausoleum" icon="mvz2:arcade/PacZombie" />
-    <!--
-    <minigame id="BombingZone" stage="mvz2:BombingZone" area="mvz2:castle" icon="mvz2:arcade/BombingZone" />
+    <minigame id="BombingZone" stage="mvz2:BombingZone" area="mvz2:halloween" icon="mvz2:arcade/BombingZone" />
     <minigame id="PacZombie" stage="mvz2:PacZombie" area="mvz2:castle" icon="mvz2:arcade/PacZombie" />
-    -->
     
 
     <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />
