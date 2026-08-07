@@ -53,6 +53,10 @@ namespace MVZ2.UI.Level
                 minecartUpButton.gameObject.SetActive(active);
             if (minecartDownButton)
                 minecartDownButton.gameObject.SetActive(active);
+            if (minecartLeftButton)
+                minecartLeftButton.gameObject.SetActive(active);
+            if (minecartRightButton)
+                minecartRightButton.gameObject.SetActive(active);
         }
         #endregion
 
@@ -441,6 +445,10 @@ namespace MVZ2.UI.Level
                 minecartUpButton.OnHeldChanged += (held) => OnMinecartUpHeldChanged?.Invoke(held);
             if (minecartDownButton)
                 minecartDownButton.OnHeldChanged += (held) => OnMinecartDownHeldChanged?.Invoke(held);
+            if (minecartLeftButton)
+                minecartLeftButton.OnHeldChanged += (held) => OnMinecartLeftHeldChanged?.Invoke(held);
+            if (minecartRightButton)
+                minecartRightButton.OnHeldChanged += (held) => OnMinecartRightHeldChanged?.Invoke(held);
 
             blueprints.OnBlueprintPointerInteraction += (index, e, i, c) => OnBlueprintPointerInteraction?.Invoke(index, e, i, c);
         }
@@ -479,6 +487,8 @@ namespace MVZ2.UI.Level
 
         public event Action<bool>? OnMinecartUpHeldChanged;
         public event Action<bool>? OnMinecartDownHeldChanged;
+        public event Action<bool>? OnMinecartLeftHeldChanged;
+        public event Action<bool>? OnMinecartRightHeldChanged;
         #endregion
 
         #region 属性字段
@@ -525,6 +535,10 @@ namespace MVZ2.UI.Level
         MinecartMoveButton minecartUpButton = null!;
         [SerializeField]
         MinecartMoveButton minecartDownButton = null!;
+        [SerializeField]
+        MinecartMoveButton minecartLeftButton = null!;
+        [SerializeField]
+        MinecartMoveButton minecartRightButton = null!;
 
         [Header("Raycast Receivers")]
         [SerializeField]

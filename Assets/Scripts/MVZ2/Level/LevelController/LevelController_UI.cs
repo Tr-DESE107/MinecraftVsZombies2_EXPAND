@@ -35,6 +35,8 @@ namespace MVZ2.Level
 
             uiPreset.OnMinecartUpHeldChanged += (held) => minecartUpHeld = held;
             uiPreset.OnMinecartDownHeldChanged += (held) => minecartDownHeld = held;
+            uiPreset.OnMinecartLeftHeldChanged += (held) => minecartLeftHeld = held;
+            uiPreset.OnMinecartRightHeldChanged += (held) => minecartRightHeld = held;
 
             uiPreset.HideMoney();
             uiPreset.SetMinecartButtonsActive(false);   // 新增：默认隐藏矿车按钮  
@@ -310,6 +312,8 @@ namespace MVZ2.Level
 
         private bool minecartUpHeld;
         private bool minecartDownHeld;
+        private bool minecartLeftHeld;
+        private bool minecartRightHeld;
 
         [Header("UI")]
         [SerializeField]

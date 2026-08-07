@@ -4761,6 +4761,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fd3b9c2dc4f29d44b72b11939fd85f8
+    m_Address: mvz2:arcade/HeavyWeaponVSMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fd63c7920860ce4f8bc0be1188ae567
     m_Address: mvz2:entity/contraptions/gravity_pad
     m_ReadOnly: 0

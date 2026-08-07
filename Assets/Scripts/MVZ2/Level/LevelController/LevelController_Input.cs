@@ -103,9 +103,9 @@ namespace MVZ2.Level
                 minecartMove -= 1;
             MVZ2.GameContent.Effects.MinecartRideable.SetMoveInput(level, minecartMove);
             int minecartMoveX = 0;
-            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponRight)))
+            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponRight)) || minecartRightHeld)
                 minecartMoveX += 1;
-            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponLeft)))
+            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponLeft)) || minecartLeftHeld)
                 minecartMoveX -= 1;
             MVZ2.GameContent.Effects.MinecartRideable.SetMoveInputX(level, minecartMoveX);
 
