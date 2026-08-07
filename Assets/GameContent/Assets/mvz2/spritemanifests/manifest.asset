@@ -77,6 +77,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 47bb6e3e6595451449c147cdca10b84c, type: 3}
   - name: arcade/GiantCrisis
     sprite: {fileID: 21300000, guid: 1162ce482dc657f42888f74cada3662f, type: 3}
+  - name: arcade/HeavyWeaponVSMannequin
+    sprite: {fileID: 21300000, guid: 3fd3b9c2dc4f29d44b72b11939fd85f8, type: 3}
   - name: arcade/heavy_weapon
     sprite: {fileID: 21300000, guid: ff7053569e162c6489dce24f636dd305, type: 3}
   - name: arcade/InfinityWither

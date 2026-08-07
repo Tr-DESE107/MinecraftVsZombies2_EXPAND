@@ -1193,6 +1193,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1066be0eaad5bc3499b31501d780f53e
+    m_Address: mvz2:arcade/BombingZone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1079a49f80f854c4a8d3e1107ea9cf7d
     m_Address: mvz2:effect/stun_stars
     m_ReadOnly: 0
@@ -2872,6 +2879,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25a733bc18bb9a44186916c339f36c31
+    m_Address: mvz2:arcade/PacZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
     m_Address: mvz2:entity/effects/flash
@@ -6056,6 +6070,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50a9eb9d74e535f489674779e0279e67
+    m_Address: mvz2:contraption/EXPAND/Crafter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 50bf732bad4c58e4594fe0d57da0eeff
     m_Address: mvz2:misc/abandoned_house
     m_ReadOnly: 0
@@ -7252,6 +7273,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 608e9f9ca6e3ad84ba7dd90b0a3b6831
+    m_Address: mvz2:contraption/EXPAND/LuckyBlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6095a96fe9b0021419be1746f4e90d1d
     m_Address: mvz2:power_on
     m_ReadOnly: 0
@@ -7678,6 +7706,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 674b64b8bda97d743973af7c0ad89f7c
+    m_Address: mvz2:contraption/EXPAND/CraftingTable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67570966ddb5b0d4688ecc6f6b0d3508
     m_Address: mvz2:random/glass1
@@ -10478,6 +10513,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f56a104e7468194f8c81643786d6ffd
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/LuckyBlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f7e35986ffa8894c8241697cb5846ec
     m_Address: mvz2:suspension
     m_ReadOnly: 0
@@ -11394,6 +11436,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c4ff1d6b97d4d54fbe7ea3d182965ac
+    m_Address: mvz2:arcade/InfinityWither
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c738ff97ec299e44824ed8a9e5bb620
     m_Address: mvz2:entity/zombie_cat/meow3
     m_ReadOnly: 0
@@ -11585,6 +11634,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e9e1ca0468eacb4c8a7f5a7275539ce
     m_Address: mvz2:entity/armor/EXPAND_armor/GoldenHelmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eb3b5acb64a3674b88b7ad3b29c81d8
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/Crafter
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -14965,6 +15021,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce61d5f5e6687a643968d800f45003ef
     m_Address: mvz2:entity/enemies/mesmerizer_rod_pro
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce81635536a88ed4b92943f9cea063b1
+    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/CraftingTable
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
