@@ -22,6 +22,7 @@ namespace MVZ2.GameContent.Stages
             var blueprints = new NamespaceID[]
             {
                 VanillaBlueprintID.heavyWeaponFlashbang,
+                VanillaBlueprintID.heavyWeaponSpread,
                 VanillaBlueprintID.HeavyWeaponGrenade,
                 VanillaBlueprintID.HeavyWeaponSelfDestruct,
                 VanillaBlueprintID.HeavyWeaponInvincible,

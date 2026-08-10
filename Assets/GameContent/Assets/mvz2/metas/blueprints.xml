@@ -81,28 +81,28 @@
         </option>
         
         <option id="HeavyWeaponGrenade" cost="50" name="手雷">
-            <icon sprite="mvz2:options/HeavyWeaponGrenade" />
+            <icon sprite="mvz2:options/HeavyWeaponGrenade" mobile="mvz2:mobile_blueprint/HeavyWeaponGrenade"/>
         </option>
         <option id="HeavyWeaponSelfDestruct" cost="100" name="自爆">
-            <icon sprite="mvz2:options/HeavyWeaponSelfDestruct" />
+            <icon sprite="mvz2:options/HeavyWeaponSelfDestruct" mobile="mvz2:mobile_blueprint/HeavyWeaponSelfDestruct" />
         </option>
         <option id="HeavyWeaponInvincible" cost="150" name="无敌">
-            <icon sprite="mvz2:options/HeavyWeaponInvincible" />
+            <icon sprite="mvz2:options/HeavyWeaponInvincible" mobile="mvz2:mobile_blueprint/HeavyWeaponInvincible" />
         </option>
         <option id="HeavyWeaponSwitchProjectile" cost="50" name="切换子弹">
-            <icon sprite="mvz2:options/HeavyWeaponSwitchProjectile" />
+            <icon sprite="mvz2:options/HeavyWeaponSwitchProjectile" mobile="mvz2:mobile_blueprint/HeavyWeaponSwitchProjectile" />
         </option>
         <option id="HeavyWeaponBulletUpgrade" cost="125" name="子弹升级">
-            <icon sprite="mvz2:options/HeavyWeaponBulletUpgrade" />
+            <icon sprite="mvz2:options/HeavyWeaponBulletUpgrade" mobile="mvz2:mobile_blueprint/HeavyWeaponBulletUpgrade" />
         </option>
         <option id="HeavyWeaponHeal" cost="50" name="生命回复">
-            <icon sprite="mvz2:options/HeavyWeaponHeal" />
+            <icon sprite="mvz2:options/HeavyWeaponHeal" mobile="mvz2:mobile_blueprint/HeavyWeaponHeal" />
         </option>
         <option id="HeavyWeaponRegen" cost="75" name="再生药水">
-            <icon sprite="mvz2:options/HeavyWeaponRegen" />
+            <icon sprite="mvz2:options/HeavyWeaponRegen" mobile="mvz2:mobile_blueprint/HeavyWeaponRegen" />
         </option>
         <option id="HeavyWeaponExtraLife" cost="200" name="更多生命">
-            <icon sprite="mvz2:options/HeavyWeaponExtraLife" />
+            <icon sprite="mvz2:options/HeavyWeaponExtraLife" mobile="mvz2:mobile_blueprint/HeavyWeaponExtraLife" />
         </option>
     </options>
     <entities>

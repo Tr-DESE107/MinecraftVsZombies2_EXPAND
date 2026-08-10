@@ -1375,6 +1375,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1258012437a7cc14a84abda6bee83e14
+    m_Address: mvz2:options/HeavyWeaponSelfDestruct
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 128dabcc1765afd49ac35f3594655cce
     m_Address: mvz2:enemy/mausoleum/RandomZombieWall
     m_ReadOnly: 0
@@ -3544,6 +3551,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f1ec711f2b01f84f96443147290c556
+    m_Address: mvz2:arcade/AirRaid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f37ee72c04034a4d930b31185d1e90e
     m_Address: mvz2:level/halloween/halloween_cloudy
     m_ReadOnly: 0
@@ -5006,6 +5020,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42c7673b3e49aab4ebd926c7aeb69179
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponInvincible
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42d4cd48e21a9fe448a9bbff03e200d1
     m_Address: mvz2:effect/nightmare_watching_eye
     m_ReadOnly: 0
@@ -5666,6 +5687,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ad05a8a9f2400944964d89c9833fab0
     m_Address: mvz2:mobile_blueprint/heavy_weapon_rapid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ad363d33e5e8894db3e0dc3b63d6fe5
+    m_Address: mvz2:ui/level/OreuiRightPressed
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7658,6 +7686,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6665fde8a7d9d0941ad5b55b8e7761c3
+    m_Address: mvz2:options/HeavyWeaponInvincible
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 666b9679bdc87a649989c7c774edc74c
     m_Address: mvz2:pickup/map_pickup
     m_ReadOnly: 0
@@ -7769,6 +7804,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68079ade5e81293428177d1c2ea13ebc
+    m_Address: mvz2:ui/level/OreuiLeftPressed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 680fd9e7f1496014bbd8d418fe66de65
     m_Address: mvz2:mobile_blueprint/NetherVanguard
@@ -10121,6 +10163,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a1476027b3fff44682620fac7e16247
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponBulletUpgrade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a2e7dea253a9e84c910acffe8c3e79e
     m_Address: mvz2:mainmenu/view/nightmare_censored
     m_ReadOnly: 0
@@ -10665,6 +10714,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91602162e37d34c49a5a359da369b99e
+    m_Address: mvz2:options/HeavyWeaponSwitchProjectile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 918f12843c5e74a42a07dbd415e91d1c
     m_Address: mvz2:effect/soulfire
@@ -11725,6 +11781,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a01552dca04bda94385d92805ccac257
     m_Address: mvz2:entity/projectiles/falling_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a01ab9154c5b1eb4cb185b91c9b505ec
+    m_Address: mvz2:options/HeavyWeaponBulletUpgrade
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13892,6 +13955,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bed7e7e56924d6941bbcfc30d1046677
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponSwitchProjectile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf13519ae2dc4d14d863408fe29d69be
     m_Address: mvz2:entity/enemies/nether_mage_head
     m_ReadOnly: 0
@@ -15859,6 +15929,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dab91d0fd7ce54e49ab03f1ce48321f7
+    m_Address: mvz2:options/HeavyWeaponRegen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dadd7d630cd112f4e8151abc45659e12
     m_Address: mvz2:contraption/palace/amethyst_pylon
     m_ReadOnly: 0
@@ -16190,6 +16267,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfcd4fddf7170c445ab26db4fae8337b
     m_Address: mvz2:entity/armor/EXPAND_armor/SailorHat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfcdb0b5915f4cf448b7514e0719e1dd
+    m_Address: mvz2:options/HeavyWeaponGrenade
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -17680,6 +17764,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4c0bfb75f72dd04691ce970467c4c37
     m_Address: mvz2:entity/contraptions/EXPAND_Contraption/DiamondOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4f8467cc59fb834a85e1e5facbcc763
+    m_Address: mvz2:options/HeavyWeaponHeal
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

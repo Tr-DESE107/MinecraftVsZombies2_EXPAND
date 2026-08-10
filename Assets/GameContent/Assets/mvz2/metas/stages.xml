@@ -2122,7 +2122,7 @@
             <float name="conveySpeed" value="1.5"/>
         </properties>
     </stage>
-    <stage id="heavy_weapon" name="重装兵器" needBlueprints="false" type="minigame" music="mvz2:minigame">
+    <stage id="heavy_weapon" name="重装兵器" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <unlock>
             <condition required="mvz2:level.palace_9" />
         </unlock>
@@ -2873,7 +2873,7 @@
         </spawns>
     </stage>
 
-    <stage id="HeavyWeaponVSMannequin" name="重装兵器大战玩家模型" needBlueprints="false" type="minigame" music="mvz2:minigame">
+    <stage id="HeavyWeaponVSMannequin" name="重装兵器大战玩家模型" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
         <unlock>
             <condition required="mvz2:level.palace_9" />
         </unlock>
@@ -2941,15 +2941,14 @@
         </properties>
     </stage>
 
-    <stage id="PacZombie" name="吃僵人" needBlueprints="false" type="minigame">
+    <stage id="PacZombie" name="吃僵人" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="2" pointsMultiplier="2">
+        <spawns flags="2" pointsMultiplier="1.5">
             <spawn id="mvz2:MonkZombie" />
             <spawn id="mvz2:LeatherMonkZombie" />
             <spawn id="mvz2:IronMonkZombie" />
             <spawn id="mvz2:Mannequin" />
             <spawn id="mvz2:ImpMannequin" />
-            <spawn id="mvz2:necromancer" />
             <spawn id="mvz2:mutant_zombie" />
             <spawn id="mvz2:Hemperor" />
             <spawn id="mvz2:emperor" />
@@ -2957,15 +2956,14 @@
         </spawns>
     </stage>
     
-    <stage id="BombingZone" name="轰炸区" needBlueprints="false" type="minigame">
+    <stage id="BombingZone" name="轰炸区" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="2" pointsMultiplier="2">
+        <spawns flags="2" pointsMultiplier="1">
             <spawn id="mvz2:MonkZombie" />
             <spawn id="mvz2:LeatherMonkZombie" />
             <spawn id="mvz2:IronMonkZombie" />
             <spawn id="mvz2:Mannequin" />
             <spawn id="mvz2:ImpMannequin" />
-            <spawn id="mvz2:necromancer" />
             <spawn id="mvz2:mutant_zombie" />
             <spawn id="mvz2:Hemperor" />
             <spawn id="mvz2:emperor" />
