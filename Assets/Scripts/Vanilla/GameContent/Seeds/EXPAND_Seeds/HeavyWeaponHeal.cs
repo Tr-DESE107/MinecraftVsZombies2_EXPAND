@@ -18,9 +18,7 @@ namespace MVZ2.GameContent.Seeds
         private void Use(LevelEngine level)
         {
             var rider = HeavyWeaponBlueprintUtils.FindRider(level);
-            rider?.HealEffects(rider.GetMaxHealth() * 0.3f, rider);
+            rider?.HealEffects(rider.GetMaxHealth() * 0.6f, rider);
         }
-        public const float THROW_DISTANCE = 400f;
-        public const float THROW_ARC = 200f;
     }
 }

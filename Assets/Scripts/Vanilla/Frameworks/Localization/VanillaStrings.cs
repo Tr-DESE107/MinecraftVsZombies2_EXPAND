@@ -33,7 +33,7 @@ namespace MVZ2.Vanilla.Localization
         [TranslateMsg("我是僵尸模式的提示，{0}为目前连胜", LogicStrings.CONTEXT_ADVICE, selfPlural: true)]
         public const string ADVICE_IZ_STREAK = "干得好！目前连胜：{0}！";
         [TranslateMsg("重装兵器小游戏的提示", LogicStrings.CONTEXT_ADVICE)]
-        public const string ADVICE_HEAVY_WEAPON_TIP_MOUSE = "移动鼠标来移动，按住左键来射击！";
+        public const string ADVICE_HEAVY_WEAPON_TIP_MOUSE = "使用WASD来移动，按住左键来射击！";
         [TranslateMsg("重装兵器小游戏的提示", LogicStrings.CONTEXT_ADVICE)]
         public const string ADVICE_HEAVY_WEAPON_TIP_TOUCH = "触摸屏幕来移动并射击！";
 
@@ -80,7 +80,7 @@ namespace MVZ2.Vanilla.Localization
         [TranslateMsg("死亡信息-我是僵尸", LogicStrings.CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES = "你失去了所有能量！";
         [TranslateMsg("死亡信息-重装兵器", LogicStrings.CONTEXT_DEATH_MESSAGE)]
-        public const string DEATH_MESSAGE_SNIPENSER_LOST = "你失去了狙击发射器！";
+        public const string DEATH_MESSAGE_SNIPENSER_LOST = "你失去了你的超级器械！";
 
         [TranslateMsg("命令输出", LogicStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_CANNOT_BE_CALLED_IN_LEVEL = "该命令不能在关卡中调用";

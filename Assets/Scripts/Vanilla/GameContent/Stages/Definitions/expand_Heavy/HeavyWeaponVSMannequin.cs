@@ -17,8 +17,8 @@ namespace MVZ2.GameContent.Stages
         {
             return new NamespaceID[]
             {
-                VanillaBlueprintID.heavyWeaponFlashbang,
                 VanillaBlueprintID.heavyWeaponSpread,
+                VanillaBlueprintID.heavyWeaponFlashbang,
                 VanillaBlueprintID.HeavyWeaponGrenade,
                 VanillaBlueprintID.HeavyWeaponSelfDestruct,
                 VanillaBlueprintID.HeavyWeaponInvincible,

@@ -81,6 +81,8 @@ namespace MVZ2.GameContent.Projectiles
         public const string SniperBullet = "SniperBullet";
         public const string KnifeBullet = "KnifeBullet";
         public const string RocketBullet = "RocketBullet";
+        public const string Grenade = "Grenade";
+        public const string Flashbang = "Flashbang";
     }
     public static class VanillaProjectileID
     {
@@ -160,6 +162,9 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID SniperBullet = Get(VanillaProjectileNames.SniperBullet);
         public static readonly NamespaceID KnifeBullet = Get(VanillaProjectileNames.KnifeBullet);
         public static readonly NamespaceID RocketBullet = Get(VanillaProjectileNames.RocketBullet);
+
+        public static readonly NamespaceID Grenade = Get(VanillaProjectileNames.Grenade);
+        public static readonly NamespaceID Flashbang = Get(VanillaProjectileNames.Flashbang);
 
         private static NamespaceID Get(string name)
         {

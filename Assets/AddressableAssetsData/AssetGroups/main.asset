@@ -598,6 +598,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07c33fb036e2d7f4ea2fb607379316e7
+    m_Address: mvz2:entity/HeavyWeapon/t_grenade02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07f0858ead454ce4dae7b219cc8ba50e
     m_Address: mvz2:enemy/dream/mother_terror
     m_ReadOnly: 0
@@ -1472,6 +1479,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 136d205270f57d64b9664d182d74edd9
+    m_Address: mvz2:entity/HeavyWeapon/t_grenade05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 139c35b04942dec4a9d97f86067f8e1e
     m_Address: mvz2:palace_final
@@ -2357,6 +2371,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f79614fcb97c93488cfbb1f01cd6ec4
     m_Address: mvz2:achievements/mesmerised_matchup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f7b6dab3a94a204fa581b0e9075c432
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponHeal
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4382,6 +4403,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ad724906a81bc146ae1319d76cba273
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponSelfDestruct
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3afaf2b4c67113848b1fff109e80f52d
     m_Address: mvz2:revived
@@ -7028,6 +7056,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d4597bf817203d48a0cae0f10efc740
+    m_Address: mvz2:entity/HeavyWeapon/t_grenade04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d49b72bcbe74384e80b178d81b8737b
     m_Address: mvz2:mobile_blueprint/AncientGhost
     m_ReadOnly: 0
@@ -7902,6 +7937,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6972e1bfaf4fd3d418c8fe9b4d15e478
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponRegen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6990d1364b53e3b40b784f6e3b7754e5
     m_Address: mvz2:mobile_blueprint/shikaisen_staff
@@ -8987,6 +9029,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a14181074fe57f48b63481c6f4be4da
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponGrenade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3b8d97209e0b4429c62e23f1046a6c
     m_Address: mvz2:arcade
     m_ReadOnly: 0
@@ -9960,6 +10009,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86aca7b9b1ab29a47b1f40faf1ac414c
+    m_Address: mvz2:options/HeavyWeaponExtraLife
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86b752a5e2100d84ab9e7af262138b91
     m_Address: mvz2:ui/level/target
     m_ReadOnly: 0
@@ -10137,6 +10193,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8962300e559ee02418a68ff464fabfbc
     m_Address: mvz2:mobile_blueprint/Barrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 897ff854ecf701c4a8e582af863b7f4e
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponExtraLife
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -11807,6 +11870,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a03042c20a87a7f4fa1c1bc3ccab9356
+    m_Address: mvz2:projectile/EXPAND_projectile/Grenade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a06be91936876c74d8f5b245197688cf
     m_Address: mvz2:ui/almanac/book
     m_ReadOnly: 0
@@ -12626,6 +12696,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac3bbe13cef1f6442b737e8f5811fac0
+    m_Address: mvz2:entity/HeavyWeapon/ct_fireinhole
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac4be31dfdb681b49ae5da9af213b7f3
     m_Address: mvz2:entity/Villager/Villager_idle1
     m_ReadOnly: 0
@@ -13424,6 +13501,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6726c8be82fa244bb4314c07a63e3c9
+    m_Address: mvz2:projectile/EXPAND_projectile/Flashbang
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6787cff33fe5384d8592394db3eac63
     m_Address: mvz2:projectile/charged_bolt
     m_ReadOnly: 0
@@ -13556,6 +13640,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8fb8e5fe20d2c4498e49fa274696a57
+    m_Address: mvz2:entity/HeavyWeapon/t_flashbang01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9000cbe4c6e8d142a886069d351f62b
     m_Address: mvz2:entity/contraptions/EXPANDispenser/EXPANDispenser_Splitenser
@@ -14531,6 +14622,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c83904aa459b69644bb8f7e0a0e03da6
     m_Address: mvz2:talk/villager/villager_idle3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8402510d8e403140a148ad000f231cf
+    m_Address: mvz2:entity/HeavyWeapon/t_flashbang03
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -16775,6 +16873,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7e70c8e0d9cf5e439933ce8deae4f1f
+    m_Address: mvz2:entity/HeavyWeapon/t_flashbang02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e80ea5436acf0b544906c4d53a5919e4
     m_Address: mvz2:level/ship/deck

@@ -1169,4 +1169,16 @@
         <sample path="mvz2:entity/zombie_cat/Cat_hiss2" weight="1" />
         <sample path="mvz2:entity/zombie_cat/Cat_hiss3" weight="1" />
     </sound>
+    <sound name="HeavyWeaponGrenade">
+        <sample path="mvz2:entity/HeavyWeapon/t_grenade02" weight="1" />
+        <sample path="mvz2:entity/HeavyWeapon/t_grenade04" weight="1" />
+        <sample path="mvz2:entity/HeavyWeapon/t_grenade05" weight="1" />
+        <sample path="mvz2:entity/HeavyWeapon/ct_fireinhole" weight="1" />
+    </sound>
+    <sound name="HeavyWeaponFlashbang">
+        <sample path="mvz2:entity/HeavyWeapon/t_flashbang01" weight="1" />
+        <sample path="mvz2:entity/HeavyWeapon/t_flashbang02" weight="1" />
+        <sample path="mvz2:entity/HeavyWeapon/t_flashbang03" weight="1" />
+        <sample path="mvz2:entity/HeavyWeapon/ct_fireinhole" weight="1" />
+    </sound>
 </sounds>

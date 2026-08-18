@@ -236,7 +236,10 @@ namespace MVZ2.GameContent.Buffs
             public const string FireDispenserCursedBuff = "FireDispenserCursedBuff";
             public const string FireDispenserSoulFireBuff = "FireDispenserSoulFireBuff";
             public const string ChippedWitherSkeletonSkullReduceHealthBuff = "ChippedWitherSkeletonSkullReduceHealthBuff";
+            
             public const string HeavyWeaponSelfDestruct = "HeavyWeaponSelfDestruct";
+            public const string HeavyWeaponGrenadeMarker = "HeavyWeaponGrenadeMarker";
+            public const string HeavyWeaponFlashbangMarkerBuff = "HeavyWeaponFlashbangMarkerBuff";
 
         }
         public static class Enemy
@@ -630,7 +633,10 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID FireDispenserCursedBuff = Get(VanillaBuffNames.Contraption.FireDispenserCursedBuff);
             public static readonly NamespaceID FireDispenserSoulFireBuff = Get(VanillaBuffNames.Contraption.FireDispenserSoulFireBuff);
             public static readonly NamespaceID ChippedWitherSkeletonSkullReduceHealthBuff = Get(VanillaBuffNames.Contraption.ChippedWitherSkeletonSkullReduceHealthBuff);
+            
             public static readonly NamespaceID HeavyWeaponSelfDestruct = Get(VanillaBuffNames.Contraption.HeavyWeaponSelfDestruct);
+            public static readonly NamespaceID HeavyWeaponGrenadeMarker = Get(VanillaBuffNames.Contraption.HeavyWeaponGrenadeMarker);
+            public static readonly NamespaceID HeavyWeaponFlashbangMarkerBuff = Get(VanillaBuffNames.Contraption.HeavyWeaponFlashbangMarkerBuff);
         }
         public static class Enemy
         {
