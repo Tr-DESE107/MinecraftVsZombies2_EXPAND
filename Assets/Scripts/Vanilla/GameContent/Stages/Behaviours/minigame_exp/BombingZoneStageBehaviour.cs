@@ -110,8 +110,9 @@ namespace MVZ2.GameContent.Stages
         // 矿车死了通常还在；没有才新建，避免复活时多出一辆    
         private Entity? SpawnOrFindCart(LevelEngine level)
         {
-            var cart = level.FindFirstEntity(VanillaEffectID.minecartRideable);
-            if (cart.ExistsAndAlive())
+            // 需求1+3：优先复用已有矿车并清除多余/残留，避免复活时多出一辆  
+            var cart = MinecartRideable.FindSingleCart(level);
+            if (cart != null)
                 return cart;
             var pos = new Vector3(level.GetEntityColumnX(2), 0, level.GetLaneZ(2));
             cart = level.Spawn(VanillaEffectID.minecartRideable, pos, null);

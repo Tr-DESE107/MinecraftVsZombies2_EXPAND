@@ -1,8 +1,10 @@
 ﻿#nullable enable
 
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
@@ -17,7 +19,8 @@ namespace MVZ2.GameContent.Seeds
         private void Use(LevelEngine level)
         {
             var rider = HeavyWeaponBlueprintUtils.FindRider(level);
-            rider?.InflictRegenerationBuff(2f, 600, null);   // 每帧+2，持续10秒  
+            rider?.InflictRegenerationBuff(2f, 300, null);   // 每帧+2，持续10秒  
+            rider?.PlaySound(VanillaSoundID.gem);
         }
     }
 }

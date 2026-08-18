@@ -85,8 +85,9 @@ namespace MVZ2.GameContent.Stages
 
         private Entity? SpawnOrFindMinecart(LevelEngine level, Vector3 pos)
         {
-            var cart = level.FindFirstEntity(VanillaEffectID.minecartRideable);
-            if (cart.ExistsAndAlive())
+            // 需求1+3：优先复用已有矿车，并清除多余/残留矿车，保证唯一  
+            var cart = MinecartRideable.FindSingleCart(level);
+            if (cart != null)
                 return cart;
             cart = level.Spawn(VanillaEffectID.minecartRideable, pos, null);
             if (cart != null)

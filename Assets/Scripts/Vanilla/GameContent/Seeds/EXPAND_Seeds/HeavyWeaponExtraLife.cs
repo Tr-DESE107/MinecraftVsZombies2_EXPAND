@@ -1,7 +1,9 @@
 ﻿#nullable enable
 
+using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -24,6 +26,8 @@ namespace MVZ2.GameContent.Seeds
         {
             if (level.GetStarshardCount() < level.GetStarshardSlotCount())
                 level.AddStarshardCount(1);
+            var rider = HeavyWeaponBlueprintUtils.FindRider(level);
+            rider?.PlaySound(VanillaSoundID.gem);
         }
     }
 }

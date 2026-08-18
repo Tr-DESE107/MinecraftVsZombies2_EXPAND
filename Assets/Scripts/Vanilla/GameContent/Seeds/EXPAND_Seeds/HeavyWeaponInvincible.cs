@@ -1,8 +1,10 @@
 ﻿#nullable enable
 
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -21,6 +23,7 @@ namespace MVZ2.GameContent.Seeds
             if (rider == null) return;
             var buff = rider.AddBuff<IronCurtainBuff>();
             buff?.SetProperty(IronCurtainBuff.PROP_TIMEOUT, 300);
+            rider.PlaySound(VanillaSoundID.ironCurtain);
         }
     }
 }
