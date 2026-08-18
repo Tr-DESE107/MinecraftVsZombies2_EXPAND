@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Seeds
             var rider = HeavyWeaponBlueprintUtils.FindRider(level);
             if (rider == null) return;
             var buff = rider.AddBuff<IronCurtainBuff>();
-            buff?.SetProperty(IronCurtainBuff.PROP_TIMEOUT, 600);   // 10 秒（60帧/秒）  
+            buff?.SetProperty(IronCurtainBuff.PROP_TIMEOUT, 300);
         }
     }
 }

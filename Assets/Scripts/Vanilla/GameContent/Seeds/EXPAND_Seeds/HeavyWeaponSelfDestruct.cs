@@ -49,6 +49,8 @@ namespace MVZ2.GameContent.Seeds
 
             // 挂上你写好的自爆 buff：进入无敌 → 倒计时 → 核爆 + 器械死亡  
             rider.AddBuff<HeavyWeaponSelfDestructBuff>();
+            var buff = rider.AddBuff<IronCurtainBuff>();
+            buff?.SetProperty(IronCurtainBuff.PROP_TIMEOUT, 150);
             rider.PlaySound(VanillaSoundID.ironCurtain);   // 无敌启动音效，按需替换  
         }
     }
