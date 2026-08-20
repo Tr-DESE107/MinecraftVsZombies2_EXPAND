@@ -4570,6 +4570,17 @@
                 <p>好黑啊，你没交电费吗</p>
             </flavor>
         </entry>
+        <entry id="mvz2:InfiniteCore">
+            <header>
+                <p>无尽核心。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>让关卡无尽出怪。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>携带后你就无法正常通关了。</p>
+            </flavor>
+        </entry>
 
     </artifacts>
     <misc>

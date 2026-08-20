@@ -189,6 +189,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 96d9f9a0702cc4b48a3cad9a65a5ccda, type: 3}
   - name: artifacts/hoe
     sprite: {fileID: 21300000, guid: 3099084e873c11d4084a10707cd96120, type: 3}
+  - name: artifacts/InfiniteCore
+    sprite: {fileID: 21300000, guid: c2d89328fa3443848b34b0cb813c0ad0, type: 3}
   - name: artifacts/inverted_mirror
     sprite: {fileID: 21300000, guid: d12e7157df0411749ab53333da0a507d, type: 3}
   - name: artifacts/LeftHandBow
