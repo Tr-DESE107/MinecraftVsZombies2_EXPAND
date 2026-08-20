@@ -67,10 +67,10 @@
         <option id="add_pearl" cost="50" name="增加弹珠">
             <icon sprite="mvz2:options/add_pearl" />
         </option>
-        <option id="heavy_weapon_nuke" cost="75" name="消灭敌人">
+        <option id="heavy_weapon_nuke" cost="75" name="释放核弹">
             <icon sprite="mvz2:options/heavy_weapon_nuke" mobile="mvz2:mobile_blueprint/heavy_weapon_nuke" />
         </option>
-        <option id="heavy_weapon_flashbang" cost="25" name="眩晕敌人">
+        <option id="heavy_weapon_flashbang" cost="50" name="闪光弹" tooltip="向指引位置丢出闪光弹">
             <icon sprite="mvz2:options/heavy_weapon_flashbang" mobile="mvz2:mobile_blueprint/heavy_weapon_flashbang" />
         </option>
         <option id="heavy_weapon_rapid" cost="125" name="增加射速">
@@ -80,13 +80,13 @@
             <icon sprite="mvz2:options/heavy_weapon_spread" mobile="mvz2:mobile_blueprint/heavy_weapon_spread" />
         </option>
         
-        <option id="HeavyWeaponGrenade" cost="50" name="手雷">
+        <option id="HeavyWeaponGrenade" cost="100" name="手雷" tooltip="向指引位置丢出手雷">
             <icon sprite="mvz2:options/HeavyWeaponGrenade" mobile="mvz2:mobile_blueprint/HeavyWeaponGrenade"/>
         </option>
-        <option id="HeavyWeaponSelfDestruct" cost="100" name="自爆">
+        <option id="HeavyWeaponSelfDestruct" cost="0" name="自爆" tooltip="启动后备隐藏能源！">
             <icon sprite="mvz2:options/HeavyWeaponSelfDestruct" mobile="mvz2:mobile_blueprint/HeavyWeaponSelfDestruct" />
         </option>
-        <option id="HeavyWeaponInvincible" cost="150" name="无敌">
+        <option id="HeavyWeaponInvincible" cost="150" name="无敌" tooltip="获得10秒无敌">
             <icon sprite="mvz2:options/HeavyWeaponInvincible" mobile="mvz2:mobile_blueprint/HeavyWeaponInvincible" />
         </option>
         <option id="HeavyWeaponSwitchProjectile" cost="50" name="切换子弹">
@@ -95,13 +95,13 @@
         <option id="HeavyWeaponBulletUpgrade" cost="125" name="子弹升级">
             <icon sprite="mvz2:options/HeavyWeaponBulletUpgrade" mobile="mvz2:mobile_blueprint/HeavyWeaponBulletUpgrade" />
         </option>
-        <option id="HeavyWeaponHeal" cost="50" name="生命回复">
+        <option id="HeavyWeaponHeal" cost="50" name="治疗药水" tooltip="恢复60%的血量">
             <icon sprite="mvz2:options/HeavyWeaponHeal" mobile="mvz2:mobile_blueprint/HeavyWeaponHeal" />
         </option>
-        <option id="HeavyWeaponRegen" cost="75" name="再生药水">
+        <option id="HeavyWeaponRegen" cost="75" name="再生药水" tooltip="随时间恢复600血量">
             <icon sprite="mvz2:options/HeavyWeaponRegen" mobile="mvz2:mobile_blueprint/HeavyWeaponRegen" />
         </option>
-        <option id="HeavyWeaponExtraLife" cost="200" name="更多生命">
+        <option id="HeavyWeaponExtraLife" cost="300" name="更多生命" tooltip="扩充后备机体">
             <icon sprite="mvz2:options/HeavyWeaponExtraLife" mobile="mvz2:mobile_blueprint/HeavyWeaponExtraLife" />
         </option>
     </options>

@@ -4840,6 +4840,10 @@
             <unlock>
                 <condition required="mvz2:level.ucannotunlock" />
             </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+                <behaviour operator="add" id="mvz2:boated_enemy" />
+            </behaviours>
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:MannequinCannon" />
                 <int name="mvz2:cost" value="500" />
