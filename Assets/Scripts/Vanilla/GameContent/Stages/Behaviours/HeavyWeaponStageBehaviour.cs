@@ -144,6 +144,10 @@ namespace MVZ2.GameContent.Stages
                 var snipenserReference = GetSnipenserReference(level);
                 if (snipenserReference != null && snipenserReference.IsEntity(entity))
                 {
+                    // 自爆蓝图致死不返还红石
+                    if (entity.GetFirstBuff<HeavyWeaponSelfDestructBuff>() != null)
+                        return;
+
                     var rapidUpgrade = MegaSnipenser.GetRapidLevel(entity);
                     var spreadUpgrade = MegaSnipenser.GetSpreadLevel(entity);
                     var rapidCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponRapid)?.GetCost() ?? 0;
