@@ -2,6 +2,8 @@
 
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Projectiles;
+using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
 using PVZEngine.Buffs;
@@ -30,10 +32,12 @@ namespace MVZ2.GameContent.Seeds
             var marker = level.Spawn(VanillaEffectID.aimTarget, origin, cart);  
             if (marker == null) return;  
             marker.SetParent(cart);  // 记录矿车引用，供 buff 抛投时取源点  
-  
-            var buff = marker.AddBuff<HeavyWeaponGrenadeMarkerBuff>();  
-            buff.SetProperty(HeavyWeaponGrenadeMarkerBuff.PROP_TIMEOUT, HeavyWeaponGrenadeMarkerBuff.COUNTDOWN_FRAMES);  
-            buff.SetProperty(HeavyWeaponGrenadeMarkerBuff.PROP_FACTION, faction);  
+
+            var buff = marker.AddBuff<HeavyWeaponThrowMarkerBuff>();
+            buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_TIMEOUT, HeavyWeaponThrowMarkerBuff.COUNTDOWN_FRAMES);
+            buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_FACTION, faction);
+            buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_SOUND_ID, VanillaSoundID.HeavyWeaponGrenade);
+            buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_PROJECTILE_ID, VanillaProjectileID.Grenade);
         }  
     }  
 }

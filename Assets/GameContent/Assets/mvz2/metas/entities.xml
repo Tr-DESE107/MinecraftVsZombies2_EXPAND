@@ -6587,7 +6587,7 @@
             </properties>
         </entity>
         <entity template="projectile" id="SniperBullet">
-            <behaviours includeSelf="false">
+            <behaviours includeSelf="true">
                 <behaviour operator="add" id="ElectrifiedBullet" />
             </behaviours>
             <properties>
@@ -6633,6 +6633,17 @@
                 <float name="mvz2:gravity" value="1" />
                 <float name="mvz2:damage" value="0" />
                 <float name="mvz2:range" value="200" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
+            </properties>
+        </entity>
+        <entity template="projectile" id="Molotov">
+            <properties>
+                <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:noDestroyOutsideLawn" value="true" />
+                <float name="mvz2:gravity" value="1" />
+                <float name="mvz2:damage" value="200" />
+                <float name="mvz2:range" value="120" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
             </properties>

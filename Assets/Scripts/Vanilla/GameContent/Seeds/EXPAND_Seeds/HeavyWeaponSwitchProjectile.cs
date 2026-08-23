@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Seeds
             var rider = HeavyWeaponBlueprintUtils.FindRider(level);
             if (rider == null) return;
             var cur = rider.GetProjectileID();
-            var next = (cur == VanillaProjectileID.arrow) ? VanillaProjectileID.PistolBullet : VanillaProjectileID.arrow;
+            var next = (cur == VanillaProjectileID.arrow) ? VanillaProjectileID.SniperBullet : VanillaProjectileID.arrow;
             rider.SetProperty(VanillaEntityProps.PROJECTILE_ID, next);
             rider.PlaySound(VanillaSoundID.gunReload);
         }

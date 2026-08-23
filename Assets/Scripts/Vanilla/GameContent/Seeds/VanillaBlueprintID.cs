@@ -30,6 +30,7 @@ namespace MVZ2.GameContent.Seeds
 
         //EXPAND
         public const string HeavyWeaponGrenade = "HeavyWeaponGrenade";
+        public const string HeavyWeaponMolotov = "HeavyWeaponMolotov";
         public const string HeavyWeaponSelfDestruct = "HeavyWeaponSelfDestruct";
         public const string HeavyWeaponInvincible = "HeavyWeaponInvincible";
         public const string HeavyWeaponSwitchProjectile = "HeavyWeaponSwitchProjectile";
@@ -63,6 +64,7 @@ namespace MVZ2.GameContent.Seeds
 
         //EXPAND
         public static readonly NamespaceID HeavyWeaponGrenade = Get(VanillaBlueprintNames.HeavyWeaponGrenade);
+        public static readonly NamespaceID HeavyWeaponMolotov = Get(VanillaBlueprintNames.HeavyWeaponMolotov);
         public static readonly NamespaceID HeavyWeaponSelfDestruct = Get(VanillaBlueprintNames.HeavyWeaponSelfDestruct);
         public static readonly NamespaceID HeavyWeaponInvincible = Get(VanillaBlueprintNames.HeavyWeaponInvincible);
         public static readonly NamespaceID HeavyWeaponSwitchProjectile = Get(VanillaBlueprintNames.HeavyWeaponSwitchProjectile);

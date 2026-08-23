@@ -19,11 +19,11 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.heavyWeaponSpread,
                 VanillaBlueprintID.heavyWeaponFlashbang,
                 VanillaBlueprintID.HeavyWeaponGrenade,
+                VanillaBlueprintID.HeavyWeaponMolotov,
                 VanillaBlueprintID.HeavyWeaponSelfDestruct,
                 VanillaBlueprintID.HeavyWeaponInvincible,
                 VanillaBlueprintID.HeavyWeaponSwitchProjectile,
                 VanillaBlueprintID.HeavyWeaponBulletUpgrade,
-                VanillaBlueprintID.HeavyWeaponHeal,
                 VanillaBlueprintID.HeavyWeaponRegen,
                 VanillaBlueprintID.HeavyWeaponExtraLife,
             };

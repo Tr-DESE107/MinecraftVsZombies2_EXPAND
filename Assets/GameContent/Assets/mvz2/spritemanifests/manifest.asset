@@ -549,6 +549,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1f7b6dab3a94a204fa581b0e9075c432, type: 3}
   - name: mobile_blueprint/HeavyWeaponInvincible
     sprite: {fileID: 21300000, guid: 42c7673b3e49aab4ebd926c7aeb69179, type: 3}
+  - name: mobile_blueprint/HeavyWeaponMolotov
+    sprite: {fileID: 21300000, guid: e6d260ce310035845af4e4103f82fd72, type: 3}
   - name: mobile_blueprint/HeavyWeaponRegen
     sprite: {fileID: 21300000, guid: 6972e1bfaf4fd3d418c8fe9b4d15e478, type: 3}
   - name: mobile_blueprint/HeavyWeaponSelfDestruct
@@ -955,6 +957,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f4f8467cc59fb834a85e1e5facbcc763, type: 3}
   - name: options/HeavyWeaponInvincible
     sprite: {fileID: 21300000, guid: 6665fde8a7d9d0941ad5b55b8e7761c3, type: 3}
+  - name: options/HeavyWeaponMolotov
+    sprite: {fileID: 21300000, guid: eaa24a02ea0e7984d8b880d6fc5f31aa, type: 3}
   - name: options/HeavyWeaponRegen
     sprite: {fileID: 21300000, guid: dab91d0fd7ce54e49ab03f1ce48321f7, type: 3}
   - name: options/HeavyWeaponSelfDestruct

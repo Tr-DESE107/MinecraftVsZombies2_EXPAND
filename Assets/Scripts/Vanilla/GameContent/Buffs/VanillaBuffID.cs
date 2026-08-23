@@ -238,8 +238,7 @@ namespace MVZ2.GameContent.Buffs
             public const string ChippedWitherSkeletonSkullReduceHealthBuff = "ChippedWitherSkeletonSkullReduceHealthBuff";
             
             public const string HeavyWeaponSelfDestruct = "HeavyWeaponSelfDestruct";
-            public const string HeavyWeaponGrenadeMarker = "HeavyWeaponGrenadeMarker";
-            public const string HeavyWeaponFlashbangMarkerBuff = "HeavyWeaponFlashbangMarkerBuff";
+            public const string HeavyWeaponThrowMarker = "HeavyWeaponThrowMarker ";
 
         }
         public static class Enemy
@@ -635,8 +634,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID ChippedWitherSkeletonSkullReduceHealthBuff = Get(VanillaBuffNames.Contraption.ChippedWitherSkeletonSkullReduceHealthBuff);
             
             public static readonly NamespaceID HeavyWeaponSelfDestruct = Get(VanillaBuffNames.Contraption.HeavyWeaponSelfDestruct);
-            public static readonly NamespaceID HeavyWeaponGrenadeMarker = Get(VanillaBuffNames.Contraption.HeavyWeaponGrenadeMarker);
-            public static readonly NamespaceID HeavyWeaponFlashbangMarkerBuff = Get(VanillaBuffNames.Contraption.HeavyWeaponFlashbangMarkerBuff);
+            public static readonly NamespaceID HeavyWeaponThrowMarker = Get(VanillaBuffNames.Contraption.HeavyWeaponThrowMarker);
         }
         public static class Enemy
         {

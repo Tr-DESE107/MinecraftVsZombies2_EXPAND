@@ -12,15 +12,15 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Seeds
 {
-    [AutoSeedOptionDefinition(VanillaBlueprintNames.heavyWeaponFlashbang)]
-    public class HeavyWeaponFlashbang : SeedOptionDefinition
+    [AutoSeedOptionDefinition(VanillaBlueprintNames.HeavyWeaponMolotov)]
+    public class HeavyWeaponMolotov : SeedOptionDefinition
     {
-        public HeavyWeaponFlashbang(string nsp, string name) : base(nsp, name) { }
+        public HeavyWeaponMolotov(string nsp, string name) : base(nsp, name) { }
         public override void Use(SeedPack seedPack) { base.Use(seedPack); Use(seedPack.Level); }
         public override void Use(LevelEngine level, SeedDefinition seedDef) { base.Use(level, seedDef); Use(level); }
         private void Use(LevelEngine level)
         {
-            var cart = HeavyWeaponBlueprintUtils.FindRider(level);
+            var cart = HeavyWeaponBlueprintUtils.FindCart(level);
             if (cart == null) return;
 
             // 阵营跟随矿车上的器械（找不到骑乘者时回退到左阵营）  
@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Seeds
             buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_TIMEOUT, HeavyWeaponThrowMarkerBuff.COUNTDOWN_FRAMES);
             buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_FACTION, faction);
             buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_SOUND_ID, VanillaSoundID.HeavyWeaponFlashbang);
-            buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_PROJECTILE_ID, VanillaProjectileID.Flashbang);
+            buff.SetProperty(HeavyWeaponThrowMarkerBuff.PROP_PROJECTILE_ID, VanillaProjectileID.Molotov);
         }
     }
 }
