@@ -2973,6 +2973,42 @@
             <spawn id="mvz2:KingSkeleton" />
         </spawns>
     </stage>
+
+    <stage id="HeavyWeapon_Plus" name="&lt;color=red&gt;重装兵器+&lt;/color&gt;" startEnergy="500" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.palace_9" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="8" wavesPerFlag="5" pointsPower="1.2" pointsMultiplier="1.7" pointsAddition="1">
+            <spawn id="mvz2:MonkZombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:AngryReverser" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:reflective_barrier_zombie" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:shikaisen_zombie" />
+            <spawn id="mvz2:MusketeerZombie" />
+            <spawn id="mvz2:XCarrierMutant" />
+            <spawn id="mvz2:cannoneer_zombie" />
+            <spawn id="mvz2:zombie_cat" />
+            <spawn id="mvz2:AssaultDullahan" />
+            <spawn id="mvz2:BerserkerHead" />
+            <spawn id="mvz2:FlyingPot" />
+
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:skeleton_mage" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <bool name="autoCollectAll" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
+    </stage>
     
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle">
