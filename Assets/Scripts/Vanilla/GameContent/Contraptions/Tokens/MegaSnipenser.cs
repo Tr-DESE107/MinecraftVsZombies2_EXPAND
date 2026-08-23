@@ -116,6 +116,11 @@ namespace MVZ2.GameContent.Contraptions
                 var vel = speed * new Vector3(velDirection.x, 0, velDirection.y);
 
                 var param = entity.GetShootParams();
+                // 按子弹类型区分伤害倍率  
+                if (param.projectileID == VanillaProjectileID.arrow)
+                    param.damage = entity.GetDamage() * 1f;
+                else if (param.projectileID == VanillaProjectileID.SniperBullet)
+                    param.damage = entity.GetDamage() * 0.75f;
                 param.position = position;
                 param.velocity = vel;
                 param.spawnParam = spawnParam;

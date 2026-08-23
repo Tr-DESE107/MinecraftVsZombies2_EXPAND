@@ -42,8 +42,8 @@ namespace MVZ2.GameContent.Projectiles
             // 落地闪光特效（沿用原闪光弹蓝图的特效）  
             level.Spawn(VanillaEffectID.stunningFlash, center, null);
 
-            // 5×5 眩晕：格宽约 80，半径 = 2.5 格  
-            float radius = 5 * 80 * 0.5f;
+            //  6*6眩晕
+            float radius = 6 * 80 * 0.5f;
             bool stunned = false;
             foreach (var target in level.FindEntities(e =>
                 e.IsVulnerableEntity() && projectile.IsHostile(e) && e.CanDeactive()))

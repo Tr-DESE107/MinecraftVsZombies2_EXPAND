@@ -16,6 +16,17 @@ namespace MVZ2.GameContent.Seeds
         public HeavyWeaponBulletUpgrade(string nsp, string name) : base(nsp, name) { }
         public override void Use(SeedPack seedPack) { base.Use(seedPack); Use(seedPack.Level); }
         public override void Use(LevelEngine level, SeedDefinition seedDef) { base.Use(level, seedDef); Use(level); }
+
+        // 每帧刷新禁用状态：无器械 或 已升级 时禁用蓝图，避免升级后重复点击浪费  
+        public override void Update(SeedPack seedPack, float rechargeSpeed)
+        {
+            base.Update(seedPack, rechargeSpeed);
+            var rider = HeavyWeaponBlueprintUtils.FindRider(seedPack.Level);
+            // 有器械且尚未升级子弹才可用  
+            bool valid = rider != null && !rider.GetProperty<bool>(MegaSnipenser.PROP_BULLET_UPGRADED);
+            seedPack.SetProperty(EngineSeedProps.DISABLE_ID, valid ? null : LogicBlueprintErrors.invalid);
+        }
+
         private void Use(LevelEngine level)
         {
             var rider = HeavyWeaponBlueprintUtils.FindRider(level);

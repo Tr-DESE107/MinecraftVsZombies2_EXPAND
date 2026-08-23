@@ -1494,6 +1494,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13a31444b23d8d94fa4f0860fc7b516a
+    m_Address: mvz2:projectile/EXPAND_projectile/Molotov
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13b6d5b3963809543b2c3ae66757af81
     m_Address: mvz2:damage/hit3
     m_ReadOnly: 0
@@ -14277,6 +14284,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2d89328fa3443848b34b0cb813c0ad0
+    m_Address: mvz2:artifacts/InfiniteCore
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2e6ace3e57f0964eb3d1cfe1113a3cd
     m_Address: mvz2:characters/shinmyoumaru_bottle
     m_ReadOnly: 0
@@ -16811,6 +16825,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6d260ce310035845af4e4103f82fd72
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponMolotov
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6dde8f0d5171b748a05a0935ba9b4a4
     m_Address: mvz2:pickup/diamond
     m_ReadOnly: 0
@@ -17082,6 +17103,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eaa24a02ea0e7984d8b880d6fc5f31aa
+    m_Address: mvz2:options/HeavyWeaponMolotov
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eab8d1bdeadd7794282d5de740563c3e
     m_Address: mvz2:mobile_blueprint/IronGhost

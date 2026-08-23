@@ -80,7 +80,7 @@
             <icon sprite="mvz2:options/heavy_weapon_spread" mobile="mvz2:mobile_blueprint/heavy_weapon_spread" />
         </option>
         
-        <option id="HeavyWeaponGrenade" cost="125" name="手雷" tooltip="向指引位置丢出手雷">
+        <option id="HeavyWeaponGrenade" cost="100" name="手雷" tooltip="向指引位置丢出手雷">
             <icon sprite="mvz2:options/HeavyWeaponGrenade" mobile="mvz2:mobile_blueprint/HeavyWeaponGrenade"/>
         </option>
         <option id="HeavyWeaponMolotov" cost="75" name="燃烧瓶" tooltip="向指引位置丢出燃烧瓶">
@@ -89,10 +89,10 @@
         <option id="HeavyWeaponSelfDestruct" cost="0" name="自爆" tooltip="启动后备隐藏能源！">
             <icon sprite="mvz2:options/HeavyWeaponSelfDestruct" mobile="mvz2:mobile_blueprint/HeavyWeaponSelfDestruct" />
         </option>
-        <option id="HeavyWeaponInvincible" cost="150" name="无敌" tooltip="获得10秒无敌">
+        <option id="HeavyWeaponInvincible" cost="100" name="无敌" tooltip="获得10秒无敌">
             <icon sprite="mvz2:options/HeavyWeaponInvincible" mobile="mvz2:mobile_blueprint/HeavyWeaponInvincible" />
         </option>
-        <option id="HeavyWeaponSwitchProjectile" cost="50" name="切换子弹">
+        <option id="HeavyWeaponSwitchProjectile" cost="25" name="切换子弹">
             <icon sprite="mvz2:options/HeavyWeaponSwitchProjectile" mobile="mvz2:mobile_blueprint/HeavyWeaponSwitchProjectile" />
         </option>
         <option id="HeavyWeaponBulletUpgrade" cost="200" name="子弹升级">

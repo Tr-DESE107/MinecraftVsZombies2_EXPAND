@@ -98,7 +98,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public static readonly VanillaBuffPropertyMeta<NamespaceID> PROP_SOUND_ID = new VanillaBuffPropertyMeta<NamespaceID>("SoundID");
         public static readonly VanillaBuffPropertyMeta<NamespaceID> PROP_PROJECTILE_ID = new VanillaBuffPropertyMeta<NamespaceID>("ProjectileID");
 
-        public const int COUNTDOWN_FRAMES = 45;  // 1.5s  
+        public const int COUNTDOWN_FRAMES = 30;
         public const int TIMEOUT_MARGIN = 15;
         public const float THROW_ARC = 200f;
         public const float FOLLOW_DAMP = 0.35f;
