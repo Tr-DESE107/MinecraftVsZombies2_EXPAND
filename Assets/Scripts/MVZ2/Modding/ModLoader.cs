@@ -4,8 +4,6 @@ using System;
 using System.Linq;
 using System.Reflection;
 using MVZ2.GameContent.Seeds;
-using MVZ2Logic.Blueprints;
-using MVZ2Logic.Level;
 using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -35,7 +33,6 @@ using PVZEngine.Buffs;
 using PVZEngine.Difficulties;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using PVZEngine.Spawns;
 using UnityEngine;
 
@@ -522,7 +519,7 @@ namespace MVZ2.Modding
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.MOBILE_ICON, meta.GetMobileIcon());
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.MODEL_ID, meta.GetModelID());
 
-                var seedDef = new OptionSeed(nsp, seedOptionDefinition.Name, seedOptionDefinition.GetCost());
+                var seedDef = new OptionSeed(nsp, seedOptionDefinition.Name, seedOptionDefinition.GetCost(), meta.RechargeID);
                 seedDef.SetIcon(seedOptionDefinition.GetIcon());
                 seedDef.SetMobileIcon(seedOptionDefinition.GetMobileIcon());
                 seedDef.SetModelID(seedOptionDefinition.GetModelID());
