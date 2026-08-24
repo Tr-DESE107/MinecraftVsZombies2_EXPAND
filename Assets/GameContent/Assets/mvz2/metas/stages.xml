@@ -2943,23 +2943,51 @@
         </properties>
     </stage>
 
-    <stage id="PacZombie" name="吃僵人" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
+    <stage id="PacZombie" name="吃僵人" startEnergy="150" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="2" pointsMultiplier="1.5">
             <spawn id="mvz2:MonkZombie" />
             <spawn id="mvz2:LeatherMonkZombie" />
             <spawn id="mvz2:IronMonkZombie" />
-            <spawn id="mvz2:Mannequin" />
-            <spawn id="mvz2:ImpMannequin" />
             <spawn id="mvz2:mutant_zombie" />
             <spawn id="mvz2:Hemperor" />
             <spawn id="mvz2:emperor" />
             <spawn id="mvz2:KingSkeleton" />
+            <spawn id="mvz2:FlyingPot" />
+            <spawn id="mvz2:SuperMegaZombie" />
+            <spawn id="mvz2:MeleeSkeleton" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:shikaisen_zombie" />
+            <spawn id="mvz2:mother_terror" />
         </spawns>
+        <time firstWave="1" />
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />
-            <bool name="noEnergy" value="true" />
-            <float name="redstoneCarrierCounterIncreament" value="33" />
+            <float name="redstoneCarrierCounterIncreament" value="80" />
+        </properties>
+    </stage>
+    
+    <stage id="PacZombie_2" name="吃僵人2" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="3" pointsMultiplier="1.5">
+            <spawn id="mvz2:MonkZombie" />
+            <spawn id="mvz2:IronMonkZombie" />
+            <spawn id="mvz2:Mannequin" />
+            <spawn id="mvz2:ImpMannequin" />
+            <spawn id="mvz2:CannoneerMannequin" />
+            <spawn id="mvz2:MutantMannequin" />
+            <spawn id="mvz2:mutant_zombie" />
+            <spawn id="mvz2:Hemperor" />
+            <spawn id="mvz2:emperor" />
+            <spawn id="mvz2:KingSkeleton" />
+            <spawn id="mvz2:XCarrierMutant" />
+            <spawn id="mvz2:TeslaTrooper" />
+            <spawn id="mvz2:PhaseSpider" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="80" />
         </properties>
     </stage>
     

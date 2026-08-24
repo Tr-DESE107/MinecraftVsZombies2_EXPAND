@@ -27,14 +27,14 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaBlueprintID.heavyWeaponFlashbang,
                 VanillaBlueprintID.HeavyWeaponGrenade,
-                VanillaBlueprintID.HeavyWeaponSelfDestruct,
+                VanillaBlueprintID.HeavyWeaponMolotov,
+                VanillaBlueprintID.HeavyWeaponEnderPearl,
                 VanillaBlueprintID.HeavyWeaponInvincible,
                 VanillaBlueprintID.HeavyWeaponSwitchProjectile,
-                VanillaBlueprintID.HeavyWeaponBulletUpgrade,
-                VanillaBlueprintID.HeavyWeaponHeal,
                 VanillaBlueprintID.HeavyWeaponRegen,
+                VanillaBlueprintID.HeavyWeaponBulletUpgrade,
                 VanillaBlueprintID.HeavyWeaponExtraLife,
-                VanillaBlueprintID.HeavyWeaponEnderPearl,
+                VanillaBlueprintID.HeavyWeaponSelfDestruct,
             };
             level.SetSeedSlotCount(blueprints.Length);
             level.FillSeedPacks(blueprints);

@@ -120,7 +120,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (param.projectileID == VanillaProjectileID.arrow)
                     param.damage = entity.GetDamage() * 1f;
                 else if (param.projectileID == VanillaProjectileID.SniperBullet)
-                    param.damage = entity.GetDamage() * 0.75f;
+                    param.damage = entity.GetDamage() * 0.85f;
                 param.position = position;
                 param.velocity = vel;
                 param.spawnParam = spawnParam;

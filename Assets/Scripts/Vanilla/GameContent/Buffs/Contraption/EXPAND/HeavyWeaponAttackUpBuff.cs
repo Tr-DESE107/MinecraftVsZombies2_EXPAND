@@ -41,8 +41,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public static void SetLevel(Buff buff, int value) => buff.SetProperty(PROP_LEVEL, value);
 
         // ===== 可调参数 =====  
-        public const float DAMAGE_PER_LEVEL = 0.2f;   // 每级增量 20%（可改）  
-        public const int MAX_LEVEL = 3;               // 满级上限 3 级（可改）  
+        public const float DAMAGE_PER_LEVEL = 0.35f;   // 每级增量
+        public const int MAX_LEVEL = 10;               // 满级上限
 
         public static readonly VanillaBuffPropertyMeta<int> PROP_LEVEL =
             new VanillaBuffPropertyMeta<int>("attack_up_level");

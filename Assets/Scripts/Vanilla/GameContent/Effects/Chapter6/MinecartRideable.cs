@@ -170,8 +170,8 @@ namespace MVZ2.GameContent.Effects
         public static int GetSpeedLevel(LevelEngine level) => level.GetProperty<int>(PROP_SPEED_LEVEL);
         public static void SetSpeedLevel(LevelEngine level, int value) => level.SetProperty(PROP_SPEED_LEVEL, value);
 
-        public const float SPEED_PER_LEVEL = 0.2f;  // 每级增量 20%（可改）  
-        public const int MAX_SPEED_LEVEL = 3;       // 满级上限 3 级（可改）  
+        public const float SPEED_PER_LEVEL = 0.3f;  // 每级增量
+        public const int MAX_SPEED_LEVEL = 5;       // 满级上限
 
         [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta<int> PROP_SPEED_LEVEL =

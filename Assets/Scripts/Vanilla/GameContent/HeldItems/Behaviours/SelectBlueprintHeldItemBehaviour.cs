@@ -152,17 +152,21 @@ namespace MVZ2.GameContent.HeldItems
                         break;
                     }
 
-                case SeedTypes.OPTION:
-                    {
-                        var optionID = blueprint.GetSeedOptionID();
-                        if (optionID == null)
-                            return;
-                        var optionDef = level.Content.GetSeedOptionDefinition(optionID);
-                        if (optionDef == null)
-                            return;
-                        optionDef.Use(blueprint);
-                        level.AddEnergy(-blueprint.GetCost());
-                        break;
+                case SeedTypes.OPTION:  
+                    {  
+                        var optionID = blueprint.GetSeedOptionID();  
+                        if (optionID == null)  
+                            return;  
+                        var optionDef = level.Content.GetSeedOptionDefinition(optionID);  
+                        if (optionDef == null)  
+                            return;  
+                        optionDef.Use(blueprint);  
+                        level.AddEnergy(-blueprint.GetCost());  
+                        // 使用后重置充能，使配置了 recharge 的选项蓝图进入冷却倒计时。  
+                        // 未配置 recharge（RECHARGE_ID 为 null）的选项蓝图 MaxRecharge 为 0，重置后仍立即可用，保持旧行为。
+                        blueprint.SetStartRecharge(false);
+                        blueprint.ResetRecharge();  
+                        break;  
                     }
             }
         }
