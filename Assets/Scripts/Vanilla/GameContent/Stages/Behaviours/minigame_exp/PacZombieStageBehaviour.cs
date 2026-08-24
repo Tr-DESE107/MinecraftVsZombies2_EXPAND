@@ -89,6 +89,7 @@ namespace MVZ2.GameContent.Stages
             devParams.SetProperty(LogicEntityProps.GRID_LAYERS, Array.Empty<NamespaceID>());
             devParams.SetProperty(Devourer.PROP_ENDLESS_GHOST, true);
             var devourer = level.Spawn(VanillaContraptionID.devourer, cart.Position, cart, devParams);
+            devourer? .AddBuff<DreamButterflyShieldBuff>();
             if (devourer == null)
                 return;
             devourer.RideOn(cart);

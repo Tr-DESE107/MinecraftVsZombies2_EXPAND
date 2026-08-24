@@ -88,6 +88,7 @@ namespace MVZ2.GameContent.Stages
                 timer.Reset();
                 DropBomb(level);
                 DropBomb(level);
+                DropBomb(level);
             }
         }
 
@@ -102,6 +103,7 @@ namespace MVZ2.GameContent.Stages
             param.SetProperty(LogicEntityProps.GRID_LAYERS, Array.Empty<NamespaceID>());
             // 换成你想让玩家操纵的器械ID    
             var rider = level.Spawn(VanillaContraptionID.MegaSnipenser, cart.Position, cart, param);
+            rider?.AddBuff<DreamButterflyShieldBuff>();
             if (rider != null)
             {
                 rider.RideOn(cart);

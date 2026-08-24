@@ -114,7 +114,7 @@
             <icon sprite="mvz2:options/HeavyWeaponSpeedUp" mobile="mvz2:mobile_blueprint/HeavyWeaponSpeedUp" />
         </option>
         <option id="HeavyWeaponEnderPearl" cost="50" name="投掷末影珍珠">
-            <icon sprite="mvz2:options/EnderPearl" mobile="mvz2:mobile_blueprint/EnderPearl" />
+            <icon sprite="mvz2:options/HeavyWeaponEnderPearl" mobile="mvz2:mobile_blueprint/HeavyWeaponEnderPearl" />
         </option>
     </options>
     <entities>

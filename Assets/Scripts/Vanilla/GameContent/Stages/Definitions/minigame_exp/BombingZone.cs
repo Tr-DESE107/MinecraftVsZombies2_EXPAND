@@ -26,7 +26,6 @@ namespace MVZ2.GameContent.Stages
             var blueprints = new NamespaceID[]
             {
                 VanillaBlueprintID.heavyWeaponFlashbang,
-                VanillaBlueprintID.heavyWeaponSpread,
                 VanillaBlueprintID.HeavyWeaponGrenade,
                 VanillaBlueprintID.HeavyWeaponSelfDestruct,
                 VanillaBlueprintID.HeavyWeaponInvincible,
@@ -35,6 +34,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.HeavyWeaponHeal,
                 VanillaBlueprintID.HeavyWeaponRegen,
                 VanillaBlueprintID.HeavyWeaponExtraLife,
+                VanillaBlueprintID.HeavyWeaponEnderPearl,
             };
             level.SetSeedSlotCount(blueprints.Length);
             level.FillSeedPacks(blueprints);

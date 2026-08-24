@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1702841713693596924}
   - component: {fileID: 5593901503314169732}
   m_Layer: 0
-  m_Name: FireCharge
+  m_Name: Flashbang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

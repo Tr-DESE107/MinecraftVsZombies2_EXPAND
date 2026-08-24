@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6826729483676753597}
   - component: {fileID: 6051617798937369833}
   m_Layer: 0
-  m_Name: FireCharge
+  m_Name: Molotov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

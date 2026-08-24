@@ -543,6 +543,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3457c242aef3c50469c3c8037c8a69e6, type: 3}
   - name: mobile_blueprint/HeavyWeaponBulletUpgrade
     sprite: {fileID: 21300000, guid: 8a1476027b3fff44682620fac7e16247, type: 3}
+  - name: mobile_blueprint/HeavyWeaponEnderPearl
+    sprite: {fileID: 21300000, guid: 4a22ae9d263652d42a4d5ef460c6f9e9, type: 3}
   - name: mobile_blueprint/HeavyWeaponExtraLife
     sprite: {fileID: 21300000, guid: 897ff854ecf701c4a8e582af863b7f4e, type: 3}
   - name: mobile_blueprint/HeavyWeaponGrenade
@@ -955,6 +957,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 102631c9b075f8449884c53127242754, type: 3}
   - name: options/HeavyWeaponBulletUpgrade
     sprite: {fileID: 21300000, guid: a01ab9154c5b1eb4cb185b91c9b505ec, type: 3}
+  - name: options/HeavyWeaponEnderPearl
+    sprite: {fileID: 21300000, guid: 79ae29d9bfbfc5543884ee1932bf8bab, type: 3}
   - name: options/HeavyWeaponExtraLife
     sprite: {fileID: 21300000, guid: 86aca7b9b1ab29a47b1f40faf1ac414c, type: 3}
   - name: options/HeavyWeaponGrenade

@@ -34,6 +34,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.HeavyWeaponExtraLife,
                 VanillaBlueprintID.HeavyWeaponAttackUp,
                 VanillaBlueprintID.HeavyWeaponSpeedUp,
+                VanillaBlueprintID.HeavyWeaponEnderPearl,
             };
             level.SetSeedSlotCount(blueprints.Length);
             level.FillSeedPacks(blueprints);

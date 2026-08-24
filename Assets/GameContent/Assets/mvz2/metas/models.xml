@@ -940,6 +940,7 @@
     <model name="Grenade" type="entity" path="mvz2:projectile/EXPAND_projectile/Grenade" width="48" height="48" xOffset="0" yOffset="-12" />
     <model name="Flashbang" type="entity" path="mvz2:projectile/EXPAND_projectile/Flashbang" width="48" height="48" xOffset="0" yOffset="-12" />
     <model name="Molotov" type="entity" path="mvz2:projectile/EXPAND_projectile/Molotov" width="48" height="48" xOffset="0" yOffset="-12" />
+    <model name="EnderPearl" type="entity" path="mvz2:projectile/EXPAND_projectile/EnderPearl" width="48" height="48" xOffset="0" yOffset="-12" />
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0" />

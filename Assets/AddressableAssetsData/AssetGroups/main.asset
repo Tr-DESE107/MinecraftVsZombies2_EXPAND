@@ -1179,6 +1179,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 102631c9b075f8449884c53127242754
+    m_Address: mvz2:options/HeavyWeaponAttackUp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 102e865101898c94197e21c6db1c812e
     m_Address: mvz2:frankenstein_laugh
     m_ReadOnly: 0
@@ -1342,6 +1349,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11ac6f32e59e29e4aa1067a79c215185
     m_Address: mvz2:mobile_blueprint/soul_furnace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11c24756ad0e254459627d5c2ea1e141
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponSpeedUp
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3908,6 +3922,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3457c242aef3c50469c3c8037c8a69e6
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponAttackUp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 347ba7833809ef7499cf20ae63768fc7
     m_Address: mvz2:ui/level/GreenCard
     m_ReadOnly: 0
@@ -5638,6 +5659,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49ce9f6fb80015c47ae81c9411d9d103
     m_Address: mvz2:entity/contraptions/golden_dropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a22ae9d263652d42a4d5ef460c6f9e9
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponEnderPearl
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8980,6 +9008,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79ae29d9bfbfc5543884ee1932bf8bab
+    m_Address: mvz2:options/HeavyWeaponEnderPearl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79bcc45aea9a716458fee6ef9353b9bb
     m_Address: mvz2:pickup/CopperNugget
     m_ReadOnly: 0
@@ -10424,6 +10459,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8cf98dd491e96bf47ad3a5767c1578b2
     m_Address: mvz2:ui/level/card_upgrade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d2b6809b4d9b0a4892946ba1d956f39
+    m_Address: mvz2:options/HeavyWeaponSpeedUp
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -17320,6 +17362,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed8485d69febcea41a5e7215202289f7
+    m_Address: mvz2:projectile/EXPAND_projectile/EnderPearl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: edbf8d7615f557542ba5d6015f37ebf0
     m_Address: mvz2:entity/EXPAND_Enemy/ReverserBody0
