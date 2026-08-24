@@ -184,6 +184,31 @@ namespace MVZ2.GameContent.Stages
                     t?.ResetTime(WARNING_FRAMES + 5);
                 }
             });
+
+            var rng2 = level.GetSpawnRNG();
+            if (rng2.Next(100) < 2)
+            {
+                DropRedstoneOreCard(level);
+            }
+        }
+        private void DropRedstoneOreCard(LevelEngine level)
+        {
+            var rng = level.GetSpawnRNG();
+
+            // 随机选一列、一行作为落点（横向随机，纵向取该行的 z）    
+            int column = rng.Next(level.GetMaxColumnCount());
+            int lane = rng.Next(level.GetMaxLaneCount());
+            float x = level.GetEntityColumnX(column);
+            float z = level.GetEntityLaneZ(lane);
+            float groundY = level.GetGroundY(x, z);
+
+            // 卡片内容 = 红石矿蓝图；卡片自带重力，从高空生成后自然下落    
+            var param = new SpawnParams();
+            var blueprintID = LogicBlueprintID.FromEntity(VanillaContraptionID.RedStoneOre);
+            param.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
+
+            var source = new Vector3(x, groundY + 800f, z);
+            level.Spawn(VanillaPickupID.blueprintPickup, source, null, param);
         }
 
         // 炸弹池（已移除 explosiveLargeFireball——它按计时器爆炸，落点对不上标识）    

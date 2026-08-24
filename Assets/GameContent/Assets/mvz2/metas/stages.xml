@@ -2965,16 +2965,18 @@
     
     <stage id="BombingZone" name="轰炸区" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="2" pointsMultiplier="1">
-            <spawn id="mvz2:MonkZombie" />
-            <spawn id="mvz2:LeatherMonkZombie" />
-            <spawn id="mvz2:IronMonkZombie" />
-            <spawn id="mvz2:Mannequin" />
-            <spawn id="mvz2:ImpMannequin" />
-            <spawn id="mvz2:mutant_zombie" />
-            <spawn id="mvz2:Hemperor" />
-            <spawn id="mvz2:emperor" />
+        <spawns flags="2" pointsMultiplier="1.5">
+            <spawn id="mvz2:SkeletonHead" />
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:mummy" />
+            <spawn id="mvz2:spider" />
+            <spawn id="mvz2:MeleeSkeleton" />
+            <spawn id="mvz2:emperor_zombie" />
+            <spawn id="mvz2:NetherArcher" />
             <spawn id="mvz2:KingSkeleton" />
+            <spawn id="mvz2:PirateIMP" />
+            <spawn id="mvz2:MusketeerZombie" />
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />
