@@ -239,6 +239,7 @@ namespace MVZ2.GameContent.Buffs
             
             public const string HeavyWeaponSelfDestruct = "HeavyWeaponSelfDestruct";
             public const string HeavyWeaponThrowMarker = "HeavyWeaponThrowMarker ";
+            public const string HeavyWeaponAttackUp = "HeavyWeaponAttackUp ";
 
         }
         public static class Enemy
@@ -635,6 +636,7 @@ namespace MVZ2.GameContent.Buffs
             
             public static readonly NamespaceID HeavyWeaponSelfDestruct = Get(VanillaBuffNames.Contraption.HeavyWeaponSelfDestruct);
             public static readonly NamespaceID HeavyWeaponThrowMarker = Get(VanillaBuffNames.Contraption.HeavyWeaponThrowMarker);
+            public static readonly NamespaceID HeavyWeaponAttackUp = Get(VanillaBuffNames.Contraption.HeavyWeaponAttackUp);
         }
         public static class Enemy
         {

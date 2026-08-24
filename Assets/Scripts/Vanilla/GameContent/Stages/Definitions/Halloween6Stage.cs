@@ -2,10 +2,8 @@
 
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Level;
-
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Level;
-
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
@@ -17,8 +15,10 @@ namespace MVZ2.GameContent.Stages
     {
         public Halloween6Stage(string nsp, string name) : base(nsp, name)
         {
-            var waveStageBehaviour = new WaveStageBehaviour(this);
-            waveStageBehaviour.SpawnFlagZombie = false;
+            var waveStageBehaviour = new WaveStageBehaviour(this)
+            {
+                SpawnFlagZombie = false
+            };
             AddBehaviour(waveStageBehaviour);
             AddBehaviour(new WhackAGhostBehaviour(this));
             AddBehaviour(new FinalWaveClearBehaviour(this));

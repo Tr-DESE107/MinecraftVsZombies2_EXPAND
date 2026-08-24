@@ -65,9 +65,11 @@ namespace MVZ2.GameContent.Effects
                 var moveInput = GetMoveInput(entity.Level);    // z 轴：上下    
                 var moveInputX = GetMoveInputX(entity.Level);  // x 轴：左右    
                 if (moveInput != 0 || moveInputX != 0)  
-                {  
+                {
                     // 两套速度：在轨道上用 RAIL_MOVE_SPEED，脱离轨道用 FREE_MOVE_SPEED    
-                    var speed = hasRail ? RAIL_MOVE_SPEED : FREE_MOVE_SPEED;  
+                    // 基础速度按矿车速度升级等级放大：每级 +SPEED_PER_LEVEL  
+                    var baseSpeed = hasRail ? RAIL_MOVE_SPEED : FREE_MOVE_SPEED;
+                    var speed = baseSpeed * (1f + GetSpeedLevel(entity.Level) * SPEED_PER_LEVEL);
                     var target = GetTargetPosition(entity);  
                     target.z += moveInput * speed;  
                     target.x += moveInputX * speed;  
@@ -162,8 +164,19 @@ namespace MVZ2.GameContent.Effects
         public static int GetMoveInput(LevelEngine level) => level.GetProperty<int>(PROP_MOVE_INPUT);  
         public static void SetMoveInput(LevelEngine level, int value) => level.SetProperty(PROP_MOVE_INPUT, value);  
         public static int GetMoveInputX(LevelEngine level) => level.GetProperty<int>(PROP_MOVE_INPUT_X);  
-        public static void SetMoveInputX(LevelEngine level, int value) => level.SetProperty(PROP_MOVE_INPUT_X, value);  
-  
+        public static void SetMoveInputX(LevelEngine level, int value) => level.SetProperty(PROP_MOVE_INPUT_X, value);
+
+        // 矿车速度升级等级（存在关卡属性上，矿车重生后依然保留）  
+        public static int GetSpeedLevel(LevelEngine level) => level.GetProperty<int>(PROP_SPEED_LEVEL);
+        public static void SetSpeedLevel(LevelEngine level, int value) => level.SetProperty(PROP_SPEED_LEVEL, value);
+
+        public const float SPEED_PER_LEVEL = 0.2f;  // 每级增量 20%（可改）  
+        public const int MAX_SPEED_LEVEL = 3;       // 满级上限 3 级（可改）  
+
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<int> PROP_SPEED_LEVEL =
+            new VanillaLevelPropertyMeta<int>("hw_speed_level");
+
         public const float VELOCITY_DAMP = 0.1f;  
         public const float RAIL_MOVE_SPEED = 12f;   // 轨道上速度（可调）    
         public const float FREE_MOVE_SPEED = 8f;    // 脱离轨道速度（可调）    

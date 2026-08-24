@@ -107,6 +107,15 @@
         <option id="HeavyWeaponExtraLife" cost="300" name="更多生命" tooltip="扩充后备机体">
             <icon sprite="mvz2:options/HeavyWeaponExtraLife" mobile="mvz2:mobile_blueprint/HeavyWeaponExtraLife" />
         </option>
+        <option id="HeavyWeaponAttackUp" cost="150" name="攻击力增加">
+            <icon sprite="mvz2:options/HeavyWeaponAttackUp" mobile="mvz2:mobile_blueprint/HeavyWeaponAttackUp" />
+        </option>
+        <option id="HeavyWeaponSpeedUp" cost="150" name="速度增加">
+            <icon sprite="mvz2:options/HeavyWeaponSpeedUp" mobile="mvz2:mobile_blueprint/HeavyWeaponSpeedUp" />
+        </option>
+        <option id="HeavyWeaponEnderPearl" cost="50" name="投掷末影珍珠">
+            <icon sprite="mvz2:options/EnderPearl" mobile="mvz2:mobile_blueprint/EnderPearl" />
+        </option>
     </options>
     <entities>
         <entity id="skeleton_mage_fire" cost="75" name="骷髅法师（火）" entity="mvz2:skeleton_mage" variant="1">

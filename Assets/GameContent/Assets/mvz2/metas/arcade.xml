@@ -52,13 +52,13 @@
     <minigame id="big_trouble_and_little_zombie_2" stage="mvz2:big_trouble_and_little_zombie_2" area="mvz2:castle" icon="mvz2:arcade/big_trouble_and_little_zombie_2" />
     <minigame id="GiantCrisis" stage="mvz2:GiantCrisis" area="mvz2:castle" icon="mvz2:arcade/GiantCrisis" />
     <minigame id="DowsingNote" stage="mvz2:DowsingNote" area="mvz2:mausoleum" icon="mvz2:arcade/DowsingNote" />
-    <minigame/>
     
     <minigame id="FeedFeast" stage="mvz2:FeedFeast" area="mvz2:halloween" icon="mvz2:arcade/FeedFeast" />
     <minigame id="ZombiesTide" stage="mvz2:ZombiesTide" area="mvz2:mausoleum" icon="mvz2:arcade/ZombiesTide" />
     <minigame id="WarThunder" stage="mvz2:WarThunder" area="mvz2:dream" icon="mvz2:arcade/WarThunder" />
     <minigame id="ZombieNimbleZombieQuick" stage="mvz2:ZombieNimbleZombieQuick" area="mvz2:castle" icon="mvz2:arcade/ZombieNimbleZombieQuick" />
     <minigame id="BalloonParty" stage="mvz2:BalloonParty" area="mvz2:castle" icon="mvz2:arcade/BalloonParty" />
+    <minigame/>
 
     <minigame id="AnotherPrologue" stage="mvz2:AnotherPrologue" area="mvz2:day" icon="mvz2:arcade/AnotherPrologue" />
     <minigame id="OpticalIllusion" stage="mvz2:OpticalIllusion" area="mvz2:dream" icon="mvz2:arcade/OpticalIllusion" />
@@ -67,7 +67,8 @@
     <minigame id="InfinityWither" stage="mvz2:InfinityWither" area="mvz2:castle" icon="mvz2:arcade/InfinityWither" />
 
     <minigame id="HeavyWeaponVSMannequin" stage="mvz2:HeavyWeaponVSMannequin" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponVSMannequin" />
-    <minigame id="HeavyWeaponBossRush" stage="mvz2:HeavyWeaponBossRush" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponBossRush" />
+    <!--
+    <minigame id="HeavyWeaponBossRush" stage="mvz2:HeavyWeaponBossRush" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponBossRush" />-->
     <minigame id="BombingZone" stage="mvz2:BombingZone" area="mvz2:halloween" icon="mvz2:arcade/BombingZone" />
     <minigame id="PacZombie" stage="mvz2:PacZombie" area="mvz2:mausoleum" icon="mvz2:arcade/PacZombie" />
     

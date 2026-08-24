@@ -18,7 +18,8 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new FinalWaveClearBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new PacZombieStageBehaviour(this));
-
+            AddBehaviour(new RedstoneDropStageBehaviour(this));
+            AddBehaviour(new SpeedUpStageBehaviour(this, 1.5f, 2f));
         }
         public override void OnStart(LevelEngine level)
         {
@@ -31,6 +32,8 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.HeavyWeaponHeal,
                 VanillaBlueprintID.HeavyWeaponRegen,
                 VanillaBlueprintID.HeavyWeaponExtraLife,
+                VanillaBlueprintID.HeavyWeaponAttackUp,
+                VanillaBlueprintID.HeavyWeaponSpeedUp,
             };
             level.SetSeedSlotCount(blueprints.Length);
             level.FillSeedPacks(blueprints);

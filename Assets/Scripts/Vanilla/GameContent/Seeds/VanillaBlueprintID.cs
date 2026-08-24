@@ -38,6 +38,8 @@ namespace MVZ2.GameContent.Seeds
         public const string HeavyWeaponHeal = "HeavyWeaponHeal";
         public const string HeavyWeaponRegen = "HeavyWeaponRegen";
         public const string HeavyWeaponExtraLife = "HeavyWeaponExtraLife";
+        public const string HeavyWeaponAttackUp = "HeavyWeaponAttackUp";
+        public const string HeavyWeaponSpeedUp = "HeavyWeaponSpeedUp";
     }
     public static class VanillaBlueprintID
     {
@@ -72,6 +74,8 @@ namespace MVZ2.GameContent.Seeds
         public static readonly NamespaceID HeavyWeaponHeal = Get(VanillaBlueprintNames.HeavyWeaponHeal);
         public static readonly NamespaceID HeavyWeaponRegen = Get(VanillaBlueprintNames.HeavyWeaponRegen);
         public static readonly NamespaceID HeavyWeaponExtraLife = Get(VanillaBlueprintNames.HeavyWeaponExtraLife);
+        public static readonly NamespaceID HeavyWeaponAttackUp = Get(VanillaBlueprintNames.HeavyWeaponAttackUp);
+        public static readonly NamespaceID HeavyWeaponSpeedUp = Get(VanillaBlueprintNames.HeavyWeaponSpeedUp);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

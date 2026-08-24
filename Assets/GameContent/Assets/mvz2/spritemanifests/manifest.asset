@@ -539,6 +539,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7838a6737608c9044aafa72cda068459, type: 3}
   - name: mobile_blueprint/HeavyGutant
     sprite: {fileID: 21300000, guid: a42903509753d8a4ca8c9580dd0c6b8b, type: 3}
+  - name: mobile_blueprint/HeavyWeaponAttackUp
+    sprite: {fileID: 21300000, guid: 3457c242aef3c50469c3c8037c8a69e6, type: 3}
   - name: mobile_blueprint/HeavyWeaponBulletUpgrade
     sprite: {fileID: 21300000, guid: 8a1476027b3fff44682620fac7e16247, type: 3}
   - name: mobile_blueprint/HeavyWeaponExtraLife
@@ -555,6 +557,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6972e1bfaf4fd3d418c8fe9b4d15e478, type: 3}
   - name: mobile_blueprint/HeavyWeaponSelfDestruct
     sprite: {fileID: 21300000, guid: 3ad724906a81bc146ae1319d76cba273, type: 3}
+  - name: mobile_blueprint/HeavyWeaponSpeedUp
+    sprite: {fileID: 21300000, guid: 11c24756ad0e254459627d5c2ea1e141, type: 3}
   - name: mobile_blueprint/HeavyWeaponSwitchProjectile
     sprite: {fileID: 21300000, guid: bed7e7e56924d6941bbcfc30d1046677, type: 3}
   - name: mobile_blueprint/heavy_weapon_flashbang
@@ -947,6 +951,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: df7c136338ab89e43af4d789fbcbfa52, type: 3}
   - name: options/add_pearl
     sprite: {fileID: 21300000, guid: 7fe15cf03f7a8c64cb0f6007db72398c, type: 3}
+  - name: options/HeavyWeaponAttackUp
+    sprite: {fileID: 21300000, guid: 102631c9b075f8449884c53127242754, type: 3}
   - name: options/HeavyWeaponBulletUpgrade
     sprite: {fileID: 21300000, guid: a01ab9154c5b1eb4cb185b91c9b505ec, type: 3}
   - name: options/HeavyWeaponExtraLife
@@ -963,6 +969,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: dab91d0fd7ce54e49ab03f1ce48321f7, type: 3}
   - name: options/HeavyWeaponSelfDestruct
     sprite: {fileID: 21300000, guid: 1258012437a7cc14a84abda6bee83e14, type: 3}
+  - name: options/HeavyWeaponSpeedUp
+    sprite: {fileID: 21300000, guid: 8d2b6809b4d9b0a4892946ba1d956f39, type: 3}
   - name: options/HeavyWeaponSwitchProjectile
     sprite: {fileID: 21300000, guid: 91602162e37d34c49a5a359da369b99e, type: 3}
   - name: options/heavy_weapon_flashbang

@@ -1,31 +1,32 @@
 ﻿#nullable enable
 
 using System;
-
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Sprites;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Localization;
+using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
-
-using MVZ2Logic;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modifiers;
-
 using PVZEngine;
+using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
-
 using Tools;
-
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
@@ -37,6 +38,7 @@ namespace MVZ2.GameContent.Stages
             // 借用星之碎片 UI 当命数显示：禁用其原功能 + 换成命数图标    
             AddModifier(new NamespaceIDModifier(LogicLevelProps.STARSHARD_DISABLE_ID, SetOperator.Set, VanillaBlueprintErrors.locked));
             AddModifier(new SpriteReferenceModifier(LogicAreaProps.STARSHARD_ICON, SetOperator.Set, VanillaSprites.snipenserLife));
+            stageDef.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
         }
 
         public override void Start(LevelEngine level)
@@ -185,9 +187,9 @@ namespace MVZ2.GameContent.Stages
         // 炸弹池（已移除 explosiveLargeFireball——它按计时器爆炸，落点对不上标识）    
         private static readonly NamespaceID[] BOMB_POOL = new NamespaceID[]
         {
-            VanillaContraptionID.tnt,             // 引燃TNT    
+            VanillaContraptionID.tnt,             // TNT
             VanillaEnemyID.MannequinTNT,          // 玩家模型TNT    
-            VanillaEnemyID.PirateBomb,          // 玩家模型TNT    
+            VanillaEnemyID.PirateBomb,          // 海盗炸弹
             VanillaEnemyID.soulsand,
             VanillaProjectileID.missile,          // 科学怪人导弹    
             VanillaProjectileID.cannonMissile,    // 石砖加农炮导弹    
@@ -209,6 +211,40 @@ namespace MVZ2.GameContent.Stages
             150f,   // fireCharge    
             60f,   // boulder    
         };
+
+        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        {
+            var entity = param.entity;
+            var level = entity.Level;
+            if (level.HasBehaviour(this))
+            {
+                var snipenserReference = GetRiderReference(level);
+                if (snipenserReference != null && snipenserReference.IsEntity(entity))
+                {
+
+                    var rapidUpgrade = MegaSnipenser.GetRapidLevel(entity);
+                    var spreadUpgrade = MegaSnipenser.GetSpreadLevel(entity);
+                    var rapidCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponRapid)?.GetCost() ?? 0;
+                    var spreadCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponSpread)?.GetCost() ?? 0;
+                    var rapidRedStones = Mathf.Max(0, rapidCost) / 50;
+                    var spreadRedstones = Mathf.Max(0, spreadCost - 25) / 50;
+                    var totalRedstones = rapidUpgrade * rapidRedStones + spreadUpgrade * spreadRedstones;
+                    if (entity.GetFirstBuff<HeavyWeaponSelfDestructBuff>() != null)
+                    {
+                        totalRedstones *= 0.5f;
+                    }
+
+
+                    for (int i = 0; i < totalRedstones; i++)
+                    {
+                        entity.Produce(VanillaPickupID.redstone);
+                    }
+
+                    Explosion.Spawn(entity, entity.GetCenter(), 120);
+                    entity.PlaySound(VanillaSoundID.largeExplosion);
+                }
+            }
+        }
 
         public static FrameTimer? GetDropTimer(LevelEngine level) => level.GetProperty<FrameTimer>(PROP_DROP_TIMER);
         public static void SetDropTimer(LevelEngine level, FrameTimer timer) => level.SetProperty(PROP_DROP_TIMER, timer);

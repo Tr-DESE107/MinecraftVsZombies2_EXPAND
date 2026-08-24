@@ -14,6 +14,10 @@ namespace MVZ2.GameContent.Stages
         public BombingZone(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(new WaveStageBehaviour(this));
+            AddBehaviour(new FinalWaveClearBehaviour(this));
+            AddBehaviour(new GemStageBehaviour(this));
+            AddBehaviour(new RedstoneDropStageBehaviour(this));
+            AddBehaviour(new SpeedUpStageBehaviour(this, 1.5f, 2f));
             AddBehaviour(new BombingZoneStageBehaviour(this));
         }
         public override void OnStart(LevelEngine level)

@@ -2876,7 +2876,7 @@
         </spawns>
     </stage>
 
-    <stage id="HeavyWeaponVSMannequin" name="重装兵器大战玩家模型" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
+    <stage id="HeavyWeaponVSMannequin" name="重装兵器大战玩家模型" startEnergy="875" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
         <unlock>
             <condition required="mvz2:level.palace_9" />
         </unlock>
@@ -2893,7 +2893,6 @@
         <time firstWave="1" />
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />
-            <bool name="noEnergy" value="true" />
             <bool name="autoCollectAll" value="true" />
             <float name="redstoneCarrierCounterIncreament" value="33" />
         </properties>
@@ -2957,6 +2956,11 @@
             <spawn id="mvz2:emperor" />
             <spawn id="mvz2:KingSkeleton" />
         </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
     </stage>
     
     <stage id="BombingZone" name="轰炸区" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
@@ -2972,6 +2976,11 @@
             <spawn id="mvz2:emperor" />
             <spawn id="mvz2:KingSkeleton" />
         </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
     </stage>
 
     <stage id="HeavyWeapon_Plus" name="&lt;color=red&gt;重装兵器+&lt;/color&gt;" startEnergy="500" needBlueprints="false" type="minigame" music="mvz2:minigame">
