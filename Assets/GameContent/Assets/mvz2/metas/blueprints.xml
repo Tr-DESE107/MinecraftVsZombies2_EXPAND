@@ -116,7 +116,7 @@
         <option id="HeavyWeaponEnderPearl" cost="50" recharge="mvz2:VeryShortTime" name="投掷末影珍珠">
             <icon sprite="mvz2:options/HeavyWeaponEnderPearl" mobile="mvz2:mobile_blueprint/HeavyWeaponEnderPearl" />
         </option>
-        <option id="HeavyWeaponContraptionRecovery" cost="500" name="器械回收" recharge="mvz2:very_long" tooltip="有概率将被吞噬的器械变回蓝图，等级越高概率越大">
+        <option id="HeavyWeaponContraptionRecovery" cost="350" name="器械回收" recharge="mvz2:very_long" tooltip="有概率将被吞噬的器械变回蓝图，等级越高概率越大">
             <icon sprite="mvz2:options/HeavyWeaponContraptionRecovery" mobile="mvz2:mobile_blueprint/HeavyWeaponContraptionRecovery"/>
         </option>
     </options>

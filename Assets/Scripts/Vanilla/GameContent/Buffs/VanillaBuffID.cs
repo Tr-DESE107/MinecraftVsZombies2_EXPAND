@@ -238,8 +238,8 @@ namespace MVZ2.GameContent.Buffs
             public const string ChippedWitherSkeletonSkullReduceHealthBuff = "ChippedWitherSkeletonSkullReduceHealthBuff";
             
             public const string HeavyWeaponSelfDestruct = "HeavyWeaponSelfDestruct";
-            public const string HeavyWeaponThrowMarker = "HeavyWeaponThrowMarker ";
-            public const string HeavyWeaponAttackUp = "HeavyWeaponAttackUp ";
+            public const string HeavyWeaponThrowMarker = "HeavyWeaponThrowMarker";
+            public const string HeavyWeaponAttackUp = "HeavyWeaponAttackUp";
 
         }
         public static class Enemy
