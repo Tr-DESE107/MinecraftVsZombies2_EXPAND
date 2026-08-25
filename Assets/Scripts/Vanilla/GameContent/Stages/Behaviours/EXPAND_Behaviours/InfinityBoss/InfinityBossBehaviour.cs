@@ -159,6 +159,12 @@ namespace MVZ2.GameContent.Stages
                 level.PlayMusic(musicID);
             level.SetMusicVolume(1);
             level.SetProgressBarToStage();
+            // 把已死亡但仍留在场上的 Boss（如正邪倒地小人）从 Boss 血条统计中排除，  
+            // 否则下一个 Boss 的血条会把先前尸体的最大血量也算进分母，导致开场血条不满。  
+            foreach (var deadBoss in level.FindEntities(e => e.IsEntityOf(BossID) && e.IsDead))
+            {
+                deadBoss.SetProperty(LogicBossProps.DONT_COUNT_BOSS_HP, true);
+            }
 
             int bossKilled = GetBossKilled(level) + 1;
             SetBossKilled(level, bossKilled);

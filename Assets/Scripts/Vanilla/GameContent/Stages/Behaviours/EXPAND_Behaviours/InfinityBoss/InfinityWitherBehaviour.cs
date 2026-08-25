@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Stages
         protected override NamespaceID ProgressBarID => VanillaProgressBarID.wither;
         protected override NamespaceID BossMusic => VanillaMusicID.witherBoss;
   
-        protected override int WarmupWaveCount => 5;
+        protected override int WarmupWaveCount => 10;
 
         protected override int BossHealthStart => 1800;
         protected override int BossHealthStep => 900;
@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Stages
   
         // ============ 提示条本地化 Key ============  
         [TranslateMsg("无限凋灵提示")]  
-        public const string STRING_INTRO = "坚持发展 5 波后凋灵将降临！击败尽可能多的凋灵吧！";
+        public const string STRING_INTRO = "坚持发展 10 波后凋灵将降临！击败尽可能多的凋灵吧！";
         [TranslateMsg("无限凋灵提示")]  
         public const string STRING_WITHER_INCOMING = "凋灵降临！";
         [TranslateMsg("无限凋灵提示，{0}为累计击杀凋灵数，{1}为休息秒数")]  

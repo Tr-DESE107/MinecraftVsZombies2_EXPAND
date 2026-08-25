@@ -10093,6 +10093,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86aaff32bcd73994c911e269b32ba84f
+    m_Address: mvz2:arcade/InfinitySeija
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86aca7b9b1ab29a47b1f40faf1ac414c
     m_Address: mvz2:options/HeavyWeaponExtraLife
     m_ReadOnly: 0
@@ -11484,6 +11491,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a3c100a1e29cdd4aa7aa9773ea9ae40
+    m_Address: mvz2:EnsembleOfFools
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9a464a07f39fae64bb894b6e15dee681
     m_Address: mvz2:enemy/EXPAND/MannequinTNT

@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Stages
         protected override NamespaceID ProgressBarID => VanillaProgressBarID.seija;
         protected override NamespaceID BossMusic => VanillaMusicID.seija;
 
-        protected override int WarmupWaveCount => 5;
+        protected override int WarmupWaveCount => 8;
 
         // 正邪基础血量约 2552，起点贴近该量级；数值可自行调整。  
         protected override int BossHealthStart => 2552;
@@ -70,7 +70,7 @@ namespace MVZ2.GameContent.Stages
 
         // ============ 提示条本地化 Key ============  
         [TranslateMsg("无限正邪提示")]
-        public const string STRING_INTRO = "坚持发展 5 波后正邪将降临！击败尽可能多的正邪吧！";
+        public const string STRING_INTRO = "坚持发展 8 波后正邪将降临！击败尽可能多的正邪吧！";
         [TranslateMsg("无限正邪提示")]
         public const string STRING_SEIJA_INCOMING = "正邪降临！";
         [TranslateMsg("无限正邪提示，{0}为累计击杀正邪数，{1}为休息秒数")]
