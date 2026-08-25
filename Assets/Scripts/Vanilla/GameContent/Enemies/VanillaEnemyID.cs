@@ -173,6 +173,8 @@ namespace MVZ2.GameContent.Enemies
         public const string MutantMannequin = "MutantMannequin";
         public const string MannequinTNT = "MannequinTNT";
         public const string CannoneerMannequin = "CannoneerMannequin";
+        public const string CannonballMannequin = "CannonballMannequin";
+        public const string WickedHermitMannequin = "WickedHermitMannequin";
 
         //EXPAND_X
         public const string XCarrierMutant = "XCarrierMutant";
@@ -357,6 +359,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID MutantMannequin = Get(VanillaEnemyNames.MutantMannequin);
         public static readonly NamespaceID MannequinTNT = Get(VanillaEnemyNames.MannequinTNT);
         public static readonly NamespaceID CannoneerMannequin = Get(VanillaEnemyNames.CannoneerMannequin);
+        public static readonly NamespaceID CannonballMannequin = Get(VanillaEnemyNames.CannonballMannequin);
+        public static readonly NamespaceID WickedHermitMannequin = Get(VanillaEnemyNames.WickedHermitMannequin);
 
         //EXPAND_X
         public static readonly NamespaceID XCarrierMutant = Get(VanillaEnemyNames.XCarrierMutant);

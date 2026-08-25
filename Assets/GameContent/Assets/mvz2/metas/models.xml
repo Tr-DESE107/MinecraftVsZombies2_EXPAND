@@ -619,6 +619,10 @@
     <model name="CannoneerMannequin" type="entity" path="mvz2:enemy/EXPAND/CannoneerMannequin" width="85" height="92" xOffset="22" yOffset="-41">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
+    <model name="CannonballMannequin" type="entity" path="mvz2:enemy/EXPAND/CannonballMannequin" width="36" height="32" xOffset="0" yOffset="-16" />
+    <model name="WickedHermitMannequin" type="entity" path="mvz2:enemy/EXPAND/WickedHermitMannequin" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
 
     <!--EXPAND Enemies X-->
     <model name="XCarrierMutant" type="entity" path="mvz2:enemy/EXPAND/XCarrierMutant" width="200" height="180" xOffset="0" yOffset="-90" />

@@ -48,7 +48,8 @@ namespace MVZ2.GameContent.Armors
             if (timer.Expired)
             {
                 timer.Reset();
-
+                if (owner.RNG.Next(3) != 0) 
+                { 
                 var pos = owner.Position + owner.GetArmorOffset(armor.Slot, armor.Definition.GetID()) + owner.GetFacingDirection() * 20 + new Vector3(0, -12, 0);
                 // 生成 TNT 并接收返回实体，用于设置平射初速度与重力  
                 var tnt = owner.SpawnWithParams(VanillaEnemyID.MannequinTNT, pos);
@@ -62,6 +63,15 @@ namespace MVZ2.GameContent.Armors
                 var multiplier = owner.GetWeakKnockbackMultiplier();
                 owner.Velocity -= owner.GetFacingDirection() * (5 * multiplier);
                 owner.PlaySound(VanillaSoundID.smallExplosion);
+                }
+                else
+                {
+                    var pos = owner.Position + owner.GetArmorOffset(armor.Slot, armor.Definition.GetID()) + owner.GetFacingDirection() * 20 + new Vector3(0, -12, 0);
+                    owner.SpawnWithParams(VanillaEnemyID.CannonballMannequin, pos);
+                    var multiplier = owner.GetWeakKnockbackMultiplier();
+                    owner.Velocity -= owner.GetFacingDirection() * (5 * multiplier);
+                    owner.PlaySound(VanillaSoundID.smallExplosion);
+                }
             }
         }
         private void PostArmorDestroyCallback(LevelCallbacks.PostArmorDestroyParams param, CallbackResult result)

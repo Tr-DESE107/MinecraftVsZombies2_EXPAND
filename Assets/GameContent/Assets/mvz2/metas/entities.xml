@@ -4839,7 +4839,7 @@
         </entity>
         <entity template="Mannequin_Exp" id="CannoneerMannequin" name="炮手玩家模型" deathMessage="开！炮！">
             <unlock>
-                <condition required="mvz2:level.ucannotunlock" />
+                <condition required="mvz2:level.HeavyWeaponVSMannequin" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
@@ -4848,6 +4848,42 @@
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:MannequinCannon" />
                 <int name="mvz2:cost" value="500" />
+                <float name="mvz2:maxHealth" value="450" />
+            </properties>
+        </entity>
+        <entity template="enemy" id="CannonballMannequin" name="炮弹玩家模型" deathMessage="我觉得炮弹上最好别画人脸">
+            <unlock>
+                <condition required="mvz2:level.HeavyWeaponVSMannequin" />
+            </unlock>
+            <properties>
+                <float name="mvz2:maxHealth" value="200" />
+                <float name="mvz2:mass" value="-1" />
+                <float name="mvz2:speed" value="2.5" />
+                <float name="mvz2:damage" value="50" />
+                <bool name="mvz2:noReward" value="true" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:shape" value="mvz2:cannonball" />
+                <float name="mvz2:range" value="40" />
+                <vector3 name="mvz2:size" x="38" y="26" z="38" />
+
+                <int name="mvz2:cost" value="100" />
+                <id name="mvz2:Category" value="mvz2:Mannequin_Exp" />
+            </properties>
+        </entity>
+        <entity template="Mannequin_Exp" id="WickedHermitMannequin" name="邪仙玩家模型" deathMessage="你不会挖三填一哦">
+            <unlock>
+                <condition required="mvz2:level.HeavyWeaponVSMannequin" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:wicked_hermit_zombie/state" />
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:mass" value="-1" />
+                <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
+                <int name="mvz2:cost" value="150" />
+                <float name="mvz2:maxHealth" value="425" />
+                <id name="mvz2:Category" value="mvz2:Mannequin_Exp" />
             </properties>
         </entity>
 

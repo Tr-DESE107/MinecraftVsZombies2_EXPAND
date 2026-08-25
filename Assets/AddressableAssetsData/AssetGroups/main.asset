@@ -59,6 +59,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00a871deb9f1b0949beaf8cc52091d08
+    m_Address: mvz2:arcade/PacZombie_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00ad714282dc4364fa67260f36745fae
     m_Address: mvz2:random/netherrack/break3
     m_ReadOnly: 0
@@ -2474,6 +2481,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20bd76996a4f6fe45abb43aae539ddce
+    m_Address: mvz2:enemy/EXPAND/WickedHermitMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20cb1b235fabd9f49b957a6cb970904b
     m_Address: mvz2:entity/enemy/cave_spider
     m_ReadOnly: 0
@@ -3278,6 +3292,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b6408e377443534c9520e166e4e20eb
+    m_Address: mvz2:enemy/EXPAND/CannonballMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b7ddde9b7a3533498e973193163290c
     m_Address: mvz2:lose_music
@@ -4874,7 +4895,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4036976acf82622429e22bb5619bad51
-    m_Address: mvz2:entity/EXPAND_Enemy/HerobrineSuit
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/HerobrineSuit
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5154,7 +5175,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4375052f062b4324abcfb5860bc743ad
-    m_Address: mvz2:entity/EXPAND_Enemy/Player
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/Player
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7281,7 +7302,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f3a092b11f65cc4a954e2922bb956f4
-    m_Address: mvz2:entity/EXPAND_Enemy/DESE107
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/DESE107
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7539,6 +7560,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62afbe0ab6db40946a9e224abdc9d177
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/CannonballMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62fd317a8ec491344b7f5962a0e94db8
     m_Address: mvz2:armor/boat_item
     m_ReadOnly: 0
@@ -7751,6 +7779,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6619748eabda04f4d904ec14a6b87a93
     m_Address: mvz2:ui/level/CyanCard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 662ad73b6df279841bdbeb127460cf96
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/WickedHermitMannequin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9240,7 +9275,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7bcc33aabbd2bdf4b88f38a476c86f34
-    m_Address: mvz2:entity/EXPAND_Enemy/MutantDESE107
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/MutantDESE107
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -12536,7 +12571,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a95ce05ec9225b245882a09e4183edc7
-    m_Address: mvz2:entity/EXPAND_Enemy/CannoneerMannequin
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/CannoneerMannequin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13817,7 +13852,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba90c069a9046df44b03825b17415cbd
-    m_Address: mvz2:entity/EXPAND_Enemy/Herobrine
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/Herobrine
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -17392,7 +17427,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee0d57dfb3655654ab1350bdca84592b
-    m_Address: mvz2:entity/EXPAND_Enemy/OldPlayer
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/OldPlayer
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -17413,7 +17448,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee295003326bab143a1417f70df50345
-    m_Address: mvz2:entity/EXPAND_Enemy/MutantPlayer
+    m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/MutantPlayer
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -2881,14 +2881,16 @@
             <condition required="mvz2:level.palace_9" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="3" wavesPerFlag="8" pointsPower="1.3" pointsMultiplier="1.7" pointsAddition="1">
+        <spawns flags="3" wavesPerFlag="7" pointsPower="1.3" pointsMultiplier="1.6" pointsAddition="1">
             <spawn id="mvz2:ImpMannequin" />
             <spawn id="mvz2:MegaImpMannequin" />
             <spawn id="mvz2:MutantMannequin" />
             <spawn id="mvz2:MegaMutantVillager" />
             <spawn id="mvz2:MutantVillager" />
             <spawn id="mvz2:CannoneerMannequin" />
+            <spawn id="mvz2:CannonballMannequin" />
             <spawn id="mvz2:Mannequin" />
+            <spawn id="mvz2:WickedHermitMannequin" />
         </spawns>
         <time firstWave="1" />
         <properties>

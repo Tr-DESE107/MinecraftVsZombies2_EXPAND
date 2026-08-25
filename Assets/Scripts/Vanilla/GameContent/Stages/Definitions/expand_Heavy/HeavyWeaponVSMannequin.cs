@@ -24,8 +24,8 @@ namespace MVZ2.GameContent.Stages
             {  
                 VanillaBlueprintID.heavyWeaponFlashbang,  
                 VanillaBlueprintID.HeavyWeaponGrenade,  
-                VanillaBlueprintID.HeavyWeaponMolotov,  
-                VanillaBlueprintID.HeavyWeaponSwitchProjectile,  
+                VanillaBlueprintID.HeavyWeaponSelfDestruct,  
+                VanillaBlueprintID.HeavyWeaponInvincible,  
                 VanillaBlueprintID.HeavyWeaponRegen,  
                 VanillaBlueprintID.heavyWeaponSpread,  
                 VanillaBlueprintID.HeavyWeaponBulletUpgrade,  
@@ -42,9 +42,10 @@ namespace MVZ2.GameContent.Stages
             {  
                 VanillaContraptionID.furnace,  
                 VanillaContraptionID.stoneShield,  
+                VanillaContraptionID.lightningOrb,  
             };  
   
-            int Num = 2;  
+            int Num = 3;  
   
             var rand = new System.Random();  
   

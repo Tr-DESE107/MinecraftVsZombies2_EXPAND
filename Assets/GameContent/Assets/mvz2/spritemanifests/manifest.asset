@@ -83,6 +83,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3fd3b9c2dc4f29d44b72b11939fd85f8, type: 3}
   - name: arcade/heavy_weapon
     sprite: {fileID: 21300000, guid: ff7053569e162c6489dce24f636dd305, type: 3}
+  - name: arcade/InfinitySeija
+    sprite: {fileID: 21300000, guid: 86aaff32bcd73994c911e269b32ba84f, type: 3}
   - name: arcade/InfinityWither
     sprite: {fileID: 21300000, guid: 9c4ff1d6b97d4d54fbe7ea3d182965ac, type: 3}
   - name: arcade/i_zombie
@@ -1893,6 +1895,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0061d2308c839d540a3775902506913f, type: 3}
   - name: entity/effects/EXPAND_Effects/WarriorResistanceShield
     sprite: {fileID: 21300000, guid: 852fa113f9164b840861b767b6a8529e, type: 3}
+  - name: entity/EXPAND_Enemy/Mannequin/CannonballMannequin
+    sprite: {fileID: 21300000, guid: 62afbe0ab6db40946a9e224abdc9d177, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/BigFireCharge
     sprite: {fileID: 21300000, guid: 4d8952eef7a6e0541970cb1fffbdb1a4, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/BloodBolt
