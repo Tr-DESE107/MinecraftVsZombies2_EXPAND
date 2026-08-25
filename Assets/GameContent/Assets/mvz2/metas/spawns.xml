@@ -562,6 +562,18 @@
         <spawn level="2" />
         <weight base="2000" />
     </entry>
+    <entry id="CannoneerMannequin" entity="mvz2:CannoneerMannequin" noEndless="true">
+        <spawn level="4" />
+        <weight base="2000" />
+    </entry>
+    <entry id="CannonballMannequin" entity="mvz2:CannonballMannequin">
+        <spawn level="2" />
+        <weight base="3000" />
+    </entry>
+    <entry id="WickedHermitMannequin" entity="mvz2:WickedHermitMannequin" noEndless="true">
+        <spawn level="5" minWave="5"/>
+        <weight base="2500" />
+    </entry>
 
     <!--EXPAND Random-->
     <entry id="RandomMutant" entity="mvz2:RandomMutant" noEndless="true">

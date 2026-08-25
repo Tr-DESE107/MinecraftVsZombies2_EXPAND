@@ -54,6 +54,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string LeftHandBow = "LeftHandBow";
         public const string LightBlock = "LightBlock";
         public const string PbCore = "PbCore";
+        public const string InfiniteCore = "InfiniteCore";
 
     }
     public static class VanillaArtifactID
@@ -105,6 +106,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID ChippedWitherSkeletonSkull = Get(VanillaArtifactNames.ChippedWitherSkeletonSkull);
         public static readonly NamespaceID LeftHandBow = Get(VanillaArtifactNames.LeftHandBow);
         public static readonly NamespaceID PbCore = Get(VanillaArtifactNames.PbCore);
+        public static readonly NamespaceID InfiniteCore = Get(VanillaArtifactNames.InfiniteCore);
 
         private static NamespaceID Get(string name)
         {

@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Localization;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
@@ -30,7 +31,19 @@ namespace MVZ2.GameContent.Contraptions
             entity.Level.SetGodMode(false);
             if (entity.Level.IsCleared)
                 return;
-            entity.Level.GameOver(GameOverTypes.INSTANT, null, null);
+            entity.Level.GameOver(GameOverTypes.INSTANT, null, VanillaStrings.DEATH_MESSAGE_BRAININVAT_LOST);
+        }
+        // 未经历死亡就被移除（如被飞碟吸走）：同样关闭上帝模式并强制失败  
+        public override void PostRemove(Entity entity)
+        {
+            base.PostRemove(entity);
+            // 已死亡的移除由 PostDeath 处理，避免重复触发 GameOver  
+            if (entity.IsDead)
+                return;
+            entity.Level.SetGodMode(false);
+            if (entity.Level.IsCleared)
+                return;
+            entity.Level.GameOver(GameOverTypes.INSTANT, null, VanillaStrings.DEATH_MESSAGE_BRAININVAT_LOST);
         }
 
         // 星之碎片/碎片能力：获得10秒无敌（石护罩大招buff）  

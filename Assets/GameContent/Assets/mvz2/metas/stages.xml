@@ -2122,12 +2122,12 @@
             <float name="conveySpeed" value="1.5"/>
         </properties>
     </stage>
-    <stage id="heavy_weapon" name="重装兵器" needBlueprints="false" type="minigame" music="mvz2:minigame">
+    <stage id="heavy_weapon" name="重装兵器" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <unlock>
             <condition required="mvz2:level.palace_9" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="3" pointsPower="1.2" pointsMultiplier="2" pointsAddition="1">
+        <spawns flags="3" wavesPerFlag="9" pointsPower="1.2" pointsMultiplier="1.5" pointsAddition="1">
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
@@ -2140,6 +2140,9 @@
             <spawn id="mvz2:shikaisen_zombie" />
             <spawn id="mvz2:cannoneer_zombie" />
             <spawn id="mvz2:zombie_cat" />
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:skeleton_mage" />
         </spawns>
         <time firstWave="1" />
         <properties>
@@ -2862,7 +2865,7 @@
         <camera transition="to_lawn" />
     </stage>
     
-    <stage id="BlueprintBossRush" name="&lt;color=red&gt;BlueprintBossRush&lt;/color&gt;" type="minigame" music="mvz2:Sacrificial">
+    <stage id="BlueprintBossRush" name="&lt;color=red&gt;BlueprintBossRush&lt;/color&gt;" type="minigame" music="mvz2:EnsembleOfFools">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="1" wavesPerFlag="10" firstWaveTime="1800">
             <spawn id="mvz2:zombie" />
@@ -2873,22 +2876,25 @@
         </spawns>
     </stage>
 
-    <stage id="HeavyWeaponVSMannequin" name="重装兵器大战玩家模型" needBlueprints="false" type="minigame" music="mvz2:minigame">
+    <stage id="HeavyWeaponVSMannequin" name="重装兵器大战玩家模型" startEnergy="875" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
         <unlock>
             <condition required="mvz2:level.palace_9" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="3" pointsPower="1.2" pointsMultiplier="2" pointsAddition="1">
+        <spawns flags="3" wavesPerFlag="7" pointsPower="1.3" pointsMultiplier="1.6" pointsAddition="1">
             <spawn id="mvz2:ImpMannequin" />
             <spawn id="mvz2:MegaImpMannequin" />
             <spawn id="mvz2:MutantMannequin" />
             <spawn id="mvz2:MegaMutantVillager" />
             <spawn id="mvz2:MutantVillager" />
+            <spawn id="mvz2:CannoneerMannequin" />
+            <spawn id="mvz2:CannonballMannequin" />
+            <spawn id="mvz2:Mannequin" />
+            <spawn id="mvz2:WickedHermitMannequin" />
         </spawns>
         <time firstWave="1" />
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />
-            <bool name="noEnergy" value="true" />
             <bool name="autoCollectAll" value="true" />
             <float name="redstoneCarrierCounterIncreament" value="33" />
         </properties>
@@ -2901,6 +2907,160 @@
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="1" pointsPower="1.2" pointsMultiplier="2" pointsAddition="1">
             <spawn id="mvz2:zombie" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <bool name="autoCollectAll" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
+    </stage>
+
+    <stage id="InfinityWither" name="&lt;color=red&gt;无限凋灵&lt;/color&gt;" type="boss_endless" music="mvz2:castle_final" >
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+            <spawn id="mvz2:WitherSkeleton" />
+            <spawn id="mvz2:LeatherWitherSkeleton" />
+            <spawn id="mvz2:IronWitherSkeleton" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:NetherWarrior" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:NetherVanguard" />
+            <spawn id="mvz2:RaiderSkull" />
+            <spawn id="mvz2:Anubiskull" />
+            <spawn id="mvz2:WitherSkeletonHorse" />
+            <spawn id="mvz2:AssaultDullahan" />
+            <spawn id="mvz2:WintherMage" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    
+    <stage id="InfinitySeija" name="&lt;color=red&gt;无限正邪&lt;/color&gt;" type="boss_endless" music="mvz2:castle_final" >
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="8" firstWaveTime="1200">
+            <spawn id="mvz2:WitherSkeleton" />
+            <spawn id="mvz2:LeatherWitherSkeleton" />
+            <spawn id="mvz2:IronWitherSkeleton" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:NetherWarrior" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:NetherVanguard" />
+            <spawn id="mvz2:AngryReverser" />
+            <spawn id="mvz2:RaiderSkull" />
+            <spawn id="mvz2:Anubiskull" />
+            <spawn id="mvz2:KingofReverser" />
+            <spawn id="mvz2:NetherTroopCarrier" />
+            <spawn id="mvz2:EvilMage" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+
+    <stage id="PacZombie" name="吃僵人" startEnergy="150" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="2" pointsMultiplier="1.6">
+            <spawn id="mvz2:MonkZombie" />
+            <spawn id="mvz2:LeatherMonkZombie" />
+            <spawn id="mvz2:IronMonkZombie" />
+            <spawn id="mvz2:mutant_zombie" />
+            <spawn id="mvz2:Hemperor" />
+            <spawn id="mvz2:emperor" />
+            <spawn id="mvz2:KingSkeleton" />
+            <spawn id="mvz2:FlyingPot" />
+            <spawn id="mvz2:SuperMegaZombie" />
+            <spawn id="mvz2:MeleeSkeleton" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:shikaisen_zombie" />
+            <spawn id="mvz2:mother_terror" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="80" />
+        </properties>
+    </stage>
+    
+    <stage id="PacZombie_2" name="吃僵人2" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="3" wavesPerFlag="9" pointsMultiplier="1.4">
+            <spawn id="mvz2:MonkZombie" />
+            <spawn id="mvz2:IronMonkZombie" />
+            <spawn id="mvz2:Mannequin" />
+            <spawn id="mvz2:ImpMannequin" />
+            <spawn id="mvz2:MegaImpMannequin" />
+            <spawn id="mvz2:CannoneerMannequin" />
+            <spawn id="mvz2:mutant_zombie" />
+            <spawn id="mvz2:Hemperor" />
+            <spawn id="mvz2:emperor" />
+            <spawn id="mvz2:KingSkeleton" />
+            <spawn id="mvz2:XCarrierMutant" />
+            <spawn id="mvz2:TeslaTrooper" />
+            <spawn id="mvz2:PhaseSpider" />
+            <spawn id="mvz2:WickedHermitMannequin" />
+        </spawns>
+        <time firstWave="1" />
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="80" />
+        </properties>
+    </stage>
+    
+    <stage id="BombingZone" name="轰炸区" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="2" pointsMultiplier="1.5">
+            <spawn id="mvz2:SkeletonHead" />
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:mummy" />
+            <spawn id="mvz2:spider" />
+            <spawn id="mvz2:MeleeSkeleton" />
+            <spawn id="mvz2:emperor_zombie" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:KingSkeleton" />
+            <spawn id="mvz2:PirateIMP" />
+            <spawn id="mvz2:MusketeerZombie" />
+        </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true" />
+            <bool name="noEnergy" value="true" />
+            <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
+    </stage>
+
+    <stage id="HeavyWeapon_Plus" name="&lt;color=red&gt;重装兵器+&lt;/color&gt;" startEnergy="500" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.palace_9" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="8" wavesPerFlag="5" pointsPower="1.2" pointsMultiplier="1.7" pointsAddition="1">
+            <spawn id="mvz2:MonkZombie" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:AngryReverser" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:reflective_barrier_zombie" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:shikaisen_zombie" />
+            <spawn id="mvz2:MusketeerZombie" />
+            <spawn id="mvz2:XCarrierMutant" />
+            <spawn id="mvz2:cannoneer_zombie" />
+            <spawn id="mvz2:zombie_cat" />
+            <spawn id="mvz2:AssaultDullahan" />
+            <spawn id="mvz2:BerserkerHead" />
+            <spawn id="mvz2:FlyingPot" />
+
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:skeleton_mage" />
         </spawns>
         <time firstWave="1" />
         <properties>

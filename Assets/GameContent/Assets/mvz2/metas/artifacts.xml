@@ -202,4 +202,9 @@
             <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
         </unlock>
     </artifact>
+    <artifact id="InfiniteCore" name="&lt;color=red&gt;无尽核心&lt;/color&gt;" tooltip="&lt;color=red&gt;让关卡无尽出怪&lt;/color&gt;" sprite="mvz2:artifacts/InfiniteCore">
+        <unlock>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+        </unlock>
+    </artifact>
 </artifacts>

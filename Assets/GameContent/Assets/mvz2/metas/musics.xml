@@ -1,4 +1,4 @@
-<musics>
+﻿<musics>
     <music id="mainmenu" name="疯狂戴夫">
         <track main="mvz2:mainmenu" />
         <source>植物大战僵尸</source>
@@ -443,24 +443,6 @@
             <p>最终，Lex离开了这本书，再次回到了图书馆。</p>
         </description>
     </music>
-        <music id="Lava_Chicken" name="岩浆烤鸡歌">
-        <track main="mvz2:Lava_Chicken" />
-        <source>Minecraft</source>
-        <description>
-            <p>玩家/村民相关小游戏的音乐。</p>
-            <p>希望诸位在听到这首曲子时能想起被史蒂夫和村民支配的恐惧</p>
-            <p />
-            <p>La-la-la-lava, ch-ch-ch-chicken</p>
-            <p>Steve's Lava Chicken, yeah, it's tasty as hell</p>
-            <p>Ooh, mamacita, now you're ringing the bell</p>
-            <p>Crispy and juicy, now you're having a snack</p>
-            <p>Ooh, super spicy, it's a lava attack</p>
-            
-        </description>
-    </music>
-        
-
-    
     <music id="palace_map" name="惊疑星球-地图">
         <unlock>
             <condition required="mvz2:level.palace_1" />
@@ -515,4 +497,40 @@
             <p>不可名状的巨型血肉墙壁正在朝你冲过来！！！！！</p>
         </description>
     </music>
+    <!--EXPAND Minigame-->
+    <music id="Lava_Chicken" name="岩浆烤鸡歌">
+        <unlock>
+            <condition required="mvz2:level.TrueAndFalseSteve" />
+        </unlock>
+        <track main="mvz2:Lava_Chicken" />
+        <source>Minecraft</source>
+        <description>
+            <p>玩家/村民相关小游戏的音乐。</p>
+            <p>希望诸位在听到这首曲子时能想起被史蒂夫和村民支配的恐惧</p>
+            <p />
+            <p>La-la-la-lava, ch-ch-ch-chicken</p>
+            <p>Steve's Lava Chicken, yeah, it's tasty as hell</p>
+            <p>Ooh, mamacita, now you're ringing the bell</p>
+            <p>Crispy and juicy, now you're having a snack</p>
+            <p>Ooh, super spicy, it's a lava attack</p>
+        </description>
+    </music>
+    
+    <music id="EnsembleOfFools" name="痴愚合奏">
+        <unlock>
+            <condition required="mvz2:level.BlueprintBossRush" />
+        </unlock>
+        <track main="mvz2:EnsembleOfFools" />
+        <source>泰拉瑞亚_灾厄(模组)</source>
+        <description>
+            <p>Bossrush的音乐。</p>
+            <p>出自泰拉瑞亚灾厄模组的BOSS RUSH一阶段主题曲。</p>
+            <p>很符合超级大战一阶段的风格</p>
+            <p>来自光神的考验？非也，是所有被你打败的强敌的复仇。</p>
+            <p/>
+            <p>题外话，谁知道灾厄最终会落到这个结局呢。</p>
+        </description>
+    </music>
+    
+    
 </musics>

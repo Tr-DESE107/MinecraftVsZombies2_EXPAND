@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-07-27 08:39+0800\n"
-"PO-Revision-Date: 2026-07-27 20:40+0800\n"
+"POT-Creation-Date: 2026-08-26 03:55+0800\n"
+"PO-Revision-Date: 2026-08-26 04:21+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4117,19 +4117,6 @@ msgstr ""
 "causes MCP-044 to utilize the inserted object as ammunition. Regenerated projectiles cannot be safely removed unless used for an "
 "attack command."
 
-#. Header for contraptions mvz2:AncientBrickShield
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。"
-msgstr ""
-"Ancient Brick Shield can be placed together with another contraption, protecting it from explosions, projectiles, and melee damage."
-
-#. Flavor for contraptions mvz2:AncientBrickShield
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "施工中"
-msgstr "Under construction."
-
 #. Header for contraptions mvz2:EXPANDispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -4446,62 +4433,18 @@ msgstr ""
 "\n"
 "<color=blue>This is, indeed, an extremely inefficient means of energy utilization.</color>"
 
-#. Header for contraptions mvz2:Bedrock
+#. Header for contraptions mvz2:AncientBrickShield
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "基岩是常规手段下无法破坏的屏障。"
-msgstr "Bedrock is a barrier that cannot be destroyed by conventional means."
-
-#. Properties for contraptions mvz2:Bedrock
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"耐久：<color=red>2147483647，并拥有99%的减伤。</color>\n"
-"伤害：<color=red>被摧毁时发生范围为600、65535的中立伤害爆炸。</color>\n"
-"技能：<color=red>回复所有血量</color>"
+msgid "远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。"
 msgstr ""
-"Toughness: <color=red>2,147,483,647, with 99% damage reduction</color>\n"
-"Damage: <color=red>When destroyed, triggers a neutral explosion with a range of 600 and 65,535 damage</color>\n"
-"Evocation: <color=red>Fully restores all health</color>"
+"Ancient Brick Shield can be placed together with another contraption, protecting it from explosions, projectiles, and melee damage."
 
-#. Flavor for contraptions mvz2:Bedrock
+#. Flavor for contraptions mvz2:AncientBrickShield
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid ""
-"基岩是一种常见的在生存模式里无法以正常途径破坏的方块。\n"
-"基岩处在主世界的底部，下界的顶部和底部。它加入于Minecraft开发进程的第十天——2009年5月20日——就在游戏第一次向公众发布的三天后。基岩比水、"
-"熔岩、矿石和原木都要古老。但泥土、草和石头还要更古老一点。\n"
-"基岩是返回传送门结构的一部分，也是黑曜石柱结构的一部分，更是末地折跃门结构的一部分。"
-msgstr ""
-"Bedrock is a block that cannot be destroyed by normal means in Survival mode.\n"
-"It is found at the bottom of the Overworld, and at the top and bottom of the Nether. It was added on the tenth day of Minecraft's "
-"development — May 20, 2009 — just three days after the game was first released to the public. Bedrock is older than water, lava, ores, "
-"and logs. However, dirt, grass, and stone are even older.\n"
-"Bedrock is part of the Exit Portal structure, part of the Obsidian Pillar structure, and also part of the End Gateway structure."
-
-#. Header for contraptions mvz2:Barrier
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "<color=white>屏障是隐形的，常规手段下无法破坏的屏障。</color>"
-msgstr "<color=white>Barrier is an invisible barrier that cannot be destroyed by conventional means.</color>"
-
-#. Properties for contraptions mvz2:Barrier
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"<color=white>耐久：2147483647，并拥有99%的减伤。</color>\n"
-"<color=white>伤害：被摧毁时发生范围为600、65535的中立伤害爆炸。</color>\n"
-"<color=white>技能：回复所有血量</color>"
-msgstr ""
-"<color=white>Toughness: 2,147,483,647, with 99% damage reduction</color>\n"
-"<color=white>Damage: When destroyed, triggers a neutral explosion with a range of 600 and 65,535 damage</color>\n"
-"<color=white>Evocation: Fully restores all health</color>"
-
-#. Flavor for contraptions mvz2:Barrier
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "<color=white>它真的不是棍木方块</color>"
-msgstr "<color=white>You can't see me</color>"
+msgid "施工中"
+msgstr "Under construction."
 
 #. Header for contraptions mvz2:command_block
 #: Almanac meta file
@@ -6059,17 +6002,49 @@ msgstr ""
 "\n"
 "A line of small characters carved in an inconspicuous place: Miro·Winnet"
 
+#. Name for enemies mvz2:bedserker
+#: Almanac meta file
+msgctxt "enemies.name"
+msgid "床战士"
+msgstr "Bedserker"
+
 #. Header for enemies mvz2:bedserker
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "床战士能够制造惊天动地的大爆炸。"
-msgstr "Bedserker can unleash an earth-shattering explosion."
+msgid "床战士被<ref=[misc]mvz2:wither>凋灵</ref>召唤，背着床朝你的防线冲去，并在一定时间后自爆。"
+msgstr ""
+"Bedserkers are summoned by the <ref=[misc]mvz2:wither>Wither</ref>, they charge toward your defenses carrying beds and self-destruct "
+"after a certain amount of time."
+
+#. Properties for enemies mvz2:bedserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
+"速度：<color=red><var local=\"speed\"/></color>\n"
+"爆炸时间：<color=red><var local=\"explosion_time\"/>秒</color>\n"
+"爆炸伤害：<color=red><var local=\"explosion_damage\"/></color>\n"
+"特殊：<color=red>自爆也会伤害到友军</color>"
+msgstr ""
+"Health: <color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
+"Speed: <color=red><var local=\"speed\"/></color>\n"
+"Explosion Time: <color=red><var local=\"explosion_time\"/> seconds</color>\n"
+"Explosion Damage: <color=red><var local=\"explosion_damage\"/></color>\n"
+"Special: <color=red>Self-destruct also damages allies</color>"
 
 #. Flavor for enemies mvz2:bedserker
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "对于床战士我们知之甚少，可能所有看到他的调查员都吓哭了吧。"
 msgstr "Little is known about the Bedserker. Perhaps every investigator who saw him was simply too scared to report back."
+
+#. Flavor for enemies mvz2:bedserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "一些主世界人向下界走私过很多床，这些床后来也都成为了凋灵骷髅战无不胜的法宝——仅限下界和末地。"
+msgstr ""
+"Many Overworlders smuggled a large number of beds into the Nether. These beds later became the Wither Skeletons' unbeatable secret "
+"weapon — but only in the Nether and The End."
 
 #. Header for enemies mvz2:WitherSkeletonHorse
 #: Almanac meta file
@@ -7886,6 +7861,95 @@ msgstr ""
 "<color=grey>I have a conspiracy theory: this entity's name is Mannequin TNT, and its color is the same as other Mannequins.</color>\n"
 "<color=grey>Does that mean Mannequin TNT and Mannequins are the same kind of ■■?</color>"
 
+#. Header for enemies mvz2:CannoneerMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"炮手玩家模型的重型玩家模型炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只<ref=[enemies]mvz2:CannonballMannequin>炮弹玩家模型</ref>。会"
+"在受到一定伤害时释放自己的器械，死亡时放置<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>。"
+msgstr ""
+"The Cannoneer Mannequin's heavy mannequin cannon can block bullets for it, and will fire a "
+"<ref=[enemies]mvz2:CannonballMannequin>Cannonball Mannequin</ref> every once in a while. It will release its own contraptions after "
+"taking a certain amount of damage, and will place a <ref=[enemies]mvz2:MannequinTNT>Mannequin TNT</ref> upon death."
+
+#. Flavor for enemies mvz2:CannoneerMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"炮手玩家模型很早就来到了“伊可斯潘德”市，但因一些原因，他坐了很久的牢，现在才被放出来\n"
+"这应该和他手中不知道哪捡来的大炮没啥关系。"
+msgstr ""
+"The Cannoneer Mannequin arrived in the city of \"Ecks-Pand\" quite some time ago, but for various reasons, he ended up serving a long "
+"prison sentence — and has only just been released.\n"
+"This probably has nothing to do with the cannon he happened to pick up somewhere."
+
+#. Header for enemies mvz2:CannonballMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"炮弹玩家模型由<ref=[enemies]mvz2:CannoneerMannequin>炮手玩家模型</ref>发射而来。会在受到一定伤害时概率释放"
+"<ref=[contraptions]mvz2:mine_tnt>地雷TNT</ref>，死亡时会爆炸。"
+msgstr ""
+"Cannonball Mannequins are launched by <ref=[enemies]mvz2:CannoneerMannequin>Cannoneer Mannequins</ref>. When damaged, they have a "
+"chance to release a <ref=[contraptions]mvz2:mine_tnt>Mine TNT</ref>, and will explode upon death."
+
+#. Properties for enemies mvz2:CannonballMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>每受到100伤害时，50%概率释放地雷TNT</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Has a 50% chance to release a Mine TNT for every 100 damage taken</color>"
+
+#. Flavor for enemies mvz2:CannonballMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"它其实是一种轰炸机器人，原型设计为飞过场地、然后投放致命的TNT，但不知为何它只能投放<ref=[contraptions]mvz2:mine_tnt>地雷TNT</ref>，还不"
+"是每一次都能投放成功。"
+msgstr ""
+"It's actually a bombing robot, originally designed to fly across the field and drop deadly TNT — but for some reason, it can only drop "
+"<ref=[contraptions]mvz2:mine_tnt>Mine TNT</ref>, and not even every time."
+
+#. Header for enemies mvz2:WickedHermitMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"邪仙玩家模型会随机跟随一只玩家模型入场，在玩家模型死后会传送到最左侧，反向破坏你的阵型。会在受到一定伤害时释放自己的器械，死亡时放置"
+"<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>。"
+msgstr ""
+"Wicked Hermit Mannequins will randomly follow a Mannequin into the field. Once that Mannequin dies, it teleports to the far left and "
+"disrupts your formation from behind. It will release its own contraptions after taking a certain amount of damage, and will place a "
+"<ref=[enemies]mvz2:MannequinTNT>Mannequin TNT</ref> upon death."
+
+#. Properties for enemies mvz2:WickedHermitMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"armor_hp\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>随机跟随一只玩家模型入场。玩家模型死后传送到最左侧，从后方攻击</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" />+<var id=\"armor_hp\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Special: <color=red>Randomly follows a Mannequin into the field. Teleports to the far left once that Mannequin dies, attacking from "
+"behind</color>"
+
+#. Flavor for enemies mvz2:WickedHermitMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"这个玩家模型声称自己不是邪恶的仙人，不会使用灵符控制其他玩家，他跟在其他玩家模型后面拿着铲子只是想学习挖三填一。\n"
+"但这没法解释他为什么跟在小鬼玩家模型和超级小鬼玩家模型背后。"
+msgstr ""
+"This Mannequin claims he's not an evil hermit and doesn't use talismans to control others — he just follows other Mannequins around "
+"with a shovel because he wants to learn the \"dig three, fill one\" technique.\n"
+"But that doesn't explain why he's following Imp Mannequins and Mega Imp Mannequins."
+
 #. Header for enemies mvz2:RandomZombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -8925,6 +8989,24 @@ msgctxt "artifacts.description"
 msgid "好黑啊，你没交电费吗"
 msgstr "It's so dark... Did you forget to pay the electricity bill?"
 
+#. Header for artifacts mvz2:InfiniteCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "无尽核心。"
+msgstr "Infinite Core."
+
+#. Properties for artifacts mvz2:InfiniteCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>让关卡无尽出怪。</color>"
+msgstr "Effect: <color=red>Makes the level spawn enemies endlessly.</color>"
+
+#. Flavor for artifacts mvz2:InfiniteCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "携带后你就无法正常通关了。"
+msgstr "You won't be able to clear the level normally while carrying this."
+
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -9026,12 +9108,12 @@ msgctxt "misc.description"
 msgid ""
 "生命：<color=red><var local=\"hp\" />，每秒恢复15</color>\n"
 "阶段1：<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>\n"
-"阶段2：<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤<ref=[misc]mvz2:bedserker>床战士</ref></color>"
+"阶段2：<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤<ref=[enemies]mvz2:bedserker>床战士</ref></color>"
 msgstr ""
 "Toughness: <color=red><var local=\"hp\" />, restores 15 per second</color>\n"
 "Phase 1: <color=red>Fly, fire wither skulls, dash, eat your contraptions</color>\n"
 "Phase 2: <color=red>Land, Immune to bullets, fire wither skulls, dash, eat your contraptions, summon "
-"<ref=[misc]mvz2:bedserker>bedserkers</ref></color>"
+"<ref=[enemies]mvz2:bedserker>bedserkers</ref></color>"
 
 #. Flavor for misc mvz2:wither
 #: Almanac meta file
@@ -9552,44 +9634,6 @@ msgstr ""
 "\n"
 "Yet one cannot help but marvel: since when have these withered fiends possessed such cunning? Such mastery of technology, warping the "
 "very fabric of perception?"
-
-#. Name for misc mvz2:bedserker
-#: Almanac meta file
-msgctxt "misc.name"
-msgid "床战士"
-msgstr "Bedserker"
-
-#. Header for misc mvz2:bedserker
-#: Almanac meta file
-msgctxt "misc.description"
-msgid "床战士被<ref=[misc]mvz2:wither>凋灵</ref>召唤，背着床朝你的防线冲去，并在一定时间后自爆。"
-msgstr ""
-"Bedserkers are summoned by the <ref=[misc]mvz2:wither>Wither</ref>, they charge toward your defenses carrying beds and self-destruct "
-"after a certain amount of time."
-
-#. Properties for misc mvz2:bedserker
-#: Almanac meta file
-msgctxt "misc.description"
-msgid ""
-"生命：<color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
-"速度：<color=red><var local=\"speed\"/></color>\n"
-"爆炸时间：<color=red><var local=\"explosion_time\"/>秒</color>\n"
-"爆炸伤害：<color=red><var local=\"explosion_damage\"/></color>\n"
-"特殊：<color=red>自爆也会伤害到友军</color>"
-msgstr ""
-"Health: <color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
-"Speed: <color=red><var local=\"speed\"/></color>\n"
-"Explosion Time: <color=red><var local=\"explosion_time\"/> seconds</color>\n"
-"Explosion Damage: <color=red><var local=\"explosion_damage\"/></color>\n"
-"Special: <color=red>Self-destruct also damages allies</color>"
-
-#. Flavor for misc mvz2:bedserker
-#: Almanac meta file
-msgctxt "misc.description"
-msgid "一些主世界人向下界走私过很多床，这些床后来也都成为了凋灵骷髅战无不胜的法宝——仅限下界和末地。"
-msgstr ""
-"Many Overworlders smuggled a large number of beds into the Nether. These beds later became the Wither Skeletons' unbeatable secret "
-"weapon — but only in the Nether and The End."
 
 #. Name for misc mvz2:ballista
 #: Almanac meta file
@@ -12006,6 +12050,36 @@ msgctxt "entity.tooltip"
 msgid "模仿一个器械"
 msgstr "Imitate a contraption"
 
+#. Name for entity mvz2:LuckyBlock
+#: Entity meta file
+msgctxt "entity.name"
+msgid "幸运方块"
+msgstr "Lucky Block"
+
+#. Tooltip for entity mvz2:LuckyBlock
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "被摧毁后发生随机事件"
+msgstr "Triggers a random event when destroyed."
+
+#. Name for entity mvz2:Crafter
+#: Entity meta file
+msgctxt "entity.name"
+msgid "工作台"
+msgstr "Crafting Table"
+
+#. Tooltip for entity mvz2:Crafter
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "使用以制造器械"
+msgstr "Use to craft contraptions."
+
+#. Name for entity mvz2:CraftingTable
+#: Entity meta file
+msgctxt "entity.name"
+msgid "合成器"
+msgstr "Crafter"
+
 #. Name for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -13691,6 +13765,30 @@ msgctxt "death_message"
 msgid "开！炮！"
 msgstr "F I R E !"
 
+#. Name for entity mvz2:CannonballMannequin
+#: Entity meta file
+msgctxt "entity.name"
+msgid "炮弹玩家模型"
+msgstr "Cannonball Mannequin"
+
+#. Death message for entity mvz2:CannonballMannequin
+#: Entity meta file
+msgctxt "death_message"
+msgid "我觉得炮弹上最好别画人脸"
+msgstr "I don't think painting faces on cannonballs is a good idea."
+
+#. Name for entity mvz2:WickedHermitMannequin
+#: Entity meta file
+msgctxt "entity.name"
+msgid "邪仙玩家模型"
+msgstr "Wicked Hermit Mannequin"
+
+#. Death message for entity mvz2:WickedHermitMannequin
+#: Entity meta file
+msgctxt "death_message"
+msgid "你不会挖三填一哦"
+msgstr "Don't you know how to dig three and fill one?"
+
 #. Name for entity mvz2:TeslaTrooper
 #: Entity meta file
 msgctxt "entity.name"
@@ -14763,6 +14861,18 @@ msgctxt "artifact.tooltip"
 msgid "<color=red>让场地变得黑暗</color>"
 msgstr "<color=red>Makes the field become dark.</color>"
 
+#. Name for artifact mvz2:InfiniteCore
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "<color=red>无尽核心</color>"
+msgstr "<color=red>Infinite Core</color>"
+
+#. Tooltip for artifact mvz2:InfiniteCore
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "<color=red>让关卡无尽出怪</color>"
+msgstr "<color=red>Makes the level spawn enemies endlessly.</color>"
+
 #. Message for blueprint error recharging
 #: Blueprints meta file
 msgctxt "blueprint.error"
@@ -14814,14 +14924,20 @@ msgstr "Add a pearl"
 #. Name for blueprint option heavy_weapon_nuke
 #: Blueprints meta file
 msgctxt "blueprint_option.name"
-msgid "消灭敌人"
-msgstr "Nuke"
+msgid "释放核弹"
+msgstr "Launch Nuke"
 
 #. Name for blueprint option heavy_weapon_flashbang
 #: Blueprints meta file
 msgctxt "blueprint_option.name"
-msgid "眩晕敌人"
+msgid "闪光弹"
 msgstr "Flashbang"
+
+#. Tooltip for blueprint option heavy_weapon_flashbang
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "向指引位置丢出闪光弹"
+msgstr "Throw a flashbang at the targeted location."
 
 #. Name for blueprint option heavy_weapon_rapid
 #: Blueprints meta file
@@ -14834,6 +14950,132 @@ msgstr "Rapid fire"
 msgctxt "blueprint_option.name"
 msgid "增加散射"
 msgstr "Spread shot"
+
+#. Name for blueprint option HeavyWeaponGrenade
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "手雷"
+msgstr "Grenade"
+
+#. Tooltip for blueprint option HeavyWeaponGrenade
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "向指引位置丢出手雷"
+msgstr "Throw a grenade at the targeted location."
+
+#. Name for blueprint option HeavyWeaponMolotov
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "燃烧瓶"
+msgstr "Molotov"
+
+#. Tooltip for blueprint option HeavyWeaponMolotov
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "向指引位置丢出燃烧瓶"
+msgstr "Throw a Molotov at the targeted location."
+
+#. Name for blueprint option HeavyWeaponSelfDestruct
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "自爆"
+msgstr "Self-Destruct"
+
+#. Tooltip for blueprint option HeavyWeaponSelfDestruct
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "启动后备隐藏能源！"
+msgstr "Activate the backup hidden power source!"
+
+#. Name for blueprint option HeavyWeaponInvincible
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "无敌"
+msgstr "Invincibility"
+
+#. Tooltip for blueprint option HeavyWeaponInvincible
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "获得10秒无敌"
+msgstr "Gain 10 seconds of invincibility."
+
+#. Name for blueprint option HeavyWeaponSwitchProjectile
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "切换子弹"
+msgstr "Switch Ammo"
+
+#. Name for blueprint option HeavyWeaponBulletUpgrade
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "子弹升级"
+msgstr "Ammo Upgrade"
+
+#. Name for blueprint option HeavyWeaponHeal
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "治疗药水"
+msgstr "Healing Potion"
+
+#. Tooltip for blueprint option HeavyWeaponHeal
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "恢复60%的血量"
+msgstr "Restore 60% of your health."
+
+#. Name for blueprint option HeavyWeaponRegen
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "再生药水"
+msgstr "Regeneration Potion"
+
+#. Tooltip for blueprint option HeavyWeaponRegen
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "随时间恢复600血量"
+msgstr "Restore 600 health over time."
+
+#. Name for blueprint option HeavyWeaponExtraLife
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "更多生命"
+msgstr "Extra Life"
+
+#. Tooltip for blueprint option HeavyWeaponExtraLife
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "扩充后备机体"
+msgstr "Expand backup units."
+
+#. Name for blueprint option HeavyWeaponAttackUp
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "攻击力增加"
+msgstr "Attack Boost"
+
+#. Name for blueprint option HeavyWeaponSpeedUp
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "速度增加"
+msgstr "Speed Boost"
+
+#. Name for blueprint option HeavyWeaponEnderPearl
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "投掷末影珍珠"
+msgstr "Throw Ender Pearl"
+
+#. Name for blueprint option HeavyWeaponContraptionRecovery
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "器械回收"
+msgstr "Contraption Recovery"
+
+#. Tooltip for blueprint option HeavyWeaponContraptionRecovery
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "有概率将被吞噬的器械变回蓝图，等级越高概率越大"
+msgstr "Has a chance to convert devoured contraptions back into blueprints. The higher the level, the greater the chance."
 
 #. Name for entity blueprint skeleton_mage_fire
 #: Blueprints meta file
@@ -14906,6 +15148,63 @@ msgstr "Nether Mage (Frost)"
 msgctxt "entity.name"
 msgid "下界法师（电）"
 msgstr "Nether Mage (Lightning)"
+
+#~ msgctxt "contraptions.description"
+#~ msgid "基岩是常规手段下无法破坏的屏障。"
+#~ msgstr "Bedrock is a barrier that cannot be destroyed by conventional means."
+
+#~ msgctxt "contraptions.description"
+#~ msgid ""
+#~ "耐久：<color=red>2147483647，并拥有99%的减伤。</color>\n"
+#~ "伤害：<color=red>被摧毁时发生范围为600、65535的中立伤害爆炸。</color>\n"
+#~ "技能：<color=red>回复所有血量</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>2,147,483,647, with 99% damage reduction</color>\n"
+#~ "Damage: <color=red>When destroyed, triggers a neutral explosion with a range of 600 and 65,535 damage</color>\n"
+#~ "Evocation: <color=red>Fully restores all health</color>"
+
+#~ msgctxt "contraptions.description"
+#~ msgid ""
+#~ "基岩是一种常见的在生存模式里无法以正常途径破坏的方块。\n"
+#~ "基岩处在主世界的底部，下界的顶部和底部。它加入于Minecraft开发进程的第十天——2009年5月20日——就在游戏第一次向公众发布的三天后。基岩比"
+#~ "水、熔岩、矿石和原木都要古老。但泥土、草和石头还要更古老一点。\n"
+#~ "基岩是返回传送门结构的一部分，也是黑曜石柱结构的一部分，更是末地折跃门结构的一部分。"
+#~ msgstr ""
+#~ "Bedrock is a block that cannot be destroyed by normal means in Survival mode.\n"
+#~ "It is found at the bottom of the Overworld, and at the top and bottom of the Nether. It was added on the tenth day of Minecraft's "
+#~ "development — May 20, 2009 — just three days after the game was first released to the public. Bedrock is older than water, lava, "
+#~ "ores, and logs. However, dirt, grass, and stone are even older.\n"
+#~ "Bedrock is part of the Exit Portal structure, part of the Obsidian Pillar structure, and also part of the End Gateway structure."
+
+#~ msgctxt "contraptions.description"
+#~ msgid "<color=white>屏障是隐形的，常规手段下无法破坏的屏障。</color>"
+#~ msgstr "<color=white>Barrier is an invisible barrier that cannot be destroyed by conventional means.</color>"
+
+#~ msgctxt "contraptions.description"
+#~ msgid ""
+#~ "<color=white>耐久：2147483647，并拥有99%的减伤。</color>\n"
+#~ "<color=white>伤害：被摧毁时发生范围为600、65535的中立伤害爆炸。</color>\n"
+#~ "<color=white>技能：回复所有血量</color>"
+#~ msgstr ""
+#~ "<color=white>Toughness: 2,147,483,647, with 99% damage reduction</color>\n"
+#~ "<color=white>Damage: When destroyed, triggers a neutral explosion with a range of 600 and 65,535 damage</color>\n"
+#~ "<color=white>Evocation: Fully restores all health</color>"
+
+#~ msgctxt "contraptions.description"
+#~ msgid "<color=white>它真的不是棍木方块</color>"
+#~ msgstr "<color=white>You can't see me</color>"
+
+#~ msgctxt "enemies.description"
+#~ msgid "床战士能够制造惊天动地的大爆炸。"
+#~ msgstr "Bedserker can unleash an earth-shattering explosion."
+
+#~ msgctxt "blueprint_option.name"
+#~ msgid "消灭敌人"
+#~ msgstr "Nuke"
+
+#~ msgctxt "blueprint_option.name"
+#~ msgid "眩晕敌人"
+#~ msgstr "Flashbang"
 
 #~ msgctxt "misc.name"
 #~ msgid "狙击发射器"

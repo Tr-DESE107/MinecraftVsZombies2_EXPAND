@@ -94,6 +94,7 @@ namespace MVZ2.Level
         {
             var viewData = base.GetTooltipViewData();
             viewData.error = GetTooltipErrorMessage();
+            viewData.description = Main.ResourceManager.GetBlueprintTooltip(SeedPack.Definition.GetID());
             return viewData;
         }
         private string GetTooltipErrorMessage()

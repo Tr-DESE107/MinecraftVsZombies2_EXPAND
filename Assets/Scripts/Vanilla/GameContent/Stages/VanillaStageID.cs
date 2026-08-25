@@ -164,6 +164,14 @@ namespace MVZ2.GameContent.Stages
         public const string HeavyWeaponBossRush = "HeavyWeaponBossRush";
         public const string BlueprintBossRush = "BlueprintBossRush";
         public const string BalloonParty = "BalloonParty";
+        public const string HeavyWeapon_Plus = "HeavyWeapon_Plus";
+
+        public const string InfinityWither = "InfinityWither";
+        public const string InfinitySeija = "InfinitySeija";
+
+        public const string PacZombie = "PacZombie";
+        public const string PacZombie_2 = "PacZombie_2";
+        public const string BombingZone = "BombingZone";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

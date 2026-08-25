@@ -79,6 +79,9 @@ namespace MVZ2.GameContent.Projectiles
         }
         public static bool CanControl(Entity mesmerizer, Entity target)
         {
+            // 无敌目标（如吃了铁幕/无敌蓝图的重装兵器）免疫反逆者光球的控制  
+            if (target.GetProperty<bool>(EngineEntityProps.INVINCIBLE))
+                return false;
             return !target.IsLoyal() && target != mesmerizer && !target.IsCharmed() && (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.ENEMY || target.Type == EntityTypes.OBSTACLE);
         }
         public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);

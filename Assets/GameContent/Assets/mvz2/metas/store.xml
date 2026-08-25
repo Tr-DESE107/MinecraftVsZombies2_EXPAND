@@ -420,7 +420,7 @@
                 <talk character="mvz2:tokiko">好诡异的器械啊....这个器械叫做缸中之脑，听说放置后能让走进你家里的怪物先生不会粗暴对你，但是这个器械被摧毁后会怎么样.....谁也不知道</talk>
             </talks>
             <stages>
-                <stage price="50000" unlocks="mvz2:contraption.BrainInVat" />
+                <stage price="500000" unlocks="mvz2:contraption.BrainInVat" />
             </stages>
         </product>
         

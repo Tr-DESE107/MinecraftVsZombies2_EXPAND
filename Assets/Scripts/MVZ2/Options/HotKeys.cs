@@ -41,5 +41,12 @@ namespace MVZ2.Options
             return blueprintList[index];
         }
         public static NamespaceID Get(string path) => new NamespaceID(MainManager.Instance.BuiltinNamespace, path);
+
+        //EXPAND
+        public static readonly NamespaceID HeavyWeaponUp = Get("HeavyWeaponUp");
+        public static readonly NamespaceID HeavyWeaponDown = Get("HeavyWeaponDown");
+        public static readonly NamespaceID HeavyWeaponLeft = Get("HeavyWeaponLeft");
+        public static readonly NamespaceID HeavyWeaponRight = Get("HeavyWeaponRight");
+        public static readonly NamespaceID screenshot = Get("screenshot");
     }
 }

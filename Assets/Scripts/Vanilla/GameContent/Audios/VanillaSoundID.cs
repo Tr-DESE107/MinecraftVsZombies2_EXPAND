@@ -275,6 +275,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID EndermanTeleport = Get("EndermanTeleport");
         public readonly static NamespaceID ghast_affectionate_scream = Get("ghast_affectionate_scream");
         public readonly static NamespaceID CatHiss = Get("CatHiss");
+        public readonly static NamespaceID HeavyWeaponGrenade = Get("HeavyWeaponGrenade");
+        public readonly static NamespaceID HeavyWeaponFlashbang = Get("HeavyWeaponFlashbang");
 
         private static NamespaceID Get(string name)
         {

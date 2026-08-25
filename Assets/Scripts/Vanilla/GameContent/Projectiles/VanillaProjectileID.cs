@@ -81,6 +81,11 @@ namespace MVZ2.GameContent.Projectiles
         public const string SniperBullet = "SniperBullet";
         public const string KnifeBullet = "KnifeBullet";
         public const string RocketBullet = "RocketBullet";
+
+        public const string Grenade = "Grenade";
+        public const string Flashbang = "Flashbang";
+        public const string Molotov = "Molotov";
+        public const string EnderPearl = "EnderPearl";
     }
     public static class VanillaProjectileID
     {
@@ -138,6 +143,8 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID gravel = Get(VanillaProjectileNames.gravel);
         public static readonly NamespaceID lockedChestTrash = Get(VanillaProjectileNames.lockedChestTrash);
         public static readonly NamespaceID explosiveSoul = Get(VanillaProjectileNames.explosiveSoul);
+        public static readonly NamespaceID cannonMissile = Get(VanillaProjectileNames.cannonMissile);
+
         //EXPAND
         public static readonly NamespaceID purpleArrow = Get(VanillaProjectileNames.purpleArrow);
         public static readonly NamespaceID ObsidianShard = Get(VanillaProjectileNames.ObsidianShard);
@@ -158,6 +165,11 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID SniperBullet = Get(VanillaProjectileNames.SniperBullet);
         public static readonly NamespaceID KnifeBullet = Get(VanillaProjectileNames.KnifeBullet);
         public static readonly NamespaceID RocketBullet = Get(VanillaProjectileNames.RocketBullet);
+
+        public static readonly NamespaceID Grenade = Get(VanillaProjectileNames.Grenade);
+        public static readonly NamespaceID Flashbang = Get(VanillaProjectileNames.Flashbang);
+        public static readonly NamespaceID Molotov = Get(VanillaProjectileNames.Molotov);
+        public static readonly NamespaceID EnderPearl = Get(VanillaProjectileNames.EnderPearl);
 
         private static NamespaceID Get(string name)
         {

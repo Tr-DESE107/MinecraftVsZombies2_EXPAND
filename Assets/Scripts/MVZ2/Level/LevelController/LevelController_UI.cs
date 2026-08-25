@@ -33,7 +33,13 @@ namespace MVZ2.Level
             uiPreset.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
             uiPreset.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
 
+            uiPreset.OnMinecartUpHeldChanged += (held) => minecartUpHeld = held;
+            uiPreset.OnMinecartDownHeldChanged += (held) => minecartDownHeld = held;
+            uiPreset.OnMinecartLeftHeldChanged += (held) => minecartLeftHeld = held;
+            uiPreset.OnMinecartRightHeldChanged += (held) => minecartRightHeld = held;
+
             uiPreset.HideMoney();
+            uiPreset.SetMinecartButtonsActive(false);   // 新增：默认隐藏矿车按钮  
             SetUIVisibleState(VisibleState.Nothing);
         }
         private void InitLevelEngine_UI(LevelEngine level)
@@ -190,6 +196,11 @@ namespace MVZ2.Level
             UpdateLevelProgressUI();
             UpdateHeldSlotUI();
             UpdateStarshards();
+
+            // 新增：仅在存在可骑乘矿车的关卡（重装兵器类）显示移动按钮  
+            var minecart = level.FindFirstEntity(MVZ2.GameContent.Effects.VanillaEffectID.minecartRideable);
+            bool hasMinecart = minecart != null && !minecart.IsDead;
+            ui.SetMinecartButtonsActive(hasMinecart);
         }
 
         #region 事件回调
@@ -298,6 +309,11 @@ namespace MVZ2.Level
         private int pointingBlueprint;
         private int pointingBlueprintPointerId;
         private bool pointingBlueprintConveyor;
+
+        private bool minecartUpHeld;
+        private bool minecartDownHeld;
+        private bool minecartLeftHeld;
+        private bool minecartRightHeld;
 
         [Header("UI")]
         [SerializeField]

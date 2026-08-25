@@ -1,4 +1,4 @@
-<blueprints>
+﻿<blueprints>
     <errors>
         <error id="recharging" message="重新充能中…" />
         <error id="not_enough_energy" message="能量不足" />
@@ -64,13 +64,13 @@
         <option id="lengthen_board" cost="125" name="增长挡板">
             <icon sprite="mvz2:options/lengthen_board" />
         </option>
-        <option id="add_pearl" cost="50" name="增加弹珠">
+        <option id="add_pearl" cost="50" recharge="mvz2:medium" name="增加弹珠">
             <icon sprite="mvz2:options/add_pearl" />
         </option>
-        <option id="heavy_weapon_nuke" cost="75" name="消灭敌人">
+        <option id="heavy_weapon_nuke" cost="200" recharge="mvz2:very_long" name="释放核弹">
             <icon sprite="mvz2:options/heavy_weapon_nuke" mobile="mvz2:mobile_blueprint/heavy_weapon_nuke" />
         </option>
-        <option id="heavy_weapon_flashbang" cost="25" name="眩晕敌人">
+        <option id="heavy_weapon_flashbang" cost="50" name="闪光弹" recharge="mvz2:VeryShortTime" tooltip="向指引位置丢出闪光弹">
             <icon sprite="mvz2:options/heavy_weapon_flashbang" mobile="mvz2:mobile_blueprint/heavy_weapon_flashbang" />
         </option>
         <option id="heavy_weapon_rapid" cost="125" name="增加射速">
@@ -78,6 +78,46 @@
         </option>
         <option id="heavy_weapon_spread" cost="200" name="增加散射">
             <icon sprite="mvz2:options/heavy_weapon_spread" mobile="mvz2:mobile_blueprint/heavy_weapon_spread" />
+        </option>
+        
+        <option id="HeavyWeaponGrenade" cost="100" name="手雷" recharge="mvz2:VeryShortTime" tooltip="向指引位置丢出手雷">
+            <icon sprite="mvz2:options/HeavyWeaponGrenade" mobile="mvz2:mobile_blueprint/HeavyWeaponGrenade"/>
+        </option>
+        <option id="HeavyWeaponMolotov" cost="75" name="燃烧瓶" recharge="mvz2:VeryShortTime" tooltip="向指引位置丢出燃烧瓶">
+            <icon sprite="mvz2:options/HeavyWeaponMolotov" mobile="mvz2:mobile_blueprint/HeavyWeaponMolotov"/>
+        </option>
+        <option id="HeavyWeaponSelfDestruct" cost="0" name="自爆" recharge="mvz2:long" tooltip="启动后备隐藏能源！">
+            <icon sprite="mvz2:options/HeavyWeaponSelfDestruct" mobile="mvz2:mobile_blueprint/HeavyWeaponSelfDestruct" />
+        </option>
+        <option id="HeavyWeaponInvincible" cost="100" name="无敌" recharge="mvz2:medium" tooltip="获得10秒无敌">
+            <icon sprite="mvz2:options/HeavyWeaponInvincible" mobile="mvz2:mobile_blueprint/HeavyWeaponInvincible" />
+        </option>
+        <option id="HeavyWeaponSwitchProjectile" cost="25" name="切换子弹">
+            <icon sprite="mvz2:options/HeavyWeaponSwitchProjectile" mobile="mvz2:mobile_blueprint/HeavyWeaponSwitchProjectile" />
+        </option>
+        <option id="HeavyWeaponBulletUpgrade" cost="200" name="子弹升级">
+            <icon sprite="mvz2:options/HeavyWeaponBulletUpgrade" mobile="mvz2:mobile_blueprint/HeavyWeaponBulletUpgrade" />
+        </option>
+        <option id="HeavyWeaponHeal" cost="50" name="治疗药水" recharge="mvz2:VeryShortTime" tooltip="恢复60%的血量">
+            <icon sprite="mvz2:options/HeavyWeaponHeal" mobile="mvz2:mobile_blueprint/HeavyWeaponHeal" />
+        </option>
+        <option id="HeavyWeaponRegen" cost="75" name="再生药水" recharge="mvz2:VeryShortTime" tooltip="随时间恢复600血量">
+            <icon sprite="mvz2:options/HeavyWeaponRegen" mobile="mvz2:mobile_blueprint/HeavyWeaponRegen" />
+        </option>
+        <option id="HeavyWeaponExtraLife" cost="300" name="更多生命" tooltip="扩充后备机体">
+            <icon sprite="mvz2:options/HeavyWeaponExtraLife" mobile="mvz2:mobile_blueprint/HeavyWeaponExtraLife" />
+        </option>
+        <option id="HeavyWeaponAttackUp" cost="150" recharge="mvz2:medium" name="攻击力增加">
+            <icon sprite="mvz2:options/HeavyWeaponAttackUp" mobile="mvz2:mobile_blueprint/HeavyWeaponAttackUp" />
+        </option>
+        <option id="HeavyWeaponSpeedUp" cost="150" recharge="mvz2:medium" name="速度增加">
+            <icon sprite="mvz2:options/HeavyWeaponSpeedUp" mobile="mvz2:mobile_blueprint/HeavyWeaponSpeedUp" />
+        </option>
+        <option id="HeavyWeaponEnderPearl" cost="50" recharge="mvz2:VeryShortTime" name="投掷末影珍珠">
+            <icon sprite="mvz2:options/HeavyWeaponEnderPearl" mobile="mvz2:mobile_blueprint/HeavyWeaponEnderPearl" />
+        </option>
+        <option id="HeavyWeaponContraptionRecovery" cost="350" name="器械回收" recharge="mvz2:very_long" tooltip="有概率将被吞噬的器械变回蓝图，等级越高概率越大">
+            <icon sprite="mvz2:options/HeavyWeaponContraptionRecovery" mobile="mvz2:mobile_blueprint/HeavyWeaponContraptionRecovery"/>
         </option>
     </options>
     <entities>

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-07-27 08:39+0800\n"
+"POT-Creation-Date: 2026-08-26 03:55+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3248,18 +3248,6 @@ msgid ""
 "炮膛内的导弹具备再生能力。每次发射后约30秒，一枚新的导弹会于膛内原位形成。此再生过程可被人工干预：若在发射后立即向炮管内填入与导弹体积相近的物体，再生将中止，且MCP-044会将该物体作为下一次发射的弹体使用。任何未用于攻击指令的再生导弹均无法被安全取出。"
 msgstr ""
 
-#. Header for contraptions mvz2:AncientBrickShield
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。"
-msgstr ""
-
-#. Flavor for contraptions mvz2:AncientBrickShield
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "施工中"
-msgstr ""
-
 #. Header for contraptions mvz2:EXPANDispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -3449,49 +3437,16 @@ msgid ""
 "<color=blue>这真是一种极为低效的能量使用手段。</color>"
 msgstr ""
 
-#. Header for contraptions mvz2:Bedrock
+#. Header for contraptions mvz2:AncientBrickShield
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "基岩是常规手段下无法破坏的屏障。"
+msgid "远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。"
 msgstr ""
 
-#. Properties for contraptions mvz2:Bedrock
+#. Flavor for contraptions mvz2:AncientBrickShield
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid ""
-"耐久：<color=red>2147483647，并拥有99%的减伤。</color>\n"
-"伤害：<color=red>被摧毁时发生范围为600、65535的中立伤害爆炸。</color>\n"
-"技能：<color=red>回复所有血量</color>"
-msgstr ""
-
-#. Flavor for contraptions mvz2:Bedrock
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"基岩是一种常见的在生存模式里无法以正常途径破坏的方块。\n"
-"基岩处在主世界的底部，下界的顶部和底部。它加入于Minecraft开发进程的第十天——2009年5月20日——就在游戏第一次向公众发布的三天后。基岩比水、熔岩、矿石和原木都要古老。但泥土、草和石头还要更古老一点。\n"
-"基岩是返回传送门结构的一部分，也是黑曜石柱结构的一部分，更是末地折跃门结构的一部分。"
-msgstr ""
-
-#. Header for contraptions mvz2:Barrier
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "<color=white>屏障是隐形的，常规手段下无法破坏的屏障。</color>"
-msgstr ""
-
-#. Properties for contraptions mvz2:Barrier
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"<color=white>耐久：2147483647，并拥有99%的减伤。</color>\n"
-"<color=white>伤害：被摧毁时发生范围为600、65535的中立伤害爆炸。</color>\n"
-"<color=white>技能：回复所有血量</color>"
-msgstr ""
-
-#. Flavor for contraptions mvz2:Barrier
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "<color=white>它真的不是棍木方块</color>"
+msgid "施工中"
 msgstr ""
 
 #. Header for contraptions mvz2:command_block
@@ -4606,16 +4561,39 @@ msgid ""
 "<color=white>在不起眼的地方上刻着一行小字：米罗威尼特</color>"
 msgstr ""
 
+#. Name for enemies mvz2:bedserker
+#: Almanac meta file
+msgctxt "enemies.name"
+msgid "床战士"
+msgstr ""
+
 #. Header for enemies mvz2:bedserker
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "床战士能够制造惊天动地的大爆炸。"
+msgid "床战士被<ref=[misc]mvz2:wither>凋灵</ref>召唤，背着床朝你的防线冲去，并在一定时间后自爆。"
+msgstr ""
+
+#. Properties for enemies mvz2:bedserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
+"速度：<color=red><var local=\"speed\"/></color>\n"
+"爆炸时间：<color=red><var local=\"explosion_time\"/>秒</color>\n"
+"爆炸伤害：<color=red><var local=\"explosion_damage\"/></color>\n"
+"特殊：<color=red>自爆也会伤害到友军</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:bedserker
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "对于床战士我们知之甚少，可能所有看到他的调查员都吓哭了吧。"
+msgstr ""
+
+#. Flavor for enemies mvz2:bedserker
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "一些主世界人向下界走私过很多床，这些床后来也都成为了凋灵骷髅战无不胜的法宝——仅限下界和末地。"
 msgstr ""
 
 #. Header for enemies mvz2:WitherSkeletonHorse
@@ -5886,6 +5864,64 @@ msgid ""
 "<color=grey>这是否说明玩家模型TNT和玩家模型是同种■■？</color>"
 msgstr ""
 
+#. Header for enemies mvz2:CannoneerMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "炮手玩家模型的重型玩家模型炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只<ref=[enemies]mvz2:CannonballMannequin>炮弹玩家模型</ref>。会在受到一定伤害时释放自己的器械，死亡时放置<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>。"
+msgstr ""
+
+#. Flavor for enemies mvz2:CannoneerMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"炮手玩家模型很早就来到了“伊可斯潘德”市，但因一些原因，他坐了很久的牢，现在才被放出来\n"
+"这应该和他手中不知道哪捡来的大炮没啥关系。"
+msgstr ""
+
+#. Header for enemies mvz2:CannonballMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "炮弹玩家模型由<ref=[enemies]mvz2:CannoneerMannequin>炮手玩家模型</ref>发射而来。会在受到一定伤害时概率释放<ref=[contraptions]mvz2:mine_tnt>地雷TNT</ref>，死亡时会爆炸。"
+msgstr ""
+
+#. Properties for enemies mvz2:CannonballMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>每受到100伤害时，50%概率释放地雷TNT</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:CannonballMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "它其实是一种轰炸机器人，原型设计为飞过场地、然后投放致命的TNT，但不知为何它只能投放<ref=[contraptions]mvz2:mine_tnt>地雷TNT</ref>，还不是每一次都能投放成功。"
+msgstr ""
+
+#. Header for enemies mvz2:WickedHermitMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "邪仙玩家模型会随机跟随一只玩家模型入场，在玩家模型死后会传送到最左侧，反向破坏你的阵型。会在受到一定伤害时释放自己的器械，死亡时放置<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>。"
+msgstr ""
+
+#. Properties for enemies mvz2:WickedHermitMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"armor_hp\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"特点：<color=red>随机跟随一只玩家模型入场。玩家模型死后传送到最左侧，从后方攻击</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:WickedHermitMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"这个玩家模型声称自己不是邪恶的仙人，不会使用灵符控制其他玩家，他跟在其他玩家模型后面拿着铲子只是想学习挖三填一。\n"
+"但这没法解释他为什么跟在小鬼玩家模型和超级小鬼玩家模型背后。"
+msgstr ""
+
 #. Header for enemies mvz2:RandomZombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -6724,6 +6760,24 @@ msgctxt "artifacts.description"
 msgid "好黑啊，你没交电费吗"
 msgstr ""
 
+#. Header for artifacts mvz2:InfiniteCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "无尽核心。"
+msgstr ""
+
+#. Properties for artifacts mvz2:InfiniteCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>让关卡无尽出怪。</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:InfiniteCore
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "携带后你就无法正常通关了。"
+msgstr ""
+
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -6808,7 +6862,7 @@ msgctxt "misc.description"
 msgid ""
 "生命：<color=red><var local=\"hp\" />，每秒恢复15</color>\n"
 "阶段1：<color=red>飞行，发射凋灵头颅，冲刺，啃咬</color>\n"
-"阶段2：<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤<ref=[misc]mvz2:bedserker>床战士</ref></color>"
+"阶段2：<color=red>落地，免疫子弹，发射凋灵头颅，冲刺，啃咬，召唤<ref=[enemies]mvz2:bedserker>床战士</ref></color>"
 msgstr ""
 
 #. Flavor for misc mvz2:wither
@@ -7207,35 +7261,6 @@ msgid ""
 "这些卫星似乎是城内的凋灵骷髅根据辉针城的魔力制成的武器，用于干扰敌人的判断。\n"
 "……不过话说回来，凋灵骷髅们居然有这种智慧？这种科技水平？\n"
 "……甚至还可以影响人们的认知？"
-msgstr ""
-
-#. Name for misc mvz2:bedserker
-#: Almanac meta file
-msgctxt "misc.name"
-msgid "床战士"
-msgstr ""
-
-#. Header for misc mvz2:bedserker
-#: Almanac meta file
-msgctxt "misc.description"
-msgid "床战士被<ref=[misc]mvz2:wither>凋灵</ref>召唤，背着床朝你的防线冲去，并在一定时间后自爆。"
-msgstr ""
-
-#. Properties for misc mvz2:bedserker
-#: Almanac meta file
-msgctxt "misc.description"
-msgid ""
-"生命：<color=red><var local=\"hp\"/>+<var local=\"armor_hp\" /></color>\n"
-"速度：<color=red><var local=\"speed\"/></color>\n"
-"爆炸时间：<color=red><var local=\"explosion_time\"/>秒</color>\n"
-"爆炸伤害：<color=red><var local=\"explosion_damage\"/></color>\n"
-"特殊：<color=red>自爆也会伤害到友军</color>"
-msgstr ""
-
-#. Flavor for misc mvz2:bedserker
-#: Almanac meta file
-msgctxt "misc.description"
-msgid "一些主世界人向下界走私过很多床，这些床后来也都成为了凋灵骷髅战无不胜的法宝——仅限下界和末地。"
 msgstr ""
 
 #. Name for misc mvz2:ballista
@@ -9308,6 +9333,36 @@ msgctxt "entity.tooltip"
 msgid "模仿一个器械"
 msgstr ""
 
+#. Name for entity mvz2:LuckyBlock
+#: Entity meta file
+msgctxt "entity.name"
+msgid "幸运方块"
+msgstr ""
+
+#. Tooltip for entity mvz2:LuckyBlock
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "被摧毁后发生随机事件"
+msgstr ""
+
+#. Name for entity mvz2:Crafter
+#: Entity meta file
+msgctxt "entity.name"
+msgid "工作台"
+msgstr ""
+
+#. Tooltip for entity mvz2:Crafter
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "使用以制造器械"
+msgstr ""
+
+#. Name for entity mvz2:CraftingTable
+#: Entity meta file
+msgctxt "entity.name"
+msgid "合成器"
+msgstr ""
+
 #. Name for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -10975,6 +11030,30 @@ msgctxt "death_message"
 msgid "开！炮！"
 msgstr ""
 
+#. Name for entity mvz2:CannonballMannequin
+#: Entity meta file
+msgctxt "entity.name"
+msgid "炮弹玩家模型"
+msgstr ""
+
+#. Death message for entity mvz2:CannonballMannequin
+#: Entity meta file
+msgctxt "death_message"
+msgid "我觉得炮弹上最好别画人脸"
+msgstr ""
+
+#. Name for entity mvz2:WickedHermitMannequin
+#: Entity meta file
+msgctxt "entity.name"
+msgid "邪仙玩家模型"
+msgstr ""
+
+#. Death message for entity mvz2:WickedHermitMannequin
+#: Entity meta file
+msgctxt "death_message"
+msgid "你不会挖三填一哦"
+msgstr ""
+
 #. Name for entity mvz2:TeslaTrooper
 #: Entity meta file
 msgctxt "entity.name"
@@ -12043,6 +12122,18 @@ msgctxt "artifact.tooltip"
 msgid "<color=red>让场地变得黑暗</color>"
 msgstr ""
 
+#. Name for artifact mvz2:InfiniteCore
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "<color=red>无尽核心</color>"
+msgstr ""
+
+#. Tooltip for artifact mvz2:InfiniteCore
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "<color=red>让关卡无尽出怪</color>"
+msgstr ""
+
 #. Message for blueprint error recharging
 #: Blueprints meta file
 msgctxt "blueprint.error"
@@ -12094,13 +12185,19 @@ msgstr ""
 #. Name for blueprint option heavy_weapon_nuke
 #: Blueprints meta file
 msgctxt "blueprint_option.name"
-msgid "消灭敌人"
+msgid "释放核弹"
 msgstr ""
 
 #. Name for blueprint option heavy_weapon_flashbang
 #: Blueprints meta file
 msgctxt "blueprint_option.name"
-msgid "眩晕敌人"
+msgid "闪光弹"
+msgstr ""
+
+#. Tooltip for blueprint option heavy_weapon_flashbang
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "向指引位置丢出闪光弹"
 msgstr ""
 
 #. Name for blueprint option heavy_weapon_rapid
@@ -12113,6 +12210,132 @@ msgstr ""
 #: Blueprints meta file
 msgctxt "blueprint_option.name"
 msgid "增加散射"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponGrenade
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "手雷"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponGrenade
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "向指引位置丢出手雷"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponMolotov
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "燃烧瓶"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponMolotov
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "向指引位置丢出燃烧瓶"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponSelfDestruct
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "自爆"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponSelfDestruct
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "启动后备隐藏能源！"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponInvincible
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "无敌"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponInvincible
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "获得10秒无敌"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponSwitchProjectile
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "切换子弹"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponBulletUpgrade
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "子弹升级"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponHeal
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "治疗药水"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponHeal
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "恢复60%的血量"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponRegen
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "再生药水"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponRegen
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "随时间恢复600血量"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponExtraLife
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "更多生命"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponExtraLife
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "扩充后备机体"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponAttackUp
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "攻击力增加"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponSpeedUp
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "速度增加"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponEnderPearl
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "投掷末影珍珠"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponContraptionRecovery
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "器械回收"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponContraptionRecovery
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "有概率将被吞噬的器械变回蓝图，等级越高概率越大"
 msgstr ""
 
 #. Name for entity blueprint skeleton_mage_fire

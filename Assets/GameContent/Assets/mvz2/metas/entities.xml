@@ -1178,6 +1178,7 @@
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
                 <float name="mvz2:gravity" value="0" />
+                <float name="mvz2:takenCrushDamage" value="1800" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <id name="mvz2:placement" value="mvz2:devourer" />
                 <idArray name="mvz2:gridLayers" value="mvz2:tool" />
@@ -1857,6 +1858,67 @@
             </properties>
         </entity>
 
+        <entity template="contraption" id="LuckyBlock" name="幸运方块" tooltip="被摧毁后发生随机事件">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:model_damage_percent" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <float name="mvz2:maxHealth" value="300" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:placeSound" value="mvz2:metal_break" />
+                <id name="mvz2:deathSound" value="mvz2:metal_break" />
+
+                <int name="mvz2:cost" value="300" />
+                <id name="mvz2:rechargeId" value="mvz2:medium" />
+            </properties>
+        </entity>
+
+        <entity template="contraption" id="CraftingTable" name="工作台" tooltip="使用以制造器械">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            </unlock>
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <float name="mvz2:maxHealth" value="300" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:shell" value="mvz2:wood" />
+                <id name="mvz2:placeSound" value="mvz2:wood" />
+                <id name="mvz2:deathSound" value="mvz2:wood" />
+
+                <int name="mvz2:cost" value="300" />
+                <int name="mvz2:triggerCost" value="300" />
+                <bool name="mvz2:triggerActive" value="true" />
+                <id name="mvz2:rechargeId" value="mvz2:medium" />
+            </properties>
+        </entity>
+        
+        <entity template="contraption" id="Crafter" name="合成器" tooltip="使用以制造器械">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            </unlock>
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <float name="mvz2:maxHealth" value="300" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:placeSound" value="mvz2:metal_break" />
+                <id name="mvz2:deathSound" value="mvz2:metal_break" />
+
+                <bool name="mvz2:upgradeBlueprint" value="true" />
+                <id name="mvz2:upgradeFrom" value="mvz2:Crafter" />
+
+                <int name="mvz2:cost" value="300" />
+                <int name="mvz2:triggerCost" value="300" />
+                <bool name="mvz2:triggerActive" value="true" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </entity>
+
         <!-- Token Contraptions -->
         <entity template="contraption" id="anvil" name="铁砧" tooltip="阻碍怪物的前进">
             <unlock>
@@ -1907,11 +1969,12 @@
         </entity>
         <entity template="dispenser" id="MegaSnipenser" name="超级狙击发射器" tooltip="（需要狙击发射器）\n朝指针位置发射箭矢">
             <properties>
-                <float name="mvz2:damage" value="80" />
+                <float name="mvz2:damage" value="75" />
                 <bool name="mvz2:upgradeBlueprint" value="true" />
                 <id name="mvz2:upgradeFrom" value="mvz2:dispenser" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
                 <vector3 name="mvz2:shotVelocity" x="20" y="0" z="0" />
+                <float name="mvz2:maxHealth" value="600" />
 
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
@@ -4776,11 +4839,51 @@
         </entity>
         <entity template="Mannequin_Exp" id="CannoneerMannequin" name="炮手玩家模型" deathMessage="开！炮！">
             <unlock>
-                <condition required="mvz2:level.ucannotunlock" />
+                <condition required="mvz2:level.HeavyWeaponVSMannequin" />
             </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+                <behaviour operator="add" id="mvz2:boated_enemy" />
+            </behaviours>
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:MannequinCannon" />
                 <int name="mvz2:cost" value="500" />
+                <float name="mvz2:maxHealth" value="450" />
+            </properties>
+        </entity>
+        <entity template="enemy" id="CannonballMannequin" name="炮弹玩家模型" deathMessage="我觉得炮弹上最好别画人脸">
+            <unlock>
+                <condition required="mvz2:level.HeavyWeaponVSMannequin" />
+            </unlock>
+            <properties>
+                <float name="mvz2:maxHealth" value="200" />
+                <float name="mvz2:mass" value="-1" />
+                <float name="mvz2:speed" value="2.5" />
+                <float name="mvz2:damage" value="50" />
+                <bool name="mvz2:noReward" value="true" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:shape" value="mvz2:cannonball" />
+                <float name="mvz2:range" value="40" />
+                <vector3 name="mvz2:size" x="38" y="26" z="38" />
+
+                <int name="mvz2:cost" value="100" />
+                <id name="mvz2:Category" value="mvz2:Mannequin_Exp" />
+            </properties>
+        </entity>
+        <entity template="Mannequin_Exp" id="WickedHermitMannequin" name="邪仙玩家模型" deathMessage="你不会挖三填一哦">
+            <unlock>
+                <condition required="mvz2:level.HeavyWeaponVSMannequin" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:wicked_hermit_zombie/state" />
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:mass" value="-1" />
+                <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
+                <int name="mvz2:cost" value="150" />
+                <float name="mvz2:maxHealth" value="425" />
+                <id name="mvz2:Category" value="mvz2:Mannequin_Exp" />
             </properties>
         </entity>
 
@@ -6521,7 +6624,7 @@
             </properties>
         </entity>
         <entity template="projectile" id="SniperBullet">
-            <behaviours includeSelf="false">
+            <behaviours includeSelf="true">
                 <behaviour operator="add" id="ElectrifiedBullet" />
             </behaviours>
             <properties>
@@ -6547,6 +6650,50 @@
                 <bool name="mvz2:pointToDirection" value="true" />
                 <float name="mvz2:range" value="40" />
                 <vector3 name="mvz2:size" x="16" y="2" z="16" />
+            </properties>
+        </entity>
+        <entity template="projectile" id="Grenade">
+            <properties>
+                <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:noDestroyOutsideLawn" value="true" />
+                <float name="mvz2:gravity" value="1" />
+                <float name="mvz2:damage" value="1200" />
+                <float name="mvz2:range" value="120" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
+            </properties>
+        </entity>
+        <entity template="projectile" id="Flashbang">
+            <properties>
+                <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:noDestroyOutsideLawn" value="true" />
+                <float name="mvz2:gravity" value="1" />
+                <float name="mvz2:damage" value="0" />
+                <float name="mvz2:range" value="200" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
+            </properties>
+        </entity>
+        <entity template="projectile" id="Molotov">
+            <properties>
+                <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:noDestroyOutsideLawn" value="true" />
+                <float name="mvz2:gravity" value="1" />
+                <float name="mvz2:damage" value="200" />
+                <float name="mvz2:range" value="120" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
+            </properties>
+        </entity>
+        <entity template="projectile" id="EnderPearl">
+            <properties>
+                <bool name="mvz2:noHitEntities" value="true" />
+                <bool name="mvz2:noDestroyOutsideLawn" value="true" />
+                <float name="mvz2:gravity" value="1" />
+                <float name="mvz2:damage" value="0" />
+                <float name="mvz2:range" value="0" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
             </properties>
         </entity>
 

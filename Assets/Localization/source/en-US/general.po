@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-07-27 06:20+0800\n"
-"PO-Revision-Date: 2026-07-27 19:06+0800\n"
+"POT-Creation-Date: 2026-08-26 03:55+0800\n"
+"PO-Revision-Date: 2026-08-26 04:34+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -770,6 +770,57 @@ msgctxt "random_china.event_description"
 msgid "在随机一行的最左侧生成一个大雪球"
 msgstr "Spawn a large snowball at the leftmost of a random lane"
 
+# 无限Boss提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:276
+msgid "坚持发展数波后 Boss 将降临！击败尽可能多的 Boss 吧！"
+msgstr ""
+"Survive a few waves and a Boss will appear! Defeat as many Bosses as you can!"
+
+# 无限Boss提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:278
+msgid "Boss 降临！"
+msgstr "Boss Arrival!"
+
+# 无限Boss提示，{0}为累计击杀Boss数，{1}为休息秒数
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:280
+msgid "已击败 {0} 个 Boss！休息 {1} 秒后下一个更强的 Boss 来袭！"
+msgstr "{0} Boss(es) defeated! The next, stronger Boss arrives in {1} seconds!"
+
+# 无限正邪提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:72
+msgid "坚持发展 8 波后正邪将降临！击败尽可能多的正邪吧！"
+msgstr ""
+"Survive 8 flags and Seija will appear! Defeat as many Seijas as you can!"
+
+# 无限正邪提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:74
+msgid "正邪降临！"
+msgstr "Seija Arrival!"
+
+# 无限正邪提示，{0}为累计击杀正邪数，{1}为休息秒数
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:76
+msgid "已击败 {0} 只正邪！休息 {1} 秒后更强的正邪来袭！"
+msgstr ""
+"{0} Seija(s) defeated! The next, stronger Seija arrives in {1} seconds!"
+
+# 无限凋灵提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:75
+msgid "坚持发展 10 波后凋灵将降临！击败尽可能多的凋灵吧！"
+msgstr ""
+"Survive 10 flags and the Wither will appear! Defeat as many Withers as you "
+"can!"
+
+# 无限凋灵提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:77
+msgid "凋灵降临！"
+msgstr "The Wither Arrival!"
+
+# 无限凋灵提示，{0}为累计击杀凋灵数，{1}为休息秒数
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:79
+msgid "已击败 {0} 只凋灵！休息 {1} 秒后更强的凋灵来袭！"
+msgstr ""
+"{0} Wither(s) defeated! The next, stronger Wither arrives in {1} seconds!"
+
 # 教程关指引
 #: Scripts\Vanilla\GameContent\Stages\Definitions\AmethystTutorial.cs:238
 msgctxt "advice.amethyst_tutorial.0"
@@ -1194,37 +1245,50 @@ msgstr[1] "Good job! Current streak: {0}!"
 # 重装兵器小游戏的提示
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:35
 msgctxt "advice"
-msgid "移动鼠标来移动，按住左键来射击！"
-msgstr "Move the mouse to move, hold left button to shoot!"
+msgid "使用按键(默认↑↓←→)来移动，按住左键来射击！"
+msgstr ""
+"Use the arrow keys (↑↓←→ by default) to move, hold left click to shoot!"
 
-# 重装兵器小游戏的提示
+# 重装兵器关卡空袭开始的提示
 #: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:37
 msgctxt "advice"
-msgid "触摸屏幕来移动并射击！"
-msgstr "Touch the screen to move and shoot!"
+msgid "敌人呼叫了空袭！"
+msgstr "Enemy airstrike incoming!"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:42
+# 重装兵器小游戏的提示
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:39
+msgctxt "advice"
+msgid "点按按钮来移动，触摸屏幕来射击！"
+msgstr "Tap the buttons to move, touch the screen to shoot!"
+
+# Bossrush进场提示
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:41
+msgctxt "advice"
+msgid "30秒后将登场boss：{0}"
+msgstr "Boss {0} appears in 30 seconds!"
+
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:44
 msgid "购买"
 msgstr "Purchase"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:44
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:46
 msgid "购买第七个器械槽位？"
 msgstr "Buy the 7th contraption slot?"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:46
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:48
 msgid "是否进行新手教程？"
 msgstr "Do you want to have a tutorial?"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:48
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:50
 msgid "新手教程"
 msgstr "Tutorial"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:50
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:52
 msgid "通关"
 msgstr "Game Completed"
 
 # 获得新制品提示
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:52
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:54
 msgid ""
 "恭喜通关主线！\n"
 "接下来的内容还在开发中，敬请期待！\n"
@@ -1235,7 +1299,7 @@ msgstr ""
 "You can unlock new items by playing through all the EXPAND levels and the "
 "\"I Zombie\" mode!"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:54
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:56
 msgid ""
 "<color=#824400>{0}</color>\n"
 "{1}"
@@ -1243,133 +1307,145 @@ msgstr ""
 "<color=#824400>{0}</color>\n"
 "{1}"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:59
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:61
 msgctxt "recharge_time"
 msgid "无"
 msgstr "None"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:61
+# 充能时间
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:63
+msgctxt "recharge_time"
+msgid "非常短"
+msgstr "Very Short"
+
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:65
 msgctxt "recharge_time"
 msgid "短"
 msgstr "Short"
 
 # 当前语言名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:63
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:67
 msgctxt "recharge_time"
 msgid "中"
 msgstr "medium"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:65
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:69
 msgctxt "recharge_time"
 msgid "长"
 msgstr "Long"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:67
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:71
 msgctxt "recharge_time"
 msgid "很长"
 msgstr "Very Long"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:71
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:75
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr "Do you have enough money to buy this?"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:78
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr "<color=red>COME TO US</color>"
 
 # 死亡信息-我是僵尸
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:80
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
 msgctxt "death_message"
 msgid "你失去了所有能量！"
 msgstr "You have lost all your energy!"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
 msgctxt "death_message"
-msgid "你失去了狙击发射器！"
-msgstr "You lost the Snipenser!"
+msgid "你失去了你的超级器械！"
+msgstr "You lost your Mega contraption!"
+
+# 死亡信息-我是僵尸
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
+msgctxt "death_message"
+msgid "你失去了"
+msgstr "You have lost"
 
 # 命令输出
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:85
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:91
 msgctxt "command.output"
 msgid "该命令不能在关卡中调用"
 msgstr "This command cannot be called in a level."
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:87
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:93
 msgctxt "command.output"
 msgid "/{0} - {1}"
 msgstr "/{0} - {1}"
 
 # 命令输出-help
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:89
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:95
 msgctxt "command.output"
 msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
 msgstr ""
 "For more information about a command, please enter '/help <command name>'"
 
 # 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:91
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:97
 msgctxt "command.output"
 msgid "{0}: [{1}] {2}"
 msgstr "{0}: [{1}] {2}"
 
 # 命令输出-blueprint，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:93
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:99
 msgctxt "command.output"
 msgid "蓝图槽位参数{0}超出范围"
 msgstr "The parameter of blueprint slot {0} is out of its range."
 
 # 命令输出-cheat，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:95
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:101
 msgctxt "command.output"
 msgid "未找到作弊命令{0}"
 msgstr "Cheat {0} not found"
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:97
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:103
 msgctxt "command.output"
 msgid "已启用{0}"
 msgstr "Enabled {0}"
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:99
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:105
 msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr "Disabled {0}"
 
 # 命令输出-save
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:101
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:107
 msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr "Level state has been successfully saved"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:103
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:109
 msgctxt "command.output"
 msgid "已解锁游戏状态{0}"
 msgstr "Unlocked game state {0}"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:105
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
 msgctxt "command.output"
 msgid "无法解锁游戏状态{0}：该状态已被解锁"
 msgstr "Cannot unlock game state {0}: This state is already unlocked"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:107
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
 msgctxt "command.output"
 msgid "已重新锁定游戏状态{0}"
 msgstr "Relocked game state {0}"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:109
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr "Cannot relock game state {0}: This state is not unlocked"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:117
 msgctxt "command.output"
 msgid ""
 "已解锁游戏状态：\n"
@@ -1379,13 +1455,13 @@ msgstr ""
 "{0}"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:119
 msgctxt "command.output"
 msgid "无法解锁所有游戏状态：无游戏状态可解锁"
 msgstr "Cannot unlock all game states: No states can be unlocked"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:121
 msgctxt "command.output"
 msgid ""
 "已重新锁定游戏状态：\n"
@@ -1395,73 +1471,73 @@ msgstr ""
 "{0}"
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:117
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:123
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态：无游戏状态可重新锁定"
 msgstr "Cannot relock game states: No states can be relocked"
 
 # 命令输出-izombie
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:119
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:125
 msgctxt "command.output"
 msgid "当前关卡不是“我是僵尸”模式"
 msgstr "The current level is not in \"I, Zombie\" mode"
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:123
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:129
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr "Godmode"
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:125
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:131
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr "Infinite Energy"
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:127
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:133
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr "Instant Recharge"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:129
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:135
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr "Infinite Starshards"
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:138
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:144
 msgctxt "locked_chest_message"
 msgid "勒索弹窗"
 msgstr "Ransom Pop-up"
 
 # 上锁的箱子信息描述，{0}为花费的宝石量，{1}为招式名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:140
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:146
 msgctxt "locked_chest_message"
 msgid "立刻给我{0}或{1}，否则我就要发动我的终极绝招“{2}”了！"
 msgstr "Pay me {0} or {1}, or I will use my ultimate '{2}'!"
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:143
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:149
 msgctxt "locked_chest_message"
 msgid "哦不好意思"
 msgstr "Oh Sorry"
 
 # 上锁的箱子信息描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:145
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:151
 msgctxt "locked_chest_message"
 msgid "我忘说了，你选什么都没用。"
 msgstr "I forgot that it doesn't matter what you choose."
 
 # 上锁的箱子选项名，{0}为花费的宝石量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:148
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:154
 msgctxt "locked_chest_message"
 msgid "{0}宝石"
 msgid_plural "{0}宝石"
 msgstr[0] "{0} gem"
 msgstr[1] "{0} gems"
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:150
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:156
 msgctxt "locked_chest_message"
 msgid "{0}星之碎片"
 msgid_plural "{0}星之碎片"
@@ -1469,55 +1545,55 @@ msgstr[0] "{0} starshard"
 msgstr[1] "{0} starshards"
 
 # 上锁的箱子选项名，{0}为花费的宝石量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:153
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:159
 msgctxt "locked_chest_message"
 msgid "支付{0}"
 msgstr "Pay {0}"
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:155
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:161
 msgctxt "locked_chest_message"
 msgid "拒绝"
 msgstr "Reject"
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:157
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:163
 msgctxt "locked_chest_message"
 msgid "？"
 msgstr "?"
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:160
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:166
 msgctxt "locked_chest_message"
 msgid "终极重压"
 msgstr "Ultimate Smash"
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:162
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:168
 msgctxt "locked_chest_message"
 msgid "超能光束"
 msgstr "Hyperbeam"
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:164
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:170
 msgctxt "locked_chest_message"
 msgid "爆破四魂"
 msgstr "Four Souls Blast"
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:171
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:177
 msgctxt "locked_chest_text"
 msgid "炸弹来咯！"
 msgstr "Here comes the BOOM!"
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:173
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:179
 msgctxt "locked_chest_text"
 msgid "我才是炸弹！"
 msgstr "I AM THE BOOM!"
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:175
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:181
 msgctxt "locked_chest_text"
 msgid "你有完没完？"
 msgstr "Will you just stop already?"
@@ -1707,103 +1783,133 @@ msgstr "Switch to EXP|Normal difficulty"
 msgid "保留在<color=yellow>EXP|困难</color>难度"
 msgstr "Stay on <color=yellow>EXP|Hard</color> difficulty"
 
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:102
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:107
 msgctxt "hotkey.name"
 msgid "？？？"
 msgstr "???"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:104
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:109
 msgctxt "hotkey.name"
 msgid "铁镐"
 msgstr "Pickaxe"
 
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:106
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:111
 msgctxt "hotkey.name"
 msgid "星之碎片"
 msgstr "Starshard"
 
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:108
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:113
 msgctxt "hotkey.name"
 msgid "触发器"
 msgstr "Trigger"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:110
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:115
 msgctxt "hotkey.name"
 msgid "快进"
 msgstr "Fast-forward"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:112
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:117
 msgctxt "hotkey.name"
 msgid "血条"
 msgstr "HP Bar"
 
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:114
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:119
 msgctxt "hotkey.name"
 msgid "控制台"
 msgstr "Console"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:116
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:121
 msgctxt "hotkey.name"
 msgid "蓝图1"
 msgstr "Blueprint 1"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:118
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:123
 msgctxt "hotkey.name"
 msgid "蓝图2"
 msgstr "Blueprint 2"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:120
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:125
 msgctxt "hotkey.name"
 msgid "蓝图3"
 msgstr "Blueprint 3"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:122
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:127
 msgctxt "hotkey.name"
 msgid "蓝图4"
 msgstr "Blueprint 4"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:124
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:129
 msgctxt "hotkey.name"
 msgid "蓝图5"
 msgstr "Blueprint 5"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:126
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:131
 msgctxt "hotkey.name"
 msgid "蓝图6"
 msgstr "Blueprint 6"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:128
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:133
 msgctxt "hotkey.name"
 msgid "蓝图7"
 msgstr "Blueprint 7"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:130
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:135
 msgctxt "hotkey.name"
 msgid "蓝图8"
 msgstr "Blueprint 8"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:132
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:137
 msgctxt "hotkey.name"
 msgid "蓝图9"
 msgstr "Blueprint 9"
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:134
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:139
 msgctxt "hotkey.name"
 msgid "蓝图10"
 msgstr "Blueprint 10"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:141
+msgctxt "hotkey.name"
+msgid "矿车上移"
+msgstr "Minecart Up"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:143
+msgctxt "hotkey.name"
+msgid "矿车下移"
+msgstr "Minecart Down"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:145
+msgctxt "hotkey.name"
+msgid "矿车左移"
+msgstr "Minecart Left"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:147
+msgctxt "hotkey.name"
+msgid "矿车右移"
+msgstr "Minecart Right"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:149
+msgctxt "hotkey.name"
+msgid "截图"
+msgstr "Screenshot"
 
 #: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:212
 msgid "来源：{0}"
@@ -2869,17 +2975,26 @@ msgstr ""
 "<b>[{1}]</b> {2}"
 
 # 未解锁的小游戏关卡名
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:211
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:216
 msgid "未解锁"
 msgstr "Locked"
 
 # 无尽模式的小游戏的连胜显示，{0}为最高连胜
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:213
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:218
 msgid ""
 "最高连胜：\n"
 "{0}"
 msgstr ""
 "Best Streak:\n"
+"{0}"
+
+# 无尽模式的小游戏的连胜显示，{0}为最高连胜
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:220
+msgid ""
+"最高击杀：\n"
+"{0}"
+msgstr ""
+"Best Kills:\n"
 "{0}"
 
 #: Scripts\MVZ2\Almanac\AlmanacController.cs:1017
@@ -3659,6 +3774,42 @@ msgctxt "levelname"
 msgid "重装兵器Boss Rush"
 msgstr "Heavy Weapon VS Boss"
 
+#. Name for stage mvz2:InfinityWither
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限凋灵</color>"
+msgstr "<color=red>Infinity Wither</color>"
+
+#. Name for stage mvz2:InfinitySeija
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限正邪</color>"
+msgstr "<color=red>Infinity Seija</color>"
+
+#. Name for stage mvz2:PacZombie
+#: Stage meta file
+msgctxt "levelname"
+msgid "吃僵人"
+msgstr "Pac-Zombie"
+
+#. Name for stage mvz2:PacZombie_2
+#: Stage meta file
+msgctxt "levelname"
+msgid "吃僵人2"
+msgstr "Pac-Zombie 2"
+
+#. Name for stage mvz2:BombingZone
+#: Stage meta file
+msgctxt "levelname"
+msgid "轰炸区"
+msgstr "Bombing Zone"
+
+#. Name for stage mvz2:HeavyWeapon_Plus
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>重装兵器+</color>"
+msgstr "<color=red>Heavy Weapon+</color>"
+
 #. Name for stage mvz2:puzzle_i_zombie
 #: Stage meta file
 msgctxt "levelname"
@@ -3796,6 +3947,12 @@ msgstr "Killed by monsters"
 msgctxt "stat_category"
 msgid "无尽模式最高轮数"
 msgstr "Max endless flags"
+
+#. Name for stat category mvz2:max_boss_kills
+#: Stats meta file
+msgctxt "stat_category"
+msgid "无限Boss最高击杀数"
+msgstr "Max Boss Kills (Infinite Mode)"
 
 #. Name for stat category mvz2:iz_contraption_destroy
 #: Stats meta file
@@ -5022,35 +5179,6 @@ msgstr ""
 "couldn't defeat EviLex.\n"
 "In the end, Lex left the book and returned to the library once again."
 
-#. Name for music mvz2:Lava_Chicken
-#: Music meta file
-msgctxt "music.name"
-msgid "岩浆烤鸡歌"
-msgstr "Lava Chicken"
-
-#. Description for music mvz2:Lava_Chicken
-#: Music meta file
-msgctxt "music.description"
-msgid ""
-"玩家/村民相关小游戏的音乐。\n"
-"希望诸位在听到这首曲子时能想起被史蒂夫和村民支配的恐惧\n"
-"\n"
-"La-la-la-lava, ch-ch-ch-chicken\n"
-"Steve's Lava Chicken, yeah, it's tasty as hell\n"
-"Ooh, mamacita, now you're ringing the bell\n"
-"Crispy and juicy, now you're having a snack\n"
-"Ooh, super spicy, it's a lava attack"
-msgstr ""
-"Music for Mannequin/Villager-related minigames.\n"
-"May this piece remind you of the fear of being dominated by Steve and the "
-"Villager.\n"
-"\n"
-"La-la-la-lava, ch-ch-ch-chicken\n"
-"Steve's Lava Chicken, yeah, it's tasty as hell\n"
-"Ooh, mamacita, now you're ringing the bell\n"
-"Crispy and juicy, now you're having a snack\n"
-"Ooh, super spicy, it's a lava attack"
-
 #. Name for music mvz2:palace_map
 #: Music meta file
 msgctxt "music.name"
@@ -5151,6 +5279,66 @@ msgstr ""
 "It is the theme of the Wall of Flesh from <i>Terraria</i>.\n"
 "!!!FEAR!!!\n"
 "An indescribable, gigantic wall of flesh is charging toward you!!!!!"
+
+#. Name for music mvz2:Lava_Chicken
+#: Music meta file
+msgctxt "music.name"
+msgid "岩浆烤鸡歌"
+msgstr "Lava Chicken"
+
+#. Description for music mvz2:Lava_Chicken
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"玩家/村民相关小游戏的音乐。\n"
+"希望诸位在听到这首曲子时能想起被史蒂夫和村民支配的恐惧\n"
+"\n"
+"La-la-la-lava, ch-ch-ch-chicken\n"
+"Steve's Lava Chicken, yeah, it's tasty as hell\n"
+"Ooh, mamacita, now you're ringing the bell\n"
+"Crispy and juicy, now you're having a snack\n"
+"Ooh, super spicy, it's a lava attack"
+msgstr ""
+"Music for Mannequin/Villager-related minigames.\n"
+"May this piece remind you of the fear of being dominated by Steve and the "
+"Villager.\n"
+"\n"
+"La-la-la-lava, ch-ch-ch-chicken\n"
+"Steve's Lava Chicken, yeah, it's tasty as hell\n"
+"Ooh, mamacita, now you're ringing the bell\n"
+"Crispy and juicy, now you're having a snack\n"
+"Ooh, super spicy, it's a lava attack"
+
+#. Name for music mvz2:EnsembleOfFools
+#: Music meta file
+msgctxt "music.name"
+msgid "痴愚合奏"
+msgstr "Ensemble of Fools"
+
+#. Source for music mvz2:EnsembleOfFools
+#: Music meta file
+msgctxt "music.source"
+msgid "泰拉瑞亚_灾厄(模组)"
+msgstr "Terraria_Calamity(Mod)"
+
+#. Description for music mvz2:EnsembleOfFools
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"Bossrush的音乐。\n"
+"出自泰拉瑞亚灾厄模组的BOSS RUSH一阶段主题曲。\n"
+"很符合超级大战一阶段的风格\n"
+"来自光神的考验？非也，是所有被你打败的强敌的复仇。\n"
+"\n"
+"题外话，谁知道灾厄最终会落到这个结局呢。"
+msgstr ""
+"The theme for Boss Rush.\n"
+"It is the Phase 1 theme of the Boss Rush from the Terraria Calamity Mod.\n"
+"It fits the style of the first phase of the Super Battle perfectly.\n"
+"A trial from the God of Light? No — it's the revenge of every powerful foe "
+"you've ever defeated.\n"
+"\n"
+"On a side note, who would have known Calamity would end up like this...."
 
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
@@ -7307,6 +7495,11 @@ msgstr "Credits"
 msgctxt "option.name"
 msgid "导出日志文件"
 msgstr "Export Log Files"
+
+# 重装兵器小游戏的提示
+#~ msgctxt "advice"
+#~ msgid "触摸屏幕来移动并射击！"
+#~ msgstr "Touch the screen to move and shoot!"
 
 #~ msgid "Cuerzor制作"
 #~ msgstr "Made by Cuerzor"

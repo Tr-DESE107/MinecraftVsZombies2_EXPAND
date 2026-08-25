@@ -96,6 +96,19 @@ namespace MVZ2.Level
                 OnHPBarsKey();
             }
 
+            int minecartMove = 0;
+            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponUp)) || minecartUpHeld)
+                minecartMove += 1;
+            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponDown)) || minecartDownHeld)
+                minecartMove -= 1;
+            MVZ2.GameContent.Effects.MinecartRideable.SetMoveInput(level, minecartMove);
+            int minecartMoveX = 0;
+            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponRight)) || minecartRightHeld)
+                minecartMoveX += 1;
+            if (Input.GetKey(Options.GetKeyBinding(HotKeys.HeavyWeaponLeft)) || minecartLeftHeld)
+                minecartMoveX -= 1;
+            MVZ2.GameContent.Effects.MinecartRideable.SetMoveInputX(level, minecartMoveX);
+
 
             if (IsGameRunning())
             {

@@ -331,7 +331,7 @@
             <key hex="#FF0000" time="1" />
         </colorKeys>
     </fragment>
-    <fragment name="snipenser">
+    <fragment name="MegaSnipenser">
         <colorKeys>
             <key hex="#FF0000" time="0.1" />
             <key hex="#4F4F4F" time="0.4" />

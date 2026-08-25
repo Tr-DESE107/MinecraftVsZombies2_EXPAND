@@ -1,7 +1,9 @@
 ﻿<arcade>
     <minigame id="frankensteins_revenge" stage="mvz2:frankensteins_revenge" area="mvz2:halloween" icon="mvz2:arcade/frankensteins_revenge"/>
     <minigame id="nightmare_revenge" stage="mvz2:nightmares_revenge" area="mvz2:dream" icon="mvz2:arcade/nightmares_revenge"/>
+    <minigame id="InfinitySeija" stage="mvz2:InfinitySeija" area="mvz2:castle" icon="mvz2:arcade/InfinitySeija" />
     <minigame id="withers_revenge" stage="mvz2:withers_revenge" area="mvz2:castle" icon="mvz2:arcade/withers_revenge"/>
+    <minigame id="InfinityWither" stage="mvz2:InfinityWither" area="mvz2:castle" icon="mvz2:arcade/InfinityWither" />
     <minigame id="the_giants_revenge" stage="mvz2:the_giants_revenge" area="mvz2:mausoleum" icon="mvz2:arcade/the_giants_revenge">
         <hiddenUntil>
             <condition required="mvz2:level.mausoleum_11"/>
@@ -18,8 +20,6 @@
         </hiddenUntil>
     </minigame>
 
-    <minigame/>
-    <minigame/>
     <minigame/>
     <minigame/>
 
@@ -48,7 +48,6 @@
     <minigame id="MortalZombat" stage="mvz2:MortalZombat" area="mvz2:ship" icon="mvz2:arcade/MortalZombat" />
     <minigame id="LigneMaginot" stage="mvz2:LigneMaginot" area="mvz2:day" icon="mvz2:arcade/LigneMaginot" />
     
-    <minigame id="AnotherPrologue" stage="mvz2:AnotherPrologue" area="mvz2:day" icon="mvz2:arcade/AnotherPrologue" />
     <minigame id="ArmorParty" stage="mvz2:ArmorParty" area="mvz2:halloween" icon="mvz2:arcade/ArmorParty" />
     <minigame id="big_trouble_and_little_zombie_2" stage="mvz2:big_trouble_and_little_zombie_2" area="mvz2:castle" icon="mvz2:arcade/big_trouble_and_little_zombie_2" />
     <minigame id="GiantCrisis" stage="mvz2:GiantCrisis" area="mvz2:castle" icon="mvz2:arcade/GiantCrisis" />
@@ -59,14 +58,20 @@
     <minigame id="WarThunder" stage="mvz2:WarThunder" area="mvz2:dream" icon="mvz2:arcade/WarThunder" />
     <minigame id="ZombieNimbleZombieQuick" stage="mvz2:ZombieNimbleZombieQuick" area="mvz2:castle" icon="mvz2:arcade/ZombieNimbleZombieQuick" />
     <minigame id="BalloonParty" stage="mvz2:BalloonParty" area="mvz2:castle" icon="mvz2:arcade/BalloonParty" />
-    
+    <minigame/>
+
+    <minigame id="AnotherPrologue" stage="mvz2:AnotherPrologue" area="mvz2:day" icon="mvz2:arcade/AnotherPrologue" />
     <minigame id="OpticalIllusion" stage="mvz2:OpticalIllusion" area="mvz2:dream" icon="mvz2:arcade/OpticalIllusion" />
-    <!--
-    <minigame id="HeavyWeaponVSMannequin" stage="mvz2:HeavyWeaponVSMannequin" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponVSMannequin" />
-    <minigame id="HeavyWeaponBossRush" stage="mvz2:HeavyWeaponBossRush" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponBossRush" />
-    -->
     <minigame id="WhatTheHell" stage="mvz2:WhatTheHell" area="mvz2:day" icon="mvz2:arcade/WhatTheHell" />
     <minigame id="BlueprintBossRush" stage="mvz2:BlueprintBossRush" area="mvz2:day" icon="mvz2:arcade/BlueprintBossRush" />
+    
+    <minigame id="HeavyWeapon_Plus" stage="mvz2:HeavyWeapon_Plus" area="mvz2:palace" icon="mvz2:arcade/heavy_weapon" />
+    <minigame id="HeavyWeaponVSMannequin" stage="mvz2:HeavyWeaponVSMannequin" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponVSMannequin" />
+    <!--
+    <minigame id="HeavyWeaponBossRush" stage="mvz2:HeavyWeaponBossRush" area="mvz2:palace" icon="mvz2:arcade/HeavyWeaponBossRush" />-->
+    <minigame id="BombingZone" stage="mvz2:BombingZone" area="mvz2:halloween" icon="mvz2:arcade/BombingZone" />
+    <minigame id="PacZombie" stage="mvz2:PacZombie" area="mvz2:mausoleum" icon="mvz2:arcade/PacZombie" />
+    <minigame id="PacZombie_2" stage="mvz2:PacZombie_2" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/PacZombie_2" />
     
 
     <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />
