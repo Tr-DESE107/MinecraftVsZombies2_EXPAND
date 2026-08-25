@@ -1878,7 +1878,7 @@
             </properties>
         </entity>
 
-        <entity template="contraption" id="Crafter" name="工作台" tooltip="使用以制造器械">
+        <entity template="contraption" id="CraftingTable" name="工作台" tooltip="使用以制造器械">
             <unlock>
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
@@ -1897,7 +1897,7 @@
             </properties>
         </entity>
         
-        <entity template="contraption" id="CraftingTable" name="合成器" tooltip="使用以制造器械">
+        <entity template="contraption" id="Crafter" name="合成器" tooltip="使用以制造器械">
             <unlock>
                 <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
             </unlock>
