@@ -2881,7 +2881,7 @@
             <condition required="mvz2:level.palace_9" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="3" pointsPower="1.3" pointsMultiplier="2" pointsAddition="1">
+        <spawns flags="3" pointsPower="1.3" pointsMultiplier="1.7" pointsAddition="1">
             <spawn id="mvz2:ImpMannequin" />
             <spawn id="mvz2:MegaImpMannequin" />
             <spawn id="mvz2:MutantMannequin" />
@@ -2915,7 +2915,7 @@
         </properties>
     </stage>
 
-    <stage id="InfinityWither" name="&lt;color=red&gt;InfinityWither&lt;/color&gt;" type="minigame" music="mvz2:castle_final" >
+    <stage id="InfinityWither" name="&lt;color=red&gt;无限凋灵&lt;/color&gt;" type="puzzle_endless" music="mvz2:castle_final" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <spawns flags="1" wavesPerFlag="5" firstWaveTime="1200">
             <spawn id="mvz2:WitherSkeleton" />
@@ -2945,7 +2945,7 @@
 
     <stage id="PacZombie" name="吃僵人" startEnergy="150" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="2" pointsMultiplier="1.5">
+        <spawns flags="2" pointsMultiplier="1.6">
             <spawn id="mvz2:MonkZombie" />
             <spawn id="mvz2:LeatherMonkZombie" />
             <spawn id="mvz2:IronMonkZombie" />
@@ -2969,13 +2969,13 @@
     
     <stage id="PacZombie_2" name="吃僵人2" startEnergy="300" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
-        <spawns flags="3" pointsMultiplier="1.5">
+        <spawns flags="3" wavesPerFlag="9" pointsMultiplier="1.4">
             <spawn id="mvz2:MonkZombie" />
             <spawn id="mvz2:IronMonkZombie" />
             <spawn id="mvz2:Mannequin" />
             <spawn id="mvz2:ImpMannequin" />
+            <spawn id="mvz2:MegaImpMannequin" />
             <spawn id="mvz2:CannoneerMannequin" />
-            <spawn id="mvz2:MutantMannequin" />
             <spawn id="mvz2:mutant_zombie" />
             <spawn id="mvz2:Hemperor" />
             <spawn id="mvz2:emperor" />
