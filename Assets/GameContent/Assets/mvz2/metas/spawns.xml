@@ -571,8 +571,8 @@
         <weight base="3000" />
     </entry>
     <entry id="WickedHermitMannequin" entity="mvz2:WickedHermitMannequin" noEndless="true">
-        <spawn level="4" minWave="5"/>
-        <weight base="3000" />
+        <spawn level="5" minWave="5"/>
+        <weight base="2500" />
     </entry>
 
     <!--EXPAND Random-->

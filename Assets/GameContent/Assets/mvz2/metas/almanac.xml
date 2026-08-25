@@ -1868,21 +1868,6 @@
                 <p>炮膛内的导弹具备再生能力。每次发射后约30秒，一枚新的导弹会于膛内原位形成。此再生过程可被人工干预：若在发射后立即向炮管内填入与导弹体积相近的物体，再生将中止，且MCP-044会将该物体作为下一次发射的弹体使用。任何未用于攻击指令的再生导弹均无法被安全取出。</p>
             </flavor>
         </entry>
-        <entry id="mvz2:AncientBrickShield">
-            <tags>
-                <tag id="mvz2:placement_two_StoneShield" />
-            </tags>
-            <header>
-                <p>远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。</p>
-            </header>
-            <properties>
-                <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
-                <p>技能：<![CDATA[<color=red>3x3范围内的器械无敌10秒</color>]]></p>
-            </properties>
-            <flavor>
-                <p>施工中</p>
-            </flavor>
-        </entry>
 
 
 
@@ -2020,6 +2005,21 @@
                 <p>初步筛查显示，具备TiC2特性的陈旧██（具体术语因档案损坏而不可辨）在[已编辑]地区广泛分布。值得注意的是，上述地区在21世纪初曾多次报告“自燃现象”与“非来源性爆炸”。然而，所有相关记录均在[[已删除]]事件后被列为V级机密。</p>
                 <p/>
                 <p><![CDATA[<color=blue>这真是一种极为低效的能量使用手段。</color>]]></p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:AncientBrickShield">
+            <tags>
+                <tag id="mvz2:placement_two_StoneShield" />
+            </tags>
+            <header>
+                <p>远古石砖护罩可以和其他器械放在一起，并保护其内部的器械不受爆炸、弹射物、近战伤害。</p>
+            </header>
+            <properties>
+                <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>技能：<![CDATA[<color=red>3x3范围内的器械无敌10秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>施工中</p>
             </flavor>
         </entry>
 
@@ -3981,6 +3981,54 @@
                 <p><![CDATA[<color=grey>这是否说明玩家模型TNT和玩家模型是同种■■？</color>]]></p>
             </flavor>
         </entry>
+
+        <entry id="mvz2:CannoneerMannequin">
+            <variables>
+                <variable name="cannon_speed">toDouble(global("mvz2:entity_speed")) * 0.5</variable>
+            </variables>
+            <header>
+                <p>炮手玩家模型的重型玩家模型炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只<![CDATA[<ref=[enemies]mvz2:CannonballMannequin>炮弹玩家模型</ref>]]>。会在受到一定伤害时释放自己的器械，死亡时放置<![CDATA[<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>]]>。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="shield_hp" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red>0.5，1（失去铁炮后）</color>]]></p>
+                <p>发射间隔：<![CDATA[<color=red>8秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>炮手玩家模型很早就来到了“伊可斯潘德”市，但因一些原因，他坐了很久的牢，现在才被放出来</p>
+                <p>这应该和他手中不知道哪捡来的大炮没啥关系。</p>
+            </flavor>
+        </entry>
+
+        <entry id="mvz2:CannonballMannequin">
+            <header>
+                <p>炮弹玩家模型由<![CDATA[<ref=[enemies]mvz2:CannoneerMannequin>炮手玩家模型</ref>]]>发射而来。会在受到一定伤害时概率释放<![CDATA[<ref=[contraptions]mvz2:mine_tnt>地雷TNT</ref>]]>，死亡时会爆炸。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>每受到100伤害时，50%概率释放地雷TNT</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它其实是一种轰炸机器人，原型设计为飞过场地、然后投放致命的TNT，但不知为何它只能投放<![CDATA[<ref=[contraptions]mvz2:mine_tnt>地雷TNT</ref>]]>，还不是每一次都能投放成功。</p>
+            </flavor>
+        </entry>
+
+        <entry id="mvz2:WickedHermitMannequin">
+            <header>
+                <p>邪仙玩家模型会随机跟随一只玩家模型入场，在玩家模型死后会传送到最左侧，反向破坏你的阵型。会在受到一定伤害时释放自己的器械，死亡时放置<![CDATA[<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>]]>。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>随机跟随一只玩家模型入场。玩家模型死后传送到最左侧，从后方攻击</color>]]></p>
+            </properties>
+            <flavor>
+                <p>这个玩家模型声称自己不是邪恶的仙人，不会使用灵符控制其他玩家，他跟在其他玩家模型后面拿着铲子只是想学习挖三填一。</p>
+                <p>但这没法解释他为什么跟在小鬼玩家模型和超级小鬼玩家模型背后。</p>
+            </flavor>
+        </entry>
+
         <!--EXPAND Random-->
         <entry id="mvz2:RandomZombie">
             <header>
