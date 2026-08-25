@@ -167,6 +167,8 @@ namespace MVZ2.GameContent.Stages
         public const string HeavyWeapon_Plus = "HeavyWeapon_Plus";
 
         public const string InfinityWither = "InfinityWither";
+        public const string InfinitySeija = "InfinitySeija";
+
         public const string PacZombie = "PacZombie";
         public const string PacZombie_2 = "PacZombie_2";
         public const string BombingZone = "BombingZone";

@@ -105,6 +105,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a1447ef5422a9884880007586d621e26, type: 3}
   - name: arcade/PacZombie
     sprite: {fileID: 21300000, guid: 25a733bc18bb9a44186916c339f36c31, type: 3}
+  - name: arcade/PacZombie_2
+    sprite: {fileID: 21300000, guid: 00a871deb9f1b0949beaf8cc52091d08, type: 3}
   - name: arcade/PerformanceArt
     sprite: {fileID: 21300000, guid: bf765943926e6514895dea3bf309fd68, type: 3}
   - name: arcade/RandomChinaAndPot

@@ -46,9 +46,9 @@ namespace MVZ2.GameContent.Stages
         protected virtual int WarmupWaveCount => 5;
 
         // Boss 血量曲线参数：第 1 个 Boss 的血量、每多一个 Boss 增加的血量、血量上限。  
-        protected virtual int BossHealthStart => 2000;
-        protected virtual int BossHealthStep => 2000;
-        protected virtual int BossHealthMax => 42000;
+        protected virtual int BossHealthStart => 1000;
+        protected virtual int BossHealthStep => 1000;
+        protected virtual int BossHealthMax => 100000;
 
         // 休息时间曲线参数（秒）：首次休息、每击杀一个 Boss 递减、最低值。  
         protected virtual int FirstRestSeconds => 95;
@@ -230,9 +230,9 @@ namespace MVZ2.GameContent.Stages
         }
         private void RecordBossKills(LevelEngine level, int kills)
         {
-            if (Global.Saves.GetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < kills)
+            if (Global.Saves.GetStat(LogicStats.CATEGORY_MAX_BOSS_KILLS, level.StageID) < kills)
             {
-                Global.Saves.SetStat(LogicStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, kills);
+                Global.Saves.SetStat(LogicStats.CATEGORY_MAX_BOSS_KILLS, level.StageID, kills);
             }
         }
 

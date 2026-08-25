@@ -4110,6 +4110,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36f7cdb5152762946adda08466660a5f
+    m_Address: mvz2:options/HeavyWeaponContraptionRecovery
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37066da4adbd0ff4d9bc87bae8deb150
     m_Address: mvz2:entity/terror/parasitize
     m_ReadOnly: 0
@@ -16173,6 +16180,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbd10e0fe022f0044b329ed207974a0d
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponContraptionRecovery
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc158f8a14c1b36448838afc1a3bfa51
     m_Address: mvz2:entity/zombie/zombie_cry2
