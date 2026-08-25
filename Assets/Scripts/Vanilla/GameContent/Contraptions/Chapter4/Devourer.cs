@@ -6,6 +6,7 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Obstacles;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla;
@@ -121,14 +122,18 @@ namespace MVZ2.GameContent.Contraptions
                     // 新增：概率把被吃掉的器械回收成蓝图掉落物（仅回收等级>0时生效）  
                     TryRecoverContraption(devourer, other);
                     
-                        // 只有吃掉的是敌人（ENEMY）时才加机械能  
-                        if (other.Type == EntityTypes.ENEMY && other.GetProperty<NamespaceID>(VanillaEntityProps.CATEGORY) == MutantCategory)
-                        {
-                            level.AddEnergy(25f);
-                        }
+                    // 只有吃掉的是敌人（ENEMY）时才加机械能  
+                    if (other.Type == EntityTypes.ENEMY && other.GetProperty<NamespaceID>(VanillaEntityProps.CATEGORY) == MutantCategory)
+                    {
+                        level.AddEnergy(25f);
+                        var text = "+25";
+                        SpawnText(other, text);
+                    }
                     else if(other.Type == EntityTypes.ENEMY)
                     {
                         level.AddEnergy(5f);
+                        var text = "+5";
+                        SpawnText(other, text);
                     }
                     
                 }
@@ -137,6 +142,17 @@ namespace MVZ2.GameContent.Contraptions
                     level.PlaySound(VanillaSoundID.pacmanAttack);
                 }
             }
+        }
+        public void SpawnText(Entity entity, string text)
+        {
+            // 场上 floatingText 过多时不再生成
+            int count = entity.Level.FindEntities(e => e.IsEntityOf(VanillaEffectID.floatingText)).Count();
+            if (count >= 20)
+                return;
+
+            var param = entity.GetSpawnParams();
+            param.SetProperty(FloatingText.PROP_TEXT, text);
+            entity.Spawn(VanillaEffectID.floatingText, entity.GetCenter(), param);
         }
         // 概率回收：被吞噬者吃掉的“器械”（PLANT 类型）按回收等级概率变回蓝图掉落物。  
         // 等级越高概率越大；等级 0 时永不触发，因此不影响未升级的关卡。  
