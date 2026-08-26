@@ -1246,6 +1246,7 @@
                 <id name="mvz2:deathSound" value="mvz2:grass" />
                 <bool name="mvz2:triggerActive" value="true" />
                 <bool name="mvz2:instantTrigger" value="true" />
+                <float name="mvz2:takenCrushDamage" value="150" />
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:triggerCost" value="75" />

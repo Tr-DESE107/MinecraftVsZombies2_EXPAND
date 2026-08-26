@@ -106,7 +106,9 @@ namespace MVZ2.Level
                 if (difficulty == VanillaDifficulties.lunatic
                     && Main.SaveManager.GetLevelDifficultyRecords(startStageID).Length <= 0
                     && !Main.DebugManager.CanUseDebugFeatures()
-                    && !level.IsEndless())
+                    && !level.IsEndless()
+                    && level.GetProperty<string>(LogicStageProps.STAGE_TYPE) != StageTypes.TYPE_BOSS_ENDLESS
+                    )
                 {
                     difficulty = VanillaDifficulties.hard;
                     var popup = Main.LanguageManager._(POPUP_DIFFICULTY_DOWNGRADED);
