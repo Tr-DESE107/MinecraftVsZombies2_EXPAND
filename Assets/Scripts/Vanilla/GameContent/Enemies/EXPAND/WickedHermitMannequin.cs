@@ -127,7 +127,7 @@ namespace MVZ2.GameContent.Enemies
             base.PostDeath(entity, info);
             if (entity.WillRemoveOnDeath(info))
                 return;
-            SpawnRandomMannequin(entity);
+            entity.SpawnWithParams(VanillaEnemyID.MannequinTNT, entity.Position);
         }
 
         public const int MOVE_INTERVAL = 30;
