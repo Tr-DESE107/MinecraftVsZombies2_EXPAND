@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Effects
             if (entity.Level.IsGameRunning())
             {
                 var controlMode = Global.Options.GetMinecartControlMode();
-                if (controlMode == MinecartControlModes.MOUSE)
+                if (controlMode == MinecartControlModes.MOUSE && hasRail)
                 {
                     // 鼠标跟随模式：读取指针位置作为目标点（恢复旧机制）  
                     if (Global.Input.TryGetPointerScreenPosition(out var screenPosition))
@@ -166,8 +166,20 @@ namespace MVZ2.GameContent.Effects
                 }  
             }  
             return kept;  
-        }  
-  
+        }
+        // 关卡级“实际鼠标模式”判断：供关卡提示/UI 按钮显隐统一调用。    
+        // 仅当设置为鼠标模式、且场上矿车存在铁轨（父实体存活）时才算鼠标模式；    
+        // 无铁轨的矿车即使设置选了鼠标，也强制视为按键/按钮模式。    
+        public static bool IsEffectiveMouseMode(LevelEngine level)
+        {
+            if (Global.Options.GetMinecartControlMode() != MinecartControlModes.MOUSE)
+                return false;
+            var cart = FindSingleCart(level);
+            if (cart != null && !cart.Parent.ExistsAndAlive())
+                return false;   // 有矿车但无铁轨 → 强制按键/按钮  
+            return true;
+        }
+
         public static Vector3 GetTargetPosition(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_TARGET_POSITION);  
         public static void SetTargetPosition(Entity entity, Vector3 value) => entity.SetBehaviourField(PROP_TARGET_POSITION, value);  
   

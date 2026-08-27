@@ -203,7 +203,7 @@ namespace MVZ2.Level
             //  3) 移动方式为“键盘/按钮”模式（鼠标/触摸跟随模式下按钮无用）  
             var minecart = level.FindFirstEntity(MVZ2.GameContent.Effects.VanillaEffectID.minecartRideable);
             bool hasMinecart = minecart != null && !minecart.IsDead;
-            bool keyboardMode = Global.Options.GetMinecartControlMode() != MinecartControlModes.MOUSE;
+            bool keyboardMode = !MVZ2.GameContent.Effects.MinecartRideable.IsEffectiveMouseMode(level);
             bool showMinecartButtons = hasMinecart && Main.UseMobileLayout() && keyboardMode;
             ui.SetMinecartButtonsActive(showMinecartButtons);
 
