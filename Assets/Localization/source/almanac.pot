@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-08-26 03:55+0800\n"
+"POT-Creation-Date: 2026-08-27 01:15+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9345,19 +9345,19 @@ msgctxt "entity.tooltip"
 msgid "被摧毁后发生随机事件"
 msgstr ""
 
-#. Name for entity mvz2:Crafter
+#. Name for entity mvz2:CraftingTable
 #: Entity meta file
 msgctxt "entity.name"
 msgid "工作台"
 msgstr ""
 
-#. Tooltip for entity mvz2:Crafter
+#. Tooltip for entity mvz2:CraftingTable
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "使用以制造器械"
 msgstr ""
 
-#. Name for entity mvz2:CraftingTable
+#. Name for entity mvz2:Crafter
 #: Entity meta file
 msgctxt "entity.name"
 msgid "合成器"

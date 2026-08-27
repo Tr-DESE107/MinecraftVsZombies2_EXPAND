@@ -588,7 +588,11 @@
     <!--EXPAND Enemies Mannequin-->
     <model name="Mannequin" type="entity" path="mvz2:enemy/EXPAND/Mannequin" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
-
+        <override path="mvz2:enemy/EXPAND/DESE107">
+            <conditions>
+                <condition date="4/1 8/27" />
+            </conditions>
+        </override>
     </model>
     <model name="ImpMannequin" type="entity" path="mvz2:enemy/EXPAND/ImpMannequin" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
@@ -607,7 +611,7 @@
         </override>
     </model>
     <model name="MutantMannequin" type="entity" path="mvz2:enemy/EXPAND/MutantMannequin" width="200" height="180" xOffset="0" yOffset="-90">
-        <override path="mvz2:enemy/EXPAND/ImpDESE107">
+        <override path="mvz2:enemy/EXPAND/MutantDESE107">
             <conditions>
                 <condition date="4/1 8/27" />
             </conditions>
@@ -618,10 +622,20 @@
 
     <model name="CannoneerMannequin" type="entity" path="mvz2:enemy/EXPAND/CannoneerMannequin" width="85" height="92" xOffset="22" yOffset="-41">
         <armorconfig>mvz2:humanoid</armorconfig>
+        <override path="mvz2:enemy/EXPAND/DESE107">
+            <conditions>
+                <condition date="4/1 8/27" />
+            </conditions>
+        </override>
     </model>
     <model name="CannonballMannequin" type="entity" path="mvz2:enemy/EXPAND/CannonballMannequin" width="36" height="32" xOffset="0" yOffset="-16" />
     <model name="WickedHermitMannequin" type="entity" path="mvz2:enemy/EXPAND/WickedHermitMannequin" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
+        <override path="mvz2:enemy/EXPAND/DESE107">
+            <conditions>
+                <condition date="4/1 8/27" />
+            </conditions>
+        </override>
     </model>
 
     <!--EXPAND Enemies X-->

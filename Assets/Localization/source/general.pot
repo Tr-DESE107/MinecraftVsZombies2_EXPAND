@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-08-26 03:55+0800\n"
+"POT-Creation-Date: 2026-08-27 01:14+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1246,51 +1246,63 @@ msgid_plural "干得好！目前连胜：{0}！"
 msgstr[0] ""
 msgstr[1] ""
 
-# 重装兵器小游戏的提示
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:35
+# 重装兵器小游戏的提示(鼠标跟随+电脑端)
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:37
+msgctxt "advice"
+msgid "移动鼠标来移动，按住左键来射击！"
+msgstr ""
+
+# 重装兵器小游戏的提示(鼠标跟随+移动端)
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:39
+msgctxt "advice"
+msgid "触摸屏幕来移动并射击！"
+msgstr ""
+
+# 重装兵器小游戏的提示(按键移动+电脑端)
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:41
 msgctxt "advice"
 msgid "使用按键(默认↑↓←→)来移动，按住左键来射击！"
 msgstr ""
 
-# 重装兵器关卡空袭开始的提示
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:37
-msgctxt "advice"
-msgid "敌人呼叫了空袭！"
-msgstr ""
-
-# 重装兵器小游戏的提示
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:39
+# 重装兵器小游戏的提示(按钮移动+移动端)
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:43
 msgctxt "advice"
 msgid "点按按钮来移动，触摸屏幕来射击！"
 msgstr ""
 
+# 重装兵器关卡空袭开始的提示
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:45
+msgctxt "advice"
+msgid "敌人呼叫了空袭！"
+msgstr ""
+
 # Bossrush进场提示
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:41
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:47
 msgctxt "advice"
 msgid "30秒后将登场boss：{0}"
 msgstr ""
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:44
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:50
 msgid "购买"
 msgstr ""
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:46
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:52
 msgid "购买第七个器械槽位？"
 msgstr ""
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:48
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:54
 msgid "是否进行新手教程？"
 msgstr ""
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:50
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:56
 msgid "新手教程"
 msgstr ""
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:52
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:58
 msgid "通关"
 msgstr ""
 
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:54
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:60
 msgid ""
 "恭喜通关主线！\n"
 "接下来的内容还在开发中，敬请期待！\n"
@@ -1298,158 +1310,158 @@ msgid ""
 msgstr ""
 
 # 随机瓷器消息模板，{0}为事件名，{1}为事件描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:56
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:62
 msgid ""
 "<color=#824400>{0}</color>\n"
 "{1}"
 msgstr ""
 
 # 充能时间
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:61
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:67
 msgctxt "recharge_time"
 msgid "无"
 msgstr ""
 
 # 充能时间
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:63
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:69
 msgctxt "recharge_time"
 msgid "非常短"
 msgstr ""
 
 # 充能时间
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:65
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:71
 msgctxt "recharge_time"
 msgid "短"
 msgstr ""
 
 # 充能时间
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:67
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:73
 msgctxt "recharge_time"
 msgid "中"
 msgstr ""
 
 # 充能时间
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:69
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:75
 msgctxt "recharge_time"
 msgid "长"
 msgstr ""
 
 # 充能时间
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:71
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:77
 msgctxt "recharge_time"
 msgid "很长"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:75
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:81
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr ""
 
 # 死亡信息-梦魇碾压墙
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:82
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr ""
 
 # 死亡信息-我是僵尸
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:84
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:90
 msgctxt "death_message"
 msgid "你失去了所有能量！"
 msgstr ""
 
 # 死亡信息-重装兵器
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:86
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:92
 msgctxt "death_message"
 msgid "你失去了你的超级器械！"
 msgstr ""
 
 # 死亡信息-缸中之脑
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:88
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:94
 msgctxt "death_message"
 msgid "你失去了"
 msgstr ""
 
 # 命令输出
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:91
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:97
 msgctxt "command.output"
 msgid "该命令不能在关卡中调用"
 msgstr ""
 
 # 命令输出-help，{0}为命令名，{1}为命令描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:93
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:99
 msgctxt "command.output"
 msgid "/{0} - {1}"
 msgstr ""
 
 # 命令输出-help
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:95
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:101
 msgctxt "command.output"
 msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
 msgstr ""
 
 # 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:97
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:103
 msgctxt "command.output"
 msgid "{0}: [{1}] {2}"
 msgstr ""
 
 # 命令输出-blueprint，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:99
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:105
 msgctxt "command.output"
 msgid "蓝图槽位参数{0}超出范围"
 msgstr ""
 
 # 命令输出-cheat，{0}为参数
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:101
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:107
 msgctxt "command.output"
 msgid "未找到作弊命令{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:103
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:109
 msgctxt "command.output"
 msgid "已启用{0}"
 msgstr ""
 
 # 命令输出-cheat，{0}为作弊命令名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:105
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
 msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr ""
 
 # 命令输出-save
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:107
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
 msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:109
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
 msgctxt "command.output"
 msgid "已解锁游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:111
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:117
 msgctxt "command.output"
 msgid "无法解锁游戏状态{0}：该状态已被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:113
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:119
 msgctxt "command.output"
 msgid "已重新锁定游戏状态{0}"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:115
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:121
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名列表
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:117
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:123
 msgctxt "command.output"
 msgid ""
 "已解锁游戏状态：\n"
@@ -1457,13 +1469,13 @@ msgid ""
 msgstr ""
 
 # 命令输出-unlock
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:119
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:125
 msgctxt "command.output"
 msgid "无法解锁所有游戏状态：无游戏状态可解锁"
 msgstr ""
 
 # 命令输出-unlock，{0}为游戏状态名列表
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:121
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:127
 msgctxt "command.output"
 msgid ""
 "已重新锁定游戏状态：\n"
@@ -1471,67 +1483,67 @@ msgid ""
 msgstr ""
 
 # 命令输出-unlock
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:123
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:129
 msgctxt "command.output"
 msgid "无法重新锁定游戏状态：无游戏状态可重新锁定"
 msgstr ""
 
 # 命令输出-izombie
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:125
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:131
 msgctxt "command.output"
 msgid "当前关卡不是“我是僵尸”模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:129
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:135
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:131
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:137
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:133
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:139
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:135
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:141
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:144
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:150
 msgctxt "locked_chest_message"
 msgid "勒索弹窗"
 msgstr ""
 
 # 上锁的箱子信息描述，{0}为需求1，{1}为需求2，{2}为招式名称
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:146
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:152
 msgctxt "locked_chest_message"
 msgid "立刻给我{0}或{1}，否则我就要发动我的终极绝招“{2}”了！"
 msgstr ""
 
 # 上锁的箱子信息标题
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:149
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:155
 msgctxt "locked_chest_message"
 msgid "哦不好意思"
 msgstr ""
 
 # 上锁的箱子信息描述
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:151
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:157
 msgctxt "locked_chest_message"
 msgid "我忘说了，你选什么都没用。"
 msgstr ""
 
 # 上锁的箱子需求，{0}为花费的宝石量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:154
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:160
 msgctxt "locked_chest_message"
 msgid "{0}宝石"
 msgid_plural "{0}宝石"
@@ -1539,7 +1551,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 上锁的箱子需求，{0}为花费的星之碎片量
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:156
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:162
 msgctxt "locked_chest_message"
 msgid "{0}星之碎片"
 msgid_plural "{0}星之碎片"
@@ -1547,55 +1559,55 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:159
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:165
 msgctxt "locked_chest_message"
 msgid "支付{0}"
 msgstr ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:161
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:167
 msgctxt "locked_chest_message"
 msgid "拒绝"
 msgstr ""
 
 # 上锁的箱子选项名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:163
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:169
 msgctxt "locked_chest_message"
 msgid "？"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:166
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:172
 msgctxt "locked_chest_message"
 msgid "终极重压"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:168
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:174
 msgctxt "locked_chest_message"
 msgid "超能光束"
 msgstr ""
 
 # 上锁的箱子招式名
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:170
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:176
 msgctxt "locked_chest_message"
 msgid "爆破四魂"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:177
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:183
 msgctxt "locked_chest_text"
 msgid "炸弹来咯！"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:179
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:185
 msgctxt "locked_chest_text"
 msgid "我才是炸弹！"
 msgstr ""
 
 # 上锁的箱子文本
-#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:181
+#: Scripts\Vanilla\Frameworks\Localization\VanillaStrings.cs:187
 msgctxt "locked_chest_text"
 msgid "你有完没完？"
 msgstr ""
@@ -2914,7 +2926,7 @@ msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
 # EXPAND难度未通关时自动降级的提示
-#: Scripts\MVZ2\Level\LevelController\LevelController.cs:119
+#: Scripts\MVZ2\Level\LevelController\LevelController.cs:121
 msgid "未通关，难度已自动调节为<color=yellow>EXP|困难</color>"
 msgstr ""
 
@@ -3158,6 +3170,18 @@ msgstr ""
 #: Scripts\Logic\Options\Definitions\TargetFramerateOptionDropdown.cs:52
 msgctxt "option.target_framerate"
 msgid "默认"
+msgstr ""
+
+# 重装兵器移动方式
+#: Scripts\Logic\Options\EXPAND_Options\MinecartControlModeOptionDropdown.cs:33
+msgctxt "option.minecart_control_mode"
+msgid "跟随鼠标"
+msgstr ""
+
+# 重装兵器移动方式
+#: Scripts\Logic\Options\EXPAND_Options\MinecartControlModeOptionDropdown.cs:35
+msgctxt "option.minecart_control_mode"
+msgid "键盘/按钮"
 msgstr ""
 
 # 值，{0}为百分数
@@ -6808,6 +6832,23 @@ msgstr ""
 #: Option meta file
 msgctxt "option.tooltip"
 msgid "切换游戏的屏幕显示布局，这会影响屏幕显示比例，以及关卡中的界面布局。"
+msgstr ""
+
+#. Label for option widget 重装兵器移动方式
+#: Option meta file
+msgctxt "option.name"
+msgid "重装兵器移动方式"
+msgstr ""
+
+#. Tooltip for option widget 选择重装兵器关卡中矿车的移动方式。
+#. 跟随鼠标：矿车跟随鼠标/触摸位置移动。
+#. 键盘/按钮：矿车不跟随鼠标，改用键盘按键或屏幕按钮上下左右移动。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid ""
+"选择重装兵器关卡中矿车的移动方式。\n"
+"跟随鼠标：矿车跟随鼠标/触摸位置移动。\n"
+"键盘/按钮：矿车不跟随鼠标，改用键盘按键或屏幕按钮上下左右移动。"
 msgstr ""
 
 #. Label for option widget 分辨率

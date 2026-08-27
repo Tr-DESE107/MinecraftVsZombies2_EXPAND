@@ -32,12 +32,18 @@ namespace MVZ2.Vanilla.Localization
         public const string ADVICE_IZ_ROUNDS_LEFT = "干得好！还剩{0}轮！";
         [TranslateMsg("我是僵尸模式的提示，{0}为目前连胜", LogicStrings.CONTEXT_ADVICE, selfPlural: true)]
         public const string ADVICE_IZ_STREAK = "干得好！目前连胜：{0}！";
-        [TranslateMsg("重装兵器小游戏的提示", LogicStrings.CONTEXT_ADVICE)]
-        public const string ADVICE_HEAVY_WEAPON_TIP_MOUSE = "使用按键(默认↑↓←→)来移动，按住左键来射击！";
+
+        //EXPAND
+        [TranslateMsg("重装兵器小游戏的提示(鼠标跟随+电脑端)", LogicStrings.CONTEXT_ADVICE)]
+        public const string ADVICE_HEAVY_WEAPON_TIP_MOUSE = "移动鼠标来移动，按住左键来射击！";
+        [TranslateMsg("重装兵器小游戏的提示(鼠标跟随+移动端)", LogicStrings.CONTEXT_ADVICE)]
+        public const string ADVICE_HEAVY_WEAPON_TIP_TOUCH = "触摸屏幕来移动并射击！";
+        [TranslateMsg("重装兵器小游戏的提示(按键移动+电脑端)", LogicStrings.CONTEXT_ADVICE)]
+        public const string ADVICE_HEAVY_WEAPON_TIP_KEYBOARD = "使用按键(默认↑↓←→)来移动，按住左键来射击！";
+        [TranslateMsg("重装兵器小游戏的提示(按钮移动+移动端)", LogicStrings.CONTEXT_ADVICE)]
+        public const string ADVICE_HEAVY_WEAPON_TIP_BUTTON = "点按按钮来移动，触摸屏幕来射击！";
         [TranslateMsg("重装兵器关卡空袭开始的提示", LogicStrings.CONTEXT_ADVICE)]
         public const string ADVICE_HEAVY_WEAPON_AIR_RAID = "敌人呼叫了空袭！";
-        [TranslateMsg("重装兵器小游戏的提示", LogicStrings.CONTEXT_ADVICE)]
-        public const string ADVICE_HEAVY_WEAPON_TIP_TOUCH = "点按按钮来移动，触摸屏幕来射击！";
         [TranslateMsg("Bossrush进场提示", LogicStrings.CONTEXT_ADVICE)]
         public const string ADVICE_NEXT_BOSS_INCOMING = "30秒后将登场boss：{0}";
 

@@ -5,12 +5,13 @@ using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Entities;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -83,6 +84,11 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
+            for (var i = 0; i < 3; i++)
+            {
+                entity.Spawn(VanillaPickupID.emerald, entity.Position);
+                entity.Spawn(VanillaPickupID.ruby, entity.Position);
+            }
         }
         public static FrameTimer? GetStateTimer(Entity enemy)
         {

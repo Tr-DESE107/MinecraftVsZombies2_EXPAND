@@ -38,6 +38,9 @@ namespace MVZ2Logic.Options
         public const string particleAmount = "particle_amount";
         public const string shakeAmount = "shake_amount";
         public const string animationFrequency = "animation_frequency";
+
+        //EXPAND
+        public const string minecartControlMode = "minecart_control_mode";
     }
     public static class LogicOptionItemID
     {
@@ -73,6 +76,9 @@ namespace MVZ2Logic.Options
         public static readonly NamespaceID particleAmount = Get(LogicOptionItemNames.particleAmount);
         public static readonly NamespaceID shakeAmount = Get(LogicOptionItemNames.shakeAmount);
         public static readonly NamespaceID animationFrequency = Get(LogicOptionItemNames.animationFrequency);
+
+        //EXPAND
+        public static readonly NamespaceID minecartControlMode = Get(LogicOptionItemNames.minecartControlMode);
 
         public static NamespaceID Get(string name)
         {
