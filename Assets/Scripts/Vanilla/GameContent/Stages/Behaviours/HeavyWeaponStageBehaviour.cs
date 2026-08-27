@@ -172,7 +172,7 @@ namespace MVZ2.GameContent.Stages
         private void ShowTip(LevelEngine level)
         {
             // 两个维度：矿车移动方式(鼠标跟随/按键按钮) × 屏幕布局(电脑端/移动端)  
-            bool isMouseMode = Global.Options.GetMinecartControlMode() == MinecartControlModes.MOUSE;
+            bool isMouseMode = MinecartRideable.IsEffectiveMouseMode(level);
             bool isMobile = Global.Game.UseMobileLayout();
 
             string textKey;
