@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            for (var i = 0; i < 11; i++)
+            for (var i = 0; i < 3; i++)
             {
                 entity.Spawn(VanillaPickupID.emerald, entity.Position);
                 entity.Spawn(VanillaPickupID.ruby, entity.Position);
