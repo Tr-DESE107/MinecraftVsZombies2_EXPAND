@@ -7,8 +7,6 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
-using MVZ2Logic.Blueprints;
-using MVZ2Logic.Level;
 using MVZ2.GameContent.Sprites;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -16,11 +14,13 @@ using MVZ2.Vanilla.Localization;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Blueprints;
 using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
-using MVZ2Logic.Inputs;
+using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Modifiers;
+using MVZ2Logic.Options;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
@@ -171,10 +171,22 @@ namespace MVZ2.GameContent.Stages
 
         private void ShowTip(LevelEngine level)
         {
-            var textKey = VanillaStrings.ADVICE_HEAVY_WEAPON_TIP_MOUSE;
-            if (Global.Input.GetActivePointerType() == PointerTypes.TOUCH)
+            // 两个维度：矿车移动方式(鼠标跟随/按键按钮) × 屏幕布局(电脑端/移动端)  
+            bool isMouseMode = Global.Options.GetMinecartControlMode() == MinecartControlModes.MOUSE;
+            bool isMobile = Global.Game.UseMobileLayout();
+
+            string textKey;
+            if (isMouseMode)
             {
-                textKey = VanillaStrings.ADVICE_HEAVY_WEAPON_TIP_TOUCH;
+                textKey = isMobile
+                    ? VanillaStrings.ADVICE_HEAVY_WEAPON_TIP_TOUCH    // 鼠标/触摸跟随 + 移动端  
+                    : VanillaStrings.ADVICE_HEAVY_WEAPON_TIP_MOUSE;   // 鼠标跟随 + 电脑端  
+            }
+            else
+            {
+                textKey = isMobile
+                    ? VanillaStrings.ADVICE_HEAVY_WEAPON_TIP_BUTTON   // 按钮移动 + 移动端  
+                    : VanillaStrings.ADVICE_HEAVY_WEAPON_TIP_KEYBOARD;// 按键移动 + 电脑端  
             }
             level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, textKey, 100, 150);
         }

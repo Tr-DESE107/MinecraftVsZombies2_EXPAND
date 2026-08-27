@@ -28,7 +28,7 @@
         <int id="fpsMode" defaultValue="0" />
         <int id="target_framerate" defaultValue="-1" />
         <int id="screen_layout" defaultValue="0" />
-        <int id="minecart_control_mode" defaultValue="0" />
+        <int id="minecart_control_mode" defaultValue="1" />
 
         <float id="music_volume" defaultValue="1" />
         <float id="sound_volume" defaultValue="1" />
