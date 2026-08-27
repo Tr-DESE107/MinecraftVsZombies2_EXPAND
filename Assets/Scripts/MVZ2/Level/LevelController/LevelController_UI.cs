@@ -197,10 +197,24 @@ namespace MVZ2.Level
             UpdateHeldSlotUI();
             UpdateStarshards();
 
-            // 新增：仅在存在可骑乘矿车的关卡（重装兵器类）显示移动按钮  
+            // 仅在下列条件全部满足时显示矿车移动按钮：  
+            //  1) 场上存在存活的可骑乘矿车（不再硬匹配关卡 ID）  
+            //  2) 当前是移动端布局（桌面端用键盘，不需要屏幕按钮）  
+            //  3) 移动方式为“键盘/按钮”模式（鼠标/触摸跟随模式下按钮无用）  
             var minecart = level.FindFirstEntity(MVZ2.GameContent.Effects.VanillaEffectID.minecartRideable);
             bool hasMinecart = minecart != null && !minecart.IsDead;
-            ui.SetMinecartButtonsActive(hasMinecart);
+            bool keyboardMode = Global.Options.GetMinecartControlMode() != MinecartControlModes.MOUSE;
+            bool showMinecartButtons = hasMinecart && Main.UseMobileLayout() && keyboardMode;
+            ui.SetMinecartButtonsActive(showMinecartButtons);
+
+            // 隐藏按钮时清零“按住”状态，避免隐藏瞬间手指仍按着导致矿车持续移动  
+            if (!showMinecartButtons)
+            {
+                minecartUpHeld = false;
+                minecartDownHeld = false;
+                minecartLeftHeld = false;
+                minecartRightHeld = false;
+            }
         }
 
         #region 事件回调
