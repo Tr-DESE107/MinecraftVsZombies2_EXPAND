@@ -1,4 +1,4 @@
-<areas>
+﻿<areas>
     <area id="day" model="mvz2:day" music="mvz2:day" cart="mvz2:minecart" starshard="mvz2:starshards/default" tags="mvz2:day mvz2:no_water">
         <positions enemySpawnX="1080" doorZ="240" />
         <grids width="80" height="80" leftX="260" bottomZ="80" lanes="5" columns="9">
@@ -452,6 +452,72 @@
             <grid id="mvz2:stone" />
             <grid id="mvz2:stone" />
             <grid id="mvz2:stone" />
+        </grids>
+    </area>
+    <!--EXPAND-->
+    <area id="DreamNight" model="mvz2:DreamNight" music="mvz2:dream_level" cart="mvz2:nyan_cat" starshard="mvz2:starshards/dream" tags="mvz2:day mvz2:water">
+        <positions enemySpawnX="1080" doorZ="240" />
+        <grids width="80" height="80" leftX="260" bottomZ="40" lanes="6" columns="9">
+            <!-- Lane 1 -->
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <!-- Lane 2 -->
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <!-- Lane 3 -->
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <!-- Lane 4 -->
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <!-- Lane 5 -->
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:water" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <!-- Lane 6 -->
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
+            <grid id="mvz2:grass" />
         </grids>
     </area>
 </areas>
