@@ -9,6 +9,7 @@ using MVZ2.UI;
 using MVZ2Logic;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Commands;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Options;
@@ -165,9 +166,9 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.CycleDifficulty();
                         var difficulty = Main.OptionsManager.GetDifficulty();
-                        if (difficulty == VanillaDifficulties.lunatic)
+                        if (difficulty == LogicDifficultyID.lunatic)
                         {
-                            // 切换到EXPAND难度时弹出选项确认框  
+                            // 切换到EXPAND难度时弹出选项确认框    
                             var title = Main.LanguageManager._(LogicStrings.WARNING);
                             var desc = Main.LanguageManager._(DIALOG_DESC_LUNATIC_WARNING);
                             var options = new string[]
@@ -182,16 +183,16 @@ namespace MVZ2.Options
                                 switch (index)
                                 {
                                     case 0:
-                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.lunatic);
+                                        Main.OptionsManager.SetDifficulty(LogicDifficultyID.lunatic);
                                         break;
                                     case 1:
-                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.easy);
+                                        Main.OptionsManager.SetDifficulty(LogicDifficultyID.easy);
                                         break;
                                     case 2:
-                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.normal);
+                                        Main.OptionsManager.SetDifficulty(LogicDifficultyID.normal);
                                         break;
                                     default:
-                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.hard);
+                                        Main.OptionsManager.SetDifficulty(LogicDifficultyID.hard);
                                         break;
                                 }
                                 ApplyDifficultyChange();
