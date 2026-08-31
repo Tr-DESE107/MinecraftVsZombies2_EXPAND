@@ -136,7 +136,7 @@ namespace MVZ2.Mainmenu
                     }
                     else if (Input.GetKeyDown(KeyCode.F11))
                     {
-                        StartCoroutine(GotoDebugStage(VanillaAreaID.day));
+                        StartCoroutine(GotoDebugStage(new NamespaceID(main.BuiltinNamespace, "day")));
                     }
                 }
             }
