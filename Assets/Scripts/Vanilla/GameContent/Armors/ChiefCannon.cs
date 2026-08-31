@@ -14,7 +14,10 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Definitions;
-using Tools;
+using PVZEngine.Tools.Timing;  
+using PVZEngine.Tools.Random;  
+using PVZEngine.Tools.Mathematics;  
+using PVZEngine.Tools.Unity;
 using UnityEngine;
 using MVZ2.Vanilla.Effects;
 

@@ -16,7 +16,10 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using Tools;
+using PVZEngine.Tools.Timing;  
+using PVZEngine.Tools.Random;  
+using PVZEngine.Tools.Mathematics;  
+using PVZEngine.Tools.Unity;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies

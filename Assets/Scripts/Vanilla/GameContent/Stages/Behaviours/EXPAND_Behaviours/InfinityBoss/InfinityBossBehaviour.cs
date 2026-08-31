@@ -11,8 +11,12 @@ using MVZ2Logic.Stats;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools;
+using PVZEngine.Tools.Timing;  
+using PVZEngine.Tools.Random;  
+using PVZEngine.Tools.Mathematics;  
+using PVZEngine.Tools.Unity;
 using UnityEngine;
+using PVZEngine.Properties;
 
 namespace MVZ2.GameContent.Stages
 {

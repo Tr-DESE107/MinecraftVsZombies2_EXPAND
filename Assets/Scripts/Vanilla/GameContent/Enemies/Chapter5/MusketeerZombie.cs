@@ -10,7 +10,10 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using Tools;
+using PVZEngine.Tools.Timing;  
+using PVZEngine.Tools.Random;  
+using PVZEngine.Tools.Mathematics;  
+using PVZEngine.Tools.Unity;
 
 namespace MVZ2.GameContent.Enemies
 {

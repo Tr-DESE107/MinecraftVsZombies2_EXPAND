@@ -26,7 +26,8 @@ using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using Tools;
+using PVZEngine.Properties;
+using PVZEngine.Tools.Random;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages

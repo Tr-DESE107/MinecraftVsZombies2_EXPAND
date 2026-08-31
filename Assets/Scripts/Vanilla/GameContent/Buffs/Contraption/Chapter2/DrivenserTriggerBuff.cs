@@ -9,7 +9,10 @@ using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
-using Tools;
+using PVZEngine.Tools.Timing;  
+using PVZEngine.Tools.Random;  
+using PVZEngine.Tools.Mathematics;  
+using PVZEngine.Tools.Unity;
 
 namespace MVZ2.GameContent.Buffs.Contraptions  
 {  

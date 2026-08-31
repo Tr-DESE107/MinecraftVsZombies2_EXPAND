@@ -7,12 +7,12 @@ using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Options;
-using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
+using PVZEngine.Properties;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects  

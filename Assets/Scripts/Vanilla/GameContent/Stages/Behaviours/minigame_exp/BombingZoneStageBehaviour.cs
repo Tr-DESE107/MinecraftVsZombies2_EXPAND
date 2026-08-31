@@ -26,7 +26,8 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using Tools;
+using PVZEngine.Properties;
+using PVZEngine.Tools.Timing;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages

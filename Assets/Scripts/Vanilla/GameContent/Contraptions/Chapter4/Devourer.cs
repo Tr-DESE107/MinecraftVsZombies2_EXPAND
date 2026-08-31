@@ -26,10 +26,11 @@ using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Models;
-using PVZEngine.Tools.Timing;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.Modifiers;
+using PVZEngine.Properties;
+using PVZEngine.Tools.Timing;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions

@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Projectiles
         {
             AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
         }
-        public void Ignite(Entity entity, Entity hellfire, bool cursed)
+        public void Ignite(Entity entity, Entity hellfire, bool cursed, bool enter)
         {
             var param = entity.GetSpawnParams();
             param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());

@@ -5,7 +5,10 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Stages;
 using MVZ2Logic.IZombie;
 using PVZEngine;
-using Tools;
+using PVZEngine.Tools.Timing;  
+using PVZEngine.Tools.Random;  
+using PVZEngine.Tools.Mathematics;  
+using PVZEngine.Tools.Unity;
 using MVZ2Logic.Definitions;
 
 namespace MVZ2.GameContent.IZombie

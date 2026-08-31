@@ -10,10 +10,10 @@ using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Properties;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
