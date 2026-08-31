@@ -263,6 +263,7 @@ namespace MVZ2.Modding
                 {
                     entityID = entityID,
                     cost = blueprintMeta.Cost,
+                    triggerCost = blueprintMeta.TriggerCost,
                     rechargeID = blueprintMeta.RechargeID,
                     variant = blueprintMeta.Variant,
                     icon = blueprintMeta.GetIcon(),
@@ -465,7 +466,7 @@ namespace MVZ2.Modding
                 mod.AddDefinition(def);
             }
         }
-                    triggerCost = meta.TriggerCost,
+                    
         private void LoadBuffMetas(Mod mod)
         {
             var nsp = mod.Namespace;

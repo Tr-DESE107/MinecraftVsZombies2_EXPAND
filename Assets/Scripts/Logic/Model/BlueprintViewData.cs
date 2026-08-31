@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 
 using UnityEngine;
 
@@ -8,6 +8,7 @@ namespace MVZ2Logic.Models
     {
         public bool empty;
         public string cost;
+        public string triggerCost;
         public Sprite? icon;
         public bool triggerActive;
         public bool iconGrayscale;

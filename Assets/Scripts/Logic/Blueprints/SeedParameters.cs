@@ -9,6 +9,7 @@ namespace MVZ2Logic.Blueprints
     {
         public NamespaceID entityID;
         public int cost;
+        public int triggerCost;
         public NamespaceID? rechargeID;
         public bool triggerActive;
         public bool canInstantTrigger;

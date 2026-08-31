@@ -2,11 +2,8 @@
 
 using System;
 using System.Linq;
-
 using MukioI18n;
-
 using MVZ2.Audios;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GlobalGames;
 using MVZ2.Level.Components;
 using MVZ2.Localization;
@@ -14,15 +11,11 @@ using MVZ2.Managers;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
-
 using MVZ2Logic.Level;
 using MVZ2Logic.Options;
-
 using PVZEngine;
 using PVZEngine.Level;
-
 using PVZEngine.Tools.Random;
-
 using UnityEngine;
 
 namespace MVZ2.Level

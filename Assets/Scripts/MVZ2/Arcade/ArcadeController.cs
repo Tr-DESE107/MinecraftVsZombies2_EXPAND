@@ -153,7 +153,7 @@ namespace MVZ2.Arcade
                 var kills = Main.SaveManager.GetStat(LogicStats.CATEGORY_MAX_BOSS_KILLS, stageID);
                 hint = GetTranslatedString(BOSS_ENDLESS_MAX_KILLS, kills);
             }
-            var icon = Main.GetFinalSprite(meta.Icon);
+            var icon = Main.GetSprite(meta.Icon);
 
             Sprite? clearSprite = null;
             if (Main.SaveManager.IsLevelCleared(stageID))

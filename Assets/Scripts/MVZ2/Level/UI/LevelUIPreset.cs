@@ -6,6 +6,7 @@ using MVZ2.Level.Blueprints;
 using MVZ2.Level.Inputing;
 using MVZ2.Level.Starshards;
 using MVZ2.UI;
+using MVZ2.UI.Level;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;

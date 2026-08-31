@@ -16,6 +16,14 @@
             <icon sprite="mvz2:ui/almanac/placement_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#4587a6" />
         </tag>
+        <tag id="placement_amphibious" name="两栖器械" description="可以放置在水中或者陆地上" priority="0">
+            <icon sprite="mvz2:ui/almanac/placement_tags[4]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#57433c" />
+        </tag>
+        <tag id="placement_onbashira" name="从天而降" description="可以放置在任意格子上，从天而降！" priority="0">
+            <icon sprite="mvz2:ui/almanac/placement_tags[5]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#4587a6" />
+        </tag>
 
         <tag id="placement_infectenser" name="升级器械：小型发射器" description="必须放置在小型发射器上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[0]" />
@@ -31,6 +39,10 @@
         </tag>
         <tag id="placement_repeatenser" name="升级器械：连射发射器" description="必须放置在连射发射器上" priority="0">
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+        <tag id="placement_lily_pad" name="升级器械：睡莲" description="必须放置在睡莲上" priority="0">
+            <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
         <tag id="placement_diamond_spikes" name="升级器械：尖刺方块" description="必须放置在尖刺方块上" priority="0">
@@ -152,6 +164,14 @@
         <tag id="not_undead" name="非亡灵" description="不是亡灵生物" priority="4000">
             <icon sprite="mvz2:ui/almanac/attribute_tags[13]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
+        </tag>
+        <tag id="fire_immunity" name="火焰免疫" description="免疫火焰伤害" priority="4000">
+            <icon sprite="mvz2:ui/almanac/attribute_tags[14]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#96503a" />
+        </tag>
+        <tag id="stable" name="稳固" description="免疫位移" priority="4000">
+            <icon sprite="mvz2:ui/almanac/attribute_tags[15]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#b3d4db" />
         </tag>
 
         <!--EXPAND tag -->
@@ -297,7 +317,7 @@
             <value value="mvz2:metal" name="金属" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[4]" backgroundColor="#aaaaaa" />
             <value value="mvz2:bone" name="骨" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[5]" backgroundColor="#494b3e" />
             <value value="mvz2:wood" name="木头" description="受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[6]" backgroundColor="#b28553" />
-            <value value="mvz2:nether" name="下界" description="免疫火焰伤害" sprite="mvz2:ui/almanac/shell_tags[7]" backgroundColor="#36131d" />
+            <value value="mvz2:wither_bone" name="凋灵骨" description="免疫火焰伤害" sprite="mvz2:ui/almanac/shell_tags[7]" backgroundColor="#36131d" />
             <value value="mvz2:diamond" name="钻石" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[8]" backgroundColor="#417368" />
             <value value="mvz2:sand" name="沙子" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[9]" backgroundColor="#b4b590" />
             <value value="mvz2:netherrack" name="下界岩" description="免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[10]" backgroundColor="#36131d" />
@@ -306,13 +326,17 @@
             <value value="mvz2:ice" name="冰" description="阻挡锐利物体，但受到2x冲击或火焰伤害" sprite="mvz2:ui/almanac/shell_tags[15]" backgroundColor="##8CBDE6" />
             <value value="mvz2:shadow" name="暗影" description="受到1.5x火焰、闪电和光明伤害" sprite="mvz2:ui/almanac/shell_tags[13]" backgroundColor="#3f3f3f" />
             <value value="mvz2:normal" name="普通" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[14]" backgroundColor="#6b6b6b" />
+            <value value="mvz2:ice" name="冰" description="阻挡锐利物体，但受到20x冲击伤害和2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[15]" backgroundColor="#1b67a3" />
+            <value value="mvz2:apparition" name="灵体" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[16]" backgroundColor="#ffffff" />
         </enum>
     </tags>
     <globalVariables>
         <variable name="entity_health">property("mvz2:entity/maxHealth")</variable>
         <variable name="entity_damage">property("mvz2:entity/damage")</variable>
         <variable name="entity_speed">property("mvz2:entity/speed")</variable>
-        
+        <variable name="entity_range">property("mvz2:entity/range")</variable>
+        <variable name="entity_range_in_tiles">property("mvz2:entity/range") / 80</variable>
+
         <variable name="redstone_value">property("mvz2:entity/energyValue", "mvz2:redstone", "entity")</variable>
         <variable name="armor_hp">property("mvz2:armor/maxHealth", property("mvz2:entity/starting_armor"), "armor")</variable>
         <variable name="shield_hp">property("mvz2:armor/maxHealth", property("mvz2:entity/starting_shield"), "armor")</variable>
@@ -551,6 +575,7 @@
         <entry id="mvz2:soul_furnace">
             <variables>
                 <variable name="splash_damage">global("mvz2:entity_damage") * 0.25</variable>
+                <variable name="evocation_refuel_percentage">50</variable>
             </variables>
             <header>
                 <p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire" />灵魂火，但需要提供燃料。]]></p>
@@ -698,7 +723,7 @@
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>特点：<![CDATA[<color=red>能够攻击高处的敌人，尖刺能够穿透3个敌人</color>]]></p>
-                <p>技能：<![CDATA[<color=red>向至多10个敌人发射穿甲的巨型尖刺</color>]]></p>
+                <p>技能：<![CDATA[<color=red>向所有敌人发射巨型尖刺，造成180点穿甲伤害</color>]]></p>
             </properties>
             <flavors>
                 <flavor>
@@ -994,7 +1019,7 @@
                 <p>“我发射更快，理应当哥哥！”</p>
                 <p>“那大部分时候还是我把前面的敌人干掉的嘞！”</p>
                 <p>……</p>
-                <p><![CDATA[幸好他邻居是<ref=[contraptions]mvz2:lightning_orb>闪电之珠</ref>，不然就又有人要来投诉了。]]></p>
+                <p><![CDATA[幸好它邻居是<ref=[contraptions]mvz2:lightning_orb>闪电之珠</ref>，不然就又有人要来投诉了。]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:devourer">
@@ -1098,7 +1123,7 @@
                 <p><![CDATA[欲望壶会从怪物身上复制其携带的<ref=[misc]mvz2:starshard.shinrei>星之碎片</ref>，每个欲望壶最多复制三个。]]></p>
             </header>
             <properties>
-                <p>技能：<![CDATA[<color=red>将最后方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>]]></p>
+                <p>技能：<![CDATA[<color=red>将最后方的两张充能完毕的蓝图复制为掉落物，然后重置它们的充能</color>]]></p>
                 <p>特点：<![CDATA[<color=red>被摧毁时会变成随机器械。</color>]]></p>
             </properties>
             <flavor>
@@ -1247,7 +1272,7 @@
         <!-- Chapter 6 -->
         <entry id="mvz2:transfenser">
             <variables>
-                <variable name="laser_dps">global("mvz2:entity_damage") * 0.25</variable>
+                <variable name="laser_dps">global("mvz2:entity_damage") * 0.15</variable>
                 <variable name="fire_interval">1.5</variable>
                 <variable name="glowing_duration">5</variable>
                 <variable name="glowing_damage_addition">50</variable>
@@ -1425,14 +1450,186 @@
         </entry>
 
         <!-- Chapter 7 -->
-        <entry />
-        <entry />
-        <entry />
-        <entry />
-        <entry />
-        <entry />
-        <entry />
-        <entry />
+        <entry id="mvz2:freezenser">
+            <header>
+                <p>寒冰发射器发射可以使敌人减速的冰箭。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>技能：<![CDATA[<color=red>发射一枚致命的冰封球</color>]]></p>
+            </properties>
+            <flavor>
+                <p>寒冰发射器最大的愿望是退伍——不是因为它当兵（冰）太久了，而是因为这里的器械都听不懂它讲的冷笑话。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:maplewheel">
+            <variables>
+                <variable name="fire_interval">1.5</variable>
+                <variable name="evocation_damage">global("mvz2:entity_damage") * 2.5</variable>
+            </variables>
+            <header>
+                <p>枫车会向前发射风刃。风刃如果经过其他枫车，其伤害会增加。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1发/<var local="fire_interval" />秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />锐利伤害</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>经过枫车的风刃+<var id="mvz2:entity_damage" />伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>对所有敌人造成<var local="evocation_damage" />点伤害X次。（X=场上枫车的数量）</color>]]></p>
+            </properties>
+            <flavor>
+                <p>用红白枫叶做的小风车</p>
+                <p>掉在<![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>的瀑布下</p>
+                <p/>
+                <p>转啊转啊，红白色的风车</p>
+                <p>大伙就在这里</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:teleporter">
+            <variables>
+                <variable name="total_energy">250</variable>
+            </variables>
+            <header>
+                <p>点击传送器后，可以将任意地块的<![CDATA[<tag id="mvz2:grid_layer_main" />]]>器械和自身进行交换。</p>
+            </header>
+            <properties>
+                <p>技能：<![CDATA[<color=red>选择一处3x3的区域，将你的自定义战队凭空传送到该区域，然后传送器消失。（可在主界面自定义）</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它最喜欢在队友就快击杀敌人的时候把队友传送回基地。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:ejector">
+            <variables>
+                <variable name="cooldown">property("mvz2:entity_behaviour/ejector/max_cooldown_seconds")</variable>
+                <variable name="metal_density">property("mvz2:shell/density", "mvz2:metal", "shell") * 100</variable>
+                <variable name="diamond_density">property("mvz2:shell/density", "mvz2:diamond", "shell") * 100</variable>
+                <variable name="stone_density">property("mvz2:shell/density", "mvz2:stone", "shell") * 100</variable>
+                <variable name="netherrack_density">property("mvz2:shell/density", "mvz2:netherrack", "shell") * 100</variable>
+                <variable name="wither_bone_density">property("mvz2:shell/density", "mvz2:wither_bone", "shell") * 100</variable>
+                <variable name="bone_density">property("mvz2:shell/density", "mvz2:bone", "shell") * 100</variable>
+                <variable name="sand_density">property("mvz2:shell/density", "mvz2:sand", "shell") * 100</variable>
+                <variable name="flesh_density">property("mvz2:shell/density", "mvz2:flesh", "shell") * 100</variable>
+                <variable name="leather_density">property("mvz2:shell/density", "mvz2:leather", "shell") * 100</variable>
+                <variable name="grass_density">property("mvz2:shell/density", "mvz2:grass", "shell") * 100</variable>
+                <variable name="wood_density">property("mvz2:shell/density", "mvz2:wood", "shell") * 100</variable>
+                <variable name="shadow_density">property("mvz2:shell/density", "mvz2:shadow", "shell") * 100</variable>
+                <variable name="cloud_density">property("mvz2:shell/density", "mvz2:cloud", "shell") * 100</variable>
+                <variable name="lightning_density">property("mvz2:shell/density", "mvz2:lightning", "shell") * 100</variable>
+                <variable name="apparition_density">property("mvz2:shell/density", "mvz2:apparition", "shell") * 100</variable>
+                <variable name="ice_density">property("mvz2:shell/density", "mvz2:ice", "shell") * 100</variable>
+            </variables>
+            <header>
+                <p>弹射器内部可以放置其他器械。触发弹射器可以将内部的器械抛投至任意位置并砸伤敌人。被投出的器械也会因此受到摔落伤害。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red>根据被投掷的器械的材质和体积而定</color>]]></p>
+                <p>冷却时间：<![CDATA[<color=red><var local="cooldown"/>秒</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>部分材质和器械被投出时会有特殊效果</color>]]></p>
+                <p>技能：<![CDATA[<color=red>刷新冷却时间，并在内部没有器械时，装填一个<ref=[contraptions]mvz2:tnt>TNT</ref></color>]]></p>
+            </properties>
+            <flavor>
+                <p>“你实在是太暴力了！你就不能和其他器械们和平共处吗？”</p>
+                <p>“你离我近一点，我来告诉你我能不能。”</p>
+                <p/>
+                <p><![CDATA[<b>附录：</b>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:metal" />：<color=red><var local="metal_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:diamond" />：<color=red><var local="diamond_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:stone" />：<color=red><var local="stone_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:netherrack" />：<color=red><var local="netherrack_density"/>%（在周围产生火焰）</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:wither_bone" />：<color=red><var local="wither_bone_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:bone" />：<color=red><var local="bone_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:sand" />：<color=red><var local="sand_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh" />：<color=red><var local="flesh_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:leather" />：<color=red><var local="leather_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:grass" />：<color=red><var local="grass_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:ice" />：<color=red><var local="ice_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:wood" />：<color=red><var local="wood_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:shadow" />：<color=red><var local="shadow_density"/>%</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:cloud" />：<color=red><var local="cloud_density"/>%（震飞周围敌怪）</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:lightning" />：<color=red><var local="lightning_density"/>%（电击周围敌怪）</color>]]></p>
+                <p><![CDATA[<tag id="mvz2:shell" enum="mvz2:apparition" />：<color=red><var local="apparition_density"/>%</color>]]></p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:onbashira">
+            <variables>
+                <variable name="fall_damage">global("mvz2:entity_damage") * property("mvz2:buff/onbashira_fall/damage_multiplier", "mvz2:onbashira_fall", "buff")</variable>
+            </variables>
+            <header>
+                <p>御柱从天而降，砸碎落点的任何器械和怪物，然后变为难以移动的高墙。</p>
+            </header>
+            <properties>
+                <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>坠落伤害：<![CDATA[<color=red><var local="fall_damage" /></color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤御柱填满本列（注意：会砸坏器械！）</color>]]></p>
+            </properties>
+            <flavor>
+                <p>你看，它们就是柱子。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:autotrap">
+            <variables>
+                <variable name="trapped_damage">property("mvz2:entity_behaviour/autotrap/trapped_damage_multiplier") * global("mvz2:entity_damage")</variable>
+                <variable name="continuous_damage">property("mvz2:entity_behaviour/autotrap/continuous_damage_multiplier") * global("mvz2:entity_damage")</variable>
+                <variable name="continuous_interval">property("mvz2:entity_behaviour/autotrap/trapped_damage_interval")</variable>
+                <variable name="evoked_damage">property("mvz2:entity_behaviour/autotrap/evoked_damage_multiplier") * global("mvz2:entity_damage")</variable>
+                <variable name="evoked_range">global("mvz2:entity_range_in_tiles")</variable>
+            </variables>
+            <header>
+                <p>自动兽夹会夹住踩到它的第一个敌人，将其困住并持续造成伤害直到其死亡。之后自动兽夹便可以再次被使用。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red><var local="trapped_damage"/>锐利伤害（夹取），<var local="continuous_damage"/>锐利伤害/<var local="continuous_interval"/>秒（持续）</color>]]></p>
+                <p>技能：<![CDATA[<color=red>下一次夹取会直接击杀被困住的目标，并对半径<var local="evoked_range"/>格内的敌人造成<var local="evoked_damage"/>点闪电伤害</color>]]></p>
+            </properties>
+            <flavor>
+                <p>别看自动兽夹对付怪物时如此凶猛，它其实很会和人辩论，出口成章。很多被它驳倒过的器械都自叹不如，夸它“铁齿铜牙”。然而它自己并不认同这是种夸赞——因为它是用高强度合金钢做的。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:nesting_tnt">
+            <variables>
+                <variable name="radius">global("mvz2:entity_range_in_tiles")</variable>
+            </variables>
+            <header>
+                <p>套娃TNT在触发后会爆炸，并生成一个更小的套娃TNT的蓝图掉落物，使得它可以连续爆炸三次。</p>
+            </header>
+            <properties>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>半径：<![CDATA[<color=red><var local="radius" />格</color>]]></p>
+                <p>技能：<![CDATA[<color=red>生成两个最大的套娃TNT的蓝图掉落物</color>]]></p>
+            </properties>
+            <flavor>
+                <p>从前有座山，山里有座神社，神社里有个TNT，TNT对小TNT说：</p>
+                <p>从前有座山，山里有座神社，神社里有个TNT，TNT对小TNT说：</p>
+                <p>从前有座山，山里有座神社，神社里有个TNT，TNT对小TNT说：</p>
+                <p>从前有座山，山里有座神社，神社里有个TNT，TNT对小TNT说：</p>
+                <p>从前有座山，山里有座神社，神社里有个TNT，TNT对小TNT说：</p>
+                <p>从前有座山，山里有座神社，神社里有个TNT，TNT对小TNT说：</p>
+                <p>从前有座山，山里有座神社，神社里有个TNT，TNT对小TNT说……</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:loan_sign">
+            <variables>
+                <variable name="lend_count">property("mvz2:entity_behaviour/loan_sign/lend_count")</variable>
+                <variable name="repay_count">property("mvz2:entity_behaviour/loan_sign/max_repay_count")</variable>
+                <variable name="max_seconds">property("mvz2:entity_behaviour/loan_sign/max_creaking_seconds")</variable>
+                <variable name="min_seconds">property("mvz2:entity_behaviour/loan_sign/min_creaking_seconds")</variable>
+            </variables>
+            <header>
+                <p>借贷告示牌在被放置时会立即借给你星之碎片并要求你偿还，逾期偿还可能有不好的后果。</p>
+            </header>
+            <properties>
+                <p>借出星之碎片：<![CDATA[<color=red><var local="lend_count"/></color>]]></p>
+                <p>偿还星之碎片：<![CDATA[<color=red><var local="repay_count"/></color>]]></p>
+                <p>特殊：<![CDATA[<color=red>如果在<var local="max_seconds"/>秒内未偿还星之碎片，会生成一个<ref=[misc]mvz2:creaking>嘎枝</ref>，并且下次生成嘎枝的时间减半（最低<var local="min_seconds"/>秒）。被摧毁则会生成一列嘎枝。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>偿还一个星之碎片，重置嘎枝生成时间并使生成的嘎枝消失。偿还完毕后告示牌自动消失。</color>]]></p>
+            </properties>
+            <flavor>
+                <p>朋友，不要碰贷。</p>
+                <p>有问题我们可以好好<![CDATA[<color=red>交涉</color>]]>。</p>
+                <p><![CDATA[<b>但是绝对不要碰高利贷。</b>]]></p>
+            </flavor>
+        </entry>
 
         <!-- Chapter 8 -->
         <entry />
@@ -1724,6 +1921,9 @@
         <entry/>
 
         <entry id="mvz2:infectenser">
+            <variables>
+                <variable name="evocation_damage">500</variable>
+            </variables>
             <tags>
                 <tag id="mvz2:placement_infectenser" />
             </tags>
@@ -1733,7 +1933,7 @@
             <properties>
                 <p>射程：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" />，蚀毒效果36/s，持续7s</color>]]></p>
-                <p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
+                <p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆，造成<var local="evocation_damage" />点伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
@@ -1825,7 +2025,27 @@
         </entry>
         <entry />
         <entry />
-        <entry />
+        <entry id="mvz2:cat_tl_mk_ii">
+            <tags>
+                <tag id="mvz2:placement_lily_pad" />
+            </tags>
+            <header>
+                <p>香蒲II型会向任何敌人发射跟踪尖刺。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>2发/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>特殊：<![CDATA[<color=red>尖刺会跟踪敌人</color>]]></p>
+                <p>技能：<![CDATA[<color=red>发射很多在战场上弹跳的彩虹猫！</color>]]></p>
+            </properties>
+            <flavor>
+                <p>未来世界的一片垃圾场中，有一些拾荒者找到了一台外观尚算完好的旧电脑。这台机器显然历经沧桑，少说已有几十年历史。</p>
+                <p>这台电脑几经辗转，最后被送到研究部门改造成了一款发射追踪尖刺的哨戒武器。创造者为了纪念自己亡故的爱猫，为它加装了一块显示屏，并将其命名为——露娜。</p>
+                <p>露娜睁开眼，她看到了眼前的人类，调取着尘封的存储信息，以此构筑对这个世界的认知。不久，她成为了她的主人最忠诚的伙伴兼守护者。</p>
+                <p>然而，有一个她无法识别的名字，始终深植于数据库底层，困扰着她：</p>
+                <p>黛安娜。</p>
+            </flavor>
+        </entry>
         <entry />
         <entry />
         <entry id="mvz2:diamond_spikes">
@@ -2822,13 +3042,13 @@
         <entry id="mvz2:dullahan">
             <variables>
                 <variable name="horse_hp">property("mvz2:entity/maxHealth", "mvz2:skeleton_horse", "entity")</variable>
-                <variable name="horse_speed">property("mvz2:entity/speed", "mvz2:skeleton_horse", "entity")</variable>
+                <variable name="horse_speed">property("mvz2:entity/speed", "mvz2:skeleton_horse", "entity") * 2</variable>
                 <variable name="horse_speed_jumped">toDouble(local("horse_speed")) * 0.5</variable>
                 <variable name="head_hp">property("mvz2:entity/maxHealth", "mvz2:dullahan_head", "entity")</variable>
                 <variable name="head_speed">property("mvz2:entity/speed", "mvz2:dullahan_head", "entity")</variable>
             </variables>
             <tags>
-                <tag id="mvz2:shell_head" value="mvz2:nether" />
+                <tag id="mvz2:shell_head" value="mvz2:wither_bone" />
                 <tag id="mvz2:shell_horse" value="mvz2:bone" />
                 <tag id="mvz2:mass_head" value="-1" />
                 <tag id="mvz2:mass_horse" value="0" />
@@ -3755,12 +3975,17 @@
             </flavor>
         </entry>
         <entry id="mvz2:zombie_cat">
+            <variables>
+                <variable name="summon_chance_normal">50</variable>
+                <variable name="summon_chance_hard">100</variable>
+            </variables>
             <header>
                 <p>僵尸猫拥有9条命，每次受到攻击时有一定的概率躲避本次伤害，并且每次死亡时都有50%的概率召唤一只<![CDATA[<ref=[enemies]mvz2:wisp_fly>鬼火苍蝇</ref>]]>。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>召唤概率：<![CDATA[<color=red><var local="summon_chance_normal" />%，困难难度下<var local="summon_chance_hard" />%</color>]]></p>
                 <p>特点：<![CDATA[<color=red>能复活8次</color>]]></p>
                 <p>概率：<![CDATA[<color=red>25%（简单），50%（普通和困难），75%（EXPAND）</color>]]></p>
             </properties>
@@ -3806,6 +4031,49 @@
                 <p><![CDATA[<color=grey>虽然听说高塔巫师们整过不少骇人的灵魂实验...但猪灵们也没见到过大规模批量生产的怨灵部队。</color>]]></p>
                 <p/>
                 <p><![CDATA[<color=#C6D1C5>那这些家伙是哪来的？</color>]]></p>
+            </flavor>
+        </entry>
+        <entry />
+        <entry />
+        <entry />
+        <entry id="mvz2:axolotl_suit">
+            <header>
+                <p>美西螈号机甲碾压路上的一切器械。在被摧毁后，它的<![CDATA[<ref=[enemies]mvz2:axolotl_suit_pilot>驾驶员</ref>]]>会弹射逃生。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+            </properties>
+            <flavor>
+                <p>水下勘探全向步行观测与地形移动机甲(A.X.O.L.O.T.L. Suit)是一系列旨在保护驾驶员免受极端环境伤害的机械装置。Mk.II 是最新版本，到目前为止，只有亚特兰蒂斯（Atlantis）将其用于自身高价值的水下设施相关操作。</p>
+                <p/>
+                <p>· 该装甲与外界环境完全隔绝。</p>
+                <p>· 强大的液压四肢允许操纵物体和在复杂环境中移动。</p>
+                <p>· 后置推进器在水中环境中提供机动性。</p>
+                <p>· 因型号所限，无法加装扩展内容。</p>
+                <p/>
+                <p>“美西螈号机甲：它让你重获新生。”</p>
+                <p/>
+                <p>“首次进入美西螈号动力机甲会觉得自己瞬间变得无所不能，所向披靡，这是很正常的现象。专业的机甲操作员往往要接受数周的培训来治疗这种心理现象。尽量不要自大得上头了。”</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:axolotl_suit_pilot">
+            <variables>
+                <variable name="recall_seconds">10</variable>
+            </variables>
+            <header>
+                <p>美西螈号驾驶员会在一定时间后重新召唤它的<![CDATA[<ref=[enemies]mvz2:axolotl_suit>机甲</ref>]]>。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+                <p>再召唤间隔：<![CDATA[<color=red><var local="recall_seconds"/>秒（受攻击速度影响）</color>]]></p>
+            </properties>
+            <flavor>
+                <p>有个倒霉蛋遭遇了事故，他被迫困在恐怖的水世界，他尝试通过吃铅糖喝漂白剂水来维持生命体征。</p>
+                <p>但他的运气很好，他在海底找到了一堆美西螈号机甲碎片，最终通过神奇的逆向科技和更高等级的工作台重新造了一台机甲出来，最终使用火箭逃出了那颗星球。</p>
+                <p/>
+                <p>你问他后来怎么变成溺尸的？呃——我刚才讲的是这个家伙的一名同事的故事。</p>
             </flavor>
         </entry>
         
@@ -4431,7 +4699,17 @@
                 <p>此仇，永世无法平息。</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:cow_horn">
+            <header>
+                <p><![CDATA[<ref=[misc]mvz2:zombie_cow>僵尸牛</ref>]]>的牛角。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>一大波敌人来临后，充能所有蓝图，并使其免费15秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>我去，它们真的偷牛！</p>
+            </flavor>
+        </entry>
 
         <!-- Palace Artifacts -->
         <entry id="mvz2:control_rod">
@@ -4497,6 +4775,72 @@
             </properties>
             <flavor>
                 <p>都说了不要在地下引发地震！！！</p>
+            </flavor>
+        </entry>
+        <!-- Mountain Artifacts -->
+        <entry id="mvz2:bunbunmaru_newspaper">
+            <header>
+                <p><![CDATA[<ref=[misc]mvz2:aya>射命丸 文</ref>]]>赠送的一叠报纸。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>每30秒，将所有蓝图的消耗在0-300之间随机</color>]]></p>
+            </properties>
+            <flavor>
+                <p>添油加醋，胡言乱语，山呼海啸，狗血淋头，如同往常一样。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:lily_platform">
+            <header>
+                <p>河童们制造的一种水中作业用的地基平台。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>占据承载位的器械耗能-25</color>]]></p>
+            </properties>
+            <flavor>
+                <p><![CDATA[<align="center"><b>简易河童水下基地建设指南</b></align>]]></p>
+                <p>1. 制造一把建造枪，并准备足够的建筑材料。</p>
+                <p>2. 使用建造枪建造一个I型走廊，并在走廊上建造一个舱门。</p>
+                <p>3. 在走廊房间上方建造一个太阳能板。</p>
+                <p>4. 进入基地内部，建造基地内部组件。</p>
+                <p/>
+                <p><![CDATA[<align="center"><b>简易Minecraft水下基地建设指南</b></align>]]></p>
+                <p>1. 在海底放个门。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:extending_arm">
+            <header>
+                <p><![CDATA[<ref=[misc]mvz2:nitori>河城 荷取</ref>]]>赠予的河童常用的工具。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>友方器械伤害x75%，射程+50%</color>]]></p>
+            </properties>
+            <flavor>
+                <p>非常适合用于把远方物体拉过来，但是不适合用来射击靶子来把你自己拉过去。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:krakens_tentacle">
+            <header>
+                <p>从<![CDATA[<ref=[misc]mvz2:kraken>克拉肯</ref>]]>身上切断的机械触手。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>友方器械攻击速度x150%，但会向随机方向发射子弹</color>]]></p>
+            </properties>
+            <flavor>
+                <p>====施工中====</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:gale_leaf">
+            <silhouette>
+                <condition required="mvz2:level.mountain_11" />
+            </silhouette>
+            <header>
+                <p><![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>上的一片寄宿了风之力的树叶。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>所有敌怪持续向右缓慢移动</color>]]></p>
+            </properties>
+            <flavor>
+                <p>狂风，听我号令！</p>
             </flavor>
         </entry>
         
@@ -5093,6 +5437,27 @@
                     <p>危险动作，<![CDATA[<ref=[enemies]mvz2:imp>小鬼僵尸</ref>]]>请勿轻易尝试。</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:zombie_cow" name="僵尸牛">
+                <unlock>
+                    <condition required="mvz2:artifact.cow_horn" />
+                </unlock>
+                <picture model="mvz2:entity.zombie_cow" />
+                <tags sourceEntity="mvz2:zombie_cow"/>
+                <variables>
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:zombie_cow", "entity")</variable>
+                    <variable name="speed">property("mvz2:entity/speed", "mvz2:zombie_cow", "entity")</variable>
+                </variables>
+                <header>
+                    <p>僵尸牛被黑色的<![CDATA[<ref=[enemies]mvz2:undead_flying_object>不死飞行物</ref>]]>召唤，并掉落<![CDATA[<ref=[artifacts]mvz2:cow_horn>牛角</ref>]]>。</p>
+                </header>
+                <properties>
+                    <p>生命：<![CDATA[<color=red><var local="hp"/></color>]]></p>
+                    <p>速度：<![CDATA[<color=red><var local="speed"/></color>]]></p>
+                </properties>
+                <flavor>
+                    <p>这里没有奶牛关！</p>
+                </flavor>
+            </entry>
             <entry id="mvz2:corpse_cart" name="尸体推车" >
                 <unlock>
                     <condition required="mvz2:level.palace_1"/>
@@ -5151,6 +5516,48 @@
                 </properties>
                 <flavor>
                     <p>他没有消失。他只是累了，想休息了。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:giant_stone" name="巨型石块" >
+                <unlock>
+                    <condition required="mvz2:level.mountain_6"/>
+                </unlock>
+                <tags sourceEntity="mvz2:giant_stone" />
+                <variables>
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:giant_stone", "entity")</variable>
+                </variables>
+                <picture model="mvz2:entity.giant_stone"/>
+                <header>
+                    <p>巨型石块只有在<![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>的某些意外事件发生时才会偶尔出现。</p>
+                </header>
+                <properties>
+                    <p>耐久：<![CDATA[<color=red><var local="hp"/></color>]]></p>
+                </properties>
+                <flavor>
+                    <p>被它砸过的人都没喊疼，由此可见这东西其实并不重。</p>
+                </flavor>
+            </entry>
+            <entry id="mvz2:creaking" name="嘎枝" >
+                <unlock>
+                    <condition requiredGroups="mvz2:contraption.loan_sign"/>
+                </unlock>
+                <picture model="mvz2:entity.creaking"/>
+                <tags sourceEntity="mvz2:creaking" />
+                <variables>
+                    <variable name="hp">property("mvz2:entity/maxHealth", "mvz2:creaking", "entity")</variable>
+                    <variable name="speed">property("mvz2:entity/speed", "mvz2:creaking", "entity")</variable>
+                    <variable name="self_dps">100</variable>
+                </variables>
+                <header>
+                    <p>嘎枝由<![CDATA[<ref=[contraptions]mvz2:loan_sign>借贷告示牌</ref>]]>生成，用来向你催债。</p>
+                </header>
+                <properties>
+                    <p>生命：<![CDATA[<color=red><var local="hp"/></color>]]></p>
+                    <p>速度：<![CDATA[<color=red><var local="speed"/></color>]]></p>
+                    <p>特殊：<![CDATA[<color=red>每秒受到<var local="self_dps"/>点伤害；免疫其他所有伤害；免疫秒杀</color>]]></p>
+                </properties>
+                <flavor>
+                    <p>藤蔓根须遮蔽了它们的眼睛，即使是视线也无法阻止它们。</p>
                 </flavor>
             </entry>
         </group>
@@ -5782,6 +6189,32 @@
                     <p>（这张纸条上什么也没有写，并且被暴力地扯烂了。）</p>
                 </flavor>
             </entry>
+            <entry id="mvz2:starshard.power_cell" name="星之碎片：动力电池" >
+                <unlock>
+                    <condition required="mvz2:level.mountain_1"/>
+                </unlock>
+                <picture model="mvz2:entity.starshard.mountain"/>
+                <header>
+                    <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
+                </header>
+                <flavor>
+                    <p>未知人士留下了一些记录。</p>
+                    <p/>
+                    <p>星之记录 其七：</p>
+                    <p>我还是不敢相信那个家伙居然也来到了这里。</p>
+                    <p>那个把我坑害到如此地步的家伙！</p>
+                    <p>……冷静。</p>
+                    <p><![CDATA[<s>他是我的朋友。</s>]]></p>
+                    <p><![CDATA[<s>他是我的朋友。</s>]]></p>
+                    <p><![CDATA[<s>他是我的朋友。</s>]]></p>
+                    <p><![CDATA[<s>他是我的朋友。</s>]]></p>
+                    <p><![CDATA[<s>他是我的朋友。</s>]]></p>
+                    <p><![CDATA[<s>他是我的朋友。</s>]]></p>
+
+                    <p>他凭什么是！</p>
+                    <p>我在这里受罪的时候，他在哪里！</p>
+                </flavor>
+            </entry>
         </group>
         <!-- Important Items -->
         <group id="mvz2:important" name="重要物品" order="600">
@@ -5889,7 +6322,7 @@
                 </unlock>
                 <picture sprite="mvz2:misc/grave_in_dream" fixedSize="true" zoom="false" />
                 <header>
-                    <p><![CDATA[<ref=[misc]mvz2:kourindou>哆来咪</ref>]]>提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
+                    <p><![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>]]>提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
                 </header>
                 <flavor>
                     <p>史蒂夫从一开始便没有父母，他不知不觉中被转移到村庄，被<![CDATA[<ref=[misc]mvz2:villager>戴夫</ref>]]>所抚养。</p>
@@ -5914,7 +6347,7 @@
                         <conditions>
                             <condition required="mvz2:level.palace_5"/>
                         </conditions>
-                        <p>根据<![CDATA[<ref=[misc]mvz2:satori>觉</ref>]]>所说，三年前爆炸的位置位于妖怪之山上，大概是河童基地的位置。</p>
+                        <p>根据<![CDATA[<ref=[misc]mvz2:satori>觉</ref>]]>所说，三年前爆炸的位置位于<![CDATA[<ref=[misc]mvz2:youkai_mountain>妖怪之山</ref>]]>上，大概是河童基地的位置。</p>
                     </flavor>
                 </flavors>
             </entry>

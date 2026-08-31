@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using MukioI18n;
 using MVZ2.Cameras;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2Logic;

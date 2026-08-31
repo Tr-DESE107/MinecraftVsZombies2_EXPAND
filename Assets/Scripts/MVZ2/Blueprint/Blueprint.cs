@@ -164,5 +164,4 @@ namespace MVZ2.Blueprints
         private TooltipAnchor tooltipAnchor = null!;
 
     }
-        public string triggerCost;
 }

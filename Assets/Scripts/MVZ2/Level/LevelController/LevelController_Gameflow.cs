@@ -3,7 +3,6 @@
 using System;
 using System.Threading.Tasks;
 using MVZ2.Audios;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GlobalGames;
 using MVZ2.Level.Area;
 using MVZ2.Level.Artifacts;
@@ -14,6 +13,7 @@ using MVZ2.Level.HeldItems;
 using MVZ2.Level.Light;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Saves;

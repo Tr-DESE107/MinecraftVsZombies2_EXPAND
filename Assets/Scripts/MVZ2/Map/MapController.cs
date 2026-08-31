@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
-using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Options;

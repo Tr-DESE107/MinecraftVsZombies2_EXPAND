@@ -1,4 +1,10 @@
 ﻿<arcade>
+    <minigame id="primal_force" stage="mvz2:primal_force" area="mvz2:mountain" icon="mvz2:arcade/primal_force" />
+    <minigame />
+    <minigame />
+    <minigame />
+    <minigame />
+
     <minigame id="frankensteins_revenge" stage="mvz2:frankensteins_revenge" area="mvz2:halloween" icon="mvz2:arcade/frankensteins_revenge"/>
     <minigame id="nightmare_revenge" stage="mvz2:nightmares_revenge" area="mvz2:dream" icon="mvz2:arcade/nightmares_revenge"/>
     <minigame id="InfinitySeija" stage="mvz2:InfinitySeija" area="mvz2:castle" icon="mvz2:arcade/InfinitySeija" />

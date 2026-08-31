@@ -134,10 +134,10 @@ namespace MVZ2.Mainmenu
                             continue;
                         StartCoroutine(GotoDebugStage(areaID));
                     }
-                }
-                else if (Input.GetKeyDown(KeyCode.F11))
-                {
-                    StartCoroutine(GotoDebugStage(VanillaAreaID.day));
+                    else if (Input.GetKeyDown(KeyCode.F11))
+                    {
+                        StartCoroutine(GotoDebugStage(VanillaAreaID.day));
+                    }
                 }
             }
             if (animatorBlendTimeout > 0)
