@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Projectiles;
@@ -16,6 +16,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies

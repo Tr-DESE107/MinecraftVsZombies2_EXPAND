@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
@@ -8,6 +8,7 @@ using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 
 namespace MVZ2.GameContent.Enemies
 {

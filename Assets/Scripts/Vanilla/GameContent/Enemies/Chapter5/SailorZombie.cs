@@ -5,6 +5,7 @@ using MVZ2.GameContent.Entities;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Timing;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies

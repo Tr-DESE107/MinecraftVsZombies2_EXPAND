@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using System;
 using MVZ2.GameContent.Buffs.Contraptions;
@@ -18,6 +18,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modifiers;
 using PVZEngine;
@@ -28,6 +29,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using PVZEngine.Properties;
 using PVZEngine.Timing;
+using PVZEngine.Tools;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
 
@@ -253,11 +255,11 @@ namespace MVZ2.GameContent.Stages
 
                     var rapidUpgrade = MegaSnipenser.GetRapidLevel(entity);
                     var spreadUpgrade = MegaSnipenser.GetSpreadLevel(entity);
-                    var rapidCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponRapid)?.GetCost() ?? 0;
-                    var spreadCost = level.Content.GetSeedDefinition(VanillaBlueprintID.heavyWeaponSpread)?.GetCost() ?? 0;
+                    var rapidCost = level.Content.GetSeedOptionDefinition(VanillaBlueprintID.heavyWeaponRapid)?.GetCost() ?? 0;
+                    var spreadCost = level.Content.GetSeedOptionDefinition(VanillaBlueprintID.heavyWeaponSpread)?.GetCost() ?? 0;
                     var rapidRedStones = Mathf.Max(0, rapidCost) / 50;
                     var spreadRedstones = Mathf.Max(0, spreadCost - 25) / 50;
-                    var totalRedstones = rapidUpgrade * rapidRedStones + spreadUpgrade * spreadRedstones;
+                    float totalRedstones = rapidUpgrade * rapidRedStones + spreadUpgrade * spreadRedstones;
                     if (entity.GetFirstBuff<HeavyWeaponSelfDestructBuff>() != null)
                     {
                         totalRedstones *= 0.5f;

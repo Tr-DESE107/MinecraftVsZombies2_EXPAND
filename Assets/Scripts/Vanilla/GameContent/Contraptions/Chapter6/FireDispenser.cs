@@ -10,6 +10,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using PVZEngine.Tools;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Timing; 
@@ -59,22 +60,22 @@ namespace MVZ2.GameContent.Contraptions
             entity.TriggerAnimation("Shoot");
             var arrow = entity.ShootProjectile(param);
 
-            // ¸ù¾Ý»ðÑæÐÎÌ¬Ìí¼ÓµãÈ¼ buff  
+            // ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Óµï¿½È¼ buff  
             if (arrow != null)
             {
                 switch (fireLevel)
                 {
                     case 0:
-                        // ÐÎÌ¬0£ºÆÕÍ¨»ðÑæÐ§¹û  
+                        // ï¿½ï¿½Ì¬0ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½  
                         arrow.AddBuff<HellfireIgnitedBuff>();
                         break;
                     case 1:
-                        // ÐÎÌ¬1£º×çÖä»ðÑæÐ§¹û 
+                        // ï¿½ï¿½Ì¬1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ 
                         var fireBuff = arrow.AddBuff<HellfireIgnitedBuff>();
                         HellfireIgnitedBuff.Curse(fireBuff);
                         break;
                     case 2:
-                        // ÐÎÌ¬2£º¹ÇÁéÀä»ðÐ§¹û
+                        // ï¿½ï¿½Ì¬2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
                         var fireBuff2 = arrow.AddBuff<HellfireIgnitedBuff>();
                         HellfireIgnitedBuff.SoulFreeze(fireBuff2);
                         break;
@@ -93,13 +94,13 @@ namespace MVZ2.GameContent.Contraptions
 
         public static void SetFireLevel(Entity entity, int level)
         {
-            entity.SetProperty(PROP_FIRELEVEL, level); // ÉèÖÃ Entity ÊôÐÔ£¨ÓÃÓÚ C# ¶ÁÈ¡£©    
-            entity.SetModelProperty("FIRELEVEL", level); // ÉèÖÃ Model ÊôÐÔ£¨ÓÃÓÚÌùÍ¼ÇÐ»»£©  
+            entity.SetProperty(PROP_FIRELEVEL, level); // ï¿½ï¿½ï¿½ï¿½ Entity ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ C# ï¿½ï¿½È¡ï¿½ï¿½    
+            entity.SetModelProperty("FIRELEVEL", level); // ï¿½ï¿½ï¿½ï¿½ Model ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½Ð»ï¿½ï¿½ï¿½  
 
             entity.RemoveBuffs<FireDispenserCursedBuff>();
             entity.RemoveBuffs<FireDispenserSoulFireBuff>();
 
-            // ¸ù¾ÝµÈ¼¶Ìí¼Ó¶ÔÓ¦µÄ buff  
+            // ï¿½ï¿½ï¿½ÝµÈ¼ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½Ó¦ï¿½ï¿½ buff  
             switch (level)
             {
                 case 1:
@@ -109,7 +110,7 @@ namespace MVZ2.GameContent.Contraptions
                     entity.AddBuff<FireDispenserSoulFireBuff>();
                     break;
                 case 0:
-                    // ÐÎÌ¬0²»ÐèÒªbuff  
+                    // ï¿½ï¿½Ì¬0ï¿½ï¿½ï¿½ï¿½Òªbuff  
                     break;
             }
         }
@@ -134,7 +135,7 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Run();
             if (evocationTimer.PassedInterval(2))
             {
-                // Ö±½Óµ÷ÓÃ»ùÀà·½·¨  
+                // Ö±ï¿½Óµï¿½ï¿½Ã»ï¿½ï¿½à·½ï¿½ï¿½  
                 var projectile = Shoot(entity);
                 if (projectile != null)
                     projectile.Velocity *= 2;

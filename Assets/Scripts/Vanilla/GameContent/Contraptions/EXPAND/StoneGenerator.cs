@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
@@ -14,6 +14,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using PVZEngine.Modifiers;
 
 using PVZEngine.Tools;

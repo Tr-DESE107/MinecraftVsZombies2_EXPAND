@@ -12,6 +12,7 @@ using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using PVZEngine.Tools;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Timing; 
@@ -35,15 +36,15 @@ namespace MVZ2.GameContent.Contraptions
             InitShootTimer(entity);
             SetEvocationTimer(entity, new FrameTimer(EVOCATION_TIME));
             SetRepeatTimer(entity, new FrameTimer(REPEAT_INVERVAL));
-            SetHasMissileBox(entity, false); // ³õÊ¼»¯Îªfalse  
-            SetMissileCount(entity, 0); // ³õÊ¼»¯µ¼µ¯ÊýÁ¿Îª0  
+            SetHasMissileBox(entity, false); // ï¿½ï¿½Ê¼ï¿½ï¿½Îªfalse  
+            SetMissileCount(entity, 0); // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0  
             SetMissileAttackTimer(entity, new FrameTimer(MISSILE_ATTACK_INTERVAL));
         }
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
 
-            // ¸üÐÂµ¼µ¯¹¥»÷¼ÆÊ±Æ÷    
+            // ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½    
             var missileAttackTimer = GetMissileAttackTimer(entity);
             if (missileAttackTimer != null)
             {
@@ -101,7 +102,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public override bool CanTrigger(Entity entity)
         {
-            // ÓµÓÐµ¼µ¯ºÐÊ±ÎÞ·¨´¥·¢  
+            // Óµï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½  
             if (HasMissileBox(entity))
                 return false;
             return base.CanTrigger(entity);
@@ -111,7 +112,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnTrigger(entity);
 
-            // ´¥·¢ºó»ñµÃµ¼µ¯ºÐ  
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½  
             SetHasMissileBox(entity, true);
             SetMissileCount(entity, MISSILE_MAX_COUNT);
 
@@ -127,18 +128,18 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
 
-            //»ñµÃµ¼µ¯ºÐ    
+            //ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½    
             SetHasMissileBox(entity, true);
             SetMissileCount(entity, MISSILE_MAX_COUNT);
 
-            // ±£³ÖÔ­ÓÐµÄÉý¼¶Ð§¹û  
+            // ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½  
             if (!entity.HasBuff<HFPDUpgradedBuff>())
             {
                 entity.AddBuff<HFPDUpgradedBuff>();
             }
             entity.PlaySound(VanillaSoundID.motor);
 
-            // ÖØÖÃ²¢Æô¶¯´óÕÐ¼ÆÊ±Æ÷  
+            // ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Ê±ï¿½ï¿½  
             var evocationTimer = GetEvocationTimer(entity);
             evocationTimer?.Reset();
             entity.SetEvoked(true);
@@ -149,22 +150,22 @@ namespace MVZ2.GameContent.Contraptions
             var missileCount = GetMissileCount(entity);
             if (missileCount <= 0)
             {
-                // µ¼µ¯ÓÃÍê£¬ÒÆ³ýµ¼µ¯ºÐ    
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£¬ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    
                 SetHasMissileBox(entity, false);
                 return;
             }
 
-            // Ë÷µÐÉÏ¡¢ÖÐ¡¢ÏÂÈýÌõÏßÂ·µÄ¿ÕÖÐµÐÈË    
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½Ä¿ï¿½ï¿½Ðµï¿½ï¿½ï¿½    
             var currentLane = entity.GetLane();
             var maxLane = entity.Level.GetMaxLaneCount();
 
             Entity? target = null;
             int targetLane = currentLane;
 
-            // ÓÅÏÈËÑË÷µ±Ç°ÏßÂ·    
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Â·    
             target = FindFlyingEnemyInLane(entity, currentLane);
 
-            // Èç¹ûµ±Ç°ÏßÂ·Ã»ÓÐ£¬ËÑË÷ÉÏ·½ÏßÂ·    
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Â·Ã»ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Â·    
             if (target == null && currentLane > 0)
             {
                 target = FindFlyingEnemyInLane(entity, currentLane - 1);
@@ -172,7 +173,7 @@ namespace MVZ2.GameContent.Contraptions
                     targetLane = currentLane - 1;
             }
 
-            // Èç¹û»¹ÊÇÃ»ÓÐ£¬ËÑË÷ÏÂ·½ÏßÂ·    
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Â·    
             if (target == null && currentLane < maxLane - 1)
             {
                 target = FindFlyingEnemyInLane(entity, currentLane + 1);
@@ -182,12 +183,12 @@ namespace MVZ2.GameContent.Contraptions
 
             if (target != null && target.Exists())
             {
-                // ·¢ÉäÐ¡µ¼µ¯    
+                // ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½    
                 ShootMissile(entity, target);
                 entity.TriggerAnimation("Shoot");
                 SetMissileCount(entity, missileCount - 1);
 
-                // µ¼µ¯ÓÃÍêÊ±ÒÆ³ýµ¼µ¯ºÐ    
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    
                 if (GetMissileCount(entity) <= 0)
                 {
                     SetHasMissileBox(entity, false);
@@ -206,10 +207,10 @@ namespace MVZ2.GameContent.Contraptions
                 colliderFilter = (self, collider) =>
                 {
                     var enemy = collider.Entity;
-                    // Ö»¼ì²â¿ÕÖÐµÐÈË    
+                    // Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½    
                     if (!enemy.Definition.IsFlyingEnemy())
                         return false;
-                    // ¼ì²éÊÇ·ñÔÚÖ¸¶¨ÏßÂ·    
+                    // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Â·    
                     if (enemy.GetLane() != lane)
                         return false;
                     return true;
@@ -242,7 +243,7 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Run();
             if (evocationTimer.PassedInterval(2))
             {
-                // Ö±½Óµ÷ÓÃ»ùÀà·½·¨  
+                // Ö±ï¿½Óµï¿½ï¿½Ã»ï¿½ï¿½à·½ï¿½ï¿½  
                 var projectile = Shoot(entity);
                 if (projectile != null)
                     projectile.Velocity *= 2;
@@ -255,7 +256,7 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
 
-        // µ¼µ¯ºÐÏà¹ØÊôÐÔ    
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    
         public static bool HasMissileBox(Entity entity) => entity.GetBehaviourField<bool>(PROP_HAS_MISSILE_BOX);
         public static void SetHasMissileBox(Entity entity, bool value) => entity.SetBehaviourField(PROP_HAS_MISSILE_BOX, value);
         public static int GetMissileCount(Entity entity) => entity.GetBehaviourField<int>(PROP_MISSILE_COUNT);
@@ -279,7 +280,7 @@ namespace MVZ2.GameContent.Contraptions
         public const int REPEAT_COUNT = 8;
         public const int REPEAT_COUNT_UPGRADED = 12;
         public const int MISSILE_MAX_COUNT = 8;
-        public const int MISSILE_ATTACK_INTERVAL = 45; // µ¼µ¯¹¥»÷¼ä¸ô£¨Ö¡£©    
+        public const int MISSILE_ATTACK_INTERVAL = 45; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½    
 
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_REPEAT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("RepeatTimer");

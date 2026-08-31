@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
@@ -12,6 +12,7 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using PVZEngine.Tools;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Timing; 

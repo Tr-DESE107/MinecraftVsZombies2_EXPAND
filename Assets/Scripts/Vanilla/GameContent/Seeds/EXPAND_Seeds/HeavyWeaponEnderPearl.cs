@@ -1,11 +1,12 @@
-﻿#nullable enable  
+#nullable enable  
   
 using MVZ2.GameContent.Buffs.Contraptions;  
 using MVZ2.GameContent.Effects;  
 using MVZ2.GameContent.Projectiles;  
 using MVZ2.Vanilla.Audios;  
 using MVZ2Logic.Blueprints;  
-using MVZ2Logic.Definitions;  
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Level;  
 using PVZEngine.Buffs;  
 using PVZEngine.Level;  
 using PVZEngine.SeedPacks;  

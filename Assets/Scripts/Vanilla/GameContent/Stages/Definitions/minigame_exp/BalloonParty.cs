@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
@@ -12,6 +12,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Tools;
 
 namespace MVZ2.GameContent.Stages
 {

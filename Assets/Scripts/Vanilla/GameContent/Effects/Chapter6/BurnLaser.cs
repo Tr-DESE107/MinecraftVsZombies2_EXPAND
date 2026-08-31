@@ -12,6 +12,7 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Timing;
 
 namespace MVZ2.GameContent.Effects
 {

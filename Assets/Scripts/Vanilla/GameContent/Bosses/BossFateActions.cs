@@ -1,4 +1,4 @@
-﻿#nullable enable    
+#nullable enable    
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -189,7 +189,7 @@ namespace MVZ2.GameContent.Bosses
                 var placementID = contraption.Definition.GetPlacementID();
                 if (placementID == null)
                     continue;
-                var placementDef = level.GetPlacementDefinition(placementID);
+                var placementDef = level.Content.GetPlacementDefinition(placementID);
                 if (placementDef == null)
                     continue;
                 var targetGrids = grids.Where(g => g.CanSpawnEntity(contraption.GetDefinitionID()));

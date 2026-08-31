@@ -1,4 +1,4 @@
-﻿#nullable enable // 自动生成
+#nullable enable // 自动生成
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
@@ -14,6 +14,7 @@ using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using PVZEngine.Tools;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Timing; 

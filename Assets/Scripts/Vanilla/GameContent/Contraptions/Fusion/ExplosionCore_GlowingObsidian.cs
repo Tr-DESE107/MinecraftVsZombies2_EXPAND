@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using MVZ2.GameContent.Buffs.Contraptions;
 using PVZEngine.Definitions;
@@ -15,6 +15,7 @@ using UnityEngine;
 using PVZEngine.Buffs;
 using MVZ2Logic.Entities;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 
 namespace MVZ2.GameContent.Contraptions
 {

@@ -11,6 +11,7 @@ using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using PVZEngine.Tools;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Timing; 

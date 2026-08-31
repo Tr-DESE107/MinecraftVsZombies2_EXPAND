@@ -1,4 +1,4 @@
-﻿// OpticalIllusion.cs  
+// OpticalIllusion.cs  
 #nullable enable
 
 using MVZ2.GameContent.Enemies;
@@ -6,6 +6,7 @@ using MVZ2Logic.Grids;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using UnityEngine;
 using MVZ2Logic.Level;
 using MVZ2.GameContent.Buffs.Enemies;

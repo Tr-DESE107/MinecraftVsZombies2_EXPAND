@@ -13,6 +13,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using PVZEngine.Tools;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Timing; 
@@ -49,7 +50,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateAI(enemy);
 
-            // Ã¿Ö¡ÍÆ½ø reload ¼ÆÊ±Æ÷  
+            // Ã¿Ö¡ï¿½Æ½ï¿½ reload ï¿½ï¿½Ê±ï¿½ï¿½  
             var reloadTimer = GetReloadTimer(enemy);
             if (reloadTimer != null)
             {
@@ -60,7 +61,7 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
 
-            // ¼ì²éÊÇ·ñ»¹ÓÐ×Óµ¯  
+            // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Óµï¿½  
             if (GetAmmo(enemy) > 0)
             {
                 if (CanShoot(enemy))
@@ -76,21 +77,21 @@ namespace MVZ2.GameContent.Enemies
                     enemy.Target = null;
                 }
 
-                // Ô¶³Ì¹¥»÷×´Ì¬ÏÂ³¢ÊÔ¿ª»ð  
+                // Ô¶ï¿½Ì¹ï¿½ï¿½ï¿½×´Ì¬ï¿½Â³ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½  
                 if (enemy.State == STATE_RANGED_ATTACK && enemy.Target != null)
                 {
                     if (!GetIsReloading(enemy))
                     {
-                        // ÏûºÄÒ»·¢×Óµ¯  
+                        // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Óµï¿½  
                         int currentAmmo = GetAmmo(enemy);
                         currentAmmo--;
                         SetAmmo(enemy, currentAmmo);
 
-                        // ·¢Éä×Óµ¯  
+                        // ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½  
                         enemy.ShootProjectile();
                         enemy.PlaySound(VanillaSoundID.gunShot);
 
-                        // ½øÈë reload  
+                        // ï¿½ï¿½ï¿½ï¿½ reload  
                         SetIsReloading(enemy, true);
                         SetReloadTimer(enemy, new FrameTimer(RELOAD_TIME));
                     }
@@ -98,7 +99,7 @@ namespace MVZ2.GameContent.Enemies
             }
             else
             {
-                // ×Óµ¯ÓÃÍê£¬×ªÎª½üÕ½¹¥»÷  
+                // ï¿½Óµï¿½ï¿½ï¿½ï¿½ê£¬×ªÎªï¿½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½  
                 enemy.Target = null;
             }
         }
@@ -120,15 +121,15 @@ namespace MVZ2.GameContent.Enemies
         }
 
 
-        // »ñÈ¡ºÍÉèÖÃ×Óµ¯ÊýÁ¿
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
         public static int GetAmmo(Entity enemy) => enemy.GetBehaviourField<int>(ID, PROP_AMMO) is int ammo ? ammo : MAX_AMMO;
         public static void SetAmmo(Entity enemy, int value) => enemy.SetBehaviourField(ID, PROP_AMMO, value);
 
-        // »ñÈ¡ºÍÉèÖÃ reload ×´Ì¬
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ reload ×´Ì¬
         public static bool GetIsReloading(Entity enemy) => enemy.GetBehaviourField<bool>(ID, PROP_IS_RELOADING);
         public static void SetIsReloading(Entity enemy, bool value) => enemy.SetBehaviourField(ID, PROP_IS_RELOADING, value);
 
-        // »ñÈ¡ºÍÉèÖÃ reload ¼ÆÊ±Æ÷
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ reload ï¿½ï¿½Ê±ï¿½ï¿½
         public static FrameTimer? GetReloadTimer(Entity enemy) => enemy.GetBehaviourField<FrameTimer>(ID, PROP_RELOAD_TIMER);
         public static void SetReloadTimer(Entity enemy, FrameTimer value) => enemy.SetBehaviourField(ID, PROP_RELOAD_TIMER, value);
 

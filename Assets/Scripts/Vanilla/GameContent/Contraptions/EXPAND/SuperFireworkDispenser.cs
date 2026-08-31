@@ -14,6 +14,7 @@ using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using PVZEngine.Models;
 using PVZEngine.Tools;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Timing; 
@@ -95,7 +96,7 @@ namespace MVZ2.GameContent.Contraptions
                 proID = VanillaProjectileID.fireworkBig;
             }
 
-            var projectile = entity.ShootProjectile(new ShootParams()
+            var projectile = entity.ShootProjectile(new ProjectileShootArgs(entity.GetSpawnParams())
             {
                 projectileID = proID,
                 position = entity.GetShootPoint(),
@@ -104,7 +105,6 @@ namespace MVZ2.GameContent.Contraptions
                 soundID = entity.GetShootSound(),
                 velocity = velocity,
                 pivot = entity.GetBoundsPivot(),
-                spawnParam = entity.GetSpawnParams(),
             })?.Let(e => e.SetGravity(GRAVITY));
         }
         private void EvokedUpdate(Entity entity)

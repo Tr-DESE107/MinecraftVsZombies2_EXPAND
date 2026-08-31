@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using System;
 using MVZ2.GameContent.Buffs.Contraptions;
@@ -17,6 +17,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Contents.Enemies;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modifiers;
 using PVZEngine;
@@ -27,6 +28,7 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using PVZEngine.Properties;
+using PVZEngine.Tools;
 using PVZEngine.Tools.Random;
 using UnityEngine;
 
@@ -188,11 +190,11 @@ namespace MVZ2.GameContent.Stages
                     var attackUpBuff = entity.GetFirstBuff<HeavyWeaponAttackUpBuff>();
                     var attackUpLevel = attackUpBuff != null ? HeavyWeaponAttackUpBuff.GetLevel(attackUpBuff) : 0;
                     // 攻击力升级蓝图的花费，折算方式与射速/散射一致  
-                    var attackUpCost = level.Content.GetSeedDefinition(VanillaBlueprintID.HeavyWeaponAttackUp)?.GetCost() ?? 0;
+                    var attackUpCost = level.Content.GetSeedOptionDefinition(VanillaBlueprintID.HeavyWeaponAttackUp)?.GetCost() ?? 0;
                     var attackUpRedstones = Mathf.Max(0, attackUpCost - 25) / 50;
                     // ===========================================================  
 
-                    var totalRedstones = attackUpLevel * attackUpRedstones;
+                    float totalRedstones = attackUpLevel * attackUpRedstones;
 
                     if (entity.GetFirstBuff<HeavyWeaponSelfDestructBuff>() != null)
                     {
