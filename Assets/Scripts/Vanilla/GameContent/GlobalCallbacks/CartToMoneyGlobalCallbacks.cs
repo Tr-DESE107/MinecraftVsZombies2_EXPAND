@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Carts;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 
 namespace MVZ2.GameContent.GlobalCallbacks

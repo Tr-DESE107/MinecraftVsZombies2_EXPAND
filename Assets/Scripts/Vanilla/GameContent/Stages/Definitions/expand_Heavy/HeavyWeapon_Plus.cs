@@ -18,6 +18,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Properties;
+using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
 
@@ -141,7 +142,7 @@ namespace MVZ2.GameContent.Stages
   
             // 敌方 TNT：赋予阵营 + 伤害 + 抗坠落伤害    
             var param = new SpawnParams();
-            param.SetProperty(EngineEntityProps.FACTION, level.Option.RightFaction);
+            param.SetProperty(EngineEntityProps.FACTION, level.GetRightFaction());
             param.SetProperty(VanillaEntityProps.DAMAGE, BOMB_DAMAGE);
             param.SetProperty(VanillaEntityProps.FALL_RESISTANCE, 100000f);
   

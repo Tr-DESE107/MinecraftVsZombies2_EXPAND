@@ -71,7 +71,7 @@ namespace MVZ2.GameContent.Stages
                 var contraption = level.Spawn(selectedContraptions[i], pos, null);  
                 var buff = contraption?.AddBuff<CharmBuff>();  
                 if (buff != null)  
-                    CharmBuff.SetPermanent(buff, level.Option.RightFaction);  // 让 charm 的 Set 修饰器指向敌方  
+                    CharmBuff.SetPermanent(buff, level.GetRightFaction());  // 让 charm 的 Set 修饰器指向敌方  
             }  
         }  
     }  

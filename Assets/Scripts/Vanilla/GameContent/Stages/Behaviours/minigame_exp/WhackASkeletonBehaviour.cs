@@ -92,7 +92,7 @@ namespace MVZ2.GameContent.Stages
 
                 // �������ɲ�����������ӪΪ������Ӫ
                 var spawnParam = new SpawnParams();
-                spawnParam.SetProperty(EngineEntityProps.FACTION, level.Option.LeftFaction);
+                spawnParam.SetProperty(EngineEntityProps.FACTION, level.GetLeftFaction());
 
                 // ���� Napstablook ���������� Buff
                 //var napstablook = level.Spawn(VanillaEnemyID.napstablook, new Vector3(x, y, z), null, spawnParam);

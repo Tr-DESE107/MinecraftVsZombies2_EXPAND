@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Seeds
   
             // 阵营跟随矿车上的器械（找不到时回退到左阵营）  
             var rider = HeavyWeaponBlueprintUtils.FindRider(level);  
-            int faction = rider != null ? rider.GetFaction() : level.Option.LeftFaction;  
+            int faction = rider != null ? rider.GetFaction() : level.GetLeftFaction();  
   
             // 立刻从矿车处生成靶子标识，并挂上通用倒计时投掷 buff  
             var origin = cart.GetCenter();  

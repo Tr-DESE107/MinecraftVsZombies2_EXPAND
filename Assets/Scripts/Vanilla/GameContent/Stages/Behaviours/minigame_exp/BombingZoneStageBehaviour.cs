@@ -27,6 +27,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using PVZEngine.Properties;
+using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
 
@@ -149,7 +150,7 @@ namespace MVZ2.GameContent.Stages
             float damage = BOMB_DAMAGE_POOL[index];
 
             var param = new SpawnParams();
-            param.SetProperty(EngineEntityProps.FACTION, level.Option.RightFaction); // 敌方阵营    
+            param.SetProperty(EngineEntityProps.FACTION, level.GetRightFaction()); // 敌方阵营    
             param.SetProperty(VanillaEntityProps.DAMAGE, damage);                    // 关键：赋予伤害    
             param.SetProperty(VanillaEntityProps.FALL_RESISTANCE, 100000f);          // 落地不因坠落受伤    
 

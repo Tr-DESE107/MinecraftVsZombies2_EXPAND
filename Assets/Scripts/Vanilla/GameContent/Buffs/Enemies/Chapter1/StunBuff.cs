@@ -10,6 +10,7 @@ using PVZEngine.Entities;
 using PVZEngine.Modifiers;
 
 using PVZEngine.Tools;
+using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 
 namespace MVZ2.GameContent.Buffs.Enemies

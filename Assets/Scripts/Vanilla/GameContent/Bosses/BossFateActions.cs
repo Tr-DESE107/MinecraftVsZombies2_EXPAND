@@ -10,20 +10,20 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
+using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Tools.Timing;  
-using PVZEngine.Tools.Random;  
-using PVZEngine.Tools.Mathematics;  
-using PVZEngine.Tools.Unity;
+using PVZEngine.Level;
+using PVZEngine.Tools;
+using PVZEngine.Tools.Random;
 using UnityEngine;
-using PVZEngine;
-using MVZ2Logic.Level;
-using MVZ2Logic.Grids;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -189,7 +189,7 @@ namespace MVZ2.GameContent.Bosses
                 var placementID = contraption.Definition.GetPlacementID();
                 if (placementID == null)
                     continue;
-                var placementDef = level.Content.GetPlacementDefinition(placementID);
+                var placementDef = level.GetPlacementDefinition(placementID);
                 if (placementDef == null)
                     continue;
                 var targetGrids = grids.Where(g => g.CanSpawnEntity(contraption.GetDefinitionID()));

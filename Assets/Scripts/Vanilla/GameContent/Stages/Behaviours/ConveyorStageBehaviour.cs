@@ -6,6 +6,7 @@ using MVZ2Logic.Level;
 
 using PVZEngine.Level;
 using PVZEngine.Properties;
+using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 
 namespace MVZ2.GameContent.Stages

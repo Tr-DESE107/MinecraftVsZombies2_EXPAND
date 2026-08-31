@@ -83,7 +83,7 @@ namespace MVZ2.Vanilla.Level
             var harmlessToRemove = level.GetEntities(EntityTypes.ENEMY)
                 .Where(e => !e.IsDead
                             && e.IsHarmless()
-                            && e.IsHostile(level.Option.LeftFaction)
+                            && e.IsHostile(level.GetLeftFaction())
                             && e.IsEnemyOutsideLeft())
                 .ToList();
             foreach (var enemy in harmlessToRemove)

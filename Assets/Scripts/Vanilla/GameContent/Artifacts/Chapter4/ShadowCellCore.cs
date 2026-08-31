@@ -12,7 +12,9 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Tools.Timing;  
+using PVZEngine.Tools;
+using PVZEngine.Timing;
+using PVZEngine.Tools.Timing; 
 using PVZEngine.Tools.Random;  
 using PVZEngine.Tools.Mathematics;  
 using PVZEngine.Tools.Unity;
@@ -40,7 +42,7 @@ namespace MVZ2.GameContent.Artifacts
 
                 //enemy.Revive();
                 //enemy.Health = enemy.GetMaxHealth();
-                //enemy.Charm(level.Option.LeftFaction);
+                //enemy.Charm(level.GetLeftFaction());
                 //result.SetFinalValue(false);
 
                 bool isHead = RandomSkeleton.Contains(enemy.GetDefinitionID());
