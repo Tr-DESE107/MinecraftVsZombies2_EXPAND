@@ -607,7 +607,7 @@ namespace MVZ2.Map
 
                 // 紫晶塔教程关按钮显示 "T"，其余按钮维持默认的关卡序号  
                 var stageID = GetStageID(i);
-                if (stageID == VanillaStageID.AmethystTutorial)
+                if (stageID == new NamespaceID(Main.BuiltinNamespace, "AmethystTutorial"))
                 {
                     model.SetMapButtonText(i, "T");
                 }

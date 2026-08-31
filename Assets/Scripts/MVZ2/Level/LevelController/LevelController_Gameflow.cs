@@ -337,7 +337,7 @@ namespace MVZ2.Level
             Saves.Unlock(LogicUnlockID.GetLevelClearUnlock(level.StageID));
 
             //EXPAND Feature: 场上存在缸中之脑时，通关不记录通关难度  
-            var hasBrainInVat = level.FindFirstEntity(e => e.IsEntityOf(VanillaContraptionID.BrainInVat)) != null;
+            var hasBrainInVat = level.FindFirstEntity(e => e.IsEntityOf(new NamespaceID(Main.BuiltinNamespace, "BrainInVat"))) != null;
             if (!hasBrainInVat)
             {
                 Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
