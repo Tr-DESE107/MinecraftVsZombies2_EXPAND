@@ -202,9 +202,9 @@ namespace MVZ2.Level
             //  1) 场上存在存活的可骑乘矿车（不再硬匹配关卡 ID）  
             //  2) 当前是移动端布局（桌面端用键盘，不需要屏幕按钮）  
             //  3) 移动方式为“键盘/按钮”模式（鼠标/触摸跟随模式下按钮无用）  
-            var minecart = level.FindFirstEntity(MVZ2.GameContent.Effects.VanillaEffectID.minecartRideable);
-            bool hasMinecart = minecart != null && !minecart.IsDead;
-            bool keyboardMode = !MVZ2.GameContent.Effects.MinecartRideable.IsEffectiveMouseMode(level);
+            var vanilla = Global.VanillaInterface;   // 见下方"待确认"：访问器名以实际为准  
+            bool hasMinecart = vanilla.HasActiveMinecart(level);
+            bool keyboardMode = !vanilla.IsMinecartEffectiveMouseMode(level);
             bool showMinecartButtons = hasMinecart && Main.UseMobileLayout() && keyboardMode;
             ui.SetMinecartButtonsActive(showMinecartButtons);
 

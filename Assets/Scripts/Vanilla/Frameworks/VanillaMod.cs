@@ -66,6 +66,20 @@ namespace MVZ2.Vanilla
         {
             return saves.GetStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
         }
+        public bool HasActiveMinecart(LevelEngine level)
+        {
+            var cart = level.FindFirstEntity(MVZ2.GameContent.Effects.VanillaEffectID.minecartRideable);
+            return cart != null && !cart.IsDead;
+        }
+        public bool IsMinecartEffectiveMouseMode(LevelEngine level)
+        {
+            return MVZ2.GameContent.Effects.MinecartRideable.IsEffectiveMouseMode(level);
+        }
+        public void SetMinecartMoveInput(LevelEngine level, int moveZ, int moveX)
+        {
+            MVZ2.GameContent.Effects.MinecartRideable.SetMoveInput(level, moveZ);
+            MVZ2.GameContent.Effects.MinecartRideable.SetMoveInputX(level, moveX);
+        }
         #endregion
 
         public const float INSTA_DAMAGE_AMOUNT = 58115310;
