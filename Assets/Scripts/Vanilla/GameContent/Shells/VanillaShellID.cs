@@ -44,6 +44,7 @@ namespace MVZ2.GameContent.Shells
         public static readonly NamespaceID shadow = Get(VanillaShellNames.shadow);
         public static readonly NamespaceID ice = Get(VanillaShellNames.ice);
         public static readonly NamespaceID apparition = Get(VanillaShellNames.apparition);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

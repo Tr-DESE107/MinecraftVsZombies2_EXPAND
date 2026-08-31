@@ -507,7 +507,21 @@ namespace MVZ2.Scenes
             {
                 CaptureScreenshot();
             }
+            
             ui.SetDebugIconActive(canUse && consoleOpen);
+        }
+
+        private void CaptureScreenshot()
+        {
+            string dir = System.IO.Path.Combine(Application.persistentDataPath, "Screenshots");
+            if (!System.IO.Directory.Exists(dir))
+            {
+                System.IO.Directory.CreateDirectory(dir);
+            }
+            string fileName = $"screenshot_{System.DateTime.Now:yyyyMMdd_HHmmss}.png";
+            string path = System.IO.Path.Combine(dir, fileName);
+            ScreenCapture.CaptureScreenshot(path);
+            Debug.Log($"Screenshot saved to: {path}");
         }
         #endregion
 

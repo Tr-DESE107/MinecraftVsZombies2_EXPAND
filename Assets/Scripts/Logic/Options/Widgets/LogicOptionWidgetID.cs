@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 
 using PVZEngine;
 
@@ -32,6 +32,9 @@ namespace MVZ2Logic.Options
         public const string showFPS = "show_fps";
         public const string credits = "credits";
         public const string exportLogFiles = "export_log_files";
+
+        //EXPAND
+        public const string minecartControlMode = "minecart_control_mode";
     }
 
     public static class LogicOptionWidgetID
@@ -43,6 +46,9 @@ namespace MVZ2Logic.Options
         public static readonly NamespaceID vibration = Get(LogicOptionWidgetNames.vibration);
         public static readonly NamespaceID fullscreen = Get(LogicOptionWidgetNames.fullscreen);
         public static readonly NamespaceID resolution = Get(LogicOptionWidgetNames.resolution);
+        
+        //EXPAND
+        public static readonly NamespaceID minecartControlMode = Get(LogicOptionWidgetNames.minecartControlMode);
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(Global.BuiltinNamespace, name);

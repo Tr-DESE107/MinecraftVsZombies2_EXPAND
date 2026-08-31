@@ -6,6 +6,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Properties;
 using UnityEngine;
 
@@ -266,6 +267,34 @@ namespace MVZ2Logic.Entities
         {
             return entity.GetProperty<Color>(LIGHT_COLOR);
         }
+
+        //EXPAND ADD Start
+
+        // 光源发出的等级(0~7)，-1 表示不参与等级判定(兼容旧光源)  
+        public static readonly PropertyMeta<int> LIGHT_LEVEL = Get<int>("lightLevel", -1);
+        public static void SetLightLevel(this Entity entity, int value)
+        {
+            entity.SetProperty(LIGHT_LEVEL, value);
+        }
+        public static int GetLightLevel(this Entity entity)
+        {
+            return entity.GetProperty<int>(LIGHT_LEVEL);
+        }
+        public static int GetLightLevel(this EntityDefinition definition)
+        {
+            return definition.GetProperty<int>(LIGHT_LEVEL);
+        }
+
+        // 该实体的 WraithBuff 能被哪些光照等级照亮(int 数组)    
+        public static readonly PropertyMeta<int[]> WRAITH_REQUIRED_LIGHT_LEVELS = Get<int[]>("wraithRequiredLightLevels");
+        // 图鉴用：从实体定义读取所需照亮等级数组(可能为 null)    
+        public static int[] GetWraithRequiredLightLevels(this EntityDefinition definition)
+        {
+            return definition.GetProperty<int[]>(WRAITH_REQUIRED_LIGHT_LEVELS);
+        }
+
+        //EXPAND ADD End
+
         #endregion
 
         #region 影子

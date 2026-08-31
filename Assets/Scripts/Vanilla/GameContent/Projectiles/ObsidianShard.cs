@@ -1,0 +1,34 @@
+﻿using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
+
+using PVZEngine.Callbacks;
+using PVZEngine.Damages;
+using PVZEngine.Definitions;
+
+namespace MVZ2.GameContent.Projectiles
+{
+    [AutoEntityBehaviourDefinition(VanillaProjectileNames.ObsidianShard)]
+    public class ObsidianShard : ProjectileBehaviour
+    {
+        public ObsidianShard(string nsp, string name) : base(nsp, name)
+        {
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
+        }
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
+        {
+            var hitResult = param.hit;
+            var projectile = hitResult.Projectile;
+            if (!projectile.Definition.HasBehaviour(this))
+                return;
+
+            var target = hitResult.Other;
+            // 造成1点穿甲伤害  
+            if (target != null && target.Exists() && !target.IsDead)
+            {
+                var armorPiercingDamage = new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR);
+                target.TakeDamage(1, armorPiercingDamage, projectile);
+            }
+        }
+    }
+}

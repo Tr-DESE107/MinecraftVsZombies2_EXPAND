@@ -6,6 +6,7 @@ using MVZ2.Managers;
 using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Level

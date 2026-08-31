@@ -126,6 +126,7 @@ namespace MVZ2Logic
             }
             return true;
         }
+        
         private static IFormatProvider provider => CultureInfo.InvariantCulture;
     }
 }

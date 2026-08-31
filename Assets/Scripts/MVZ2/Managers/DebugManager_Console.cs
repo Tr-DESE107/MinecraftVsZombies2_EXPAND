@@ -9,6 +9,8 @@ using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Metas;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Games;
 using MVZ2Logic.Localization;

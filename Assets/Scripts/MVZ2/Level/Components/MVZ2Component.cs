@@ -4,6 +4,7 @@ using System;
 using MVZ2.Managers;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Level.Components
 {

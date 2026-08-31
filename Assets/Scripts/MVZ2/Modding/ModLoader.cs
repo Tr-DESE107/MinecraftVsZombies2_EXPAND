@@ -229,6 +229,7 @@ namespace MVZ2.Modding
             {
                 entityID = entityID,
                 cost = def.GetCost(),
+                    triggerCost = def.GetTriggerCost(),
                 rechargeID = def.GetRechargeID(),
                 triggerActive = def.IsTriggerActive(),
                 canInstantTrigger = def.CanInstantTrigger(),
@@ -464,6 +465,7 @@ namespace MVZ2.Modding
                 mod.AddDefinition(def);
             }
         }
+                    triggerCost = meta.TriggerCost,
         private void LoadBuffMetas(Mod mod)
         {
             var nsp = mod.Namespace;
@@ -581,7 +583,7 @@ namespace MVZ2.Modding
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.MOBILE_ICON, meta.GetMobileIcon());
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.MODEL_ID, meta.GetModelID());
 
-                var seedDef = new OptionSeed(nsp, seedOptionDefinition.Name, seedOptionDefinition.GetCost());
+                var seedDef = new OptionSeed(nsp, seedOptionDefinition.Name, seedOptionDefinition.GetCost(), meta.RechargeID);
                 seedDef.SetIcon(seedOptionDefinition.GetIcon());
                 seedDef.SetMobileIcon(seedOptionDefinition.GetMobileIcon());
                 seedDef.SetModelID(seedOptionDefinition.GetModelID());
@@ -636,6 +638,7 @@ namespace MVZ2.Modding
                 stageDef.SetProperty(LogicStageProps.START_TRANSITION, meta.StartTransition);
 
                 stageDef.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
+                stageDef.SetProperty(EngineStageProps.WAVES_PER_FLAG, meta.WavesPerFlag);
                 stageDef.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
                 stageDef.SetProperty(EngineStageProps.CONTINUED_FIRST_WAVE_TIME, meta.EndlessFirstWaveTime);
                 stageDef.SetProperty(LogicStageProps.WAVE_MAX_TIME, meta.MaxWaveTime);

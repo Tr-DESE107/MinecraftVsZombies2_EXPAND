@@ -7,6 +7,8 @@ using MVZ2.Metas;
 using MVZ2.ResourcePacks;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Localization;
 using PVZEngine;
 using UnityEditor;

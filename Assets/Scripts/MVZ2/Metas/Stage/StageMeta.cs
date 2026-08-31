@@ -7,6 +7,7 @@ using MVZ2.IO;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Properties;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Unity;
@@ -59,6 +60,8 @@ namespace MVZ2.Metas
         public float AdvanceHealthPercent { get; private set; }
 
         public bool NeedBlueprints { get; private set; }
+
+        public int WavesPerFlag { get; private set; }
 
         public Dictionary<string, object?> Properties { get; private set; }
         public static StageMeta? FromXmlNode(XmlNode node, string defaultNsp)
@@ -129,6 +132,8 @@ namespace MVZ2.Metas
             var spawnPointsPower = spawnNode?.GetAttributeFloat("pointsPower") ?? 1;
             var spawnPointsMultiplier = spawnNode?.GetAttributeFloat("pointsMultiplier") ?? 1;
             var spawnPointsAddition = spawnNode?.GetAttributeFloat("pointsAddition") ?? 0;
+            var wavesPerFlag = spawnNode?.GetAttributeInt("wavesPerFlag") ?? 10;
+
             NamespaceID[]? spawns = null;
             if (spawnNode != null)
             {
@@ -196,7 +201,9 @@ namespace MVZ2.Metas
                 SpawnPointsMultiplier = spawnPointsMultiplier,
                 SpawnPointsAddition = spawnPointsAddition,
 
-                NeedBlueprints = needBlueprints
+                NeedBlueprints = needBlueprints,
+
+                WavesPerFlag = wavesPerFlag,
             };
         }
         public static readonly Dictionary<string, LevelCameraPosition> cameraPositionDict = new Dictionary<string, LevelCameraPosition>()

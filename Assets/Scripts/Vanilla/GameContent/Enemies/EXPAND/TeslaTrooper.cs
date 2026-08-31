@@ -1,0 +1,119 @@
+﻿#nullable enable // 自动生成
+
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Detections;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
+using PVZEngine.Buffs;
+using PVZEngine.Definitions;
+using PVZEngine.Entities;
+using Tools;
+
+namespace MVZ2.GameContent.Enemies
+{
+    [AutoEntityBehaviourDefinition(VanillaEnemyNames.TeslaTrooper)]
+    public class TeslaTrooper : BoatedEnemyBehaviour
+    {
+        public TeslaTrooper(string nsp, string name) : base(nsp, name)
+        {
+            // 使用 DispenserDetector 进行目标检测
+            detector = new DispenserDetector()
+            {
+                ignoreHighEnemy = true,
+                ignoreLowEnemy = true
+            };
+        }
+
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            SetStateTimer(entity, new FrameTimer(SHOOT_COOLDOWN));
+
+            var buff = entity.AddBuff<FireProtection>();
+            buff.SetProperty(FireProtection.PROP_Protection_Level, 1f);
+        }
+
+        protected override void UpdateAI(Entity enemy)
+        {
+            base.UpdateAI(enemy);
+
+            // 每帧更新 Target，寻找最近的目标
+            if (CanShoot(enemy))
+            {
+                if (enemy.Target != null && !ValidateTarget(enemy, enemy.Target))
+                {
+                    enemy.Target = null;
+                }
+                enemy.Target = FindTarget(enemy);
+            }
+            else
+            {
+                enemy.Target = null;
+            }
+
+            // 在远程攻击状态时，使用计时器控制攻击间隔
+            if (enemy.State == STATE_RANGED_ATTACK)
+            {
+                var shootTimer = GetStateTimer(enemy);
+                if (shootTimer != null)
+                {
+                    shootTimer.Run(enemy.GetAttackSpeed());
+                    if (shootTimer.Expired)
+                    {
+                        // 对当前 Target 释放电弧
+                        var target = enemy.Target;
+                        if (target != null && target.Exists())
+                        {
+                            var targetPos = target.Position;
+                            var groundY = enemy.Level.GetGroundY(targetPos.x, targetPos.z);
+                            if (targetPos.y <= groundY)
+                                targetPos.y = groundY;
+
+                            TeslaCoil.Shock(enemy, enemy.GetDamage(), enemy.GetFaction(), SHOCK_RADIUS, targetPos);
+                            TeslaCoil.CreateArc(enemy, enemy.GetShootPoint(), targetPos);
+                            enemy.PlaySound(VanillaSoundID.TeslaTrooperAttack);
+                        }
+                        shootTimer.ResetTime(SHOOT_COOLDOWN);
+                    }
+                }
+            }
+        }
+
+        protected virtual bool CanShoot(Entity enemy)
+        {
+            return enemy.Position.x <= enemy.Level.GetEntityColumnX(enemy.Level.GetMaxColumnCount() - 1);
+        }
+        protected virtual Entity? FindTarget(Entity entity)
+        {
+            return detector.DetectEntityWithTheLeast(entity, e => (e.GetCenter() - entity.Position).sqrMagnitude);
+        }
+        protected virtual bool ValidateTarget(Entity entity, Entity target)
+        {
+            return detector.ValidateTarget(entity, target);
+        }
+        public static void SetStateTimer(Entity enemy, FrameTimer value)
+        {
+            enemy.SetBehaviourField(PROP_STATE_TIMER, value);
+        }
+
+        public static FrameTimer? GetStateTimer(Entity enemy)
+        {
+            return enemy.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
+        }
+
+        // 补充缺失的常量
+        public const int SHOOT_CHARGE = 25;       // 充能帧数
+        public const float SHOCK_RADIUS = 20;    // 电击范围半径
+        private Detector detector;
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
+        public const int SHOOT_COOLDOWN = 135;
+        public const int SHOOT_DURATION = 15;
+        public const int STATE_WALK = LogicEnemyStates.WALK;
+        public const int STATE_RANGED_ATTACK = LogicEnemyStates.RANGED_ATTACK;
+    }
+}

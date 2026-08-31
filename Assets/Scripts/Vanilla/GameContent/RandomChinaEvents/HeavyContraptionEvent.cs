@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         public override void Run(Entity contraption, RandomGenerator rng)
         {
             var level = contraption.Level;
-            contraption.SpawnWithParams(VanillaContraptionID.snipenser, contraption.Position);
+            contraption.SpawnWithParams(VanillaContraptionID.MegaSnipenser, contraption.Position);
             contraption.Remove();
             contraption.PlaySound(VanillaSoundID.gunReload);
             contraption.PlaySound(VanillaSoundID.powerUp);

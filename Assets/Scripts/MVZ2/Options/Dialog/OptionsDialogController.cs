@@ -1,9 +1,10 @@
-#nullable enable
+﻿#nullable enable
 
 using System;
 using System.Collections.Generic;
 using MukioI18n;
 using MVZ2.Cameras;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2Logic;
@@ -71,7 +72,7 @@ namespace MVZ2.Options
             ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
         }
 
-        #region �¼��ص�
+        #region 事件回调
         private void OnResolutionChangedCallback(int width, int height)
         {
             RefreshResolutionDropdown();
@@ -164,12 +165,42 @@ namespace MVZ2.Options
                 case ButtonType.Difficulty:
                     {
                         Main.OptionsManager.CycleDifficulty();
-                        UpdateDifficultyButton(Main.OptionsManager.GetDifficulty());
-                        SaveOptions();
-                        var level = Main.LevelManager.GetLevelController();
-                        if (level.Exists())
+                        var difficulty = Main.OptionsManager.GetDifficulty();
+                        if (difficulty == VanillaDifficulties.lunatic)
                         {
-                            level.UpdateDifficulty();
+                            // 切换到EXPAND难度时弹出选项确认框  
+                            var title = Main.LanguageManager._(LogicStrings.WARNING);
+                            var desc = Main.LanguageManager._(DIALOG_DESC_LUNATIC_WARNING);
+                            var options = new string[]
+                            {
+                Main.LanguageManager._(DIALOG_OPTION_SWITCH_LUNATIC),
+                Main.LanguageManager._(DIALOG_OPTION_SWITCH_EASY),
+                Main.LanguageManager._(DIALOG_OPTION_SWITCH_NORMAL),
+                Main.LanguageManager._(DIALOG_OPTION_KEEP_HARD),
+                            };
+                            Main.Scene.ShowDialog(title, desc, options, (index) =>
+                            {
+                                switch (index)
+                                {
+                                    case 0:
+                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.lunatic);
+                                        break;
+                                    case 1:
+                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.easy);
+                                        break;
+                                    case 2:
+                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.normal);
+                                        break;
+                                    default:
+                                        Main.OptionsManager.SetDifficulty(VanillaDifficulties.hard);
+                                        break;
+                                }
+                                ApplyDifficultyChange();
+                            });
+                        }
+                        else
+                        {
+                            ApplyDifficultyChange();
                         }
                     }
                     break;
@@ -208,6 +239,16 @@ namespace MVZ2.Options
                         level.ShowRestartConfirmDialog();
                     }
                     break;
+            }
+        }
+        private void ApplyDifficultyChange()
+        {
+            UpdateDifficultyButton(Main.OptionsManager.GetDifficulty());
+            SaveOptions();
+            var level = Main.LevelManager.GetLevelController();
+            if (level.Exists())
+            {
+                level.UpdateDifficulty();
             }
         }
         private void OnMoreOptionsBackClickCallback()
@@ -305,7 +346,7 @@ namespace MVZ2.Options
         {
             Main.OptionsManager.SaveOptions();
         }
-        #region ������
+        #region 主界面
         private void UpdateMainPageWidgets()
         {
             // Main
@@ -435,7 +476,7 @@ namespace MVZ2.Options
         }
         #endregion
 
-        #region ����ѡ��
+        #region 更多选项
         private void UpdateMoreOptionsPageWidgets()
         {
             if (context == null)
@@ -546,7 +587,7 @@ namespace MVZ2.Options
         }
         #endregion
 
-        #region �������
+        #region 组件更新
         protected string GetValueText(bool value)
         {
             return Main.LanguageManager._(value ? LogicStrings.YES : LogicStrings.NO);
@@ -576,39 +617,51 @@ namespace MVZ2.Options
         }
         #endregion
 
-        #region ����
+        #region 常量
         public const float FASTFORWARD_STEP = 0.05f;
-        public const float FASTFORWARD_MULTIPLIER_START = 1.1f;
-        public const float FASTFORWARD_MULTIPLIER_END = 3;
+        public const float FASTFORWARD_MULTIPLIER_START = 0f;
+        public const float FASTFORWARD_MULTIPLIER_END = 4;
         #endregion
 
-        #region �����ı�
-        [TranslateMsg("ѡ��")]
-        public const string OPTION_SWAP_TRIGGER = "��������";
-        [TranslateMsg("ѡ��")]
-        public const string OPTION_FULLSCREEN = "ȫ��";
-        [TranslateMsg("ѡ��")]
-        public const string OPTION_VIBRATION = "�豸��";
-        [TranslateMsg("ѡ��")]
-        public const string OPTION_PAUSE_ON_FOCUS_LOST = "��̨��ͣ";
-        [TranslateMsg("ѡ��")]
-        public const string OPTION_MORE_OPTIONS = "����ѡ��";
-        [TranslateMsg("ѡ�{0}Ϊ�Ѷ�")]
-        public const string OPTION_DIFFICULTY = "�Ѷȣ�{0}";
-        [TranslateMsg("ѡ��")]
-        public const string OPTION_RESTART = "���¿�ʼ";
-        [TranslateMsg("ѡ��")]
-        public const string OPTION_BACK = "����";
+        #region 翻译文本
+        [TranslateMsg("选项")]
+        public const string OPTION_SWAP_TRIGGER = "交换触发";
+        [TranslateMsg("选项")]
+        public const string OPTION_FULLSCREEN = "全屏";
+        [TranslateMsg("选项")]
+        public const string OPTION_VIBRATION = "设备震动";
+        [TranslateMsg("选项")]
+        public const string OPTION_PAUSE_ON_FOCUS_LOST = "后台暂停";
+        [TranslateMsg("选项")]
+        public const string OPTION_MORE_OPTIONS = "更多选项";
+        [TranslateMsg("选项，{0}为难度")]
+        public const string OPTION_DIFFICULTY = "难度：{0}";
+        [TranslateMsg("选项")]
+        public const string OPTION_RESTART = "重新开始";
+        [TranslateMsg("选项")]
+        public const string OPTION_BACK = "返回";
 
 
-        [TranslateMsg("ѡ�{0}Ϊ��")]
-        public const string OPTION_MUSIC = "����������{0}";
-        [TranslateMsg("ѡ�{0}Ϊ��")]
-        public const string OPTION_SOUND = "��Ч������{0}";
-        [TranslateMsg("ѡ�{0}Ϊ��")]
-        public const string OPTION_FASTFORWARD_MULTIPLIER = "���ٱ��ʣ�{0}";
-        [TranslateMsg("�Ի�������")]
-        public const string DIALOG_DESC_LEAVE_LEVEL = "ȷ��Ҫ������\n��Ľ��Ȼᱻ���档";
+        [TranslateMsg("选项，{0}为量")]
+        public const string OPTION_MUSIC = "音乐音量：{0}";
+        [TranslateMsg("选项，{0}为量")]
+        public const string OPTION_SOUND = "音效音量：{0}";
+        [TranslateMsg("选项，{0}为量")]
+        public const string OPTION_FASTFORWARD_MULTIPLIER = "加速倍率：{0}";
+        [TranslateMsg("对话框内容")]
+        public const string DIALOG_DESC_LEAVE_LEVEL = "确认要返回吗？\n你的进度会被保存。";
+
+        [TranslateMsg("难度警告弹窗内容")]
+        public const string DIALOG_DESC_LUNATIC_WARNING = "EXPAND难度过大，你必须通关过一次任意难度关卡才能游玩该关卡的难度\n是否要切换为EXPAND难度？";
+        [TranslateMsg("难度警告弹窗选项")]
+        public const string DIALOG_OPTION_SWITCH_LUNATIC = "切换为<color=red>EXPAND</color>难度";
+        [TranslateMsg("难度警告弹窗选项")]
+        public const string DIALOG_OPTION_SWITCH_EASY = "切换为<color=green>EXP|简单</color>难度";
+        [TranslateMsg("难度警告弹窗选项")]
+        public const string DIALOG_OPTION_SWITCH_NORMAL = "切换为EXP|普通难度";
+        [TranslateMsg("难度警告弹窗选项")]
+        public const string DIALOG_OPTION_KEEP_HARD = "保留在<color=yellow>EXP|困难</color>难度";
+
         #endregion
 
         public event Action<bool>? OnClose;

@@ -5,6 +5,7 @@ using MVZ2.Level.Components;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2.Level.Blueprints
 {

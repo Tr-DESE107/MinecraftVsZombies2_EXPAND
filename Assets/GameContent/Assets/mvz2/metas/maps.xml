@@ -1,6 +1,7 @@
-<maps>
+﻿<maps>
     <elementTemplates>
         <contraption />
+        <artifacts />
         <pin>
             <behaviours>
                 <behaviour operator="add" id="mvz2:pin" />
@@ -107,6 +108,16 @@
         <element id="silvenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.silvenser"/></unlock></element>
         <element id="magichest" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.magichest"/></unlock></element>
         
+        <!--EXPAND C1-->
+        <element id="Poisonser" template="contraption"><unlock><condition required="mvz2:level.halloween_1"/></unlock></element>
+        <element id="infectenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.infectenser"/></unlock></element>
+        <element id="RedStoneOre" template="contraption"><unlock><condition required="mvz2:level.halloween_12"/></unlock></element>
+        <element id="GlowingObsidian" template="contraption"><unlock><condition required="mvz2:level.halloween_13"/></unlock></element>
+        
+        <element id="Almanac" template="artifacts"><unlock><condition required="mvz2:level.halloween_5"/></unlock></element>
+        <element id="ShrunkenHead" template="artifacts"><unlock><condition required="mvz2:level.halloween_14"/></unlock></element>
+        <element id="FrankensteinBrain" template="artifacts"><unlock><condition required="mvz2:level.halloween_15"/></unlock></element>
+        
         <!-- Dream Contraptions -->
         <element id="lily_pad" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.lily_pad"/></unlock></element>
         <element id="drivenser" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.drivenser"/></unlock></element>
@@ -174,6 +185,10 @@
             <stage id="mvz2:halloween_9" />
             <stage id="mvz2:halloween_10" />
             <stage id="mvz2:halloween_11" />
+            <stage id="mvz2:halloween_12" />
+            <stage id="mvz2:halloween_13" />
+            <stage id="mvz2:halloween_14" />
+            <stage id="mvz2:halloween_15" />
         </stages>
     </map>
     <map id="dream" area="mvz2:dream">
@@ -201,6 +216,10 @@
             <stage id="mvz2:dream_9" />
             <stage id="mvz2:dream_10" />
             <stage id="mvz2:dream_11" />
+            <stage id="mvz2:dream_12" area="mvz2:DreamNight"/>
+            <stage id="mvz2:dream_13" />
+            <stage id="mvz2:dream_14" />
+            <stage id="mvz2:dream_15" />
         </stages>
     </map>
     <map id="gensokyo" width="1020" height="600">
@@ -241,6 +260,10 @@
             <stage id="mvz2:castle_9" />
             <stage id="mvz2:castle_10" />
             <stage id="mvz2:castle_11" />
+            <stage id="mvz2:castle_12" />
+            <stage id="mvz2:castle_13" />
+            <stage id="mvz2:castle_14" />
+            <stage id="mvz2:castle_15" />
         </stages>
     </map>
     <map id="mausoleum" area="mvz2:mausoleum" width="3200" height="2400">
@@ -259,6 +282,10 @@
             <stage id="mvz2:mausoleum_9" />
             <stage id="mvz2:mausoleum_10" />
             <stage id="mvz2:mausoleum_11" />
+            <stage id="mvz2:mausoleum_12" />
+            <stage id="mvz2:mausoleum_13" />
+            <stage id="mvz2:mausoleum_14" />
+            <stage id="mvz2:mausoleum_15" />
         </stages>
     </map>
     <map id="ship" area="mvz2:ship" width="4200" height="3600">
@@ -277,6 +304,10 @@
             <stage id="mvz2:ship_9" />
             <stage id="mvz2:ship_10" />
             <stage id="mvz2:ship_11" />
+            <stage id="mvz2:ship_12" />
+            <stage id="mvz2:ship_13" />
+            <stage id="mvz2:ship_14" />
+            <stage id="mvz2:ship_15" />
         </stages>
     </map>
     <map id="palace" area="mvz2:palace" width="3200" height="2400">
@@ -295,6 +326,7 @@
             <stage id="mvz2:palace_9" />
             <stage id="mvz2:palace_10" />
             <stage id="mvz2:palace_11" />
+            <stage id="mvz2:AmethystTutorial" />
         </stages>
     </map>
 </maps>

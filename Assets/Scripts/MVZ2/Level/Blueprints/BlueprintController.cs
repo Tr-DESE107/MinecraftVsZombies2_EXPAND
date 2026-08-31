@@ -8,6 +8,7 @@ using MVZ2Logic.Inputs;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using UnityEngine;

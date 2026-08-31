@@ -188,6 +188,7 @@ namespace MVZ2Logic.Saves
         public static readonly string[] debugUserNames = new string[]
         {
             "debug",
+            "DESE107",
         };
         #endregion
     }

@@ -11,6 +11,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Placements;
 using PVZEngine.SeedPacks;
 using PVZEngine.Tools;
@@ -57,14 +58,14 @@ namespace MVZ2Logic.Grids
             }
         }
 
-        #region ·ÅÖÃÒôÐ§
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
         public static NamespaceID? GetPlaceSound(this LawnGrid grid, Entity entity)
         {
             return grid.Definition.GetPlaceSound(entity);
         }
         #endregion
 
-        #region ·ÅÖÃÀ¶Í¼
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
         public static void UseEntityBlueprint(this LawnGrid grid, SeedPack seed, IHeldItemData heldItemData)
         {
             var seedDef = seed.Definition;
@@ -80,10 +81,10 @@ namespace MVZ2Logic.Grids
         }
         #endregion
 
-        #region ·ÅÖÃÀ¶Í¼¶¨Òå
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
         /// <summary>
-        /// ÔÚÒ»¸öÍø¸ñµÄÎ»ÖÃÉÏ·ÅÖÃÒ»¸öÀ¶Í¼¡£
-        /// Èç¹ûÊÇÊµÌåÀ¶Í¼£¬Ôò»áµ÷ÓÃ<see cref="PlaceEntityBlueprint"/>£¬·ÅÖÃÒ»¸öÊµÌå£¬»òÔÚÒÑÓÐÊµÌåÉÏ¶Ñµþ¡£
+        /// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
+        /// ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<see cref="PlaceEntityBlueprint"/>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Êµï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ï¶Ñµï¿½ï¿½ï¿½
         /// </summary>
         /// <param name="grid"></param>
         /// <param name="seedDef"></param>
@@ -103,7 +104,7 @@ namespace MVZ2Logic.Grids
         }
         #endregion
 
-        #region Éú³ÉÊµÌå
+        #region ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
         public static bool CanSpawnEntity(this LawnGrid grid, NamespaceID entityID)
         {
             return grid.GetEntitySpawnStatus(entityID) == null;
@@ -119,7 +120,7 @@ namespace MVZ2Logic.Grids
         public static NamespaceID? GetEntitySpawnStatus(this LawnGrid grid, EntityDefinition entityDef)
         {
             var level = grid.Level;
-            // ¿É·ÅÖÃ¡£
+            // ï¿½É·ï¿½ï¿½Ã¡ï¿½
             var placementID = entityDef.GetPlacementID();
             if (placementID == null)
                 return null;
@@ -130,7 +131,7 @@ namespace MVZ2Logic.Grids
         }
         #endregion
 
-        #region ·ÅÖÃÊµÌå
+        #region ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
         public static bool CanPlaceBlueprint(this LawnGrid grid, NamespaceID seedID, out NamespaceID? error)
         {
             error = null;
@@ -171,7 +172,7 @@ namespace MVZ2Logic.Grids
         public static NamespaceID? GetEntityPlaceStatus(this LawnGrid grid, EntityDefinition entityDef)
         {
             var level = grid.Level;
-            // ¿É·ÅÖÃ¡£
+            // ï¿½É·ï¿½ï¿½Ã¡ï¿½
             var placementID = entityDef.GetPlacementID();
             if (placementID == null)
                 return null;

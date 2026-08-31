@@ -6,6 +6,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2Logic.Artifacts
 {

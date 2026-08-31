@@ -5,6 +5,8 @@ using MVZ2.Blueprints;
 using MVZ2.Level.Inputing;
 using MVZ2.UI;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
@@ -14,6 +16,7 @@ using MVZ2Logic.Models;
 using MVZ2Logic.Options;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
@@ -99,6 +102,7 @@ namespace MVZ2.Level.Blueprints
         {
             var viewData = base.GetTooltipViewData();
             viewData.error = GetTooltipErrorMessage();
+            viewData.description = Main.ResourceManager.GetBlueprintTooltip(SeedPack.Definition.GetID());
             return viewData;
         }
         private string GetTooltipErrorMessage()

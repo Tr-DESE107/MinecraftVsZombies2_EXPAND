@@ -6,8 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Flee.PublicTypes;
 using MVZ2.Metas;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Resources;
 using PVZEngine;
 using PVZEngine.Tools.Unity;
@@ -688,6 +691,28 @@ namespace MVZ2.IO
                                 }
                             }
                             propValue = vectors.ToArray();
+                        }
+                        return true;
+                    }
+                case "intArray":
+                    {
+                        var valueStr = node.GetAttribute(name);
+                        if (string.IsNullOrEmpty(valueStr))
+                        {
+                            propValue = Array.Empty<int>();
+                        }
+                        else
+                        {
+                            var ints = new List<int>();
+                            var strings = valueStr.Split(' ');
+                            foreach (var s in strings)
+                            {
+                                if (ParseHelper.TryParseInt(s, out var parsed))
+                                {
+                                    ints.Add(parsed);
+                                }
+                            }
+                            propValue = ints.ToArray();
                         }
                         return true;
                     }

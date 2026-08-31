@@ -11,5 +11,8 @@ namespace MVZ2Logic.Level
         public const string TYPE_PUZZLE_ENDLESS = "puzzle_endless";
         public const string TYPE_ENDLESS = "endless";
         public const string TYPE_BOSS = "boss";
+
+        //EXPAND
+        public const string TYPE_BOSS_ENDLESS = "boss_endless";
     }
 }

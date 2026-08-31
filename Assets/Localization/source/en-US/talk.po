@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-08-08 07:46+0800\n"
-"PO-Revision-Date: 2026-08-08 19:48+0800\n"
+"POT-Creation-Date: 2026-07-27 06:20+0800\n"
+"PO-Revision-Date: 2026-07-27 19:12+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Language: en-US\n"
 "X-Crowdin-File: /crowdin/talk.pot\n"
 "X-Crowdin-File-ID: 22\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #. Archive name for talk group castle_1
 #: Talk meta file
@@ -1066,8 +1066,8 @@ msgstr "This is the golden apple! Despite that, it's not for restoring health!"
 msgctxt "talk-mvz2:castle_6_over"
 msgid "实际上它是一个魅惑果实，能魅惑第一个攻击它的怪物！"
 msgstr ""
-"In reality, it is a tasty, shiny fruit that hypnotizes the first monster to "
-"attack it!"
+"In reality, it is a charming fruit that charms the first monster to attack "
+"it!"
 
 #. Text for talk sentence 2 in talk group castle_6_over's section 0
 #: Talk meta file
@@ -3224,7 +3224,7 @@ msgstr "Grave?"
 #. Text for talk sentence 11 in talk group dream_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:dream_4_map"
-msgid "就是在那棵树旁边的坟墓。你的梦中似乎一直出现它呢。"
+msgid "就是在那棵树旁边的的坟墓。你的梦中似乎一直出现它呢。"
 msgstr ""
 "The grave next to that tree. It seems to keep appearing in your dreams."
 
@@ -4104,7 +4104,7 @@ msgstr "You're as stubborn as ever."
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
 msgid "好，准备好所有器械！"
-msgstr "All right, reload ALL contraptions!"
+msgstr "Alright, reload ALL contraptions!"
 
 #. Text for talk sentence 27 in talk group dream_8_map's section 0
 #: Talk meta file
@@ -4672,7 +4672,7 @@ msgstr "All I can say is I'm sorry."
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
 msgid "……是这样吗。还是多谢了，哆来咪小姐。"
-msgstr "...All right. Thank you very much still, Miss Doremy."
+msgstr "... Alright. Thank you very much still, Miss Doremy."
 
 #. Text for talk sentence 31 in talk group dream_11_map's section 0
 #: Talk meta file
@@ -5201,7 +5201,7 @@ msgstr "Yup, glad we're on the same page!"
 msgctxt "talk-mvz2:kourindou_first_visit"
 msgid "好了！那这里就变成了坑爹村民和我邻居的新基地了！"
 msgstr ""
-"All right! I hereby declare this: Crazy Villager and Neighbor's brand new "
+"Alright! I hereby declare this: Crazy Villager and Neighbor's brand new "
 "headquarters!"
 
 #. Text for talk sentence 50 in talk group kourindou_first_visit's section 0
@@ -5514,7 +5514,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:starshard_tutorial"
 msgid "好了，现在来试试吧！"
-msgstr "All right, let's try Magic Candy - the Starshard of this area!"
+msgstr "Alright, let's try Magic Candy - the Starshard of this area!"
 
 #. Archive text for talk group starshard_tutorial's section 1
 #: Talk meta file
@@ -6165,7 +6165,7 @@ msgstr "Well, to start off, lemme teach you how to trigger contraptions!"
 #: Talk meta file
 msgctxt "talk-mvz2:trigger_tutorial"
 msgid "那么，现在来开始吧！"
-msgstr "All right, try it out!"
+msgstr "Alright, try it out!"
 
 #. Archive name for talk group halloween_7
 #: Talk meta file
@@ -6507,8 +6507,8 @@ msgstr ""
 msgctxt "talk-mvz2:halloween_11"
 msgid "并且据我所知，TNT可以吸收闪电，并且在那之后会变得非常……危险。"
 msgstr ""
-"From what I’ve seen, TNTs have the ability to absorb lightning and become..."
-"dangerous."
+"From what I’ve seen, TNTs have the ability to absorb lightning and "
+"become...dangerous."
 
 #. Text for talk sentence 5 in talk group halloween_11's section 0
 #: Talk meta file
@@ -6705,7 +6705,7 @@ msgstr "Oh, how was it? What did she tell you?"
 #. Text for talk sentence 2 in talk group kourindou_visit_mausoleum_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
-msgid "她看到了我在辉针城的那些功绩，还夸奖了我，昨晚因此还睡得格外舒服。"
+msgid "她看到了我在辉针城的的那些功绩，还夸奖了我，昨晚因此还睡得格外舒服。"
 msgstr ""
 "She saw all the things I accomplished at Shining Needle Castle. She praised "
 "me, too. I slept exceptionally well last night because of it."
@@ -7947,7 +7947,7 @@ msgstr "Mausoleum Day 5 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_5_map"
 msgid "好了，是时候该重新封印巨人了！"
-msgstr "All right, it's about time to reseal the Giant!"
+msgstr "Alright, it's about time to reseal the Giant!"
 
 #. Text for talk sentence 1 in talk group mausoleum_5_map's section 0
 #: Talk meta file
@@ -8270,7 +8270,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_6"
 msgid "好了，作为僵尸，去干掉每一行的侦测器吧！"
-msgstr "All right, Mr. Zombie! Destroy all the observers in each row!"
+msgstr "Alright, Mr. Zombie! Destroy all the observers in each row!"
 
 #. Archive name for talk group mausoleum_6_over
 #: Talk meta file
@@ -10368,7 +10368,7 @@ msgstr "Quick! Get her onto my broom!"
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_palace_1"
 msgid "好了，我走了！你们也尽快赶到！"
-msgstr "All right, I'm off! You two get over there as fast as you can!"
+msgstr "Alright, I'm off! You two get over there as fast as you can!"
 
 #. Text for talk sentence 33 in talk group kourindou_visit_palace_1's section 0
 #: Talk meta file
@@ -10702,8 +10702,9 @@ msgid ""
 "那位觉妖怪也是催眠术的高手，使用催眠术应该是能帮忙找回她的记忆的。靠她的帮助"
 "兴许还能把犯人也揪出来。"
 msgstr ""
-"She is also an expert in hypnosis, which should help restore the patient's "
-"memories. With her help, you might even be able to track down the culprit."
+"That satori is also an expert in hypnosis, which should be able to help "
+"restore the patient's memories. With her assistance, you might even be able "
+"to track down the culprit."
 
 #. Text for talk sentence 22 in talk group kourindou_visit_palace_1's section 2
 #: Talk meta file
@@ -11000,8 +11001,8 @@ msgstr "All right."
 #. Text for talk sentence 5 in talk group palace_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
-msgid "今天的怪物里面有一种黑色的生物！"
-msgstr "Among today's monsters, there's a black creature!"
+msgid "今天的怪物里面有一种可怕的怨灵！"
+msgstr "Among today's monsters, there's a terrible kind of wraith!"
 
 #. Description for talk sentence 5 in talk group palace_2's section 0
 #: Talk meta file
@@ -11012,20 +11013,34 @@ msgstr "(Satori leaves)"
 #. Text for talk sentence 6 in talk group palace_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
-msgid "看起来像是一种……细胞？"
-msgstr "It looks like some kind of... biological cell?"
+msgid "这家伙看起来有点特别啊？"
+msgstr "This one looks a bit special, doesn't it?"
 
 #. Text for talk sentence 7 in talk group palace_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
-msgid "那种生物一旦被杀死，就会变成两个小的分身！"
-msgstr "When that creature is killed, it splits into two smaller copies!"
+msgid "我们验证过了，这种怨灵只能用红色光或黄色光照亮！"
+msgstr ""
+"We've verified it — this kind of Wraith can only be revealed by Red Light or "
+"Yellow Light!"
 
 #. Text for talk sentence 8 in talk group palace_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_2"
-msgid "小心应对，它们在分裂后还会换行！"
-msgstr "Be careful, they change lanes after splitting!"
+msgid "不照亮怎么打都打不死！"
+msgstr "Without light, no matter how much you hit it, it won't die!"
+
+#. Text for talk sentence 9 in talk group palace_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_2"
+msgid "听起来感觉不太妙啊。"
+msgstr "That doesn't sound good..."
+
+#. Text for talk sentence 10 in talk group palace_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_2"
+msgid "该让新获取的变形发射器登场了。"
+msgstr "Time to bring out the newly acquired Transfenser."
 
 #. Archive name for talk group palace_2_over
 #: Talk meta file
@@ -11059,6 +11074,14 @@ msgstr ""
 msgctxt "talk-mvz2:palace_2_over"
 msgid "别弄得自己满头都是沙砾！"
 msgstr "Don't end up with your head in gravel!"
+
+#. Text for talk sentence 4 in talk group palace_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_2_over"
+msgid "哦对了，我在你的包里又放了个好用的器械：火焰发射器，具体特性看图鉴去"
+msgstr ""
+"Oh, by the way, I put another handy contraption in your pack: the Fire "
+"Dispenser. Check the Almanac for its details."
 
 #. Archive name for talk group palace_2_map
 #: Talk meta file
@@ -11280,6 +11303,36 @@ msgctxt "talk-mvz2:palace_3"
 msgid "既然这样，那我还是先去准备今天的战斗吧。"
 msgstr "Then, let me prepare for the upcoming battle."
 
+#. Text for talk sentence 7 in talk group palace_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_3"
+msgid "嗯...新的怨灵？这家伙看起来和亡魂战士不太一样啊"
+msgstr ""
+"Hmm... a new kind of Wraith? This one looks different from the Wraith "
+"Warriors."
+
+#. Text for talk sentence 8 in talk group palace_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_3"
+msgid "这种怨灵我们先前也碰到过，它必须使用绿色光或青色光照亮。"
+msgstr ""
+"We've encountered this type of Wraith before — it must be revealed by Green "
+"Light or Cyan Light."
+
+#. Text for talk sentence 9 in talk group palace_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_3"
+msgid "开什么玩笑，这帮家伙是规则怪谈吗？不做XXX就打不死？"
+msgstr ""
+"Are you kidding me? Are these guys some kind of creepypasta rule? Can't kill "
+"them without doing XXX?"
+
+#. Text for talk sentence 10 in talk group palace_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_3"
+msgid "我看得让火焰发射器上场了"
+msgstr "Looks like it's time to bring out the Fire Dispenser."
+
 #. Archive name for talk group palace_3_over
 #: Talk meta file
 msgctxt "archive"
@@ -11456,9 +11509,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "<color=blue>（觉大人的意思……难道说，戴夫他——）</color>"
-msgstr ""
-"<color=blue>(Wait, does Lady Satori mean that... Would it be that, Dave—)</"
-"color>"
+msgstr "(Wait, does Lady Satori mean that... Would it be that, Dave—)"
 
 #. Text for talk sentence 25 in talk group palace_3_map's section 0
 #: Talk meta file
@@ -11478,14 +11529,14 @@ msgctxt "talk-mvz2:palace_3_map"
 msgid ""
 "<color=blue>（这样的话，我至少能够放下心来了，戴夫还是那个戴夫。）</color>"
 msgstr ""
-"<color=blue>(If that's the case, I don't need to worry about it. Dave is "
-"still the Dave I know.)</color>"
+"(If that's the case, I don't need to worry about it. Dave is still the Dave "
+"I know.)"
 
 #. Text for talk sentence 28 in talk group palace_3_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_3_map"
 msgid "<color=blue>（没有人能在觉大人面前撒谎的！）</color>"
-msgstr "<color=blue>(No one can lie to Lady Satori!)</color>"
+msgstr "(No one can lie to Lady Satori!)"
 
 #. Text for talk sentence 29 in talk group palace_3_map's section 0
 #: Talk meta file
@@ -11526,7 +11577,7 @@ msgstr "Palace Day 4 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_4"
 msgid "那边那个诡异的石英骷髅是什么东西？"
-msgstr "What's that spooky, scary, silica skeleton over there?"
+msgstr "What's that spooky scary silica skeleton over there?"
 
 #. Text for talk sentence 1 in talk group palace_4's section 0
 #: Talk meta file
@@ -11841,6 +11892,39 @@ msgstr "Huh, why though?"
 msgctxt "talk-mvz2:palace_5"
 msgid "我不清楚。看来这种生物真的是非常特殊了。"
 msgstr "I'm not sure. It seems that these creatures really are quite special."
+
+#. Text for talk sentence 9 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "...呃，先把话题回到战场上吧，又有一种新的怨灵哎。"
+msgstr ""
+"...Uh, let's get back to the battlefield. There's another new type of Wraith."
+
+#. Text for talk sentence 10 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "还是最令人讨厌的狂战士！！！"
+msgstr "And it's the most annoying one — a Berserker!!!"
+
+#. Text for talk sentence 11 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "不好意思...我们没有见过这种怨灵...。"
+msgstr "Sorry... we've never seen this type of Wraith before..."
+
+#. Text for talk sentence 12 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "居然没见过吗，不妙啊"
+msgstr "You've never seen it? That's not good..."
+
+#. Text for talk sentence 13 in talk group palace_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_5"
+msgid "希望这玩意能被常见光源照亮吧..比方说地狱火荧石之类的"
+msgstr ""
+"Hopefully this thing can be revealed by common light sources... like "
+"Hellfire or Glowstone..."
 
 #. Archive name for talk group palace_5_over
 #: Talk meta file
@@ -12403,7 +12487,7 @@ msgstr "Palace Day 7 Intro"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
 msgid "还好咱赶到了……幸好她没事。"
-msgstr "Glad that I made it in time... Thank goodness she's all right."
+msgstr "Glad that I made it in time... Thank goodness she's alright."
 
 #. Text for talk sentence 1 in talk group palace_7's section 0
 #: Talk meta file
@@ -12423,55 +12507,46 @@ msgstr "Thank goodness... That's really great."
 #. Text for talk sentence 3 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "另外，今天的话，好像是有新的怪物出现了。"
-msgstr "Also, seems like there's a new monster showing up today."
+msgid "讲战场上的事...新出现的那种怨灵，是需要用蓝色光才能照亮的"
+msgstr ""
+"Back to the battlefield... that new type of Wraith requires Blue Light to be "
+"revealed."
 
 #. Text for talk sentence 4 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "手里拿着奇怪的金属板，不知道它是干什么的。"
-msgstr "It's holding a weird metallic board. No idea what it does."
+msgid "啊？"
+msgstr "Huh?"
 
 #. Text for talk sentence 5 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "是吗，让我——"
-msgstr "Really? Let me..."
+msgid "我们这蓝色光的器械不多啊？"
+msgstr "We don't have many contraptions that emit Blue Light, do we?"
 
 #. Text for talk sentence 6 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "——？"
-msgstr "...?"
+msgid "（发蓝色光的器械...我能想到的就是月光传感器使用星之碎片后发的光）"
+msgstr ""
+"(The only contraption I can think of that emits Blue Light is the Moonlight "
+"Sensor after using a Starshard on it...)"
 
 #. Text for talk sentence 7 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "原来是一种叫“黑客”的怪物？"
-msgstr "So it's called a \"Hacker\"?"
+msgid "（除此之外...实在想不出来，还有什么器械发蓝光了...灵魂熔炉是青色光。）"
+msgstr ""
+"(Other than that... I really can't think of any other contraption that emits "
+"Blue Light... the Soul Furnace gives off Cyan Light.)"
 
 #. Text for talk sentence 8 in talk group palace_7's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7"
-msgid "呃，对……"
-msgstr "Y-yeah..."
-
-#. Text for talk sentence 9 in talk group palace_7's section 0
-#: Talk meta file
-msgctxt "talk-mvz2:palace_7"
-msgid ""
-"<color=blue>（奇怪，在我的记忆中，我很确信我不曾见过这种凋灵骷髅黑客。）</"
-"color>"
+msgid "（难道只能用月光传感器使用大招对付它了吗？）"
 msgstr ""
-"<color=blue>(Strange... I'm absolutely certain I've never seen this kind of "
-"Wither Skeleton Hacker before.)</color>"
-
-#. Text for talk sentence 10 in talk group palace_7's section 0
-#: Talk meta file
-msgctxt "talk-mvz2:palace_7"
-msgid ""
-"<color=blue>（但是，为什么它却告诉我，这种怪物的样子，我很熟悉？）</color>"
-msgstr "<color=blue>(But why... why does it feel so familiar?)</color>"
+"(Are we really going to have to rely on the Moonlight Sensor's Evocation to "
+"deal with this?)"
 
 #. Archive name for talk group palace_7_over
 #: Talk meta file
@@ -12482,8 +12557,10 @@ msgstr "Palace Day 7 Outro"
 #. Text for talk sentence 0 in talk group palace_7_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_over"
-msgid "这是紫晶塔！它能够发射穿透一整行的激光！"
-msgstr "This is Amethyst Pylon! It fires a laser that pierces an entire row!"
+msgid "看我研发出了什么！这是紫晶塔！它能够发射穿透一整行的激光！"
+msgstr ""
+"Look what I've developed! This is the Amethyst Pylon! It fires a laser that "
+"pierces through an entire row!"
 
 #. Text for talk sentence 1 in talk group palace_7_over's section 0
 #: Talk meta file
@@ -12497,8 +12574,38 @@ msgstr ""
 #. Text for talk sentence 2 in talk group palace_7_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:palace_7_over"
-msgid "射穿你的敌人！"
-msgstr "Pierce your enemies! Now with more lasers!"
+msgid "听上去用途不大"
+msgstr "Doesn't sound very useful."
+
+#. Text for talk sentence 3 in talk group palace_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_7_over"
+msgid "别急着反驳！我们最近不是一直被这帮特定光才能照亮的幽灵整的快疯掉了吗？"
+msgstr ""
+"Don't be so quick to dismiss! Haven't we been driven crazy by those ghosts "
+"that can only be revealed by specific light?"
+
+#. Text for talk sentence 4 in talk group palace_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_7_over"
+msgid ""
+"这个器械能够吸收旁边器械的光、可以通过驱动改变自己的光照档位，然后输出不同颜"
+"色的光！"
+msgstr ""
+"This contraption absorbs light from nearby sources, can change its own Light "
+"Level by being driven, and then outputs different colors of light!"
+
+#. Text for talk sentence 5 in talk group palace_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_7_over"
+msgid "难道说？"
+msgstr "Could it be?"
+
+#. Text for talk sentence 6 in talk group palace_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_7_over"
+msgid "是的，现在我们可以自由搭配八色光谱了！"
+msgstr "Exactly! Now we can freely tune across the eight-color spectrum!"
 
 #. Archive name for talk group palace_7_map
 #: Talk meta file
@@ -12710,6 +12817,59 @@ msgctxt "talk-mvz2:palace_8"
 msgid "希望能有所进展吧。"
 msgstr "Hopefully there's some progress."
 
+#. Text for talk sentence 5 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "另外，今天的话，好像是有新的怪物出现了。"
+msgstr "Also, seems like there's a new monster showing up today."
+
+#. Text for talk sentence 6 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "手里拿着奇怪的金属板，不知道它是干什么的。"
+msgstr "It's holding a weird metallic board. No idea what it does."
+
+#. Text for talk sentence 7 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "是吗，让我——"
+msgstr "Really? Let me..."
+
+#. Text for talk sentence 8 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "——？"
+msgstr "...?"
+
+#. Text for talk sentence 9 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "原来是一种叫“黑客”的怪物？"
+msgstr "So it's called a \"Hacker\"?"
+
+#. Text for talk sentence 10 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid "呃，对……"
+msgstr "Y-yeah..."
+
+#. Text for talk sentence 11 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid ""
+"<color=blue>（奇怪，在我的记忆中，我很确信我不曾见过这种凋灵骷髅黑客。）</"
+"color>"
+msgstr ""
+"<color=blue>(Strange... I'm absolutely certain I've never seen this kind of "
+"Wither Skeleton Hacker before.)</color>"
+
+#. Text for talk sentence 12 in talk group palace_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:palace_8"
+msgid ""
+"<color=blue>（但是，为什么它却告诉我，这种怪物的样子，我很熟悉？）</color>"
+msgstr "<color=blue>(But why... why does it feel so familiar?)</color>"
+
 #. Archive name for talk group palace_8_over
 #: Talk meta file
 msgctxt "archive"
@@ -12881,7 +13041,7 @@ msgstr "Tokiko, what's with you?!"
 #: Talk meta file
 msgctxt "talk-mvz2:palace_8_map"
 msgid "快把觉大人送去治疗！！！"
-msgstr "Quick, get Lady Satori to a doctor!!!"
+msgstr "Wuick, get Lady Satori to a doctor!!!"
 
 #. Archive text for talk group palace_8_map's section 1
 #: Talk meta file
@@ -13064,8 +13224,8 @@ msgid ""
 "你们还在船上的时候，我在香霖堂看店。那个紫色的木头箱子就莫名其妙地出现在店外"
 "了。"
 msgstr ""
-"While you were on the ship, I stayed in Kourindou. That's when a purple "
-"wooden chest appeared a few steps away from the door out of nowhere."
+"When you all boarded the ship, I stayed in Kourindou. That's when a purple "
+"wooden chest appeared outside the shop's door out of nowhere."
 
 #. Text for talk sentence 28 in talk group palace_8_map's section 1
 #: Talk meta file
@@ -13416,7 +13576,7 @@ msgstr "How can a monster be this evil?"
 msgctxt "talk-mvz2:palace_9_map"
 msgid "史蒂夫小弟，如果你之后遇到那个黑客，请您也一定要小心。"
 msgstr ""
-"Li'l Steve, if you ever run into that Hacker, you gotta be real careful too."
+"L'il Steve, if you ever run into that Hacker, you gotta be real careful too."
 
 #. Text for talk sentence 19 in talk group palace_9_map's section 0
 #: Talk meta file
@@ -17229,7 +17389,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:ship_10"
 msgid "要对付红龙吗……好吧，那就交给我了。"
-msgstr "You want me to deal with the Red Dragon... all right, I’ll do it."
+msgstr "You want me to deal with the Red Dragon... alright, I’ll do it."
 
 #. Text for talk sentence 7 in talk group ship_10's section 0
 #: Talk meta file
@@ -17451,7 +17611,7 @@ msgstr "I-I was almost a goner!"
 #: Talk meta file
 msgctxt "talk-mvz2:ship_11_over"
 msgid "所有人都没事吧？"
-msgstr "Is everyone all right?"
+msgstr "Is everyone alright?"
 
 #. Text for talk sentence 3 in talk group ship_11_over's section 0
 #: Talk meta file
@@ -17647,8 +17807,8 @@ msgstr ""
 msgctxt "talk-mvz2:ship_11_map"
 msgid "好了。接下来，请让我就您身世的问题，帮您解惑吧。"
 msgstr ""
-"...All right. Next, let me resolve your question about your origin, and "
-"clear your confusion."
+"...Alright. Next, let me resolve your question about your origin, and clear "
+"your confusion."
 
 #. Text for talk sentence 22 in talk group ship_11_map's section 0
 #: Talk meta file
@@ -17789,6 +17949,22 @@ msgstr ""
 msgctxt "talk-mvz2:ship_11_map"
 msgid "告辞了，祝您一路顺风。"
 msgstr "Farewell, Steve. I wish you a safe journey."
+
+#~ msgctxt "talk-mvz2:palace_2"
+#~ msgid "看起来像是一种……细胞？"
+#~ msgstr "It looks like some kind of... biological cell?"
+
+#~ msgctxt "talk-mvz2:palace_2"
+#~ msgid "那种生物一旦被杀死，就会变成两个小的分身！"
+#~ msgstr "When that creature is killed, it splits into two smaller copies!"
+
+#~ msgctxt "talk-mvz2:palace_2"
+#~ msgid "小心应对，它们在分裂后还会换行！"
+#~ msgstr "Be careful, they change lanes after splitting!"
+
+#~ msgctxt "talk-mvz2:palace_7_over"
+#~ msgid "射穿你的敌人！"
+#~ msgstr "Pierce your enemies! Now with more lasers!"
 
 #, fuzzy
 #~| msgctxt "talk-mvz2:ship_11_map"

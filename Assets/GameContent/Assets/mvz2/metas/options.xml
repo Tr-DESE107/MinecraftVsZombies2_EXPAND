@@ -1,4 +1,4 @@
-<options>
+﻿<options>
     <categories>
         <category id="general" label="常规" />
         <category id="graphics" label="图像" />
@@ -28,6 +28,7 @@
         <int id="fpsMode" defaultValue="0" />
         <int id="target_framerate" defaultValue="-1" />
         <int id="screen_layout" defaultValue="0" />
+        <int id="minecart_control_mode" defaultValue="1" />
 
         <float id="music_volume" defaultValue="1" />
         <float id="sound_volume" defaultValue="1" />
@@ -73,6 +74,15 @@
         <dropdown id="screen_layout" category="mvz2:general" label="屏幕布局">
             <tooltip>
                 <p>切换游戏的屏幕显示布局，这会影响屏幕显示比例，以及关卡中的界面布局。</p>
+            </tooltip>
+        </dropdown>
+        
+        <!--control-->
+        <dropdown id="minecart_control_mode" category="mvz2:control" label="重装兵器移动方式">
+            <tooltip>
+                <p>选择重装兵器关卡中矿车的移动方式。</p>
+                <p>跟随鼠标：矿车跟随鼠标/触摸位置移动。</p>
+                <p>键盘/按钮：矿车不跟随鼠标，改用键盘按键或屏幕按钮上下左右移动。</p>
             </tooltip>
         </dropdown>
 

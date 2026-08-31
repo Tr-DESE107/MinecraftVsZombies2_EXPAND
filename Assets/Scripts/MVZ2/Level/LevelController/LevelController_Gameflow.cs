@@ -3,6 +3,7 @@
 using System;
 using System.Threading.Tasks;
 using MVZ2.Audios;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GlobalGames;
 using MVZ2.Level.Area;
 using MVZ2.Level.Artifacts;
@@ -334,10 +335,16 @@ namespace MVZ2.Level
         {
             RemoveLevelState();
             Saves.Unlock(LogicUnlockID.GetLevelClearUnlock(level.StageID));
-            Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
+
+            //EXPAND Feature: 场上存在缸中之脑时，通关不记录通关难度  
+            var hasBrainInVat = level.FindFirstEntity(e => e.IsEntityOf(VanillaContraptionID.BrainInVat)) != null;
+            if (!hasBrainInVat)
+            {
+                Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
+            }
 
             SetMapDialog();
-            Saves.SaveToFile(); // 关卡通关后时保存游戏
+            Saves.SaveToFile(); // 关卡通关后时保存游戏  
 
             var played = await StartLevelOutroDialog();
             var transitionDelay = played ? 0 : 3;

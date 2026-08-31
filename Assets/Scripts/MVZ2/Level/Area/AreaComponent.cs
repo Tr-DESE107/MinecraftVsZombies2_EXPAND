@@ -2,9 +2,12 @@
 
 using MVZ2.Level.Components;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Models;
 
 namespace MVZ2.Level.Area

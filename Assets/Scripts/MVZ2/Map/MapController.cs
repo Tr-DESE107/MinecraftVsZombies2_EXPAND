@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
+using MVZ2.GameContent.Stages;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Options;
@@ -604,7 +605,18 @@ namespace MVZ2.Map
 
                 model.SetMapButtonInteractable(i, unlocked);
                 model.SetMapButtonColor(i, color);
-                model.SetMapButtonText(i, (i + 1).ToString());
+
+                // 紫晶塔教程关按钮显示 "T"，其余按钮维持默认的关卡序号  
+                var stageID = GetStageID(i);
+                if (stageID == VanillaStageID.AmethystTutorial)
+                {
+                    model.SetMapButtonText(i, "T");
+                }
+                else
+                {
+                    model.SetMapButtonText(i, (i + 1).ToString());
+                }
+
                 SetMapButtonDifficulty(model, i);
             }
             var endlessColor = buttonColorEndless;

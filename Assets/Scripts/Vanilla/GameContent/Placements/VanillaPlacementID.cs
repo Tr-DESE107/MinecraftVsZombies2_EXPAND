@@ -24,6 +24,10 @@ namespace MVZ2.GameContent.Placements
         public const string amphibious = "amphibious";
         public const string onbashira = "onbashira";
         public const string cattail = "cattail";
+
+        //EXPAND
+        public const string fusion = "fusion";
+
     }
     public static class VanillaPlacementID
     {
@@ -44,6 +48,10 @@ namespace MVZ2.GameContent.Placements
         public static readonly NamespaceID amphibious = Get(VanillaPlacementNames.amphibious);
         public static readonly NamespaceID onbashira = Get(VanillaPlacementNames.onbashira);
         public static readonly NamespaceID cattail = Get(VanillaPlacementNames.cattail);
+
+        //EXPAND
+        public static readonly NamespaceID fusion = Get(VanillaPlacementNames.fusion);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

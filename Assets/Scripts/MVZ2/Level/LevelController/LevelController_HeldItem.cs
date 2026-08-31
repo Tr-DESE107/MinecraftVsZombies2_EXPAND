@@ -6,6 +6,8 @@ using MVZ2.Level.HeldItems;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Cursor;
 using MVZ2Logic.HeldItems;

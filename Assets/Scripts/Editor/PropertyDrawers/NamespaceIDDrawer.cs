@@ -1,4 +1,6 @@
 using PVZEngine;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,16 +17,16 @@ namespace MVZ2.Editor
 
             EditorGUI.BeginProperty(position, label, property);
 
-            // »æÖÆÕûÌå±êÇ©²¢»ñÈ¡Ê£Óà¾ØÐÎÇøÓò
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½È¡Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             var propertyRect = EditorGUI.PrefixLabel(position, label);
 
-            // ¼ÆËã spacename µÄ¾ØÐÎ£¨Õ¼40%¿í¶È£©
+            // ï¿½ï¿½ï¿½ï¿½ spacename ï¿½Ä¾ï¿½ï¿½Î£ï¿½Õ¼40%ï¿½ï¿½ï¿½È£ï¿½
             var spaceRect = new Rect(propertyRect.x, propertyRect.y,
                                      propertyRect.width * 0.4f, propertyRect.height);
-            // Ê¹ÓÃ PropertyField ²¢Òþ²Ø±êÇ©£¬×Ô¶¯´¦Àí¶àÑ¡
+            // Ê¹ï¿½ï¿½ PropertyField ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½Ç©ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡
             EditorGUI.PropertyField(spaceRect, spacename, GUIContent.none);
 
-            // ¼ÆËã path µÄ¾ØÐÎ£¨Ê£Óà¿í¶È£¬Áô5ÏñËØ¼ä¾à£©
+            // ï¿½ï¿½ï¿½ï¿½ path ï¿½Ä¾ï¿½ï¿½Î£ï¿½Ê£ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½5ï¿½ï¿½ï¿½Ø¼ï¿½à£©
             var pathRect = new Rect(propertyRect.x + propertyRect.width * 0.4f + 5,
                                     propertyRect.y,
                                     propertyRect.width - propertyRect.width * 0.4f - 5,

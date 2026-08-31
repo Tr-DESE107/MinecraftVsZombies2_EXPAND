@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1738491610, guid: 4fa4eb018eeee64479e6ea997fc1968a, type: 3}
+  m_Sprite: {fileID: 1937529910, guid: 3c59bd362faf03c4b80f3be3c03de00c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -190,8 +190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 1738491610, guid: 4fa4eb018eeee64479e6ea997fc1968a, type: 3}
-  - {fileID: 1815303640, guid: 4fa4eb018eeee64479e6ea997fc1968a, type: 3}
+  - {fileID: 1937529910, guid: 3c59bd362faf03c4b80f3be3c03de00c, type: 3}
+  - {fileID: 1917315321, guid: 3c59bd362faf03c4b80f3be3c03de00c, type: 3}
   propertyName: Evoked
 --- !u!114 &539611282310459939
 MonoBehaviour:

@@ -5,13 +5,14 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Entities;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Models;
 using PVZEngine.Timing;
+using MVZ2Logic.Level;
 using PVZEngine.Tools.Timing;
 
 namespace MVZ2.GameContent.Contraptions
@@ -85,6 +86,40 @@ namespace MVZ2.GameContent.Contraptions
             entity.TriggerAnimation("ShootBack");
 
             var param = entity.GetShootParams();
+            if (entity.Level.IsIZombie())
+            { 
+                if (entity.RNG.Next(3) == 0)
+                {
+                param.projectileID = VanillaProjectileID.dart;
+                }
+            }
+            else 
+            { 
+                // ����ʣ�෢�������������������  
+                int repeatCount = GetRepeatCount(entity);
+                if (repeatCount == 1)  //�ڶ����������
+                {
+                param.projectileID = VanillaProjectileID.dart;
+                }
+            }
+            var offset = entity.GetShotOffset();
+            offset.x *= -1;
+            offset = entity.ModifyShotOffset(offset);
+            param.position = entity.Position + offset;
+
+            var vel = param.velocity;
+            vel.x *= -1;
+            param.velocity = vel;
+
+            return entity.ShootProjectile(param);
+        }
+        public Entity? ShootSmallMissileBack(Entity entity)
+        {
+            entity.TriggerAnimation("ShootBack");
+
+            var param = entity.GetShootParams();
+            param.projectileID = VanillaProjectileID.SmallRocket;
+            param.damage = entity.GetDamage() * 5;
 
             var offset = entity.GetShotOffset();
             offset.x *= -1;
@@ -112,7 +147,7 @@ namespace MVZ2.GameContent.Contraptions
             vel.x *= -1;
             param.velocity = vel.normalized;
 
-            param.projectileID = VanillaProjectileID.largeArrow;
+            param.projectileID = VanillaProjectileID.missile;
             param.damage = entity.GetDamage() * 30;
             param.soundID = VanillaSoundID.spellCard;
 
@@ -150,16 +185,26 @@ namespace MVZ2.GameContent.Contraptions
             if (evocationTimer == null)
                 return;
             evocationTimer.Run();
+
+            // ǰ��ÿ2֡����,��ÿ6֡����  
             if (evocationTimer.PassedInterval(2))
             {
                 var frontProjectile = ShootFront(entity);
                 if (frontProjectile != null)
                     frontProjectile.Velocity *= 2;
-
+            }
+            if (evocationTimer.PassedInterval(6))
+            {
                 var backProjectile = ShootBack(entity);
                 if (backProjectile != null)
                     backProjectile.Velocity *= 2;
             }
+            // ÿ15֡�����С����  
+            if (evocationTimer.PassedInterval(15))
+            {
+                ShootSmallMissileBack(entity);
+            }
+
             if (evocationTimer.Expired)
             {
                 ShootLargeArrowBack(entity);

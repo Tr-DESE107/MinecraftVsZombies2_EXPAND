@@ -4,6 +4,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Properties;
 
 namespace MVZ2Logic.Entities
@@ -40,6 +41,18 @@ namespace MVZ2Logic.Entities
         public static bool IsTriggerActive(this Entity entity)
         {
             return entity.GetProperty<bool>(TRIGGER_ACTIVE);
+        }
+        #endregion
+
+        #region 触发花费  
+        public static readonly PropertyMeta<int> TRIGGER_COST = Get<int>("triggerCost");
+        public static int GetTriggerCost(this Entity entity)
+        {
+            return entity.GetProperty<int>(TRIGGER_COST);
+        }
+        public static int GetTriggerCost(this EntityDefinition definition)
+        {
+            return definition.GetProperty<int>(TRIGGER_COST);
         }
         #endregion
 

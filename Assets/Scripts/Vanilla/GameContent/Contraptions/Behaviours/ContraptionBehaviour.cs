@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Entities;
 using PVZEngine.Entities;
+using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -23,10 +24,27 @@ namespace MVZ2.GameContent.Contraptions
         }
         public virtual bool CanTrigger(Entity entity)
         {
-            return entity.IsTriggerActive() && !entity.IsAIFrozen();
+            if (!entity.IsTriggerActive() || entity.IsAIFrozen())
+                return false;
+
+            // 新增：检查机械能是否足够  
+            var triggerCost = entity.GetTriggerCost();
+            if (triggerCost > 0 && !entity.Level.IsNoEnergy())
+            {
+                if (entity.Level.Energy < triggerCost)
+                    return false;
+            }
+
+            return true;
         }
         public virtual void Trigger(Entity entity)
         {
+            // 新增：扣除触发花费  
+            var triggerCost = entity.GetTriggerCost();
+            if (triggerCost > 0 && !entity.Level.IsNoEnergy())
+            {
+                entity.Level.AddEnergy(-triggerCost);
+            }
             OnTrigger(entity);
         }
         protected virtual void OnTrigger(Entity entity)

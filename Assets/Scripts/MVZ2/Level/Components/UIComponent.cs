@@ -2,10 +2,13 @@
 
 using System;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Unity;
 using UnityEngine;

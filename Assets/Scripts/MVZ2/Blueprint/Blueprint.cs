@@ -18,6 +18,7 @@ namespace MVZ2.Blueprints
         public void UpdateView(BlueprintViewData viewData)
         {
             SetCost(viewData.cost);
+            SetTriggerCost(viewData.triggerCost);
             SetTriggerActive(viewData.triggerActive);
 
             // Styles.
@@ -133,6 +134,12 @@ namespace MVZ2.Blueprints
         private GameObject triggerCostObject = null!;
         [SerializeField]
         private TextMeshProUGUI costText = null!;
+        [SerializeField]
+        private TextMeshProUGUI triggerCostText = null!;  // 在SerializeField区域添加  
+        public void SetTriggerCost(string triggerCost)
+        {
+            triggerCostText.text = triggerCost;
+        }
 
         [Header("Overlays")]
         [SerializeField]
@@ -157,4 +164,5 @@ namespace MVZ2.Blueprints
         private TooltipAnchor tooltipAnchor = null!;
 
     }
+        public string triggerCost;
 }

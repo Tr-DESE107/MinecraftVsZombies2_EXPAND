@@ -8,6 +8,7 @@ using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Tools.Random;
 using UnityEngine;
 

@@ -6,9 +6,9 @@ using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Enemies
                 timer.ResetTime(ATTACK_FIRE_TIME);
             }
         }
-        private void UpdateStateAttack(Entity enemy)
+        protected virtual void UpdateStateAttack(Entity enemy)
         {
             var timer = GetStateTimer(enemy);
             if (timer == null)
@@ -131,7 +131,7 @@ namespace MVZ2.GameContent.Enemies
                 enemy.Target = null;
             }
         }
-        private void Shoot(Entity enemy)
+        protected virtual void Shoot(Entity enemy)
         {
             var enemyClass = enemy.GetVariant();
             switch (enemyClass)

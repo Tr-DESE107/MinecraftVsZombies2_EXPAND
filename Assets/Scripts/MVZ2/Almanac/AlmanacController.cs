@@ -6,7 +6,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+
 using MukioI18n;
+
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
@@ -14,6 +16,8 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.UI;
+using MVZ2.Vanilla.Audios;
+
 using MVZ2Logic;
 using MVZ2Logic.Almanac;
 using MVZ2Logic.Artifacts;
@@ -21,17 +25,23 @@ using MVZ2Logic.Audios;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Contraptions;
 using MVZ2Logic.Definitions;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Resources;
 using MVZ2Logic.Saves;
+
 using PVZEngine;
 using PVZEngine.Definitions;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
+
 using PVZEngine.SeedPacks;
 using PVZEngine.Tools.Mathematics;
+
 using PVZEngine.Tools.Unity;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -112,6 +122,9 @@ namespace MVZ2.Almanacs
                     break;
                 case IndexAlmanacPage.ButtonType.ViewMisc:
                     ViewMisc();
+                    break;
+                case IndexAlmanacPage.ButtonType.ViewWiki:
+                    ViewWiki();
                     break;
             }
         }
@@ -367,6 +380,11 @@ namespace MVZ2.Almanacs
             if (entry != null)
                 SetActiveMiscEntry(entry);
         }
+        private void ViewWiki()
+        {
+            Application.OpenURL("https://mvz2expand.wiki.gg/zh/");
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
+        }
         #endregion
 
         #region 设置当前查看内容
@@ -432,6 +450,11 @@ namespace MVZ2.Almanacs
             if (!string.IsNullOrEmpty(entry.name))
             {
                 name = GetTranslatedString(LogicStrings.GetAlmanacNameContext(type), entry.name);
+            }
+            if (propReplacer != null)
+            {
+                var context = new AlmanacVariableContext(Main, EngineDefinitionTypes.ENTITY, enemyID, entry);
+                description = propReplacer.Replace(description, context);
             }
             if (propReplacer != null)
             {

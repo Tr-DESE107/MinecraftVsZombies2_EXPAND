@@ -4,6 +4,8 @@ using MVZ2.Level.Inputing;
 using MVZ2.Level.UI;
 using MVZ2.Options;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Audios;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
@@ -12,6 +14,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Options;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static MVZ2.Level.UI.LevelUIPreset;
@@ -31,7 +34,13 @@ namespace MVZ2.Level
             uiPreset.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
             uiPreset.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
 
+            uiPreset.OnMinecartUpHeldChanged += (held) => minecartUpHeld = held;
+            uiPreset.OnMinecartDownHeldChanged += (held) => minecartDownHeld = held;
+            uiPreset.OnMinecartLeftHeldChanged += (held) => minecartLeftHeld = held;
+            uiPreset.OnMinecartRightHeldChanged += (held) => minecartRightHeld = held;
+
             uiPreset.HideMoney();
+            uiPreset.SetMinecartButtonsActive(false);   // 新增：默认隐藏矿车按钮  
             SetUIVisibleState(VisibleState.Nothing);
         }
         private void InitLevelEngine_UI(LevelEngine level)
@@ -188,6 +197,25 @@ namespace MVZ2.Level
             UpdateLevelProgressUI();
             UpdateHeldSlotUI();
             UpdateStarshards();
+
+            // 仅在下列条件全部满足时显示矿车移动按钮：  
+            //  1) 场上存在存活的可骑乘矿车（不再硬匹配关卡 ID）  
+            //  2) 当前是移动端布局（桌面端用键盘，不需要屏幕按钮）  
+            //  3) 移动方式为“键盘/按钮”模式（鼠标/触摸跟随模式下按钮无用）  
+            var minecart = level.FindFirstEntity(MVZ2.GameContent.Effects.VanillaEffectID.minecartRideable);
+            bool hasMinecart = minecart != null && !minecart.IsDead;
+            bool keyboardMode = !MVZ2.GameContent.Effects.MinecartRideable.IsEffectiveMouseMode(level);
+            bool showMinecartButtons = hasMinecart && Main.UseMobileLayout() && keyboardMode;
+            ui.SetMinecartButtonsActive(showMinecartButtons);
+
+            // 隐藏按钮时清零“按住”状态，避免隐藏瞬间手指仍按着导致矿车持续移动  
+            if (!showMinecartButtons)
+            {
+                minecartUpHeld = false;
+                minecartDownHeld = false;
+                minecartLeftHeld = false;
+                minecartRightHeld = false;
+            }
         }
 
         #region 事件回调
@@ -296,6 +324,11 @@ namespace MVZ2.Level
         private int pointingBlueprint;
         private int pointingBlueprintPointerId;
         private bool pointingBlueprintConveyor;
+
+        private bool minecartUpHeld;
+        private bool minecartDownHeld;
+        private bool minecartLeftHeld;
+        private bool minecartRightHeld;
 
         [Header("UI")]
         [SerializeField]

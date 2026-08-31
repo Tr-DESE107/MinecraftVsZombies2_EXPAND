@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Definitions;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Options;
 

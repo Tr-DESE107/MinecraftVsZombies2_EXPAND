@@ -16,6 +16,11 @@ namespace MVZ2.GameContent.Fragments
         public const string skywardBeaconNight = "skyward_beacon_night";
         public const string gravelpult = "gravelpult";
         public const string woodenDropper = "wooden_dropper";
+
+        //EXPAND
+        public const string GlowingObsidianArmor = "GlowingObsidianArmor";
+        public const string FireDispenserCursed = "FireDispenserCursed";
+        public const string FireDispenserSoulFire = "FireDispenserSoulFire";
     }
     public static class VanillaFragmentID
     {
@@ -28,6 +33,11 @@ namespace MVZ2.GameContent.Fragments
         public static readonly NamespaceID skywardBeaconNight = Get(VanillaFragmentNames.skywardBeaconNight);
         public static readonly NamespaceID gravelpult = Get(VanillaFragmentNames.gravelpult);
         public static readonly NamespaceID woodenDropper = Get(VanillaFragmentNames.woodenDropper);
+
+        //EXPAND
+        public static readonly NamespaceID GlowingObsidianArmor = Get(VanillaFragmentNames.GlowingObsidianArmor);
+        public static readonly NamespaceID FireDispenserCursed = Get(VanillaFragmentNames.FireDispenserCursed);
+        public static readonly NamespaceID FireDispenserSoulFire = Get(VanillaFragmentNames.FireDispenserSoulFire);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

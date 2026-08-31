@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic.Models;
+using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
@@ -31,6 +32,16 @@ namespace MVZ2.Metas
         public AnimatorParameter[] AnimatorParameters { get; private set; }
         public bool UpdateAnimatorOnShot { get; private set; }
         public Dictionary<string, object?> ModelProperties { get; private set; }
+        public ModelOverride[] Overrides { get; private set; } = Array.Empty<ModelOverride>();
+        public NamespaceID? GetEffectivePath(IGlobalSaveData save)
+        {
+            foreach (var ov in Overrides)
+            {
+                if (ov.IsActive(save))
+                    return ov.Path;
+            }
+            return Path;
+        }
         public static ModelMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var name = node.GetAttribute("name") ?? string.Empty;
@@ -72,6 +83,19 @@ namespace MVZ2.Metas
                     }
                 }
             }
+
+            var overrides = new List<ModelOverride>();
+            for (int i = 0; i < node.ChildNodes.Count; i++)
+            {
+                var child = node.ChildNodes[i];
+                if (child.Name == "override")
+                {
+                    var ov = ModelOverride.FromXmlNode(child, defaultNsp);
+                    if (ov != null)
+                        overrides.Add(ov);
+                }
+            }
+
             var modelProperties = node["properties"].ToPropertyDictionary(defaultNsp);
             return new ModelMeta(animatorParameters.ToArray(), modelProperties)
             {
@@ -84,7 +108,8 @@ namespace MVZ2.Metas
                 XOffset = xOffset,
                 YOffset = yOffset,
                 ArmorConfigID = armorConfigID,
-                UpdateAnimatorOnShot = updateAnimatorOnShot
+                UpdateAnimatorOnShot = updateAnimatorOnShot,
+                Overrides = overrides.ToArray(),
             };
         }
         public override string ToString()

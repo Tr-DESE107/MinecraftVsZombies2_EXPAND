@@ -1,4 +1,4 @@
-<artifacts>
+﻿<artifacts>
     <!-- Halloween -->
     <artifact id="almanac" name="图鉴" tooltip="本场战斗每出现2种怪物，开始战斗时+25能量" sprite="mvz2:artifacts/almanac">
         <unlock>
@@ -20,7 +20,7 @@
             <condition required="mvz2:artifact.the_creatures_heart" />
         </unlock>
     </artifact>
-    
+
     <!-- Dream -->
     <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="友方器械每秒恢复10点耐久" sprite="mvz2:artifacts/sweet_sleep_pillow">
         <unlock>
@@ -47,7 +47,7 @@
             <condition required="mvz2:artifact.bottled_blackhole" />
         </unlock>
     </artifact>
-
+    
     <!-- Castle -->
     <artifact id="smart_phone" name="智能手机" tooltip="你在最后一波开始前每有10能量，关卡结束时便获得10金钱" sprite="mvz2:artifacts/smart_phone">
         <unlock>
@@ -118,11 +118,6 @@
             <condition required="mvz2:artifact.dragon_tooth" />
         </unlock>
     </artifact>
-    <artifact id="cow_horn" name="牛角" tooltip="一大波敌人来临后，充能所有蓝图，并使其免费15秒" sprite="mvz2:artifacts/cow_horn">
-        <unlock>
-            <condition requiredGroups="mvz2:artifact.cow_horn" />
-        </unlock>
-    </artifact>
 
     <!-- Palace -->
     <artifact id="control_rod" name="控制棒" tooltip="蓝图充能速度x150%，但怪物死亡后爆炸" sprite="mvz2:artifacts/control_rod">
@@ -140,7 +135,7 @@
             <condition required="mvz2:level.palace_11" />
         </unlock>
     </artifact>
-    <artifact id="broken_lock" name="损坏的挂锁" tooltip="器械每受到2%伤害，其蓝图冷却时间便减少1%" sprite="mvz2:artifacts/broken_lock">
+    <artifact id="broken_lock" name="损坏的挂锁" tooltip="器械受到伤害时其蓝图冷却时间会相应减少" sprite="mvz2:artifacts/broken_lock">
         <unlock>
             <condition required="mvz2:artifact.broken_lock" />
         </unlock>
@@ -151,31 +146,65 @@
         </unlock>
     </artifact>
 
-    <!-- Mountain -->
-    <artifact id="bunbunmaru_newspaper" name="文文。新闻" tooltip="每30秒，将所有蓝图的消耗在0-300之间随机" sprite="mvz2:artifacts/bunbunmaru_newspaper">
+    <!--EXPAND-->
+    <artifact id="ShrunkenHead" name="萎缩头颅" tooltip="周期性为场上我方怪物赋予骨质头盔" sprite="mvz2:artifacts/ShrunkenHead">
         <unlock>
-            <condition requiredGroups="mvz2:artifact.bunbunmaru_newspaper" />
+            <condition required="mvz2:level.halloween_14" />
         </unlock>
     </artifact>
-    <artifact id="lily_platform" name="睡莲平台" tooltip="占据承载位的器械耗能-25" sprite="mvz2:artifacts/lily_platform">
+    <artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather">
         <unlock>
-            <condition requiredGroups="mvz2:artifact.lily_platform" />
+            <condition required="mvz2:level.dream_6" />
         </unlock>
     </artifact>
-    <artifact id="extending_arm" name="延展手臂" tooltip="友方器械伤害x75%，射程+50%" sprite="mvz2:artifacts/extending_arm">
+    <artifact id="ChippedWitherSkeletonSkull" name="缺角凋零骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/ChippedWitherSkeletonSkull">
         <unlock>
-            <condition requiredGroups="mvz2:artifact.extending_arm" />
+            <condition required="mvz2:level.castle_14" />
         </unlock>
     </artifact>
-    <artifact id="krakens_tentacle" name="克拉肯的触手" tooltip="友方器械攻击速度x150%，但会向随机方向发射子弹" sprite="mvz2:artifacts/krakens_tentacle">
+    <artifact id="PbCore" name="铅核" tooltip="我方器械受到的辐射伤害和核扩散效果-80%" sprite="mvz2:artifacts/PbCore">
         <unlock>
-            <condition requiredGroups="mvz2:artifact.krakens_tentacle" />
+            <condition required="mvz2:level.palace_6" />
         </unlock>
     </artifact>
-    <artifact id="gale_leaf" name="强风叶" tooltip="所有敌怪持续向右缓慢移动" sprite="mvz2:artifacts/gale_leaf">
+    <artifact id="FrankensteinBrain" name="&lt;color=red&gt;科学怪人之脑&lt;/color&gt;" tooltip="场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%" sprite="mvz2:artifacts/FrankensteinBrain">
         <unlock>
-            <condition requiredGroups="mvz2:artifact.gale_leaf" />
+            <condition required="mvz2:level.halloween_15" />
         </unlock>
     </artifact>
-
+    <artifact id="NightmareMask" name="&lt;color=red&gt;梦魇之面&lt;/color&gt;" tooltip="敌人的攻击速度下降20%，但有33%概率不受到本次伤害" sprite="mvz2:artifacts/NightmareMask">
+        <unlock>
+            <condition required="mvz2:level.dream_12" />
+        </unlock>
+    </artifact>
+    <artifact id="WitherHeartShield" name="&lt;color=red&gt;凋灵护心盾&lt;/color&gt;" tooltip="使敌方怪物常态减伤，攻击时额外受到伤害，并使我方怪物常态额外受到伤害" sprite="mvz2:artifacts/WitherHeartShield">
+        <unlock>
+            <condition required="mvz2:level.castle_15" />
+        </unlock>
+    </artifact>
+    <artifact id="ShadowCellCore" name="&lt;color=red&gt;暗影细胞核心&lt;/color&gt;" tooltip="敌人死亡时会生成各种各样的头颅。" sprite="mvz2:artifacts/ShadowCellCore">
+        <unlock>
+            <condition required="mvz2:level.mausoleum_11" />
+        </unlock>
+    </artifact>
+    <artifact id="LeftHandBow" name="&lt;color=red&gt;左弓&lt;/color&gt;" tooltip="&lt;color=red&gt;使得怪物拥有难以置信的攻击速度&lt;/color&gt;" sprite="mvz2:artifacts/LeftHandBow">
+        <unlock>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+        </unlock>
+    </artifact>
+    <artifact id="HerobrineSkull" name="&lt;color=red&gt;邪神头颅&lt;/color&gt;" tooltip="&lt;color=red&gt;面对我&lt;/color&gt;" sprite="mvz2:artifacts/HerobrineSkull">
+        <unlock>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+        </unlock>
+    </artifact>
+    <artifact id="LightBlock" name="&lt;color=red&gt;光源方块&lt;/color&gt;" tooltip="&lt;color=red&gt;让场地变得黑暗&lt;/color&gt;" sprite="mvz2:artifacts/LightBlock">
+        <unlock>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+        </unlock>
+    </artifact>
+    <artifact id="InfiniteCore" name="&lt;color=red&gt;无尽核心&lt;/color&gt;" tooltip="&lt;color=red&gt;让关卡无尽出怪&lt;/color&gt;" sprite="mvz2:artifacts/InfiniteCore">
+        <unlock>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+        </unlock>
+    </artifact>
 </artifacts>

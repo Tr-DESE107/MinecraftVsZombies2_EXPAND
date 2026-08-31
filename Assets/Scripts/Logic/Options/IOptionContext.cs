@@ -3,6 +3,7 @@
 using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 
 namespace MVZ2Logic.Options
 {

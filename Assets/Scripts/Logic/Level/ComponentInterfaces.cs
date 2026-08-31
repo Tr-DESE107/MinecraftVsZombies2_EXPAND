@@ -9,6 +9,7 @@ using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Models;
 using UnityEngine;
 

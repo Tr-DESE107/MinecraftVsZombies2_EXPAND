@@ -53,6 +53,17 @@ namespace MVZ2.Level.UI
                 group.blocksRaycasts = value;
             }
         }
+        public void SetMinecartButtonsActive(bool active)
+        {
+            if (minecartUpButton)
+                minecartUpButton.gameObject.SetActive(active);
+            if (minecartDownButton)
+                minecartDownButton.gameObject.SetActive(active);
+            if (minecartLeftButton)
+                minecartLeftButton.gameObject.SetActive(active);
+            if (minecartRightButton)
+                minecartRightButton.gameObject.SetActive(active);
+        }
         #endregion
 
         #region 能量
@@ -436,6 +447,15 @@ namespace MVZ2.Level.UI
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
 
+            if (minecartUpButton)
+                minecartUpButton.OnHeldChanged += (held) => OnMinecartUpHeldChanged?.Invoke(held);
+            if (minecartDownButton)
+                minecartDownButton.OnHeldChanged += (held) => OnMinecartDownHeldChanged?.Invoke(held);
+            if (minecartLeftButton)
+                minecartLeftButton.OnHeldChanged += (held) => OnMinecartLeftHeldChanged?.Invoke(held);
+            if (minecartRightButton)
+                minecartRightButton.OnHeldChanged += (held) => OnMinecartRightHeldChanged?.Invoke(held);
+
             blueprints.OnBlueprintPointerInteraction += (index, e, i, c) => OnBlueprintPointerInteraction?.Invoke(index, e, i, c);
         }
 
@@ -470,6 +490,11 @@ namespace MVZ2.Level.UI
         public event Action? OnStartGameCalled;
         public event Action? OnMenuButtonClick;
         public event Action? OnSpeedUpButtonClick;
+
+        public event Action<bool>? OnMinecartUpHeldChanged;
+        public event Action<bool>? OnMinecartDownHeldChanged;
+        public event Action<bool>? OnMinecartLeftHeldChanged;
+        public event Action<bool>? OnMinecartRightHeldChanged;
         #endregion
 
         #region 属性字段
@@ -510,6 +535,16 @@ namespace MVZ2.Level.UI
         TriggerSlot triggerSlotConveyor = null!;
         [SerializeField]
         PickaxeSlot pickaxeSlot = null!;
+
+        [Header("Minecart")]
+        [SerializeField]
+        MinecartMoveButton minecartUpButton = null!;
+        [SerializeField]
+        MinecartMoveButton minecartDownButton = null!;
+        [SerializeField]
+        MinecartMoveButton minecartLeftButton = null!;
+        [SerializeField]
+        MinecartMoveButton minecartRightButton = null!;
 
         [Header("Raycast Receivers")]
         [SerializeField]

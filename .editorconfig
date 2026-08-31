@@ -1,4 +1,13 @@
-﻿[*.cs]
+﻿root = true
 
-# CS3021: 由于程序集没有 CLSCompliant 特性，因此类型或成员不需要 CLSCompliant 特性
+[*]
+charset = utf-8-bom
+end_of_line = crlf
+insert_final_newline = true
+
+[*.cs]
+charset = utf-8-bom
+end_of_line = crlf
+
+# 你原有的规则（保留）
 dotnet_diagnostic.CS3021.severity = none
