@@ -93,9 +93,9 @@ namespace MVZ2.Managers
                 }
                 costStr = costSB.ToString();
                 // 新增：处理触发花费显示  
-                if (seedDef.IsTriggerActive() && seedDef.GetProperty<float>(PVZEngine.Level.EngineSeedProps.TRIGGER_COST) > 0)
+                if (seedDef.IsTriggerActive() && seedDef.GetProperty<float>(EngineSeedProps.TRIGGER_COST) > 0)
                 {
-                    triggerCostStr = $"<color=red>{seedDef.GetProperty<float>(PVZEngine.Level.EngineSeedProps.TRIGGER_COST)}</color>";
+                    triggerCostStr = $"<color=red>{seedDef.GetProperty<float>(EngineSeedProps.TRIGGER_COST)}</color>";
                 }
             }
 
