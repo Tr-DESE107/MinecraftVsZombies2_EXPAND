@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8836997159218474083}
   - component: {fileID: 3280537291634776407}
   - component: {fileID: 4900967901817076160}
+  - component: {fileID: 5805909331542974310}
   m_Layer: 0
   m_Name: Redstone
   m_TagString: Untagged
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &5805909331542974310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479080010449558690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &36734007642995332
 PrefabInstance:
   m_ObjectHideFlags: 0

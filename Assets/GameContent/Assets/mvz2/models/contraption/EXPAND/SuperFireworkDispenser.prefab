@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4694505939512130929}
   - component: {fileID: 3124230684957096248}
   - component: {fileID: 4434621611099487593}
+  - component: {fileID: 9091097614063978672}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -115,6 +116,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bc7f633f0f53dd349827ea61dbdfad23, type: 3}
   - {fileID: 21300000, guid: 01fd9d559ff84124393ac5de475e4acd, type: 3}
   propertyName: Evoked
+--- !u!114 &9091097614063978672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707099616074445472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3339030711744718783
 GameObject:
   m_ObjectHideFlags: 0

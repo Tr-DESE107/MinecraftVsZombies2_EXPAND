@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1387511546173815097}
   - component: {fileID: 7745345497507916718}
   - component: {fileID: 8892880009576430160}
+  - component: {fileID: 3599842702517391094}
   m_Layer: 0
   m_Name: SamuraiZombieArmor_1
   m_TagString: Untagged
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &3599842702517391094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3013943147644143439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4666822726222607945
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +122,7 @@ GameObject:
   - component: {fileID: 1119255810197142232}
   - component: {fileID: 7791158753869424623}
   - component: {fileID: 2286610009998513512}
+  - component: {fileID: 6807631287265957650}
   m_Layer: 0
   m_Name: SamuraiZombieArmor_0
   m_TagString: Untagged
@@ -196,6 +210,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &6807631287265957650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666822726222607945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8016776709290124417
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +233,7 @@ GameObject:
   - component: {fileID: 1461628655862180030}
   - component: {fileID: 6911203326670838110}
   - component: {fileID: 2211758412219089394}
+  - component: {fileID: 4696324656743513096}
   m_Layer: 0
   m_Name: SamuraiZombieArmor_1
   m_TagString: Untagged
@@ -294,6 +321,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &4696324656743513096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016776709290124417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5012135931681110279
 PrefabInstance:
   m_ObjectHideFlags: 0

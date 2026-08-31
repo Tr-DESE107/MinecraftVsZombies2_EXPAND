@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 8334795603127565989}
   - component: {fileID: 8393775320450346609}
   - component: {fileID: 2431965625285006226}
+  - component: {fileID: 6314080139737384760}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -319,6 +320,18 @@ MonoBehaviour:
   sprites:
   - {fileID: 311569605, guid: 6587478fb055bac4caf21c5e49a37f8c, type: 3}
   - {fileID: -2094969051, guid: 6587478fb055bac4caf21c5e49a37f8c, type: 3}
+--- !u!114 &6314080139737384760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8539760642337383460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &211659758816104656
 PrefabInstance:
   m_ObjectHideFlags: 0

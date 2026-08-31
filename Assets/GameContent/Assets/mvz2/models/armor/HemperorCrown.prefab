@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8744896102011751888}
   - component: {fileID: 3569736701139705356}
   - component: {fileID: 6069588407276712037}
+  - component: {fileID: 2468848425283007047}
   m_Layer: 0
   m_Name: Crown
   m_TagString: Untagged
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2468848425283007047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142699052904992069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7547752638819043811
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2375010278930770375}
   - component: {fileID: 2539471972466300441}
   - component: {fileID: 7946749444206462299}
+  - component: {fileID: 3469537988228790988}
   m_Layer: 0
   m_Name: FlashFront
   m_TagString: Untagged
@@ -4928,6 +4929,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &3469537988228790988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2344819489305451366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f262f79daebae2d44a547bbc7c6dca84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2688306557797699550
 GameObject:
   m_ObjectHideFlags: 0
@@ -4975,6 +4988,7 @@ GameObject:
   - component: {fileID: 4974830806678696530}
   - component: {fileID: 4591626777716548518}
   - component: {fileID: 458082435415363447}
+  - component: {fileID: 8807371566812961687}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -5062,6 +5076,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &8807371566812961687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081767960640496193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5146501890108683720
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,6 +5131,7 @@ GameObject:
   - component: {fileID: 2462404757541056050}
   - component: {fileID: 4322597014985815090}
   - component: {fileID: 165446343325917207}
+  - component: {fileID: 3596727982350895238}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -5192,6 +5219,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &3596727982350895238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181625287188505194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6366557219444459891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5282,6 +5321,7 @@ GameObject:
   - component: {fileID: 8221462979403622026}
   - component: {fileID: 5800794823218814911}
   - component: {fileID: 5928824599324381883}
+  - component: {fileID: 5002080714954186159}
   m_Layer: 0
   m_Name: FlashBack
   m_TagString: Untagged
@@ -10197,6 +10237,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &5002080714954186159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862066244167887812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f262f79daebae2d44a547bbc7c6dca84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7123256578919444024
 GameObject:
   m_ObjectHideFlags: 0
@@ -10254,6 +10306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3004239448536261479}
   - component: {fileID: 3272868267626005751}
+  - component: {fileID: 1831562841921257020}
   m_Layer: 11
   m_Name: Renderer
   m_TagString: Untagged
@@ -10328,6 +10381,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1831562841921257020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144420699072002147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7167051138711629902
 GameObject:
   m_ObjectHideFlags: 0
@@ -10338,6 +10403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2937193625028811144}
   - component: {fileID: 1197056717673331619}
+  - component: {fileID: 11203314568497760}
   m_Layer: 11
   m_Name: Renderer
   m_TagString: Untagged
@@ -10412,6 +10478,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &11203314568497760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7167051138711629902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7573991971626488027
 GameObject:
   m_ObjectHideFlags: 0

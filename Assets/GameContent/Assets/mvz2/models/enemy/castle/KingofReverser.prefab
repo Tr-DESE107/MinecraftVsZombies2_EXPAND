@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 843280345471569269}
   - component: {fileID: 8106783652230577448}
   - component: {fileID: 8185939920266532550}
+  - component: {fileID: 556768881269656526}
   m_Layer: 0
   m_Name: Cape
   m_TagString: Untagged
@@ -186,6 +187,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &556768881269656526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494257714807841360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8185503050742762440
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +210,7 @@ GameObject:
   - component: {fileID: 7018894043303731349}
   - component: {fileID: 6130368053441984879}
   - component: {fileID: 5117387070695809654}
+  - component: {fileID: 6293660676238517180}
   m_Layer: 0
   m_Name: Wand
   m_TagString: Untagged
@@ -285,6 +299,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &6293660676238517180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185503050742762440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1109665296474353162
 PrefabInstance:
   m_ObjectHideFlags: 0

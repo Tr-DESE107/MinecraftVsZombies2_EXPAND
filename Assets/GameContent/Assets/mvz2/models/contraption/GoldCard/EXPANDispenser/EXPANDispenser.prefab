@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 3022932772338172802}
   - component: {fileID: 8153631267386922923}
   - component: {fileID: 3436713371657316477}
+  - component: {fileID: 8519099861244150692}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -194,6 +195,18 @@ MonoBehaviour:
   - {fileID: 2133884004, guid: c48390d6002ea294c877b56330723002, type: 3}
   - {fileID: -431199492, guid: c48390d6002ea294c877b56330723002, type: 3}
   propertyName: Upgraded
+--- !u!114 &8519099861244150692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763883340730898475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &993922409253746433
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +300,7 @@ GameObject:
   - component: {fileID: 6911201107124360073}
   - component: {fileID: 6143193478147769378}
   - component: {fileID: 586185190722250117}
+  - component: {fileID: 852653269513878100}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -374,6 +388,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &852653269513878100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620828098327320207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1991230008977232554
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +412,7 @@ GameObject:
   - component: {fileID: 4931965552732191852}
   - component: {fileID: 5708924608242388670}
   - component: {fileID: 5843724809769333075}
+  - component: {fileID: 7874108282072596035}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -489,6 +516,18 @@ MonoBehaviour:
   - {fileID: 1428974613, guid: c48390d6002ea294c877b56330723002, type: 3}
   - {fileID: 1813054098, guid: c48390d6002ea294c877b56330723002, type: 3}
   propertyName: MissileBox
+--- !u!114 &7874108282072596035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991230008977232554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3180709770954826237
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 310310661888513555}
   - component: {fileID: 6043751144846079129}
+  - component: {fileID: 6381164263324654224}
   m_Layer: 11
   m_Name: Renderer
   m_TagString: Untagged
@@ -761,6 +801,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6381164263324654224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733634530426097416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8944064019815154303
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +825,7 @@ GameObject:
   - component: {fileID: 7687602340319461897}
   - component: {fileID: 9114601838416676085}
   - component: {fileID: 4252985208683154080}
+  - component: {fileID: 3157249771684593478}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -876,6 +929,18 @@ MonoBehaviour:
   - {fileID: 2089544874, guid: c48390d6002ea294c877b56330723002, type: 3}
   - {fileID: 1918541947, guid: c48390d6002ea294c877b56330723002, type: 3}
   propertyName: GatlinAlt
+--- !u!114 &3157249771684593478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944064019815154303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2020772650740867635
 PrefabInstance:
   m_ObjectHideFlags: 0

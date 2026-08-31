@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1595602335091171914}
   - component: {fileID: 2152251667403387145}
   - component: {fileID: 3889962506300030541}
+  - component: {fileID: 3881504140138442220}
   m_Layer: 0
   m_Name: ArmoredBody
   m_TagString: Untagged
@@ -130,6 +131,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whenFalse: 0
   propertyName: Netherite
+--- !u!114 &3881504140138442220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931992897468743665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5601065655906822774
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +233,7 @@ GameObject:
   - component: {fileID: 8759294686818418018}
   - component: {fileID: 2624876955049100321}
   - component: {fileID: 8638934601161811596}
+  - component: {fileID: 5239430963920211103}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -337,6 +351,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whenFalse: 1
   propertyName: Netherite
+--- !u!114 &5239430963920211103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621392553020360718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &138824819306451463
 PrefabInstance:
   m_ObjectHideFlags: 0

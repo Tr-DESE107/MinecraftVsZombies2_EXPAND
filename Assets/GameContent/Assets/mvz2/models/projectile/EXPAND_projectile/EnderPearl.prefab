@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1064576254697135928}
   - component: {fileID: 8033878905067094026}
   - component: {fileID: 4498277780266057508}
+  - component: {fileID: 2452906545337959537}
   m_Layer: 0
   m_Name: EnderPearl
   m_TagString: Untagged
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2452906545337959537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4249585069134500081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1945635198708819964
 PrefabInstance:
   m_ObjectHideFlags: 0

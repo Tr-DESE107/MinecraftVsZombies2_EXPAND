@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4393089133492062593}
   - component: {fileID: 1868903961711891791}
   - component: {fileID: 5927442528546912795}
+  - component: {fileID: 7547120242092633888}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -175,6 +176,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &7547120242092633888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662747144031927105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4725252230775561759
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +199,7 @@ GameObject:
   - component: {fileID: 4264482128508939133}
   - component: {fileID: 1022699456104100675}
   - component: {fileID: 7577409506126515863}
+  - component: {fileID: 3322240444238145634}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -274,6 +288,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &3322240444238145634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725252230775561759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7743189614797450346
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +311,7 @@ GameObject:
   - component: {fileID: 1989806842370870772}
   - component: {fileID: 1888047562052277201}
   - component: {fileID: 7886425262327108170}
+  - component: {fileID: 7502611901683142788}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -372,6 +399,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 1
+--- !u!114 &7502611901683142788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743189614797450346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &124646871597608429
 PrefabInstance:
   m_ObjectHideFlags: 0

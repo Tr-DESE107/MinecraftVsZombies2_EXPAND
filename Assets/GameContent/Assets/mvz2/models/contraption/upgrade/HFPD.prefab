@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 941151791133907962}
   - component: {fileID: 8018367497634151434}
   - component: {fileID: 8601430362609902541}
+  - component: {fileID: 2871127130421745899}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -115,6 +116,18 @@ MonoBehaviour:
   - {fileID: -1156057602, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   - {fileID: 1012567326, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   propertyName: MissileBox
+--- !u!114 &2871127130421745899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896899888045826106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1174293689289825427
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +140,7 @@ GameObject:
   - component: {fileID: 2018246511358015829}
   - component: {fileID: 1188248918691214653}
   - component: {fileID: 98149028992455594}
+  - component: {fileID: 4684258241958113411}
   m_Layer: 0
   m_Name: Helment
   m_TagString: Untagged
@@ -230,6 +244,18 @@ MonoBehaviour:
   - {fileID: 395192976, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   - {fileID: 418986790, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   propertyName: MissileBox
+--- !u!114 &4684258241958113411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174293689289825427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2459140998452076370
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +391,7 @@ GameObject:
   - component: {fileID: 4752848664341172218}
   - component: {fileID: 5893524242654534255}
   - component: {fileID: 2566640546103481196}
+  - component: {fileID: 2768370976966048535}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -452,6 +479,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2768370976966048535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4869781561479712531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4925860462021794438
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +503,7 @@ GameObject:
   - component: {fileID: 6493328418645125476}
   - component: {fileID: 6350804158579644317}
   - component: {fileID: 5470004545890737591}
+  - component: {fileID: 812017727641998604}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -567,6 +607,18 @@ MonoBehaviour:
   - {fileID: 170509617, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   - {fileID: 21730644, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   propertyName: GatlinAlt
+--- !u!114 &812017727641998604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4925860462021794438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4931406885186696869
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +663,7 @@ GameObject:
   - component: {fileID: 2025287122062975304}
   - component: {fileID: 7015285974557787108}
   - component: {fileID: 1805415574573636462}
+  - component: {fileID: 3988351725600165989}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -714,6 +767,18 @@ MonoBehaviour:
   - {fileID: 354384086, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   - {fileID: 354384086, guid: 81b0d2a39c01cf7478bc4ca539cac17a, type: 3}
   propertyName: Upgraded
+--- !u!114 &3988351725600165989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938474765381207263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6436093332956290968
 GameObject:
   m_ObjectHideFlags: 0

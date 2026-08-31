@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 64121387856165774}
   - component: {fileID: 4636095683236587044}
   - component: {fileID: 7387069402592429230}
+  - component: {fileID: 2754823762612108564}
   m_Layer: 0
   m_Name: Helmet
   m_TagString: Untagged
@@ -115,6 +116,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
   - {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
   - {fileID: 21300000, guid: 629fe0f23b035054aabed926b94d2021, type: 3}
+--- !u!114 &2754823762612108564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7571356655605943550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5721075827783145245
 PrefabInstance:
   m_ObjectHideFlags: 0

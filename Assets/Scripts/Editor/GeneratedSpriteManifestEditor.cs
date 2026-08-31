@@ -1,21 +1,21 @@
-using System.IO;
+ï»¿using System.IO;
 using MVZ2.Sprites;
 using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.Editor
 {
-    [CustomEditor(typeof(GeneratedSpriteManifest))]  // Ê¹ÓÃ CustomEditor ¶ø²»ÊÇ CreateAssetMenu  
-    public class GeneratedSpriteManifestEditor : UnityEditor.Editor  // ¼Ì³Ğ Editor ¶ø²»ÊÇ ScriptableObject  
+    [CustomEditor(typeof(GeneratedResourceManifest))]  // ä½¿ç”¨ CustomEditor è€Œä¸æ˜¯ CreateAssetMenu  
+    public class GeneratedSpriteManifestEditor : UnityEditor.Editor  // ç»§æ‰¿ Editor è€Œä¸æ˜¯ ScriptableObject  
     {
         public override void OnInspectorGUI()
         {
-            // »æÖÆÄ¬ÈÏInspector    
+            // ç»˜åˆ¶é»˜è®¤Inspector    
             DrawDefaultInspector();
 
             EditorGUILayout.Space();
 
-            // Ìí¼Ó"Export All Sprites"°´Å¥    
+            // æ·»åŠ "Export All Sprites"æŒ‰é’®    
             if (GUILayout.Button("Export All Sprites", GUILayout.Height(30)))
             {
                 ExportAllSprites();
@@ -24,9 +24,9 @@ namespace MVZ2.Editor
 
         private void ExportAllSprites()
         {
-            var manifest = (GeneratedSpriteManifest)target;
+            var manifest = (GeneratedResourceManifest)target;
 
-            // Ñ¡Ôñµ¼³öÄ¿Â¼    
+            // é€‰æ‹©å¯¼å‡ºç›®å½•    
             string folderPath = EditorUtility.OpenFolderPanel(
                 "Select Export Folder",
                 Application.dataPath,
@@ -38,8 +38,8 @@ namespace MVZ2.Editor
 
             int exportedCount = 0;
 
-            // Ê¹ÓÃ·´Éä·ÃÎÊË½ÓĞ×Ö¶Î categories    
-            var categoriesField = typeof(GeneratedSpriteManifest)
+            // ä½¿ç”¨åå°„è®¿é—®ç§æœ‰å­—æ®µ categories    
+            var categoriesField = typeof(GeneratedResourceManifest)
                 .GetField("categories", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             var categories = categoriesField.GetValue(manifest) as System.Collections.IList;
 
@@ -49,24 +49,24 @@ namespace MVZ2.Editor
                 return;
             }
 
-            // ±éÀúËùÓĞ·ÖÀà    
+            // éå†æ‰€æœ‰åˆ†ç±»    
             foreach (var categoryObj in categories)
             {
                 var categoryType = categoryObj.GetType();
                 var categoryName = categoryType.GetField("name").GetValue(categoryObj) as string;
 
-                // ´´½¨·ÖÀà×ÓÄ¿Â¼    
+                // åˆ›å»ºåˆ†ç±»å­ç›®å½•    
                 string categoryPath = Path.Combine(folderPath, SanitizeFileName(categoryName));
                 Directory.CreateDirectory(categoryPath);
 
-                // »ñÈ¡¸Ã·ÖÀàÏÂµÄËùÓĞ¾«ÁéÍ¼    
+                // è·å–è¯¥åˆ†ç±»ä¸‹çš„æ‰€æœ‰ç²¾çµå›¾    
                 var spritesField = categoryType.GetField("sprites", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
                 var sprites = spritesField.GetValue(categoryObj) as System.Collections.IList;
 
                 if (sprites == null)
                     continue;
 
-                // µ¼³öÃ¿¸ö¾«ÁéÍ¼    
+                // å¯¼å‡ºæ¯ä¸ªç²¾çµå›¾    
                 foreach (var spritePreviewObj in sprites)
                 {
                     var previewType = spritePreviewObj.GetType();
@@ -76,7 +76,7 @@ namespace MVZ2.Editor
                     if (sprite == null || string.IsNullOrEmpty(name))
                         continue;
 
-                    // µ¼³öPNG    
+                    // å¯¼å‡ºPNG    
                     string fileName = SanitizeFileName(name) + ".png";
                     string filePath = Path.Combine(categoryPath, fileName);
 
@@ -93,7 +93,7 @@ namespace MVZ2.Editor
                 "OK"
             );
 
-            // ÔÚÎÄ¼şä¯ÀÀÆ÷ÖĞ´ò¿ªµ¼³öÄ¿Â¼    
+            // åœ¨æ–‡ä»¶æµè§ˆå™¨ä¸­æ‰“å¼€å¯¼å‡ºç›®å½•    
             EditorUtility.RevealInFinder(folderPath);
         }
 

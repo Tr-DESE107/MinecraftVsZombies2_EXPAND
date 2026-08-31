@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 7854835943908391919}
   - component: {fileID: 846451167120065314}
   - component: {fileID: 7914590259918956030}
+  - component: {fileID: 2476508940296504991}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -207,6 +208,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2476508940296504991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257762760634663916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6564393059301867376
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +232,7 @@ GameObject:
   - component: {fileID: 2333651059526017413}
   - component: {fileID: 5347850699521834593}
   - component: {fileID: 111573115453612539}
+  - component: {fileID: 3062528724828641429}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -322,6 +336,18 @@ MonoBehaviour:
   - {fileID: -694000544, guid: 4f55dbc66e178c54ba27688fe83ca802, type: 3}
   - {fileID: 1421304782, guid: 4f55dbc66e178c54ba27688fe83ca802, type: 3}
   propertyName: Upgraded
+--- !u!114 &3062528724828641429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564393059301867376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7714611962598137251
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4557956910292215916}
   - component: {fileID: 4216626317822862643}
   - component: {fileID: 8101258764031561573}
+  - component: {fileID: 2498265090492170092}
   m_Layer: 0
   m_Name: DrunkardMonkZombie_4
   m_TagString: Untagged
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2498265090492170092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829333028367965702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8694624444050297844
 PrefabInstance:
   m_ObjectHideFlags: 0

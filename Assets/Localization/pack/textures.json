@@ -408,8 +408,7 @@
       "key": "mvz2:entity/effect/boom@en-US",
       "slices": [
         {
-          "single": true,
-          "fullRect": true
+          "single": true
         }
       ]
     },
@@ -418,8 +417,7 @@
       "key": "mvz2:entity/effect/pow@en-US",
       "slices": [
         {
-          "single": true,
-          "fullRect": true
+          "single": true
         }
       ]
     },

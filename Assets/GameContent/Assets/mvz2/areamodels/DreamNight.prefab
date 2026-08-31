@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 8602522259953385593}
   - component: {fileID: 1167918653371017669}
   - component: {fileID: 2981221482701376062}
+  - component: {fileID: 1211570893883019805}
   m_Layer: 12
   m_Name: House
   m_TagString: Untagged
@@ -159,6 +160,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whenFalse: 0
   propertyName: GameOver
+--- !u!114 &1211570893883019805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911407972012020357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1207159418088734453
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +341,7 @@ GameObject:
   - component: {fileID: 8199647779349249779}
   - component: {fileID: 2168243068973662612}
   - component: {fileID: 8143546126329184763}
+  - component: {fileID: 7467517546762314274}
   m_Layer: 12
   m_Name: Sky
   m_TagString: Untagged
@@ -415,6 +429,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &7467517546762314274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854013826283728389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6972800782452019749
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +452,7 @@ GameObject:
   - component: {fileID: 8533674780092447468}
   - component: {fileID: 788728192716264477}
   - component: {fileID: 6654619645706628594}
+  - component: {fileID: 330840674528496210}
   m_Layer: 12
   m_Name: Ground
   m_TagString: Untagged
@@ -513,6 +540,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &330840674528496210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972800782452019749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7259680725563294812
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +642,7 @@ GameObject:
   - component: {fileID: 7643380000025157644}
   - component: {fileID: 3457741112220733270}
   - component: {fileID: 4661211850065410082}
+  - component: {fileID: 6544121090660501695}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -704,6 +744,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whenFalse: 1
   propertyName: GameOver
+--- !u!114 &6544121090660501695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821267274528502624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8629013362309381818
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 203013896941887917}
   - component: {fileID: 6217152281006666229}
   - component: {fileID: 5706176007070143898}
+  - component: {fileID: 8589782674282412980}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -148,6 +149,18 @@ MonoBehaviour:
   - {fileID: 1877052082, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
   - {fileID: 2068262842, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
   propertyName: FIRELEVEL
+--- !u!114 &8589782674282412980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018530552715635070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5166880686024235187
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +314,7 @@ GameObject:
   - component: {fileID: 7516691636176910126}
   - component: {fileID: 6387459738923920221}
   - component: {fileID: 4516854241006508028}
+  - component: {fileID: 3245054982517077584}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -405,6 +419,18 @@ MonoBehaviour:
   - {fileID: -797179508, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
   - {fileID: -910674699, guid: dfbcdac91159d70408f4ac115d0b79f5, type: 3}
   propertyName: FIRELEVEL
+--- !u!114 &3245054982517077584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9192578072657483987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6888337766061004745
 PrefabInstance:
   m_ObjectHideFlags: 0

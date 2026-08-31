@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4535711962793327093}
   - component: {fileID: 30440446976897386}
   - component: {fileID: 8263853403547472850}
+  - component: {fileID: 387524389082303829}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -176,6 +177,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &387524389082303829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217431188204908643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6014601560399508065
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +231,7 @@ GameObject:
   - component: {fileID: 5792573565289796650}
   - component: {fileID: 74278911699035193}
   - component: {fileID: 1792969691499656349}
+  - component: {fileID: 7774526843838596916}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -305,6 +319,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &7774526843838596916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205638117583305540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7816858430666850441
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +344,7 @@ GameObject:
   - component: {fileID: 802880894671673390}
   - component: {fileID: 1386569817448688396}
   - component: {fileID: 4142623300906891736}
+  - component: {fileID: 3552128983563787164}
   m_Layer: 0
   m_Name: Dirt
   m_TagString: Untagged
@@ -440,6 +467,18 @@ MonoBehaviour:
   - {fileID: 1831842489, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
   - {fileID: -184146754, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
   index: 5
+--- !u!114 &3552128983563787164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816858430666850441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8303818626491733163
 GameObject:
   m_ObjectHideFlags: 0

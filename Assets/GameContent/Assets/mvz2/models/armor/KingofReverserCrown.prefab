@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2315764333537359082}
   - component: {fileID: 8401482558740918049}
   - component: {fileID: 762825630315539511}
+  - component: {fileID: 5498397258621299537}
   m_Layer: 0
   m_Name: Cap2
   m_TagString: Untagged
@@ -115,6 +116,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
   - {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
   - {fileID: 21300000, guid: 629fe0f23b035054aabed926b94d2021, type: 3}
+--- !u!114 &5498397258621299537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392858981702865809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8372778660022888248
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +140,7 @@ GameObject:
   - component: {fileID: 8178789451446954848}
   - component: {fileID: 788985156056804264}
   - component: {fileID: 2904470892776897538}
+  - component: {fileID: 2729144991478603777}
   m_Layer: 0
   m_Name: Helmet
   m_TagString: Untagged
@@ -230,6 +244,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 16c3700de5b354d449d9c740a94c829f, type: 3}
   - {fileID: 21300000, guid: bba68c57ca664564887be8c1ec4b37d7, type: 3}
   - {fileID: 21300000, guid: bba68c57ca664564887be8c1ec4b37d7, type: 3}
+--- !u!114 &2729144991478603777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8372778660022888248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1373067568677088668
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -282,6 +282,10 @@
             </properties>
         </humanoid>
         <zombie type="2" parent="humanoid" >
+            <properties>
+                <id name="mvz2:Category" value="mvz2:Zombie_Exp" />
+            </properties>
+        </zombie>
         <drowned type="2" parent="humanoid" >
             <properties>
                 <id name="mvz2:crySound" value="mvz2:drowned_cry" />
@@ -2953,10 +2957,9 @@
         </entity>
         <entity template="zombie" id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <properties>
-                <float name="mvz2:speed" value="2" />
+                <float name="mvz2:speed" value="3" />
                 <int name="mvz2:cost" value="300" />
                 <float name="mvz2:damage" value="300" />
-                <float name="mvz2:speed" value="1.5" />
                 <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
             </properties>
         </entity>

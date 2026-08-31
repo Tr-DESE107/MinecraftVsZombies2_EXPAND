@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 3454208432664895619}
   - component: {fileID: 4644962503043354323}
   - component: {fileID: 383960429899305899}
+  - component: {fileID: 5841999272688337737}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -179,6 +180,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &5841999272688337737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186490586589504688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4375638522146789912
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +204,7 @@ GameObject:
   - component: {fileID: 3684360233695081914}
   - component: {fileID: 8659350692087204421}
   - component: {fileID: 6135363216721513975}
+  - component: {fileID: 4394204292032732533}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -300,6 +314,18 @@ MonoBehaviour:
   - {fileID: -1663951029, guid: 7c5a7f81c97a7e344b91a0d212f9bd25, type: 3}
   - {fileID: 1253936308, guid: c5335f497f373f54195e37072cae7b98, type: 3}
   propertyName: OutputLevel
+--- !u!114 &4394204292032732533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4375638522146789912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4498118880306461131
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +337,7 @@ GameObject:
   - component: {fileID: 1835919647247883969}
   - component: {fileID: 8129659336302333799}
   - component: {fileID: 4572390601940540671}
+  - component: {fileID: 2302783536934587347}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -398,6 +425,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2302783536934587347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4498118880306461131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4656175880426718389
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +497,7 @@ GameObject:
   - component: {fileID: 4857459167553090350}
   - component: {fileID: 6059665578799973144}
   - component: {fileID: 6457908852437032956}
+  - component: {fileID: 7237057559526728809}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -567,6 +607,18 @@ MonoBehaviour:
   - {fileID: 1098894076, guid: 7c5a7f81c97a7e344b91a0d212f9bd25, type: 3}
   - {fileID: -1707447023, guid: c5335f497f373f54195e37072cae7b98, type: 3}
   propertyName: OutputLevel
+--- !u!114 &7237057559526728809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5428832070445072316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6667387474144862383
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +708,7 @@ GameObject:
   - component: {fileID: 5881859053225329175}
   - component: {fileID: 4620594476737787883}
   - component: {fileID: 6772005212225972186}
+  - component: {fileID: 1879838817654093179}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -765,6 +818,18 @@ MonoBehaviour:
   - {fileID: -449774168, guid: 7c5a7f81c97a7e344b91a0d212f9bd25, type: 3}
   - {fileID: -836640819, guid: c5335f497f373f54195e37072cae7b98, type: 3}
   propertyName: OutputLevel
+--- !u!114 &1879838817654093179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285231430566238695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7344317618708897687
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +889,7 @@ GameObject:
   - component: {fileID: 2297200129991762747}
   - component: {fileID: 742773644784995906}
   - component: {fileID: 6395295280857328948}
+  - component: {fileID: 2872720117479366319}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -911,6 +977,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2872720117479366319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7824729285087937678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8517876913786263023
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1069,7 @@ GameObject:
   - component: {fileID: 8867293540459213284}
   - component: {fileID: 3079985067495915665}
   - component: {fileID: 6963321136051300417}
+  - component: {fileID: 654512872518467244}
   m_Layer: 0
   m_Name: LitSprite
   m_TagString: Untagged
@@ -1100,6 +1179,18 @@ MonoBehaviour:
   - {fileID: 860414136, guid: 7c5a7f81c97a7e344b91a0d212f9bd25, type: 3}
   - {fileID: 1730144747, guid: c5335f497f373f54195e37072cae7b98, type: 3}
   propertyName: OutputLevel
+--- !u!114 &654512872518467244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875866643391219413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4124100271563004234
 PrefabInstance:
   m_ObjectHideFlags: 0

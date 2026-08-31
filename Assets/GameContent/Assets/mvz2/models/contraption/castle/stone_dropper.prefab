@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 6252223988482434578}
   - component: {fileID: 3843515615151325600}
   - component: {fileID: 3625495710830867087}
+  - component: {fileID: 2752841703949568347}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -192,6 +193,18 @@ MonoBehaviour:
   - {fileID: 572714791, guid: 1684641a546722a44bfea0398bc1bea1, type: 3}
   - {fileID: -1090778929, guid: 1684641a546722a44bfea0398bc1bea1, type: 3}
   propertyName: OnCooldown
+--- !u!114 &2752841703949568347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097065337723465925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4165378892871872144
 PrefabInstance:
   m_ObjectHideFlags: 0

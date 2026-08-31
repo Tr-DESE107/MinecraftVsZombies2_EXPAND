@@ -295,6 +295,10 @@ MonoBehaviour:
   triggerSlot: {fileID: 0}
   triggerSlotConveyor: {fileID: 0}
   pickaxeSlot: {fileID: 0}
+  minecartUpButton: {fileID: 0}
+  minecartDownButton: {fileID: 0}
+  minecartLeftButton: {fileID: 0}
+  minecartRightButton: {fileID: 0}
   receivers:
   - {fileID: 5846065568353853490}
   - {fileID: 2878620013278649614}

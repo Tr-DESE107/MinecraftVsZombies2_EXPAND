@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5384500909634890802}
   - component: {fileID: 258949987868671059}
   - component: {fileID: 6847443511408740854}
+  - component: {fileID: 8015127931337134722}
   m_Layer: 0
   m_Name: Rod
   m_TagString: Untagged
@@ -186,6 +187,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 1
+--- !u!114 &8015127931337134722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348100641293021277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542a3a604eb16834987915159430bc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3591622022808786387
 PrefabInstance:
   m_ObjectHideFlags: 0
