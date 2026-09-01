@@ -3928,18 +3928,6 @@ MonoBehaviour:
   - name: ui/store/product_frame
     texture: {fileID: 2800000, guid: 32bf431d8ac58764cb0070360418c14d, type: 3}
     tags: []
-  - name: ui/almanac/shell_tags
-    texture: {fileID: 2800000, guid: 313efa708941aea418f99253f04f4c16, type: 3}
-    tags: []
-  - name: ui/level/card_command_block_mobile
-    texture: {fileID: 2800000, guid: 847ca4d795a1ee044ae4ba68016ddd1f, type: 3}
-    tags: []
-  - name: ui/level/card_mobile
-    texture: {fileID: 2800000, guid: 39f42289d01a484499cc5bd849b6613b, type: 3}
-    tags: []
-  - name: ui/level/card_upgrade_mobile
-    texture: {fileID: 2800000, guid: 65a07cf72e86e924b9ebc0a64255def6, type: 3}
-    tags: []
   - name: entity/armor/EXPAND_armor/AncientMetalHelmet
     texture: {fileID: 2800000, guid: 51a01377b4ff1454a952d28a8cf54221, type: 3}
     tags: []
@@ -15913,22 +15901,6 @@ MonoBehaviour:
   - name: ui/store/product_frame
     index: 0
     sprite: {fileID: 21300000, guid: 32bf431d8ac58764cb0070360418c14d, type: 3}
-    tags: []
-  - name: ui/almanac/shell_tags
-    index: 0
-    sprite: {fileID: 21300000, guid: 313efa708941aea418f99253f04f4c16, type: 3}
-    tags: []
-  - name: ui/level/card_command_block_mobile
-    index: 0
-    sprite: {fileID: 21300000, guid: 847ca4d795a1ee044ae4ba68016ddd1f, type: 3}
-    tags: []
-  - name: ui/level/card_mobile
-    index: 0
-    sprite: {fileID: 21300000, guid: 39f42289d01a484499cc5bd849b6613b, type: 3}
-    tags: []
-  - name: ui/level/card_upgrade_mobile
-    index: 0
-    sprite: {fileID: 21300000, guid: 65a07cf72e86e924b9ebc0a64255def6, type: 3}
     tags: []
   - name: entity/armor/EXPAND_armor/AncientMetalHelmet
     index: 0
