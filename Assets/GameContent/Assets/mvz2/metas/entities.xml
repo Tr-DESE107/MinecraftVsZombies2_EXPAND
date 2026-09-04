@@ -2717,6 +2717,9 @@
             </properties>
         </entity>
         <entity template="humanoid_Exp" id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
+            <unlock>
+                <condition required="mvz2:level.halloween_2" />
+            </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:remove_on_death" />
@@ -3347,6 +3350,9 @@
         <entity template="mutantZombie" id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
         </entity>
         <entity template="mutantZombie" id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？">
+            <unlock>
+                <condition required="mvz2:level.MutantCrisis" />
+            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="6000" />
                 <int name="mvz2:cost" value="500" />
@@ -3407,6 +3413,9 @@
         </entity>
 
         <entity template="Skeleton_Exp" id="FlagSkeleton" name="旗帜骷髅" deathMessage="不要停下来啊">
+            <unlock>
+                <condition required="mvz2:level.halloween_1" />
+            </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
                 <int name="mvz2:cost" value="300" />
@@ -4889,6 +4898,9 @@
         </entity>
 
         <entity template="WitherSkeleton_Exp" id="TeslaTrooper" name="磁暴步兵" deathMessage="电力不足">
+            <unlock>
+                <condition required="mvz2:level.WarThunder" />
+            </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
             </behaviours>
@@ -4912,7 +4924,7 @@
         <!-- EXPAND Enemies X -->
         <entity template="mutantZombie" id="XCarrierMutant" name="X物质携带者宿主" deathMessage="高危物质携带体！！！">
             <unlock>
-                <condition required="mvz2:level.dream_10" />
+                <condition required="mvz2:level.big_trouble_and_little_zombie_2" />
             </unlock>
             <properties>
                 <float name="mvz2:mass" value="2" />

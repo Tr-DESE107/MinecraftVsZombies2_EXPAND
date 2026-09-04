@@ -2169,12 +2169,13 @@
         </entry>
         <entry id="mvz2:FlagSkeleton">
             <header>
-                <p>摇旗骷髅的出现标志着一大波怪物的到来。</p>
+                <p>旗帜骷髅的出现标志着一大波怪物的到来。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>在场时能让骷髅类敌人速度加快</color>]]></p>
             </properties>
             <flavor>
                 <p>他用着骷髅特有的语言鼓励着骷髅族的同胞们冲向战场，但他似乎没意识到让远程攻击的同胞跑的更快吃更多子弹不是个好主意。</p>
@@ -2460,13 +2461,10 @@
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>会游泳，在你意想不到的时刻对你的防线进行突袭.</color>]]></p>
+                <p>特点：<![CDATA[<color=red>会游泳，在你意想不到的时刻对你的防线进行突袭。</color>]]></p>
             </properties>
             <flavor>
-                <p>这是我们目前所能观察到的最强大瘟疫体，它庞大而臃肿的躯体不断再生着无休止的血肉，被剥离下的肉块也能不断再生并形成自我的意志，它的存在本身便是对生物科学的亵渎。</p>
-                <p>不知在这庞大的身躯下是否还藏有一颗热爱小动物的心。</p>
-                <p />
-                <p>愿所有苦痛的灵魂得到解脱。</p>
+                <p>没写好</p>
             </flavor>
         </entry>
         
@@ -2474,18 +2472,15 @@
         <!-- 水生蜘蛛
         <entry id="mvz2:水生蜘蛛">
             <header>
-                <p>突变宿主僵尸能够慢速回复生命，可以粉碎遇到的的器械，并在血量低至一半时投掷宿主小鬼僵尸</p>
+                <p>水生蜘蛛的介绍</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>以30/s的速度回血，血量每下降800点便会生成一个宿主僵尸。</color>]]></p>
+                <p>特点：<![CDATA[<color=red>水生蜘蛛的特点</color>]]></p>
             </properties>
             <flavor>
-                <p>这是我们目前所能观察到的最强大瘟疫体，它庞大而臃肿的躯体不断再生着无休止的血肉，被剥离下的肉块也能不断再生并形成自我的意志，它的存在本身便是对生物科学的亵渎。</p>
-                <p>不知在这庞大的身躯下是否还藏有一颗热爱小动物的心。</p>
-                <p />
-                <p>愿所有苦痛的灵魂得到解脱。</p>
+                <p>没写好</p>
             </flavor>
         </entry>
         
