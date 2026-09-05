@@ -15448,15 +15448,19 @@ MonoBehaviour:
     tags: []
   - name: ui/level/BlackCardMobile
     index: 0
-    sprite: {fileID: 1788569927, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
+    sprite: {fileID: -1766006599, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
     tags: []
   - name: ui/level/BlackCardMobile
     index: 1
-    sprite: {fileID: 1023466115, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
+    sprite: {fileID: 1049130546, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
     tags: []
   - name: ui/level/BlackCardMobile
     index: 2
-    sprite: {fileID: -1398685869, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
+    sprite: {fileID: -956828240, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
+    tags: []
+  - name: ui/level/BlackCardMobile
+    index: 3
+    sprite: {fileID: -1014506586, guid: 9570f6a14b38272448c11b729fae526b, type: 3}
     tags: []
   - name: ui/level/card
     index: 0
@@ -15501,10 +15505,6 @@ MonoBehaviour:
   - name: ui/level/card_mobile
     index: 3
     sprite: {fileID: 5696273315130911449, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
-    tags: []
-  - name: ui/level/card_mobile
-    index: 4
-    sprite: {fileID: -304888982, guid: a62d2d86c3da6164fb85ab8fef46149f, type: 3}
     tags: []
   - name: ui/level/card_recharge_flash
     index: 0
@@ -15576,15 +15576,19 @@ MonoBehaviour:
     tags: []
   - name: ui/level/GoldCardMobile
     index: 0
-    sprite: {fileID: -99248040, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
+    sprite: {fileID: 1536604307, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
     tags: []
   - name: ui/level/GoldCardMobile
     index: 1
-    sprite: {fileID: 322672074, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
+    sprite: {fileID: -682909211, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
     tags: []
   - name: ui/level/GoldCardMobile
     index: 2
-    sprite: {fileID: 181760348, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
+    sprite: {fileID: 841868237, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
+    tags: []
+  - name: ui/level/GoldCardMobile
+    index: 3
+    sprite: {fileID: 672505002, guid: ffc4dc1f22d3c2b4c8b357b16c9c71aa, type: 3}
     tags: []
   - name: ui/level/GreenCard
     index: 0
@@ -15592,15 +15596,19 @@ MonoBehaviour:
     tags: []
   - name: ui/level/GreenCardMobile
     index: 0
-    sprite: {fileID: -2023049537, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
+    sprite: {fileID: 91178745, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
     tags: []
   - name: ui/level/GreenCardMobile
     index: 1
-    sprite: {fileID: 2078631157, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
+    sprite: {fileID: 673381215, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
     tags: []
   - name: ui/level/GreenCardMobile
     index: 2
-    sprite: {fileID: 387427119, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
+    sprite: {fileID: -1977157892, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
+    tags: []
+  - name: ui/level/GreenCardMobile
+    index: 3
+    sprite: {fileID: 1894590824, guid: 02e22612c718a3b4fa86d98dc55e8d7d, type: 3}
     tags: []
   - name: ui/level/hint_arrow
     index: 0
