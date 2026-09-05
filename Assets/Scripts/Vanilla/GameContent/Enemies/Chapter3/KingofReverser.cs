@@ -7,20 +7,18 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Tools;
 using PVZEngine.Timing;
-using PVZEngine.Tools.Timing; 
-using PVZEngine.Tools.Random;  
-using PVZEngine.Tools.Mathematics;  
-using PVZEngine.Tools.Unity;
+using PVZEngine.Tools;
+using PVZEngine.Tools.Random;
+using PVZEngine.Tools.Timing;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies

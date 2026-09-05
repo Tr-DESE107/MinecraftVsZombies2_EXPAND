@@ -3,7 +3,6 @@
 using MVZ2Logic.Definitions;
 using PVZEngine;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2Logic.Blueprints

@@ -2,8 +2,8 @@
 
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Level;
-using PVZEngine.Entities;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Pickups
 {

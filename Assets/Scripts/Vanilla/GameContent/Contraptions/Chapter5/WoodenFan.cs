@@ -8,9 +8,9 @@ using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Unlocks;
 using MVZ2Logic.Entities;
-using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -18,7 +18,6 @@ using PVZEngine.Entities;
 using PVZEngine.Models;
 using PVZEngine.Timing;
 using PVZEngine.Tools;
-using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
 

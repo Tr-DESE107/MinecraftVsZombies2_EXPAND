@@ -4,7 +4,6 @@ using MVZ2.Talk;
 using MVZ2Logic.Archive;
 using MVZ2Logic.Maps;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 
 namespace MVZ2.Archives
 {

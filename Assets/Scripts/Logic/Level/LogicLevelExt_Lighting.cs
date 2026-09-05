@@ -5,7 +5,6 @@ using System.Linq;
 using MVZ2Logic.Level.Components;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 
 namespace MVZ2Logic.Level
 {

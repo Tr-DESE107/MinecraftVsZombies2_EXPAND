@@ -3,9 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using MukioI18n;
-
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
@@ -18,11 +16,9 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
-
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
-
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
@@ -32,7 +28,6 @@ using PVZEngine.Level;
 using PVZEngine.Timing;
 using PVZEngine.Tools;
 using PVZEngine.Tools.Random;
-using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 
 namespace MVZ2.GameContent.Stages

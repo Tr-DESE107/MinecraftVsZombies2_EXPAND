@@ -4,20 +4,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Placements;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Grids;
-using MVZ2Logic.Grids;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
+using MVZ2Logic.Grids;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.GameContent.Contraptions;
 
 namespace MVZ2.Vanilla.Contraptions
 {

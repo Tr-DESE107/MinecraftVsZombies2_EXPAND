@@ -1,13 +1,6 @@
-﻿using System.Collections.Generic;
-using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
+﻿using MVZ2Logic;
 using MVZ2Logic.Serialization;
 using NUnit.Framework;
-using PVZEngine;
-using PVZEngine.Level;
-using PVZEngine.Definitions;
-using PVZEngine.Modifiers;
 using PVZEngine.Tools.Random;
 using UnityEngine;
 

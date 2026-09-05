@@ -8,7 +8,6 @@ using MVZ2.Blueprints;
 using MVZ2.Level.Blueprints;
 using MVZ2Logic.Level;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using UnityEngine;
 
 namespace MVZ2.Level

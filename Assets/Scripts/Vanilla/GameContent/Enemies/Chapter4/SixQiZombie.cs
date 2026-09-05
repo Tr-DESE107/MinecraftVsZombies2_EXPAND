@@ -3,9 +3,8 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Level;
-
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;

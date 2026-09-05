@@ -4,10 +4,10 @@
 using System.Linq;
 using MVZ2.GameContent.Enemies;
 using MVZ2Logic;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using MVZ2Logic.Level;
 
 namespace MVZ2.GameContent.Stages
 {

@@ -2,7 +2,6 @@
 
 using System.Linq;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;

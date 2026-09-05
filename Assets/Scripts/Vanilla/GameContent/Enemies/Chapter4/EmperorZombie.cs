@@ -8,8 +8,8 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -17,7 +17,6 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Timing;
 using PVZEngine.Tools;
-using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 
 namespace MVZ2.GameContent.Enemies

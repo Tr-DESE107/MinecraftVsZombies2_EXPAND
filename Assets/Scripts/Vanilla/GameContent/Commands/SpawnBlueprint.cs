@@ -3,8 +3,8 @@
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Pickups;
 using MVZ2Logic;
-using MVZ2Logic.Definitions;
 using MVZ2Logic.Commands;
+using MVZ2Logic.Definitions;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;

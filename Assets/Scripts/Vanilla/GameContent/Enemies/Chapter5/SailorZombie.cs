@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Entities;
-using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Timing;

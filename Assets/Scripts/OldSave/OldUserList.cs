@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Text;
-using NBTUtility;
-using UnityEngine;
 
 namespace MVZ2.OldSaves
 {

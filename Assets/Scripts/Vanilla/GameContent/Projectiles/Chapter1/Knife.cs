@@ -2,13 +2,13 @@
 
 using System.Linq;
 using MVZ2.GameContent.Buffs.Projectiles;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Shells;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Buffs;
-using MVZ2.GameContent.Contraptions;
 
 namespace MVZ2.GameContent.Projectiles
 {

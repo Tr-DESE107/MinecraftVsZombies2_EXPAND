@@ -7,7 +7,6 @@ using MVZ2.IO;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using PVZEngine.Properties;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Unity;

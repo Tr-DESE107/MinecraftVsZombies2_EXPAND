@@ -2,13 +2,13 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Models;
+using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
-using MVZ2.GameContent.Models;
-using MVZ2.Vanilla.Models;
-using MVZ2Logic.Models;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {

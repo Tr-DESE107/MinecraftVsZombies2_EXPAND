@@ -16,7 +16,6 @@ using MVZ2Logic.Saves;
 using MVZ2Logic.Serialization;
 using PVZEngine;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
 using UnityEngine.SceneManagement;

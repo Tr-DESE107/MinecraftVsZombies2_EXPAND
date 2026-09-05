@@ -3,9 +3,9 @@
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
 using MVZ2Logic.Blueprints;
+using MVZ2Logic.Definitions;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Grids;
 using MVZ2Logic.HeldItems;

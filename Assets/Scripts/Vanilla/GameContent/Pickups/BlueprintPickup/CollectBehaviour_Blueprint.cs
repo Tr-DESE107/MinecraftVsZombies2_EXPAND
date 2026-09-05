@@ -2,8 +2,8 @@
 
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Pickups;
+using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Definitions;

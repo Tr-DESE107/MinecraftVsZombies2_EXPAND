@@ -6,7 +6,6 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
-using PVZEngine.Definitions;
 using PVZEngine.Models;
 
 namespace MVZ2Logic.HeldItems

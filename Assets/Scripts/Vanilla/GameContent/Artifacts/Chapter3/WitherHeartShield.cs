@@ -2,8 +2,8 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;       // 游戏自定 Buff 系统命名空间
-using MVZ2Logic.Definitions;                    // MVZ2 游戏定义逻辑
 using MVZ2Logic.Artifacts;         // MVZ2 的神器(Artifact)相关逻辑命名空间
+using MVZ2Logic.Definitions;                    // MVZ2 游戏定义逻辑
 using MVZ2Logic.Level;             // 游戏关卡逻辑
 using PVZEngine.Auras;             // 光环(Aura)系统
 using PVZEngine.Buffs;             // Buff 系统

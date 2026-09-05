@@ -8,9 +8,9 @@ using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Pickups;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine.Auras;
@@ -20,7 +20,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Timing;
 using PVZEngine.Tools;
-using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
 

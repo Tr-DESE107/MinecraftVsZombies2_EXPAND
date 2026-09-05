@@ -6,13 +6,13 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
-using MVZ2Logic.Entities;
 
 namespace MVZ2.GameContent.Contraptions
 {

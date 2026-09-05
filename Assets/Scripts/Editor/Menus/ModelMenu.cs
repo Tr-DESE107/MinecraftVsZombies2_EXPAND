@@ -2,14 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MVZ2.Localization;
 using MVZ2.Models;
 using MVZ2Logic.Models;
-using MVZ2Logic.UI;
-using PVZEngine.Tools.Unity;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace MVZ2.Editor

@@ -20,7 +20,6 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Modifiers;
-using MVZ2Logic.Options;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;

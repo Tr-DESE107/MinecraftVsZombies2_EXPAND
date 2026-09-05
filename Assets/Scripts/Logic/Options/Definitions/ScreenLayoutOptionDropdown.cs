@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 using MukioI18n;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Definitions;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Options;

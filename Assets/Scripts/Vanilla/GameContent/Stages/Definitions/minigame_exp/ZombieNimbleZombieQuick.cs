@@ -2,8 +2,6 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects; // WaterStain  
-
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;

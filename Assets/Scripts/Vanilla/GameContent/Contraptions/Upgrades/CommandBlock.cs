@@ -7,9 +7,9 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -20,7 +20,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Tools;
-using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 
 namespace MVZ2.GameContent.Contraptions

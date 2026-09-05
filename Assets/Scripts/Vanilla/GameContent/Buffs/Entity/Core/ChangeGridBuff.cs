@@ -2,8 +2,8 @@
 
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
-using MVZ2Logic.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;

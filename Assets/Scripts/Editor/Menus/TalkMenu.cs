@@ -1,21 +1,13 @@
 ﻿#nullable enable
 
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Xml;
-using System.Xml.Linq;
 using MVZ2.IO;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
-using MVZ2Logic.Resources;
-using NUnit.Framework.Interfaces;
 using PVZEngine;
-using UnityEditor.Graphs;
 using UnityEngine;
 
 namespace MVZ2.Editor

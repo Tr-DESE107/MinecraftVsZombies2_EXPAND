@@ -7,7 +7,6 @@ using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.Vanilla.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
