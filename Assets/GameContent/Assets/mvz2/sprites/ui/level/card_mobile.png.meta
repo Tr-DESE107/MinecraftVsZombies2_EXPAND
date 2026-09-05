@@ -156,7 +156,7 @@ TextureImporter:
         width: 120
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,7 +177,7 @@ TextureImporter:
         width: 120
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,7 +198,7 @@ TextureImporter:
         width: 120
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,7 +219,7 @@ TextureImporter:
         width: 120
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,27 +227,6 @@ TextureImporter:
       bones: []
       spriteID: 9da2ae3666a3d0f40800000000000000
       internalID: 5696273315130911449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: card_mobile_4
-      rect:
-        serializedVersion: 2
-        x: 314
-        y: 26
-        width: 40
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8aae0e018b595a445905cce86e6255eb
-      internalID: -304888982
       vertices: []
       indices: 
       edges: []
@@ -267,7 +246,6 @@ TextureImporter:
       card_mobile_1: 4507745102081845256
       card_mobile_2: -7816349463641043585
       card_mobile_3: 5696273315130911449
-      card_mobile_4: -304888982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

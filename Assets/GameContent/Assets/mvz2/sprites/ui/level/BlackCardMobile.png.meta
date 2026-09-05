@@ -131,14 +131,14 @@ TextureImporter:
         width: 120
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e93e62c00c3970744b23aeb453d5f9af
-      internalID: 1788569927
+      spriteID: d11c3e17bc115a4408650689b3696598
+      internalID: -1766006599
       vertices: []
       indices: 
       edges: []
@@ -152,14 +152,14 @@ TextureImporter:
         width: 120
         height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a64e22073de5db7428c9c3e80fd66097
-      internalID: 1023466115
+      spriteID: 89b5102790e6e7847baef347073efdb5
+      internalID: 1049130546
       vertices: []
       indices: 
       edges: []
@@ -169,18 +169,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 242
-        y: 48
-        width: 112
-        height: 7
+        y: 0
+        width: 120
+        height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dae1a4d5a14aace4ea73a409694a2f54
-      internalID: -1398685869
+      spriteID: 2d48e752b651b5345ae9d6f9879b5c01
+      internalID: -956828240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlackCardMobile_3
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 0
+        width: 120
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9be44880f0dbca498d046c978a5986f
+      internalID: -1014506586
       vertices: []
       indices: 
       edges: []
@@ -196,9 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BlackCard_Mobile_0: 1788569927
-      BlackCard_Mobile_1: 1023466115
-      BlackCard_Mobile_2: -1398685869
+      BlackCardMobile_0: -1766006599
+      BlackCardMobile_1: 1049130546
+      BlackCardMobile_2: -956828240
+      BlackCardMobile_3: -1014506586
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
