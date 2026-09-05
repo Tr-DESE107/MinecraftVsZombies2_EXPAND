@@ -4,11 +4,13 @@ using System.Linq;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2Logic;
 using MVZ2Logic.Entities;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -26,20 +28,20 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void LeaveLilyPadIfHasProtector(Entity entity)
         {
-            var tiles = entity.GetGridsToTake();
-            foreach (var tile in tiles)
+            using var tiles = entity.GetGridsToTakeDisposeable();
+            foreach (var tile in tiles.Value)
             {
                 if (tile == null || tile.GetProtectorEntity() == null)
                     continue;
 
-                var carriers = tile.GetLayerEntities(VanillaGridLayers.carrier);
-                if (carriers.Any(e => e != entity))
+                using var carriers = tile.GetLayerEntitiesDisposeable(VanillaGridLayers.carrier);
+                if (carriers.Value.Any(e => e != entity))
                     continue;
 
                 entity.SpawnWithParams(VanillaContraptionID.lilyPad, tile.GetEntityPosition());
             }
         }
-        private void PostEntityEjectCallback(VanillaLevelCallbacks.PostEntityEjectParams args, CallbackResult result)
+        private void PostEntityEjectCallback(VanillaLevelCallbacks.PostEntityEjectParams args, CallbackResultVoid result)
         {
             var entity = args.entity;
             if (!entity.HasBehaviour(this))

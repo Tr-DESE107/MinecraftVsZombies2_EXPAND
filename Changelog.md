@@ -5,7 +5,12 @@
   - /blueprint slots：Sets the slot count for blueprints.
   - /artifact slots：Sets the slot count for artifacts.
 - Added entity material "Apparition" and "Wither Bone", removed entity material "Nether".
+  - The material of Soul Furnace has been changed to "Wood".
+  - The material of Ghost, Ghast, and Napstablook has been changed to "Apparition".
+  - The materials of Mesmerizer, Berserker, Dullahan, Dullahan Head, Hacker, Bedserker, Nether Hunter, Nether Mage, Wither, and Pink Wither have been changed to "Wither Bone".
+  - The material of the Wisp Fly has been changed to "Flesh".
 - Added entity attribute "Fire Immunity".
+  - Applied to Soul Furnace and Wisp Fly.
 - Added screenshot function.
 - Added textures for Moonlight Sensors in their daytime form.
 
@@ -15,6 +20,7 @@
 - Adjusted the smashing sfx of Mutant Zombie in water.
 - Adjusted the texture of the tiles destroyed by Nukes, to enhance their visibility against dark backgrounds.
 - Adjusted the textures of Stone Shield and Emperor Zombie.
+- The cursor for Force Pad's evocation and Skyward Beacon now has a unique sprite.
 
 ### Balance
 - Adventure
@@ -34,6 +40,7 @@
   - Reduced the amount in I, Zombie mode.
 - Pistenser
   - Evocation target count: 10 -> ∞
+  - Evocation will now predict the landing point based on the target's speed.
 - Totenser
   - Effect of weakness: Damage lowered to 0 -> Melee attack damage lowered to 0
 - Dream Crystal
@@ -42,6 +49,7 @@
   - Laser Damage: 5 -> 3
 - Amethyst Pylon
   - Cost: 125 -> 175
+  - Evocation will now be affected by damage bonuses as usual.
 - Black Hole Bomb
   - Recharge Time: Very Long -> Long
 - Nuke
@@ -56,10 +64,17 @@
 - Flag Zombie
   - Base movement speed: 1 -> 2
   - The random movement speed factor for them is no longer fixed at 200%.
+- Pop Captain
+  - Now blocks Skeleton Horses from jumping.
 - Zombie Cat
   - Stun duration after revival: 1 second -> 0 second
   - Probability of Wisp Fly Spawn: 50% -> 100% (Hard), 50% (Other Difficulties)
   - Cost in I, Zombie mode: 150 -> 125 
+- Mutant Zombie
+  - Now blocks Skeleton Horses from jumping.
+- Eye of the Giant
+  - Damage multiplier: 250% -> 200%
+  - Attack speed multiplier: 50% -> 60%
 - Broken Lock
   - Recharge time reduction ratio: 1:1 -> 2:1
 

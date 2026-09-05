@@ -21,11 +21,11 @@ namespace MVZ2.GameContent.GlobalCallbacks
     {
         public override void Apply(Mod mod)
         {
-            mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
-            mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
-            mod.AddTrigger(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, PostAnvilObsidianFirstAidCallback, filter: VanillaContraptionID.anvil);
+            mod.AddTriggerFiltered(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
+            mod.AddTriggerFiltered(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
+            mod.AddTriggerFiltered(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, PostAnvilObsidianFirstAidCallback, filter: VanillaContraptionID.anvil);
         }
-        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var info = param.deathInfo;
@@ -48,7 +48,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 }
             }
         }
-        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var info = param.deathInfo;
@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 }
             }
         }
-        private void PostAnvilObsidianFirstAidCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostAnvilObsidianFirstAidCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             Global.Saves.Unlock(VanillaUnlockID.reforged);
             Global.Saves.SaveToFile(); // 完成成就后保存游戏。

@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Stages
     {
         public SeijaStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, PostGravityPadEvokeCallback, filter: VanillaContraptionID.gravityPad);
+            stageDef.AddTriggerFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, PostGravityPadEvokeCallback, filter: VanillaContraptionID.gravityPad);
         }
         protected override void StartAfterFinalWave(LevelEngine level)
         {
@@ -109,7 +109,7 @@ namespace MVZ2.GameContent.Stages
                 e.AddBuff<SeijaMesmerizerBuff>();
             });
         }
-        private void PostGravityPadEvokeCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostGravityPadEvokeCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var contraption = param.entity;
             var level = contraption.Level;

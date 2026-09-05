@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
         {
             mod.AddTrigger(LogicCallbacks.GET_ALMANAC_ENTRY_TAGS, GetAlmanacEntryTagsCallback);
         }
-        private void GetAlmanacEntryTagsCallback(LogicCallbacks.GetAlmanacEntryTagsParams param, CallbackResult result)
+        private void GetAlmanacEntryTagsCallback(LogicCallbacks.GetAlmanacEntryTagsParams param, CallbackResultVoid result)
         {
             var category = param.category;
             var entryID = param.entryID;
@@ -104,6 +104,11 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.stable));
             }
+            // 高
+            if (entityDef.BlocksJump())
+            {
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.tall));
+            }
         }
         private void GetShellAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
@@ -174,11 +179,6 @@ namespace MVZ2.GameContent.GlobalCallbacks
             if (entityDef.IsFloor())
             {
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.floorContraption));
-            }
-            // 高
-            if (entityDef.BlocksJump())
-            {
-                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.tall));
             }
             // 可触发
             if (entityDef.IsTriggerActive())

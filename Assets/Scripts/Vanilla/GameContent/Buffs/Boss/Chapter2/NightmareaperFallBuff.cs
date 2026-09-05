@@ -20,9 +20,9 @@ namespace MVZ2.GameContent.Buffs.Bosses
             AddModifier(new IntModifier(VanillaEntityProps.WATER_INTERACTION, IntegerOperator.Set, WaterInteraction.REMOVE));
             AddModifier(new IntModifier(VanillaEntityProps.AIR_INTERACTION, IntegerOperator.Set, WaterInteraction.REMOVE));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Add, 1));
-            AddTrigger(VanillaLevelCallbacks.POST_WATER_INTERACTION, PostWaterInteractionCallback, filter: WaterInteraction.ACTION_REMOVE);
+            AddTriggerFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, PostWaterInteractionCallback, filter: WaterInteraction.ACTION_REMOVE);
         }
-        private void PostWaterInteractionCallback(VanillaLevelCallbacks.WaterInteractionParams param, CallbackResult callbackResult)
+        private void PostWaterInteractionCallback(VanillaLevelCallbacks.WaterInteractionParams param, CallbackResultVoid callbackResult)
         {
             var entity = param.entity;
             if (!entity.HasBuff<NightmareaperFallBuff>())

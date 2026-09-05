@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
-
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Level;
@@ -13,6 +13,8 @@ using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.SeedPacks;
+using PVZEngine.Tools;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -22,14 +24,14 @@ namespace MVZ2.GameContent.Artifacts
         public ControlRod(string nsp, string name) : base(nsp, name)
         {
             AddAura(new BlueprintAura());
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
         }
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        private void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEnemyInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var level = entity.Level;
@@ -52,7 +54,8 @@ namespace MVZ2.GameContent.Artifacts
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();
-                foreach (var seed in level.GetAllSeedPacks())
+                using var seedPacksItem = level.GetAllSeedPacksDisposeable();
+                foreach (var seed in seedPacksItem.Value)
                 {
                     if (seed == null)
                         continue;

@@ -57,6 +57,7 @@ namespace MVZ2.GameContent.HeldItems
                     StoneEyePickaxeCooldownBuff.SetTimeout(buff, cooldownFrames);
             }
         }
+        public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult<NamespaceID> result)
 
         // 按被敲碎敌人的分类返回不同的镐子禁用帧数  
         private static int GetPickaxeCooldown(Entity entity)
@@ -71,7 +72,6 @@ namespace MVZ2.GameContent.HeldItems
 
         private static readonly NamespaceID MutantCategory = new NamespaceID(VanillaMod.spaceName, "Mutant_Exp");
         private static readonly NamespaceID VehicleCategory = new NamespaceID(VanillaMod.spaceName, "Vehicle_Exp");
-        public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
             result.SetFinalValue(VanillaModelID.pickaxeHeldItem);
         }

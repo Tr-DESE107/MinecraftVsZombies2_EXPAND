@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             mod.AddTrigger(LogicCallbacks.GET_BLUEPRINT_SLOT_COUNT, GetBlueprintSlotCountCallback);
             mod.AddTrigger(LogicCallbacks.GET_INNATE_BLUEPRINTS, GetInnateBlueprintsCallback);
         }
-        public void IsSpecialUserNameCallback(StringCallbackParams param, CallbackResult result)
+        public void IsSpecialUserNameCallback(StringCallbackParams param, CallbackResult<bool> result)
         {
             var name = param.text;
             if (Global.Saves.IsRandomChinaUserName(name))
@@ -28,14 +28,14 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 result.SetValue(true);
             }
         }
-        public void GetBlueprintSlotCountCallback(EmptyCallbackParams param, CallbackResult result)
+        public void GetBlueprintSlotCountCallback(EmptyCallbackParams param, CallbackResult<int> result)
         {
             if (!Global.Saves.IsRandomChina())
                 return;
-            var value = result.GetValue<int>();
+            var value = result.GetValue();
             result.SetValue(value - 2);
         }
-        public void GetInnateBlueprintsCallback(LogicCallbacks.GetInnateBlueprintsParams param, CallbackResult result)
+        public void GetInnateBlueprintsCallback(LogicCallbacks.GetInnateBlueprintsParams param, CallbackResultVoid result)
         {
             if (!Global.Saves.IsRandomChina())
                 return;

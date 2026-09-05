@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public IZombieAttackBoosterBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.Multiply, PROP_ATTACK_SPEED_MULTIPLIER));
-            AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PostEnemyTakeDamageCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PostEnemyTakeDamageCallback, filter: EntityTypes.ENEMY);
         }
         public override void PostUpdate(Buff buff)
         {
@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
             SetAttackSpeedMultiplier(buff, speedMultiplier);
         }
-        private void PostEnemyTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult result)
+        private void PostEnemyTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResultVoid result)
         {
             var output = param.output;
             if (output == null)

@@ -15,10 +15,12 @@ using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Armors;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
@@ -45,7 +47,7 @@ using PVZEngine.Tools;
 using PVZEngine.Tools.Random;
 using UnityEditor;
 using UnityEngine;
-using GridLayerData = System.Tuple<PVZEngine.Grids.LawnGrid, PVZEngine.NamespaceID>;
+using GridLayerData = System.ValueTuple<PVZEngine.Grids.LawnGrid, PVZEngine.NamespaceID>;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -136,14 +138,17 @@ namespace MVZ2.Vanilla.Entities
             Entity entity = damageInfo.Entity;
             if (entity == null)
                 return false;
-            var result = new CallbackResult(true);
+            using var resultItem = CallbackResult<bool>.Rent(true);
+            var result = resultItem.Value;
             entity.Definition.PreTakeDamage(damageInfo, result);
+            bool shouldContinue = result.GetValue();
+
             if (!result.IsBreakRequested)
             {
                 var param = new VanillaLevelCallbacks.PreTakeDamageParams(damageInfo, output);
-                damageInfo.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, param, result, entity.Type);
+                shouldContinue = damageInfo.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, param, shouldContinue, entity.Type);
             }
-            return result.GetValue<bool>();
+            return shouldContinue;
         }
         private static void ApplyDamageSpecialEffects(DamageOutput output)
         {
@@ -191,13 +196,8 @@ namespace MVZ2.Vanilla.Entities
 
         private static int PreBodyTakeDamage(this Entity armor, BodyDamageInputPart input, BodyDamageOutputPart result)
         {
-            var callbackResult = new CallbackResult(DamageStates.CONTINUE);
-            if (!callbackResult.IsBreakRequested)
-            {
-                var param = new VanillaLevelCallbacks.PreBodyTakeDamageParams(input, result);
-                input.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_BODY_TAKE_DAMAGE, param, callbackResult, armor.Definition.GetID());
-            }
-            return callbackResult.GetValue<int>();
+            var param = new VanillaLevelCallbacks.PreBodyTakeDamageParams(input, result);
+            return input.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_BODY_TAKE_DAMAGE, param, DamageStates.CONTINUE, armor.Definition.GetID());
         }
         private static void PostBodyTakeDamage(this Entity entity, BodyDamageOutputPart result)
         {
@@ -552,11 +552,8 @@ namespace MVZ2.Vanilla.Entities
         #region 网格
         public static void UpdateTakenGrids(this Entity entity)
         {
-            targetGridLayerDataBuffer.Clear();
-            takenGridLayerDataBuffer.Clear();
-            GetTargetGridLayersToTakeNonAlloc(entity, targetGridLayerDataBuffer);
-            GetCurrentGridLayersToTakeNonAlloc(entity, takenGridLayerDataBuffer);
-            entityGridUpdater.Update(targetGridLayerDataBuffer, takenGridLayerDataBuffer, g => entity.TakeGrid(g.Item1, g.Item2), g => entity.ReleaseGrid(g.Item1, g.Item2));
+            entityGridUpdater.SetEntity(entity);
+            entityGridUpdater.Update();
         }
         public static void DestroyConflictGridEntitiesOnLand(this Entity entity)
         {
@@ -566,8 +563,8 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.UpdateTakenGrids();
 
-            var grids = entity.GetGridsToTake();
-            foreach (var grid in grids)
+            using var grids = entity.GetGridsToTakeDisposeable();
+            foreach (var grid in grids.Value)
             {
                 if (grid == null)
                     continue;
@@ -584,8 +581,8 @@ namespace MVZ2.Vanilla.Entities
             var conflictEntities = new HashSet<Entity>();
             foreach (var layer in layers)
             {
-                var layerEntities = grid.GetLayerEntities(layer);
-                foreach (var ent in layerEntities)
+                using var layerEntities = grid.GetLayerEntitiesDisposeable(layer);
+                foreach (var ent in layerEntities.Value)
                 {
                     if (ent == entity)
                         continue;
@@ -598,67 +595,12 @@ namespace MVZ2.Vanilla.Entities
                 conflict.Die(entity);
             }
         }
-        private static void GetTargetGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
-        {
-            if (!entity.ExistsAndAlive())
-                return;
-
-            var grids = entity.GetGridsToTake();
-            if (grids == null)
-                return;
-
-            var layers = entity.GetGridLayersToTake();
-            if (layers == null)
-                return;
-
-            foreach (var grid in grids)
-            {
-                if (grid == null)
-                    continue;
-                if (!CanTakeGrid(entity, grid))
-                    continue;
-                foreach (var layer in layers)
-                {
-                    buffer.Add(new GridLayerData(grid, layer));
-                }
-            }
-        }
-        private static void GetCurrentGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
-        {
-            takenGridBuffer.Clear();
-            entity.GetTakenGridsNonAlloc(takenGridBuffer);
-
-            foreach (var grid in takenGridBuffer)
-            {
-                takenGridLayersBuffer.Clear();
-                entity.GetTakingGridLayersNonAlloc(grid, takenGridLayersBuffer);
-
-                foreach (var layer in takenGridLayersBuffer)
-                {
-                    buffer.Add(new GridLayerData(grid, layer));
-                }
-            }
-        }
-        private static bool CanTakeGrid(this Entity entity, LawnGrid grid)
-        {
-            if (grid == null)
-                return false;
-            if (!entity.ExistsAndAlive())
-                return false;
-            if (entity.IsAboveLeaveGridHeight())
-                return false;
-            return true;
-        }
         public static bool IsAboveLeaveGridHeight(this Entity entity)
         {
             return entity.GetRelativeY() > LEAVE_GRID_HEIGHT;
         }
         public const float LEAVE_GRID_HEIGHT = 64;
-        private static ListUpdater<GridLayerData> entityGridUpdater = new ListUpdater<GridLayerData>();
-        private static List<GridLayerData> targetGridLayerDataBuffer = new List<GridLayerData>();
-        private static List<GridLayerData> takenGridLayerDataBuffer = new List<GridLayerData>();
-        private static List<LawnGrid> takenGridBuffer = new List<LawnGrid>();
-        private static List<NamespaceID> takenGridLayersBuffer = new List<NamespaceID>();
+        private static EntityGridUpdater entityGridUpdater = new EntityGridUpdater();
         #endregion
 
 
@@ -712,13 +654,11 @@ namespace MVZ2.Vanilla.Entities
             var entity = info.Entity;
             if (entity == null)
                 return false;
-            var result = new CallbackResult(true);
             var param = new VanillaLevelCallbacks.PreHealParams()
             {
                 input = info
             };
-            entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_ENTITY_HEAL, param, result);
-            return result.GetValue<bool>();
+            return entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_ENTITY_HEAL, param, true);
         }
         private static void PostHeal(HealOutput output)
         {
@@ -982,9 +922,7 @@ namespace MVZ2.Vanilla.Entities
         public static bool PreApplyStatusEffect(this Entity entity, BuffDefinition buff, ILevelSourceReference? source)
         {
             var param = new VanillaLevelCallbacks.PreApplyStatusEffectParams(entity, buff, source);
-            var result = new CallbackResult(true);
-            entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_APPLY_STATUS_EFFECT, param, result, buff.GetID());
-            return result.GetValue<bool>();
+            return entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_APPLY_STATUS_EFFECT, param, true, buff.GetID());
         }
         public static void PostApplyStatusEffect(this Entity entity, Buff buff, ILevelSourceReference? source)
         {
@@ -994,9 +932,7 @@ namespace MVZ2.Vanilla.Entities
         public static bool PreRemoveStatusEffect(this Entity entity, BuffDefinition definition, ILevelSourceReference? source)
         {
             var param = new VanillaLevelCallbacks.PreRemoveStatusEffectParams(entity, definition, source);
-            var result = new CallbackResult(true);
-            entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_REMOVE_STATUS_EFFECT, param, result, definition.GetID());
-            return result.GetValue<bool>();
+            return entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_REMOVE_STATUS_EFFECT, param, true, definition.GetID());
         }
         public static void PostRemoveStatusEffect(this Entity entity, BuffDefinition definition, ILevelSourceReference? source)
         {
@@ -1357,7 +1293,8 @@ namespace MVZ2.Vanilla.Entities
         public static bool TryBehaviourExplode(this Entity entity, float range, float damage)
         {
             bool exploded = false;
-            foreach (var behaviour in entity.Definition.GetBehaviours<IExplodeContraptionBehaviour>())
+            using var behavioursItem = entity.Definition.GetBehavioursDisposeable<IExplodeContraptionBehaviour>();
+            foreach (var behaviour in behavioursItem.Value)
             {
                 behaviour.Explode(entity, range, damage);
                 exploded = true;
@@ -1399,5 +1336,91 @@ namespace MVZ2.Vanilla.Entities
         private const string PROP_REGION = "entities";
         [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_SHINE_RING = new VanillaEntityPropertyMeta<EntityID>("LightShineRing");
+    }
+    internal class EntityGridUpdater : ListUpdaterBase<GridLayerData> 
+    {
+        public void SetEntity(Entity entity)
+        {
+            this.entity = entity;
+        }
+        public void Update()
+        {
+            if (entity == null)
+                return;
+            using var targetGridLayerDataBufferItem = ListPool<GridLayerData>.Rent();
+            var targetGridLayerDataBuffer = targetGridLayerDataBufferItem.Value;
+            GetTargetGridLayersToTakeNonAlloc(entity, targetGridLayerDataBuffer);
+
+            using var takenGridLayerDataBufferItem = ListPool<GridLayerData>.Rent();
+            var takenGridLayerDataBuffer = takenGridLayerDataBufferItem.Value;
+            GetCurrentGridLayersToTakeNonAlloc(entity, takenGridLayerDataBuffer);
+
+            Update(targetGridLayerDataBuffer, takenGridLayerDataBuffer);
+        }
+        protected override void OnAdd(GridLayerData element)
+        {
+            entity?.TakeGrid(element.Item1, element.Item2);
+        }
+        protected override void OnRemove(GridLayerData element)
+        {
+            entity?.ReleaseGrid(element.Item1, element.Item2);
+        }
+        protected override void OnUpdate(GridLayerData element)
+        {
+        }
+        private static void GetTargetGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
+        {
+            if (!entity.ExistsAndAlive())
+                return;
+
+            using var grids = entity.GetGridsToTakeDisposeable();
+            var layers = entity.GetGridLayersToTake();
+            if (layers == null)
+                return;
+
+            foreach (var grid in grids.Value)
+            {
+                if (grid == null)
+                    continue;
+                if (!CanTakeGrid(entity, grid))
+                    continue;
+                foreach (var layer in layers)
+                {
+                    buffer.Add(new GridLayerData(grid, layer));
+                }
+            }
+        }
+        private static void GetCurrentGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
+        {
+            using var takenGridBufferItem = ListPool<LawnGrid>.Rent();
+            var takenGridBuffer = takenGridBufferItem.Value;
+
+            entity.GetTakenGridsNonAlloc(takenGridBuffer);
+
+            using var takenGridLayersBufferItem = ListPool<NamespaceID>.Rent();
+            var takenGridLayersBuffer = takenGridLayersBufferItem.Value;
+
+            foreach (var grid in takenGridBuffer)
+            {
+                takenGridLayersBuffer.Clear();
+                entity.GetTakingGridLayersNonAlloc(grid, takenGridLayersBuffer);
+
+                foreach (var layer in takenGridLayersBuffer)
+                {
+                    buffer.Add(new GridLayerData(grid, layer));
+                }
+            }
+        }
+        private static bool CanTakeGrid(Entity entity, LawnGrid grid)
+        {
+            if (grid == null)
+                return false;
+            if (!entity.ExistsAndAlive())
+                return false;
+            if (entity.IsAboveLeaveGridHeight())
+                return false;
+            return true;
+        }
+        private Entity? entity = null;
     }
 }

@@ -19,14 +19,14 @@ namespace MVZ2.GameContent.Artifacts
         public EyeOfTheGiant(string nsp, string name) : base(nsp, name)
         {
             AddAura(new EyeOfTheGiantAura());
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, filter: EntityTypes.PLANT);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, filter: EntityTypes.PLANT);
         }
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var contraption = param.entity;
             var level = contraption.Level;
@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Artifacts
             {
                 if (artifact == null || artifact.Definition != this)
                     continue;
-                AuraEffect aura = artifact.GetAuraEffect<EyeOfTheGiantAura>();
+                var aura = artifact.GetAuraEffect<EyeOfTheGiantAura>();
                 if (aura == null)
                     continue;
                 aura.UpdateAura();

@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Enemies
     {
         public DullahanHead(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.POST_APPLY_STATUS_EFFECT, PostEntityCharmCallback, filter: VanillaBuffID.Entity.charm);
+            AddTriggerFiltered(VanillaLevelCallbacks.POST_APPLY_STATUS_EFFECT, PostEntityCharmCallback, filter: VanillaBuffID.Entity.charm);
         }
         public override void Init(Entity entity)
         {
@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Enemies
             var buff = entity.AddBuff<FlyBuff>();
             buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20f);
         }
-        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostApplyStatusEffectParams param, CallbackResult result)
+        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostApplyStatusEffectParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var buff = param.buff;

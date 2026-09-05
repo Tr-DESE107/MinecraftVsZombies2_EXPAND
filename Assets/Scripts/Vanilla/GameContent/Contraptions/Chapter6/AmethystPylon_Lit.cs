@@ -8,7 +8,6 @@ using MVZ2Logic.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Models;
-using PVZEngine.Modifiers;
 using PVZEngine.Timing;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
@@ -20,7 +19,6 @@ namespace MVZ2.GameContent.Contraptions
     {
         public AmethystPylon_Lit(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.Multiply, PROP_DAMAGE_MULTIPLIER));
         }
         public override void Update(Entity entity)
         {

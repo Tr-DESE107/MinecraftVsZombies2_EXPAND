@@ -143,9 +143,10 @@ namespace MVZ2.Level
         }
         private void UpdateLogicOnce()
         {
-            var entitiesCache = entities.ToArray();
             level.Update();
-            foreach (var entity in entitiesCache)
+            entitiesControllerUpdateBuffer.Clear();
+            entitiesControllerUpdateBuffer.AddRange(entities);
+            foreach (var entity in entitiesControllerUpdateBuffer)
             {
                 entity.UpdateFixed();
             }
@@ -325,8 +326,9 @@ namespace MVZ2.Level
             ValidateHeldItem();
 
             var uiSimulationSpeed = IsGamePaused() ? 0 : gameSpeed;
-            foreach (var component in level.GetLevelComponents())
+            for (int i = 0; i < level.GetLevelComponentCount(); i++)
             {
+                var component = level.GetLevelComponentAt(i);
                 if (component is IMVZ2LevelComponent comp)
                 {
                     comp.UpdateFrame(deltaTime, uiSimulationSpeed);

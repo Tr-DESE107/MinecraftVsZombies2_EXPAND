@@ -166,7 +166,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetModelProperty("OutputLevel", outputLevel);
 
             var param = entity.GetSpawnParams();
-            param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
+            param.SetProperty(VanillaEntityProps.DAMAGE, GetLaserDamage(entity));
             param.SetProperty(EngineEntityProps.FLIP_X, entity.IsFacingLeft());
             param.SetProperty(EngineEntityProps.DISPLAY_SCALE, laserScale);
             param.SetProperty(EngineEntityProps.SCALE, laserScale);
@@ -207,6 +207,8 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetStateTimer(Entity entity, FrameTimer? timer) => entity.SetBehaviourField(PROP_STATE_TIMER, timer);
         public static float GetCrystalAlpha(Entity entity) => entity.GetBehaviourField<float>(PROP_CRYSTAL_ALPHA);
         public static void SetCrystalAlpha(Entity entity, float value) => entity.SetBehaviourField(PROP_CRYSTAL_ALPHA, value);
+        public static float GetLaserDamage(Entity entity) => entity.GetDamage() * AmethystPylon_Lit.GetDamageMultiplier(entity);
+        public static Vector3 GetLaserScale(Entity entity) => Mathf.Clamp(GetLaserDamage(entity) / LASER_DAMAGE_SCALE_1, LASER_SCALE_MIN, LASER_SCALE_MAX) * Vector3.one;
         // 驱动档位(0~7)：behaviour field 供 C# 逻辑读取，同时写 model 属性供贴图切换  
         public static int GetDriverGear(Entity entity) => entity.GetBehaviourField<int>(PROP_DRIVER_GEAR);
         public static void SetDriverGear(Entity entity, int value)
@@ -214,7 +216,6 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetBehaviourField(PROP_DRIVER_GEAR, value);
             entity.SetModelProperty("DriverGear", value);
         }
-        public static Vector3 GetLaserScale(Entity entity) => Mathf.Clamp(entity.GetDamage() / LASER_DAMAGE_SCALE_1, LASER_SCALE_MIN, LASER_SCALE_MAX) * Vector3.one;
 
         public const float ATTACK_COOLDOWN_SECONDS = 65 / 30f;
         public const float ATTACK_CHARGE_SECONDS = 25 / 30f;

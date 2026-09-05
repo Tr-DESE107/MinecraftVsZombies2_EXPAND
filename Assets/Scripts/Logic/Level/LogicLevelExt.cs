@@ -19,6 +19,7 @@ using PVZEngine.Spawns;
 using PVZEngine.Tools;
 using PVZEngine.Tools.Random;
 using UnityEngine;
+using static UnityEngine.Networking.UnityWebRequest;
 using Random = UnityEngine.Random;
 
 namespace MVZ2Logic.Level
@@ -51,18 +52,17 @@ namespace MVZ2Logic.Level
         #region 蓝图
         public static bool IsBlueprintNotRecommmended(this LevelEngine level, NamespaceID blueprint)
         {
-            var result = new CallbackResult(false);
             var param = new LogicLevelCallbacks.GetBlueprintNotRecommondedParams()
             {
                 level = level,
                 blueprintID = blueprint
             };
-            level.Triggers.RunCallbackWithResultFiltered(LogicLevelCallbacks.GET_BLUEPRINT_NOT_RECOMMONDED, param, result, blueprint);
-            return result.GetValue<bool>();
+            return level.Triggers.RunCallbackWithResultFiltered(LogicLevelCallbacks.GET_BLUEPRINT_NOT_RECOMMENDED, param, false, blueprint);
         }
         public static void SetupBattleBlueprints(this LevelEngine level, BlueprintChooseItem[] items)
         {
-            var oldSeedPacks = level.GetAllSeedPacks();
+            using var seedPacksBufferItem = level.GetAllSeedPacksDisposeable();
+            var oldSeedPacks = seedPacksBufferItem.Value;
             for (int i = 0; i < level.GetSeedSlotCount(); i++)
             {
                 NamespaceID? blueprintID = null;
@@ -100,7 +100,8 @@ namespace MVZ2Logic.Level
         }
         public static void FillSeedPacks(this LevelEngine level, IEnumerable<NamespaceID> seedPacks)
         {
-            var oldSeedPacks = level.GetAllSeedPacks();
+            using var seedPacksBufferItem = level.GetAllSeedPacksDisposeable();
+            var oldSeedPacks = seedPacksBufferItem.Value;
             int count = seedPacks.Count();
             for (int i = 0; i < count; i++)
             {
@@ -152,27 +153,30 @@ namespace MVZ2Logic.Level
         {
             if (count <= 0 || rng == null || weightGetter == null)
                 return Array.Empty<LawnGrid>();
-            var allPossible = new HashSet<LawnGrid>();
-            var allPreferred = new HashSet<LawnGrid>();
+            using var allPossibleItem = ListPool<LawnGrid>.Rent();
+            using var allPreferredItem = ListPool<LawnGrid>.Rent();
+            var allPossible = allPossibleItem.Value;
+            var allPreferred = allPreferredItem.Value;
             level.FindAllObstacleSpawnGrids(layersToTake, minColumn, allPossible, allPreferred);
 
             var preferredCount = Mathf.Min(allPreferred.Count, count);
             var possibleCount = Mathf.Min(allPossible.Count, count - preferredCount);
 
-            List<LawnGrid> results = new List<LawnGrid>();
+            using var resultsItem = ListPool<LawnGrid>.Rent();
+            var results = resultsItem.Value;
             if (preferredCount > 0)
             {
                 var weights = allPreferred.Select(g => weightGetter(g)).ToArray();
-                results.AddRange(allPreferred.WeightedRandomTake(weights, preferredCount, rng));
+                allPreferred.WeightedRandomTake(weights, preferredCount, rng, results);
             }
             if (possibleCount > 0)
             {
                 var weights = allPossible.Select(g => weightGetter(g)).ToArray();
-                results.AddRange(allPossible.WeightedRandomTake(weights, possibleCount, rng));
+                allPossible.WeightedRandomTake(weights, possibleCount, rng, results);
             }
             return results.ToArray();
         }
-        private static void FindAllObstacleSpawnGrids(this LevelEngine level, NamespaceID[]? layersToTake, int minColumn, HashSet<LawnGrid> possible, HashSet<LawnGrid> preferred)
+        private static void FindAllObstacleSpawnGrids(this LevelEngine level, NamespaceID[]? layersToTake, int minColumn, List<LawnGrid> possible, List<LawnGrid> preferred)
         {
             for (int col = minColumn; col < level.GetMaxColumnCount(); col++)
             {
@@ -376,40 +380,61 @@ namespace MVZ2Logic.Level
             {
                 spawnDef.PreSpawnAtWave(level, wave, maxPoints, ref totalPoints);
             }
-            var preResult = new CallbackResult(totalPoints);
             var preArgs = new LogicLevelCallbacks.WaveEnemySpawnParams(level, wave, maxPoints);
-            level.Triggers.RunCallbackWithResult(LogicLevelCallbacks.PRE_WAVE_ENEMY_SPAWN, preArgs, preResult);
-            totalPoints = preResult.GetValue<float>();
+            totalPoints = level.Triggers.RunCallbackWithResult(LogicLevelCallbacks.PRE_WAVE_ENEMY_SPAWN, preArgs, totalPoints);
 
             var validSpawnDefs = spawnDefs.Where(def => def.CanSpawnInLevel(level));
 
             // 已生成怪物数量。
             int spawnedCount = 0;
 
+            using var possibleSpawnDefsItem = ListPool<SpawnDefinition>.Rent();
+            var possibleSpawnDefs = possibleSpawnDefsItem.Value;
+
+            using var limitedSpawnDefsItem = ListPool<SpawnDefinition>.Rent();
+            var limitedSpawnDefs = limitedSpawnDefsItem.Value;
+
             // 没有剩余点数，或者生成的敌人数量大于50只，则中断。
             while (totalPoints > 0 && spawnedCount < 50)
             {
                 // 当前所有可以生成的敌人。
                 // 不被当前波次限制。
-                var possibleSpawnDefs = validSpawnDefs.Where(def => def.GetSpawnLevel() <= totalPoints);
+                possibleSpawnDefs.Clear();
+                limitedSpawnDefs.Clear();
+                foreach (var def in validSpawnDefs)
+                {
+                    if (def.GetSpawnLevel() <= totalPoints)
+                    {
+                        possibleSpawnDefs.Add(def);
+                    }
+                }
 
                 // 没有可生成的敌人了，跳出
-                if (possibleSpawnDefs.Count() <= 0)
+                if (possibleSpawnDefs.Count <= 0)
                     break;
 
-                IEnumerable<SpawnDefinition> finalSpawnPool = possibleSpawnDefs;
                 // 根据当前波次限制获取有效的敌人。
-                var limitedSpawnDefs = possibleSpawnDefs.Where(def => def.GetMinSpawnWave() <= currentWaveLevelLimit);
-
-                // 如果根据当前波次限制之后，没有可以生成的敌人，则不进行限制。
-                if (limitedSpawnDefs.Count() > 0)
+                foreach (var def in possibleSpawnDefs)
                 {
-                    finalSpawnPool = limitedSpawnDefs;
+                    if (def.GetMinSpawnWave() <= currentWaveLevelLimit)
+                    {
+                        limitedSpawnDefs.Add(def);
+                    }
                 }
 
                 // 随机生成一个敌人。
                 var rng = level.GetSpawnRNG();
-                var spawnDef = finalSpawnPool.WeightedRandom(i => i.GetWeight(level), rng);
+                SpawnDefinition spawnDef;
+
+                // 如果根据当前波次限制之后，没有可以生成的敌人，则不进行限制。
+                if (limitedSpawnDefs.Count > 0)
+                {
+                    spawnDef = limitedSpawnDefs.WeightedRandom(i => i.GetWeight(level), rng);
+                }
+                else
+                {
+                    spawnDef = possibleSpawnDefs.WeightedRandom(i => i.GetWeight(level), rng);
+                }
                 level.SpawnEnemyAtRandomLane(spawnDef);
                 totalPoints -= spawnDef.GetSpawnLevel();
                 spawnedCount++;
@@ -430,9 +455,8 @@ namespace MVZ2Logic.Level
             {
                 spawnDef.PostSpawnAtWave(level, wave, maxPoints, ref totalPoints);
             }
-            var postResult = new CallbackResult(totalPoints);
             var postArgs = new LogicLevelCallbacks.WaveEnemySpawnParams(level, wave, maxPoints);
-            level.Triggers.RunCallbackWithResult(LogicLevelCallbacks.POST_WAVE_ENEMY_SPAWN, postArgs, postResult);
+            level.Triggers.RunCallback(LogicLevelCallbacks.POST_WAVE_ENEMY_SPAWN, postArgs);
         }
         public static bool WillEnemySpawn(this LevelEngine level, NamespaceID spawnID)
         {
@@ -500,9 +524,13 @@ namespace MVZ2Logic.Level
         #endregion
 
         #region 全路
-        public static IEnumerable<int> GetAllLanes(this LevelEngine level)
+        public static void GetAllLanes(this LevelEngine level, List<int> results)
         {
-            return Enumerable.Range(0, level.GetMaxLaneCount());
+            for (int i = 0; i < level.GetMaxLaneCount(); i++)
+            {
+                var lane = i;
+                results.Add(lane);
+            }
         }
         public static bool IsLandAt(this LevelEngine level, float x, float z)
         {
@@ -512,20 +540,32 @@ namespace MVZ2Logic.Level
 
         public static bool IsTerrainAt(this LevelEngine level, float x, float z, NamespaceID terrainType, bool value)
         {
-            var callbackResult = new CallbackResult(value);
             var args = new LogicLevelCallbacks.IsTerrainCallbackParams(level, x, z, terrainType);
-            level.Triggers.RunCallbackWithResultFiltered(LogicLevelCallbacks.IS_TERRAIN, args, callbackResult, terrainType);
-            return callbackResult.GetValue<bool>();
+            return level.Triggers.RunCallbackWithResultFiltered(LogicLevelCallbacks.IS_TERRAIN, args, value, terrainType);
         }
 
         #region 水路
-        public static IEnumerable<int> GetWaterLanes(this LevelEngine level)
+        public static void GetWaterLanes(this LevelEngine level, List<int> results)
         {
-            return level.GetAllLanes().Where(l => level.IsWaterLane(l));
+            for (int i = 0; i < level.GetMaxLaneCount(); i++)
+            {
+                var lane = i;
+                if (level.IsWaterLane(lane))
+                {
+                    results.Add(lane);
+                }
+            }
         }
-        public static IEnumerable<int> GetEnemySpawnWaterLanes(this LevelEngine level)
+        public static void GetEnemySpawnWaterLanes(this LevelEngine level, List<int> results)
         {
-            return level.GetAllLanes().Where(l => level.IsEnemySpawnWaterLane(l));
+            for (int i = 0; i < level.GetMaxLaneCount(); i++)
+            {
+                var lane = i;
+                if (level.IsEnemySpawnWaterLane(lane))
+                {
+                    results.Add(lane);
+                }
+            }
         }
         public static bool IsWaterLane(this LevelEngine level, int lane)
         {
@@ -571,13 +611,27 @@ namespace MVZ2Logic.Level
         #endregion
 
         #region 空路
-        public static IEnumerable<int> GetAirLanes(this LevelEngine level)
+        public static void GetAirLanes(this LevelEngine level, List<int> results)
         {
-            return level.GetAllLanes().Where(l => level.IsAirLane(l));
+            for (int i = 0; i < level.GetMaxLaneCount(); i++)
+            {
+                var lane = i;
+                if (level.IsAirLane(lane))
+                {
+                    results.Add(lane);
+                }
+            }
         }
-        public static IEnumerable<int> GetEnemySpawnAirLanes(this LevelEngine level)
+        public static void GetEnemySpawnAirLanes(this LevelEngine level, List<int> results)
         {
-            return level.GetAllLanes().Where(l => level.IsEnemySpawnAirLane(l));
+            for (int i = 0; i < level.GetMaxLaneCount(); i++)
+            {
+                var lane = i;
+                if (level.IsEnemySpawnAirLane(lane))
+                {
+                    results.Add(lane);
+                }
+            }
         }
         public static bool IsAirLane(this LevelEngine level, int lane)
         {

@@ -15,6 +15,7 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 
 using PVZEngine.Tools;
+using PVZEngine.Tools.Random;
 
 namespace MVZ2.GameContent.Buffs.Level
 {
@@ -25,10 +26,10 @@ namespace MVZ2.GameContent.Buffs.Level
         {
             AddTrigger(LogicLevelCallbacks.PRE_WAVE_ENEMY_SPAWN, PreWaveEnemySpawnCallback);
         }
-        private void PreWaveEnemySpawnCallback(LogicLevelCallbacks.WaveEnemySpawnParams args, CallbackResult result)
+        private void PreWaveEnemySpawnCallback(LogicLevelCallbacks.WaveEnemySpawnParams args, CallbackResult<float> result)
         {
             var level = args.level;
-            var totalPoints = result.GetValue<float>();
+            var totalPoints = result.GetValue();
 
             var rng = level.GetSpawnRNG();
             HashSet<LawnGrid> possibleGrids = new HashSet<LawnGrid>();

@@ -11,7 +11,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-
+using MVZ2Logic;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 
@@ -191,7 +191,8 @@ namespace MVZ2.GameContent.Contraptions
         public static void DestroyEntitiesInGrid(LawnGrid grid, Entity source)  
         {  
             var damageEffects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.INSTA_KILL);  
-            foreach (var entity in grid.GetEntities())  
+            using var gridEntities = grid.GetEntitiesDisposeable();
+            foreach (var entity in gridEntities.Value)
             {  
                 if (entity == source)  
                     continue;  

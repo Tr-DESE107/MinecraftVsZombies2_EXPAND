@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
 
             buff.SetProperty(PROP_LIGHT_RANGE_ADDITION, Vector3.one * 70 * scale * rangeMultiplier);
         }
-        private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
+        private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResultVoid result)
         {
             var hit = param.hit;
             var damage = param.damage;

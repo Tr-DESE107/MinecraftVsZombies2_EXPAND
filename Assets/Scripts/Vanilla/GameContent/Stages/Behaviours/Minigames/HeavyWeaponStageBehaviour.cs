@@ -40,8 +40,8 @@ namespace MVZ2.GameContent.Stages
         {
             AddModifier(new NamespaceIDModifier(LogicLevelProps.STARSHARD_DISABLE_ID, SetOperator.Set, VanillaBlueprintErrors.locked));
             AddModifier(new SpriteReferenceModifier(LogicAreaProps.STARSHARD_ICON, SetOperator.Set, VanillaSprites.snipenserLife));
-            stageDef.AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreContraptionTakeDamageCallback, filter: EntityTypes.PLANT);
-            stageDef.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
+            stageDef.AddTriggerFiltered(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreContraptionTakeDamageCallback, filter: EntityTypes.PLANT);
+            stageDef.AddTriggerFiltered(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
         }
         public override void Start(LevelEngine level)
         {
@@ -123,7 +123,7 @@ namespace MVZ2.GameContent.Stages
             param.SetProperty(LogicEntityProps.HP_BAR_VISIBILITY, HPBarVisibility.FORCE);
             return level.Spawn(VanillaContraptionID.MegaSnipenser, cart.Position, cart, param);
         }
-        private void PreContraptionTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
+        private void PreContraptionTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult<bool> result)
         {
             var input = param.input;
             var entity = input.Entity;
@@ -137,7 +137,7 @@ namespace MVZ2.GameContent.Stages
                 }
             }
         }
-        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var level = entity.Level;

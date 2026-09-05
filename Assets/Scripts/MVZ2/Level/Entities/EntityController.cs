@@ -27,6 +27,7 @@ using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using PVZEngine.Timing;
+using PVZEngine.Tools;
 using PVZEngine.Tools.Random;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
@@ -43,7 +44,7 @@ namespace MVZ2.Level.Entities
             Entity = entity;
             rng = new RandomGenerator(entity.InitSeed);
             isHighlight = false;
-            gameObject.name = entity.ToString();
+            SetName(entity.ToString());
             transform.position = Level.LawnToTrans(Entity.Position);
             lastPosition = transform.position;
 
@@ -105,7 +106,10 @@ namespace MVZ2.Level.Entities
             UpdateModelInsertions();
 
             // 重新创建护甲模型
-            foreach (var slot in Entity.GetActiveArmorSlots())
+            using var armorBufferItem = ListPool<NamespaceID>.Rent();
+            var armorBuffer = armorBufferItem.Value;
+            Entity.GetActiveArmorSlots(armorBuffer);
+            foreach (var slot in armorBuffer)
             {
                 var armor = Entity.GetArmorAtSlot(slot);
                 if (armor != null)
@@ -512,7 +516,10 @@ namespace MVZ2.Level.Entities
         {
             if (!Model)
                 return;
-            foreach (var slotSlot in Entity.GetActiveArmorSlots())
+            using var armorBufferItem = ListPool<NamespaceID>.Rent();
+            var armorBuffer = armorBufferItem.Value;
+            Entity.GetActiveArmorSlots(armorBuffer);
+            foreach (var slotSlot in armorBuffer)
             {
                 UpdateArmorModel(slotSlot);
             }
@@ -735,7 +742,7 @@ namespace MVZ2.Level.Entities
             switch (amountMode)
             {
                 case HPBarAmountMode.CURRENT_ONLY:
-                    text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE, Mathf.CeilToInt(Mathf.Max(0, health)));
+                    text = Mathf.CeilToInt(Mathf.Max(0, health)).ToString();
                     break;
                 case HPBarAmountMode.CURRENT_AND_MAX:
                     text = Global.Localization.GetText(HP_BAR_TEXT_TEMPLATE_WITH_MAX, Mathf.CeilToInt(Mathf.Max(0, health)), Mathf.CeilToInt(maxHealth));
@@ -768,6 +775,22 @@ namespace MVZ2.Level.Entities
         }
         #endregion
 
+        #region 名称
+        public void SetName(string name)
+        {
+            cachedName = name;
+            gameObject.name = name;
+        }
+        public string GetName()
+        {
+            if (string.IsNullOrEmpty(cachedName))
+            {
+                SetName(Entity.ToString());
+            }
+            return cachedName;
+        }
+        #endregion
+
         #region 事件
         public event Action<EntityController, PointerEventData, PointerInteraction>? OnPointerInteraction;
         #endregion
@@ -783,8 +806,6 @@ namespace MVZ2.Level.Entities
         public const string HP_BAR_TEXT_DEATH = "死亡";
         [TranslateMsg("血条的文字")]
         public const string HP_BAR_TEXT_DESTROYED = "摧毁";
-        [TranslateMsg("血条的文字模板")]
-        public const string HP_BAR_TEXT_TEMPLATE = "{0}";
         [TranslateMsg("血条的文字模板")]
         public const string HP_BAR_TEXT_TEMPLATE_WITH_MAX = "{0}/{1}";
         public MainManager Main => MainManager.Instance;
@@ -803,6 +824,7 @@ namespace MVZ2.Level.Entities
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
         private List<Animator> animatorBuffer = new List<Animator>();
         private List<ModelInsertion> modelInsertionBuffer = new List<ModelInsertion>();
+        private string cachedName = string.Empty;
         [SerializeField]
         private float maxRenderAccumulator = 1f;
         [SerializeField]

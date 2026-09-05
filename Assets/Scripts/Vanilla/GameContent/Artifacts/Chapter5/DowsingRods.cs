@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Artifacts
         {
             AddTrigger(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, EnemyDropRewardsCallback);
         }
-        private void EnemyDropRewardsCallback(EntityCallbackParams param, CallbackResult result)
+        private void EnemyDropRewardsCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             if (entity.HasNoReward())
@@ -47,7 +47,7 @@ namespace MVZ2.GameContent.Artifacts
         }
         private void DropRewards(Entity entity, RandomGenerator rng)
         {
-            var reward = rewardPool.WeightedRandom(p => p.Value, rng).Key;
+            var reward = rewardPool.WeightedRandom(rewardWeights, rng);
             switch (reward)
             {
                 case REWARD_EMERALD:
@@ -76,20 +76,28 @@ namespace MVZ2.GameContent.Artifacts
                     }
             }
         }
-        public const float DROP_CHANCE = 15;
+        public const float DROP_CHANCE = 0.25f;
         public const int REWARD_EMERALD = 0;
         public const int REWARD_RUBY = 1;
         public const int REWARD_DIAMOND = 2;
         public const int REWARD_REDSTONE = 3;
         public const int REWARD_BLUEPRINT = 4;
 
-        public static Dictionary<int, float> rewardPool = new Dictionary<int, float>()
+        public static int[] rewardPool = new int[]
         {
-            { REWARD_EMERALD, 45 },
-            { REWARD_RUBY, 9 },
-            { REWARD_DIAMOND, 1 },
-            { REWARD_REDSTONE, 30 },
-            { REWARD_BLUEPRINT, 15 }
+            REWARD_EMERALD,
+            REWARD_RUBY,
+            REWARD_DIAMOND,
+            REWARD_REDSTONE,
+            REWARD_BLUEPRINT,
+        };
+        public static float[] rewardWeights = new float[]
+        {
+            35,
+            9,
+            1,
+            30,
+            25
         };
     }
 }

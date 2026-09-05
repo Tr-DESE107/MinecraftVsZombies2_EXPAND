@@ -13,7 +13,6 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Tools.Unity;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -30,7 +29,7 @@ namespace MVZ2.GameContent.Artifacts
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        private void PreProjectileShotCallback(VanillaLevelCallbacks.PreProjectileShotParams args, CallbackResult result)
+        private void PreProjectileShotCallback(VanillaLevelCallbacks.PreProjectileShotParams args, CallbackResult<bool> result)
         {
             var source = args.source;
             var level = source.Level;
@@ -41,12 +40,8 @@ namespace MVZ2.GameContent.Artifacts
             if (artifact != null)
             {
                 var velocity = shootParams.velocity;
-                var vel2D = new Vector2(velocity.x, velocity.z);
                 var angle = artifact.RNG.Next(0, 360f);
-                vel2D = vel2D.RotateClockwise(angle);
-                velocity.x = vel2D.x;
-                velocity.z = vel2D.y;
-                shootParams.velocity = velocity;
+                shootParams.velocity = velocity.RotateClockwiseXZ(angle);
 
                 shootParams.spawnParam.SetProperty(VanillaProjectileProps.DIRECTION_CHANGED_BY_KRAKENS_TENTACLE, true);
 

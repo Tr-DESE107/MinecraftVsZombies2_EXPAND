@@ -2,12 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using MVZ2.Level;
 using MVZ2.Level.HPBar;
 using MVZ2.Level.Inputing;
 using MVZ2.Managers;
 using MVZ2.Models;
+using MVZ2Logic;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Grids;
@@ -15,10 +15,12 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Inputs;
 using MVZ2Logic.Models;
 using MVZ2Logic.Options;
+using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Tools;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -182,7 +184,14 @@ namespace MVZ2.Grids
             }
         }
         #endregion
-
+        public string GetName()
+        {
+            if (string.IsNullOrEmpty(cachedName))
+            {
+                cachedName = gameObject.name;
+            }
+            return cachedName;
+        }
 
         public event Action<GridController, PointerEventData, PointerInteraction>? OnPointerInteraction;
 
@@ -191,6 +200,7 @@ namespace MVZ2.Grids
         public int Lane { get; set; }
         public int Column { get; set; }
         public float BevelHeight { get; private set; }
+        private string cachedName = string.Empty;
         private LawnGrid? grid;
         private IHPBarSource hpBarSource = null!;
         private List<ModelInsertion> modelInsertionBuffer = new List<ModelInsertion>();
@@ -237,10 +247,12 @@ namespace MVZ2.Grids
         {
             return Controller.transform.position;
         }
+        public string GetName()
+        {
+            return Controller.GetName();
+        }
         public void UpdateHPBarList(HPBarList list)
         {
-            list.gameObject.name = Controller.gameObject.name;
-
             gridHPBarEntityBuffer.Clear();
             gridHPBarBuffer.Clear();
             GetHPBarViewDatas();
@@ -261,12 +273,18 @@ namespace MVZ2.Grids
             var amountMode = Main.OptionsManager.GetHPBarAmountMode();
 
             bool shouldShow = level?.ShouldShowHPBars() ?? false;
-            var layers = grid.GetLayers().OrderBy(l => Main.Settings.GetHPBarLayerOrder(l));
+
+            using var layersBufferItem = ListPool<NamespaceID>.Rent();
+            var layers = layersBufferItem.Value;
+            grid.GetLayers(layers);
+            layers.Sort(comparer);
+
             foreach (var layer in layers)
             {
                 var layerDefinition = Main.Game.GetGridLayerDefinition(layer);
-                var entities = grid.GetLayerEntities(layer);
-                foreach (var entity in entities)
+
+                using var entitiesItem = grid.GetLayerEntitiesDisposeable(layer);
+                foreach (var entity in entitiesItem.Value)
                 {
                     if (!entity.Exists())
                         continue;
@@ -297,9 +315,22 @@ namespace MVZ2.Grids
                 }
             }
         }
-        public MainManager Main => MainManager.Instance;
+        public static MainManager Main => MainManager.Instance;
         public GridController Controller { get; }
         private HashSet<Entity> gridHPBarEntityBuffer = new HashSet<Entity>();
         private List<HPBarViewData> gridHPBarBuffer = new List<HPBarViewData>();
+        private static IComparer<NamespaceID> comparer = new GridLayerOrderComparer(Main);
+    }
+    public class GridLayerOrderComparer : IComparer<NamespaceID>
+    {
+        public GridLayerOrderComparer(MainManager main)
+        {
+            Main = main;
+        }
+        public int Compare(NamespaceID x, NamespaceID y)
+        {
+            return Main.Settings.GetHPBarLayerOrder(x).CompareTo(Main.Settings.GetHPBarLayerOrder(y));
+        }
+        public MainManager Main { get; }
     }
 }

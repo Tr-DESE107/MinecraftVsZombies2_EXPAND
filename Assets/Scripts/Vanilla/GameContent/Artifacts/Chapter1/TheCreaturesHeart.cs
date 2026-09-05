@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.SeedPacks;
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
@@ -14,6 +15,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
+using PVZEngine.Tools;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -23,8 +25,8 @@ namespace MVZ2.GameContent.Artifacts
         public TheCreaturesHeart(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, filter: EntityTypes.PLANT);
-            AddTrigger(LevelCallbacks.POST_ENTITY_REMOVE, PostEntityRemoveCallback, filter: EntityTypes.PLANT);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, filter: EntityTypes.PLANT);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_REMOVE, PostEntityRemoveCallback, filter: EntityTypes.PLANT);
             AddAura(new ReduceCostAura());
         }
         public override void PostUpdate(Artifact artifact)
@@ -32,20 +34,20 @@ namespace MVZ2.GameContent.Artifacts
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        private void PostLevelStartCallback(LevelCallbackParams param, CallbackResult result)
+        private void PostLevelStartCallback(LevelCallbackParams param, CallbackResultVoid result)
         {
             var level = param.level;
             foreach (var artifact in level.GetArtifacts())
             {
                 if (artifact == null || artifact.Definition != this)
                     continue;
-                AuraEffect aura = artifact.GetAuraEffect<ReduceCostAura>();
+                var aura = artifact.GetAuraEffect<ReduceCostAura>();
                 if (aura == null)
                     continue;
                 aura.UpdateAura();
             }
         }
-        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var contraption = param.entity;
             var level = contraption.Level;
@@ -53,13 +55,13 @@ namespace MVZ2.GameContent.Artifacts
             {
                 if (artifact == null || artifact.Definition != this)
                     continue;
-                AuraEffect aura = artifact.GetAuraEffect<ReduceCostAura>();
+                var aura = artifact.GetAuraEffect<ReduceCostAura>();
                 if (aura == null)
                     continue;
                 aura.UpdateAura();
             }
         }
-        private void PostEntityRemoveCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEntityRemoveCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var contraption = param.entity;
             var level = contraption.Level;
@@ -67,7 +69,7 @@ namespace MVZ2.GameContent.Artifacts
             {
                 if (artifact == null || artifact.Definition != this)
                     continue;
-                AuraEffect aura = artifact.GetAuraEffect<ReduceCostAura>();
+                var aura = artifact.GetAuraEffect<ReduceCostAura>();
                 if (aura == null)
                     continue;
                 aura.UpdateAura();
@@ -83,7 +85,8 @@ namespace MVZ2.GameContent.Artifacts
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();
-                foreach (var seed in level.GetAllSeedPacks())
+                using var seedPacksItem = level.GetAllSeedPacksDisposeable();
+                foreach (var seed in seedPacksItem.Value)
                 {
                     if (seed == null)
                         continue;

@@ -409,6 +409,17 @@ namespace MVZ2.GameContent.Bosses
             var pool = count == 1 ? fateOptions.Where(o => o != FATE_PANDORAS_BOX).ToArray() : fateOptions;
             var selected = rng != null ? pool.RandomTake(count, rng).ToArray() : pool.Take(count).ToArray();
             var options = selected.Select(i => GetFateOptionText(entity.RNG, i)).ToArray();
+
+            // 这里不要用ListPool.Rent，因为后续选项执行时这个List已经被Release了。
+            List<int> selected = new List<int>();
+            if (rng != null)
+            {
+                fateOptions.RandomTake(count, rng, selected);
+            }
+            else
+            {
+                fateOptions.TakeToList(count, selected);
+            }
             level.ShowDialog(title, desc, options, (i) =>
             {
                 var option = selected[i];
@@ -510,7 +521,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 contraption.ClearTakenGrids();
             }
-            var grids = level.GetAllGrids();
+            using var grids = level.GetAllGridsDisposeable();
             foreach (var contraption in contraptions)
             {
                 var placementID = contraption.Definition.GetPlacementID();
@@ -519,7 +530,7 @@ namespace MVZ2.GameContent.Bosses
                 var placementDef = level.Content.GetPlacementDefinition(placementID);
                 if (placementDef == null)
                     continue;
-                var targetGrids = grids.Where(g => g.CanSpawnEntity(contraption.GetDefinitionID()));
+                var targetGrids = grids.Value.Where(g => g.CanSpawnEntity(contraption.GetDefinitionID()));
                 if (targetGrids.Count() <= 0)
                     continue;
                 var grid = targetGrids.Random(rng);
@@ -662,6 +673,11 @@ namespace MVZ2.GameContent.Bosses
             int maxLaneCount = level.GetMaxLaneCount();
 
             for (int column = 1; column < maxColumnCount; column++)
+            }
+            else
+            {
+                possible.TakeToList(5, targets);
+            }
             {
                 for (int lane = 0; lane < maxLaneCount; lane++)
                 {
@@ -782,6 +798,17 @@ namespace MVZ2.GameContent.Bosses
             int[] columns = { 8, 7, 6 };
 
             for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+
+            using var randomTargetsItem = ListPool<Entity>.Rent();
+            var randomTargets = randomTargetsItem.Value;
+            if (rng != null)
+            {
+                targets.RandomTake(count, rng, randomTargets);
+            }
+            else
+            {
+                targets.TakeToList(count, randomTargets);
+            }
             {
                 for (int i = 0; i < 3; i++)
                 {

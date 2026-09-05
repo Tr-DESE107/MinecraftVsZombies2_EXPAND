@@ -7,7 +7,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
-using PVZEngine.Callbacks;
 using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
@@ -127,7 +126,7 @@ namespace MVZ2.GameContent.Projectiles
 
 
             // 击中敌人前
-            var hitInput = new ProjectileHitInput(projectile, other, projectile.IsPiercing());
+            var hitInput = new ProjectileHitInput(projectile, other, !projectile.CanPierce());
 
             var damageEffects = projectile.GetDamageEffects();
             DamageEffectList effects;
@@ -144,21 +143,21 @@ namespace MVZ2.GameContent.Projectiles
                 return;
 
             // 触发击中前回调。
-            var callbackResult = new CallbackResult(true);
             var preParam = new VanillaLevelCallbacks.PreProjectileHitParams()
             {
                 hit = hitInput,
                 damage = damageInput
             };
-            projectile.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, preParam, callbackResult, projectile.GetDefinitionID());
-            if (!callbackResult.GetValue<bool>())
+            bool shouldContinue = projectile.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, preParam, true, projectile.GetDefinitionID());
+            if (!shouldContinue)
                 return;
 
             // 对敌人造成伤害
             DamageOutput damageOutput = VanillaEntityExt.TakeDamage(damageInput);
 
             // 击中敌人后
-            ProjectileHitOutput hitOutput = new ProjectileHitOutput(hitInput.Projectile, hitInput.Other, otherCollider, hitInput.Pierce);
+            ProjectileHitOutput hitOutput = new ProjectileHitOutput(hitInput.Projectile, hitInput.Other, otherCollider, hitInput.Remove);
+            bool ethereal = false;
             if (damageOutput != null)
             {
                 if (damageOutput.ShieldResult != null)
@@ -167,12 +166,24 @@ namespace MVZ2.GameContent.Projectiles
                 }
                 else
                 {
-                    bool ethereal = damageOutput.ArmorResult != null ? false : other.IsEthereal();
-                    hitOutput.Pierce = ethereal || hitOutput.Pierce;
+                    ethereal = damageOutput.ArmorResult != null ? false : other.IsEthereal();
+                    if (ethereal)
+                    {
+                        hitOutput.Remove = false;
+                    }
                 }
             }
             // 将碰撞箱加入到已被碰撞的列表。
             projectile.AddIgnoredProjectileCollider(otherCollider);
+
+            // 减去穿透次数
+            if (!hitOutput.Remove)
+            {
+                if (!ethereal)
+                {
+                    projectile.AddPiercedCount(1);
+                }
+            }
 
             // 触发击中后回调。
             var postParam = new VanillaLevelCallbacks.PostProjectileHitParams()
@@ -182,7 +193,7 @@ namespace MVZ2.GameContent.Projectiles
             };
             projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, postParam, projectile.GetDefinitionID());
 
-            if (!hitOutput.Pierce)
+            if (hitOutput.Remove)
             {
                 projectile.Die();
                 return;

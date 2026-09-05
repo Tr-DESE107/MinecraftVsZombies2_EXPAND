@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new StarshardStageBehaviour(this));
             AddBehaviour(new ConveyorStageBehaviour(this));
 
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
         }
         public override void OnPostWave(LevelEngine level, int wave)
         {
@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Stages
                 level.PlaySound(VanillaSoundID.growBig);
             }
         }
-        public void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
+        public void PostEnemyInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var level = entity.Level;

@@ -7,7 +7,6 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Placements;
 using PVZEngine;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -33,15 +32,15 @@ namespace MVZ2Logic.Grids
                     return HeldHighlight.None;
 
                 var error = grid.GetEntityPlaceStatus(entityDef);
-                var grids = entityDef.GetGridsToTake(grid).OfType<LawnGrid>();
+                using var grids = entityDef.GetGridsToTakeDisposeable(grid);
 
                 if (error == null)
                 {
-                    return HeldHighlight.Green(grids);
+                    return HeldHighlight.Green(grids.Value);
                 }
                 else
                 {
-                    return HeldHighlight.Red(grids);
+                    return HeldHighlight.Red(grids.Value);
                 }
             }
             else
@@ -263,9 +262,8 @@ namespace MVZ2Logic.Grids
         private static bool PrePlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {
             var level = grid.Level;
-            var result = new CallbackResult(true);
-            level.Triggers.RunCallbackWithResultFiltered(LogicLevelCallbacks.PRE_PLACE_ENTITY, new LogicLevelCallbacks.PlaceEntityParams(grid, entityID), result, entityID);
-            return result.GetValue<bool>();
+            var args = new LogicLevelCallbacks.PlaceEntityParams(grid, entityID);
+            return level.Triggers.RunCallbackWithResultFiltered(LogicLevelCallbacks.PRE_PLACE_ENTITY, args, true, entityID);
         }
         private static void PostPlaceEntity(this LawnGrid grid, Entity entity)
         {

@@ -159,9 +159,13 @@ namespace MVZ2.Level.UI
         {
             starshardPanel.SetIconSprite(icon);
         }
-        public void SetStarshardCount(int count, int maxCount)
+        public void SetStarshardPointCount(int maxCount)
         {
-            starshardPanel.SetPoints(count, maxCount);
+            starshardPanel.SetPointCount(maxCount);
+        }
+        public void SetStarshardPointHighlight(int index, bool highlight)
+        {
+            starshardPanel.SetPointHighlight(index, highlight);
         }
         public void SetStarshardSelected(bool selected)
         {
@@ -224,9 +228,13 @@ namespace MVZ2.Level.UI
         {
             progressBar.SetProgress(progress);
         }
-        public void SetBannerProgresses(float[] progresses)
+        public void SetBannerCount(int count)
         {
-            progressBar.SetBannerProgresses(progresses);
+            progressBar.SetBannerCount(count);
+        }
+        public void SetBannerProgress(int index, float progress)
+        {
+            progressBar.SetBannerProgress(index, progress);
         }
         public void SetBossProgressTemplate(ProgressBarTemplateViewData template)
         {

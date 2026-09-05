@@ -2,12 +2,14 @@
 
 using System.Collections.Generic;
 using MVZ2Logic.Entities;
+using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Modifiers;
+using PVZEngine.Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
@@ -24,7 +26,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddAura(new ArmorInvisibleAura());
             AddTrigger(LevelCallbacks.POST_GAME_OVER, PostGameOverCallback);
         }
-        private void PostGameOverCallback(LevelCallbacks.PostGameOverParams param, CallbackResult result)
+        private void PostGameOverCallback(LevelCallbacks.PostGameOverParams param, CallbackResultVoid result)
         {
             var level = param.level;
             foreach (var entity in level.FindEntities(e => e.HasBuff<DarkMatterInvisibleBuff>()))
@@ -43,7 +45,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 var entity = auraEffect.Source.GetEntity();
                 if (entity == null)
                     return;
-                foreach (var slot in entity.GetActiveArmorSlots())
+                using var armorSlotsItem = ListPool<NamespaceID>.Rent();
+                var armorSlots = armorSlotsItem.Value;
+                entity.GetActiveArmorSlots(armorSlots);
+                foreach (var slot in armorSlots)
                 {
                     var armor = entity.GetArmorAtSlot(slot);
                     if (armor == null)

@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Enemies
                 }
                 else
                 {
-                    shouldSpawnFly = entity.RNG.NextPercent(50);
+                    shouldSpawnFly = entity.RNG.NextPercent(0.5f);
                 }
             }
             if (shouldSpawnFly)

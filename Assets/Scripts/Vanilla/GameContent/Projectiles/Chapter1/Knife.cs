@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Projectiles
                 entity.AddBuff<ElectrifiedBuff>();
             }
         }
-        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResultVoid result)
         {
             var hitResult = param.hit;
             var projectile = hitResult.Projectile;
@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Projectiles
             var blocksSlice = damageOutput.GetAllResults().Any(e => e?.ShellDefinition?.BlocksSlice() ?? false);
             if (!blocksSlice)
             {
-                hitResult.Pierce = true;
+                hitResult.Remove = false;
             }
         }
     }

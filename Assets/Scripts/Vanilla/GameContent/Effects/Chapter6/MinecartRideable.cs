@@ -125,7 +125,7 @@ namespace MVZ2.GameContent.Effects
             distance = magnitude * distance.normalized;  
             entity.Velocity = distance * VELOCITY_DAMP;  
         }  
-        private void PostPauseCallback(LevelCallbackParams param, CallbackResult result)  
+        private void PostPauseCallback(LevelCallbackParams param, CallbackResultVoid result)
         {  
             var level = param.level;  
             foreach (var cart in level.FindEntities(e => e.HasBehaviour(this)))  

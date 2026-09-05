@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Bosses
     {
         public Nightmareaper(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
 
         #region 生命周期
@@ -122,7 +122,7 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var info = param.deathInfo;

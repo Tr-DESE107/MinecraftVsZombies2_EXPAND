@@ -51,9 +51,9 @@ namespace MVZ2Logic.HeldItems
         {
             if (data == null)
                 return null;
-            var behaviours = heldItemDef.GetBehaviours();
-            foreach (var behaviour in behaviours)
+            for (int i = 0; i < heldItemDef.GetBehaviourCount(); i++)
             {
+                var behaviour = heldItemDef.GetBehaviourAt(i);
                 if (behaviour is not IBlueprintHeldItemBehaviour blueprintBehaviour)
                     continue;
                 return blueprintBehaviour.GetSeedPack(level, data);

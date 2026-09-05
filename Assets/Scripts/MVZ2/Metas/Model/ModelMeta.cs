@@ -7,6 +7,7 @@ using MVZ2.IO;
 using MVZ2Logic.Games;
 using MVZ2Logic.Models;
 using PVZEngine;
+using PVZEngine.Models;
 using PVZEngine.Tools.Unity;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ namespace MVZ2.Metas
 
         public string Name { get; private set; } = string.Empty;
         public string Type { get; private set; } = string.Empty;
+        public string ConcatedName { get; private set; } = string.Empty;
         public NamespaceID? Path { get; private set; }
         public bool Shot { get; private set; }
         public int Width { get; private set; }
@@ -101,6 +103,7 @@ namespace MVZ2.Metas
             {
                 Name = name,
                 Type = type,
+                ConcatedName = EngineModelID.ConcatName(type, name),
                 Shot = shot,
                 Path = path,
                 Width = width,

@@ -17,6 +17,7 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
@@ -129,8 +130,15 @@ namespace MVZ2.GameContent.Bosses
         {
             var level = entity.Level;
             var contraptions = level.FindEntities(e => IsValidAttackTarget(entity, e));
-            var groups = contraptions.GroupBy(c => c.GetLane());
-            return groups.Random(entity.RNG).Key;
+
+            using var lanesItem = HashSetPool<int>.Rent();
+            var lanes = lanesItem.Value;
+            foreach (var contraption in contraptions)
+            {
+                var lane = contraption.GetLane();
+                lanes.Add(lane);
+            }
+            return lanes.Random(entity.RNG);
         }
         private static void UpdateFlipX(Entity entity)
         {
@@ -512,7 +520,7 @@ namespace MVZ2.GameContent.Bosses
             if (!haveBeenPricked)
             {
                 entity.Level.FindEntitiesNonAlloc(e => IsValidAttackTarget(entity, e), highJumpSearchBuffer);
-                validEntities = highJumpSearchBuffer.Where(e => e.IsEntityOf(VanillaContraptionID.amethystPylon));
+                validEntities = highJumpSearchBuffer.Where(e => e.HasPointyHead());
                 if (validEntities.Count() <= 0)
                 {
                     validEntities = highJumpSearchBuffer;
@@ -520,7 +528,7 @@ namespace MVZ2.GameContent.Bosses
             }
             else
             {
-                entity.Level.FindEntitiesNonAlloc(e => IsValidAttackTarget(entity, e) && !e.IsEntityOf(VanillaContraptionID.amethystPylon), highJumpSearchBuffer);
+                entity.Level.FindEntitiesNonAlloc(e => IsValidAttackTarget(entity, e) && !e.HasPointyHead(), highJumpSearchBuffer);
                 validEntities = highJumpSearchBuffer;
             }
             if (validEntities.Count() <= 0)
@@ -694,32 +702,42 @@ namespace MVZ2.GameContent.Bosses
         private static bool CanSwitchToLockState(Entity entity)
         {
             var level = entity.Level;
-            var seedPacks = GetBlueprintsToLock(level);
-            if (seedPacks.Count() <= 0)
+            using var seedPacksItem = ListPool<SeedPack>.Rent();
+            var seedPacks = seedPacksItem.Value;
+            GetBlueprintsToLock(level, seedPacks);
+            if (seedPacks.Count <= 0)
                 return false;
             return true;
         }
-        public static IEnumerable<SeedPack> GetBlueprintsToLock(LevelEngine level)
+        public static void GetBlueprintsToLock(LevelEngine level, List<SeedPack> results)
         {
             if (level.IsConveyorMode())
             {
-                return level.GetAllConveyorSeedPacks();
+                using var conveyorSeeds = level.GetAllConveyorSeedPacksDisposeable();
+                results.AddRange(conveyorSeeds.Value);
             }
             else
             {
-                return level.GetAllSeedPacks().OfType<SeedPack>();
+                using var seedPacks = level.GetAllSeedPacksDisposeable();
+                foreach (var seedPack in seedPacks.Value)
+                {
+                    if (seedPack != null)
+                    {
+                        results.Add(seedPack);
+                    }
+                }
             }
         }
         public static void LockRandomBlueprint(Entity entity, int count)
         {
             var level = entity.Level;
-            var seedPacks = GetBlueprintsToLock(level);
-            if (seedPacks.Count() <= 0)
+            using var seedPacksItem = ListPool<SeedPack>.Rent();
+            var seedPacks = seedPacksItem.Value;
+            GetBlueprintsToLock(level, seedPacks);
+            if (seedPacks.Count <= 0)
                 return;
-            var selected = seedPacks.RandomTake(count, entity.RNG);
-            if (selected == null)
-                return;
-            foreach (var seedPack in selected)
+            seedPacks.RandomKeep(count, entity.RNG);
+            foreach (var seedPack in seedPacks)
             {
                 seedPack.AddBuff<BlueprintLockBuff>();
             }
@@ -777,7 +795,10 @@ namespace MVZ2.GameContent.Bosses
         #region 粉碎之锁
         private static bool CanSwitchToCrushingLockState(Entity entity)
         {
-            return FindCrushingLockTargetGridIndexes(entity).Count() > 0 && GetPossibleRequiredContraptionID(entity.Level).Count() > 0;
+            using var seedPacksItem = ListPool<SeedPack>.Rent();
+            var seedPacks = seedPacksItem.Value;
+            GetPossibleRequiredSeedPacks(entity.Level, seedPacks);
+            return FindCrushingLockTargetGridIndexes(entity).Count() > 0 && seedPacks.Count > 0;
         }
         public static IEnumerable<int> FindCrushingLockTargetGridIndexes(Entity entity)
         {
@@ -855,37 +876,54 @@ namespace MVZ2.GameContent.Bosses
 
             return bestItems;
         }
-        public static IEnumerable<SeedPack> GetPossibleRequiredContraptionID(LevelEngine level)
+        public static void GetPossibleRequiredSeedPacks(LevelEngine level, List<SeedPack> results)
         {
-            IEnumerable<SeedPack> seedPacks;
             if (level.IsConveyorMode())
             {
-                seedPacks = level.GetAllConveyorSeedPacks();
+                using var conveyorSeedPacksItem = level.GetAllConveyorSeedPacksDisposeable();
+                foreach (var seedPack in conveyorSeedPacksItem.Value)
+                {
+                    if (IsPossibleRequiredSeedPack(level, seedPack))
+                    {
+                        results.Add(seedPack);
+                    }
+                }
             }
             else
             {
-                seedPacks = level.GetAllSeedPacks().OfType<SeedPack>();
+                using var conveyorSeedPacksItem = level.GetAllSeedPacksDisposeable();
+                foreach (var seedPack in conveyorSeedPacksItem.Value)
+                {
+                    if (seedPack == null)
+                        continue;
+                    if (IsPossibleRequiredSeedPack(level, seedPack))
+                    {
+                        results.Add(seedPack);
+                    }
+                }
             }
-            return seedPacks.Where(s =>
-            {
-                if (s.IsUpgradeBlueprint() || s.CanInstantTrigger() || s.GetSeedType() != SeedTypes.ENTITY)
-                    return false;
-                if (s.IsDisabled())
-                    return false;
-                var entityID = s.GetSeedEntityID();
-                var entityDef = level.Content.GetEntityDefinition(entityID);
-                if (entityDef == null)
-                    return false;
-                var gridLayers = entityDef.GetGridLayersToTake();
-                if (gridLayers == null || !gridLayers.Contains(VanillaGridLayers.main))
-                    return false;
-                return true;
-            });
+        }
+        private static bool IsPossibleRequiredSeedPack(LevelEngine level, SeedPack s)
+        {
+            if (s.IsUpgradeBlueprint() || s.CanInstantTrigger() || s.GetSeedType() != SeedTypes.ENTITY)
+                return false;
+            if (s.IsDisabled())
+                return false;
+            var entityID = s.GetSeedEntityID();
+            var entityDef = level.Content.GetEntityDefinition(entityID);
+            if (entityDef == null)
+                return false;
+            var gridLayers = entityDef.GetGridLayersToTake();
+            if (gridLayers == null || !gridLayers.Contains(VanillaGridLayers.main))
+                return false;
+            return true;
         }
         public static NamespaceID? GetRandomRequiredContraptionID(LevelEngine level, RandomGenerator rng)
         {
-            var validSeedPacks = GetPossibleRequiredContraptionID(level);
-            if (validSeedPacks.Count() <= 0)
+            using var seedPacksItem = ListPool<SeedPack>.Rent();
+            var validSeedPacks = seedPacksItem.Value;
+            GetPossibleRequiredSeedPacks(level, validSeedPacks);
+            if (validSeedPacks.Count <= 0)
                 return null;
             return validSeedPacks.Random(rng).GetSeedEntityID();
         }
@@ -900,7 +938,10 @@ namespace MVZ2.GameContent.Bosses
             if (grid == null)
                 return;
             var damageEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL);
-            foreach (var ent in grid.GetEntities())
+
+
+            using var gridEntities = grid.GetEntitiesDisposeable();
+            foreach (var ent in gridEntities.Value)
             {
                 ent.Die(damageEffects, entity);
             }
@@ -1805,7 +1846,9 @@ namespace MVZ2.GameContent.Bosses
                 if (grid == null)
                     return;
                 var damageEffects = new DamageEffectList(VanillaDamageEffects.INSTA_KILL);
-                foreach (var ent in grid.GetEntities())
+
+                using var gridEntitiesItem = grid.GetEntitiesDisposeable();
+                foreach (var ent in gridEntitiesItem.Value)
                 {
                     ent.Die(damageEffects, entity);
                 }
@@ -2364,8 +2407,8 @@ namespace MVZ2.GameContent.Bosses
                 spawnParams.SetProperty(EngineEntityProps.INVINCIBLE, true);
                 spawnParams.SetProperty(EngineEntityProps.COLLISION_DETECTION, EntityCollisionHelper.DETECTION_DISABLED);
 
-                var grids = entity.Level.GetAllGrids();
-                foreach (var grid in grids)
+                using var grids = entity.Level.GetAllGridsDisposeable();
+                foreach (var grid in grids.Value)
                 {
                     entity.Spawn(VanillaContraptionID.tnt, grid.GetEntityPosition() + Vector3.up * 1000, spawnParams)?.Let(tnt =>
                     {
@@ -2798,8 +2841,8 @@ namespace MVZ2.GameContent.Bosses
                 spawnParams.SetProperty(EngineEntityProps.INVINCIBLE, true);
                 spawnParams.SetProperty(EngineEntityProps.COLLISION_DETECTION, EntityCollisionHelper.DETECTION_DISABLED);
 
-                var grids = entity.Level.GetAllGrids();
-                foreach (var grid in grids)
+                using var grids = entity.Level.GetAllGridsDisposeable();
+                foreach (var grid in grids.Value)
                 {
                     entity.Spawn(VanillaContraptionID.tnt, grid.GetEntityPosition() + Vector3.up * 1000, spawnParams)?.Let(tnt =>
                     {

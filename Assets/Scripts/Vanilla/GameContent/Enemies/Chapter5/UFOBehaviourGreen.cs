@@ -98,7 +98,6 @@ namespace MVZ2.GameContent.Enemies
                 var grid = enemy.GetGrid();
                 if (grid != null)
                 {
-                    var layers = grid.GetLayers();
                     var orderedLayers = VanillaGridLayers.ufoLayers;
                     foreach (var layer in orderedLayers)
                     {

@@ -29,6 +29,7 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID brokenTile = Get("broken_tile");
         public static readonly NamespaceID psychicShackled = Get("psychic_shackled");
         public static readonly NamespaceID burning = Get("burning");
+        public static readonly NamespaceID dazzle = Get("dazzle");
         //EXPAND
         public static readonly NamespaceID SpeedParticles = Get("SpeedParticles");
         public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles");

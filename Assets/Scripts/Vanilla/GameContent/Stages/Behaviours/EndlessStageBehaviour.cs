@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.Stages
                 roundTimer.ResetTime(1800);
             }
         }
-        private void PostWaveFinishedCallback(LevelCallbacks.PostWaveParams param, CallbackResult result)
+        private void PostWaveFinishedCallback(LevelCallbacks.PostWaveParams param, CallbackResultVoid result)
         {
             var level = param.level;
             if (!level.IsEndless())
@@ -152,9 +152,9 @@ namespace MVZ2.GameContent.Stages
                         if (!spawnDef.CanAppearInEndless(level))
                             return false;
                         return true;
-                    })
-                    .RandomTake(maxEnemyTypeCount, level.GetRoundRNG());
-                entries.AddRange(validEnemies);
+                    });
+                using var randomEnemies = validEnemies.RandomTakeDisposeable(maxEnemyTypeCount, level.GetRoundRNG());
+                entries.AddRange(randomEnemies.Value);
             }
             return entries.ToArray();
         }

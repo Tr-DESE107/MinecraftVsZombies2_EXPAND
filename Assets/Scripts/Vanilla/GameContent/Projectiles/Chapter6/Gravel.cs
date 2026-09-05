@@ -22,13 +22,13 @@ namespace MVZ2.GameContent.Projectiles
         {
             AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback);
         }
-        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResultVoid result)
         {
             var hitResult = param.hit;
             var projectile = hitResult.Projectile;
             if (!projectile.Definition.HasBehaviour(this))
                 return;
-            if (hitResult.Pierce)
+            if (!hitResult.Remove)
                 return;
             var damage = param.damage;
             var enemy = hitResult.Other;

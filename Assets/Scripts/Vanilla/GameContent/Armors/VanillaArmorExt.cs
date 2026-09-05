@@ -7,7 +7,6 @@ using MVZ2.Vanilla.Entities;
 
 using PVZEngine.Armors;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -38,13 +37,8 @@ namespace MVZ2.Vanilla.Armors
 
         private static int PreArmorTakeDamage(this Armor armor, ArmorDamageInputPart input, ArmorDamageOutputPart result)
         {
-            var callbackResult = new CallbackResult(DamageStates.CONTINUE);
-            if (!callbackResult.IsBreakRequested)
-            {
-                var param = new VanillaLevelCallbacks.PreArmorTakeDamageParams(input, armor, result);
-                input.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ARMOR_TAKE_DAMAGE, param, callbackResult, armor.Definition.GetID());
-            }
-            return callbackResult.GetValue<int>();
+            var param = new VanillaLevelCallbacks.PreArmorTakeDamageParams(input, armor, result);
+            return input.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ARMOR_TAKE_DAMAGE, param, DamageStates.CONTINUE, armor.Definition.GetID());
         }
         private static void PostArmorTakeDamage(this Armor armor, ArmorDamageOutputPart result)
         {

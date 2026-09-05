@@ -70,7 +70,7 @@ namespace MVZ2.GameContent.Buffs.Entities
                 return;
             timer.ResetTime(frames);
         }
-        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult<bool> result)
         {
             var input = param.input;
             var entity = input.Entity;

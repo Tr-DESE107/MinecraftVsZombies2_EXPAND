@@ -110,7 +110,12 @@ namespace MVZ2.Level
         private void UpdateMoney()
         {
             var ui = GetUIPreset();
-            ui.SetMoney((level.GetMoney() - level.GetDelayedMoney()).ToString("N0"));
+            int displayedMoney = level.GetMoney() - level.GetDelayedMoney();
+            if (cachedDisplayedMoney != displayedMoney)
+            {
+                cachedDisplayedMoney = displayedMoney;
+                ui.SetMoney(displayedMoney.ToString("N0"));
+            }
         }
         #endregion
 
@@ -149,7 +154,12 @@ namespace MVZ2.Level
         private void UpdateEnergy()
         {
             var ui = GetUIPreset();
-            ui.SetEnergy(Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy())).ToString());
+            int energy = Mathf.FloorToInt(Mathf.Max(0, level.Energy - level.GetDelayedEnergy()));
+            if (energy != cachedDisplayedEnergy)
+            {
+                cachedDisplayedEnergy = energy;
+                ui.SetEnergy($"{energy}");
+            }
         }
         #endregion
 
@@ -194,7 +204,7 @@ namespace MVZ2.Level
             UpdateEnergy();
             UpdateLevelProgressUI();
             UpdateHeldSlotUI();
-            UpdateStarshards();
+            UpdateStarshardsUIRealtime();
 
             // 仅在下列条件全部满足时显示矿车移动按钮：  
             //  1) 场上存在存活的可骑乘矿车（不再硬匹配关卡 ID）  
@@ -322,6 +332,8 @@ namespace MVZ2.Level
         private int pointingBlueprint;
         private int pointingBlueprintPointerId;
         private bool pointingBlueprintConveyor;
+        private int cachedDisplayedMoney = -1;
+        private int cachedDisplayedEnergy = -1;
 
         private bool minecartUpHeld;
         private bool minecartDownHeld;

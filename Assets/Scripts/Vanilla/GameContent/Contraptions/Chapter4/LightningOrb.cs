@@ -44,8 +44,8 @@ namespace MVZ2.GameContent.Contraptions
             contraption.SetAnimationBool("Absorbing", contraption.HasBuff<LightningOrbEvokedBuff>());
         }
 
+        private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult<bool> result)
         // 投射物即将命中时的回调
-        private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
         {
             var hit = param.hit;
             var damage = param.damage;

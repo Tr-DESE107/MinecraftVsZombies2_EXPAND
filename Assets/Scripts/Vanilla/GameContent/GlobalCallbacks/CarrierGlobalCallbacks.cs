@@ -3,8 +3,9 @@
 using System.Collections.Generic;
 
 using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Grids;
-
+using MVZ2Logic;
 using MVZ2Logic.Modding;
 
 using PVZEngine.Callbacks;
@@ -18,9 +19,9 @@ namespace MVZ2.GameContent.GlobalCallbacks
     {
         public override void Apply(Mod mod)
         {
-            mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, EntityInitCallback, filter: EntityTypes.PLANT);
+            mod.AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, EntityInitCallback, filter: EntityTypes.PLANT);
         }
-        private void EntityInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void EntityInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             gridBuffer.Clear();
@@ -30,9 +31,10 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 var carrier = grid.GetCarrierEntity();
                 if (carrier == null)
                     continue;
-                foreach (var carrierBehaviour in carrier.Definition.GetBehaviours<ICarrierBehaviour>())
+                using var behavioursItem = entity.Definition.GetBehavioursDisposeable<ICarrierBehaviour>();
+                foreach (var behaviour in behavioursItem.Value)
                 {
-                    carrierBehaviour.UpdateCarrier(carrier);
+                    behaviour.UpdateCarrier(carrier);
                 }
             }
         }

@@ -111,8 +111,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 }
             }
         }
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult<bool> result)
         // 新增方法:处理爆炸等直接伤害  
-        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
         {
             var damageInfo = param.input;
             var entity = damageInfo.Entity;

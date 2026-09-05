@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Areas
     {
         public Ship(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(LogicLevelCallbacks.IS_TERRAIN, IsCloudCallback, filter: LogicTerrainTypes.air);
+            AddTriggerFiltered(LogicLevelCallbacks.IS_TERRAIN, IsCloudCallback, filter: LogicTerrainTypes.air);
         }
         public override void Setup(LevelEngine level)
         {
@@ -93,7 +93,17 @@ namespace MVZ2.GameContent.Areas
 
             var rng = GetRNG(level);
             var weightArray = weights.ToArray();
-            var grids = rng != null ? valid.WeightedRandomTake(weightArray, count, rng) : valid.Take(count);
+
+            using var gridsItem = ListPool<LawnGrid>.Rent();
+            var grids = gridsItem.Value;
+            if (rng != null)
+            {
+                valid.WeightedRandomTake(weightArray, count, rng, grids);
+            }
+            else
+            {
+                valid.TakeToList(count, grids);
+            }
             foreach (var grid in grids)
             {
                 var entityToSpawn = rng != null ? GetParatroopToSpawn(rng, level) : VanillaEnemyID.zombie;
@@ -136,7 +146,7 @@ namespace MVZ2.GameContent.Areas
             // 默认配置
             return paratroopsToSpawn.Random(rng);
         }
-        private void IsCloudCallback(LogicLevelCallbacks.IsTerrainCallbackParams args, CallbackResult result)
+        private void IsCloudCallback(LogicLevelCallbacks.IsTerrainCallbackParams args, CallbackResult<bool> result)
         {
             var level = args.level;
             if (level.AreaID != VanillaAreaID.ship)

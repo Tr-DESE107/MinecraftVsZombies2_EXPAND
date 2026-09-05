@@ -22,12 +22,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             mod.AddTrigger(LogicLevelCallbacks.PRE_BATTLE, PreBattleCallback);
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
         }
-        public void PreBattleCallback(LevelCallbackParams param, CallbackResult result)
+        public void PreBattleCallback(LevelCallbackParams param, CallbackResultVoid result)
         {
             var level = param.level;
             EvaluateDifficultyBuff(level);
         }
-        public void PostLevelStartCallback(LevelCallbackParams param, CallbackResult result)
+        public void PostLevelStartCallback(LevelCallbackParams param, CallbackResultVoid result)
         {
             var level = param.level;
             EvaluateDifficultyBuff(level);
@@ -64,16 +64,16 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 SetDifficultyBuff(level, level.GetBuffReference(buff));
             }
         }
-        public static BuffReference? GetDifficultyBuff(LevelEngine level)
+        public static IBuffReference? GetDifficultyBuff(LevelEngine level)
         {
-            return level.GetProperty<BuffReference>(PROP_DIFFICULTY_BUFF);
+            return level.GetProperty<IBuffReference>(PROP_DIFFICULTY_BUFF);
         }
-        public static void SetDifficultyBuff(LevelEngine level, BuffReference value)
+        public static void SetDifficultyBuff(LevelEngine level, IBuffReference value)
         {
             level.SetProperty(PROP_DIFFICULTY_BUFF, value);
         }
         private const string PROP_REGION = "difficulty";
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta<BuffReference> PROP_DIFFICULTY_BUFF = new VanillaLevelPropertyMeta<BuffReference>("DifficultyBuff");
+        public static readonly VanillaLevelPropertyMeta<IBuffReference> PROP_DIFFICULTY_BUFF = new VanillaLevelPropertyMeta<IBuffReference>("DifficultyBuff");
     }
 }

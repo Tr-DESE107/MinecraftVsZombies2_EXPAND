@@ -79,9 +79,29 @@ namespace MVZ2Logic.Modding
         #endregion
 
         #region 触发器
-        public void AddTrigger<TArgs>(CallbackType<TArgs> callbackID, Action<TArgs, CallbackResult> action, int priority = 0, object? filter = null)
+        public void AddTrigger<TArgs, TResult>(CallbackType<TArgs, TResult> callbackID, Action<TArgs, CallbackResult<TResult>> action, int priority = 0)
         {
-            triggers.Add(new Trigger<TArgs>(callbackID, action, priority, filter));
+            triggers.Add(new Trigger<TArgs, TResult>(callbackID, action, priority));
+        }
+        public void AddTrigger<TArgs>(CallbackType<TArgs> callbackID, Action<TArgs, CallbackResultVoid> action, int priority = 0)
+        {
+            triggers.Add(new Trigger<TArgs>(callbackID, action, priority));
+        }
+        public void AddTrigger<TArgs, TResult, TFilter>(CallbackTypeFiltered<TArgs, TResult, TFilter> callbackID, Action<TArgs, CallbackResult<TResult>> action, int priority = 0)
+        {
+            triggers.Add(new TriggerFiltered<TArgs, TResult, TFilter>(callbackID, action, priority));
+        }
+        public void AddTrigger<TArgs, TFilter>(CallbackTypeFiltered<TArgs, TFilter> callbackID, Action<TArgs, CallbackResultVoid> action, int priority = 0)
+        {
+            triggers.Add(new TriggerFiltered<TArgs, TFilter>(callbackID, action, priority));
+        }
+        public void AddTriggerFiltered<TArgs, TResult, TFilter>(CallbackTypeFiltered<TArgs, TResult, TFilter> callbackID, Action<TArgs, CallbackResult<TResult>> action, TFilter? filter, int priority = 0)
+        {
+            triggers.Add(new TriggerFiltered<TArgs, TResult, TFilter>(callbackID, action, priority, filter));
+        }
+        public void AddTriggerFiltered<TArgs, TFilter>(CallbackTypeFiltered<TArgs, TFilter> callbackID, Action<TArgs, CallbackResultVoid> action, TFilter? filter, int priority = 0)
+        {
+            triggers.Add(new TriggerFiltered<TArgs, TFilter>(callbackID, action, priority, filter));
         }
         public ITrigger[] GetTriggers()
         {

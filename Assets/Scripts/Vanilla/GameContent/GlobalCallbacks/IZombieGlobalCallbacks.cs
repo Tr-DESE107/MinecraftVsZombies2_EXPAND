@@ -17,9 +17,9 @@ namespace MVZ2.GameContent.GlobalCallbacks
     {
         public override void Apply(Mod mod)
         {
-            mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, 0, EntityTypes.ENEMY);
+            mod.AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, EntityTypes.ENEMY, priority: 0);
         }
-        private void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEnemyInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var level = entity.Level;

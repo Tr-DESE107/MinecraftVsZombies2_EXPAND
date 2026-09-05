@@ -9,7 +9,6 @@ using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 
 using PVZEngine;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Tools;
@@ -70,10 +69,9 @@ namespace MVZ2.Vanilla.Projectiles
         }
         private static bool PreShootProjectile(this Entity entity, ProjectileShootArgs parameters)
         {
-            var result = new CallbackResult(true);
             var args = new VanillaLevelCallbacks.PreProjectileShotParams(entity, parameters);
-            entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_PROJECTILE_SHOT, args, result);
-            return result.GetValue<bool>();
+
+            return entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_SHOT, args, true, entity.GetDefinitionID());
         }
         public static ProjectileShootArgs GetShootParams(this Entity entity)
         {
@@ -157,10 +155,15 @@ namespace MVZ2.Vanilla.Projectiles
         }
         public static Vector3 GetLobVelocityByTime(Vector3 source, Vector3 target, float maxTime, float gravity)
         {
+            // 垂直移动时间+1会更准确一点。
+            return GetLobVelocityByTime(source, target, maxTime, maxTime + 1, gravity);
+        }
+        public static Vector3 GetLobVelocityByTime(Vector3 source, Vector3 target, float horizontalTime, float verticalTime, float gravity)
+        {
             float x, y, z;
-            x = (target.x - source.x) / maxTime;
-            y = (target.y - source.y) / maxTime + gravity * maxTime * 0.5f;
-            z = (target.z - source.z) / maxTime;
+            x = (target.x - source.x) / horizontalTime;
+            y = (target.y - source.y) / verticalTime + gravity * verticalTime * 0.5f;
+            z = (target.z - source.z) / horizontalTime;
             return new Vector3(x, y, z);
         }
 
@@ -175,6 +178,13 @@ namespace MVZ2.Vanilla.Projectiles
                 position.z < LevelPositions.PROJECTILE_DOWN_BORDER ||
                 position.y > LevelPositions.PROJECTILE_TOP_BORDER ||
                 position.y < LevelPositions.PROJECTILE_BOTTOM_BORDER;
+        }
+        #endregion
+
+        #region 穿透
+        public static bool CanPierce(this Entity projectile)
+        {
+            return projectile.IsPiercing() || projectile.GetPiercedCount() < projectile.GetMaxPierceCount();
         }
         #endregion
     }

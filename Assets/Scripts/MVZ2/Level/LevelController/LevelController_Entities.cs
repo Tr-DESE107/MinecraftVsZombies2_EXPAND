@@ -139,7 +139,12 @@ namespace MVZ2.Level
         }
         public EntityController? GetEntityController(Entity entity)
         {
-            return entities.FirstOrDefault(e => e.Entity == entity);
+            foreach (var ent in entities)
+            {
+                if (ent.Entity == entity)
+                    return ent;
+            }
+            return null;
         }
         private EntityController CreateEntityControllerFunc()
         {
@@ -220,6 +225,7 @@ namespace MVZ2.Level
 
         private ObjectPool<EntityController> entityControllerPool = null!;
         private List<EntityController> entities = new List<EntityController>();
+        private List<EntityController> entitiesControllerUpdateBuffer = new List<EntityController>();
         private EntityController? hoveredEntity;
         private EntityController? highlightedEntity;
         private List<AnimatorUpdateData> entityAnimatorBuffer = new List<AnimatorUpdateData>();

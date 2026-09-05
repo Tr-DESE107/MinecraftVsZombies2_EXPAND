@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Projectiles
         {
             AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostHitEntityCallback, VanillaCallbackPriorities.LATE);
         }
-        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResultVoid result)
         {
             var hitResult = param.hit;
             var projectile = hitResult.Projectile;
@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Projectiles
             SetHitCount(projectile, hitCount);
             if (hitCount >= MAX_HIT_COUNT)
             {
-                hitResult.Pierce = false;
+                hitResult.Remove = true;
                 return;
             }
 

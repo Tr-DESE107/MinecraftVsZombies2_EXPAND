@@ -14,10 +14,10 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Localization;
 using MVZ2Logic.Models;
 using PVZEngine;
-using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 namespace MVZ2.Managers
 {
@@ -63,7 +63,12 @@ namespace MVZ2.Managers
             var metalist = GetBlueprintMetaList(id.SpaceName);
             if (metalist == null)
                 return null;
-            return metalist.Styles.FirstOrDefault(s => s.ID == id.Path);
+            foreach (var m in metalist.Styles)
+            {
+                if (m.ID == id.Path)
+                    return m;
+            }
+            return null;
         }
         #endregion
 
@@ -190,12 +195,8 @@ namespace MVZ2.Managers
         private NamespaceID GetBlueprintStyleID(SeedDefinition seedDef, bool isCommandBlock)
         {
             var defaultValue = LogicBlueprintStyles.normal;
-            var result = new CallbackResult();
-            result.SetValue(defaultValue);
             var args = new LogicCallbacks.GetBlueprintStyleParams(seedDef, isCommandBlock);
-            Global.Game.RunCallbackWithResultFiltered(LogicCallbacks.GET_BLUEPRINT_STYLE, args, result, seedDef);
-
-            return result.GetValue<NamespaceID>() ?? defaultValue;
+            return Global.Game.RunCallbackWithResultFiltered(LogicCallbacks.GET_BLUEPRINT_STYLE, args, defaultValue, seedDef.GetID()) ?? defaultValue;
         }
         private void SetBlueprintViewDataStyle(ref BlueprintViewData viewData, BlueprintStyleMeta? styleMeta)
         {

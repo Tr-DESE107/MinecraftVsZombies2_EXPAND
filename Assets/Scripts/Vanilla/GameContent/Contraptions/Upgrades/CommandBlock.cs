@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public CommandBlock(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.CAN_CONTRAPTION_SACRIFICE, CanContraptionSacrificeCallback, filter: VanillaContraptionID.commandBlock);
+            AddTriggerFiltered(VanillaLevelCallbacks.CAN_CONTRAPTION_SACRIFICE, CanContraptionSacrificeCallback, filter: VanillaContraptionID.commandBlock);
         }
         public override void Init(Entity entity)
         {
@@ -154,10 +154,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         private static bool PreTransform(Entity entity, NamespaceID id, bool error)
         {
-            var result = new CallbackResult(true);
             var preArgs = new VanillaLevelCallbacks.PreCommandBlockTransformParams(entity, id, error);
-            entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_COMMAND_BLOCK_TRANSFORM, preArgs, result, id);
-            return result.GetValue<bool>();
+            return entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_COMMAND_BLOCK_TRANSFORM, preArgs, true, id);
         }
         private static void PostTransform(Entity entity, Entity? spawned, NamespaceID id, bool error)
         {
@@ -187,7 +185,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             return spawnParam;
         }
-        private void CanContraptionSacrificeCallback(VanillaLevelCallbacks.ContraptionSacrificeValueParams param, CallbackResult result)
+        private void CanContraptionSacrificeCallback(VanillaLevelCallbacks.ContraptionSacrificeValueParams param, CallbackResult<bool> result)
         {
             result.SetFinalValue(false);
         }
