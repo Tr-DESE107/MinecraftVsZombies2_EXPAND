@@ -1929,6 +1929,20 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2b5a0c6953728db40a29b052bf4f0983, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/Squid
     sprite: {fileID: 21300000, guid: 55f1f6688da83694087992270e170cb6, type: 3}
+  - name: level/dream/EXPAND/DreamNightGround
+    sprite: {fileID: 21300000, guid: d4329f3886884fe4cb949dcdd8ec8e10, type: 3}
+  - name: level/dream/EXPAND/DreamNightHouseCover
+    sprite: {fileID: 21300000, guid: 2852f645bc702264a8d5c7c1ccf69d07, type: 3}
+  - name: level/dream/EXPAND/DreamNightPool
+    sprite: {fileID: 21300000, guid: 9e8ab73081f4927499a65ce0b848ba33, type: 3}
+  - name: level/dream/EXPAND/DreamNightSky
+    sprite: {fileID: 21300000, guid: ae01cffe24012cd45af046845ed4fb09, type: 3}
+  - name: level/dream/EXPAND/NightmareNightGround
+    sprite: {fileID: 21300000, guid: e0dc55bc6d3f63e48b8469ea7687839a, type: 3}
+  - name: level/dream/EXPAND/NightmareNightHouseCover
+    sprite: {fileID: 21300000, guid: a4527531e0871614782e6617b773c4c9, type: 3}
+  - name: level/dream/EXPAND/NightmareNightSky
+    sprite: {fileID: 21300000, guid: 5aec50f2d3cad4848a37653c78595409, type: 3}
   - name: map/gensokyo/pins/castle
     sprite: {fileID: 21300000, guid: 9696331d07114754fbccc29acd1b4846, type: 3}
   - name: map/gensokyo/pins/dream

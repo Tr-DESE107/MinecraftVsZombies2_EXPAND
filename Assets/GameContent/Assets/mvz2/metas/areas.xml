@@ -455,7 +455,7 @@
         </grids>
     </area>
     <!--EXPAND-->
-    <area id="DreamNight" model="mvz2:DreamNight" music="mvz2:dream_level" cart="mvz2:nyan_cat" starshard="mvz2:starshards/dream" tags="mvz2:day mvz2:water">
+    <area id="DreamNight" model="mvz2:DreamNight" music="mvz2:dream_level" cart="mvz2:nyan_cat" starshard="mvz2:starshards/dream" tags="mvz2:night mvz2:water">
         <positions enemySpawnX="1080" doorZ="240" />
         <grids width="80" height="80" leftX="260" bottomZ="40" lanes="6" columns="9">
             <!-- Lane 1 -->

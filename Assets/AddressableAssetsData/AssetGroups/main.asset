@@ -2103,6 +2103,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b54a17d1036a4045a7f022dafec6550
+    m_Address: mvz2:DreamNight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
+    - Main
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b6c05457bbc2e14580f37e573f5c432
     m_Address: mvz2:held/starshards/palace
     m_ReadOnly: 0
@@ -3096,6 +3103,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2852f645bc702264a8d5c7c1ccf69d07
+    m_Address: mvz2:level/dream/EXPAND/DreamNightHouseCover
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2857c107e1a215140972a6e8ef1341e6
     m_Address: mvz2:entity/EXPAND_Enemy/RandomMutant
@@ -7567,6 +7581,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62ef2925e8948e045be69ce9079ea24a
+    m_Address: mvz2:mobile_blueprint/CannonballMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62fd317a8ec491344b7f5962a0e94db8
     m_Address: mvz2:armor/boat_item
     m_ReadOnly: 0
@@ -10436,6 +10457,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bb7a32fc095f874ebe84b2c4f66235e
+    m_Address: mvz2:entity/enemies/Diamond_Shovel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8bf802c92af01e14ab7d98dedcdb86a1
     m_Address: mvz2:entity/effects/pow
     m_ReadOnly: 0
@@ -11842,6 +11870,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e8ab73081f4927499a65ce0b848ba33
+    m_Address: mvz2:level/dream/EXPAND/DreamNightPool
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e8b96acd54be694a9e26a07bd64fb2b
     m_Address: mvz2:mobile_blueprint/zombie_cat
     m_ReadOnly: 0
@@ -12584,6 +12619,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a957ac72d081ebd41a05895de4f84284
+    m_Address: mvz2:mobile_blueprint/WickedHermitMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a95ce05ec9225b245882a09e4183edc7
     m_Address: mvz2:entity/EXPAND_Enemy/Mannequin/CannoneerMannequin
     m_ReadOnly: 0
@@ -12915,6 +12957,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adecf731c88b78646a29bb745f5ada9b
     m_Address: mvz2:mobile_blueprint/dream_crystal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae01cffe24012cd45af046845ed4fb09
+    m_Address: mvz2:level/dream/EXPAND/DreamNightSky
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -15742,6 +15791,20 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3fcf478a2435a14cad0b456609aed1c
     m_Address: mvz2:mobile_blueprint/AntiGravityPad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d40573bd9b87d414abc4c0a1c4675fad
+    m_Address: mvz2:mobile_blueprint/CannoneerMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4329f3886884fe4cb949dcdd8ec8e10
+    m_Address: mvz2:level/dream/EXPAND/DreamNightGround
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
