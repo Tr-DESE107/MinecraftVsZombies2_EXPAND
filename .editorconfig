@@ -11,3 +11,6 @@ end_of_line = crlf
 
 # 你原有的规则（保留）
 dotnet_diagnostic.CS3021.severity = none
+
+# 使用分组之间不插入空行
+dotnet_separate_import_directive_groups = false
