@@ -1,4 +1,4 @@
-﻿using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Enemies;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Definitions;
@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Artifacts
         }
 
         // 修改这里：使用 LogicLevelCallbacks.WaveEnemySpawnParams 而不是 VanillaLevelCallbacks.WaveEnemySpawnParams
-        private void PostWaveEnemySpawnCallback(LogicLevelCallbacks.WaveEnemySpawnParams param, CallbackResult result)
+        private void PostWaveEnemySpawnCallback(LogicLevelCallbacks.WaveEnemySpawnParams param, CallbackResultVoid result)
         {
             var level = param.level;
             var wave = param.wave;

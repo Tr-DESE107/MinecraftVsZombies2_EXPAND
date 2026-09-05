@@ -15,6 +15,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
+using PVZEngine.Tools;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -24,18 +25,18 @@ namespace MVZ2.GameContent.Artifacts
         public FrankensteinBrain(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, filter: EntityTypes.PLANT);
-            AddTrigger(LevelCallbacks.POST_ENTITY_REMOVE, PostEntityRemoveCallback, filter: EntityTypes.PLANT);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, EntityTypes.PLANT);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_REMOVE, PostEntityRemoveCallback, EntityTypes.PLANT);
             AddAura(new ReduceCostAura());
             AddAura(new BlueprintAura());
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostContraptionInitCallback, filter: EntityTypes.PLANT);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostContraptionInitCallback, EntityTypes.PLANT);
         }
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        private void PostLevelStartCallback(LevelCallbackParams param, CallbackResult result)
+        private void PostLevelStartCallback(LevelCallbackParams param, CallbackResultVoid result)
         {
             var level = param.level;
             foreach (var artifact in level.GetArtifacts())
@@ -48,7 +49,7 @@ namespace MVZ2.GameContent.Artifacts
                 aura.UpdateAura();
             }
         }
-        private void PostContraptionInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostContraptionInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var contraption = param.entity;
             var level = contraption.Level;
@@ -64,7 +65,7 @@ namespace MVZ2.GameContent.Artifacts
             }
         }
 
-        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var contraption = param.entity;
             var level = contraption.Level;
@@ -78,7 +79,7 @@ namespace MVZ2.GameContent.Artifacts
                 aura.UpdateAura();
             }
         }
-        private void PostEntityRemoveCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEntityRemoveCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var contraption = param.entity;
             var level = contraption.Level;
@@ -103,7 +104,10 @@ namespace MVZ2.GameContent.Artifacts
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();
-                foreach (var seed in level.GetAllSeedPacks())
+                using var seedsItem = ListPool<ClassicSeedPack?>.Rent();
+                var seeds = seedsItem.Value;
+                level.GetAllSeedPacks(seeds);
+                foreach (var seed in seeds)
                 {
                     if (seed != null)
                     {
@@ -121,7 +125,10 @@ namespace MVZ2.GameContent.Artifacts
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();
-                foreach (var seed in level.GetAllSeedPacks())
+                using var seedsItem = ListPool<ClassicSeedPack?>.Rent();
+                var seeds = seedsItem.Value;
+                level.GetAllSeedPacks(seeds);
+                foreach (var seed in seeds)
                 {
                     if (seed == null)
                         continue;

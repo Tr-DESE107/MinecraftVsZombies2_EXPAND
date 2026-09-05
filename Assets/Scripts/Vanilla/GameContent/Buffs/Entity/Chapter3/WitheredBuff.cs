@@ -94,7 +94,7 @@ namespace MVZ2.GameContent.Buffs.Entities
 
         // ==== 传播逻辑 ====
 
-        private void PostEntityTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
+        private void PostEntityTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResultVoid callbackResult)
         {
             var output = param.output;
             if (output == null)

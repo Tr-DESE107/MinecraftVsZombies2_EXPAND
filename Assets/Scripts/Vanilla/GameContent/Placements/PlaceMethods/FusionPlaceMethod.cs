@@ -14,6 +14,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Placements;
+using PVZEngine.Tools;
 
 namespace MVZ2.GameContent.Placements
 {
@@ -27,8 +28,10 @@ namespace MVZ2.GameContent.Placements
                 return VanillaGridStatus.onlyUpgrade;
             }
 
-            var entities = grid.GetEntities();
-            if (entities.Count() <= 0 || !entities.Any(e => fusionTargets.Any(target => e.IsEntityOf(target)) && e.IsFriendlyEntity()))
+            using var entitiesItem = ListPool<Entity>.Rent();
+            var entities = entitiesItem.Value;
+            grid.GetEntities(entities);
+            if (entities.Count <= 0 || !entities.Any(e => fusionTargets.Any(target => e.IsEntityOf(target)) && e.IsFriendlyEntity()))
             {
                 return VanillaGridStatus.onlyUpgrade;
             }
@@ -47,7 +50,10 @@ namespace MVZ2.GameContent.Placements
             // �������һһ���ģʽ  
             bool useMappingMode = fusionResults != null && fusionResults.Length > 0;
 
-            var entity = grid.GetEntities().FirstOrDefault(e => fusionTargets.Any(target => e.IsEntityOf(target)) && e.IsFriendlyEntity());
+            using var checkEntitiesItem = ListPool<Entity>.Rent();
+            var checkEntities = checkEntitiesItem.Value;
+            grid.GetEntities(checkEntities);
+            var entity = checkEntities.FirstOrDefault(e => fusionTargets.Any(target => e.IsEntityOf(target)) && e.IsFriendlyEntity());
             if (entity != null && entity.Exists())
             {
                 NamespaceID targetResult;

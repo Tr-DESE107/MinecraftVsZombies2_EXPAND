@@ -138,7 +138,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
         }
         // 在实体受到伤害前触发
-        private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
+        private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult<bool> result)
         {
             var hit = param.hit;
             var damage = param.damage;

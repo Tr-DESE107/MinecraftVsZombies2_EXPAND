@@ -22,6 +22,7 @@ using PVZEngine.Entities;
 using PVZEngine.Models;
 
 using UnityEngine;
+using MVZ2Logic;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -191,7 +192,8 @@ namespace MVZ2.GameContent.Contraptions
                 detectBuffer.Clear();
                 enemyDetector.DetectEntities(entity, detectBuffer);
 
-                var armorSlots = entity.GetActiveArmorSlots();
+                using var armorSlotsItem = entity.GetActiveArmorSlotsDisposeable();
+                var armorSlots = armorSlotsItem.Value;
                 foreach (var slot in armorSlots)
                 {
                     var armor = entity.GetArmorAtSlot(slot);

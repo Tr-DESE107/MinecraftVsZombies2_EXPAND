@@ -95,9 +95,17 @@ namespace MVZ2.GameContent.Bosses
             var desc = Global.Localization.GetText(CHOOSE_FATE_DESCRIPTION);
 
             var rng = GetEventRNG(boss);
-            var selected = rng != null ?
-                fateOptions.RandomTake(optionCount, rng).ToArray() :
-                fateOptions.Take(optionCount).ToArray();
+
+            // 这里不要用ListPool.Rent，因为后续选项执行时这个List已经被Release了。
+            List<int> selected = new List<int>();
+            if (rng != null)
+            {
+                fateOptions.RandomTake(optionCount, rng, selected);
+            }
+            else
+            {
+                fateOptions.TakeToList(optionCount, selected);
+            }
 
             var options = selected.Select(i => GetFateOptionText(boss.RNG, i)).ToArray();
 
@@ -183,7 +191,8 @@ namespace MVZ2.GameContent.Bosses
             {
                 contraption.ClearTakenGrids();
             }
-            var grids = level.GetAllGrids();
+            using var gridsItem = level.GetAllGridsDisposeable();
+            var grids = gridsItem.Value;
             foreach (var contraption in contraptions)
             {
                 var placementID = contraption.Definition.GetPlacementID();
@@ -207,7 +216,18 @@ namespace MVZ2.GameContent.Bosses
             var level = boss.Level;
             var rng = GetEventRNG(boss);
             var contraptions = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && !e.IsLoyal());
-            var charmTargets = rng != null ? contraptions.RandomTake(Mathf.Max(1, contraptions.Length / 3), rng) : contraptions.Take(Mathf.Max(1, contraptions.Length / 3));
+            var charmCount = Mathf.Max(1, contraptions.Length / 3);
+
+            using var charmTargetsItem = ListPool<Entity>.Rent();
+            var charmTargets = charmTargetsItem.Value;
+            if (rng != null)
+            {
+                contraptions.RandomTake(charmCount, rng, charmTargets);
+            }
+            else
+            {
+                contraptions.TakeToList(charmCount, charmTargets);
+            }
             foreach (var target in charmTargets)
             {
                 target.CharmPermanent(boss.GetFaction(), new EntitySourceReference(boss));
@@ -261,7 +281,17 @@ namespace MVZ2.GameContent.Bosses
             level.ShakeScreen(50, 0, 30);  // 现在这个方法可以使用了    
             var waterContraptions = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && e.IsOnWater());
             var destroyCount = Mathf.CeilToInt(waterContraptions.Length * 0.5f);
-            var destroyTargets = rng != null ? waterContraptions.RandomTake(destroyCount, rng) : waterContraptions.Take(destroyCount);
+
+            using var destroyTargetsItem = ListPool<Entity>.Rent();
+            var destroyTargets = destroyTargetsItem.Value;
+            if (rng != null)
+            {
+                waterContraptions.RandomTake(destroyCount, rng, destroyTargets);
+            }
+            else
+            {
+                waterContraptions.TakeToList(destroyCount, destroyTargets);
+            }
             foreach (var target in destroyTargets)
             {
                 target.Die(boss);

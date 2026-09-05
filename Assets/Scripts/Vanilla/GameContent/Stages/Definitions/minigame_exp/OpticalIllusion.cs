@@ -12,7 +12,7 @@ using MVZ2Logic.Entities;     // IsInWater ��չ����
 using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine.Buffs;                 // AddBuff  
-using PVZEngine.Callbacks;             // LevelCallbacks, EntityCallbackParams, CallbackResult  
+using PVZEngine.Callbacks;             // LevelCallbacks, EntityCallbackParams, CallbackResultVoid  
 using PVZEngine.Definitions;
 using PVZEngine.Entities;              // EntityTypes
 using PVZEngine.Level;
@@ -30,8 +30,8 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new FinalWaveClearBehaviour(this));  
             AddBehaviour(new GemStageBehaviour(this));  
             AddBehaviour(new StarshardStageBehaviour(this));
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostProjectileInitCallback, filter: EntityTypes.PROJECTILE);
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostProjectileInitCallback, EntityTypes.PROJECTILE);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, EntityTypes.ENEMY);
         }
         
   
@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Stages
         // 5. Ѫ�º�ɫ��â  
         //level.AddBuff<BloodMoonBuff>();
     }
-    private void PostProjectileInitCallback(EntityCallbackParams param, CallbackResult result)
+    private void PostProjectileInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var projectile = param.entity;
             var level = projectile.Level;
@@ -83,7 +83,7 @@ namespace MVZ2.GameContent.Stages
         /// </summary>  
         private const float PROJECTILE_Y_BOOST = 20f;
 
-        public void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
+        public void PostEnemyInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var level = entity.Level;

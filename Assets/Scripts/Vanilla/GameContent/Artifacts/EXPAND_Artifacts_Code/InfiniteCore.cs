@@ -1,4 +1,4 @@
-﻿#nullable enable  
+#nullable enable  
 
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
@@ -69,7 +69,7 @@ namespace MVZ2.GameContent.Artifacts
         }
 
         private void ClampSpawnPointCallback(
-            LogicLevelCallbacks.CalculateSpawnPointParams param, CallbackResult result)
+            LogicLevelCallbacks.CalculateSpawnPointParams param, CallbackResultVoid result)
         {
             if (!param.level.HasArtifact(GetID()))
                 return;

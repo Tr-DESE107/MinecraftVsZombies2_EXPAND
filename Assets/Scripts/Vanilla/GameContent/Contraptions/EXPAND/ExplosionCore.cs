@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
         }
-        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult<bool> result)
         {
             var damageInfo = param.input;
             var entity = damageInfo.Entity;

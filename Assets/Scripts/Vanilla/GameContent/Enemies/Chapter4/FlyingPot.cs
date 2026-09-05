@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Enemies
             fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 30f);
         }
 
-        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
+        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult<bool> result)
         {
             base.PreTakeDamage(damageInfo, result);
             if (damageInfo.Amount != 1f)

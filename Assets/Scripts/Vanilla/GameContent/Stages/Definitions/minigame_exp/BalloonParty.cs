@@ -27,10 +27,10 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new StarshardStageBehaviour(this));
 
             // 敌人初始化时触发，只处理敌方怪物  
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, EntityTypes.ENEMY);
         }
 
-        private void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEnemyInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var level = entity.Level;

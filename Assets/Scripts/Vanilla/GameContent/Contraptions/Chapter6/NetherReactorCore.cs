@@ -192,11 +192,14 @@ namespace MVZ2.GameContent.Contraptions
                     var g = level.GetGrid(column + x, lane + y);
                     if (g == null)
                         continue;
-                    foreach (var ent in g.GetEntities())
+                    using var gridEntitiesItem = ListPool<Entity>.Rent();
+                    var gridEntities = gridEntitiesItem.Value;
+                    g.GetEntities(gridEntities);
+                    foreach (var ent in gridEntities)
                     {
                         if (ent == null || ent.IsDead)
                             continue;
-                        // 注意：核对 VanillaContraptionID 中黑曜石的实际成员名  
+                        // 注意：核对 VanillaContraptionID 中黑曜石的实际成员名
                         if (ent.IsEntityOf(VanillaContraptionID.obsidian))
                             toConvert.Add(ent);
                     }

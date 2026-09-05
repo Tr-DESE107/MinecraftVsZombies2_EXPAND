@@ -25,8 +25,10 @@ using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Models;
 using PVZEngine.Tools;
+using PVZEngine.Tools.Random;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
+using MVZ2Logic;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -65,21 +67,30 @@ namespace MVZ2.GameContent.Contraptions
             {
                 riseTimer.Frame = 30;
             }
-            List<LawnGrid> grids = new List<LawnGrid>();
-            for (int x = 0; x < entity.Level.GetMaxColumnCount(); x++)
+            using var allGridsItem = entity.Level.GetAllGridsDisposeable();
+            var allGrids = allGridsItem.Value;
+
+            var columnGroups = allGrids
+                .Where(g => g.CanSpawnEntity(VanillaContraptionID.LCMTNT))
+                .GroupBy(g => g.Column)
+                .OrderByDescending(g => g.Key);
+
+            using var selectedItem = ListPool<LawnGrid>.Rent();
+            var selected = selectedItem.Value;
+
+            var rng = entity.RNG;
+            int count = 2;
+            foreach (var group in columnGroups)
             {
-                for (int y = 0; y < entity.Level.GetMaxLaneCount(); y++)
-                {
-                    var grid = entity.Level.GetGrid(x, y);
-                    if (grid != null && grid.CanSpawnEntity(VanillaContraptionID.LCMTNT))
-                    {
-                        grids.Add(grid);
-                    }
-                }
+                int need = count - selected.Count;
+                if (need <= 0)
+                    break;
+                group.RandomTake(need, rng, selected);
+                if (selected.Count >= count)
+                    break;
             }
-            var groups = grids.GroupBy(g => g.Column).OrderByDescending(g => g.Key).Take(2);
-            var selectedGrids = groups.SelectMany(g => g.Randomize(entity.RNG)).Take(2);
-            foreach (var grid in selectedGrids)
+
+            foreach (var grid in selected)
             {
                 FireSeed(entity, grid);
             }

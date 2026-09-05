@@ -1,4 +1,4 @@
-﻿#nullable enable // 自动生成
+#nullable enable // 自动生成
 
 using System.Collections.Generic;
 using MVZ2.Vanilla.Callbacks;
@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         /// <summary>
         /// 伤害前回调：判断是否拥有该Buff
         /// </summary>
-        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult<bool> callbackResult)
         {
             var damageInfo = param.input;
             var entity = damageInfo.Entity;

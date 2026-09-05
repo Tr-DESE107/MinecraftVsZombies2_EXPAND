@@ -58,13 +58,16 @@ namespace MVZ2.GameContent.HeldItems
             }
         }
         public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult<NamespaceID> result)
+        {
+            result.SetFinalValue(VanillaModelID.pickaxeHeldItem);
+        }
 
-        // 按被敲碎敌人的分类返回不同的镐子禁用帧数  
+        // 按被敲碎敌人的分类返回不同的镐子禁用帧数
         private static int GetPickaxeCooldown(Entity entity)
         {
             int baseFrames = StoneEyePickaxeCooldownBuff.MAX_TIMEOUT;
             var category = entity.GetProperty<NamespaceID>(VanillaEntityProps.CATEGORY);
-            // 例：突变类/载具类冷却更长（x2），其余默认  
+            // 例：突变类/载具类冷却更长（x2），其余默认
             if (category == MutantCategory || category == VehicleCategory)
                 return baseFrames * 2;
             return baseFrames;
@@ -72,8 +75,5 @@ namespace MVZ2.GameContent.HeldItems
 
         private static readonly NamespaceID MutantCategory = new NamespaceID(VanillaMod.spaceName, "Mutant_Exp");
         private static readonly NamespaceID VehicleCategory = new NamespaceID(VanillaMod.spaceName, "Vehicle_Exp");
-        {
-            result.SetFinalValue(VanillaModelID.pickaxeHeldItem);
-        }
     }
 }

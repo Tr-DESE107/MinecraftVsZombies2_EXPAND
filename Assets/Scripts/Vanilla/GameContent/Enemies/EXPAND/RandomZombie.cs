@@ -1,4 +1,4 @@
-﻿#nullable enable // 自动生成
+#nullable enable // 自动生成
 
 using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
@@ -15,6 +15,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Models;
 using PVZEngine.Tools;
+using PVZEngine.Tools.Random;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies

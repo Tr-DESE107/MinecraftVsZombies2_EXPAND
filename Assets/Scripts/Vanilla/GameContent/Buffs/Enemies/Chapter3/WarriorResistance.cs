@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.WarriorResistanceShield, VanillaModelID.WarriorResistanceShield);
         }
-        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult<bool> callbackResult)
         {
             var damageInfo = param.input;
             var entity = damageInfo.Entity;
@@ -29,14 +29,14 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity == null)
                 return;
 
-            // Èç¹ûÊµÌå²»´¦ÓÚ½üÕ½¹¥»÷×´Ì¬,ÒÆ³ýÕâ¸öBuff  
+            // ï¿½ï¿½ï¿½Êµï¿½å²»ï¿½ï¿½ï¿½Ú½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½×´Ì¬,ï¿½Æ³ï¿½ï¿½ï¿½ï¿½Buff  
             if (entity.State != STATE_MELEE_ATTACK)
             {
                 entity.RemoveBuffs<WarriorResistance>();
                 return;
             }
 
-            // »ñÈ¡ÊµÌåÉíÉÏËùÓÐWarriorResistanceÊµÀý  
+            // ï¿½ï¿½È¡Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WarriorResistanceÊµï¿½ï¿½  
             buffBuffer.Clear();
             entity.GetBuffs<WarriorResistance>(buffBuffer);
             if (buffBuffer.Count == 0)

@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Stages
             // 借用星之碎片 UI 当命数显示：禁用其原功能 + 换成命数图标    
             AddModifier(new NamespaceIDModifier(LogicLevelProps.STARSHARD_DISABLE_ID, SetOperator.Set, VanillaBlueprintErrors.locked));
             AddModifier(new SpriteReferenceModifier(LogicAreaProps.STARSHARD_ICON, SetOperator.Set, VanillaSprites.snipenserLife));
-            stageDef.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
+            stageDef.AddTriggerFiltered(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, EntityTypes.PLANT);
         }
 
         public override void Start(LevelEngine level)
@@ -242,7 +242,7 @@ namespace MVZ2.GameContent.Stages
             60f,   // boulder    
         };
 
-        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var level = entity.Level;

@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
-            buff.SetProperty(PROP_HIT_COUNT, 0); // ³õÊ¼»¯ÃüÖÐ¼ÆÊý  
+            buff.SetProperty(PROP_HIT_COUNT, 0); // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½  
             UpdateLightRange(buff);
         }
 
@@ -53,7 +53,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             buff.SetProperty(PROP_LIGHT_RANGE_ADDITION, Vector3.one * 20 * scale);
         }
 
-        private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
+        private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResultVoid result)
         {
             var hit = param.hit;
             var damage = param.damage;
@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
 
 
 
-            // ½¦ÉäÉËº¦      
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½      
             var entity = projectile;
             var level = entity.Level;
             var damageEffects = new DamageEffectList(VanillaDamageEffects.LIGHTNING);
@@ -83,14 +83,14 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             var splashAmount = additionalDamage;
             entity.SplashDamage(hit.Collider, center, radius, faction, splashAmount, damageEffects);
 
-            // Ôö¼ÓÃüÖÐ¼ÆÊý£¨Ö»¼ÇÂ¼TakeDamage£¬²»¼ÇÂ¼SplashDamage£©  
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Â¼TakeDamageï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼SplashDamageï¿½ï¿½  
             foreach (var buff in buffs)
             {
                 int hitCount = buff.GetProperty<int>(PROP_HIT_COUNT);
                 hitCount++;
                 buff.SetProperty(PROP_HIT_COUNT, hitCount);
 
-                // ´ïµ½3´ÎÃüÖÐºóÒÆ³ýbuff  
+                // ï¿½ïµ½3ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½Æ³ï¿½buff  
                 if (hitCount >= MAX_HIT_COUNT)
                 {
                     buff.Remove();

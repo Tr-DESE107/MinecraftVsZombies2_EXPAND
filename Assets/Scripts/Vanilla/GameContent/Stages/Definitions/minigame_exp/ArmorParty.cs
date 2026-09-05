@@ -24,10 +24,10 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new StarshardStageBehaviour(this));
 
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, EntityTypes.ENEMY);
         }
 
-        public void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
+        public void PostEnemyInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var level = entity.Level;

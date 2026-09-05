@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Enemies
     {
         public AssaultDullahan(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.POST_APPLY_STATUS_EFFECT, PostEntityCharmCallback, filter: VanillaBuffID.Entity.charm);
+            AddTriggerFiltered(VanillaLevelCallbacks.POST_APPLY_STATUS_EFFECT, PostEntityCharmCallback, VanillaBuffID.Entity.charm);
         }
         public override void Init(Entity entity)
         {
@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Enemies
             });
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
         }
-        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostApplyStatusEffectParams param, CallbackResult result)
+        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostApplyStatusEffectParams param, CallbackResultVoid result)
         {
             var entity = param.entity;
             var buff = param.buff;

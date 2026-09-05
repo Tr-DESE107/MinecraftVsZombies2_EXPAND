@@ -19,6 +19,8 @@ using PVZEngine.Timing;
 using PVZEngine.Tools;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
+using MVZ2Logic;
+using PVZEngine.Tools.Random;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -116,8 +118,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             var evokeTimer = GetEvocationTimer(entity);
             var level = entity.Level;
-            var grid = level.GetAllGrids().Random(entity.RNG);
-            var targets = entity.Level.FindEntities(e => IsEvocationTarget(entity, e)).RandomTake(1, entity.RNG);
+            using var gridsItem = level.GetAllGridsDisposeable();
+            var grids = gridsItem.Value;
+            var grid = grids.Random(entity.RNG);
+            using var targetsItem = ListPool<Entity>.Rent();
+            var targets = targetsItem.Value;
+            entity.Level.FindEntities(e => IsEvocationTarget(entity, e)).RandomTake(1, entity.RNG, targets);
             var targetPos = grid.GetEntityPosition();
             int frames = Ticks.FromSeconds(1);
             foreach (var target in targets)

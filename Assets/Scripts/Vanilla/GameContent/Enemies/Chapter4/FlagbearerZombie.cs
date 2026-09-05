@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.Enemies
         public FlagbearerZombie(string nsp, string name) : base(nsp, name)
         {
             // 监听场上怪物死亡事件  
-            AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback, EntityTypes.ENEMY);
         }
 
         public override void Init(Entity entity)
@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Enemies
             }
         }
 
-        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        private void PostEntityDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResultVoid result)
         {
             var deadEntity = param.entity;
             var deathInfo = param.deathInfo;

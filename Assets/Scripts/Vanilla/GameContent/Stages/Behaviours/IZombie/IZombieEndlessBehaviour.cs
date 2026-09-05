@@ -1,4 +1,4 @@
-﻿#nullable enable // 自动生成  
+#nullable enable // 自动生成  
 
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Tools;
+using PVZEngine.Tools.Random;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -59,9 +60,11 @@ namespace MVZ2.GameContent.Stages
                 return;
             }
 
-            // 随机选取 10 个敌人（数量不足则取全部），转换为蓝图 ID  
-            var selectedBlueprints = validEnemies
-                .RandomTake(10, level.GetRoundRNG())
+            // 随机选取 10 个敌人（数量不足则取全部），转换为蓝图 ID
+            using var selectedEnemiesItem = ListPool<NamespaceID>.Rent();
+            var selectedEnemies = selectedEnemiesItem.Value;
+            validEnemies.RandomTake(10, level.GetRoundRNG(), selectedEnemies);
+            var selectedBlueprints = selectedEnemies
                 .Select(id => LogicBlueprintID.FromEntity(id))
                 .ToArray();
 

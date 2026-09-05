@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Projectiles
             float angleSpeed = -projectile.Velocity.x * 2.5f;
             projectile.RenderRotation += Vector3.forward * angleSpeed;
         }
-        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
+        private void PostHitEntityCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResultVoid result)
         {
             var hitResult = param.hit;
             var projectile = hitResult.Projectile;
@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Projectiles
                 projectile.PlaySound(VanillaSoundID.bash);
             }
 
-            if (!hitResult.Pierce)
+            if (hitResult.Remove)
             {
                 var rng = projectile.RNG;
                 for (int i = 0; i < 3; i++)

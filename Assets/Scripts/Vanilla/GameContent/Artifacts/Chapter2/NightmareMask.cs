@@ -1,4 +1,4 @@
-﻿#nullable enable // 自动生成
+#nullable enable // 自动生成
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Artifacts
             AddAura(new NightmareMaskAura());
 
             // 在实体初始化完成后，创建回调并对 EntityTypes.ENEMY 类型的实体生效
-            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, filter: EntityTypes.ENEMY);
+            AddTriggerFiltered(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, EntityTypes.ENEMY);
         }
 
         // 每帧更新中，让所有友方神器发出发光视觉效果
@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Artifacts
         }
 
         // 回调函数：当任意 ENEMY 实体初始化完成之后，更新光环效果
-        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResultVoid result)
         {
             var contraption = param.entity;              // 获取刚初始化的实体
             var level = contraption.Level;               // 获取实体所在的关卡

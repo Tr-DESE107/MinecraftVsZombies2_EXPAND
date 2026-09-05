@@ -1314,6 +1314,9 @@ MonoBehaviour:
   - name: mobile_blueprint/pop_captain
     texture: {fileID: 2800000, guid: 9f4e32b5f413e874aa0d2661531c8b78, type: 3}
     tags: []
+  - name: mobile_blueprint/prismatic_pylon
+    texture: {fileID: 2800000, guid: be911f0313736ff4eba466c25491c927, type: 3}
+    tags: []
   - name: mobile_blueprint/punchton
     texture: {fileID: 2800000, guid: 1d8a7cdd4327da14ea5a749df090984d, type: 3}
     tags: []
@@ -2200,6 +2203,12 @@ MonoBehaviour:
   - name: entity/contraption/jeweled_pagoda
     texture: {fileID: 2800000, guid: 05a99924b9cf1f54087955dfe63848e1, type: 3}
     tags: []
+  - name: entity/contraption/kaleidoscope_mask
+    texture: {fileID: 2800000, guid: 7dfd35622a58c40488dfe0eac72922f3, type: 3}
+    tags: []
+  - name: entity/contraption/kaleidoscope_pattern
+    texture: {fileID: 2800000, guid: f495df507bc11bf42b1315857a26c934, type: 3}
+    tags: []
   - name: entity/contraption/lightning_orb
     texture: {fileID: 2800000, guid: 16d57d3a0e4ea894fa24ebb0c305c8e3, type: 3}
     tags: []
@@ -2262,6 +2271,9 @@ MonoBehaviour:
     tags: []
   - name: entity/contraption/pressure_plate
     texture: {fileID: 2800000, guid: 7cd67e193c23b1f46ae2e123c4a0bd3a, type: 3}
+    tags: []
+  - name: entity/contraption/prismatic_pylon
+    texture: {fileID: 2800000, guid: 55828f6709e9e1c4f90a689087e7d87f, type: 3}
     tags: []
   - name: entity/contraption/punchton
     texture: {fileID: 2800000, guid: f821b6a9d26a8a643b60d869c28ce5fd, type: 3}
@@ -3289,6 +3301,9 @@ MonoBehaviour:
   - name: entity/projectile/dart
     texture: {fileID: 2800000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
     tags: []
+  - name: entity/projectile/dazzle
+    texture: {fileID: 2800000, guid: 8792f02cf412b6249bb042653081c354, type: 3}
+    tags: []
   - name: entity/projectile/falling_star
     texture: {fileID: 2800000, guid: a01552dca04bda94385d92805ccac257, type: 3}
     tags: []
@@ -3348,6 +3363,12 @@ MonoBehaviour:
     tags: []
   - name: entity/projectile/large_fireball
     texture: {fileID: 2800000, guid: 5d32c904c5a41ec4a98e3a8b28e408fa, type: 3}
+    tags: []
+  - name: entity/projectile/light_bullet
+    texture: {fileID: 2800000, guid: 17df0b2ed3d4e9d45b0680219448edb5, type: 3}
+    tags: []
+  - name: entity/projectile/light_bullet_trail
+    texture: {fileID: 2800000, guid: ecd7a5d533411f0498b62304935ac57d, type: 3}
     tags: []
   - name: entity/projectile/locked_chest_trashes
     texture: {fileID: 2800000, guid: 103c5d2ba5cab4749ab48c91a1fd44e6, type: 3}
@@ -6880,6 +6901,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 9f4e32b5f413e874aa0d2661531c8b78, type: 3}
     tags: []
+  - name: mobile_blueprint/prismatic_pylon
+    index: 0
+    sprite: {fileID: 21300000, guid: be911f0313736ff4eba466c25491c927, type: 3}
+    tags: []
   - name: mobile_blueprint/punchton
     index: 0
     sprite: {fileID: 21300000, guid: 1d8a7cdd4327da14ea5a749df090984d, type: 3}
@@ -9193,6 +9218,14 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 05a99924b9cf1f54087955dfe63848e1, type: 3}
     tags: []
+  - name: entity/contraption/kaleidoscope_mask
+    index: 0
+    sprite: {fileID: 21300000, guid: 7dfd35622a58c40488dfe0eac72922f3, type: 3}
+    tags: []
+  - name: entity/contraption/kaleidoscope_pattern
+    index: 0
+    sprite: {fileID: 21300000, guid: f495df507bc11bf42b1315857a26c934, type: 3}
+    tags: []
   - name: entity/contraption/lightning_orb
     index: 0
     sprite: {fileID: 1215340357, guid: 16d57d3a0e4ea894fa24ebb0c305c8e3, type: 3}
@@ -9488,6 +9521,34 @@ MonoBehaviour:
   - name: entity/contraption/pressure_plate
     index: 0
     sprite: {fileID: 21300000, guid: 7cd67e193c23b1f46ae2e123c4a0bd3a, type: 3}
+    tags: []
+  - name: entity/contraption/prismatic_pylon
+    index: 0
+    sprite: {fileID: 1697407540, guid: 55828f6709e9e1c4f90a689087e7d87f, type: 3}
+    tags: []
+  - name: entity/contraption/prismatic_pylon
+    index: 1
+    sprite: {fileID: 2119635985, guid: 55828f6709e9e1c4f90a689087e7d87f, type: 3}
+    tags: []
+  - name: entity/contraption/prismatic_pylon
+    index: 2
+    sprite: {fileID: 116154464, guid: 55828f6709e9e1c4f90a689087e7d87f, type: 3}
+    tags: []
+  - name: entity/contraption/prismatic_pylon
+    index: 3
+    sprite: {fileID: -199484604, guid: 55828f6709e9e1c4f90a689087e7d87f, type: 3}
+    tags: []
+  - name: entity/contraption/prismatic_pylon
+    index: 4
+    sprite: {fileID: 1252768777, guid: 55828f6709e9e1c4f90a689087e7d87f, type: 3}
+    tags: []
+  - name: entity/contraption/prismatic_pylon
+    index: 5
+    sprite: {fileID: 100075453, guid: 55828f6709e9e1c4f90a689087e7d87f, type: 3}
+    tags: []
+  - name: entity/contraption/prismatic_pylon
+    index: 6
+    sprite: {fileID: 1054456800, guid: 55828f6709e9e1c4f90a689087e7d87f, type: 3}
     tags: []
   - name: entity/contraption/punchton
     index: 0
@@ -14447,6 +14508,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
     tags: []
+  - name: entity/projectile/dazzle
+    index: 0
+    sprite: {fileID: 21300000, guid: 8792f02cf412b6249bb042653081c354, type: 3}
+    tags: []
   - name: entity/projectile/falling_star
     index: 0
     sprite: {fileID: 21300000, guid: a01552dca04bda94385d92805ccac257, type: 3}
@@ -14534,6 +14599,14 @@ MonoBehaviour:
   - name: entity/projectile/large_fireball
     index: 0
     sprite: {fileID: 21300000, guid: 5d32c904c5a41ec4a98e3a8b28e408fa, type: 3}
+    tags: []
+  - name: entity/projectile/light_bullet
+    index: 0
+    sprite: {fileID: 21300000, guid: 17df0b2ed3d4e9d45b0680219448edb5, type: 3}
+    tags: []
+  - name: entity/projectile/light_bullet_trail
+    index: 0
+    sprite: {fileID: 21300000, guid: ecd7a5d533411f0498b62304935ac57d, type: 3}
     tags: []
   - name: entity/projectile/locked_chest_trashes
     index: 0
@@ -15243,6 +15316,10 @@ MonoBehaviour:
   - name: ui/almanac/placement_tags_upgrade_new
     index: 3
     sprite: {fileID: 971253235, guid: c88dad8213774ad48b823b141be673dc, type: 3}
+    tags: []
+  - name: ui/almanac/placement_tags_upgrade_new
+    index: 4
+    sprite: {fileID: -1011260198, guid: c88dad8213774ad48b823b141be673dc, type: 3}
     tags: []
   - name: ui/almanac/placement_tags_upgrade_origin
     index: 0
