@@ -4157,7 +4157,7 @@
 
         <entity template="zombie" id="TorchKongfuZombie" name="功夫火把僵尸" deathMessage="天干物燥,小心火烛!">
             <unlock>
-                <condition required="mvz2:level.mausoleum_8" />
+                <condition required="mvz2:level.mausoleum_1" />
             </unlock>
             <properties>
                 <int name="mvz2:cost" value="125" />
