@@ -2048,9 +2048,6 @@
         </properties>
     </stage>
     <stage id="breakout" name="打砖块" needBlueprints="false" type="minigame" music="mvz2:minigame">
-        <unlock>
-            <condition required="mvz2:level.mausoleum_9" />
-        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <camera position="lawn" transition="instant" />
         <spawns flags="2">
@@ -2876,7 +2873,7 @@
         </spawns>
     </stage>
 
-    <stage id="HeavyWeaponVSMannequin" name="重装兵器大战玩家模型" startEnergy="875" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
+    <stage id="HeavyWeaponVSMannequin" name="&lt;color=red&gt;重装兵器大战玩家模型&lt;/color&gt;" startEnergy="875" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
         <unlock>
             <condition required="mvz2:level.palace_9" />
         </unlock>
@@ -2914,53 +2911,6 @@
             <bool name="noEnergy" value="true" />
             <bool name="autoCollectAll" value="true" />
             <float name="redstoneCarrierCounterIncreament" value="33" />
-        </properties>
-    </stage>
-
-    <stage id="InfinityWither" name="&lt;color=red&gt;无限凋灵&lt;/color&gt;" type="boss_endless" music="mvz2:castle_final" >
-        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
-            <spawn id="mvz2:WitherSkeleton" />
-            <spawn id="mvz2:LeatherWitherSkeleton" />
-            <spawn id="mvz2:IronWitherSkeleton" />
-            <spawn id="mvz2:mesmerizer" />
-            <spawn id="mvz2:berserker" />
-            <spawn id="mvz2:dullahan" />
-            <spawn id="mvz2:NetherWarrior" />
-            <spawn id="mvz2:NetherArcher" />
-            <spawn id="mvz2:NetherVanguard" />
-            <spawn id="mvz2:RaiderSkull" />
-            <spawn id="mvz2:Anubiskull" />
-            <spawn id="mvz2:WitherSkeletonHorse" />
-            <spawn id="mvz2:AssaultDullahan" />
-            <spawn id="mvz2:WintherMage" />
-        </spawns>
-        <properties>
-            <bool name="mvz2:boss_revenge" value="true"/>
-        </properties>
-    </stage>
-    
-    <stage id="InfinitySeija" name="&lt;color=red&gt;无限正邪&lt;/color&gt;" type="boss_endless" music="mvz2:castle_final" >
-        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="8" firstWaveTime="1200">
-            <spawn id="mvz2:WitherSkeleton" />
-            <spawn id="mvz2:LeatherWitherSkeleton" />
-            <spawn id="mvz2:IronWitherSkeleton" />
-            <spawn id="mvz2:mesmerizer" />
-            <spawn id="mvz2:berserker" />
-            <spawn id="mvz2:dullahan" />
-            <spawn id="mvz2:NetherWarrior" />
-            <spawn id="mvz2:NetherArcher" />
-            <spawn id="mvz2:NetherVanguard" />
-            <spawn id="mvz2:AngryReverser" />
-            <spawn id="mvz2:RaiderSkull" />
-            <spawn id="mvz2:Anubiskull" />
-            <spawn id="mvz2:KingofReverser" />
-            <spawn id="mvz2:NetherTroopCarrier" />
-            <spawn id="mvz2:EvilMage" />
-        </spawns>
-        <properties>
-            <bool name="mvz2:boss_revenge" value="true"/>
         </properties>
     </stage>
 
@@ -3068,6 +3018,214 @@
             <bool name="noEnergy" value="true" />
             <bool name="autoCollectAll" value="true" />
             <float name="redstoneCarrierCounterIncreament" value="33" />
+        </properties>
+    </stage>
+
+    <stage id="SeijaRevenge" name="正邪的复仇" type="minigame" music="mvz2:castle_final" >
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:WitherSkeleton" />
+            <spawn id="mvz2:LeatherWitherSkeleton" />
+            <spawn id="mvz2:IronWitherSkeleton" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:NetherWarrior" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:NetherVanguard" />
+            <spawn id="mvz2:AngryReverser" />
+            <spawn id="mvz2:RaiderSkull" />
+            <spawn id="mvz2:Anubiskull" />
+            <spawn id="mvz2:KingofReverser" />
+            <spawn id="mvz2:NetherTroopCarrier" />
+            <spawn id="mvz2:EvilMage" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    
+    <!--EXPAND InfBoss-->
+    <stage id="InfinityFrankenstein" name="&lt;color=red&gt;无限科学怪人&lt;/color&gt;" type="boss_endless" music="mvz2:ultimate_battle" >
+        <unlock>
+            <condition required="mvz2:level.frankensteins_revenge" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:ZombieHead" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:SkeletonHead" />
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:mummy" />
+            <spawn id="mvz2:necromancer" />
+            <spawn id="mvz2:skeleton_horse" />
+            <spawn id="mvz2:MegaZombie" />
+            <spawn id="mvz2:RedEyeZombieHead" />
+            <spawn id="mvz2:KingSkeleton" />
+            <spawn id="mvz2:SuperMegaZombie" />
+            <spawn id="mvz2:EvilMage" />
+        </spawns>
+        <properties>
+            <integer name="statueCount" value="20" />
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    
+    <stage id="InfinityNightmare" name="&lt;color=red&gt;无限梦魇&lt;/color&gt;" type="boss_endless" music="mvz2:nightmare_final" >
+        <unlock>
+            <condition required="mvz2:level.nightmare_revenge" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:leather_capped_zombie" />
+            <spawn id="mvz2:iron_helmetted_zombie" />
+            <spawn id="mvz2:spider" />
+            <spawn id="mvz2:cave_spider" />
+            <spawn id="mvz2:ghast" />
+            <spawn id="mvz2:mother_terror" />
+            <spawn id="mvz2:necromancer" />
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:HostMutant" />
+            <spawn id="mvz2:HostZombie" />
+            <spawn id="mvz2:BloodlustHostZombie" />
+            <spawn id="mvz2:EnragedHostZombie" />
+            <spawn id="mvz2:AngryGhast" />
+            <spawn id="mvz2:PhaseSpider" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    
+    <stage id="InfinitySeija" name="&lt;color=red&gt;无限正邪&lt;/color&gt;" type="boss_endless" music="mvz2:castle_final" >
+        <unlock>
+            <condition required="mvz2:level.SeijaRevenge" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="8" firstWaveTime="1200">
+            <spawn id="mvz2:WitherSkeleton" />
+            <spawn id="mvz2:LeatherWitherSkeleton" />
+            <spawn id="mvz2:IronWitherSkeleton" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:NetherWarrior" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:NetherVanguard" />
+            <spawn id="mvz2:AngryReverser" />
+            <spawn id="mvz2:RaiderSkull" />
+            <spawn id="mvz2:Anubiskull" />
+            <spawn id="mvz2:KingofReverser" />
+            <spawn id="mvz2:NetherTroopCarrier" />
+            <spawn id="mvz2:EvilMage" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+
+    <stage id="InfinityWither" name="&lt;color=red&gt;无限凋灵&lt;/color&gt;" type="boss_endless" music="mvz2:castle_final" >
+        <unlock>
+            <condition required="mvz2:level.withers_revenge" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+            <spawn id="mvz2:WitherSkeleton" />
+            <spawn id="mvz2:LeatherWitherSkeleton" />
+            <spawn id="mvz2:IronWitherSkeleton" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:NetherWarrior" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:NetherVanguard" />
+            <spawn id="mvz2:RaiderSkull" />
+            <spawn id="mvz2:Anubiskull" />
+            <spawn id="mvz2:WitherSkeletonHorse" />
+            <spawn id="mvz2:AssaultDullahan" />
+            <spawn id="mvz2:WintherMage" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+
+    <stage id="InfinityGiant" name="&lt;color=red&gt;无限巨人&lt;/color&gt;" type="boss_endless" music="mvz2:mausoleum_final" >
+        <unlock>
+            <condition required="mvz2:level.the_giants_revenge" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+            <spawn id="mvz2:MonkZombie" />
+            <spawn id="mvz2:LeatherMonkZombie" />
+            <spawn id="mvz2:IronMonkZombie" />
+            <spawn id="mvz2:reflective_barrier_zombie" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:shikaisen_zombie" />
+            <spawn id="mvz2:emperor_zombie" />
+            <spawn id="mvz2:TorchKongfuZombie" />
+            <spawn id="mvz2:Hemperor" />
+            <spawn id="mvz2:FlyingPot" />
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="15" />
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    
+    <stage id="InfinityRedDragon" name="&lt;color=red&gt;无限红龙&lt;/color&gt;" type="boss_endless" music="mvz2:ship_final" >
+        <unlock>
+            <condition required="mvz2:level.red_dragons_revenge" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+            <spawn id="mvz2:PirateZombie" />
+            <spawn id="mvz2:LeatherPirateZombie" />
+            <spawn id="mvz2:PirateBucketSkeleton" />
+            <spawn id="mvz2:undead_flying_object" />
+            <spawn id="mvz2:zombie_cloud" />
+            <spawn id="mvz2:cannoneer_zombie" />
+            <spawn id="mvz2:pop_captain" />
+            <spawn id="mvz2:HeavyGutant" />
+            <spawn id="mvz2:Endermite" />
+            <spawn id="mvz2:cannonball_zombie" />
+            <spawn id="mvz2:PirateIMP" />
+            <spawn id="mvz2:ChiefCannoneerZombie" />
+            <spawn id="mvz2:MusketeerZombie" />
+            <spawn id="mvz2:SailorZombie" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
+    </stage>
+    
+    <stage id="InfinityLockedChest" name="&lt;color=red&gt;无限上锁的箱子&lt;/color&gt;" type="boss_endless" music="mvz2:palace_final" >
+        <unlock>
+            <condition required="mvz2:level.locked_chests_revenge" />
+        </unlock>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+            <spawn id="mvz2:ghost" />
+            <spawn id="mvz2:LeatherGhost" />
+            <spawn id="mvz2:IronGhost" />
+            <spawn id="mvz2:diamond_helmetted_zombie" />
+            <spawn id="mvz2:zombie" />
+            <spawn id="mvz2:shadow_cell" />
+            <spawn id="mvz2:skeleton_statue" />
+            <spawn id="mvz2:hacker" />
+            <spawn id="mvz2:zombie_cat" />
+            <spawn id="mvz2:WraithWarrior" />
+            <spawn id="mvz2:WraithArcher" />
+            <spawn id="mvz2:WraithBerserker" />
+            <spawn id="mvz2:WraithDullhan" />
+            <spawn id="mvz2:WraithVanguard" />
+        </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
         </properties>
     </stage>
     
