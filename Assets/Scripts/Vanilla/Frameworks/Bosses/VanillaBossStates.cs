@@ -32,6 +32,7 @@ namespace MVZ2.Vanilla.Bosses
         public const int SEIJA_ARROW_RAIN = PRIVATE_NUMBER + 8;
         public const int SEIJA_STEAL_BULLET = PRIVATE_NUMBER + 9;
         public const int SEIJA_REVERSE_SATELLITE = PRIVATE_NUMBER + 10;
+        public const int SEIJA_CHARM_CONTRAPTION = PRIVATE_NUMBER + 11;
 
         public const int WITHER_CHARGE = PRIVATE_NUMBER + 0;
         public const int WITHER_EAT = PRIVATE_NUMBER + 1;

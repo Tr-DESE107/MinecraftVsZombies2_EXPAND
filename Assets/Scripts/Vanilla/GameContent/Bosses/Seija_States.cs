@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Bosses;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
@@ -18,6 +19,7 @@ using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -43,6 +45,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new ArrowRainState());
                 AddState(new StealBulletState());
                 AddState(new ReverseSatelliteState());
+                AddState(new CharmContraptionState());
             }
         }
         #endregion
@@ -137,10 +140,12 @@ namespace MVZ2.GameContent.Bosses
                 }
                 //EXPAND 新技能并入轮转链：隙间丢弹之后依次尝试箭雨 → 夺取子弹 → 召唤反则卫星，
                 //每个技能每轮循环只占一个链位、最多施放一次，条件不满足时自然跳过。
+                //EXPAND 仅在 Boss 复仇关（boss_revenge = true）才会启用新增技能，普通关卡保持原版技能组。
+                bool bossRevenge = entity.Level.IsBossRevenge();
                 if (lastState == STATE_GAP_BOMB)
                 {
                     lastState = STATE_ARROW_RAIN;
-                    if (ShouldHarvestProjectiles(entity))
+                    if (bossRevenge && ShouldHarvestProjectiles(entity))
                     {
                         return lastState;
                     }
@@ -148,7 +153,7 @@ namespace MVZ2.GameContent.Bosses
                 if (lastState == STATE_ARROW_RAIN)
                 {
                     lastState = STATE_STEAL_BULLET;
-                    if (ShouldHarvestProjectiles(entity))
+                    if (bossRevenge && ShouldHarvestProjectiles(entity))
                     {
                         return lastState;
                     }
@@ -156,12 +161,20 @@ namespace MVZ2.GameContent.Bosses
                 if (lastState == STATE_STEAL_BULLET)
                 {
                     lastState = STATE_REVERSE_SATELLITE;
-                    if (ShouldReverseSatellite(entity))
+                    if (bossRevenge && ShouldReverseSatellite(entity))
                     {
                         return lastState;
                     }
                 }
                 if (lastState == STATE_REVERSE_SATELLITE)
+                {
+                    lastState = STATE_CHARM_CONTRAPTION;
+                    if (bossRevenge && ShouldCharmContraptions(entity))
+                    {
+                        return lastState;
+                    }
+                }
+                if (lastState == STATE_CHARM_CONTRAPTION)
                 {
                     lastState = STATE_FRONTFLIP;
                     if (attackAttempted && ShouldFrontFlip(entity) && CanFrontflip(entity))
@@ -932,6 +945,136 @@ namespace MVZ2.GameContent.Bosses
                     var pos = new Vector3(x, y, z);
                     level.Spawn(VanillaEnemyID.reverseSatellite, pos, null);
                 }
+            }
+        }
+        //EXPAND ===== 技能：魅惑器械（Boss复仇）=====
+        //复用「旋转吐弹」动画。随机选中至多 5 个玩家阵营的器械：
+        //先反重力升空（直到离开视野），在空中被永久魅惑为正邪阵营，
+        //随后失去反重力自然摔落，坠落前给器械设置摔落抗性以免受摔落伤害。
+        private class CharmContraptionState : EntityStateMachineState
+        {
+            public CharmContraptionState() : base(STATE_CHARM_CONTRAPTION, ANIMATION_STATE_DANMAKU) { }
+            //被选中的器械与其原重力值（实例字段，仅本次施法期间使用）。
+            private List<Entity> levitationTargets = new List<Entity>();
+            private List<float> levitationGravities = new List<float>();
+            public const int SUBSTATE_CAST = 0;
+            public const int SUBSTATE_RISE = 1;
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                stateMachine.StartSubState(entity, SUBSTATE_CAST);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer?.ResetTime(CHARM_CAST_TIME);
+                entity.Velocity = Vector3.zero;
+                levitationTargets.Clear();
+                levitationGravities.Clear();
+                entity.PlaySound(VanillaSoundID.gapWarp);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                if (substateTimer == null)
+                    return;
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+                switch (stateMachine.GetSubState(entity))
+                {
+                    case SUBSTATE_CAST:
+                        if (substateTimer.Expired)
+                        {
+                            //施法完成：随机选中器械并施加反重力开始升空。
+                            SelectLevitationTargets(entity);
+                            if (levitationTargets.Count == 0)
+                            {
+                                //没有可用的器械，施法失败，直接回到待机。
+                                stateMachine.StartState(entity, STATE_IDLE);
+                                return;
+                            }
+                            entity.PlaySound(VanillaSoundID.magical);
+                            stateMachine.StartSubState(entity, SUBSTATE_RISE);
+                            substateTimer.ResetTime(CHARM_RISE_TIMEOUT);
+                        }
+                        break;
+
+                    case SUBSTATE_RISE:
+                        UpdateRise(stateMachine, entity, substateTimer);
+                        break;
+                }
+            }
+            public override void OnExit(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnExit(stateMachine, entity);
+                //兜底：状态中途被打断时，把仍在空中的器械恢复原重力，避免永久悬浮。
+                for (int i = 0; i < levitationTargets.Count; i++)
+                {
+                    var target = levitationTargets[i];
+                    if (target.Exists() && !target.IsDead)
+                        target.SetGravity(levitationGravities[i]);
+                }
+                levitationTargets.Clear();
+                levitationGravities.Clear();
+            }
+
+            //随机选中至多 CHARM_TARGET_COUNT 个器械，记录原重力并清零（反重力）。
+            private void SelectLevitationTargets(Entity entity)
+            {
+                levitationTargets.Clear();
+                levitationGravities.Clear();
+                FindCharmTargets(entity, levitationTargets);
+                foreach (var target in levitationTargets)
+                {
+                    levitationGravities.Add(target.GetGravity());
+                    target.SetGravity(0);
+                }
+            }
+
+            //RISE：反重力匀速上升，全部离开视野（或超时）后在空中集体魅惑并转入下落阶段。
+            private void UpdateRise(EntityStateMachine stateMachine, Entity entity, FrameTimer substateTimer)
+            {
+                bool allReached = true;
+                for (int i = levitationTargets.Count - 1; i >= 0; i--)
+                {
+                    var target = levitationTargets[i];
+                    if (!target.Exists() || target.IsDead)
+                    {
+                        //升空途中被摧毁：移出列表。
+                        levitationTargets.RemoveAt(i);
+                        levitationGravities.RemoveAt(i);
+                        continue;
+                    }
+                    //重力已清零，保持恒定上升速度。
+                    target.Velocity = new Vector3(target.Velocity.x, CHARM_RISE_SPEED, target.Velocity.z);
+                    if (target.GetRelativeY() < CHARM_LEVITATION_HEIGHT)
+                        allReached = false;
+                }
+                if (allReached || substateTimer.Expired)
+                {
+                    StartFalling(stateMachine, entity);
+                }
+            }
+
+            //在空中最高点集体魅惑为正邪阵营，随后失去反重力（恢复原重力、清空上升速度）自然下落，
+            //并设置摔落抗性以免受摔落伤害；器械自行坠落，无需等待落地。
+            private void StartFalling(EntityStateMachine stateMachine, Entity entity)
+            {
+                entity.PlaySound(VanillaSoundID.charmed);
+                for (int i = 0; i < levitationTargets.Count; i++)
+                {
+                    var target = levitationTargets[i];
+                    if (!target.Exists() || target.IsDead)
+                        continue;
+                    //永久魅惑为正邪阵营（与 HeavyWeaponVSMannequin 的用法一致）。
+                    var buff = target.AddBuff<CharmBuff>();
+                    if (buff != null)
+                        CharmBuff.SetPermanent(buff, entity.GetFaction());
+                    //失去反重力：恢复原重力并清空上升速度，让重力自然拉回地面。
+                    target.SetGravity(levitationGravities[i]);
+                    target.Velocity = new Vector3(target.Velocity.x, 0, target.Velocity.z);
+                    //设置摔落抗性：落地速度达不到 -抗性 阈值，本次坠落不会受伤。
+                    target.SetFallResistance(CHARM_FALL_RESISTANCE);
+                }
+                //器械自行坠落落地，状态直接结束。
+                stateMachine.StartState(entity, STATE_IDLE);
             }
         }
         #endregion

@@ -247,6 +247,35 @@ namespace MVZ2.GameContent.Bosses
             }
         }
 
+        //EXPAND ===== 技能：魅惑器械 =====
+        //场上还有玩家阵营的器械时才可施放。
+        public static bool ShouldCharmContraptions(Entity boss)
+        {
+            charmBuffer.Clear();
+            FindCharmTargets(boss, charmBuffer);
+            return charmBuffer.Count > 0;
+        }
+        //随机挑选至多 CHARM_TARGET_COUNT 个玩家阵营的器械。
+        public static void FindCharmTargets(Entity boss, List<Entity> results)
+        {
+            var level = boss.Level;
+            //器械为 PLANT 类型；排除已被魅惑（非敌对）与不可被选取的器械。
+            var all = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && e.IsVulnerableEntity());
+            //打乱数组后取前 N 个，保证随机。
+            for (int i = all.Length - 1; i > 0; i--)
+            {
+                int j = boss.RNG.Next(i + 1);
+                var temp = all[i];
+                all[i] = all[j];
+                all[j] = temp;
+            }
+            var count = Mathf.Min(CHARM_TARGET_COUNT, all.Length);
+            for (int i = 0; i < count; i++)
+            {
+                results.Add(all[i]);
+            }
+        }
+
         #region 常量
         public static readonly VanillaEntityPropertyMeta<int> PROP_FABRIC_COUNT = new VanillaEntityPropertyMeta<int>("FabricCount");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_FABRIC_COOLDOWN_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("FabricCooldownTimer");
@@ -277,6 +306,7 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_ARROW_RAIN = VanillaBossStates.SEIJA_ARROW_RAIN;
         public const int STATE_STEAL_BULLET = VanillaBossStates.SEIJA_STEAL_BULLET;
         public const int STATE_REVERSE_SATELLITE = VanillaBossStates.SEIJA_REVERSE_SATELLITE;
+        public const int STATE_CHARM_CONTRAPTION = VanillaBossStates.SEIJA_CHARM_CONTRAPTION;
 
         //EXPAND ===== 召唤反则卫星的平衡常量 =====
         //召唤卫星的施法前摇帧数。
@@ -298,6 +328,21 @@ namespace MVZ2.GameContent.Bosses
         //夺取的子弹下落的速度。
         public const float STEAL_FALL_SPEED = 20;
 
+        //EXPAND ===== 魅惑器械技能的平衡常量 =====
+        //魅惑器械的施法前摇帧数。
+        public const int CHARM_CAST_TIME = 30;
+        //一次随机魅惑的器械数量。
+        public const int CHARM_TARGET_COUNT = 5;
+        //器械反重力上升的速度（像素/帧）。
+        public const float CHARM_RISE_SPEED = 12;
+        //器械上升到的空中高度（相对地面，像素），足够高以离开视野。
+        public const float CHARM_LEVITATION_HEIGHT = 500;
+        //上升阶段的最长帧数（安全兜底）。
+        public const int CHARM_RISE_TIMEOUT = 90;
+        //坠落前给器械设置的摔落抗性：落地速度需低于 -抗性 才受摔落伤害，
+        //本次坠落末速约 -32（500 高、重力 1），100 足以免除摔落伤害。
+        public const float CHARM_FALL_RESISTANCE = 100;
+
         //EXPAND 新增行为字段：收获类技能记录收集到的子弹数量 N
         public static readonly VanillaEntityPropertyMeta<int> PROP_ARROW_COUNT = new VanillaEntityPropertyMeta<int>("ArrowCount");
         #endregion 常量
@@ -309,6 +354,8 @@ namespace MVZ2.GameContent.Bosses
         private static Detector cameraDetector = new SeijaDetector(SeijaDetector.MODE_CAMERA);
         //EXPAND 收集敌对子弹的缓冲列表（触发判定用）
         private static List<Entity> arrowRainBuffer = new List<Entity>();
+        //EXPAND 魅惑器械的缓冲列表（触发判定用）
+        private static List<Entity> charmBuffer = new List<Entity>();
         private static SeijaStateMachine stateMachine = new SeijaStateMachine();
     }
 }
