@@ -6,6 +6,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -148,8 +149,13 @@ namespace MVZ2.GameContent.Stages
                 case STATE_WARMUP:
                     WarmupUpdate(level);
                     break;
+                case STATE_SPAWNING:
+                    // 登场过渡：等待过场动画生成 Boss，期间不刷小怪。
+                    SpawningUpdate(level);
+                    break;
                 case STATE_FIGHTING:
-                    RunBossWave(level);
+                    if (ShouldRunBossWave(level))
+                        RunBossWave(level);
                     FightingUpdate(level);
                     break;
                 case STATE_RESTING:
@@ -177,7 +183,7 @@ namespace MVZ2.GameContent.Stages
             SetBossIndex(level, 0);
             SpawnBoss(level, 0);
             SetBossSeen(level, false);
-            SetState(level, STATE_FIGHTING);
+            SetState(level, UsesSpawnTransition ? STATE_SPAWNING : STATE_FIGHTING);
         }
 
         // ============ 战斗阶段：检测当前 Boss 是否被击杀 ============  
@@ -208,6 +214,8 @@ namespace MVZ2.GameContent.Stages
             foreach (var deadBoss in level.FindEntities(e => e.IsEntityOf(BossID) && e.IsDead))
             {
                 deadBoss.SetProperty(LogicBossProps.DONT_COUNT_BOSS_HP, true);
+                //EXPAND 移除尸体上外挂的再生Buff（正邪的尸体刻意保留在场，不应继续显示再生特效）。
+                deadBoss.RemoveBuffs<RegenerationBuff>();
             }
 
             int bossKilled = GetBossKilled(level) + 1;
@@ -241,10 +249,22 @@ namespace MVZ2.GameContent.Stages
 
             SpawnBoss(level, GetBossIndex(level));
             SetBossSeen(level, false);
+            SetState(level, UsesSpawnTransition ? STATE_SPAWNING : STATE_FIGHTING);
+        }
+
+        // ============ 登场过渡阶段：等待过场动画（过渡Buff）生成的 Boss 出现 ============
+        private void SpawningUpdate(LevelEngine level)
+        {
+            if (!IsBossSpawned(level))
+                return;
+            var boss = FindSpawnedBoss(level);
+            if (boss != null)
+                FinalizeSpawnedBoss(level, boss, GetBossIndex(level));
+            SetBossSeen(level, false);
             SetState(level, STATE_FIGHTING);
         }
 
-        // ============ 生成一个 Boss（生成 + 设定精确最大生命 + 登场特效 + 血条 + 音乐 + 应用增强） ============  
+        // ============ 生成一个 Boss（生成 + 设定精确最大生命 + 登场特效 + 血条 + 音乐 + 应用增强） ============
         protected virtual void SpawnBoss(LevelEngine level, int bossIndex)
         {
             int maxLane = level.GetMaxLaneCount();
@@ -254,12 +274,7 @@ namespace MVZ2.GameContent.Stages
             var boss = level.Spawn(BossID, pos, null);
             if (boss != null)
             {
-                // 直接设定精确最大生命值（不走 ApplyBuffForBossRevenge 的 ×1.5，保证血量曲线可控）。  
-                int health = GetBossHealth(level, bossIndex);
-                boss.SetProperty(EngineEntityProps.MAX_HEALTH, (float)health);
-                boss.Health = health;
-                //EXPAND 应用增强选项的累积增强（统一限伤、攻击倍率、外挂再生等）。
-                ApplyBossUpgrades(level, boss);
+                FinalizeSpawnedBoss(level, boss, bossIndex);
                 OnBossAppear(boss);
             }
 
@@ -267,6 +282,40 @@ namespace MVZ2.GameContent.Stages
             level.PlayMusic(BossMusic);
             level.SetMusicVolume(1);
         }
+
+        // ============ 过渡Buff生成 Boss 后的收尾 ============
+        // 移除过渡Buff自带的复仇血量加成、设定精确最大生命、应用累积增强。
+        // 登场表现（动画/音乐/血条）由过渡Buff负责，故不在此调用 OnBossAppear。
+        protected void FinalizeSpawnedBoss(LevelEngine level, Entity boss, int bossIndex)
+        {
+            // 过渡Buff内部会挂 BossRevengeBuff（MaxHealth 乘区），无限模式使用精确血量，先移除。
+            boss.RemoveBuffs<BossRevengeBuff>();
+            int health = GetBossHealth(level, bossIndex);
+            boss.SetProperty(EngineEntityProps.MAX_HEALTH, (float)health);
+            boss.Health = health;
+            //EXPAND 应用增强选项的累积增强（统一限伤、攻击倍率、外挂再生等）。
+            ApplyBossUpgrades(level, boss);
+        }
+
+        // Boss 是否已由过场动画生成完毕（子类可覆盖，如红龙需等待飞抵 IDLE）。
+        protected virtual bool IsBossSpawned(LevelEngine level)
+        {
+            return level.EntityExists(e => e.IsEntityOf(BossID) && e.IsHostileEntity() && !e.IsDead);
+        }
+
+        // 查找刚生成的 Boss 实体（子类可覆盖，如梦魇阶段1生成的是瘦长鬼影）。
+        protected virtual Entity? FindSpawnedBoss(LevelEngine level)
+        {
+            foreach (var e in level.FindEntities(e => e.IsEntityOf(BossID) && e.IsHostileEntity() && !e.IsDead))
+                return e;
+            return null;
+        }
+
+        // Boss 登场是否走过场动画（由关卡过渡Buff生成）；默认直接生成。
+        protected virtual bool UsesSpawnTransition => false;
+
+        // 战斗阶段是否刷新小怪波次（子类可在过场期间关闭）。
+        protected virtual bool ShouldRunBossWave(LevelEngine level) => true;
 
         // ============ 休息计时 ============  
         private void StartRest(LevelEngine level, int seconds)
@@ -279,7 +328,7 @@ namespace MVZ2.GameContent.Stages
         {
             level.GetStageBehaviour<WaveStageBehaviour>()?.RunBossWave(level);
         }
-        protected bool IsBossAlive(LevelEngine level)
+        protected virtual bool IsBossAlive(LevelEngine level)
         {
             return level.EntityExists(e => e.IsEntityOf(BossID) && !e.IsDead && e.IsHostileEntity());
         }
@@ -459,6 +508,7 @@ namespace MVZ2.GameContent.Stages
         protected const int STATE_WARMUP = 0;
         protected const int STATE_FIGHTING = 1;
         protected const int STATE_RESTING = 2;
+        protected const int STATE_SPAWNING = 3;
 
         // 所有子类共用同一组关卡属性（同一时刻只运行一个关卡，无冲突）。  
         private const string PROP_REGION = "infinity_boss";

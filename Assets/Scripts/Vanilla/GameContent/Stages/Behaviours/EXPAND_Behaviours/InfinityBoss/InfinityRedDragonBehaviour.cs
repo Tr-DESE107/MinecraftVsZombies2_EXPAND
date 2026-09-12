@@ -1,12 +1,15 @@
 ﻿#nullable enable  
   
 using MukioI18n;  
-using MVZ2.GameContent.Bosses;  
-using MVZ2.GameContent.Enemies;  
+using MVZ2.GameContent.Bosses;
+using MVZ2.GameContent.Buffs.Level;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;  
-using MVZ2.Vanilla.Audios;  
-using PVZEngine;  
-using PVZEngine.Entities;  
+using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Entities;
+using PVZEngine;
+using PVZEngine.Buffs;
+using PVZEngine.Entities;
 using PVZEngine.Level;  
   
 namespace MVZ2.GameContent.Stages  
@@ -21,7 +24,7 @@ namespace MVZ2.GameContent.Stages
         protected override NamespaceID BossID => VanillaBossID.redDragon;  
         protected override NamespaceID[] EnemyPool => enemyPool;  
         protected override NamespaceID ProgressBarID => VanillaProgressBarID.redDragon;  
-        protected override NamespaceID BossMusic => VanillaMusicID.mausoleumBoss2; // TODO: 替换为红龙专属音乐  
+        protected override NamespaceID BossMusic => VanillaMusicID.shipBoss;
   
         protected override int WarmupWaveCount => 10;  
   
@@ -37,10 +40,20 @@ namespace MVZ2.GameContent.Stages
         protected override string BossIncomingString => STRING_INCOMING;  
         protected override string ProgressRestString => STRING_PROGRESS_REST;  
   
-        protected override void OnBossAppear(Entity boss)  
-        {  
-            RedDragon.SetAppear(boss);  
-        }  
+        // ============ EXPAND 登场过场 ============
+        protected override bool UsesSpawnTransition => true;
+
+        protected override void SpawnBoss(LevelEngine level, int bossIndex)
+        {
+            // 参照原版：由 RedDragonTransitionBuff 播放龙吼过场并生成红龙（内部 SetAppear 飞行登场）。
+            level.AddBuff<RedDragonTransitionBuff>();
+        }
+
+        // 参照原版：等待红龙飞抵战场进入 IDLE 后才开战（过渡Buff也会在此刻播放音乐/切换血条）。
+        protected override bool IsBossSpawned(LevelEngine level)
+        {
+            return level.EntityExists(e => e.IsEntityOf(BossID) && e.IsHostileEntity() && !e.IsDead && e.State == RedDragon.STATE_IDLE);
+        }
   
         // ============ 出怪池（占位，请按主题调整） ============  
         private static readonly NamespaceID[] enemyPool = new NamespaceID[]  

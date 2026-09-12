@@ -1,42 +1,65 @@
 ﻿#nullable enable  
   
-using MukioI18n;  
-using MVZ2.GameContent.Bosses;  
-using MVZ2.GameContent.Enemies;  
-using MVZ2.GameContent.ProgressBars;  
-using MVZ2.Vanilla.Audios;  
-using PVZEngine;  
-using PVZEngine.Entities;  
-using PVZEngine.Level;  
-  
-namespace MVZ2.GameContent.Stages  
-{  
-    // 无限巨人（InfinityGiant）：基于 InfinityBossBehaviour。  
-    // 巨人在 Init 内自动进入 IDLE 状态，无公开 Appear，故不重写 OnBossAppear。  
-    public class InfinityGiantBehaviour : InfinityBossBehaviour  
-    {  
-        public InfinityGiantBehaviour(StageDefinition stageDef) : base(stageDef)  
-        {  
-        }  
-  
-        protected override NamespaceID BossID => VanillaBossID.theGiant;  
-        protected override NamespaceID[] EnemyPool => enemyPool;  
-        protected override NamespaceID ProgressBarID => VanillaProgressBarID.theGiant;  
-        protected override NamespaceID BossMusic => VanillaMusicID.palaceBoss; // TODO: 替换为巨人专属音乐  
-  
-        protected override int WarmupWaveCount => 10;  
-  
-        protected override int BossHealthStart => 6000;  
-        protected override int BossHealthStep => 2000;  
-        protected override int BossHealthMax => 150000;  
-  
-        protected override int FirstRestSeconds => 95;  
-        protected override int RestStepSeconds => 4;  
-        protected override int MinRestSeconds => 15;  
-  
-        protected override string IntroString => STRING_INTRO;  
-        protected override string BossIncomingString => STRING_INCOMING;  
-        protected override string ProgressRestString => STRING_PROGRESS_REST;  
+using MukioI18n;
+using MVZ2.GameContent.Bosses;
+using MVZ2.GameContent.Buffs.Level;
+using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.ProgressBars;
+using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Entities;
+using PVZEngine;
+using PVZEngine.Buffs;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+
+namespace MVZ2.GameContent.Stages
+{
+    // 无限巨人（InfinityGiant）：基于 InfinityBossBehaviour。
+    // 登场：由 TheGiantTransitionBuff 播放震屏+咆哮过场并生成巨人（SetAppear 登场表现+血条+音乐）。
+    // 三阶段：巨人阶段1/2倒下后会原地复活（同实体 Revive），复活倒地期间不算被击败，
+    // 只有三阶段（STATE_DEATH）的死亡才进入下一轮休息流程。
+    public class InfinityGiantBehaviour : InfinityBossBehaviour
+    {
+        public InfinityGiantBehaviour(StageDefinition stageDef) : base(stageDef)
+        {
+        }
+
+        protected override NamespaceID BossID => VanillaBossID.theGiant;
+        protected override NamespaceID[] EnemyPool => enemyPool;
+        protected override NamespaceID ProgressBarID => VanillaProgressBarID.theGiant;
+        protected override NamespaceID BossMusic => VanillaMusicID.mausoleumBoss;
+
+        protected override int WarmupWaveCount => 10;
+
+        protected override int BossHealthStart => 6000;
+        protected override int BossHealthStep => 2000;
+        protected override int BossHealthMax => 150000;
+
+        protected override int FirstRestSeconds => 95;
+        protected override int RestStepSeconds => 4;
+        protected override int MinRestSeconds => 15;
+
+        protected override string IntroString => STRING_INTRO;
+        protected override string BossIncomingString => STRING_INCOMING;
+        protected override string ProgressRestString => STRING_PROGRESS_REST;
+
+        // ============ EXPAND 登场过场与三阶段复活 ============
+        protected override bool UsesSpawnTransition => true;
+
+        protected override void SpawnBoss(LevelEngine level, int bossIndex)
+        {
+            // 参照原版：由 TheGiantTransitionBuff 播放震屏+咆哮过场并生成巨人。
+            level.AddBuff<TheGiantTransitionBuff>();
+        }
+
+        //EXPAND 巨人三阶段：阶段1/2倒下后进入复活序列（同实体 Revive）。死亡瞬间到 CheckDeath
+        //把状态切到 STATE_FAINT 之间有一帧窗口，因此只要尸体状态不是 STATE_DEATH（三阶段真死亡）
+        //就视为“即将复活”，不算被击败，血条继续追踪该巨人。
+        protected override bool IsBossAlive(LevelEngine level)
+        {
+            return base.IsBossAlive(level)
+                || level.EntityExists(e => e.IsEntityOf(BossID) && e.IsDead && e.IsHostileEntity() && e.State != TheGiant.STATE_DEATH);
+        }
   
         // ============ 出怪池（占位，请按主题调整） ============  
         private static readonly NamespaceID[] enemyPool = new NamespaceID[]  

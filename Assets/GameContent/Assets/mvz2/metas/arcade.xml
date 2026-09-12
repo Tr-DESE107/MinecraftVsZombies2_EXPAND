@@ -3,7 +3,7 @@
     <minigame id="InfinityFrankenstein" stage="mvz2:InfinityFrankenstein" area="mvz2:halloween" icon="mvz2:arcade/InfinityFrankenstein"/>
     
     <minigame id="nightmare_revenge" stage="mvz2:nightmares_revenge" area="mvz2:dream" icon="mvz2:arcade/nightmares_revenge"/>
-    <minigame id="InfinityNightmare" stage="mvz2:InfinityNightmare" area="mvz2:dream" icon="mvz2:arcade/InfinityNightmare"/>
+    <minigame id="InfinityNightmare" stage="mvz2:InfinityNightmare" area="mvz2:DreamNight" icon="mvz2:arcade/InfinityNightmare"/>
 
     <minigame id="SeijaRevenge" stage="mvz2:SeijaRevenge" area="mvz2:castle" icon="mvz2:arcade/SeijaRevenge" />
     <minigame id="InfinitySeija" stage="mvz2:InfinitySeija" area="mvz2:castle" icon="mvz2:arcade/InfinitySeija"/>
