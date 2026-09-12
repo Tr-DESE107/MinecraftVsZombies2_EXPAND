@@ -2864,7 +2864,7 @@
     
     <stage id="BlueprintBossRush" name="&lt;color=red&gt;BlueprintBossRush&lt;/color&gt;" type="minigame" music="mvz2:EnsembleOfFools">
         <unlock>
-            <condition required="mvz2:level.frankensteins_revenge mvz2:level.nightmare_revenge mvz2:level.SeijaRevenge mvz2:level.withers_revenge mvz2:level.the_giants_revenge mvz2:level.red_dragons_revenge mvz2:level.locked_chests_revenge" />
+            <condition required="mvz2:level.frankensteins_revenge mvz2:level.nightmares_revenge mvz2:level.SeijaRevenge mvz2:level.withers_revenge mvz2:level.the_giants_revenge mvz2:level.red_dragons_revenge mvz2:level.locked_chests_revenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="1" wavesPerFlag="10" firstWaveTime="1800">
@@ -3082,7 +3082,7 @@
     
     <stage id="InfinityNightmare" name="&lt;color=red&gt;无限梦魇&lt;/color&gt;" type="boss_endless" music="mvz2:nightmare_final" >
         <unlock>
-            <condition required="mvz2:level.nightmare_revenge" />
+            <condition required="mvz2:level.nightmares_revenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200" pointsMultiplier="2" pointsAddition="5">
