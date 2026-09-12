@@ -246,7 +246,7 @@ namespace MVZ2.GameContent.Stages
 
         // ============ 提示条本地化 Key ============  
         [TranslateMsg("无限梦魇提示")]  
-        public const string STRING_INTRO = "坚持发展 8 波后梦魇将降临！先击败瘦长鬼影，再击败它的第二形态——梦魇收割者！";  
+        public const string STRING_INTRO = "坚持发展 10 波后梦魇将降临！先击败瘦长鬼影，再击败它的第二形态——梦魇收割者！";  
         [TranslateMsg("无限梦魇提示")]  
         public const string STRING_INCOMING = "梦魇降临！";  
         [TranslateMsg("无限梦魇提示，{0}为累计击杀数，{1}为休息秒数")]  

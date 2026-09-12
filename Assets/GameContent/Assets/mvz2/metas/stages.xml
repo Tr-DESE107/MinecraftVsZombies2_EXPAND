@@ -2863,6 +2863,9 @@
     </stage>
     
     <stage id="BlueprintBossRush" name="&lt;color=red&gt;BlueprintBossRush&lt;/color&gt;" type="minigame" music="mvz2:EnsembleOfFools">
+        <unlock>
+            <condition required="mvz2:level.frankensteins_revenge mvz2:level.nightmare_revenge mvz2:level.SeijaRevenge mvz2:level.withers_revenge mvz2:level.the_giants_revenge mvz2:level.red_dragons_revenge mvz2:level.locked_chests_revenge" />
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="1" wavesPerFlag="10" firstWaveTime="1800">
             <spawn id="mvz2:zombie" />
@@ -2871,6 +2874,9 @@
             <spawn id="mvz2:cave_spider" />
             <spawn id="mvz2:wicked_hermit_zombie" />
         </spawns>
+        <properties>
+            <bool name="mvz2:boss_revenge" value="true"/>
+        </properties>
     </stage>
 
     <stage id="HeavyWeaponVSMannequin" name="&lt;color=red&gt;重装兵器大战玩家模型&lt;/color&gt;" startEnergy="875" needBlueprints="false" type="minigame" music="mvz2:Lava_Chicken">
@@ -3051,7 +3057,7 @@
             <condition required="mvz2:level.frankensteins_revenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200" pointsMultiplier="2" pointsAddition="5">
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:ZombieHead" />
             <spawn id="mvz2:leather_capped_zombie" />
@@ -3079,7 +3085,7 @@
             <condition required="mvz2:level.nightmare_revenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200" pointsMultiplier="2" pointsAddition="5">
             <spawn id="mvz2:zombie" />
             <spawn id="mvz2:leather_capped_zombie" />
             <spawn id="mvz2:iron_helmetted_zombie" />
@@ -3106,7 +3112,7 @@
             <condition required="mvz2:level.SeijaRevenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="8" firstWaveTime="1200">
+        <spawns flags="1" wavesPerFlag="8" firstWaveTime="1200" pointsMultiplier="2" pointsAddition="5">
             <spawn id="mvz2:WitherSkeleton" />
             <spawn id="mvz2:LeatherWitherSkeleton" />
             <spawn id="mvz2:IronWitherSkeleton" />
@@ -3133,7 +3139,7 @@
             <condition required="mvz2:level.withers_revenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200" pointsMultiplier="2" pointsAddition="5">
             <spawn id="mvz2:WitherSkeleton" />
             <spawn id="mvz2:LeatherWitherSkeleton" />
             <spawn id="mvz2:IronWitherSkeleton" />
@@ -3159,7 +3165,7 @@
             <condition required="mvz2:level.the_giants_revenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200" pointsMultiplier="2" pointsAddition="5">
             <spawn id="mvz2:MonkZombie" />
             <spawn id="mvz2:LeatherMonkZombie" />
             <spawn id="mvz2:IronMonkZombie" />
@@ -3182,7 +3188,7 @@
             <condition required="mvz2:level.red_dragons_revenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200" pointsMultiplier="2" pointsAddition="5">
             <spawn id="mvz2:PirateZombie" />
             <spawn id="mvz2:LeatherPirateZombie" />
             <spawn id="mvz2:PirateBucketSkeleton" />
@@ -3208,7 +3214,7 @@
             <condition required="mvz2:level.locked_chests_revenge" />
         </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200">
+        <spawns flags="1" wavesPerFlag="10" firstWaveTime="1200" pointsMultiplier="2" pointsAddition="5">
             <spawn id="mvz2:ghost" />
             <spawn id="mvz2:LeatherGhost" />
             <spawn id="mvz2:IronGhost" />

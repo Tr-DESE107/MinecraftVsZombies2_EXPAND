@@ -67,11 +67,11 @@ namespace MVZ2.GameContent.Stages
         };  
   
         // ============ 提示条本地化 Key ============  
-        [TranslateMsg("无限宝箱提示")]  
-        public const string STRING_INTRO = "坚持发展 10 波后上锁的宝箱将降临！击败尽可能多的宝箱吧！";  
-        [TranslateMsg("无限宝箱提示")]  
-        public const string STRING_INCOMING = "上锁的宝箱降临！";  
-        [TranslateMsg("无限宝箱提示，{0}为累计击杀数，{1}为休息秒数")]  
-        public const string STRING_PROGRESS_REST = "已击败 {0} 个上锁的宝箱！休息 {1} 秒后更强的宝箱来袭！";  
+        [TranslateMsg("无限箱子提示")]  
+        public const string STRING_INTRO = "坚持发展 10 波后上锁的箱子将降临！击败尽可能多的箱子吧！";  
+        [TranslateMsg("无限箱子提示")]  
+        public const string STRING_INCOMING = "上锁的箱子降临！";  
+        [TranslateMsg("无限箱子提示，{0}为累计击杀数，{1}为休息秒数")]  
+        public const string STRING_PROGRESS_REST = "已击败 {0} 个上锁的箱子！休息 {1} 秒后更强的箱子来袭！";  
     }  
 }
