@@ -624,9 +624,9 @@
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>触发：<![CDATA[<color=red>触发后损失75耐久并进入过载模式，每秒损失1点耐久，档位上升1级</color>]]></p>
+                <p>触发：<![CDATA[<color=red>到达3档时可以触发，触发后损失75耐久并进入过载模式，每秒损失1点耐久，档位上升1级</color>]]></p>
                 <p>升级上限：<![CDATA[<color=red>5，过载模式可以短暂上升为6</color>]]></p>
-                <p>技能：<![CDATA[<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+挡位*1.5只大型箭矢（向下取整），而后自爆。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+档位*1.5只大型箭矢（向下取整），而后自爆。</color>]]></p>
             </properties>
             <flavor>
                 <p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
@@ -4168,10 +4168,10 @@
         <entry/>
         <entry id="mvz2:sweet_sleep_pillow">
             <header>
-                <p><![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>赠予的奇妙枕头，拥有让人安眠的效果。]]></p>
+                <p><![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>赠予的奇妙枕头，能够让人无忧的安眠。]]></p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>友方器械每秒钟恢复10点耐久</color>]]></p>
+                <p>效果：<![CDATA[<color=red>友方器械在不受伤时每秒钟恢复10点耐久</color>]]></p>
             </properties>
             <flavor>
                 <p>好困啊，先不写趣文了。</p>
