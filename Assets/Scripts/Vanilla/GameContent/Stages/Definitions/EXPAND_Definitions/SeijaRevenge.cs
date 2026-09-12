@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Stages
         public SeijaRevenge(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(new WaveStageBehaviour(this));
-            AddBehaviour(new SeijaStageBehaviour(this));
+            AddBehaviour(new SeijaRevengeStageBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new StarshardStageBehaviour(this));
         }

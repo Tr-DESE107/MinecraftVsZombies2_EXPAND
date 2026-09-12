@@ -1,6 +1,6 @@
 ﻿<arcade>
     <minigame id="frankensteins_revenge" stage="mvz2:frankensteins_revenge" area="mvz2:halloween" icon="mvz2:arcade/frankensteins_revenge"/>
-    <minigame id="InfinityFrankenstein" stage="mvz2:InfinityFrankenstein" area="mvz2:mausoleum" icon="mvz2:arcade/InfinityFrankenstein"/>
+    <minigame id="InfinityFrankenstein" stage="mvz2:InfinityFrankenstein" area="mvz2:halloween" icon="mvz2:arcade/InfinityFrankenstein"/>
     
     <minigame id="nightmare_revenge" stage="mvz2:nightmares_revenge" area="mvz2:dream" icon="mvz2:arcade/nightmares_revenge"/>
     <minigame id="InfinityNightmare" stage="mvz2:InfinityNightmare" area="mvz2:dream" icon="mvz2:arcade/InfinityNightmare"/>

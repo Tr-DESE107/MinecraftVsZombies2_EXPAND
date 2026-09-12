@@ -4551,6 +4551,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bdf7dcfe0783c24a906a5f5318e710f
+    m_Address: mvz2:arcade/InfinityNightmare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bfdafbf2871bcc44a724cd0e1fd3a8d
     m_Address: mvz2:effect/nightmare_darkness
     m_ReadOnly: 0
@@ -6933,6 +6940,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a887b75643f0234094fdd97781c272e
     m_Address: mvz2:entity/EXPAND_Enemy/C6/WraithDullhan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5aec50f2d3cad4848a37653c78595409
+    m_Address: mvz2:level/dream/EXPAND/NightmareNightSky
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -12269,6 +12283,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4527531e0871614782e6617b773c4c9
+    m_Address: mvz2:level/dream/EXPAND/NightmareNightHouseCover
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a461bc5fcabbccd4f9c5ee8c2e85957e
     m_Address: mvz2:projectile/EXPAND_projectile/PulseArrow
     m_ReadOnly: 0
@@ -12836,6 +12857,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac237bc3a80a23240b1314ff7617b5a3
+    m_Address: mvz2:arcade/InfinityLockedChest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac23f927050170d419427bf1e53befa8
     m_Address: mvz2:travel
     m_ReadOnly: 0
@@ -13269,6 +13297,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2e7ce43aa269844fb7ad1df34213bbf
+    m_Address: mvz2:arcade/InfinityGiant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b30a95d3bfd188f45ab62903c456664c
     m_Address: mvz2:arcade/ZombiesTide
@@ -16596,6 +16631,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0c7697228ff843469a11a3a633766bb
     m_Address: mvz2:ui/gear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0dc55bc6d3f63e48b8469ea7687839a
+    m_Address: mvz2:level/dream/EXPAND/NightmareNightGround
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

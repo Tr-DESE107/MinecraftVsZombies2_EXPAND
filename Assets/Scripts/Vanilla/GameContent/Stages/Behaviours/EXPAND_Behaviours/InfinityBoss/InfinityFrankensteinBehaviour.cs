@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Stages
         protected override NamespaceID BossID => VanillaBossID.frankenstein;
         protected override NamespaceID[] EnemyPool => enemyPool;
         protected override NamespaceID ProgressBarID => VanillaProgressBarID.frankenstein;
-        protected override NamespaceID BossMusic => VanillaMusicID.mausoleumBoss; // TODO: 替换为弗兰肯斯坦专属音乐  
+        protected override NamespaceID BossMusic => VanillaMusicID.halloweenBoss;
 
         protected override int WarmupWaveCount => 10;
 
