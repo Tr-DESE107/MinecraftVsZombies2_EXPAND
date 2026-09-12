@@ -1,4 +1,4 @@
-﻿#nullable enable  
+#nullable enable  
   
 using MukioI18n;  
 using MVZ2.GameContent.Bosses;  
@@ -81,60 +81,71 @@ namespace MVZ2.GameContent.Stages
         }  
   
         // ============ 阶段1：每轮先生成瘦长鬼影（覆盖基类 SpawnBoss） ============  
-        protected override void SpawnBoss(LevelEngine level, int bossIndex)  
-        {  
+        protected override void SpawnBoss(LevelEngine level, int bossIndex)
+        {
             // 记录本轮序号（用于阶段2 nightmareaper 的血量），并重置阶段标记。  
-            SetCurrentIndex(level, bossIndex);  
-            SetPhase(level, PHASE_SLENDER_PENDING);  
-  
-            var pos = GetBossSpawnPosition(level);  
-            var boss = level.Spawn(VanillaBossID.slenderman, pos, null);  
-            if (boss != null)  
-            {  
+            SetCurrentIndex(level, bossIndex);
+            SetPhase(level, PHASE_SLENDER_PENDING);
+
+            var pos = GetBossSpawnPosition(level);
+            var boss = level.Spawn(VanillaBossID.slenderman, pos, null);
+            if (boss != null)
+            {
                 // 直接设定精确最大生命值（不走 ApplyBuffForBossRevenge 的 ×1.5，保证血量曲线可控）。  
-                int health = GetBossHealth(bossIndex);  
-                boss.SetProperty(EngineEntityProps.MAX_HEALTH, (float)health);  
-                boss.Health = health;  
-  
+                int health = GetBossHealth(level, bossIndex);
+                boss.SetProperty(EngineEntityProps.MAX_HEALTH, (float)health);
+                boss.Health = health;
+                //EXPAND 应用增强选项的累积增强（统一限伤、攻击倍率、外挂再生等）。
+                ApplyBossUpgrades(level, boss);
+
                 // 参照 SlendermanTransitionBuff 的登场表现。  
-                boss.Velocity = Vector3.up * 5;  
-                boss.PlaySound(VanillaSoundID.splashBig);  
-                boss.PlaySound(VanillaSoundID.glassBreakBig);  
-                boss.Spawn(VanillaEffectID.nightmareaperSplash, pos);  
-            }  
-            level.ShakeScreen(30, 0, 30);  
-  
-            level.SetProgressBarToBoss(ProgressBarID);  
+                boss.Velocity = Vector3.up * 5;
+                boss.PlaySound(VanillaSoundID.splashBig);
+                boss.PlaySound(VanillaSoundID.glassBreakBig);
+                boss.Spawn(VanillaEffectID.nightmareaperSplash, pos);
+            }
+            level.ShakeScreen(30, 0, 30);
+
+            level.SetProgressBarToBoss(ProgressBarID);
             level.PlayMusic(BossMusic);        // 阶段1音乐 nightmareBoss  
-            level.SetMusicVolume(1);  
-        }  
-  
+            level.SetMusicVolume(1);
+        }
+
         // ============ 阶段2：瘦长鬼影死亡后生成梦魇收割者 ============  
-        private void SpawnNightmareaper(LevelEngine level)  
-        {  
+        private void SpawnNightmareaper(LevelEngine level)
+        {
             // 把已死亡但仍留在场上的瘦长鬼影从 Boss 血条统计中排除，  
             // 否则梦魇收割者的血条会把先前尸体的最大血量算进分母，导致开场血条不满。  
-            foreach (var deadSlender in level.FindEntities(e => e.IsEntityOf(VanillaBossID.slenderman)))  
-            {  
-                deadSlender.SetProperty(LogicBossProps.DONT_COUNT_BOSS_HP, true);  
-            }  
-  
-            int bossIndex = GetCurrentIndex(level);  
-            var pos = GetBossSpawnPosition(level);  
-            var boss = level.Spawn(VanillaBossID.nightmareaper, pos, null);  
-            if (boss != null)  
-            {  
-                int health = GetBossHealth(bossIndex);  
-                boss.SetProperty(EngineEntityProps.MAX_HEALTH, (float)health);  
-                boss.Health = health;  
+            foreach (var deadSlender in level.FindEntities(e => e.IsEntityOf(VanillaBossID.slenderman)))
+            {
+                deadSlender.SetProperty(LogicBossProps.DONT_COUNT_BOSS_HP, true);
+            }
+
+            int bossIndex = GetCurrentIndex(level);
+            var pos = GetBossSpawnPosition(level);
+            var boss = level.Spawn(VanillaBossID.nightmareaper, pos, null);
+            if (boss != null)
+            {
+                int health = GetBossHealth(level, bossIndex);
+                boss.SetProperty(EngineEntityProps.MAX_HEALTH, (float)health);
+                boss.Health = health;
+                //EXPAND 应用增强选项的累积增强（统一限伤、攻击倍率、外挂再生等）。
+                ApplyBossUpgrades(level, boss);
                 Nightmareaper.Appear(boss);   // 播放梦魇收割者登场动画  
-            }  
-  
-            level.SetProgressBarToBoss(ProgressBarID);  
+            }
+
+            level.SetProgressBarToBoss(ProgressBarID);
             level.PlayMusic(VanillaMusicID.nightmareBoss2);  // 阶段2音乐  
-            level.SetMusicVolume(1);  
-  
-            SetPhase(level, PHASE_REAPER);  
+            level.SetMusicVolume(1);
+
+            SetPhase(level, PHASE_REAPER);
+        }
+
+        //EXPAND 梦魇是双形态 Boss：增强/统一限伤对瘦长鬼影与梦魇收割者两形态均生效。
+        protected override bool IsUpgradeTarget(LevelEngine level, Entity entity)
+        {
+            return base.IsUpgradeTarget(level, entity)
+                || (entity.IsEntityOf(VanillaBossID.slenderman) && !entity.IsDead);
         }  
   
         // ============ 辅助 ============  
