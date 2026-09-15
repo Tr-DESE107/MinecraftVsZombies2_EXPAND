@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using System;
 using System.Collections.Generic;
@@ -364,7 +364,9 @@ namespace MVZ2.GameContent.Stages
             //并钳制到 [1, 可用选项数]：可用选项不足范围上限时全给，不会溢出。
             var (minCount, maxCount) = GetUpgradeOptionCountRange(level);
             var count = Mathf.Clamp(rng.Next(minCount, maxCount + 1), 1, pool.Count);
-            var selected = pool.RandomTake(count, rng).ToArray();
+            // 这里不要用ListPool.Rent，因为后续选项执行时这个List已经被Release了。
+            List<int> selected = new List<int>();
+            pool.RandomTake(count, rng, selected);
             var texts = selected.Select(o => GetUpgradeText(level, o)).ToArray();
 
             level.PauseGame(100);
@@ -447,7 +449,7 @@ namespace MVZ2.GameContent.Stages
             return entity.IsEntityOf(BossID) && !entity.IsDead;
         }
         // 窗口累积限伤：已受伤量 + 本次伤害不超过当前限伤值（与原版 BossResistance 同机制）。
-        private void PreBossTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
+        private void PreBossTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult<bool> result)
         {
             var input = param.input;
             var entity = input.Entity;
@@ -463,7 +465,7 @@ namespace MVZ2.GameContent.Stages
             if (input.Amount > limit)
                 input.SetAmount(limit);
         }
-        private void PostBossTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult result)
+        private void PostBossTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResultVoid result)
         {
             var output = param.output;
             var entity = output.Entity;
