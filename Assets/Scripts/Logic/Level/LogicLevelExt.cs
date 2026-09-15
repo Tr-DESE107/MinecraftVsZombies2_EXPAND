@@ -19,7 +19,6 @@ using PVZEngine.Spawns;
 using PVZEngine.Tools;
 using PVZEngine.Tools.Random;
 using UnityEngine;
-using static UnityEngine.Networking.UnityWebRequest;
 using Random = UnityEngine.Random;
 
 namespace MVZ2Logic.Level
@@ -138,6 +137,14 @@ namespace MVZ2Logic.Level
         #endregion
 
         #region 检验地格
+        public static bool ValidateGridOutOfBounds(this LevelEngine level, int column, int lane)
+        {
+            if (column < 0 || lane < 0)
+                return false;
+            if (column >= level.GetMaxColumnCount() || lane >= level.GetMaxLaneCount())
+                return false;
+            return true;
+        }
         public static bool ValidateGridOutOfBounds(this LevelEngine level, Vector2Int position)
         {
             if (position.x < 0 || position.y < 0)
@@ -393,6 +400,27 @@ namespace MVZ2Logic.Level
 
             using var limitedSpawnDefsItem = ListPool<SpawnDefinition>.Rent();
             var limitedSpawnDefs = limitedSpawnDefsItem.Value;
+
+            // 固定生成。
+            var fixedSpawns = level.GetFixedSpawns();
+            if (fixedSpawns != null)
+            {
+                foreach (var fixedSpawn in fixedSpawns)
+                {
+                    if (wave != fixedSpawn.Wave)
+                        continue;
+                    var spawnID = fixedSpawn.ID;
+                    var spawnDef = level.Content.GetSpawnDefinition(spawnID);
+                    if (spawnDef == null)
+                        continue;
+                    for (int i = 0; i < fixedSpawn.Count; i++)
+                    {
+                        level.SpawnEnemyAtRandomLane(spawnDef);
+                        totalPoints -= spawnDef.GetSpawnLevel();
+                        spawnedCount++;
+                    }
+                }
+            }
 
             // 没有剩余点数，或者生成的敌人数量大于50只，则中断。
             while (totalPoints > 0 && spawnedCount < 50)
@@ -721,6 +749,13 @@ namespace MVZ2Logic.Level
         public static bool IsFirstAdventure(this LevelEngine level)
         {
             return level.IsAdventure() && !level.IsRerun;
+        }
+        #endregion
+
+        #region Boss关
+        public static bool IsBossLevel(this LevelEngine level)
+        {
+            return level.StageDefinition.GetStageType() == StageTypes.TYPE_BOSS;
         }
         #endregion
     }

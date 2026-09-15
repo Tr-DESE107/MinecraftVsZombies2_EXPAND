@@ -132,8 +132,8 @@ namespace MVZ2.GameContent.Stages
             if (level.EntityExists(VanillaPickupID.lockedChestPickup))
                 return;
             // 隐藏UI，关闭输入
-            level.ResetHeldItem();
-            level.SetUIAndInputDisabled(true);
+            DisableUIAndInput(level);
+            level.GiveAdventureBossReward();
             level.Clear();
         }
     }

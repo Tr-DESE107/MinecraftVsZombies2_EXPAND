@@ -286,6 +286,16 @@
                 <id name="mvz2:Category" value="mvz2:Zombie_Exp" />
             </properties>
         </zombie>
+        <imp type="2" parent="humanoid">
+            <properties>
+                <float name="mvz2:mass" value="-1" />
+                <vector3 name="mvz2:size" x="16" y="54" z="16" />
+                <float name="mvz2:fallResistance" value="18" />
+                <float name="mvz2:cryPitch" value="2" />
+                <int name="mvz2:cost" value="50" />
+                <id name="mvz2:shape" value="mvz2:imp" />
+            </properties>
+        </imp>
         <drowned type="2" parent="humanoid" >
             <properties>
                 <id name="mvz2:crySound" value="mvz2:drowned_cry" />
@@ -1712,7 +1722,7 @@
                 <id name="mvz2:shootSound" value="mvz2:shot" />
                 <id name="mvz2:projectileId" value="mvz2:air_slash" />
 
-                <int name="mvz2:cost" value="200" />
+                <int name="mvz2:cost" value="175" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </entity>
@@ -2002,7 +2012,7 @@
                 <id name="mvz2:upgradeFrom" value="mvz2:amethyst_pylon" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </entity>
@@ -2106,6 +2116,7 @@
                 <vector3 name="mvz2:grid_pivot_offset" x="-40" y="0" z="0"  />
                 <idArray name="mvz2:gridLayers" value="mvz2:main mvz2:protector " />
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
+                <bool name="mvz2:stable_contraption" value="true" />
                 <bool name="mvz2:no_abduction" value="true" />
                 <bool name="mvz2:no_devourer" value="true" />
                 <bool name="mvz2:no_teleporter" value="true" />
@@ -2226,9 +2237,6 @@
 
         <!-- Token Contraptions -->
         <entity template="contraption" id="anvil" name="铁砧" tooltip="阻碍怪物的前进">
-            <unlock>
-                <condition required="mvz2:level.dream_3" />
-            </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:model_damage_percent" />
             </behaviours>
@@ -2972,6 +2980,9 @@
 
         <!-- Enemies -->
         <entity template="zombie" id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
+            <unlock>
+                <condition requiredGroups="mvz2:enemy.zombie" />
+            </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:boated_enemy" />
                 <behaviour operator="add" id="mvz2:rickroll_drown_achievement" />
@@ -2982,6 +2993,9 @@
             </properties>
         </entity>
         <entity template="zombie" id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
+            <unlock>
+                <condition requiredGroups="mvz2:enemy.flag_zombie" />
+            </unlock>
             <properties>
                 <float name="mvz2:speed" value="3" />
                 <int name="mvz2:cost" value="300" />
@@ -2990,6 +3004,9 @@
             </properties>
         </entity>
         <entity template="zombie" id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有">
+            <unlock>
+                <condition requiredGroups="mvz2:enemy.leather_capped_zombie" />
+            </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:boated_enemy" />
                 <behaviour operator="add" id="mvz2:rickroll_drown_achievement" />
@@ -3001,6 +3018,9 @@
             </properties>
         </entity>
         <entity template="zombie" id="iron_helmetted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
+            <unlock>
+                <condition requiredGroups="mvz2:enemy.iron_helmetted_zombie" />
+            </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:boated_enemy" />
                 <behaviour operator="add" id="mvz2:rickroll_drown_achievement" />
@@ -3013,7 +3033,7 @@
         </entity>
         <entity template="zombie" id="diamond_helmetted_zombie" name="钻石盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <unlock>
-                <condition required="mvz2:level.palace_2" />
+                <condition requiredGroups="mvz2:enemy.diamond_helmetted_zombie" />
             </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:boated_enemy" />
@@ -3030,7 +3050,7 @@
         <!-- Halloween Enemies -->
         <entity template="Skeleton_Exp" id="skeleton" name="骷髅" deathMessage="被射成刺猬了！">
             <unlock>
-                <condition required="mvz2:level.halloween_1" />
+                <condition requiredGroups="mvz2:enemy.skeleton" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
@@ -3050,6 +3070,9 @@
             </properties>
         </entity>
         <entity template="humanoid_Exp" id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
+            <unlock>
+                <condition requiredGroups="mvz2:enemy.gargoyle" />
+            </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:remove_on_death" />
@@ -3069,7 +3092,7 @@
         </entity>
         <entity template="Ghost_Exp" id="ghost" name="幽灵" deathMessage="现在有伴了。">
             <unlock>
-                <condition required="mvz2:level.halloween_3" />
+                <condition requiredGroups="mvz2:enemy.ghost" />
             </unlock>
             <properties>
                 <float name="mvz2:friction" value="0.05" />
@@ -3088,7 +3111,7 @@
         </entity>
         <entity template="Husk_Exp" id="mummy" name="木乃伊" deathMessage="裹成个粽子。">
             <unlock>
-                <condition required="mvz2:level.halloween_6" />
+                <condition requiredGroups="mvz2:enemy.mummy" />
             </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:SandstoneHelmet" />
@@ -3106,7 +3129,7 @@
         </entity>
         <entity template="Skeleton_Exp" id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值">
             <unlock>
-                <condition required="mvz2:level.halloween_8" />
+                <condition requiredGroups="mvz2:enemy.necromancer" />
             </unlock>
             <properties>
                 <id name="mvz2:shell" value="mvz2:bone" />
@@ -3122,7 +3145,7 @@
         <!-- Dream Enemies -->
         <entity template="spider" id="spider" name="蜘蛛" deathMessage="我的蜘蛛感应又有反应了。">
             <unlock>
-                <condition required="mvz2:level.dream_1" />
+                <condition requiredGroups="mvz2:enemy.spider" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:spider/animation" />
@@ -3149,7 +3172,7 @@
         </entity>
         <entity template="smallSpider" id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。">
             <unlock>
-                <condition required="mvz2:level.dream_3" />
+                <condition requiredGroups="mvz2:enemy.cave_spider" />
             </unlock>
             <properties>
                 <float name="mvz2:mass" value="-1" />
@@ -3175,7 +3198,7 @@
         </entity>
         <entity template="enemy" id="ghast" name="恶魂" deathMessage="快拿棒球棒！">
             <unlock>
-                <condition required="mvz2:level.dream_6" />
+                <condition requiredGroups="mvz2:enemy.ghast" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:ghast/state" />
@@ -3208,7 +3231,7 @@
         </entity>
         <entity template="spider" id="mother_terror" name="恐怖之母" deathMessage="生异形啊">
             <unlock>
-                <condition required="mvz2:level.dream_8" />
+                <condition requiredGroups="mvz2:enemy.mother_terror" />
             </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="200" />
@@ -3231,7 +3254,7 @@
         </entity>
         <entity template="smallSpider" id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……">
             <unlock>
-                <condition required="mvz2:level.dream_9" />
+                <condition requiredGroups="mvz2:enemy.parasite_terror" />
             </unlock>
             <properties>
                 <float name="mvz2:mass" value="-1" />
@@ -3260,7 +3283,7 @@
         <!-- Castle Enemies -->
         <entity template="witherSkeleton" id="mesmerizer" name="反逆者" deathMessage="服从于凋灵吧">
             <unlock>
-                <condition required="mvz2:level.castle_1" />
+                <condition requiredGroups="mvz2:enemy.mesmerizer" />
             </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:mesmerizer_crown" />
@@ -3280,7 +3303,7 @@
         </entity>
         <entity template="witherSkeleton" id="berserker" name="狂战士" deathMessage="爆！">
             <unlock>
-                <condition required="mvz2:level.castle_3" />
+                <condition requiredGroups="mvz2:enemy.berserker" />
             </unlock>
             <properties>
                 <bool name="mvz2:dynamite" value="true" />
@@ -3299,7 +3322,7 @@
         </entity>
         <entity template="witherSkeleton" id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。">
             <unlock>
-                <condition required="mvz2:level.castle_6" />
+                <condition requiredGroups="mvz2:enemy.dullahan" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:dullahan/state" />
@@ -3320,7 +3343,7 @@
         </entity>
         <entity template="enemy" id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！">
             <unlock>
-                <condition required="mvz2:level.castle_8" />
+                <condition requiredGroups="mvz2:enemy.hell_chariot" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
@@ -3352,7 +3375,7 @@
         </entity>
         <entity template="enemy" id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！">
             <unlock>
-                <condition required="mvz2:level.castle_9" />
+                <condition requiredGroups="mvz2:enemy.anubisand" />
             </unlock>
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
@@ -3377,7 +3400,7 @@
 
         <entity template="zombie" id="reflective_barrier_zombie" name="反射壁僵尸" deathMessage="我反弹你的反弹">
             <unlock>
-                <condition required="mvz2:level.mausoleum_1" />
+                <condition requiredGroups="mvz2:enemy.reflective_barrier_zombie" />
             </unlock>
             <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:boated_enemy" />
@@ -3391,7 +3414,7 @@
         </entity>
         <entity template="zombie" id="talisman_zombie" name="灵符僵尸" deathMessage="好吃">
             <unlock>
-                <condition required="mvz2:level.mausoleum_3" />
+                <condition requiredGroups="mvz2:enemy.talisman_zombie" />
             </unlock>
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_walk" />
@@ -3403,7 +3426,7 @@
         </entity>
         <entity template="zombie" id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。">
             <unlock>
-                <condition required="mvz2:level.mausoleum_3" />
+                <condition requiredGroups="mvz2:enemy.wicked_hermit_zombie" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:wicked_hermit_zombie/state" />
@@ -3416,7 +3439,7 @@
         </entity>
         <entity template="zombie" id="shikaisen_zombie" name="尸解仙僵尸" deathMessage="那我怎么没复活？">
             <unlock>
-                <condition required="mvz2:level.mausoleum_6" />
+                <condition requiredGroups="mvz2:enemy.shikaisen_zombie" />
             </unlock>
             <properties>
                 <int name="mvz2:cost" value="125" />
@@ -3425,7 +3448,7 @@
         </entity>
         <entity template="zombie" id="emperor_zombie" name="皇帝僵尸" deathMessage="中道崩殂">
             <unlock>
-                <condition required="mvz2:level.mausoleum_8" />
+                <condition requiredGroups="mvz2:enemy.emperor_zombie" />
             </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
@@ -3437,7 +3460,7 @@
         <!-- Chapter 5 -->
         <entity template="enemy" id="undead_flying_object" name="不死飞行物" deathMessage="被抓走了！">
             <unlock>
-                <condition required="mvz2:level.ship_1" />
+                <condition requiredGroups="mvz2:enemy.undead_flying_object" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:undead_flying_object/state" />
@@ -3473,7 +3496,7 @@
         </entity>
         <entity template="enemy" id="zombie_cloud" name="僵尸云" deathMessage="你就云吧">
             <unlock>
-                <condition required="mvz2:level.ship_3" />
+                <condition requiredGroups="mvz2:enemy.zombie_cloud" />
             </unlock>
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_melee" />
@@ -3500,7 +3523,7 @@
         </entity>
         <entity template="zombie" id="cannoneer_zombie" name="炮手僵尸" deathMessage="炮决！">
             <unlock>
-                <condition required="mvz2:level.ship_6" />
+                <condition requiredGroups="mvz2:enemy.cannoneer_zombie" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:boated_enemy" />
@@ -3513,7 +3536,7 @@
         </entity>
         <entity template="enemy" id="cannonball_zombie" name="炮弹僵尸" deathMessage="-1up">
             <unlock>
-                <condition required="mvz2:level.ship_7" />
+                <condition requiredGroups="mvz2:enemy.cannonball_zombie" />
             </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="100" />
@@ -3532,7 +3555,7 @@
         </entity>
         <entity template="enemy" id="pop_captain" name="大力船长僵尸" deathMessage="永久停泊">
             <unlock>
-                <condition required="mvz2:level.ship_8" />
+                <condition requiredGroups="mvz2:enemy.pop_captain" />
             </unlock>
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_state" />
@@ -3587,7 +3610,7 @@
         </entity>
         <entity template="humanoid" id="skeleton_statue" name="骷髅雕像" deathMessage="*咔嚓*">
             <unlock>
-                <condition required="mvz2:level.palace_3" />
+                <condition requiredGroups="mvz2:enemy.skeleton_statue" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
@@ -3632,7 +3655,7 @@
         </entity>
         <entity template="enemy" id="zombie_cat" name="僵尸猫" deathMessage="你不会忘记挚爱的宠物，因为藏骨之处它永生不灭">
             <unlock>
-                <condition required="mvz2:level.palace_8" />
+                <condition requiredGroups="mvz2:enemy.zombie_cat" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:enemy_self_revival" />
@@ -3659,7 +3682,7 @@
         </entity>
         <entity template="enemy" id="wisp_fly" name="鬼火苍蝇" deathMessage="嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡">
             <unlock>
-                <condition required="mvz2:level.palace_9" />
+                <condition requiredGroups="mvz2:enemy.wisp_fly" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_melee" id="wisp_fly/self_destruct" />
@@ -3689,9 +3712,52 @@
         </entity>
 
         
+        <entity template="imp" id="bubble_gun_gurgle" name="泡泡枪小鬼" deathMessage="啪">
+            <unlock>
+                <condition requiredGroups="mvz2:enemy.bubble_gun_gurgle" />
+            </unlock>
+            <properties>
+                <float name="mvz2:fallResistance" value="18" />
+                <int name="mvz2:cost" value="50" />
+                <id name="mvz2:crySound" value="mvz2:drowned_cry" />
+                <id name="mvz2:deathSound" value="mvz2:drowned_death" />
+                <int name="mvz2:waterInteraction" value="3" />
+            </properties>
+        </entity>
+        <entity template="drowned" id="hookshot_drowned" name="抓钩溺尸" deathMessage="上钩了！">
+            <unlock>
+                <condition requiredGroups="mvz2:enemy.hookshot_drowned" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:hookshot_drowned/state" />
+            </behaviours>
+            <properties>
+                <id name="mvz2:starting_armor" value="mvz2:mountaineering_helmet" />
+                <int name="mvz2:cost" value="75" />
+            </properties>
+        </entity>
+        <entity template="zombie" id="zombinator" name="僵尸终结者" deathMessage="目标已终结">
+            <unlock>
+                <condition requiredGroups="mvz2:enemy.zombinator" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="replace" source="mvz2:humanoid_animation" id="mvz2:zombinator/animation" />
+            </behaviours>
+            <properties>
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <float name="mvz2:maxHealth" value="600" />
+                <float name="mvz2:speed" value="1" />
+                <int name="mvz2:cost" value="125" />
+                <float name="mvz2:mass" value="2" />
+                <id name="mvz2:crySound" value="mvz2:zombinator_cry" />
+                <id name="mvz2:deathSound" value="mvz2:zombinator_death" />
+                <bool name="mvz2:undead" value="false" />
+                <bool name="mvz2:immune_lightning" value="true" />
+            </properties>
+        </entity>
         <entity template="enemy" id="axolotl_suit" name="美西螈号机甲" deathMessage="沉入海底">
             <unlock>
-                <condition required="mvz2:level.mountain_8" />
+                <condition requiredGroups="mvz2:enemy.axolotl_suit" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:vehicle_crush" />
@@ -3702,7 +3768,7 @@
             <properties>
                 <float name="mvz2:mass" value="2" />
                 <float name="mvz2:speed" value="2" />
-                <float name="mvz2:maxHealth" value="900" />
+                <float name="mvz2:maxHealth" value="1200" />
                 <float name="mvz2:fallResistance" value="10000" />
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <id name="mvz2:shape" value="mvz2:mecha" />
@@ -3724,7 +3790,7 @@
         </entity>
         <entity template="drowned" id="axolotl_suit_pilot" name="美西螈号驾驶员" deathMessage="沉入海底">
             <unlock>
-                <condition required="mvz2:level.mountain_9" />
+                <condition requiredGroups="mvz2:enemy.axolotl_suit_pilot" />
             </unlock>
             <properties>
                 <int name="mvz2:cost" value="125" />
@@ -3740,26 +3806,18 @@
                 <int name="mvz2:teleporter_cost" value="-300" />
             </properties>
         </entity>
-        <entity template="Imp_Exp" id="imp" name="小鬼僵尸" deathMessage="被偷家了">
+        <entity template="imp" id="imp" name="小鬼僵尸" deathMessage="被偷家了">
             <unlock>
                 <condition required="mvz2:level.prologue" />
             </unlock>
             <behaviours>
-                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
                 <behaviour operator="add" id="mvz2:boated_enemy" />
                 <properties behaviour="mvz2:boated_enemy">
                     <bool name="spawn_with_boat" value="false" />
                 </properties>
             </behaviours>
             <properties>
-                <float name="mvz2:mass" value="-1" />
-                <vector3 name="mvz2:size" x="16" y="54" z="16" />
                 <float name="mvz2:fallResistance" value="18" />
-                <float name="mvz2:cryPitch" value="2" />
-                <int name="mvz2:cost" value="50" />
-                <id name="mvz2:shape" value="mvz2:imp" />
-                <int name="mvz2:waterInteraction" value="2" />
-                <int name="mvz2:airInteraction" value="2" />
                 <float name="mvz2:maxHealth" value="165" />
                 <float name="mvz2:speed" value="2" />
             </properties>
@@ -5474,7 +5532,7 @@
         <!-- Token Enemies-->
         <entity template="specialEnemy" id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？">
             <unlock>
-                <condition required="mvz2:level.halloween_8" />
+                <condition requiredGroups="mvz2:enemy.necromancer" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:timeout_death" />
@@ -5574,7 +5632,7 @@
         </entity>
         <entity template="Head_Exp" id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！">
             <unlock>
-                <condition required="mvz2:level.castle_6" />
+                <condition requiredGroups="mvz2:enemy.dullahan" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:damage_by_gold" />
@@ -5595,7 +5653,7 @@
         </entity>
         <entity template="specialEnemy" id="soulsand" name="灵魂沙" deathMessage="你被埋了？">
             <unlock>
-                <condition required="mvz2:level.castle_9" />
+                <condition requiredGroups="mvz2:enemy.anubisand" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
@@ -5698,7 +5756,7 @@
         </entity>
         <entity template="Skeleton_Exp" id="skeleton_warrior" name="骷髅战士" deathMessage="骸死我了">
             <unlock>
-                <condition required="mvz2:level.mausoleum_7" />
+                <condition requiredGroups="mvz2:contraption.necrotombstone" />
             </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
@@ -5713,7 +5771,7 @@
         </entity>
         <entity template="Skeleton_Exp" id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了">
             <unlock>
-                <condition required="mvz2:level.mausoleum_7" />
+                <condition requiredGroups="mvz2:contraption.necrotombstone" />
             </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state" />
@@ -5735,7 +5793,7 @@
         </entity>
         <entity template="specialEnemy" id="shikaisen_staff" name="尸解仙之杖" deathMessage="？">
             <unlock>
-                <condition required="mvz2:level.mausoleum_6" />
+                <condition requiredGroups="mvz2:enemy.shikaisen_zombie" />
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
@@ -5829,6 +5887,7 @@
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:immune_slowing" value="true" />
                 <float name="mvz2:fallResistance" value="10000" />
+                <bool name="mvz2:cannot_be_carried_by_other_enemy" value="true" />
                 <id name="mvz2:shell" value="mvz2:leather" />
                 <id name="mvz2:shape" value="mvz2:block" />
                 <id name="mvz2:crySound" null="true" />
@@ -5989,6 +6048,42 @@
                 <id name="mvz2:shape" value="mvz2:cow" />
 
                 <int name="mvz2:cost" value="25" />
+            </properties>
+        </entity>
+        <entity template="specialEnemy" id="bubble" name="泡泡" deathMessage="啪">
+            <unlock>
+                <condition required="mvz2:enemy.bubble_gun_gurgle" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:enemy_state" />
+                <behaviour operator="add" id="mvz2:enemy_walk" />
+                <behaviour operator="add" id="mvz2:remove_on_death" />
+                <behaviour operator="add" id="mvz2:timeout_death" />
+                <behaviour operator="add" id="mvz2:bubble/carry" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:harmless" value="true" />
+                <bool name="mvz2:notActiveEnemy" value="true" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:cannot_be_carried_by_other_enemy" value="true" />
+                <float name="mvz2:fallResistance" value="10000" />
+                <bool name="mvz2:undead" value="false" />
+                <id name="mvz2:shell" value="mvz2:bubble" />
+                <id name="mvz2:shape" value="mvz2:block" />
+                <id name="mvz2:crySound" null="true" />
+                <id name="mvz2:deathSound" value="mvz2:bubble_death" />
+                <float name="mvz2:maxHealth" value="100" />
+                <float name="mvz2:mass" value="-2" />
+                <float name="mvz2:speed" value="2" />
+                <vector3 name="mvz2:size" x="80" y="80" z="60" />
+                <color name="mvz2:bloodColor" value="#008effff" />
+                <color name="mvz2:bloodColorCensored" value="#008effff" />
+                <int name="mvz2:maxTimeout" value="300" />
+                <float name="mvz2:shadowAlpha" value="0.2" />
+
+                <vector3 name="mvz2:model_position_offset" x="0" y="0" z="-4"/>
+                <int name="mvz2:cost" value="0" />
             </properties>
         </entity>
 
@@ -7035,6 +7130,24 @@
                 <color name="mvz2:lightColor" value="#FF8080" />
                 <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />
                 <bool name="mvz2:ignore_prismatic_pylon" value="true" />
+            </properties>
+        </entity>
+        <entity template="projectile" id="hookshot">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:hookshot/skin" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:noDestroyOutsideLawn" value="true" />
+                <bool name="mvz2:killOnGround" value="false" />
+                <bool name="mvz2:ignore_force_pad" value="true" />
+                <bool name="mvz2:ignore_prismatic_pylon" value="true" />
+                <vector3 name="mvz2:size" x="32" y="32" z="32" />
+                <vector3 name="mvz2:boundsPivot" x="0.5" y="0.5" z="0.5" />
+                <int name="mvz2:maxTimeout" value="300" />
+                <bool name="mvz2:piercing" value="true" />
+                <bool name="mvz2:ignore_shields" value="true"/>
+                <int name="mvz2:waterInteraction" value="0" />
+                <float name="mvz2:damage" value="0" />
             </properties>
         </entity>
 
@@ -8238,6 +8351,12 @@
             <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="15" />
+            </properties>
+        </entity>
+        <entity template="effect" id="bubble_break_particles">
+            <behaviours includeSelf="false"/>
+            <properties>
+                <int name="mvz2:maxTimeout" value="3" />
             </properties>
         </entity>
         

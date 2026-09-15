@@ -323,6 +323,18 @@
     <model name="zombie_cat" type="entity" path="mvz2:enemy/palace/zombie_cat" width="92" height="38" xOffset="-8" yOffset="-19"/>
     <model name="wisp_fly" type="entity" path="mvz2:enemy/palace/wisp_fly" width="24" height="38" xOffset="0" yOffset="-19"/>
 
+    <model name="bubble_gun_gurgle" type="entity" path="mvz2:enemy/mountain/bubble_gun_gurgle" width="48" height="56" xOffset="7" yOffset="-26">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="hookshot_drowned" type="entity" path="mvz2:enemy/mountain/hookshot_drowned" width="72" height="90" xOffset="15" yOffset="-40">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="zombinator" type="entity" path="mvz2:enemy/mountain/zombinator" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+        <properties>
+            <int name="Phase" value="2" />
+        </properties>
+    </model>
     <model name="axolotl_suit" type="entity" path="mvz2:enemy/mountain/axolotl_suit" width="90" height="140" xOffset="-10" yOffset="-62" />
     <model name="axolotl_suit_pilot" type="entity" path="mvz2:enemy/mountain/axolotl_suit_pilot" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
@@ -434,6 +446,7 @@
     <model name="locked_chest_balloon" type="entity" path="mvz2:enemy/palace/locked_chest_balloon" width="60" height="120" xOffset="0" yOffset="-60"/>
     <model name="creaking" type="entity" path="mvz2:enemy/mountain/creaking" width="62" height="152" xOffset="0" yOffset="-64"/>
     <model name="zombie_cow" type="entity" path="mvz2:enemy/ship/zombie_cow" width="86" height="72" xOffset="11" yOffset="-32"/>
+    <model name="bubble" type="entity" path="mvz2:enemy/mountain/bubble" width="80" height="80" xOffset="0" yOffset="-40"/>
 
     <!--EXPAND Enemies C1-->
     <model name="SkeletonHead" type="entity" path="mvz2:enemy/halloween/SkeletonHead" width="32" height="22" xOffset="0" yOffset="-11" />
@@ -911,6 +924,7 @@
     <model name="waterfall" type="entity" path="mvz2:effect/waterfall" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="creaking_particles" type="entity" path="mvz2:effect/creaking_particles" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
     <model name="cleave_attack" type="entity" path="mvz2:effect/cleave_attack" shot="false" width="64" height="64" xOffset="0" yOffset="0" />
+    <model name="bubble_break_particles" type="entity" path="mvz2:effect/bubble_break_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0" />
     
     <!--EXPAND Effects-->
     <model name="BurnLaser" type="entity" path="mvz2:effect/EXPAND_EFFECTS/BurnLaser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
@@ -964,8 +978,8 @@
     <model name="hell_planet_moon" type="entity" path="mvz2:projectile/hell_planet_moon" width="26" height="26" xOffset="0" yOffset="-11" />
     <model name="shuriken" type="entity" path="mvz2:projectile/shuriken" width="26" height="26" xOffset="0" yOffset="0" />
     <model name="beacon_meteor" type="entity" path="mvz2:projectile/beacon_meteor" width="64" height="64" xOffset="0" yOffset="-25" />
-    <model name="firework" type="entity" path="mvz2:projectile/firework" width="38" height="12" xOffset="0" yOffset="-6" />
-    <model name="firework_big" type="entity" path="mvz2:projectile/firework_big" width="38" height="30" xOffset="0" yOffset="-15" />
+    <model name="firework" type="entity" path="mvz2:projectile/firework" width="38" height="12" xOffset="0" yOffset="0" />
+    <model name="firework_big" type="entity" path="mvz2:projectile/firework_big" width="38" height="30" xOffset="0" yOffset="0" />
     <model name="falling_star" type="entity" path="mvz2:projectile/falling_star" width="64" height="16" xOffset="24" yOffset="-8" />
     <model name="explosive_large_fireball" type="entity" path="mvz2:projectile/explosive_large_fireball" width="130" height="256" xOffset="0" yOffset="-128" />
 
@@ -980,6 +994,7 @@
     <model name="meowmere_projectile" type="entity" path="mvz2:projectile/meowmere_projectile" width="32" height="32" xOffset="0" yOffset="-12" />
     <model name="air_slash" type="entity" path="mvz2:projectile/air_slash" width="32" height="10" xOffset="0" yOffset="-5" />
     <model name="light_bullet" type="entity" path="mvz2:projectile/light_bullet" width="32" height="32" xOffset="0" yOffset="0" />
+    <model name="hookshot" type="entity" path="mvz2:projectile/hookshot" width="32" height="32" xOffset="0" yOffset="0" />
     <!--EXPAND Projectiles -->
     <model name="purpleArrow" type="entity" path="mvz2:projectile/purpleArrow" width="32" height="10" xOffset="0" yOffset="0" />
     <model name="ObsidianShard" type="entity" path="mvz2:projectile/ObsidianShard" width="24" height="10" xOffset="0" yOffset="0" />
@@ -1016,12 +1031,13 @@
     <model name="bedserker_helmet" type="armor" path="mvz2:armor/bedserker_helmet" width="32" height="14" xOffset="0" yOffset="-9" />
     <model name="reflective_barrier" type="armor" path="mvz2:armor/reflective_barrier" width="56" height="113" xOffset="0" yOffset="0" />
     <model name="wicked_hermit_hat" type="armor" path="mvz2:armor/wicked_hermit_hat" width="32" height="14" xOffset="0" yOffset="-9" />
-    <model name="skeleton_warrior_helmet" type="armor" path="mvz2:armor/skeleton_warrior_helmet" width="33" height="26" xOffset="0" yOffset="2" />
+    <model name="skeleton_warrior_helmet" type="armor" path="mvz2:armor/skeleton_warrior_helmet" width="34" height="26" xOffset="0" yOffset="2" />
     <model name="skeleton_warrior_shield" type="armor" path="mvz2:armor/skeleton_warrior_shield" width="33" height="34" xOffset="4" yOffset="0" />
     <model name="emperor_crown" type="armor" path="mvz2:armor/emperor_crown" width="70" height="72" xOffset="1" yOffset="18" />
     <model name="umbrella_shield" type="armor" path="mvz2:armor/umbrella_shield" width="64" height="100" xOffset="16" yOffset="0" />
     <model name="cannon" type="armor" path="mvz2:armor/cannon" width="61" height="36" xOffset="5" yOffset="7" />
     <model name="pop_captain_cap" type="armor" path="mvz2:armor/pop_captain_cap" width="40" height="12" xOffset="0" yOffset="-6" />
+    <model name="mountaineering_helmet" type="armor" path="mvz2:armor/mountaineering_helmet" width="32" height="22" xOffset="0" yOffset="6" />
 
     <!--EXPAND Armors -->
     <model name="SandstoneHelmet" type="armor" path="mvz2:armor/SandstoneHelmet" width="33" height="14" xOffset="0" yOffset="0" />

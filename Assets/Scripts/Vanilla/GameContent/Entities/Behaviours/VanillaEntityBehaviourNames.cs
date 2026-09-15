@@ -121,8 +121,12 @@ namespace MVZ2.Vanilla.Entities
         public const string crushCarts = "crush_carts";
         public const string rollingGiantBlock = "rolling_giant_block";
 
+        public const string hookshotDrowned_State = "hookshot_drowned/state";
+        public const string zombinator_Animation = "zombinator/animation";
         public const string axolotlSuit_State = "axolotl_suit/state";
         public const string axolotlSuit_DeathEffects = "axolotl_suit/death_effects";
+
+        public const string bubble_Carry = "bubble/carry";
         #endregion
         //EXPAND
         public const string NightmareDisciple_State = "NightmareDisciple_State";
@@ -182,6 +186,8 @@ namespace MVZ2.Vanilla.Entities
         public const string projectileRotating = "projectile_rotating";
         public const string projectilePointToDirection = "projectile_point_to_direction";
         public const string projectileChill = "projectile_chill";
+
+        public const string hookshot_Skin = "hookshot/skin";
         #endregion
 
         #region Effects

@@ -29,31 +29,7 @@ namespace MVZ2.GameContent.Pickups
             base.PostCollect(pickup);
             pickup.Velocity = Vector3.zero;
             var level = pickup.Level;
-
-            var difficultyDef = level.Content.GetDifficultyDefinition(level.Difficulty);
-            int money = 0;
-            if (level.IsRerun)
-            {
-                money = 250;
-                if (difficultyDef != null)
-                {
-                    money = difficultyDef.GetRerunClearMoney();
-                }
-            }
-            else
-            {
-                if (difficultyDef != null)
-                {
-                    if (level.DropsTrophy())
-                    {
-                        money = difficultyDef.GetPuzzleMoney();
-                    }
-                    else
-                    {
-                        money = difficultyDef.GetClearMoney();
-                    }
-                }
-            }
+            var money = GetClearMoney(level);
             GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);
 
             level.Clear();
@@ -62,6 +38,49 @@ namespace MVZ2.GameContent.Pickups
             level.PlaySoundIfNotNull(pickup.GetCollectSound());
             level.PlaySound(pickup.Level.GetClearSound() ?? VanillaSoundID.winMusic);
             level.Spawn(VanillaEffectID.starParticles, pickup.Position, pickup);
+        }
+        public static int GetClearMoney(LevelEngine level)
+        {
+            var difficultyDef = level.Content.GetDifficultyDefinition(level.Difficulty);
+            int money = 0;
+            if (!level.IsRerun)
+            {
+                if (difficultyDef != null)
+                {
+                    if (level.DropsTrophy())
+                    {
+                        money = difficultyDef.GetTrophyMoney();
+                    }
+                    else if (level.IsAdventure() && level.IsBossLevel())
+                    {
+                        money = difficultyDef.GetBossMoney();
+                    }
+                    else
+                    {
+                        money = difficultyDef.GetClearMoney();
+                    }
+                }
+            }
+            else
+            {
+                money = 250;
+                if (difficultyDef != null)
+                {
+                    if (level.DropsTrophy())
+                    {
+                        money = difficultyDef.GetRerunTrophyMoney();
+                    }
+                    else if (level.IsAdventure() && level.IsBossLevel())
+                    {
+                        money = difficultyDef.GetRerunBossMoney();
+                    }
+                    else
+                    {
+                        money = difficultyDef.GetRerunClearMoney();
+                    }
+                }
+            }
+            return money;
         }
     }
 }

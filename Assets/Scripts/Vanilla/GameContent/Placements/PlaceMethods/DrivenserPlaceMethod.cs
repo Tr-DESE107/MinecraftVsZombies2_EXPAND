@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Placements
         {
             using var gridEntities = grid.GetEntitiesDisposeable();
             var entities = gridEntities.Value;
-            if (entities.Count <= 0 )
+            if (entities.Count <= 0)
             {
                 return VanillaGridStatus.onlyUpgrade;
             }
@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Placements
             {
                 if (Drivenser.CanUpgrade(ent))
                 {
-                    canUpgrade = true; 
+                    canUpgrade = true;
                     break;
                 }
             }

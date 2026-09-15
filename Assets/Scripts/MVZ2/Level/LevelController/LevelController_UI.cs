@@ -92,6 +92,8 @@ namespace MVZ2.Level
             UpdateMoney();
             // 难度名称
             UpdateDifficultyName();
+            // 诅咒数量
+            UpdateCurseIcon();
             // 关卡进度条
             RefreshProgressBar();
         }
@@ -133,6 +135,16 @@ namespace MVZ2.Level
             var difficultyName = Game.GetDifficultyName(level.Difficulty);
             var levelUI = GetUIPreset();
             levelUI.SetDifficulty(difficultyName);
+        }
+        #endregion
+
+        #region 难度
+        private void UpdateCurseIcon()
+        {
+            var levelUI = GetUIPreset();
+            var curseCount = level.GetCurseCount();
+            levelUI.SetCurseIconActive(curseCount > 0 && IsGameStarted());
+            levelUI.SetCurseIconText(curseCount.ToString());
         }
         #endregion
 

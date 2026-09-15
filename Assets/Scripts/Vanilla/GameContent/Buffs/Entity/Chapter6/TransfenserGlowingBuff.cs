@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Buffs.Entities
         {
             var input = param.input;
             var entity = input.Entity;
-            if (entity.HasBuff(this))
+            if (entity.HasBuff(this) && !input.HasEffect(VanillaDamageEffects.NO_MODIFICATION))
             {
                 if (input.Effects.HasEffect(VanillaDamageEffects.FIRE))
                 {

@@ -22,7 +22,6 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Properties;
-using PVZEngine.SeedPacks;
 using PVZEngine.Tools.Random;
 using PVZEngine.Tools.Timing;
 using UnityEngine;
@@ -115,7 +114,7 @@ namespace MVZ2.GameContent.Stages
                             var difficultyMeta = level.Content.GetDifficultyDefinition(difficulty);
                             if (difficultyMeta != null)
                             {
-                                money = difficultyMeta.GetPuzzleMoney();
+                                money = difficultyMeta.GetTrophyMoney();
                             }
                             var x = level.GetLawnCenterX();
                             var z = level.GetLawnCenterZ();

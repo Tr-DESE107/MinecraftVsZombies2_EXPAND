@@ -187,6 +187,23 @@
     </entry>
 
     <!-- Mountain -->
+    <entry id="bubble_gun_gurgle">
+        <entity id="mvz2:bubble_gun_gurgle" />
+        <spawn level="2" minWave="10" />
+        <terrain water="true" />
+        <weight base="3000" />
+    </entry>
+    <entry id="hookshot_drowned">
+        <entity id="mvz2:hookshot_drowned" />
+        <spawn level="3" minWave="5" />
+        <terrain water="true" />
+        <weight base="3000" />
+    </entry>
+    <entry id="zombinator">
+        <entity id="mvz2:zombinator" />
+        <spawn level="4" minWave="5" />
+        <weight base="2500" />
+    </entry>
     <entry id="axolotl_suit">
         <entity id="mvz2:axolotl_suit" />
         <spawn level="6" minWave="10" />

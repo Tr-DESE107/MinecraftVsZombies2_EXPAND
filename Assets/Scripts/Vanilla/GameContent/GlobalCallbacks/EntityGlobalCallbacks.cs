@@ -3,7 +3,6 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Armors;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
@@ -18,6 +17,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using UnityEngine.Windows;
 
 namespace MVZ2.GameContent.GlobalCallbacks
 {
@@ -107,7 +107,13 @@ namespace MVZ2.GameContent.GlobalCallbacks
         {
             var damageInfo = args.input;
             var entity = damageInfo.Entity;
+            if (damageInfo.HasEffect(VanillaDamageEffects.NO_MODIFICATION))
+                return;
             if (entity.ImmuneFire() && damageInfo.Effects.HasEffect(VanillaDamageEffects.FIRE))
+            {
+                damageInfo.Multiply(0);
+            }
+            if (entity.ImmuneLightning() && damageInfo.Effects.HasEffect(VanillaDamageEffects.LIGHTNING))
             {
                 damageInfo.Multiply(0);
             }

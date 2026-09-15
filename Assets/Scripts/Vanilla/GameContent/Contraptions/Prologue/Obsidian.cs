@@ -46,8 +46,8 @@ namespace MVZ2.GameContent.Contraptions
             if (netherite)
             {
 
+                if (contraption.Health <= maxHP / ObsidianArmorBuff.HEALTH_MULTIPLIER)
                 // 如果护甲血量掉到40%，移除Buff
-                if (contraption.Health <= maxHP * 0.4f)
                 {
                     var hp = contraption.Health;
                     contraption.RemoveBuffs<ObsidianArmorBuff>();
@@ -133,8 +133,11 @@ namespace MVZ2.GameContent.Contraptions
         /// </summary>
         private float GetArmoredDamagePercent(Entity contraption, float maxHP)
         {
+            var obsidianArmorMultiplier = ObsidianArmorBuff.HEALTH_MULTIPLIER;
+            var inverseMultiplier = 1 / obsidianArmorMultiplier;
+            var oneMinusInverse = 1 - inverseMultiplier;
             var percent = contraption.Health / maxHP;
-            var armorPercent = (percent - 0.4f) / 0.6f;
+            var armorPercent = (percent - inverseMultiplier) / oneMinusInverse;
             return 1 - armorPercent;
         }
 

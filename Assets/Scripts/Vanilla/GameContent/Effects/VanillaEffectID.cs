@@ -128,6 +128,7 @@ namespace MVZ2.GameContent.Effects
         public const string waterfall = "waterfall";
         public const string creakingParticles = "creaking_particles";
         public const string cleaveAttack = "cleave_attack";
+        public const string bubbleBreakParticles = "bubble_break_particles";
 
         //EXPAND
         public const string SoulFreeze = "SoulFreeze";
@@ -257,6 +258,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID waterfall = Get(VanillaEffectNames.waterfall);
         public static readonly NamespaceID creakingParticles = Get(VanillaEffectNames.creakingParticles);
         public static readonly NamespaceID cleaveAttack = Get(VanillaEffectNames.cleaveAttack);
+        public static readonly NamespaceID bubbleBreakParticles = Get(VanillaEffectNames.bubbleBreakParticles);
 
         //EXPAND
         public static readonly NamespaceID SoulFreeze = Get(VanillaEffectNames.SoulFreeze);

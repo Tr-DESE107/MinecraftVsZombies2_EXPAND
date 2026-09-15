@@ -2,6 +2,7 @@
 
 using MVZ2.Vanilla;
 using PVZEngine;
+using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Buffs
 {
@@ -24,6 +25,15 @@ namespace MVZ2.GameContent.Buffs
             public const string debugStarshard = "debug_starshard";
             public const string debugEnergy = "debug_energy";
 
+            // Curses
+            public const string theCreaturesBrain = "the_creatures_brain";
+            public const string nightmaresTentacle = "nightmares_tentacle";
+            public const string withersSkull = "withers_skull";
+            public const string theGiantsFlesh = "the_giants_flesh";
+            public const string redDragonsScale = "red_dragons_scale";
+            public const string lockedChestsChains = "locked_chests_chains";
+            public const string krakensBackplate = "krakens_backplate";
+
             // Tutorial
             public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
             public const string tutorialTriggerDisable = "tutorial_trigger_disable";
@@ -42,6 +52,7 @@ namespace MVZ2.GameContent.Buffs
             public const string slendermanTransition = "slenderman_transition";
             public const string nightmareaperTransition = "nightmareaper_transition";
             public const string nightmareCleared = "nightmare_cleared";
+            public const string finalClearAutoCollect = "final_clear_auto_collect"; 
 
             // Chapter 3
             public const string reverseSatellite = "reverse_satellite";
@@ -131,7 +142,7 @@ namespace MVZ2.GameContent.Buffs
             public const string cursedCandle = "cursed_candle";
             public const string stoneEyeSlowing = "stone_eye_slowing";
             public const string petrified = "petrified";
-            public const string draggedByBalloon = "dragged_by_balloon";
+            public const string carriedByBalloon = "carried_by_balloon";
             public const string releasedfromLockedChest = "released_from_locked_chest";
             public const string burning = "burning";
 
@@ -185,6 +196,9 @@ namespace MVZ2.GameContent.Buffs
             public const string obsidianArmor = "obsidian_armor";
             public const string mineTNTInvincible = "mine_tnt_invincible";
             public const string GlowingObsidianArmorBuff = "GlowingObsidianArmorBuff";
+
+            // Curses
+            public const string withersSkullForContraption = "withers_skull_for_contraption";
 
             // Chapter 1
             public const string moonlightSensorLaunching = "moonlight_sensor_launching";
@@ -271,6 +285,10 @@ namespace MVZ2.GameContent.Buffs
             public const string VanguardResistance = "VanguardResistance";
             public const string WarriorResistance = "WarriorResistance";
 
+            // Curses
+            public const string theGiantsFleshForEnemy = "the_giants_flesh_for_enemy";
+            public const string krakensBackplateForEnemy = "krakens_backplate_for_enemy";
+
             // Prologue
             public const string gemCarrier = "gem_carrier";
 
@@ -333,6 +351,9 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 7
             public const string trapped = "trapped";
+            public const string hookshotUser = "hookshot_user";
+            public const string bubbleGunUser = "bubble_gun_user";
+            public const string bubbleExpand = "bubble_expand";
 
             //EXPAND
             public const string AntiGravityPadGravity = "AntiGravityPadGravity";
@@ -570,7 +591,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID transfenserGlowing = Get(VanillaBuffNames.Entity.transfenserGlowing);
             public static readonly NamespaceID stoneEyeSlowing = Get(VanillaBuffNames.Entity.stoneEyeSlowing);
             public static readonly NamespaceID petrified = Get(VanillaBuffNames.Entity.petrified);
-            public static readonly NamespaceID draggedByBalloon = Get(VanillaBuffNames.Entity.draggedByBalloon);
+            public static readonly NamespaceID carriedByBalloon = Get(VanillaBuffNames.Entity.carriedByBalloon);
             public static readonly NamespaceID burning = Get(VanillaBuffNames.Entity.burning);
 
             // Random China

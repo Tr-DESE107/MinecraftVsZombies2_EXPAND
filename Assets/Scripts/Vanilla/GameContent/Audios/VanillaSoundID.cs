@@ -50,6 +50,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID bonk = Get("bonk");
         public readonly static NamespaceID boon = Get("boon");
         public readonly static NamespaceID bow = Get("bow");
+        public readonly static NamespaceID bubbleSpawn = Get("bubble_spawn");
+        public readonly static NamespaceID bubbleHit = Get("bubble_hit");
         public readonly static NamespaceID butter = Get("butter");
         public readonly static NamespaceID cave = Get("cave");
         public readonly static NamespaceID chainsBreak = Get("chains_break");
@@ -138,6 +140,10 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID gunShot = Get("gun_shot");
         public readonly static NamespaceID happyBirthday = Get("happy_birthday");
         public readonly static NamespaceID harp = Get("harp");
+        public readonly static NamespaceID hookshotFire = Get("hookshot_fire");
+        public readonly static NamespaceID hookshotLoop = Get("hookshot_loop");
+        public readonly static NamespaceID hookshotSet = Get("hookshot_set");
+        public readonly static NamespaceID hookshotTarget = Get("hookshot_target");
         public readonly static NamespaceID horseAngry = Get("horse_angry");
         public readonly static NamespaceID horseGallop = Get("horse_gallop");
         public readonly static NamespaceID hugeWave = Get("huge_wave");
@@ -288,6 +294,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID zombieCry = Get("zombie_cry");
         public readonly static NamespaceID zombieHurt = Get("zombie_hurt");
         public readonly static NamespaceID zombieDeath = Get("zombie_death");
+        public readonly static NamespaceID zombinatorCry = Get("zombinator_cry");
+        public readonly static NamespaceID zombinatorDeath = Get("zombinator_death");
 
 
         //EXPAND

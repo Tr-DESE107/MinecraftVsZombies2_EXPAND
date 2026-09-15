@@ -50,6 +50,9 @@ namespace MVZ2.GameContent.Enemies
         public const string zombieCat = "zombie_cat";
         public const string wispFly = "wisp_fly";
 
+        public const string bubbleGunGurgle = "bubble_gun_gurgle";
+        public const string hookshotDrowned = "hookshot_drowned";
+        public const string zombinator = "zombinator";
         public const string axolotlSuit = "axolotl_suit";
         public const string axolotlSuitPilot = "axolotl_suit_pilot";
 
@@ -76,6 +79,7 @@ namespace MVZ2.GameContent.Enemies
         public const string lockedChestBalloon = "locked_chest_balloon";
         public const string creaking = "creaking";
         public const string zombieCow = "zombie_cow";
+        public const string bubble = "bubble";
 
 
         //EXPAND_C1
@@ -245,6 +249,9 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID zombieCat = Get(VanillaEnemyNames.zombieCat);
         public static readonly NamespaceID wispFly = Get(VanillaEnemyNames.wispFly);
 
+        public static readonly NamespaceID bubbleGunGurgle = Get(VanillaEnemyNames.bubbleGunGurgle);
+        public static readonly NamespaceID hookshotDrowned = Get(VanillaEnemyNames.hookshotDrowned);
+        public static readonly NamespaceID zombinator = Get(VanillaEnemyNames.zombinator);
         public static readonly NamespaceID axolotlSuit = Get(VanillaEnemyNames.axolotlSuit);
         public static readonly NamespaceID axolotlSuitPilot = Get(VanillaEnemyNames.axolotlSuitPilot);
 
@@ -271,6 +278,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID lockedChestBalloon = Get(VanillaEnemyNames.lockedChestBalloon);
         public static readonly NamespaceID creaking = Get(VanillaEnemyNames.creaking);
         public static readonly NamespaceID zombieCow = Get(VanillaEnemyNames.zombieCow);
+        public static readonly NamespaceID bubble = Get(VanillaEnemyNames.bubble);
 
         //EXPAND_C1
         public static readonly NamespaceID SkeletonHead = Get(VanillaEnemyNames.SkeletonHead);

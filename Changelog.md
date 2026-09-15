@@ -4,6 +4,8 @@
   - /test finalwaveevent：Triggers the final wave event.
   - /blueprint slots：Sets the slot count for blueprints.
   - /artifact slots：Sets the slot count for artifacts.
+  - /money set：Sets money.
+  - /money add：Increases money.
 - Added entity material "Apparition" and "Wither Bone", removed entity material "Nether".
   - The material of Soul Furnace has been changed to "Wood".
   - The material of Ghost, Ghast, and Napstablook has been changed to "Apparition".
@@ -21,11 +23,15 @@
 - Adjusted the texture of the tiles destroyed by Nukes, to enhance their visibility against dark backgrounds.
 - Adjusted the textures of Stone Shield and Emperor Zombie.
 - The cursor for Force Pad's evocation and Skyward Beacon now has a unique sprite.
+- Achievement descriptions are now hidden until the prerequisites for unlocking the achievement have been met (such as not having the means to complete the achievement).
 
 ### Balance
 - Adventure
   - Reduced the enemy amount for Chapter 1.
   - Reduced the enemy amount for the first half of Chapter 5.
+  - Gives 5000 money after firstly clearing a Boss level.
+- Final Defense Carts
+  - Money given after level clear: 10 -> 50
 - Soul Furnace
   - Adjusted the contraption quality algorithm to get fuel.
     - The cost of a contraption required to fill an empty Soul Furnace:

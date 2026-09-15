@@ -19,8 +19,11 @@ namespace MVZ2.Metas
 
         public int CartConvertMoney { get; private set; }
         public int ClearMoney { get; private set; }
+        public int TrophyMoney { get; private set; }
+        public int BossMoney { get; private set; }
         public int RerunClearMoney { get; private set; }
-        public int PuzzleMoney { get; private set; }
+        public int RerunTrophyMoney { get; private set; }
+        public int RerunBossMoney { get; private set; }
 
         public SpriteReference? MapButtonBorderBack { get; private set; }
         public SpriteReference? MapButtonBorderBottom { get; private set; }
@@ -47,15 +50,37 @@ namespace MVZ2.Metas
 
             int cartMoney = 50;
             int clearMoney = 0;
+            int trophyMoney = 1000;
+            int bossMoney = 5000;
             int rerunMoney = 250;
-            int puzzleMoney = 1000;
+            int rerunTrophyMoney = 250;
+            int rerunBossMoney = 250;
             var clearNode = node["clear"];
             if (clearNode != null)
             {
-                cartMoney = clearNode.GetAttributeInt("cartMoney") ?? 50;
-                clearMoney = clearNode.GetAttributeInt("clearMoney") ?? 0;
-                rerunMoney = clearNode.GetAttributeInt("rerunMoney") ?? 250;
-                puzzleMoney = clearNode.GetAttributeInt("puzzleMoney") ?? 1000;
+                var moneyNode = clearNode["money"];
+                if (moneyNode != null)
+                {
+                    cartMoney = moneyNode.GetAttributeInt("cart") ?? cartMoney;
+                    var normalNode = moneyNode["normal"];
+                    if (normalNode != null)
+                    {
+                        clearMoney = normalNode.GetAttributeInt("first") ?? clearMoney;
+                        rerunMoney = normalNode.GetAttributeInt("rerun") ?? rerunMoney;
+                    }
+                    var trophyNode = moneyNode["trophy"];
+                    if (trophyNode != null)
+                    {
+                        trophyMoney = trophyNode.GetAttributeInt("first") ?? trophyMoney;
+                        rerunTrophyMoney = trophyNode.GetAttributeInt("rerun") ?? rerunTrophyMoney;
+                    }
+                    var bossNode = moneyNode["boss"];
+                    if (bossNode != null)
+                    {
+                        bossMoney = bossNode.GetAttributeInt("first") ?? bossMoney;
+                        rerunBossMoney = bossNode.GetAttributeInt("rerun") ?? rerunBossMoney;
+                    }
+                }
             }
 
             SpriteReference? backSprite = null;
@@ -85,8 +110,11 @@ namespace MVZ2.Metas
 
                 CartConvertMoney = cartMoney,
                 ClearMoney = clearMoney,
+                TrophyMoney = trophyMoney,
+                BossMoney = bossMoney,
                 RerunClearMoney = rerunMoney,
-                PuzzleMoney = puzzleMoney,
+                RerunTrophyMoney = rerunTrophyMoney,
+                RerunBossMoney = rerunBossMoney,
 
                 MapButtonBorderBack = backSprite,
                 MapButtonBorderBottom = bottomSprite,

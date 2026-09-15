@@ -65,6 +65,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string frozenOrb = "frozen_orb";
         public const string meowmereProjectile = "meowmere_projectile";
         public const string airSlash = "air_slash";
+        public const string hookshot = "hookshot";
         //EXPAND
         public const string purpleArrow = "purpleArrow";
         public const string ObsidianShard = "ObsidianShard";
@@ -151,6 +152,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID frozenOrb = Get(VanillaProjectileNames.frozenOrb);
         public static readonly NamespaceID meowmereProjectile = Get(VanillaProjectileNames.meowmereProjectile);
         public static readonly NamespaceID airSlash = Get(VanillaProjectileNames.airSlash);
+        public static readonly NamespaceID hookshot = Get(VanillaProjectileNames.hookshot);
         public static readonly NamespaceID cannonMissile = Get(VanillaProjectileNames.cannonMissile);
 
         //EXPAND

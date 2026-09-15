@@ -12,6 +12,7 @@ using MVZ2Logic.Artifacts;
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Conditions;
+using MVZ2Logic.Curses;
 using MVZ2Logic.Definitions;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;
@@ -188,6 +189,8 @@ namespace MVZ2.Modding
             LoadBuffMetas(mod);
             // 加载所有地图元素信息。
             LoadMapElementMetas(mod);
+            // 加载所有诅咒。
+            LoadCurseMetas(mod);
         }
         private void LoadEntityMetas(Mod mod)
         {
@@ -443,10 +446,13 @@ namespace MVZ2.Modding
                 def.SetProperty(LogicDifficultyProps.VALUE, meta.Value);
                 def.SetProperty(LogicDifficultyProps.BUFF_ID, meta.BuffID);
                 def.SetProperty(LogicDifficultyProps.I_ZOMBIE_BUFF_ID, meta.IZombieBuffID);
+                def.SetProperty(LogicDifficultyProps.CART_CONVERT_MONEY, meta.CartConvertMoney);
                 def.SetProperty(LogicDifficultyProps.CLEAR_MONEY, meta.ClearMoney);
                 def.SetProperty(LogicDifficultyProps.RERUN_CLEAR_MONEY, meta.RerunClearMoney);
-                def.SetProperty(LogicDifficultyProps.CART_CONVERT_MONEY, meta.CartConvertMoney);
-                def.SetProperty(LogicDifficultyProps.PUZZLE_MONEY, meta.PuzzleMoney);
+                def.SetProperty(LogicDifficultyProps.TROPHY_MONEY, meta.TrophyMoney);
+                def.SetProperty(LogicDifficultyProps.RERUN_TROPHY_MONEY, meta.RerunTrophyMoney);
+                def.SetProperty(LogicDifficultyProps.BOSS_MONEY, meta.BossMoney);
+                def.SetProperty(LogicDifficultyProps.RERUN_BOSS_MONEY, meta.RerunBossMoney);
                 def.SetProperty(LogicDifficultyProps.MAP_BUTTON_BORDER_BACK, meta.MapButtonBorderBack);
                 def.SetProperty(LogicDifficultyProps.MAP_BUTTON_BORDER_BOTTOM, meta.MapButtonBorderBottom);
                 def.SetProperty(LogicDifficultyProps.MAP_BUTTON_BORDER_OVERLAY, meta.MapButtonBorderOverlay);
@@ -507,6 +513,26 @@ namespace MVZ2.Modding
                 {
                     def.AddBehaviourID(behaviourID);
                 }
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadCurseMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (var meta in res.GetModCurseMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var path = meta.ID;
+                var def = new DefaultCurseDefinition(nsp, path);
+                var entityID = def.GetID();
+
+                def.SetUnlockConditions(meta.UnlockConditions);
+                def.SetBuffID(meta.BuffID);
+                def.SetCurseName(meta.Name);
+                def.SetCurseTooltip(meta.Tooltip);
+                def.SetSpriteReference(meta.Sprite);
+
                 mod.AddDefinition(def);
             }
         }
@@ -647,6 +673,7 @@ namespace MVZ2.Modding
                 stageDef.SetProperty(LogicStageProps.WAVE_ADVANCE_HEALTH_PERCENT, meta.AdvanceHealthPercent);
 
                 stageDef.SetProperty(LogicStageProps.ENEMY_POOL, meta.Spawns);
+                stageDef.SetProperty<IStageFixedSpawn[]>(LogicStageProps.FIXED_SPAWNS, meta.FixedSpawns);
                 stageDef.SetProperty<IStageTalkMeta[]>(LogicStageProps.TALKS, meta.Talks);
                 stageDef.SetProperty<IConveyorPoolEntry[]>(LogicStageProps.CONVEYOR_POOL, meta.ConveyorPool);
 
