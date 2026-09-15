@@ -48,7 +48,7 @@ namespace MVZ2.GameContent.Stages
                 return;
 
             // 已经被别的气球吊住了就不重复挂  
-            if (entity.HasBuff(VanillaBuffID.Entity.draggedByBalloon))
+            if (entity.HasBuff(VanillaBuffID.Entity.carriedByBalloon))
                 return;
 
             AttachBalloon(entity);

@@ -34,11 +34,17 @@ MonoBehaviour:
   - name: achievements/bonebreaker
     texture: {fileID: 2800000, guid: 7c96fdff5dc5fde4ab6559e24a67dc99, type: 3}
     tags: []
+  - name: achievements/cuckoo
+    texture: {fileID: 2800000, guid: 47475a97e62104842908445eb02d61c3, type: 3}
+    tags: []
   - name: achievements/double_trouble
     texture: {fileID: 2800000, guid: 2becb83796290cb438ce963aff698ae4, type: 3}
     tags: []
   - name: achievements/ghost_buster
     texture: {fileID: 2800000, guid: cd6294e0e010f934b90fb1f9ca35e623, type: 3}
+    tags: []
+  - name: achievements/gravity_padded
+    texture: {fileID: 2800000, guid: 75903275211497942bc0bcb0a4021157, type: 3}
     tags: []
   - name: achievements/let_them_eat_cake
     texture: {fileID: 2800000, guid: 9434fba9801d2cf498f5cb99a0cf8980, type: 3}
@@ -481,6 +487,27 @@ MonoBehaviour:
   - name: characters/utsuho
     texture: {fileID: 2800000, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
     tags: []
+  - name: curses/krakens_backplate
+    texture: {fileID: 2800000, guid: 85ae0b6fd00720b4b9e220432d7a2f40, type: 3}
+    tags: []
+  - name: curses/locked_chests_chains
+    texture: {fileID: 2800000, guid: 906a48795c212d546bbec74d7295f974, type: 3}
+    tags: []
+  - name: curses/nightmares_tentacle
+    texture: {fileID: 2800000, guid: 256b166dcbd233540bfa86ee6b8c56e9, type: 3}
+    tags: []
+  - name: curses/red_dragons_scale
+    texture: {fileID: 2800000, guid: dd9359faba258ba42ac7467d732aa8ae, type: 3}
+    tags: []
+  - name: curses/the_creatures_brain
+    texture: {fileID: 2800000, guid: 64fae9ded1900d64bba8789f78363d41, type: 3}
+    tags: []
+  - name: curses/the_giants_flesh
+    texture: {fileID: 2800000, guid: e0a58013ffdd8304aa2139402f9bf70a, type: 3}
+    tags: []
+  - name: curses/withers_skull
+    texture: {fileID: 2800000, guid: eccf21b7313a33d41a14e2ede291366e, type: 3}
+    tags: []
   - name: entity/height_indicator
     texture: {fileID: 2800000, guid: 3d0f094a3020c1a4bbec297a273a5ed4, type: 3}
     tags: []
@@ -676,6 +703,9 @@ MonoBehaviour:
   - name: misc/memory_with_unknown_person
     texture: {fileID: 2800000, guid: bb754e26dee4d5441be3bad97415c324, type: 3}
     tags: []
+  - name: misc/mountain
+    texture: {fileID: 2800000, guid: b281ded5b7339de43a309d71320b5309, type: 3}
+    tags: []
   - name: misc/murder
     texture: {fileID: 2800000, guid: 944683e1f0da086409759e5b63d9d066, type: 3}
     tags: []
@@ -809,6 +839,9 @@ MonoBehaviour:
     tags: []
   - name: mobile_blueprint/brick_cannon
     texture: {fileID: 2800000, guid: 8a3366b53f8c5664da6cfeea30c441e9, type: 3}
+    tags: []
+  - name: mobile_blueprint/bubble_gun_gurgle
+    texture: {fileID: 2800000, guid: e915e332043a47b4081ebc9212a0ba18, type: 3}
     tags: []
   - name: mobile_blueprint/CannonballMannequin
     texture: {fileID: 2800000, guid: 62ef2925e8948e045be69ce9079ea24a, type: 3}
@@ -1058,6 +1091,9 @@ MonoBehaviour:
     tags: []
   - name: mobile_blueprint/high_frequency_pulse_dispenser
     texture: {fileID: 2800000, guid: f24e02b7e9159cb4ebd603ab477f2152, type: 3}
+    tags: []
+  - name: mobile_blueprint/hookshot_drowned
+    texture: {fileID: 2800000, guid: b45a4908c8e196e44904f643344333fd, type: 3}
     tags: []
   - name: mobile_blueprint/HostHead
     texture: {fileID: 2800000, guid: a3df683af025d3e43a240497f95d57be, type: 3}
@@ -1593,6 +1629,9 @@ MonoBehaviour:
   - name: mobile_blueprint/zombie_cloud_thunder
     texture: {fileID: 2800000, guid: 067521958e94fd440bf2d5a8c1b62383, type: 3}
     tags: []
+  - name: mobile_blueprint/zombinator
+    texture: {fileID: 2800000, guid: 08eeecfdfa986614fb5cb55a643bc8f8, type: 3}
+    tags: []
   - name: note/background_castle
     texture: {fileID: 2800000, guid: cdb5a00e33b0dda46876f58eb7acc614, type: 3}
     tags: []
@@ -1834,14 +1873,23 @@ MonoBehaviour:
   - name: ui/debug_console_icon
     texture: {fileID: 2800000, guid: c853afac5f602874e877872193826015, type: 3}
     tags: []
+  - name: ui/deselect_all
+    texture: {fileID: 2800000, guid: 64f5d3ca66a101c4c9a68600f246b904, type: 3}
+    tags: []
   - name: ui/gear
     texture: {fileID: 2800000, guid: e0c7697228ff843469a11a3a633766bb, type: 3}
     tags: []
   - name: ui/gear_banned
     texture: {fileID: 2800000, guid: d7ad17d08589c04459d3a3030abbf9f5, type: 3}
     tags: []
+  - name: ui/question_mark
+    texture: {fileID: 2800000, guid: 0704cf6e70e16a142ba9812e3204d528, type: 3}
+    tags: []
   - name: ui/refresh
     texture: {fileID: 2800000, guid: 92e692ae88b62a541bef812a89e2bac3, type: 3}
+    tags: []
+  - name: ui/select_all
+    texture: {fileID: 2800000, guid: 6fd7f39aa0a47b84687c0fb1016c4945, type: 3}
     tags: []
   - name: ui/snipenser_life
     texture: {fileID: 2800000, guid: 7b77566262542ea459cba42fe15d4825, type: 3}
@@ -1917,6 +1965,9 @@ MonoBehaviour:
     tags: []
   - name: entity/armor/mesmerizer_crown
     texture: {fileID: 2800000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
+    tags: []
+  - name: entity/armor/mountaineering_helmet
+    texture: {fileID: 2800000, guid: 024e01fe827c5b94fa2db9d6d6072831, type: 3}
     tags: []
   - name: entity/armor/pop_captain_cap
     texture: {fileID: 2800000, guid: 33c49e1a293e6d94f8836070fff9c226, type: 3}
@@ -2620,6 +2671,9 @@ MonoBehaviour:
   - name: entity/effect/vulnerable_particle
     texture: {fileID: 2800000, guid: ca6d456fa79f841498d3f9ba6f35e9db, type: 3}
     tags: []
+  - name: entity/effect/waterfall_particle_mask
+    texture: {fileID: 2800000, guid: 5f4d00ab4078fc7458c38b5b0e6e8a76, type: 3}
+    tags: []
   - name: entity/effect/water_splash
     texture: {fileID: 2800000, guid: 9d730e080bace4646938c15cdabc88d0, type: 3}
     tags: []
@@ -2683,6 +2737,12 @@ MonoBehaviour:
   - name: entity/enemy/bow_texture
     texture: {fileID: 2800000, guid: a517e81da420e4941880bb250f059923, type: 3}
     tags: []
+  - name: entity/enemy/bubble
+    texture: {fileID: 2800000, guid: 1a2b9bd061e596a4383606c326535d38, type: 3}
+    tags: []
+  - name: entity/enemy/bubble_gun
+    texture: {fileID: 2800000, guid: a728246733a0e394ca68d4512b05d39b, type: 3}
+    tags: []
   - name: entity/enemy/cannonball_zombie
     texture: {fileID: 2800000, guid: b11db4b170db8634b901f6162c53376e, type: 3}
     tags: []
@@ -2700,6 +2760,9 @@ MonoBehaviour:
     tags: []
   - name: entity/enemy/Diamond_Shovel
     texture: {fileID: 2800000, guid: 8bb7a32fc095f874ebe84b2c4f66235e, type: 3}
+    tags: []
+  - name: entity/enemy/drowned
+    texture: {fileID: 2800000, guid: 3e733a81660e9e44c83d34979495d2fe, type: 3}
     tags: []
   - name: entity/enemy/dullahan_bended_arm
     texture: {fileID: 2800000, guid: c9bb0408ef5a7624eb4980e99c0c4888, type: 3}
@@ -2739,6 +2802,15 @@ MonoBehaviour:
     tags: []
   - name: entity/enemy/holy_sword
     texture: {fileID: 2800000, guid: 1774c2ed9635c694080b89ce4c6e09bf, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot
+    texture: {fileID: 2800000, guid: 958bfadab58b5c94c8fccbd79b832b76, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_chains
+    texture: {fileID: 2800000, guid: dac9321b9202f0641a7ace20757212f1, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_drowned
+    texture: {fileID: 2800000, guid: b906ce783b405fd4d83d997ca69b8010, type: 3}
     tags: []
   - name: entity/enemy/HostHead
     texture: {fileID: 2800000, guid: 3cb2218300b7b934ba70ba48ef892efc, type: 3}
@@ -2895,6 +2967,9 @@ MonoBehaviour:
     tags: []
   - name: entity/enemy/zombie_cow
     texture: {fileID: 2800000, guid: 199c4447a5d48934f9d39e39afbb6750, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    texture: {fileID: 2800000, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
     tags: []
   - name: entity/EXPAND_Enemy/Akuah
     texture: {fileID: 2800000, guid: de2fbe9526d795e44bf696299627c57d, type: 3}
@@ -3612,6 +3687,9 @@ MonoBehaviour:
   - name: mainmenu/view/mausoleum
     texture: {fileID: 2800000, guid: 3e57f352886e4c34095d087c6410bcda, type: 3}
     tags: []
+  - name: mainmenu/view/mountain
+    texture: {fileID: 2800000, guid: af725a78e9cd5dc48b3a9e744405b7b7, type: 3}
+    tags: []
   - name: mainmenu/view/nightmare
     texture: {fileID: 2800000, guid: 8887a1348e7752d4bb4aab022fbc8847, type: 3}
     tags: []
@@ -3670,6 +3748,9 @@ MonoBehaviour:
     tags: []
   - name: map/mausoleum/map
     texture: {fileID: 2800000, guid: faa2211777e02a84b8a7e50170afab89, type: 3}
+    tags: []
+  - name: map/mountain/map
+    texture: {fileID: 2800000, guid: b292fa70ced5d684c93e79306021e7ca, type: 3}
     tags: []
   - name: map/palace/map
     texture: {fileID: 2800000, guid: 9b1e8f9e4a726fb4bb190e3b0b8511d2, type: 3}
@@ -3786,6 +3867,9 @@ MonoBehaviour:
     tags: []
   - name: ui/level/conveyor_belt_part_mobile
     texture: {fileID: 2800000, guid: fe83ffae5970de14a9a107d4947b87b0, type: 3}
+    tags: []
+  - name: ui/level/curse
+    texture: {fileID: 2800000, guid: eaa2689b220a1dc4fbc27f9eb837186e, type: 3}
     tags: []
   - name: ui/level/CyanCard
     texture: {fileID: 2800000, guid: 6619748eabda04f4d904ec14a6b87a93, type: 3}
@@ -4315,6 +4399,9 @@ MonoBehaviour:
   - name: map/gensokyo/pins/mausoleum
     texture: {fileID: 2800000, guid: 9c2ffe9b1f0c11c4e8e821a591f6f10a, type: 3}
     tags: []
+  - name: map/gensokyo/pins/mountain
+    texture: {fileID: 2800000, guid: 762cbe71a7e26434aa2d156a6c46f6e7, type: 3}
+    tags: []
   - name: map/gensokyo/pins/palace
     texture: {fileID: 2800000, guid: c92acfbe0681ef246991163cfbf4eb72, type: 3}
     tags: []
@@ -4667,6 +4754,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 7c96fdff5dc5fde4ab6559e24a67dc99, type: 3}
     tags: []
+  - name: achievements/cuckoo
+    index: 0
+    sprite: {fileID: 21300000, guid: 47475a97e62104842908445eb02d61c3, type: 3}
+    tags: []
   - name: achievements/double_trouble
     index: 0
     sprite: {fileID: 21300000, guid: 2becb83796290cb438ce963aff698ae4, type: 3}
@@ -4674,6 +4765,10 @@ MonoBehaviour:
   - name: achievements/ghost_buster
     index: 0
     sprite: {fileID: 21300000, guid: cd6294e0e010f934b90fb1f9ca35e623, type: 3}
+    tags: []
+  - name: achievements/gravity_padded
+    index: 0
+    sprite: {fileID: 21300000, guid: 75903275211497942bc0bcb0a4021157, type: 3}
     tags: []
   - name: achievements/let_them_eat_cake
     index: 0
@@ -5643,6 +5738,34 @@ MonoBehaviour:
     index: 4
     sprite: {fileID: 824911285, guid: 1be099efb0a0d3841ad50caee17e9761, type: 3}
     tags: []
+  - name: curses/krakens_backplate
+    index: 0
+    sprite: {fileID: 21300000, guid: 85ae0b6fd00720b4b9e220432d7a2f40, type: 3}
+    tags: []
+  - name: curses/locked_chests_chains
+    index: 0
+    sprite: {fileID: 21300000, guid: 906a48795c212d546bbec74d7295f974, type: 3}
+    tags: []
+  - name: curses/nightmares_tentacle
+    index: 0
+    sprite: {fileID: 21300000, guid: 256b166dcbd233540bfa86ee6b8c56e9, type: 3}
+    tags: []
+  - name: curses/red_dragons_scale
+    index: 0
+    sprite: {fileID: 21300000, guid: dd9359faba258ba42ac7467d732aa8ae, type: 3}
+    tags: []
+  - name: curses/the_creatures_brain
+    index: 0
+    sprite: {fileID: 21300000, guid: 64fae9ded1900d64bba8789f78363d41, type: 3}
+    tags: []
+  - name: curses/the_giants_flesh
+    index: 0
+    sprite: {fileID: 21300000, guid: e0a58013ffdd8304aa2139402f9bf70a, type: 3}
+    tags: []
+  - name: curses/withers_skull
+    index: 0
+    sprite: {fileID: 21300000, guid: eccf21b7313a33d41a14e2ede291366e, type: 3}
+    tags: []
   - name: entity/height_indicator
     index: 0
     sprite: {fileID: 21300000, guid: 3d0f094a3020c1a4bbec297a273a5ed4, type: 3}
@@ -6031,6 +6154,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: bb754e26dee4d5441be3bad97415c324, type: 3}
     tags: []
+  - name: misc/mountain
+    index: 0
+    sprite: {fileID: 21300000, guid: b281ded5b7339de43a309d71320b5309, type: 3}
+    tags: []
   - name: misc/murder
     index: 0
     sprite: {fileID: 21300000, guid: 944683e1f0da086409759e5b63d9d066, type: 3}
@@ -6228,6 +6355,10 @@ MonoBehaviour:
   - name: mobile_blueprint/brick_cannon
     index: 0
     sprite: {fileID: 21300000, guid: 8a3366b53f8c5664da6cfeea30c441e9, type: 3}
+    tags: []
+  - name: mobile_blueprint/bubble_gun_gurgle
+    index: 0
+    sprite: {fileID: 21300000, guid: e915e332043a47b4081ebc9212a0ba18, type: 3}
     tags: []
   - name: mobile_blueprint/CannonballMannequin
     index: 0
@@ -6560,6 +6691,10 @@ MonoBehaviour:
   - name: mobile_blueprint/high_frequency_pulse_dispenser
     index: 0
     sprite: {fileID: 21300000, guid: f24e02b7e9159cb4ebd603ab477f2152, type: 3}
+    tags: []
+  - name: mobile_blueprint/hookshot_drowned
+    index: 0
+    sprite: {fileID: 21300000, guid: b45a4908c8e196e44904f643344333fd, type: 3}
     tags: []
   - name: mobile_blueprint/HostHead
     index: 0
@@ -7273,6 +7408,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 067521958e94fd440bf2d5a8c1b62383, type: 3}
     tags: []
+  - name: mobile_blueprint/zombinator
+    index: 0
+    sprite: {fileID: 21300000, guid: 08eeecfdfa986614fb5cb55a643bc8f8, type: 3}
+    tags: []
   - name: note/background_castle
     index: 0
     sprite: {fileID: 21300000, guid: cdb5a00e33b0dda46876f58eb7acc614, type: 3}
@@ -7842,6 +7981,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: c853afac5f602874e877872193826015, type: 3}
     tags: []
+  - name: ui/deselect_all
+    index: 0
+    sprite: {fileID: 21300000, guid: 64f5d3ca66a101c4c9a68600f246b904, type: 3}
+    tags: []
   - name: ui/gear
     index: 0
     sprite: {fileID: 21300000, guid: e0c7697228ff843469a11a3a633766bb, type: 3}
@@ -7850,9 +7993,17 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: d7ad17d08589c04459d3a3030abbf9f5, type: 3}
     tags: []
+  - name: ui/question_mark
+    index: 0
+    sprite: {fileID: 21300000, guid: 0704cf6e70e16a142ba9812e3204d528, type: 3}
+    tags: []
   - name: ui/refresh
     index: 0
     sprite: {fileID: 21300000, guid: 92e692ae88b62a541bef812a89e2bac3, type: 3}
+    tags: []
+  - name: ui/select_all
+    index: 0
+    sprite: {fileID: 21300000, guid: 6fd7f39aa0a47b84687c0fb1016c4945, type: 3}
     tags: []
   - name: ui/snipenser_life
     index: 0
@@ -7993,6 +8144,18 @@ MonoBehaviour:
   - name: entity/armor/mesmerizer_crown
     index: 0
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
+    tags: []
+  - name: entity/armor/mountaineering_helmet
+    index: 0
+    sprite: {fileID: -629886373, guid: 024e01fe827c5b94fa2db9d6d6072831, type: 3}
+    tags: []
+  - name: entity/armor/mountaineering_helmet
+    index: 1
+    sprite: {fileID: 374134505, guid: 024e01fe827c5b94fa2db9d6d6072831, type: 3}
+    tags: []
+  - name: entity/armor/mountaineering_helmet
+    index: 2
+    sprite: {fileID: -1765341983, guid: 024e01fe827c5b94fa2db9d6d6072831, type: 3}
     tags: []
   - name: entity/armor/pop_captain_cap
     index: 0
@@ -10616,6 +10779,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: ca6d456fa79f841498d3f9ba6f35e9db, type: 3}
     tags: []
+  - name: entity/effect/waterfall_particle_mask
+    index: 0
+    sprite: {fileID: 21300000, guid: 5f4d00ab4078fc7458c38b5b0e6e8a76, type: 3}
+    tags: []
   - name: entity/effect/water_splash
     index: 0
     sprite: {fileID: 21300000, guid: 9d730e080bace4646938c15cdabc88d0, type: 3}
@@ -10832,6 +10999,14 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: a517e81da420e4941880bb250f059923, type: 3}
     tags: []
+  - name: entity/enemy/bubble
+    index: 0
+    sprite: {fileID: 21300000, guid: 1a2b9bd061e596a4383606c326535d38, type: 3}
+    tags: []
+  - name: entity/enemy/bubble_gun
+    index: 0
+    sprite: {fileID: 21300000, guid: a728246733a0e394ca68d4512b05d39b, type: 3}
+    tags: []
   - name: entity/enemy/cannonball_zombie
     index: 0
     sprite: {fileID: 21300000, guid: b11db4b170db8634b901f6162c53376e, type: 3}
@@ -10919,6 +11094,26 @@ MonoBehaviour:
   - name: entity/enemy/Diamond_Shovel
     index: 0
     sprite: {fileID: 21300000, guid: 8bb7a32fc095f874ebe84b2c4f66235e, type: 3}
+    tags: []
+  - name: entity/enemy/drowned
+    index: 0
+    sprite: {fileID: -203027014, guid: 3e733a81660e9e44c83d34979495d2fe, type: 3}
+    tags: []
+  - name: entity/enemy/drowned
+    index: 1
+    sprite: {fileID: -272872488, guid: 3e733a81660e9e44c83d34979495d2fe, type: 3}
+    tags: []
+  - name: entity/enemy/drowned
+    index: 2
+    sprite: {fileID: -76568887, guid: 3e733a81660e9e44c83d34979495d2fe, type: 3}
+    tags: []
+  - name: entity/enemy/drowned
+    index: 3
+    sprite: {fileID: 384359353, guid: 3e733a81660e9e44c83d34979495d2fe, type: 3}
+    tags: []
+  - name: entity/enemy/drowned
+    index: 4
+    sprite: {fileID: 329098831, guid: 3e733a81660e9e44c83d34979495d2fe, type: 3}
     tags: []
   - name: entity/enemy/dullahan_bended_arm
     index: 0
@@ -11143,6 +11338,50 @@ MonoBehaviour:
   - name: entity/enemy/holy_sword
     index: 0
     sprite: {fileID: 21300000, guid: 1774c2ed9635c694080b89ce4c6e09bf, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot
+    index: 0
+    sprite: {fileID: -554793441, guid: 958bfadab58b5c94c8fccbd79b832b76, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot
+    index: 1
+    sprite: {fileID: 613389365, guid: 958bfadab58b5c94c8fccbd79b832b76, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot
+    index: 2
+    sprite: {fileID: -2109566237, guid: 958bfadab58b5c94c8fccbd79b832b76, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_chains
+    index: 0
+    sprite: {fileID: 21300000, guid: dac9321b9202f0641a7ace20757212f1, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_drowned
+    index: 0
+    sprite: {fileID: -857626409, guid: b906ce783b405fd4d83d997ca69b8010, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_drowned
+    index: 1
+    sprite: {fileID: -2101585010, guid: b906ce783b405fd4d83d997ca69b8010, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_drowned
+    index: 2
+    sprite: {fileID: 1108891538, guid: b906ce783b405fd4d83d997ca69b8010, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_drowned
+    index: 3
+    sprite: {fileID: 462732806, guid: b906ce783b405fd4d83d997ca69b8010, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_drowned
+    index: 4
+    sprite: {fileID: -1650815172, guid: b906ce783b405fd4d83d997ca69b8010, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_drowned
+    index: 5
+    sprite: {fileID: -1799827090, guid: b906ce783b405fd4d83d997ca69b8010, type: 3}
+    tags: []
+  - name: entity/enemy/hookshot_drowned
+    index: 6
+    sprite: {fileID: 1151194008, guid: b906ce783b405fd4d83d997ca69b8010, type: 3}
     tags: []
   - name: entity/enemy/HostHead
     index: 0
@@ -11971,6 +12210,58 @@ MonoBehaviour:
   - name: entity/enemy/zombie_cow
     index: 4
     sprite: {fileID: 602954751, guid: 199c4447a5d48934f9d39e39afbb6750, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 0
+    sprite: {fileID: 549663508, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 1
+    sprite: {fileID: 1420369543, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 2
+    sprite: {fileID: 981548194, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 3
+    sprite: {fileID: -6260210, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 4
+    sprite: {fileID: -1044319506, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 5
+    sprite: {fileID: -1598864860, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 6
+    sprite: {fileID: 1762088274, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 7
+    sprite: {fileID: 1461409694, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 8
+    sprite: {fileID: 1787748202, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 9
+    sprite: {fileID: -1550350271, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 10
+    sprite: {fileID: -1214079698, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 11
+    sprite: {fileID: -1579585058, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
+    tags: []
+  - name: entity/enemy/zombinator
+    index: 12
+    sprite: {fileID: 106388492, guid: 7c40b0a6635afdb48a4192a690d33773, type: 3}
     tags: []
   - name: entity/EXPAND_Enemy/Akuah
     index: 0
@@ -15046,6 +15337,14 @@ MonoBehaviour:
     index: 1
     sprite: {fileID: -726083092, guid: 3e57f352886e4c34095d087c6410bcda, type: 3}
     tags: []
+  - name: mainmenu/view/mountain
+    index: 0
+    sprite: {fileID: -113599880, guid: af725a78e9cd5dc48b3a9e744405b7b7, type: 3}
+    tags: []
+  - name: mainmenu/view/mountain
+    index: 1
+    sprite: {fileID: -1163403558, guid: af725a78e9cd5dc48b3a9e744405b7b7, type: 3}
+    tags: []
   - name: mainmenu/view/nightmare
     index: 0
     sprite: {fileID: 1569080980082683700, guid: 8887a1348e7752d4bb4aab022fbc8847, type: 3}
@@ -15141,6 +15440,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: faa2211777e02a84b8a7e50170afab89, type: 3}
     tags: []
+  - name: map/mountain/map
+    index: 0
+    sprite: {fileID: 21300000, guid: b292fa70ced5d684c93e79306021e7ca, type: 3}
+    tags: []
   - name: map/palace/map
     index: 0
     sprite: {fileID: 21300000, guid: 9b1e8f9e4a726fb4bb190e3b0b8511d2, type: 3}
@@ -15232,6 +15535,10 @@ MonoBehaviour:
   - name: ui/almanac/attribute_tags
     index: 15
     sprite: {fileID: 143512459, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    tags: []
+  - name: ui/almanac/attribute_tags
+    index: 16
+    sprite: {fileID: -572628743, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
     tags: []
   - name: ui/almanac/background
     index: 0
@@ -15614,6 +15921,10 @@ MonoBehaviour:
   - name: ui/level/conveyor_belt_part_mobile
     index: 0
     sprite: {fileID: 21300000, guid: fe83ffae5970de14a9a107d4947b87b0, type: 3}
+    tags: []
+  - name: ui/level/curse
+    index: 0
+    sprite: {fileID: 21300000, guid: eaa2689b220a1dc4fbc27f9eb837186e, type: 3}
     tags: []
   - name: ui/level/CyanCard
     index: 0
@@ -17794,6 +18105,10 @@ MonoBehaviour:
   - name: map/gensokyo/pins/mausoleum
     index: 0
     sprite: {fileID: 21300000, guid: 9c2ffe9b1f0c11c4e8e821a591f6f10a, type: 3}
+    tags: []
+  - name: map/gensokyo/pins/mountain
+    index: 0
+    sprite: {fileID: 21300000, guid: 762cbe71a7e26434aa2d156a6c46f6e7, type: 3}
     tags: []
   - name: map/gensokyo/pins/palace
     index: 0
