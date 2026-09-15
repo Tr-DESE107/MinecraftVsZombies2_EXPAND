@@ -428,30 +428,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 947863326007147069, guid: 4cb8b7b21ed1264448b47a77b1bf79c3, type: 3}
-      propertyPath: iconImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 947863326007147069, guid: 4cb8b7b21ed1264448b47a77b1bf79c3, type: 3}
-      propertyPath: twinkleImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 947863326007147069, guid: 4cb8b7b21ed1264448b47a77b1bf79c3, type: 3}
-      propertyPath: rechargeImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 947863326007147069, guid: 4cb8b7b21ed1264448b47a77b1bf79c3, type: 3}
-      propertyPath: rechargeFlashImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 947863326007147069, guid: 4cb8b7b21ed1264448b47a77b1bf79c3, type: 3}
-      propertyPath: standaloneBackground
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 947863326007147069, guid: 4cb8b7b21ed1264448b47a77b1bf79c3, type: 3}
-      propertyPath: iconImageCommandBlock
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1528031695849342760, guid: 4cb8b7b21ed1264448b47a77b1bf79c3, type: 3}
       propertyPath: m_Layer
       value: 5
