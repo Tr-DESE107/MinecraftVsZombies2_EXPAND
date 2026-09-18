@@ -72,6 +72,9 @@ namespace MVZ2.GameContent.Effects
                     {
                         var target = entity.Level.ScreenToLawnPositionByRelativeY(screenPosition, 0);
                         target = hasRail ? ClampToRail(entity, parent, target) : ClampToLawn(entity, target);
+                        //EXPAND 高度跟随脚下地形：取目标点(x,z)处的地块海拔（Area.GetGroundY 通用机制，
+                        //与怪物上下castle地块一致），矿车驶上/驶下高地会像怪物一样平滑爬坡。
+                        target.y = entity.Level.GetGroundY(target.x, target.z);
                         SetTargetPosition(entity, target);
                     }
                 }
@@ -88,6 +91,8 @@ namespace MVZ2.GameContent.Effects
                         target.z += moveInput * speed;
                         target.x += moveInputX * speed;
                         target = hasRail ? ClampToRail(entity, parent, target) : ClampToLawn(entity, target);
+                        //EXPAND 与鼠标模式一致：高度跟随脚下地形（Area.GetGroundY 通用机制）。
+                        target.y = entity.Level.GetGroundY(target.x, target.z);
                         SetTargetPosition(entity, target);
                     }
                     else if (Global.Options.GetMinecartStopMode() == MinecartStopModes.INSTANT)
