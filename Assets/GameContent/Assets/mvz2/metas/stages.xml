@@ -2845,7 +2845,7 @@
         </properties>
     </stage>
 
-    <stage id="ShootBalloon2" name="射气球2" type="minigame" music="mvz2:Lava_Chicken" needBlueprints="false">
+    <stage id="ShootBalloon2" name="射气球2" type="minigame" music="mvz2:MobileManeuvers" needBlueprints="false">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />
         <spawns flags="4" wavesPerFlag="8" pointsAddition="10" pointsMultiplier="2">
             <spawn id="mvz2:skeleton" />

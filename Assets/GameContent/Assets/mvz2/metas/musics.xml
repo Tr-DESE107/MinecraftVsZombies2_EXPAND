@@ -531,6 +531,20 @@
             <p>题外话，谁知道灾厄最终会落到这个结局呢。</p>
         </description>
     </music>
+
+    <music id="MobileManeuvers" name="机动翱翔">
+        <unlock>
+            <condition required="mvz2:level.ShootBalloon2" />
+        </unlock>
+        <track main="mvz2:MobileManeuvers" />
+        <source>Minecraft: Glide Mini Game (Original Soundtrack)</source>
+        <description>
+            <p>轻松小游戏的音乐。</p>
+            <p>同样是我很喜欢的一首曲子，整体曲风灵动跳跃，我是在mc地图：100种死法中听到这个配乐的，他在那张地图里的备注叫memory(记忆)，用于记忆相关的小游戏。从这个意义上来讲，就像人进入灵巧的记忆宫殿、在想法中遨游。</p>
+            <p>后面我搜索了出处，发现原来是mc官方出的基岩版小游戏是我取的，在是我取的，在官方给的术语上，这像是在自由的天地之间翱翔，同样灵动且轻巧。</p>
+            <p>希望诸位也听的愉快</p>
+        </description>
+    </music>
     
     
 </musics>
