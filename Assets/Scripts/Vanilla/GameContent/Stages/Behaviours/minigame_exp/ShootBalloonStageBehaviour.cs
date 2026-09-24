@@ -41,8 +41,9 @@ namespace MVZ2.GameContent.Stages
         public override void Start(LevelEngine level)  
         {  
             base.Start(level);  
-            level.SetPickaxeActive(false);  
-            level.SetTriggerActive(false);  
+            level.SetPickaxeActive(false);
+            // 场上有木风扇等可触发器械，必须开启触发器
+            level.SetTriggerActive(true);  
   
             // 命数  
             level.SetStarshardCount(LIVES);  
