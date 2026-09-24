@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1178751126628855339}
   - component: {fileID: 711507889538557465}
   m_Layer: 0
-  m_Name: TorchKongfuZombie_6
+  m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: -0.275, y: 0.11399999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5063361864064086163}
   m_Father: {fileID: 6725636373871847658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1178751126628855339
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cbec3a6887d19854c839fac1474ec945, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,11 +105,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6725636373871847658}
+    m_TransformParent: {fileID: 627468981740637711}
     m_Modifications:
     - target: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_Name
       value: Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalScale.x
@@ -120,11 +125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.28
+      value: -0.004999995
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0.18600002
       objectReference: {fileID: 0}
     - target: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
       propertyPath: m_LocalPosition.z
@@ -181,8 +186,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8686796113735462000}
   m_SourcePrefab: {fileID: 100100000, guid: 347357ce4a815104398661b780f99147, type: 3}
+--- !u!1 &3779253340198654482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3989712657011027265, guid: 347357ce4a815104398661b780f99147, type: 3}
+  m_PrefabInstance: {fileID: 228791217112645459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8686796113735462000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3779253340198654482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenFalse: 0
+  propertyName: TorchLit
 --- !u!4 &5063361864064086163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5001380081549365184, guid: 347357ce4a815104398661b780f99147, type: 3}
@@ -394,9 +421,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2281775678859931652, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 627468981740637711}
-    - targetCorrespondingSourceObject: {fileID: 2281775678859931652, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5063361864064086163}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
 --- !u!60 &4421193869372824452 stripped
