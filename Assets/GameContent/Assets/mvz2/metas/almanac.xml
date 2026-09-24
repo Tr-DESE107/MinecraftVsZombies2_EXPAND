@@ -763,7 +763,7 @@
             <properties>
                 <p>特点：<![CDATA[<color=red>一次性使用</color>]]></p>
                 <p>技能：<![CDATA[<color=red>无</color>]]></p>
-                <p>睡眠时间：<![CDATA[<color=red>50秒</color>]]></p>
+                <p>睡眠时间：<![CDATA[<color=red>30秒</color>]]></p>
             </properties>
             <flavor>
                 <p>美梦丝是个睡货，她每天睁开眼睛做的第一件事就是睡觉。瞧瞧她睡的，把自己的冷却时间也给睡短了。</p>
@@ -799,6 +799,7 @@
                 <p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会被近战怪物主动攻击，免疫爆炸伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>我是文字，我现在非常疼</p>
@@ -905,7 +906,7 @@
                 <p>攻击速度：<![CDATA[<color=red>2秒</color>]]></p>
                 <p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>特殊：<![CDATA[<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害；经过磁暴线圈的金属子弹会带电</color>]]></p>
                 <p>技能：<![CDATA[<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>]]></p>
             </properties>
             <flavors>
@@ -1125,6 +1126,7 @@
                 <p>生产时间：<![CDATA[<color=red>30秒</color>]]></p>
                 <p>提供能量：<![CDATA[<color=red><var local="gunpowder_value" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供<var local="furious_gunpowder_value" />能量，但是会更快爆炸</color>]]></p>
+                <p>特点：<![CDATA[<color=red>免疫爆炸伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>众所周知，最早的黑火药由三种材料制作：</p>
@@ -1814,7 +1816,7 @@
                 <p>攻击间隔：<![CDATA[<color=red>8支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>触发：<![CDATA[<color=red>触发后拥有6发能够对空的小型导弹。</color>]]></p>
-                <p>技能：<![CDATA[<color=red>永久改为发射10支箭矢，并<tag id="mvz2:light_source" />发光</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速发射60支箭矢，而后永久改为发射10支箭矢，并<tag id="mvz2:light_source" />发光</color>]]></p>
             </properties>
             <flavor>
                 <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
@@ -1840,6 +1842,7 @@
                 <p>攻击频率：<![CDATA[<color=red>0.25秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会被近战怪物主动攻击，免疫爆炸伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>可以用于购买游戏物品，比如一种能毁天灭地的蔬菜。</p>
@@ -1880,7 +1883,7 @@
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>可以将不同的发射器放置在基础万象天枢上融合。</color>]]></p>
-                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref>，其他可以融合，但行为同基础万象天枢</color>]]></p>
+                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref>、<ref=[contraptions]mvz2:pistenser>活塞发射器</ref>，其他可以融合，但行为同基础万象天枢</color>]]></p>
                 <p>注：<![CDATA[<color=red>你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</color>]]></p>
             </properties>
             <flavor>

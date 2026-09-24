@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-08-26 03:55+0800\n"
-"PO-Revision-Date: 2026-08-26 04:21+0800\n"
+"POT-Creation-Date: 2026-09-25 03:27+0800\n"
+"PO-Revision-Date: 2026-09-25 03:36+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1931,14 +1931,14 @@ msgctxt "contraptions.description"
 msgid ""
 "攻击间隔：<color=red><var id=\"mvz2:AttackInterval\" />秒</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"触发：<color=red>触发后损失75耐久并进入过载模式，每秒损失1点耐久，档位上升1级</color>\n"
+"触发：<color=red>到达3档时可以触发，触发后损失75耐久并进入过载模式，每秒损失1点耐久，档位上升1级</color>\n"
 "升级上限：<color=red>5，过载模式可以短暂上升为6</color>\n"
-"技能：<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+挡位*1.5只大型箭矢（向下取整），而后自爆。</color>"
+"技能：<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+档位*1.5只大型箭矢（向下取整），而后自爆。</color>"
 msgstr ""
 "Fire Rate: <color=red><var id=\"mvz2:AttackInterval\" /> seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Triggered: <color=red>When triggered, loses 75 Toughness and enters Overdrive Mode, then loses 1 additional Toughness per second and "
-"increases its level by 1</color>\n"
+"Triggered: <color=red>Can be triggered at Level 3. When triggered, loses 75 Toughness and enters Overdrive Mode, then loses 1 "
+"additional Toughness per second and increases its level by 1</color>\n"
 "Max Level: <color=red>5, can temporarily reach level 6 in Overdrive Mode</color>\n"
 "Evocation: <color=red>In normal mode, fires 5 large arrows. In Overdrive Mode, rapidly fires 5 + level × 1.5 large arrows (rounded "
 "down), then self-destructs.</color>"
@@ -2179,11 +2179,11 @@ msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>一次性使用</color>\n"
 "技能：<color=red>无</color>\n"
-"睡眠时间：<color=red>50秒</color>"
+"睡眠时间：<color=red>30秒</color>"
 msgstr ""
 "Special: <color=red>Single use</color>\n"
 "Evocation: <color=red>None</color>\n"
-"Sleep duration: <color=red>50 seconds</color>"
+"Sleep duration: <color=red>30 seconds</color>"
 
 #. Flavor for contraptions mvz2:dream_silk
 #: Almanac meta file
@@ -2244,11 +2244,13 @@ msgctxt "contraptions.description"
 msgid ""
 "攻击频率：<color=red>0.5秒</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>"
+"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>\n"
+"特点：<color=red>不会被近战怪物主动攻击，免疫爆炸伤害</color>"
 msgstr ""
 "Attack rate: <color=red>0.5 second</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"Evocation: <color=red>Deals damage rapidly to enemies on the ground in the whole lane, and pulls them to the Spike Block</color>"
+"Evocation: <color=red>Deals damage rapidly to enemies on the ground in the whole lane, and pulls them to the Spike Block</color>\n"
+"Special: <color=red>Will not be actively attacked by melee monsters, and is immune to explosion damage</color>"
 
 #. Flavor for contraptions mvz2:spike_block
 #: Almanac meta file
@@ -2440,14 +2442,15 @@ msgid ""
 "攻击速度：<color=red>2秒</color>\n"
 "半径：<color=red><var id=\"mvz2:FireRange\" />格</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"特殊：<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害</color>\n"
+"特殊：<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害；经过磁暴线圈的金属子弹会带电</"
+"color>\n"
 "技能：<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>"
 msgstr ""
 "Fire rate: <color=red>2 seconds</color>\n"
 "Radius: <color=red><var id=\"mvz2:FireRange\" /> blocks</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "Special: <color=red>Hit monsters are shocked for 1 second. Cannot attack enemies in the air by default. Electrified water also damages "
-"nearby bodies of water</color>\n"
+"nearby bodies of water. Metal projectiles passing through the Tesla Coil become electrified</color>\n"
 "Evocation: <color=red>Creates a thunderstorms, strikes random positions in a radius</color>"
 
 #. Flavor for contraptions mvz2:tesla_coil
@@ -2841,14 +2844,16 @@ msgid ""
 "爆炸半径：<color=red><var id=\"mvz2:FireRange\" />格</color>\n"
 "生产时间：<color=red>30秒</color>\n"
 "提供能量：<color=red><var local=\"gunpowder_value\" /></color>\n"
-"技能：<color=red>改为生成暴怒火药，提供<var local=\"furious_gunpowder_value\" />能量，但是会更快爆炸</color>"
+"技能：<color=red>改为生成暴怒火药，提供<var local=\"furious_gunpowder_value\" />能量，但是会更快爆炸</color>\n"
+"特点：<color=red>免疫爆炸伤害</color>"
 msgstr ""
 "Explosion Damage: <color=red>100 (Easy), 150 (Normal), 300 (Hard)</color>\n"
 "Explosion Radius: <color=red><var id=\"mvz2:FireRange\" /> tiles</color>\n"
 "Produce time: <color=red>30 seconds</color>\n"
 "Energy production: <color=red><var local=\"gunpowder_value\" /></color>\n"
 "Evocation: <color=red>Produce furious gunpowder instead, which provides <var local=\"furious_gunpowder_value\" /> energy but explodes "
-"faster</color>"
+"faster</color>\n"
+"Special: <color=red>Immune to explosion damage</color>"
 
 #. Flavor for contraptions mvz2:gunpowder_barrel
 #: Almanac meta file
@@ -4009,12 +4014,13 @@ msgid ""
 "攻击间隔：<color=red>8支/<var id=\"mvz2:AttackInterval\" />秒</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "触发：<color=red>触发后拥有6发能够对空的小型导弹。</color>\n"
-"技能：<color=red>永久改为发射10支箭矢，并<tag id=\"mvz2:light_source\" />发光</color>"
+"技能：<color=red>快速发射60支箭矢，而后永久改为发射10支箭矢，并<tag id=\"mvz2:light_source\" />发光</color>"
 msgstr ""
 "Fire Rate: <color=red>8 arrows / <var id=\"mvz2:AttackInterval\" /> seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "Triggered: <color=red>When triggered, gains 6 small anti-air missiles.</color>\n"
-"Evocation: <color=red>Permanently fires 10 arrows per shot instead, and <tag id=\"mvz2:light_source\" />glows.</color>"
+"Evocation: <color=red>Rapidly fires 60 arrows, then permanently fires 10 arrows per shot instead, and <tag id=\"mvz2:light_source\" /"
+">glows.</color>"
 
 #. Flavor for contraptions mvz2:high_frequency_pulse_dispenser
 #: Almanac meta file
@@ -4046,13 +4052,15 @@ msgid ""
 "耐久：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "攻击频率：<color=red>0.25秒</color>\n"
 "伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
-"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>"
+"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>\n"
+"特点：<color=red>不会被近战怪物主动攻击，免疫爆炸伤害</color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Attack rate: <color=red>0.25 seconds</color>\n"
 "Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
 "Evocation: <color=red>Deals damage rapidly to enemies on the ground in the whole lane, and pulls them to the spikes; Throws 30 diamond "
-"caltrops around, which deal 100 damage to enemies</color>"
+"caltrops around, which deal 100 damage to enemies</color>\n"
+"Special: <color=red>Will not be actively attacked by melee monsters, and is immune to explosion damage</color>"
 
 #. Flavor for contraptions mvz2:diamond_spikes
 #: Almanac meta file
@@ -4129,13 +4137,13 @@ msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>可以将不同的发射器放置在基础万象天枢上融合。</color>\n"
 "可融合器械：<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</"
-"ref>，其他可以融合，但行为同基础万象天枢</color>\n"
+"ref>、<ref=[contraptions]mvz2:pistenser>活塞发射器</ref>，其他可以融合，但行为同基础万象天枢</color>\n"
 "注：<color=red>你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</color>"
 msgstr ""
 "Special: <color=red>Different dispensers can be placed on the base E.X.P.A.N.D. to fuse with it.</color>\n"
 "Fusable Contraptions: <color=red>Currently implemented: <ref=[contraptions]mvz2:dispenser>Dispenser</ref>, "
-"<ref=[contraptions]mvz2:silvenser>Silvenser</ref>. Other dispensers can also be fused, but will behave identically to the base "
-"E.X.P.A.N.D.</color>\n"
+"<ref=[contraptions]mvz2:silvenser>Silvenser</ref>, <ref=[contraptions]mvz2:pistenser>Pistenser</ref>. Other dispensers can also be "
+"fused, but will behave identically to the base E.X.P.A.N.D.</color>\n"
 "Note: <color=red>You can learn more about the E.X.P.A.N.D.'s abilities on the mvz2expandwiki.</color>"
 
 #. Flavor for contraptions mvz2:EXPANDispenser
@@ -4628,8 +4636,22 @@ msgstr ""
 #. Header for enemies mvz2:FlagSkeleton
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "摇旗骷髅的出现标志着一大波怪物的到来。"
+msgid "旗帜骷髅的出现标志着一大波怪物的到来。"
 msgstr "The appearance of the Flag Skeleton marks the arrival of a large wave of monsters."
+
+#. Properties for enemies mvz2:FlagSkeleton
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red><var id=\"mvz2:entity_health\" />+<var id=\"armor_hp\" /></color>\n"
+"速度：<color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"伤害：<color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"特点：<color=red>在场时能让骷髅类敌人速度加快</color>"
+msgstr ""
+"Toughness: <color=red><var id=\"mvz2:entity_health\" />+<var id=\"armor_hp\" /></color>\n"
+"Speed: <color=red><var id=\"mvz2:entity_speed\" /></color>\n"
+"Damage: <color=red><var id=\"mvz2:entity_damage\" /></color>\n"
+"Special: <color=red>Increases the speed of Skeleton-type enemies while on the field</color>"
 
 #. Flavor for enemies mvz2:FlagSkeleton
 #: Almanac meta file
@@ -8134,14 +8156,14 @@ msgstr "...Love...?"
 #. Header for artifacts mvz2:sweet_sleep_pillow
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "<ref=[misc]mvz2:doremy>哆来咪</ref>赠予的奇妙枕头，拥有让人安眠的效果。"
-msgstr "A wonderful pillow gifted by <ref=[misc]mvz2:doremy>Doremy</ref>, with the ability of making people sleep peacefully."
+msgid "<ref=[misc]mvz2:doremy>哆来咪</ref>赠予的奇妙枕头，能够让人无忧的安眠。"
+msgstr "A wonderful pillow gifted by Doremy, granting the carefree sleep of a cool summer night (Der Tod, das ist die kühle Nacht)."
 
 #. Properties for artifacts mvz2:sweet_sleep_pillow
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>友方器械每秒钟恢复10点耐久</color>"
-msgstr "Effect: <color=red>Contraptions restore 10 toughness per second</color>"
+msgid "效果：<color=red>友方器械在不受伤时每秒钟恢复10点耐久</color>"
+msgstr "Effect: <color=red>Friendly contraptions restore 10 toughness per second when not taking damage</color>"
 
 #. Flavor for artifacts mvz2:sweet_sleep_pillow
 #: Almanac meta file
@@ -12062,19 +12084,19 @@ msgctxt "entity.tooltip"
 msgid "被摧毁后发生随机事件"
 msgstr "Triggers a random event when destroyed."
 
-#. Name for entity mvz2:Crafter
+#. Name for entity mvz2:CraftingTable
 #: Entity meta file
 msgctxt "entity.name"
 msgid "工作台"
 msgstr "Crafting Table"
 
-#. Tooltip for entity mvz2:Crafter
+#. Tooltip for entity mvz2:CraftingTable
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "使用以制造器械"
 msgstr "Use to craft contraptions."
 
-#. Name for entity mvz2:CraftingTable
+#. Name for entity mvz2:Crafter
 #: Entity meta file
 msgctxt "entity.name"
 msgid "合成器"
@@ -14458,8 +14480,8 @@ msgstr "Sweet Sleep Pillow"
 #. Tooltip for artifact mvz2:sweet_sleep_pillow
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "友方器械每秒恢复10点耐久"
-msgstr "Contraptions restore 10 toughness per second"
+msgid "友方器械在不受伤时每秒钟恢复10点耐久"
+msgstr "Friendly contraptions restore 10 toughness per second when not taking damage"
 
 #. Name for artifact mvz2:pagoda_branch
 #: Artifact meta file
@@ -14951,29 +14973,17 @@ msgctxt "blueprint_option.name"
 msgid "增加散射"
 msgstr "Spread shot"
 
-#. Name for blueprint option heavy_weapon_bullet_count
+#. Name for blueprint option HeavyWeaponBulletCount
 #: Blueprints meta file
 msgctxt "blueprint_option.name"
 msgid "增加弹数"
 msgstr "Extra Bullets"
 
-#. Tooltip for blueprint option heavy_weapon_bullet_count
+#. Tooltip for blueprint option HeavyWeaponBulletCount
 #: Blueprints meta file
 msgctxt "blueprint_option.tooltip"
 msgid "每次攻击发射更多子弹"
 msgstr "Fire more bullets with every attack."
-
-#. Name for blueprint option HeavyWeaponContraptionSwap
-#: Blueprints meta file
-msgctxt "blueprint_option.name"
-msgid "更换器械"
-msgstr "Contraption Swap"
-
-#. Tooltip for blueprint option HeavyWeaponContraptionSwap
-#: Blueprints meta file
-msgctxt "blueprint_option.tooltip"
-msgid "将活塞发射器更换为融合体，射速等级会被继承"
-msgstr "Swap the pistenser for the fused contraption. Rapid fire level is inherited."
 
 #. Name for blueprint option HeavyWeaponGrenade
 #: Blueprints meta file
@@ -15100,6 +15110,18 @@ msgstr "Contraption Recovery"
 msgctxt "blueprint_option.tooltip"
 msgid "有概率将被吞噬的器械变回蓝图，等级越高概率越大"
 msgstr "Has a chance to convert devoured contraptions back into blueprints. The higher the level, the greater the chance."
+
+#. Name for blueprint option HeavyWeaponContraptionSwap
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "更换器械"
+msgstr "Contraption Swap"
+
+#. Tooltip for blueprint option HeavyWeaponContraptionSwap
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "将活塞发射器更换为融合体，射速等级会被继承"
+msgstr "Swap the pistenser for the fused contraption. Rapid fire level is inherited."
 
 #. Name for entity blueprint skeleton_mage_fire
 #: Blueprints meta file
