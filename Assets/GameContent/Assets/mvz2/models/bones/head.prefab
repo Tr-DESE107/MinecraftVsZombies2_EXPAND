@@ -341,3 +341,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7044899374404699636, guid: 584e79fe44685f84a8a704cd25757e57, type: 3}
   m_PrefabInstance: {fileID: 8383535376763480741}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &4962294591085093899 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 176731952764992233, guid: 20878af0986885c4793b4099d7815082, type: 3}
+  m_PrefabInstance: {fileID: 2742865668675941398}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3829198772386115490 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1383896143148391348, guid: 20878af0986885c4793b4099d7815082, type: 3}
+  m_PrefabInstance: {fileID: 2742865668675941398}
+  m_PrefabAsset: {fileID: 0}

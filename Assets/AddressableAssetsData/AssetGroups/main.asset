@@ -647,6 +647,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 081d579b6731a884dbcbc99d93e517a6
+    m_Address: mvz2:mobile_blueprint/HeavyWeaponBulletCount
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 082b92feb2464254caf375f0fecb451d
     m_Address: mvz2:armor/umbrella_shield
     m_ReadOnly: 0
@@ -10660,6 +10667,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dbbb5f727946924da65631b77bd8cc1
+    m_Address: mvz2:options/HeavyWeaponBulletCount
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8dcc2690d2c749b4ea16902b528af25c
     m_Address: mvz2:ui/almanac/EXPAND_Tag/Contraption_EXPAND
     m_ReadOnly: 0
@@ -15508,6 +15522,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf506c317725f7e4fb2b1623a0aedadf
+    m_Address: mvz2:entity/EXPAND_Enemy/endermite_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf6a97ee53da2884fbd9af4fe15d1488
     m_Address: mvz2:cart/corpse_cart
