@@ -1181,4 +1181,13 @@
         <sample path="mvz2:entity/HeavyWeapon/t_flashbang03" weight="1" />
         <sample path="mvz2:entity/HeavyWeapon/ct_fireinhole" weight="1" />
     </sound>
+    <sound name="Silverfish_death">
+        <sample path="mvz2:entity/Silverfish/Silverfish_kill" weight="1" />
+    </sound>
+    <sound name="Silverfish_cry">
+        <sample path="mvz2:entity/Silverfish/Silverfish_say1" weight="1" />
+        <sample path="mvz2:entity/Silverfish/Silverfish_say2" weight="1" />
+        <sample path="mvz2:entity/Silverfish/Silverfish_say3" weight="1" />
+        <sample path="mvz2:entity/Silverfish/Silverfish_say4" weight="1" />
+    </sound>
 </sounds>

@@ -4279,6 +4279,9 @@
                 <id name="mvz2:shell" value="mvz2:flesh" />
                 <float name="mvz2:mass" value="-2" />
 
+                <id name="mvz2:deathSound" value="mvz2:Silverfish_death" />
+                <id name="mvz2:crySound" value="mvz2:Silverfish_cry" />
+
                 <vector3 name="mvz2:size" x="25" y="10" z="25" />
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />

@@ -189,10 +189,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -1849566280, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
-  - {fileID: -757196219, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
-  - {fileID: -886826685, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
   - {fileID: 1038854137, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
+  - {fileID: -886826685, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
+  - {fileID: -757196219, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
+  - {fileID: -1849566280, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
   index: 0
 --- !u!1001 &140928682859996867
 PrefabInstance:
