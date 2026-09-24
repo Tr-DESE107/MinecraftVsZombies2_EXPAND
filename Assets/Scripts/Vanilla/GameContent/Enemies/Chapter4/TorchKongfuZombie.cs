@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Enemies
     [AutoEntityBehaviourDefinition(VanillaEnemyNames.TorchKongfuZombie)]
     public class TorchKongfuZombie : MonkZombie
     {
-        // ����Ƿ��ȼ��״̬����  
+        // 检查是否处于点燃状态相关
         private bool isTorchLit = true;
 
         public TorchKongfuZombie(string nsp, string name) : base(nsp, name)
@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            // ��ʼ��ʱ����ǵ�ȼ��  
+            // 初始化时设置火炬点燃
             isTorchLit = true;
         }
 
@@ -33,17 +33,17 @@ namespace MVZ2.GameContent.Enemies
         {
             base.PreTakeDamage(input, result);
 
-            // ����Ƿ��ܵ����˺�  
+            // 检查是否受到冰冻伤害
             if (input.Effects.HasEffect(VanillaDamageEffects.ICE))
             {
-                // ���Ϩ��  
+                // 火炬熄灭
                 isTorchLit = false;
             }
 
-            // ����Ƿ��ܵ����˺�  
+            // 检查是否受到火焰伤害
             if (input.Effects.HasEffect(VanillaDamageEffects.FIRE))
             {
-                // ��ѵ�ȼ  
+                // 重新点燃
                 isTorchLit = true;
             }
         }
@@ -53,8 +53,8 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateLogic(entity);
             entity.SetModelDamagePercent();
 
-            // ʾ������ĳ�������µ��� FireAOE�������Ҫ��  
-            // ֻ���ڻ�ѵ�ȼʱ����ʹ�� FireAOE  
+            // 示例：仅在特定情况下调用 FireAOE（如需要）
+            // 只在火炬点燃时才使用 FireAOE
             if (isTorchLit)
             {
                 FireAOE(entity, 6.67f, entity.GetFaction());
@@ -64,9 +64,10 @@ namespace MVZ2.GameContent.Enemies
         public static void FireAOE(Entity entity, float damage, int faction)
         {
             var range = 40;
+            var center = entity.GetCenter() + new Vector3(10f, 20f, 0);
 
             var damageOutputs = entity.Explode(
-                entity.GetCenter(),
+                center,
                 range,
                 faction,
                 damage,
@@ -86,7 +87,7 @@ namespace MVZ2.GameContent.Enemies
             }
         }
 
-        // ��ѡ���ṩһ���������ⲿ�����״̬  
+        // 可选：提供一个方法供外部查询火炬状态
         public bool IsTorchLit()
         {
             return isTorchLit;

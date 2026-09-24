@@ -2823,6 +2823,82 @@
             <spawn id="mvz2:shadow_cell" />
         </spawns>
     </stage>
+
+    <stage id="ShootBalloon" name="射气球" type="minigame" music="mvz2:Lava_Chicken" needBlueprints="false">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="3" wavesPerFlag="8" pointsMultiplier="1.3">
+            <spawn id="mvz2:ghast" />
+            <spawn id="mvz2:VillagerGhast" />
+            <spawn id="mvz2:anubisand" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:WitherSkeleton" />
+            <spawn id="mvz2:LeatherWitherSkeleton" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+        </spawns>
+        <properties>
+            <float name="redstoneCarrierCounterIncreament" value="50" />
+        </properties>
+    </stage>
+
+    <stage id="ShootBalloon2" name="射气球2" type="minigame" music="mvz2:Lava_Chicken" needBlueprints="false">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="3" wavesPerFlag="8" pointsAddition="10" pointsMultiplier="2">
+            <spawn id="mvz2:skeleton" />
+            <spawn id="mvz2:necromancer" />
+            <spawn id="mvz2:mother_terror" />
+            <spawn id="mvz2:ghast" />
+            <spawn id="mvz2:hell_chariot" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:hell_chariot" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+            <spawn id="mvz2:emperor_zombie" />
+            <spawn id="mvz2:SixQiZombie" />
+            <spawn id="mvz2:pop_captain" />
+            <spawn id="mvz2:hacker" />
+            <spawn id="mvz2:zombie_cat" />
+            <spawn id="mvz2:skeleton_horse" />
+            <spawn id="mvz2:EvilMage" />
+            <spawn id="mvz2:NightmareDisciple" />
+            <spawn id="mvz2:PhaseSpider" />
+            <spawn id="mvz2:KingofReverser" />
+            <spawn id="mvz2:NetherTroopCarrier" />
+            <spawn id="mvz2:TorchKongfuZombie" />
+            <spawn id="mvz2:PirateZombie" />
+            <spawn id="mvz2:LeatherPirateZombie" />
+            <spawn id="mvz2:PirateSkeleton" />
+            <spawn id="mvz2:PirateBucketSkeleton" />
+            <spawn id="mvz2:PirateIMP" />
+            <spawn id="mvz2:MutantMannequin" />
+            <spawn id="mvz2:XCarrierMutant" />
+            <spawn id="mvz2:MegaMutantVillager" />
+        </spawns>
+        <properties>
+            <float name="redstoneCarrierCounterIncreament" value="50" />
+        </properties>
+    </stage>
+
+    <stage id="HeavyWeaponShootBalloon" name="重装兵器射气球" type="minigame" music="mvz2:Lava_Chicken" needBlueprints="false">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true" />
+        <spawns flags="3" wavesPerFlag="8" pointsMultiplier="1.3">
+            <spawn id="mvz2:ghast" />
+            <spawn id="mvz2:VillagerGhast" />
+            <spawn id="mvz2:anubisand" />
+            <spawn id="mvz2:berserker" />
+            <spawn id="mvz2:NetherArcher" />
+            <spawn id="mvz2:WitherSkeleton" />
+            <spawn id="mvz2:LeatherWitherSkeleton" />
+            <spawn id="mvz2:dullahan" />
+            <spawn id="mvz2:mesmerizer" />
+            <spawn id="mvz2:wicked_hermit_zombie" />
+        </spawns>
+        <properties>
+            <float name="redstoneCarrierCounterIncreament" value="50" />
+        </properties>
+    </stage>
     
     <stage id="OpticalIllusion" name="&lt;color=red&gt;视错觉&lt;/color&gt;" type="minigame" music="mvz2:Sacrificial">
         <clear pickupModel="mvz2:entity.trophy" trophy="true" />

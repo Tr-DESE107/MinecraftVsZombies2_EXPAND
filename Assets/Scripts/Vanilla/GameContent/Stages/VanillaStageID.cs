@@ -170,6 +170,9 @@ namespace MVZ2.GameContent.Stages
         public const string PacZombie = "PacZombie";
         public const string PacZombie_2 = "PacZombie_2";
         public const string BombingZone = "BombingZone";
+        public const string ShootBalloon = "ShootBalloon";
+        public const string ShootBalloon2 = "ShootBalloon2";
+        public const string HeavyWeaponShootBalloon = "HeavyWeaponShootBalloon";
 
         //EXPAND InfBoss
         public const string InfinityFrankenstein = "InfinityFrankenstein";

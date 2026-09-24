@@ -81,7 +81,8 @@
     <minigame id="WarThunder" stage="mvz2:WarThunder" area="mvz2:dream" icon="mvz2:arcade/WarThunder" />
     <minigame id="ZombieNimbleZombieQuick" stage="mvz2:ZombieNimbleZombieQuick" area="mvz2:castle" icon="mvz2:arcade/ZombieNimbleZombieQuick" />
     <minigame id="BalloonParty" stage="mvz2:BalloonParty" area="mvz2:castle" icon="mvz2:arcade/BalloonParty" />
-    <minigame/>
+    <minigame id="ShootBalloon" stage="mvz2:ShootBalloon" area="mvz2:castle" icon="mvz2:arcade/ShootBalloon" />
+    <minigame id="ShootBalloon2" stage="mvz2:ShootBalloon2" area="mvz2:ship" icon="mvz2:arcade/ShootBalloon2" />
 
     <minigame id="AnotherPrologue" stage="mvz2:AnotherPrologue" area="mvz2:day" icon="mvz2:arcade/AnotherPrologue" />
     <minigame id="OpticalIllusion" stage="mvz2:OpticalIllusion" area="mvz2:dream" icon="mvz2:arcade/OpticalIllusion" />
@@ -94,6 +95,7 @@
     <minigame id="BombingZone" stage="mvz2:BombingZone" area="mvz2:halloween" icon="mvz2:arcade/BombingZone" />
     <minigame id="PacZombie" stage="mvz2:PacZombie" area="mvz2:mausoleum" icon="mvz2:arcade/PacZombie" />
     <minigame id="PacZombie_2" stage="mvz2:PacZombie_2" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/PacZombie_2" />
+    <minigame id="HeavyWeaponShootBalloon" stage="mvz2:HeavyWeaponShootBalloon" area="mvz2:castle" icon="mvz2:arcade/HeavyWeaponShootBalloon" />
     
 
     <puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" />
