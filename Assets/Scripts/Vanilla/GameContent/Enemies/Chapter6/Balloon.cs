@@ -223,7 +223,6 @@ namespace MVZ2.GameContent.Enemies
             VanillaEnemyID.zombie,  
             VanillaEnemyID.leatherCappedZombie,  
             VanillaEnemyID.ironHelmettedZombie,  
-            VanillaEnemyID.flagZombie,  
         };  
         private static int[] SpawnWeights = new int[]  
         {  

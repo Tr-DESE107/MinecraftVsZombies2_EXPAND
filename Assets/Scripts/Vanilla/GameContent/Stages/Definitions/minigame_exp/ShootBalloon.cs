@@ -45,14 +45,18 @@ namespace MVZ2.GameContent.Stages
         public override void OnStart(LevelEngine level)  
         {  
             base.OnStart(level);  
-            var blueprints = new NamespaceID[]  
-            {  
-                VanillaBlueprintID.heavyWeaponFlashbang,  
-                VanillaBlueprintID.HeavyWeaponGrenade,  
-                VanillaBlueprintID.HeavyWeaponMolotov,  
-                VanillaBlueprintID.HeavyWeaponRegen,  
-                VanillaBlueprintID.HeavyWeaponExtraLife,  
-                VanillaBlueprintID.HeavyWeaponSelfDestruct,  
+            var blueprints = new NamespaceID[]
+            {
+                VanillaBlueprintID.heavyWeaponFlashbang,
+                VanillaBlueprintID.HeavyWeaponGrenade,
+                VanillaBlueprintID.HeavyWeaponMolotov,
+                VanillaBlueprintID.HeavyWeaponRegen,
+                VanillaBlueprintID.HeavyWeaponExtraLife,
+                VanillaBlueprintID.HeavyWeaponSelfDestruct,
+                VanillaBlueprintID.HeavyWeaponBulletCount,
+                VanillaBlueprintID.heavyWeaponRapid,
+                VanillaBlueprintID.HeavyWeaponContraptionSwap,
+                VanillaBlueprintID.HeavyWeaponSpeedUp,
             };  
             level.SetSeedSlotCount(blueprints.Length);  
             level.FillSeedPacks(blueprints);  

@@ -12212,6 +12212,30 @@ msgctxt "blueprint_option.name"
 msgid "增加散射"
 msgstr ""
 
+#. Name for blueprint option heavy_weapon_bullet_count
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "增加弹数"
+msgstr ""
+
+#. Tooltip for blueprint option heavy_weapon_bullet_count
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "每次攻击发射更多子弹"
+msgstr ""
+
+#. Name for blueprint option HeavyWeaponContraptionSwap
+#: Blueprints meta file
+msgctxt "blueprint_option.name"
+msgid "更换器械"
+msgstr ""
+
+#. Tooltip for blueprint option HeavyWeaponContraptionSwap
+#: Blueprints meta file
+msgctxt "blueprint_option.tooltip"
+msgid "将活塞发射器更换为融合体，射速等级会被继承"
+msgstr ""
+
 #. Name for blueprint option HeavyWeaponGrenade
 #: Blueprints meta file
 msgctxt "blueprint_option.name"

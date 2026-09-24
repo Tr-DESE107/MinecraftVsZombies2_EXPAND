@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.HeavyWeaponMolotov,  
                 VanillaBlueprintID.HeavyWeaponEnderPearl,  
                 VanillaBlueprintID.HeavyWeaponInvincible,  
-                VanillaBlueprintID.HeavyWeaponSwitchProjectile,  
+                VanillaBlueprintID.heavyWeaponRapid,  
                 VanillaBlueprintID.HeavyWeaponRegen,  
                 VanillaBlueprintID.HeavyWeaponBulletUpgrade,  
                 VanillaBlueprintID.HeavyWeaponExtraLife,  

@@ -10051,6 +10051,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84a592dd8e4487b4daeb56d239c14555
+    m_Address: mvz2:entity/EXPAND_Enemy/C6/Balloon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84a7f7624ce186d43bdfe0a7c6d53f6b
     m_Address: mvz2:entity/contraptions/giant_bowl
     m_ReadOnly: 0
