@@ -86,6 +86,8 @@ namespace MVZ2.GameContent.Projectiles
         public const string Flashbang = "Flashbang";
         public const string Molotov = "Molotov";
         public const string EnderPearl = "EnderPearl";
+
+        public const string AndesiteAlloySpike = "AndesiteAlloySpike";
     }
     public static class VanillaProjectileID
     {
@@ -170,6 +172,8 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID Flashbang = Get(VanillaProjectileNames.Flashbang);
         public static readonly NamespaceID Molotov = Get(VanillaProjectileNames.Molotov);
         public static readonly NamespaceID EnderPearl = Get(VanillaProjectileNames.EnderPearl);
+
+        public static readonly NamespaceID AndesiteAlloySpike = Get(VanillaProjectileNames.AndesiteAlloySpike);
 
         private static NamespaceID Get(string name)
         {

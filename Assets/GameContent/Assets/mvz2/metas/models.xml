@@ -960,6 +960,8 @@
     <model name="Molotov" type="entity" path="mvz2:projectile/EXPAND_projectile/Molotov" width="48" height="48" xOffset="0" yOffset="-12" />
     <model name="EnderPearl" type="entity" path="mvz2:projectile/EXPAND_projectile/EnderPearl" width="48" height="48" xOffset="0" yOffset="-12" />
 
+    <model name="AndesiteAlloySpike" type="entity" path="mvz2:projectile/EXPAND_projectile/AndesiteAlloySpike" width="20" height="11" xOffset="0" yOffset="-6" />
+
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0" />
     <model name="iron_helmet" type="armor" path="mvz2:armor/iron_helmet" width="33" height="14" xOffset="0" yOffset="0" />
