@@ -1,4 +1,4 @@
-#nullable enable  
+﻿#nullable enable  
   
 using System;  
 using MVZ2.GameContent.Buffs.Contraptions;  

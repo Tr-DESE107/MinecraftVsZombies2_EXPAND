@@ -4509,6 +4509,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b4bbe1587df62b4797ea16b8f5a188e
+    m_Address: mvz2:projectile/EXPAND_projectile/AndesiteAlloySpike
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b514fad3b9b8fd49aa628ea1cc401a1
     m_Address: mvz2:enemy/castle/AssaultDullahan
     m_ReadOnly: 0
@@ -7672,6 +7679,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63bfb0648a3690647862ded6613bbead
+    m_Address: mvz2:entity/projectiles/EXPAND_projectiles/AndesiteAlloySpike
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63e64c26dd6685b47b1f1682392df422
     m_Address: mvz2:entity/contraptions/EXPAND_Contraption/StoneGenerator
     m_ReadOnly: 0
@@ -9526,6 +9540,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7db8af8a2bd227c4ab008d2eeaa1514e
+    m_Address: mvz2:arcade/ShootBalloon2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7df0f4c9f219e794795e1e3082cfd0bb
     m_Address: mvz2:enemy/castle/NetherArcher
     m_ReadOnly: 0
@@ -11323,6 +11344,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95f829664d0a9a546a6f77238e24443d
+    m_Address: mvz2:arcade/ShootBalloon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9665e7bba6c3e9849887c079a9f4c3cd
     m_Address: mvz2:damage/hit1

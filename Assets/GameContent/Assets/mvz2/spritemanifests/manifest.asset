@@ -1921,6 +1921,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 852fa113f9164b840861b767b6a8529e, type: 3}
   - name: entity/EXPAND_Enemy/Mannequin/CannonballMannequin
     sprite: {fileID: 21300000, guid: 62afbe0ab6db40946a9e224abdc9d177, type: 3}
+  - name: entity/projectiles/EXPAND_projectiles/AndesiteAlloySpike
+    sprite: {fileID: 21300000, guid: 63bfb0648a3690647862ded6613bbead, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/BigFireCharge
     sprite: {fileID: 21300000, guid: 4d8952eef7a6e0541970cb1fffbdb1a4, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/BloodBolt
