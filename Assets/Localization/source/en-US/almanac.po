@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-09-25 03:27+0800\n"
-"PO-Revision-Date: 2026-09-25 03:36+0800\n"
+"POT-Creation-Date: 2026-09-25 12:36+0800\n"
+"PO-Revision-Date: 2026-09-25 12:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3004,25 +3004,26 @@ msgstr ""
 #. Header for contraptions mvz2:wooden_fan
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "木风扇在触发后会将一整行内的敌方怪物吹回原地。如果怪物较轻，还会直接将其吹出战场。"
-msgstr ""
-"When triggered, Wooden Fans blow away and push back enemy monsters in their lane. If the enemy monsters are very light, they will be "
-"directly blown out of the battlefield."
+msgid "木风扇在触发后会吹动并减速一整行内的敌方怪物。"
+msgstr "When triggered, Wooden Fans blow and slow enemy monsters in an entire lane."
 
 #. Properties for contraptions mvz2:wooden_fan
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>可以直接吹飞空中或者较轻的怪物，但对地面上较重的怪物没有效果</color>\n"
-"触发：<color=red>触发后会将一整行内的敌方怪物吹回原地。</color>\n"
+"触发：<color=red>触发后会吹动并减速一整行内的敌方怪物。</color>\n"
+"持续时间：<color=red>触发后单行减速8秒、技能整个战场减速5秒</color>\n"
 "范围：<color=red>一整行</color>\n"
-"技能：<color=red>改为吹动整个战场的怪物</color>"
+"技能：<color=red>改为吹动并减速整个战场的怪物</color>"
 msgstr ""
 "Special: <color=red>Can directly blow away airborne or very light monsters, but has no effect on heavy monsters on the ground.</"
 "color>\n"
-"Triggered: <color=red>When triggered, blows all enemy monsters in an entire lane back to their starting position.</color>\n"
+"Triggered: <color=red>When triggered, blows and slows all enemy monsters in an entire lane.</color>\n"
+"Duration: <color=red>Slows an entire lane for 8 seconds when triggered; slows the entire battlefield for 5 seconds with Evocation</"
+"color>\n"
 "Range: <color=red>One entire lane</color>\n"
-"Evocation: <color=red>Instead, blows all monsters on the entire battlefield.</color>"
+"Evocation: <color=red>Instead, blows and slows all monsters on the entire battlefield.</color>"
 
 #. Flavor for contraptions mvz2:wooden_fan
 #: Almanac meta file
@@ -3266,13 +3267,13 @@ msgid ""
 "耐久：<color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "范围：<color=red>前方1.5格</color>\n"
 "特点：<color=red>范围内的敌人攻击速度和移动速度x50%</color>\n"
-"技能：<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘，挖掉后铁镐会进入短暂时间的冷却。</color>"
+"技能：<color=red>石化前方的敌人10秒（车辆和突变怪物时间减半），期间它们可以被铁镐挖掘，挖掉后铁镐会进入短暂时间的冷却。</color>"
 msgstr ""
 "Toughness: <color=red><var id=\"mvz2:entity_health\" /></color>\n"
 "Range: <color=red>1.5 tiles ahead</color>\n"
 "Special: <color=red>x50% enemy attack speed and movement speed within the range</color>\n"
-"Evocation: <color=red>Petrifies all enemies ahead for 10 seconds. While petrified, they can be mined with a pickaxe. After mining one, "
-"the pickaxe enters a brief cooldown.</color>"
+"Evocation: <color=red>Petrifies all enemies ahead for 10 seconds (halved for vehicles and mutant monsters). While petrified, they can "
+"be mined with a pickaxe. After mining one, the pickaxe enters a brief cooldown.</color>"
 
 #. Flavor for contraptions mvz2:stone_eye
 #: Almanac meta file
@@ -15117,12 +15118,6 @@ msgctxt "blueprint_option.name"
 msgid "更换器械"
 msgstr "Contraption Swap"
 
-#. Tooltip for blueprint option HeavyWeaponContraptionSwap
-#: Blueprints meta file
-msgctxt "blueprint_option.tooltip"
-msgid "将活塞发射器更换为融合体，射速等级会被继承"
-msgstr "Swap the pistenser for the fused contraption. Rapid fire level is inherited."
-
 #. Name for entity blueprint skeleton_mage_fire
 #: Blueprints meta file
 msgctxt "entity.name"
@@ -15194,6 +15189,16 @@ msgstr "Nether Mage (Frost)"
 msgctxt "entity.name"
 msgid "下界法师（电）"
 msgstr "Nether Mage (Lightning)"
+
+#~ msgctxt "contraptions.description"
+#~ msgid "木风扇在触发后会将一整行内的敌方怪物吹回原地。如果怪物较轻，还会直接将其吹出战场。"
+#~ msgstr ""
+#~ "When triggered, Wooden Fans blow away and push back enemy monsters in their lane. If the enemy monsters are very light, they will "
+#~ "be directly blown out of the battlefield."
+
+#~ msgctxt "blueprint_option.tooltip"
+#~ msgid "将活塞发射器更换为融合体，射速等级会被继承"
+#~ msgstr "Swap the pistenser for the fused contraption. Rapid fire level is inherited."
 
 #~ msgctxt "contraptions.description"
 #~ msgid "基岩是常规手段下无法破坏的屏障。"
