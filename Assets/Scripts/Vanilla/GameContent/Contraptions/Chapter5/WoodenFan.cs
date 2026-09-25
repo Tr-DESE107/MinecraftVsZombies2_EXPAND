@@ -30,12 +30,15 @@ namespace MVZ2.GameContent.Contraptions
 
             SetStateTimer(entity, new FrameTimer(30));
         }
-        protected override void UpdateAI(Entity entity)
+        protected override void UpdateLogic(Entity entity)
         {
-            base.UpdateAI(entity);
+            base.UpdateLogic(entity);
 
+            // 状态机放在 UpdateLogic（始终运行）而非 UpdateAI：
+            // 短路等 AI 冻结状态只跳过 UpdateAI，但吹风 buff（PostUpdate）仍在生效，
+            // 若 timer 跟着 UpdateAI 冻结，BLOW 永不结束、风扇永不销毁，导致无限吹风。
+            // 放在这里则无论什么状态，触发/开大后 CD 一到就自然销毁。
             var state = GetFanState(entity);
-
             switch (state)
             {
                 case FAN_STATE_READY:
@@ -45,10 +48,7 @@ namespace MVZ2.GameContent.Contraptions
                     UpdateStateBlow(entity);
                     break;
             }
-        }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
+
             entity.SetAnimationInt("FanState", GetFanState(entity));
             entity.SetAnimationFloat("IdleSpeed", GetIdleSpeed(entity));
         }
