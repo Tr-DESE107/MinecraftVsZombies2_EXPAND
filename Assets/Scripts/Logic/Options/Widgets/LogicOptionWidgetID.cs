@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using PVZEngine;
 
@@ -35,6 +35,7 @@ namespace MVZ2Logic.Options
 
         //EXPAND
         public const string minecartControlMode = "minecart_control_mode";
+        public const string minecartStopMode = "minecart_stop_mode";
     }
 
     public static class LogicOptionWidgetID
@@ -49,6 +50,7 @@ namespace MVZ2Logic.Options
         
         //EXPAND
         public static readonly NamespaceID minecartControlMode = Get(LogicOptionWidgetNames.minecartControlMode);
+        public static readonly NamespaceID minecartStopMode = Get(LogicOptionWidgetNames.minecartStopMode);
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(Global.BuiltinNamespace, name);

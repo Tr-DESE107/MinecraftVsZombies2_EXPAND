@@ -398,16 +398,17 @@
                 <stage price="500000" unlocks="mvz2:contraption.DiamondOre" />
             </stages>
         </product>
-        <product id="EXPANDGiftPack" sprite="mvz2:products/EXPANDGiftPack">
+        
+        <product id="InfiniteCore" sprite="mvz2:artifacts/InfiniteCore">
             <unlock>
                 <condition requiredGroups="mvz2:EXPAND_Completed" />
             </unlock>
             <talks>
-                <talk character="mvz2:crazy_villager">EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！</talk>
-                <talk character="mvz2:tokiko">EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！</talk>
+                <talk character="mvz2:crazy_villager">你在渴望什么？</talk>
+                <talk character="mvz2:tokiko">看上去就很不一般的制品！据■■■所说，这个制品能够让你永远停不下来！</talk>
             </talks>
             <stages>
-                    <stage price="1071070" unlocks="mvz2:goods.EXPAND_Completed" />
+                <stage price="500000" unlocks="mvz2:artifact.InfiniteCore" />
             </stages>
         </product>
         
@@ -421,6 +422,19 @@
             </talks>
             <stages>
                 <stage price="500000" unlocks="mvz2:contraption.BrainInVat" />
+            </stages>
+        </product>
+
+        <product id="EXPANDGiftPack" sprite="mvz2:products/EXPANDGiftPack">
+            <unlock>
+                <condition requiredGroups="mvz2:EXPAND_Completed" />
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！</talk>
+                <talk character="mvz2:tokiko">EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！</talk>
+            </talks>
+            <stages>
+                    <stage price="1071070" unlocks="mvz2:goods.EXPAND_Completed" />
             </stages>
         </product>
         

@@ -165,13 +165,23 @@ namespace MVZ2.GameContent.Stages
         public const string BlueprintBossRush = "BlueprintBossRush";
         public const string BalloonParty = "BalloonParty";
         public const string HeavyWeapon_Plus = "HeavyWeapon_Plus";
-
-        public const string InfinityWither = "InfinityWither";
-        public const string InfinitySeija = "InfinitySeija";
+        public const string SeijaRevenge = "SeijaRevenge";
 
         public const string PacZombie = "PacZombie";
         public const string PacZombie_2 = "PacZombie_2";
         public const string BombingZone = "BombingZone";
+        public const string ShootBalloon = "ShootBalloon";
+        public const string ShootBalloon2 = "ShootBalloon2";
+        public const string HeavyWeaponShootBalloon = "HeavyWeaponShootBalloon";
+
+        //EXPAND InfBoss
+        public const string InfinityFrankenstein = "InfinityFrankenstein";
+        public const string InfinityNightmare = "InfinityNightmare";
+        public const string InfinitySeija = "InfinitySeija";
+        public const string InfinityWither = "InfinityWither";
+        public const string InfinityGiant = "InfinityGiant";
+        public const string InfinityRedDragon = "InfinityRedDragon";
+        public const string InfinityLockedChest = "InfinityLockedChest";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

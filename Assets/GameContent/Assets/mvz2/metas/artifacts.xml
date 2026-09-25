@@ -22,7 +22,7 @@
     </artifact>
 
     <!-- Dream -->
-    <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="友方器械每秒恢复10点耐久" sprite="mvz2:artifacts/sweet_sleep_pillow">
+    <artifact id="sweet_sleep_pillow" name="安眠枕" tooltip="友方器械在不受伤时每秒钟恢复10点耐久" sprite="mvz2:artifacts/sweet_sleep_pillow">
         <unlock>
             <condition required="mvz2:level.dream_2" />
         </unlock>
@@ -204,7 +204,7 @@
     </artifact>
     <artifact id="InfiniteCore" name="&lt;color=red&gt;无尽核心&lt;/color&gt;" tooltip="&lt;color=red&gt;让关卡无尽出怪&lt;/color&gt;" sprite="mvz2:artifacts/InfiniteCore">
         <unlock>
-            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:goods.EXPAND_Completed"/>
+            <condition requiredGroups="mvz2:EXPAND_Completed" required="mvz2:artifact.InfiniteCore"/>
         </unlock>
     </artifact>
 </artifacts>

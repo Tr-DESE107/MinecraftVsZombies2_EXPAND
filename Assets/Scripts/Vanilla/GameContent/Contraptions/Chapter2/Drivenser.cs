@@ -157,9 +157,13 @@ namespace MVZ2.GameContent.Contraptions
         }
 
         // 添加触发方法    
-        public override bool CanTrigger(Entity entity)
-        {
-            return base.CanTrigger(entity) && !entity.HasBuff<DrivenserTriggerBuff>();
+        // 添加触发方法      
+        public override bool CanTrigger(Entity entity)  
+        {  
+            // 需要升级档位达到 2（即第 3 级 / 叠放 3 个驱动发射器）才能驱动  
+            return base.CanTrigger(entity)  
+                && GetUpgradeLevel(entity) >= 2  
+                && !entity.HasBuff<DrivenserTriggerBuff>();  
         }
 
         protected override void OnTrigger(Entity entity)

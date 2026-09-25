@@ -55,6 +55,9 @@ namespace MVZ2.GameContent.Buffs.Level
 
             AddModifier(new NamespaceIDModifier(VanillaDifficultyLevelProps.LOCKED_CHEST_SPIT_BLUEPRINT_ID, SetOperator.Set, LogicBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie)));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.LOCKED_CHEST_REQUIRED_STARSHARDS, IntegerOperator.Add, 1));
+
+            // 无限Boss增强弹窗的选项数量：4 - 1 = 3（范围 1~3）。
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.INFINITY_BOSS_UPGRADE_OPTION_COUNT, IntegerOperator.Add, -1));
             AddAura(new EnemyAura());
         }
 

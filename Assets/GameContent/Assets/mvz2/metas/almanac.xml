@@ -624,9 +624,9 @@
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red><var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>触发：<![CDATA[<color=red>触发后损失75耐久并进入过载模式，每秒损失1点耐久，档位上升1级</color>]]></p>
+                <p>触发：<![CDATA[<color=red>到达3档时可以触发，触发后损失75耐久并进入过载模式，每秒损失1点耐久，档位上升1级</color>]]></p>
                 <p>升级上限：<![CDATA[<color=red>5，过载模式可以短暂上升为6</color>]]></p>
-                <p>技能：<![CDATA[<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+挡位*1.5只大型箭矢（向下取整），而后自爆。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>普通模式下发射五支大型箭矢，过载模式下能够快速发射5+档位*1.5只大型箭矢（向下取整），而后自爆。</color>]]></p>
             </properties>
             <flavor>
                 <p>驱动发射器是个技术宅，同时它还懂得电脑驱动的装配、各种软件、硬件的性能以及编程语言等信息技术。最近他想自己编程一个游戏来还原这场与僵尸之间的战争，但有人已经抢先了。</p>
@@ -763,7 +763,7 @@
             <properties>
                 <p>特点：<![CDATA[<color=red>一次性使用</color>]]></p>
                 <p>技能：<![CDATA[<color=red>无</color>]]></p>
-                <p>睡眠时间：<![CDATA[<color=red>50秒</color>]]></p>
+                <p>睡眠时间：<![CDATA[<color=red>30秒</color>]]></p>
             </properties>
             <flavor>
                 <p>美梦丝是个睡货，她每天睁开眼睛做的第一件事就是睡觉。瞧瞧她睡的，把自己的冷却时间也给睡短了。</p>
@@ -799,6 +799,7 @@
                 <p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会被近战怪物主动攻击，免疫爆炸伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>我是文字，我现在非常疼</p>
@@ -905,7 +906,7 @@
                 <p>攻击速度：<![CDATA[<color=red>2秒</color>]]></p>
                 <p>半径：<![CDATA[<color=red><var id="mvz2:FireRange" />格</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
-                <p>特殊：<![CDATA[<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>被攻击的怪物会停顿1秒；常规状态下不可以攻击空中怪物；电击水域会对周围水域也造成伤害；经过磁暴线圈的金属子弹会带电</color>]]></p>
                 <p>技能：<![CDATA[<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>]]></p>
             </properties>
             <flavors>
@@ -1125,6 +1126,7 @@
                 <p>生产时间：<![CDATA[<color=red>30秒</color>]]></p>
                 <p>提供能量：<![CDATA[<color=red><var local="gunpowder_value" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供<var local="furious_gunpowder_value" />能量，但是会更快爆炸</color>]]></p>
+                <p>特点：<![CDATA[<color=red>免疫爆炸伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>众所周知，最早的黑火药由三种材料制作：</p>
@@ -1203,13 +1205,14 @@
                 <tag id="mvz2:antifly"/>
             </tags>
             <header>
-                <p>木风扇在触发后会将一整行内的敌方怪物吹回原地。如果怪物较轻，还会直接将其吹出战场。</p>
+                <p>木风扇在触发后会吹动并减速一整行内的敌方怪物。</p>
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>可以直接吹飞空中或者较轻的怪物，但对地面上较重的怪物没有效果</color>]]></p>
-                <p>触发：<![CDATA[<color=red>触发后会将一整行内的敌方怪物吹回原地。</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后会吹动并减速一整行内的敌方怪物。</color>]]></p>
+                <p>持续时间：<![CDATA[<color=red>触发后单行减速8秒、技能整个战场减速5秒</color>]]></p>
                 <p>范围：<![CDATA[<color=red>一整行</color>]]></p>
-                <p>技能：<![CDATA[<color=red>改为吹动整个战场的怪物</color>]]></p>
+                <p>技能：<![CDATA[<color=red>改为吹动并减速整个战场的怪物</color>]]></p>
             </properties>
             <flavor>
                 <p>这东西哪有那么重量级，都被你们吹到天上去了！</p>
@@ -1339,7 +1342,7 @@
                 <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>范围：<![CDATA[<color=red>前方1.5格</color>]]></p>
                 <p>特点：<![CDATA[<color=red>范围内的敌人攻击速度和移动速度x50%</color>]]></p>
-                <p>技能：<![CDATA[<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘，挖掉后铁镐会进入短暂时间的冷却。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>石化前方的敌人10秒（车辆和突变怪物时间减半），期间它们可以被铁镐挖掘，挖掉后铁镐会进入短暂时间的冷却。</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<b>项目编号：</b>]]>MCP-531</p>
@@ -1814,7 +1817,7 @@
                 <p>攻击间隔：<![CDATA[<color=red>8支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>触发：<![CDATA[<color=red>触发后拥有6发能够对空的小型导弹。</color>]]></p>
-                <p>技能：<![CDATA[<color=red>永久改为发射10支箭矢，并<tag id="mvz2:light_source" />发光</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速发射60支箭矢，而后永久改为发射10支箭矢，并<tag id="mvz2:light_source" />发光</color>]]></p>
             </properties>
             <flavor>
                 <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
@@ -1840,6 +1843,7 @@
                 <p>攻击频率：<![CDATA[<color=red>0.25秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
                 <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>不会被近战怪物主动攻击，免疫爆炸伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>可以用于购买游戏物品，比如一种能毁天灭地的蔬菜。</p>
@@ -1880,7 +1884,7 @@
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>可以将不同的发射器放置在基础万象天枢上融合。</color>]]></p>
-                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref>，其他可以融合，但行为同基础万象天枢</color>]]></p>
+                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref>、<ref=[contraptions]mvz2:pistenser>活塞发射器</ref>，其他可以融合，但行为同基础万象天枢</color>]]></p>
                 <p>注：<![CDATA[<color=red>你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</color>]]></p>
             </properties>
             <flavor>
@@ -2169,12 +2173,13 @@
         </entry>
         <entry id="mvz2:FlagSkeleton">
             <header>
-                <p>摇旗骷髅的出现标志着一大波怪物的到来。</p>
+                <p>旗帜骷髅的出现标志着一大波怪物的到来。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" />+<var id="armor_hp" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
                 <p>伤害：<![CDATA[<color=red><var id="mvz2:entity_damage" /></color>]]></p>
+                <p>特点：<![CDATA[<color=red>在场时能让骷髅类敌人速度加快</color>]]></p>
             </properties>
             <flavor>
                 <p>他用着骷髅特有的语言鼓励着骷髅族的同胞们冲向战场，但他似乎没意识到让远程攻击的同胞跑的更快吃更多子弹不是个好主意。</p>
@@ -2460,13 +2465,10 @@
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>会游泳，在你意想不到的时刻对你的防线进行突袭.</color>]]></p>
+                <p>特点：<![CDATA[<color=red>会游泳，在你意想不到的时刻对你的防线进行突袭。</color>]]></p>
             </properties>
             <flavor>
-                <p>这是我们目前所能观察到的最强大瘟疫体，它庞大而臃肿的躯体不断再生着无休止的血肉，被剥离下的肉块也能不断再生并形成自我的意志，它的存在本身便是对生物科学的亵渎。</p>
-                <p>不知在这庞大的身躯下是否还藏有一颗热爱小动物的心。</p>
-                <p />
-                <p>愿所有苦痛的灵魂得到解脱。</p>
+                <p>没写好</p>
             </flavor>
         </entry>
         
@@ -2474,18 +2476,15 @@
         <!-- 水生蜘蛛
         <entry id="mvz2:水生蜘蛛">
             <header>
-                <p>突变宿主僵尸能够慢速回复生命，可以粉碎遇到的的器械，并在血量低至一半时投掷宿主小鬼僵尸</p>
+                <p>水生蜘蛛的介绍</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
-                <p>特点：<![CDATA[<color=red>以30/s的速度回血，血量每下降800点便会生成一个宿主僵尸。</color>]]></p>
+                <p>特点：<![CDATA[<color=red>水生蜘蛛的特点</color>]]></p>
             </properties>
             <flavor>
-                <p>这是我们目前所能观察到的最强大瘟疫体，它庞大而臃肿的躯体不断再生着无休止的血肉，被剥离下的肉块也能不断再生并形成自我的意志，它的存在本身便是对生物科学的亵渎。</p>
-                <p>不知在这庞大的身躯下是否还藏有一颗热爱小动物的心。</p>
-                <p />
-                <p>愿所有苦痛的灵魂得到解脱。</p>
+                <p>没写好</p>
             </flavor>
         </entry>
         
@@ -4173,10 +4172,10 @@
         <entry/>
         <entry id="mvz2:sweet_sleep_pillow">
             <header>
-                <p><![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>赠予的奇妙枕头，拥有让人安眠的效果。]]></p>
+                <p><![CDATA[<ref=[misc]mvz2:doremy>哆来咪</ref>赠予的奇妙枕头，能够让人无忧的安眠。]]></p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>友方器械每秒钟恢复10点耐久</color>]]></p>
+                <p>效果：<![CDATA[<color=red>友方器械在不受伤时每秒钟恢复10点耐久</color>]]></p>
             </properties>
             <flavor>
                 <p>好困啊，先不写趣文了。</p>

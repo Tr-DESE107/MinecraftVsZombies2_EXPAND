@@ -121,7 +121,7 @@ SpriteRenderer:
   m_SortingLayerID: -40259281
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 64951a0026f5ef54bbb28092c064d4ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2852f645bc702264a8d5c7c1ccf69d07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -391,7 +391,7 @@ SpriteRenderer:
   m_SortingLayerID: -2057763135
   m_SortingLayer: -8
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: ced932759e970e74891ad58675bf4e53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae01cffe24012cd45af046845ed4fb09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -489,7 +489,7 @@ SpriteRenderer:
   m_SortingLayerID: -2057763135
   m_SortingLayer: -8
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 412474974d83c1441840e3f07734ae7c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4329f3886884fe4cb949dcdd8ec8e10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1147,6 +1147,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8661850736002924378}
     m_Modifications:
+    - target: {fileID: 1013193901397775874, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e0dc55bc6d3f63e48b8469ea7687839a, type: 3}
+    - target: {fileID: 3586407520138787017, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586407520138787017, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3604851163717151955, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
       propertyPath: m_Name
       value: Nightmare
@@ -1195,6 +1207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7877394157724804623, guid: f03a46e74f3fea045a93949ea7520a6d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5aec50f2d3cad4848a37653c78595409, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1298,6 +1314,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1580675546397451496}
     m_Modifications:
+    - target: {fileID: 2652443272416795725, guid: 6e5e04db548a4f948a9b6d8821a2cbe6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e8ab73081f4927499a65ce0b848ba33, type: 3}
     - target: {fileID: 2961347322520547227, guid: 6e5e04db548a4f948a9b6d8821a2cbe6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1342,6 +1362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pool
       objectReference: {fileID: 0}
+    - target: {fileID: 7855211434618964641, guid: 6e5e04db548a4f948a9b6d8821a2cbe6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e8ab73081f4927499a65ce0b848ba33, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

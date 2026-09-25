@@ -2,8 +2,10 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Bosses;
+using MVZ2.GameContent.Buffs.Entities;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -16,6 +18,8 @@ using PVZEngine.Buffs;
 using PVZEngine.Collisions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Bosses
@@ -37,6 +41,11 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new CameraState());
                 AddState(new FabricState());
                 AddState(new FaintState());
+                //EXPAND 新增：箭雨、夺取子弹
+                AddState(new ArrowRainState());
+                AddState(new StealBulletState());
+                AddState(new ReverseSatelliteState());
+                AddState(new CharmContraptionState());
             }
         }
         #endregion
@@ -94,6 +103,7 @@ namespace MVZ2.GameContent.Bosses
             private int GetNextState(EntityStateMachine stateMachine, Entity entity)
             {
                 var lastState = stateMachine.GetPreviousState(entity);
+
                 if (lastState == STATE_IDLE || lastState == STATE_BACKFLIP)
                 {
                     lastState = STATE_DANMAKU;
@@ -128,7 +138,43 @@ namespace MVZ2.GameContent.Bosses
                         return lastState;
                     }
                 }
+                //EXPAND 新技能并入轮转链：隙间丢弹之后依次尝试箭雨 → 夺取子弹 → 召唤反则卫星，
+                //每个技能每轮循环只占一个链位、最多施放一次，条件不满足时自然跳过。
+                //EXPAND 仅在 Boss 复仇关（boss_revenge = true）才会启用新增技能，普通关卡保持原版技能组。
+                bool bossRevenge = entity.Level.IsBossRevenge();
                 if (lastState == STATE_GAP_BOMB)
+                {
+                    lastState = STATE_ARROW_RAIN;
+                    if (bossRevenge && ShouldHarvestProjectiles(entity))
+                    {
+                        return lastState;
+                    }
+                }
+                if (lastState == STATE_ARROW_RAIN)
+                {
+                    lastState = STATE_STEAL_BULLET;
+                    if (bossRevenge && ShouldHarvestProjectiles(entity))
+                    {
+                        return lastState;
+                    }
+                }
+                if (lastState == STATE_STEAL_BULLET)
+                {
+                    lastState = STATE_REVERSE_SATELLITE;
+                    if (bossRevenge && ShouldReverseSatellite(entity))
+                    {
+                        return lastState;
+                    }
+                }
+                if (lastState == STATE_REVERSE_SATELLITE)
+                {
+                    lastState = STATE_CHARM_CONTRAPTION;
+                    if (bossRevenge && ShouldCharmContraptions(entity))
+                    {
+                        return lastState;
+                    }
+                }
+                if (lastState == STATE_CHARM_CONTRAPTION)
                 {
                     lastState = STATE_FRONTFLIP;
                     if (attackAttempted && ShouldFrontFlip(entity) && CanFrontflip(entity))
@@ -606,6 +652,429 @@ namespace MVZ2.GameContent.Bosses
             public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateLogic(stateMachine, entity);
+            }
+        }
+        //EXPAND ===== 技能：箭雨 =====
+        //复用「旋转吐弹」动画。COLLECT：把场上器械方子弹全部变成向上飞的箭并计数 N（伤害取决于子弹原本的伤害）；
+        //RAIN：在场上空随机位置生成 2N 支箭，带随机水平漂移向下落，形成随机的箭雨。
+        private class ArrowRainState : EntityStateMachineState
+        {
+            public ArrowRainState() : base(STATE_ARROW_RAIN, ANIMATION_STATE_DANMAKU) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer?.ResetTime(20);
+                entity.Velocity = Vector3.zero;
+                entity.PlaySound(VanillaSoundID.gapWarp);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                if (substateTimer == null)
+                    return;
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+                var substate = stateMachine.GetSubState(entity);
+
+                switch (substate)
+                {
+                    case SUBSTATE_COLLECT:
+                        if (substateTimer.Expired)
+                        {
+                            //收集场上所有器械方子弹，变成向上飞的箭矢，记录数量 N 与各自伤害。
+                            int count = CollectAndConvert(entity);
+                            SetArrowCount(entity, count);
+                            entity.PlaySound(VanillaSoundID.danmaku);
+                            stateMachine.StartSubState(entity, SUBSTATE_RAIN);
+                            substateTimer.ResetTime(20);
+                        }
+                        break;
+
+                    case SUBSTATE_RAIN:
+                        if (substateTimer.Expired)
+                        {
+                            //把箭矢数量乘2，随机撒成一片箭雨落下来伤害器械。
+                            RainArrows(entity, GetArrowCount(entity) * 2);
+                            entity.PlaySound(VanillaSoundID.fling);
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+
+            //收集所有敌对子弹，逐个移除并在原位置生成一支向上飞的箭（伤害 = 子弹原本伤害），返回数量 N。
+            private int CollectAndConvert(Entity entity)
+            {
+                collectBuffer.Clear();
+                collectedDamages.Clear();
+                FindHostileProjectiles(entity, collectBuffer);
+                int count = collectBuffer.Count;
+                foreach (var proj in collectBuffer)
+                {
+                    var pos = proj.Position;
+                    var projDamage = proj.GetDamage();
+                    collectedDamages.Add(projDamage);
+                    proj.Remove();
+                    var param = entity.GetSpawnParams();
+                    param.SetProperty(VanillaEntityProps.DAMAGE, projDamage * ARROW_RAIN_DAMAGE_MULTIPLIER);
+                    entity.Spawn(VanillaProjectileID.arrow, pos, param)?.Let(arrow =>
+                    {
+                        //变成箭矢向上飞。
+                        arrow.Velocity = new Vector3(0, BULLET_RISE_SPEED, 0);
+                        //短暂停留后消失，避免一直向上飞出场地。
+                        arrow.Timeout = 40;
+                    });
+                }
+                return count;
+            }
+
+            //在场上空随机位置生成 amount 支箭，带随机水平漂移向下落，形成随机的箭雨。
+            private void RainArrows(Entity entity, int amount)
+            {
+                var level = entity.Level;
+                //箭雨的横向范围：进攻边界之间。
+                var leftX = LevelPositions.GetAttackBorderX(false);
+                var rightX = LevelPositions.GetAttackBorderX(true);
+                for (int i = 0; i < amount; i++)
+                {
+                    //随机 x、随机行，从器械上空落下。
+                    var x = entity.RNG.Next(leftX, rightX);
+                    var lane = entity.RNG.Next(level.GetMaxLaneCount());
+                    var z = level.GetEntityLaneZ(lane);
+                    var y = level.GetGroundY(x, z) + 400;
+                    var pos = new Vector3(x, y, z);
+                    //伤害取自收集到的子弹原本的伤害（循环复用记录的伤害列表）。
+                    var damage = collectedDamages.Count > 0 ? collectedDamages[i % collectedDamages.Count] : entity.GetDamage();
+                    var param = entity.GetSpawnParams();
+                    param.SetProperty(VanillaEntityProps.DAMAGE, damage * ARROW_RAIN_DAMAGE_MULTIPLIER);
+                    entity.Spawn(VanillaProjectileID.arrow, pos, param)?.Let(arrow =>
+                    {
+                        //向下落，并带一点随机水平漂移，形成方向随机的箭雨。
+                        var drift = entity.RNG.Next(-ARROW_RAIN_DRIFT, ARROW_RAIN_DRIFT);
+                        arrow.Velocity = new Vector3(drift, -ARROW_FALL_SPEED, 0);
+                    });
+                }
+            }
+
+            private List<Entity> collectBuffer = new List<Entity>();
+            private List<float> collectedDamages = new List<float>();
+            public const int SUBSTATE_COLLECT = 0;
+            public const int SUBSTATE_RAIN = 1;
+        }
+        //EXPAND ===== 技能：夺取子弹 =====
+        //复用「闪避布/翻转」动画（反转主题）。COLLECT：把场上器械方子弹的阵营反转为正邪方
+        //（弹种不变，伤害不变），并让它们向上飞；THROW：让被夺取的子弹从器械正上方随机落下攻击器械。
+        private class StealBulletState : EntityStateMachineState
+        {
+            public StealBulletState() : base(STATE_STEAL_BULLET, ANIMATION_STATE_FABRIC) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer?.ResetTime(20);
+                entity.Velocity = Vector3.zero;
+                entity.PlaySound(VanillaSoundID.gapWarp);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                if (substateTimer == null)
+                    return;
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+                var substate = stateMachine.GetSubState(entity);
+
+                switch (substate)
+                {
+                    case SUBSTATE_COLLECT:
+                        if (substateTimer.Expired)
+                        {
+                            //收集场上所有器械方子弹：弹种不变、伤害不变，阵营反转为正邪方，向上飞走。
+                            int count = CollectAndSteal(entity);
+                            SetArrowCount(entity, count);
+                            entity.PlaySound(VanillaSoundID.danmaku);
+                            stateMachine.StartSubState(entity, SUBSTATE_THROW);
+                            substateTimer.ResetTime(20);
+                        }
+                        break;
+
+                    case SUBSTATE_THROW:
+                        if (substateTimer.Expired)
+                        {
+                            //被夺取的子弹从器械正上方随机落下，反戈一击。
+                            ThrowStolenBullets(entity);
+                            entity.PlaySound(VanillaSoundID.fling);
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+
+            //收集所有敌对子弹：记录弹种与伤害，移除原弹后用正邪的阵营重新生成同种弹射物并向上飞，返回数量 N。
+            private int CollectAndSteal(Entity entity)
+            {
+                collectBuffer.Clear();
+                stolenProjectiles.Clear();
+                stolenDamages.Clear();
+                FindHostileProjectiles(entity, collectBuffer);
+                int count = collectBuffer.Count;
+                foreach (var proj in collectBuffer)
+                {
+                    var pos = proj.Position;
+                    var projID = proj.GetDefinitionID();
+                    var projDamage = proj.GetDamage();
+                    stolenProjectiles.Add(projID);
+                    stolenDamages.Add(projDamage);
+                    proj.Remove();
+                    //用正邪的生成参数重建同种弹射物：阵营由器械方反转为正邪方。
+                    var param = entity.GetSpawnParams();
+                    param.SetProperty(VanillaEntityProps.DAMAGE, projDamage);
+                    entity.Spawn(projID, pos, param)?.Let(stolen =>
+                    {
+                        //向上飞走，等待反转降临。
+                        stolen.Velocity = new Vector3(0, BULLET_RISE_SPEED, 0);
+                        //短暂停留后消失，避免一直向上飞出场地。
+                        stolen.Timeout = 40;
+                    });
+                }
+                return count;
+            }
+
+            //把被夺取的子弹从随机器械的正上方落下，攻击器械。
+            private void ThrowStolenBullets(Entity entity)
+            {
+                var level = entity.Level;
+                //收集敌对器械作为落点参考。
+                targetBuffer.Clear();
+                foreach (var e in level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(entity) && e.IsVulnerableEntity()))
+                {
+                    targetBuffer.Add(e);
+                }
+                for (int i = 0; i < stolenProjectiles.Count; i++)
+                {
+                    var projID = stolenProjectiles[i];
+                    var damage = stolenDamages[i];
+                    Vector3 pos;
+                    if (targetBuffer.Count > 0)
+                    {
+                        //落在随机一个器械正上方。
+                        var target = targetBuffer[entity.RNG.Next(targetBuffer.Count)];
+                        pos = target.GetCenter();
+                        pos.y += 400;
+                    }
+                    else
+                    {
+                        //没有器械就在战场随机撒点。
+                        var column = entity.RNG.Next(level.GetMaxColumnCount());
+                        var lane = entity.RNG.Next(level.GetMaxLaneCount());
+                        var x = level.GetEntityColumnX(column);
+                        var z = level.GetEntityLaneZ(lane);
+                        pos = new Vector3(x, level.GetGroundY(x, z) + 400, z);
+                    }
+                    //用正邪的生成参数重建：阵营为正邪方，伤害保持子弹原本的伤害。
+                    var param = entity.GetSpawnParams();
+                    param.SetProperty(VanillaEntityProps.DAMAGE, damage);
+                    entity.Spawn(projID, pos, param)?.Let(stolen =>
+                    {
+                        //向下落，命中器械时按弹射物碰撞结算伤害。
+                        stolen.Velocity = new Vector3(0, -STEAL_FALL_SPEED, 0);
+                    });
+                }
+            }
+
+            private List<Entity> collectBuffer = new List<Entity>();
+            private List<NamespaceID> stolenProjectiles = new List<NamespaceID>();
+            private List<float> stolenDamages = new List<float>();
+            private List<Entity> targetBuffer = new List<Entity>();
+            public const int SUBSTATE_COLLECT = 0;
+            public const int SUBSTATE_THROW = 1;
+        }
+        //EXPAND ===== 技能：召唤反则卫星 =====
+        //复用「旋转吐弹」动画。短暂施法后召唤反则卫星：
+        //卫星存在期间玩家的视角会翻转 180 度（由 ReverseSatelliteBuff 驱动），
+        //同时把玩家的机械能数值“颠倒”：倒序排列且 6/9 互换，若颠倒后的数值更小（减益）则替换玩家的机械能。
+        private class ReverseSatelliteState : EntityStateMachineState
+        {
+            public ReverseSatelliteState() : base(STATE_REVERSE_SATELLITE, ANIMATION_STATE_DANMAKU) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer?.ResetTime(REVERSE_SATELLITE_CAST_TIME);
+                entity.Velocity = Vector3.zero;
+                entity.PlaySound(VanillaSoundID.gapWarp);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                if (!substateTimer.RunToExpiredAndNotNull(stateMachine.GetSpeed(entity)))
+                    return;
+                //召唤反则卫星（生成方式与视错觉小游戏的 SpawnReverseSatellite 一致），
+                //卫星初始化后会自动挂 ReverseSatelliteBuff 让视野翻转。
+                SpawnReverseSatellite(entity);
+                //同时颠倒玩家的机械能：只有颠倒后更小（减益）才生效。
+                ReverseLevelEnergy(entity.Level);
+                stateMachine.StartState(entity, STATE_IDLE);
+            }
+
+            //召唤反则卫星：每颗都在敌人出怪侧随机一行生成（行数足够时互不重复）。
+            private void SpawnReverseSatellite(Entity entity)
+            {
+                var level = entity.Level;
+                var maxLane = level.GetMaxLaneCount();
+                var x = level.GetEnemySpawnX();
+                //打乱所有行号后取前 count 行，保证随机且尽量不重复。
+                var lanes = new List<int>(maxLane);
+                for (int i = 0; i < maxLane; i++)
+                    lanes.Add(i);
+                for (int i = lanes.Count - 1; i > 0; i--)
+                {
+                    int j = entity.RNG.Next(i + 1);
+                    var temp = lanes[i];
+                    lanes[i] = lanes[j];
+                    lanes[j] = temp;
+                }
+                for (int i = 0; i < REVERSE_SATELLITE_COUNT; i++)
+                {
+                    //行数少于卫星数量时，剩余的用随机行补齐。
+                    var lane = i < lanes.Count ? lanes[i] : entity.RNG.Next(maxLane);
+                    var z = level.GetEntityLaneZ(lane);
+                    var y = level.GetGroundY(x, z);
+                    var pos = new Vector3(x, y, z);
+                    level.Spawn(VanillaEnemyID.reverseSatellite, pos, null);
+                }
+            }
+        }
+        //EXPAND ===== 技能：魅惑器械（Boss复仇）=====
+        //复用「旋转吐弹」动画。随机选中至多 5 个玩家阵营的器械：
+        //先反重力升空（直到离开视野），在空中被永久魅惑为正邪阵营，
+        //随后失去反重力自然摔落，坠落前给器械设置摔落抗性以免受摔落伤害。
+        private class CharmContraptionState : EntityStateMachineState
+        {
+            public CharmContraptionState() : base(STATE_CHARM_CONTRAPTION, ANIMATION_STATE_DANMAKU) { }
+            //被选中的器械与其原重力值（实例字段，仅本次施法期间使用）。
+            private List<Entity> levitationTargets = new List<Entity>();
+            private List<float> levitationGravities = new List<float>();
+            public const int SUBSTATE_CAST = 0;
+            public const int SUBSTATE_RISE = 1;
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                stateMachine.StartSubState(entity, SUBSTATE_CAST);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer?.ResetTime(CHARM_CAST_TIME);
+                entity.Velocity = Vector3.zero;
+                levitationTargets.Clear();
+                levitationGravities.Clear();
+                entity.PlaySound(VanillaSoundID.gapWarp);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                if (substateTimer == null)
+                    return;
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+                switch (stateMachine.GetSubState(entity))
+                {
+                    case SUBSTATE_CAST:
+                        if (substateTimer.Expired)
+                        {
+                            //施法完成：随机选中器械并施加反重力开始升空。
+                            SelectLevitationTargets(entity);
+                            if (levitationTargets.Count == 0)
+                            {
+                                //没有可用的器械，施法失败，直接回到待机。
+                                stateMachine.StartState(entity, STATE_IDLE);
+                                return;
+                            }
+                            entity.PlaySound(VanillaSoundID.magical);
+                            stateMachine.StartSubState(entity, SUBSTATE_RISE);
+                            substateTimer.ResetTime(CHARM_RISE_TIMEOUT);
+                        }
+                        break;
+
+                    case SUBSTATE_RISE:
+                        UpdateRise(stateMachine, entity, substateTimer);
+                        break;
+                }
+            }
+            public override void OnExit(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnExit(stateMachine, entity);
+                //兜底：状态中途被打断时，把仍在空中的器械恢复原重力，避免永久悬浮。
+                for (int i = 0; i < levitationTargets.Count; i++)
+                {
+                    var target = levitationTargets[i];
+                    if (target.Exists() && !target.IsDead)
+                        target.SetGravity(levitationGravities[i]);
+                }
+                levitationTargets.Clear();
+                levitationGravities.Clear();
+            }
+
+            //随机选中至多 CHARM_TARGET_COUNT 个器械，记录原重力并清零（反重力）。
+            private void SelectLevitationTargets(Entity entity)
+            {
+                levitationTargets.Clear();
+                levitationGravities.Clear();
+                FindCharmTargets(entity, levitationTargets);
+                foreach (var target in levitationTargets)
+                {
+                    levitationGravities.Add(target.GetGravity());
+                    target.SetGravity(0);
+                }
+            }
+
+            //RISE：反重力匀速上升，全部离开视野（或超时）后在空中集体魅惑并转入下落阶段。
+            private void UpdateRise(EntityStateMachine stateMachine, Entity entity, FrameTimer substateTimer)
+            {
+                bool allReached = true;
+                for (int i = levitationTargets.Count - 1; i >= 0; i--)
+                {
+                    var target = levitationTargets[i];
+                    if (!target.Exists() || target.IsDead)
+                    {
+                        //升空途中被摧毁：移出列表。
+                        levitationTargets.RemoveAt(i);
+                        levitationGravities.RemoveAt(i);
+                        continue;
+                    }
+                    //重力已清零，保持恒定上升速度。
+                    target.Velocity = new Vector3(target.Velocity.x, CHARM_RISE_SPEED, target.Velocity.z);
+                    if (target.GetRelativeY() < CHARM_LEVITATION_HEIGHT)
+                        allReached = false;
+                }
+                if (allReached || substateTimer.Expired)
+                {
+                    StartFalling(stateMachine, entity);
+                }
+            }
+
+            //在空中最高点集体魅惑为正邪阵营，随后失去反重力（恢复原重力、清空上升速度）自然下落，
+            //并设置摔落抗性以免受摔落伤害；器械自行坠落，无需等待落地。
+            private void StartFalling(EntityStateMachine stateMachine, Entity entity)
+            {
+                entity.PlaySound(VanillaSoundID.charmed);
+                for (int i = 0; i < levitationTargets.Count; i++)
+                {
+                    var target = levitationTargets[i];
+                    if (!target.Exists() || target.IsDead)
+                        continue;
+                    //永久魅惑为正邪阵营（与 HeavyWeaponVSMannequin 的用法一致）。
+                    var buff = target.AddBuff<CharmBuff>();
+                    if (buff != null)
+                        CharmBuff.SetPermanent(buff, entity.GetFaction());
+                    //失去反重力：恢复原重力并清空上升速度，让重力自然拉回地面。
+                    target.SetGravity(levitationGravities[i]);
+                    target.Velocity = new Vector3(target.Velocity.x, 0, target.Velocity.z);
+                    //设置摔落抗性：落地速度达不到 -抗性 阈值，本次坠落不会受伤。
+                    target.SetFallResistance(CHARM_FALL_RESISTANCE);
+                }
+                //器械自行坠落落地，状态直接结束。
+                stateMachine.StartState(entity, STATE_IDLE);
             }
         }
         #endregion

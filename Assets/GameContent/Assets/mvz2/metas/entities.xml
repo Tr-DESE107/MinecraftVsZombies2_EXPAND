@@ -2521,7 +2521,7 @@
             <properties>
                 <color name="mvz2:lightColor" value="#ffd200" />
                 <int name="mvz2:lightLevel" value="3" />
-                <id name="mvz2:projectileId" value="mvz2:spike" />
+                <id name="mvz2:projectileId" value="mvz2:AndesiteAlloySpike" />
             </properties>
         </entity>
 
@@ -2717,6 +2717,9 @@
             </properties>
         </entity>
         <entity template="humanoid_Exp" id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
+            <unlock>
+                <condition required="mvz2:level.halloween_2" />
+            </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented" />
                 <behaviour operator="add" id="mvz2:remove_on_death" />
@@ -3347,6 +3350,9 @@
         <entity template="mutantZombie" id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？">
         </entity>
         <entity template="mutantZombie" id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？">
+            <unlock>
+                <condition required="mvz2:level.MutantCrisis" />
+            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="6000" />
                 <int name="mvz2:cost" value="500" />
@@ -3407,6 +3413,9 @@
         </entity>
 
         <entity template="Skeleton_Exp" id="FlagSkeleton" name="旗帜骷髅" deathMessage="不要停下来啊">
+            <unlock>
+                <condition required="mvz2:level.halloween_1" />
+            </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
                 <int name="mvz2:cost" value="300" />
@@ -4148,7 +4157,7 @@
 
         <entity template="zombie" id="TorchKongfuZombie" name="功夫火把僵尸" deathMessage="天干物燥,小心火烛!">
             <unlock>
-                <condition required="mvz2:level.mausoleum_8" />
+                <condition required="mvz2:level.mausoleum_1" />
             </unlock>
             <properties>
                 <int name="mvz2:cost" value="125" />
@@ -4269,6 +4278,9 @@
                 <float name="mvz2:maxHealth" value="300" />
                 <id name="mvz2:shell" value="mvz2:flesh" />
                 <float name="mvz2:mass" value="-2" />
+
+                <id name="mvz2:deathSound" value="mvz2:Silverfish_death" />
+                <id name="mvz2:crySound" value="mvz2:Silverfish_cry" />
 
                 <vector3 name="mvz2:size" x="25" y="10" z="25" />
                 <int name="mvz2:cost" value="125" />
@@ -4889,6 +4901,9 @@
         </entity>
 
         <entity template="WitherSkeleton_Exp" id="TeslaTrooper" name="磁暴步兵" deathMessage="电力不足">
+            <unlock>
+                <condition required="mvz2:level.WarThunder" />
+            </unlock>
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state" />
             </behaviours>
@@ -4912,7 +4927,7 @@
         <!-- EXPAND Enemies X -->
         <entity template="mutantZombie" id="XCarrierMutant" name="X物质携带者宿主" deathMessage="高危物质携带体！！！">
             <unlock>
-                <condition required="mvz2:level.dream_10" />
+                <condition required="mvz2:level.big_trouble_and_little_zombie_2" />
             </unlock>
             <properties>
                 <float name="mvz2:mass" value="2" />
@@ -5651,7 +5666,7 @@
             </behaviours>
             <properties>
                 <int name="mvz2:waterInteraction" value="1" />
-                <float name="mvz2:maxHealth" value="2552" />
+                <float name="mvz2:maxHealth" value="3669" />
                 <vector3 name="mvz2:size" x="30" y="88" z="30" />
                 <color name="mvz2:bloodColor" value="#7F0000FF" />
                 <color name="mvz2:bloodColorCensored" value="#00007FFF" />
@@ -6695,6 +6710,16 @@
                 <float name="mvz2:range" value="0" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
+            </properties>
+        </entity>
+
+        <entity template="projectile" id="AndesiteAlloySpike">
+            <behaviours includeSelf="true">
+                <behaviour operator="add" id="ElectrifiedBullet" />
+            </behaviours>
+            <properties>
+                <bool name="mvz2:pointToDirection" value="true" />
+                <vector3 name="mvz2:size" x="20" y="11" z="11" />
             </properties>
         </entity>
 
