@@ -158,6 +158,8 @@ namespace MVZ2.GameContent.Stages
                 {  
                     fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, BALLOON_TARGET_HEIGHT);  
                 }  
+                // 本关不出紫色气球：打破后会在地面生成木乃伊毒气，威胁矿车骑手，抽到则重掷非紫色形态
+                Balloon.RerollTypeAvoiding(balloon, Balloon.TYPE_PURPLE);  
             });  
         }  
     }  
