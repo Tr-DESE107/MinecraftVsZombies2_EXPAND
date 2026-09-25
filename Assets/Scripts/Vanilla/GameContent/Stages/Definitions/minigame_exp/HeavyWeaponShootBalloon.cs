@@ -46,8 +46,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.HeavyWeaponInvincible,  
                 VanillaBlueprintID.heavyWeaponRapid,  
                 VanillaBlueprintID.HeavyWeaponRegen,  
-                VanillaBlueprintID.HeavyWeaponBulletUpgrade,  
-                VanillaBlueprintID.HeavyWeaponExtraLife,  
+                VanillaBlueprintID.HeavyWeaponContraptionSwap,  
                 VanillaBlueprintID.HeavyWeaponSelfDestruct,  
             };  
             level.SetSeedSlotCount(blueprints.Length);  

@@ -1205,13 +1205,14 @@
                 <tag id="mvz2:antifly"/>
             </tags>
             <header>
-                <p>木风扇在触发后会将一整行内的敌方怪物吹回原地。如果怪物较轻，还会直接将其吹出战场。</p>
+                <p>木风扇在触发后会吹动并减速一整行内的敌方怪物。</p>
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>可以直接吹飞空中或者较轻的怪物，但对地面上较重的怪物没有效果</color>]]></p>
-                <p>触发：<![CDATA[<color=red>触发后会将一整行内的敌方怪物吹回原地。</color>]]></p>
+                <p>触发：<![CDATA[<color=red>触发后会吹动并减速一整行内的敌方怪物。</color>]]></p>
+                <p>持续时间：<![CDATA[<color=red>触发后单行减速8秒、技能整个战场减速5秒</color>]]></p>
                 <p>范围：<![CDATA[<color=red>一整行</color>]]></p>
-                <p>技能：<![CDATA[<color=red>改为吹动整个战场的怪物</color>]]></p>
+                <p>技能：<![CDATA[<color=red>改为吹动并减速整个战场的怪物</color>]]></p>
             </properties>
             <flavor>
                 <p>这东西哪有那么重量级，都被你们吹到天上去了！</p>
@@ -1341,7 +1342,7 @@
                 <p>耐久：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
                 <p>范围：<![CDATA[<color=red>前方1.5格</color>]]></p>
                 <p>特点：<![CDATA[<color=red>范围内的敌人攻击速度和移动速度x50%</color>]]></p>
-                <p>技能：<![CDATA[<color=red>石化前方的敌人10秒，期间它们可以被铁镐挖掘，挖掉后铁镐会进入短暂时间的冷却。</color>]]></p>
+                <p>技能：<![CDATA[<color=red>石化前方的敌人10秒（车辆和突变怪物时间减半），期间它们可以被铁镐挖掘，挖掉后铁镐会进入短暂时间的冷却。</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<b>项目编号：</b>]]>MCP-531</p>

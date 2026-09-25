@@ -18,6 +18,7 @@ using MVZ2Logic.Modifiers;
 using PVZEngine;  
 using PVZEngine.Buffs;  
 using PVZEngine.Callbacks;  
+using PVZEngine.Damages;
 using PVZEngine.Entities;  
 using PVZEngine.Level;  
 using PVZEngine.Modifiers;  
@@ -70,7 +71,7 @@ namespace MVZ2.GameContent.Stages
             }  
         }  
   
-        // 生成/复活：隐形矿车（无铁轨、null 父节点 -> 自由移动）+ 骑乘超级狙击发射器  
+        // 生成/复活：隐形矿车（无铁轨、null 父节点 -> 自由移动）+ 骑乘当前记录的骑手类型（默认超级狙击发射器）
         private void RespawnRider(LevelEngine level)  
         {  
             var cart = SpawnOrFindCart(level);  
@@ -79,12 +80,18 @@ namespace MVZ2.GameContent.Stages
   
             var param = new SpawnParams();  
             param.SetProperty(LogicEntityProps.GRID_LAYERS, Array.Empty<NamespaceID>());  
-            var rider = level.Spawn(VanillaContraptionID.MegaSnipenser, cart.Position, cart, param);  
+            var riderID = GetRiderExpanded(level) ? VanillaContraptionID.EXPANDispenser_Pistenser : VanillaContraptionID.MegaSnipenser;
+            var rider = level.Spawn(riderID, cart.Position, cart, param);  
             rider?.AddBuff<DreamButterflyShieldBuff>();  
             if (rider != null)  
             {  
                 rider.RideOn(cart);  
                 SetRiderReference(level, new EntityID(rider));  
+                // 融合体骑手重生时从关卡备份恢复通用射速等级（升级时由 HeavyWeaponUpgradeUtils 同步）
+                if (rider.IsEntityOf(VanillaContraptionID.EXPANDispenser_Pistenser))
+                {
+                    HeavyWeaponUpgradeUtils.SetRapidLevel(rider, HeavyWeaponUpgradeUtils.GetLevelRapidBackup(level));
+                }
             }  
         }  
   
@@ -136,11 +143,68 @@ namespace MVZ2.GameContent.Stages
         public static EntityID? GetRiderReference(LevelEngine level) => level.GetProperty<EntityID>(PROP_RIDER_REFERENCE);  
         public static void SetRiderReference(LevelEngine level, EntityID? value) => level.SetProperty(PROP_RIDER_REFERENCE, value);  
   
+        // “更换器械”蓝图入口（本关卡）：在超级狙击发射器与融合体 EXPANDispenser_Pistenser 之间自由切换，继承射速等级。
+        // 先生成新骑手并更新引用，最后旧骑手退场，避免行为 Update 检测到“骑手死亡”而扣除命数；
+        // 死亡回调按 PROP_RIDER_REFERENCE 判定，旧骑手退场不会触发红石返还与爆炸。
+        public static bool SwapRider(LevelEngine level)
+        {
+            var reference = GetRiderReference(level);
+            var oldRider = reference?.GetEntity(level);
+            if (oldRider == null || !oldRider.ExistsAndAlive())
+                return false;
+
+            var cart = MinecartRideable.FindSingleCart(level);
+            if (cart == null)
+                return false;
+
+            var oldIsExpand = oldRider.IsEntityOf(VanillaContraptionID.EXPANDispenser_Pistenser);
+            if (!oldIsExpand && !oldRider.IsEntityOf(VanillaContraptionID.MegaSnipenser))
+                return false;
+            var newRiderID = oldIsExpand ? VanillaContraptionID.MegaSnipenser : VanillaContraptionID.EXPANDispenser_Pistenser;
+
+            // 射速等级双向继承：MegaSnipenser 用自身等级存储，融合体用通用等级存储（同步关卡备份）
+            var rapidLevel = oldIsExpand ? HeavyWeaponUpgradeUtils.GetLevelRapidBackup(level) : MegaSnipenser.GetRapidLevel(oldRider);
+
+            var param = new SpawnParams();
+            param.SetProperty(LogicEntityProps.GRID_LAYERS, Array.Empty<NamespaceID>());
+            var newRider = level.Spawn(newRiderID, cart.Position, cart, param);
+            if (newRider == null || !newRider.ExistsAndAlive())
+                return false;
+            newRider.RideOn(cart);
+            SetRiderReference(level, new EntityID(newRider));
+            SetRiderExpanded(level, newRider.IsEntityOf(VanillaContraptionID.EXPANDispenser_Pistenser));
+            newRider.AddBuff<DreamButterflyShieldBuff>();
+
+            var newIsExpand = newRider.IsEntityOf(VanillaContraptionID.EXPANDispenser_Pistenser);
+            if (newIsExpand)
+            {
+                HeavyWeaponUpgradeUtils.SetRapidLevel(newRider, rapidLevel);
+            }
+            else
+            {
+                MegaSnipenser.SetRapidLevel(newRider, rapidLevel);
+            }
+            HeavyWeaponUpgradeUtils.SetLevelRapidBackup(level, rapidLevel);
+            newRider.PlaySound(VanillaSoundID.gunReload);
+            newRider.PlaySound(VanillaSoundID.powerUp);
+
+            // 旧骑手退场（引用已指向新骑手，不影响命数）
+            oldRider.Die(new DamageEffectList());
+            return true;
+        }
+
+        // 当前骑手是否为融合体（重生时按此类型生成）
+        public static bool GetRiderExpanded(LevelEngine level) => level.GetProperty<bool>(PROP_RIDER_EXPANDED);
+        public static void SetRiderExpanded(LevelEngine level, bool value) => level.SetProperty(PROP_RIDER_EXPANDED, value);
+
         public const int LIVES = 3;  
   
         private const string PROP_REGION = "heavy_weapon_shoot_balloon_stage";  
         [LevelPropertyRegistry(PROP_REGION)]  
         public static readonly VanillaLevelPropertyMeta<EntityID> PROP_RIDER_REFERENCE =  
             new VanillaLevelPropertyMeta<EntityID>("rider_reference");  
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<bool> PROP_RIDER_EXPANDED =
+            new VanillaLevelPropertyMeta<bool>("rider_expanded");
     }  
 }

@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Level;
 
 using MVZ2Logic.Blueprints;
 using MVZ2Logic.Definitions;
@@ -14,9 +15,9 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Seeds
 {
-    // 更换器械：子弹数量与射速都升满后，可把矿车上的活塞发射器更换为融合体 EXPANDispenser_Pistenser。
-    // 更换后骑手被摧毁时重新召唤的也是融合体（见 ShootBalloonStageBehaviour.ReplaceRider）。
-    // 射速等级会被继承，子弹数量等级不继承（融合体本身弹数就多）。
+    // 更换器械：
+    // - HeavyWeaponShootBalloon 关卡：超级狙击发射器与融合体 EXPANDispenser_Pistenser 之间自由切换，继承射速等级。
+    // - 射气球关卡：子弹数量与射速都升满后，可把矿车上的活塞发射器更换为融合体（单向）。
     [AutoSeedOptionDefinition(VanillaBlueprintNames.HeavyWeaponContraptionSwap)]
     public class HeavyWeaponContraptionSwap : SeedOptionDefinition
     {
@@ -42,14 +43,25 @@ namespace MVZ2.GameContent.Seeds
         {
             if (!IsValid(level))
                 return;
+            // 重装兵器射气球关卡：超级狙击发射器 <-> 融合体自由切换
+            if (level.GetStageBehaviour<HeavyWeaponShootBalloonStageBehaviour>() != null)
+            {
+                HeavyWeaponShootBalloonStageBehaviour.SwapRider(level);
+                return;
+            }
+            // 射气球关卡：活塞发射器 -> 融合体（单向）
             ShootBalloonStageBehaviour.ReplaceRider(level);
         }
         private static bool IsValid(LevelEngine level)
         {
-            // 条件：当前骑手是活塞发射器，且子弹数量与射速都已满级
             var rider = HeavyWeaponBlueprintUtils.FindRider(level);
             if (rider == null)
                 return false;
+            // 重装兵器射气球关卡：骑手是超级狙击发射器或融合体即可自由切换，无等级门槛
+            if (level.GetStageBehaviour<HeavyWeaponShootBalloonStageBehaviour>() != null
+                && (rider.IsEntityOf(VanillaContraptionID.MegaSnipenser) || rider.IsEntityOf(VanillaContraptionID.EXPANDispenser_Pistenser)))
+                return true;
+            // 射气球关卡：骑手必须是活塞发射器，且子弹数量与射速都已满级
             if (!rider.IsEntityOf(VanillaContraptionID.pistenser))
                 return false;
             if (Pistenser.CanUpgradeBulletCount(rider))

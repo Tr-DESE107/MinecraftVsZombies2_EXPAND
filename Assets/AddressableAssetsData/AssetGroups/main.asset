@@ -2285,6 +2285,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d0d588ab1fc59142b84d05714bc8dde
+    m_Address: mvz2:entity/Silverfish/Silverfish_kill
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d619edd17fa97f4d84f6f598fd740ad
     m_Address: mvz2:mobile_blueprint/vulture
     m_ReadOnly: 0
@@ -3578,6 +3585,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e457e9c18fa62b45aea568a8906b0a9
+    m_Address: mvz2:entity/Silverfish/Silverfish_say4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e64b12488b10c340838892bf9f9db3e
     m_Address: mvz2:ui/combat
@@ -11415,6 +11429,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9705ae0c3e12fab4fa3e6b9b67708755
+    m_Address: mvz2:entity/Silverfish/Silverfish_say3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9764b891ab8483a4ba7e830211f1cda8
     m_Address: mvz2:mobile_blueprint/Bedrock
     m_ReadOnly: 0
@@ -11904,6 +11925,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9db39f74ca6bf954db8bbcb78e4b8841
+    m_Address: mvz2:MobileManeuvers
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9decbf7bacbe3b0429fa80811d0a000a
     m_Address: mvz2:entity/contraption/dream_crystal
@@ -12565,6 +12593,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a70f4f9f4fc407b4d973ede9ec07aa19
     m_Address: mvz2:random/thunder2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a74f451fe1273464584432c71c90cd9e
+    m_Address: mvz2:entity/Silverfish/Silverfish_say2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -17614,6 +17649,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed8c345a10a1aab46863da3a86fc5857
+    m_Address: mvz2:entity/Silverfish/Silverfish_say1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: edbf8d7615f557542ba5d6015f37ebf0
     m_Address: mvz2:entity/EXPAND_Enemy/ReverserBody0
