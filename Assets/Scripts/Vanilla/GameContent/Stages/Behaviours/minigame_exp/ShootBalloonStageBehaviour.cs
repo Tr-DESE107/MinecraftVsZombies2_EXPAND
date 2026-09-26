@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;  
 using MVZ2.Vanilla.Localization;  
@@ -23,6 +24,7 @@ using MVZ2.GameContent.Sprites;
 using MVZ2Logic.Modifiers;  
 using PVZEngine.Modifiers;  
 using MVZ2.GameContent.Seeds;
+using MVZ2.Vanilla.Pickups;
   
 namespace MVZ2.GameContent.Stages  
 {  
@@ -35,7 +37,9 @@ namespace MVZ2.GameContent.Stages
             AddModifier(new NamespaceIDModifier(LogicLevelProps.STARSHARD_DISABLE_ID, SetOperator.Set, VanillaBlueprintErrors.locked));  
             AddModifier(new SpriteReferenceModifier(LogicAreaProps.STARSHARD_ICON, SetOperator.Set, VanillaSprites.snipenserLife));  
   
-            stageDef.AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreRiderTakeDamageCallback, filter: EntityTypes.PLANT);  
+            stageDef.AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreRiderTakeDamageCallback, filter: EntityTypes.PLANT);
+            // 骑手死亡时爆炸并返还红石（与重装兵器射气球一致）
+            stageDef.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
         }  
   
         public override void Start(LevelEngine level)  
@@ -190,6 +194,36 @@ namespace MVZ2.GameContent.Stages
                     result.SetFinalValue(false);  
                 }  
             }  
+        }  
+
+        // 骑手死亡时原地爆炸并返还红石（与重装兵器射气球一致）。
+        // 弹数等级随实体丢失故返还；通用射速等级重生时会从关卡备份恢复，不返还。
+        private void PostContraptionDeathCallback(LevelCallbacks.EntityDeathParams param, CallbackResult result)
+        {
+            var entity = param.entity;
+            var level = entity.Level;
+            if (level.HasBehaviour(this))
+            {
+                var riderReference = GetRiderReference(level);
+                if (riderReference != null && riderReference.IsEntity(entity))
+                {
+                    var bulletLevel = Pistenser.GetBulletCountLevel(entity);
+                    var bulletCost = level.Content.GetSeedDefinition(VanillaBlueprintID.HeavyWeaponBulletCount)?.GetCost() ?? 0;
+                    var totalRedstones = Mathf.Max(0, bulletLevel) * (Mathf.Max(0, bulletCost) / 100);
+                    if (entity.GetFirstBuff<HeavyWeaponSelfDestructBuff>() != null)
+                    {
+                        totalRedstones *= 0.5f;
+                    }
+
+                    for (int i = 0; i < totalRedstones; i++)
+                    {
+                        entity.Produce(VanillaPickupID.redstone);
+                    }
+
+                    Explosion.Spawn(entity, entity.GetCenter(), 120);
+                    entity.PlaySound(VanillaSoundID.largeExplosion);
+                }
+            }
         }  
   
         public static EntityID? GetRiderReference(LevelEngine level) => level.GetProperty<EntityID>(PROP_RIDER_REFERENCE);
