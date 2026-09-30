@@ -125,58 +125,32 @@ namespace MVZ2.GameContent.Enemies
         {
             base.PostDeath(entity, info);
 
-            // 检查是否应被移除（例如被完全消灭），是则不刷怪  
-            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
-                return;
-
-            // 生成随机骷髅  
-            SpawnRandomEnemy(entity);
-            entity.Remove();
+            // 死亡后召唤骷髅种族（Skeleton_Exp）的敌人
+            HealthLossSpawnHelper.SpawnOnDeath(entity, info, SpawnWhitelist, SpawnWeights);
         }
 
-        /// <summary>  
-        /// 在原位置生成随机骷髅  
-        /// </summary>  
-        private void SpawnRandomEnemy(Entity entity)
-        {
-            var rng = entity.RNG;
+        #region 可生成敌人加权池
 
-            // 使用白名单和权重随机  
-            NamespaceID enemyID = GetRandomEnemyID(rng);
-
-            // 在原位置生成骷髅  
-            var spawnParam = entity.GetSpawnParams();
-            spawnParam.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
-            entity.Spawn(enemyID, entity.Position, spawnParam);
-        }
-
-        /// <summary>  
-        /// 根据权重随机选择一个骷髅ID  
-        /// </summary>  
-        private NamespaceID GetRandomEnemyID(RandomGenerator rng)
-        {
-            var index = rng.WeightedRandom(SpawnWeights);
-            return SpawnWhitelist[index];
-        }
-
-        // 允许生成的骷髅白名单  
+        // 骷髅种族（mvz2:Skeleton_Exp）敌人列表，不含随机系列
         private static NamespaceID[] SpawnWhitelist = new NamespaceID[]
         {
             VanillaEnemyID.skeleton,
             VanillaEnemyID.skeletonHorse,
+            VanillaEnemyID.FlagSkeleton,
+            VanillaEnemyID.MeleeSkeleton,
+            VanillaEnemyID.PirateSkeleton,
+            VanillaEnemyID.PirateBucketSkeleton,
             VanillaEnemyID.skeletonWarrior,
             VanillaEnemyID.skeletonMage,
-            VanillaEnemyID.SkeletonHead,
-            VanillaEnemyID.KingSkeleton,
-            VanillaEnemyID.MeleeSkeleton,
-            VanillaEnemyID.RandomKingSkeleton,
         };
 
-        // 每种骷髅的生成权重  
+        // 对应每种敌人的生成权重，数值越大越容易被抽中（默认 1，待细调）
         private static int[] SpawnWeights = new int[]
         {
             1, 1, 1, 1, 1, 1, 1, 1,
         };
+
+        #endregion
 
         public static int GetBowPower(Entity enemy) => enemy.GetBehaviourField<int>(ID, PROP_BOW_POWER);
         public static bool GetBowFired(Entity enemy) => enemy.GetBehaviourField<bool>(ID, PROP_BOW_FIRED);

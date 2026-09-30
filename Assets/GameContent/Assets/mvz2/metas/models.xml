@@ -646,20 +646,28 @@
     </model>
     <model name="Cobblestone" type="entity" path="mvz2:enemy/EXPAND/Cobblestone" width="64" height="64" xOffset="0" yOffset="-28" />
     <!--EXPAND RANDOM-->
-    <model name="RandomMutant" type="entity" path="mvz2:enemy/EXPAND/RandomMutant" width="200" height="180" xOffset="0" yOffset="-90" />
-    <model name="RandomZombie" type="entity" path="mvz2:enemy/EXPAND/RandomZombie" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="RandomMutant" type="entity" path="mvz2:enemy/Random/RandomMutant" width="200" height="180" xOffset="0" yOffset="-90" />
+    <model name="RandomZombie" type="entity" path="mvz2:enemy/Random/RandomZombie" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="RandomImp" type="entity" path="mvz2:enemy/EXPAND/RandomImp" width="48" height="56" xOffset="0" yOffset="-28">
+    <model name="RandomImp" type="entity" path="mvz2:enemy/Random/RandomImp" width="48" height="56" xOffset="0" yOffset="-28">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="RandomSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomSkeleton" width="64" height="104" xOffset="10" yOffset="-46">
+    <model name="RandomSkeleton" type="entity" path="mvz2:enemy/Random/RandomSkeleton" width="64" height="104" xOffset="10" yOffset="-46">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="RandomKingSkeleton" type="entity" path="mvz2:enemy/EXPAND/RandomKingSkeleton" width="64" height="105" xOffset="10" yOffset="-55">
+    <model name="RandomKingSkeleton" type="entity" path="mvz2:enemy/Random/RandomKingSkeleton" width="64" height="105" xOffset="10" yOffset="-55">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
-    <model name="Akuah" type="entity" path="mvz2:enemy/EXPAND/Akuah" width="64" height="96" xOffset="10" yOffset="-44">
+    <model name="RandomEnemy" type="entity" path="mvz2:enemy/Random/RandomEnemy" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="RandomMannequin" type="entity" path="mvz2:enemy/Random/RandomMannequin" width="64" height="96" xOffset="10" yOffset="-44">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="RandomSpider" type="entity" path="mvz2:enemy/Random/RandomSpider" width="108" height="108" xOffset="0" yOffset="-48" />
+
+    <model name="Akuah" type="entity" path="mvz2:enemy/Random/Akuah" width="64" height="96" xOffset="10" yOffset="-44">
         <armorconfig>mvz2:humanoid</armorconfig>
     </model>
 

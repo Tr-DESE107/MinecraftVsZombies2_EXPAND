@@ -2555,6 +2555,9 @@
             <spawn id="mvz2:RandomImp" />
             <spawn id="mvz2:RandomSkeleton" />
             <spawn id="mvz2:RandomKingSkeleton" />
+            <spawn id="mvz2:RandomSpider" />
+            <spawn id="mvz2:RandomMannequin" />
+            <spawn id="mvz2:RandomEnemy" />
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true" />

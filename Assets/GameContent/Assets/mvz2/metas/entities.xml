@@ -5079,6 +5079,52 @@
                 <id name="mvz2:fragmentId" value="mvz2:GoldenSanta" />
             </properties>
         </entity>
+        <entity template="spider" id="RandomSpider" name="随机蜘蛛" deathMessage="是哪种蜘蛛打死了你啊？">
+            <unlock>
+                <condition required="mvz2:level.vsRandomZombie" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fragmented" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:maxHealth" value="160" />
+                <float name="mvz2:speed" value="2" />
+                <int name="mvz2:cost" value="125" />
+
+                <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+                <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
+            </properties>
+        </entity>
+        <entity template="RandomEnemy_Exp" id="RandomEnemy" name="随机敌怪" deathMessage="是哪种敌怪打死了你啊？">
+            <unlock>
+                <condition required="mvz2:level.vsRandomZombie" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fragmented" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:maxHealth" value="450" />
+                <int name="mvz2:cost" value="225" />
+
+                <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+                <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
+            </properties>
+        </entity>
+        <entity template="Mannequin_Exp" id="RandomMannequin" name="随机玩家模型" deathMessage="是哪种玩家模型打死了你啊？">
+            <unlock>
+                <condition required="mvz2:level.vsRandomZombie" />
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:fragmented" />
+            </behaviours>
+            <properties>
+                <float name="mvz2:maxHealth" value="300" />
+                <int name="mvz2:cost" value="150" />
+
+                <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
+                <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
+            </properties>
+        </entity>
 
         <!--EXPAND Enemies EXP-->
         <entity template="Husk_Exp" id="LEOLau" name="刘琨" deathMessage="妙趣横生">

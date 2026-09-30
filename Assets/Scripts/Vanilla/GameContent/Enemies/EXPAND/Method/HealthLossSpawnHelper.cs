@@ -12,6 +12,7 @@ using MVZ2Logic.Grids;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -58,7 +59,7 @@ namespace MVZ2.GameContent.Enemies
             }
         }
 
-        // ===== 生成策略 1：内置加权随机池 =====  
+        // ===== 生成策略 1：内置加权随机池 =====
         public static void SpawnWeightedRandom(Entity entity, NamespaceID[] pool, int[] weights)
         {
             var index = entity.RNG.WeightedRandom(weights);
@@ -99,6 +100,42 @@ namespace MVZ2.GameContent.Enemies
             var spawned = entity.SpawnWithParams(contraptionID, entity.Position);
             if (spawned != null && spawned.HasBuff<NocturnalBuff>())
                 spawned?.RemoveBuffs<NocturnalBuff>();
+        }
+        
+        // ===== 生成策略 3：死亡时按加权随机池生成敌人 =====
+        /// <summary>
+        /// 在 PostDeath 中调用：按自定义加权随机池在原位生成敌人（继承阵营与生成参数），并移除尸体。
+        /// 死亡原因为消除类（REMOVE_ON_DEATH）或实体标记为死亡即移除时不生成。
+        /// </summary>
+        public static void SpawnOnDeath(Entity entity, DeathInfo info, NamespaceID[] pool, int[] weights)
+        {
+            if (entity.WillRemoveOnDeath(info))
+                return;
+            SpawnWeightedRandom(entity, pool, weights);
+            entity.Remove();
+        }
+
+        // ===== 生成策略 4：死亡时从图鉴已解锁敌人中随机生成 =====
+        /// <summary>
+        /// 在 PostDeath 中调用：从玩家已解锁且收录图鉴的敌人中随机选一个，在原位生成（继承阵营）并移除尸体。
+        /// 死亡原因为消除类（REMOVE_ON_DEATH）或实体标记为死亡即移除时不生成。
+        /// </summary>
+        public static void SpawnOnDeathFromAlmanac(Entity entity, DeathInfo info)
+        {
+            if (entity.WillRemoveOnDeath(info))
+                return;
+
+            var rng = entity.RNG;
+            var unlockedEnemies = Global.Saves.GetUnlockedEnemies();
+            var validEnemies = unlockedEnemies.Where(id => Global.Almanac.IsEnemyInAlmanac(id));
+            if (validEnemies.Count() <= 0)
+                return;
+
+            var enemyID = validEnemies.Random(rng);
+            var spawnParam = entity.GetSpawnParams();
+            spawnParam.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
+            entity.Spawn(enemyID, entity.Position, spawnParam);
+            entity.Remove();
         }
     }
 }
