@@ -109,27 +109,27 @@
     <puzzle id="puzzle_all_your_observes_are_belong_to_us" stage="mvz2:puzzle_all_your_observes_are_belong_to_us" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_all_your_observes_are_belong_to_us" hiddenUntil="mvz2:level.puzzle_mineclear" />
     <puzzle id="puzzle_i_zombie_endless" stage="mvz2:puzzle_i_zombie_endless" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/iz/puzzle_i_zombie" hiddenUntil="mvz2:level.puzzle_fire_in_the_hole" />
     
-    <puzzle id="puzzle_among_us" stage="mvz2:puzzle_among_us" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie">
+    <puzzle id="puzzle_among_us" stage="mvz2:puzzle_among_us" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/puzzle_among_us">
         <hiddenUntil>
             <condition required="mvz2:level.puzzle_dead_balloon mvz2:level.ship_5"/>
         </hiddenUntil>
     </puzzle>
-    <puzzle id="puzzle_im_in_charge_now" stage="mvz2:puzzle_im_in_charge_now" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie">
+    <puzzle id="puzzle_im_in_charge_now" stage="mvz2:puzzle_im_in_charge_now" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/puzzle_im_in_charge_now">
         <hiddenUntil>
             <condition required="mvz2:level.puzzle_dead_balloon mvz2:level.ship_5"/>
         </hiddenUntil>
     </puzzle>
-    <puzzle id="puzzle_break_apart" stage="mvz2:puzzle_break_apart" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie">
+    <puzzle id="puzzle_break_apart" stage="mvz2:puzzle_break_apart" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/puzzle_break_apart">
         <hiddenUntil>
             <condition required="mvz2:level.puzzle_among_us mvz2:level.ship_9"/>
         </hiddenUntil>
     </puzzle>
-    <puzzle id="puzzle_catzomware" stage="mvz2:puzzle_catzomware" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie">
+    <puzzle id="puzzle_catzomware" stage="mvz2:puzzle_catzomware" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/puzzle_catzomware">
         <hiddenUntil>
             <condition required="mvz2:level.puzzle_im_in_charge_now mvz2:level.palace_5"/>
         </hiddenUntil>
     </puzzle>
-    <puzzle id="puzzle_i_zombie_endless_2" stage="mvz2:puzzle_i_zombie_endless_2" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie">
+    <puzzle id="puzzle_i_zombie_endless_2" stage="mvz2:puzzle_i_zombie_endless_2" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/puzzle_i_zombie">
         <hiddenUntil>
             <condition required="mvz2:level.puzzle_break_apart"/>
         </hiddenUntil>

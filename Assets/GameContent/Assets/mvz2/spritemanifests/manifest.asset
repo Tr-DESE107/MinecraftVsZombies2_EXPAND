@@ -213,6 +213,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3099084e873c11d4084a10707cd96120, type: 3}
   - name: artifacts/InfiniteCore
     sprite: {fileID: 21300000, guid: c2d89328fa3443848b34b0cb813c0ad0, type: 3}
+  - name: artifacts/InfiniteCore_Old
+    sprite: {fileID: 21300000, guid: 3783dfea2c3291a47afbf50095ff6951, type: 3}
   - name: artifacts/inverted_mirror
     sprite: {fileID: 21300000, guid: d12e7157df0411749ab53333da0a507d, type: 3}
   - name: artifacts/LeftHandBow
@@ -1125,12 +1127,18 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 26ff304e86df95141b97fb19ae8f2d91, type: 3}
   - name: arcade/iz/puzzle_all_your_observes_are_belong_to_us
     sprite: {fileID: 21300000, guid: 4645fad2157b265429ee36dd52645003, type: 3}
+  - name: arcade/iz/puzzle_break_apart
+    sprite: {fileID: 21300000, guid: 851cb5aaad3ad1d49b513f782589fe3f, type: 3}
   - name: arcade/iz/puzzle_can_you_pass_it
     sprite: {fileID: 21300000, guid: 68a29b6e72abdd043bd05f88aac0eae2, type: 3}
+  - name: arcade/iz/puzzle_catzomware
+    sprite: {fileID: 21300000, guid: a37171e343036dd49a50079cb29a04f4, type: 3}
   - name: arcade/iz/puzzle_dead_balloon
     sprite: {fileID: 21300000, guid: 7e1c48a0f1b4e9e4cb2959652d229f80, type: 3}
   - name: arcade/iz/puzzle_fire_in_the_hole
     sprite: {fileID: 21300000, guid: fee9b43affcd8f447aa2989b0c0abee5, type: 3}
+  - name: arcade/iz/puzzle_im_in_charge_now
+    sprite: {fileID: 21300000, guid: c72f28152d4661448a12bf4e6dd5f319, type: 3}
   - name: arcade/iz/puzzle_i_skeleton
     sprite: {fileID: 21300000, guid: 153901630f9f4e048a028c67bdc6fbac, type: 3}
   - name: arcade/iz/puzzle_i_zombie
@@ -1199,8 +1207,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 412713fe007467441a2952c3fd3f3ba9, type: 3}
   - name: entity/contraptions/cooling_cell
     sprite: {fileID: 21300000, guid: d4bcf7cba68b73548a93f2447318868f, type: 3}
-  - name: entity/contraptions/CopperDropper
-    sprite: {fileID: 21300000, guid: cb9206e7898044c42b1f727f243a7140, type: 3}
   - name: entity/contraptions/devourer
     sprite: {fileID: 21300000, guid: 0f9ff25f9f164584e85c12f40dbebdd0, type: 3}
   - name: entity/contraptions/dream_crystal_supernatural
@@ -1893,6 +1899,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 928b53fcdda64324b94b714d74e61e1b, type: 3}
   - name: entity/armor/EXPAND_armor/HemperorCrown
     sprite: {fileID: -923770071, guid: d1a7c525972e9d64b98d6d1779d84282, type: 3}
+  - name: entity/armor/EXPAND_armor/HostHelmet_censored
+    sprite: {fileID: 21300000, guid: 2f1f69a067e5f814abad8f4787aff611, type: 3}
   - name: entity/armor/EXPAND_armor/KingofReverserCrown
     sprite: {fileID: 21300000, guid: 16c3700de5b354d449d9c740a94c829f, type: 3}
   - name: entity/armor/EXPAND_armor/KingofReverserCrown1
@@ -1905,6 +1913,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4c6d3c800778b28489a87251ba3eb5c4, type: 3}
   - name: entity/contraptions/EXPAND_Contraption/BlueIce
     sprite: {fileID: -1992250252, guid: 88b9e1cc24bc0824486b13f1979996b5, type: 3}
+  - name: entity/contraptions/EXPAND_Contraption/CopperDropper
+    sprite: {fileID: 21300000, guid: cb9206e7898044c42b1f727f243a7140, type: 3}
   - name: entity/contraptions/EXPAND_Contraption/CraftingTable
     sprite: {fileID: 21300000, guid: ce81635536a88ed4b92943f9cea063b1, type: 3}
   - name: entity/contraptions/EXPAND_Contraption/DiamondOre
@@ -1921,6 +1931,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: bc7f633f0f53dd349827ea61dbdfad23, type: 3}
   - name: entity/contraptions/EXPAND_Contraption/SuperFireworkDispenser_update
     sprite: {fileID: 21300000, guid: 01fd9d559ff84124393ac5de475e4acd, type: 3}
+  - name: entity/contraptions/EXPAND_Skin/CoolingCell
+    sprite: {fileID: 21300000, guid: 067c63d6948db0f44b9f5c65ebe0d7fd, type: 3}
   - name: entity/contraptions/EXPAND_Skin/YorigamiJyoon
     sprite: {fileID: 37738219, guid: b46994409ab2cee45b41269de891afbd, type: 3}
   - name: entity/effects/EXPAND_Effects/ResistanceShield
@@ -1929,6 +1941,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0061d2308c839d540a3775902506913f, type: 3}
   - name: entity/effects/EXPAND_Effects/WarriorResistanceShield
     sprite: {fileID: 21300000, guid: 852fa113f9164b840861b767b6a8529e, type: 3}
+  - name: entity/EXPAND_Enemy/Host/AberrantHostZombie
+    sprite: {fileID: 21300000, guid: a6a4e37a98e19de4f8c76ac4b2ad5e2c, type: 3}
+  - name: entity/EXPAND_Enemy/Host/AberrantHostZombie_censored
+    sprite: {fileID: 21300000, guid: 0631963a30b407c4495ffa4eed0f3951, type: 3}
   - name: entity/EXPAND_Enemy/Mannequin/CannonballMannequin
     sprite: {fileID: 21300000, guid: 62afbe0ab6db40946a9e224abdc9d177, type: 3}
   - name: entity/projectiles/EXPAND_projectiles/AndesiteAlloySpike
@@ -3732,6 +3748,9 @@ MonoBehaviour:
     - {fileID: -904862214, guid: 439af6a040ba009429682529df6aaa94, type: 3}
     - {fileID: -1494774868, guid: 439af6a040ba009429682529df6aaa94, type: 3}
     - {fileID: 946859832, guid: 439af6a040ba009429682529df6aaa94, type: 3}
+  - name: ui/almanac/EXPAND_Tag/BodyType
+    spritesheet:
+    - {fileID: 21300000, guid: 1e419583af9144740988beecf5ba6bf2, type: 3}
   - name: ui/almanac/EXPAND_Tag/Contraption_ALL
     spritesheet: []
   - name: ui/almanac/EXPAND_Tag/Contraption_C0
@@ -3835,6 +3854,9 @@ MonoBehaviour:
     - {fileID: -1491615225, guid: a09e4c0816a1e1748b36d4f04b3f1529, type: 3}
     - {fileID: -2097975326, guid: a09e4c0816a1e1748b36d4f04b3f1529, type: 3}
     - {fileID: 1740380871, guid: a09e4c0816a1e1748b36d4f04b3f1529, type: 3}
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    spritesheet:
+    - {fileID: 21300000, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
   - name: ui/almanac/EXPAND_Tag/Expand_Attribute
     spritesheet:
     - {fileID: 534579002, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
