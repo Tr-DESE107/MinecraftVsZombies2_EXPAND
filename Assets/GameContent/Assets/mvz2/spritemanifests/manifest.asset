@@ -1127,6 +1127,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 26ff304e86df95141b97fb19ae8f2d91, type: 3}
   - name: arcade/iz/puzzle_all_your_observes_are_belong_to_us
     sprite: {fileID: 21300000, guid: 4645fad2157b265429ee36dd52645003, type: 3}
+  - name: arcade/iz/puzzle_among_us
+    sprite: {fileID: 21300000, guid: 8486146f42c7dd543afe7f56c74fda34, type: 3}
   - name: arcade/iz/puzzle_break_apart
     sprite: {fileID: 21300000, guid: 851cb5aaad3ad1d49b513f782589fe3f, type: 3}
   - name: arcade/iz/puzzle_can_you_pass_it

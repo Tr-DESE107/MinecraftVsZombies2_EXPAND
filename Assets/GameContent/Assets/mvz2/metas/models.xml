@@ -969,6 +969,7 @@
     <model name="EnderPearl" type="entity" path="mvz2:projectile/EXPAND_projectile/EnderPearl" width="48" height="48" xOffset="0" yOffset="-12" />
 
     <model name="AndesiteAlloySpike" type="entity" path="mvz2:projectile/EXPAND_projectile/AndesiteAlloySpike" width="20" height="11" xOffset="0" yOffset="-6" />
+    <model name="hell_planet_chaos" type="entity" path="mvz2:projectile/hell_planet_otherworld" width="56" height="56" xOffset="0" yOffset="-26" />
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0" />

@@ -2195,7 +2195,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c1ebf5d824609c4b9d3e923a986d1f2
-    m_Address: mvz2:enemy/EXPAND/RandomSkeleton
+    m_Address: mvz2:enemy/Random/RandomSkeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -2343,6 +2343,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1dcd2061d05fd3c429fd6b75083a5b5d
     m_Address: mvz2:starshard_rings/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1df351e73509faf4490f67d55a6e2029
+    m_Address: mvz2:entity/contraptions/EXPANDispenser/EXPANDispenser_DrivenserGear
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -2797,7 +2804,7 @@ MonoBehaviour:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2331249d33be2bc43943801aaf3558eb
-    m_Address: mvz2:enemy/EXPAND/RandomZombie
+    m_Address: mvz2:enemy/Random/RandomZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5700,7 +5707,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48bfd4b3f4a245340b38d0fcab0c7edd
-    m_Address: mvz2:enemy/EXPAND/RandomImp
+    m_Address: mvz2:enemy/Random/RandomImp
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7449,7 +7456,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fb13e85c6dadb1439d91ada7c9d577c
-    m_Address: mvz2:enemy/EXPAND/Akuah
+    m_Address: mvz2:enemy/Random/Akuah
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10114,6 +10121,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8486146f42c7dd543afe7f56c74fda34
+    m_Address: mvz2:arcade/iz/puzzle_among_us
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8494573086f607245af4f3dd35644156
     m_Address: mvz2:ui/level/pause_image_3
     m_ReadOnly: 0
@@ -10624,13 +10638,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c379122e36e4f3479596153acc3e20d
-    m_Address: mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Drivenser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c5ca34c05e942546b33c8461e020be1
     m_Address: mvz2:entity/EXPAND_Enemy/SkeletonHead
@@ -11690,6 +11697,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9a464a07f39fae64bb894b6e15dee681
     m_Address: mvz2:enemy/EXPAND/MannequinTNT
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9aaee497935f04c4ca5ed7f9ec77a896
+    m_Address: mvz2:contraption/GoldCard/EXPANDispenser/EXPANDispenser_Drivenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -13264,7 +13278,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aeb5279dbbbd54846a56726179e3aa6f
-    m_Address: mvz2:enemy/EXPAND/RandomSpider
+    m_Address: mvz2:enemy/Random/RandomSpider
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -15356,7 +15370,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc21ce47179fe4b49abbeea41fa19aac
-    m_Address: mvz2:enemy/EXPAND/RandomMutant
+    m_Address: mvz2:enemy/Random/RandomMutant
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -16532,7 +16546,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dbad33881065c2d468c0a476c164b85d
-    m_Address: mvz2:enemy/EXPAND/RandomEnemy
+    m_Address: mvz2:enemy/Random/RandomEnemy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -17043,7 +17057,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3c74e05995ec5f47a3c0173025c6c78
-    m_Address: mvz2:enemy/EXPAND/RandomMannequin
+    m_Address: mvz2:enemy/Random/RandomMannequin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -18694,7 +18708,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f91aa05739c7db1439b005f2b5a4f981
-    m_Address: mvz2:enemy/EXPAND/RandomKingSkeleton
+    m_Address: mvz2:enemy/Random/RandomKingSkeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -18845,6 +18859,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb8c64466349e53458c02d90fbd0af9b
+    m_Address: mvz2:entity/contraptions/EXPANDispenser/EXPANDispenser_Drivenser (2)
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fb8d1a996398fc349b3d0ef7daaba903
     m_Address: mvz2:projectile/seija_magic_bomb
