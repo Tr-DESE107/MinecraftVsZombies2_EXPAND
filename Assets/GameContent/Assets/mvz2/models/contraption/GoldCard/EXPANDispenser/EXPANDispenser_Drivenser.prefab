@@ -157,12 +157,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2128045280, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+  m_Sprite: {fileID: 297321415, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.4, y: 0.38}
+  m_Size: {x: 0.42, y: 0.39}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 2128045280, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
-  - {fileID: 746757947, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+  - {fileID: 297321415, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+  - {fileID: -238236948, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
   propertyName: Upgraded
 --- !u!1 &3118984784629547293
 GameObject:
@@ -896,7 +896,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -549213879, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
+  m_Sprite: {fileID: -1866731557, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1628,7 +1628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: renderers.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[0]
@@ -1670,6 +1670,10 @@ PrefabInstance:
       propertyPath: renderers.Array.data[6]
       value: 
       objectReference: {fileID: 2485570491450441822}
+    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: renderers.Array.data[7]
+      value: 
+      objectReference: {fileID: 8203457645367531295}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.data[0]
       value: 

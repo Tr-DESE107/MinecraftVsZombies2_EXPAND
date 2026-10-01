@@ -2,10 +2,12 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
+using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -27,11 +29,11 @@ namespace MVZ2.GameContent.Contraptions
         {
         }
 
-        // 参照基类：装填导弹盒时模型进入升级形态，GatlinAlt 随射击左右枪管交替
+        // 参照基类：大招升级（HFPDUpgradedBuff）后模型进入升级形态并发光
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelProperty("Upgraded", HasMissileBox(entity));
+            entity.SetModelProperty("Upgraded", IsUpgraded(entity));
             entity.SetModelProperty("GatlinAlt", IsGatlinAlt(entity));
             entity.SetModelProperty("MissileBox", HasMissileBox(entity));
         }
@@ -73,9 +75,14 @@ namespace MVZ2.GameContent.Contraptions
             return center;
         }
 
-        // 大招：三颗混沌异界星做三体运动（绕过基类：不装填导弹盒、不进入扫射状态）
+        // 大招：三颗混沌异界星做三体运动（绕过基类扫射状态），但保留基类的升级光效
         protected override void OnEvoke(Entity entity)
         {
+            // 与基类一致：大招后永久升级并发光
+            if (!entity.HasBuff<HFPDUpgradedBuff>())
+                entity.AddBuff<HFPDUpgradedBuff>();
+            entity.PlaySound(VanillaSoundID.motor);
+
             var mates = new List<Entity>();
             for (int i = 0; i < CHAOS_PLANET_COUNT; i++)
             {

@@ -67,10 +67,16 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            // 参照基类：挡位满档（或触发超档）时模型进入升级形态，GatlinAlt 随射击左右枪管交替
-            entity.SetModelProperty("Upgraded", GetEffectiveLevel(entity) >= MAX_UPGRADE_LEVEL);
+            // 升级形态与发光（复用 HFPDUpgradedBuff，方便统一管理）：
+            // 仅大招期间或过载触发状态挂 buff（发光 + 升级形态），状态结束自动摘除
+            bool glowing = entity.IsEvoked() || entity.HasBuff<DrivenserTriggerBuff>();
+            if (glowing && !entity.HasBuff<HFPDUpgradedBuff>())
+                entity.AddBuff<HFPDUpgradedBuff>();
+            else if (!glowing && entity.HasBuff<HFPDUpgradedBuff>())
+                entity.RemoveBuffs<HFPDUpgradedBuff>();
+
+            entity.SetModelProperty("Upgraded", IsUpgraded(entity));
             entity.SetModelProperty("GatlinAlt", IsGatlinAlt(entity));
-            entity.SetModelProperty("MissileBox", HasMissileBox(entity));
             entity.SetModelProperty("Level", GetEffectiveLevel(entity));
             var blend = GetBlockerBlend(entity);
             entity.SetAnimationFloat("BlockerBlend", blend);
@@ -255,8 +261,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int GIANT_ARROW_MERGE = 10;       // 每 10 发小箭合并为 1 发大箭
         public const int I_ZOMBIE_LEVEL = 2;           // 我是僵尸模式初始挡位
         public const int EVOKE_ARROW_COUNT = 16;       // 大招总箭数（大箭/小箭各半，均带诅咒火焰）
-        public const int EVOKE_ARROW_DAMAGE_MULT = 4; // 大招箭伤害倍率
-        public const float TRIGGER_HEALTH_COST = 100;   // 触发过载损失血量
+        public const int EVOKE_ARROW_DAMAGE_MULT = 10; // 大招箭伤害倍率
+        public const float TRIGGER_HEALTH_COST = 75;   // 触发过载损失血量
         public const float EVOKE_EXPLOSION_RANGE = 60;   // 自爆范围
         public const float EVOKE_EXPLOSION_DAMAGE = 1200; // 自爆伤害
     }

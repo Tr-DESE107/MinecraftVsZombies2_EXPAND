@@ -22,7 +22,9 @@ namespace MVZ2.GameContent.IZombie
                 VanillaEnemyID.RandomImp,
                 VanillaEnemyID.RandomSkeleton,
                 VanillaEnemyID.RandomKingSkeleton,
-
+                VanillaEnemyID.RandomEnemy,
+                VanillaEnemyID.RandomMannequin,
+                VanillaEnemyID.RandomSpider,
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)

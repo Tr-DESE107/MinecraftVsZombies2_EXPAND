@@ -8855,13 +8855,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 74d20e5d00a671e4c8fc95b83b0e9703
-    m_Address: mvz2:entity/contraptions/EXPAND_Contraption/EXPANDispenser_Drivenser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74d8652e30ae6cc4facf859271ca3fff
     m_Address: mvz2:commands
     m_ReadOnly: 0
@@ -12639,13 +12632,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a6a0e2c3323ebcf469d5e3591dfb9e2a
-    m_Address: mvz2:entity/contraptions/EXPANDispenser/EXPANDispenser_Drivenser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6a4e37a98e19de4f8c76ac4b2ad5e2c
     m_Address: mvz2:entity/EXPAND_Enemy/Host/AberrantHostZombie

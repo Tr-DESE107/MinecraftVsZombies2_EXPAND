@@ -214,7 +214,7 @@
         </tag>
 
         <tag id="Category" name="分类" enum="mvz2:Category" priority="3000" >
-            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <background sprite="mvz2:ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds[7]" />
         </tag>
         <enum id="Category" type="id">
             <value value="mvz2:Imp_Exp" name="小鬼类" description="该怪物属于小鬼类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[0]" backgroundColor="#8a2be2"/>
@@ -254,7 +254,7 @@
         </enum>
 
         <tag id="lightLevel" name="光照频率" enum="mvz2:lightLevel" priority="3500">
-            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+            <background sprite="mvz2:ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds[5]" />
         </tag>
         <enum id="lightLevel" type="int">
             <value value="0" name="白光" description="频率等级 &lt;color=grey&gt;0&lt;/color&gt;，可照亮需要&lt;color=grey&gt;白&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[0]" backgroundColor="#ffffff" />
@@ -268,7 +268,7 @@
         </enum>
         
         <tag id="wraithLightLevel" name="需要频率" enum="mvz2:wraithLightLevel" priority="3500">
-            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+            <background sprite="mvz2:ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds[5]" />
         </tag>
         <enum id="wraithLightLevel" type="int">
             <value value="0" name="白光" description="需要频率等级 &lt;color=grey&gt;0&lt;/color&gt;，被&lt;color=grey&gt;白&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[0]" backgroundColor="#ffffff" />
