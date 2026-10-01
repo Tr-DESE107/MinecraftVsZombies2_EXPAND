@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2026-09-25 12:36+0800\n"
+"POT-Creation-Date: 2026-10-01 06:32+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5945,9 +5945,7 @@ msgstr ""
 #. Flavor for enemies mvz2:RandomZombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid ""
-"怪物们显然也是喜欢过万圣节的，不少怪物就喜欢把南瓜带在头上，让其他怪物猜一猜南瓜后面的是谁。就和开盲盒一样豪丸\n"
-"为了你好，别问为什么它叫随机僵尸却能变成骷髅和其他怪物"
+msgid "怪物们显然也是喜欢过万圣节的，不少怪物就喜欢把南瓜带在头上，让其他怪物猜一猜南瓜后面的是谁。就和开盲盒一样豪丸"
 msgstr ""
 
 #. Header for enemies mvz2:RandomImp
@@ -6004,6 +6002,45 @@ msgctxt "enemies.description"
 msgid ""
 "不同于其他穷鬼<ref=[enemies]mvz2:KingSkeleton>骷髅国王</ref>，随机国王骷髅真的很有钱，他能给自己整一套金衣服，不是镀金，而是纯金！\n"
 "这让你打破他的衣服时，他会变得更加愤怒，以至于骷髅种类都有可能改变"
+msgstr ""
+
+#. Header for enemies mvz2:RandomSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "随机蜘蛛血量归零后会变成其他蜘蛛。"
+msgstr ""
+
+#. Flavor for enemies mvz2:RandomSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"虽然随机蜘蛛体型庞大，但他内心（和外表）十分童趣，有着一个小蜘蛛的梦，这让他可以在水上游泳。\n"
+"\n"
+"或许之后可以通过欺负他来爆出我们想要的糖吃。"
+msgstr ""
+
+#. Header for enemies mvz2:RandomMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "随机玩家模型血量归零后会变成其他玩家模型。"
+msgstr ""
+
+#. Flavor for enemies mvz2:RandomMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "在玩家模型乡，每到春节他们都会穿上拜年用的友好服装，向其他玩家模型问好并赠送<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>或是其他器械，赠送器械的种类一般是全随机的，除了<ref=[contraptions]mvz2:devourer>吞噬者</ref>和<ref=[contraptions]mvz2:jeweled_pagoda>宝塔</ref>，前者在市场上根本买不到，后者因放置时会阻碍其他玩家模型放置器械而被禁止使用"
+msgstr ""
+
+#. Header for enemies mvz2:RandomEnemy
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "随机敌怪血量归零后会变成其他敌怪。"
+msgstr ""
+
+#. Flavor for enemies mvz2:RandomEnemy
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "或许我们该庆幸他死后不触发随机事件而只是变成随机怪物。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -11156,6 +11193,42 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "随机国王骷髅"
+msgstr ""
+
+#. Name for entity mvz2:RandomSpider
+#: Entity meta file
+msgctxt "entity.name"
+msgid "随机蜘蛛"
+msgstr ""
+
+#. Death message for entity mvz2:RandomSpider
+#: Entity meta file
+msgctxt "death_message"
+msgid "是哪种蜘蛛打死了你啊？"
+msgstr ""
+
+#. Name for entity mvz2:RandomEnemy
+#: Entity meta file
+msgctxt "entity.name"
+msgid "随机敌怪"
+msgstr ""
+
+#. Death message for entity mvz2:RandomEnemy
+#: Entity meta file
+msgctxt "death_message"
+msgid "是哪种敌怪打死了你啊？"
+msgstr ""
+
+#. Name for entity mvz2:RandomMannequin
+#: Entity meta file
+msgctxt "entity.name"
+msgid "随机玩家模型"
+msgstr ""
+
+#. Death message for entity mvz2:RandomMannequin
+#: Entity meta file
+msgctxt "death_message"
+msgid "是哪种玩家模型打死了你啊？"
 msgstr ""
 
 #. Name for entity mvz2:LEOLau

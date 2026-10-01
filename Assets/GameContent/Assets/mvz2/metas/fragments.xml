@@ -534,6 +534,22 @@
             <key hex="#c13d3d" time="1.0" />
         </colorKeys>
     </fragment>
+    <fragment name="RandomSpider">
+        <colorKeys>
+            <key hex="#2ab58c" time="0.0" />
+            <key hex="#fda6cc" time="0.3" />
+            <key hex="#ffddc9" time="0.6" />
+            <key hex="#7afafa" time="1.0" />
+        </colorKeys>
+    </fragment>
+    <fragment name="RandomMannequin">
+        <colorKeys>
+            <key hex="#ffbf00" time="0.0" />
+            <key hex="#b4826b" time="0.3" />
+            <key hex="#ca2c20" time="0.6" />
+            <key hex="#b51c24" time="1.0" />
+        </colorKeys>
+    </fragment>
     <!--E.X.P.A.N.D.-->
     <fragment name="EXPANDispenser">
         <colorKeys>

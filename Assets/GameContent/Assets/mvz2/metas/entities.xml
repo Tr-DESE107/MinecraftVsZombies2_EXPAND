@@ -4988,7 +4988,7 @@
                 <behaviour operator="add" id="mvz2:fragmented" />
             </behaviours>
             <properties>
-                <int name="mvz2:cost" value="225" />
+                <int name="mvz2:cost" value="175" />
                 <float name="mvz2:maxHealth" value="450" />
                 <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
                 <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
@@ -5087,12 +5087,12 @@
                 <behaviour operator="add" id="mvz2:fragmented" />
             </behaviours>
             <properties>
-                <float name="mvz2:maxHealth" value="160" />
+                <float name="mvz2:maxHealth" value="320" />
                 <float name="mvz2:speed" value="2" />
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="175" />
 
                 <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
-                <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
+                <id name="mvz2:fragmentId" value="mvz2:RandomSpider" />
             </properties>
         </entity>
         <entity template="RandomEnemy_Exp" id="RandomEnemy" name="随机敌怪" deathMessage="是哪种敌怪打死了你啊？">
@@ -5103,11 +5103,12 @@
                 <behaviour operator="add" id="mvz2:fragmented" />
             </behaviours>
             <properties>
+                <id name="mvz2:shell" value="mvz2:metal" />
                 <float name="mvz2:maxHealth" value="450" />
                 <int name="mvz2:cost" value="225" />
 
                 <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
-                <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
+                <id name="mvz2:fragmentId" value="mvz2:GoldenSanta" />
             </properties>
         </entity>
         <entity template="Mannequin_Exp" id="RandomMannequin" name="随机玩家模型" deathMessage="是哪种玩家模型打死了你啊？">
@@ -5118,11 +5119,12 @@
                 <behaviour operator="add" id="mvz2:fragmented" />
             </behaviours>
             <properties>
-                <float name="mvz2:maxHealth" value="300" />
-                <int name="mvz2:cost" value="150" />
+                <float name="mvz2:maxHealth" value="500" />
+                <int name="mvz2:cost" value="250" />
+                <id name="mvz2:starting_armor" value="mvz2:WealthHat" />
 
                 <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
-                <id name="mvz2:fragmentId" value="mvz2:soul_furnace" />
+                <id name="mvz2:fragmentId" value="mvz2:RandomMannequin" />
             </properties>
         </entity>
 

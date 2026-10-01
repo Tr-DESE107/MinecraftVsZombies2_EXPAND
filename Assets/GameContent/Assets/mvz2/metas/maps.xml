@@ -117,6 +117,9 @@
         <element id="Almanac" template="artifacts"><unlock><condition required="mvz2:level.halloween_5"/></unlock></element>
         <element id="ShrunkenHead" template="artifacts"><unlock><condition required="mvz2:level.halloween_14"/></unlock></element>
         <element id="FrankensteinBrain" template="artifacts"><unlock><condition required="mvz2:level.halloween_15"/></unlock></element>
+
+        <!--EXPAND C6-->
+        <element id="FireDispenser" template="contraption"><unlock><condition required="mvz2:level.palace_1"/></unlock></element>
         
         <!-- Dream Contraptions -->
         <element id="lily_pad" template="contraption"><unlock><condition requiredGroups="mvz2:contraption.lily_pad"/></unlock></element>

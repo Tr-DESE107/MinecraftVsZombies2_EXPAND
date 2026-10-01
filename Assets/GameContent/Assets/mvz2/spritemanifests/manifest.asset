@@ -779,14 +779,20 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 679ba871c15282d4d995e64c33711c8b, type: 3}
   - name: mobile_blueprint/Randombstone
     sprite: {fileID: 21300000, guid: 2219642330b788f41959a1b4bdca1506, type: 3}
+  - name: mobile_blueprint/RandomEnemy
+    sprite: {fileID: 21300000, guid: 9c71c68fc2d193f42aead21219d0c05e, type: 3}
   - name: mobile_blueprint/RandomImp
     sprite: {fileID: 21300000, guid: d32ee8354a9a0ab49ba5cd903b5a0495, type: 3}
   - name: mobile_blueprint/RandomKingSkeleton
     sprite: {fileID: 21300000, guid: cdf7b39039af96945b294231cc85b615, type: 3}
+  - name: mobile_blueprint/RandomMannequin
+    sprite: {fileID: 21300000, guid: a82bf19cd8ff1cb46a9f6192aba0b587, type: 3}
   - name: mobile_blueprint/RandomMutant
     sprite: {fileID: 21300000, guid: 09bafedd0d8184c498cefddd99edf39d, type: 3}
   - name: mobile_blueprint/RandomSkeleton
     sprite: {fileID: 21300000, guid: 9b6dab228eaeddf4f910056ea4e4b8e9, type: 3}
+  - name: mobile_blueprint/RandomSpider
+    sprite: {fileID: 21300000, guid: 8b47a02d8a5b94646a64744a176ef476, type: 3}
   - name: mobile_blueprint/RandomZombie
     sprite: {fileID: 21300000, guid: 3d6bf327ed09d9f4fbcc43fd19b35758, type: 3}
   - name: mobile_blueprint/random_china

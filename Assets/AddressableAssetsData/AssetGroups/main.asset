@@ -3789,6 +3789,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30beb36a0adec5443b340f638e3e518f
+    m_Address: mvz2:entity/contraptions/EXPANDispenser/EXPANDispenser_PistenserTop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 311343d4a0954c14cb62acbaf0e5ef16
     m_Address: mvz2:projectile/seija_bullet
     m_ReadOnly: 0
@@ -10569,6 +10576,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b47a02d8a5b94646a64744a176ef476
+    m_Address: mvz2:mobile_blueprint/RandomSpider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b54263a7ca06cd478193e70b407f293
     m_Address: mvz2:entity/projectiles/fire_trail
     m_ReadOnly: 0
@@ -11870,6 +11884,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c71c68fc2d193f42aead21219d0c05e
+    m_Address: mvz2:mobile_blueprint/RandomEnemy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c738ff97ec299e44824ed8a9e5bb620
     m_Address: mvz2:entity/zombie_cat/meow3
     m_ReadOnly: 0
@@ -12726,6 +12747,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a81e7ee6085bf10488c8ac5cec8948f8
     m_Address: mvz2:misc/fall_from_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a82bf19cd8ff1cb46a9f6192aba0b587
+    m_Address: mvz2:mobile_blueprint/RandomMannequin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -18847,7 +18875,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fb8c64466349e53458c02d90fbd0af9b
-    m_Address: mvz2:entity/contraptions/EXPANDispenser/EXPANDispenser_Drivenser (2)
+    m_Address: mvz2:entity/contraptions/EXPANDispenser/EXPANDispenser_Drivenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
