@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-09-25 12:36+0800\n"
-"PO-Revision-Date: 2026-09-25 12:38+0800\n"
+"POT-Creation-Date: 2026-10-02 05:42+0800\n"
+"PO-Revision-Date: 2026-10-02 17:43+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2874,9 +2874,10 @@ msgstr ""
 #. Header for contraptions mvz2:triplenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "三头发射器一次能发射三行的箭矢。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。"
+msgid "三头发射器一次能发射三行的箭矢或紫箭。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。"
 msgstr ""
-"Triplensers fire arrows across three lanes at once. When placed on the outermost lane, they fire the arrow on its own lane instead."
+"Triplensers fire arrows or purple arrows across three lanes at once. When placed on the outermost lane, they instead fire an "
+"additional arrow on their own lane."
 
 #. Properties for contraptions mvz2:triplenser
 #: Almanac meta file
@@ -2937,8 +2938,8 @@ msgstr ""
 #. Header for contraptions mvz2:repeatenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "连射发射器一次能发射两支箭矢。"
-msgstr "Repeatenser can shoot 2 arrows at once."
+msgid "连射发射器一次能发射两支箭矢或脉冲箭。"
+msgstr "Repeatensers can shoot 2 arrows or Pulse Arrows at once."
 
 #. Properties for contraptions mvz2:repeatenser
 #: Almanac meta file
@@ -4138,12 +4139,14 @@ msgctxt "contraptions.description"
 msgid ""
 "特点：<color=red>可以将不同的发射器放置在基础万象天枢上融合。</color>\n"
 "可融合器械：<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</"
-"ref>、<ref=[contraptions]mvz2:pistenser>活塞发射器</ref>，其他可以融合，但行为同基础万象天枢</color>\n"
+"ref>、<ref=[contraptions]mvz2:pistenser>活塞发射器</ref>、<ref=[contraptions]mvz2:drivenser>驱动发射器</ref>、"
+"<ref=[contraptions]mvz2:triplenser>三头发射器</ref>，其他可以融合，但行为同基础万象天枢</color>\n"
 "注：<color=red>你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</color>"
 msgstr ""
 "Special: <color=red>Different dispensers can be placed on the base E.X.P.A.N.D. to fuse with it.</color>\n"
 "Fusable Contraptions: <color=red>Currently implemented: <ref=[contraptions]mvz2:dispenser>Dispenser</ref>, "
-"<ref=[contraptions]mvz2:silvenser>Silvenser</ref>, <ref=[contraptions]mvz2:pistenser>Pistenser</ref>. Other dispensers can also be "
+"<ref=[contraptions]mvz2:silvenser>Silvenser</ref>, <ref=[contraptions]mvz2:pistenser>Pistenser</ref>, "
+"<ref=[contraptions]mvz2:drivenser>Drivenser</ref>, <ref=[contraptions]mvz2:triplenser>Triplenser</ref>. Other dispensers can also be "
 "fused, but will behave identically to the base E.X.P.A.N.D.</color>\n"
 "Note: <color=red>You can learn more about the E.X.P.A.N.D.'s abilities on the mvz2expandwiki.</color>"
 
@@ -7982,14 +7985,10 @@ msgstr "When a Random Zombie's health drops to zero, it transforms into another 
 #. Flavor for enemies mvz2:RandomZombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid ""
-"怪物们显然也是喜欢过万圣节的，不少怪物就喜欢把南瓜带在头上，让其他怪物猜一猜南瓜后面的是谁。就和开盲盒一样豪丸\n"
-"为了你好，别问为什么它叫随机僵尸却能变成骷髅和其他怪物"
+msgid "怪物们显然也是喜欢过万圣节的，不少怪物就喜欢把南瓜带在头上，让其他怪物猜一猜南瓜后面的是谁。就和开盲盒一样豪丸"
 msgstr ""
 "Monsters clearly love Halloween too. Many of them like to wear pumpkins on their heads, making others guess who's behind the pumpkin. "
-"It's like opening a blind box — so much fun.\n"
-"\n"
-"For your own good, don't ask why something called a Random Zombie can turn into a Skeleton or other monsters."
+"It's like opening a blind box — so much fun."
 
 #. Header for enemies mvz2:RandomImp
 #: Almanac meta file
@@ -8059,6 +8058,59 @@ msgstr ""
 "full set of golden clothes — not gold-plated, but solid gold!\n"
 "\n"
 "So when you tear apart his clothes, he gets even angrier — angry enough to change his very skeleton type."
+
+#. Header for enemies mvz2:RandomSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "随机蜘蛛血量归零后会变成其他蜘蛛。"
+msgstr "When a Random Spider's health drops to zero, it transforms into another Spider."
+
+#. Flavor for enemies mvz2:RandomSpider
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"虽然随机蜘蛛体型庞大，但他内心（和外表）十分童趣，有着一个小蜘蛛的梦，这让他可以在水上游泳。\n"
+"\n"
+"或许之后可以通过欺负他来爆出我们想要的糖吃。"
+msgstr ""
+"Though the Random Spider is enormous in size, its heart (and appearance) is quite childlike — it dreams of being a little spider, "
+"which allows it to swim on water.\n"
+"\n"
+"Perhaps we can bully it later to get the candy we want."
+
+#. Header for enemies mvz2:RandomMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "随机玩家模型血量归零后会变成其他玩家模型。"
+msgstr "When a Random Mannequin's health drops to zero, it transforms into another Mannequin."
+
+#. Flavor for enemies mvz2:RandomMannequin
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"在玩家模型乡，每到春节他们都会穿上拜年用的友好服装，向其他玩家模型问好并赠送<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>或是其他普"
+"通器械，赠送器械的种类一般是全随机的，除了<ref=[contraptions]mvz2:devourer>吞噬者</ref>和<ref=[contraptions]mvz2:jeweled_pagoda>宝塔</"
+"ref>，前者在市场上根本买不到，后者因放置时会阻碍其他玩家模型放置器械而被禁止使用"
+msgstr ""
+"When a Random Mannequin's health drops to zero, it transforms into another Mannequin.\n"
+"\n"
+"In Mannequinkyo, every Spring Festival they put on friendly greeting outfits, exchange well-wishes with other Mannequins, and hand out "
+"<ref=[enemies]mvz2:MannequinTNT>Mannequin TNT</ref> or other ordinary contraptions as gifts. The type of contraption gifted is usually "
+"completely random, except for the <ref=[contraptions]mvz2:devourer>Devourer</ref> and the "
+"<ref=[contraptions]mvz2:jeweled_pagoda>Jeweled Pagoda</ref> — the former can't be bought on the market at all, and the latter is "
+"banned because placing it would block other Mannequins from placing their contraptions."
+
+#. Header for enemies mvz2:RandomEnemy
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "随机敌怪血量归零后会变成其他敌怪。"
+msgstr "When a Random Enemy's health drops to zero, it transforms into another enemy."
+
+#. Flavor for enemies mvz2:RandomEnemy
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "或许我们该庆幸他死后不触发随机事件而只是变成随机怪物。"
+msgstr "Perhaps we should be glad that it doesn't trigger a random event upon death, but only transforms into a random monster."
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -13901,6 +13953,42 @@ msgstr "Which Skeleton killed you?"
 msgctxt "entity.name"
 msgid "随机国王骷髅"
 msgstr "Random King Skeleton"
+
+#. Name for entity mvz2:RandomSpider
+#: Entity meta file
+msgctxt "entity.name"
+msgid "随机蜘蛛"
+msgstr "Random Spider"
+
+#. Death message for entity mvz2:RandomSpider
+#: Entity meta file
+msgctxt "death_message"
+msgid "是哪种蜘蛛打死了你啊？"
+msgstr "Which spider killed you?"
+
+#. Name for entity mvz2:RandomEnemy
+#: Entity meta file
+msgctxt "entity.name"
+msgid "随机敌怪"
+msgstr "Random Enemy"
+
+#. Death message for entity mvz2:RandomEnemy
+#: Entity meta file
+msgctxt "death_message"
+msgid "是哪种敌怪打死了你啊？"
+msgstr "Which Enemy killed you?"
+
+#. Name for entity mvz2:RandomMannequin
+#: Entity meta file
+msgctxt "entity.name"
+msgid "随机玩家模型"
+msgstr "Random Mannequin"
+
+#. Death message for entity mvz2:RandomMannequin
+#: Entity meta file
+msgctxt "death_message"
+msgid "是哪种玩家模型打死了你啊？"
+msgstr "Which mannequin killed you?"
 
 #. Name for entity mvz2:LEOLau
 #: Entity meta file
