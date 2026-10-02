@@ -1,7 +1,8 @@
-﻿#nullable enable
+#nullable enable
 
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Entities;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
@@ -80,7 +81,9 @@ namespace MVZ2.GameContent.Enemies
                     bowPower = BOW_POWER_MAX;
                     SetBowFired(entity, true);
 
-                    entity.ShootProjectile();
+                    var param = entity.GetShootParams();
+                    param.damage = entity.GetDamage() * entity.GetArcherDamageMultiplier();
+                    entity.ShootProjectile(param);
                 }
             }
             else

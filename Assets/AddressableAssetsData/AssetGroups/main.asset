@@ -3160,6 +3160,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28515643b5cf3d544b0ad98b4aa6ea51
+    m_Address: mvz2:enemy/Random/RandomMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2852f645bc702264a8d5c7c1ccf69d07
     m_Address: mvz2:level/dream/EXPAND/DreamNightHouseCover
     m_ReadOnly: 0
