@@ -5088,11 +5088,24 @@
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="320" />
+                <float name="mvz2:maxAttackHeight" value="30" />
                 <float name="mvz2:speed" value="2" />
                 <int name="mvz2:cost" value="175" />
 
+                <float name="mvz2:fallResistance" value="15" />
+                <bool name="mvz2:undead" value="false" />
+                <vector3 name="mvz2:size" x="104" y="48" z="48" />
+                <id name="mvz2:crySound" value="mvz2:spider_cry" />
+                <id name="mvz2:deathSound" value="mvz2:spider_death" />
+                <vector3 name="mvz2:shadowScale" x="2" y="1" z="1" />
+                
+                <color name="mvz2:bloodColor" value="#007F00FF" />
+                <color name="mvz2:bloodColorCensored" value="#007F00FF" />
+
                 <id name="mvz2:Category" value="mvz2:RandomEnemy_Exp" />
                 <id name="mvz2:fragmentId" value="mvz2:RandomSpider" />
+
+                <int name="mvz2:waterInteraction" value="3" />
             </properties>
         </entity>
         <entity template="RandomEnemy_Exp" id="RandomEnemy" name="随机敌怪" deathMessage="是哪种敌怪打死了你啊？">
@@ -5100,6 +5113,7 @@
                 <condition required="mvz2:level.vsRandomZombie" />
             </unlock>
             <behaviours>
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
                 <behaviour operator="add" id="mvz2:fragmented" />
             </behaviours>
             <properties>
@@ -5116,7 +5130,8 @@
                 <condition required="mvz2:level.vsRandomZombie" />
             </unlock>
             <behaviours>
-                <behaviour operator="add" id="mvz2:fragmented" />
+                <behaviour operator="replace" source="mvz2:enemy_common_animation" id="mvz2:humanoid_animation" />
+                <behaviour operator="add" id="mvz2:boated_enemy" />
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="500" />

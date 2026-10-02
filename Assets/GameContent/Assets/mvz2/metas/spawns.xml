@@ -296,6 +296,7 @@
     </entry>
     <entry id="PhaseSpider">
         <entity id="mvz2:PhaseSpider" />
+        <terrain water="true" />
         <spawn level="3" minWave="5" />
         <weight base="2000" />
     </entry>
@@ -608,6 +609,7 @@
     </entry>
     <entry id="RandomSpider" entity="mvz2:RandomSpider" noEndless="true">
         <spawn level="2" />
+        <terrain water="true" />
         <weight base="2000" />
     </entry>
 

@@ -17070,13 +17070,6 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e3c74e05995ec5f47a3c0173025c6c78
-    m_Address: mvz2:enemy/Random/RandomMannequin
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3db0a973aafd3c49b0bcb73e3353e59
     m_Address: mvz2:random/stone4
     m_ReadOnly: 0

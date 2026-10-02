@@ -1138,7 +1138,7 @@
         </entry>
         <entry id="mvz2:triplenser">
             <header>
-                <p>三头发射器一次能发射三行的箭矢。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。</p>
+                <p>三头发射器一次能发射三行的箭矢或紫箭。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。</p>
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red>3支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
@@ -1170,7 +1170,7 @@
         </entry>
         <entry id="mvz2:repeatenser">
             <header>
-                <p>连射发射器一次能发射两支箭矢。</p>
+                <p>连射发射器一次能发射两支箭矢或脉冲箭。</p>
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red>2支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
