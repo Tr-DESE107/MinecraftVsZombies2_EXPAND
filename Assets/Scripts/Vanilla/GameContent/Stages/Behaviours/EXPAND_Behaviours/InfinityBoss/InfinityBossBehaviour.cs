@@ -8,6 +8,7 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -221,6 +222,10 @@ namespace MVZ2.GameContent.Stages
             int bossKilled = GetBossKilled(level) + 1;
             SetBossKilled(level, bossKilled);
             RecordBossKills(level, bossKilled);
+
+            //EXPAND 每击杀 N 个 Boss：在 Boss 死亡处撒下钻石钱币奖励。
+            if (bossKilled % BossGemRewardEvery == 0)
+                SpawnBossGemReward(level);
 
             // 下一个 Boss 的序号 = 已击杀数（0-based：第 1 个是 index 0，故下一个用 bossKilled）。  
             SetBossIndex(level, bossKilled);
@@ -478,6 +483,22 @@ namespace MVZ2.GameContent.Stages
             {
                 Global.Saves.SetStat(LogicStats.CATEGORY_MAX_BOSS_KILLS, level.StageID, kills);
             }
+        }
+
+        // ============ EXPAND 击杀 Boss 的钻石奖励 ============
+        // 每击杀 BossGemRewardEvery 个 Boss，在 Boss 死亡处撒下钻石（5000 钱 = 5 个钻石，经 GemEffect 拆分并自动飞入钱栏）。
+        protected virtual int BossGemRewardEvery => 3;
+        protected virtual int BossGemRewardMoney => 5000;
+        protected virtual void SpawnBossGemReward(LevelEngine level)
+        {
+            // 位置：取一个已死亡 Boss 的中心；尸体已被移除的 Boss 退化为场地中央。
+            var deadBoss = level.FindEntities(e => e.IsEntityOf(BossID) && e.IsDead).FirstOrDefault();
+            Vector3 position;
+            if (deadBoss != null)
+                position = deadBoss.GetCenter();
+            else
+                position = new Vector3(LevelPositions.ENEMY_RIGHT_BORDER / 2, 0, level.GetEntityLaneZ(level.GetMaxLaneCount() / 2));
+            GemEffect.SpawnGemEffects(level, BossGemRewardMoney, position, null, false, 60);
         }
 
         // ============ 关卡属性存取 ============  
