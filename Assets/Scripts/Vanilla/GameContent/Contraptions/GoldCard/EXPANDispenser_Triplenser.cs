@@ -3,8 +3,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Projectiles;
 using MVZ2Logic.Entities;
 using PVZEngine.Buffs;
@@ -117,5 +119,16 @@ namespace MVZ2.GameContent.Contraptions
         public const int EVOKE_PLANET_DAMAGE_MULT = 50;   // 大招混沌星伤害倍率
         public const float CHAOS_PLANET_FORWARD_SPEED = 8f;  // 混沌星前进初速
         public const float CHAOS_PLANET_LATERAL_SPEED = 3f;  // 混沌星侧向扰动幅度
+
+        // 三行索敌（参照 Triplenser）：本行 ±1 行内有敌人即可开火
+        protected override Detector GetDetector()
+        {
+            return new DispenserDetector()
+            {
+                ignoreHighEnemy = true,
+                innerLaneExpansion = 1,
+                outerLaneExpansion = 1,
+            };
+        }
     }
 }
