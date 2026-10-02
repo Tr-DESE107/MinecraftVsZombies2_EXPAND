@@ -27,6 +27,8 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             // 初始化时设置火炬点燃
             SetTorchLit(entity, true);
+            SetTorchStats(entity, 0);
+            SetTorchAnimFrame(entity, 0);
         }
 
         public override void PreTakeDamage(DamageInput input, CallbackResult result)
@@ -46,7 +48,12 @@ namespace MVZ2.GameContent.Enemies
             // 检查是否受到火焰伤害
             if (input.Effects.HasEffect(VanillaDamageEffects.FIRE))
             {
-                // 重新点燃
+                // 重新点燃：贴图轮换从头开始
+                if (!IsTorchLit(entity))
+                {
+                    SetTorchStats(entity, 0);
+                    SetTorchAnimFrame(entity, 0);
+                }
                 SetTorchLit(entity, true);
             }
         }
@@ -57,6 +64,22 @@ namespace MVZ2.GameContent.Enemies
             entity.SetModelDamagePercent();
 
             entity.SetModelProperty("TorchLit", IsTorchLit(entity));
+
+            // 火把贴图切换：点燃时按帧间隔在 0/1/2 间循环（火焰闪烁动画），熄灭后锁定为 3
+            if (IsTorchLit(entity))
+            {
+                var animFrame = GetTorchAnimFrame(entity) + 1;
+                SetTorchAnimFrame(entity, animFrame);
+                if (animFrame % TORCH_ANIM_INTERVAL == 0)
+                {
+                    SetTorchStats(entity, (GetTorchStats(entity) + 1) % 3);
+                }
+            }
+            else
+            {
+                SetTorchStats(entity, TORCH_STATS_EXTINGUISHED);
+            }
+            entity.SetModelProperty("TorchStats", GetTorchStats(entity));
 
             // 只在火炬点燃时才使用 FireAOE
             if (IsTorchLit(entity))
@@ -104,7 +127,19 @@ namespace MVZ2.GameContent.Enemies
             }
         }
 
+        // 火把贴图索引（模型属性 TorchStats：点燃时 0/1/2 轮换，熄灭后为 3）
+        public static int GetTorchStats(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_TORCH_STATS);
+        public static void SetTorchStats(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_TORCH_STATS, value);
+        public static int GetTorchAnimFrame(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_TORCH_ANIM_FRAME);
+        public static void SetTorchAnimFrame(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_TORCH_ANIM_FRAME, value);
+
         private static readonly NamespaceID ID = VanillaEnemyID.TorchKongfuZombie;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_TORCH_LIT = new VanillaEntityPropertyMeta<bool>("TorchLit");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_TORCH_STATS = new VanillaEntityPropertyMeta<int>("TorchStats");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_TORCH_ANIM_FRAME = new VanillaEntityPropertyMeta<int>("TorchAnimFrame");
+
+        // 点燃时贴图切换间隔（逻辑帧）；熄灭后锁定的贴图索引
+        public const int TORCH_ANIM_INTERVAL = 8;
+        public const int TORCH_STATS_EXTINGUISHED = 3;
     }
 }

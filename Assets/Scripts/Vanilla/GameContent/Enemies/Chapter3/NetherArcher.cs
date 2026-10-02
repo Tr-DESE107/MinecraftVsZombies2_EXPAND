@@ -1,8 +1,9 @@
-﻿#nullable enable
+#nullable enable
 
 using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Entities;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Detections;
@@ -122,6 +123,7 @@ namespace MVZ2.GameContent.Enemies
         {
             var param = entity.GetShootParams();
             param.projectileID = VanillaProjectileID.arrow;
+            param.damage = entity.GetDamage() * entity.GetArcherDamageMultiplier();
 
             var arrow = entity.ShootProjectile(param);
 

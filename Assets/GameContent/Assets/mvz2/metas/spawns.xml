@@ -296,6 +296,7 @@
     </entry>
     <entry id="PhaseSpider">
         <entity id="mvz2:PhaseSpider" />
+        <terrain water="true" />
         <spawn level="3" minWave="5" />
         <weight base="2000" />
     </entry>
@@ -597,6 +598,19 @@
         <entity id="mvz2:RandomSkeleton" />
         <spawn level="2" />
         <weight base="5000" />
+    </entry>
+    <entry id="RandomEnemy" entity="mvz2:RandomEnemy" noEndless="true">
+        <spawn level="1" />
+        <weight base="1500" />
+    </entry>
+    <entry id="RandomMannequin" entity="mvz2:RandomMannequin" noEndless="true">
+        <spawn level="1" />
+        <weight base="1500" />
+    </entry>
+    <entry id="RandomSpider" entity="mvz2:RandomSpider" noEndless="true">
+        <spawn level="2" />
+        <terrain water="true" />
+        <weight base="2000" />
     </entry>
 
     <entry id="XCarrierMutant" entity="mvz2:XCarrierMutant" noEndless="true">

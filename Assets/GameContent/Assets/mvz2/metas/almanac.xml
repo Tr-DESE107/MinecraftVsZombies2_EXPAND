@@ -214,7 +214,7 @@
         </tag>
 
         <tag id="Category" name="分类" enum="mvz2:Category" priority="3000" >
-            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <background sprite="mvz2:ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds[7]" />
         </tag>
         <enum id="Category" type="id">
             <value value="mvz2:Imp_Exp" name="小鬼类" description="该怪物属于小鬼类" sprite="mvz2:ui/almanac/EXPAND_Tag/EXPAND_EnemyCategory[0]" backgroundColor="#8a2be2"/>
@@ -254,7 +254,7 @@
         </enum>
 
         <tag id="lightLevel" name="光照频率" enum="mvz2:lightLevel" priority="3500">
-            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+            <background sprite="mvz2:ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds[5]" />
         </tag>
         <enum id="lightLevel" type="int">
             <value value="0" name="白光" description="频率等级 &lt;color=grey&gt;0&lt;/color&gt;，可照亮需要&lt;color=grey&gt;白&lt;/color&gt;光的实体" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[0]" backgroundColor="#ffffff" />
@@ -268,7 +268,7 @@
         </enum>
         
         <tag id="wraithLightLevel" name="需要频率" enum="mvz2:wraithLightLevel" priority="3500">
-            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+            <background sprite="mvz2:ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds[5]" />
         </tag>
         <enum id="wraithLightLevel" type="int">
             <value value="0" name="白光" description="需要频率等级 &lt;color=grey&gt;0&lt;/color&gt;，被&lt;color=grey&gt;白&lt;/color&gt;光照亮时显形" sprite="mvz2:ui/almanac/EXPAND_Tag/lightLevel[0]" backgroundColor="#ffffff" />
@@ -1138,7 +1138,7 @@
         </entry>
         <entry id="mvz2:triplenser">
             <header>
-                <p>三头发射器一次能发射三行的箭矢。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。</p>
+                <p>三头发射器一次能发射三行的箭矢或紫箭。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。</p>
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red>3支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
@@ -1170,7 +1170,7 @@
         </entry>
         <entry id="mvz2:repeatenser">
             <header>
-                <p>连射发射器一次能发射两支箭矢。</p>
+                <p>连射发射器一次能发射两支箭矢或脉冲箭。</p>
             </header>
             <properties>
                 <p>攻击间隔：<![CDATA[<color=red>2支/<var id="mvz2:AttackInterval" />秒</color>]]></p>
@@ -1884,7 +1884,7 @@
             </header>
             <properties>
                 <p>特点：<![CDATA[<color=red>可以将不同的发射器放置在基础万象天枢上融合。</color>]]></p>
-                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref>、<ref=[contraptions]mvz2:pistenser>活塞发射器</ref>，其他可以融合，但行为同基础万象天枢</color>]]></p>
+                <p>可融合器械：<![CDATA[<color=red>目前做好的有：<ref=[contraptions]mvz2:dispenser>发射器</ref>、<ref=[contraptions]mvz2:silvenser>银制发射器</ref>、<ref=[contraptions]mvz2:pistenser>活塞发射器</ref>、<ref=[contraptions]mvz2:drivenser>驱动发射器</ref>、<ref=[contraptions]mvz2:triplenser>三头发射器</ref>，其他可以融合，但行为同基础万象天枢</color>]]></p>
                 <p>注：<![CDATA[<color=red>你可以在mvz2expandwiki上了解更加详细的万象天枢能力。</color>]]></p>
             </properties>
             <flavor>
@@ -4058,7 +4058,7 @@
             </properties>
             <flavor>
                 <p>怪物们显然也是喜欢过万圣节的，不少怪物就喜欢把南瓜带在头上，让其他怪物猜一猜南瓜后面的是谁。就和开盲盒一样豪丸</p>
-                <p>为了你好，别问为什么它叫随机僵尸却能变成骷髅和其他怪物</p>
+                <!--<p>为了你好，别问为什么它叫随机僵尸却能变成骷髅和其他怪物</p>-->
             </flavor>
         </entry>
         <entry id="mvz2:RandomImp">
@@ -4112,6 +4112,44 @@
             <flavor>
                 <p>不同于其他穷鬼<![CDATA[<ref=[enemies]mvz2:KingSkeleton>骷髅国王</ref>]]>，随机国王骷髅真的很有钱，他能给自己整一套金衣服，不是镀金，而是纯金！</p>
                 <p>这让你打破他的衣服时，他会变得更加愤怒，以至于骷髅种类都有可能改变</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:RandomSpider">
+            <header>
+                <p>随机蜘蛛血量归零后会变成其他蜘蛛。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+            </properties>
+            <flavor>
+                <p>虽然随机蜘蛛体型庞大，但他内心（和外表）十分童趣，有着一个小蜘蛛的梦，这让他可以在水上游泳。</p>
+                <p/>
+                <p>或许之后可以通过欺负他来爆出我们想要的糖吃。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:RandomMannequin">
+            <header>
+                <p>随机玩家模型血量归零后会变成其他玩家模型。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+            </properties>
+            <flavor>
+                <p>在玩家模型乡，每到春节他们都会穿上拜年用的友好服装，向其他玩家模型问好并赠送<![CDATA[<ref=[enemies]mvz2:MannequinTNT>玩家模型TNT</ref>]]>或是其他普通器械，赠送器械的种类一般是全随机的，除了<![CDATA[<ref=[contraptions]mvz2:devourer>吞噬者</ref>]]>和<![CDATA[<ref=[contraptions]mvz2:jeweled_pagoda>宝塔</ref>]]>，前者在市场上根本买不到，后者因放置时会阻碍其他玩家模型放置器械而被禁止使用</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:RandomEnemy">
+            <header>
+                <p>随机敌怪血量归零后会变成其他敌怪。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red><var id="mvz2:entity_health" /></color>]]></p>
+                <p>速度：<![CDATA[<color=red><var id="mvz2:entity_speed" /></color>]]></p>
+            </properties>
+            <flavor>
+                <p>或许我们该庆幸他死后不触发随机事件而只是变成随机怪物。</p>
             </flavor>
         </entry>
 

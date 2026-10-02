@@ -3,6 +3,7 @@
 using System;  
 using MVZ2.GameContent.Buffs.Contraptions;  
 using MVZ2.GameContent.Contraptions;  
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;  
 using MVZ2.GameContent.Pickups;  
 using MVZ2.GameContent.Seeds;  
@@ -68,6 +69,11 @@ namespace MVZ2.GameContent.Stages
                 {  
                     level.GameOver(GameOverTypes.NO_ENEMY, null, VanillaStrings.DEATH_MESSAGE_SNIPENSER_LOST);  
                 }  
+            }  
+            else if (!rider.IsFriendlyEntity())  
+            {  
+                // 骑手被魅惑（阵营翻转）视为死亡：立即处决，走正常死亡流程（红石返还+爆炸+扣命数）
+                rider.Die(new DamageEffectList(VanillaDamageEffects.INSTA_KILL));  
             }  
         }  
   

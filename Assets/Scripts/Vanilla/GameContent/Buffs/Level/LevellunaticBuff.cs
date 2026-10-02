@@ -33,6 +33,8 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.SKELETON_HORSE_JUMP_TIMES, IntegerOperator.Add, 1));
             AddModifier(new IntModifier(VanillaDifficultyLevelProps.WICKED_HERMIT_ZOMBIE_STUN_TIME, IntegerOperator.Add, -150));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.WISP_FLY_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 3f));
+            // 弓箭手类敌人箭矢伤害：100 × 1.5 = 150
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.ARCHER_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 1.5f));
 
             AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.FRANKENSTEIN_INSTANT_STEEL, true));
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.FRANKENSTEIN_SPEED, NumberOperator.Multiply, 2));

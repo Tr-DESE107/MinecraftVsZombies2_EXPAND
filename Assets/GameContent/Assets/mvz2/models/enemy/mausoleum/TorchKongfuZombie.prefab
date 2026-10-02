@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 627468981740637711}
   - component: {fileID: 1178751126628855339}
   - component: {fileID: 711507889538557465}
+  - component: {fileID: 5045164785627677425}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -99,6 +100,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &5045164785627677425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138176785753105659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -651146863, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+  - {fileID: -2053833057, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+  - {fileID: 1378123998, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+  - {fileID: -2058827774, guid: 165a945045c255843b5681f8fa31c975, type: 3}
+  propertyName: TorchStats
 --- !u!1001 &228791217112645459
 PrefabInstance:
   m_ObjectHideFlags: 0

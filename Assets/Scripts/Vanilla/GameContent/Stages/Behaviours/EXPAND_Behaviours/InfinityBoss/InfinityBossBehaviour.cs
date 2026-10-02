@@ -8,6 +8,7 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Bosses;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -200,15 +201,14 @@ namespace MVZ2.GameContent.Stages
             OnBossDefeated(level);
         }
 
-        // ============ 一个 Boss 被击杀 ============  
+        // ============ 一个 Boss 被击杀 ============
         private void OnBossDefeated(LevelEngine level)
         {
-            // 恢复默认音乐与关卡进度条（休息期间）。  
+            // 恢复默认音乐。进度条保持 boss 血条模式：休息期由"剩余休息时间"覆盖驱动（见 StartRest）。
             var musicID = level.GetMusicID();
             if (musicID != null)
                 level.PlayMusic(musicID);
             level.SetMusicVolume(1);
-            level.SetProgressBarToStage();
             // 把已死亡但仍留在场上的 Boss（如正邪倒地小人）从 Boss 血条统计中排除，  
             // 否则下一个 Boss 的血条会把先前尸体的最大血量也算进分母，导致开场血条不满。  
             foreach (var deadBoss in level.FindEntities(e => e.IsEntityOf(BossID) && e.IsDead))
@@ -221,6 +221,10 @@ namespace MVZ2.GameContent.Stages
             int bossKilled = GetBossKilled(level) + 1;
             SetBossKilled(level, bossKilled);
             RecordBossKills(level, bossKilled);
+
+            //EXPAND 每击杀 N 个 Boss：在 Boss 死亡处撒下钻石钱币奖励。
+            if (bossKilled % BossGemRewardEvery == 0)
+                SpawnBossGemReward(level);
 
             // 下一个 Boss 的序号 = 已击杀数（0-based：第 1 个是 index 0，故下一个用 bossKilled）。  
             SetBossIndex(level, bossKilled);
@@ -237,16 +241,21 @@ namespace MVZ2.GameContent.Stages
             SetState(level, STATE_RESTING);
         }
 
-        // ============ 休息阶段：倒计时结束后生成下一个 Boss ============  
+        // ============ 休息阶段：倒计时结束后生成下一个 Boss ============
         private void RestingUpdate(LevelEngine level)
         {
             var timer = GetRestTimer(level);
             if (timer == null)
                 return;
             timer.Run();
+            //EXPAND 血条跟随剩余休息时间下降（覆盖值单位为秒）。
+            SetHPOverrideCurrent(level, timer.Frame / (float)Ticks.FromSeconds(1));
             if (!timer.Expired)
                 return;
 
+            // 休息结束：提示 Boss 降临，清除血条覆盖，回归新 Boss 的实体血量统计。
+            level.ShowAdvice(LogicStrings.CONTEXT_ADVICE, BossIncomingString, 1000, 200);
+            SetHPOverrideActive(level, false);
             SpawnBoss(level, GetBossIndex(level));
             SetBossSeen(level, false);
             SetState(level, UsesSpawnTransition ? STATE_SPAWNING : STATE_FIGHTING);
@@ -257,6 +266,8 @@ namespace MVZ2.GameContent.Stages
         {
             if (!IsBossSpawned(level))
                 return;
+            //EXPAND Boss 已登场：清除血条覆盖，回归实体血量统计。
+            SetHPOverrideActive(level, false);
             var boss = FindSpawnedBoss(level);
             if (boss != null)
                 FinalizeSpawnedBoss(level, boss, GetBossIndex(level));
@@ -317,10 +328,17 @@ namespace MVZ2.GameContent.Stages
         // 战斗阶段是否刷新小怪波次（子类可在过场期间关闭）。
         protected virtual bool ShouldRunBossWave(LevelEngine level) => true;
 
-        // ============ 休息计时 ============  
+        // ============ 休息计时 ============
+        //EXPAND 休息期保持 boss 血条模式，血量条由"剩余休息时间"覆盖驱动（满条开始、随倒计时下降），
+        //覆盖值以【秒】为单位（血条文本直接显示剩余秒数），新 Boss 登场时清除覆盖，
+        //血条自动回归实体血量统计（见 LevelController_ProgressBar）。
         private void StartRest(LevelEngine level, int seconds)
         {
-            SetRestTimer(level, new FrameTimer(Ticks.FromSeconds(seconds)));
+            int ticks = Ticks.FromSeconds(seconds);
+            SetRestTimer(level, new FrameTimer(ticks));
+            SetHPOverrideActive(level, true);
+            SetHPOverrideMax(level, seconds);
+            SetHPOverrideCurrent(level, seconds);
         }
 
         // ============ 辅助 ============  
@@ -480,6 +498,22 @@ namespace MVZ2.GameContent.Stages
             }
         }
 
+        // ============ EXPAND 击杀 Boss 的钻石奖励 ============
+        // 每击杀 BossGemRewardEvery 个 Boss，在 Boss 死亡处撒下钻石（5000 钱 = 5 个钻石，经 GemEffect 拆分并自动飞入钱栏）。
+        protected virtual int BossGemRewardEvery => 3;
+        protected virtual int BossGemRewardMoney => 5000;
+        protected virtual void SpawnBossGemReward(LevelEngine level)
+        {
+            // 位置：取一个已死亡 Boss 的中心；尸体已被移除的 Boss 退化为场地中央。
+            var deadBoss = level.FindEntities(e => e.IsEntityOf(BossID) && e.IsDead).FirstOrDefault();
+            Vector3 position;
+            if (deadBoss != null)
+                position = deadBoss.GetCenter();
+            else
+                position = new Vector3(LevelPositions.ENEMY_RIGHT_BORDER / 2, 0, level.GetEntityLaneZ(level.GetMaxLaneCount() / 2));
+            GemEffect.SpawnGemEffects(level, BossGemRewardMoney, position, null, false, 60);
+        }
+
         // ============ 关卡属性存取 ============  
         private static int GetState(LevelEngine level) => level.GetProperty<int>(PROP_STATE);
         private static void SetState(LevelEngine level, int value) => level.SetProperty(PROP_STATE, value);
@@ -522,6 +556,17 @@ namespace MVZ2.GameContent.Stages
         public static readonly VanillaLevelPropertyMeta<bool> PROP_BOSS_SEEN = new VanillaLevelPropertyMeta<bool>("boss_seen");
         [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_REST_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("rest_timer");
+
+        // ============ EXPAND boss 血条覆盖属性（休息倒计时驱动血条，UI 层读取） ============
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<bool> PROP_BOSS_HP_OVERRIDE_ACTIVE = new VanillaLevelPropertyMeta<bool>("boss_hp_override_active");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<float> PROP_BOSS_HP_OVERRIDE_CURRENT = new VanillaLevelPropertyMeta<float>("boss_hp_override_current");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<float> PROP_BOSS_HP_OVERRIDE_MAX = new VanillaLevelPropertyMeta<float>("boss_hp_override_max");
+        private static void SetHPOverrideActive(LevelEngine level, bool value) => level.SetProperty(PROP_BOSS_HP_OVERRIDE_ACTIVE, value);
+        private static void SetHPOverrideCurrent(LevelEngine level, float value) => level.SetProperty(PROP_BOSS_HP_OVERRIDE_CURRENT, value);
+        private static void SetHPOverrideMax(LevelEngine level, float value) => level.SetProperty(PROP_BOSS_HP_OVERRIDE_MAX, value);
 
         // ============ EXPAND 增强选项的关卡属性（所有子类共用；同一时刻只运行一个关卡，无冲突） ============
         private const string UPGRADE_REGION = "infinity_boss_upgrade";
