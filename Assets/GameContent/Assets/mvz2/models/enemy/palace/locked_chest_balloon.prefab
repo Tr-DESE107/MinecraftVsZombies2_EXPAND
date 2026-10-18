@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 467426927927257654}
   - component: {fileID: 4988760195639938792}
   - component: {fileID: 87625362546514695}
-  - component: {fileID: 6781233701008382027}
+  - component: {fileID: 6467401938086106448}
+  - component: {fileID: 7228574159893431202}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -99,7 +100,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &6781233701008382027
+--- !u!114 &6467401938086106448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655363926352712378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 1682172674, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+  - {fileID: 423456091, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+  - {fileID: -177390105, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+  - {fileID: -1621122120, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+  - {fileID: 228274944, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+  - {fileID: -1782127867, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+  propertyName: BalloonType
+--- !u!114 &7228574159893431202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

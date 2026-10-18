@@ -126,12 +126,12 @@ TextureImporter:
       name: EXPANDispenser_Pistenser_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 40
         y: 48
         width: 43
-        height: 38
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: EXPANDispenser_Pistenser_1
       rect:
         serializedVersion: 2
-        x: 59
+        x: 90
         y: 48
         width: 43
-        height: 38
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: EXPANDispenser_Pistenser_2
       rect:
         serializedVersion: 2
-        x: 112
-        y: 77
-        width: 16
-        height: 9
+        x: 164
+        y: 49
+        width: 43
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: EXPANDispenser_Pistenser_3
       rect:
         serializedVersion: 2
-        x: 112
-        y: 67
-        width: 16
-        height: 9
+        x: 214
+        y: 49
+        width: 43
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: EXPANDispenser_Pistenser_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 47
+        x: 274
+        y: 48
+        width: 40
         height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: EXPANDispenser_Pistenser_5
       rect:
         serializedVersion: 2
-        x: 52
-        y: 1
-        width: 48
+        x: 324
+        y: 48
+        width: 40
         height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,6 +244,258 @@ TextureImporter:
       bones: []
       spriteID: e1e69328ac46c0d4bbdf2eca4ef09f72
       internalID: -1165760417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_6
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 49
+        width: 43
+        height: 38
+      alignment: 9
+      pivot: {x: 0.54, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72ec376bbb626f4d83f4d0614ae2c18
+      internalID: 340891791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_7
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 49
+        width: 43
+        height: 38
+      alignment: 9
+      pivot: {x: 0.54, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d76c6e3090fd2a4284910011754de41
+      internalID: 87911538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_8
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 78
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99993f917e0ccd14a95cd62be3baceaa
+      internalID: 993776414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_9
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 68
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3146c63df796c6f4eb710007f75d31c4
+      internalID: 773035937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54ab2e9b6bd8544997be0ba9bd46539
+      internalID: 1406598453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_11
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1
+        width: 48
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a80636f1c8757d84daed574922bb839b
+      internalID: -2045697923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_12
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 2
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605c0d95ecec5764c924e42ec9d68688
+      internalID: -2062405904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_13
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 2
+        width: 48
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a2ea720d00c1444813aefc9900e6b8
+      internalID: 1513907550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_14
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a1c58c3c7ed1442ac73296df27c689
+      internalID: 1988245076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_15
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af99e8f019a83694db99f97466b40d29
+      internalID: -263900204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_16
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 2
+        width: 47
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9ebe5222b537549b40195ffe2e6eb8
+      internalID: -193257809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EXPANDispenser_Pistenser_17
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 2
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a8b4ca3d5cd5c46ba4a9b2dbf3cba8
+      internalID: 329106267
       vertices: []
       indices: 
       edges: []
@@ -261,10 +513,22 @@ TextureImporter:
     nameFileIdTable:
       EXPANDispenser_Pistenser_0: 625386342
       EXPANDispenser_Pistenser_1: 113400460
+      EXPANDispenser_Pistenser_10: 1406598453
+      EXPANDispenser_Pistenser_11: -2045697923
+      EXPANDispenser_Pistenser_12: -2062405904
+      EXPANDispenser_Pistenser_13: 1513907550
+      EXPANDispenser_Pistenser_14: 1988245076
+      EXPANDispenser_Pistenser_15: -263900204
+      EXPANDispenser_Pistenser_16: -193257809
+      EXPANDispenser_Pistenser_17: 329106267
       EXPANDispenser_Pistenser_2: 1593412722
       EXPANDispenser_Pistenser_3: 1300612282
       EXPANDispenser_Pistenser_4: -285225682
       EXPANDispenser_Pistenser_5: -1165760417
+      EXPANDispenser_Pistenser_6: 340891791
+      EXPANDispenser_Pistenser_7: 87911538
+      EXPANDispenser_Pistenser_8: 993776414
+      EXPANDispenser_Pistenser_9: 773035937
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -130,6 +130,9 @@ MonoBehaviour:
   - name: arcade/GiantCrisis
     texture: {fileID: 2800000, guid: 1162ce482dc657f42888f74cada3662f, type: 3}
     tags: []
+  - name: arcade/HeavyWeaponShootBalloon
+    texture: {fileID: 2800000, guid: bef3ead7a1b3dc64f8747353a026d63c, type: 3}
+    tags: []
   - name: arcade/HeavyWeaponVSMannequin
     texture: {fileID: 2800000, guid: 3fd3b9c2dc4f29d44b72b11939fd85f8, type: 3}
     tags: []
@@ -210,6 +213,12 @@ MonoBehaviour:
     tags: []
   - name: arcade/SeijaRevenge
     texture: {fileID: 2800000, guid: 05bd01ecfceda5f4897c446b696f7cd1, type: 3}
+    tags: []
+  - name: arcade/ShootBalloon
+    texture: {fileID: 2800000, guid: 95f829664d0a9a546a6f77238e24443d, type: 3}
+    tags: []
+  - name: arcade/ShootBalloon2
+    texture: {fileID: 2800000, guid: 7db8af8a2bd227c4ab008d2eeaa1514e, type: 3}
     tags: []
   - name: arcade/the_giants_revenge
     texture: {fileID: 2800000, guid: 0d4b43785901a8f4390699a767958f94, type: 3}
@@ -342,6 +351,9 @@ MonoBehaviour:
     tags: []
   - name: artifacts/InfiniteCore
     texture: {fileID: 2800000, guid: c2d89328fa3443848b34b0cb813c0ad0, type: 3}
+    tags: []
+  - name: artifacts/InfiniteCore_Old
+    texture: {fileID: 2800000, guid: 3783dfea2c3291a47afbf50095ff6951, type: 3}
     tags: []
   - name: artifacts/inverted_mirror
     texture: {fileID: 2800000, guid: d12e7157df0411749ab53333da0a507d, type: 3}
@@ -1131,11 +1143,17 @@ MonoBehaviour:
   - name: mobile_blueprint/HeavyWeaponAttackUp
     texture: {fileID: 2800000, guid: 3457c242aef3c50469c3c8037c8a69e6, type: 3}
     tags: []
+  - name: mobile_blueprint/HeavyWeaponBulletCount
+    texture: {fileID: 2800000, guid: 081d579b6731a884dbcbc99d93e517a6, type: 3}
+    tags: []
   - name: mobile_blueprint/HeavyWeaponBulletUpgrade
     texture: {fileID: 2800000, guid: 8a1476027b3fff44682620fac7e16247, type: 3}
     tags: []
   - name: mobile_blueprint/HeavyWeaponContraptionRecovery
     texture: {fileID: 2800000, guid: dbd10e0fe022f0044b329ed207974a0d, type: 3}
+    tags: []
+  - name: mobile_blueprint/HeavyWeaponContraptionSwap
+    texture: {fileID: 2800000, guid: cc48b9528f68b20458956276aed0c2e9, type: 3}
     tags: []
   - name: mobile_blueprint/HeavyWeaponEnderPearl
     texture: {fileID: 2800000, guid: 4a22ae9d263652d42a4d5ef460c6f9e9, type: 3}
@@ -1470,17 +1488,26 @@ MonoBehaviour:
   - name: mobile_blueprint/Randombstone
     texture: {fileID: 2800000, guid: 2219642330b788f41959a1b4bdca1506, type: 3}
     tags: []
+  - name: mobile_blueprint/RandomEnemy
+    texture: {fileID: 2800000, guid: 9c71c68fc2d193f42aead21219d0c05e, type: 3}
+    tags: []
   - name: mobile_blueprint/RandomImp
     texture: {fileID: 2800000, guid: d32ee8354a9a0ab49ba5cd903b5a0495, type: 3}
     tags: []
   - name: mobile_blueprint/RandomKingSkeleton
     texture: {fileID: 2800000, guid: cdf7b39039af96945b294231cc85b615, type: 3}
     tags: []
+  - name: mobile_blueprint/RandomMannequin
+    texture: {fileID: 2800000, guid: a82bf19cd8ff1cb46a9f6192aba0b587, type: 3}
+    tags: []
   - name: mobile_blueprint/RandomMutant
     texture: {fileID: 2800000, guid: 09bafedd0d8184c498cefddd99edf39d, type: 3}
     tags: []
   - name: mobile_blueprint/RandomSkeleton
     texture: {fileID: 2800000, guid: 9b6dab228eaeddf4f910056ea4e4b8e9, type: 3}
+    tags: []
+  - name: mobile_blueprint/RandomSpider
+    texture: {fileID: 2800000, guid: 8b47a02d8a5b94646a64744a176ef476, type: 3}
     tags: []
   - name: mobile_blueprint/RandomZombie
     texture: {fileID: 2800000, guid: 3d6bf327ed09d9f4fbcc43fd19b35758, type: 3}
@@ -1803,11 +1830,17 @@ MonoBehaviour:
   - name: options/HeavyWeaponAttackUp
     texture: {fileID: 2800000, guid: 102631c9b075f8449884c53127242754, type: 3}
     tags: []
+  - name: options/HeavyWeaponBulletCount
+    texture: {fileID: 2800000, guid: 8dbbb5f727946924da65631b77bd8cc1, type: 3}
+    tags: []
   - name: options/HeavyWeaponBulletUpgrade
     texture: {fileID: 2800000, guid: a01ab9154c5b1eb4cb185b91c9b505ec, type: 3}
     tags: []
   - name: options/HeavyWeaponContraptionRecovery
     texture: {fileID: 2800000, guid: 36f7cdb5152762946adda08466660a5f, type: 3}
+    tags: []
+  - name: options/HeavyWeaponContraptionSwap
+    texture: {fileID: 2800000, guid: 1f2f47a5236a63143822fc0d6b242417, type: 3}
     tags: []
   - name: options/HeavyWeaponEnderPearl
     texture: {fileID: 2800000, guid: 79ae29d9bfbfc5543884ee1932bf8bab, type: 3}
@@ -2035,14 +2068,26 @@ MonoBehaviour:
   - name: arcade/iz/puzzle_all_your_observes_are_belong_to_us
     texture: {fileID: 2800000, guid: 4645fad2157b265429ee36dd52645003, type: 3}
     tags: []
+  - name: arcade/iz/puzzle_among_us
+    texture: {fileID: 2800000, guid: 8486146f42c7dd543afe7f56c74fda34, type: 3}
+    tags: []
+  - name: arcade/iz/puzzle_break_apart
+    texture: {fileID: 2800000, guid: 851cb5aaad3ad1d49b513f782589fe3f, type: 3}
+    tags: []
   - name: arcade/iz/puzzle_can_you_pass_it
     texture: {fileID: 2800000, guid: 68a29b6e72abdd043bd05f88aac0eae2, type: 3}
+    tags: []
+  - name: arcade/iz/puzzle_catzomware
+    texture: {fileID: 2800000, guid: a37171e343036dd49a50079cb29a04f4, type: 3}
     tags: []
   - name: arcade/iz/puzzle_dead_balloon
     texture: {fileID: 2800000, guid: 7e1c48a0f1b4e9e4cb2959652d229f80, type: 3}
     tags: []
   - name: arcade/iz/puzzle_fire_in_the_hole
     texture: {fileID: 2800000, guid: fee9b43affcd8f447aa2989b0c0abee5, type: 3}
+    tags: []
+  - name: arcade/iz/puzzle_im_in_charge_now
+    texture: {fileID: 2800000, guid: c72f28152d4661448a12bf4e6dd5f319, type: 3}
     tags: []
   - name: arcade/iz/puzzle_i_skeleton
     texture: {fileID: 2800000, guid: 153901630f9f4e048a028c67bdc6fbac, type: 3}
@@ -2295,9 +2340,6 @@ MonoBehaviour:
     tags: []
   - name: entity/contraption/cooling_cell
     texture: {fileID: 2800000, guid: d4bcf7cba68b73548a93f2447318868f, type: 3}
-    tags: []
-  - name: entity/contraption/CopperDropper
-    texture: {fileID: 2800000, guid: cb9206e7898044c42b1f727f243a7140, type: 3}
     tags: []
   - name: entity/contraption/cursed_candle
     texture: {fileID: 2800000, guid: b64d127ba254f6f4b9e04521dd13e6fd, type: 3}
@@ -3216,6 +3258,9 @@ MonoBehaviour:
     tags: []
   - name: entity/EXPAND_Enemy/endermite
     texture: {fileID: 2800000, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/endermite_death
+    texture: {fileID: 2800000, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
     tags: []
   - name: entity/EXPAND_Enemy/EnragedHostZombie
     texture: {fileID: 2800000, guid: 75610e8daf86e8c41ad89c76cd4e7e17, type: 3}
@@ -4288,6 +4333,9 @@ MonoBehaviour:
   - name: entity/armor/EXPAND_armor/HostHelmet
     texture: {fileID: 2800000, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}
     tags: []
+  - name: entity/armor/EXPAND_armor/HostHelmet_censored
+    texture: {fileID: 2800000, guid: 2f1f69a067e5f814abad8f4787aff611, type: 3}
+    tags: []
   - name: entity/armor/EXPAND_armor/ImperialGuardHelmet
     texture: {fileID: 2800000, guid: 1356ae977400d3f43969bb3779c08f37, type: 3}
     tags: []
@@ -4342,14 +4390,26 @@ MonoBehaviour:
   - name: entity/armor/EXPAND_armor/WealthHat
     texture: {fileID: 2800000, guid: bcbafe97c92af034e908bbba563c22d8, type: 3}
     tags: []
+  - name: entity/armor/EXPAND_shield/IronDoor
+    texture: {fileID: 2800000, guid: d5f69c91b35367c409d432fcb781653a, type: 3}
+    tags: []
+  - name: entity/armor/EXPAND_shield/OakDoor
+    texture: {fileID: 2800000, guid: 6ccf9f2e24fcc0b4c86908d53b865817, type: 3}
+    tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Dispenser
     texture: {fileID: 2800000, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
-    texture: {fileID: 2800000, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    texture: {fileID: 2800000, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_DrivenserGear
+    texture: {fileID: 2800000, guid: 1df351e73509faf4490f67d55a6e2029, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
     texture: {fileID: 2800000, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_PistenserTop
+    texture: {fileID: 2800000, guid: 30beb36a0adec5443b340f638e3e518f, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Poisonser
     texture: {fileID: 2800000, guid: b4867d825a4c72643b99bc7746decf1e, type: 3}
@@ -4387,6 +4447,12 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/BrainInVat
     texture: {fileID: 2800000, guid: 4b426ba30a41bf240aac8f69b4a3510c, type: 3}
     tags: []
+  - name: entity/contraption/EXPAND_Contraption/CopperDropper
+    texture: {fileID: 2800000, guid: cb9206e7898044c42b1f727f243a7140, type: 3}
+    tags: []
+  - name: entity/contraption/EXPAND_Contraption/CopperDropper_0235
+    texture: {fileID: 2800000, guid: 4a15051768bd02a429ae025a3a8812db, type: 3}
+    tags: []
   - name: entity/contraption/EXPAND_Contraption/Crafter
     texture: {fileID: 2800000, guid: 9eb3b5acb64a3674b88b7ad3b29c81d8, type: 3}
     tags: []
@@ -4401,9 +4467,6 @@ MonoBehaviour:
     tags: []
   - name: entity/contraption/EXPAND_Contraption/Eradicator
     texture: {fileID: 2800000, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    texture: {fileID: 2800000, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
     tags: []
   - name: entity/contraption/EXPAND_Contraption/ExplosionCore_GlowingObsidian
     texture: {fileID: 2800000, guid: 1fadbf08bd9a0504db10721f41834d1c, type: 3}
@@ -4465,6 +4528,9 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/WoodenDropper
     texture: {fileID: 2800000, guid: 98377024446ed9c44aa8cb49fd8dd64f, type: 3}
     tags: []
+  - name: entity/contraption/EXPAND_Skin/CoolingCell
+    texture: {fileID: 2800000, guid: 067c63d6948db0f44b9f5c65ebe0d7fd, type: 3}
+    tags: []
   - name: entity/contraption/EXPAND_Skin/FirechargeDispenser
     texture: {fileID: 2800000, guid: 3c59bd362faf03c4b80f3be3c03de00c, type: 3}
     tags: []
@@ -4504,6 +4570,9 @@ MonoBehaviour:
   - name: entity/EXPAND_Enemy/C6/AncientGhost
     texture: {fileID: 2800000, guid: b61c5078162e1274e8a13b8e115a4c33, type: 3}
     tags: []
+  - name: entity/EXPAND_Enemy/C6/Balloon
+    texture: {fileID: 2800000, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+    tags: []
   - name: entity/EXPAND_Enemy/C6/NetherHunter
     texture: {fileID: 2800000, guid: f8e0894f904137a429e0d7e436ee9f3d, type: 3}
     tags: []
@@ -4524,6 +4593,12 @@ MonoBehaviour:
     tags: []
   - name: entity/EXPAND_Enemy/C6/WraithWarrior
     texture: {fileID: 2800000, guid: 0b65bbdc14d04884da554c22c439bb55, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/Host/AberrantHostZombie
+    texture: {fileID: 2800000, guid: a6a4e37a98e19de4f8c76ac4b2ad5e2c, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/Host/AberrantHostZombie_censored
+    texture: {fileID: 2800000, guid: 0631963a30b407c4495ffa4eed0f3951, type: 3}
     tags: []
   - name: entity/EXPAND_Enemy/Mannequin/CannonballMannequin
     texture: {fileID: 2800000, guid: 62afbe0ab6db40946a9e224abdc9d177, type: 3}
@@ -4557,6 +4632,9 @@ MonoBehaviour:
     tags: []
   - name: entity/EXPAND_Enemy/RandomEnemy/RandomSpider
     texture: {fileID: 2800000, guid: e6e320f9df0a37c49a0d6f38ffae7cdc, type: 3}
+    tags: []
+  - name: entity/projectile/EXPAND_projectiles/AndesiteAlloySpike
+    texture: {fileID: 2800000, guid: 63bfb0648a3690647862ded6613bbead, type: 3}
     tags: []
   - name: entity/projectile/EXPAND_projectiles/BigFireCharge
     texture: {fileID: 2800000, guid: 4d8952eef7a6e0541970cb1fffbdb1a4, type: 3}
@@ -4639,6 +4717,9 @@ MonoBehaviour:
   - name: map/gensokyo/pins/ship
     texture: {fileID: 2800000, guid: a530bd663cca7d34aa3b3fd92ffddc00, type: 3}
     tags: []
+  - name: ui/almanac/EXPAND_Tag/BodyType
+    texture: {fileID: 2800000, guid: 1e419583af9144740988beecf5ba6bf2, type: 3}
+    tags: []
   - name: ui/almanac/EXPAND_Tag/Contraption_ALL
     texture: {fileID: 2800000, guid: ad9e7909a6ed17048a163d4868bc1308, type: 3}
     tags: []
@@ -4668,6 +4749,9 @@ MonoBehaviour:
     tags: []
   - name: ui/almanac/EXPAND_Tag/Contraption_Up
     texture: {fileID: 2800000, guid: a09e4c0816a1e1748b36d4f04b3f1529, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    texture: {fileID: 2800000, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
     tags: []
   - name: ui/almanac/EXPAND_Tag/Expand_Attribute
     texture: {fileID: 2800000, guid: 5ecca9c7098d1ee4f980a7d6b2f3ee96, type: 3}
@@ -5122,6 +5206,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 1162ce482dc657f42888f74cada3662f, type: 3}
     tags: []
+  - name: arcade/HeavyWeaponShootBalloon
+    index: 0
+    sprite: {fileID: 21300000, guid: bef3ead7a1b3dc64f8747353a026d63c, type: 3}
+    tags: []
   - name: arcade/HeavyWeaponVSMannequin
     index: 0
     sprite: {fileID: 21300000, guid: 3fd3b9c2dc4f29d44b72b11939fd85f8, type: 3}
@@ -5229,6 +5317,14 @@ MonoBehaviour:
   - name: arcade/SeijaRevenge
     index: 0
     sprite: {fileID: 21300000, guid: 05bd01ecfceda5f4897c446b696f7cd1, type: 3}
+    tags: []
+  - name: arcade/ShootBalloon
+    index: 0
+    sprite: {fileID: 21300000, guid: 95f829664d0a9a546a6f77238e24443d, type: 3}
+    tags: []
+  - name: arcade/ShootBalloon2
+    index: 0
+    sprite: {fileID: 21300000, guid: 7db8af8a2bd227c4ab008d2eeaa1514e, type: 3}
     tags: []
   - name: arcade/the_giants_revenge
     index: 0
@@ -5405,6 +5501,10 @@ MonoBehaviour:
   - name: artifacts/InfiniteCore
     index: 0
     sprite: {fileID: 21300000, guid: c2d89328fa3443848b34b0cb813c0ad0, type: 3}
+    tags: []
+  - name: artifacts/InfiniteCore_Old
+    index: 0
+    sprite: {fileID: 21300000, guid: 3783dfea2c3291a47afbf50095ff6951, type: 3}
     tags: []
   - name: artifacts/inverted_mirror
     index: 0
@@ -7052,6 +7152,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 3457c242aef3c50469c3c8037c8a69e6, type: 3}
     tags: []
+  - name: mobile_blueprint/HeavyWeaponBulletCount
+    index: 0
+    sprite: {fileID: 21300000, guid: 081d579b6731a884dbcbc99d93e517a6, type: 3}
+    tags: []
   - name: mobile_blueprint/HeavyWeaponBulletUpgrade
     index: 0
     sprite: {fileID: 21300000, guid: 8a1476027b3fff44682620fac7e16247, type: 3}
@@ -7059,6 +7163,10 @@ MonoBehaviour:
   - name: mobile_blueprint/HeavyWeaponContraptionRecovery
     index: 0
     sprite: {fileID: 21300000, guid: dbd10e0fe022f0044b329ed207974a0d, type: 3}
+    tags: []
+  - name: mobile_blueprint/HeavyWeaponContraptionSwap
+    index: 0
+    sprite: {fileID: 21300000, guid: cc48b9528f68b20458956276aed0c2e9, type: 3}
     tags: []
   - name: mobile_blueprint/HeavyWeaponEnderPearl
     index: 0
@@ -7504,6 +7612,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 2219642330b788f41959a1b4bdca1506, type: 3}
     tags: []
+  - name: mobile_blueprint/RandomEnemy
+    index: 0
+    sprite: {fileID: 21300000, guid: 9c71c68fc2d193f42aead21219d0c05e, type: 3}
+    tags: []
   - name: mobile_blueprint/RandomImp
     index: 0
     sprite: {fileID: 21300000, guid: d32ee8354a9a0ab49ba5cd903b5a0495, type: 3}
@@ -7512,6 +7624,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: cdf7b39039af96945b294231cc85b615, type: 3}
     tags: []
+  - name: mobile_blueprint/RandomMannequin
+    index: 0
+    sprite: {fileID: 21300000, guid: a82bf19cd8ff1cb46a9f6192aba0b587, type: 3}
+    tags: []
   - name: mobile_blueprint/RandomMutant
     index: 0
     sprite: {fileID: 21300000, guid: 09bafedd0d8184c498cefddd99edf39d, type: 3}
@@ -7519,6 +7635,10 @@ MonoBehaviour:
   - name: mobile_blueprint/RandomSkeleton
     index: 0
     sprite: {fileID: 21300000, guid: 9b6dab228eaeddf4f910056ea4e4b8e9, type: 3}
+    tags: []
+  - name: mobile_blueprint/RandomSpider
+    index: 0
+    sprite: {fileID: 21300000, guid: 8b47a02d8a5b94646a64744a176ef476, type: 3}
     tags: []
   - name: mobile_blueprint/RandomZombie
     index: 0
@@ -7948,6 +8068,10 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 102631c9b075f8449884c53127242754, type: 3}
     tags: []
+  - name: options/HeavyWeaponBulletCount
+    index: 0
+    sprite: {fileID: 21300000, guid: 8dbbb5f727946924da65631b77bd8cc1, type: 3}
+    tags: []
   - name: options/HeavyWeaponBulletUpgrade
     index: 0
     sprite: {fileID: 21300000, guid: a01ab9154c5b1eb4cb185b91c9b505ec, type: 3}
@@ -7955,6 +8079,10 @@ MonoBehaviour:
   - name: options/HeavyWeaponContraptionRecovery
     index: 0
     sprite: {fileID: 21300000, guid: 36f7cdb5152762946adda08466660a5f, type: 3}
+    tags: []
+  - name: options/HeavyWeaponContraptionSwap
+    index: 0
+    sprite: {fileID: 21300000, guid: 1f2f47a5236a63143822fc0d6b242417, type: 3}
     tags: []
   - name: options/HeavyWeaponEnderPearl
     index: 0
@@ -8509,9 +8637,21 @@ MonoBehaviour:
     index: 0
     sprite: {fileID: 21300000, guid: 4645fad2157b265429ee36dd52645003, type: 3}
     tags: []
+  - name: arcade/iz/puzzle_among_us
+    index: 0
+    sprite: {fileID: 21300000, guid: 8486146f42c7dd543afe7f56c74fda34, type: 3}
+    tags: []
+  - name: arcade/iz/puzzle_break_apart
+    index: 0
+    sprite: {fileID: 21300000, guid: 851cb5aaad3ad1d49b513f782589fe3f, type: 3}
+    tags: []
   - name: arcade/iz/puzzle_can_you_pass_it
     index: 0
     sprite: {fileID: 21300000, guid: 68a29b6e72abdd043bd05f88aac0eae2, type: 3}
+    tags: []
+  - name: arcade/iz/puzzle_catzomware
+    index: 0
+    sprite: {fileID: 21300000, guid: a37171e343036dd49a50079cb29a04f4, type: 3}
     tags: []
   - name: arcade/iz/puzzle_dead_balloon
     index: 0
@@ -8520,6 +8660,10 @@ MonoBehaviour:
   - name: arcade/iz/puzzle_fire_in_the_hole
     index: 0
     sprite: {fileID: 21300000, guid: fee9b43affcd8f447aa2989b0c0abee5, type: 3}
+    tags: []
+  - name: arcade/iz/puzzle_im_in_charge_now
+    index: 0
+    sprite: {fileID: 21300000, guid: c72f28152d4661448a12bf4e6dd5f319, type: 3}
     tags: []
   - name: arcade/iz/puzzle_i_skeleton
     index: 0
@@ -9560,10 +9704,6 @@ MonoBehaviour:
   - name: entity/contraption/cooling_cell
     index: 0
     sprite: {fileID: 21300000, guid: d4bcf7cba68b73548a93f2447318868f, type: 3}
-    tags: []
-  - name: entity/contraption/CopperDropper
-    index: 0
-    sprite: {fileID: 21300000, guid: cb9206e7898044c42b1f727f243a7140, type: 3}
     tags: []
   - name: entity/contraption/cursed_candle
     index: 0
@@ -13218,6 +13358,22 @@ MonoBehaviour:
   - name: entity/EXPAND_Enemy/endermite
     index: 5
     sprite: {fileID: -1719395835, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/endermite_death
+    index: 0
+    sprite: {fileID: -1849566280, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/endermite_death
+    index: 1
+    sprite: {fileID: -757196219, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/endermite_death
+    index: 2
+    sprite: {fileID: -886826685, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/endermite_death
+    index: 3
+    sprite: {fileID: 1038854137, guid: cf506c317725f7e4fb2b1623a0aedadf, type: 3}
     tags: []
   - name: entity/EXPAND_Enemy/EnragedHostZombie
     index: 0
@@ -17074,6 +17230,10 @@ MonoBehaviour:
     index: 2
     sprite: {fileID: -761374647, guid: 8ef0c48b76820b044971c6a3fd7d5340, type: 3}
     tags: []
+  - name: entity/armor/EXPAND_armor/HostHelmet_censored
+    index: 0
+    sprite: {fileID: 21300000, guid: 2f1f69a067e5f814abad8f4787aff611, type: 3}
+    tags: []
   - name: entity/armor/EXPAND_armor/ImperialGuardHelmet
     index: 0
     sprite: {fileID: 953825088, guid: 1356ae977400d3f43969bb3779c08f37, type: 3}
@@ -17262,6 +17422,18 @@ MonoBehaviour:
     index: 2
     sprite: {fileID: 421555711, guid: bcbafe97c92af034e908bbba563c22d8, type: 3}
     tags: []
+  - name: entity/armor/EXPAND_shield/OakDoor
+    index: 0
+    sprite: {fileID: 1986932640, guid: 6ccf9f2e24fcc0b4c86908d53b865817, type: 3}
+    tags: []
+  - name: entity/armor/EXPAND_shield/OakDoor
+    index: 1
+    sprite: {fileID: 1634693599, guid: 6ccf9f2e24fcc0b4c86908d53b865817, type: 3}
+    tags: []
+  - name: entity/armor/EXPAND_shield/OakDoor
+    index: 2
+    sprite: {fileID: -1180649902, guid: 6ccf9f2e24fcc0b4c86908d53b865817, type: 3}
+    tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Dispenser
     index: 0
     sprite: {fileID: -239834745, guid: 7a6292ac4039da54aa611bdd17f9ce1e, type: 3}
@@ -17300,39 +17472,83 @@ MonoBehaviour:
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 0
-    sprite: {fileID: 256080187, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: -473391636, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 1
-    sprite: {fileID: 268691920, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: -1143968140, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 2
-    sprite: {fileID: 79647810, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: 624458245, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 3
-    sprite: {fileID: 1452022235, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: 297321415, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 4
-    sprite: {fileID: -775189447, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: -238236948, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 5
-    sprite: {fileID: 2128045280, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: -828880511, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 6
-    sprite: {fileID: 746757947, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: -2062847507, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 7
-    sprite: {fileID: -2118142002, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: 1441550153, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
     index: 8
-    sprite: {fileID: -1152702059, guid: a6a0e2c3323ebcf469d5e3591dfb9e2a, type: 3}
+    sprite: {fileID: 1339142568, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
+    index: 9
+    sprite: {fileID: -481185807, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
+    index: 10
+    sprite: {fileID: 1766715956, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
+    index: 11
+    sprite: {fileID: 331251214, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
+    index: 12
+    sprite: {fileID: -259427744, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
+    index: 13
+    sprite: {fileID: -1866731557, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Drivenser
+    index: 14
+    sprite: {fileID: -776481205, guid: fb8c64466349e53458c02d90fbd0af9b, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_DrivenserGear
+    index: 0
+    sprite: {fileID: 536207671, guid: 1df351e73509faf4490f67d55a6e2029, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_DrivenserGear
+    index: 1
+    sprite: {fileID: 157928090, guid: 1df351e73509faf4490f67d55a6e2029, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_DrivenserGear
+    index: 2
+    sprite: {fileID: -1379372962, guid: 1df351e73509faf4490f67d55a6e2029, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_DrivenserGear
+    index: 3
+    sprite: {fileID: 574918353, guid: 1df351e73509faf4490f67d55a6e2029, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_DrivenserGear
+    index: 4
+    sprite: {fileID: -552839806, guid: 1df351e73509faf4490f67d55a6e2029, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
     index: 0
@@ -17357,6 +17573,82 @@ MonoBehaviour:
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
     index: 5
     sprite: {fileID: -1165760417, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 6
+    sprite: {fileID: 340891791, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 7
+    sprite: {fileID: 87911538, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 8
+    sprite: {fileID: 993776414, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 9
+    sprite: {fileID: 773035937, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 10
+    sprite: {fileID: 1406598453, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 11
+    sprite: {fileID: -2045697923, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 12
+    sprite: {fileID: -2062405904, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 13
+    sprite: {fileID: 1513907550, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 14
+    sprite: {fileID: 1988245076, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 15
+    sprite: {fileID: -263900204, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 16
+    sprite: {fileID: -193257809, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Pistenser
+    index: 17
+    sprite: {fileID: 329106267, guid: 476e5aa3836c8934298abc50b0c1bea8, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_PistenserTop
+    index: 0
+    sprite: {fileID: -263212115, guid: 30beb36a0adec5443b340f638e3e518f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_PistenserTop
+    index: 1
+    sprite: {fileID: -1111022782, guid: 30beb36a0adec5443b340f638e3e518f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_PistenserTop
+    index: 2
+    sprite: {fileID: 739644718, guid: 30beb36a0adec5443b340f638e3e518f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_PistenserTop
+    index: 3
+    sprite: {fileID: 723849390, guid: 30beb36a0adec5443b340f638e3e518f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_PistenserTop
+    index: 4
+    sprite: {fileID: 626252532, guid: 30beb36a0adec5443b340f638e3e518f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_PistenserTop
+    index: 5
+    sprite: {fileID: -1782854493, guid: 30beb36a0adec5443b340f638e3e518f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_PistenserTop
+    index: 6
+    sprite: {fileID: -1628626852, guid: 30beb36a0adec5443b340f638e3e518f, type: 3}
     tags: []
   - name: entity/contraption/EXPANDispenser/EXPANDispenser_Poisonser
     index: 0
@@ -17586,6 +17878,50 @@ MonoBehaviour:
     index: 10
     sprite: {fileID: 1547866108, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
     tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 11
+    sprite: {fileID: 2059088069, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 12
+    sprite: {fileID: -936771158, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 13
+    sprite: {fileID: -1248149048, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 14
+    sprite: {fileID: -62372609, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 15
+    sprite: {fileID: -470726303, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 16
+    sprite: {fileID: -2078935186, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 17
+    sprite: {fileID: -1692999659, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 18
+    sprite: {fileID: 1840810008, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 19
+    sprite: {fileID: -1326806310, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 20
+    sprite: {fileID: -1091360601, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
+  - name: entity/contraption/EXPANDispenser/EXPANDispenser_Triplenser
+    index: 21
+    sprite: {fileID: 1195306588, guid: d54b05e470a955440b4826fdf5bfa46f, type: 3}
+    tags: []
   - name: entity/contraption/EXPAND_Contraption/AncientBrickShield
     index: 0
     sprite: {fileID: -1005989088, guid: 293d6e34d30c96442b88284330ea423c, type: 3}
@@ -17638,6 +17974,26 @@ MonoBehaviour:
     index: 3
     sprite: {fileID: 1791763398, guid: 4b426ba30a41bf240aac8f69b4a3510c, type: 3}
     tags: []
+  - name: entity/contraption/EXPAND_Contraption/CopperDropper
+    index: 0
+    sprite: {fileID: 21300000, guid: cb9206e7898044c42b1f727f243a7140, type: 3}
+    tags: []
+  - name: entity/contraption/EXPAND_Contraption/CopperDropper_0235
+    index: 0
+    sprite: {fileID: -1273232893, guid: 4a15051768bd02a429ae025a3a8812db, type: 3}
+    tags: []
+  - name: entity/contraption/EXPAND_Contraption/CopperDropper_0235
+    index: 1
+    sprite: {fileID: -758214473, guid: 4a15051768bd02a429ae025a3a8812db, type: 3}
+    tags: []
+  - name: entity/contraption/EXPAND_Contraption/CopperDropper_0235
+    index: 2
+    sprite: {fileID: 1550295060, guid: 4a15051768bd02a429ae025a3a8812db, type: 3}
+    tags: []
+  - name: entity/contraption/EXPAND_Contraption/CopperDropper_0235
+    index: 3
+    sprite: {fileID: 685030226, guid: 4a15051768bd02a429ae025a3a8812db, type: 3}
+    tags: []
   - name: entity/contraption/EXPAND_Contraption/Crafter
     index: 0
     sprite: {fileID: 337110248, guid: 9eb3b5acb64a3674b88b7ad3b29c81d8, type: 3}
@@ -17685,38 +18041,6 @@ MonoBehaviour:
   - name: entity/contraption/EXPAND_Contraption/Eradicator
     index: 3
     sprite: {fileID: -1668233880, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    index: 0
-    sprite: {fileID: -1108916319, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    index: 1
-    sprite: {fileID: 1974756629, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    index: 2
-    sprite: {fileID: -1950983147, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    index: 3
-    sprite: {fileID: 964857577, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    index: 4
-    sprite: {fileID: -1809084736, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    index: 5
-    sprite: {fileID: -886510208, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    index: 6
-    sprite: {fileID: -335878768, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
-    tags: []
-  - name: entity/contraption/EXPAND_Contraption/EXPANDispenser_Drivenser
-    index: 7
-    sprite: {fileID: -549213879, guid: 74d20e5d00a671e4c8fc95b83b0e9703, type: 3}
     tags: []
   - name: entity/contraption/EXPAND_Contraption/ExplosionCore_GlowingObsidian
     index: 0
@@ -18038,6 +18362,10 @@ MonoBehaviour:
     index: 2
     sprite: {fileID: 1127546194, guid: 98377024446ed9c44aa8cb49fd8dd64f, type: 3}
     tags: []
+  - name: entity/contraption/EXPAND_Skin/CoolingCell
+    index: 0
+    sprite: {fileID: 21300000, guid: 067c63d6948db0f44b9f5c65ebe0d7fd, type: 3}
+    tags: []
   - name: entity/contraption/EXPAND_Skin/FirechargeDispenser
     index: 0
     sprite: {fileID: 1937529910, guid: 3c59bd362faf03c4b80f3be3c03de00c, type: 3}
@@ -18218,6 +18546,30 @@ MonoBehaviour:
     index: 4
     sprite: {fileID: -1847926658, guid: b61c5078162e1274e8a13b8e115a4c33, type: 3}
     tags: []
+  - name: entity/EXPAND_Enemy/C6/Balloon
+    index: 0
+    sprite: {fileID: 1682172674, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/C6/Balloon
+    index: 1
+    sprite: {fileID: 423456091, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/C6/Balloon
+    index: 2
+    sprite: {fileID: -177390105, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/C6/Balloon
+    index: 3
+    sprite: {fileID: -1621122120, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/C6/Balloon
+    index: 4
+    sprite: {fileID: 228274944, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/C6/Balloon
+    index: 5
+    sprite: {fileID: -1782127867, guid: 84a592dd8e4487b4daeb56d239c14555, type: 3}
+    tags: []
   - name: entity/EXPAND_Enemy/C6/NetherHunter
     index: 0
     sprite: {fileID: 1514042077, guid: f8e0894f904137a429e0d7e436ee9f3d, type: 3}
@@ -18389,6 +18741,14 @@ MonoBehaviour:
   - name: entity/EXPAND_Enemy/C6/WraithWarrior
     index: 5
     sprite: {fileID: -2098664701, guid: 0b65bbdc14d04884da554c22c439bb55, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/Host/AberrantHostZombie
+    index: 0
+    sprite: {fileID: 21300000, guid: a6a4e37a98e19de4f8c76ac4b2ad5e2c, type: 3}
+    tags: []
+  - name: entity/EXPAND_Enemy/Host/AberrantHostZombie_censored
+    index: 0
+    sprite: {fileID: 21300000, guid: 0631963a30b407c4495ffa4eed0f3951, type: 3}
     tags: []
   - name: entity/EXPAND_Enemy/Mannequin/CannonballMannequin
     index: 0
@@ -18658,6 +19018,10 @@ MonoBehaviour:
     index: 4
     sprite: {fileID: -1504816246, guid: e6e320f9df0a37c49a0d6f38ffae7cdc, type: 3}
     tags: []
+  - name: entity/projectile/EXPAND_projectiles/AndesiteAlloySpike
+    index: 0
+    sprite: {fileID: 21300000, guid: 63bfb0648a3690647862ded6613bbead, type: 3}
+    tags: []
   - name: entity/projectile/EXPAND_projectiles/BigFireCharge
     index: 0
     sprite: {fileID: 21300000, guid: 4d8952eef7a6e0541970cb1fffbdb1a4, type: 3}
@@ -18765,6 +19129,10 @@ MonoBehaviour:
   - name: map/gensokyo/pins/ship
     index: 0
     sprite: {fileID: 21300000, guid: a530bd663cca7d34aa3b3fd92ffddc00, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/BodyType
+    index: 0
+    sprite: {fileID: 21300000, guid: 1e419583af9144740988beecf5ba6bf2, type: 3}
     tags: []
   - name: ui/almanac/EXPAND_Tag/Contraption_C0
     index: 0
@@ -19097,6 +19465,38 @@ MonoBehaviour:
   - name: ui/almanac/EXPAND_Tag/Contraption_Up
     index: 10
     sprite: {fileID: 1740380871, guid: a09e4c0816a1e1748b36d4f04b3f1529, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    index: 0
+    sprite: {fileID: -2137979018, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    index: 1
+    sprite: {fileID: 288584878, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    index: 2
+    sprite: {fileID: 1903657248, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    index: 3
+    sprite: {fileID: -1330819033, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    index: 4
+    sprite: {fileID: 253404823, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    index: 5
+    sprite: {fileID: 1460208406, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    index: 6
+    sprite: {fileID: -1411588544, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
+    tags: []
+  - name: ui/almanac/EXPAND_Tag/EXPANDTagBackgrounds
+    index: 7
+    sprite: {fileID: -1257969924, guid: fc64b68d2d2e38d4cbd9aba0ed6561f8, type: 3}
     tags: []
   - name: ui/almanac/EXPAND_Tag/Expand_Attribute
     index: 0

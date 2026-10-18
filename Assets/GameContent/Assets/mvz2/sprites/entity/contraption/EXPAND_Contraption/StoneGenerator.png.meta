@@ -127,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 60
-        width: 61
-        height: 58
+        y: 61
+        width: 58
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: StoneGenerator_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 60
-        width: 61
-        height: 58
+        x: 60
+        y: 61
+        width: 58
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,8 +170,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1
         y: 1
-        width: 61
-        height: 58
+        width: 58
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: StoneGenerator_3
       rect:
         serializedVersion: 2
-        x: 63
+        x: 60
         y: 1
-        width: 61
-        height: 58
+        width: 58
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

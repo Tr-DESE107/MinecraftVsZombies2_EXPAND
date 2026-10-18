@@ -48,6 +48,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string hellPlanetOtherworld = "hell_planet_otherworld";
         public const string hellPlanetEarth = "hell_planet_earth";
         public const string hellPlanetMoon = "hell_planet_moon";
+        public const string chaosHellPlanet = "hell_planet_chaos";
         public const string shuriken = "shuriken";
         public const string beaconMeteor = "beacon_meteor";
         public const string firework = "firework";
@@ -91,6 +92,8 @@ namespace MVZ2.GameContent.Projectiles
         public const string Flashbang = "Flashbang";
         public const string Molotov = "Molotov";
         public const string EnderPearl = "EnderPearl";
+
+        public const string AndesiteAlloySpike = "AndesiteAlloySpike";
     }
     public static class VanillaProjectileID
     {
@@ -136,6 +139,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID hellPlanetOtherworld = Get(VanillaProjectileNames.hellPlanetOtherworld);
         public static readonly NamespaceID hellPlanetEarth = Get(VanillaProjectileNames.hellPlanetEarth);
         public static readonly NamespaceID hellPlanetMoon = Get(VanillaProjectileNames.hellPlanetMoon);
+        public static readonly NamespaceID chaosHellPlanet = Get(VanillaProjectileNames.chaosHellPlanet);
         public static readonly NamespaceID shuriken = Get(VanillaProjectileNames.shuriken);
         public static readonly NamespaceID beaconMeteor = Get(VanillaProjectileNames.beaconMeteor);
         public static readonly NamespaceID firework = Get(VanillaProjectileNames.firework);
@@ -180,6 +184,8 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID Flashbang = Get(VanillaProjectileNames.Flashbang);
         public static readonly NamespaceID Molotov = Get(VanillaProjectileNames.Molotov);
         public static readonly NamespaceID EnderPearl = Get(VanillaProjectileNames.EnderPearl);
+
+        public static readonly NamespaceID AndesiteAlloySpike = Get(VanillaProjectileNames.AndesiteAlloySpike);
 
         private static NamespaceID Get(string name)
         {

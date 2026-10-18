@@ -1,4 +1,4 @@
-﻿<options>
+<options>
     <categories>
         <category id="general" label="常规" />
         <category id="graphics" label="图像" />
@@ -29,6 +29,7 @@
         <int id="target_framerate" defaultValue="-1" />
         <int id="screen_layout" defaultValue="0" />
         <int id="minecart_control_mode" defaultValue="1" />
+        <int id="minecart_stop_mode" defaultValue="0" />
 
         <float id="music_volume" defaultValue="1" />
         <float id="sound_volume" defaultValue="1" />
@@ -83,6 +84,13 @@
                 <p>选择重装兵器关卡中矿车的移动方式。</p>
                 <p>跟随鼠标：矿车跟随鼠标/触摸位置移动。</p>
                 <p>键盘/按钮：矿车不跟随鼠标，改用键盘按键或屏幕按钮上下左右移动。</p>
+            </tooltip>
+        </dropdown>
+        <dropdown id="minecart_stop_mode" category="mvz2:control" label="重装兵器停止方式">
+            <tooltip>
+                <p>选择键盘/按钮模式下松开按钮后矿车的行为。</p>
+                <p>立即停止：松开按钮后矿车立刻停在原地。</p>
+                <p>惯性滑行：松开按钮后矿车会保持惯性缓慢滑行一段距离。</p>
             </tooltip>
         </dropdown>
 

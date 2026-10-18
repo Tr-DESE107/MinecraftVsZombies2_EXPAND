@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2026-08-27 01:14+0800\n"
-"PO-Revision-Date: 2026-08-27 13:18+0800\n"
+"POT-Creation-Date: 2026-09-25 03:27+0800\n"
+"PO-Revision-Date: 2026-09-25 03:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -770,53 +770,174 @@ msgctxt "random_china.event_description"
 msgid "在随机一行的最左侧生成一个大雪球"
 msgstr "Spawn a large snowball at the leftmost of a random lane"
 
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:540
+msgid "<color=red>选择一个加强</color>"
+msgstr "<color=red>Choose a Buff</color>"
+
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:542
+msgid "<color=red>选吧</color>"
+msgstr "<color=red>Choose.</color>"
+
+# 无限Boss增强选项，{0}为增加的血量
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:544
+msgid "生命上限 +{0}"
+msgstr "Max Health +{0}"
+
+# 无限Boss增强选项，{0}为百分比
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:546
+msgid "攻击力 +{0}%"
+msgstr "Attack Power +{0}%"
+
+# 无限Boss增强选项，{0}为新的限伤值
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:548
+msgid "承伤上限降至 {0}"
+msgstr "Damage Cap reduced to {0}"
+
+# 无限Boss增强选项，{0}为每秒回血量
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:550
+msgid "再生 +{0}/秒"
+msgstr "Regeneration +{0}/s"
+
 # 无限Boss提示
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:276
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:554
 msgid "坚持发展数波后 Boss 将降临！击败尽可能多的 Boss 吧！"
 msgstr ""
 "Survive a few waves and a Boss will appear! Defeat as many Bosses as you can!"
 
 # 无限Boss提示
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:278
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:556
 msgid "Boss 降临！"
 msgstr "Boss Arrival!"
 
 # 无限Boss提示，{0}为累计击杀Boss数，{1}为休息秒数
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:280
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityBossBehaviour.cs:558
 msgid "已击败 {0} 个 Boss！休息 {1} 秒后下一个更强的 Boss 来袭！"
 msgstr "{0} Boss(es) defeated! The next, stronger Boss arrives in {1} seconds!"
 
 # 无限正邪提示
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:72
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityFrankensteinBehaviour.cs:70
+msgid "坚持发展 10 波后科学怪人将降临！击败尽可能多的科学怪人吧！"
+msgstr ""
+"Survive 10 flags and Frankenstein will appear! Defeat as many Frankensteins "
+"as you can!"
+
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityFrankensteinBehaviour.cs:72
+msgid "科学怪人降临！"
+msgstr "Frankenstein Arrival!"
+
+# 无限正邪提示，{0}为累计击杀正邪数，{1}为休息秒数
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityFrankensteinBehaviour.cs:74
+msgid "已击败 {0} 个科学怪人！休息 {1} 秒后更强的敌人来袭！"
+msgstr ""
+"{0} Frankenstein(s) defeated! The next, stronger enemy arrives in {1} "
+"seconds!"
+
+# 无限凋灵提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityGiantBehaviour.cs:89
+msgid "坚持发展 10 波后巨人将降临！击败尽可能多的巨人吧！"
+msgstr ""
+"Survive 10 flags and the Giant will appear! Defeat as many Giants as you can!"
+
+# 无限巨人提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityGiantBehaviour.cs:91
+msgid "巨人降临！"
+msgstr "Giant Arrival!"
+
+# 无限凋灵提示，{0}为累计击杀凋灵数，{1}为休息秒数
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityGiantBehaviour.cs:93
+msgid "已击败 {0} 个巨人！休息 {1} 秒后更强的巨人来袭！"
+msgstr ""
+"{0} Giant(s) defeated! The next, stronger Giant arrives in {1} seconds!"
+
+# 无限凋灵提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityLockedChestBehaviour.cs:70
+msgid "坚持发展 10 波后上锁的箱子将降临！击败尽可能多的箱子吧！"
+msgstr ""
+"Survive 10 flags and the Locked Chest will appear! Defeat as many chests as "
+"you can!"
+
+# 无限箱子提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityLockedChestBehaviour.cs:72
+msgid "上锁的箱子降临！"
+msgstr "Locked Chest Arrival!"
+
+# 无限正邪提示，{0}为累计击杀正邪数，{1}为休息秒数
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityLockedChestBehaviour.cs:74
+msgid "已击败 {0} 个上锁的箱子！休息 {1} 秒后更强的箱子来袭！"
+msgstr ""
+"{0} Locked Chest(s) defeated! The next, stronger chest arrives in {1} "
+"seconds!"
+
+# 无限梦魇提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityNightmareBehaviour.cs:248
+msgid ""
+"坚持发展 10 波后梦魇将降临！先击败瘦长鬼影，再击败它的第二形态——梦魇收割者！"
+msgstr ""
+"Survive 10 flags and Nightmare will appear! First defeat the Slenderman, "
+"then its second form — the Nightmareaper!"
+
+# 无限梦魇提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityNightmareBehaviour.cs:250
+msgid "梦魇降临！"
+msgstr "Nightmare Arrival!"
+
+# 无限正邪提示，{0}为累计击杀正邪数，{1}为休息秒数
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityNightmareBehaviour.cs:252
+msgid "已击败 {0} 个梦魇！休息 {1} 秒后更强的梦魇来袭！"
+msgstr ""
+"{0} Nightmare(s) defeated! The next, stronger Nightmare arrives in {1} "
+"seconds!"
+
+# 无限凋灵提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityRedDragonBehaviour.cs:87
+msgid "坚持发展 10 波后红龙将降临！击败尽可能多的红龙吧！"
+msgstr ""
+"Survive 10 flags and the Red Dragon will appear! Defeat as many Red Dragons "
+"as you can!"
+
+# 无限红龙提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityRedDragonBehaviour.cs:89
+msgid "红龙降临！"
+msgstr "Red Dragon Arrival!"
+
+# 无限正邪提示，{0}为累计击杀正邪数，{1}为休息秒数
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityRedDragonBehaviour.cs:91
+msgid "已击败 {0} 条红龙！休息 {1} 秒后更强的红龙来袭！"
+msgstr ""
+"{0} Red Dragon(s) defeated! The next, stronger Red Dragon arrives in {1} "
+"seconds!"
+
+# 无限正邪提示
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:81
 msgid "坚持发展 8 波后正邪将降临！击败尽可能多的正邪吧！"
 msgstr ""
 "Survive 8 flags and Seija will appear! Defeat as many Seijas as you can!"
 
 # 无限正邪提示
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:74
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:83
 msgid "正邪降临！"
 msgstr "Seija Arrival!"
 
 # 无限正邪提示，{0}为累计击杀正邪数，{1}为休息秒数
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:76
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinitySeijaBehaviour.cs:85
 msgid "已击败 {0} 只正邪！休息 {1} 秒后更强的正邪来袭！"
 msgstr ""
 "{0} Seija(s) defeated! The next, stronger Seija arrives in {1} seconds!"
 
 # 无限凋灵提示
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:75
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:84
 msgid "坚持发展 10 波后凋灵将降临！击败尽可能多的凋灵吧！"
 msgstr ""
 "Survive 10 flags and the Wither will appear! Defeat as many Withers as you "
 "can!"
 
 # 无限凋灵提示
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:77
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:86
 msgid "凋灵降临！"
 msgstr "The Wither Arrival!"
 
 # 无限凋灵提示，{0}为累计击杀凋灵数，{1}为休息秒数
-#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:79
+#: Scripts\Vanilla\GameContent\Stages\Behaviours\EXPAND_Behaviours\InfinityBoss\InfinityWitherBehaviour.cs:88
 msgid "已击败 {0} 只凋灵！休息 {1} 秒后更强的凋灵来袭！"
 msgstr ""
 "{0} Wither(s) defeated! The next, stronger Wither arrives in {1} seconds!"
@@ -3164,6 +3285,18 @@ msgctxt "option.minecart_control_mode"
 msgid "键盘/按钮"
 msgstr "Keyboard/Button"
 
+# 重装兵器停止方式
+#: Scripts\Logic\Options\EXPAND_Options\MinecartStopModeOptionDropdown.cs:33
+msgctxt "option.minecart_stop_mode"
+msgid "立即停止"
+msgstr "Instant Stop"
+
+# 重装兵器停止方式
+#: Scripts\Logic\Options\EXPAND_Options\MinecartStopModeOptionDropdown.cs:35
+msgctxt "option.minecart_stop_mode"
+msgid "惯性滑行"
+msgstr "Inertia Glide"
+
 #: Scripts\Logic\LogicMain.cs:14
 msgid "{0}%"
 msgstr "{0}%"
@@ -3762,6 +3895,24 @@ msgctxt "levelname"
 msgid "气球派对"
 msgstr "Balloon Party"
 
+#. Name for stage mvz2:ShootBalloon
+#: Stage meta file
+msgctxt "levelname"
+msgid "射气球"
+msgstr "Shoot Balloon"
+
+#. Name for stage mvz2:ShootBalloon2
+#: Stage meta file
+msgctxt "levelname"
+msgid "射气球2"
+msgstr "Shoot Balloon 2"
+
+#. Name for stage mvz2:HeavyWeaponShootBalloon
+#: Stage meta file
+msgctxt "levelname"
+msgid "重装兵器射气球"
+msgstr "Heavy Weapon Shoot Balloon"
+
 #. Name for stage mvz2:OpticalIllusion
 #: Stage meta file
 msgctxt "levelname"
@@ -3789,26 +3940,14 @@ msgstr "<color=red>Blueprint BossRush</color>"
 #. Name for stage mvz2:HeavyWeaponVSMannequin
 #: Stage meta file
 msgctxt "levelname"
-msgid "重装兵器大战玩家模型"
-msgstr "Heavy Weapon VS Mannequin"
+msgid "<color=red>重装兵器大战玩家模型</color>"
+msgstr "<color=red>Heavy Weapon VS Mannequins</color>"
 
 #. Name for stage mvz2:HeavyWeaponBossRush
 #: Stage meta file
 msgctxt "levelname"
 msgid "重装兵器Boss Rush"
 msgstr "Heavy Weapon VS Boss"
-
-#. Name for stage mvz2:InfinityWither
-#: Stage meta file
-msgctxt "levelname"
-msgid "<color=red>无限凋灵</color>"
-msgstr "<color=red>Infinity Wither</color>"
-
-#. Name for stage mvz2:InfinitySeija
-#: Stage meta file
-msgctxt "levelname"
-msgid "<color=red>无限正邪</color>"
-msgstr "<color=red>Infinity Seija</color>"
 
 #. Name for stage mvz2:PacZombie
 #: Stage meta file
@@ -3833,6 +3972,54 @@ msgstr "Bombing Zone"
 msgctxt "levelname"
 msgid "<color=red>重装兵器+</color>"
 msgstr "<color=red>Heavy Weapon+</color>"
+
+#. Name for stage mvz2:SeijaRevenge
+#: Stage meta file
+msgctxt "levelname"
+msgid "正邪的复仇"
+msgstr "Seija's revenge"
+
+#. Name for stage mvz2:InfinityFrankenstein
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限科学怪人</color>"
+msgstr "<color=red>Infinity Frankenstein</color>"
+
+#. Name for stage mvz2:InfinityNightmare
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限梦魇</color>"
+msgstr "<color=red>Infinity Nightmare</color>"
+
+#. Name for stage mvz2:InfinitySeija
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限正邪</color>"
+msgstr "<color=red>Infinity Seija</color>"
+
+#. Name for stage mvz2:InfinityWither
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限凋灵</color>"
+msgstr "<color=red>Infinity Wither</color>"
+
+#. Name for stage mvz2:InfinityGiant
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限巨人</color>"
+msgstr "<color=red>Infinity Giant</color>"
+
+#. Name for stage mvz2:InfinityRedDragon
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限红龙</color>"
+msgstr "<color=red>Infinity RedDragon</color>"
+
+#. Name for stage mvz2:InfinityLockedChest
+#: Stage meta file
+msgctxt "levelname"
+msgid "<color=red>无限上锁的箱子</color>"
+msgstr "<color=red>Infinity Locked Chest</color>"
 
 #. Name for stage mvz2:puzzle_i_zombie
 #: Stage meta file
@@ -5364,6 +5551,43 @@ msgstr ""
 "\n"
 "On a side note, who would have known Calamity would end up like this...."
 
+#. Name for music mvz2:MobileManeuvers
+#: Music meta file
+msgctxt "music.name"
+msgid "机动翱翔"
+msgstr "Mobile Maneuvers"
+
+#. Source for music mvz2:MobileManeuvers
+#: Music meta file
+msgctxt "music.source"
+msgid "Minecraft: Glide Mini Game (Original Soundtrack)"
+msgstr "Minecraft: Glide Mini Game (Original Soundtrack)"
+
+#. Description for music mvz2:MobileManeuvers
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"轻松小游戏的音乐。\n"
+"同样是我很喜欢的一首曲子，整体曲风灵动跳跃，我是在mc地图：100种死法中听到这个"
+"配乐的，他在那张地图里的备注叫memory(记忆)，用于记忆相关的小游戏。从这个意义"
+"上来讲，就像人进入灵巧的记忆宫殿、在想法中遨游。\n"
+"后面我搜索了出处，发现原来是mc官方出的基岩版小游戏是我取的，在是我取的，在官"
+"方给的术语上，这像是在自由的天地之间翱翔，同样灵动且轻巧。\n"
+"希望诸位也听的愉快"
+msgstr ""
+"The music for relaxing minigames.\n"
+"Another piece I really like — the overall style is nimble and bouncy. I "
+"first heard it in the Minecraft map \"100 Ways to Die\", where the track was "
+"labeled \"memory\" and used for memory-related minigames. In that sense, it "
+"feels like stepping into a nimble memory palace, wandering through "
+"thoughts.\n"
+"\n"
+"Later I searched for its origin and found it was actually from the Bedrock "
+"Edition minigames. In the official terminology, it feels like soaring freely "
+"between heaven and earth — equally nimble and light.\n"
+"\n"
+"I hope you all enjoy listening to it."
+
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
 msgctxt "archive.tagname"
@@ -6118,13 +6342,19 @@ msgstr ""
 "leader clearance sale! Place the Diamond Ore on top of the Redstone Ore, "
 "mine it, and you'll get diamonds!"
 
-#. Store item description of mvz2:EXPANDGiftPack by character mvz2:crazy_villager
+#. Store item description of mvz2:InfiniteCore by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
-msgid "EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！"
+msgid "你在渴望什么？"
+msgstr "What Do You Want?"
+
+#. Store item description of mvz2:InfiniteCore by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "看上去就很不一般的制品！据■■■所说，这个制品能够让你永远停不下来！"
 msgstr ""
-"EXPAND Mega Pack! Get all the unfinished contraptions — the ones that never "
-"got their chance to shine — in one bundle!"
+"An artifact that looks anything but ordinary! According to ■■■, this "
+"artifact will make you never stop!"
 
 #. Store item description of mvz2:BrainInVat by character mvz2:crazy_villager
 #: Store meta file
@@ -6149,6 +6379,14 @@ msgstr ""
 "when placed, it stops monsters from being mean to you when they enter your "
 "house... but what happens if this contraption gets destroyed...? No one "
 "knows."
+
+#. Store item description of mvz2:EXPANDGiftPack by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "EXPAND大礼包！购买后可以获得所有未完成、找不到机会出场的器械！"
+msgstr ""
+"EXPAND Mega Pack! Get all the unfinished contraptions — the ones that never "
+"got their chance to shine — in one bundle!"
 
 #. Store item description of mvz2:cake by character mvz2:crazy_villager
 #: Store meta file
@@ -7301,6 +7539,29 @@ msgstr ""
 "Keyboard / Buttons: The cart does not follow the mouse; instead, use "
 "keyboard keys or on-screen buttons to move up, down, left, and right."
 
+#. Label for option widget 重装兵器停止方式
+#: Option meta file
+msgctxt "option.name"
+msgid "重装兵器停止方式"
+msgstr "Heavy Weapon Stop Mode"
+
+#. Tooltip for option widget 选择键盘/按钮模式下松开按钮后矿车的行为。
+#. 立即停止：松开按钮后矿车立刻停在原地。
+#. 惯性滑行：松开按钮后矿车会保持惯性缓慢滑行一段距离。
+#: Option meta file
+msgctxt "option.tooltip"
+msgid ""
+"选择键盘/按钮模式下松开按钮后矿车的行为。\n"
+"立即停止：松开按钮后矿车立刻停在原地。\n"
+"惯性滑行：松开按钮后矿车会保持惯性缓慢滑行一段距离。"
+msgstr ""
+"Select the cart's behavior after releasing the buttons in Keyboard / Buttons "
+"mode.\n"
+"Instant Stop: The cart stops immediately in place after releasing the "
+"buttons.\n"
+"Inertia Glide: The cart continues gliding forward slowly by inertia for a "
+"short distance after releasing the buttons."
+
 #. Label for option widget 分辨率
 #: Option meta file
 msgctxt "option.name"
@@ -7540,6 +7801,10 @@ msgstr "Credits"
 msgctxt "option.name"
 msgid "导出日志文件"
 msgstr "Export Log Files"
+
+#~ msgctxt "levelname"
+#~ msgid "重装兵器大战玩家模型"
+#~ msgstr "Heavy Weapon VS Mannequin"
 
 #~ msgid "Cuerzor制作"
 #~ msgstr "Made by Cuerzor"

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 74d20e5d00a671e4c8fc95b83b0e9703
+guid: 6ccf9f2e24fcc0b4c86908d53b865817
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,11 +107,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,118 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EXPANDispenser_Drivenser_0
+      name: OakDoor_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 41
-        width: 42
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12dd529592641314eb65aa743abfa9eb
-      internalID: -1108916319
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPANDispenser_Drivenser_1
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 41
-        width: 43
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03f21aa07f4903d40b603612a793cb4c
-      internalID: 1974756629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPANDispenser_Drivenser_2
-      rect:
-        serializedVersion: 2
-        x: 98
-        y: 49
-        width: 15
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 465e0faee61526149a0b346fa4232a8b
-      internalID: -1950983147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPANDispenser_Drivenser_3
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 71
-        width: 16
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8653f710561cfd40a2342eb8ae3a0cc
-      internalID: 964857577
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPANDispenser_Drivenser_4
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 61
-        width: 16
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a29e884135ce424683360a52aeac311
-      internalID: -1809084736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPANDispenser_Drivenser_5
-      rect:
-        serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 42
-        height: 39
+        width: 21
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b3d2263b14dc5646bbe9c82505d6e77
-      internalID: -886510208
+      spriteID: 1e374790b45f6274cb7c45dca02c87e3
+      internalID: 1986932640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPANDispenser_Drivenser_6
+      name: OakDoor_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 22
         y: 0
-        width: 43
-        height: 39
+        width: 21
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac59e04b502d8040be2c1650ca3c280
-      internalID: -335878768
+      spriteID: f0883a48696fabc4595fe8adb200d504
+      internalID: 1634693599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPANDispenser_Drivenser_7
+      name: OakDoor_2
       rect:
         serializedVersion: 2
-        x: 98
-        y: 8
-        width: 15
-        height: 31
+        x: 44
+        y: 0
+        width: 21
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83bc00f294f0d3d44b7196c0c9a9503b
-      internalID: -549213879
+      spriteID: c777b788f653b0f409b354f493ef7f18
+      internalID: -1180649902
       vertices: []
       indices: 
       edges: []
@@ -301,14 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EXPANDispenser_Drivenser_0: -1108916319
-      EXPANDispenser_Drivenser_1: 1974756629
-      EXPANDispenser_Drivenser_2: -1950983147
-      EXPANDispenser_Drivenser_3: 964857577
-      EXPANDispenser_Drivenser_4: -1809084736
-      EXPANDispenser_Drivenser_5: -886510208
-      EXPANDispenser_Drivenser_6: -335878768
-      EXPANDispenser_Drivenser_7: -549213879
+      OakDoor_0: 1986932640
+      OakDoor_1: 1634693599
+      OakDoor_2: -1180649902
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

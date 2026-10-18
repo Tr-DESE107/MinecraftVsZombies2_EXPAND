@@ -4,8 +4,10 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Properties;
 
 using MVZ2Logic.Blueprints;
+using MVZ2Logic.Level;
 
 using PVZEngine;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Properties;
 
@@ -52,6 +54,18 @@ namespace MVZ2.GameContent.Difficulties
         //EXPAND Enemies
         public static readonly VanillaDifficultyPropertyMeta<float> ZOMBIE_CAT_EVADE_CHANCE = Get<float>("zombieCatEvadeChance", 0.5f);
         public static float GetZombieCatEvadeChance(this LevelEngine level) => level.GetProperty<float>(ZOMBIE_CAT_EVADE_CHANCE);
+
+        // 弓箭手类敌人（骷髅/随机骷髅/下界弓箭手/幽灵弓箭手）箭矢伤害乘数。
+        // 默认 1；lunatic(EXPAND) 难度下 1.5（基础伤害 100 → 150）。
+        public static readonly VanillaDifficultyPropertyMeta<float> ARCHER_DAMAGE_MULTIPLIER = Get<float>("archerDamageMultiplier", 1f);
+        public static float GetArcherDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(ARCHER_DAMAGE_MULTIPLIER);
+        public static float GetArcherDamageMultiplier(this Entity entity)
+        {
+            // 玩家阵营（IZombie 模式下玩家操控的弓箭手）不受难度加成
+            if (entity.GetFaction() == entity.Level.GetLeftFaction())
+                return 1f;
+            return entity.Level.GetArcherDamageMultiplier();
+        }
 
         // Bosses
         public static readonly VanillaDifficultyPropertyMeta<bool> FRANKENSTEIN_INSTANT_STEEL = Get<bool>("frankensteinInstantSteel");

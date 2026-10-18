@@ -39,12 +39,16 @@ namespace MVZ2.GameContent.Seeds
             var target = FindTargetEntity(level);
             if (target == null)
                 return;
-            MegaSnipenser.UpgradeRapid(target);
+            HeavyWeaponUpgradeUtils.UpgradeRapid(target);
             target.PlaySound(VanillaSoundID.gunReload);
         }
         private Entity? FindTargetEntity(LevelEngine level)
         {
-            return level.FindFirstEntity(e => e.IsEntityOf(VanillaContraptionID.MegaSnipenser) && MegaSnipenser.CanUpgradeRapid(e));
+            // 通用：面向矿车上的骑乘器械（超级狙击发射器沿用自身等级，其余骑手用通用等级）
+            var rider = HeavyWeaponBlueprintUtils.FindRider(level);
+            if (rider != null && HeavyWeaponUpgradeUtils.CanUpgradeRapid(rider))
+                return rider;
+            return null;
         }
         private bool IsValid(SeedPack seedPack)
         {
