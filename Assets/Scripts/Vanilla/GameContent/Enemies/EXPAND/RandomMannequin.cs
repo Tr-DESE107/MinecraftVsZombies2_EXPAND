@@ -29,7 +29,6 @@ namespace MVZ2.GameContent.Enemies
             VanillaEnemyID.Mannequin,
             VanillaEnemyID.ImpMannequin,
             VanillaEnemyID.MegaImpMannequin,
-            VanillaEnemyID.ImpHerobrineMannequin,
             VanillaEnemyID.CannoneerMannequin,
             VanillaEnemyID.WickedHermitMannequin,
             VanillaEnemyID.MutantMannequin,
@@ -38,7 +37,7 @@ namespace MVZ2.GameContent.Enemies
         // 对应每种敌人的生成权重，数值越大越容易被抽中（默认 1，待细调）
         private static int[] SpawnWeights = new int[]
         {
-            1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1,
         };
 
         #endregion
